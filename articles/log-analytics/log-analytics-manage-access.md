@@ -1,6 +1,6 @@
 ---
-title: "Správa pracovních prostorů | Dokumentace Microsoftu"
-description: "Správa pracovních prostorů v Azure Log Analytics pomocí různých úloh správy prováděných s uživateli, účty, pracovními prostory a účty Azure."
+title: "Správa pracovních prostorů v Azure Log Analytics a na portálu OMS | Dokumentace Microsoftu"
+description: "Pracovní prostory můžete spravovat v Log Analytics a na portálu OMS pomocí různých úloh správy prováděných s uživateli, účty, pracovními prostory a účty Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -63,7 +63,7 @@ Podrobnosti o pracovním prostoru můžete zobrazit na webu Azure Portal. Podrob
 #### <a name="view-workspace-information-the-azure-portal"></a>Zobrazení informací o pracovním prostoru na webu Azure Portal
 
 1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého předplatného Azure.
-2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na** Log Analytics**.  
+2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na**Log Analytics**.  
     ![Centrum Azure](./media/log-analytics-manage-access/hub.png)  
 3. V okně Předplatná Log Analytics vyberte pracovní prostor.
 4. V okně pracovního prostoru se zobrazí podrobnosti o pracovním prostoru a odkazy na další informace.  
@@ -163,25 +163,16 @@ Pomocí následujícího postupu můžete odebrat uživatele z pracovního prost
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Připojení existujícího pracovního prostoru k předplatnému Azure
 Všechny pracovní prostory vytvořené po 26. září 2016 musí být propojené s předplatným Azure v okamžiku vytvoření. Pracovní prostory vytvořené před tímto datem je potřeba propojit s pracovním prostorem při vašem dalším přihlášení. Když vytváříte pracovní prostor z webu Azure Portal nebo propojujete pracovní prostor s předplatným Azure, služba Azure Active Directory se propojí jako účet vaší organizace.
 
-![propojení s předplatným Azure](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> K propojení s pracovním prostorem musí váš účet Azure už mít k tomuto pracovnímu prostoru přístup.  Jinými slovy – účet, který používáte pro přístup k webu Azure Portal, musí být **stejný** jako účet, který používáte pro přístup k pracovnímu prostoru. Pokud ne, přečtěte si část [Přidání uživatele do existujícího pracovního prostoru](#add-a-user-to-an-existing-workspace).
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Propojení pracovního prostoru s předplatným Azure v portálu OMS
-Pokud chcete propojit pracovní prostor s předplatným Azure v portálu OMS, přihlášený uživatel už musí mít placený účet Azure.
 
-1. Na portálu OMS klikněte na dlaždici **Nastavení**.
-2. Klikněte na kartu **Accounts** (Účty) a potom na kartu **Azure Subscription & Data Plan** (Předplatné a datový tarif Azure).
-3. Klikněte na datový tarif, který chcete použít.
-4. Klikněte na **Uložit**.  
-   ![Předplatné a datové tarify](./media/log-analytics-manage-access/subscription-tab.png)
+- Když se přihlásíte k portálu OMS, budete vyzváni k výběru předplatného Azure. Vyberte předplatné, které chcete propojit s pracovním prostorem a potom klikněte na **Propojit**.  
+    ![propojení s předplatným Azure](./media/log-analytics-manage-access/required-link.png)
 
-Váš nový datový tarif se zobrazí pásu karet portálu OMS v horní části webové stránky.
+    > [!IMPORTANT]
+    > K propojení s pracovním prostorem musí váš účet Azure už mít k tomuto pracovnímu prostoru přístup.  Jinými slovy – účet, který používáte pro přístup k webu Azure Portal, musí být **stejný** jako účet, který používáte pro přístup k pracovnímu prostoru. Pokud ne, přečtěte si část [Přidání uživatele do existujícího pracovního prostoru](#add-a-user-to-an-existing-workspace).
 
-![Pás karet OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Propojení pracovního prostoru s předplatným Azure na webu Azure Portal
 1. Přihlaste se k webu [Azure Portal](http://portal.azure.com).
@@ -236,7 +227,7 @@ Pokud jsou vaše předplatná Azure propojena se smlouvou Enterprise s finančn�
 
 Pokud potřebujete změnit předplatné Azure, se kterým je pracovní prostor propojený, můžete použít rutinu prostředí Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Změna pracovního prostoru na placenou cenovou úroveň
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Změna pracovního prostoru na placenou cenovou úroveň na webu Azure Portal
 1. Přihlaste se k webu [Azure Portal](http://portal.azure.com).
 2. Přejděte na **Log Analytics** a vyberte tuto možnost.
 3. Uvidíte svůj seznam existujících pracovních prostorů. Vyberte pracovní prostor.  
@@ -250,6 +241,21 @@ Pokud potřebujete změnit předplatné Azure, se kterým je pracovní prostor p
 > Pokud je váš pracovní prostor propojený s účtem Automation, musíte před tím, než budete moci vybrat cenovou úroveň *Standalone (za GB)*, odstranit všechna řešení **Automation and Control** a zrušit propojení s účtem Automation. V okně pracovního prostoru v části **Obecné** klikněte na **Řešení**. Zobrazí se řešení a můžete je odstranit. Propojení s účtem Automation zrušíte kliknutím na název účtu Automation v okně **Cenová úroveň**.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>Změna datového tarifu na portálu OMS
+
+Ke změně datového tarifu pomocí portálu OMS musí přihlášený uživatel již mít účet Azure.
+
+1. Na portálu OMS klikněte na dlaždici **Nastavení**.
+2. Klikněte na kartu **Accounts** (Účty) a potom na kartu **Azure Subscription & Data Plan** (Předplatné a datový tarif Azure).
+3. Klikněte na datový tarif, který chcete použít.
+4. Klikněte na **Uložit**.  
+   ![Předplatné a datové tarify](./media/log-analytics-manage-access/subscription-tab.png)
+
+Váš nový datový tarif se zobrazí pásu karet portálu OMS v horní části webové stránky.
+
+![Pás karet OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Změna doby, po kterou služba Log Analytics ukládá data
 
@@ -266,8 +272,8 @@ Pokud chcete změnit dobu uchování dat:
 2. Přejděte na **Log Analytics** a vyberte tuto možnost.
 3. Uvidíte svůj seznam existujících pracovních prostorů. Vyberte pracovní prostor.  
 4. V okně pracovního prostoru v části **Obecné** klikněte na **Uchování**.  
-5. Pomocí posuvníku zvyšte nebo snižte počet dní uchovávání a potom klikněte na **Uložit**
-![změnit uchování](./media/log-analytics-manage-access/manage-access-change-retention01.png).
+5. Pomocí posuvníku zvyšte nebo snižte počet dní uchovávání a potom klikněte na **Uložit**.  
+    ![změna uchovávání](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Změna organizace Azure Active Directory pracovního prostoru
 

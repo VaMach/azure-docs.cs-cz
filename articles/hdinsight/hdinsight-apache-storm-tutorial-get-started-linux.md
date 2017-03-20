@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
@@ -107,7 +107,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
 2. Následující příkaz použijte ke spuštění ukázkové topologie:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm jar org.apache.storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
    
     > [!NOTE]
     > V dřívějších verzích služby HDInsight je název třídy topologie `storm.starter.WordCountTopology` místo `org.apache.storm.starter.WordCountTopology`.
@@ -199,7 +199,7 @@ Vraťte se na stránku **Souhrn topologie**, kde naleznete topologii počtu slov
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Další kroky
+## <a id="next"></a>Další kroky
 
 V tomto kurzu Apache Storm jste se naučili základy práce se Stormem v HDInsightu. Dále se naučíte, jak [Vyvíjet topologie založené na jazyce Java pomocí nástroje Maven](hdinsight-storm-develop-java-topology.md).
 

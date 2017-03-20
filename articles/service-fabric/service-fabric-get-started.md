@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
-ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 935b0ba8725b083878a0f9213e4fbd31bd27ab2c
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -46,8 +47,8 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 > 
 
 ## <a name="install-the-sdk-and-tools"></a>Instalace sady SDK a nástrojů
-### <a name="to-use-visual-studio-2017-rc"></a>Použití sady Visual Studio 2017 RC
-Nástroje Service Fabric jsou součástí úlohy Azure Development and Management v sadě Visual Studio 2017 RC. Povolte tuto úlohu jako součást instalace sady Visual Studio.
+### <a name="to-use-visual-studio-2017"></a>Použití sady Visual Studio 2017
+Nástroje Service Fabric jsou součástí úlohy Azure Development and Management v sadě Visual Studio 2017. Povolte tuto úlohu jako součást instalace sady Visual Studio.
 Kromě toho budete muset sadu Microsoft Azure Service Fabric SDK nainstalovat pomocí instalačního programu webové platformy.
 
 * [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
@@ -99,9 +100,4 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Odkaz na Dev15 WebPI"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Odkaz na Core SDK WebPI"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
