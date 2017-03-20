@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ Zásady konfigurace resetování hesel uživatelů nastavte pomocí následujíc
 
    ![][003]
 
-5. Na kartě **Konfigurovat** přejděte dolů k části **zásady resetování hesel uživatelů**.  Zde se konfigurují všechny aspekty zásad resetování hesel uživatelů pro daný adresář. *Pokud konfigurační kartu nevidíte, zkontrolujte, jestli jste si zaregistrovali službu Azure Active Directory Premium nebo Basic a **přiřadili licenci** účtu správce, který tuto funkci konfiguruje.*  
+5. Na kartě **Konfigurovat** přejděte dolů k části **zásady resetování hesel uživatelů**.  Zde se konfigurují všechny aspekty zásad resetování hesel uživatelů pro daný adresář. *Pokud kartu Konfigurovat nevidíte, zkontrolujte, jestli jste si zaregistrovali službu Azure Active Directory Premium nebo Basic a __přiřadili licenci__ účtu správce, který tuto funkci konfiguruje.*  
 
    > [!NOTE]
    > **Zásady, které nastavíte, platí jenom pro koncové uživatele ve vaší organizaci, a ne pro správce**. Zásady resetování hesel správců z bezpečnostních důvodů monitoruje Microsoft. Aktuální zásady pro správce vyžadují dva údaje – mobilní telefon a e-mailovou adresu.
-
-   >
-   >
 
    ![][004]
 6. Abyste mohli konfigurovat zásady resetování hesel uživateli, přepněte přepínač **uživatelé mohou resetovat heslo** do polohy **ano**.  Zobrazí se několik dalších ovládacích prvků, které vám umožní konfigurovat, jak bude tato funkce ve vašem adresáři fungovat.  Funkci resetování hesla si pomocí nastavení přizpůsobte podle svých potřeb.  Další informace o tom, jak fungují jednotlivé zásady pro resetování hesel, najdete v článku [Přizpůsobení: Správa hesel služby Azure AD](active-directory-passwords-customize.md).
@@ -264,13 +261,19 @@ Správnost instalace služby můžete ověřit také otevřením Prohlížeče u
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Krok 3: Konfigurace brány firewall
-Po povolení zpětného zápisu hesla je třeba zajistit, aby měl počítač, na kterém běží služba Azure AD Connect, přístup ke cloudovým službám Microsoftu pro příjem žádostí o zpětný zápis hesla. Tento krok zahrnuje aktualizaci pravidel připojení v síťových zařízeních (proxy servery, brány firewall atd.) pro povolení odchozích připojení k určitým adresám URL a IP adresám vlastněným Microsoftem přes konkrétní síťové porty. Tyto změny se mohou lišit v závislosti na verzi nástroje Azure AD Connect. Pro širší kontext si můžete přečíst o tom, [jak funguje zpětný zápis hesla](active-directory-passwords-learn-more.md#how-password-writeback-works), a o [modelu zabezpečení zpětného zápisu hesla](active-directory-passwords-learn-more.md#password-writeback-security-model).
+Po povolení zpětného zápisu hesla je třeba zajistit, aby měl počítač, na kterém běží služba Azure AD Connect, přístup ke cloudovým službám Microsoftu pro příjem žádostí o zpětný zápis hesla. Tento krok zahrnuje aktualizaci pravidel připojení v síťových zařízeních (proxy servery, brány firewall atd.) pro povolení odchozích připojení k určitým [adresám URL a IP adresám vlastněným Microsoftem](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) přes konkrétní síťové porty. Tyto změny se mohou lišit v závislosti na verzi nástroje Azure AD Connect. Pro širší kontext si můžete přečíst o tom, [jak funguje zpětný zápis hesla](active-directory-passwords-learn-more.md#how-password-writeback-works), a o [modelu zabezpečení zpětného zápisu hesla](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### <a name="why-do-i-need-to-do-this"></a>Proč je nutné to udělat?
 
 Aby zpětný zápis hesla fungoval správně, musí být počítač, na kterém běží služba Azure AD Connect, schopný navázat odchozí připojení HTTPS k webu **.servicebus.windows.net* a ke konkrétním IP adresám, které Azure používá a které jsou definovány v [seznamu rozsahů IP adres datacentra Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Pro nástroj Azure AD Connect verze 1.0.8667.0 a vyšší:
+Pro nástroj Azure AD Connect verze **1.1.439.0** (nejnovější) a vyšší:
+
+- Nejnovější verze nástroje Azure AD Connect bude přes **odchozí připojení HTTPS** potřebovat přístup k:
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+Pro nástroj Azure AD Connect verze **1.0.8667.0** až **1.1.380.0**:
 
 - **Možnost 1:** Povolení všech odchozích připojení HTTPS přes port 443 (pomocí adresy URL nebo IP adresy).
     - Kdy to použít:
@@ -298,6 +301,9 @@ Pro nástroj Azure AD Connect verze 1.0.8667.0 a vyšší:
 > Pokud používáte verzi služby Azure AD Connect starší než 1.0.8667.0, Microsoft důrazně doporučuje upgrade na [nejnovější verzi služby Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), která zahrnuje řadu vylepšení zpětného zápisu přes síť, která zjednodušují konfiguraci.
 
 Jakmile budou síťová zařízení nakonfigurována, restartujte počítač, na kterém běží nástroj Azure AD Connect.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Nečinná připojení v nástroji Azure AD Connect (verze&1;.1.439.0 a vyšší)
+Nástroj Azure AD Connect bude pravidelně odesílat příkazy Ping nebo Keepalive do koncových bodů ServiceBus pro zajištění aktivních připojení. Pokud nástroj zjistí, že se ukončuje příliš mnoho připojení, automaticky zvýší frekvenci odesílání příkazu Ping do koncového bodu. Frekvence odesílání příkazu Ping klesne maximálně na 1 příkaz Ping každých 60 sekund, přesto **důrazně doporučujeme, aby proxy servery a brány firewall umožňovaly zachování nečinných připojení po dobu alespoň 2 až 3 minut.** \*Pro starší verze doporučujeme 4 minuty nebo déle.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Krok 4: Nastavení odpovídajících oprávnění služby Active Directory
 Pro každou doménovou strukturu obsahující uživatele, jejichž hesla budou resetována, platí, že pokud X je účet určený pro danou doménovou strukturu v průvodci konfigurací (během počáteční konfigurace), pak je účtu X nutné přidělit rozšířená oprávnění **resetovat heslo**, **změnit heslo**, **oprávnění k zápisu** do atributu `lockoutTime` a **oprávnění k zápisu** do atributu `pwdLastSet` v kořenu každé domény v této struktuře. Tato oprávnění je nutné označit jako děděná všemi uživatelskými objekty.  
