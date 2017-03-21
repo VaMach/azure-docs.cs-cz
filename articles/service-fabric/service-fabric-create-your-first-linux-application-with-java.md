@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: dc9234760b0dfb5d109fc86ac47a89c8fcf7d991
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -101,40 +102,22 @@ Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba ne
 
 3. Klikněte na uzel, který jste našli v předchozím kroku, a potom v nabídce Akce vyberte **Deaktivovat (restartovat)**. Tato akce restartuje jeden z pěti uzlů v místním clusteru a vynutí převzetí služeb při selhání jednou ze sekundárních replik spuštěných v jiném uzlu. Při provádění této akce věnujte pozornost výstupu z klienta testování a všimněte si, že se čítač bez ohledu na převzetí služeb při selhání pořád postupně zvyšuje.
 
-## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Sestavení a nasazení aplikace pomocí modulu plug-in Eclipse Neon
+## <a name="create-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Vytvoření a nasazení aplikace pomocí modulu plug-in Eclipse Neon
 
-Pokud jste nainstalovali [modul plug-in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) pro Eclipse Neon, můžete ho použít k vytvoření, sestavení a nasazení aplikací Service Fabric vytvořených v jazyce Java.  Při instalaci Eclipse vyberte **Eclipse IDE pro vývojáře Java**.
-
-### <a name="create-the-application"></a>Vytvoření aplikace
-
-Modul plug-in Service Fabric je dostupný prostřednictvím rozšíření Eclipse.
-
-1. V Eclipse vyberte **Soubor > Další > Service Fabric**. Zobrazí se řada možností, mimo jiné Objekty actor a Kontejnery.
-
-    ![Šablony Service Fabric v Eclipse][sf-eclipse-templates]
-
-2. V tomto případě zvolte Bezstavová služba.
-
-3. Budete vyzváni k potvrzení použití perspektivy služby Service Fabric, která optimalizuje Eclipse pro použití s projekty Service Fabric. Zvolte Ano.
-
-### <a name="deploy-the-application"></a>Nasazení aplikace
-Šablony Service Fabric zahrnují sadu úloh Gradlu pro sestavování a nasazování aplikací, které můžete aktivovat prostřednictvím Eclipse.
-
-1. Zvolte **Run > Run Configurations** (Spustit > Konfigurace spuštění).
-2. Zadejte **local** (místní) nebo **cloud** (v cloudu). Výchozí nastavení je **local** (místní). Pro nasazení na vzdálený cluster vyberte **cloud** (v cloudu).
-3. Ujistěte se, že jsou v publikačních profilech vyplněné správné informace a podle potřeby upravte soubor `local.json` nebo `cloud.json`.
-4. Klikněte na **Run** (Spustit).
-
-Vaše aplikace se během chvilky sestaví a nasadí. Ke sledování jejího stavu můžete využít Service Fabric Explorer.
+Service Fabric nabízí také možnost vytvořit, sestavit a nasadit aplikaci Service Fabric Java pomocí Eclipse. Při instalaci Eclipse vyberte **Eclipse IDE pro vývojáře Java**. Navíc Service Fabric teď podporuje modul plug-in pro Eclipse **Neon**. Další informace najdete v podrobné dokumentaci popisující [vytvoření a nasazení vaší první aplikace Service Fabric Java pomocí modulu plug-in Service Fabric pro Eclipse v Linuxu](service-fabric-get-started-eclipse.md).
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Přidání více služeb do stávající aplikace
 
+### <a name="using-command-line-utility"></a>Použití nástroje příkazového řádku
 Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, proveďte následující kroky:
 1. Změňte adresář na kořenovou složku stávající aplikace.  Například `cd ~/YeomanSamples/MyApplication`, pokud `MyApplication` je aplikace vytvořená pomocí Yeomanu.
 2. Spusťte `yo azuresfjava:AddService`.
 
+### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Použití modulu plug-in Service Fabric Eclipse pro Javu v Linuxu
+Informace o přidání služby do stávající aplikace vytvořené pomocí modul plug-in Eclipse pro Service Fabric najdete v dokumentaci [tady](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application).
 
 ## <a name="next-steps"></a>Další kroky
+* [Vytvoření a nasazení první aplikace Service Fabric Java pomocí modul plug-in Service Fabric pro Eclipse v Linuxu](service-fabric-get-started-eclipse.md)
 * [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md)
 * [Řešení potíží s nasazením](service-fabric-azure-cli.md#troubleshooting)
@@ -144,9 +127,4 @@ Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, 
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

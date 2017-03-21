@@ -16,16 +16,17 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 2cb69f253e1a6d01b412775bbfc37de3423bde0b
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 858d6115ed3a96e3b6a3362ff8f5c1fc4c279bd2
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="overview-apache-spark-on-hdinsight"></a>Přehled: Apache Spark ve službě HDInsight
 
-<a href="http://spark.apache.org/" target="_blank">Apache Spark</a> je opensource paralelní framework pro zpracování, který podporuje zpracování v paměti pro zvýšení výkonu velkých objemů dat analytických aplikací. Modul zpracování Spark je postaven pro rychlost, snadné použití a sofistikované analýzy. Možnosti výpočtů Spark v paměti představují dobrou volbu pro iterativní algoritmy ve výpočtech machine learning a grafů. Spark je také kompatibilní s úložištěm Azure Blob (WASB), takže existující data uložená v Azure lze snadno zpracovat prostřednictvím Spark.
+<a href="http://spark.apache.org/" target="_blank">Apache Spark</a> je opensource paralelní framework pro zpracování, který podporuje zpracování v paměti pro zvýšení výkonu velkých objemů dat analytických aplikací. Modul zpracování Spark je postaven pro rychlost, snadné použití a sofistikované analýzy. Možnosti výpočtů Spark v paměti představují dobrou volbu pro iterativní algoritmy ve výpočtech machine learning a grafů. Spark je také kompatibilní s úložištěm Azure Storage (WASB), takže existující data uložená v Azure lze snadno zpracovat prostřednictvím Spark.
 
-Když vytvoříte cluster Spark v HDInsight, vytvoříte výpočetní prostředky Azure s nainstalovaným a nakonfigurovaným Spark. Vytvoření clusteru Spark v HDInsight trvá pouze asi deset minut. Data ke zpracování se ukládají do úložiště Azure Blob. Další informace najdete v tématu [Použití Azure Blob Storage s HDInsight][hdinsight-storage].
+Když vytvoříte cluster Spark v HDInsight, vytvoříte výpočetní prostředky Azure s nainstalovaným a nakonfigurovaným Spark. Vytvoření clusteru Spark v HDInsight trvá pouze asi deset minut. Data ke zpracování se ukládají do Azure Storage. Další informace najdete v tématu [Použití Azure Storage s HDInsight][hdinsight-storage].
 
 ![Apache Spark v Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark v Azure HDInsight")
 
@@ -52,7 +53,7 @@ Azure HDInsight nabízí plně spravovanou službu Spark. Výhody použití Spar
 | Ukládání do mezipaměti na SSD |Data do mezipaměti můžete ukládat volitelně buď do paměti nebo na SSD disky připojené k uzlům clusteru. Ukládání do paměti poskytuje nejlepší výkon dotazů, ale může být nákladné; ukládání na SSD poskytuje skvělou možnost pro zlepšení výkonu dotazů, aniž by bylo nutné vytvořit cluster velikosti, která je potřeba pro umístění celé datové sady do paměti. |
 | Integrace s nástroji BI |Spark pro HDInsight nabízí konektory pro nástroje BI, například [Power BI](http://www.powerbi.com/) a [Tableau](http://www.tableau.com/products/desktop) pro analýzu dat. |
 | Předem zavedené knihovny Anaconda |Clustery Spark na HDInsight přichází s předinstalovanými knihovnami Anaconda. [Anaconda](http://docs.continuum.io/anaconda/) poskytuje téměř 200 knihoven pro machine learning, analýzy dat, vizualizace atd. |
-| Škálovatelnost |Ačkoli můžete určit počet uzlů v clusteru během vytváření, můžete chtít zvětšit nebo zmenšit cluster tak, aby odpovídal pracovnímu vytížení. Všechny clustery HDInsight umožňují změnit počet uzlů v clusteru. Navíc clustery Spark můžete vyřadit bez ztráty dat, vzhledem k tomu, že jsou všechna data uložena do Azure Blob Storage. |
+| Škálovatelnost |Ačkoli můžete určit počet uzlů v clusteru během vytváření, můžete chtít zvětšit nebo zmenšit cluster tak, aby odpovídal pracovnímu vytížení. Všechny clustery HDInsight umožňují změnit počet uzlů v clusteru. Navíc clustery Spark můžete vyřadit bez ztráty dat, vzhledem k tomu, že jsou všechna data uložena do Azure Storage. |
 | Nepřetržitá podpora |Spark v HDInsight přináší nepřetržitou podporu rozlehlé sítě a SLA 99,9 % doby provozu. |
 
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>Jaké jsou případy použití pro Spark v HDInsight?
@@ -75,7 +76,7 @@ Apache Spark se dodává s [MLlib](http://spark.apache.org/mllib/), knihovnou ma
 
 Analýza dat v reálném čase se používá pro scénáře od snížení času pro data insight zpracováním dat tak jak jsou po sestavení skutečného řešení datového proudu. Spark v HDInsight nabízí bohatou podporu pro vytváření řešení pro analýzu v reálném čase. Zatímco Spark již obsahuje konektory pro načítání dat z mnoha zdrojů, například soketů Kafka, Flume, Twitter, ZeroMQ nebo TCP, Spark v HDInsight přidává prvotřídní podporu pro příjem dat z Azure Event Hubs. Event Hubs je nejpoužívanější službou řazení front v Azure. Připravená podpora pro Event Hubs činí z Spark v HDInsight ideální platformu pro sestavování analytického kanálu v reálném čase.
 
-## <a name="a-namenext-stepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Jaké součásti jsou zahrnuté v clusteru Spark?
+## <a name="next-steps"></a>Jaké součásti jsou zahrnuté v clusteru Spark?
 Spark v HDInsight zahrnuje následující součásti, které jsou k dispozici v clusterech ve výchozím nastavení.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Obsahuje Spark Core, Spark SQL, rozhraní API pro vysílání datového proudu Spark, GraphX a MLlib.
@@ -113,9 +114,4 @@ Začněte vytvořením clusteru Spark na systému HDInsight Linux. Viz [Rychlý 
 * [Sledování a ladění úloh spuštěných v clusteru Apache Spark v HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

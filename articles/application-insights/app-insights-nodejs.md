@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
-ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: bc7b0d4037effd7bcc8685a357a49de339e31d7b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,7 +34,7 @@ Budete potřebovat:
 
 * Předplatné [Microsoft Azure](http://azure.com). Pokud váš tým nebo společnost má předplatné Azure, vlastník vás do něj může přidat pomocí vašeho [účtu Microsoft](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a> Vytvoření prostředku Application Insights
+## <a name="add"></a> Vytvoření prostředku Application Insights
 Přihlaste se k webu [Azure Portal][portal] a vytvořte nový prostředek Application Insights. [Prostředek][roles] v Azure je instancí služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
 
 ![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá 
 
 ![Klikněte na tlačítko Vlastnosti, vyberte klíč a stiskněte klávesy ctrl + C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Instalace sady SDK do aplikace
+## <a name="sdk"></a> Instalace sady SDK do aplikace
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ Klíč instrumentace můžete také nastavit v proměnném prostředí APPINSIGH
 
 Sadu SDK můžete vyzkoušet bez odesílání telemetrie: nastavte klíč instrumentace na neprázdný řetězec.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Spuštění projektu
+## <a name="run"></a> Spuštění projektu
 Spusťte aplikaci a vyzkoušejte ji: otevřete různé stránky k vygenerování nějaké telemetrie.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Zobrazení telemetrických dat
+## <a name="monitor"></a> Zobrazení telemetrických dat
 Přihlaste se do [portálu Azure](https://portal.azure.com) a procházejte do zdroje Application Insights.
 
 Vyhledejte data na stránce Přehled. Na první pohled uvidíte pouze jeden nebo dva body. Příklad:
@@ -86,10 +86,7 @@ Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších
 Teď nasaďte aplikaci do služby IIS nebo do Azure a sledujte shromažďování dat.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Žádná data po publikování na serveru?
-Otevřete tyto porty pro odchozí přenosy v bráně firewall serveru:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Zkontrolujte, jestli [jsou otevřené potřebné porty firewallu](app-insights-ip-addresses.md).
 
 #### <a name="trouble-on-your-build-server"></a>Potíže na vašem serveru sestavení?
 Naleznete v tématu [tato položka Poradce při potížích](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

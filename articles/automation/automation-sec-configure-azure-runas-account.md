@@ -4,7 +4,7 @@ description: "Kurz vás provede vytvořením, otestováním a ukázkovým použi
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: "název objektu služby, název instančního objektu, setspn, ověřování azure"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/10/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 7230fb1a8d27708c40040950e3ec8950c6c04780
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Ověření runbooků pomocí účtu Spustit v Azure jako
-V tomto tématu se seznámíte se způsobem konfigurace účtu Automation na webu Azure Portal pomocí funkce účtu Spustit jako za účelem ověření prostředků, které spravují runbooky, buď v Azure Resource Manageru nebo ve službě Azure Service Management.
+V tomto tématu se seznámíte se způsobem konfigurace účtu Automation na webu Azure Portal pomocí funkce účtu Spustit jako za účelem ověření prostředků, které spravují runbooky, buď v Azure Resource Manageru, nebo ve službě Azure Service Management.
 
-Když na portálu Azure vytvoříte nový účet Automation, účet automaticky vytvoří následující:
+Když na webu Azure Portal vytvoříte účet Automation, účet automaticky vytvoří následující:
 
-* Účet Spustit jako, který vytvoří nový objekt služby v Azure Active Directory (certifikát) a přiřadí přispěvateli řízení přístupu na základě rolí (RBAC), které se bude používat ke správě prostředků Resource Managera pomocí runbooků.   
-* Účet Spustit jako pro Azure Classic tím, že odešle certifikát správy, který bude použit ke správě služby Azure Service Management nebo klasických prostředků pomocí runbooků.  
+* Účet Spustit jako, který vytvoří instanční objekt v Azure Active Directory (certifikát) a přiřadí přispěvateli řízení přístupu na základě rolí (RBAC), které se bude používat ke správě prostředků Resource Manageru pomocí runbooků.   
+* Účet Spustit jako pro Azure Classic tím, že nahraje certifikát pro správu, který se používá ke správě služby Azure Service Management nebo klasických prostředků pomocí runbooků.  
 
 Tato funkce zjednodušuje proces a pomůže vám rychle začít vytvářet a nasazovat runbooky na podporu vašich automatizačních potřeb.      
 
@@ -48,7 +48,10 @@ Než se do toho pustíme, je tu několik věcí, které potřebujete pochopit a 
 1. Toto neovlivní existující účty Automation, které už byly vytvořeny v klasickém modelu nasazení nebo v modelu nasazení Resource manageru.  
 2. Bude to fungovat jenom na účty Automation, které vytvoříte na portálu Azure.  Pokus o vytvoření účtu na portálu Classic nebude úspěšný při replikaci konfigurace účtu Spustit jako.
 3. Pokud v současnosti máte dříve vytvořené runbooky a assety (tj. plány, proměnné atd.) pro správu klasických prostředků a chcete, aby tyto runbooky ověřily nový účet Spustit jako pro Azure Classic, musíte vytvořit účet Spustit jako pro Azure Classic pomocí Správy účtu Spustit jako nebo stávající účet aktualizovat pomocí níže uvedeného skriptu PowerShellu.  
-4. Abyste mohli ověřit nový účet Spustit jako a účet Spustit jako pro Azure Classic na účtu Automation, upravte svoje existující runbooky pomocí níže uvedeného ukázkového kódu.  **Všimněte si**, že účet Spustit jako slouží k ověřování v prostředcích Resource manageru pomocí certifikovaného objektu služby a účet Spustit jako pro Azure Classic slouží k ověřování v prostředcích služby správy pomocí certifikátu pro správu.     
+4. Abyste se mohli ověřovat pomocí nového účtu Spustit jako a účtu Spustit jako pro Azure Classic na účtu Automation, upravte svoje existující runbooky pomocí ukázkového kódu uvedeného v části [Příklady kódu pro ověřování](#authentication-code-examples).  
+   
+    >[!NOTE] 
+    >Účet Spustit jako slouží k ověřování v prostředcích Resource Manageru pomocí instančního objektu na základě certifikátu a účet Spustit jako pro Azure Classic slouží k ověřování v prostředcích služby Service Management pomocí certifikátu pro správu.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Vytvoření nového účtu Automation na webu Azure Portal
 V této části provedete následující kroky a vytvoříte nový účet Azure Automation na portálu Azure.  Tím vytvoříte účet Spustit jako i účet Spustit jako pro Azure Classic.  
@@ -85,7 +88,7 @@ Po úspěšném vytvoření účtu Automation se pro vaší potřebu automaticky
 | --- | --- |
 | Runbook AzureAutomationTutorial |Ukázkový grafický runbook, který předvádí ověření pomocí účtu Spustit jako a získává všechny prostředku Resource Manageru. |
 | Runbook AzureAutomationTutorialScript |Ukázkový runbook PowerShellu, který předvádí ověření pomocí účtu Spustit jako a získává všechny prostředku Resource Manageru. |
-| AzureRunAsCertificate |Asset certifikátu vytvořený automaticky během vytváření účtu Automation, nebo když jste použili níže uvedený powershellový skript pro existující účet.  Umožňuje ověření pomocí Azure, abyste mohli spravovat prostředky Azure Resource Manageru pomocí runbooků.  Tento certifikát má životnost jeden rok. |
+| AzureRunAsCertificate |Asset certifikátu vytvořený automaticky během vytváření účtu Automation, nebo při použití níže uvedeného skriptu PowerShellu pro stávající účet.  Umožňuje ověření pomocí Azure, abyste mohli spravovat prostředky Azure Resource Manageru pomocí runbooků.  Tento certifikát má životnost jeden rok. |
 | AzureRunAsConnection |Asset připojení vytvořený automaticky během vytváření účtu Automation, nebo když jste použili níže uvedený powershellový skript pro existující účet. |
 
 Následující tabulka shrnuje prostředky pro účet Spustit jako pro Azure Classic.<br>
@@ -184,21 +187,21 @@ Tento skript PowerShellu zahrnuje podporu následujících konfigurací:
 
 Skript v závislosti na vybrané možnosti konfigurace provede následující:
 
-* Vytvoří aplikaci Azure AD, která bude ověřena pomocí certifikátu podepsaného svým držitelem nebo pomocí podnikového certifikátu, vytvoří účet instančního objektu pro tuto aplikaci v Azure AD a přiřadí roli přispěvatele (toto můžete změnit na roli vlastníka nebo jinou roli) pro tento účet v aktuálním předplatném.  Další informace najdete v článku [Řízení přístupu na základě rolí ve službě Azure Automation](automation-role-based-access-control.md).
-* Asset certifikátu Automation na určeném účtu Automation s názvem **AzureRunAsCertificate**, který obsahuje certifikát použitý objektem služby.
+* Vytvoří aplikaci Azure AD, která se exportuje s veřejným klíčem certifikátu podepsaného svým držitelem nebo podnikového certifikátu, vytvoří účet instančního objektu pro tuto aplikaci v Azure AD a přiřadí roli přispěvatele (tu můžete změnit na roli vlastníka nebo jinou roli) pro tento účet v aktuálním předplatném.  Další informace najdete v článku [Řízení přístupu na základě rolí ve službě Azure Automation](automation-role-based-access-control.md).
+* Asset certifikátu Automation v určeném účtu Automation s názvem **AzureRunAsCertificate**, který obsahuje veřejný klíč certifikátu používaný aplikací Azure AD.
 * Asset připojení Automation v určeném účtu Automation s názvem **AzureRunAsConnection**, který obsahuje applicationId, tenantId, subscriptionId a kryptografický otisk certifikátu.    
 
 Pro účet Spustit jako pro Azure Classic:
 
-* Asset certifikátu Automation v určeném účtu Automation s názvem **AzureClassicRunAsCertificate**, který obsahuje certifikát podepsaný svým držitelem nebo vydaný certifikační autoritou organizace, použitý k ověření vašich runbooků.
+* Asset certifikátu Automation v určeném účtu Automation s názvem **AzureClassicRunAsCertificate**, který obsahuje veřejný klíč certifikátu používaný certifikátem pro správu.  
 * Asset připojení Automation v určeném účtu Automation s názvem **AzureClassicRunAsConnection**, který obsahuje název předplatného, subscriptionId a název assetu certifikátu.
 
-Pokud pro účet Spustit jako pro Azure Classic vyberete možnost použít certifikát podepsaný svým držitelem, skript vytvoří certifikát pro správu podepsaný svým držitelem a uloží ho do složky dočasných souborů v počítači v rámci profilu uživatele, který používáte ke spouštění relace PowerShellu – *%USERPROFILE%\AppData\Local\Temp*.  Po spuštění skriptu budete muset odeslat certifikát pro správu Azure do úložiště správy předplatného, ve kterém byl účet Automation vytvořený.  Následující postup vás provede procesem spuštění skriptu a odesláním certifikátu.  
+Pokud vyberete možnost vytvořit účet Spustit jako pro Azure Classic, po spuštění skriptu budete muset nahrát veřejný certifikát (ve formátu .cer) do úložiště správy předplatného, ve kterém byl účet Automation vytvořený. Následující postup vás provede procesem spuštění skriptu a odesláním certifikátu.    
 
 1. Uložte následující skript do počítače.  V tomto příkladu ho uložte s názvem **New-RunAsAccount.ps1**.  
    
-        #Requires -RunAsAdministrator
-        Param (
+         #Requires -RunAsAdministrator
+         Param (
         [Parameter(Mandatory=$true)]
         [String] $ResourceGroup,
 
@@ -234,11 +237,14 @@ Pokud pro účet Spustit jako pro Azure Classic vyberete možnost použít certi
         [string]$EnvironmentName="AzureCloud",
 
         [Parameter(Mandatory=$false)]
-        [int] $NoOfMonthsUntilExpired = 12
+        [int] $SelfSignedCertNoOfMonthsUntilExpired = 12
         )
 
-        function CreateSelfSignedCertificate([string] $keyVaultName, [string] $certificateName, [string] $selfSignedCertPlainPassword,[string] $certPath, [string] $certPathCer, [string] $noOfMonthsUntilExpired ) {
-        $Cert = New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation cert:\LocalMachine\My -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider"
+        function CreateSelfSignedCertificate([string] $keyVaultName, [string] $certificateName, [string] $selfSignedCertPlainPassword, 
+                                      [string] $certPath, [string] $certPathCer, [string] $selfSignedCertNoOfMonthsUntilExpired ) {
+        $Cert = New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation cert:\LocalMachine\My `
+           -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+           -NotAfter (Get-Date).AddMonths($selfSignedCertNoOfMonthsUntilExpired)
 
         $CertPassword = ConvertTo-SecureString $selfSignedCertPlainPassword -AsPlainText -Force
         Export-PfxCertificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPath -Password $CertPassword -Force | Write-Verbose
@@ -292,8 +298,8 @@ Pokud pro účet Spustit jako pro Azure Classic vyberete možnost použít certi
         $AzureRMProfileVersion= (Get-Module AzureRM.Profile).Version
         if (!(($AzureRMProfileVersion.Major -ge 2 -and $AzureRMProfileVersion.Minor -ge 1) -or ($AzureRMProfileVersion.Major -gt 2)))
         {
-          Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
-          return
+           Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
+           return
         }
  
         Login-AzureRmAccount -EnvironmentName $EnvironmentName
@@ -305,72 +311,72 @@ Pokud pro účet Spustit jako pro Azure Classic vyberete možnost použít certi
         $ConnectionTypeName = "AzureServicePrincipal"
  
         if ($EnterpriseCertPathForRunAsAccount -and $EnterpriseCertPlainPasswordForRunAsAccount) {
-           $PfxCertPathForRunAsAccount = $EnterpriseCertPathForRunAsAccount
-           $PfxCertPlainPasswordForRunAsAccount = $EnterpriseCertPlainPasswordForRunAsAccount
+        $PfxCertPathForRunAsAccount = $EnterpriseCertPathForRunAsAccount
+        $PfxCertPlainPasswordForRunAsAccount = $EnterpriseCertPlainPasswordForRunAsAccount
         } else {
-           $CertificateName = $AutomationAccountName+$CertifcateAssetName
-           $PfxCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".pfx")
-           $PfxCertPlainPasswordForRunAsAccount = $SelfSignedCertPlainPassword
-           $CerCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".cer")
-           CreateSelfSignedCertificate $KeyVaultName $CertificateName $PfxCertPlainPasswordForRunAsAccount $PfxCertPathForRunAsAccount $CerCertPathForRunAsAccount $NoOfMonthsUntilExpired
+          $CertificateName = $AutomationAccountName+$CertifcateAssetName
+          $PfxCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".pfx")
+          $PfxCertPlainPasswordForRunAsAccount = $SelfSignedCertPlainPassword
+          $CerCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".cer")
+          CreateSelfSignedCertificate $KeyVaultName $CertificateName $PfxCertPlainPasswordForRunAsAccount $PfxCertPathForRunAsAccount $CerCertPathForRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired 
         }
 
         # Create Service Principal
         $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
         $ApplicationId=CreateServicePrincipal $PfxCert $ApplicationDisplayName
 
-         # Create the automation certificate asset
-         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
+        # Create the automation certificate asset
+        CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
 
-         # Populate the ConnectionFieldValues
-         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
-         $TenantID = $SubscriptionInfo | Select TenantId -First 1
-         $Thumbprint = $PfxCert.Thumbprint
-         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId} 
+        # Populate the ConnectionFieldValues
+        $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
+        $TenantID = $SubscriptionInfo | Select TenantId -First 1
+        $Thumbprint = $PfxCert.Thumbprint
+        $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId} 
 
-         # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
+        # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
 
         if ($CreateClassicRunAsAccount) {
-           # Create Run As Account using Service Principal
-           $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
-           $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
-           $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
-           $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
+            # Create Run As Account using Service Principal
+            $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
+            $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
+            $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
+            $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
                     "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
                     "Then click Upload and upload the .cer format of #CERT#" 
  
-            if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
-            $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
-            $PfxCertPlainPasswordForClassicRunAsAccount = $EnterpriseCertPlainPasswordForClassicRunAsAccount
-            $UploadMessage = $UploadMessage.Replace("#CERT#", $PfxCertPathForClassicRunAsAccount)
-         } else {
-            $ClassicRunAsAccountCertificateName = $AutomationAccountName+$ClassicRunAsAccountCertifcateAssetName
-            $PfxCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".pfx")
-            $PfxCertPlainPasswordForClassicRunAsAccount = $SelfSignedCertPlainPassword
-            $CerCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".cer")
-            $UploadMessage = $UploadMessage.Replace("#CERT#", $CerCertPathForClassicRunAsAccount)
-            CreateSelfSignedCertificate $KeyVaultName $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $NoOfMonthsUntilExpired
-         }
+             if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
+             $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
+             $PfxCertPlainPasswordForClassicRunAsAccount = $EnterpriseCertPlainPasswordForClassicRunAsAccount
+             $UploadMessage = $UploadMessage.Replace("#CERT#", $PfxCertPathForClassicRunAsAccount)
+        } else {
+             $ClassicRunAsAccountCertificateName = $AutomationAccountName+$ClassicRunAsAccountCertifcateAssetName
+             $PfxCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".pfx")
+             $PfxCertPlainPasswordForClassicRunAsAccount = $SelfSignedCertPlainPassword
+             $CerCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".cer")
+             $UploadMessage = $UploadMessage.Replace("#CERT#", $CerCertPathForClassicRunAsAccount)
+             CreateSelfSignedCertificate $KeyVaultName $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired 
+        }
 
-         # Create the automation certificate asset
-         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
+        # Create the automation certificate asset
+        CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
-         # Populate the ConnectionFieldValues
-         $SubscriptionName = $subscription.Subscription.SubscriptionName
-         $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
+        # Populate the ConnectionFieldValues
+        $SubscriptionName = $subscription.Subscription.SubscriptionName
+        $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
-         # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName $ClassicRunAsAccountConnectionFieldValues
+        # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName $ClassicRunAsAccountConnectionFieldValues
 
-         Write-Host -ForegroundColor red $UploadMessage
-         }
+        Write-Host -ForegroundColor red $UploadMessage
+        }
 
 2. Na svém počítači na obrazovce **Start** spusťte **Windows PowerShell** se zvýšenými uživatelskými právy.
 3. Z prostředí příkazového řádku PowerShellu se zvýšenými oprávněními přejděte do složky, která obsahuje skript vytvořený v kroku 1, a spusťte tento skript se změněnými hodnotami požadovaných parametrů v závislosti na požadované konfiguraci.  
 
     **Vytvoření účtu Spustit v Azure jako pomocí certifikátu podepsaného svým držitelem**  
-    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword>` 
+    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false` 
 
     **Vytvoření účtu Spustit v Azure jako a účtu Spustit jako pro Azure Classic pomocí certifikátu podepsaného svým držitelem**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true`
@@ -386,9 +392,15 @@ Pokud pro účet Spustit jako pro Azure Classic vyberete možnost použít certi
     > 
     > 
 
-Pokud jste vytvořili účet Spustit jako pro Azure Classic, po úspěšném dokončení skriptu budete muset zkopírovat vytvořený certifikát do složky **Temp** v profilu uživatele.  Postupujte podle kroků pro [odeslání certifikátu rozhraní API pro správu](../azure-api-management-certs.md) na portál Azure Classic a potom použijte [ukázkový kód](#sample-code-to-authenticate-with-service-management-resources) k ověření konfigurace přihlašovacích údajů pomocí prostředků správy služeb.  Pokud jste nevytvořili účet Spustit jako pro Azure Classic, použijte níže uvedený [ukázkový kód](#sample-code-to-authenticate-with-resource-manager-resources) k ověření pomocí prostředků Resource Manageru a ke kontrole konfigurace přihlašovacích údajů. Nebo použijte [ukázkový kód](#sample-code-to-authenticate-with-service-management-resources) k ověření konfigurace přihlašovacích údajů pomocí prostředků správy služeb.
+Pokud jste vytvořili účet spustit jako pro Azure Classic, po úspěšném dokončení skriptu postupujte podle kroků pro [nahrání certifikátu rozhraní API pro správu](../azure-api-management-certs.md) na portál Azure Classic.  Pokud jste vytvořili účet Spustit jako pro Azure Classic pomocí veřejného certifikátu podepsaného svým držitelem (ve formátu .cer), vytvořenou kopii certifikátu najdete ve složce dočasných souborů ve vašem počítači v rámci profilu uživatele, který používáte ke spuštění relace PowerShellu – *%USERPROFILE%\AppData\Local\Temp*.  Pokud jste ale nakonfigurovali účet Spustit jako pro Azure Classic pro použití certifikátu vygenerovaného CA vaší organizace (ve formátu .cer), bude nutné použít tento certifikát.  Po nahrání certifikátu použijte [ukázkový kód](#sample-code-to-authenticate-with-service-management-resources) k ověření konfigurace přihlašovacích údajů pomocí prostředků služby Service Management.  
 
-## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Ukázkový kód pro ověření pomocí prostředků Resource Manageru
+Pokud jste nevytvořili účet Spustit jako pro Azure Classic, použijte níže uvedený [ukázkový kód](#sample-code-to-authenticate-with-resource-manager-resources) k ověření pomocí prostředků Resource manageru a ke kontrole konfigurace přihlašovacích údajů.   
+
+##  <a name="authentication-code-examples"></a>Příklady kódu pro ověřování
+
+Následující příklady ukazují, jak ověřit runbooky pomocí prostředků Resource Manageru nebo klasických prostředků s použitím účtu Spustit jako.
+
+### <a name="authenticate-with-resource-manager-resources"></a>Ověření pomocí prostředků Resource Manageru
 Můžete použít níže uvedený aktualizovaný ukázkový kód z ukázkového runbooku **AzureAutomationTutorialScript** a provést ověření pomocí účtu Spustit jako, abyste mohli prostředky Resource Manageru spravovat pomocí svých runbooků.   
 
     $connectionName = "AzureRunAsConnection"
@@ -423,7 +435,7 @@ Skript obsahuje dva další řádky kódu, které podporují odkazování na kon
 
 Všimněte si, že rutina používaná pro ověřování v runbooku – **Add-AzureRmAccount**, používá sadu parametrů *ServicePrincipalCertificate*.  Ověřování provádí pomocí certifikátu objektu služby a ne pomocí přihlašovacích údajů.  
 
-## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Ukázkový kód pro ověření pomocí prostředků správy služby
+### <a name="authenticate-with-service-management-resources"></a>Ověření pomocí prostředků služby Service Management
 Můžete použít níže uvedený aktualizovaný ukázkový kód z ukázkového runbooku **AzureClassicAutomationTutorialScript** a provést ověření pomocí účtu Spustit jako pro Azure Classic, abyste mohli klasické prostředky spravovat pomocí svých runbooků.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

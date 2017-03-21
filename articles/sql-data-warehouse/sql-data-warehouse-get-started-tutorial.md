@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
-ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -104,7 +104,7 @@ Chcete-li se připojit ke svému datovému skladu, je nutné se připojit přes 
 
     ![Výběr názvu serveru](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. Otevřete SSMS a pomocí průzkumníku objektů se připojte k tomuto serveru prostřednictvím přihlašovacích údajů správce serveru, které jste vytvořili v části [Požadavky].
+3. Otevřete SSMS a pomocí průzkumníka objektů se připojte k tomuto serveru prostřednictvím přihlašovacích údajů správce serveru, které jste vytvořili v části [Požadavky].
 
     ![Připojení přes SSMS](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
@@ -415,13 +415,13 @@ Nyní jste připraveni k načtení dat do datového skladu. Tento krok ukazuje, 
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
-### Import the data from Azure blob storage.
+### <a name="import-the-data-from-azure-blob-storage"></a>Import dat z Azure Blob Storage
 
-SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). Tento příkaz vytvoří novou tabulku na základě výsledků příkazu SELECT. Nová tabulka obsahuje stejné sloupce a datové typy jako výsledky příkazu SELECT.  Jde o elegantní způsob importu dat z Azure Blob Storage do SQL Data Warehouse.
 
-1. Run this script to import your data.
+1. Spuštěním tohoto skriptu naimportujte data.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,9 +496,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads.
+2. Zobrazte data během načítání.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+   Provedete načtení několika GB dat a jejich kompresi do vysoce výkonných clusterovaných indexů columnstore. Spuštěním následujícího dotazu, který používá zobrazení dynamické správy, zobrazíte stav načítání. Po spuštění dotazu si udělejte přestávku na kávu, zatímco SQL Data Warehouse bude dělat namáhavou práci.
     
     ```sql
     SELECT
@@ -528,62 +528,61 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries.
+3. Zobrazte všechny systémové dotazy.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
+4. Užívejte si pohled na to, jak se data do Azure SQL Data Warehouse krásně načítají.
 
-    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![Zobrazení načtených data](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Improve query performance
+## <a name="improve-query-performance"></a>Vylepšení výkonu dotazů
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
+Existuje několik způsobů, jak vylepšit výkon dotazů a dosáhnout vysokého výkonu, ke kterému byla služba SQL Data Warehouse navržena.  
 
-### See the effect of scaling on query performance 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Vliv škálování na výkon dotazů 
 
-One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
+Jedním ze způsobů, jak vylepšit výkon dotazů, je škálování prostředků změnou úrovně služeb pro DWU vašeho datového skladu. Každá úroveň služeb je nákladnější, kdykoli však můžete škálovat směrem dolů nebo pozastavit prostředky. 
 
-In this step, you compare performance at two different DWU settings.
+V tomto kroku porovnáte výkon pro dvě různá nastavení DWU.
 
-First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+Nejprve vertikálně snížíme kapacitu na 100 DWU, abychom získali představu o tom, jak může pracovat samostatný výpočetní uzel.
 
-1. Go to the portal and select your SQL Data Warehouse.
+1. Přejděte na portál a vyberte SQL Data Warehouse.
 
-2. Select scale in the SQL Data Warehouse blade. 
+2. Vyberte horizontální snížení kapacity v okně SQL Data Warehouse. 
 
-    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![Škálování DW z portálu](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Scale down the performance bar to 100 DWU and hit save.
+3. Vertikálně snižte kapacitu pomocí pruhu výkonu na 100 DWU a stiskněte tlačítko Uložit.
 
-    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![Škálování a uložení](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wait for your scale operation to finish.
+4. Počkejte na dokončení operace škálování.
 
     > [!NOTE]
-    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
+    > Během změny škálování nelze spouštět dotazy. Škálování **ukončí** aktuálně spuštěné dotazy. Můžete je restartovat po dokončení operace.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
+5. Proveďte operaci prohledávání dat o cestách tak, že vyberete prvních milion položek pro všechny sloupce. Pokud chcete postupovat rychleji, klidně vyberte menší počet řádků. Poznamenejte si dobu potřebnou k provedení této operace.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. Změňte kapacitu datového skladu zpět na 400 DWU. Pamatujte si, že každých 100 DWU přidává do Azure SQL Data Warehouse další výpočetní uzel.
 
-7. Run the query again! You should notice a significant difference. 
+7. Spusťte dotaz znovu. Měli byste zaznamenat značný rozdíl. 
 
 > [!NOTE]
-> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
-> Azure SQL Data Warehouse.
+> Služba SQL Data Warehouse je postavena na architektuře MPP (Massively Parallel Processing). Proto dotazy, které prohledávají nebo provádějí analytické funkce nad miliony řádků, můžou naplno využít výkon služby Azure SQL Data Warehouse.
 >
 
-### See the effect of statistics on query performance
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Vliv statistik na výkon dotazů
 
-1. Run a query that joins the Date table with the Trip table
+1. Spusťte dotaz, který spojuje tabulku Date s tabulkou Trip.
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         ON  tr.DateID = dt.DateID
     ```
 
-    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    Provedení tohoto dotazu bude chvíli trvat, protože SQL Data Warehouse musí před provedením příkazu JOIN nejprve přesunout data. Příkazy JOIN nemusí data přesouvat, pokud jsou určené ke spojení dat stejným způsobem, jako jsou distribuována. To je na hlubší diskuzi. 
 
-2. Statistics make a difference. 
-3. Run this statement to create statistics on the join columns.
+2. Na statistikách záleží. 
+3. Spuštěním tohoto příkazu vytvořte statistiky pro spojované sloupce.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,48 +625,45 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     ```
 
     > [!NOTE]
-    > SQL DW does not automatically manage statistics for you. Statistics are important for query
-    > performance and it is highly recommended you create and update statistics.
+    > SQL DW nespravuje statistiky automaticky. Statistiky jsou důležité pro výkon dotazů a důrazně se doporučuje statistiky vytvářet a aktualizovat.
     > 
-    > **You gain the most benefit by having statistics on columns involved in joins, columns
-    > used in the WHERE clause and columns found in GROUP BY.**
+    > **Nejvíce výhod získáte tak, že budete mít statistiky pro sloupce používané ve spojeních, sloupce používané v klauzuli WHERE a sloupce používané v příkazu GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+3. Znovu spusťte dotaz z části Požadavky a sledujte rozdíly ve výkonu. I když rozdíly ve výkonu dotazů nebudou tak drastické jako při vertikálním navýšení kapacity, měli byste zaznamenat zrychlení. 
 
-## Next steps
+## <a name="next-steps"></a>Další kroky
 
-You're now ready to query and explore. Check out our best practices or tips.
+Teď jste připravení na dotazování a prozkoumávání. Vyzkoušejte si naše osvědčené postupy a tipy.
 
-If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
-savings by pausing and scaling to meet your business needs.
+Pokud jste už pro dnešek se zkoumáním hotovi, nezapomeňte svoji instanci pozastavit. V produkčním prostředí můžete pozastavením a škálováním podle svých obchodních potřeb zaznamenat značné úspory.
 
-![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![Pozastavení](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful readings
+## <a name="useful-readings"></a>Užitečné informace k přečtení
 
-[Concurrency and Workload Management][]
+[Souběžnost a správa úloh][]
 
-[Best practices for Azure SQL Data Warehouse][]
+[Osvědčené postupy pro službu Azure SQL Data Warehouse][]
 
-[Query Monitoring][]
+[Monitorování dotazů][]
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
+[10 nejlepších osvědčených postupů pro sestavení rozsáhlého relačního datového skladu][]
 
-[Migrating Data to Azure SQL Data Warehouse][]
+[Migrace dat do Azure SQL Data Warehouse][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Query Monitoring]: sql-data-warehouse-manage-monitor.md
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Souběžnost a správa úloh]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Osvědčené postupy pro službu Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Monitorování dotazů]: sql-data-warehouse-manage-monitor.md
+[10 nejlepších osvědčených postupů pro sestavení rozsáhlého relačního datového skladu]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
+[Migrace dat do Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Požadavky]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
-ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -28,7 +29,7 @@ Naučte se nainstalovat nástroje Data Lake pro Visual Studio a používat tyto 
 U-SQL je mimořádně škálovatelný a vysoce rozšiřitelný jazyk pro přípravu, transformaci a analýzu všech dat v úložišti Data Lake i mimo něj. Další informace najdete v tématu [Referenční informace o U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Požadavky
-* **Visual Studio 2015, Visual Studio 2013 Update 4 nebo Visual Studio 2012. Jsou podporovány edice Enterprise (Ultimate nebo Premium), Professional a Community; není podporována edice Express. Sada Visual Studio 2017 se v současné době nepodporuje.**
+* **Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 nebo Visual Studio 2012. Jsou podporovány edice Enterprise (Ultimate nebo Premium), Professional a Community; není podporována edice Express. Sada Visual Studio 2017 se v současné době nepodporuje.**
 * **Sada Microsoft Azure SDK pro .NET verze 2.7.1 nebo vyšší**.  Nainstalujte ji pomocí [Instalačního programu webové platformy](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Nástroje Data Lake pro Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -349,9 +350,4 @@ Následující skript prostředí PowerShell vám připraví účet Azure Data L
     Write-Host "List the source data ..."  -ForegroundColor Green
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
