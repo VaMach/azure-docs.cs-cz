@@ -12,30 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
-ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>Jak funguje Azure Site Recovery?
 
-Tento článek vám pomůže porozumět základní architektuře služby [Azure Site Recovery](site-recovery-overview.md) a komponentám, které jí umožňují fungovat.
+Tento článek popisuje základní architekturu služby [Azure Site Recovery](site-recovery-overview.md) a komponenty, které jí umožňují fungovat.
 
 Jakékoli dotazy můžete publikovat na konci tohoto článku nebo na [fóru Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="replication-to-azure"></a>Replikace do Azure
+## <a name="replicate-to-azure"></a>Replikování do Azure
 
 Do Azure můžete replikovat následující:
+
 - **VMware:** Místní virtuální počítače VMware spuštěné na [podporovaném hostiteli](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Můžete replikovat virtuální počítače VMware s [podporovanými operačními systémy](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
 - **Hyper-V:** Místní virtuální počítače Hyper-V spuštěné na [podporovaných hostitelích](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Fyzické počítače:** Místní fyzické servery s Windows nebo Linuxem spuštěné v [podporovaných operačních systémech](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). Můžete replikovat virtuální počítače Hyper-V s jakýmkoli hostovaným operačním systémem, který [podporuje technologie Hyper-V a Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## <a name="vmware-replication-to-azure"></a>Replikace VMware do Azure
+## <a name="vmware-to-azure"></a>Z VMware do Azure
+
+Dál je uvedeno, co potřebujete pro replikaci virtuálních počítačů VMware do Azure.
 
 Oblast | Komponenta | Podrobnosti
 --- | --- | ---
@@ -85,14 +88,16 @@ Pro navrácení služby po obnovení existuje několik požadavků:
 
 ![Navrácení služeb po obnovení](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-server-replication-to-azure"></a>Replikace fyzického serveru do Azure
+## <a name="physical-to-azure"></a>Z fyzických do Azure
 
-Tento scénář replikace také využívá stejné komponenty a proces jako replikace [VMware do Azure](#vmware-replication-to-azure), ale všimněte si těchto rozdílů:
+Když replikujete fyzické místní servery do Azure, replikace používá také stejné komponenty a procesy jako [VMware do Azure](#vmware-replication-to-azure), ale všimněte si těchto rozdílů:
 
 - Jako konfigurační server můžete místo virtuálního počítače VMware použít fyzický server.
 - Pro navrácení služeb po obnovení budete potřebovat místní infrastrukturu VMware. Služby po obnovení nelze navrátit na fyzický server.
 
-## <a name="hyper-v-replication-to-azure"></a>Replikace Hyper-V do Azure
+## <a name="hyper-v-to-azure"></a>Z Hyper-V do Azure
+
+Dál je uvedeno, co potřebujete pro replikaci virtuálních počítačů Hyper-V do Azure.
 
 **Oblast** | **Komponenta** | **Podrobnosti**
 --- | --- | ---
@@ -130,7 +135,7 @@ Tento scénář replikace také využívá stejné komponenty a proces jako repl
 ![Komponenty](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replication-to-a-secondary-site"></a>Replikace do sekundární lokality
+## <a name="replicate-to-a-secondary-site"></a>Replikace virtuálních počítačů VMware do sekundární lokality
 
 Do sekundární lokality můžete replikovat následující:
 
@@ -139,13 +144,15 @@ Do sekundární lokality můžete replikovat následující:
 - **Hyper-V:** Místní virtuální počítače Hyper-V spuštěné na [podporovaných hostitelích Hyper-V](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) spravované v cloudech VMM. [Podporovaní hostitelé](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Můžete replikovat virtuální počítače Hyper-V s jakýmkoli hostovaným operačním systémem, který [podporuje technologie Hyper-V a Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>Replikace virtuálního počítače nebo fyzického serveru VMware do sekundární lokality
+## <a name="vmwarephysical-to-a-secondary-site"></a>Z VMware/fyzických do sekundární lokality
+
+Replikujete virtuální počítače VMware nebo fyzické servery do sekundární lokality pomocí nástroje InMage Scout.
 
 ### <a name="components"></a>Komponenty
 
 **Oblast** | **Komponenta** | **Podrobnosti**
 --- | --- | ---
-**Azure** | Tento scénář nasadíte pomocí nástroje InMage Scout. | K získání nástroje InMage Scout potřebujete předplatné Azure.<br/><br/> Po vytvoření trezoru služby Recovery Services si stáhnete InMage Scout a nainstalujete nejnovější aktualizace pro nastavení nasazení.
+**Azure** | InMage Scout. | K získání nástroje InMage Scout potřebujete předplatné Azure.<br/><br/> Po vytvoření trezoru služby Recovery Services si stáhnete InMage Scout a nainstalujete nejnovější aktualizace pro nastavení nasazení.
 **Procesový server** | Umístěný v primární lokalitě | Procesový server nasadíte, aby se staral o ukládání do mezipaměti, kompresi a optimalizaci dat.<br/><br/> Také obstará nabízenou instalaci nástroje Unified Agent na počítače, které chcete chránit.
 **Konfigurační server** | Umístěný v sekundární lokalitě | Konfigurační server spravuje, konfiguruje a monitoruje nasazení – buď pomocí webu pro správu, nebo konzoly vContinuum.
 **Server vContinuum** | Volitelné. Instaluje se do stejné lokality jako konfigurační server. | Poskytuje konzoli pro správu a monitorování chráněného prostředí.
@@ -166,7 +173,9 @@ Do sekundární lokality můžete replikovat následující:
 
 
 
-## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>Replikace virtuálních počítačů Hyper-V do sekundární lokality
+## <a name="hyper-v-to-a-secondary-site"></a>Z Hyper-V do sekundární lokality
+
+Dál je uvedeno, co potřebujete pro replikaci virtuálních počítačů Hyper-V do sekundární lokality.
 
 
 **Oblast** | **Komponenta** | **Podrobnosti**
@@ -202,25 +211,8 @@ Do sekundární lokality můžete replikovat následující:
 7. Chcete-li z primární lokality opět udělat aktivní, zahajte plánované převzetí služeb ze sekundární lokality do primární, následované další zpětnou replikací.
 
 
-## <a name="hyper-v-replication-workflow"></a>Pracovní postup replikace Hyper-V
-
-**Fáze pracovního postupu** | **Akce**
---- | ---
-1. **Povolení ochrany** | Po povolení ochrany pro virtuální počítač Hyper-V se spustí úloha **Povolení ochrany**, která zkontroluje, jestli počítač splňuje požadavky. Úloha vyvolá dvě metody:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), která připraví replikaci s konfigurovanými nastaveními.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), která zahájí úplnou replikaci virtuálního počítače.
-2. **Počáteční replikace** |  Vytvoří se snímek virtuálního počítače a postupně se jeden po druhém replikují virtuální pevné disky, dokud se všechny nezkopírují do sekundární lokality.<br/><br/> Čas potřebný k dokončení závisí na velikosti virtuálního počítače, šířce pásma sítě a metodě počáteční replikace.<br/><br/> Pokud dojde ke změnám na disku v době, kdy probíhá počáteční replikace, Hyper-V Replica Replication Tracker je zaznamená jako protokoly replikace technologie Hyper-V (.hrl), které jsou umístěny ve stejné složce jako disky.<br/><br/> Každý disk má přidružený soubor .hrl, který se odešle do sekundárního úložiště.<br/><br/> Soubory snímků a protokolů spotřebovávají prostředky disku v době, kdy probíhá počáteční replikace. Po dokončení počáteční replikace se snímek virtuálního počítače odstraní a rozdílové změny na disku v protokolu se synchronizují a sloučí.
-3. **Dokončení ochrany** | Po dokončení počáteční replikace nakonfiguruje úloha **Dokončení ochrany** síťová a další postreplikační nastavení tak, aby byl virtuální počítač chráněn.<br/><br/> Pokud replikujete do Azure, možná bude nutné upravit nastavení pro virtuální počítač tak, aby byl připraven k převzetí služeb při selhání.<br/><br/> V tomto bodě můžete spustit test převzetí služeb při selhání a zkontrolovat, zda vše funguje podle očekávání.
-4. **Replikace** | Po počáteční replikaci se zahájí rozdílová synchronizace, a to v souladu s nastavením replikace.<br/><br/> **Selhání replikace:** Pokud rozdílová replikace selže a úplná replikace by byla náročná, pokud jde o šířku pásma nebo čas, pak dojde k resynchronizaci. Pokud například soubory .hrl dosáhnou 50 % velikosti disku, pak se u virtuálního počítače stanoví nutnost resynchronizace. Resynchronizace minimalizuje množství dat odesílaných v rámci výpočtů kontrolních součtů zdrojových a cílových virtuálních počítačů tím, že se posílají pouze rozdíly. Po dokončení resynchronizace bude pokračovat rozdílová replikace. Ve výchozím nastavení je automatické spuštění resynchronizace naplánováno na mimopracovní dobu, ale můžete ji u virtuálního počítače spustit i ručně.<br/><br/> **Chyba replikace:** Pokud dojde k chybě replikace, je předdefinován opakovaný pokus. Jde-li o neopravitelnou chybu, například související s ověřením nebo autorizací, nebo je-li v neplatném stavu počítač představující repliku, k opakovanému pokusu nedojde. Pokud se jedná o opravitelnou chybu, jako je chyba sítě nebo nedostatek volného místa na disku či paměti, pak se pokusy opakují, ale postupně se mezi nimi prodlužuje interval (proběhnou po 1, 2, 4, 8 a 10 minutách a pak každých 30 minut).
-5. **Plánované/neplánované převzetí služeb při selhání** | Podle potřeby můžete spustit plánované, nebo neplánované převzetí služeb při selhání.<br/><br/> Pokud spustíte plánovanou operaci, dojde k ukončení zdrojových virtuálních počítačů, aby se zcela předešlo možné ztrátě dat.<br/><br/> Virtuální počítače představující repliky přejdou po svém vytvoření do stavu čekání na potvrzení. Převzetí služeb při selhání je třeba dokončit jeho potvrzením.<br/><br/> Jakmile bude primární lokalita funkční, můžete navrátit služby zpět do primární lokality.
-
-
-**Obr. 8: Pracovní postup Hyper-V**
-
-![pracovní postup](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
-
-
-
-
 ## <a name="next-steps"></a>Další kroky
 
-[Kontrola požadavků](site-recovery-prereq.md)
+- [Další informace](site-recovery-hyper-v-azure-architecture.md) o pracovním postupu replikace Hyper-V
+- [Kontrola požadavků](site-recovery-prereq.md)
 

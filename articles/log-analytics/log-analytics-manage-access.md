@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
-ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +35,7 @@ K vytvoření pracovního prostoru budete muset:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Určení potřebného počtu pracovních prostorů
 Pracovní prostor je prostředek Azure v podobě kontejneru, ve kterém se data shromažďují, agregují, analyzují a zobrazují na webu Azure Portal.
 
-Je možné vytvořit víc pracovních prostorů a přidělit uživatelům přístup k jednomu nebo několika z nich. Minimalizace počtu pracovních prostorů umožňuje dotazování a korelaci s většinou dat. Tato část popisuje případy, kdy je užitečné mít víc než jeden pracovní prostor.
+V rámci jednoho předplatného Azure můžete mít více pracovních prostorů a přístup k více než jednomu pracovnímu prostoru. Minimalizace počtu pracovních prostorů umožňuje dotazování a korelaci většiny dat, protože není možné dotazování napříč několika pracovními prostory. Tato část popisuje případy, kdy je užitečné mít víc než jeden pracovní prostor.
 
 V současné době pracovní prostor nabízí:
 
@@ -52,7 +52,7 @@ Na základě výše uvedených charakteristik můžete vytvořit víc pracovníc
 * Jste poskytovatel spravované služby a potřebujete uchovávat analytická data pro každého zákazníka odděleně od dat ostatních zákazníků.
 * Spravujete několik zákazníků a chcete, aby se každý zákazník, oddělení nebo pracovní skupina mohli podívat na svá vlastní data, ale ne na data ostatních.
 
-Při používání agentů ke shromažďování dat můžete každého agenta konfigurovat tak, aby ukládal data do jednoho nebo více pracovních prostorů.
+Při používání agentů ke shromažďování dat můžete [každého agenta konfigurovat tak, aby ukládal data do jednoho nebo více pracovních prostorů](log-analytics-windows-agents.md).
 
 Pokud používáte System Center Operations Manager, můžete připojit každou skupinu nástroje Operations Manager jen do jednoho pracovního prostoru. Můžete nainstalovat Microsoft Monitoring Agent do počítačů spravovaných nástrojem Operations Manager a nastavit agenta tak, aby odesílal data do nástroje Operations Manager i do jiného pracovního prostoru Log Analytics.
 
@@ -71,34 +71,64 @@ Podrobnosti o pracovním prostoru můžete zobrazit na webu Azure Portal. Podrob
 
 
 ## <a name="manage-accounts-and-users"></a>Správa účtů a uživatelů
-Každý pracovní prostor může mít přiřazených víc uživatelských účtů, z nichž každý (účet Microsoft nebo účet organizace) může mít přístup k několika pracovním prostorům.
+Každý pracovní prostor může mít přiřazených více účtů, z nichž každý (účet Microsoft nebo účet organizace) může mít přístup k několika pracovním prostorům.
 
-Ve výchozím se správcem pracovního prostoru stává účet Microsoft nebo účet organizace použitý při vytvoření pracovního prostoru. Správce pak může pozvat další účty Microsoft nebo vybrat uživatele ze služby Azure Active Directory.
+Ve výchozím se správcem pracovního prostoru stává účet Microsoft nebo účet organizace použitý při vytvoření pracovního prostoru.
 
-Udělování přístupu k pracovnímu prostoru se provádí na dvou místech:
+Existují dva modely oprávnění, které řídí přístup k pracovnímu prostoru Log Analytics:
 
-* V Azure můžete použít řízení přístupu na základě rolí k poskytnutí přístupu k předplatnému Azure a přidruženým prostředkům. Tato oprávnění se používají také pro přístup k PowerShellu a REST API.
-* V portálu OMS se přiděluje přístup jen k samotnému portálu OMS, nikoli k přidruženému předplatnému Azure.
+1. Starší uživatelské role Log Analytics
+2. [Přístup na základě rolí Azure](../active-directory/role-based-access-control-configure.md) 
 
-K zobrazení dat na dlaždicích řešení Backup a Site Recovery je potřeba oprávnění správce nebo spolusprávce k předplatnému Azure, se kterým je pracovní prostor propojený.   
+Následující tabulka shrnuje možná nastavení přístupu pomocí jednotlivých modelů oprávnění:
 
-### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Správa přístupu ke službě Log Analytics pomocí webu Azure Portal
-Pokud uživatelům umožníte přístup k pracovním prostoru protokolu Log Analytics prostřednictvím oprávnění Azure, například na webu Azure Portal, pak tito uživatelé budou mít přístup i k portálu Log Analytics. Pokud jsou uživatelé na webu Azure Portal, můžou přejít na portál OMS kliknutím na úlohu **OMS Portal** při prohlížení prostředku pracovního prostoru Log Analytics.
+|                          | Portál Log Analytics | portál Azure | Rozhraní API (včetně PowerShellu) |
+|--------------------------|----------------------|--------------|----------------------------|
+| Uživatelské role Log Analytics | Ano                  | Ne           | Ne                         |
+| Přístup na základě rolí Azure  | Ano                  | Ano          | Ano                        |
+
+> [!NOTE]
+> Log Analytics přechází na model oprávnění používající přístup na základě rolí Azure, čímž nahrazuje uživatelské role Log Analytics.
+>
+>
+
+Starší uživatelské role Log Analytics řídí přístup pouze k aktivitám prováděným na [portálu Log Analytics](https://mms.microsoft.com).
+
+Následující aktivity na portálu Log Analytics vyžadují také oprávnění Azure:
+
+| Akce                                                          | Potřebná oprávnění Azure | Poznámky |
+|-----------------------------------------------------------------|--------------------------|-------|
+| Přidání a odebrání řešení pro správu                        | Zápis do skupiny prostředků <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Změna cenové úrovně                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+| Zobrazení dat na dlaždicích řešení *Backup* a *Site Recovery* | Správce nebo spolusprávce | Má přístup k prostředkům nasazeným pomocí modelu nasazení Azure Classic. |
+ 
+### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Správa přístupu k Log Analytics pomocí oprávnění Azure
+Pokud chcete udělit přístup k Log Analytics pomocí oprávnění Azure, postupujte podle kroků v tématu [Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure](../active-directory/role-based-access-control-configure.md).
+
+Pokud máte k pracovnímu prostoru Log Analytics alespoň oprávnění Azure ke čtení, můžete otevřít portál OMS kliknutím na úlohu **Portál OMS** při procházení pracovního prostoru Log Analytics.
+
+Když otevřete portál Log Analytics, přejdete na používání starších uživatelských rolí Log Analytics. Pokud na portálu Log Analytics nemáte přiřazení role, služba [zkontroluje oprávnění Azure, které máte k pracovnímu prostoru](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Vaše přiřazení role na portálu Log Analytics se určuje následujícím způsobem:
+
+| Podmínky                                                   | Přiřazená uživatelské role Log Analytics | Poznámky |
+|--------------------------------------------------------------|----------------------------------|-------|
+| Váš účet patří ke starší uživatelské roli Log Analytics.     | Zadaná uživatelská role Log Analytics | |
+| Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Úplné oprávnění Azure k pracovnímu prostoru (oprávnění `*` <sup>1</sup>) | Správce ||
+| Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Úplné oprávnění Azure k pracovnímu prostoru (oprávnění `*` <sup>1</sup>) <br> *ne akce* `Microsoft.Authorization/*/Delete` a `Microsoft.Authorization/*/Write` | Přispěvatel ||
+| Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Oprávnění Azure ke čtení | Jen pro čtení ||
+| Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Oprávnění Azure nejsou rozpoznána. | Jen pro čtení ||
+| Pro předplatná spravovaná poskytovatelem Cloud Solution Provider (CSP) <br> Účet, pomocí kterého jste přihlášeni, je ve službě Azure Active Directory propojené s pracovním prostorem. | Správce | Obvykle zákazník poskytovatele CSP |
+| Pro předplatná spravovaná poskytovatelem Cloud Solution Provider (CSP) <br> Účet, pomocí kterého jste přihlášeni, není ve službě Azure Active Directory propojené s pracovním prostorem. | Přispěvatel | Obvykle poskytovatel CSP |
+
+<sup>1</sup> Další informace o definicích rolí najdete v tématu [Oprávnění Azure](../active-directory/role-based-access-control-custom-roles.md). Při vyhodnocování rolí není akce `*` stejná jako `Microsoft.OperationalInsights/workspaces/*`. 
 
 Ohledně webu Azure Portal je třeba pamatovat na několik věcí:
 
-* Nejde o *řízení přístupu na základě rolí*. Pokud máte na webu Azure Portal přístup *čtenář* pro pracovní prostor Log Analytics, pak můžete provádět změny pomocí portálu OMS. Portál OMS má koncepce pouze pro uživatele Správce, Přispěvatel a Pouze pro čtení. Pokud je účet, ke kterému jste přihlášeni, propojený ve službě Azure Active Directory s pracovním prostorem, budete na portálu OMS jeho správcem, jinak budete přispěvatelem.
-* Když se přihlásíte k portálu OMS přes stránku http://mms.microsoft.com, ve výchozím nastavení uvidíte seznam **Vybrat pracovní prostor**. Tento seznam obsahuje jen pracovní prostory, které byly přidány pomocí portálu OMS. Když chcete zobrazit pracovní prostory, ke kterým máte přístup s předplatným Azure, bude potřeba zadat tenanta jako část adresy URL. Například:
-
-  `mms.microsoft.com/?tenant=contoso.com` Identifikátor tenanta je často poslední částí e-mailové adresy, se kterou se přihlašujete.
-* Pokud je účet, se kterým se přihlašujete, v tenantu Azure Active Directory, pak jste *Správce* na portálu OMS. To většinou platí, pokud se nepřihlašujete jako odběratel CSP.  Pokud váš účet není účet tenanta Azure Active Directory, budete *Uživatel* portálu OMS.
+* Když se přihlásíte k portálu OMS přes stránku http://mms.microsoft.com, zobrazí se seznam **Vybrat pracovní prostor**. Tento seznam obsahuje pouze pracovní prostory, ve kterých máte uživatelskou roli Log Analytics. Když chcete zobrazit pracovní prostory, ke kterým máte přístup s předplatným Azure, bude potřeba zadat tenanta jako část adresy URL. Například `mms.microsoft.com/?tenant=contoso.com`. Identifikátor tenanta je často poslední částí e-mailové adresy, se kterou se přihlašujete.
 * Pokud chcete přejít přímo na portál, ke kterému máte přístup s použitím oprávnění Azure, je třeba zadat prostředek jako část adresy URL. Tuto adresu URL můžete získat pomocí prostředí PowerShell.
 
   Například, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
   Adresa URL vypadá takto: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-Pokud například uživatel chce přidat nebo odebrat řešení pro správu, musí být při používání webu Azure Portal administrátorem nebo přispěvatelem předplatného Azure. Navíc musí být uživatel členem skupiny přispěvatelů pracovního prostoru OMS nebo mít roli administrátora na portálu OMS.
 
 ### <a name="managing-users-in-the-oms-portal"></a>Správa uživatelů v portálu OMS
 Uživatele a skupiny můžete spravovat na kartě **Manage Users** (Správa uživatelů) v rámci karty **Accounts** (Účty) na stránce nastavení.   
@@ -114,7 +144,7 @@ Pomocí následujícího postupu přidáte k pracovnímu prostoru uživatele neb
 3. V oddílu **Manage Users** (Správa uživatelů) vyberte typ účtu, který chcete přidat: **Organizational Account** (Účet organizace), **Microsoft Account** (Účet Microsoft), nebo **Microsoft Support** (Podpora Microsoft).
 
    * Pokud vyberete možnost Microsoft Account, zadejte e-mailovou adresu uživatele účtu Microsoft.
-   * Pokud vyberete možnost Organizational Account, můžete zadat část e-mailového aliasu nebo jména uživatele nebo skupiny a v rozevíracím seznamu se zobrazí seznam vyhovujících uživatelů a skupin. Vyberte uživatele nebo skupinu.
+   * Pokud vyberete možnost Organizational Account, zadejte část e-mailového aliasu nebo jména uživatele nebo skupiny a v rozevíracím seznamu se zobrazí seznam vyhovujících uživatelů a skupin. Vyberte uživatele nebo skupinu.
    * Prostřednictvím podpory Microsoftu můžete pracovníkovi podpory nebo jinému zaměstnanci Microsoftu poskytnout dočasný přístup k vašemu pracovnímu prostoru kvůli odstraňování potíží.
 
      > [!NOTE]
@@ -154,7 +184,7 @@ Pomocí následujícího postupu můžete odebrat uživatele z pracovního prost
 4. V potvrzovacím dialogovém okně klikněte na **Yes**.
 
 ### <a name="add-a-group-to-an-existing-workspace"></a>Přidání skupiny do existujícího pracovního prostoru
-1. Postupujte podle kroků 1-4 v části „Přidání uživatele do existujícího pracovního prostoru“ nahoře.
+1. Postupujte podle kroků 1–4 v předchozí části „Přidání uživatele do existujícího pracovního prostoru“.
 2. V části **Choose User/Group** (Vyberte uživatele/skupinu) vyberte **Group** (Skupina).  
    ![Přidání skupiny do existujícího pracovního prostoru](./media/log-analytics-manage-access/add-group.png)
 3. Zadejte zobrazovaný název nebo e-mailovou adresu pro skupinu, kterou chcete přidat.
@@ -204,7 +234,7 @@ Ve službě OMS existují tři tarify pracovního prostoru: **Free**, **Standalo
 ### <a name="using-entitlements-from-an-oms-subscription"></a>Používání nároků z předplatného OMS
 Pokud chcete používat nároky z nákupu OMS E1, OMS E2 OMS nebo doplňku OMS pro System Center, zvolte tarif *OMS* služby OMS Log Analytics.
 
-Když si koupíte předplatné OMS, nároky se přidají do vaší smlouvy Enterprise. Jakékoli předplatné vytvořené v rámci této smlouvy může tento nárok uplatnit. Díky tomu můžete například mít několik pracovních prostorů využívajících nárok vyplývající z předplatných OMS.
+Když si koupíte předplatné OMS, nároky se přidají do vaší smlouvy Enterprise. Jakékoli předplatné vytvořené v rámci této smlouvy může tento nárok uplatnit. Všechny pracovní prostory v těchto předplatných uplatňují nárok na OMS.
 
 Pokud se chcete ujistit, že váš pracovní prostor využívá nárok plynoucí z předplatného OMS, proveďte následující:
 
@@ -212,18 +242,18 @@ Pokud se chcete ujistit, že váš pracovní prostor využívá nárok plynoucí
 2. Vyberte pro pracovní prostor tarif *OMS*.
 
 > [!NOTE]
-> Pokud jste pracovní prostor vytvořili před 26. zářím 2016 a cenový tarif služby Log Analytics je *Premium*, bude tento pracovní prostor používat nároky z doplňku OMS pro System Center. Své nároky můžete využít také tak, že přejdete na cenovou úroveň *OMS*.
+> Pokud jste pracovní prostor vytvořili před 26. zářím 2016 a cenový tarif služby Log Analytics je *Premium*, bude tento pracovní prostor uplatňovat nárok z doplňku OMS pro System Center. Své nároky můžete využít také tak, že přejdete na cenovou úroveň *OMS*.
 >
 >
 
 Nároky na předplatné OMS nejsou viditelné na Azure nebo na portálu OMS. Tento nárok uvidíte jen na webu Enterprise Portal.  
 
 Pokud potřebujete změnit předplatné Azure, se kterým je pracovní prostor propojený, můžete použít rutinu prostředí Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
-
+na
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Využití závazků Azure ze smlouvy Enterprise
 Pokud nemáte předplatné OMS, platíte za každou součást OMS zvlášť a využití se zobrazí na faktuře Azure.
 
-Pokud jsou vaše předplatná Azure propojena se smlouvou Enterprise s finančním závazkem, jakékoli využití služby Log Analytics se bude automaticky strhávat ze zbývajícího finančního závazku.
+Pokud jsou vaše předplatná Azure propojena se smlouvou Enterprise s finančním závazkem, využití služby Log Analytics se bude automaticky strhávat ze zbývajícího finančního závazku.
 
 Pokud potřebujete změnit předplatné Azure, se kterým je pracovní prostor propojený, můžete použít rutinu prostředí Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
 
@@ -242,13 +272,13 @@ Pokud potřebujete změnit předplatné Azure, se kterým je pracovní prostor p
 >
 >
 
-## <a name="change-your-data-plan-in-the-oms-portal"></a>Změna datového tarifu na portálu OMS
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Změna pracovního prostoru na placenou cenovou úroveň na portálu OMS
 
-Ke změně datového tarifu pomocí portálu OMS musí přihlášený uživatel již mít účet Azure.
+Pokud chcete změnit cenovou úroveň pomocí portálu OMS, musíte mít předplatné Azure.
 
 1. Na portálu OMS klikněte na dlaždici **Nastavení**.
 2. Klikněte na kartu **Accounts** (Účty) a potom na kartu **Azure Subscription & Data Plan** (Předplatné a datový tarif Azure).
-3. Klikněte na datový tarif, který chcete použít.
+3. Klikněte na cenovou úroveň, kterou chcete použít.
 4. Klikněte na **Uložit**.  
    ![Předplatné a datové tarify](./media/log-analytics-manage-access/subscription-tab.png)
 

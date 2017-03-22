@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -54,8 +55,9 @@ Pokyny kurzu pracují s jedním z následujících produktů:
 
 * Visual Studio 2013
 * Visual Studio 2015
+* Visual Studio 2017
 
-Pokud je nemáte, Visual Studio 2015 se vám nainstaluje automaticky při instalaci sady Azure SDK.
+Pokud je nemáte, Visual Studio se vám může nainstalovat automaticky při instalaci sady Azure SDK.
 
 ## <a name="application-architecture"></a>Architektura aplikace
 Aplikace ukládá reklamy do databáze SQL a k vytváření tabulky a přístupu k datům používá Entity Framework Code First. U každé reklamy databáze ukládá dvě adresy URL. Jednu pro obrázek v plné velikosti a druhou pro miniaturu.
@@ -76,7 +78,7 @@ Když uživatel odešle obrázek, front-end spuštěný ve webové roli obrázek
 
     Visual Studio ve výchozím nastavení automaticky obnoví obsah balíčku NuGet, který nebyl součástí souboru *.zip*. Pokud se balíčky neobnoví, nainstalujte je ručně tak, že přejdete do dialogového okna **Správa balíčků NuGet pro řešení** a kliknete na tlačítko **Obnovit**, které je vpravo nahoře.
 5. V **Průzkumníku řešení** zkontrolujte, jestli je jako spouštěný projekt vybraná možnost **ContosoAdsCloudService**.
-6. Pokud používáte Visual Studio 2015, změňte připojovací řetězec serveru SQL v aplikačním souboru *Web.config* projektu ContosoAdsWeb a v souboru *ServiceConfiguration.Local.cscfg* projektu ContosoAdsCloudService. V každém případě změňte „(localdb) \v11.0“ na „\MSSQLLocalDB (localdb)“.
+6. Pokud používáte Visual Studio 2015 nebo vyšší, změňte připojovací řetězec serveru SQL v aplikačním souboru *Web.config* projektu ContosoAdsWeb a v souboru *ServiceConfiguration.Local.cscfg* projektu ContosoAdsCloudService. V každém případě změňte „(localdb) \v11.0“ na „\MSSQLLocalDB (localdb)“.
 7. Stiskněte klávesy CTRL+F5 a spusťte aplikaci.
 
     Když spouštíte projekt cloudové služby místně, Visual Studio automaticky vyvolá *emulátor služby Výpočty* Azure a *emulátor úložiště* Azure. Emulátor služby Výpočty využívá prostředky počítače k simulaci prostředí webové role a role pracovního procesu. Emulátor úložiště používá databázi serveru [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) k simulaci cloudového úložiště Azure.
@@ -364,7 +366,7 @@ V této části budete konfigurovat službu Azure Storage a připojovací řetě
     </connectionStrings>
     ```
 
-    Pokud používáte Visual Studio 2015, nahraďte text „v11.0“ textem „MSSQLLocalDB“.
+    Pokud používáte Visual Studio 2015 nebo vyšší, nahraďte text „v11.0“ textem „MSSQLLocalDB“.
 2. Uložte provedené změny.
 3. Klikněte v projektu ContosoAdsCloudService pravým tlačítkem v části **Role** na ContosoAdsWeb a potom klikněte na **Vlastnosti**.
 
@@ -381,7 +383,7 @@ V této části budete konfigurovat službu Azure Storage a připojovací řetě
 
    * Název: ContosoAdsDbConnectionString
    * Typ: Řetězec
-   * Hodnota: Vložte stejný připojovací řetězec, který jste použili pro projekt webové role. (Následující příklad je určený pro Visual Studio 2013. Pokud tento příklad kopírujete a používáte Visual Studio 2015, nezapomeňte změnit zdroj dat.)
+   * Hodnota: Vložte stejný připojovací řetězec, který jste použili pro projekt webové role. (Následující příklad je určený pro Visual Studio 2013. Pokud tento příklad kopírujete a používáte Visual Studio 2015 nebo vyšší, nezapomeňte změnit zdroj dat.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -769,9 +771,4 @@ Další informace najdete v následujících materiálech:
 * [Jak spravovat Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 * [Jak vybrat poskytovatele cloudových služeb](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

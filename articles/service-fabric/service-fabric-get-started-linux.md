@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
-ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -46,17 +47,25 @@ Chcete-li nainstalovat sadu SDK a přidružený balíček modulu runtime pomocí
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Přidejte nový klíč GPG do své klíčenky apt.
+3. Přidejte do seznamu zdrojů úložiště dotnet.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. Přidejte nový klíč GPG do své klíčenky apt.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Obnovte seznamy balíčků na základě nově přidaných úložišť.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. Obnovte seznamy balíčků na základě nově přidaných úložišť.
 
     ```bash
     sudo apt-get update
     ```
-
 ## <a name="install-and-set-up-the-sdk"></a>Instalace a nastavení sady SDK
 Jakmile jsou vaše zdroje aktualizované, můžete nainstalovat sadu SDK.
 
@@ -136,16 +145,19 @@ Sada Java SDK poskytuje knihovny a šablony potřebné k sestavení služeb Serv
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-Modul plug-in Eclipse pro Service Fabric můžete nainstalovat z integrovaného vývojového prostředí Eclipse Neon.
+Modul plug-in Eclipse pro Service Fabric můžete nainstalovat z **Eclipse IDE pro vývojáře Java**.
 
-1. V nástroji Eclipse se ujistěte, že máte nainstalovanou verzi Buildship 1.0.17 nebo novější. Verze nainstalovaných komponent můžete zkontrolovat tak, že zvolíte **Nápověda > Podrobnosti o instalaci**. Buildship můžete aktualizovat pomocí pokynů [zde][buildship-update].
+1. V prostředí Eclipse se ujistěte, že máte nainstalované nejnovější prostředí Eclipse **Neon** a nejnovější verzi Buildship (1.0.17 nebo novější). Verze nainstalovaných komponent můžete zkontrolovat tak, že zvolíte **Nápověda > Podrobnosti o instalaci**. Buildship můžete aktualizovat pomocí pokynů [zde][buildship-update].
 2. Chcete-li nainstalovat modul plug-in Service Fabric, zvolte **Nápověda > Instalace nového softwaru**.
 3. Do textového pole „Pracovat s“ zadejte: http://dl.windowsazure.com/eclipse/servicefabric.
 4. Klikněte na Přidat.
-
     ![Modul plug-in Eclipse][sf-eclipse-plugin]
 5. Zvolte modul plug-in služby Service Fabric a klikněte na Další.
 6. Pokračujte v instalaci a přijměte licenční smlouvu pro koncového zákazníka.
+
+Pokud už máte modul plug-in Service Fabric Eclipse nainstalovaný, ověřte, že používáte nejnovější verzi. V části ``Help => Installation Details`` (Nápověda > Podrobnosti o instalaci) můžete zkontrolovat, jestli je možné ho ještě aktualizovat. Pak vyhledejte Service Fabric v seznamu nainstalovaných modulů plug-in a klikněte na Update (Aktualizovat). Pokud existují nějaké čekající aktualizace, načtou se a nainstalují.
+
+Další informace o tom, jak používat modul plug-in Service Fabric Eclipse k vytvoření, sestavení, nasazení a upgradu aplikace Service Fabric v Javě, naleznete v našem podrobném průvodci [Service Fabric: Začínáme s Eclipse](service-fabric-get-started-eclipse.md).
 
 ## <a name="install-the-net-core-sdk-optional"></a>Instalace sady .NET Core SDK (volitelné)
 Sada .NET Core SDK poskytuje knihovny a šablony potřebné k sestavení služeb Service Fabric pomocí .NET Core pro více platforem.
@@ -174,7 +186,8 @@ Pokud chcete aktualizovat sadu SDK a modul runtime na nejnovější verze, spus�
 Pokud chcete aktualizovat rozhraní příkazového řádku, přejděte do adresáře, kam jste naklonovali rozhraní příkazového řádku a proveďte aktualizaci spuštěním příkazu `git pull`.
 
 ## <a name="next-steps"></a>Další kroky
-* [Vytvoření první aplikace v Javě v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
+* [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí Yeomana](service-fabric-create-your-first-linux-application-with-java.md)
+* [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí modulu plug-in Service Fabric pro Eclipse](service-fabric-get-started-eclipse.md)
 * [Vytvoření první aplikace v CSharp v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Příprava vývojového prostředí v OSX](service-fabric-get-started-mac.md)
 * [Správa aplikací Service Fabric pomocí Azure CLI](service-fabric-azure-cli.md)
@@ -189,9 +202,4 @@ Pokud chcete aktualizovat rozhraní příkazového řádku, přejděte do adres�
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

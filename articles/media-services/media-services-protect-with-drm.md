@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 03/16/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8f11b9a6606e30e323295d4144497fae90040d2a
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -88,17 +88,17 @@ V případě dynamického šifrování je třeba pouze vytvořit asset, který o
 
 Pokyny ke kódování najdete v článku o [kódování assetu pomocí kodéru Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Vytvoření klíče k obsahu a jeho přiřazení k zakódovanému assetu
+## <a id="create_contentkey"></a>Vytvoření klíče k obsahu a jeho přiřazení k zakódovanému assetu
 Klíč k obsahu ve službě Media Services obsahuje klíč, kterým chcete asset šifrovat.
 
 Podrobné informace najdete v tématu [Vytvoření klíče k obsahu](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Konfigurace zásad autorizace klíče obsahu
+## <a id="configure_key_auth_policy"></a>Konfigurace zásad autorizace klíče obsahu
 Služba Media Services podporuje více způsobů ověřování uživatelů, kteří žádají o klíč. Zásady autorizace pro klíč k obsahu musíte vy nakonfigurovat a klient (přehrávač) splnit, aby bylo možné mu klíč doručit. Zásady autorizace pro klíč k obsahu mohou obsahovat jedno nebo více omezení autorizace: otevřené omezení nebo omezení s tokenem.
 
 Podrobnější informace najdete v tématu [Konfigurace zásad autorizace pro klíč k obsahu](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Konfigurace zásad doručení assetu
+## <a id="configure_asset_delivery_policy"></a>Konfigurace zásad doručení assetu
 Nakonfigurujte zásady doručení pro asset. Konfigurace zásad doručení assetu zahrnuje následující položky:
 
 * Adresa URL pro získání licence DRM.
@@ -107,7 +107,7 @@ Nakonfigurujte zásady doručení pro asset. Konfigurace zásad doručení asset
 
 Podrobné informace najdete v tématu [Konfigurace zásad doručení assetu ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Pokud chcete získat adresu URL streamování, vytvořte lokátor streamování OnDemand.
+## <a id="create_locator"></a>Pokud chcete získat adresu URL streamování, vytvořte lokátor streamování OnDemand.
 Uživateli je třeba poskytnout adresu URL streamování pro protokol Smooth, DASH nebo HLS.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Získejte testovací token na základě omezení s tokenem, které se používá
 
 K testování datového proudu můžete použít [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Příklad
+## <a id="example"></a>Příklad
 Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Media Services SDK pro .NET verze 3.5.2 (konkrétně se jedná o možnost definovat šablonu licence Widevine a žádat o licenci Widevine ze služby Azure Media Services). K instalaci balíčku byl použit následující příkaz balíčku NuGet:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -160,6 +160,9 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
               </appSettings>
         </configuration>
 7. Přepište kód v souboru Program.cs kódem zobrazeným v této části.
+
+    >[!NOTE]
+    >Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) tématu.
 
     Nezapomeňte aktualizovat proměnné tak, aby odkazovaly do složek, ve kterých jsou umístěné vaše vstupní soubory.
 
@@ -276,20 +279,10 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
@@ -484,7 +477,6 @@ Následující příklad ukazuje funkce, které byly zavedeny v sadě Azure Medi
 
                     return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
                 }
-
 
                 private static string ConfigureWidevineLicenseTemplate()
                 {

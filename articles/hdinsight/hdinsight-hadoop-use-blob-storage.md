@@ -1,6 +1,6 @@
 ---
 title: "Dotazy na data z HDFS kompatibilního úložiště Azure | Dokumentace Microsoftu"
-description: "Zjistěte, jak zadávat dotazy na data ze služby Azure Blob Storage a Azure Data Lake Store pro ukládání výsledků analýzy."
+description: "Zjistěte, jak zadávat dotazy na data ze služby Azure Storage a Azure Data Lake Store pro ukládání výsledků analýzy."
 keywords: "blob storage, hdfs, strukturovaná data, nestrukturovaná data, data lake store"
 services: hdinsight,storage
 documentationcenter: 
@@ -17,28 +17,33 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8133299b062bf3935df9c30dc8a6fcf88a525e
-ms.openlocfilehash: d3af6358a5786510f4f150425d0eb8ed45e52a6c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: f739459681b0941a3dde6ec615ee468444d92c36
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>Použití HDFS kompatibilního úložiště se systémem Hadoop ve službě HDInsight
 
-Pokud chcete analyzovat data v clusteru HDInsight, můžete je ukládat ve službě Azure Blob Storage, Azure Data Lake Store nebo v obou. Obě možnosti ukládání umožňují bezpečné odstranění clusterů HDInsight, které se používají pro výpočty, aniž by se ztratila uživatelská data.
+Pokud chcete analyzovat data v clusteru HDInsight, můžete je ukládat ve službě Azure Storage, Azure Data Lake Store nebo v obou. Obě možnosti ukládání umožňují bezpečné odstranění clusterů HDInsight, které se používají pro výpočty, aniž by se ztratila uživatelská data.
 
-Hadoop podporuje hodnoty výchozího systému souborů. Výchozí systém souborů znamená výchozí schéma a autoritu. Lze ho také použít k vyřešení relativní cesty. Během procesu vytváření clusteru HDInsight můžete jako výchozí systém souborů zadat kontejnery Azure Blob Storage. V případě HDInsightu 3.5 můžete jako výchozí systém souborů Azure Blob Azure nebo Azure Data Lake Store.
+Hadoop podporuje hodnoty výchozího systému souborů. Výchozí systém souborů znamená výchozí schéma a autoritu. Lze ho také použít k vyřešení relativní cesty. Během procesu vytváření clusteru HDInsight můžete jako výchozí systém souborů zadat kontejner objektů blob ve službě Azure Storage. U služby HDInsight 3.5 můžete jako výchozí systém souborů vybrat službu Azure Storage nebo Azure Data Lake Store.
 
 V tomto článku zjistíte, jak tyto dvě možnosti úložiště fungují s clustery HDInsight. Informace o vytvoření clusteru HDInsight najdete v tématu [Začínáme se službou HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-## <a name="using-azure-blob-storage-with-hdinsight-clusters"></a>Použití služby Azure Blob Storage s clustery HDInsight
+## <a name="using-azure-storage-with-hdinsight-clusters"></a>Použití služby Azure Storage s clustery HDInsight
 
-Úložiště objektů blob v Azure je robustní a obecně univerzální úložiště, které se jednoduše integruje s HDInsight. Pomocí rozhraní Hadoop systému souborů DFS (HDFS) se dá použít celá sada součástí k přímému zpracování strukturovaných nebo nestrukturovaných dat v Blob storage.
+Azure Storage je robustní řešení úložiště pro obecné účely, které se jednoduše integruje se službou HDInsight. HDInsight může jako výchozí systém souborů pro cluster používat kontejner objektů blob ve službě Azure Storage. Prostřednictvím rozhraní systému souborů Hadoop DFS (HDFS) může celá sada komponent ve službě HDInsight pracovat přímo se strukturovanými nebo nestrukturovanými daty uloženými jako objekty blob.
 
-> [!IMPORTANT]
-> HDInsight podporuje jen objekty blob bloku. Nepodporuje objekty blob stránky ani doplňovací objekty blob.
+> [!WARNING]
+> Při vytváření účtu služby Azure Storage je k dispozici několik možností. Následující tabulka poskytuje informace o podporovaných možnostech se službou HDInsight:
 > 
-> 
+> | Typ účtu úložiště | Úroveň úložiště | Podporováno se službou HDInsight |
+> | ------- | ------- | ------- |
+> | Účet služby Storage pro obecné účely | Standard | __Ano__ |
+> | &nbsp; | Premium | Ne |
+> | Účet služby Blob Storage | Hot | Ne |
+> | &nbsp; | Cool | Ne |
 
 ### <a name="hdinsight-storage-architecture"></a>Architektura úložiště HDInsight
 Následující diagram představuje abstraktní zobrazení architektury úložiště HDInsight:
@@ -49,7 +54,7 @@ Služba HDInsight poskytuje přístup do systému souborů DFS, který je místn
 
     hdfs://<namenodehost>/<path>
 
-Navíc služba HDInsight poskytuje schopnost přístupu k datům, která jsou uložena v Úložišti objektů blob v Azure. Syntaxe je:
+Služba HDInsight navíc poskytuje možnost přístupu k datům uloženým ve službě Azure Storage. Syntaxe je:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -65,27 +70,27 @@ Při použití účtu Azure Storage s clustery HDInsight je potřeba zvážit ty
   > 
 * **Privátní kontejnery v účtech úložiště, které NEJSOU připojené ke clusteru:** Nemůžete získat přístup k objektům blob, dokud nedefinujete účet úložiště při odesílání úlohy WebHCat. To se vysvětluje dále v tomhle článku.
 
-Účty úložiště, které se definují v procesu vytváření a jejich klíče jsou uloženy v %HADOOP_HOME%/conf/core-site.xml na uzlech clusteru. Výchozím chováním služby HDInsight je používání účtů úložiště, které jsou definovány v souboru core-site.xml. Není doporučeno upravit soubor základní site.xml, protože head node(master) clusteru může být znovu připojit bitovou kopii nebo migrovat kdykoli a veškeré změny na tyto soubory budou ztraceny.
+Účty úložiště, které se definují v procesu vytváření a jejich klíče jsou uloženy v %HADOOP_HOME%/conf/core-site.xml na uzlech clusteru. Výchozím chováním služby HDInsight je používání účtů úložiště, které jsou definovány v souboru core-site.xml. Nedoporučuje se upravovat přímo soubor core-site.xml, protože hlavní uzel (master) clusteru může být kdykoli obnoven z image nebo migrován a změny tohoto souboru se neuchovají.
 
 Více úloh WebHCat, včetně Hive, MapReduce, streamování Hadoop a Pig, může obsahovat popis účtů úložiště a spojených metadat. (To aktuálně funguje pro Pig s účty úložiště, ale ne pro metadata.) V části tohoto článku  [Přístup k objektům blob pomocí Azure PowerShell](#powershell) se nachází příklad této funkce. Více informací najdete v části [Použití clusteru HDInsight s alternativními účty úložiště a metaúložišti](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
-Blob storage se dá použít pro strukturovaná i nestrukturovaná data. Kontejnery Blob storage ukládají data jako páry klíč / hodnota a neexistuje žádná hierarchie adresářů. V názvu klíče se dá použít lomítko (/), aby název klíče připomínal  cestu k souboru. Klíč k objektu blob může být například *input/log1.txt*. Žádný skutečný *vstupní* adresář neexistuje, ale vzhledem k lomítku v názvu klíče tento název připomíná zobrazení cesty k souboru.
+Objekty blob lze použít pro strukturovaná i nestrukturovaná data. Kontejnery objektů blob ukládají data jako páry klíč/hodnota a neexistuje žádná hierarchie adresářů. V názvu klíče se dá použít lomítko (/), aby název klíče připomínal  cestu k souboru. Klíč k objektu blob může být například *input/log1.txt*. Žádný skutečný *vstupní* adresář neexistuje, ale vzhledem k lomítku v názvu klíče tento název připomíná zobrazení cesty k souboru.
 
-### <a name="a-idbenefitsabenefits-of-blob-storage"></a><a id="benefits"></a>Výhody úložiště Blob storage
-Předpokládaná výkonová náročnost společně umístěných výpočetních clusterů a prostředků úložiště je zmírněna tím, že výpočetní clustery jsou vytvořeny blízko prostředků účtu úložiště uvnitř oblasti Azure, kde vysokorychlostní síť umožňuje velmi efektivní přístup výpočetních uzlů k datům uvnitř Úložiště objektů blob v Azure.
+### <a id="benefits"></a>Výhody služby Azure Storage
+Předpokládaná výkonová náročnost společně umístěných výpočetních clusterů a prostředků úložiště je zmírněna tím, že výpočetní clustery jsou vytvořeny blízko prostředků účtu úložiště uvnitř oblasti Azure, kde vysokorychlostní síť umožňuje velmi efektivní přístup výpočetních uzlů k datům ve službě Azure Storage.
 
-Existuje více výhod  spojených s ukládáním dat do Úložiště objektů blob v Azure místo HDFS.
+S ukládáním dat ve službě Azure Storage namísto HDFS je spojeno několik výhod:
 
-* **Opakované použití dat a sdílení:** data v HDFS se nachází uvnitř výpočetního clusteru. Jenom aplikace, které mají přístup k výpočetnímu clusteru, můžou používat data pomocí rozhraní API HDFS. Data ve službě Azure Blob Storage jsou přístupná prostřednictvím rozhraní API HDFS nebo prostřednictvím [rozhraní API REST služby Blob Storage][blob-storage-restAPI]. Proto s větším počtem aplikací (včetně jiných clusterů HDInsight) a nástrojů  se dají vytvářet a využívat data.
-* **Archivace dat:** Ukládání dat do Úložiště objektů blob v Azure umožní bezpečné odstranění clusterů HDInsight, které jsou používány pro výpočty, aniž by se ztratila uživatelská data.
-* **Náklady na úložiště dat:** Ukládání dat v systému souborů DFS je z dlouhodobého hlediska dražší než ukládání dat do Úložiště objektů Blob v Azure, protože náklady na výpočetní cluster jsou vyšší než náklady na kontejner Úložiště objektů Blob v Azure. Navíc se data nemusí nahrávat znovu pro každou generaci výpočetních clusterů, náklady na nahrávání dat jsou tak nižší.
-* **Elastické škálování:** I když HDFS poskytuje škálovaný systém souborů, škála se určuje podle počtu uzlů, které vytvoříte pro svůj cluster. Změna škálování může být složitější než využití elastického škálování, které je automaticky k dispozici v Úložišti objektů blob v Azure.
-* **Geografická replikace:** Vaše kontejnery Úložiště objektů blob v Azure se mohou geograficky replikovat. I když to přináší geografické obnovení a redundanci dat, převzetí služeb při selhání do geograficky replikovaného umístění vážně ovlivňuje výkon a může vést k dalším nákladům. Doporučujeme proto geografickou replikaci dobře zvážit a zvolit jen v případě, že hodnota dat je vyšší než náklady na celou operaci.
+* **Opakované použití dat a sdílení:** data v HDFS se nachází uvnitř výpočetního clusteru. Jenom aplikace, které mají přístup k výpočetnímu clusteru, můžou používat data pomocí rozhraní API HDFS. Data ve službě Azure Storage jsou přístupná prostřednictvím rozhraní API HDFS nebo prostřednictvím [rozhraní REST API služby Blob Storage][blob-storage-restAPI]. Proto s větším počtem aplikací (včetně jiných clusterů HDInsight) a nástrojů  se dají vytvářet a využívat data.
+* **Archivace dat:** Ukládání dat ve službě Azure Storage umožňuje bezpečné odstranění clusterů HDInsight, které jsou používány pro výpočty, aniž by se ztratila uživatelská data.
+* **Náklady na úložiště dat:** Ukládání dat v systému souborů DFS je z dlouhodobého hlediska dražší než ukládání dat ve službě Azure Storage, protože náklady na výpočetní cluster jsou vyšší než náklady na službu Azure Storage. Navíc se data nemusí nahrávat znovu pro každou generaci výpočetních clusterů, náklady na nahrávání dat jsou tak nižší.
+* **Elastické škálování:** I když HDFS poskytuje škálovaný systém souborů, škála se určuje podle počtu uzlů, které vytvoříte pro svůj cluster. Změna škálování může být složitější než využití elastického škálování, které je automaticky k dispozici ve službě Azure Storage.
+* **Geografická replikace:** Službu Azure Storage je možné geograficky replikovat. I když to přináší geografické obnovení a redundanci dat, převzetí služeb při selhání do geograficky replikovaného umístění vážně ovlivňuje výkon a může vést k dalším nákladům. Doporučujeme proto geografickou replikaci dobře zvážit a zvolit jen v případě, že hodnota dat je vyšší než náklady na celou operaci.
 
-Některé úlohy a balíčky MapReduce můžou vytvořit mezilehlé výsledky, které do úložiště objektů Blob Azure ve skutečnosti uložit  nechcete. V takovém případě můžete zvolit k uložení dat do místní HDFS. Ve skutečnosti služba HDInsight používá DFS pro některé z těchto mezilehlých výsledků v úlohách Hive a jiných procesech.
+Některé úlohy a balíčky MapReduce můžou vytvořit mezilehlé výsledky, které ve službě Azure Storage ve skutečnosti uložit nechcete. V takovém případě můžete zvolit k uložení dat do místní HDFS. Ve skutečnosti služba HDInsight používá DFS pro některé z těchto mezilehlých výsledků v úlohách Hive a jiných procesech.
 
 > [!NOTE]
-> Většina příkazů HDFS (například <b>ls</b>, <b>copyFromLocal</b> a <b>mkdir</b>) bude i nadále fungovat podle očekávání. Jenom příkazy, které jsou specifické pro nativní implementaci HDFS (což se označuje jako DFS), jako je například <b>fschk</b> a <b>dfsadmin</b>, se budou chovat v Úložišti objektů blob v Azure odlišně.
+> Většina příkazů HDFS (například <b>ls</b>, <b>copyFromLocal</b> a <b>mkdir</b>) bude i nadále fungovat podle očekávání. Jenom příkazy, které jsou specifické pro nativní implementaci HDFS (což se označuje jako DFS), jako je například <b>fschk</b> a <b>dfsadmin</b>, se budou chovat ve službě Azure Storage odlišně.
 > 
 > 
 
@@ -94,7 +99,7 @@ K použití objektů blob je třeba nejprve vytvořit [Účet služby Azure Stor
 
 Bez ohledu na svoje umístění patří každý objekt blob, který vytvoříte, do kontejneru v účtu úložiště Azure. Tento kontejner může být existující objekt blob, který se vytvořil mimo HDInsight, nebo to může být kontejner, který se vytvořil pro cluster služby HDInsight.
 
-Výchozí kontejner objektu blob ukládá konkrétní informace, jako je historie úlohy a protokoly. Výchozí kontejner objektu Blob nesdílejte s více clustery služby HDInsight. Může dojít k poškození historie úlohy a k nesprávnému chování clusteru. Doporučujeme použít jiný kontejner pro každý cluster a umístit sdílená data na propojený účet úložiště, zadaný v nasazení všech příslušných clusterů, nikoli na výchozí účet úložiště. Další informace o konfiguraci propojených účtů úložiště najdete v tématu [Tvorba clusterů HDInsight][hdinsight-creation]. Nicméně, po odstranění původního clusteru HDInsight můžete znovu použít výchozí kontejner úložiště. Pro clustery HBase můžete zachovat schéma a data tabulky HBase vytvořením  nového clusteru HBase pomocí výchozího kontejneru blob storage, který je používán clusterem HBase, který byl odstraněn.
+Výchozí kontejner objektu blob ukládá konkrétní informace, jako je historie úlohy a protokoly. Výchozí kontejner objektu Blob nesdílejte s více clustery služby HDInsight. Může dojít k poškození historie úlohy. Doporučujeme použít jiný kontejner pro každý cluster a umístit sdílená data na propojený účet úložiště, zadaný v nasazení všech příslušných clusterů, nikoli na výchozí účet úložiště. Další informace o konfiguraci propojených účtů úložiště najdete v tématu [Tvorba clusterů HDInsight][hdinsight-creation]. Nicméně, po odstranění původního clusteru HDInsight můžete znovu použít výchozí kontejner úložiště. Pro clustery HBase můžete zachovat schéma a data tabulky HBase vytvořením nového clusteru HBase pomocí výchozího kontejneru objektů blob, který je používán odstraněným clusterem HBase.
 
 #### <a name="using-the-azure-portal"></a>Použití webu Azure Portal
 Při vytváření clusteru HDInsight z portálu máte možnost (jak je vidět níže) zadat podrobnosti účtu úložiště. Můžete také určit, jestli chcete ke clusteru přidružit další účet úložiště, a pokud ano, zvolit jako další úložiště službu Data Lake Store nebo další Azure Storage Blob.
@@ -109,11 +114,11 @@ Pokud máte [nainstalováno a nakonfigurováno rozhraní příkazového řádku 
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> `--type` Parametr označuje, jak bude replikován účet úložiště. Další informace najdete v tématu [Replikace Azure Storage](../storage/storage-redundancy.md). Nepoužívejte ZRS, protože nepodporuje objekt blob, soubor,  tabulku nebo frontu stránky.
+> Parametr `--type` určuje, jak bude účet úložiště replikován. Další informace najdete v tématu [Replikace Azure Storage](../storage/storage-redundancy.md). Nepoužívejte ZRS, protože nepodporuje objekt blob, soubor,  tabulku nebo frontu stránky.
 > 
 > 
 
-Budete vyzváni k zadání geografické oblasti, ve které se bude nacházet účet úložiště. Účet úložiště byste měli vytvořit ve stejné oblasti, kterou chcete použít k vytvoření clusteru služby HDInsight.
+Budete vyzváni k zadání geografické oblasti, ve které se vytvoří účet úložiště. Účet úložiště byste měli vytvořit ve stejné oblasti, kterou chcete použít k vytvoření clusteru služby HDInsight.
 
 Po vytvoření účtu úložiště použijte následující příkaz k načtení klíčů účtu úložiště:
 
@@ -149,15 +154,14 @@ Pokud jste [nainstalovali a nakonfigurovali Azure PowerShell][powershell-install
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-blob-storage"></a>Adresování souborů v Blob storage
-Schéma identifikátoru URI pro přístup k souborům v Blob storage ze služby HDInsight je:
+### <a name="address-files-in-azure-storage"></a>Adresování souborů ve službě Azure Storage
+Schéma identifikátoru URI pro přístup k souborům ve službě Azure Storage ze služby HDInsight je:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-
 Schéma identifikátoru URI poskytuje nezašifrovaný přístup (s předponou *wasb:*) a zašifrovaný přístup SSL (s *wasbs*). Doporučujeme používat *wasbs* kdykoli je to možné, i v případě přístupu k datům, umístěným uvnitř stejné oblasti v Azure.
 
-&lt;BlobStorageContainerName&gt; identifikuje název kontejneru v Úložiště objektů blob v Azure.
+&lt;BlobStorageContainerName&gt; označuje název kontejneru objektů blob ve službě Azure Storage.
 &lt;StorageAccountName&gt; identifikuje název účtu úložiště Azure. Vyžaduje se plně kvalifikovaný název domény (FQDN).
 
 Pokud nebyl zadán &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&gt;, použije se výchozí systém souborů. Pro soubory ve výchozím systému souborů můžete použít relativní cestu nebo absolutní cestu. Například soubor *hadoop-mapreduce-examples.jar*, který se dodává s clustery HDInsight, lze odkazovat pomocí jedné z následujících akcí:
@@ -171,7 +175,7 @@ Pokud nebyl zadán &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&g
 > 
 > 
 
-&lt;Cesta&gt; je název cesty HDFS souboru nebo adresáře. Vzhledem k tomu, že kontejnery v Úložišti objektů Blob v Azure jsou jednoduchým ukládáním hodnot klíčů, neexistuje žádný opravdový hierarchický systém souborů. Lomítko ( / ) uvnitř klíče objektu blob se považuje za oddělovač adresářů. Například název objektu blob pro *hadoop-mapreduce-examples.jar* je:
+&lt;Cesta&gt; je název cesty HDFS souboru nebo adresáře. Vzhledem k tomu, že kontejnery ve službě Azure Storage jsou jednoduše úložiště párů klíč-hodnota, neexistuje žádný opravdový hierarchický systém souborů. Lomítko ( / ) uvnitř klíče objektu blob se považuje za oddělovač adresářů. Například název objektu blob pro *hadoop-mapreduce-examples.jar* je:
 
     example/jars/hadoop-mapreduce-examples.jar
 
@@ -346,7 +350,7 @@ Na následujících odkazech najdete podrobné pokyny k vytvoření clusterů HD
 
 
 ## <a name="next-steps"></a>Další kroky
-V tomto článku jste zjistili, jak používat HDFS kompatibilní službu Azure Blob Storage a Azure Data Lake Store s HDInsight. To umožňuje vytvářet škálovatelná a dlouhodobá řešení pro získávání archivovaných dat a používat službu HDInsight k odemčení informací uvnitř uložených strukturovaných a nestrukturovaných dat.
+V tomto článku jste zjistili, jak používat HDFS kompatibilní službu Azure Storage a Azure Data Lake Store se službou HDInsight. To umožňuje vytvářet škálovatelná a dlouhodobá řešení pro získávání archivovaných dat a používat službu HDInsight k odemčení informací uvnitř uložených strukturovaných a nestrukturovaných dat.
 
 Další informace naleznete v tématu:
 

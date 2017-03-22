@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/26/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
-ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>Co je Site Recovery?
 
-Vítá vás služba Azure Site Recovery! Tento článek poskytuje přehled služby a odkazy na další informace.
+Vítá vás služba Azure Site Recovery! Tento článek přináší stručný přehled služby.
 
-Obchodní výpadky jsou způsobené přírodními událostmi a provozními chybami. Vaše organizace potřebuje strategii pro provozní kontinuitu a zotavení po havárii (BCDR), která zajistí zabezpečení dat a dostupnost aplikací během plánovaných i neplánovaných výpadků a co nejrychlejší obnovení normální pracovních podmínek.
+Výpadky jsou způsobené přírodními událostmi a provozními chybami. Vaše organizace potřebuje strategii pro provozní kontinuitu a zotavení po havárii (BCDR), aby během plánovaných i neplánovaných výpadků zůstala vaše data v bezpečí a aplikace dostupné a aby došlo k co nejrychlejšímu obnovení normální pracovních podmínek.
 
 Služba Azure Recovery Services přispívá ke strategii BCDR. Služba [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) zajišťuje bezpečnost a obnovitelnost vašich dat. Site Recovery replikuje, přebírá služby při selhání a obnovuje úlohy, aby zůstaly dostupné i v případě selhání.
 
@@ -47,12 +47,6 @@ Replikovaná data se ukládají ve službě Azure Storage s odolností, kterou t
 * **Integrace s knihovnou Automation** – Bohatá knihovna Azure Automation obsahuje předpřipravené skripty specifické pro aplikace, které je možné stáhnout a integrovat se Site Recovery.
 * **Jednoduchá správa sítě** – Pokročilá správa sítě v Site Recovery a Azure, která zjednodušuje požadavky aplikací na síť, včetně rezervace IP adres, konfigurace nástrojů pro vyrovnávání zatížení a integrace služby Azure Traffic Manager pro efektivní přepínání sítí.
 
-## <a name="which-azure-portal"></a>Který portál Azure?
-
-* Site Recovery je možné nasadit na novějším webu [Azure Portal](https://portal.azure.com) i na [portálu Azure Classic](https://manage.windowsazure.com/).
-* Na portálu Azure Classic můžete podporovat Site Recovery s klasickým modelem správy služeb.
-* Na webu Azure Portal můžete podporovat klasický model nasazení nebo novější [model nasazení Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
-- Portál Classic by se měl používat jenom k údržbě stávajících nasazení Site Recovery. Na portálu Classic nelze vytvářet nové trezory.
 
 ## <a name="whats-supported"></a>Co je podporováno?
 
@@ -64,6 +58,14 @@ Replikovaná data se ukládají ve službě Azure Storage s odolností, kterou t
 **Kam můžu replikovat?** | Do úložiště Azure nebo do sekundárního datacentra<br/><br/> Pro Hyper-V je možné do sekundárního datacentra replikovat pouze virtuální počítače na hostitelích Hyper-V spravovaných v cloudech System Center VMM.
 **Jaké servery nebo hostitele VMware potřebuji?** | Virtuální počítače VMware, které chcete replikovat, můžou být spravované [podporovanými hostiteli vSphere nebo servery vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 **Jaké úlohy můžu replikovat?** | Můžete replikovat jakoukoli úlohu běžící v podporovaném počítači replikace. Kromě toho tým Site Recovery [pro řadu aplikací](site-recovery-workload.md#workload-summary) provedl testování specifické pro aplikace.
+
+
+## <a name="which-azure-portal"></a>Který portál Azure?
+
+* Site Recovery je možné nasadit na novějším webu [Azure Portal](https://portal.azure.com) i na [portálu Azure Classic](https://manage.windowsazure.com/).
+* Na portálu Azure Classic můžete podporovat Site Recovery s klasickým modelem správy služeb.
+* Na webu Azure Portal můžete podporovat klasický model nasazení nebo novější [model nasazení Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
+- Portál Classic by se měl používat jenom k údržbě stávajících nasazení Site Recovery. Na portálu Classic nelze vytvářet nové trezory.
 
 ## <a name="next-steps"></a>Další kroky
 * Další informace o [podpoře úloh](site-recovery-workload.md)

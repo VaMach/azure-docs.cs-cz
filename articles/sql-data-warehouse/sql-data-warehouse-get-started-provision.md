@@ -16,8 +16,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
-ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +36,7 @@ Tento kurz využívá portál Azure k vytvoření služby SQL Data Warehouse, kt
 Na začátek budete potřebovat:
 
 * **Účet Azure**: Pokud si chcete vytvořit účet, přejděte na stránku [Bezplatná zkušební verze Azure][Azure Free Trial] nebo [Kredity Azure pro předplatitele MSDN][MSDN Azure Credits].
-* **Server SQL Azure:** Další podrobnosti najdete v části [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][Create an Azure SQL Database logical server with the Azure portal].
+* **Server SQL Azure:** Další podrobnosti najdete v části [Vytvoření Azure SQL Database pomocí webu Azure Portal][Create an Azure SQL database in the Azure portal].
 
 > [!NOTE]
 > Vytvoření služby SQL Data Warehouse může znamenat, že se vám začne fakturovat nová služba.  Další podrobnosti najdete v tématu [SQL Data Warehouse – ceny][SQL Data Warehouse pricing].
@@ -82,11 +83,11 @@ Pravidla brány firewall lze také konfigurovat pomocí jazyka Transact-SQL. Dal
 Také může být užitečné podívat se na [Osvědčené postupy][Best practices].
 
 <!--Article references-->
-[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Create an Azure SQL database in the Azure portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
 [resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
 [Best practices]: sql-data-warehouse-best-practices.md
-[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: sql-data-warehouse-overview-what-is.md
 [předplatné]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
@@ -99,9 +100,4 @@ Také může být užitečné podívat se na [Osvědčené postupy][Best practic
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

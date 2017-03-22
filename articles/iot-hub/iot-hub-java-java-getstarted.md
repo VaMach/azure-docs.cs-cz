@@ -16,9 +16,9 @@ ms.date: 03/07/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a8bc1b0a1011cc2d7719d93fad9db76a7b0f0795
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b7dbfff716806e8b91488d3eb5eafab582e173ba
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -64,9 +64,13 @@ V této části vytvoříte konzolovou aplikaci Java, která v registru identit 
     ```
     <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.14</version>
+      <version>1.0.15</version>
     </dependency>
     ```
+    
+    > [!NOTE]
+    > Můžete vyhledat nejnovější verzi **iot-service-client** pomocí [vyhledávání Maven][lnk-maven-service-search].
+
 4. Soubor pom.xml uložte a zavřete.
 5. Pomocí textového editoru otevřete soubor create-device-identity\src\main\java\com\mycompany\app\App.java.
 6. Do souboru přidejte následující příkazy pro **import**:
@@ -147,9 +151,13 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.11.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
+
+    > [!NOTE]
+    > Můžete vyhledat nejnovější verzi **azure-eventhubs** pomocí [vyhledávání Maven][lnk-maven-eventhubs-search].
+
 4. Soubor pom.xml uložte a zavřete.
 5. Pomocí textového editoru otevřete soubor  read-d2c-messages\src\main\java\com\mycompany\app\App.java.
 6. Do souboru přidejte následující příkazy pro **import**:
@@ -280,7 +288,7 @@ V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízen�
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.20</version>
+      <version>1.0.21</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -288,6 +296,10 @@ V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízen�
       <version>2.3.1</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > Můžete vyhledat nejnovější verzi **iot-device-client** pomocí [vyhledávání Maven][lnk-maven-device-search].
+
 4. Soubor pom.xml uložte a zavřete.
 5. Pomocí textového editoru otevřete soubor simulated-device\src\main\java\com\mycompany\app\App.java.
 6. Do souboru přidejte následující příkazy pro **import**:
@@ -470,3 +482,6 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-maven]: https://maven.apache.org/what-is-maven.html
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+[lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+[lnk-maven-eventhubs-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22

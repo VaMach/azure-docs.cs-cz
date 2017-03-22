@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
-ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -53,8 +53,8 @@ V tomto kurzu provedete následující:
 
    ![Okno Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Projděte si dostupné šablony SQL Serveru. U každé šablony je označena příslušná verze SQL Serveru a operační systém. 
-6. Vyberte šablonu pro SQL Server 2016 SP1 Developer v systému Windows Server 2016.
+5. Projděte si dostupné image SQL Serveru. U každé image je označena příslušná verze SQL Serveru a operační systém. 
+6. Vyberte image pro SQL Server 2016 SP1 Developer v systému Windows Server 2016.
 
    > [!TIP]
    > V tomto kurzu se používá edice Developer, protože je to plná verze SQL Serveru, která je zdarma pro účely testování vývoje. Platíte jenom náklady na provozování virtuálního počítače.
@@ -97,7 +97,7 @@ V okně **Základy** zadejte následující informace:
     ![Okno Základy pro SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Volba velikosti virtuálního počítače
-V kroku **Velikost** zvolte velikost virtuálního počítače v okně **Zvolte velikost**. V okně se po jeho otevření zobrazí doporučené velikosti počítačů na základě šablony, kterou jste vybrali. Uvidíte tu také odhadované měsíční náklady na provozování virtuálního počítače.
+V kroku **Velikost** zvolte velikost virtuálního počítače v okně **Zvolte velikost**. V okně se po jeho otevření zobrazí doporučené velikosti počítačů na základě image, kterou jste vybrali. Uvidíte tu také odhadované měsíční náklady na provozování virtuálního počítače.
 
 ![Možnosti velikosti virtuálního počítače s SQL Serverem](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
