@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/14/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: a3fc1a6bf552ed8c6511c432c0d74b76247ce877
-ms.openlocfilehash: c08d863ef8913b9bad766c6232faaaa0a6cfa950
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 1d208f931af4704528309780b45e170627f1753c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -139,6 +140,8 @@ Po vytvoření připojení vrátíte odkaz na databázi mezipaměti Redis zavol�
     // Simple get of data types from the cache
     string key1 = cache.StringGet("key1");
     int key2 = (int)cache.StringGet("key2");
+
+Mezipaměti Azure Redis Cache mají konfigurovatelný počet databází (výchozí je 16), který lze použít k logickému oddělení dat v rámci mezipaměti Redis. Další informace najdete v tématu [Co jsou databáze Redis?](cache-faq.md#what-are-redis-databases) a [Výchozí konfigurace serveru Redis](cache-configure.md#default-redis-server-configuration).
 
 Nyní, když už víte, jak se připojit k instanci služby Azure Redis Cache a vrátit odkaz na databázi mezipaměti, se podíváme na práci s mezipamětí.
 
@@ -295,10 +298,5 @@ Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zj
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5c26aaea6acfab8c4c60478968e0b68543086a9d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -101,6 +102,8 @@ Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zk
 
 ## <a name="considerations"></a>Požadavky
 * V současné době doporučujeme maximální dobu trvání živé události v délce 8 hodin. Pokud potřebujete, aby kanál běžel delší dobu, kontaktujte nás prosím na adrese amslived@microsoft.com.
+* Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) tématu.
+
 
 ## <a name="download-sample"></a>Stažení ukázky
 Ukázku můžete získat a spustit z [tohoto odkazu](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -129,6 +132,7 @@ Do souboru app.config přidejte oddíl appSettings a nastavte hodnoty názvu a k
 
 
 ## <a name="code-example"></a>Příklad kódu
+
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -524,10 +528,5 @@ Prohlédněte si mapy kurzů k Media Services.
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

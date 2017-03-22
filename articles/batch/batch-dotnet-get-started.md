@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +48,7 @@ Tento článek předpokládá, že máte praktické znalosti jazyka C# a sady Vi
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-K vytvoření ukázkového projektu potřebujete sadu **Visual Studio 2015**. V [přehledu produktů Visual Studio 2015][visual_studio] najdete bezplatné a zkušební verze sady Visual Studio.
+K vytvoření ukázkového projektu potřebujete sadu **Visual Studio 2015 nebo novější**. V [přehledu produktů Visual Studio][visual_studio] najdete bezplatné a zkušební verze sady Visual Studio.
 
 ### <a name="dotnettutorial-code-sample"></a>Ukázka kódu *DotNetTutorial*
 Ukázka [DotNetTutorial][github_dotnettutorial] je jednou z mnoha ukázek kódu Batch, které najdete v úložišti na GitHubu [azure-batch-samples][github_samples]. Všechny ukázky můžete stáhnout kliknutím na **Klonovat nebo stáhnout > Stáhnout ZIP** na domovské stránce úložiště, nebo kliknutím na přímý odkaz ke stažení [azure-batch-samples-master.zip][github_samples_zip]. Po extrahování obsahu souboru ZIP najdete řešení v následující složce:
@@ -59,7 +59,7 @@ Ukázka [DotNetTutorial][github_dotnettutorial] je jednou z mnoha ukázek kódu 
 [Azure Batch Explorer][github_batchexplorer] je bezplatný nástroj, který najdete v úložišti na GitHubu [azure-batch-samples][github_samples]. Není sice k dokončení kurzu nutný, ale může být užitečný při vývoji a ladění vašich řešení Batch.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Přehled ukázkového projektu DotNetTutorial
-Ukázka kódu *DotNetTutorial* je řešení sady Visual Studio 2015, které se skládá ze dvou projektů: **DotNetTutorial** a **TaskApplication**.
+Ukázka kódu *DotNetTutorial* je řešení sady Visual Studio, které se skládá ze dvou projektů: **DotNetTutorial** a **TaskApplication**.
 
 * **DotNetTutorial** je klientská aplikace, která komunikuje se službou Batch a se službou Azure Storage při spouštění paralelní úlohy na výpočetních uzlech (virtuálních počítačích). DotNetTutorial se spouští na místní pracovní stanici.
 * **TaskApplication** je program, který běží na výpočetních uzlech v Azure a provádí samotnou práci. V tomto příkladu `TaskApplication.exe` analyzuje text v souboru staženém ze služby Azure Storage (vstupní soubor). Potom vytvoří textový soubor (výstupní soubor), který obsahuje seznam nejčastějších tří slov, která se zobrazují ve vstupním souboru. Po vytvoření výstupního souboru TaskApplication odešle soubor do služby Azure Storage. Klientská aplikace ho tak bude mít k dispozici ke stažení. TaskApplication běží paralelně v několika výpočetních uzlech v rámci služby Batch.
@@ -792,7 +792,7 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Vytvoření kontejnerů ve službě Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Odeslání aplikačních a vstupních (datových) souborů úkolů do kontejnerů"

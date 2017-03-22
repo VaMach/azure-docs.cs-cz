@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -55,8 +56,8 @@ Následující odkazy budou užitečné při prozkoumávání služby do hloubky
 
 * Viz [Informace o cenách Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Projděte si naše [ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) pro Azure Active Directory B2C. 
-* Získejte pomoc na Stack Overflow pomocí značek [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) nebo [adal](http://stackoverflow.com/questions/tagged/adal).
-* Sdělte nám své myšlenky pomocí [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) – Chceme je slyšet! Použijte frázi "AzureADB2C:" v názvu svého příspěvku, abychom ho našli.
+* Získejte pomoc na Stack Overflow pomocí značky [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Sdělte nám své myšlenky pomocí [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) – Chceme je slyšet!
 * Přečtěte si [Referenci protokolu Azure AD B2C](active-directory-b2c-reference-protocols.md).
 * Přečtěte si [Referenci tokenu Azure AD B2C](active-directory-b2c-reference-tokens.md).
 * Přečtěte si [Nejčastější dotazy k Azure Active Directory B2C](active-directory-b2c-faqs.md).
@@ -64,10 +65,5 @@ Následující odkazy budou užitečné při prozkoumávání služby do hloubky
 
 ## <a name="get-security-updates-for-our-products"></a>Získejte bezpečnostní aktualizace našich produktů
 Doporučujeme vám získávat oznámení o bezpečnostních incidentech tak, že navštívíte [tuto stránku](https://technet.microsoft.com/security/dd252948) a přihlásíte se k odběru služby Security Advisory Alerts.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

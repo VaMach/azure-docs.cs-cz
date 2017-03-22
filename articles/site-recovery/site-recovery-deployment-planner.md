@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ Zkopírujte soubor .zip na Windows Server, na kterém chcete nástroj spustit. P
 Rozbalte složku zip. Uvidíte několik souborů a podsložek. Spustitelný soubor je ASRDeploymentPlanner.exe v nadřazené složce.
 
 Příklad: Zkopírujte soubor .zip na jednotku E:\ a rozbalte jej.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>Možnosti
 Nástroj příkazového řádku (ASRDeploymentPlanner.exe) je možné spustit v některém z následujících tří režimů:
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Příklad 2: Generování sestavy pro profilovaná data umístěná na vzdáleném serveru. Uživatel musí mít ke vzdálenému adresáři přístup ke čtení a zápisu.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Příklad 3: Generování sestavy s použitím konkrétní šířky pásma a cíle dokončení prvotní replikace v zadaném čase
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -407,10 +407,10 @@ Stránka Input (Vstup) poskytuje přehled profilovaného prostředí VMware.
 
 **Virtual Machines to Place** obsahuje seznam všech virtuálních počítačů, které by se měly umístit do daného účtu služby Azure Storage pro zajištění optimálního výkonu a využití.
 
-##<a name="compatible-vms"></a>Kompatibilní virtuální počítače
+## <a name="compatible-vms"></a>Kompatibilní virtuální počítače
 ![Deployment Planner](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name** je název nebo IP adresa virtuálního počítače tak, jak se použily v souboru VMListFile v okamžiku generování sestav. V tomto sloupci jsou uvedeny také disky (VMDK) připojené k virtuálním počítačům.
+**VM Name** je název nebo IP adresa virtuálního počítače tak, jak se použily v souboru VMListFile v okamžiku generování sestav. V tomto sloupci jsou uvedeny také disky (VMDK) připojené k virtuálním počítačům. Virtuální počítače na serveru vCenter s duplicitními názvy nebo IP adresami se označují názvem hostitele ESXi, aby je bylo možné rozlišit. Uvedený hostitel ESXi je hostitel, na kterém byl daný virtuální počítač umístěn, když byl nástrojem poprvé zjištěn během období profilování.
 
 **VM Compatibility** (Kompatibilita virtuálního počítače) obsahuje dvě hodnoty – Yes / Yes*. Yes* (Ano) je pro případy, kdy je virtuální počítač vhodný pro [službu Azure Storage úrovně Premium](https://aka.ms/premium-storage-workload) a obsahuje profilovaný disk s vysokou četností změn nebo vysokým počtem IOPS, který spadá do kategorie P20 nebo P30, ale kvůli velikosti se disk mapuje na nižší kategorii P10 nebo P20. Azure Storage určuje, na jaký typ disku služby Storage úrovně Premium se disk bude mapovat, na základě jeho velikosti – menší než 128 GB je P10, 128 až 512 GB je P20 a 512 až 1 023 je P30. Proto pokud se díky charakteristikám úloh disk umístil do kategorie P20 nebo P30, ale kvůli velikosti je namapován na nižší typ disku služby Storage úrovně Premium, nástroj označí příslušný virtuální počítač jako Yes* a doporučí změnit velikost zdrojového disku tak, aby se vešel do správného doporučeného typu disku služby Storage úrovně Premium, nebo po převzetí služeb při selhání změnit typ cílového disku.
 „Storage Type“ (Typ služby Storage) je Standard nebo Premium.
@@ -439,7 +439,7 @@ Stránka Input (Vstup) poskytuje přehled profilovaného prostředí VMware.
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Name** je název nebo IP adresa virtuálního počítače tak, jak se použily v souboru VMListFile v okamžiku generování sestav. V tomto sloupci jsou uvedeny také disky (VMDK) připojené k virtuálním počítačům.
+**VM Name** je název nebo IP adresa virtuálního počítače tak, jak se použily v souboru VMListFile v okamžiku generování sestav. V tomto sloupci jsou uvedeny také disky (VMDK) připojené k virtuálním počítačům. Virtuální počítače na serveru vCenter s duplicitními názvy nebo IP adresami se označují názvem hostitele ESXi, aby je bylo možné rozlišit. Uvedený hostitel ESXi je hostitel, na kterém byl daný virtuální počítač umístěn, když byl nástrojem poprvé zjištěn během období profilování.
 
 **VM Compatibility** označujte, proč je daný virtuální počítač nekompatibilní s Azure Site Recovery. Pro jednotlivé nekompatibilní disky virtuálního počítače jsou uvedené důvody. V závislosti na publikovaných [omezeních](https://aka.ms/azure-storage-scalbility-performance) služby Azure Storage může důvodem být některá z následujících možností.
 
@@ -483,7 +483,24 @@ Toto jsou průměrné hodnoty za předpokladu, že se vstupně-výstupní operac
 
 Výše uvedená omezení se zakládají na našich testováních, nemůžou však pokrýt všechny možné kombinace vstupně-výstupních operací aplikace. Skutečné výsledky se budou lišit v závislosti na kombinaci vstupně-výstupních operací vaší aplikace. Pro dosažení co nejlepších výsledků i po naplánování nasazení se vždy doporučuje provádět rozsáhlá testování aplikace pomocí testovacího převzetí služeb při selhání, abyste získali skutečnou představu o výkonu.
 
-##<a name="release-notes"></a>Poznámky k verzi
+## <a name="how-to-update-the-deployment-planner"></a>Způsob aktualizace Deployment Planneru
+[Stáhněte si](site-recovery-deployment-planner.md#download) nejnovější verzi nástroje Azure Site Recovery Deployment Planner. Soubor zip zkopírujte na server, kde ho chcete spustit. Rozbalte soubor zip.
+Pokud už máte předchozí verzi Deployment Planneru a probíhá profilace, není potřeba profilaci zastavovat, pokud nová verze nemá opravu profilace. Pokud verze obsahuje opravy v komponentě profilace, pak se doporučuje zastavit profilaci prováděnou starší verzí a spustit profilaci znovu pomocí nové verze. Všimněte si, že při spuštění profilace pomocí nové verze je potřeba předat stejnou cestu k výstupnímu adresáři, aby nástroj připojil data profilu k existujícím souborům a při generování sestav se použila úplná sada dat profilace. Pokud předáte jiný výstupní adresář, vytvoří se nové soubory a stará data profilace najde při generování sestav použít.<br> Každá aktualizace se souborem zip je kumulativní aktualizace. Není nutné kopírovat soubory nové verze do složky předchozí verze. Stačí použít novou složku.
+
+
+##<a name="version-history"></a>Historie verzí
+### <a name="11"></a>1.1
+Aktualizováno: 9. března 2017 <br>
+
+Opravené následující problémy<br>
+
+* Nástroj nemůže profilovat virtuální počítače, pokud server vCenter obsahuje dva nebo více virtuálních počítačů se stejným názvem nebo stejnou IP adresou v různých hostitelích ESXi.<br>
+* Kopírování a vyhledávání bylo pro listy kompatibilních a nekompatibilních virtuálních počítačů zakázáno.
+
+
+### <a name="10"></a>1.0 
+Aktualizováno: 23. února 2017 
+
 Azure Site Recovery Deployment Planner Public Preview 1.0 má následující známé problémy, které se budou řešit v budoucích aktualizacích.
 
 * Nástroj funguje pouze pro scénář nasazení VMware do Azure, nikoli pro nasazení Hyper-V do Azure. Pro scénář nasazení Hyper-V do Azure použijte [nástroj Hyper-V Capacity Planner](./site-recovery-capacity-planning-for-hyper-v-replication.md).

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 03/09/2017
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
-ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -38,7 +39,11 @@ IoT s sebou nese specifickou sadu výzev v oblasti správy zařízení a každé
 
 * **Škálování a automatizace:** Řešení IoT vyžadují jednoduché nástroje, které mohou automatizovat běžné úlohy a umožnit poměrně málo početnému provoznímu personálu správu miliónů zařízení. V každodenním provozu operátoři očekávají, že budou moci spravovat operace se zařízeními vzdáleně a hromadně a že budou upozorňování pouze na vznik problémů, které vyžadují jejich přímou pozornost.
 * **Otevřenost a kompatibilita**: Ekosystém zařízení je neobyčejně různorodý. Nástroje pro správu musí být upraveny tak, aby podporovaly velké množství tříd zařízení, platforem a protokolů. Operátoři musí být schopni poskytovat podporu pro mnoho typů zařízení: od nejjednodušších jednoprocesorových čipů po výkonné a plně funkční počítače.
-* **Znalost kontextu:** Prostředí služby IoT prostředí jsou dynamická a neustále se mění. Spolehlivost služby je prvořadá. Operace správy zařízení musí zohledňovat časová období údržby podle smlouvy SLA, stavy sítě a výkonu, podmínky při používání a zeměpisnou polohu zařízení, aby bylo možné zajistit, že výpadek v důsledku údržby nebude mít vliv na klíčové obchodní operace a nebudou kvůli němu vznikat nebezpečné situace.
+* **Znalost kontextu:** Prostředí služby IoT prostředí jsou dynamická a neustále se mění. Spolehlivost služby je prvořadá. Operace správy zařízení musí vzít v úvahu následující faktory, aby se zajistilo, že výpadek kvůli údržbě neovlivní kritické obchodní operace nebo nevytvoří nebezpečné podmínky:
+    * Časová období údržby SLA
+    * Stavy sítě a napájení
+    * Podmínky využívání
+    * Zeměpisná poloha zařízení
 * **Obsluha mnoha rolí:** Základním požadavkem je podpora jedinečných pracovních postupů a procesů rolí provozu služby IoT. Provozní personál musí pracovat v harmonii s danými omezeními interních oddělení IT.  Musí také najít udržitelné způsoby, jak pro vedoucí pracovníky na různých úrovních zobrazovat informace o provozu zařízení v reálném čase.
 
 ## <a name="device-lifecycle"></a>Životní cyklus zařízení
@@ -50,19 +55,19 @@ V každé z těchto pěti fází existuje několik požadavků souvisejících s
 
 * **Plánování:** Operátoři získají možnost vytvořit schéma metadat zařízení, na jehož základě mohou snadno a přesně zadávat dotazy na skupinu zařízení, kterou pak nastaví jako cíl pro hromadné operace správy. K uložení těchto metadat ve formě značek a vlastností můžete použít dvojče zařízení.
   
-    *Další materiály*: [Začínáme s dvojčaty zařízení][lnk-twins-getstarted], [Principy dvojčat zařízení][lnk-twins-devguide], [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties]
+    *Další materiály:* [Začínáme s dvojčaty zařízení][lnk-twins-getstarted], [Principy dvojčat zařízení][lnk-twins-devguide], [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties].
 * **Zřízení:** Bezpečné zřízení nových zařízení pro IoT Hub a umožnění okamžitého zjištění možností zařízení pro operátory.  Pomocí registru identit ve službě IoT Hub můžete vytvářet flexibilní identity a přihlašovací údaje zařízení a provádět tuto operaci hromadně pomocí úlohy. Zařízení sestavujte tak, aby hlásila své možnosti a stav prostřednictvím svých vlastností v dvojčeti zařízení.
   
-    *Další materiály*: [Správa identit zařízení][lnk-identity-registry], [Hromadná správa identit zařízení][lnk-bulk-identity], [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties]
+    *Další materiály:* [Správa identit zařízení][lnk-identity-registry], [Hromadná správa identit zařízení][lnk-bulk-identity], [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties].
 * **Konfigurace:** Provádění hromadných změn konfigurace a aktualizací firmwaru v zařízeních při zachování stavu i zabezpečení. Tyto operace správy zařízení provádějte hromadně pomocí požadovaných vlastností nebo pomocí přímých metod a vysílacích úloh.
   
-    *Další materiály*: [Použití přímých metod][lnk-c2d-methods], [Vyvolání přímé metody v zařízení][lnk-methods-devguide], [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties], [Plánování a vysílání úloh][lnk-jobs], [Plánování úloh na několika zařízeních][lnk-jobs-devguide]
+    *Další materiály:* [Použití přímých metod][lnk-c2d-methods], [Vyvolání přímé metody v zařízení][lnk-methods-devguide], [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties], [Plánování a vysílání úloh][lnk-jobs], [Plánování úloh na několika zařízeních][lnk-jobs-devguide].
 * **Monitorování:** Monitorování celkového stavu kolekce zařízení a stavu probíhajících operací, přičemž operátoři dostávají upozornění na problémy, které mohou vyžadovat jejich pozornost.  Dvojče zařízení umožní zařízením hlásit jejich provozní podmínky a stav aktualizačních operací v reálném čase. Vytvořte efektivní sestavy řídicího panelu, které budou bezprostředně informovat o problémech na základě dotazů na dvojčata zařízení.
   
-    *Další materiály*: [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties], [Dotazovací jazyk služby IoT Hub pro dvojčata zařízení a úlohy][lnk-query-language]
+    *Další materiály:* [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties], [Dotazovací jazyk služby IoT Hub pro dvojčata zařízení a úlohy][lnk-query-language].
 * **Vyřazení:** Výměna nebo zařízení nebo jejich vyloučení z provozu po selhání, po provedení cyklu upgradů nebo na konci životnosti služby.  Pomocí dvojčete zařízení můžete provést údržbu informací o zařízení, když se nahrazuje fyzické zařízení, nebo jejich archivaci při jeho vyřazení. Pro zabezpečené odvolávání identit zařízení a přihlašovacích údajů používejte registr identit ve službě IoT Hub.
   
-    *Další materiály*: [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties], [Správa identit zařízení][lnk-identity-registry]
+    *Další materiály:* [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties], [Správa identit zařízení][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Schémata správy zařízení
 IoT Hub umožňuje využívat následující schémata správy zařízení.  V [kurzech ke správě zařízení][lnk-get-started] se podrobněji dozvíte, jak tato schémata rozšířit tak, aby vyhovovala vašemu konkrétnímu scénáři, a jak na základě těchto základních šablon navrhnout nová schémata.
@@ -109,9 +114,4 @@ Pokud si chcete přečíst více o funkcích správy zařízení ve službě IoT
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

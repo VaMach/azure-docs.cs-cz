@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informace o zařízeních VPN pro připojení typu Site-to-Site ke službě VPN Gateway
-Pro konfiguraci připojení VPN typu Site-to-Site (S2S) mezi různými místy pomocí brány VPN Gateway je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>O zařízeních VPN a o parametrech protokolu IPsec/IKE pro připojení typu Site-to-Site ke službě VPN Gateway
+
+Pro konfiguraci připojení VPN typu Site-to-Site (S2S) mezi různými místy pomocí brány VPN Gateway je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace. Tento dokument obsahuje seznam parametrů protokolu IPsec/IKE pro služby Azure VPN Gateway a seznam ověřených zařízení sítě VPN připojujících se ke službám Azure VPN Gateway.
 
 
 > [!IMPORTANT]
-> Pokud mezi místními zařízeními VPN a bránami VPN Azure dochází k problémům s připojením, vyhledejte informace v části [Známé problémy s kompatibilitou zařízení](#known).
-> 
-> 
+> Pokud mezi místními zařízeními VPN a bránami VPN Azure dochází k problémům s připojením, vyhledejte informace v části [Známé problémy s kompatibilitou zařízení](#known). 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Při procházení tabulek si všimněte:
 
-* Došlo ke změně terminologie pro statické a dynamické směrování. Pravděpodobně narazíte na oba výrazy. Funkce se nezměnily, změnily se pouze jejich názvy.
+* Došlo ke změně terminologie pro služby Azure VPN Gateway. Pravděpodobně narazíte na oba výrazy. Funkce se nezměnily, změnily se pouze jejich názvy.
   * Statické směrování = PolicyBased
   * Dynamické směrování = RouteBased
 * Specifikace pro vysokovýkonné brány VPN a brány VPN typu RouteBased jsou stejné, není-li uvedeno jinak. Například ověřená zařízení VPN, která jsou kompatibilní s bránami VPN typu RouteBased, budou kompatibilní také s vysokovýkonnou bránou VPN Azure.
 
 > [!NOTE]
 > Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Ověřená zařízení VPN
@@ -102,58 +99,80 @@ Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé
 | &lt;SP_AzureGatewayIpAddress&gt; |Tato informace je specifická pro vaši virtuální síť a najdete ji v Portálu pro správu jako **IP adresa brány**. |
 | &lt;SP_PresharedKey&gt; |Tato informace je specifická pro vaši virtuální síť a najdete ji v Portálu pro správu jako Správa klíče. |
 
-## <a name="IPSec"></a>Parametry protokolu IPsec
+## <a name="IPSec"></a>Parametry protokolu IPsec/IKE
 > [!NOTE]
-> Přestože jsou hodnoty uvedené v následující tabulce podporovány službou Azure VPN Gateway, v současné době neexistuje způsob, jak zadat nebo vybrat konkrétní kombinaci ze služby Azure VPN Gateway. Musíte zadat jakákoli omezení ze strany místního zařízení VPN. Kromě toho musíte uchytit MSS na 1350.
->
->
+> Přestože jsou hodnoty uvedené v následující tabulce podporovány službou Azure VPN Gateway, v současné době neexistuje způsob, jak zadat nebo vybrat konkrétní kombinaci algoritmů nebo parametrů ze služby Azure VPN Gateway. Musíte zadat jakákoli omezení ze strany místního zařízení VPN.
+> 
+> Kromě toho musíte uchytit **MSS** na **1350**.
 
-### <a name="ike-phase-1-setup"></a>Nastavení protokolu IKE Fáze 1
-| **Vlastnost** | **PolicyBased** | **Brána VPN typu RouteBased a standardní nebo vysokovýkonná brána VPN** |
-| --- | --- | --- |
-| Verze IKE |IKEv1 |IKEv2 |
-| Skupina Diffie-Hellman |Skupina 2 (1 024 bitů) |Skupina 2 (1 024 bitů) |
-| Metoda ověřování |Předsdílený klíč |Předsdílený klíč |
-| Algoritmy šifrování |AES256 AES128 3DES |AES256 3DES |
-| Algoritmus hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Životnost přidružení zabezpečení (SA) Fáze 1 (čas) |28&800; sekund |10&800; sekund |
+V následujících tabulkách:
 
-### <a name="ike-phase-2-setup"></a>Nastavení protokolu IKE Fáze 2
-| **Vlastnost** | **PolicyBased** | **Brána VPN typu RouteBased a standardní nebo vysokovýkonná brána VPN** |
-| --- | --- | --- |
-| Verze IKE |IKEv1 |IKEv2 |
-| Algoritmus hash |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Životnost přidružení zabezpečení (SA) Fáze 2 (čas) |3&600; sekund |3&600; sekund |
-| Životnost přidružení zabezpečení (SA) Fáze 2 (propustnost) |102&400;&000; kB |- |
-| Nabídky šifrování SA protokolu IPsec a ověřování (v pořadí podle preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Není k dispozici |Viz Nabídky přidružení zabezpečení (SA) protokolu IPsec pro bránu typu RouteBased (níže). |
-| Metoda Perfect Forward Secrecy (PFS) |Ne |Ne (*) |
-| Detekce mrtvých partnerských zařízení |Nepodporuje se |Podporuje se |
+* SA je přidružení zabezpečení.
+* IKE fáze 1 se také nazývá „hlavní režim“.
+* IKE fáze 2 se také nazývá „rychlý režim“.
 
-(*) Azure Gateway jako respondér IKE může přijímat skupinu PFS DH 1, 2, 5, 14 a 24.
+### <a name="ike-phase-1-main-mode-parameters"></a>Parametry protokolu IKE fáze 1 (hlavní režim)
+| **Vlastnost**          |**PolicyBased**    | **RouteBased**    |
+| ---                   | ---               | ---               |
+| Verze IKE           |IKEv1              |IKEv2              |
+| Skupina Diffie-Hellman  |Skupina 2 (1 024 bitů) |Skupina 2 (1 024 bitů) |
+| Metoda ověřování |Předsdílený klíč     |Předsdílený klíč     |
+| Algoritmy šifrování a hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| Životnost SA           |28&800; sekund     |10&800; sekund     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Nabídky přidružení zabezpečení (SA) protokolu IPsec pro bránu typu RouteBased
-Následující tabulka ukazuje nabídky šifrování SA protokolu IPsec a ověřování. Nabídky jsou uvedeny v pořadí podle preference jejich předávání nebo přijímání.
+### <a name="ike-phase-2-quick-mode-parameters"></a>Parametry protokolu IKE fáze 2 (rychlý režim)
+| **Vlastnost**                  |**PolicyBased**| **RouteBased**                              |
+| ---                           | ---           | ---                                         |
+| Verze IKE                   |IKEv1          |IKEv2                                        |
+| Algoritmy šifrování a hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Nabídky RouteBased QM SA](#RouteBasedOffers) |
+| Životnost SA (čas)            |3&600; sekund  |3&600; sekund                                |
+| Životnost SA (bajty)           |102&400;&000; kB | -                                           |
+| Metoda Perfect Forward Secrecy (PFS) |Ne             |[Nabídky RouteBased QM SA](#RouteBasedOffers) |
+| Detekce mrtvých partnerských zařízení (DPD)     |Nepodporuje se  |Podporuje se                                    |
 
-| **Nabídky šifrování SA protokolu IPsec a ověřování** | **Služba Azure Gateway jako iniciátor** | **Služba Azure Gateway jako respondér** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 s ESP AES_128 s prázdným klíčem HMAC |
-| 5 |AH SHA1 s ESP AES_256 s prázdným klíčem HMAC |AH SHA1 s ESP 3_DES s prázdným klíčem HMAC |
-| 6 |AH SHA1 s ESP AES_128 s prázdným klíčem HMAC |AH MD5 s ESP 3_DES s prázdným klíčem HMAC, žádné navrhované životnosti |
-| 7 |AH SHA1 s ESP 3_DES s prázdným klíčem HMAC |AH SHA1 s ESP 3_DES SHA1, žádné životnosti |
-| 8 |AH MD5 s ESP 3_DES s prázdným klíčem HMAC, žádné navrhované životnosti |AH MD5 s ESP 3_DES MD5, žádné životnosti |
-| 9 |AH SHA1 s ESP 3_DES SHA1, žádné životnosti |ESP DES MD5 |
-| 10 |AH MD5 s ESP 3_DES MD5, žádné životnosti |ESP DES SHA1, žádné životnosti |
-| 11 |ESP DES MD5 |AH SHA1 s ESP DES s prázdným klíčem HMAC, žádné navrhované životnosti |
-| 12 |ESP DES SHA1, žádné životnosti |AH MD5 s ESP DES s prázdným klíčem HMAC, žádné navrhované životnosti |
-| 13 |AH SHA1 s ESP DES s prázdným klíčem HMAC, žádné navrhované životnosti |AH SHA1 s ESP DES SHA1, žádné životnosti |
-| 14 |AH MD5 s ESP DES s prázdným klíčem HMAC, žádné navrhované životnosti |AH MD5 s ESP DES MD5, žádné životnosti |
-| 15 |AH SHA1 s ESP DES SHA1, žádné životnosti |ESP SHA, žádné životnosti |
-| 16 |AH MD5 s ESP DES MD5, žádné životnosti |ESP MD5, žádné životnosti |
-| 17 |- |AH SHA, žádné životnosti |
-| 18 |- |AH MD5, žádné životnosti |
+
+### <a name ="RouteBasedOffers"></a>Nabídky RouteBased VPN IPsec Security Association (rychlý režim IKE SA)
+Následující tabulka uvádí nabídky IPsec SA (rychlý režim IKE). Nabídky jsou uvedeny v pořadí podle preference jejich předávání nebo přijímání.
+
+#### <a name="azure-gateway-as-initiator"></a>Služba Azure Gateway jako iniciátor
+|-  |**Šifrování**|**Ověřování**|**Skupina PFS**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Žádný         |
+| 2 |AES256        |SHA1              |Žádný         |
+| 3 |3DES          |SHA1              |Žádný         |
+| 4 |AES256        |SHA256            |Žádný         |
+| 5 |AES128        |SHA1              |Žádný         |
+| 6 |3DES          |SHA256            |Žádný         |
+
+#### <a name="azure-gateway-as-responder"></a>Služba Azure Gateway jako respondér
+|-  |**Šifrování**|**Ověřování**|**Skupina PFS**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Žádný         |
+| 2 |AES256        |SHA1              |Žádný         |
+| 3 |3DES          |SHA1              |Žádný         |
+| 4 |AES256        |SHA256            |Žádný         |
+| 5 |AES128        |SHA1              |Žádný         |
+| 6 |3DES          |SHA256            |Žádný         |
+| 7 |DES           |SHA1              |Žádný         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |Žádný         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * U vysokovýkonných bran sítě VPN a bran VPN typu RouteBased můžete zadat šifrování protokolu IPsec s prázdným ESP. Prázdné šifrování neposkytuje ochranu přenášených dat a mělo by se používat pouze pokud je vyžadována maximální propustnost a minimální latence.  Klienti toho mohou využít ve scénářích komunikace typu VNet-to-VNet nebo pokud k šifrování dochází jinde v rámci řešení.
 * Pro připojení mezi různými místy prostřednictvím Internetu použijte výchozí nastavení služby Azure VPN Gateway s šifrováním a algoritmy hash uvedenými v tabulkách výše, abyste zajistili bezpečnost důležité komunikace.
