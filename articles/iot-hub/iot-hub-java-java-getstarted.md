@@ -151,7 +151,7 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.11.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 
