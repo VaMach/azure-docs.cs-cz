@@ -25,9 +25,9 @@
 #### [Upgrade z PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Správa uživatelů
-### [Přiřazení licencí](multi-factor-authentication-get-started-assign-licenses.md)
 ### [Povolení nebo zakázání MFA](multi-factor-authentication-get-started-user-states.md)
 ### [Nastavení uživatelů a zařízení](multi-factor-authentication-manage-users-and-devices.md)
+### [Uživatelská příručka k MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrace
 ### [Federation Services](multi-factor-authentication-get-started-adfs.md)

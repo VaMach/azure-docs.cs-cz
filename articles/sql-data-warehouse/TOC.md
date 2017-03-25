@@ -102,7 +102,7 @@
 ### [Migrace dat](sql-data-warehouse-migrate-data.md)
 ### [Migrace na Storage úrovně Premium](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pozastavení a škálování
+## Správa výpočetních služeb
 
 ### [Přehled](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)

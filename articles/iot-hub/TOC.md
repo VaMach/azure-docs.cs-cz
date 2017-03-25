@@ -227,10 +227,11 @@
 ## Spravovat
 ### Vytvoření centra IoT 
 #### [Použití portálu](iot-hub-create-through-portal.md)
+#### [Použití PowerShellu](iot-hub-create-using-powershell.md)
 #### [Použití CLI 2.0](iot-hub-create-using-cli.md)
 #### [Použití rozhraní příkazového řádku](iot-hub-create-using-cli-nodejs.md)
 #### [Použití rozhraní REST API](iot-hub-rm-rest.md)
-#### [Použití PowerShellu](iot-hub-rm-template-powershell.md)
+#### [Použití šablony z PowerShellu](iot-hub-rm-template-powershell.md)
 #### [Použití šablony z rozhraní .NET](iot-hub-rm-template.md)
 ### [Konfigurace odesílání souborů](iot-hub-configure-file-upload.md)
 ### [Hromadná správa zařízení IoT](iot-hub-bulk-identity-mgmt.md)

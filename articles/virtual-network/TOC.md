@@ -7,9 +7,6 @@
 ## Přidělování IP adres
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Classic](virtual-network-ip-addresses-overview-classic.md)
-## Virtuální počítače
-### [Síťová rozhraní](virtual-network-network-interface-overview.md)
-### [Překlad adres IP](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Začínáme
 ## [Vytvoření první virtuální sítě](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### Seznamy řízení přístupu
 #### [Portál Classic](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Překlad názvů pro virtuální počítače a cloudové služby](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Spravovat
 ### Skupiny zabezpečení sítě

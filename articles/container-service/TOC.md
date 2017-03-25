@@ -15,6 +15,7 @@
 ### [Povolení veřejného přístupu DC/OS](container-service-enable-public-access.md)
 ### [Vyrovnávání zatížení kontejnerů DC/OS](container-service-load-balancing.md)
 ### [Orchestrator pro konkrétní uživatele/aplikace v DC/OS](container-service-application-specific-marathon.md)
+### [Přidání sdílené složky](container-service-dcos-fileshare.md)
 ### Monitorování DC/OS
 #### [Monitorování pomocí ELK](container-service-monitoring-elk.md)
 #### [Monitorování pomocí OMS](container-service-monitoring-oms.md)

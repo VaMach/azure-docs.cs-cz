@@ -11,6 +11,7 @@
 ## Vývoj
 ### [Balíčky aplikací](batch-application-packages.md)
 ### [Automatické škálování výpočetních uzlů](batch-automatic-scaling.md)
+### [Ověřování Azure AD](batch-aad-auth.md)
 ### [Souběžné úlohy uzlu](batch-parallel-node-tasks.md)
 ### [Efektivní seznamové dotazy](batch-efficient-list-queries.md)
 ### [Příprava úlohy a dokončovací úkoly](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 
