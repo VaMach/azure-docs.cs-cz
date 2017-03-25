@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2017
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: b652c0f817e5e56d4ff50701345b03db634f616c
 ms.openlocfilehash: 043c54094f53ae539c833eb8f167201781c677a6
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -58,9 +59,4 @@ Při vytváření řešení pro posuzování úvěrového rizika budeme postupov
 > Pracovní kopii experimentu, který vyvíjíme v tomto názorném průvodci, najdete v [Galerii Cortana Intelligence](https://gallery.cortanaintelligence.com). Přejděte k části **[Názorný průvodce – Predikce úvěrového rizika](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**, klikněte na **Open in Studio** (Otevřít v sadě Studio) a stáhněte kopii experimentu do pracovního prostoru Machine Learning Studio.
 > 
 > Tento názorný postup je založen na zjednodušené verzi ukázkového experimentu [Binární klasifikace: Predikce úvěrového rizika](http://go.microsoft.com/fwlink/?LinkID=525270), který je také k dispozici v [Galerii](http://gallery.cortanaintelligence.com/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
