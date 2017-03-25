@@ -1,50 +1,47 @@
-Následující omezení platí pouze pro síťové prostředky spravované přes model nasazení Classic na předplatné.
+The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
-| Prostředek | Výchozí omezení | Maximální omezení |
+| Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Virtuální sítě na předplatné |50 |100 |
-| Místní síťové lokality na předplatné |20 |kontaktovat podporu |
-| Servery DNS na virtuální síť |20 |100 |
-| Privátní IP adresy na virtuální síť |4 096 |4 096 |
-| Souběžná připojení TCP pro virtuální počítač nebo instanci role |500 000 |500 000 |
-| Skupiny zabezpečení sítě (NSG) |100 |200 |
-| Počet pravidel NSG na skupinu NSG |200 |400 |
-| Směrovací tabulky definované uživatelem |100 |200 |
-| Trasy definované uživatelem na směrovací tabulku |100 |400 |
-| Veřejné IP adresy (dynamické) |5 |kontaktovat podporu |
-| Vyhrazené veřejné IP adresy |20 |kontaktovat podporu |
-| Veřejné virtuální IP adresy na nasazení |5 |kontaktovat podporu |
-| Privátní virtuální IP adresy (ILB) na nasazení |1 |1 |
-| Seznamy řízení přístupu (ACL) koncového bodu |50 |50 |
+| Virtual networks per subscription |50 |100 |
+| Local network sites per subscription |20 |contact support |
+| DNS Servers per virtual network |20 |100 |
+| Private IP Addresses per virtual network |4096 |4096 |
+| Concurrent TCP connections for a virtual machine or role instance |500K |500K |
+| Network Security Groups (NSG) |100 |200 |
+| NSG rules per NSG |200 |400 |
+| User defined route tables |100 |200 |
+| User defined routes per route table |100 |400 |
+| Public IP addresses (dynamic) |5 |contact support |
+| Reserved public IP addresses |20 |contact support |
+| Public VIP per deployment |5 |contact support |
+| Private VIP (ILB) per deployment |1 |1 |
+| Endpoint Access Control Lists (ACLs) |50 |50 |
 
-#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Síťová omezení – Azure Resource Manager
-Následující omezení platí pouze pro síťové prostředky spravované přes Azure Resource Manager na oblast a předplatné.
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
 
-| Prostředek | Výchozí omezení | Maximální omezení |
+| Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
-| Virtuální sítě na předplatné |50 |500 |
-| Podsítě na virtuální síť |1&000; |kontaktovat podporu |
-| Servery DNS na virtuální síť |9 |25 |
-| Privátní IP adresy na virtuální síť |4 096 |4 096 |
-| Souběžná připojení TCP pro virtuální počítač nebo instanci role |500 000 |500 000 |
-| Síťová rozhraní (NIC) |300 |10000 |
-| Skupiny zabezpečení sítě (NSG) |100 |400 |
-| Počet pravidel NSG na skupinu NSG |200 |500 |
-| Směrovací tabulky definované uživatelem |100 |200 |
-| Trasy definované uživatelem na směrovací tabulku |100 |400 |
-| Veřejné IP adresy (dynamické) |60 |kontaktovat podporu |
-| Veřejné IP adresy (statické) |20 |kontaktovat podporu |
-| Nástroje pro vyrovnávání zatížení (interní a internetové) |100 |kontaktovat podporu |
-| Pravidla nástroje pro vyrovnávání zatížení na nástroj pro vyrovnávání zatížení |150 |150 |
-| Veřejné front-endové IP adresy na nástroj pro vyrovnávání zatížení |10 |kontaktovat podporu |
-| Privátní front-endové IP adresy na nástroj pro vyrovnávání zatížení |10 |kontaktovat podporu |
-| Partnerské vztahy virtuálních sítí na virtuální síť |10 |50 |
-| Kořenové certifikáty typu Point-to-Site na službu VPN Gateway |20 |20 |
+| Virtual networks per subscription |50 |500 |
+| Subnets per virtual network |1,000 |contact support |
+| DNS Servers per virtual network |9 |25 |
+| Private IP Addresses per virtual network |4096 |4096 |
+| Private IP Addresses per network interface |50 |contact support |
+| Concurrent TCP connections for a virtual machine or role instance |500K |500K |
+| Network Interfaces (NIC) |300 |10000 |
+| Network Security Groups (NSG) |100 |400 |
+| NSG rules per NSG |200 |500 |
+| User defined route tables |100 |200 |
+| User defined routes per route table |100 |400 |
+| Public IP addresses (dynamic) |60 |contact support |
+| Public IP addresses (Static) |20 |contact support |
+| Load balancers (internal and internet facing) |100 |contact support |
+| Load balancer rules per load balancer |150 |150 |
+| Public front end IP per load balancer |10 |contact support |
+| Private front end IP per load balancer |10 |contact support |
+| VNets peerings per Virtual Network |10 |50 |
+| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
+| Secondary IP configurations per virtual network |1000 |contact support |
 
-Pokud potřebujete navýšit výchozí omezení, kontaktujte podporu.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+Contact support in case you need to increase limits from default.
 

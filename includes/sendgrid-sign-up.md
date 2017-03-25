@@ -1,65 +1,65 @@
-Zákazníci Azure můžou každý měsíc odemknout 25 000 bezplatných e-mailů. Těchto 25 000 bezplatných e-mailů měsíčně vám poskytne přístup k rozšířené tvorbě sestav, rozšířeným analýzám a [všem rozhraním API][all APIs] (Web, SMTP, Event, Parse a další). Informace o dalších službách, které SendGrid poskytuje, najdete na stránce [SendGrid Solutions][SendGrid Solutions] (Řešení SendGrid).
+Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
 
-### <a name="to-sign-up-for-a-sendgrid-account"></a>Registrace účtu SendGrid
-1. Přihlaste se k [portálu pro správu Azure][Azure Management Portal].
-2. V nabídce na levé straně klikněte na **Nový**.
+### <a name="to-sign-up-for-a-sendgrid-account"></a>To sign up for a SendGrid account
+1. Log in to the [Azure Management Portal][Azure Management Portal].
+2. In the menu on the left, click **New**.
 
     ![command-bar-new][command-bar-new]
-3. Klikněte na **Doplňky** a potom na **SendGrid Email Delivery** (Doručování e-mailů SendGrid).
+3. Click **Add-ons** and then **SendGrid Email Delivery**.
 
     ![sendgrid-store][sendgrid-store]
-4. Vyplňte registrační formulář a vyberte **Vytvořit**.
+4. Complete the signup form and select **Create**.
 
     ![sendgrid-create][sendgrid-create]
-5. Zadejte **Název** pro identifikaci služby SendGrid v nastavení Azure. Název musí mít délku 1 až 100 znaků a musí obsahovat pouze alfanumerické znaky, pomlčky, tečky a podtržítka. Název musí být v seznamu předplacených položek Azure Storu jedinečný.
-6. Zadejte a potvrďte **Heslo**.
-7. Zvolte vaše **Předplatné**.
-8. Vytvořte novou **Skupinu prostředků**, nebo použijte existující.
-9. V části **Cenová úroveň** vyperte plán SendGrid, který si chcete zaregistrovat.
+5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Enter and confirm your **Password**.
+7. Choose your **Subscription**.
+8. Create a new **Resource group** or use an existing one.
+9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
 
     ![sendgrid-pricing][sendgrid-pricing]
-10. Zadejte **Propagační kód**, pokud nějaký máte.
-11. Zadejte své **Kontaktní informace**.
-12. Přečtěte si a přijměte **Právní podmínky**.
-13. Po potvrzení nákupu se zobrazí automaticky otevírané okno **Nasazení bylo úspěšné** a váš účet bude uvedený v části **Všechny prostředky**.
+10. Enter a **Promotion Code** if you have one.
+11. Enter your **Contact Information**.
+12. Review and accept the **Legal terms**.
+13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
 
     ![all-resources][all-resources]
 
-    Jakmile dokončíte nákup a kliknutím na tlačítko **Manage** (Spravovat) zahájíte proces ověření e-mailu, přijde vám od SendGridu e-mail s výzvou k ověření účtu. Pokud vám takový e-mail nepřijde nebo máte problémy s ověřením účtu, podívejte se na tyto nejčastější dotazy.
+    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see this FAQ.
 
     ![manage][manage]
 
-    **Do ověření účtu můžete odesílat maximálně pouze 100 e-mailů za den.**
+    **You can only send up to 100 emails/day until you have verified your account.**
 
-    Pokud chcete upravit plán předplatného nebo zobrazit nastavení kontaktů SendGridu, kliknutím na název vaší služby SendGrid otevřete řídicí panel SendGrid na Marketplace.
+    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
 
     ![settings][settings]
 
-    Abyste mohli odesílat e-maily pomocí SendGridu, musíte zadat klíč rozhraní API.
+    To send an email using SendGrid, you must supply your API Key.
 
-### <a name="to-find-your-sendgrid-api-key"></a>Vyhledání klíče rozhraní API pro SendGrid
-1. Klikněte na **Manage** (Spravovat).
+### <a name="to-find-your-sendgrid-api-key"></a>To find your SendGrid API Key
+1. Click **Manage**.
 
     ![manage][manage]
-2. Na řídicím panelu SendGrid vyberte **Settings** (Nastavení) a potom **API Keys** (Klíče rozhraní API) v nabídce na levé straně.
+2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
 
     ![api-keys][api-keys]
 
-3. Klikněte na rozevírací nabídku **Create API Key** (Vytvořit klíč rozhraní API) a vyberte **General API Key** (Obecný klíč rozhraní API).
+3. Click the **Create API Key** dropdown and select **General API Key**.
 
     ![general-api-key][general-api-key]
-4. Zadejte minimálně hodnotu **Name of this key** (Název tohoto klíče) a umožněte úplný přístup k funkci **Mail Send** (Odesílání e-mailů) a vyberte **Save** (Uložit).
+4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
 
     ![access][access]
-5. V tomto okamžiku se jednou zobrazí váš klíč rozhraní API. Bezpečně si jej uložte.
+5. Your API will be displayed at this point one time. Please be sure to store it safely.
 
-### <a name="to-find-your-sendgrid-credentials"></a>Vyhledání přihlašovacích údajů SendGrid
-1. **Uživatelské jméno** najdete kliknutím na ikonu klíče.
+### <a name="to-find-your-sendgrid-credentials"></a>To find your SendGrid credentials
+1. Click the key icon to find your **Username**.
 
     ![key][key]
-2. Heslo jste si zvolili během nastavení. Pokud chcete provést změny, můžete vybrat **Change password** (Změnit heslo) nebo **Reset password** (Resetovat heslo).
+2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
 
-Pokud chcete spravovat nastavení doručitelnosti e-mailů, klikněte na **tlačítko Manage** (Spravovat). To vás přesměruje na [řídicí panel SendGrid][SendGrid dashboard].
+To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Pokud chcete spravovat nastavení doručitelnosti e-mailů, klikněte na **tlač
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Pokud chcete spravovat nastavení doručitelnosti e-mailů, klikněte na **tlač
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1806950581e0adbeec52839f12c70599d28100d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -110,7 +111,7 @@ Tento postup vytvoří přihlášení pro určeného uživatele a umožňuje ov�
 
 ### <a name="azure-command-line-interface-for-mac-linux-and-windows"></a>Rozhraní příkazového řádku Azure pro Mac, Linux a Windows
 
-[Azure CLI pro Mac, Linux a Windows](../xplat-cli-install.md) můžete použít k vytvoření nového clusteru pomocí příkazu `azure hdinsight cluster create`.
+[Azure CLI pro Mac, Linux a Windows](../cli-install-nodejs.md) můžete použít k vytvoření nového clusteru pomocí příkazu `azure hdinsight cluster create`.
 
 Další informace o použití tohoto příkazu naleznete v tématu [Vytvoření Hadoop Linux clusterů v nástroji HDInsight pomocí vlastních možností](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -221,7 +222,7 @@ Pokud potřebujete přidat další účty do clusteru, postupujte následovně:
 
 6. Nyní byste měli být schopni ověřit server pomocí nového uživatelského účtu a soukromého klíče.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunelování SSH
+## <a id="tunnel"></a>Tunelování SSH
 
 SSH lze použít k tunelování místních požadavků, například webových požadavků, do clusteru HDInsight. Požadavek bude poté směrován na požadovaný prostředek, jako kdyby pocházel z hlavního uzlu clusteru HDInsight.
 
@@ -239,9 +240,4 @@ Teď, když chápete, jak provádět ověření pomocí klíče SSH se dozvíte 
 * [Použití úloh MapReduce se službou HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
