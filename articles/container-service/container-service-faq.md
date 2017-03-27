@@ -18,9 +18,9 @@ ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -105,7 +105,7 @@ Připojovací řetězec najdete na webu Azure Portal nebo pomocí nástrojů př
 
 3. V okně **Historie nasazení** klikněte na nasazení, jehož název začíná na **microsoft-acs** a následuje datem nasazení. Příklad: microsoft-acs-201701310000.  
 
-4. Na stránce **Souhrn** v části **Výstupy** je několik odkazů na cluster <provided></provided>. **SSHMaster0** představuje připojovací řetězec SSH k prvnímu hlavnímu serveru ve vašem clusteru služby Container Service. 
+4. Na stránce **Souhrn** v části **Výstupy** je uvedeno několik odkazů na cluster. **SSHMaster0** představuje připojovací řetězec SSH k prvnímu hlavnímu serveru ve vašem clusteru služby Container Service. 
 
 Jak bylo uvedeno výše, plně kvalifikovaný název domény hlavního serveru můžete najít také pomocí nástrojů Azure. Vytvořte připojení SSH k hlavnímu serveru pomocí plně kvalifikovaného názvu domény hlavního serveru a uživatelského jména, které jste zadali při vytváření clusteru. Například:
 
@@ -122,3 +122,4 @@ Další informace najdete v [Připojení ke clusteru služby Azure Container Ser
 
 * [Další informace](container-service-intro.md) o službě Azure Container Service.
 * Nasazení clusteru služby Container Service pomocí [portálu](container-service-deployment.md) nebo [Azure CLI 2.0 ](container-service-create-acs-cluster-cli.md).
+

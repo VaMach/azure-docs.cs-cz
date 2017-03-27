@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/17/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4969b43831a3813a4e76c6447c252a9c458f371a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -37,7 +37,14 @@ Potřebný postup se liší podle toho, jestli má vaše organizace výhradně c
 <br>
 
 ## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-synced-azure-ad-tenant"></a>Úloha 5: Povolení synchronizace hesel do služby AAD Domain Services u synchronizovaného tenanta služby Azure AD
-Synchronizovaný tenant služby Azure AD je nastavený na synchronizaci s místním adresářem vaší organizace pomocí služby Azure AD Connect. Azure AD Connect ve výchozím nastavení do služby Azure AD nesynchronizuje hodnoty hash přihlašovacích údajů protokolů NTLM a Kerberos. Chcete-li použít službu Azure AD Domain Services, je potřeba nakonfigurovat službu Azure AD Connect na synchronizaci hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos. Následujícím postupem povolíte synchronizaci požadovaných hodnot hash přihlašovacích údajů do svého tenanta služby Azure AD.
+Synchronizovaný tenant služby Azure AD je nastavený na synchronizaci s místním adresářem vaší organizace pomocí služby Azure AD Connect. Azure AD Connect ve výchozím nastavení do služby Azure AD nesynchronizuje hodnoty hash přihlašovacích údajů protokolů NTLM a Kerberos. Chcete-li použít službu Azure AD Domain Services, je potřeba nakonfigurovat službu Azure AD Connect na synchronizaci hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos. 
+
+> [!WARNING]
+> Synchronizaci hesel do služby AAD Domain Services MUSÍTE povolit při každém povolení služby Azure AD Domain Services. Možná jste pro váš adresář Azure AD povolili službu Azure AD Domain Services již dříve a pak ji vypnuli. Při příštím povolení služby Azure AD Domain Services pro tento adresář však stále budete muset povolit synchronizaci hesel.
+>
+>
+
+Následujícím postupem povolíte synchronizaci požadovaných hodnot hash přihlašovacích údajů do svého tenanta služby Azure AD.
 
 ### <a name="install-or-update-azure-ad-connect"></a>Instalace nebo aktualizace služby Azure AD Connect
 Na počítač připojený k doméně nainstalujte nejnovější doporučenou verzi služby Azure AD Connect. Máte-li existující instanci instalace služby Azure AD Connect, je nutné ji aktualizovat tak, aby používala nejnovější verzi služby Azure AD Connect. Ujistěte se, že vždy používáte nejnovější verzi služby Azure AD Connect – předejdete tak známým problémům nebo chybám, které už pravděpodobně byly opraveny.

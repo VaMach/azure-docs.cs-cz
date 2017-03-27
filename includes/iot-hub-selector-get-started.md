@@ -16,10 +16,5 @@ V tomto kurzu získáte informace o následujících postupech:
 
 * vytvoření služby IoT Hub pomocí Portálu Azure
 * vytvoření identity zařízení ve službě IoT Hub
-* vytvoření aplikace simulovaného zařízení, která odesílá telemetrické údaje do back-endu vašeho řešení a přijímá příkazy z back-endu vašeho řešení
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+* vytvoření aplikace simulovaného zařízení, která odesílá telemetrické údaje do back-endu vašeho řešení.
 

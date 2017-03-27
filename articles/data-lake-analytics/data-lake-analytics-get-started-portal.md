@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 24b0a928967e6abf9f1eb4f085179a8cd6e82955
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f23ae904461e754b3871b33ca40c2ff4fcb99f0
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Kurz: Začínáme s Azure Data Lake Analytics pomocí portálu Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Naučte se používat Azure Portal k vytváření účtů Azure Data Lake Analytics, definování úloh Data Lake Analytics v [U-SQL](data-lake-analytics-u-sql-get-started.md) a odesílání úloh do služby Data Lake Analytics. Další informace o Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Naučte se používat Azure Portal k vytváření účtů Azure Data Lake Analytics, definování úloh v [U-SQL](data-lake-analytics-u-sql-get-started.md) a odesílání úloh do služby Data Lake Analytics. Další informace o Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-V tomto kurzu vyvinete úlohu, která načte soubor hodnot oddělených tabulátory (TSV) a převede ho na soubor hodnot oddělených čárkami (CSV). Pokud chcete použít jiné podporované nástroje a absolvovat stejný kurz, klikněte na karty nahoře v této části. Po úspěšném vytvoření první úlohy můžete začít psát složitější transformace dat pomocí U-SQL.
+V tomto kurzu budete vyvíjet úlohu, která načte soubor hodnot oddělených tabulátory (TSV) a převede jej na soubor hodnot oddělených čárkami (CSV). Pokud chcete použít jiné podporované nástroje a absolvovat stejný kurz, klikněte na karty nahoře v této části. Po úspěšném vytvoření první úlohy můžete začít psát složitější transformace dat pomocí U-SQL.
 
 ## <a name="prerequisites"></a>Požadavky
 Před zahájením tohoto kurzu musíte mít tyto položky:
@@ -35,7 +36,7 @@ Před zahájením tohoto kurzu musíte mít tyto položky:
 ## <a name="create-data-lake-analytics-account"></a>Vytvoření účtu Data Lake Analytics
 Je nutné, abyste před spuštěním jakékoli úlohy měli účet Data Lake Analytics.
 
-Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]().  Tento účet se nazývá výchozí účet Data Lake Store.  Účet Data Lake Store můžete vytvořit předem nebo při vytváření účtu Data Lake Analytics. V tomto kurzu vytvoříte účet Data Lake Store s účtem Data Lake Analytics.
+Každý účet Data Lake Analytics má závislost účtu Azure Data Lake Store.  Tento účet se nazývá výchozí účet Data Lake Store.  Účet Data Lake Store můžete vytvořit předem nebo při vytváření účtu Data Lake Analytics. V tomto kurzu vytvoříte účet Data Lake Store s účtem Data Lake Analytics.
 
 **Vytvoření účtu Data Lake Analytics**
 
@@ -45,21 +46,22 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 
     ![Okno portálu Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-   * **Název**: Zadejte název účtu Data Lake Analytics.
+   * **Název:** Pojmenujte svůj účet Data Lake Analytics (povolena jsou pouze malá písmena a číslice).
    * **Předplatné**: Zvolte předplatné Azure použité pro účet Analytics.
    * **Skupina prostředků**. Vyberte některou z existujících skupin prostředků Azure nebo vytvořte novou. Azure Resource Manager umožňuje pracovat s prostředky v aplikaci jako se skupinou. Další informace najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).
    * **Umístění**. Vyberte datové centrum Azure pro účet Data Lake Analytics.
-   * **Data Lake Store**: Každý účet Data Lake Analytics má závislý účet Data Lake Store. Účet Data Lake Analytics a závislý účet Data Lake Store se musí nacházet ve stejném datovém centru Azure. Postupujte podle pokynů a vytvořte nový účet Data Lake Store nebo vyberte některý z existujících.
-4. Klikněte na možnost **Vytvořit**. Tím přejdete na domovskou obrazovku portálu. Na Úvodní panel se přidá nová dlaždice s popiskem „Nasazení Azure Data Lake Analytics“. Vytvoření účtu Data Lake Analytics chvíli trvá. Jakmile je účet vytvořený, portál ho otevře v novém okně.
+   * **Data Lake Store:** Klikněte na *Konfigurovat požadovaná nastavení*. Postupujte podle pokynů a vytvořte nový účet Data Lake Store nebo vyberte některý z existujících. Každý účet Data Lake Analytics má závislý účet Data Lake Store. Účet Data Lake Analytics a závislý účet Data Lake Store se musí nacházet ve stejném datovém centru Azure.
+4. Vyberte si cenovou úroveň.  
+5. Klikněte na možnost **Vytvořit**. Vrátíte se na domovskou obrazovku portálu, kde se zobrazí nová dlaždice s popiskem „Nasazování služby Azure Data Lake Analytics“. Procesu nasazení bude trvat několik minut, než vytvoří účet Data Lake Analytics. Jakmile je účet vytvořený, portál ho otevře v novém okně.
 
 Po vytvoření účtu Data Lake Analytics můžete přidat další účty Data Lake Store a účty Azure Storage. Pokyny najdete v tématu [Správa zdrojů dat účtu Data Lake Analytics](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ## <a name="prepare-source-data"></a>Příprava zdrojových dat
-V tomto kurzu zpracujete několik protokolů hledání.  Protokol hledání se dá uložit buď do úložiště Data Lake Store, nebo do úložiště Azure Blob Storage.
+V tomto kurzu budete zpracovávat protokoly hledání.  Protokol hledání se dá uložit buď do úložiště Data Lake Store, nebo do úložiště Azure Blob Storage.
 
-Azure Portal poskytuje uživatelské rozhraní pro kopírování některých ukázkových datových souborů (včetně souboru protokolu hledání) do výchozího účtu Data Lake Store.
+Azure Portal poskytuje uživatelské rozhraní pro kopírování ukázkových datových souborů (včetně souboru protokolu hledání) do výchozího účtu Data Lake Store.
 
-**Postup kopírování ukázkových datových souborů**
+**Kopírování ukázkových datových souborů**
 
 1. Z portálu [Azure Portal](https://portal.azure.com) otevřete svůj účet Data Lake Analytics.  Vytvořte ho podle tématu [Správa účtů Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account) a otevřete ho na portálu.
 2. Rozbalte podokno **Základy** a klikněte na **Prozkoumat ukázkové skripty**. Otevře se další okno s názvem **Ukázkové skripty**.
@@ -138,9 +140,4 @@ Jakmile připravíte zdrojová data, můžete začít vyvíjet skript U-SQL.
 * Přehled Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 * Pokud chcete použít jiné podporované nástroje a zobrazit stejný kurz, klikněte na selektory karet v horní části stránky.
 * Pokud chcete protokolovat diagnostické informace, přečtěte si téma [Zobrazení protokolů diagnostiky pro Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,14 +29,16 @@ V tomto článku se dozvíte, jak začít používat Azure Multi-Factor Authenti
 
 ![MFA v cloudu](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>Požadavky
-Než povolíte ověřování Azure Multi-Factor Authentication pro uživatele, je třeba splnit následující předpoklady.
+## <a name="prerequisite"></a>Požadavek
+[Zaregistrujte si předplatné Azure](https://azure.microsoft.com/pricing/free-trial/) – pokud ještě nemáte předplatné Azure, musíte se zaregistrovat. Pokud právě začínáte a používáte Azure MFA, můžete použít zkušební verzi předplatného
 
-1. [Zaregistrujte si předplatné Azure](https://azure.microsoft.com/pricing/free-trial/) – pokud ještě nemáte předplatné Azure, musíte se zaregistrovat. Pokud právě začínáte a používáte Azure MFA, můžete použít zkušební verzi předplatného
-2. [Vytvořte poskytovatele ověřování Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md) a přiřaďte ho do adresáře nebo [přiřaďte licence uživatelům](multi-factor-authentication-get-started-assign-licenses.md)
+## <a name="enable-azure-multi-factor-authentication"></a>Povolení služby Azure Multi-Factor Authentication
+Pokud vaši uživatelé mají licence, které zahrnují službu Azure Multi-Factor Authentication, pro zapnutí Azure MFA není potřeba nic dělat. Můžete začít s vyžadováním dvoustupňového ověřování u jednotlivých uživatelů. Licence, které umožňují Azure MFA, jsou:
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> Licence jsou k dispozici pro uživatele, kteří mají Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite (EMS).  MFA je zahrnuto v Azure AD Premium a EMS. Pokud máte dostatek licencí, nemusíte vytvářet poskytovatele ověřování.
+Pokud nemáte některou z těchto tří licencí nebo nemáte dostatek licencí pro pokrytí všech uživatelů, nic se neděje. Stačí jenom přidat další krok a v adresáři [vytvořit poskytovatele Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md).
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Zapnutí dvoustupňového ověřování pro uživatele
 Pokud chcete začít požadovat dvoustupňové ověřování pro uživatele, změňte stav uživatele ze zakázaného na povolený.  Další informace týkající se stavů uživatele najdete v části [Stavy uživatele v Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md).
@@ -97,10 +100,5 @@ Další informace najdete v části [Stavy uživatele v Azure Multi-Factor Authe
 
 ## <a name="next-steps"></a>Další kroky
 Teď, když máte nastavené Azure Multi-Factor Authentication v cloudu, můžete konfigurovat a nastavit nasazení. Další podrobnosti najdete v části [Konfigurace Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

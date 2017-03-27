@@ -11,8 +11,8 @@ Následující tabulka shrnuje funkce, které jednotlivé služby nabízí:
 | Služba | Nástroj pro vyrovnávání zatížení Azure | Application Gateway | Traffic Manager |
 | --- | --- | --- | --- |
 | Technologie |Úroveň přenosu (Vrstva 4) |Úroveň aplikace (Vrstva 7) |Úroveň DNS |
-| Podporované protokoly aplikací |Všechny |Protokoly HTTP a HTTPS |Všechny (k monitorování koncového bodu je vyžadován koncový bod HTTP) |
-| Koncové body |Virtuální počítače Azure a instance rolí služby Cloud Services. |Libovolná interní IP adresa Azure nebo veřejná internetová IP adresa. |Virtuální počítače Azure, služba Cloud Services, webové aplikace Azure a externí koncové body. |
+| Podporované protokoly aplikací |Všechny |HTTP, HTTPS a protokoly WebSocket |Všechny (k monitorování koncového bodu je vyžadován koncový bod HTTP) |
+| Koncové body |Virtuální počítače Azure a instance rolí služby Cloud Services. |Všechny interní IP adresy Azure, veřejné internetové IP adresy, virtuální počítače Azure nebo cloudová služba Azure |Virtuální počítače Azure, služba Cloud Services, webové aplikace Azure a externí koncové body. |
 | Podpora virtuálních sítí |Lze použít pro internetové i interní (VNet) aplikace. |Lze použít pro internetové i interní (VNet) aplikace. |Podporuje pouze internetové aplikace. |
 | Monitorování koncového bodu |Podporováno prostřednictvím sond. |Podporováno prostřednictvím sond. |Podporováno prostřednictvím HTTP/HTTPS GET. |
 
@@ -20,14 +20,11 @@ Azure Load Balancer i služba Application Gateway směrují síťový provoz do 
 
 | Typ | Nástroj pro vyrovnávání zatížení Azure | Application Gateway |
 | --- | --- | --- |
-| Protokoly |UDP/TCP |HTTP/HTTPS |
+| Protokoly |UDP/TCP |HTTP, HTTPS a protokoly WebSocket |
 | Vyhrazení IP adres |Podporuje se |Nepodporuje se |
 | Režim vyrovnávání zatížení |Pětinásobné (zdrojová IP adresa, zdrojový port, cílová IP adresa, cílový port, typ protokolu). |Kruhové dotazování.<br>Směrování na základě adresy URL. |
 | Režim vyrovnávání zatížení (zdrojová IP adresa/spřažené relace). |Dvojnásobné (zdrojová IP adresa a cílová IP adresa), trojnásobné (zdrojová IP adresa, cílová IP adresa a port). Lze vertikálně zvýšit nebo snížit kapacitu podle počtu virtuálních počítačů. |Spřažení na základě souborů cookie.<br>Směrování na základě adresy URL. |
 | Sondy stavu |Výchozí hodnota: interval sondování – 15 sekund. Vyřazení ze smyčky: po dvou selháních za sebou. Podporuje uživatelem definované sondy. |Interval nečinnosti sondy – 30 sekund. Vyřazena ze smyčky po pěti selháních živého provozu za sebou nebo po jediném selhání sondy v režimu nečinnosti. Podporuje uživatelem definované sondy. |
 | Přesměrování zpracování SSL |Nepodporuje se |Podporuje se |
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+| Směrování na základě adresy URL | Nepodporuje se | Podporuje se|
+| Zásady protokolu SSL | Nepodporuje se | Podporuje se|

@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 49602804cc6b4d4f98c802c1a3b651dda2634bb7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -142,7 +142,7 @@ K zobrazení webového rozhraní Kubernetes můžete použít příkaz:
 ```console
 kubectl proxy
 ```
-Spustí v místním hostiteli jednoduchý ověřený proxy server, který můžete použít k zobrazení [webového uživatelského rozhraní Kubernetes](http://localhost:8001/ui). Další informace najdete v tématu [Používání webového uživatelského rozhraní Kubernetes s Azure Container Service](container-service-kubernetes-ui.md).
+Spustí v místním hostiteli jednoduchý ověřený proxy server, který můžete použít k zobrazení webového uživatelského rozhraní Kubernetes běžícího na adrese [http://localhost:8001/ui](http://localhost:8001/ui). Další informace najdete v tématu [Používání webového uživatelského rozhraní Kubernetes s Azure Container Service](container-service-kubernetes-ui.md).
 
 ![Obrázek řídicího panelu Kubernetes](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -157,13 +157,13 @@ kubectl get pods
 S využitím názvu podu můžete v podu spustit vzdálený příkaz.  Například:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 Pomocí příznaků `-it` můžete také získat plně interaktivní relaci:
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![Vzdálená relace uvnitř kontejneru](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)

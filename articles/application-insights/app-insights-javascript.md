@@ -1,21 +1,22 @@
 ---
-title: "Application Insights pro webové aplikace JavaScript | Dokumentace Microsoftu"
+title: "Azure Application Insights pro webové aplikace JavaScript | Dokumentace Microsoftu"
 description: "Načtení zobrazení stránek a počty relací, data webového klienta a sledování vzorů využití. Zjištění výjimek a problémů s výkonem na webových stránkách v jazyce JavaScript."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Chcete-li tyto parametry nastavit, vyhledejte tento řádek ve fragmentu kódu a
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>Spuštění aplikace
+## <a name="run"></a>Spuštění aplikace
 Spusťte webovou aplikaci, chvíli ji používejte ke generování telemetrie a počkejte několik sekund. Můžete ji buď spustit pomocí klávesy **F5** na vývojovém počítači, nebo ji publikovat a umožnit uživatelům, aby si ji vyzkoušeli.
 
 Pokud chcete zkontrolovat telemetrii, kterou webová aplikace odesílá do služby Application Insights, použijte ladicí nástroje prohlížeče (**F12** u mnoha prohlížečů). Data budou odeslána na adresu dc.services.visualstudio.com.
@@ -107,7 +108,7 @@ Otevřete okno prohlížeče zobrazující agregovaná data výkonu z prohlíže
 
 ![Na stránce portal.azure.com otevřete prostředek vaší aplikace a klikněte na tlačítko Nastavení, Prohlížeč](./media/app-insights-javascript/03.png)
 
-*Žádná data? V horní části stránky klikněte na **Obnovit**. Stále nic? Viz [Poradce při potížích](app-insights-troubleshoot-faq.md).*
+*Žádná data? V horní části stránky klikněte na**Obnovit**. Stále nic? Viz [Poradce při potížích](app-insights-troubleshoot-faq.md).*
 
 Okno prohlížeče je [okno Průzkumníka metrik](app-insights-metrics-explorer.md) s přednastavenými filtry a výběry grafu. Pokud chcete, můžete upravit časové rozmezí, filtry a konfiguraci grafu a uložit výsledek jako oblíbenou položku. Klikněte na tlačítko **Obnovit výchozí nastavení** a vraťte se zpět do původní konfigurace okna.
 
@@ -167,6 +168,7 @@ Klikněte na libovolný řádek pro konkrétní podrobnosti.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Klikněte na tlačítko `...` pro úplnou telemetrii volání Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Žádná nahlášená volání Ajax?
@@ -180,6 +182,7 @@ V okně prohlížeče se nachází graf souhrnu výjimek a níže v okně mří�
 Pokud nevidíte nahlášené výjimky prohlížeče, zkontrolujte, zda fragment kódu nenastavil parametr `disableExceptionTracking` [](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## <a name="inspect-individual-page-view-events"></a>Zkontrolujte jednotlivé stránky zobrazení událostí
+
 Obvykle jsou telemetrická zobrazení stránky analyzována pomocí Application Insights a zobrazí se pouze kumulativní sestavy s průměrem za všechny uživatele. Ale pro účely ladění si můžete také prohlédnout jednotlivé stránky zobrazení událostí.
 
 V okně diagnostické vyhledávání nastavte filtry pro zobrazení stránky.
@@ -217,19 +220,16 @@ Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 * [Další informace o sledování využití](app-insights-web-track-usage.md)
 * [Další informace o vlastních událostech a metrikách rozhraní API](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Video: Sledování využití
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Video
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a> Další kroky
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a> Další kroky
 * [Sledování využití](app-insights-web-track-usage.md)
 * [Vlastní události a metriky](app-insights-api-custom-events-metrics.md)
 * [Sestavení vyhodnocení poučení](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

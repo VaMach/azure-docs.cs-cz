@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ab0a0ecba9d9e930cbc0ec5d4b83e252d2e50f7b
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>O zařízeních VPN a o parametrech protokolu IPsec/IKE pro připojení typu Site-to-Site ke službě VPN Gateway
 
-Pro konfiguraci připojení VPN typu Site-to-Site (S2S) mezi různými místy pomocí brány VPN Gateway je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místní a virtuální sítí. Tento článek popisuje kompatibilní zařízení VPN a parametry konfigurace. Tento dokument obsahuje seznam parametrů protokolu IPsec/IKE pro služby Azure VPN Gateway a seznam ověřených zařízení sítě VPN připojujících se ke službám Azure VPN Gateway.
+Pro konfiguraci připojení VPN typu Site-to-Site (S2S) mezi různými místy pomocí brány VPN Gateway je potřeba zařízení VPN. Připojení typu Site-to-Site lze použít k vytvoření hybridního řešení, nebo kdykoli chcete zabezpečit připojení mezi místními a virtuálními sítěmi. Tento článek obsahuje seznam parametrů protokolu IPsec/IKE pro služby Azure VPN Gateway a seznam ověřených zařízení sítě VPN připojujících se ke službám Azure VPN Gateway.
 
 
 > [!IMPORTANT]
@@ -47,30 +47,31 @@ Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zaří
 
 Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají příslušné řadě zařízení. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
 
-| **Dodavatel** | **Řada zařízení** | **Minimální verze operačního systému** | **PolicyBased** | **RouteBased** |
-| --- | --- | --- | --- | --- |
-| Allied Telesis |Směrovače VPN řady AR |2.9.2 |Připravuje se |Není kompatibilní |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall řady F |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Pokyny ke konfiguraci](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Pokyny ke konfiguraci](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall řady X |Barracuda Firewall 6.5 |[Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Není kompatibilní |
-| Brocade |Vyatta 5400 vRouter |Virtual Router 6.6R3 GA |[Pokyny ke konfiguraci](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Není kompatibilní |
-| Check Point |Security Gateway |R77.30 |[Pokyny ke konfiguraci](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Pokyny ke konfiguraci](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco |ASA |8.3 |[Ukázky Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Není kompatibilní |
-| Cisco |ASR |PolicyBased: iOS 15.1<br>RouteBased: iOS 15.2 |[Ukázky Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Ukázky Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: iOS 15.0<br>RouteBased*: iOS 15.1 |[Ukázky Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Ukázky Cisco*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Citrix |NetScaler MPX, SDX, VPX |10.1 a vyšší |[Pokyny k integraci](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Není kompatibilní |
-| Dell SonicWALL |Řada TZ, řada NSA<br>Řada SuperMassive<br>Řada E-Class NSA |SonicOS 5.8.x<br>[SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850)<br>[SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) |[Průvodce konfigurací pro SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Průvodce konfigurací pro SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Průvodce konfigurací pro SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Průvodce konfigurací pro SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
-| F5 |Řada BIG-IP |12.0 |[Pokyny ke konfiguraci](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Pokyny ke konfiguraci](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.4.2 |[Pokyny ke konfiguraci](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Pokyny ke konfiguraci](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
-| Internet Initiative Japan (IIJ) |Řada SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Pokyny ke konfiguraci](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Není kompatibilní |
-| Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
-| Juniper |Řada J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
-| Juniper |ISG |ScreenOS 6.3 |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
-| Juniper |SSG |ScreenOS 6.2 |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Ukázky Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
-| Microsoft |Služba Směrování a vzdálený přístup |Windows Server 2012 |Není kompatibilní |[Ukázky Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
-| Open Systems AG |Mission Control Security Gateway |Není k dispozici |[Průvodce instalací](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Průvodce instalací](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
+|**Dodavatel**          |**Řada zařízení**     |**Minimální verze operačního systému** |**PolicyBased** |**RouteBased** |
+| ---                | ---                  | ---                   | ---            | ---           |
+| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Není kompatibilní  |[Průvodce konfigurací](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
+| Allied Telesis     |Směrovače VPN řady AR |2.9.2                  |Připravuje se     |Není kompatibilní  |
+| Barracuda Networks, Inc. |Barracuda NextGen Firewall řady F |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Průvodce konfigurací](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Průvodce konfigurací](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. |Barracuda NextGen Firewall řady X |Barracuda Firewall 6.5 |[Průvodce konfigurací](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Není kompatibilní |
+| Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[Průvodce konfigurací](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Není kompatibilní |
+| Check Point |Security Gateway |R77.30 |[Průvodce konfigurací](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Průvodce konfigurací](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| Cisco              |ASA       |8.3 |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Není kompatibilní |
+| Cisco |ASR |PolicyBased: iOS 15.1<br>RouteBased: iOS 15.2 |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco |ISR |PolicyBased: iOS 15.0<br>RouteBased*: iOS 15.1 |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Ukázky konfigurace*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Citrix |NetScaler MPX, SDX, VPX |10.1 a vyšší |[Průvodce konfigurací](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Není kompatibilní |
+| Dell SonicWALL |Řada TZ, řada NSA<br>Řada SuperMassive<br>Řada E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Průvodce konfigurací pro SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Průvodce konfigurací pro SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Průvodce konfigurací pro SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Průvodce konfigurací pro SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| F5 |Řada BIG-IP |12.0 |[Průvodce konfigurací](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Průvodce konfigurací](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
+| Fortinet |FortiGate |FortiOS 5.4.2 |[Průvodce konfigurací](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Průvodce konfigurací](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
+| Internet Initiative Japan (IIJ) |Řada SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Průvodce konfigurací](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Není kompatibilní |
+| Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper |Řada J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper |ISG |ScreenOS 6.3 |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper |SSG |ScreenOS 6.2 |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Ukázky konfigurace](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
+| Microsoft |Služba Směrování a vzdálený přístup |Windows Server 2012 |Není kompatibilní |[Ukázky konfigurace](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Open Systems AG |Mission Control Security Gateway |– |[Průvodce konfigurací](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Průvodce konfigurací](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Připravuje se) |Není kompatibilní |
-| Palo Alto Networks |Všechna zařízení se systémem PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 nebo novější<br>RouteBased: 7.1.4 |[Pokyny ke konfiguraci](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Pokyny ke konfiguraci](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| WatchGuard |Všechny |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Pokyny ke konfiguraci](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Pokyny ke konfiguraci](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| Palo Alto Networks |Všechna zařízení se systémem PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 nebo novější<br>RouteBased: 7.1.4 |[Průvodce konfigurací](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Průvodce konfigurací](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| WatchGuard |Všechny |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Průvodce konfigurací](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Průvodce konfigurací](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) Směrovače řady ISR 7200 podporují pouze sítě VPN typu PolicyBased.
 
@@ -118,14 +119,14 @@ V následujících tabulkách:
 | Skupina Diffie-Hellman  |Skupina 2 (1 024 bitů) |Skupina 2 (1 024 bitů) |
 | Metoda ověřování |Předsdílený klíč     |Předsdílený klíč     |
 | Algoritmy šifrování a hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| Životnost SA           |28&800; sekund     |10&800; sekund     |
+| Životnost SA           |28&800; sekund     |28&800; sekund     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametry protokolu IKE fáze 2 (rychlý režim)
 | **Vlastnost**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
 | Verze IKE                   |IKEv1          |IKEv2                                        |
 | Algoritmy šifrování a hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Nabídky RouteBased QM SA](#RouteBasedOffers) |
-| Životnost SA (čas)            |3&600; sekund  |3&600; sekund                                |
+| Životnost SA (čas)            |3&600; sekund  |27 000 sekund                                |
 | Životnost SA (bajty)           |102&400;&000; kB | -                                           |
 | Metoda Perfect Forward Secrecy (PFS) |Ne             |[Nabídky RouteBased QM SA](#RouteBasedOffers) |
 | Detekce mrtvých partnerských zařízení (DPD)     |Nepodporuje se  |Podporuje se                                    |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2016
-ms.author: edmaca
+ms.date: 03/17/2017
+ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -128,9 +128,9 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
        Automaticky se vyplní název a zobrazí se členové Sad řádků, Tříd, Databází, Schémat a Objektů definovaných uživatelem (UDO).
 
        Technologie IntelliSense pro entity katalogu (Databáze, Schémata, Tabulky, UDO atd.) se vztahuje k výpočetnímu účtu. Aktuální aktivní výpočetní účet, databázi a schéma můžete zkontrolovat v horním panelu nástrojů a můžete je přepnout pomocí rozevíracích seznamů.
-   * **Rozbalení * sloupců**
+   * **Rozbalení* sloupců**
 
-       Klikněte vpravo od * a pod * se zobrazí modré podtržení. Umístěte myš na modré podtržení a klikněte na šipku dolů.
+       Klikněte vpravo od *a pod* se zobrazí modré podtržení. Umístěte myš na modré podtržení a klikněte na šipku dolů.
        ![Nástroje Data Lake Visual Studio, rozbalení *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Klikněte na položku **Rozbalit sloupce** a nástroj nahradí znak * názvy sloupců.
@@ -197,71 +197,11 @@ Přehrání úlohy umožňuje sledovat průběh provádění úlohy a vizuálně
 Nástroje Data Lake pro Visual Studio poskytují v zobrazení úlohy barevné překryvné vrstvy vybrané uživatelem, které znázorňují průběh, vstup/výstup dat, dobu provádění nebo propustnost vstupu/výstupu u každé fáze. Uživatelé díky tomu mohou přímo a intuitivně najít potenciální problémy a distribuci vlastností úlohy. V rozevíracím seznamu můžete zvolit zdroj dat, který chcete zobrazit.  
 
 ## <a name="run-u-sql-locally"></a>Místní spuštění U-SQL
-Pomocí místního spuštění U-SQL v sadě Visual Studio můžete provádět tyto úkony:
 
-* Místní spuštění skriptů U-SQL společně se sestaveními C#.
-* Místní ladění sestavení C#.
-* Vytvoření, odstranění nebo zobrazení místních databází, sestavení, schémat a tabulek v Průzkumníku serveru úplně stejně, jako u služby Azure Data Lake Analytics.
+Nástroje Azure Data Lake pro Visual Studio a sadu Azure Data Lake U-SQL SDK můžete použít k místnímu spouštění úloh U-SQL na pracovní stanici, stejně jako byste je spouštěli ve službě Azure Data Lake. Tyto dvě místně spouštěné funkce vám šetří čas při testování a ladění úloh U-SQL. 
 
-V sadě Visual Studio se zobrazí *Místní* účet a instalační program vytvoří složku *DataRoot* umístěnou v *C:\LocalRunRoot*. Složka DataRoot se použije takto:
+* [Testování a ladění úloh U-SQL pomocí místního spuštění a sady Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
-* Ukládání metadat, včetně tabulek, databází, TVF atd.
-* U konkrétního skriptu: Pokud vstupní/výstupní cesta odkazuje na relativní cestu, vyhledáme složku DataRoot (a cestu ke skriptu, pokud se jedná o vstup).
-* Složka DataRoot NEBUDE odkazována, pokud se pokoušíte registrovat sestavení a použít relativní cestu (podrobnější informace najdete v části „Použití sestavení při místním spuštění“).
-
-Toto video ukazuje funkci místního spuštění U-SQL:
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/USQL-LocalRun/player]
->
->
-
-### <a name="known-issues-and-limitations"></a>Známé problémy a omezení
-* V Průzkumníku serveru nejde vytvořit tabulku, databázi atd. pro místní účet.
-* Když se odkazuje na relativní cestu:
-
-  * ve vstupu skriptu (EXTRACT * FROM „/cesta/abc“) – prohledá se cesta DataRoot i cesta ke skriptu.
-  * ve výstupu skriptu (OUTPUT TO „cesta/abc“) – cesta DataRoot se použije jako výstupní složka.
-  * v registraci sestavení (CREATE ASSEMBLY xyz FROM „/cesta/abc“) – prohledá se cesta ke skriptu, ale ne DataRoot.
-  * v registrovaném TVF, zobrazení nebo jiných entitách metadat – prohledá se cesta DataRoot, ale ne cesta ke skriptu.
-
-    U skriptů spuštěných ve službě Data Lake se jako kořenová složka použije výchozí účet úložiště a odpovídajícím způsobem se prohledá.
-
-### <a name="test-u-sql-scripts-locally"></a>Místní testování skriptů U-SQL
-Pokyny týkající se vývoje skriptů U-SQL najdete v tématu [Vývoj skriptů U-SQL](#develop-and-test-u-sql-scripts). Pokud chcete místně sestavovat a spouštět skripty U-SQL, v rozevíracím seznamu clusteru vyberte položku **(Místní)** a klikněte na možnost **Odeslat**. Ujistěte se, zda odkazujete na správná data – můžete buď odkazovat na absolutní cestu, nebo umístit data pod složku DataRoot.
-
-![Místní odeslání projektu U-SQL sady Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
-
-Můžete také kliknout pravým tlačítkem na skript a potom v kontextové nabídce kliknout na možnost **Spustit místní plán** nebo aktivovat místní spuštění stisknutím kláves **CTRL+F5**.
-
-### <a name="use-assemblies-in-local-run"></a>Použití sestavení při místním spuštění
-Přizpůsobené soubory C# se dají spouštět dvěma způsoby:
-
-* Napište sestavení do souboru kódu a sestavení se automaticky zaregistrují a odpojí po dokončení skriptu.
-* Vytvořte projekt sestavení C# a zaregistrujte výstupní knihovnu DLL k místnímu účtu pomocí skriptu podobného tomu, který je uvedený níže. Všimněte si, že cesta je relativní vzhledem ke skriptu, a ne ke složce DataRoot.
-
-![Použití sestavení při místním spuštění U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
-
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Místní ladění skriptů a sestavení C#
-Sestavení C# můžete ladit, aniž byste je odeslali a zaregistrovali k službě Azure Data Lake Analytics. V souboru kódu i v odkazovaném projektu C# můžete nastavit zarážky.
-
-**Postup ladění místního kódu v souboru kódu**
-
-1. Nastavte zarážky v souboru kódu.
-2. Stiskněte klávesu **F5** a místně laďte skript.
-
-Následující postup funguje pouze v sadě Visual Studio 2015. Ve starší sadě Visual Studio je pravděpodobně nutné ručně přidat soubory PDB.
-
-**Postup ladění místního kódu v odkazovaném projektu C#**
-
-1. Vytvořte projekt sestavení C# a sestavte jej tak, aby generoval výstupní knihovnu DLL.
-2. Zaregistruje knihovnu DLL pomocí příkazu U-SQL:
-
-    ```
-    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-    ```
-    
-3. Nastavte zarážky v kódu C#.
-4. Stiskněte klávesu **F5** a laďte skript, a to s místním odkazem na knihovnu DLL jazyka C#.  
 
 ## <a name="see-also"></a>Viz také
 Pokud chcete začít s Data Lake Analytics pomocí různých nástrojů, projděte si témata:

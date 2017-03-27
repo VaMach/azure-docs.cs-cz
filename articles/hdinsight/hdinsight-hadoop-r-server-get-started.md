@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: HDInsight
+ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 0d15b6967b48f6d53cc169a87c25a2d9ee3936fe
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 383a325bfd2620f6c4fd25ce2f3a66522131efef
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ HDInsight zahrnuje možnost integrace R Serveru do clusteru HDInsight. Díky tom
 
 ## <a name="create-the-cluster"></a>Vytvoření clusteru
 > [!NOTE]
-> Kroky v tomto dokumentu vás provedou vytvořením R Serveru v clusteru HDInsight s použitím základních informací o konfiguraci. Informace o dalších nastaveních konfigurace clusteru (jako je přidání dalších účtů úložiště, používání služby Azure Virtual Network nebo vytvoření metastoru pro Hive) najdete v tématu popisujícím [vytvoření clusterů HDInsight se systémem Linux](hdinsight-hadoop-provision-linux-clusters.md).
+> Kroky v tomto dokumentu vás provedou vytvořením R Serveru v clusteru HDInsight s použitím základních informací o konfiguraci. Informace o dalších nastaveních konfigurace clusteru (jako je přidání dalších účtů úložiště, používání služby Azure Virtual Network nebo vytvoření metastoru pro Hive) najdete v tématu popisujícím [vytvoření clusterů HDInsight se systémem Linux](hdinsight-hadoop-provision-linux-clusters.md). Informace o vytvoření R Serveru pomocí šablony Azure Resource Manageru najdete v tématu [Nasazení clusteru HDInsight s R Serverem](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 >
 > 
 
@@ -84,7 +85,7 @@ HDInsight zahrnuje možnost integrace R Serveru do clusteru HDInsight. Díky tom
    
    ![Adresář SSH](./media/hdinsight-getting-started-with-r/dir.png)
 
-   * Pak zadejte soubor veřejného klíče (*.pub) během přiřazování přihlašovacích údajů clusteru HDInsight, a nakonec potvrďte vaši skupinu prostředků a oblast a vyberte **Další**.
+   * Pak zadejte soubor veřejného klíče (*.pub) během přiřazování přihlašovacích údajů clusteru HDInsight, a nakonec potvrďte vaši skupinu prostředků a oblast a vyberte**Další**.
    
    ![Okno Přihlašovací údaje](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
    

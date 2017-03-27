@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,7 +33,7 @@ Pokud chcete uživatelům umožnit spravovat jejich vlastní hesla ke cloudové 
 * [**Hlavní tipy od našich zákazníků, které byste si měli přečíst, než začnete**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**HLAVNÍ TIP: NAVIGACE V DOKUMENTACI** – Najděte odpovědi pomocí našeho obsahu a funkce hledání ve vašem prohlížeči](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Tip 1: LICENCOVÁNÍ** – Ujistěte se, že rozumíte licenčním požadavkům](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**Tip 2: TESTOVÁNÍ** – Testujte jako koncový uživatel, ne jako správce, a spusťte pilotní projekt s menší skupinou uživatelů](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Tip 2: TESTOVÁNÍ** – Testujte jako koncový uživatel, ne jako správce, a spusťte pilotní projekt s menší skupinou uživatelů](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Tip 3: NASAZENÍ** – Předvyplňte data pro vaše uživatele, aby se nemuseli registrovat](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**Tip 4: NASAZENÍ** – Použijte resetování hesla a vyhněte se nutnosti sdělovat dočasná hesla](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Tip 5: ZPĚTNÝ ZÁPIS** – Řešte potíže se zpětným zápisem hesla pomocí zobrazení protokolu událostí aplikace na počítači se službou AAD Connect](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -59,7 +59,7 @@ Níže jsou uvedeny některé hlavní tipy, které se osvědčily jako užitečn
 
 * [**HLAVNÍ TIP: NAVIGACE V DOKUMENTACI** – Najděte odpovědi pomocí našeho obsahu a funkce hledání ve vašem prohlížeči](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Tip 1: LICENCOVÁNÍ** – Ujistěte se, že rozumíte licenčním požadavkům](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**Tip 2: TESTOVÁNÍ** – Testujte jako koncový uživatel, ne jako správce, a spusťte pilotní projekt s menší skupinou uživatelů](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Tip 2: TESTOVÁNÍ** – Testujte jako koncový uživatel, ne jako správce, a spusťte pilotní projekt s menší skupinou uživatelů](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Tip 3: NASAZENÍ** – Předvyplňte data pro vaše uživatele, aby se nemuseli registrovat](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**Tip 4: NASAZENÍ** – Použijte resetování hesla a vyhněte se nutnosti sdělovat dočasná hesla](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Tip 5: ZPĚTNÝ ZÁPIS** – Řešte potíže se zpětným zápisem hesla pomocí zobrazení protokolu událostí aplikace na počítači se službou AAD Connect](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -78,9 +78,9 @@ Podívejte se na následující obsah:
 Pro správné fungování resetování hesel Azure AD musíte mít v organizaci přiřazenu alespoň jednu licenci. Pro samotné resetování hesel nevynucujeme používání licencí pro jednotlivé uživatele, nicméně pokud tuto funkci použijete, aniž by byla k uživateli přiřazena licence, bude se to považovat za nedodržení vaší licenční smlouvy se společností Microsoft a bude potřeba takovému uživateli přiřadit licenci.
 
 Zde je několik dokumentů, které vám pomůžou pochopit, jaké licence se vyžadují pro resetování hesel.
-* [Obecné informace o licencování resetování hesel]()
-* [Informace o licencování resetování hesel podle funkcí]()
-* [Podporované scénáře pro zpětný zápis hesla]()
+* [Obecné informace o licencování resetování hesel](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available)
+* [Informace o licencování resetování hesel podle funkcí](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability)
+* [Podporované scénáře pro zpětný zápis hesla](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Tip 2: TESTOVÁNÍ – Testujte jako koncový uživatel, ne jako správce, a spusťte pilotní projekt s menší skupinou uživatelů
 Pokud provádíte testování jako správce, vynucujeme níže definovanou zásadu resetování hesla správce.  To znamená, že NEZÍSKÁTE očekávané výsledky zásady, kterou jste nakonfigurovali pro vaše koncové uživatele.
@@ -310,6 +310,7 @@ V této části najdete postup konfigurace funkce resetování hesel k jejich zp
 Aby bylo možné povolit a používat zpětný zápis hesla, je nutné nejprve splnit následující požadavky:
 
 * Je nutné mít klienta služby Azure AD s aktivovaným předplatným Azure AD Premium.  Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
+* K fungování zpětného zápisu hesla je nutné připojit službu Azure AD Connect k emulátoru primárního řadiče domény.  V případě potřeby můžete nakonfigurovat službu Azure AD Connect k používání primárního řadiče domény tak, že kliknete pravým tlačítkem na **vlastnosti** konektoru synchronizace služby Active Directory a pak vyberete **konfigurovat oddíly adresáře**. Tady vyhledejte část **nastavení připojení řadiče domény** a zaškrtněte políčko s názvem **použít pouze upřednostňované řadiče domény**.  Poznámka: Pokud upřednostňovaný řadič domény není emulátor primárního řadiče domény, Azure AD Connect se stále bude se zpětným zápisem hesla obracet na primární řadič domény.
 * V klientu je nutné konfigurovat a povolit resetování hesel.  Další informace najdete v tématu [Umožnění resetování hesel služby Azure AD uživatelům](#enable-users-to-reset-their-azure-ad-passwords)
 * Je nutné mít alespoň jeden účet správce a jeden testovací uživatelský účet s licencí Azure AD Premium, který použijete k otestování této funkce.  Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
 
@@ -372,7 +373,7 @@ Po stažení nástroje Azure AD Connect můžete povolit zpětný zápis hesla. 
 >
 
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Povolení zpětného zápisu hesla pomocí Windows PowerShellu
-1. Na **počítači se službou Directory Sync** otevřete nové  ** okno Windows PowerShellu se zvýšenými oprávněními**.
+1. Na **počítači se službou Directory Sync** otevřete nové  **okno Windows PowerShellu se zvýšenými oprávněními**.
 2. Pokud modul dosud není načtený, načtěte zadáním příkazu `import-module ADSync` do své aktuální relace rutiny služby Azure AD Connect.
 3. Spuštěním rutiny `Get-ADSyncConnector` získejte seznam konektorů služby Azure AD a uložte výsledky do atributu `$aadConnectorName`, například `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
 4. Spuštěním následující rutiny získejte aktuální stav zpětného zápisu pro aktuální konektor: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
