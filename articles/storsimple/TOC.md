@@ -161,6 +161,7 @@
 
 ### Řešení potíží
 #### [Problémy při nasazení](storsimple-troubleshoot-deployment.md)
+#### [Použití diagnostických nástrojů](storsimple-8000-diagnostics.md)
 #### [Provozní problémy](storsimple-troubleshoot-operational-device.md)
 #### [Výměna hardwaru](storsimple-hardware-component-replacement.md)
 ##### [Výměna kontroleru zařízení](storsimple-controller-replacement.md)
@@ -208,7 +209,9 @@
 ### [Použití StorSimple Data Manageru](storsimple-data-manager-ui.md)
 
 ## Postup
-### [Transformace dat pomocí .NET](storsimple-data-manager-dotnet-jobs.md)
+### [Použití .NET ke spuštění úloh](storsimple-data-manager-dotnet-jobs.md)
+### [Použití služby Automation ke spuštění úloh](storsimple-data-manager-job-using-automation.md)
+### [Změna výchozí cesty objektu blob](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple pro partnery
 ## Přehled
@@ -235,10 +238,5 @@
 ## [Blog podpory](http://blogs.msdn.com/b/storsimple/)
 ## [Oznámení třetích stran](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -92,7 +92,7 @@ Následující tabulka uvádí komponenty Azure Backup s podporou pro Linux.
 | Agent Azure Backup (MARS) |Ne (pouze agent založený na Windows) |
 | System Center DPM |Záloha s konzistentními soubory jen v Hyper-V<br/> (není k dispozici pro virtuální počítač Azure) |
 | Server Azure Backup |Záloha s konzistentními soubory jen v Hyper-V<br/> (není k dispozici pro virtuální počítač Azure) |
-| Zálohování virtuálních počítačů Azure IaaS |Ano |
+| Zálohování virtuálních počítačů Azure IaaS |Ano (zálohování konzistentní s aplikací pomocí [rozhraní s předzálohovacími a pozálohovacími skripty](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Použití virtuálních počítačů služby Storage úrovně Premium s Azure Backup
 Azure Backup chrání virtuální počítače služby Storage úrovně Premium. Azure Premium Storage představuje úložiště využívající disky SSD (solid-state drive) určené pro podporu úloh náročných na množství vstupně-výstupních operací. Služba Storage úrovně Premium je zajímavá pro úlohy virtuálních počítačů. Další informace o službě Storage úrovně Premium najdete v článku [Premium Storage: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../storage/storage-premium-storage.md).

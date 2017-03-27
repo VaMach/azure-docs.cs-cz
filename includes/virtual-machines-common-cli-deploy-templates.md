@@ -12,7 +12,7 @@
 * [Připojení datového disku](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Příprava
-Abyste mohli použít rozhraní příkazového řádku Azure se skupinou prostředků Azure, musíte mít správnou verzi rozhraní příkazového řádku Azure a účet Azure. Pokud nemáte rozhraní příkazového řádku Azure, [nainstalujte ho](../articles/xplat-cli-install.md).
+Abyste mohli použít rozhraní příkazového řádku Azure se skupinou prostředků Azure, musíte mít správnou verzi rozhraní příkazového řádku Azure a účet Azure. Pokud nemáte rozhraní příkazového řádku Azure, [nainstalujte ho](../articles/cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>Aktualizace rozhraní příkazového řádku Azure na verzi 0.9.0 nebo novější
 Zadejte `azure --version` a podívejte se, jestli už máte nainstalovanou verzi 0.9.0 nebo novější.
@@ -80,7 +80,7 @@ Potom můžete celý životní cyklus prostředků této skupiny spravovat pomoc
 
 Spoustu dalších informací o skupinách prostředků Azure a tom, k čemu je můžete využít, najdete v [přehledu Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md). Pokud vás zajímá vytváření šablon, přečtěte si téma věnované [vytváření šablon Azure Resource Manageru](../articles/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>Úkol: Rychlé vytvoření virtuálního počítače v Azure
+## <a id="quick-create-a-vm-in-azure"></a>Úkol: Rychlé vytvoření virtuálního počítače v Azure
 Někdy víte, kterou image chcete použít, potřebujete virtuální počítač z této image hned a moc vás nezajímá infrastruktura – chcete třeba něco otestovat na čistém virtuálním počítači. A právě to je chvíle pro použití příkazu `azure vm quick-create`, kterému předáte všechny argumenty potřebné k vytvoření tohoto virtuálního počítače a jeho infrastruktury.
 
 Nejdřív vytvoříte skupinu prostředků.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 A váš nový virtuální počítač je připravený.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>Úkol: Nasazení virtuálního počítače v Azure ze šablony
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Úkol: Nasazení virtuálního počítače v Azure ze šablony
 Pokyny v těchto odstavcích použijte pro nasazení nového virtuálního počítače Azure ze šablony pomocí rozhraní příkazového řádku Azure. Tato šablona vytvoří jeden virtuální počítač v nové virtuální síti s jedinou podsítí a na rozdíl od příkazu `azure vm quick-create` umožňuje popsat, co přesně chcete, a zopakovat to bez chyb. Tato šablona vytvoří tohle:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>Úkol: Vytvoření vlastní image virtuálního počítače
+## <a id="create-a-custom-vm-image"></a>Úkol: Vytvoření vlastní image virtuálního počítače
 Se základy využití šablon jste se seznámili v předcházejících krocích, takže teď můžeme podobné pokyny využít k vytvoření vlastního virtuálního počítače z konkrétního souboru .vhd v Azure pomocí šablony s využitím rozhraní příkazového řádku Azure. Rozdíl je v tom, že tato šablona vytvoří jeden virtuální počítač ze zadaného virtuálního pevného disku (VHD).
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Krok 1: Prohlídka šablony v souboru JSON
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Úloha: Nasazení aplikace s více virtuálními počítači, která používá virtuální síť a externí nástroj pro vyrovnávání zatížení
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Úloha: Nasazení aplikace s více virtuálními počítači, která používá virtuální síť a externí nástroj pro vyrovnávání zatížení
 Tato šablona umožňuje vytvořit dva virtuální počítače s nástrojem pro vyrovnávání zatížení a nakonfigurovat pravidlo vyrovnávání zatížení na portu 80. Tato šablona také nasadí účet úložiště, virtuální síť, veřejnou IP adresu, skupinu dostupnosti a síťová rozhraní.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 Všimněte si, že tato šablona nasadí image Windows Serveru. Můžete ji ale snadno nahradit libovolnou linuxovou imagí. Chcete vytvořit cluster Dockeru s několika správci Swarm? [Můžete](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>Úkol: Odebrání skupiny prostředků
+## <a id="remove-a-resource-group"></a>Úkol: Odebrání skupiny prostředků
 Mějte na paměti, že do skupiny prostředků je možné znovu provádět nasazení, ale pokud jste s ní hotoví, můžete ji odstranit pomocí `azure group delete <group name>`.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Úkol: Zobrazení protokolu pro nasazení skupiny prostředků
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Úkol: Zobrazení protokolu pro nasazení skupiny prostředků
 Tento úkol je obvyklý při vytváření nebo používání šablon. K zobrazení protokolů nasazení pro skupinu se použije volání `azure group log show <groupname>`. Zobrazí poměrně hodně informací, které jsou užitečné ke zjištění, proč se něco stalo, nebo nestalo. (Další informace o řešení potíží s nasazeními a také další informace o problémech najdete v tématu [Řešení chyb nasazení v Azure pomocí Azure Resource Manageru](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
 
 Pokud se zaměřujete na konkrétní selhání, můžete použít nástroje, jako je **jq**, podívat se na věci víc zblízka a zjistit třeba, která jednotlivá selhání je potřeba napravit. Následující příklad využívá **jq** k analýze protokolu nasazení pro **lbgroup** a hledá selhání.
@@ -1191,7 +1191,7 @@ Umožňuje rychle zjistit, co se nepovedlo, opravit to a zkusit znovu. V násled
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>Úkol: Zobrazení informací o virtuálním počítači
+## <a id="display-information-about-a-virtual-machine"></a>Úkol: Zobrazení informací o virtuálním počítači
 Informace o konkrétním virtuálním počítači ve skupině prostředků můžete zobrazit pomocí příkazu `azure vm show <groupname> <vmname>`. Pokud máte ve skupině víc než jeden virtuální počítač, můžete nejdřív zobrazit seznam virtuálních počítačů ve skupině pomocí příkazu `azure vm list <groupname>`.
 
 ```azurecli
@@ -1259,14 +1259,14 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Pokud chcete prostřednictvím kódu programu uložit výstup příkazů konzoly a zpracovat je, můžete využít třeba nástroj pro analýzu JSON, jako je ** [jq](https://github.com/stedolan/jq) ** nebo ** [jsawk](https://github.com/micha/jsawk)**, nebo knihovny jazyků, které jsou pro tyto účely vhodné.
+> Pokud chcete prostřednictvím kódu programu uložit výstup příkazů konzoly a zpracovat je, můžete využít třeba nástroj pro analýzu JSON, jako je **[jq](https://github.com/stedolan/jq)** nebo **[jsawk](https://github.com/micha/jsawk)**, nebo knihovny jazyků, které jsou pro tyto účely vhodné.
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>Úkol: Připojení k virtuálnímu počítači s Linuxem
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Úkol: Připojení k virtuálnímu počítači s Linuxem
 K počítačům se systémem Linux se obvykle připojuje prostřednictvím SSH. Další informace najdete v tématu [Jak použít SSH s Linuxem v Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>Úkol: Zastavení virtuálního počítače
+## <a id="stop-a-virtual-machine"></a>Úkol: Zastavení virtuálního počítače
 Spusťte tento příkaz:
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>Úkol: Spuštění virtuálního počítače
+## <a id="start-a-virtual-machine"></a>Úkol: Spuštění virtuálního počítače
 Spusťte tento příkaz:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>Úkol: Připojení datového disku
+## <a id="attach-a-data-disk"></a>Úkol: Připojení datového disku
 Musíte se také rozhodnout, jestli se má připojit nový disk, nebo disk, který obsahuje data. V případě nového disku tento příkaz vytvoří soubor .vhd a rovnou ho i připojí.
 
 Pokud chcete připojit nový disk, spusťte tento příkaz:
@@ -1306,8 +1306,3 @@ Pak bude potřeba disk připojit běžným způsobem, který v Linuxu používá
 Další příklady použití rozhraní příkazového řádku Azure s režimem **arm** najdete v tématu věnovaném [použití rozhraní příkazového řádku Azure pro Mac, Linux a Windows s Azure Resource Managerem](../articles/xplat-cli-azure-resource-manager.md). Další informace o prostředcích Azure a jejich konceptech najdete v [přehledu Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md).
 
 Další šablony, které můžete použít, najdete v tématech věnovaných [rychlému úvodu do šablon pro Azure](https://azure.microsoft.com/documentation/templates/) a [aplikačním architekturám využívajícím šablony](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

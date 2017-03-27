@@ -1,5 +1,5 @@
 ---
-title: "Application Insights pro služby systému Windows a role pracovního procesu | Dokumentace Microsoftu"
+title: "Azure Application Insights pro služby systému Windows a role pracovního procesu | Dokumentace Microsoftu"
 description: "Ručně přidejte do aplikace ASP.NET sadu SDK Application Insights k analýze využití, dostupnosti a výkonu."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ Budete potřebovat:
 * Předplatné [Microsoft Azure](http://azure.com). Pokud váš tým nebo společnost má předplatné Azure, vlastník vás do něj může přidat pomocí vašeho [účtu Microsoft](http://live.com).
 * Visual Studio 2013 nebo novější.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Vytvořte prostředek Application Insights
+## <a name="add"></a>1. Vytvořte prostředek Application Insights
 Přihlaste se k webu [Azure Portal](https://portal.azure.com/) a vytvořte nový prostředek Application Insights. Vyberte jako typ aplikace ASP.NET.
 
 ![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá 
 
 Kroky, které jste právě provedli pro vytvoření nového prostředku, jsou vhodný způsob, jak začít monitorovat všechny aplikace. Teď do prostředku můžete odesílat data.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Nainstalujte sadu SDK do aplikace
+## <a name="sdk"></a>2. Nainstalujte sadu SDK do aplikace
 Instalace a konfigurace Application Insights SDK se liší podle platformy, se kterou právě pracujete. Pro aplikace ASP.NET je to snadné.
 
 1. V sadě Visual Studio upravte balíčky NuGet projektu webové aplikace.
@@ -84,14 +85,14 @@ Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložt
 
 Nastavení klíče instrumentace v kódu je užitečné v případě, že chcete [přepínat mezi klíči pro různé konfigurace sestavení](app-insights-separate-resources.md). Pokud klíč nastavíte v kódu, nemusíte ho nastavovat v souboru `.config`.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Spuštění projektu
+## <a name="run"></a> Spuštění projektu
 Použijte **F5** ke spuštění aplikace a vyzkoušejte: otevření různých stránek k vygenerování nějaké telemetrie.
 
 V sadě Visual Studio zobrazí počet událostí, které byly odeslány.
 
 ![Počet událostí v sadě Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Zobrazení telemetrických dat
+## <a name="monitor"></a> Zobrazení telemetrických dat
 Přihlaste se do [portálu Azure](https://portal.azure.com/) a procházejte do zdroje Application Insights.
 
 Vyhledejte data v tabulkách Přehled. Na první pohled uvidíte pouze jeden nebo dva body. Příklad:
@@ -128,12 +129,11 @@ Naleznete v tématu [tato položka Poradce při potížích](app-insights-asp-ne
 > 
 > 
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Další kroky
 * [Přidejte více telemetrie](app-insights-asp-net-more.md) a získejte komplexní náhled na svoji aplikaci.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -82,7 +82,6 @@
 
 ### [Migrace z IIS](web-sites-migration-from-iis-server.md)
 ### [Testování v produkčním prostředí](app-service-web-test-in-production-get-start.md)
-### [Spuštění testů výkonnosti](app-service-web-app-performance-test.md) 
 
 ## Připojení k databázi nebo prostředkům        
 

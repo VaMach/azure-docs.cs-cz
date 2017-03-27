@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 354292f51d07bff00e7a6811e4d1d7beb7844920
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,7 +68,7 @@ Chcete-li začít používat Storm, otevřete část [Začínáme pracovat se St
 V clusteru HDInsight můžete zřídit nové Storm během několika minut. Zadejte název clusteru, velikost, účet správce a účet úložiště. Azure vytvoří cluster, včetně vzorových topologií a řídicího panelu webové správy.
 
 > [!NOTE]
-> Clustery Storm můžete také vytvářet pomocí [Azure CLI](../xplat-cli-install.md) nebo [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> Clustery Storm můžete také vytvářet pomocí [Azure CLI](../cli-install-nodejs.md) nebo [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Během 15 minut od odeslání žádosti budete mít nový cluster Storm spuštěný a připravený pro první analytický kanál v reálném čase.
 

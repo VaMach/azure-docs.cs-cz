@@ -4,18 +4,19 @@ description: "Nastavení testů webu ve službě Application Insights. Zasílán
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ Existují dva typy webového testu:
 
 Můžete vytvořit až 10 webových testů na prostředek aplikace.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Vytvoření prostředku pro testovacích sestavy
+## <a name="create"></a>1. Vytvoření prostředku pro testovacích sestavy
 Tento krok přeskočte, pokud jste již [nastavili prostředek Application Insights][start] pro tuto aplikaci a chcete zobrazit sestavy dostupnosti na stejném místě.
 
 Zaregistrujte se na portálu [Microsoft Azure](http://azure.com), přejděte na [portál Azure](https://portal.azure.com) a vytvořte prostředek Application Insights.
@@ -42,7 +43,7 @@ Zaregistrujte se na portálu [Microsoft Azure](http://azure.com), přejděte na 
 
 Kliknutím na možnost **Všechny prostředky** otevřete okno Přehled pro nový prostředek.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Vytvoření testu adresy URL pomocí příkazu Ping
+## <a name="setup"></a>2. Vytvoření testu adresy URL pomocí příkazu Ping
 V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte na něj pro otevření okna webové testy pro vaši aplikaci a přidejte webový test.
 
 ![Vyplňte alespoň adresu URL webu](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte n
 ### <a name="test-more-urls"></a>Testování více adres URL
 Přidat další testy Pro příklad, a také jako testování domovské stránky, můžete zajistit, že vaše databáze se spouští otestováním adresy URL pro hledání.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Zobrazení výsledků testu webu
+## <a name="monitor"></a>3. Zobrazení výsledků testu webu
 Po 1–2 minutách se v okně Test webu zobrazí výsledky.
 
 ![Souhrnné výsledky na domácím okně](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,7 +76,7 @@ Kliknutím na libovolný panel v grafu souhrnu získáte podrobnější zobrazen
 
 Tyto grafy kombinují výsledky pro všechny webové testy aplikace.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Pokud se zobrazí chyby
+## <a name="failures"></a>Pokud se zobrazí chyby
 Klikněte na červenou tečku.
 
 ![Klikněte na červenou tečku](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -100,7 +101,7 @@ Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Napříkla
 > Vícekrokové webové testy jsou zpoplatněné. [Cenové schéma](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Studio a pak nahrajte tento záznam do služby Application Insights. Application Insights přehrává scénář v intervalech a ověřuje odezvy.
+Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Studio Enterprise a pak nahrajte tento záznam do služby Application Insights. Application Insights přehrává scénář v intervalech a ověřuje odezvy.
 
 Všimněte si, že nemůžete použít kódované funkce ve svých testech: kroky scénáře musí být obsaženy jako skript v souboru .webtest.
 
@@ -109,7 +110,10 @@ Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
 
 1. Vytvořte projekt testu výkonnosti webu.
 
-    ![Vytvořte v sadě Visual Studio nový projekt ze šablony výkonu webu a zátěžového testu.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Vytvořte v sadě Visual Studio Enterprise nový projekt ze šablony výkonnostního testu webu a zátěžového testu.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Nevidíte šablonu výkonnostního testu webu a zátěžového testu?* – Zavřete sadu Visual Studio Enterprise. Otevřete **Instalační program sady Visual Studio**, pomocí kterého upravíte svou instalaci sady Visual Studio Enterprise. V části **Jednotlivé komponenty** vyberte **Nástroje pro testování výkonnosti webů a zátěžové testování**.
+
 2. Otevřete soubor .webtest a spusťte záznam.
 
     ![Otevřete soubor .webtest a klikněte na tlačítko Záznam.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -207,7 +211,7 @@ Pokud váš test vyžaduje přihlášení pomocí OAuth, bude obecný postup ná
 * Parametrizujte tokeny, nastavte parametr při vrácení tokenu z ověřovatele a použijte ho v dotazu na web.
   (Sada Visual Studio se pokusí o parametrizaci testu, ale nebude tokeny parametrizovat správně.)
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Úprava nebo zakázání testu
+## <a name="edit"></a> Úprava nebo zakázání testu
 Otevřete jednotlivé testy a upravte je nebo je zakažte.
 
 ![Upravit nebo zakázat webový test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -256,12 +260,12 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
     Tuto možnost nepodporujeme, je nám líto.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Video
+## <a name="video"></a>Video
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Další kroky
+## <a name="next"></a>Další kroky
 [Prohledávání diagnostických protokolů][diagnostic]
 
 [Řešení potíží][qna]
@@ -274,9 +278,4 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

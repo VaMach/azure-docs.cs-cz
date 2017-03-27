@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -127,7 +127,7 @@ V tomto kroku vytvoříte uživatelský účet pro přístup k datovému skladu.
 
 - SQL Data Warehouse používá předdefinované databázové role, označované jako třídy prostředků, k přidělování různých množství paměťových a procesorových prostředků a slotů souběžnosti jednotlivým uživatelům. Každý uživatel může patřit do malé, střední, velké nebo velmi velké třídy prostředků. Třída prostředků uživatele určuje, jaké prostředky má uživatel k dispozici pro spouštění dotazů a operací načítání.
 
-- Z důvodu optimalizace komprese dat uživatel obvykle potřebuje načítání s velkým nebo velmi velkým přidělením prostředků. Další informace o třídách prostředků najdete [zde](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- Z důvodu optimální komprese dat uživatel může potřebovat načítání s velkým nebo velmi velkým přidělením prostředků. Další informace o třídách prostředků najdete [zde](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Vytvoření účtu, který může řídit databázi
 

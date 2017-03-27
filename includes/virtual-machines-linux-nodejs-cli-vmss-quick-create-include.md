@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Požadavky
 
-Pokud jste to ještě neudělali, můžete získat [bezplatnou zkušební verzi předplatného Azure](https://azure.microsoft.com/pricing/free-trial/) a [rozhraní příkazového řádku Azure CLI 1.0](../articles/xplat-cli-install.md) [připojené k vašemu účtu Azure](../articles/xplat-cli-connect.md). Následujícím způsobem ověřte, že je Azure CLI v režimu Resource Manager:
+Pokud jste to ještě neudělali, můžete získat [bezplatnou zkušební verzi předplatného Azure](https://azure.microsoft.com/pricing/free-trial/) a [rozhraní příkazového řádku Azure CLI 1.0](../articles/cli-install-nodejs.md) [připojené k vašemu účtu Azure](../articles/xplat-cli-connect.md). Následujícím způsobem ověřte, že je Azure CLI v režimu Resource Manager:
 
 ```azurecli
 azure config mode arm

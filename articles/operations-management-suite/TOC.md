@@ -1,7 +1,6 @@
 # Přehled
 ## [Co je Operations Management Suite (OMS)?](operations-management-suite-overview.md)
 ## [Architektura OMS](operations-management-suite-architecture.md)
-## [Řešení pro správu](operations-management-suite-solutions.md)
 
 # Začínáme
 ## Přehledy a analýza
@@ -15,15 +14,18 @@
 ### [Zabezpečení dat](oms-security-data-security.md)
 
 # Postup
+
 ## Analýza
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Porovnání produktů monitorování](operations-management-suite-monitoring-product-comparison.md)
 ### [Správa výstrah](operations-management-suite-monitoring-alerts.md)
 ## Automatizace
 ### [Přehled Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Zálohování
 ### [Přehled služby Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Přehled služby Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Zabezpečení
 ### [Sledování prostředků](oms-security-monitoring-resources.md)
 ### [Reakce na výstrahy zabezpečení](oms-security-responding-alerts.md)
@@ -31,17 +33,9 @@
 ### [Posouzení malwaru](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Posouzení aktualizace systému](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Produkty zabezpečení Connect](oms-security-connect-products.md)
-## Vytváření řešení
-### [Řešení pro správu](operations-management-suite-solutions-creating.md)
-### [Prostředky služby Automation](operations-management-suite-solutions-resources-automation.md)
-### [Prohledávání protokolu a upozornění](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Zobrazení](operations-management-suite-solutions-resources-views.md)
-## [Integrace s OMS](operations-management-suite-integration.md)
 
-
-# Referenční informace
-## [Sada SDK](operations-management-suite-sdk.md)
-## Řešení
+## Použití řešení
+### [Řešení pro správu](operations-management-suite-solutions.md)
 ### Přehledy a analýza
 #### [Posouzení AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Stav replikace AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -64,8 +58,15 @@
 ### Zabezpečení a dodržování předpisů
 #### [Posouzení antimalwaru](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
+## Vytváření řešení
+### [Návrh a sestavení](operations-management-suite-solutions-creating.md)
+### [Soubor řešení](operations-management-suite-solutions-solution-file.md)
+### [Prostředky služby Automation](operations-management-suite-solutions-resources-automation.md)
+### [Prohledávání protokolu a upozornění](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Zobrazení](operations-management-suite-solutions-resources-views.md)
 
+## [Integrace s OMS](operations-management-suite-integration.md)
 
-<!--HONumber=Feb17_HO1-->
-
+# Referenční informace
+## [Sada SDK](operations-management-suite-sdk.md)
 

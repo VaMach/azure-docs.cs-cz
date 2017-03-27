@@ -1,5 +1,5 @@
 ---
-title: "Řízení přístupu Access Control na portálu Azure Classic | Dokumentace Microsoftu"
+title: "Řízení přístupu na základě role na webu Azure Portal | Dokumentace Microsoftu"
 description: "Začněte se správou přístupu pomocí řízení přístupu na základě rolí na portálu Azure. Oprávnění k prostředkům se přiřazují pomocí přiřazení rolí."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
-ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c3e3e407eb6a05b208863443bb8ccf3cba701b23
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -76,10 +77,5 @@ Přiřazování rolí a správu přístupu pomocí řízení přístupu na zákl
 * [Vytvoření sestavy historie změn přístupu](role-based-access-control-access-change-history-report.md)
 * Další informace najdete v článku [Vestavěné role řízení přístupu na základě role v Azure](role-based-access-built-in-roles.md).
 * Definujte své [Vlastní role funkce řízení přístupu na základě role v Azure](role-based-access-control-custom-roles.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -159,6 +159,7 @@
 #### [Použití Excelu](machine-learning-consuming-from-excel.md)
 #### [Použití doplňků Excelu](machine-learning-excel-add-in-for-web-services.md)
 #### [Použití šablony webové aplikace](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Použití fondu Batch](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## Příklady
 ### [Ukázkové experimenty](machine-learning-sample-experiments.md)
@@ -222,8 +223,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Získat pomoc přes živý chat](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

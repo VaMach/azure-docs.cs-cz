@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,6 +32,7 @@ Tento článek ukazuje, jak vytvořit cluster Kubernetes ve službě Azure Conta
 
 > [!NOTE]
 > Podpora pro kontejnery Windows s Kubernetes ve službě Azure Container Service je ve verzi Preview. K vytvoření clusteru Kubernetes s uzly Windows použijte Azure Portal nebo šablonu Resource Manageru. Azure CLI 2.0 v současné době tuto funkci nepodporuje.
+>
 
 
 
@@ -81,13 +82,13 @@ Po vytvoření clusteru a připojení pomocí `kubectl` můžete vyzkoušet spu�
 
 1. Pokud chcete zobrazit seznam uzlů, zadejte `kubectl get nodes`. Pokud chcete zobrazit úplné podrobnosti o uzlech, zadejte:  
 
-  ```
-  kubectl get nodes -o yaml
-  ```
+    ```
+    kubectl get nodes -o yaml
+    ```
 
 2. Vytvořte soubor `simpleweb.yaml` a zkopírujte do něj následující. Tento soubor nastaví webovou aplikaci pomocí základní image jádra operačního systému Windows Server 2016 z [Docker Hubu](https://hub.docker.com/r/microsoft/windowsservercore/).  
 
-  ```yaml
+```yaml
   apiVersion: v1
   kind: Service
   metadata:
@@ -123,40 +124,44 @@ Po vytvoření clusteru a připojení pomocí `kubectl` můžete vyzkoušet spu�
           command:
           - powershell.exe
           - -command
-          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$ip = (Get-NetIPAddress | where {$$_.IPAddress -Like '*.*.*.*'})[0].IPAddress ; $$url = 'http://'+$$ip+':80/' ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add($$url) ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at {0}...' -f $$url) ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
+          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add('http://*:80/') ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at http://*:80/') ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
         nodeSelector:
           beta.kubernetes.io/os: windows
   ```
 
-3. Chcete-li spustit aplikaci, zadejte:
+      
+> [!NOTE] 
+> Konfigurace zahrnuje `type: LoadBalancer`. Toto nastavení způsobí, že služba bude na internetu zpřístupněna prostřednictvím nástroje pro vyrovnávání zatížení Azure. Další informace najdete v tématu [Kontejnery pro vyrovnávání zatížení v clusteru Kubernetes v Azure Container Service](container-service-kubernetes-load-balancing.md).
+>
 
-  ```
-  kubectl apply -f simpleweb.yaml
-  ```
+## <a name="start-the-application"></a>Spuštění aplikace
+
+1. Chcete-li spustit aplikaci, zadejte:  
+
+    ```
+    kubectl apply -f simpleweb.yaml
+    ```  
   
-  > [!NOTE] 
-  > Konfigurace zahrnuje `type: LoadBalancer`. Toto nastavení způsobí, že služba bude na internetu zpřístupněna prostřednictvím nástroje pro vyrovnávání zatížení Azure. Další informace najdete v tématu [Kontejnery pro vyrovnávání zatížení v clusteru Kubernetes v Azure Container Service](container-service-kubernetes-load-balancing.md).
   
-4. Pokud chcete ověřit nasazení služby (které trvá přibližně 30 sekund), zadejte:
+2. Pokud chcete ověřit nasazení služby (které trvá přibližně 30 sekund), zadejte:  
 
-  ```
-  kubectl get pods
-  ```
+    ```
+    kubectl get pods
+    ```
 
-5. Jakmile je služba spuštěná, můžete zobrazit interní a externí IP adresy zadáním:
+3. Jakmile je služba spuštěná, můžete zobrazit interní a externí IP adresy zadáním:
 
-  ```
-  kubectl get svc
-  ``` 
+    ```
+    kubectl get svc
+    ``` 
+  
+    ![IP adresy služby pro Windows](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
 
-  ![IP adresy služby pro Windows](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
+    Přidání externí IP adresy trvá několik minut. Předtím, než nástroj pro vyrovnávání zatížení externí IP adresu nakonfiguruje, bude zobrazena se stavem `<pending>` (čekající).
 
-  Přidání externí IP adresy trvá několik minut. Předtím, než nástroj pro vyrovnávání zatížení externí IP adresu nakonfiguruje, bude zobrazena se stavem `<pending>` (čekající).
+4. Jakmile je externí IP adresa dostupná, můžete ke službě přistupovat z webového prohlížeče.
 
-
-6. Jakmile je externí IP adresa dostupná, můžete ke službě přistupovat z webového prohlížeče.
-
-  ![Aplikace pro Windows Server v prohlížeči](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
+    ![Aplikace pro Windows Server v prohlížeči](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
 
 
 ## <a name="access-the-windows-nodes"></a>Přístup k uzlům Windows
@@ -170,37 +175,31 @@ Tunely SSH je ve Windows možné vytvořit několika způsoby. Tato část popis
 
 3. Zadejte název hostitele, který se skládá z uživatelského jména správce clusteru a veřejného názvu DNS prvního hlavního uzlu v clusteru. **Název hostitele** vypadá podobně jako `adminuser@PublicDNSName`. Jako **Port** zadejte 22.
 
-    ![Konfigurace PuTTY 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
+  ![Konfigurace PuTTY 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
 
 4. Vyberte **SSH > Ověřování**. Pro ověření přidejte cestu ke svému souboru privátního klíče (formát .ppk). Můžete použít nástroj typu [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) k vygenerování tohoto souboru z klíč SSH použitého při vytváření clusteru.
 
-    ![Konfigurace PuTTY 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
+  ![Konfigurace PuTTY 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
 
 5. Vyberte **SSH > Tunely** a nakonfigurujte přesměrované porty. Vzhledem k tomu, že váš počítač s Windows již používá port 3389, doporučujeme pro přístup k uzlu Windows 0 a uzlu Windows 1 použít následující nastavení. (Tento vzor použijte i pro další uzly Windows.)
 
-  **Uzel Windows 0**
+    **Uzel Windows 0**
 
-  * **Zdrojový port:** 3390
-  * **Cíl:** 10.240.245.5:3389
+    * **Zdrojový port:** 3390
+    * **Cíl:** 10.240.245.5:3389
 
-  **Uzel Windows 1**
+    **Uzel Windows 1**
 
-  * **Zdrojový port:** 3391
-  * **Cíl:** 10.240.245.6:3389
+    * **Zdrojový port:** 3391
+    * **Cíl:** 10.240.245.6:3389
 
-  ![Obrázek tunelů Windows RDP](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
+    ![Obrázek tunelů Windows RDP](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
 
 6. Po dokončení uložte konfiguraci připojení kliknutím na **Relace > Uložit**.
 
 7. K relaci PuTTY se připojíte kliknutím na **Otevřít**. Dokončete připojení k hlavnímu uzlu.
 
 8. Spusťte Připojení ke vzdálené ploše. Pokud se chcete připojit k prvnímu uzlu Windows, jako **Počítač** zadejte `localhost:3390` a klikněte na **Připojit**. (Pro připojení k druhému zadejte `localhost:3390` atd.) Pro dokončení připojení zadejte heslo místního správce Windows, které jste nakonfigurovali během nasazení.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Další kroky

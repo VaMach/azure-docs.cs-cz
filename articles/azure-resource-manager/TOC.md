@@ -7,14 +7,13 @@
 
 # Začínáme
 ## [Export šablony](resource-manager-export-template.md)
-## [Průvodce šablonami](resource-manager-template-walkthrough.md)
+## [Vytvoření první šablony](resource-manager-create-first-template.md)
 ## [Visual Studio s Resource Managerem](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Kód VS s Resource Managerem](resource-manager-vs-code.md)
 
 # Postup
 ## Vytváření šablon
 ### [Osvědčené postupy pro šablony](resource-manager-template-best-practices.md)
-### [Vytváření šablon](resource-group-authoring-templates.md)
+### [Části šablon](resource-group-authoring-templates.md)
 ### [Funkce šablon](resource-group-template-functions.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
 ### [Nastavení názvu a typu podřízeného prostředku](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Schémata šablon](https://github.com/Azure/azure-resource-manager-schemas)
+## [Formát šablon](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Zdroje a prostředky

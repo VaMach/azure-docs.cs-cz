@@ -3,7 +3,7 @@ title: "Začínáme s aplikacemi API a technologií ASP.NET v App Service | Doku
 description: "Naučte se vytvářet, nasazovat a využívat aplikace API technologie ASP.NET v Azure App Service pomocí nástroje Visual Studio 2015."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
@@ -199,7 +199,7 @@ Swashbuckle funguje s libovolným projektem webového rozhraní API ASP.NET. Pok
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Vytvoření aplikace API v Azure a nasazení kódu v této aplikaci
+## <a id="createapiapp"></a> Vytvoření aplikace API v Azure a nasazení kódu v této aplikaci
 V této části použijte nástroje Azure, které jsou integrovány v průvodci **Publikovat web** nástroje Visual Studio, k vytvoření nové aplikace API v Azure. Potom nasaďte projekt ToDoListDataAPI do nové aplikace API a spuštěním uživatelského rozhraní Swagger zavolejte rozhraní API.
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt ToDoListDataAPI a potom klikněte na **Publikovat**.
@@ -303,7 +303,7 @@ V této části použijte nástroje Azure, které jsou integrovány v průvodci 
     
     Když vyberete aplikaci API, pro kterou chcete vygenerovat kód klienta, načte Visual Studio metadata z této adresy URL.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generování klientského kódu datové vrstvy
+## <a id="codegen"></a> Generování klientského kódu datové vrstvy
 Jednou z výhod integrace Swaggeru do aplikací API Azure je automatické generování kódu. Vygenerované třídy klienta usnadňují psaní kódu, který volá aplikaci API.
 
 Projekt ToDoListAPI už má kód klienta vygenerovaný, ale v následujících krocích ho odstraníme a znovu vygenerujeme, abyste si mohli postup generování kódu prohlédnout.

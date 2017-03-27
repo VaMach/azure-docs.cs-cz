@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
-ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -35,7 +36,7 @@ Při konfiguraci upozornění existují dvě možnosti volání runbooku.  Konkr
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Volání runbooku pomocí webhooku
 
-Webhook umožňuje spuštění konkrétního runbooku v Azure Automation prostřednictvím jednoho požadavku HTTP.  Před konfigurací [upozornění Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule), aby jako akci upozornění volalo runbook pomocí webhooku, bude třeba nejprve vytvořit webhook pro runbook, který bude touto metodou volán.  Přečtěte si článek [Vytvoření webhooku](automation-webhooks.md#creating-a-webhook) a postupujte podle uvedených kroků – nezapomeňte si poznamenat adresu URL webhooku, abyste na něj mohli odkazovat během konfigurace pravidla upozornění.   
+Webhook umožňuje spuštění konkrétního runbooku v Azure Automation prostřednictvím jednoho požadavku HTTP.  Před konfigurací [upozornění Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules), aby jako akci upozornění volalo runbook pomocí webhooku, bude třeba nejprve vytvořit webhook pro runbook, který bude touto metodou volán.  Přečtěte si článek [Vytvoření webhooku](automation-webhooks.md#creating-a-webhook) a postupujte podle uvedených kroků – nezapomeňte si poznamenat adresu URL webhooku, abyste na něj mohli odkazovat během konfigurace pravidla upozornění.   
 
 ## <a name="calling-a-runbook-directly"></a>Přímé volání runbooku
 
@@ -52,14 +53,14 @@ Obě metody volání runbooku z upozornění Log Analytics mají rozdílné vlas
           [Parameter (Mandatory=$true)]  
           [object] $WebhookData  
          )
-  
+
 *  Musíte mít kód, který převede WebhookData na objekt prostředí PowerShell.
 
     `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
     *$SearchResults* bude pole objektů, z nichž každý obsahuje pole s hodnotami z jednoho výsledku hledání.
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>Nekonzistence parametru WebhookData mezi možnostmi webhooku a runbooku 
+### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>Nekonzistence parametru WebhookData mezi možnostmi webhooku a runbooku
 
 * Při konfiguraci upozornění volajícího webhook zadejte adresu URL webhooku, který jste vytvořili pro runbook, a klikněte na tlačítko **Otestovat webhook**.  Výsledný parametr WebhookData odeslaný do runbooku neobsahuje buď *.SearchResult*, nebo *.SearchResults*.
 
@@ -68,7 +69,7 @@ Obě metody volání runbooku z upozornění Log Analytics mají rozdílné vlas
 
 Proto je ve výše uvedeném příkladu kódu nutné získat *.SearchResult*, pokud upozornění volá webhook, a naopak *.SearchResults*, pokud upozornění volá runbook přímo.
 
-## <a name="example-walkthrough"></a>Ukázka podrobného postupu 
+## <a name="example-walkthrough"></a>Ukázka podrobného postupu
 
 Na následujícím příkladu grafického runbooku, který spouští službu pro Windows, si předvedeme, jak to funguje.<br><br> ![Spuštění grafického runbooku služby pro Windows](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
@@ -90,9 +91,4 @@ Pokud by váš účet Automation nebyl propojený s pracovním prostorem OMS, na
 * Další informace o upozorněních v Log Analytics a jejich vytváření najdete v tématu [Upozornění v Log Analytics](../log-analytics/log-analytics-alerts.md).
 
 * Informace o tom, jak aktivovat runbooky pomocí webhooku, najdete v tématu [Webhooky Azure Automation](automation-webhooks.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

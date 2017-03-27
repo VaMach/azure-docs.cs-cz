@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Nasazení šablony ARM pomocí rozhraní příkazového řádku Azure
 Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní příkazového řádku Azure, použijte následující postup.
 
-1. Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../articles/xplat-cli-install.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
+1. Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../articles/cli-install-nodejs.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
 2. Spuštěním příkazu **`azure config mode`** přepněte do režimu Resource Manager, jak vidíte níže.
    
         azure config mode arm
@@ -84,9 +84,4 @@ Pokud chcete nasadit šablonu ARM, kterou jste stáhli, pomocí rozhraní přík
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

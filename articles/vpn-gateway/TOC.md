@@ -14,12 +14,12 @@
 ## Konfigurace připojení typu site-to-site
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure Portal (Classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
 ## Konfigurace připojení typu point-to-site
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Portál Azure Classic](vpn-gateway-point-to-site-create.md)
 ## Konfigurace připojení typu VNet-to-VNet
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,7 +41,9 @@
 ## [Úprava nastavení místní síťové brány pomocí PowerShellu](vpn-gateway-modify-local-network-gateway.md)
 ## [Ověření připojení brány VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
-## [Odstranění brány VPN](vpn-gateway-delete-vnet-gateway-powershell.md)
+## Odstranění brány VPN
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Vytvoření kořenových certifikátů podepsaných svým držitelem pro připojení P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 

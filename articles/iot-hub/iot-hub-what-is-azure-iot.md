@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
+ms.lasthandoff: 01/24/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="next-steps"></a>Další kroky
+
 Azure IoT Hub je služba Azure, která umožňuje zabezpečenou a spolehlivou obousměrnou komunikaci mezi back-endem řešení a miliony zařízení. Umožňuje back-endu řešení:
 
 * Přijímat škálovaná telemetrická data z vašich zařízení.
@@ -46,9 +48,4 @@ Možná by vás také mohla zajímat sada [Azure IoT Suite][lnk-iot-suite], což
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

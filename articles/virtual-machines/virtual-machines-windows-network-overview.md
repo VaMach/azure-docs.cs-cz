@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ Vedle těchto základních prostředků byste měli zvážit také následujíc�
 
 ## <a name="network-interfaces"></a>Síťová rozhraní
 
-[Síťové rozhraní (NIC)](../virtual-network/virtual-network-network-interface-overview.md) je propojení mezi virtuálním počítačem a virtuální sítí (VNet). Virtuální počítač musí mít alespoň jedno síťové rozhraní, ale může jich mít víc, v závislosti na své velikosti. Přečtěte si, kolik síťových rozhraní podporují jednotlivé velikosti virtuálních počítačů, v článku [Velikosti virtuálních počítačů v Azure](virtual-machines-windows-sizes.md). 
+[Síťové rozhraní (NIC)](../virtual-network/virtual-network-network-interface.md) je propojení mezi virtuálním počítačem a virtuální sítí (VNet). Virtuální počítač musí mít alespoň jedno síťové rozhraní, ale může jich mít víc, v závislosti na své velikosti. Přečtěte si, kolik síťových rozhraní podporují jednotlivé velikosti virtuálních počítačů, v článku [Velikosti virtuálních počítačů v Azure](virtual-machines-windows-sizes.md). 
 
 Pokud chcete vytvořit virtuální počítač s více než jedním síťovým rozhraním, musíte už při vytváření nastavit aspoň dvě.  Po vytvoření můžete přidat další síťová rozhraní až do maximálního počtu, který daná velikost podporuje. Nemůžete ale přidat síťová rozhraní k virtuálnímu počítači, který byl vytvořen jen s jedním rozhraním, bez ohledu na to, kolik rozhraní podporuje. 
 
@@ -180,3 +180,4 @@ Tato tabulka shrnuje metody, které můžete použít k vytvoření virtuálníh
 - Naučte se konfigurovat [trasy definované uživatelem a předávání IP](../virtual-network/virtual-networks-udr-overview.md). 
 - Naučte se konfigurovat [připojení mezi virtuálními sítěmi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Naučte se [řešit potíže s trasami](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+

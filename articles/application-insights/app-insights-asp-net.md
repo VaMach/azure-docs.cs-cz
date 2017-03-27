@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
-ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,7 +34,7 @@ K dispozici jsou i alternativní témata, na která se v případě zájmu můž
 * [Instrumentace webové aplikace za běhu](app-insights-monitor-performance-live-website-now.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a>Krok 1: Přidání sady Application Insights SDK
+## <a name="ide"></a>Krok 1: Přidání sady Application Insights SDK
 
 Klikněte pravým tlačítkem myši na projekt webové aplikace v Průzkumníku řešení a vyberte postupně **Přidat**, **Telemetrie Application Insights...** nebo **Konfigurovat Application Insights**.
 
@@ -53,7 +53,7 @@ Přejděte na konfigurační stránku Application Insights:
 5. Další možností je přidat k aplikaci sadu Application Insights SDK. V takovém případě vám bude telemetrie zobrazovat v sadě Visual Studio během ladění. Později se můžete na tuto stránku konfigurace vrátit, nebo počkat až po nasazení aplikace a [přepnout na telemetrie za běhu](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a>Krok 2: Spuštění aplikace
+## <a name="run"></a>Krok 2: Spuštění aplikace
 Spusťte aplikaci pomocí F5. Otevřete různé stránky k vygenerování nějaké telemetrie.
 
 V sadě Visual Studio se zobrazí počet událostí, které byly zaprotokolovány.
@@ -124,7 +124,7 @@ Můžete také dále analyzovat telemetrii v sadě [Visual Studio](app-insights-
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a>Co dělá příkaz Add v Application Insights?
+## <a name="land"></a>Co dělá příkaz Add v Application Insights?
 Application Insights odesílá telemetrii z vaší aplikace na portál Application Insights (který je hostován v Azure).
 
 ![Diagram přesunu telemetrie](./media/app-insights-asp-net/01-scheme.png)
@@ -197,6 +197,10 @@ Všimněte si však, že číslo verze sestavení je generováno pouze pomocí p
 Pokud používáte Visual Studio Team Services, můžete [získat značku poznámek](app-insights-annotations.md), kterou můžete přidat do svých grafů pokaždé, když vydáte novou verzi. Následující obrázek ukazuje, jak se tato značka zobrazuje.
 
 ![Snímek obrazovky grafu s ukázkovou poznámkou k verzi](./media/app-insights-asp-net/release-annotation.png)
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Další kroky
 **[Práce s Application Insights v sadě Visual Studio](app-insights-visual-studio.md)**<br/>Zahrnuje informace o ladění pomocí telemetrie, diagnostických hledáních a podrobném procházení kódem.

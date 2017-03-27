@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4b8eb863a1fcb65c307870619ea9d8942c57a906
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 335c6fc1bab097367f2d380466d19ea70c7660c2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -187,7 +187,7 @@ Node.js poskytuje bohatý ekosystém modulů, které mohou vaše aplikace využ�
 
 Narazíte-li na problémy s aplikací poté, co byla nasazena do Azure, vyhledejte informace týkající se diagnostiky problému v tématu [Postup ladění aplikace Node.js ve službě Azure App Service](web-sites-nodejs-debug.md) .
 
-Tento článek používá portál Azure k vytvoření webové aplikace. Tytéž operace lze rovněž provést pomocí [rozhraní příkazového řádku Azure](../xplat-cli-install.md) nebo prostředí [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Tento článek používá portál Azure k vytvoření webové aplikace. Tytéž operace lze rovněž provést pomocí [rozhraní příkazového řádku Azure](../cli-install-nodejs.md) nebo prostředí [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Podrobnější informace týkající se postupu při vývoji aplikací Node.js v Azure naleznete ve [Středisku pro vývojáře Node.js](/develop/nodejs/).
 

@@ -4,13 +4,11 @@
 
 # Začínáme
 
-## [Vytvoření zóny DNS](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-
-## [Vytvoření záznamů DNS](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [Azure CLI](dns-getstarted-create-recordset-cli.md)
+## Vytvoření záznamu a zóny DNS
+### [Azure Portal](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
+### [Azure CLI 2.0](dns-getstarted-cli.md)
 
 ## [Delegování domény do Azure DNS](dns-domain-delegation.md)
 ## [Vytvoření vlastních záznamů DNS pro webovou aplikaci](dns-web-sites-custom-domain.md)

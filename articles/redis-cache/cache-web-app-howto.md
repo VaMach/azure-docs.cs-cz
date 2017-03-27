@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
-ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 5e7520f8a023cd5feb8401483161e7296a413b02
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,7 +46,7 @@ Naučíte se:
 K dokončení tohoto kurzu budete potřebovat:
 
 * [Účet Azure](#azure-account)
-* [Visual Studio 2015 se sadou Azure SDK pro .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Sadu Visual Studio 2017 se sadou Azure SDK pro .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Účet Azure
 K dokončení tohoto kurzu potřebujete mít účet Azure. Můžete:
@@ -53,22 +54,23 @@ K dokončení tohoto kurzu potřebujete mít účet Azure. Můžete:
 * [Otevřít bezplatný účet Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Získáte kredity, které můžete použít k vyzkoušení placených služeb Azure. I po vyčerpání kreditů si můžete účet ponechat a používat bezplatné funkce a služby Azure.
 * [Aktivovat výhody pro předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Díky předplatnému MSDN každý měsíc získáváte kredity, které můžete použít pro placené služby Azure.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Sadu Visual Studio 2015 se sadou Azure SDK pro .NET
-Tento kurz je napsán pro sadu Visual Studio 2015 se [sadou Azure SDK pro .NET](../dotnet-sdk.md)ve verzi 2.8.2 nebo novější. [Stáhněte si nejnovější verzi sady Azure SDK pro sadu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Sada Visual Studio se automaticky nainstaluje se sadou SDK, pokud ji ještě nemáte.
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>Sada Visual Studio 2017 se sadou Azure SDK pro .NET
+Tento kurz je napsán pro sadu Visual Studio 2017 se sadou [Azure SDK pro .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). Azure SDK 2.9.5 je součástí instalačního programu sady Visual Studio.
+
+Pokud máte sadu Visual Studio 2015, můžete podle tohoto kurzu postupovat se sadou [Azure SDK for .NET](../dotnet-sdk.md) ve verzi 2.8.2 nebo novější. [Stáhněte si nejnovější verzi sady Azure SDK pro sadu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Sada Visual Studio se automaticky nainstaluje se sadou SDK, pokud ji ještě nemáte. Některé obrazovky se mohou lišit od ilustrací v tomto kurzu.
 
 Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azure SDK pro sadu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Některé obrazovky se mohou lišit od ilustrací v tomto kurzu.
-
-> [!NOTE]
-> V závislosti na počtu závislostí sady SDK, které už na počítači máte, může instalace sady SDK trvat delší dobu – od několika minut až po půl hodiny nebo i déle.
-> 
-> 
 
 ## <a name="create-the-visual-studio-project"></a>Vytvoření projektu sady Visual Studio
 1. Otevřete sadu Visual Studio a klikněte na **Soubor**, **Nový**, **Projekt**.
 2. Rozbalte uzel **Visual C#** v seznamu **Šablony**, vyberte **Cloud**, a klikněte na **Webová aplikace .NET**. Ujistěte se, že je vybrán **.NET Framework 4.5.2** nebo vyšší.  Do textového pole **Název** zadejte **ContosoTeamStates** a klikněte na **OK**.
    
     ![Vytvoření projektu][cache-create-project]
-3. Jako typ projektu vyberte **MVC**. Zrušte zaškrtnutí políčka **Hostovat v cloudu**. [Prostředky Azure zřídíte](#provision-the-azure-resources) a [aplikaci do Azure publikujete](#publish-the-application-to-azure) v dalších krocích tohoto kurzu. Příklad zřízení webové aplikace App Service ze sady Visual Studio se zaškrtnutým políčkem **Hostovat v cloudu** najdete v tématu [Začínáme s Web Apps v Azure App Service pomocí ASP.NET a sady Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Jako typ projektu vyberte **MVC**. 
+
+    Ujistěte se, že v nastavení **Ověřování** je zadáno **Bez ověřování**. V závislosti na verzi sady Visual Studio může být výchozí hodnotou něco jiného. Chcete-li ji změnit, klikněte na **Změnit ověřování** a vyberte **Bez ověřování**.
+
+    Pokud postupujete se sadou Visual Studio 2015, zrušte zaškrtnutí políčka **Hostovat v cloudu**. [Prostředky Azure zřídíte](#provision-the-azure-resources) a [aplikaci do Azure publikujete](#publish-the-application-to-azure) v dalších krocích tohoto kurzu. Příklad zřízení webové aplikace App Service ze sady Visual Studio se zaškrtnutým políčkem **Hostovat v cloudu** najdete v tématu [Začínáme s Web Apps v Azure App Service pomocí ASP.NET a sady Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
    
     ![Výběr šablony projektu][cache-select-template]
 4. Projekt vytvoříte kliknutím na **OK**.
@@ -76,9 +78,21 @@ Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azu
 ## <a name="create-the-aspnet-mvc-application"></a>Vytvoření aplikace ASP.NET MVC
 V této části kurzu vytvoříte základní aplikaci, která načítá a zobrazuje týmové statistiky z databáze.
 
+* [Přidání balíčku Entity Framework NuGet](#add-the-entity-framework-nuget-package)
 * [Přidání modelu](#add-the-model)
 * [Přidání kontroleru](#add-the-controller)
 * [Konfigurace zobrazení](#configure-the-views)
+
+### <a name="add-the-entity-framework-nuget-package"></a>Přidání balíčku Entity Framework NuGet
+
+1. V nabídce **Nástroje** klikněte na **Správce balíčků NuGet** a pak na **Konzola Správce balíčků**.
+2. V okně `Package Manager Console` spusťte následující příkaz.
+    
+    ```
+    Install-Package EntityFramework
+    ```
+
+Další informace o tomto balíčku najdete na stránce NuGet pro [EntityFramework](https://www.nuget.org/packages/EntityFramework/).
 
 ### <a name="add-the-model"></a>Přidání modelu
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na **Modely** a vyberte **Přidat**, **Třídu**. 
@@ -172,21 +186,27 @@ V této části kurzu vytvoříte základní aplikaci, která načítá a zobraz
 1. V **Průzkumníku řešení** dvakrát klikněte na soubor **web.config** a otevřete jej.
    
     ![Soubor web.config][cache-web-config]
-2. Přidejte následující připojovací řetězec do oddílu `connectionStrings`. Název připojovacího řetězce se musí shodovat s názvem třídy kontextu databáze v Entity Frameworku, který je `TeamContext`.
-
-    ```xml   
-    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-    ```
-
-    Po přidání tohoto řádku kódu by měl oddíl `connectionStrings` vypadat podobně jako v následujícím příkladu.
+2. Přidejte následující část `connectionStrings`. Název připojovacího řetězce se musí shodovat s názvem třídy kontextu databáze v Entity Frameworku, který je `TeamContext`.
 
     ```xml
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-            providerName="System.Data.SqlClient" />
         <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
+
+    Novou část `connectionStrings` můžete přidat za část `configSections`, jak je znázorněno v následujícím příkladu.
+
+    ```xml
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
+      ...
+      ```
 
 ### <a name="add-the-controller"></a>Přidání kontroleru
 1. Projekt sestavíte stisknutím klávesy **F6**. 
@@ -261,14 +281,14 @@ V této části kurzu nakonfigurujete ukázkovou aplikaci pro ukládání a nač
 * [Aktualizace zobrazení Teams Index pro práci s mezipamětí](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>Konfigurace aplikace pro používání StackExchange.Redis
-1. Chcete-li konfigurovat klientskou aplikaci v sadě Visual Studio pomocí balíčku StackExchange.Redis NuGet, klikněte pravým tlačítkem na projekt v **Průzkumníku řešení** a vyberte**Správa balíčků NuGet**. 
+1. Chcete-li konfigurovat klientskou aplikaci v sadě Visual Studio pomocí balíčku StackExchange.Redis NuGet, klikněte v nabídce **Nástroje** na **Správce balíčků NuGet** a pak na **Konzola Správce balíčků**.
+2. V okně `Package Manager Console` spusťte následující příkaz.
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![Správa balíčků NuGet][redis-cache-manage-nuget-menu]
-2. Do textového pole pro vyhledávání zadejte **StackExchange.Redis**, vyberte z výsledků požadovanou verzi, a klikněte na **Instalovat**.
-   
-    ![Balíček StackExchange.Redis NuGet][redis-cache-stack-exchange-nuget]
-   
-    Balíček NuGet se stáhne a přidá klientským aplikacím požadované odkazy na sestavení pro přístup do Azure Redis Cache pomocí klienta mezipaměti StackExchange.Redis. Pokud upřednostňujete použití verze klientské knihovny **StackExchange.Redis** se silným názvem, vyberte **StackExchange.Redis.StrongName**, jinak vyberte **StackExchange.Redis**.
+    Balíček NuGet se stáhne a přidá klientským aplikacím požadované odkazy na sestavení pro přístup do Azure Redis Cache pomocí klienta mezipaměti StackExchange.Redis. Pokud upřednostňujete použití verze klientské knihovny `StackExchange.Redis` se silným názvem, nainstalujte balíček `StackExchange.Redis.StrongName`.
 3. V **Průzkumníku řešení** rozbalte složku **Kontrolery** a dvojím kliknutím otevřete soubor **TeamsController.cs**.
    
     ![Kontroler Teams][cache-teamscontroller]
@@ -670,7 +690,7 @@ Kód generování uživatelského rozhraní vygenerovaný jako součást této u
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    Tento řádek zobrazuje hodnotu `ViewBag.Msg` obsahující zprávu o stavu aktuální operace, která se spustí po kliknutí na jeden z odkazů na akce z předchozího kroku.   
+    Tento řádek zobrazuje hodnotu `ViewBag.Msg` obsahující zprávu o stavu aktuální operace. Hodnota `ViewBag.Msg` se nastaví po kliknutí na některý z odkazů na akce z předchozího kroku.   
    
     ![Zpráva o stavu][cache-status-message]
 2. Projekt sestavíte stisknutím klávesy **F6**.
@@ -698,7 +718,7 @@ Kliknutím na tlačítko **Nasadit do Azure** se dostanete na web Azure Portal a
 ![Nasazení do Azure][cache-deploy-to-azure-step-1]
 
 1. V oddílu **Základy** vyberte předplatné Azure, které se má použít, a vyberte stávající skupinu prostředků nebo vytvořte novou, a zadejte umístění skupiny prostředků.
-2. V oddílu **Nastavení** zadejte název účtu správce (**ADMINISTRATORLOGIN** – nepoužívejte **admin**), heslo správce (**ADMINISTRATORLOGINPASSWORD**) a název databáze (**DATABASENAME**). Další parametry jsou nakonfigurovány pro plán hostování služby App Service úrovně Free a další nízkonákladové možnosti pro služby SQL Database a Azure Redis Cache, které nejsou součástí úrovně Free.
+2. V části **Nastavení** zadejte **Přihlášení jméno správce** (nepoužívejte **admin**), **Přihlašovací heslo správce** a **Název databáze**. Další parametry jsou nakonfigurovány pro plán hostování služby App Service úrovně Free a další nízkonákladové možnosti pro služby SQL Database a Azure Redis Cache, které nejsou součástí úrovně Free.
 
     ![Nasazení do Azure][cache-deploy-to-azure-step-2]
 
@@ -726,17 +746,13 @@ V tomto kroku kurzu publikujete aplikaci do Azure a spustíte ji v cloudu.
 1. V sadě Visual Studio klikněte pravým tlačítkem na projekt **ContosoTeamStats** a vyberte **Publikovat**.
    
     ![Publikování][cache-publish-app]
-2. Klikněte na **Microsoft Azure App Service**.
+2. Klikněte na **Microsoft Azure App Service**, zvolte **Vybrat existující** a klikněte na **Publikovat**.
    
     ![Publikování][cache-publish-to-app-service]
-3. Vyberte předplatné použité při vytváření prostředků Azure, rozbalte skupinu prostředků obsahující prostředky, vyberte požadovanou webovou aplikaci, a klikněte na **OK**. Pokud jste použili tlačítko **Nasadit do Azure**, bude název vaší webové aplikace začínat na **webSite** a pokračovat nějakými dalšími znaky.
+3. Vyberte předplatné použité při vytváření prostředků Azure, rozbalte skupinu prostředků obsahující prostředky a vyberte požadovanou webovou aplikaci. Pokud jste použili tlačítko **Nasadit do Azure**, bude název vaší webové aplikace začínat na **webSite** a pokračovat nějakými dalšími znaky.
    
     ![Výběr webové aplikace][cache-select-web-app]
-4. Ověřte své nastavení kliknutím na **Ověřit připojení**, a poté klikněte na **Publikovat**.
-   
-    ![Publikování][cache-publish]
-   
-    Po chvíli se proces publikování dokončí a spustí se prohlížeč s běžící ukázkovou aplikací. Obdržíte-li během ověřování nebo publikování chybu DNS a došlo-li právě k dokončení procesu zřizování prostředků Azure pro aplikaci, chvíli počkejte a zkuste to znovu.
+4. Kliknutím na **OK** zahajte proces publikování. Po chvíli se proces publikování dokončí a spustí se prohlížeč se spuštěnou ukázkovou aplikací. Obdržíte-li během ověřování nebo publikování chybu DNS a došlo-li právě k dokončení procesu zřizování prostředků Azure pro aplikaci, chvíli počkejte a zkuste to znovu.
    
     ![Mezipaměť byla přidána][cache-added-to-application]
 
@@ -798,7 +814,7 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 1. Aplikaci spustíte stisknutím kombinace kláves **Ctrl+F5**.
 
 > [!NOTE]
-> Vzhledem k tomu, že aplikace včetně databáze je spuštěna místně, a Redis Cache je hostovaná v Azure, se může zdát, že je mezipaměť méně výkonná než databáze.  Pro zajištění nejlepšího výkonu by klientská aplikace a instance služby Azure Redis Cache měly být ve stejném umístění. 
+> Vzhledem k tomu, že aplikace včetně databáze je spuštěna místně, a služba Redis Cache je hostovaná v Azure, se může zdát, že je mezipaměť méně výkonná než databáze. Pro zajištění nejlepšího výkonu by klientská aplikace a instance služby Azure Redis Cache měly být ve stejném umístění. 
 > 
 > 
 
@@ -848,10 +864,5 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
