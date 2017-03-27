@@ -22,13 +22,15 @@
 #### [Vazby Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Výstupní vazby centra oznámení](functions-bindings-notification-hubs.md)
 #### [Aktivační události služby Service Bus a vazby pro fronty a témata](functions-bindings-service-bus.md)
+#### [Vazby služby Sendgrid](functions-bindings-sendgrid.md)
 #### Vazby služby Storage
 ##### [Vazby objektů blob](functions-bindings-storage-blob.md)
 ##### [Vazby front](functions-bindings-storage-queue.md)
 ##### [Vazby tabulek](functions-bindings-storage-table.md)
+##### [Vazby služby Sendgrid](functions-bindings-sendgrid.md)
 #### [Trigger časovače](functions-bindings-timer.md)
 #### [Vazba výstupu z Twilia](functions-bindings-twilio.md)
-### [Vytvoření funkce na portálu Azure Portal](functions-create-first-azure-function-azure-portal.md) 
+### [Vytvoření Function App na webu Azure Portal](functions-create-function-app-portal.md) 
 ### [Testování Azure Functions](functions-test-a-function.md)
 ### [Místní vývoj a ladění](functions-run-local.md)
 ### [Osvědčené postupy pro službu Azure Functions](functions-best-practices.md)
@@ -50,8 +52,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Úložiště GitHub – Azure Functions](https://github.com/Azure/Azure-Functions/) 
 ## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

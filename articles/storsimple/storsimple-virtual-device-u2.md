@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/20/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8b07ac76ebf40cd9bcf428711c2c0f3f3d917388
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,34 +33,13 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 | **Maximální kapacita** |30 TB |64 TB |
 | **Virtuální počítač Azure** |Standard_A3 (4 jádra, 7 GB paměti) |Standard_DS3 (4 jádra, 14 GB paměti) |
 | **Kompatibilita verzí** |Verze používající software před Update 2 nebo novější |Verze používající software Update 2 nebo novější |
-| **Dostupnost v oblastech** |Všechny oblasti Azure |Oblasti Azure, které podporují službu Premium Storage<br></br>Seznam oblastí naleznete v tématu [podporované oblasti pro 8020](#supported-regions-for-8020) |
+| **Dostupnost v oblastech** |Všechny oblasti Azure |Všechny oblasti Azure, které podporují službu Storage úrovně Premium<br></br>Oblasti služby Storage úrovně Premium najdete v seznamu [služeb Azure podle oblasti](https://azure.microsoft.com/en-us/regions/services). Zjistěte, ve kterých oblastech se podporují virtuální počítače řady DS, DSv2, FS a GS. |
 | **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/storage-premium-storage.md) |
 | **Pokyny týkající se úloh** |Načítání souborů ze zálohy na úrovni položek |Scénáře vývoje a testování v cloudu, nízká latence, náročnější úlohy <br></br>Sekundární zařízení pro zotavení po havárii |
 
 <sup>1</sup> *Dříve označované jako 1100*.
 
 <sup>2</sup> *Pro cloudovou vrstvu používají zařízení 8010 i 8020 službu Azure Standard Storage. Rozdíl je pouze u místní vrstvy v rámci zařízení*.
-
-#### <a name="supported-regions-for-8020"></a>Podporované oblasti pro 8020
-Oblasti služby Premium Storage, které jsou aktuálně podporovány pro zařízení 8020, jsou uvedeny v následující tabulce. Tento seznam bude průběžně aktualizován s tím, jak bude služba Premium Storage k dispozici v dalších oblastech.
-
-| Sér. č. | Aktuálně podporované v oblastech |
-| --- | --- |
-| 1 |Střed USA |
-| 2 |Východ USA |
-| 3 |Východ USA 2 |
-| 4 |Západ USA |
-| 5 |Severní Evropa |
-| 6 |Západní Evropa |
-| 7 |Jihovýchodní Asie |
-| 8 |Japonsko – východ |
-| 9 |Japonsko – západ |
-| 10 |Austrálie – východ |
-| 11 |Austrálie – jihovýchod* |
-| 12 |Východní Asie* |
-| 13 |Střed USA – jih* |
-
-*V těchto oblastech byla služba Premium Storage uvedena nedávno.
 
 Tento článek popisuje podrobný postup nasazení virtuálního zařízení StorSimple v Azure. Po přečtení tohoto článku:
 
@@ -89,7 +69,7 @@ Následující části popisují požadavky na konfiguraci pro virtuální zař�
 #### <a name="azure-requirements"></a>Požadavky na Azure
 Než zřídíte virtuální zařízení, je třeba provést následující přípravy v prostředí Azure:
 
-* Pro virtuální zařízení [nakonfigurujte virtuální síť na Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Používáte-li službu Premium Storage, musíte vytvořit virtuální síť v oblasti Azure, která podporuje službu Premium Storage. Další informace o [oblastech, které jsou aktuálně podporovány pro 8020](#supported-regions-for-8020).
+* Pro virtuální zařízení [nakonfigurujte virtuální síť na Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Používáte-li službu Premium Storage, musíte vytvořit virtuální síť v oblasti Azure, která podporuje službu Premium Storage. Oblasti služby Storage úrovně Premium najdete v seznamu [služeb Azure podle oblasti](https://azure.microsoft.com/en-us/regions/services). Zjistěte, ve kterých oblastech se podporují virtuální počítače řady DS, DSv2, FS a GS.
 * Je vhodné použít výchozí server DNS poskytovaný platformou Azure místo zadávání vlastního názvu serveru DNS. Pokud název serveru DNS není platný nebo pokud server DNS není schopen správně přeložit IP adresy, vytvoření virtuálního zařízení se nezdaří.
 * Připojení point-to-site a site-to-site jsou volitelná, ale nejsou vyžadována. Pokud chcete, můžete nastavit tyto možnosti pro pokročilejší scénáře.
 * Můžete vytvořit [virtuální počítače Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (hostitelské servery) ve virtuální síti, které mohou používat svazky vystavené virtuálním zařízením. Tyto servery musí splňovat následující požadavky:                             
@@ -256,9 +236,4 @@ Pokud během vytváření virtuálního zařízení není k dispozici připojen�
 ## <a name="next-steps"></a>Další kroky
 * Podívejte se, jak [použít službu StorSimple Manager pro správu virtuálního zařízení](storsimple-manager-service-administration.md).
 * Naučte se [obnovit svazek StorSimple ze zálohovacího skladu](storsimple-restore-from-backup-set.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

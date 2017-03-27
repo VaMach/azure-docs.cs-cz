@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0682a048429d8e980da529975a24dde28a9812fe
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
 ms.lasthandoff: 03/15/2017
 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 
 V tomto přehledu základních součástí služby Azure Batch probereme primární funkce a prostředky služby, které mohou vývojáři služby Batch použít k tvorbě rozsáhlých paralelních výpočetních řešení.
 
-Ať vyvíjíte distribuovanou výpočetní aplikaci nebo službu, která vystavuje přímá volání rozhraní [REST API][batch_rest_api], nebo pracujete s některou ze [sad SDK služby Batch](batch-technical-overview.md#batch-development-apis), používáte mnoho prostředků a funkcí popsaných v tomto článku.
+Ať vyvíjíte distribuovanou výpočetní aplikaci nebo službu, která vystavuje přímá volání rozhraní [REST API][batch_rest_api], nebo pracujete s některou ze [sad SDK služby Batch](batch-apis-tools.md#batch-development-apis), používáte mnoho prostředků a funkcí popsaných v tomto článku.
 
 > [!TIP]
 > Obecný úvod do služby Batch najdete v části [Základy služby Azure Batch](batch-technical-overview.md).
@@ -427,6 +427,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 >
 
 ## <a name="next-steps"></a>Další kroky
+* Další informace o dostupných [rozhraních API a nástrojích služby Batch](batch-apis-tools.md) pro sestavování řešení Batch.
 * Projděte si podrobně ukázkovou aplikaci služby Batch v tématu [Začínáme s knihovnou služby Azure Batch pro .NET](batch-dotnet-get-started.md). K dispozici je také [verze pro Python](batch-python-tutorial.md) tohoto kurzu, která spouští úlohy na výpočetních uzlech systému Linux.
 * Stáhněte si a sestavte ukázkový projekt [Batch Explorer][github_batchexplorer] pro použití při vývoji řešení Batch. Pomocí projektu Batch Explorer můžete provést následující a další akce:
 

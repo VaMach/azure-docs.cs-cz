@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,7 @@ Azure Security Center vás upozorní, pokud máte virtuální počítače, kter�
 ![Doporučení pro šifrování disku](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Informace v tomto dokumentu se týkají verze Preview služby Azure Security Center.
+> Informace v tomto dokumentu se vztahují k šifrování virtuálních počítačů bez použití klíčového šifrovacího klíče (který se vyžaduje k zálohování virtuálních počítačů pomocí služby Azure Backup). Informace o použití klíčového šifrovacího klíče k zajištění podpory služby Azure Backup pro šifrované Azure Virtual Machines najdete v článku [Azure Disk Encryption pro Azure Virtual Machines s Windows a Linuxem](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).
 >
 >
 
@@ -178,9 +179,4 @@ V tomto dokumentu jste se naučili zašifrovat virtuální počítač Azure. Pok
 * [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

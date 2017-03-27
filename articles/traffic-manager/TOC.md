@@ -1,29 +1,30 @@
 # Přehled
 ## [Co je Traffic Manager?](traffic-manager-overview.md)
-## [Jak funguje Traffic Manager](traffic-manager-how-traffic-manager-works.md)
-## [Koncové body Traffic Manageru](traffic-manager-endpoint-types.md)
-## [Monitorování koncových bodů Traffic Managerem a převzetí služeb při selhání](traffic-manager-monitoring.md)
-## [Metody směrování provozu](traffic-manager-routing-methods.md)
-## [Vnořené profily](traffic-manager-nested-profiles.md)
-## [Důležité informace o výkonu nástroje Traffic Manager](traffic-manager-performance-considerations.md)
-## [Podpora Azure Resource Manageru](traffic-manager-powershell-arm.md)
+## [Metody směrování](traffic-manager-routing-methods.md)
+### [Hierarchie zemí/oblastí používaná Traffic Managerem](traffic-manager-geographic-regions.md)
+## [Typy koncových bodů](traffic-manager-endpoint-types.md)
+## [Monitorování koncových bodů](traffic-manager-monitoring.md)
+## [Nejčastější dotazy](traffic-manager-FAQs.md)
 
 # Začínáme
-## [Správa koncových bodů](traffic-manager-manage-endpoints.md)
-## [Správa profilů](traffic-manager-manage-profiles.md)
-## [Nasměrování internetové domény na Traffic Manager](traffic-manager-point-internet-domain.md)
+## [Vytvoření profilu Traffic Manageru](traffic-manager-create-profile.md)
 
 # Postup
-## [Konfigurace metody směrování](traffic-manager-configure-routing-method.md)
-## [Test nastavení](traffic-manager-testing-settings.md)
+
+## [Konfigurace metody geografického směrování](traffic-manager-configure-geographic-routing-method.md)
+## [Konfigurace metody prioritního směrování](traffic-manager-configure-priority-routing-method.md)
+## [Konfigurace metody váženého směrování](traffic-manager-configure-weighted-routing-method.md)
+## [Konfigurace metody směrování podle výkonu](traffic-manager-configure-performance-routing-method.md)
+## [Správa koncových bodů](traffic-manager-manage-endpoints.md)
+## [Správa profilů](traffic-manager-manage-profiles.md)
+## [Ověření nastavení Traffic Manageru](traffic-manager-testing-settings.md)
 ## [Kombinace služeb pro vyrovnávání zatížení](traffic-manager-load-balancing-azure.md)
-## [Použití síťových prostředků](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Řešení potíží
-### [Řešení potíží s koncovým bodem v degradovaném stavu](traffic-manager-troubleshooting-degraded.md)
+## [Měření výkonu Traffic Manageru](traffic-manager-performance-considerations.md)
+## [Použití PowerShellu ke správě Traffic Manageru](traffic-manager-powershell-arm.md)
+## [Nasměrování internetové domény na Traffic Manager](traffic-manager-point-internet-domain.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

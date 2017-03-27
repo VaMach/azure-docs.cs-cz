@@ -1,108 +1,87 @@
 ---
-title: "Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal | Dokumentace Microsoftu"
-description: "Virtuální počítače s Linuxem si můžete vytvořit také pomocí webu Azure Portal."
+title: "Rychlý start Azure – Vytvoření virtuálního počítače pomocí portálu | Dokumentace Microsoftu"
+description: "Rychlý start Azure – Vytvoření virtuálního počítače pomocí portálu"
 services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: cc5dc395-dc54-4402-8804-2bb15aba8ea2
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/17/2017
-ms.author: iainfou
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/21/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
-ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: bcfd830a5e2f39f36460990cae7e84b04d9a5fbb
+ms.lasthandoff: 03/22/2017
 
 ---
-# <a name="create-a-linux-vm-on-azure-using-the-portal"></a>Vytvoření virtuálního počítače s Linuxem v Azure pomocí Portálu
-Tento článek ukazuje, jak vytvořit virtuální počítač s Linuxem pomocí [webu Azure Portal](https://portal.azure.com/).
 
-Požadavky:
+# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal
 
-* [Účet Azure](https://azure.microsoft.com/pricing/free-trial/)
-* [Soubory veřejného a privátního klíče SSH](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Virtuální počítače Azure je možné vytvářet na webu Azure Portal. Tato metoda poskytuje uživatelské rozhraní v prohlížeči, pomocí kterého můžete vytvářet a konfigurovat virtuální počítače a všechny související prostředky. Tento Rychlý start prochází jednotlivé kroky k vytvoření virtuálního počítače pomocí webu Azure Portal. 
 
-## <a name="sign-in"></a>Přihlášení
-Přihlaste se k webu Azure Portal s vaší identitou účtu Azure. Klikněte na **+ Nový** v levém horním rohu:
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-![Vytvoření prostředku Azure](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
+## <a name="create-ssh-key-pair"></a>Vytvoření páru klíčů SSH
 
-## <a name="choose-vm"></a>Výběr virtuálního počítače
-V seznamu **Marketplace** klikněte na **Compute** a potom v seznamu imagí **Vybrané aplikace** vyberte **Ubuntu Server 16.04 LTS**.  V dolní části ověřte, že je nastavený model nasazení `Resource Manager`, a potom klikněte na **Vytvořit**.
+K dokončení tohoto rychlého startu potřebujete pár klíčů SSH. Pokud máte existující pár klíčů SSH, můžete tento krok přeskočit. Pokud používáte počítač s Windows, postupujte podle pokynů uvedených [tady](./virtual-machines-linux-ssh-from-windows.md). 
 
-![Výběr image virtuálního počítače z Azure Marketplace](./media/virtual-machines-linux-quick-create-portal/create_new_vm.png)
+Z prostředí Bash spusťte tento příkaz a postupujte podle pokynů na obrazovce. Výstup příkazu zahrnuje název souboru veřejného klíče. Obsah tohoto souboru budete potřebovat při vytváření virtuálního počítače.
 
-## <a name="enter-vm-options"></a>Zadání možností virtuálního počítače
-Na stránce **Základy** zadejte:
-
-* Název virtuálního počítače
-* typ disku virtuálního počítače (SSD ve výchozím nastavení, nebo HDD),
-* uživatelské jméno správce,
-* **Typ ověřování** nastavte na **Veřejný klíč SSH**,
-* veřejný klíč SSH jako řetězec (z vašeho adresáře `~/.ssh/`),
-* název skupiny prostředků nebo vyberte existující skupinu
-
-a pokračujte kliknutím na **OK**. Okno by mělo vypadat jako na tomto snímku obrazovky:
-
-![Zadání základních možností virtuálního počítače](./media/virtual-machines-linux-quick-create-portal/enter_basic_vm_details.png)
-
-## <a name="choose-vm-size"></a>Výběr velikosti virtuálního počítače
-Vyberte velikost virtuálního počítače. V následujících příkladech je zvolena velikost **DS1_V2 Standard**, která nainstaluje Ubuntu na disk typu Premium. **S** ve velikosti virtuálního počítače označuje podporu SSD. Kliknutím na **Vybrat** nakonfigurujte nastavení.
-
-![Výběr velikosti virtuálního počítače Azure](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
-
-## <a name="storage-and-network"></a>Úložiště a síť
-V okně **Nastavení** se můžete rozhodnout, jestli pro virtuální počítač chcete použít Azure Managed Disks. Aktuální výchozí nastavení je použití nespravovaných disků. O službu Azure Managed Disks se stará platforma Azure a služba nevyžaduje žádné přípravy ani umístění, kam ji uložit. Další informace o službě Azure Managed Disks najdete v tématu [Přehled služby Azure Managed Disks](../storage/storage-managed-disks-overview.md). V případě nespravovaných disků je nutné vytvořit nebo vybrat účet úložiště pro virtuální pevné disky:
-
-![Výběr účtu úložiště pro nespravované disky](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
-
-Pokud se rozhodnete použít službu Azure Managed Disks, nemusíte konfigurovat žádné další nastavení účtu, jak je znázorněno v následujícím příkladu:
-
-![Výběr možnosti Azure Managed Disks na portálu](./media/virtual-machines-linux-quick-create-portal/select_managed_disks.png)
-
-U zbývajících nastavení sítě ponechejte výchozí hodnoty.
-
-## <a name="confirm-vm-settings-and-launch"></a>Potvrzení nastavení virtuálního počítače a spuštění
-Potvrďte nastavení svého nového virtuálního počítače s Ubuntu a klikněte na **OK**.
-
-![Kontrola nastavení a vytvoření virtuálního počítače Azure](./media/virtual-machines-linux-quick-create-portal/review_final_vm_settings.png)
-
-## <a name="select-the-vm-resource"></a>Výběr prostředku virtuálního počítače
-Otevřete domovskou stránku portálu a z nabídky v levém horním rohu vyberte **Skupiny prostředků**. V případě potřeby seznam rozbalte kliknutím na tři pruhy, jak je znázorněno tady:
-
-![Otevření seznamu skupin prostředků](./media/virtual-machines-linux-quick-create-portal/select_resource_group.png)
-
-Vyberte skupinu prostředků a potom klikněte na nový virtuální počítač:
-
-![Vyhledání nastavení síťového adaptéru virtuálního počítače Azure](./media/virtual-machines-linux-quick-create-portal/select_vm_resource.png)
-
-## <a name="find-the-public-ip"></a>Vyhledání veřejné IP adresy
-Zobrazte **Veřejnou IP adresu** přiřazenou k vašemu virtuálnímu počítači:
-
-![Získání veřejné IP adresy virtuálního počítače Azure](./media/virtual-machines-linux-quick-create-portal/view_public_ip_address.png)
-
-## <a name="ssh-to-the-vm"></a>Přístup k virtuálnímu počítači přes SSH
-Přístup přes SSH k veřejné IP adrese získáte pomocí veřejného klíče SSH.  Z pracovní stanice se systémem Mac nebo Linux můžete získat přístup přes SSH přímo z terminálu. Na pracovní stanici s Windows musíte pro přístup k Linuxu přes SSH použít PuTTY, MobaXTerm nebo Cygwin.  Pokud potřebujete pracovní stanici s Windows připravit na přístup k Linuxu přes SSH, můžete použít tento návod.
-
-[Jak použít klíče SSH s Windows v Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+```bash
+ssh-keygen -t rsa -b 2048
 ```
-ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
+
+## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
+
+Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
+
+## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
+
+1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+
+2. V okně **Nový** vyberte **Compute**, v okně **Compute** vyberte **Ubuntu Server 16.04 LTS** a potom klikněte na tlačítko **Vytvořit**.
+
+3. Vyplňte formulář **Základní informace** o virtuálním počítači. Jako **Typ ověřování** vyberte **SSH**. Při vkládání **veřejného klíče SSH** nezapomeňte odebrat počáteční a koncové prázdné znaky. V části **Skupina prostředků** vytvořte novou. Skupina prostředků je logický kontejner, ve kterém se vytváří a hromadně spravují prostředky Azure. Jakmile budete hotovi, klikněte na **OK**.
+
+    ![Zadání základních informací o virtuálním počítači v okně portálu](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
+
+4. Zvolte velikost virtuálního počítače a klikněte na **Vybrat**. 
+
+    ![Výběr velikosti virtuálního počítače v okně portálu](./media/virtual-machine-quick-start/create-vm-portal-size-blade.png)
+
+5. V okně Nastavení v části **Použít spravované disky** vyberte **Ano**, pro zbytek nastavení ponechte výchozí hodnoty a klikněte na **OK**.
+
+6. Na stránce Souhrn kliknutím na **Ok** spusťte nasazení virtuálního počítače.
+
+7. Chcete-li monitorovat stav nasazení, klikněte na virtuální počítač. Virtuální počítač najdete na webu Azure Portal na řídicím panelu nebo výběrem možnosti **Virtual Machines** z nabídky vlevo. Po vytvoření virtuálního počítače se stav se změní z **Nasazování** na **Spuštěno**.
+
+## <a name="connect-to-virtual-machine"></a>Připojení k virtuálnímu počítači
+
+Po dokončení nasazení vytvořte připojení SSH k virtuálnímu počítači.
+
+1. Klikněte na tlačítko **Vytvořit** v okně virtuálního počítače. Tlačítko Připojit zobrazí připojovací řetězec SSH, pomocí kterého se můžete připojit k virtuálnímu počítači.
+
+    ![Portál 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
+
+2. Spuštěním následujícího příkazu vytvořte relaci SSH. Nahraďte připojovací řetězec tím, který jste zkopírovali z webu Azure Portal.
+
+```bash 
+ssh <replace with IP address>
 ```
+## <a name="delete-virtual-machine"></a>Odstranění virtuálního počítače
+
+Pokud už je nepotřebujete, odstraňte skupinu prostředků, virtuální počítač a všechny související prostředky. Provedete to tak, že v okně virtuálního počítače vyberete skupinu prostředků a kliknete na **Odstranit**.
 
 ## <a name="next-steps"></a>Další kroky
-Rychle jste si vytvořili virtuální počítač s Linuxem, abyste si ho mohli otestovat a abychom si ukázali, jak se to dělá. Pokud budete chtít vytvořit virtuální počítač s Linuxem přizpůsobený vaší infrastruktuře, můžete postupovat podle některého z těchto článků.
 
-* [Vytvoření virtuálního počítače s Linuxem v Azure pomocí šablon](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Vytvoření virtuálního počítače s Linuxem se zabezpečením SSH na platformě Azure pomocí šablon](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Kurz vytvoření virtuálního počítače s vysokou dostupností](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
+[Prozkoumejte ukázky nasazení virtuálního počítače pomocí rozhraní příkazového řádku](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

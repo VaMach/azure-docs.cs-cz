@@ -109,11 +109,11 @@
 #### [Vzory zapojení clusteru do sítě](service-fabric-patterns-networking.md)
 #### [Typy uzlů a škálovací sady virtuálních počítačů](service-fabric-cluster-nodetypes.md)
 #### [Škálování clusteru](service-fabric-cluster-scale-up-down.md)
+#### [Škálování clusteru prostřednictvím kódu programu](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgrade clusteru](service-fabric-cluster-upgrade.md)
 #### [Odstranění clusteru](service-fabric-cluster-delete.md)
 #### [Řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace clusteru](service-fabric-cluster-fabric-settings.md)
-#### [Zabezpečení clusteru pomocí certifikátů](service-fabric-windows-cluster-x509-security.md)
 #### [Přidání nebo výměna certifikátů clusteru](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Bezplatné vyzkoušení Party Clusteru](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## Správa životního cyklu aplikace
 ### [Přehled](service-fabric-application-lifecycle.md)
-### [Nastavení průběžné integrace](service-fabric-set-up-continuous-integration.md)
+### [Nastavení průběžné integrace pomocí VSTS](service-fabric-set-up-continuous-integration.md)
+### [Nasazení linuxové aplikace v Javě pomocí Jenkinse](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Principy nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Nasazení nebo odebrání aplikací
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

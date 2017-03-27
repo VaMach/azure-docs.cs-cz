@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9a756618549cafc41c4f09683fd710748bf7b411
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: afecc8997631bf507c797e56a9e3fc0d1df27614
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,54 +26,58 @@ ms.lasthandoff: 03/15/2017
 
 Tento Rychlý start vám pomůže nasadit první webovou aplikaci v PHP do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md) během pár minut.
 
-Před zahájením tohoto Rychlého startu zajistěte, že je na vašem počítači [nainstalované rozhraní příkazového řádku Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Než začnete, ujistěte se, že je rozhraní Azure CLI nainstalované. Další informace najdete v tématu [Průvodce instalací Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="create-a-php-web-app-in-azure"></a>Vytvoření webové aplikace v PHP v Azure
+## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+Přihlaste se k Azure spuštěním příkazu `az login` a postupem podle pokynů na obrazovce.
    
-2. Přihlaste se k Azure spuštěním příkazu `az login` a postupem podle pokynů na obrazovce.
+```azurecli
+az login
+```
    
-    ```azurecli
-    az login
-    ```
-   
-3. Vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md). To je místo, kam dáte všechny prostředky Azure, které chcete spravovat společně, jako je webová aplikace a její back-end SQL Database.
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků   
+Vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md). To je místo, kam dáte všechny prostředky Azure, které chcete spravovat společně, jako je webová aplikace a její back-end SQL Database.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    K zobrazení možných hodnot, které se dají použít pro `---location`, použijte příkaz `az appservice list-locations` rozhraní příkazového řádku Azure CLI.
+K zobrazení možných hodnot, které se dají použít pro `---location`, použijte příkaz `az appservice list-locations` rozhraní příkazového řádku Azure CLI.
 
-3. Vytvořte [plán služby App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) Standard. Úroveň Standard je nutná ke spuštění kontejnerů Linuxu.
+## <a name="create-an-app-service-plan"></a>Vytvoření plánu služby App Service
+Vytvořte [plán služby App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) úrovně Standard, ve kterém se bude spouštět kontejner Linuxu. 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku S1 --is-linux 
-    ```
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --is-linux --sku S1
+```
 
-4. Vytvořte webovou aplikaci s jedinečným názvem ve značce `<app_name>`.
+## <a name="create-a-web-app"></a>Vytvoření webové aplikace
+Vytvořte webovou aplikaci s jedinečným názvem ve značce `<app_name>`.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Nakonfigurujte kontejner Linuxu, aby používal výchozí image PHP 7.0.6.
+## <a name="configure-the-linux-container"></a>Konfigurace kontejneru Linuxu
+Nakonfigurujte kontejner Linuxu, aby používal výchozí image PHP 7.0.6.
 
-    ```azurecli
-    az appservice web config update --php-version 7.0.6 --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web config update --php-version 7.0.6 --name <app_name> --resource-group myResourceGroup
+```
+## <a name="deploy-sample-application"></a>Nasazení ukázkové aplikace
+Nasaďte ukázkovou aplikaci v PHP z GitHubu.
 
-4. Nasaďte ukázkovou aplikaci v PHP z GitHubu.
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-php-get-started.git" --branch master --manual-integration 
+```
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-php-get-started.git" --branch master --manual-integration 
-    ```
+## <a name="browse-to-web-app"></a>Přechod do webové aplikace
+Pokud chcete vidět svou aplikaci živě běžet v Azure, spusťte tento příkaz.
 
-5. Pokud chcete vidět svou aplikaci živě běžet v Azure, spusťte tento příkaz.
-
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Blahopřejeme, vaše první webová aplikace v PHP běží živě v Azure App Service.
 

@@ -32,6 +32,7 @@
 ### [Monitorování stavu a upozornění](azure-stack-monitor-health.md)
 ### [Správa síťových prostředků](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Správa prostředků úložiště](azure-stack-manage-storage-accounts.md)
+### [Správa virtuálních počítačů se sadou Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Zabezpečení a dodržování předpisů
 ## Postup
@@ -86,7 +87,6 @@
 #### [Správa pomocí portálu](azure-stack-kv-manage-portal.md)
 #### [Správa pomocí PowerShellu](azure-stack-kv-manage-powershell.md)
 ### Postup
-#### [Nasazení virtuálního počítače s heslem](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Vytvoření virtuálního počítače s certifikátem](azure-stack-kv-push-secret-into-vm.md)
 #### [Ukázková aplikace Key Vaultu](azure-stack-kv-sample-app.md)
 

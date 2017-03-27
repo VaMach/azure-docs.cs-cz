@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Co je SQL Database? Úvod do služby SQL Database
 SQL Database je služba v cloudu Microsoftu poskytující relační databáze založené na předním databázovém stroji Microsoft SQL Server a schopné obsloužit i klíčové úlohy. SQL Database nabízí předvídatelný výkon na několika úrovních služby, dynamickou škálovatelnost bez přerušení provozu, integrovanou provozní kontinuitu a ochranu dat – to vše téměř bez nutnosti jakékoli správy. Díky těmto možnostem se můžete zaměřit na rychlý vývoj aplikací a zkrácení doby dodání produktu na trh, namísto vynakládání prostředků a drahocenného času na správu virtuálních počítačů a infrastruktury. Protože je služba SQL Database založena na stroji [SQL Serveru](https://msdn.microsoft.com/library/bb545450.aspx), podporuje stávající nástroje, knihovny a rozhraní API SQL Serveru. V důsledku toho můžete snadno vyvíjet nová řešení, přesouvat existující řešení SQL Serveru a rozšiřovat stávající řešení SQL Serveru do cloudu Microsoftu bez nutnosti učit se nové dovednosti.
 
-Tento článek je úvodem do základních koncepcí služby SQL Database a funkcí týkajících se výkonu, škálovatelnosti a možností správy, nabízí ale také odkazy na podrobnější informace. Pokud jste připraveni začít s praktickými kurzy, přejděte k části [Vytvoření první databáze SQL](sql-database-get-started.md) nebo [Vytvoření elastického fondu](sql-database-elastic-pool-manage-portal.md). Pro krátkou videoukázku se podívejte na toto video.
+Tento článek je úvodem do základních koncepcí služby SQL Database a funkcí týkajících se výkonu, škálovatelnosti a možností správy, nabízí ale také odkazy na podrobnější informace. Tyto rychlé starty vám pomůžou začít:
+ - [Vytvoření databáze SQL na webu Azure Portal](sql-database-get-started-portal.md)  
+ - [Vytvoření databáze SQL pomocí Azure CLI](sql-database-get-started-cli.md)
+ - [Vytvoření databáze SQL pomocí PowerShellu](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+Řadu ukázek v Azure CLI a PowerShellu najdete tady:
+ - [Ukázky v Azure CLI pro službu Azure SQL Database](sql-database-cli-samples.md)
+ - [Ukázky v Azure PowerShellu pro službu Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Úprava výkonu a škálování bez výpadků
 Služba SQL Database nabízí tři úrovně služeb: Basic, Standard a Premium. Každá úroveň služeb nabízí [různé úrovně výkonu a možnosti](sql-database-service-tiers.md) pro podporu zátěží všech typů – od nejlehčích k těm nejnáročnějším. Za pár peněz na měsíc můžete sestavit svou první aplikaci s malou databází a později ručně nebo programově [změnit úroveň služby](sql-database-service-tiers.md), aby splňovala požadavky vašeho řešení. To můžete provést bez výpadku aplikace a bez dopadu na vaše zákazníky. Dynamická škálovatelnost umožňuje databázím transparentně reagovat na rychle se měnící požadavky na prostředky a vy díky tomu platíte pouze za prostředky, které potřebujete, když je potřebujete.

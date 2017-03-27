@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentace webových aplikací za běhu pomocí nástrojů Application Insights
 
 
-Azure Application Insights vám umožňuje instrumentovat živou webovou aplikaci, aniž byste museli upravovat nebo znovu nasazovat kód. Pokud jsou vaše aplikace hostované na místním serveru služby IIS, budete instalovat Monitorování stavu, nebo pokud se jedná o webové aplikace Azure nebo aplikace spuštěné na virtuálním počítači Azure, můžete nainstalovat rozšíření Application Insights. (Existují i samostatné články o instrumentaci [živých webových aplikací J2EE](app-insights-java-live.md) a [Azure Cloud Services](app-insights-cloudservices.md).) Budete potřebovat předplatné [Microsoft Azure](http://azure.com).
+Azure Application Insights vám umožňuje instrumentovat živou webovou aplikaci, aniž byste museli upravovat nebo znovu nasazovat kód. Pokud vaše aplikace hostuje místní server služby IIS, nainstalujte Monitorování stavu. Pokud se jedná o webové aplikace Azure nebo pokud běží ve virtuálním počítači Azure, můžete monitorování pomocí Application Insights zapnout z ovládacího panelu Azure. (Existují i samostatné články o instrumentaci [živých webových aplikací J2EE](app-insights-java-live.md) a [Azure Cloud Services](app-insights-cloudservices.md).) Budete potřebovat předplatné [Microsoft Azure](http://azure.com).
 
 ![ukázkové grafy](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -65,7 +65,7 @@ Pokud vaše aplikace běží jako webová služba Azure, monitorování zapnete 
 Pokud je vaše aplikace hostovaná na serveru služby IIS, povolte Application Insights pomocí Monitorování stavu.
 
 1. Na webovém serveru služby IIS se přihlaste pomocí přihlašovacích údajů správce.
-2. Pokud Monitorování stavu Application Insights ještě není nainstalované, stáhněte si a spusťte [instalační program Monitorování stavu](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Pokud Monitorování stavu Application Insights ještě není nainstalované, stáhněte si a spusťte [instalační program Monitorování stavu](http://go.microsoft.com/fwlink/?LinkId=506648) (nebo spusťte [Instalaci webové platformy](https://www.microsoft.com/web/downloads/platform.aspx) a vyhledejte v ní Monitorování stavu Application Insights).
 3. V Monitorování stavu vyberte nainstalovanou webovou aplikaci nebo web, které chcete monitorovat. Přihlaste se pomocí přihlašovacích údajů Azure.
 
     Nakonfigurujte prostředek,ve kterém chcete zobrazovat výsledky na portálu Application Insights. (Obvykle je nejlepší vytvořit nový prostředek. Vyberte existující prostředek, pokud už pro tuto aplikaci máte [webové testy][availability] dostupnosti nebo [monitorování klienta][client] .) 
@@ -90,7 +90,7 @@ Pokud chcete znovu publikovat aniž byste přidali Application Insights do kódu
 
 1. Pokud jste upravili soubor ApplicationInsights.config, pořiďte si jeho zálohu, než budete aplikaci znovu publikovat.
 2. Znovu publikujte aplikaci.
-3. Znovu povolte monitorování pomocí Application Insights. (Použijte vhodnou metodu: řídicí panel webové aplikace Azure, Monitorování stavu nebo hostitele služby IIS.)
+3. Znovu povolte monitorování pomocí Application Insights. (Použijte vhodnou metodu: ovládací panel webové aplikace Azure, Monitorování stavu nebo hostitele služby IIS.)
 4. Obnovte veškeré úpravy, které jste provedli v souboru .config.
 
 
@@ -98,7 +98,7 @@ Pokud chcete znovu publikovat aniž byste přidali Application Insights do kódu
 
 ### <a name="cant-connect-no-telemetry"></a>Nelze se připojit? Žádná telemetrie?
 
-* Funkce monitorování stavu funguje teprve tehdy, když v bráně firewall svého serveru otevřete [některé odchozí porty](app-insights-ip-addresses.md#outgoing-ports).
+* Otevřete v bráně firewall vašeho serveru [potřebné odchozí porty](app-insights-ip-addresses.md#outgoing-ports), aby Monitorování stavu mohlo fungovat.
 
 * Otevřete monitorování stavu a vyberte svou aplikaci v levém podokně. Zkontrolujte, zda existují jakékoli zprávy diagnostiky pro tuto aplikaci v části „Konfigurace oznámení“:
 
@@ -106,7 +106,7 @@ Pokud chcete znovu publikovat aniž byste přidali Application Insights do kódu
 * Na serveru, pokud se zobrazí zpráva o „nedostatečných oprávněních“, zkuste následující postup:
   * Ve Správci služby IIS vyberte fond aplikací, otevřete položku **Upřesnit nastavení**, a v části **Model procesu** si povšimněte identity.
   * V ovládacích panelech správy počítače přidejte tuto identitu do skupiny uživatelů Sledování výkonu.
-* Pokud máte MMA/SCOM nainstalovaný na serveru, může dojít u některých verzí ke konfliktu. Odinstalujte SCOM a sledování stavu a znovu nainstalujte nejnovější verze.
+* Pokud máte na serveru nainstalovaný MMA/SCOM (System Center Operations Manager), může u některých verzí dojít ke konfliktu. Odinstalujte SCOM a sledování stavu a znovu nainstalujte nejnovější verze.
 * Další informace najdete v tématu [Poradce při potížích][qna].
 
 ## <a name="system-requirements"></a>Systémové požadavky
@@ -120,7 +120,7 @@ Podpora operačního systému pro sledování stavu Application Insights na serv
 
 s nejnovější aktualizací SP a rozhraním .NET Framework 4.5
 
-Na straně klienta Windows 7, 8, 8.1 a 10, znovu s rozhraním .NET Framework 4.5
+Na straně klienta: Windows 7, 8, 8.1 a 10, znovu s rozhraním .NET Framework 4.5
 
 Podpora služby IIS je: IIS 7, 7.5, 8, 8.5 (je vyžadována služba IIS)
 
@@ -151,7 +151,7 @@ Zjistěte, které aplikace se monitorují:
 * `-InstrumentationKey` Ikey prostředku Application Insights, kde se mají zobrazovat výsledky.
 * Tato rutina ovlivní pouze aplikace, které již nejsou instrumentovány – to znamená, SdkState==NotInstrumented.
 
-    Rutina nemá vliv na aplikaci, která je již instrumentována, v okamžiku sestavení přidáním sady SDK do kódu nebo v době běhu předchozí pomocí této rutiny.
+    Rutina neovlivní již instrumentované aplikace. Nezáleží na tom, jestli aplikace byla instrumentovaná v okamžiku sestavení přidáním sady SDK do kódu nebo v době běhu předchozím použitím této rutiny.
 
     Verze sady SDK používaná k instrumentaci aplikace je verze, která byla naposledy stažena do tohoto serveru.
 
@@ -184,7 +184,11 @@ Zjistěte, které aplikace se monitorují:
 
 * Stáhne nejnovější Application Insights SDK na server.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Další kroky
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="next"></a>Další kroky
 
 Zobrazení telemetrických dat:
 

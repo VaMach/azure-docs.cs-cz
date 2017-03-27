@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -103,7 +103,7 @@ Prostředky v této tabulce používá virtuální počítač a je nutné, aby e
 | [Účet úložiště](../storage/storage-create-storage-account.md) |Ano |Virtuální počítač potřebuje účet úložiště k ukládání svých virtuálních pevných disků. |
 | [Virtuální síť](../virtual-network/virtual-networks-overview.md) |Ano |Virtuální počítač musí být členem virtuální sítě. |
 | [Veřejná IP adresa](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Ne |Virtuální počítač může mít přiřazenou veřejnou IP adresu pro umožnění vzdáleného přístupu. |
-| [Síťové rozhraní](../virtual-network/virtual-network-network-interface-overview.md) |Ano |Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti. |
+| [Síťové rozhraní](../virtual-network/virtual-network-network-interface.md) |Ano |Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti. |
 | [Datové disky](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Ne |Virtuální počítač může zahrnovat datové disky pro rozšíření možností úložiště. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Jak vytvořím svůj první virtuální počítač?

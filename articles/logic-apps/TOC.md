@@ -78,8 +78,8 @@
 ### [Měření využití](logic-apps-pricing.md)
 
 # Referenční informace
-## [Jazyk pro definování pracovních postupů](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Triggery a akce pracovních postupů](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Jazyk pro definování pracovních postupů](logic-apps-workflow-definition-language.md)
+## [Triggery a akce pracovních postupů](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Historie schématu
