@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Službu Azure Log Analytics, která vám usnadní vyhodnocování informací o p
 Tento článek slouží jako úvod ke službě Log Analytics. Stručný kurz vás provede procesem minimálního nasazení v Azure, abyste službu mohli začít používat. Logický kontejner, ve kterém se v Azure ukládají vaše data správy, se nazývá pracovní prostor. Po přezkoumání těchto informací a dokončení vlastního hodnocení můžete zkušební pracovní prostor odebrat. Tento článek je kurz, a proto se nezabývá obchodními požadavky, plánováním ani doporučeními ohledně architektury.
 
 >[!NOTE]
->Pokud používáte cloud Microsoft Azure Government, najdete informace spíše v [dokumentaci k monitorování a správě Azure Government](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
+>Pokud používáte cloud Microsoft Azure Government, najdete informace spíše v [dokumentaci k monitorování a správě Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
 
 Tady je rychlý přehled počátečního postupu:
 
