@@ -29,7 +29,7 @@ Než budete moci odpojit disk od virtuálního počítače, musíte zjistit čí
 3. Poznamenejte si **logickou jednotku** (LUN) disku, který chcete odpojit.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Odebrání odkazů operačního systému na disk
-Před odpojením disku od hostitele s Linuxem se ujistěte, že se nepoužívají žádné oddíly disku. Zajistěte, aby se je operační systém po restartu nepokusil znovu připojit. Tyto kroky vrátí zpět konfiguraci, kterou jste pravděpodobně vytvořili při [připojení](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) disku.
+Před odpojením disku od hostitele s Linuxem se ujistěte, že se nepoužívají žádné oddíly disku. Zajistěte, aby se je operační systém po restartu nepokusil znovu připojit. Tyto kroky vrátí zpět konfiguraci, kterou jste pravděpodobně vytvořili při [připojení](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) disku.
 
 1. Pomocí příkazu `lsscsi` zjistěte identifikátor disku. `lsscsi` můžete nainstalovat pomocí příkazu `yum install lsscsi` (v distribucích založených na Red Hat) nebo `apt-get install lsscsi` (v distribucích založených na Debian). Hledaný identifikátor disku najdete pomocí čísla logické jednotky (LUN). Poslední číslo v řazené kolekci členů na každém řádku je logická jednotka (LUN). V následujícím příkladu výstupu z příkazu `lsscsi` se logická jednotka LUN 0 mapuje na */dev/sdc*.
 
@@ -111,9 +111,4 @@ Po zjištění čísla logické jednotky (LUN) disku a odebrání odkazů opera�
     ```
 
 Odpojený disk zůstává v úložišti, ale už není připojen k virtuálnímu počítači.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

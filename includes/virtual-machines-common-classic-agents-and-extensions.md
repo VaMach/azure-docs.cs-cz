@@ -41,4 +41,4 @@ Agent virtuálního počítače je povolený v následujících situacích:
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>Vyhledání, přidání, aktualizace a odebrání rozšíření virtuálních počítačů
-Podrobnosti o těchto úlohách najdete v tématu, které se zabývá [přidáním, vyhledáním, aktualizací a odebráním rozšíření virtuálního počítače Azure](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Podrobnosti o těchto úlohách najdete v tématu, které se zabývá [přidáním, vyhledáním, aktualizací a odebráním rozšíření virtuálního počítače Azure](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
