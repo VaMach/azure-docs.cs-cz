@@ -6,6 +6,7 @@
 ## [Vytvoření registru na portálu](container-registry-get-started-portal.md)
 ## [Vytvoření registru pomocí Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Nabízená a vyžádaná instalace image](container-registry-get-started-docker-cli.md)
+## [Zobrazení úložišť](container-registry-repositories.md)
 
 # Postup
 

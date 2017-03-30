@@ -36,8 +36,9 @@
 
 # Zabezpečení a dodržování předpisů
 ## Postup
-### [Správa uživatelských oprávnění](azure-stack-manage-permissions.md)
+### [Správa RBAC](azure-stack-manage-permissions.md)
 ### [Přidání uživatelů pro AD FS](azure-stack-add-users-adfs.md)
+### [Vytvoření instančních objektů](Azure-stack-create-service-principals.md)
 
 # Nabídka služeb
 ## Začínáme
@@ -114,7 +115,10 @@
 ## [Známé problémy](azure-stack-troubleshooting.md)
 ## [Diagnostika v Azure Stacku](azure-stack-diagnostics.md)
 
-# Zdroje a prostředky
+# Referenční informace
+## [Správa profilů verzí API](azure-stack-version-profiles.md)
+
+# Zdroje
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 

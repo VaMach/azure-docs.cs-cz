@@ -160,6 +160,8 @@
 #### Publikování aplikací
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Portál Classic](active-directory-application-proxy-publish.md)
+
+#### [PingAccess pro Azure AD](application-proxy-ping-access.md)
 #### [Zabezpečení](application-proxy-security-considerations.md)
 #### [Sítě](application-proxy-network-topology-considerations.md)
 #### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)

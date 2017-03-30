@@ -3,22 +3,21 @@
 
 # Začínáme
 ## [Nasazení škálovací sady na portálu](virtual-machine-scale-sets-portal-create.md)
-## [Nasazení škálovací sady s použitím Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Nasazení jednoduché škálovací sady s použitím šablony Resource Manageru](virtual-machine-scale-sets-mvss-start.md)
+## [Nasazení škálovací sady s použitím PowerShellu nebo Azure CLI](virtual-machine-scale-sets-create.md)
 
 # Postup
 ## Plánování a návrh
 ### [Aspekty návrhu](virtual-machine-scale-sets-design-overview.md)
-## Vytváření šablon škálovacích sad
-### [Nasazení jednoduché škálovací sady](virtual-machine-scale-sets-mvss-start.md)
-### [Nasazení škálovací sady do existující virtuální sítě](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Vytvoření šablony
+### [Další informace o šablonách škálovacích sad](virtual-machine-scale-sets-mvss-start.md)
+### [Přidání virtuální sítě](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Nasazení
-### [Škálovací sada s využitím portálu](virtual-machine-scale-sets-portal-create.md)
+### [Vytvoření pomocí portálu](virtual-machine-scale-sets-portal-create.md)
+### [Vytvoření pomocí sady Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Vytvoření pomocí PowerShellu nebo Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Škálovací sada se spravovanými disky](virtual-machine-scale-sets-managed-disks.md)
-### [Škálovací sada s použitím sady Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Škálovací sada s použitím PowerShellu](virtual-machine-scale-sets-windows-create.md)
-### [Škálovací sada s použitím Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Škálovací sada pro Linux s automatickým škálováním](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Škálovací sada pro Windows s automatickým škálováním](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplikace ve škálovacích sadách](virtual-machine-scale-sets-deploy-app.md)
