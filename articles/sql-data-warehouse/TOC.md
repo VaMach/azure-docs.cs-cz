@@ -26,11 +26,11 @@
 ## Připojení
 
 ### [Přehled](sql-data-warehouse-connect-overview.md)
-### [Připojovací řetězce](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalace sady Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Připojovací řetězce](sql-data-warehouse-connection-strings.md)
 
 ## Vytvořit
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)

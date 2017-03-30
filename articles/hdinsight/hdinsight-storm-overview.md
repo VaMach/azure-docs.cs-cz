@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -42,7 +43,7 @@ Apache Storm pro HDInsight poskytuje následující klíčové výhody:
 * Snadné přizpůsobení pomocí skriptů spouštěných na clusteru během nebo po jeho vytvoření. Další informace obsahuje článek [Přizpůsobení clusterů HDInsight pomocí skriptových akcí](hdinsight-hadoop-customize-cluster-linux.md).
 
 * Můžete použít jazyk podle vašeho výběru: Komponenty Storm je možné psát v různých jazycích, jako je například **Java**, **C#** nebo **Python**.
-  
+
   * Integrace sady Visual Studio a HDInsight pro vývoj, správu a monitorování topologií C#. Další informace naleznete v tématu [Vývoj topologií C# Storm pomocí sady HDInsight Tools pro Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
   * Podporuje rozhraní Java **Trident**. Toto rozhraní podporuje vytváření topologií Storm, které podporují „přesně jedno“ zpracování zpráv, „transakční“ trvalé uchovávání datového skladu a sadu běžných operací pro analýzy datového proudu.
@@ -50,13 +51,13 @@ Apache Storm pro HDInsight poskytuje následující klíčové výhody:
 * Snadné škálování clusteru nahoru a dolů: přidávání a odebírání pracovních uzlů bez jakéhokoli dopadu na činnost topologií Storm.
 
 * Integrace s následujícími službami Azure:
-  
+
     * Event Hubs
     * Virtual Network
     * Databáze SQL
     * Azure Storage
     * DocumentDB
-  
+
   * Bezpečná kombinace schopností více clusterů HDInsight pomocí sítě Azure Virtual Network: vytvářejte analytické kanály, které používají HDInsight, HBase nebo clustery Hadoop.
 
 Seznam společností, které používají pro svá řešení pro analýzu v reálném čase Apache Storm naleznete v tématu [Společnosti využívající Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
@@ -80,7 +81,7 @@ Během 15 minut od odeslání žádosti budete mít nový cluster Storm spuště
 
 * __Webové připojení:__ Clustery HDInsight poskytují webové uživatelské rozhraní Ambari. Webové uživatelské rozhraní Ambari umožňuje snadno monitorovat, konfigurovat a spravovat služby ve vašem clusteru. Storm v HDInsight také poskytuje uživatelské rozhraní Storm UI, se kterým můžete monitorovat a spravovat spuštěné topologie Storm ze svého prohlížeče.
 
-  Další informace obsahují články [Správa služby HDInsight pomocí webového rozhraní Ambari](hdinsight-hadoop-manage-ambari.md) a [Monitorování a správa pomocí Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui).
+  Další informace obsahují články [Správa služby HDInsight pomocí webového rozhraní Ambari](hdinsight-hadoop-manage-ambari.md) a [Monitorování a správa pomocí Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
 * __PowerShell a příkazový řádek Azure:__ Jak prostředí Azure PowerShell, tak příkazový řádek Azure CLI poskytují nástroje, které můžete použít z klientského systému při práci se službou HDInsight a dalšími službami Azure.
 
@@ -152,7 +153,7 @@ Apache Storm spustí **topologie** místo úloh MapReduce, se kterými jste se m
 * **Datový proud:** nevázaná kolekce **záznamů**. Datové proudy vznikají pomocí funkcí **spouts** a **bolts** a spotřebovávají se pomocí funkcí **bolts**.
 * **Záznam:** pojmenovaný seznam dynamicky zadávaných hodnot.
 * **Spout:** spotřebovává data ze zdroje dat a vysílá jeden nebo více **datových proudů**.
-  
+
   > [!NOTE]
   > Data se často načítají z fronty, například Kafka nebo Azure Event Hubs. Pokud dojde k výpadku, fronta zajistí přetrvání dat.
 
