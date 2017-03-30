@@ -1,6 +1,7 @@
 # Přehled
 ## [Co je Service Bus Messaging?](service-bus-messaging-overview.md)
 ## [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+## [Architektura služby Service Bus](service-bus-architecture.md)
 ## [Nejčastější dotazy](service-bus-faq.md)
 
 # Začínáme

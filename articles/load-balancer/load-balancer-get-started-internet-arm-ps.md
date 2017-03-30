@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>Vytvoření internetového nástroje pro vyrovnávání zatížení v Resource Manageru pomocí prostředí PowerShell
+# <a name="get-started"></a>Vytvoření internetového nástroje pro vyrovnávání zatížení v Resource Manageru pomocí prostředí PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ Pokyny k vytvoření virtuálního počítače a přiřazení síťového rozhra
 2. Načtěte konfiguraci back-endu do proměnné.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Načtěte již vytvořené síťové rozhraní do proměnné. Název této proměnné je **$nic**. Název síťového rozhraní je stejný, jako v předchozím příkladu.
@@ -282,7 +283,7 @@ Pokyny k vytvoření virtuálního počítače a přiřazení síťového rozhra
 1. Použijte nástroj pro vyrovnávání zatížení z předchozího příkladu k přiřazení objektu nástroje pro vyrovnávání zatížení do proměnné **$slb** pomocí příkazu `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. V následujícím příkladu do stávajícího nástroje pro vyrovnávání zatížení přidáte pravidlo příchozího překladu adres (NAT) pomocí portu 81 ve front-endovém fondu a portu 8181 pro back-endový fond.
@@ -302,7 +303,7 @@ Pokyny k vytvoření virtuálního počítače a přiřazení síťového rozhra
 Použijte příkaz `Remove-AzureLoadBalancer` k odstranění dříve vytvořeného nástroje pro vyrovnávání zatížení s názvem **NRP-LB** ve skupině prostředků s názvem **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení](load-balancer-distribution-mode.md)
 
 [Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

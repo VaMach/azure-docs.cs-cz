@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -126,7 +126,7 @@ V tomto kroku vytvoříte dvě propojené služby: **AzureStorageLinkedService**
 4. Zkontrolujte, jestli se služba **AzureSqlLinkedService** objevila v zobrazení stromu. 
 
 > [!NOTE]
-> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties).
 > 
 > 
 
@@ -202,7 +202,7 @@ V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazu
 3. Datovou sadu **InputDataset** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů. Zkontrolujte, jestli se datová sada **InputDataset** objevila v zobrazení stromu.
 
 > [!NOTE]
-> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
 > 
 > 
 
@@ -248,7 +248,7 @@ V této části kroku vytvoříte výstupní datovou sadu s názvem **OutputData
 3. Datovou sadu **OutputDataset** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů. Zkontrolujte, jestli se datová sada **OutputDataset** objevila v zobrazení stromu. 
 
 > [!NOTE]
-> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+> Podrobnosti o vlastnostech JSON najdete v tématu [Přesun dat z/do Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties).
 > 
 > 
 
