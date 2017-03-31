@@ -62,6 +62,7 @@
 ### [Chyby při synchronizaci](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Objekt není synchronizovaný](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Synchronizace hesel](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Jak provést obnovení při dosažení 10GB limitu pro LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referenční informace
 ## [Synchronizace identit a odolnost duplicitních atributů](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

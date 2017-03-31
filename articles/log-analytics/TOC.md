@@ -70,6 +70,9 @@
 ### [Surface Hub](log-analytics-surface-hubs.md)
 ### [Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Analýzy ve Windows
+#### [Update Compliance](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [Linková data](log-analytics-wire-data.md)
 ## Vývoj
 ### [Rozhraní API kolekce dat](log-analytics-data-collector-api.md)
@@ -82,7 +85,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
 ## [REST](/rest/api/loganalytics)
 
-# Zdroje
-## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+# Zdroje a prostředky
+## [Analýzy ve Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [Ceny](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=log-analytics)

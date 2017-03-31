@@ -14,11 +14,11 @@
 ## Vytváření šablon
 ### [Osvědčené postupy pro šablony](resource-manager-template-best-practices.md)
 ### [Části šablon](resource-group-authoring-templates.md)
-### [Funkce šablon](resource-group-template-functions.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
+### [Nastavení umístění](resource-manager-template-location.md)
+### [Přiřazení značek](resource-manager-template-tags.md)
 ### [Nastavení názvu a typu podřízeného prostředku](resource-manager-template-child-resource.md)
 ### [Vytvoření více instancí prostředku daného typu](resource-group-create-multiple.md)
-### [Předání zabezpečených hodnot během nasazení](resource-manager-keyvault-parameter.md)
 ### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
 ### [Sdílení stavu mezi propojenými šablonami](best-practices-resource-manager-state.md)
 ### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Azure Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Průběžná integrace se sadou Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Předání zabezpečených hodnot během nasazení](resource-manager-keyvault-parameter.md)
 ## Spravovat
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [Zobrazení operací nasazení](resource-manager-deployment-operations.md)
 
 # Referenční informace
+## [Funkce šablon](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

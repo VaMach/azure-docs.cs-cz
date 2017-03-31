@@ -21,6 +21,7 @@
 ## Vytvoření webové aplikace
 ### [Webová aplikace .NET](documentdb-dotnet-application.md)
 ### [Webová aplikace .NET pro rozhraní API MongoDB](documentdb-mongodb-application.md)
+### [Aplikace v Xamarinu](documentdb-mobile-apps-with-xamarin.md)
 ### [Webová aplikace Node.js](documentdb-nodejs-application.md)
 ### [Webová aplikace Java](documentdb-java-application.md)
 ### [Webová aplikace Python Flask](documentdb-python-application.md)

@@ -28,6 +28,7 @@
 ### [Konfigurace instančního objektu](container-service-kubernetes-service-principal.md)
 ### [Správa kontejnerů – uživatelské rozhraní Kubernetes](container-service-kubernetes-ui.md)
 ### [Vyrovnávání zatížení kontejnerů Kubernetes](container-service-kubernetes-load-balancing.md)
+### [Integrace Jenkinse s využitím ACS Kubernetes](container-service-kubernetes-jenkins.md)
 ### Monitorování Kubernetes
 #### [Monitorování pomocí OMS](container-service-kubernetes-oms.md)
 #### [Monitorování pomocí služby Datadog](container-service-kubernetes-datadog.md)
