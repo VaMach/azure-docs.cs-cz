@@ -1,3 +1,4 @@
+
 # Přehled
 ## [Co je Service Fabric?](service-fabric-overview.md)
 ## [Principy mikroslužeb](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Vzory a scénáře](service-fabric-patterns-and-scenarios.md)
 ### Základy
 #### [Aplikační model](service-fabric-application-model.md)
+#### [Balení aplikace](service-fabric-package-apps.md)
 #### [Podporovaný programovací model](service-fabric-choose-framework.md)
 #### [Stav služby](service-fabric-concepts-state.md)
 #### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
 #### [Přidání webového front-endu](service-fabric-add-a-web-frontend.md)
 #### [Prostředky manifestu služby](service-fabric-service-manifest-resources.md)
+#### [Začínáme s modulem plug-in Eclipse pro Java Development](service-fabric-get-started-eclipse.md)
 #### [Správa aplikací v sadě Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Konfigurace zabezpečených připojení v sadě Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Ladění
@@ -62,7 +65,7 @@
 #### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
 #### [Komunikace s Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Zabezpečená komunikace s Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [Jádro ASP.NET](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Vzdálená komunikace služby](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverzní proxy server](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Migrace ze služby Cloud Services
 ### [Porovnání služby Cloud Services se Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrace do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Doporučené postupy](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Vytvoření a správa clusterů
 

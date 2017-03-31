@@ -1,106 +1,75 @@
-# Přehled
-## [Integrace s Azure AD](active-directory-how-to-integrate.md)
-## [Scénáře ověřování](active-directory-authentication-scenarios.md)
-## [Graph API](active-directory-graph-api.md)
-## [Knihovny ověřování](active-directory-authentication-libraries.md)
-## [Protokoly pro ověřování](active-directory-authentication-protocols.md)
-## [Objekty zabezpečení aplikací a služeb](active-directory-application-objects.md)
-## [Průvodce vývojáře](active-directory-developers-guide.md)
-## [Implicitní grant OAuth2](active-directory-dev-understanding-oauth2-implicit-grant.md)
-## [Aplikace v Azure AD](active-directory-how-applications-are-added.md)
-
-# Začínáme
+# [Přehled](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+# Šablony Rychlý start
 ## Mobilní a PC aplikace
-### [iOS](active-directory-devquickstarts-ios.md)
-### [Android](active-directory-devquickstarts-android.md)
-### [Windows Phone](active-directory-devquickstarts-windowsphone.md)
-### [.Net](active-directory-devquickstarts-dotnet.md)
-### [Windows Store](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
-### [Cordova](active-directory-devquickstarts-cordova.md)
-### [Oauth](active-directory-protocols-oauth-code.md)
+### [iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-ios)
+### [Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-android)
+### [WP](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-windowsphone)
+### [.NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-dotnet)
+### [Windows Store](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-windowsstore)
+### [Xamarin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-xamarin)
+### [Cordova](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-cordova)
 ## Webové aplikace
-### [.NET](active-directory-devquickstarts-webapp-dotnet.md)
-### [Java](active-directory-devquickstarts-webapp-java.md)
-### [AngularJS](active-directory-devquickstarts-angular.md)
-### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
-### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-### [Příkazový řádek Javy](active-directory-devquickstarts-headless-java.md)
+### [.NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapp-dotnet)
+### [Java](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapp-java)
+### [Angular JS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-angular)
+### [NodeJS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs)
+### [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)
+### [Příkazový řádek Javy](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-headless-java)
 ## Web API
-### [Web API a .NET](active-directory-devquickstarts-webapi-dotnet.md)
-### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [Graph API](active-directory-graph-api-quickstart.md)
-
-# Postup
-## [Získání tenanta](active-directory-howto-tenant.md)
-## [Přihlášení jakéhokoli uživatele Azure AD](active-directory-devhowto-multi-tenant-overview.md)
-## [Integrace aplikací](active-directory-integrating-applications.md)
-## Povolení jednotného přihlašování
-### [Android](active-directory-sso-android.md)
-### [iOS](active-directory-sso-ios.md)
-## [Získání certifikace AppSource](active-directory-devhowto-appsource-certified.md)
-## [Uvedení vaší aplikace v galerii](active-directory-app-gallery-listing.md)
-## [Vysvětlení manifestu aplikace](active-directory-application-manifest.md)
-## [Ověřování webových uživatelů](active-directory-java-authenticate-users-access-control-eclipse.md)
+### [Web API a .NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet)
+### [NodeJS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-nodejs)
+# Průvodci
+## [Vzory ověřování](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#basics-of-authentication-in-azure-ad)
+### [Nativní aplikace](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#native-application-to-web-api)
+### [Web Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api)
+### [Webové rozhraní API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api)
+### [Jednostránková aplikace](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#single-page-application-spa)
+## [Implicitní grant Oauth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant)
+## [Přihlášení jakéhokoli uživatele Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
+## [Povolení jednotného přihlašování v Androidu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)
+## [Povolení jednotného přihlašování v iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)
+## [Získání certifikace AppSource](http://docs.microsoft.com/azure/active-directory/active-directory-devhowto-appsource-certified)
+## [Uvedení vaší aplikace v galerii](http://docs.microsoft.com/azure/active-directory/active-directory-app-gallery-listing)
+## [Vysvětlení manifestu](http://docs.microsoft.com/azure/active-directory/active-directory-application-manifest)
 ## Práce se SAML
-### [Zobrazení kódu SAML vráceného službou Access Control](active-directory-java-view-saml-returned-by-access-control.md)
-### [Azure AD a SAML](active-directory-saml-protocol-reference.md)
-### [Přizpůsobení deklarací identity](active-directory-saml-claims-customization.md)
-### [Ladění SSO založeného na SAML](active-directory-saml-debugging.md)
-## [Použití podepisování výměny klíčů](active-directory-signing-key-rollover.md)
-
-
-## Použití koncového bodu V2
-### [Přehled](active-directory-appmodel-v2-overview.md)
-### [Co přináší V2 nového?](active-directory-v2-compare.md)
-### [Knihovny ověřování](active-directory-v2-libraries.md)
-### [Typy aplikací](active-directory-v2-flows.md)
-### [Omezení](active-directory-v2-limitations.md)
-### [Rozsah](active-directory-v2-scopes.md)
-### [Registrační portál](active-directory-v2-registration-portal.md)
-### [Referenční informace o tokenech](active-directory-v2-tokens.md)
-### Protokoly
-#### [Přihlašovací údaje pro klienta OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-#### [OAuth 2.0 a OpenID](active-directory-v2-protocols.md)
-#### [Nejnovější aktualizace](active-directory-v2-preview-oidc-changes.md)
-### Mobilní aplikace
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Webové aplikace a rozhraní API
-#### [AngularJS s NodeJS](active-directory-v2-devquickstarts-angular-node.md)
-#### [AngularJS s .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [Webová aplikace .NET](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [Webová aplikace NodeJS](active-directory-v2-devquickstarts-node-web.md)
-#### [.NET API](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [Rozhraní API NodeJS](active-directory-v2-devquickstarts-node-api.md)
-#### [Volání webového rozhraní API](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
-### Přímá integrace s protokoly
-#### [Registrace aplikace](active-directory-v2-app-registration.md)
-#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Implicitní tok](active-directory-v2-protocols-implicit.md)
-#### [Ověřovací kód OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-#### [Přihlašovací údaje pro klienta OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Volání mezi službami](active-directory-protocols-oauth-service-to-service.md)
-
+### [Zobrazení kódu SAML vráceného službou Access Control] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-java-view-saml-returned-by-access-control)
+### [AzureAD a SAML] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+### [Přizpůsobení deklarací identit] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
+### [Ladění SSO s využitím SAML] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 ## Práce se sadou Visual Studio
-### [Začínáme s .NET](vs-active-directory-dotnet-getting-started.md)
-### [Co se stalo s mým projektem MVC?](vs-active-directory-dotnet-what-happened.md)
-### [Chyba během detekce ověřování](vs-active-directory-error.md)
-### [Začínáme s WebApi](vs-active-directory-webapi-getting-started.md)
-### [Co se stalo s mým projektem WebApi?](vs-active-directory-webapi-what-happened.md)
-
-
+### [Začínáme s Azure Active Directory připojenými službami sady Visual Studio (projekty MVC)] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-dotnet-getting-started)
+### [Co se stalo s mým projektem MVC] (připojená služba Visual Studio Azure Active Directory)?] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-dotnet-what-happened
+### [Chyba během detekce ověřování] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-error)
+### [Začínáme s WebApi] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-webapi-getting-started)
+### [Co se stalo s mým projektem webového rozhraní API] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-webapi-what-happened)
+## koncový bod verze 2.0
+### Šablony Rychlý start
+#### Mobilní aplikace
+#### [iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-devquickstarts-ios)
+#### [Windows Phone](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-wpf)
+#### [Android](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-android)
+#### Webové aplikace a rozhraní API
+#### [AngularJS s NodeJS](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-angular-node)
+#### [AngularJS s .NET](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-angular-dotnet)
+#### [Webová aplikace .NET](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-dotnet-web)
+#### [Webové rozhraní API .NET](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-dotnet-api)
+#### [Rozhraní API NodeJS](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-node-api)
+#### [Webová aplikace NodeJS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-devquickstarts-node-web)
+### Průvodci
+#### [Typy aplikací](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-flows)
+#### Omezení
+#### [Registrace aplikace](http://docs.microsoft.com/azure/active-directory/active-directory-v2-app-registration)
 # Referenční informace
-## [Glosář](active-directory-dev-glossary.md)
-## [Pokyny pro branding](active-directory-branding-guidelines.md)
-## [Ukázky kódu](active-directory-code-samples.md)
-## [Metadata federování](active-directory-federation-metadata.md)
-## [Jednotné přihlašování](active-directory-single-sign-on-protocol-reference.md)
-## [Jednotné odhlašování](active-directory-single-sign-out-protocol-reference.md)
-## [Tokeny a deklarace identity](active-directory-token-and-claims.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+## [Knihovny ověřování](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+## [Instanční objekty aplikací a služeb](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)
+## [Oauth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
+## koncový bod verze 2.0
+### [Obory](http://docs.microsoft.com/azure/active-directory/active-directory-v2-scopes)
+### [Referenční informace o tokenech](http://docs.microsoft.com/azure/active-directory/active-directory-v2-tokens)
+### [OpenID Connect](http://docs.microsoft.com/azure/active-directory/active-directory-v2-protocols-oidc)
+### [Implicitní tok](http://docs.microsoft.com/azure/active-directory/active-directory-v2-protocols-implicit)
+### [Tok kódu při autorizaci OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code)
+### [Přihlašovací údaje pro klienta OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds)
+### [OAuth 2.0 a OpenID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
+### [Volání mezi službami](http://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-service-to-service)
+# [Ukázky](https://docs.microsoft.com/azure/active-directory/develop/active-directory-code-samples)
