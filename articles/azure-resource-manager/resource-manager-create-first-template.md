@@ -31,9 +31,9 @@ K vytváření a revidování šablon potřebujete editor JSON. [Visual Studio C
 
 2. Nainstalujte rozšíření [Nástroje Azure Resource Manageru](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) tak, že otevřete okno rychlého otevření (Ctrl + P) a spustíte: 
 
-  ```
-  ext install msazurermtools.azurerm-vscode-tools
-  ```
+   ```
+   ext install msazurermtools.azurerm-vscode-tools
+   ```
 
 3. Až budete vyzváni, ukončete a znovu spusťte VS Code, aby se rozšíření povolilo.
 
@@ -45,15 +45,15 @@ Začněme s prázdnou šablonou, která obsahuje pouze základní části šablo
 
 2. Zkopírujte a vložte do souboru následující syntaxi JSON:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [  ],
-    "outputs": {  }
-  }
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [  ],
+     "outputs": {  }
+   }
    ```
 
 3. Uložte soubor jako **azuredeploy.json**. 
@@ -63,43 +63,43 @@ Začněme s prázdnou šablonou, která obsahuje pouze základní části šablo
 
 3. Vložte tento kód JSON do části **resources** (Prostředky) vaší šablony, jak je znázorněno v následujícím příkladu: 
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [
-      {
-        "name": "string",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2016-05-01",
-        "sku": {
-          "name": "string"
-        },
-        "kind": "string",
-        "location": "string",
-        "tags": {},
-        "properties": {
-          "customDomain": {
-            "name": "string",
-            "useSubDomain": boolean
-          },
-          "encryption": {
-            "services": {
-              "blob": {
-                "enabled": boolean
-              }
-            },
-            "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "string"
-        }
-      }
-    ],
-    "outputs": {  }
-  }
-  ```
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [
+       {
+         "name": "string",
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2016-05-01",
+         "sku": {
+           "name": "string"
+         },
+         "kind": "string",
+         "location": "string",
+         "tags": {},
+         "properties": {
+           "customDomain": {
+             "name": "string",
+             "useSubDomain": boolean
+           },
+           "encryption": {
+             "services": {
+               "blob": {
+                 "enabled": boolean
+               }
+             },
+             "keySource": "Microsoft.Storage"
+           },
+           "accessTier": "string"
+         }
+       }
+     ],
+     "outputs": {  }
+   }
+   ```
 
   Předchozí příklad obsahuje mnoho zástupných hodnot a některé vlastnosti, které možná pro váš účet úložiště nepotřebujete.
 
@@ -111,37 +111,37 @@ Nyní jste připraveni nastavit hodnoty pro váš účet úložiště.
 
 2. Všimněte si, že v rámci elementu **properties** (Vlastnosti) jsou vlastnosti **customDomain** (Vlastní doména), **encryption** (Šifrování) a **accessTier** (Úroveň přístupu) uvedené jako nepovinné. Tyto hodnoty můžou být důležité pro váš scénář, ale pro zjednodušení tohoto příkladu je odebereme.
 
-  ```json
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "string",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  ```
+   ```json
+   "resources": [
+     {
+       "name": "string",
+       "type": "Microsoft.Storage/storageAccounts",
+       "apiVersion": "2016-05-01",
+       "sku": {
+         "name": "string"
+       },
+       "kind": "string",
+       "location": "string",
+       "tags": {},
+       "properties": {
+       }
+     }
+   ],
+   ```
 
 3. Aktuálně je element **kind** (Druh) nastavený na zástupnou hodnotu string (Řetězec). VS Code obsahuje mnoho funkcí, které vám pomůžou pochopit, jaké hodnoty máte v šabloně použít. Všimněte si, že nástroj VS Code označuje tuto hodnotu jako neplatnou. Pokud na „string“ najedete myší, VS Code navrhne pro **kind** (Druh) platné hodnoty `Storage` a `BlobStorage`. 
 
-  ![zobrazení navrhovaných hodnot v nástroji VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ![zobrazení navrhovaných hodnot v nástroji VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  Chcete-li zobrazit dostupné hodnoty, smažte znaky mezi uvozovkami a stiskněte kombinaci kláves **Ctrl + Mezerník**. Z dostupných možností vyberte **Storage**.
+   Chcete-li zobrazit dostupné hodnoty, smažte znaky mezi uvozovkami a stiskněte kombinaci kláves **Ctrl + Mezerník**. Z dostupných možností vyberte **Storage**.
   
-  ![zobrazení technologie IntelliSense](./media/resource-manager-create-first-template/intellisense.png)
+   ![zobrazení technologie IntelliSense](./media/resource-manager-create-first-template/intellisense.png)
 
-  Pokud nepoužíváte VS Code, podívejte se na stránku s referenčními informacemi k šablonám pro účty úložiště. Všimněte si, že v popisu jsou uvedené stejné platné hodnoty. Nastavte element na **Storage**.
+   Pokud nepoužíváte VS Code, podívejte se na stránku s referenčními informacemi k šablonám pro účty úložiště. Všimněte si, že v popisu jsou uvedené stejné platné hodnoty. Nastavte element na **Storage**.
 
-  ```json
-  "kind": "Storage",
-  ```
+   ```json
+   "kind": "Storage",
+   ```
 
 Vaše šablona teď vypadá nějak takto:
 
@@ -186,8 +186,6 @@ VS Code vám opět pomůže návrhem dostupných funkcí.
 
 Všimněte si, že je funkce obalena do hranatých závorek. Funkce [resourceGroup](resource-group-template-functions.md#resourcegroup) vrací objekt s vlastností `location`. Skupina prostředků obsahuje všechny související prostředky pro vaše řešení. Vlastnost location (Umístění) můžete pevně nastavit třeba na hodnotu Central US (Střed USA), ale pokud byste chtěli šablonu znovu nasadit do jiného umístění, museli byste ji ručně změnit. Pomocí funkce `resourceGroup` můžete šablonu snadno nasadit do jiné skupiny prostředků v jiném umístění.
 
-
-
 Vaše šablona teď vypadá nějak takto:
 
 ```json
@@ -222,71 +220,71 @@ Pro názvy účtů úložiště platí několik omezení, proto je jejich nastav
 
 1. Pokud chcete předat předponu názvu, která odpovídá vašim zásadám vytváření názvů, přejděte do části **parameters** (Parametry) vaší šablony. Přidejte do šablony parametr, který přijímá předponu pro název účtu úložiště:
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     }
+   },
+   ```
 
   Maximální délka předpony je 11 znaků, protože funkce `uniqueString` vrací 13 znaků a celý název nesmí přesáhnout 24 znaků. Pokud při nasazení nepředáte parametru žádnou hodnotu, použije se výchozí hodnota.
 
 2. Přejděte do části **variables** (Proměnné) vaší šablony. Chcete-li vytvořit název z předpony a jedinečného řetězce, přidejte následující proměnnou:
 
-  ```json
-  "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 3. V části **resources** (Prostředky) nastavte název účtu úložiště na tuto proměnnou.
 
-  ```json
-  "name": "[variables('storageName')]",
-  ```
+   ```json
+   "name": "[variables('storageName')]",
+   ```
 
 3. Chcete-li povolit předávání různých SKU pro účet úložiště, přejděte do části **parameters** (Parametry). Za parametr pro předponu názvu úložiště přidejte parametr, který určuje povolené hodnoty SKU a výchozí hodnotu. Povolené hodnoty najdete na stránce s referenčními informacemi k šablonám nebo v nástroji VS Code. V následujícím příkladu zahrnujete pro SKU všechny povolené hodnoty. Povolené hodnoty však můžete omezit jenom na typy SKU, které chcete prostřednictvím této šablony nasadit.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     },
+     "storageSKU": {
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ],
+       "defaultValue": "Standard_LRS",
+       "metadata": {
+         "description": "The type of replication to use for the storage account."
+       }
+     }
+   },
+   ```
 
 3. Změňte vlastnost SKU tak, aby používala hodnotu z parametru:
 
-  ```json
-  "sku": {
-    "name": "[parameters('storageSKU')]"
-  },
-  ```    
+   ```json
+   "sku": {
+     "name": "[parameters('storageSKU')]"
+   },
+   ```    
 
 4. Uložte soubor.
 
