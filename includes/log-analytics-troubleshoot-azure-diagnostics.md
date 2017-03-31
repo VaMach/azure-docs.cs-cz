@@ -1,22 +1,24 @@
-### <a name="troubleshoot-azure-diagnostics"></a>Odstraňování potíží Diagnostiky Azure
+### <a name="troubleshoot-azure-diagnostics"></a>Troubleshoot Azure Diagnostics
 
-Pokud se zobrazí následující chybová zpráva, poskytovatel prostředků Microsoft.insights není registrovaný:
+If you receive the following error message, the Microsoft.insights resource provider is not registered:
 
 `Failed to update diagnostics for 'resource'. {"code":"Forbidden","message":"Please register the subscription 'subscription id' with Microsoft.Insights."}`
 
-Pokud chcete poskytovatele prostředků registrovat, proveďte na webu Azure Portal následující kroky:
+To register the resource provider, perform the following steps in the Azure portal:
 
-1.  V navigačním podokně na levé straně klikněte na *Předplatná*.
-2.  Vyberte předplatné identifikované v chybové zprávě.
-3.  Klikněte na *Poskytovatelé prostředků*.
-4.  Vyhledejte poskytovatele *Microsoft.insights*.
-5.  Klikněte na odkaz *Zaregistrovat*.
+1.    In the navigation pane on the left, click *Subscriptions*
+2.    Select the subscription identified in the error message
+3.    Click *Resource Providers*
+4.    Find the *Microsoft.insights* provider
+5.    Click the *Register* link
 
-![Zaregistrujte poskytovatele prostředků Microsoft.insights.](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
+![Register microsoft.insights resource provider](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 
-Jakmile bude poskytovatel prostředků *Microsoft.insights* zaregistrovaný, zopakujte konfiguraci diagnostiky.
-
-
-<!--HONumber=Feb17_HO2-->
+Once the *Microsoft.insights* resource provider is registered, retry configuring diagnostics.
 
 
+In PowerShell, if you receive the following error message, you need to update your version of PowerShell:
+
+`Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
+
+Update your version of PowerShell to the November 2016 (v2.3.0), or later, release using the instructions in the [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) article.

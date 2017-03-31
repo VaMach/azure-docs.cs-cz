@@ -52,7 +52,7 @@ Před použitím Azure AD B2C musíte vytvořit adresář, nebo klienta.  Adres�
 
 Dále musíte vytvořit aplikaci v adresáři B2C. Azure AD díky tomu získá informace potřebné k bezpečné komunikaci s vaší aplikací. Klientská aplikace i webové rozhraní API budou mít stejné **ID aplikace**, protože společně tvoří jednu logickou aplikaci. Chcete-li vytvořit aplikaci, postupujte podle [těchto pokynů](active-directory-b2c-app-registration.md). Ujistěte se, že:
 
-- Jste do aplikace zahrnuli **webovou aplikaci **/** webové rozhraní API**.
+- Jste do aplikace zahrnuli **webovou aplikaci**/**webové rozhraní API**.
 - Jste do pole **Adresa URL odpovědi** vyplnili `http://localhost:3000/auth/openid/return`. To je výchozí URL pro tento příklad.
 - Vytvořte pro aplikaci **tajný klíč aplikace** a poznamenejte si ho. Budete ho potřebovat později. Před tím, než tuto hodnotu použijete, musí být [uvozena v XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. To také budete potřebovat později.

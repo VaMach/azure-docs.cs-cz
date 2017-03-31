@@ -98,6 +98,11 @@
 ## Použití karty Arduino
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Správa zasílání zpráv cloudových zařízení pomocí iothub-exploreru](iot-hub-explorer-cloud-device-messaging.md)
+#### [Uložení zpráv IoT Hub do úložiště dat Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Správa zasílání zpráv cloudových zařízení pomocí iothub-exploreru](iot-hub-explorer-cloud-device-messaging.md)
+#### [Uložení zpráv IoT Hub do úložiště dat Azure](iot-hub-store-data-in-azure-table-storage.md)
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lekce 1: Konfigurace zařízení
@@ -233,7 +238,9 @@
 #### [Použití rozhraní REST API](iot-hub-rm-rest.md)
 #### [Použití šablony z PowerShellu](iot-hub-rm-template-powershell.md)
 #### [Použití šablony z rozhraní .NET](iot-hub-rm-template.md)
-### [Konfigurace odesílání souborů](iot-hub-configure-file-upload.md)
+### Konfigurace odesílání souborů
+#### [Použití portálu](iot-hub-configure-file-upload.md)
+#### [Použití PowerShellu](iot-hub-configure-file-upload-powershell.md)
 ### [Hromadná správa zařízení IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Metriky využití](iot-hub-metrics.md)
 ### [Monitorování operací](iot-hub-operations-monitoring.md)

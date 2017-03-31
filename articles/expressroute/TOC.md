@@ -2,27 +2,25 @@
 ## [Co je ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute – nejčastější dotazy](expressroute-faqs.md)
 ## [Modely připojení](expressroute-connectivity-models.md)
+## [O okruzích a doménách směrování](expressroute-circuit-peerings.md)
 ## [Umístění a partneři](expressroute-locations.md)
 ### [Poskytovatelé podle umístění](expressroute-locations-providers.md)
 ### [Umístění podle poskytovatele](expressroute-locations.md)
+## [O branách virtuálních sítí pro ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Začínáme
-## [Pracovní postupy](expressroute-workflows.md)
 ## [Požadavky](expressroute-prerequisites.md)
-## [O okruzích a doménách směrování](expressroute-circuit-peerings.md)
+## [Pracovní postupy](expressroute-workflows.md)
 ## [Požadavky směrování](expressroute-routing.md)
-## [Optimalizace směrování](expressroute-optimize-routing.md)
 ## [Požadavky překladu adres (NAT)](expressroute-nat.md)
 ## [Požadavky QoS](expressroute-qos.md)
 ## [Přesun okruhů z modelu nasazení Classic do Resource Manager](expressroute-move.md)
-## [O branách virtuálních sítí pro ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Postup
 ## Vytvoření a změny okruhu
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (Classic)](expressroute-howto-circuit-classic.md)
-## Vytvoření a změny konfigurace směrování
+## Vytvoření a změny konfigurace partnerského vztahu
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (Classic)](expressroute-howto-routing-classic.md)
@@ -38,11 +36,12 @@
 ### [PowerShell (Classic)](expressroute-howto-coexist-classic.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manager](expressroute-howto-move-arm.md)
 ## Konfigurace směrovače pro ExpressRoute
-### [Ukázky nastavení konfigurace směrovače](expressroute-config-samples-routing.md)
+### [Konfigurace směrovače](expressroute-config-samples-routing.md)
 ### [Ukázky konfigurace směrovače pro překlad adres (NAT)](expressroute-config-samples-nat.md)
 
 ## Osvědčené postupy
 ### [Osvědčené postupy pro zabezpečení sítě a cloudové služby](../best-practices-network-security.md)
+## [Optimalizace směrování](expressroute-optimize-routing.md)
 ### [Asymetrické směrování](expressroute-asymmetric-routing.md)
 
 ## Řešení potíží

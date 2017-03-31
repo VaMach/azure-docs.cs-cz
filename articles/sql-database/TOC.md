@@ -5,20 +5,17 @@
 ## [Vytvoření databáze – portál](sql-database-get-started-portal.md)
 ## [Vytvoření databáze – rozhraní příkazového řádku Azure](sql-database-get-started-cli.md)
 ## [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
-## Připojení
+## Spravovat
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
+## Připojení
 ### [C#](sql-database-connect-query-dotnet.md)
 # Ukázky
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Kurzy
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Obnovení
-### [Azure Portal](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Návrh databáze](sql-database-design-first-database.md)
+
 # Koncepty
 ## Databáze a servery
 ### [Databáze](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Přístup k databázi 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Zabezpečení dat
 ### [Ověřování Azure AD](sql-database-aad-authentication-configure.md)
 ### [Auditování](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Šifrování – úložiště certifikátů](sql-database-always-encrypted.md)
 ### [Šifrování – trezor klíčů](sql-database-always-encrypted-azure-key-vault.md)
 ### [Konfigurace maskování](sql-database-dynamic-data-masking-get-started-portal.md)
-## Zálohování a obnovení
-### [Obnovení – portál](sql-database-restore-database-portal.md)
+## Obnovení
+### [Azure Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Izolovaná tabulka](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Uchovávání
 ### [Uchování – portál](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Uchování – PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Obnovení izolované tabulky](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Geografická replikace dat
 ### [Azure Portal](sql-database-geo-replication-portal.md)
 ### [T-SQL – konfigurace](sql-database-geo-replication-transact-sql.md)
