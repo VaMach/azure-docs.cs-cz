@@ -111,7 +111,7 @@
 ### [Správa cen a kvót](app-insights-pricing.md)
 ### [Sledování výkonu aplikací pomocí Application Insights pro SCOM](app-insights-scom.md)
 
-##Export
+## Export
 ### [Průběžný export](app-insights-export-telemetry.md)
 ### [Export datového modelu](app-insights-export-data-model.md)
 ### [Export do Power BI](app-insights-export-power-bi.md)
@@ -159,10 +159,5 @@
 ### [Podpora](app-insights-get-dev-support.md)
 
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
