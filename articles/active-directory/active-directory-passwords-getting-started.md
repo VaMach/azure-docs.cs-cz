@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Začínáme se správou hesel
 > [!IMPORTANT]
-> **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -375,7 +375,7 @@ Po stažení nástroje Azure AD Connect můžete povolit zpětný zápis hesla. 
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Povolení zpětného zápisu hesla pomocí Windows PowerShellu
 1. Na **počítači se službou Directory Sync** otevřete nové  **okno Windows PowerShellu se zvýšenými oprávněními**.
 2. Pokud modul dosud není načtený, načtěte zadáním příkazu `import-module ADSync` do své aktuální relace rutiny služby Azure AD Connect.
-3. Spuštěním rutiny `Get-ADSyncConnector` získejte seznam konektorů služby Azure AD a uložte výsledky do atributu `$aadConnectorName`, například `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Spuštěním rutiny `Get-ADSyncConnector` získejte seznam konektorů služby Azure AD a uložte výsledky do atributu `$aadConnectorName`, například `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. Spuštěním následující rutiny získejte aktuální stav zpětného zápisu pro aktuální konektor: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Spuštěním rutiny povolte zpětný zápis hesla: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`.
 
@@ -383,7 +383,7 @@ Po stažení nástroje Azure AD Connect můžete povolit zpětný zápis hesla. 
 > Pokud budete vyzváni k zadání přihlašovacích údajů, ujistěte se, že účet správce, který jste zadali jako parametr AzureADCredential, je **cloudový účet správce (vytvořený ve službě Azure AD)**, nikoliv federovaný účet (vytvořený v místní službě AD a synchronizovaný se službou Azure AD).
 >
 > [!NOTE]
-> Zpětný zápis hesla můžete kdykoliv opět vypnout pomocí prostředí PowerShell zopakováním výše uvedených kroků, ale předáním hodnoty `$false` v kroku&5;, nebo nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [portálu Azure Classic](https://manage.windowsazure.com).
+> Zpětný zápis hesla můžete kdykoliv opět vypnout pomocí prostředí PowerShell zopakováním výše uvedených kroků, ale předáním hodnoty `$false` v kroku 5, nebo nastavením možnosti **Zapisovat hesla zpět do místního adresáře** na hodnotu **Ne** v části **Zásady resetování hesel uživateli** karty **Konfigurovat** svého adresáře na [portálu Azure Classic](https://manage.windowsazure.com).
 >
 >
 
@@ -399,9 +399,9 @@ Po povolení zpětného zápisu hesla je třeba zajistit, aby měl počítač, n
 
 #### <a name="why-do-i-need-to-do-this"></a>Proč je nutné to udělat?
 
-Aby zpětný zápis hesla fungoval správně, musí být počítač, na kterém běží služba Azure AD Connect, schopný navázat odchozí připojení HTTPS k webu **.servicebus.windows.net* a ke konkrétním IP adresám, které Azure používá a které jsou definovány v [seznamu rozsahů IP adres datacentra Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Aby zpětný zápis hesel správně fungoval, musí být počítač se službou Azure AD Connect schopný komunikovat se službou pro resetování hesel i se službou Azure Service Bus.
 
-Pro nástroj Azure AD Connect verze **1.1.443.0** (nejnovější) a vyšší:
+Pro nástroj Azure AD Connect verze **1.1.443.0** a vyšší:
 
 - Nejnovější verze nástroje Azure AD Connect bude přes **odchozí připojení HTTPS** potřebovat přístup k:
     - *passwordreset.microsoftonline.com*
@@ -421,7 +421,7 @@ Pro nástroj Azure AD Connect verze **1.0.8667.0** až **1.1.380.0**:
         - V této konfiguraci bude nutné pro zajištění fungování zpětného zápisu hesla zajistit týdenní aktualizace vašich síťových zařízení pomocí nejnovějších IP adres ze seznamu rozsahů IP adres datacentra Microsoft Azure. Tyto rozsahy IP adres jsou k dispozici v podobě souboru XML, který se aktualizuje každou středu (Tichomoří) a začíná platit následující pondělí (Tichomoří).
     - Požadované kroky:
         - Povolení všech odchozích připojení HTTPS k webu *.servicebus.windows.net
-        - Povolení všech odchozích připojení HTTPS ke všem IP adresám v seznamu rozsahů IP adres datacentra Microsoft Azure a týdenní udržování aktualizované konfigurace
+        - Povolení všech odchozích připojení HTTPS ke všem IP adresám v seznamu rozsahů IP adres datacentra Microsoft Azure a týdenní udržování aktualizované konfigurace Seznam je k dispozici ke stažení [zde](https://www.microsoft.com/download/details.aspx?id=41653).
 
 > [!NOTE]
 > Pokud jste nakonfigurovali zpětný zápis hesla podle výše uvedených pokynů a v protokolu událostí služby Azure AD Connect se nezobrazí žádné chyby, ale během testování dochází k chybám připojení, příčinou může být některé síťové zařízení ve vašem prostředí, které blokuje připojení HTTPS k požadovaným IP adresám. Například zatímco připojení k webu *https://*.servicebus.windows.net* je povolené, připojení ke konkrétní IP adrese v tomto rozsahu může být blokované. Pokud chcete tento problém vyřešit, budete muset buď nakonfigurovat své síťové prostředí tak, aby povolovalo odchozí připojení HTTPS přes port 443 ke všem adresám URL nebo IP adresám (viz Možnost 1 výše), nebo ve spolupráci se síťovým týmem explicitně povolit připojení HTTPS ke konkrétním IP adresám (viz Možnost 2 výše).
@@ -436,7 +436,7 @@ Pro nástroj Azure AD Connect verze **1.0.8667.0** až **1.1.380.0**:
 
 Jakmile budou síťová zařízení nakonfigurována, restartujte počítač, na kterém běží nástroj Azure AD Connect.
 
-#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Nečinná připojení v nástroji Azure AD Connect (verze&1;.1.443.0 a vyšší)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Nečinná připojení v nástroji Azure AD Connect (verze 1.1.443.0 a vyšší)
 Nástroj Azure AD Connect bude pravidelně odesílat příkazy Ping nebo Keepalive do koncových bodů ServiceBus pro zajištění aktivních připojení. Pokud nástroj zjistí, že se ukončuje příliš mnoho připojení, automaticky zvýší frekvenci odesílání příkazu Ping do koncového bodu. Frekvence odesílání příkazu Ping klesne maximálně na 1 příkaz Ping každých 60 sekund, přesto **důrazně doporučujeme, aby proxy servery a brány firewall umožňovaly zachování nečinných připojení po dobu alespoň 2 až 3 minut.** \*Pro starší verze doporučujeme 4 minuty nebo déle.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Krok 4: Nastavení odpovídajících oprávnění služby Active Directory
@@ -495,7 +495,7 @@ Zpětný zápis hesla je povolený a resetováním hesla uživatele, jehož úč
 ## <a name="next-steps"></a>Další kroky
 Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel služby Azure AD:
 
-* **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Jak to funguje**](active-directory-passwords-how-it-works.md) – Přečtěte si o šesti různých komponentách služby a o tom, jaké mají funkce.
 * [**Přizpůsobení**](active-directory-passwords-customize.md) – Přečtěte si, jak můžete přizpůsobit vzhled a funkce služby potřebám své organizace.
 * [**Osvědčené postupy**](active-directory-passwords-best-practices.md) – Přečtěte si, jak můžete ve své organizaci rychle nasazovat a efektivně spravovat hesla.

@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 102eab0e2e915521f8702b526dda886a2502f40b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,7 +67,7 @@ Virtuální sítě může být vhodné propojit z následujících důvodů:
 
 Další informace o propojeních VNet-to-VNet najdete v části [Aspekty propojení VNet-to-VNet](#faq) na konci tohoto článku.
 
-### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Příklady nastavení
+### <a name="values"></a>Příklady nastavení
 Pokud používáte tyto kroky jako cvičení, můžete použít ukázkové hodnoty konfigurace. Pro účely tohoto příkladu použijeme pro jednotlivé virtuální sítě více adresních prostorů. Konfigurace VNet-to-VNet nicméně použití více adresních prostorů nevyžadují.
 
 **Hodnoty pro virtuální síť TestVNet1:**
@@ -115,18 +116,18 @@ Pokud používáte tyto kroky jako cvičení, můžete použít ukázkové hodno
   * Název: TestVNet4toTestVNet1
   * Sdílený klíč: Sdílený klíč si můžete vytvořit sami. V tomto příkladu použijeme abc123. Důležité je, aby se při vytváření propojení virtuálních sítí tato hodnota shodovala.
 
-## <a name="a-namecreatvneta1-create-and-configure-testvnet1"></a><a name="CreatVNet"></a>1. Vytvoření a konfigurace virtuální sítě TestVNet1
+## <a name="CreatVNet"></a>1. Vytvoření a konfigurace virtuální sítě TestVNet1
 Pokud již máte virtuální síť vytvořenou, ověřte, zda jsou nastavení kompatibilní s vaším návrhem brány VPN. Věnujte zvláštní pozornost všem podsítím, které by se mohly překrývat s jinými sítěmi. Pokud se podsítě překrývají, připojení nebude fungovat správně. Pokud je vaše virtuální síť nakonfigurována se správným nastavením, můžete začít s kroky v oddílu [Určení serveru DNS](#dns).
 
 ### <a name="to-create-a-virtual-network"></a>Chcete-li vytvořit virtuální síť
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Přidání dalšího adresního prostoru a vytvoření podsítí
+## <a name="subnets"></a>2. Přidání dalšího adresního prostoru a vytvoření podsítí
 Po vytvoření virtuální sítě můžete přidat další adresní prostor a vytvořit podsítě.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Vytvoření podsítě brány
+## <a name="gatewaysubnet"></a>3. Vytvoření podsítě brány
 Před připojením virtuální sítě k bráně musíte nejdříve vytvořit podsíť brány pro virtuální síť, ke které se chcete připojit. Pokud je to možné, je nejlepší vytvořit podsíť brány s použitím bloku CIDR /28 nebo /27, aby byl k dispozici dostatek IP adres pro plnění dalších požadavků na konfiguraci v budoucnu.
 
 Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření podsítě brány použijte tyto [příklady nastavení](#values).
@@ -136,21 +137,21 @@ Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření podsítě 
 ### <a name="to-create-a-gateway-subnet"></a>Chcete-li vytvořit podsíť brány
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namednsservera4-specify-a-dns-server-optional"></a><a name="DNSServer"></a>4. Určení serveru DNS (volitelné)
-Pokud chcete umožnit překlad adres IP pro virtuální počítače nasazované do vašich virtuálních sítí, měli byste určit server DNS.
+## <a name="DNSServer"></a>4. Určení serveru DNS (volitelné)
+DNS není pro připojení VNet-to-VNet vyžadováno. Pokud ale chcete umožnit překlad IP adres pro prostředky nasazované do vaší virtuální sítě, měli byste určit server DNS. Toto nastavení umožňuje určit server DNS, který chcete použít pro překlad IP adres pro tuto virtuální síť. Neslouží k vytvoření serveru DNS.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Vytvoření brány virtuální sítě
+## <a name="VNetGateway"></a>5. Vytvoření brány virtuální sítě
 V tomto kroku vytvoříte bránu virtuální sítě pro svou virtuální síť. Dokončení tohoto kroku může trvat až 45 minut. Pokud vytváříte tuto konfiguraci jako cvičení, můžete použít tyto [příklady nastavení](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Chcete-li vytvořit bránu virtuální sítě
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namecreatetestvnet4a6-create-and-configure-testvnet4"></a><a name="CreateTestVNet4"></a>6. Vytvoření a konfigurace virtuální sítě TestVNet4
+## <a name="CreateTestVNet4"></a>6. Vytvoření a konfigurace virtuální sítě TestVNet4
 Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet4 opakováním předchozích kroků a nahrazením hodnot za hodnoty virtuální sítě TestVNet4. Není nutné s konfigurací virtuální sítě TestVNet4 čekat na dokončení vytváření brány virtuální sítě pro TestVNet1. Pokud používáte vlastní hodnoty, zajistěte, aby se adresní prostory nepřekrývaly s žádnou z virtuálních sítí, ke kterým se chcete připojit.
 
-## <a name="a-nametestvnet1connectiona7-configure-the-testvnet1-connection"></a><a name="TestVNet1Connection"></a>7. Konfigurace připojení virtuální sítě TestVNet1
+## <a name="TestVNet1Connection"></a>7. Konfigurace připojení virtuální sítě TestVNet1
 Po dokončení vytváření bran virtuálních sítí pro TestVNet1 a TestVNet4 můžete vytvořit připojení bran virtuálních sítí. V této části vytvoříte připojení z virtuální sítě TestVNet1 k virtuální síti TestVNet4.
 
 1. V části **Všechny prostředky** přejděte do brány virtuální sítě pro vaši virtuální síť. Například **TestVNet1GW**. Kliknutím na **TestVNet1GW** otevřete okno brány virtuální sítě.
@@ -172,10 +173,10 @@ Po dokončení vytváření bran virtuálních sítí pro TestVNet1 a TestVNet4 
     ![Sdílený klíč](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Sdílený klíč")
 10. Uložte změny kliknutím na **OK** v dolní části okna.
 
-## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Konfigurace připojení virtuální sítě TestVNet4
+## <a name="TestVNet4Connection"></a>8. Konfigurace připojení virtuální sítě TestVNet4
 Dále vytvoříte připojení z virtuální sítě TestVNet4 k virtuální síti TestVNet1. Použijte stejnou metodu, kterou jste použili k vytvoření připojení z virtuální sítě TestVNet1 k virtuální síti TestVNet4. Ujistěte se, že používáte stejný sdílený klíč.
 
-## <a name="a-nameverifyconnectiona9-verify-your-connection"></a><a name="VerifyConnection"></a>9. Ověření stavu připojení
+## <a name="VerifyConnection"></a>9. Ověření stavu připojení
 Ověřte připojení. U každé brány virtuální sítě postupujte následovně:
 
 1. Vyhledejte okno pro příslušnou bránu virtuální sítě. Například **TestVNet4GW**. 
@@ -189,16 +190,11 @@ Na jednotlivá připojení můžete dvakrát kliknout a zobrazit tak další inf
 
 ![Základy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Základy")
 
-## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Aspekty propojení VNet-to-VNet
+## <a name="faq"></a>Aspekty propojení VNet-to-VNet
 Projděte si Nejčastější dotazy, kde najdete další informace o propojeních VNet-to-VNet.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v [dokumentaci ke službě Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

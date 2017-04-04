@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: fc73eedae7ec9664da714567f47a543e625cd023
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -34,21 +34,24 @@ Pomocí Mac OS X můžete sestavit aplikace Service Fabric, které poběží na 
 ## <a name="prerequisites"></a>Požadavky
 Service Fabric nefunguje v OS X nativně. Pro spuštění místního clusteru služby Service Fabric poskytujeme předem nakonfigurovaný virtuální počítač se systémem Ubuntu pomocí aplikací Vagrant a VirtualBox. Než začnete, budete potřebovat:
 
-* [Vagrant (verzi&1;.8.4 nebo novější)](http://www.vagrantup.com/downloads.html)
+* [Vagrant (verzi 1.8.4 nebo novější)](http://www.vagrantup.com/downloads.html)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 >[!NOTE]
->  Musíte pro Vagrant a VirtualBox používat vzájemně podporované verze. Vagrant se může chovat chybně v nepodporované verzi VirtualBox.
+> Musíte pro Vagrant a VirtualBox používat vzájemně podporované verze. Vagrant se může chovat chybně v nepodporované verzi VirtualBox.
 >
 
 ## <a name="create-the-local-vm"></a>Vytvoření místního virtuálního počítače
 Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s 5 uzly, postupujte následovně:
 
-1. Naklonujte úložiště **Vagrantfile**.
+1. Klonování úložiště `Vagrantfile`
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
+    Tento postup přinese soubor `Vagrantfile` obsahující konfiguraci virtuálního počítače společně s umístěním virtuálního počítače, ze kterého je stažen.
+
+   
 2. Přejděte do místního klonu úložiště.
 
     ```bash
@@ -61,7 +64,7 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
    * 3 GB přidělené paměti
    * Privátní hostitelská síť nakonfigurovaná na IP adresu 192.168.50.50, která umožňuje průchod přenosu dat z hostitelského počítače Mac
 
-     Ve Vagrantfile můžete změnit kterékoli z těchto nastavení nebo k virtuálnímu počítači přidat další konfiguraci. Úplný seznam možností konfigurace najdete v [dokumentaci k Vagrant](http://www.vagrantup.com/docs).
+     V souboru `Vagrantfile` můžete změnit kterékoli z těchto nastavení nebo k virtuálnímu počítači přidat další konfiguraci. Úplný seznam možností konfigurace najdete v [dokumentaci k Vagrant](http://www.vagrantup.com/docs).
 4. Vytvořte virtuální počítač.
 
     ```bash
@@ -72,19 +75,24 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
 
     ![Spouštění instalace clusteru po zřízení virtuálního počítače][cluster-setup-script]
 
+>[!TIP]
+> Pokud stažení virtuálního počítače trvá dlouhou dobu, můžete ho stáhnout pomocí nástrojů wget nebo curl nebo prostřednictvím prohlížeče tak, že přejdete na odkaz určený položkou **config.vm.box_url** v souboru `Vagrantfile`. Po stažení do místního počítače upravte soubor `Vagrantfile` tak, aby odkazoval na místní cestu, kam jste image stáhli. Pokud jste například stáhli image do adresáře /home/users/test/azureservicefabric.tp8.box, nastavte položku **config.vm.box_url** na tuto cestu.
+>
+
 5. Otestujte správné nastavení clusteru tak, že přejdete do Service Fabric Exploreru na adrese http://192.168.50.50:19080/Explorer (za předpokladu, že jste ponechali výchozí IP adresu privátní sítě).
 
     ![Service Fabric Explorer zobrazený z hostitelského počítače Mac][sfx-mac]
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalace modulu plug-in Service Fabric pro Eclipse Neon
 
-Service Fabric poskytuje modul plug-in pro **integrovaná vývojové prostředí Eclipse Neon pro Javu**, který může zjednodušit proces vytváření, sestavování a nasazování služeb v Javě. Můžete provést kroky instalace uvedené v této obecné [dokumentaci](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) týkající se instalace nebo aktualizace modulu plug-in Service Fabric Eclipse.
+Service Fabric poskytuje modul plug-in pro **integrovaná vývojové prostředí Eclipse Neon pro Javu**, který může zjednodušit proces vytváření, sestavování a nasazování služeb v Javě. Můžete provést kroky instalace uvedené v této obecné [dokumentaci](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) týkající se instalace nebo aktualizace modulu plug-in Service Fabric Eclipse.
 
 ## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Použití modulu plug-in Service Fabric Eclipse v systému Mac
 
-Ujistěte se, jste prošli kroky v [dokumentaci modulu plug-in Service Fabric Eclipse](service-fabric-get-started-eclipse.md). Kroky pro vytvoření, sestavení a nasazení aplikace Service Fabric v Javě pomocí kontejneru hosta vagrant na hostiteli se systémem Mac je z větší části stejný, jak popisuje obecná dokumentace, kromě několika bodů, které musíte mít na paměti, jak je uvedeno dále:
-* Vzhledem k tomu, že aplikace Service Fabric v Javě bude k úspěšnému sestavení vyžadovat knihovny Service Fabric, je potřeba vytvořit projekt Eclipse ve sdílené cestě. Ve výchozím nastavení je obsah v cestě na hostiteli, kde ``Vagrantfile`` existuje, sdílený s cestou ``/vagrant`` na hostovi.
-* Jednoduše řečeno, pokud máte ``Vagrantfile`` v cestě, například ``~/home/john/allprojects/``, pak je potřeba vytvořit projekt Service Fabric ``MyActor`` v umístění ``~/home/john/allprojects/MyActor`` a cesta k pracovnímu prostoru Eclipse bude ``~/home/john/allprojects``.
+Ujistěte se, jste prošli kroky v [dokumentaci modulu plug-in Service Fabric Eclipse](service-fabric-get-started-eclipse.md). Kroky pro vytvoření, sestavení a nasazení aplikace Service Fabric v Javě pomocí kontejneru hosta vagrant na hostiteli se systémem Mac je z větší části stejný, jak popisuje obecná dokumentace, kromě následujících položek:
+
+* Vzhledem k tomu, že aplikace Service Fabric v Javě bude vyžadovat knihovny Service Fabric, je potřeba vytvořit projekt Eclipse ve sdílené cestě. Ve výchozím nastavení je obsah v cestě na hostiteli, kde ``Vagrantfile`` existuje, sdílený s cestou ``/vagrant`` na hostovi.
+* Pokud máte ``Vagrantfile`` v cestě, například ``~/home/john/allprojects/``, pak je potřeba vytvořit projekt Service Fabric ``MyActor`` v umístění ``~/home/john/allprojects/MyActor`` a cesta k pracovnímu prostoru Eclipse bude ``~/home/john/allprojects``.
 
 ## <a name="next-steps"></a>Další kroky
 <!-- Links -->
