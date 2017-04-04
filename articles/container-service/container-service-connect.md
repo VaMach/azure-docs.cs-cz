@@ -18,13 +18,13 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
-ms.openlocfilehash: 05ff751255000220be3b59d013b6106473e4732b
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="make-a-remote-connection-to-a-kuburnetes-dcos-or-docker-swarm-cluster"></a>Vzdálené připojení ke clusteru Kubernetes, DC/OS nebo Docker Swarm
+# <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Vzdálené připojení ke clusteru Kubernetes, DC/OS nebo Docker Swarm
 Po vytvoření clusteru Azure Container Service je nutné se ke clusteru připojit kvůli nasazení a správě úloh. Tento článek popisuje, jak se připojit k hlavnímu virtuálnímu počítači clusteru ze vzdáleného počítače. 
 
 Clustery Kubernetes, DC/OS a Docker Swarm poskytují koncové body HTTP místně. V případě Kubernetes je tento koncový bod bezpečně zpřístupněn na internetu a můžete se k němu přímo připojit z libovolného počítače připojeného k internetu spuštěním pomocí nástroje `kubectl` z příkazového řádku. 

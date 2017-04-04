@@ -14,7 +14,3 @@ Ujistěte se, že jste již vytvořili obor názvů přenosu, jak je znázorněn
 6. Dole na v okně klikněte na **Vytvořit**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-

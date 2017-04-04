@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -130,6 +130,19 @@ Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způs
 * Usnadnění vývoje a testování aplikací SAP díky tomu, že je možné na vyžádání vytvořit kopii produkčního prostředí pro testování a ladění aplikací
 
 [Zde jsou další informace](http://aka.ms/asr-sap) o ochraně nasazení SAP.
+
+## <a name="protect-iis"></a>Ochrana IIS
+Pomocí Site Recovery můžete své nasazení IIS chránit následujícím způsobem:
+
+Azure Site Recovery poskytuje zotavení po havárii replikací kritických komponent ve vašem prostředí do studené vzdálené lokality nebo do veřejného cloudu, jako je například Microsoft Azure. Vzhledem k tomu, že virtuální počítač s webovým serverem a databází se replikují do lokality pro obnovení, neexistuje žádný požadavek na zálohování konfiguračních souborů nebo certifikátů samostatně. Mapování aplikací a vazby závislé na proměnných prostředí, které se změní po převzetí služeb při selhání, lze aktualizovat pomocí skriptů integrovaných do plánů obnovení po havárii. Virtuální počítače se aktivují v lokalitě pro obnovení pouze v případě převzetí služeb při selhání. A nejen to, Azure Site Recovery vám také pomůže provádět orchestraci převzetí služeb při selhání od začátku do konce tím, že poskytuje následující možnosti:
+
+-    Určování pořadí ukončování a spouštění virtuálních počítačů v různých vrstvách.
+-    Přidávání skriptů k umožnění aktualizací závislostí a vazeb aplikací na virtuálních počítačích po jejich spuštění. Skripty lze také použít k aktualizaci serveru DNS, aby odkazoval na lokalitu pro obnovení.
+-    Přidělení IP adres virtuálním počítačům před převzetím služeb při selhání pomocí mapování primární a obnovovací sítě, a tím používání skriptů, které nevyžadují aktualizaci po převzetí služeb při selhání.
+-    Možnost převzetí služeb při selhání jedním kliknutím pro více webových aplikací na webových serverech, čímž se zmenšuje rozsah nedorozumění v případě havárie.
+-    Možnost testovat plány obnovení v izolovaném prostředí kvůli nacvičení zotavení po havárii.
+
+[Zde jsou další informace](https://aka.ms/asr-iis) o ochraně webové farmy IIS.
 
 ## <a name="next-steps"></a>Další kroky
 [Kontrola požadavků](site-recovery-prereq.md) 

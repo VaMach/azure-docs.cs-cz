@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 33f1be6911178315752ce9c39aa1428b70db835c
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -67,13 +67,13 @@ Nástroj má dvě hlavní fáze: profilace a generování sestav. Existuje také
 
 | Požadavek na server | Popis|
 |---|---|
-|Profilace a měření propustnosti| <ul><li>Operační systém: Microsoft Windows Server 2012 R2<br>(Ideálně alespoň stejná velikost jako [doporučená velikost pro konfigurační server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfigurace počítače: 8 virtuálních CPU, 16 GB paměti RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetový přístup k Azure z tohoto serveru</li><li>Účet služby Azure Storage</li><li>Přístup správce na server</li><li>Volné místo na disku alespoň 100 GB (za předpokladu 1 000 virtuálních počítačů, každý průměrně se 3 disky a profilovaný po dobu 30 dnů)</li></ul> |
+|Profilace a měření propustnosti| <ul><li>Operační systém: Microsoft Windows Server 2012 R2<br>(Ideálně alespoň stejná velikost jako [doporučená velikost pro konfigurační server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfigurace počítače: 8 virtuálních CPU, 16 GB paměti RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetový přístup k Azure z tohoto serveru</li><li>Účet služby Azure Storage</li><li>Přístup správce na server</li><li>Volné místo na disku alespoň 100 GB (za předpokladu 1 000 virtuálních počítačů, každý průměrně se 3 disky a profilovaný po dobu 30 dnů)</li><li>Úroveň statistiky VMware vCenter musí být nastavená na hodnotu 2 nebo vysokou úroveň.</li></ul>|
 | Generování sestav | Počítač s Windows nebo Windows Server s aplikací Microsoft Excel 2013 nebo novější |
 | Uživatelská oprávnění | Oprávnění jen ke čtení pro uživatelský účet používaný pro přístup k serveru VMware vCenter nebo k hostiteli VMware vSphere ESXi během profilace |
 
 > [!NOTE]
 >
-> Nástroj může profilovat pouze virtuální počítače s disky VMDK a RDM. Nemůže profilovat virtuální počítače s disky iSCSI nebo NFS. Site Recovery podporuje disky iSCSI a NFS pro servery VMware, ale Deployment Planner nesídlí v hostu a profilaci provádí pouze pomocí čítačů výkonu vCenter, proto do těchto typů disků nevidí.
+>Nástroj může profilovat pouze virtuální počítače s disky VMDK a RDM. Nemůže profilovat virtuální počítače s disky iSCSI nebo NFS. Site Recovery podporuje disky iSCSI a NFS pro servery VMware, ale Deployment Planner nesídlí v hostu a profilaci provádí pouze pomocí čítačů výkonu vCenter, proto do těchto typů disků nevidí.
 >
 
 ## <a name="download-and-extract-the-public-preview"></a>Stažení a rozbalení verze Public Preview
@@ -150,12 +150,6 @@ Doporučujeme profilovat virtuální počítače po dobu alespoň 15 až 30 dnů
 
 Během profilace můžete volitelně předat název a klíč účtu úložiště a zjistit tak propustnost, které může Site Recovery dosáhnout v době replikace z konfiguračního serveru nebo procesového serveru do Azure. Pokud název a klíč účtu úložiště během profilace nepředáte, nástroj dosažitelnou propustnost počítat nebude.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Příklad 1: Profilování virtuálních počítačů po dobu 30 dnů a zjištění propustnosti z místního prostředí do Azure
-```
-ASRDeploymentPlanner.exe **-Operation** StartProfiling -Directory “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  30  **-User** vCenterUser1 **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
-```
-
-#### <a name="example-2-profile-vms-for-15-days"></a>Příklad 2: Profilování virtuálních počítačů po dobu 15 dnů
 Můžete spouštět více instancí nástroje pro různé sady virtuálních počítačů. Zkontrolujte, že se názvy virtuálních počítačů v sadách profilace neopakují. Pokud například profilujete deset virtuálních počítačů (VM1–VM10) a po několika dnech chcete profilovat dalších pět virtuálních počítačů (VM11–VM15), můžete nástroj spustit z jiné konzoly příkazového řádku pro druhou sadu virtuálních počítačů (VM11–VM15). Zajistěte, aby druhá sada virtuálních počítačů neobsahovala žádné názvy virtuálních počítačů z první instance profilace, nebo pro druhé spuštění použijte jiný výstupní adresář. Pokud se k profilování stejných virtuálních počítačů používají dvě instance nástroje a stejný výstupní adresář, vygenerovaná sestava bude nepřesná.
 
 Konfigurace virtuálních počítačů se zachytí jednou na začátku operace profilace a uloží se do souboru VMDetailList.xml. Tyto informace se použijí při generování sestavy. Žádné změny v konfiguraci virtuálních počítačů (například navýšení počtu jader, disků nebo síťových adaptérů) od začátku do konce profilace se nezachytí. Pokud se během profilace změnila konfigurace některého profilovaného virtuálního počítače, ve verzi Public Preview existuje alternativní řešení, pomocí kterého můžete získat nejnovější podrobnosti o virtuálním počítači bez nutnosti generovat sestavu:
@@ -165,25 +159,27 @@ Konfigurace virtuálních počítačů se zachytí jednou na začátku operace p
 
 Příkaz profilace vygeneruje v adresáři profilace několik souborů. Žádný z těchto souborů neodstraňujte, jinak to bude mít dopad na generování sestav.
 
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Příklad 1: Profilování virtuálních počítačů po dobu 30 dnů a zjištění propustnosti z místního prostředí do Azure
 ```
-ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  15  -User vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+```
+
+#### <a name="example-2-profile-vms-for-15-days"></a>Příklad 2: Profilování virtuálních počítačů po dobu 15 dnů
+
+```
+ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
 #### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>Příklad 3: Rychlé otestování nástroje profilováním virtuálních počítačů po dobu 1 hodiny
 ```
-ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  0.04  **-User** vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  0.04  -User vCenterUser1
 ```
 
 >[!NOTE]
 >
 >* Pokud se server, na kterém je nástroj spuštěný, restartuje nebo na něm dojde k chybě, nebo pokud nástroj zavřete stisknutím kombinace kláves Ctrl + C, profilovaná data se zachovají. Může se však stát, že kvůli tomu bude chybět posledních 15 minut profilovaných dat. V takové situaci po restartování serveru znovu spusťte nástroj v režimu profilace.
 >* Pokud předáte název a klíč účtu úložiště, nástroj bude měřit propustnost v posledním kroku profilace. Pokud bude nástroj zavřen před dokončením profilace, propustnost se nevypočítá. Pokud chcete zjistit propustnost před generováním sestavy, můžete z konzoly příkazového řádku spustit operaci GetThroughput. Jinak vygenerovaná sestava nebude obsahovat informace o propustnosti.
->* Můžete spouštět více instancí nástroje pro různé sady virtuálních počítačů. Zkontrolujte, že se názvy virtuálních počítačů v sadách profilace neopakují. Pokud například profilujete deset virtuálních počítačů (VM1–VM10) a po několika dnech chcete profilovat dalších pět virtuálních počítačů (VM11–VM15), můžete nástroj spustit z jiné konzoly příkazového řádku pro druhou sadu virtuálních počítačů (VM11–VM15). Zajistěte však, aby druhá sada virtuálních počítačů neobsahovala žádné názvy virtuálních počítačů z první instance profilace, nebo pro druhé spuštění použijte jiný výstupní adresář. Pokud se k profilování stejných virtuálních počítačů používají dvě instance nástroje a stejný výstupní adresář, vygenerovaná sestava bude nepřesná.
->* Konfigurace virtuálních počítačů se zachytí jednou na začátku operace profilace a uloží se do souboru VMDetailList.xml. Tyto informace se použijí při generování sestavy. Žádné změny v konfiguraci virtuálních počítačů (například navýšení počtu jader, disků nebo síťových adaptérů) od začátku do konce profilace se nezachytí. Pokud se změnila konfigurace některého virtuálního počítače ve verzi Public Preview, nejnovější podrobnosti o virtuálním počítači můžete získat provedením následujícího alternativního postupu:  
->  * Zálohujte soubor VMdetailList.xml a odstraňte ho z aktuálního umístění.  
->  * V okamžiku generování sestav předejte argumenty -User a -Password.  
->  
->* Příkaz profilace vygeneruje v adresáři profilace několik souborů. Žádný z těchto souborů neodstraňujte, jinak to bude mít dopad na generování sestav.
+
 
 ## <a name="generate-a-report"></a>Generování sestav
 Nástroj jako výstup sestavy generuje soubor aplikace Microsoft Excel s podporou maker (soubor XLSM), který shrnuje veškerá doporučení pro nasazení. Sestava má název DeploymentPlannerReport_<*jedinečný číselný identifikátor*>.xlsm a je umístěná v zadaném adresáři.
@@ -203,40 +199,40 @@ Po dokončení profilace můžete nástroj spustit v režimu generování sestav
 | -Password | (Volitelné) Heslo, které se použije pro připojení k serveru vCenter nebo hostiteli vSphere ESXi. Pokud heslo nezadáte jako parametr, budete k jeho zadání vyzváni později při spuštění příkazu. |
 | -DesiredRPO | (Volitelné) Požadovaný cíl bodu obnovení v minutách. Výchozí hodnota je 15 minut.|
 | -Bandwidth | Šířka pásma v Mb/s. Tento parametr se použije k výpočtu cíle bodu obnovení, kterého lze pro zadanou šířku pásma dosáhnout. |
-| -StartDate | (Volitelné) Počáteční datum a čas ve formátu MM-DD-YYYY:HH:MM (ve&24;hodinovém formátu). Parametr *StartDate* je nutné zadat společně s parametrem *EndDate*. Pokud zadáte parametr StartDate, sestava se vygeneruje pro profilovaná data shromážděná mezi StartDate a EndDate. |
-| -EndDate | (Volitelné) Koncové datum a čas ve formátu MM-DD-YYYY:HH:MM (ve&24;hodinovém formátu). Parametr *EndDate* je nutné zadat společně s parametrem *StartDate*. Pokud zadáte parametr EndDate, sestava se vygeneruje pro profilovaná data shromážděná mezi StartDate a EndDate. |
+| -StartDate | (Volitelné) Počáteční datum a čas ve formátu MM-DD-YYYY:HH:MM (ve 24hodinovém formátu). Parametr *StartDate* je nutné zadat společně s parametrem *EndDate*. Pokud zadáte parametr StartDate, sestava se vygeneruje pro profilovaná data shromážděná mezi StartDate a EndDate. |
+| -EndDate | (Volitelné) Koncové datum a čas ve formátu MM-DD-YYYY:HH:MM (ve 24hodinovém formátu). Parametr *EndDate* je nutné zadat společně s parametrem *StartDate*. Pokud zadáte parametr EndDate, sestava se vygeneruje pro profilovaná data shromážděná mezi StartDate a EndDate. |
 | -GrowthFactor | (Volitelné) Faktor růstu vyjádřený v procentech. Výchozí hodnota je 30 procent. |
 
-### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Příklad 1: Generování sestavy s použitím výchozích hodnot pro profilovaná data umístěná na místním disku
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Příklad 1: Generování sestavy s použitím výchozích hodnot pro profilovaná data umístěná na místním disku
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Příklad 2: Generování sestavy pro profilovaná data umístěná na vzdáleném serveru
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Příklad 2: Generování sestavy pro profilovaná data umístěná na vzdáleném serveru
 Ke vzdálenému adresáři musíte mít přístup ke čtení a zápisu.
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Příklad 3: Generování sestavy s použitím konkrétní šířky pásma a cíle dokončení prvotní replikace v zadaném čase
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Příklad 3: Generování sestavy s použitím konkrétní šířky pásma a cíle dokončení prvotní replikace v zadaném čase
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
-```
-
-### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Příklad 4: Generování sestavy s použitím 5% faktoru růstu namísto výchozích 30 %
-```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-GrowthFactor** 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Příklad 5: Generování sestavy s použitím podmnožiny profilovaných dat
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Příklad 4: Generování sestavy s použitím 5% faktoru růstu namísto výchozích 30 %
+```
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+```
+
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Příklad 5: Generování sestavy s použitím podmnožiny profilovaných dat
 Máte například profilovaná data za 30 dnů a chcete vygenerovat sestavu pouze pro 20 dnů.
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-StartDate**  01-10-2017:12:30 -**EndDate** 01-19-2017:12:30
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Příklad 6: Generování sestavy s použitím 5minutového cíle bodu obnovení
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Příklad 6: Generování sestavy s použitím 5minutového cíle bodu obnovení
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Hodnota percentilu používaná k výpočtu
@@ -246,9 +242,9 @@ Nástroj ve výchozím nastavení používá hodnoty 95. percentilu počtu R/W I
 
 Použitím hodnot 95. percentilu získáte pravdivou představu o skutečných charakteristikách úloh a nejlepší výkon při spouštění těchto úloh v Azure. Neočekáváme, že byste toto číslo potřebovali měnit. Pokud tuto hodnotu přesto změníte (například na 90. percentil), můžete upravit konfigurační soubor *ASRDeploymentPlanner.exe.config* ve výchozí složce a uložit jej. Tím vygenerujete novou sestavu pro existující profilovaná data.
 ```
-&lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;>      
-&lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;>      
-&lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
+<add key="WriteIOPSPercentile" value="95" />      
+<add key="ReadWriteIOPSPercentile" value="95" />      
+<add key="DataChurnPercentile" value="95" />
 ```
 
 ## <a name="growth-factor-considerations"></a>Aspekty faktoru růstu
@@ -297,7 +293,7 @@ Propustnost se měří k určitému bodu v čase a je to maximální propustnost
 
 ### <a name="example"></a>Příklad
 ```
-ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter1_ProfiledData **-VMListFile** E:\vCenter1_ProfiledData\ProfileVMList1.txt  **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 >[!NOTE]
@@ -453,7 +449,7 @@ List Input (Vstup) poskytuje přehled profilovaného prostředí VMware.
 **VM Name:** Název nebo IP adresa virtuálního počítače, které se použily v souboru VMListFile při generování sestavy. V tomto sloupci jsou uvedeny také disky (VMDK) připojené k virtuálním počítačům. Aby se rozlišily virtuální počítače vCenter s duplicitními názvy nebo IP adresami, je součástí názvů i název hostitele ESXi. Uvedený hostitel ESXi je ten, na kterém byl virtuální počítač umístěn při zjištění nástrojem během období profilace.
 
 **VM Compatibility** (Kompatibilita virtuálního počítače): Hodnoty jsou **Yes** (Ano) a **Yes**\* (Ano). **Yes**\* je pro situace, kdy je virtuální počítač vhodný pro službu [Azure Storage úrovně Premium](https://aka.ms/premium-storage-workload). V takovém případě profilovaný disk s vysokou četností změn nebo vysokým počtem IOPS spadá do kategorie P20 nebo P30, ale kvůli velikosti se disk mapuje na nižší kategorii P10 nebo P20. Účet úložiště určuje, na jaký disk služby Storage úrovně Premium se disk bude mapovat, na základě jeho velikosti. Například:
-* Menší než&128; GB je P10.
+* Menší než 128 GB je P10.
 * 128 GB až 512 GB je P20.
 * 512 GB až 1 023 GB je P30.
 
@@ -489,7 +485,7 @@ Pokud se díky charakteristikám úloh disk umístil do kategorie P20 nebo P30, 
 
 **VM Compatibility:** Označujte, proč je daný virtuální počítač nekompatibilní se Site Recovery. Pro každý nekompatibilní disk virtuálního počítače jsou popsané důvody. V závislosti na publikovaných [omezeních úložiště](https://aka.ms/azure-storage-scalbility-performance) může důvodem být některá z následujících možností:
 
-* Disk size is >1023 GB (Disk je větší než&1; 023 GB). Azure Storage v současné době nepodporuje disky větší než 1 TB.
+* Disk size is >1023 GB (Disk je větší než 1 023 GB). Azure Storage v současné době nepodporuje disky větší než 1 TB.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB) (Celková velikost virtuálního počítače (replikace + testovací převzetí služeb při selhání) překračuje omezení podporované velikosti účtu úložiště (35 TB)). K této nekompatibilitě obvykle dochází, když je ve virtuálním počítači jeden disk, jehož některé charakteristiky výkonu překračují maximální podporovaná omezení systému Azure nebo Site Recovery pro účet služby Storage úrovně Standard. V takové situaci se virtuální počítač dostává do zóny účtu služby Storage úrovně Premium. Nicméně maximální podporovaná velikost účtu služby Storage úrovně Premium je 35 TB a jeden virtuální počítač nemůže být chráněn v rámci několika účtů úložiště. Všimněte si také, že testovací převzetí služeb při selhání spuštěné na chráněném virtuálním počítači poběží v rámci stejného účtu úložiště, ve kterém probíhá replikace. V takovém případě nastavte dvojnásobnou velikost disku, aby paralelně mohla probíhat replikace a úspěšné testovací převzetí služeb při selhání.
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk (Počet zdrojových IOPS překračuje podporované omezení úložiště – 5 000 IOPS na disk).
@@ -525,7 +521,7 @@ Disk úrovně Premium P10 | 32 kB nebo větší | 8 Mb/s | 672 GB na disk
 Disk úrovně Premium P20 nebo P30 | 8 kB    | 5 Mb/s | 421 GB na disk
 Disk úrovně Premium P20 nebo P30 | 16 kB nebo větší |10 Mb/s | 842 GB na disk
 
-Toto jsou průměrné hodnoty za předpokladu, že se vstupně-výstupní operace z 30 % překrývají. Služba Site Recovery je schopna zpracovávat větší propustnost v závislosti na poměru překrývání, větší velikosti zápisů a skutečného chování vstupně-výstupních operací úloh. Předchozí čísla předpokládají typický backlog přibližně&5; minut. To znamená, že zpracování nahrávaných dat a vytvoření bodu obnovení proběhne do pěti minut od nahrání.
+Toto jsou průměrné hodnoty za předpokladu, že se vstupně-výstupní operace z 30 % překrývají. Služba Site Recovery je schopna zpracovávat větší propustnost v závislosti na poměru překrývání, větší velikosti zápisů a skutečného chování vstupně-výstupních operací úloh. Předchozí čísla předpokládají typický backlog přibližně 5 minut. To znamená, že zpracování nahrávaných dat a vytvoření bodu obnovení proběhne do pěti minut od nahrání.
 
 Tato omezení se zakládají na našich testováních, nemůžou však pokrýt všechny možné kombinace vstupně-výstupních operací aplikace. Skutečné výsledky se můžou lišit v závislosti na kombinaci vstupně-výstupních operací vaší aplikace. Pro dosažení co nejlepších výsledků i po naplánování nasazení vždy doporučujeme provádět rozsáhlá testování aplikace pomocí testovacího převzetí služeb při selhání, abyste získali skutečnou představu o výkonu.
 
@@ -543,6 +539,7 @@ Pokud chcete aktualizovat Deployment Planner, proveďte následující:
  * Pokud nejnovější verze obsahuje opravu profilace, doporučujeme zastavit profilaci ve stávající verzi a znovu ji spustit v nové verzi.
 
   >[!NOTE]
+  >
   >Při spuštění profilace v nové verzi předejte stejnou cestu k výstupnímu adresáři, aby nástroj připojil data profilu k existujícím souborům. K vygenerování sestavy se použije úplná sada dat profilace. Pokud předáte jiný výstupní adresář, vytvoří se nové soubory a stará data profilace se k vygenerování sestavy nepoužijí.
   >
   >Každý nový Deployment Planner je kumulativní aktualizací souboru .zip. Nemusíte kopírovat nejnovější soubory do předchozí složky. Můžete vytvořit a použít novou složku.

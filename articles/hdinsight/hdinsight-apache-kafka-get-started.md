@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: hero-article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f592dc23938c436e803c7a0d8f7fd2dd5b4185c8
-ms.openlocfilehash: 3b645725b88b33e7283ce2bf89383b285d75cddc
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1c7a95354358d91859ce9d2019cef93b6662811f
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Začínáme s Apache Kafka (Preview) v prostředí HDInsight
@@ -34,11 +36,7 @@ Pro úspěšné dokončení tohoto kurzu Apache Kafka budete potřebovat násled
 
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Znalost SSH a SCP**. Další informace o použití SSH a SCP v prostředí HDInsight naleznete v následujících dokumentech:
-  
-   * **Klienti Linux, Unix, OS X a Windows 10:** Viz [Použití SSH se systémem Hadoop na Linuxu pro HDInsight z Linuxu, OS X, Unixu a z prostředí Bash ve Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
-   
-   * **Klienti Windows**: viz [Použití SSH (PuTTY) se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Znalost SSH a SCP**. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) nebo ekvivalentní, například OpenJDK.
 
@@ -107,16 +105,9 @@ Místo **SSHUSER** použijte uživatelské jméno SSH zadané při vytváření 
 
 Po zobrazení výzvy zadejte heslo, které jste pro účet SSH nastavili.
 
-> [!NOTE]
-> Pokud máte verzi Windows, která neobsahuje příkaz SSH, přečtěte si dokument [Použití SSH (PuTTY) s clusterem Hadoop pod Linuxem v HDInsight z Windows](hdinsight-hadoop-linux-use-ssh-windows.md). Obsahuje informace o použití klienta PuTTY SSH pro Windows.
+Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Informace o použití SSH a SCP v prostředí HDInsight naleznete v následujících dokumentech:
-
-* [Použití SSH se systémem Linux Hadoop ve službě HDInsight z Linuxu, Unixu, OS X nebo z prostředí Bash ve Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Použití SSH (PuTTY) se systémem Linux Hadoop ve službě HDInsight ze systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-##<a name="a-idgetkafkainfoaget-the-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Získání informací o hostiteli Zookeeper a Broker
+##<a id="getkafkainfo"></a>Získání informací o hostiteli Zookeeper a Broker
 
 Při práci s platformou Kafka musíte znát dvě hodnoty hostitelů; hostitele *Zookeeper* a hostitele *Broker*. Tito hostitelé se používají s rozhraním Kafka API s mnohými z nástrojů, které se s tímto systémem dodávají.
 
@@ -350,10 +341,5 @@ V tomto dokumentu jste se naučili základy práce s platformou Apache Kafka v H
 * [Vytvoření repliky Kafka ve službě HDInsight pomocí MirrorMakeru](hdinsight-apache-kafka-mirroring.md)
 * [Použití Apache Stormu se systémem Kafka ve službě HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Použití Apache Sparku se systémem Kafka ve službě HDInsight](hdinsight-apache-spark-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

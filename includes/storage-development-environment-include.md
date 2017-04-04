@@ -2,30 +2,36 @@
 Potom si nastavte vývojové prostředí v sadě Visual Studio, abyste byli připraveni vyzkoušet příklady kódů z této příručky.
 
 ### <a name="create-a-windows-console-application-project"></a>Vytvoření projektu konzolové aplikace pro Windows
-V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows, jak je uvedeno níže:
+V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows. Následující kroky ukazují, jak vytvořit konzolovou aplikaci v sadě Visual Studio 2017, ale kroky v jiných verzích sady Visual Studio se podobají.
 
-![Vytvoření konzolové aplikace pro Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+1. Vyberte **Soubor**  >  **Nový**  >  **Projekt**.
+2. Vyberte **Instalováno** > **Šablony** > **Visual C#** > **Klasická plocha Windows**.
+3. Vyberte **Aplikace konzoly (.NET Framework)**.
+4. Do pole **Název** zadejte název vaší aplikace.
+5. Vyberte **OK**.
 
-Všechny příklady kódu v tomto kurzu můžete přidat do metody **Main()** v souboru `program.cs` z vaší konzolové aplikace.
+![Dialogové okno vytvoření projektu v sadě Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-Všimněte si, že můžete použít knihovnu klienta služby Azure Storage z libovolného typu .NET, včetně cloudové služby Azure, webové aplikace Azure, desktopové nebo mobilní aplikace. V této příručce použijeme konzolovou aplikaci kvůli zjednodušení.
+Všechny příklady kódu v tomto kurzu můžete přidat do metody `Main()` v souboru `Program.cs` vaší konzolové aplikace.
+
+Můžete použít knihovnu klienta služby Azure Storage z libovolného typu aplikace .NET, včetně webové aplikace nebo cloudové služby Azure, desktopové nebo mobilní aplikace. V této příručce použijeme konzolovou aplikaci kvůli zjednodušení.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Použití balíčku NuGet k instalaci požadovaných balíčků
-Abyste mohli tento kurz dokončit, nainstalujte si do projektu dva nezbytné balíčky:
+Abyste mohli tento kurz dokončit, potřebujete ze svého projektu odkazovat na dva balíčky:
 
 * [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): Tento balíček zajišťuje programový přístup k datovým prostředkům na účtu úložiště.
-* [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Tento balíček poskytuje třídu pro potřeby analýzy připojovacího řetězce z konfiguračního souboru bez ohledu na to, kde je aplikace spuštěná.
+* [Microsoft Azure Configuration Manager library for .NET:](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) Tento balíček poskytuje třídu pro potřeby analýzy připojovacího řetězce v konfiguračním souboru bez ohledu na to, kde je aplikace spuštěná.
 
 K získání obou balíčků můžete použít balíček NuGet. Postupujte následovně:
 
 1. Klikněte v **Průzkumníku řešení** pravým tlačítkem na projekt a vyberte **Spravovat balíčky NuGet**.
 2. Proveďte online hledání textu „WindowsAzure.Storage“ a kliknutím na **Instalovat** nainstalujte balíček knihovny klienta úložiště a jeho závislosti.
-3. Proveďte online hledání textu „ConfigurationManager“ a kliknutím na **Instalovat** nainstalujete správce konfigurace Azure.
+3. Proveďte online hledání textu „WindowsAzure.ConfigurationManager“ a kliknutím na **Instalovat** nainstalujete správce konfigurace Azure.
 
 > [!NOTE]
 > Balíček knihovny klienta služby Storage je také součástí [sady Azure SDK for .NET](https://azure.microsoft.com/downloads/). Přesto doporučujeme, abyste si knihovnu klienta služby Storage nainstalovali také z balíčku NuGet, protože tím si zajistíte nejnovější verzi knihovny klienta.
 > 
-> Závislosti ODataLib v knihovně klienta služby Storage pro .NET jsou vyřešené prostřednictvím balíčků ODataLib (verze 5.0.2 a novější), které jsou dostupné prostřednictvím balíčku NuGet a ne prostřednictvím služby WCF Data Services. Knihovny ODataLib můžete stáhnout přímo nebo z odkazu ve vašem kódovém projektu prostřednictvím balíčku NuGet. Konkrétní balíčky ODataLib používané knihovnou klienta služby Storage jsou [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2), a [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). I když tyto knihovny používají třídy Azure Table Storage, představují požadované závislosti pro programování s knihovnou klienta úložiště.
+> Závislosti ODataLib v knihovně klienta služby Storage pro .NET jsou vyřešené prostřednictvím balíčků ODataLib, které jsou dostupné na NuGetu, a ne prostřednictvím služby WCF Data Services. Knihovny ODataLib můžete stáhnout přímo nebo z odkazu ve vašem kódovém projektu prostřednictvím balíčku NuGet. Konkrétní balíčky ODataLib používané knihovnou klienta služby Storage jsou [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), a [Spatial](http://nuget.org/packages/System.Spatial/). I když tyto knihovny používají třídy Azure Table Storage, představují požadované závislosti pro programování s knihovnou klienta úložiště.
 > 
 > 
 
@@ -33,7 +39,7 @@ K získání obou balíčků můžete použít balíček NuGet. Postupujte násl
 Ke spuštění příkladů z této příručky máte dvě možnosti prostředí:
 
 * Svůj kód můžete spustit na účtu služby Azure Storage v cloudu. 
-* Svůj kód můžete spustit v emulátoru úložiště Azure. Emulátor úložiště je místní prostředí, které emuluje účet služby Azure Storage v cloudu. Emulátor je bezplatnou možností pro testování a ladění kódu během vývoje aplikace. Emulátor používá známý účet a klíč. Další podrobnosti najdete v článku [Použití emulátoru služby Azure Storage pro vývoj a testování](../articles/storage/storage-use-emulator.md)
+* Svůj kód můžete spustit v emulátoru úložiště Azure. Emulátor úložiště je místní prostředí, které emuluje účet služby Azure Storage v cloudu. Emulátor je bezplatnou možností pro testování a ladění kódu během vývoje aplikace. Emulátor používá známý účet a klíč. Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](../articles/storage/storage-use-emulator.md).
 
 Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure Portal primární přístupový klíč svého účtu úložiště. Další informace najdete v článku [Zobrazení a kopírování přístupového klíče k úložišti](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -59,9 +65,9 @@ Pokud chcete konfigurovat připojovací řetězec, otevřete v sadě Visual Stud
     <startup> 
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
     </startup>
-      <appSettings>
+    <appSettings>
         <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-      </appSettings>
+    </appSettings>
 </configuration>
 ```
 
@@ -76,9 +82,4 @@ Pokud se chcete zaměřit na emulátor úložiště, můžete vytvořit zástupc
 ```xml
 <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

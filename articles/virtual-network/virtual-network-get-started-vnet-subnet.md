@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -240,9 +240,9 @@ Odchozí připojení k internetu je povoleno, protože ve výchozím nastavení 
 
 Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující kroky:
 
-1. Chcete-li zobrazit skupinu prostředků MyRG vytvořenou v rámci tohoto článku, proveďte kroky 1 až 3 v části [Kontrola prostředků](#review) tohoto článku. Znovu si prohlédněte prostředky ve skupině prostředků. Pokud jste vytvořili skupinu prostředků MyRG podle předchozích postupů, uvidíte 12 prostředků jako na obrázku v kroku 3.
+1. Chcete-li zobrazit skupinu prostředků MyRG vytvořenou v rámci tohoto článku, proveďte kroky 1 až 3 v části [Kontrola prostředků](#review) tohoto článku. Znovu si prohlédněte prostředky ve skupině prostředků. Pokud jste vytvořili skupinu prostředků MyRG podle předchozích postupů, uvidíte 12 prostředků jako na obrázku v kroku 4.
 2. V okně MyRG klikněte na tlačítko **Odstranit**.
-3. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Pokud uvidíte jiné prostředky než prostředky uvedené v kroku 3 části [Kontrola prostředků](#review) tohoto článku, klikněte na **Zrušit**. Pokud vidíte pouze 12 prostředků vytvořených jako součást tohoto článku, zadejte název skupiny prostředků *MyRG* a potom klikněte na **Odstranit**. Odstraněním skupiny prostředků se odstraní všechny prostředky v rámci dané skupiny prostředků. Proto nikdy nezapomeňte před odstraněním skupiny prostředků zkontrolovat její obsah. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
+3. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Pokud uvidíte jiné prostředky než prostředky uvedené v kroku 4 části [Kontrola prostředků](#review) tohoto článku, klikněte na **Zrušit**. Pokud vidíte pouze 12 prostředků vytvořených jako součást tohoto článku, zadejte název skupiny prostředků *MyRG* a potom klikněte na **Odstranit**. Odstraněním skupiny prostředků se odstraní všechny prostředky v rámci dané skupiny prostředků. Proto nikdy nezapomeňte před odstraněním skupiny prostředků zkontrolovat její obsah. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
 
 ## <a name="next-steps"></a>Další kroky
 
