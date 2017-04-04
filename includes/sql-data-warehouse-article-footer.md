@@ -1,6 +1,6 @@
 ## <a name="additional-resources"></a>Další zdroje
 
-Chcete dostávat nejnovější zprávy o produktu? Čtěte náš [blog] nebo nás sledujte na [Twitteru] .</br>
+Chcete dostávat nejnovější zprávy o produktu? Čtěte náš [blog] nebo nás sledujte na [Twitter] .</br>
 Máte žádost o funkci pro SQL DW? Zadejte ji prosím na [UserVoice] .</br>
 Máte dotaz k produktu? Zkuste se zeptat na [MSDN] .</br>
 Máte technický dotaz? Zeptejte se na [Stackoverflow].</br>
@@ -13,10 +13,5 @@ Potřebujete podporu? Odešlete [lístek podpory].</br>
 [Stackoverflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [lístek podpory]: ../articles/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

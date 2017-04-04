@@ -18,48 +18,51 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
-ms.openlocfilehash: 69d1750f13b5507268229b29a392c38662c0f5f0
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
+ms.lasthandoff: 03/24/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Úvod k registrům kontejnerů pro Private Docker
-> [!NOTE]
-> Container Registry je aktuálně ve verzi Preview.
 
 
-Azure Container Registry je spravovaná služba [registrů Dockeru](https://docs.docker.com/registry/) založená na open source nástroji Docker Registry v2. Vytvořte a udržujte registry kontejnerů Azure za účelem ukládání a správy privátních imagí [kontejneru Dockeru](https://www.docker.com/what-docker). Použijte registry kontejnerů v Azure se svými stávajícími kanály vývoje a nasazení kontejnerů a čerpejte z odborných znalostí komunity Dockeru.
+Azure Container Registry je spravovaná služba [registrů Dockeru](https://docs.docker.com/registry/) založená na opensourcovém nástroji Docker Registry 2.0. Vytvořte a udržujte registry kontejnerů Azure za účelem ukládání a správy privátních imagí [kontejneru Dockeru](https://www.docker.com/what-docker). Použijte registry kontejnerů v Azure se svými stávajícími kanály vývoje a nasazení kontejnerů a čerpejte z odborných znalostí komunity Dockeru.
 
 Související informace o Dockeru a kontejnerech najdete v tématech:
 
 * [Uživatelská příručka Dockeru](https://docs.docker.com/engine/userguide/)
-* [Oznámení verze Preview služby Azure Container Registry](https://azure.microsoft.com/blog/azure-container-registry-preview/) 
 
-## <a name="key-concepts"></a>Klíčové koncepty
-* **Registr** – Vytvořte jeden nebo více registrů kontejnerů ve svém předplatném Azure. Každý registr je zajišťován standardním [účtem úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Vytvořte registr ve stejném umístění Azure jako vaše nasazení a využijte místní úložiště imagí kontejnerů v síťové blízkosti. 
 
-  Registry jsou pojmenované v kořenové doméně podle [tenanta Azure Active Directory](../active-directory/active-directory-howto-tenant.md) daného předplatného. Pokud například máte účet organizace v doméně Contoso, plně kvalifikovaný název registru bude mít podobu `myregistry-contoso.azurecr.io`. 
-  
-  [Přístup k registru kontejnerů řídíte](container-registry-authentication.md) pomocí [instančního objektu](../active-directory/active-directory-application-objects.md) zajištěného službou Azure Active Directory nebo poskytnutého účtu správce. Spusťte standardní příkaz `docker login` k ověření pomocí registru. 
 
-* **Úložiště** – Registr obsahuje jedno nebo několik úložišť, což jsou skupiny imagí kontejnerů. Azure Container Registry podporuje víceúrovňové obory názvů úložiště. Tato funkce umožňuje seskupovat kolekce imagí souvisejících s konkrétní aplikací nebo kolekcí aplikací pro konkrétní vývojové nebo provozní týmy. Například:
-  
-  * `myregistry-contoso.azurecr.io/aspnetcore:1.0.1` představuje image pro celý podnik.
-  * `myregistry-contoso.azurecr.io/warrantydept/dotnet-build` představuje image sloužící k vytváření aplikací .NET, která je sdílená v rámci záručního oddělení.
-  * `myregistry-contoso.azrecr.io/warrantydept/customersubmissions/web` představuje webovou image seskupenou v zákaznické aplikaci pro odesílání a vlastněnou záručním oddělením.
-
-* **Image** – Každá image uložená v úložišti je snímkem kontejneru Dockeru jen pro čtení. Registry kontejnerů Azure mohou zahrnovat image systémů Windows i Linux. Názvy imagí pro všechna nasazení kontejnerů určujete vy. Pomocí standardních [příkazů Dockeru](https://docs.docker.com/engine/reference/commandline/) můžete nahrávat image do úložiště nebo si z úložiště image stáhnout. 
-
-* **Kontejner** – Kontejner definuje softwarovou aplikaci a její závislosti zabalené do kompletního systému souborů, včetně kódu, modulu runtime, systémových nástrojů a knihoven. Spouštějte kontejnery Dockeru na základě imagí systémů Windows nebo Linux, které si stáhnete z registru kontejnerů. Kontejnery běžící na jednom počítači sdílí jádro operačního systému. Kontejnery Dockeru jsou plně přenositelné na všechny hlavní distribuce Linuxu, Mac i Windows.
 
 ## <a name="use-cases"></a>Případy použití
 Stažení imagí z registru kontejnerů Azure na různé cíle nasazení:
 
 * **Škálovatelné systémy orchestrace**, které spravují kontejnerizované aplikace napříč clustery hostitelů, včetně [DC/OS](https://docs.mesosphere.com/), [Dockeru Swarm](https://docs.docker.com/swarm/) a [Kubernetes](http://kubernetes.io/docs/).
-* **Služby Azure**, které podporují vytváření a spouštění škálovaných aplikací, včetně [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) a [Service Fabric](../service-fabric/index.md). 
+* **Služby Azure**, které podporují vytváření a spouštění škálovaných aplikací, včetně [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) a [Service Fabric](../service-fabric/index.md).
 
 Vývojáři mohou nahrávat do registru kontejnerů také jako součást pracovního postupu vývoje kontejneru. Mohou například určit registr kontejnerů jako cíl v nástroji pro nasazení a nástroji průběžné integrace, jako je například [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) nebo [Jenkins](https://jenkins.io/).
 
+
+
+
+
+## <a name="key-concepts"></a>Klíčové koncepty
+* **Registr** – Vytvořte jeden nebo více registrů kontejnerů ve svém předplatném Azure. Každý registr je zajišťován standardním [účtem úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Využijte místní úložiště imagí kontejnerů v síťové blízkosti vytvořením registru ve stejném umístění Azure, jako jsou vaše nasazení.
+
+  Registry jsou pojmenované v kořenové doméně podle [tenanta Azure Active Directory](../active-directory/active-directory-howto-tenant.md) daného předplatného. Pokud například máte účet organizace v doméně Contoso, plně kvalifikovaný název registru bude mít podobu `myregistry-contoso.azurecr.io`.
+
+  [Přístup k registru kontejnerů řídíte](container-registry-authentication.md) pomocí [instančního objektu](../active-directory/active-directory-application-objects.md) zajištěného službou Azure Active Directory nebo poskytnutého účtu správce. Spusťte standardní příkaz `docker login` k ověření pomocí registru.
+
+* **Úložiště** – Registr obsahuje jedno nebo několik úložišť, což jsou skupiny imagí kontejnerů. Azure Container Registry podporuje víceúrovňové obory názvů úložiště. Tato funkce umožňuje seskupovat kolekce imagí souvisejících s konkrétní aplikací nebo kolekcí aplikací pro konkrétní vývojové nebo provozní týmy. Například:
+
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` představuje image pro celý podnik.
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` představuje image sloužící k vytváření aplikací .NET, která je sdílená v rámci záručního oddělení.
+  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` představuje webovou image seskupenou v zákaznické aplikaci pro odesílání a vlastněnou záručním oddělením.
+
+* **Image** – Každá image uložená v úložišti je snímkem kontejneru Dockeru jen pro čtení. Registry kontejnerů Azure mohou zahrnovat image systémů Windows i Linux. Názvy imagí pro všechna nasazení kontejnerů určujete vy. Pomocí standardních [příkazů Dockeru](https://docs.docker.com/engine/reference/commandline/) můžete nahrávat image do úložiště nebo si z úložiště image stáhnout.
+
+* **Kontejner** – Kontejner definuje softwarovou aplikaci a její závislosti zabalené do kompletního systému souborů, včetně kódu, modulu runtime, systémových nástrojů a knihoven. Spouštějte kontejnery Dockeru na základě imagí systémů Windows nebo Linux, které si stáhnete z registru kontejnerů. Kontejnery běžící na jednom počítači sdílí jádro operačního systému. Kontejnery Dockeru jsou plně přenositelné na všechny hlavní distribuce Linuxu, Mac i Windows.
 
 
 

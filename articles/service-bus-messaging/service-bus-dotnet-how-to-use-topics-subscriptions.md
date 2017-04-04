@@ -1,5 +1,5 @@
 ---
-title: "Používání témat Service Bus s .NET | Dokumentace Microsoftu"
+title: "Používání témat Azure Service Bus s .NET | Dokumentace Microsoftu"
 description: "Naučte se, jak používat témata a odběry služby Service Bus s :NET v Azure. Ukázky kódu jsou napsané pro aplikace .NET."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/21/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: add228c8a24fbd36ab05f55570abf1374f519822
-ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: bec18e91ef8798a791d4b1fe93bd529593197e01
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -33,10 +34,10 @@ Tento článek popisuje, jak používat témata a odběry služby Service Bus. U
 Když vytvoříte aplikaci, která používá Service Bus, musíte přidat odkaz na sestavení Service Bus a zadat odpovídající obory názvů. Nejjednodušší způsob je stáhnout si odpovídající balíček [NuGet](https://www.nuget.org).
 
 ## <a name="get-the-service-bus-nuget-package"></a>Získání balíčku Service Bus NuGet
-Nejsnadnějším způsobem, jak odkazovat na rozhraní API služby Service Bus a nakonfigurovat svoji aplikaci se všemi potřebnými závislostmi služby Service Bus, je balíček [Service Bus NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Balíček Service Bus NuGet můžete do svého projektu nainstalovat takto:
+Nejsnadnějším způsobem, jak nakonfigurovat svoji aplikaci se všemi potřebnými závislostmi služby Service Bus, je balíček [Service Bus NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Balíček Service Bus NuGet můžete do svého projektu nainstalovat takto:
 
 1. V Průzkumníku řešení klikněte pravým tlačítkem na **Reference**, a pak klikněte na **Správa balíčků NuGet**.
-2. Vyhledejte „Service Bus“ a vyberte položku **Microsoft Azure Service Bus**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete následující dialogové okno:
+2. Klikněte na **Procházet**, vyhledejte „Azure Service Bus“ a potom vyberte položku **Microsoft Azure Service Bus**. Dokončete instalaci kliknutím na **Instalovat** a pak zavřete dialogové okno:
    
    ![][7]
 
@@ -97,7 +98,7 @@ Pokud používáte weby nebo Virtual Machines, doporučuje se použít konfigura
 Použijte název SAS a hodnoty klíče, které jste získali z webu [Azure Portal][Azure portal], jak je popsáno výše.
 
 ## <a name="create-a-topic"></a>Vytvoření tématu
-Můžete provádět operace správy témat a odběrů Service Bus pomocí třídy [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager). Tato třída poskytuje metody pro vytváření, výčet a odstranění témat.
+Můžete provádět operace správy témat a odběrů Service Bus pomocí třídy [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). Tato třída poskytuje metody pro vytváření, výčet a odstranění témat.
 
 Následující příklad vytvoří objekt `NamespaceManager` pomocí třídy Azure `CloudConfigurationManager` s připojovacím řetězcem složeným z bázové adresy oboru názvů Service Bus a příslušného pověření SAS s oprávněními k její správě. Tento připojovací řetězec má následující formu:
 
@@ -121,7 +122,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Existují přetížení metody [CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager), které vám umožní nastavit vlastnosti tématu – například nastavit výchozí čas TTL, který se použije na zprávy odeslané do tématu. Tato nastavení se aplikují pomocí třídy [TopicDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription). Následující příklad ukazuje, jak vytvořit téma s názvem **TestTopic**, maximální velikostí 5 GB a výchozím časem TTL pro zprávu 1 minuta.
+Existují přetížení metody [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager), které vám umožní nastavit vlastnosti tématu – například nastavit výchozí čas TTL, který se použije na zprávy odeslané do tématu. Tato nastavení se aplikují pomocí třídy [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription). Následující příklad ukazuje, jak vytvořit téma s názvem **TestTopic**, maximální velikostí 5 GB a výchozím časem TTL pro zprávu 1 minuta.
 
 ```csharp
 // Configure Topic Settings.
@@ -143,12 +144,12 @@ if (!namespaceManager.TopicExists("TestTopic"))
 ```
 
 > [!NOTE]
-> Můžete použít metodu [TopicExists](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) na objekty [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) pro kontrolu, jestli už v daném oboru názvů existuje téma se zadaným názvem.
+> Můžete použít metodu [TopicExists](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) na objekty [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) pro kontrolu, jestli už v daném oboru názvů existuje téma se zadaným názvem.
 > 
 > 
 
 ## <a name="create-a-subscription"></a>Vytvoření odběru
-Odběry témat taky můžete vytvořit pomocí třídy [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager). Odběry mají názvy a můžou mít volitelné filtry, které omezují výběr zpráv odesílaných do virtuální fronty odběru.
+Odběry témat taky můžete vytvořit pomocí třídy [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). Odběry mají názvy a můžou mít volitelné filtry, které omezují výběr zpráv odesílaných do virtuální fronty odběru.
 
 > [!IMPORTANT]
 > Aby předplatné mohlo přijímat zprávy, musíte příslušné předplatné vytvořit před odesláním jakýchkoli zpráv do tématu. Pokud nejsou k dispozici žádná předplatná tématu, příslušné téma takové zprávy zahodí.
@@ -203,9 +204,9 @@ namespaceManager.CreateSubscription("TestTopic",
 Když se teď odešle zpráva do `TestTopic`, vždy se dodá příjemci, který odebírá téma **AllMessages**, a selektivně příjemcům, kteří odebírají témata **HighMessages** a **LowMessages** (podle obsahu zprávy).
 
 ## <a name="send-messages-to-a-topic"></a>Odeslání zprávy do tématu
-Pokud chcete odeslat zprávu do tématu Service Bus, vaše aplikace vytvoří objekt [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) pomocí připojovacího řetězce.
+Pokud chcete odeslat zprávu do tématu Service Bus, vaše aplikace vytvoří objekt [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) pomocí připojovacího řetězce.
 
-Následující kód ukazuje, jak vytvořit objekt [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) pro téma **TestTopic**, které jste předtím vytvořili pomocí metody rozhraní API [CreateFromConnectionString](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_).
+Následující kód ukazuje, jak vytvořit objekt [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) pro téma **TestTopic**, které jste předtím vytvořili pomocí metody rozhraní API [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_).
 
 ```csharp
 string connectionString =
@@ -217,9 +218,9 @@ TopicClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-Zprávy odeslané do témat Service Bus jsou instance třídy [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Objekty **BrokeredMessage** mají sadu standardních vlastností (jako třeba[Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) a [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), slovník používaný pro udržení vlastních vlastností aplikace a tělo s libovolnými aplikačními daty. Aplikace může tělo zprávy nastavit tak, že do konstruktoru objektu **BrokeredMessage** předá jakýkoli serializovatelný objekt, a pak se k serializaci objektu použije vhodný **DataContractSerializer**. Nebo se může poskytnout objekt **System.IO.Stream**.
+Zprávy odeslané do témat Service Bus jsou instance třídy [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Objekty **BrokeredMessage** mají sadu standardních vlastností (jako třeba[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) a [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), slovník používaný pro udržení vlastních vlastností aplikace a tělo s libovolnými aplikačními daty. Aplikace může tělo zprávy nastavit tak, že do konstruktoru objektu **BrokeredMessage** předá jakýkoli serializovatelný objekt, a pak se k serializaci objektu použije vhodný **DataContractSerializer**. Nebo se může poskytnout objekt **System.IO.Stream**.
 
-Následující příklad ukazuje, jak odeslat pět zkušebních zpráv do objektu **TestTopic** [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) získaného v předcházejícím příkladu. Nezapomeňte, že hodnota vlastnosti [MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) každé zprávy se liší podle iterace smyčky (to určuje, které odběry ji přijmou).
+Následující příklad ukazuje, jak odeslat pět zkušebních zpráv do objektu **TestTopic** [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) získaného v předcházejícím příkladu. Nezapomeňte, že hodnota vlastnosti [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) každé zprávy se liší podle iterace smyčky (to určuje, které odběry ji přijmou).
 
 ```csharp
 for (int i=0; i<5; i++)
@@ -238,13 +239,13 @@ for (int i=0; i<5; i++)
 Témata Service Bus podporují maximální velikost zprávy 256 KB [na úrovni Standard](service-bus-premium-messaging.md) a 1 MB [na úrovni Premium](service-bus-premium-messaging.md). Hlavička, která obsahuje standardní a vlastní vlastnosti aplikace, může mít velikost až 64 KB. Počet zpráv držených v tématu není omezený, ale celková velikost zpráv držených v tématu omezená je. Velikost tématu se definuje při vytvoření, maximální limit je 5 GB. Pokud je zapnutá segmentace, je maximální limit vyšší. Další informace najdete v tématu [Segmentované entity zasílání zpráv](service-bus-partitioning.md).
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Jak přijmout zprávy z odběru
-Doporučený způsob přijímání z fronty je použití objektu [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Objekty **SubscriptionClient** můžou pracovat ve dvou různých režimech: [*ReceiveAndDelete* a *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Výchozí hodnota je **PeekLock**.
+Doporučený způsob přijímání z fronty je použití objektu [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Objekty **SubscriptionClient** můžou pracovat ve dvou různých režimech: [*ReceiveAndDelete* a *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). Výchozí hodnota je **PeekLock**.
 
 Při použití režimu **ReceiveAndDelete** je přijetí jednorázová operace – tzn. když Service Bus přijme požadavek na čtení zprávy v odběru, označí zprávu jako spotřebovávanou a vrátí ji do aplikace. Režim **ReceiveAndDelete** je nejjednodušší model a funguje nejlépe ve scénářích, kde aplikace může tolerovat možnost, že v případě selhání se zpráva nezpracuje. Pro lepší vysvětlení si představte scénář, ve kterém spotřebitel vyšle požadavek na přijetí, ale než ji může zpracovat, dojde v něm k chybě a ukončí se. Služba Service Bus už ale zprávu označila jako spotřebovanou. Když se aplikace znovu spustí a začne znovu přijímat zprávy, zprávu, která se spotřebovala před pádem aplikace, vynechá.
 
-V režimu **PeekLock** (výchozí) je přijetí dvoufázový proces. To podporuje aplikace, u kterých nejde tolerovat vynechání zpráv. Když Service Bus přijme požadavek, najde zprávu, která je na řadě ke spotřebování, uzamkne ji proti spotřebování jinými spotřebiteli a vrátí ji do aplikace. Když aplikace dokončí zpracování zprávy (nebo ji bezpečně uloží pro pozdější zpracování), zavolá na přijatou zprávu [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), a tím potvrdí dokončení druhé fáze přijetí. Když Service Bus uvidí volání **Complete**, označí zprávu jako spotřebovávanou a odstraní ji z odběru.
+V režimu **PeekLock** (výchozí) je přijetí dvoufázový proces. To podporuje aplikace, u kterých nejde tolerovat vynechání zpráv. Když Service Bus přijme požadavek, najde zprávu, která je na řadě ke spotřebování, uzamkne ji proti spotřebování jinými spotřebiteli a vrátí ji do aplikace. Když aplikace dokončí zpracování zprávy (nebo ji bezpečně uloží pro pozdější zpracování), zavolá na přijatou zprávu [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), a tím potvrdí dokončení druhé fáze přijetí. Když Service Bus uvidí volání **Complete**, označí zprávu jako spotřebovávanou a odstraní ji z odběru.
 
-Následující příklad ukazuje, jak se zprávy můžou přijímat a zpracovávat pomocí výchozího režimu **PeekLock**. Pokud chcete nastavit jinou hodnotu [ReceiveMode](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), můžete použít další přetížení pro [CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). Tento příklad používá zpětné volání [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) ke zpracování zpráv, když dorazí do odběru **HighMessages**.
+Následující příklad ukazuje, jak se zprávy můžou přijímat a zpracovávat pomocí výchozího režimu **PeekLock**. Pokud chcete nastavit jinou hodnotu [ReceiveMode](/dotnet/api/microsoft.servicebus.messaging.receivemode), můžete použít další přetížení pro [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). Tento příklad používá zpětné volání [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) ke zpracování zpráv, když dorazí do odběru **HighMessages**.
 
 ```csharp
 string connectionString =
@@ -281,14 +282,14 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Tento příklad konfiguruje zpětné volání [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) pomocí objektu [OnMessageOptions](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions). [AutoComplete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete) je nastavené na **false**, tím se povolí ruční kontrola nad tím, kdy se má na přijatou zprávu zavolat [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete). [AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout) je nastavené na 1 minutu a to způsobí, že klient může na zprávu čekat až 1 minutu, než se funkce automatického obnovení ukončí a klient odešle nové volání na kontrolu nových zpráv. Tato hodnota vlastnosti snižuje počet, kolikrát klient provede fakturovatelná volání, která nepřijmou žádné zprávy.
+Tento příklad konfiguruje zpětné volání [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) pomocí objektu [OnMessageOptions](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions). [AutoComplete](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete) je nastavené na **false**, tím se povolí ruční kontrola nad tím, kdy se má na přijatou zprávu zavolat [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete). [AutoRenewTimeout](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout) je nastavené na 1 minutu a to způsobí, že klient může na zprávu čekat až 1 minutu, než se funkce automatického obnovení ukončí a klient odešle nové volání na kontrolu nových zpráv. Tato hodnota vlastnosti snižuje počet, kolikrát klient provede fakturovatelná volání, která nepřijmou žádné zprávy.
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Zpracování pádů aplikace a nečitelných zpráv
-Service Bus poskytuje funkce, které vám pomůžou se elegantně zotavit z chyb v aplikaci nebo vyřešit potíže se zpracováním zprávy. Pokud přijímající aplikace z nějakého důvodu nedokáže zpracovat zprávu, může na přijatou zprávu zavolat metodu [Abandon](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__) (namísto metody [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). To způsobí, že Service Bus zprávu odemkne v odběru a zpřístupní ji pro další přijetí, buďto stejnou spotřebitelskou aplikací nebo jinou spotřebitelskou aplikací.
+Service Bus poskytuje funkce, které vám pomůžou se elegantně zotavit z chyb v aplikaci nebo vyřešit potíže se zpracováním zprávy. Pokud přijímající aplikace z nějakého důvodu nedokáže zpracovat zprávu, může na přijatou zprávu zavolat metodu [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__) (namísto metody [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). To způsobí, že Service Bus zprávu odemkne v odběru a zpřístupní ji pro další přijetí, buďto stejnou spotřebitelskou aplikací nebo jinou spotřebitelskou aplikací.
 
 Zpráva uzamčená v odběru má taky časový limit a pokus aplikace zprávu nezpracuje v časovém limitu uzamčení (například pokud aplikace spadne), Service Bus zprávu automaticky odemkne ve frontě a znovu ji zpřístupní k přijetí.
 
-Pokud aplikace spadne po zpracování zprávy, ale před vysláním požadavku [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), zpráva se do aplikace odešle znovu. Tomu se často říká *Zpracování nejméně jednou* – to znamená, že každá zpráva se zpracuje alespoň jednou, ale v některých situacích se může doručit víckrát. Pokud daný scénář nemůže tolerovat zpracování víc než jednou, vývojáři aplikace by měli přidat další logiku navíc pro zpracování víckrát doručené zprávy. To se často opírá o vlastnost zprávy [MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId), která je při každém pokusu o doručení stejné zprávy stejná.
+Pokud aplikace spadne po zpracování zprávy, ale před vysláním požadavku [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), zpráva se do aplikace odešle znovu. Tomu se často říká *Zpracování nejméně jednou* – to znamená, že každá zpráva se zpracuje alespoň jednou, ale v některých situacích se může doručit víckrát. Pokud daný scénář nemůže tolerovat zpracování víc než jednou, vývojáři aplikace by měli přidat další logiku navíc pro zpracování víckrát doručené zprávy. To se často opírá o vlastnost zprávy [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId), která je při každém pokusu o doručení stejné zprávy stejná.
 
 ## <a name="delete-topics-and-subscriptions"></a>Odstranění témat a odběrů
 Následující příklad ukazuje, jak odstranit téma **TestTopic** z oboru názvů služby **HowToSample**.
@@ -319,13 +320,8 @@ Naučili jste se základy témat a odběrů Service Bus, další informace se do
 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Topic filters sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
 [Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

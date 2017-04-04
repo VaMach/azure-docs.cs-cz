@@ -1,12 +1,7 @@
 > [!NOTE]
-> Při tomto kurzu doporučujeme používat nejnovější verzi klientské knihovny pro úložiště Azure pro .NET. Nejnovější verze knihovny je 7.x a můžete si ji stáhnout z webu [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/). Zdroj klientské knihovny je dostupný na webu [GitHub](https://github.com/Azure/azure-storage-net).
+> Při tomto kurzu doporučujeme používat nejnovější verzi klientské knihovny pro Azure Storage pro .NET. Nejnovější verzi ke stažení můžete najít na [NuGetu](https://www.nuget.org/packages/WindowsAzure.Storage/). Zdrojový kód klientské knihovny je dostupný na [GitHubu](https://github.com/Azure/azure-storage-net).
 > 
-> Pokud používáte emulátor úložiště, upozorňujeme, že verze 7.x klientské knihovny vyžaduje minimálně verzi 4.3 emulátoru úložiště. 
+> Pokud používáte emulátor úložiště, přečtěte si požadavky na verzi v [souboru Readme klientské knihovny](https://github.com/Azure/azure-storage-net/blob/master/README.md). Chcete-li použít klientskou knihovnu služby Storage pro .NET s emulátorem úložiště, musí se použít odpovídající minimální verze emulátoru úložiště Azure.
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

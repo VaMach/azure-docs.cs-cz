@@ -10,16 +10,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 8b1d057ab533e5665513b5b5969b48e18a3ae40c
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 45fb85f83570ed7d79e70dc6fb8f0fdabb7ea191
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -35,6 +36,11 @@ Implementace HDInsight využívá architekturu škálování HBase k zajištěn�
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>Jakým způsobem jsou data spravována v HDInsight HBase?
 Data mohou být spravována v HBase pomocí příkazů `create`, `get`, `put`, a `scan` z prostředí HBase. Data se zapisují do databáze pomocí `put` a čtou se pomocí `get`. Příkaz `scan` se používá k načítání dat z více řádků v tabulce. Data lze také spravovat pomocí rozhraní API HBase C#, které poskytuje knihovna klienta nad HBase REST API. Databáze aplikace HBase může být dotazována také pomocí Hive. Úvod do těchto programovacích modelů najdete v části [Začínáme používat HBase s Hadoopem ve službě HDInsight][hbase-get-started]. K dispozici jsou také koprocesory, které umožňují zpracování dat v uzlech, které hostují databáze.
+
+>
+> [!NOTE]
+> Thrift není podporovaný HBase v HDInsight.
+>
 
 ## <a name="scenarios-use-cases-for-hbase"></a>Scénáře: Případy využití HBase
 Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (a pomocí rozšíření také HBase) vyhledávání na webu. Vyhledávací stroje sestavují indexy, které mapují termíny na webové stránky, které je obsahují. Ale existuje mnoho dalších případů použití, pro které je HBase vhodné – několik z nich je uvedeno v této části.

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -62,10 +63,10 @@ Vytvořte webovou aplikaci pomocí služby [Azure App Service](https://azure.mic
 9. Když si vyberete projekt a větev, klikněte na OK. Měla by se vám začít objevovat upozornění na nasazení.
    
    ![image9][image9]
-10. Přejděte zpět na Github, kde uvidíte webhook vytvořený pro integraci úložiště správy zdrojového kódu s Azure. Portál Azure umožňuje integraci s Githubem v několika jednoduchých krocích.
+10. Přejděte zpět na GitHub, kde uvidíte webhook vytvořený pro integraci úložiště správy zdrojového kódu s Azure. Azure Portal umožňuje integraci s GitHubem v několika jednoduchých krocích.
     
     ![image10][image10]
-11. Abychom si ukázali průběžné nasazování, rychle do úložiště přidáte nějaký obsah. Snadné je třeba je přidání ukázkového textového souboru do úložiště Github. Se službou App Service můžete použít aplikaci .NET, Ruby, Python nebo i jiný druh. Do vybraného úložiště můžete přidat textový soubor nebo aplikaci napsanou v ASP.NET MVC, Javě nebo Ruby.
+11. Abychom si ukázali průběžné nasazování, rychle do úložiště přidáte nějaký obsah. Snadné je třeba přidání ukázkového textového souboru do úložiště GitHub. Se službou App Service můžete použít aplikaci .NET, Ruby, Python nebo i jiný druh. Do vybraného úložiště můžete přidat textový soubor nebo aplikaci napsanou v ASP.NET MVC, Javě nebo Ruby.
     
     ![image11][image11]
 12. Po potvrzení změn do úložiště uvidíte, že se v oblasti upozornění portálu oznámí zahájení nasazení. Pokud do několika chvil po odeslání do úložiště, neuvidíte změny, klikněte na Synchronizovat.
@@ -334,9 +335,4 @@ V tomto kurzu jsme vám ukázali některé schopnosti platformy Azure – rychl�
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

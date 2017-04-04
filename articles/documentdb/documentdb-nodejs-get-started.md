@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -58,7 +58,7 @@ Ujistěte se prosím, že máte následující:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
     * Alternativně můžete pro tento kurz použít [emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md).
-* [Node.js](https://nodejs.org/) verze&0;.10.29 nebo vyšší
+* [Node.js](https://nodejs.org/) verze 0.10.29 nebo vyšší
 
 ## <a name="step-1-create-a-documentdb-account"></a>Krok 1: Vytvoření účtu DocumentDB
 Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení aplikace Node.js](#SetupNode). Pokud používáte emulátor DocumentDB, postupujte prosím podle kroků v tématu [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md), abyste nastavili emulátor, a přeskočte k části [Nastavení aplikace Node.js](#SetupNode).
@@ -604,7 +604,7 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup by měl odpovídat u
 Blahopřejeme! Dokončili jste kurz k Node.js a máte svou první konzolovou aplikaci DocumentDB!
 
 ## <a id="GetSolution"></a>Získání úplného řešení kurzu k Node.js
-Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu, nebo si jenom chcete stáhnout kód, můžete ho získat z [Githubu](https://github.com/Azure-Samples/documentdb-node-getting-started).
+Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu nebo si jenom chcete stáhnout kód, můžete ho získat z [GitHubu](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Abyste mohli spustit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 

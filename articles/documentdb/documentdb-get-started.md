@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 03/19/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 639eb424c31abea4106cf37b14fee99a8fd9d307
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 648aa01beaffccf69250f1028e27bc13ed70837c
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -529,7 +529,7 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výs
 Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou aplikaci jazyka C#!
 
 ## <a id="GetSolution"></a>Získání úplného řešení kurzu NoSQL
-Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu, nebo si jen chcete stáhnout ukázky kódu, můžete je získat z [Githubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu nebo si jen chcete stáhnout ukázky kódu, můžete je získat z [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 K vytvoření řešení GetStarted budete potřebovat toto:
 

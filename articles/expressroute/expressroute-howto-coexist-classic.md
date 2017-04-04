@@ -1,5 +1,5 @@
 ---
-title: "Konfigurace Expressroute a připojení VPN typu site-to-site, která mohou existovat vedle sebe | Dokumentace Microsoftu"
+title: "Konfigurace ExpressRoute a připojení VPN typu site-to-site, která mohou existovat vedle sebe: Classic: Azure | Dokumentace Microsoftu"
 description: "Tento článek vás provede konfigurací ExpressRoute a připojení VPN typu site-to-site, která mohou v modelu nasazení Classic existovat vedle sebe."
 documentationcenter: na
 services: expressroute
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aae9215ea67ff254bb3b67c5b113ad55eb3b1ca2
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7e866a218c003390e0281f1adce7c0d843d006c0
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>Konfigurace souběžně existujících připojení ExpressRoute a S2S pro klasický model nasazení
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute (Classic)
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell – Classic](expressroute-howto-coexist-classic.md)
@@ -29,6 +30,8 @@ ms.openlocfilehash: aae9215ea67ff254bb3b67c5b113ad55eb3b1ca2
 > 
 
 Možnost konfigurace VPN typu site-to-site a ExpressRoute má několik výhod. Můžete nakonfigurovat VPN typu site-to-site jako zabezpečenou cestu převzetí služeb při selhání pro ExressRoute, nebo použít VPN typu site-to-site pro připojení k webům, které nejsou připojené prostřednictvím ExpressRoute. V tomto článku vám nabídneme postupy konfigurace pro oba scénáře. Tento článek se týká modelu nasazení Classic. Tato konfigurace není k dispozici na portálu.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **O modelech nasazení Azure**
 
@@ -76,7 +79,7 @@ Existují dvě sady postupů, ze kterých si můžete vybrat, když konfigurujet
   
     V tomto postupu bude vytvoření připojení, která mohou existovat společně, vyžadovat, abyste odstranili bránu a pak nakonfigurovali nové brány. To znamená, že budete mít během odstraňování a opětného vytváření brány a připojení výpadek připojení mezi místy, ale nebude nutné migrovat žádné virtuální počítače a služby do nové virtuální sítě. Virtuální počítače a služby budou během konfigurace brány stále schopné komunikovat prostřednictvím nástroje pro vyrovnávání zatížení, pokud jsou tak nakonfigurované.
 
-## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
+## <a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
 Tento postup vás provede procesem vytvoření virtuální sítě a vytvoření připojení ExpressRoute a VPN site-to-site, která budou existovat společně.
 
 1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Všimněte si, že rutiny, které budete používat pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech. 
@@ -182,7 +185,7 @@ Tento postup vás provede procesem vytvoření virtuální sítě a vytvoření 
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="a-nameaddato-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Konfigurace současně existujících připojení pro už existující virtuální síť
+## <a name="add"></a>Konfigurace současně existujících připojení pro už existující virtuální síť
 Pokud máte existující virtuální síť, zkontrolujte velikost podsítě brány. Pokud podsíť brány je /28 nebo /29, musíte nejdřív bránu virtuální sítě odstranit a zvýšit velikost podsítě brány. Postup v této části ukazuje, jak to provést.
 
 Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená přes ExpressRoute, můžete přeskočit následující kroky a přejít ke [kroku 6 – Vytvoření brány VPN typu site-to-site](#vpngw) v předchozí části.
@@ -222,10 +225,5 @@ Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená p�
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

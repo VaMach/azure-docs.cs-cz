@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 061226c76128122b61d2fe135fdfae0bfd7490d7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 619ea430b13c16e8e4338413613d5798f36458ba
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal-classic"></a>Vytvoření virtuální sítě s připojením typu Site-to-Site pomocí webu Azure Portal (Classic)
+# <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Vytvoření připojení typu Site-to-Site pomocí webu Azure Portal (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,11 +31,12 @@ ms.lasthandoff: 03/17/2017
 >
 >
 
+
+Připojení brány VPN typu Site-to-Site (S2S) je připojení přes tunel VPN prostřednictvím protokolu IPsec/IKE (IKEv1 nebo IKEv2). Tento typ připojení vyžaduje místní zařízení sítě VPN, které má přiřazenou veřejnou IP adresu a není umístěné za službou NAT. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
+
 Tento článek vás provede procesem vytvoření virtuální sítě a připojení brány VPN typu Site-to-Site k místní síti pomocí modelu nasazení Classic a webu Azure Portal. 
 
-Připojení brány VPN typu Site-to-Site (S2S) je připojení přes tunel VPN prostřednictvím protokolu IPsec/IKE (IKEv1 nebo IKEv2). Tento typ připojení vyžaduje místní zařízení sítě VPN, které má přiřazenou veřejnou IP adresu a není umístěné za službou NAT. Připojení typu Site-to-Site můžete použít pro konfigurace mezi různými místy a hybridní konfigurace nebo k připojení virtuálních sítí v různých modelech nasazení.
-
-![Diagram připojení VPN Gateway typu Site-to-Site mezi různými místy](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
+![Diagram připojení VPN Gateway typu Site-to-Site mezi různými místy](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modely nasazení a metody připojení typu Site-to-Site
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]

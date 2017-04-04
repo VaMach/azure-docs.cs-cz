@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: ed725a12c04646a62cb0737266e24b6035522f20
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 98cb1d7e5fd464421ae97f2ace33852e71a18a21
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -55,7 +55,7 @@ V následujících oddílech se dozvíte o systému SQL Server ve veřejném clo
 
 Obecně jsou tyto dvě možnosti SQL optimalizovány pro různé účely:
 
-* **SQL Database** je optimalizována pro snížení celkových nákladů na minimum pro zřizování a správu velkého počtu databází. Snižuje náklady na průběžnou správu, protože nemusíte spravovat žádné virtuální počítače, operační systémy nebo databázový software. Není nutné spravovat upgrady, vysokou dostupnost nebo [zálohy](sql-database-automated-backups.md). Obecně platí, že Azure SQL Database může výrazně zvýšit počet databází, které spravuje jeden IT nebo vývojářský zdroj.
+* **Azure SQL Database** je optimalizována pro snížení celkových nákladů na minimum pro zřizování a správu velkého počtu databází. Snižuje náklady na průběžnou správu, protože nemusíte spravovat žádné virtuální počítače, operační systémy nebo databázový software. Není nutné spravovat upgrady, vysokou dostupnost nebo [zálohy](sql-database-automated-backups.md). Obecně platí, že Azure SQL Database může výrazně zvýšit počet databází, které spravuje jeden IT nebo vývojářský zdroj.
 * **SQL Server běžící na virtuálních počítačích Azure** je optimalizovaný pro migraci stávajících aplikací do Azure nebo rozšíření stávajících místních aplikací do cloudu v hybridních nasazeních. Kromě toho lze systém SQL Server na virtuálním počítači použít k vývoji a testování tradičních aplikací systému SQL Server. V případě používání SQL Serveru na virtuálních počítačích Azure máte úplná práva pro správu pro vyhrazenou instanci SQL Serveru a cloudové virtuální počítače. Je ideální volbou v případě, že organizace už má dostupné IT zdroje pro údržbu virtuálních počítačů. Tyto schopnosti umožňují sestavit vysoce přizpůsobený systém pro plnění specifických požadavků vaší aplikace na výkon a dostupnost.
 
 Následující tabulka shrnuje hlavní vlastnosti SQL Database a SQL Serveru na virtuálních počítačích Azure:
@@ -122,7 +122,7 @@ Pro řadu IT oddělení je nejvyšší prioritou plnit povinnosti z hlediska gar
 
 Pro **SQL Database** s cenovou úrovní služeb Basic, Standard a Premium poskytuje Microsoft smlouvu SLA s dostupností 99,99 %. Nejnovější informace najdete v tématu věnovaném [Smlouvám o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/sql-database/). Nejnovější informace o cenových úrovních služby SQL Database a podporovaných plánech kontinuity podnikových procesů najdete v tématu [Úrovně služeb](sql-database-service-tiers.md).
 
-Pro **SQL Server běžící na virtuálních počítačích Azure** poskytuje Microsoft smlouvu SLA s dostupností 99,95 %, která se vztahuje pouze na virtuální počítač. Tato smlouva SLA nepokrývá procesy (například SQL Server) běžící na virtuálním počítači a vyžaduje, abyste v rámci skupiny dostupnosti hostovali minimálně dvě instance virtuálních počítačů. Nejnovější informace najdete v tématu věnovaném smlouvám [SLA k virtuálním počítačům](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Pro vysokou dostupnost (HA – High Availability) databází v rámci virtuálních počítačů musíte nakonfigurovat jednu z podporovaných možností vysoké dostupnosti SQL Serveru, jako jsou například [skupiny dostupnosti AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Používání podporované možnosti vysoké dostupnosti neposkytuje další SLA, ale umožňuje dosáhnout více než&99;.99% dostupnosti databáze.
+Pro **SQL Server běžící na virtuálních počítačích Azure** poskytuje Microsoft smlouvu SLA s dostupností 99,95 %, která se vztahuje pouze na virtuální počítač. Tato smlouva SLA nepokrývá procesy (například SQL Server) běžící na virtuálním počítači a vyžaduje, abyste v rámci skupiny dostupnosti hostovali minimálně dvě instance virtuálních počítačů. Nejnovější informace najdete v tématu věnovaném smlouvám [SLA k virtuálním počítačům](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Pro vysokou dostupnost (HA – High Availability) databází v rámci virtuálních počítačů musíte nakonfigurovat jednu z podporovaných možností vysoké dostupnosti SQL Serveru, jako jsou například [skupiny dostupnosti AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Používání podporované možnosti vysoké dostupnosti neposkytuje další SLA, ale umožňuje dosáhnout více než 99.99% dostupnosti databáze.
 
 ### <a name="market"></a>Rychlost uvedení na trh
 **Databáze SQL** je tím správným řešením pro aplikace navržené pro cloud, pokud je důležitým faktorem produktivita vývojářů a rychlé uvedení na trh. V případě programových funkcí podobných DBA jde o ideální řešení pro cloudové architekty a vývojáře, protože snižuje potřebu správy příslušného operačního systému a databáze. Můžete například pomocí [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) a [rutin prostředí PowerShell](http://msdn.microsoft.com/library/mt740629.aspx) automatizovat a spravovat operace správy pro tisíce databází. Funkce, jako jsou [elastické fondy](sql-database-elastic-pool.md), vám umožní zaměřit se na aplikační vrstvu a zajistit rychlejší dodání vašeho řešení na trh.

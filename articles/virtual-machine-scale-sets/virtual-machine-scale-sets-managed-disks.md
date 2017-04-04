@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: db84d2b03ad1542a898c2c452e62a3f7ef7e6af8
-ms.openlocfilehash: 4824a8a24a7e43bc8e8112303f20d916e67b6aff
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -40,7 +41,7 @@ az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Další možností je vyhledat v [úložišti šablon Azure Quickstart na Githubu](https://github.com/Azure/azure-quickstart-templates) složky, které obsahují `vmss`, a podívat se na předem vytvořené příklady šablon, které nasazují škálovací sady. Ke zjištění, které ze šablon už používají spravované disky, můžete použít [tento seznam](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
+Další možností je vyhledat v [úložišti šablon Azure Quickstart na GitHubu](https://github.com/Azure/azure-quickstart-templates) složky, které obsahují `vmss`, a podívat se na předem vytvořené příklady šablon, které nasazují škálovací sady. Ke zjištění, které ze šablon už používají spravované disky, můžete použít [tento seznam](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
 ## <a name="api-versions"></a>Verze rozhraní API
 
@@ -56,10 +57,5 @@ Další informace o použití spravovaných datových disků se škálovacími s
 
 Pokud chcete začít pracovat s rozsáhlými škálovacími sadami, přečtěte si [tento článek](./virtual-machine-scale-sets-placement-groups.md).
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

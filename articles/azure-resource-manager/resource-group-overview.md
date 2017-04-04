@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 295203755487ace6193d97737be635d4a61fe337
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -79,7 +79,7 @@ Při definování skupin prostředků byste měli vzít v úvahu některé důle
 Při vytváření skupiny prostředků pro ni musíte zadat umístění. Asi vás zajímá, proč skupina prostředků potřebuje umístění. A proč vůbec záleží na umístění skupiny prostředků, pokud prostředky mohou mít jiná umístění než skupina prostředků. Skupina prostředků ukládá metadata o prostředcích. Při zadávání umístění skupiny prostředků tedy určujete, kde se tato metadata ukládají. Z důvodu dodržování předpisů může být nutné zajistit, aby se data ukládala v určité oblasti.
 
 ## <a name="resource-providers"></a>Poskytovatelé prostředků
-Každý poskytovatel prostředků nabízí sadu prostředků a operací pro práci se službou Azure. Pokud například chcete ukládat klíče a tajné klíče, využijete poskytovatele prostředků **Microsoft.KeyVault**. Tento poskytovatel prostředků nabízí typ prostředku nazvaný **vaults** pro vytvoření trezoru klíčů a typ prostředku s názvem **vaults/secrets** pro vytvoření tajných údajů v trezoru klíčů. 
+Každý poskytovatel prostředků nabízí sadu prostředků a operací pro práci se službou Azure. Pokud například chcete ukládat klíče a tajné klíče, využijete poskytovatele prostředků **Microsoft.KeyVault**. Tento poskytovatel prostředků nabízí typ prostředků nazvaný **trezory** pro vytvoření trezoru klíčů. 
 
 Než začnete nasazovat prostředky, měli byste získat přehled o dostupných poskytovatelích prostředků. Znalost názvů poskytovatelů prostředků a samotných prostředků vám umožní definovat prostředky, které chcete nasadit do Azure.
 
@@ -118,7 +118,7 @@ Další informace najdete v tématu [Poskytovatelé, oblasti, verze rozhraní AP
 ## <a name="template-deployment"></a>Nasazení šablon
 Pomocí Resource Manageru můžete vytvořit šablonu (ve formátu JSON), která definuje infrastrukturu a konfiguraci vašeho řešení Azure. Pomocí šablony můžete řešení opakovaně nasadit v průběhu životního cyklu a mít přitom jistotu, že se prostředky nasadí konzistentně. Když vytvoříte řešení z portálu, bude toto řešení automaticky zahrnovat šablonu nasazení. Šablonu nemusíte vytvářet od začátku, protože můžete začít se šablonou pro svoje řešení a upravit ji tak, aby vyhovovala vašim konkrétním potřebám. Šablonu pro stávající skupinu prostředků můžete načíst tak, že vyexportujete aktuální stav této skupiny prostředků, nebo zobrazením šablony použité pro konkrétní nasazení. Zobrazení [vyexportované šablony](resource-manager-export-template.md) vám pomůže blíže se seznámit se syntaxí šablony.
 
-Další informace o formátu šablony a způsobu jejího sestavení najdete v tématech [Tvorba šablon Azure Resource Manageru](resource-group-authoring-templates.md) a [Názorný průvodce šablonou Resource Manageru](resource-manager-template-walkthrough.md).
+Další informace o formátu šablony a způsobu jejího vytvoření najdete v tématu [Vytvoření první šablony Azure Resource Manageru](resource-manager-create-first-template.md). Syntaxi JSON pro typy prostředků najdete v tématu [Definování prostředků v šablonách Azure Resource Manageru](/azure/templates/).
 
 Resource Manager zpracovává šablonu stejně jako ostatní požadavky (viz obrázek [Konzistentní vrstva správy](#consistent-management-layer)). Parsuje šablonu a převede její syntaxi na operace rozhraní REST API pro příslušné poskytovatele prostředků. Když například Resource Manager obdrží šablonu s následující definicí prostředku:
 
@@ -333,10 +333,9 @@ Kromě těchto ukázek můžete prohledat galerii ukázek.
 
 ## <a name="next-steps"></a>Další kroky
 * Jednoduchý úvod k práci se šablonami najdete v článku, který popisuje [export šablony Azure Resource Manageru ze stávajících prostředků](resource-manager-export-template.md).
-* Podrobnější pokyny k vytvoření šablony najdete v [názorném průvodci k šablonám Resource Manageru](resource-manager-template-walkthrough.md).
+* Podrobnější pokyny k vytvoření šablony najdete v tématu [Vytvoření první šablony Azure Resource Manageru](resource-manager-create-first-template.md).
 * Funkce, které můžete v šabloně, využít, jsou popsané v článku [Funkce šablon](resource-group-template-functions.md)
 * Informace o použití sady Visual Studio s Resource Managerem najdete v tématu [Vytvoření a nasazení skupin prostředků Azure pomocí sady Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* Informace o použití VS Code pomocí Resource Manageru najdete v tématu [Práce s šablonami Azure Resource Manageru ve Visual Studio Code](resource-manager-vs-code.md).
 
 Zde je videoukázka tohoto přehledu:
 

@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/21/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 5e7520f8a023cd5feb8401483161e7296a413b02
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/22/2017
 > 
 > 
 
-V tomto kurzu se dozvíte, jak vytvořit a nasadit webovou aplikaci ASP.NET do webové aplikace v Azure App Service pomocí sady Visual Studio 2015. Ukázková aplikace zobrazí seznam týmových statistik z databáze a ukáže vám různé způsoby použití Azure Redis Cache k ukládání a načítání dat z mezipaměti. Po dokončení kurzu budete mít funkční webovou aplikaci, která čte a zapisuje do databáze, je optimalizovaná pomocí Azure Redis Cache a je hostovaná v Azure.
+V tomto kurzu se dozvíte, jak vytvořit a nasadit webovou aplikaci ASP.NET do webové aplikace v Azure App Service pomocí sady Visual Studio 2017. Ukázková aplikace zobrazí seznam týmových statistik z databáze a ukáže vám různé způsoby použití Azure Redis Cache k ukládání a načítání dat z mezipaměti. Po dokončení kurzu budete mít funkční webovou aplikaci, která čte a zapisuje do databáze, je optimalizovaná pomocí Azure Redis Cache a je hostovaná v Azure.
 
 Naučíte se:
 
@@ -248,7 +248,7 @@ Další informace o tomto balíčku najdete na stránce NuGet pro [EntityFramewo
         url: "{controller}/{action}/{id}",
         defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
     );
-```
+    ```
 
 
 ### <a name="configure-the-views"></a>Konfigurace zobrazení
