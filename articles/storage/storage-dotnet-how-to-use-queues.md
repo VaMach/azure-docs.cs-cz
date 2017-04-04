@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
-ms.openlocfilehash: d55b72ac50072a36ecf4547a478ed092ea7aa68a
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5876a22651a5ebee2d60992cf08aeae54256fb7d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -48,8 +49,8 @@ V tomto kurzu si ukážeme, jak napsat kód .NET pro některé běžné scéná�
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Přidání deklarací oboru názvů
-Přidejte do horní části souboru `program.cs` následující příkazy `using`:
+### <a name="add-using-directives"></a>Přidání direktiv using
+Přidejte na začátek souboru `Program.cs` následující direktivy `using`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -205,7 +206,7 @@ Console.WriteLine("Deleted message");
     
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>Využívání dalších možností pro vyřazování zpráv z fronty
 Načítání zpráv z fronty si můžete přizpůsobit dvěma způsoby.
-Za prvé si můžete načíst dávku zpráv (až 32). Za druhé si můžete nastavit delší nebo kratší časový limit neviditelnosti, aby měl váš kód více nebo méně času na úplné zpracování jednotlivých zpráv. V následujícím příkladu kódu se pomocí metody **GetMessages** získá 20 zpráv v jednom volání. Následně se každá zpráva zpracuje pomocí smyčky **foreach**. Také se pro každou zprávu nastaví časový limit neviditelnosti&5; minut. Pozor, 5minutový časový limit začíná pro všechny zprávy najednou, takže po uplynutí 5 minut od volání metody **GetMessages** pak budou všechny zprávy, které nebyly odstraněny, opět viditelné.
+Za prvé si můžete načíst dávku zpráv (až 32). Za druhé si můžete nastavit delší nebo kratší časový limit neviditelnosti, aby měl váš kód více nebo méně času na úplné zpracování jednotlivých zpráv. V následujícím příkladu kódu se pomocí metody **GetMessages** získá 20 zpráv v jednom volání. Následně se každá zpráva zpracuje pomocí smyčky **foreach**. Také se pro každou zprávu nastaví časový limit neviditelnosti 5 minut. Pozor, 5minutový časový limit začíná pro všechny zprávy najednou, takže po uplynutí 5 minut od volání metody **GetMessages** pak budou všechny zprávy, které nebyly odstraněny, opět viditelné.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -287,9 +288,4 @@ Teď, když jste se naučili základy používání služby Queue Storage, podí
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

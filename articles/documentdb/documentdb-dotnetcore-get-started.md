@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/06/2017
+ms.date: 03/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 35e193a49aac7e3aaf91e2a4798b6eeed8377aae
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c8a915055318697ade229837653df4c105279299
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -47,6 +47,8 @@ Budeme se zabývat těmito tématy:
 * Odstranění databáze
 
 Nemáte čas? Nevadí! Úplné řešení je k dispozici na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Pro rychlé pokyny přeskočte na [oddíl Získání úplného řešení](#GetSolution).
+
+Chcete sestavit aplikaci v Xamarin pro iOS, Android nebo Forms pomocí sady DocumentDB .NET Core SDK? Přečtěte si téma o [vývoji mobilních aplikací v Xamarinu pomocí DocumentDB](documentdb-mobile-apps-with-xamarin.md).
 
 Potom prosím použijte hlasovací tlačítka v horní nebo dolní části stránky, abychom získali zpětnou vazbu. Pokud chcete, abychom vás kontaktovali přímo, můžete nám nechat e-mailovou adresu v komentářích.
 
@@ -589,6 +591,7 @@ Pokud chcete obnovit odkazy na sadu DocumentDB .NET Core SDK v sadě Visual Stud
 
 ## <a name="next-steps"></a>Další kroky
 * Chcete složitější kurz NoSQL pro ASP.NET MVC? Přečtěte si o [vytvoření webové aplikace pomocí ASP.NET MVC a DocumentDB](documentdb-dotnet-application.md).
+* Chcete vytvořit aplikaci v Xamarin pro iOS, Android nebo Forms pomocí sady DocumentDB .NET Core SDK? Přečtěte si téma o [vývoji mobilních aplikací v Xamarinu pomocí DocumentDB](documentdb-mobile-apps-with-xamarin.md).
 * Chcete testovat škálování a výkon s DocumentDB? Přečtěte si o [testování výkonu a škálování s Azure DocumentDB](documentdb-performance-testing.md).
 * Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).

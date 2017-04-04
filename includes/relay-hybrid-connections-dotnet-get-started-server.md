@@ -15,10 +15,10 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. V podrobnostech o hybridním připojení přidejte konstanty do třídy `Program`. Zástupné symboly v závorkách nahraďte odpovídajícími hodnotami, které jste získali při vytváření hybridního připojení.
+2. V podrobnostech o hybridním připojení přidejte konstanty do třídy `Program`. Zástupné symboly v závorkách nahraďte odpovídajícími hodnotami, které jste získali při vytváření hybridního připojení. Nezapomeňte použít plně kvalifikovaný obor názvů:
    
     ```csharp
-    private const string RelayNamespace = "{RelayNamespace}";
+    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
@@ -138,7 +138,7 @@
    
         public class Program
         {
-            private const string RelayNamespace = "{RelayNamespace}";
+            private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
             private const string ConnectionName = "{HybridConnectionName}";
             private const string KeyName = "{SASKeyName}";
             private const string Key = "{SASKey}";
@@ -239,9 +239,4 @@
         }
     }
     ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

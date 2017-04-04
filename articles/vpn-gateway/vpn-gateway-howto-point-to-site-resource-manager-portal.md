@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: aafcfb9800a0d3ca9cf259617645da5ab6539c5b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c3fd647fdd21f6978e4d631ca9b10429e963cd05
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,6 +81,9 @@ Snímky obrazovky v této části slouží jako referenční příklady. Ujistě
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="dns"></a>Část 4 – Určení serveru DNS (volitelné)
+
+DNS se pro připojení Point-to-Site nevyžaduje. Pokud ale chcete umožnit překlad IP adres pro prostředky nasazované do vaší virtuální sítě, měli byste určit server DNS. Toto nastavení umožňuje určit server DNS, který chcete použít pro překlad IP adres pro tuto virtuální síť. Neslouží k vytvoření serveru DNS.
+
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="creategw"></a>Část 5 – Vytvoření brány virtuální sítě

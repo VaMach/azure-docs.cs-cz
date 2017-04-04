@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 541849501335fb25d96cffa81b8119adc158cdd7
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
+ms.lasthandoff: 03/23/2017
+
 
 
 ---
@@ -48,18 +49,26 @@ Přejít do okna je možné také kliknutím na **Další služby** a poté vyhl
 2. Klikněte na **Přidat** v horní části okna.
 3. Zadejte **Název** aplikace, který popíše aplikaci uživatelům. Můžete například zadat „Aplikace Contoso B2C“.
 4. Přepněte přepínač **Zahrnout webovou aplikaci / webové rozhraní API** na **Ano**. **Adresy URL odpovědí** jsou koncové body, kam Azure AD B2C vrátí všechny tokeny, které vaše aplikace požaduje. Zadejte například `https://localhost:44316/`.
-5. Aby se aplikace registrovala, klikněte na **Uložit**.
-6. Klikněte na aplikaci, kterou jste právě vytvořili, a poznamenejte si globálně jedinečné**ID klienta aplikace**, které použijete později ve svém kódu.
+5. Pro registraci aplikace klikněte na **Vytvořit**.
+6. Klikněte na aplikaci, kterou jste právě vytvořili, a poznamenejte si globálně jedinečné**ID klienta aplikace**, které použijete později ve svém kódu. 
+7. Pokud vaše webová aplikace také bude volat webové rozhraní API zabezpečené pomocí Azure AD B2C, budete chtít vytvořit **Tajný klíč aplikace**, a to v okně **Klíče** kliknutím na tlačítko **Vygenerovat klíč**.
 
+> [!NOTE]
+> **Tajný klíč aplikace** je důležitý údaj zabezpečení a musí být řádně zabezpečen.
+> 
+   
 
 ## <a name="register-a-web-api"></a>Registrace webové rozhraní API
 1. V okně s funkcemi B2C na portálu Azure klikněte na **Aplikace**.
 2. Klikněte na **Přidat** v horní části okna.
 3. Zadejte **Název** aplikace, který popíše aplikaci uživatelům. Můžete například zadat „API Contoso B2C“.
 4. Přepněte přepínač **Zahrnout webovou aplikaci / webové rozhraní API** na **Ano**. **Adresy URL odpovědí** jsou koncové body, kam Azure AD B2C vrátí všechny tokeny, které vaše aplikace požaduje. Zadejte například `https://localhost:44316/`.
-5. Aby se aplikace registrovala, klikněte na **Uložit**.
-6. Klikněte na aplikaci, kterou jste právě vytvořili, a poznamenejte si globálně jedinečné**ID klienta aplikace**, které použijete později ve svém kódu.
-
+5. Zadejte **Identifikátor URI ID aplikace**. To je identifikátor použitý pro vaše webového rozhraní API. Zadejte například „notes“. Vygeneruje se úplný identifikátor URI. 
+6. Pro registraci aplikace klikněte na **Vytvořit**.
+7. Klikněte na aplikaci, kterou jste právě vytvořili, a poznamenejte si globálně jedinečné**ID klienta aplikace**, které použijete později ve svém kódu.
+8. Klikněte na **Publikované obory**. Tady můžete definovat oprávnění (obory), která lze udělit ostatním aplikacím.
+9. V případě potřeby přidejte další obory. Ve výchozím nastavení bude definován obor „user_impersonation“. To umožňuje jiným aplikacím přístup k tomuto rozhraní API jménem přihlášeného uživatele. Pokud chcete, můžete ho odebrat. 
+10. Klikněte na **Uložit**.
 
 ## <a name="register-a-mobilenative-application"></a>Registrace mobilní/nativní aplikace
 1. V okně s funkcemi B2C na portálu Azure klikněte na **Aplikace**.
@@ -69,6 +78,11 @@ Přejít do okna je možné také kliknutím na **Další služby** a poté vyhl
 5. Zadejte **Identifikátor URI přesměrování** s vlastním schématem. Například com.onmicrosoft.contoso.appname://redirect/path. Zajistěte, abyste zvolili [správný identifikátor URI přesměrování](#choosing-a-redirect-uri).
 6. Aby se aplikace registrovala, klikněte na **Uložit**.
 7. Klikněte na aplikaci, kterou jste právě vytvořili, a poznamenejte si globálně jedinečné**ID klienta aplikace**, které použijete později ve svém kódu.
+8. Pokud vaše nativní aplikace také bude volat webové rozhraní API zabezpečené pomocí Azure AD B2C, budete chtít vytvořit **Tajný klíč aplikace**, a to v okně **Klíče** kliknutím na tlačítko **Vygenerovat klíč**.
+
+> [!NOTE]
+> **Tajný klíč aplikace** je důležitý údaj zabezpečení a musí být řádně zabezpečen.
+> 
 
 ### <a name="choosing-a-redirect-uri"></a>Výběr identifikátoru URI přesměrování
 Existují dva důležité aspekty při výběru identifikátoru URI přesměrování pro mobilní/nativní aplikace: 

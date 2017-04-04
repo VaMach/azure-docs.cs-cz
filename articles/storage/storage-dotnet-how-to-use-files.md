@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
-ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -46,7 +46,7 @@ Toto video ukazuje, jak ve Windows vytvořit a používat sdílené složky v Az
 ## <a name="about-this-tutorial"></a>O tomto kurzu
 Tento úvodní kurz ukazuje základy používání Microsoft Azure File Storage. V tomto kurzu provedeme následující:
 
-* Pomocí Portálu Azure nebo PowerShellu vytvoříme novou sdílenou složku Azure File, přidáme adresář, uložíme místní soubor do sdílené složky a zobrazíme seznam souborů v adresáři.
+* Pomocí webu Azure Portal nebo PowerShellu vytvoříme novou sdílenou složku Azure File, přidáme adresář, uložíme místní soubor do sdílené složky a zobrazíme seznam souborů v adresáři.
 * Připojte sdílenou složku tak, jako byste připojili jakoukoli jinou sdílenou složku SMB.
 * Pro přístup ke sdílené složce z lokální aplikace použijte Klientskou knihovnu pro úložiště Azure pro .NET. Vytvořte konzolovou aplikaci a proveďte tyto akce se sdílenou složkou:
   * Vypište obsah souboru ve sdílené složce do okna konzoly.
@@ -58,7 +58,7 @@ Tento úvodní kurz ukazuje základy používání Microsoft Azure File Storage.
 
 Úložiště souborů se teď podporuje pro všechny účty úložiště, takže buď můžete použít existující účet úložiště, nebo můžete vytvořit nový účet úložiště. Další informace o tom, jak vytvořit nový účet úložiště najdete v tématu [Vytvoření účtu úložiště](storage-create-storage-account.md#create-a-storage-account).
 
-## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Použijte Portál Azure ke správě složky
+## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Použití webu Azure Portal ke správě sdílené složky
 [Azure Portal](https://portal.azure.com) zákazníkům nabízí uživatelské prostředí pro správu sdílených složek. Z portálu můžete:
 
 * Vytvořit sdílenou složku
@@ -264,17 +264,29 @@ Pokud se chcete připojit ke sdílené složce z lokálního klienta, musíte ne
 Pokud chcete psát kód, který volá úložiště File, můžete použít knihovny klienta úložiště pro .NET a Javu nebo REST API pro Azure Storage. Příklad v této části ukazuje, jak pracovat se sdílenou složkou pomocí [Klientské knihovny pro úložiště Azure pro .NET](https://msdn.microsoft.com/library/mt347887.aspx) z jednoduché konzolové aplikace běžící v desktopovém prostředí.
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>Vytvoření konzolové aplikace a získání sestavení
-Pokud chcete novou aplikaci vytvořit ve Visual Studiu a nainstalovat balíček NuGet s Klientskou knihovnou pro úložiště Azure pro .NET:
+V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows. Následující kroky ukazují, jak vytvořit konzolovou aplikaci v sadě Visual Studio 2017, ale kroky v jiných verzích sady Visual Studio se podobají.
 
-1. Ve Visual Studiu vyberte **Soubor > Nový projekt**, a pak v seznamu šablon pro Visual C# vyberte **Windows > Konzolová aplikace**.
-2. Zadejte název konzolové aplikace a klikněte na **OK**.
-3. Po vytvoření projektu klikněte v Průzkumníku řešení pravým tlačítkem na projekt a vyberte **Správa balíčků NuGet**. Vyhledejte online text „WindowsAzure.Storage“ a klikněte na **Instalovat**, tím se nainstaluje balíček Klientské knihovny pro úložiště Azure pro .NET a její závislosti.
+1. Vyberte **Soubor**  >  **Nový**  >  **Projekt**.
+2. Vyberte **Instalováno** > **Šablony** > **Visual C#** > **Klasická plocha Windows**.
+3. Vyberte **Aplikace konzoly (.NET Framework)**.
+4. Do pole **Název** zadejte název vaší aplikace.
+5. Vyberte **OK**.
 
-Příklady kódu v tomto článku také používají [Knihovnu Microsoft Azure Configuration Manager](https://msdn.microsoft.com/library/azure/mt634646.aspx) k získání připojovacího řetězce úložiště ze souboru app.config v konzolové aplikaci. S nástrojem Azure Configuration Manager můžete získat připojovací řetězec na modulu runtime bez ohledu na to, jestli vaše aplikace běží v Microsoft Azure nebo je spuštěná z desktopové, mobilní nebo webové aplikace.
+Všechny příklady kódu v tomto kurzu můžete přidat do metody `Main()` v souboru `Program.cs` vaší konzolové aplikace.
 
-Pokud chcete nainstalovat balíček Azure Configuration Manager, klikněte pravým tlačítkem na projekt a vyberte **Správa balíčků NuGet**. Vyhledejte online text „ConfigurationManager“ a klikněte na **Instalovat**, tím balíček nainstalujete.
+Můžete použít knihovnu klienta služby Azure Storage z libovolného typu aplikace .NET, včetně webové aplikace nebo cloudové služby Azure, desktopové nebo mobilní aplikace. V této příručce použijeme konzolovou aplikaci kvůli zjednodušení.
 
-Použití nástroje Azure Configuration Manager není povinné. Taky můžete použít API jako třeba [třídu ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) platformy .NET Framework.
+### <a name="use-nuget-to-install-the-required-packages"></a>Použití balíčku NuGet k instalaci požadovaných balíčků
+Abyste mohli tento kurz dokončit, potřebujete ze svého projektu odkazovat na dva balíčky:
+
+* [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): Tento balíček zajišťuje programový přístup k datovým prostředkům na účtu úložiště.
+* [Microsoft Azure Configuration Manager library for .NET:](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) Tento balíček poskytuje třídu pro potřeby analýzy připojovacího řetězce v konfiguračním souboru bez ohledu na to, kde je aplikace spuštěná.
+
+K získání obou balíčků můžete použít balíček NuGet. Postupujte následovně:
+
+1. Klikněte v **Průzkumníku řešení** pravým tlačítkem na projekt a vyberte **Spravovat balíčky NuGet**.
+2. Proveďte online hledání textu „WindowsAzure.Storage“ a kliknutím na **Instalovat** nainstalujte balíček knihovny klienta úložiště a jeho závislosti.
+3. Proveďte online hledání textu „WindowsAzure.ConfigurationManager“ a kliknutím na **Instalovat** nainstalujete správce konfigurace Azure.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Uložení přihlašovacích údajů pro účet úložiště do souboru app.config
 Dál uložte svoje přihlašovací údaje do souboru app.config vašeho projektu. Upravte soubor app.config tak, aby vypadal podobně jako v následujícím příkladu, `myaccount` nahraďte názvem svého účtu úložiště a `mykey` nahraďte svým klíčem účtu úložiště.
@@ -296,8 +308,8 @@ Dál uložte svoje přihlašovací údaje do souboru app.config vašeho projektu
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>Přidání deklarací oboru názvů
-V Průzkumníku řešení otevřete soubor `program.cs` a na začátek souboru přidejte následující deklarace oborů názvů.
+### <a name="add-using-directives"></a>Přidání direktiv using
+V Průzkumníku řešení otevřete soubor `Program.cs` a na začátek souboru přidejte následující direktivy using.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -542,11 +554,11 @@ Stejným způsobem můžete kopírovat objekt blob do souboru. Pokud je zdrojov�
 ## <a name="troubleshooting-file-storage-using-metrics"></a>Řešení problémů s úložištěm File pomocí metrik
 Azure Storage Analytics teď podporuje metriky pro úložiště File. S údaji z metriky můžete sledovat žádosti a diagnostikovat potíže.
 
-Metriky pro úložiště File můžete povolit v [webu Azure Portal](https://portal.azure.com). Metriky taky můžete zapnout programově zavoláním operace Set File Service Properties přes REST API nebo některou z podobných operací v Klientské knihovně pro úložiště.
+Metriky pro File Storage můžete povolit na [webu Azure Portal](https://portal.azure.com). Metriky taky můžete zapnout programově zavoláním operace Set File Service Properties přes REST API nebo některou z podobných operací v Klientské knihovně pro úložiště.
 
 Následující ukázka kódu ukazuje, jak můžete použít Klientskou knihovnu pro úložiště pro .NET k zapnutí metrik pro úložiště File.
 
-Nejdříve do souboru program.cs vedle příkazů, které jste přidali výše, přidejte následující `using` příkazy:
+Nejdříve do souboru `Program.cs` mimo těch, které jste přidali výše, přidejte následující direktivy `using`:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -645,7 +657,7 @@ Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [
     Pokud chcete do úložiště File přenášet větší počet souborů, doporučujeme použít AzCopy, Azure PowerShell (Windows) nebo Azure CLI (Linux/Unix), protože tyto nástroje jsou optimalizované pro síťové přenosy.
 15. **Vydali jsme opravu problému s nízkou rychlostí Azure Files.**
     
-    Tým Windows nedávno vydal opravu problému s nízkou rychlostí, když zákazník přistupuje k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2. Další informace najdete v článku znalostní báze [Pomalý výkon při přístupu k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
+    Tým Windows nedávno vydal opravu problému s nízkou rychlostí, když zákazník přistupuje k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2. Další informace najdete v článku znalostní báze [Pomalý výkon při přístupu k Azure Files Storage z Windows 8.1 nebo Windows Serveru 2012 R2](https://support.microsoft.com/kb/3114025).
 16. **Používání Azure File Storage s IBM MQ**
     
     Společnost IBM vydala dokument, který zákazníky IBM MQ provede konfigurací Azure File Storage pro jejich službu. Další informace najdete v tématu [Nastavení Manažera fronty více instancí IBM MQ se službou Microsoft Azure File](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
@@ -653,11 +665,12 @@ Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [
     
     Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) (Soubory Azure – řešení problémů).               
 
-18. **Jak povolím šifrování na straně serveru pro Soubory Azure?**
+18. **Jak povolím šifrování na straně serveru pro Azure Files?**
 
-    [Šifrování na straně serveru](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) je aktuálně ve verzi Preview. Ve verzi Preview je možné tuto funkci povolit pouze pro nově vytvořené účty úložiště Azure Resource Manageru.
-    Tuto funkci můžete pro účet úložiště Azure Resource Manageru povolit pomocí webu Azure Portal. Plánujeme, že do konce února bude k povolení šifrování pro úložiště souborů možné použít [Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) nebo [rozhraní API poskytovatele prostředků služby Microsoft Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts). Povolení této funkce je bez dalších poplatků. Když povolíte šifrování služby Storage pro službu Azure File Storage, vaše data budou automaticky šifrována. 
-    Další informace o šifrování služby Storage. S dalšími dotazy ohledně verze Preview nás kontaktujte na ssediscussions@microsoft.com.
+    [Šifrování na straně serveru](storage-service-encryption.md) pro Azure Files je aktuálně ve verzi Preview. Ve verzi Preview můžete tuto funkci povolit pouze pro nový účet úložiště Azure Resource Manageru vytvořený pomocí webu [Azure Portal](https://portal.azure.com). Povolení této funkce je bez dalších poplatků. Když povolíte šifrování služby Storage pro službu Azure File Storage, vaše data budou automaticky šifrována. 
+    
+    Plánujeme v budoucnu podporu povolení šifrování pro File Storage pomocí [Azure PowerShellu](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) a rozhraní [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts). 
+    V tématu [Šifrování služby Storage](storage-service-encryption.md) najdete další informace o šifrování v klidovém stavu ve službě Azure Storage a v případě dalších dotazů k verzi Preview se můžete obrátit na adresu ssediscussions@microsoft.com.
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
@@ -670,7 +683,7 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 * [Použití Azure Powershell s Azure Storage](storage-powershell-guide-full.md)
 * [Použití nástroje AzCopy s Microsoft Azure Storage](storage-use-azcopy.md)
 * [Použití Azure CLI s Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
-* [Řešení potíží se službou Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Řešení potíží se službou Azure File Storage](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referenční informace
 * [Klientská knihovna Storage pro .NET – referenční informace](https://msdn.microsoft.com/library/azure/dn261237.aspx)

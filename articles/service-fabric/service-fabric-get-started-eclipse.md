@@ -1,6 +1,6 @@
 ---
-title: "Začínáme s modulem plug-in Eclipse pro Azure Service Fabric | Dokumentace Microsoftu"
-description: "Začínáme s modulem plug-in Eclipse pro Azure Service Fabric."
+title: Modul plug-in Azure Service Fabric pro Eclipse | Microsoft Docs
+description: "Začínáme s modulem plug-in Service Fabric pro Eclipse."
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -15,124 +15,130 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b612259b97bf238bac28cb77bf26f684128dd882
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
+ms.lasthandoff: 03/22/2017
 
 
 ---
 
-# <a name="getting-started-with-eclipse-plugin-for-service-fabric-java-application-development"></a>Začínáme s modulem plug-in Eclipse pro vývoj aplikací Service Fabric Java
-Eclipse je jedním z nejpoužívanějších integrovaných vývojových prostředí pro vývojáře v Javě. V tomto článku probereme možnosti nastavení vývojového prostředí Eclipse pro práci se Service Fabric. Tento článek vám pomůže nainstalovat modul plug-in, vytvořit aplikaci Service Fabric a nasadit ji na místní nebo vzdálený cluster Service Fabric.
+# <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Modul plug-in Service Fabric pro vývoj aplikací v Eclipse Javě
+Eclipse je jedním z nejčastěji používaných integrovaných vývojových prostředí (IDE) pro vývojáře v jazyce Java. V tomto článku probereme možnosti nastavení vývojového prostředí Eclipse pro práci s Azure Service Fabric. Naučíte se nainstalovat modul plug-in Service Fabric, vytvořit aplikaci Service Fabric a nasadit ji na místní nebo vzdálený cluster Service Fabric v Eclipse Neonu.
 
-## <a name="install-or-update-service-fabric-plugin-on-eclipse-neon"></a>Instalace a aktualizace modulu plug-in Service Fabric v prostředí Eclipse Neon
-Service Fabric poskytuje modul plug-in pro **integrované vývojové prostředí Eclipse pro vývojáře v Javě**, který může zjednodušit proces sestavování a nasazování služeb v Javě.
+## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Instalace a aktualizace modulu plug-in Service Fabric v prostředí Eclipse Neon
+Modul plug-in Service Fabric můžete nainstalovat do Eclipse. Tento modul plug-in může zjednodušit proces vytváření a nasazování služeb v Javě.
 
-1. Ujistěte se, že máte nainstalované nejnovější prostředí Eclipse **Neon** a nejnovější verzi Buildship (1.0.17 nebo novější). Verze nainstalovaných komponent můžete zkontrolovat tak, že zvolíte **Help => Installation Details** (Nápověda => Podrobnosti o instalaci). Buildship můžete aktualizovat pomocí pokynů [zde][buildship-update]. Pokud chcete zkontrolovat a aktualizovat prostředí Eclipse Neon na nejnovější verzi, můžete přejít do části **Help => Check for Updates** (Nápověda => Kontrola aktualizací).
+1.  Zkontrolujte, že máte nainstalovanou nejnovější verzi Eclipse Neonu a nejnovější verzi Buildshipu (1.0.17 nebo novější):
+    -   Verze nainstalovaných komponent můžete v Eclipse Neonu zkontrolovat tak, že zvolíte **Help** > **Installation Details** (Nápověda => Podrobnosti o instalaci).
+    -   Pokud chcete aktualizovat Buildship, přečtěte si téma [Eclipse Buildship: Moduly plug-in Eclipse pro Gradle][buildship-update].
+    -   Pokud chcete zkontrolovat a nainstalovat aktualizace pro Eclipse Neon, přejděte k části **Help** > **Check for Updates** (Nápověda => Vyhledat aktualizace).
 
-2. Chcete-li nainstalovat modul plug-in Service Fabric, zvolte **Help => Install New Software...** (Nápověda => Instalace nového softwaru).
-  1. Do textového pole „Work with“ (Pracovat s) zadejte ``http://dl.windowsazure.com/eclipse/servicefabric``.
-  2. Klikněte na Přidat.
+2.  Pokud chcete nainstalovat modul plug-in Service Fabric v Eclipse Neonu, přejděte k části **Help** > **Install New Software** (Nápověda => Instalovat nový software).
+  1.    Do textového pole **Work with** (Pracovat s) zadejte **http://dl.windowsazure.com/eclipse/servicefabric**.
+  2.    Klikněte na tlačítko **Přidat**.
+    ![Modul plug-in Service Fabric pro Eclipse Neon][sf-eclipse-plugin-install]
+  3.    Vyberte modul plug-in Service Fabric a potom klikněte na **Další**.
+  4.    Dokončete instalaci a přijměte licenční podmínky pro software společnosti Microsoft.
 
-  ![Modul plug-in Eclipse Neon pro Service Fabric][sf-eclipse-plugin-install]
-
-  3. Zvolte modul plug-in služby Service Fabric a klikněte na Další.
-  4. Pokračujte v instalaci a přijměte licenční smlouvu pro koncového zákazníka.
-
-Pokud už máte modul plug-in Service Fabric Eclipse nainstalovaný, ověřte, že používáte nejnovější verzi. V části **Help => Installation Details** (Nápověda => Podrobnosti o instalaci) můžete zkontrolovat, jestli je možné ho ještě aktualizovat. Pak vyhledejte Service Fabric v seznamu nainstalovaných modulů plug-in a klikněte na Update (Aktualizovat). Pokud existují nějaké čekající aktualizace, načtou se a nainstalují.
+Pokud už máte modul plug-in Service Fabric nainstalovaný, ověřte, že používáte nejnovější verzi. Pokud chcete vyhledat dostupné aktualizace, přejděte k části **Help** > **Installation Details** (Nápověda => Podrobnosti o instalaci). V seznamu nainstalovaných modulů plug-in vyberte Service Fabric a potom klikněte na **Aktualizovat**. Nainstalují se dostupné aktualizace.
 
 > [!NOTE]
-> Pokud instalace nebo aktualizace modulu plug-in Service Fabric Eclipse trvá příliš dlouho, je to proto, že se Eclipse pokaždé snaží načíst metadata všech nových změn, ke kterým došlo na všech aktualizačních serverech registrovaných k vaší instanci Eclipse. Můžete to urychlit použitím jednoduchého triku – přejděte do části **Available Software Sites** (Dostupné softwarové servery) a zrušte zaškrtnutí všech kromě serveru odkazujícího na umístění modulu plug-in Service Fabric `http://dl.windowsazure.com/eclipse/servicefabric`.
->
+> Pokud je instalace nebo aktualizace modulu plug-in Service Fabric pomalá, může být důvodem nastavení Eclipse. Eclipse shromažďuje metadata o všech změnách, aby aktualizoval weby, které jsou registrované pro vaši instanci Eclipse. Pokud chcete proces vyhledávání a instalace aktualizace modulu plug-in Service Fabric urychlit, přejděte k části **Available Software Sites** (Dostupné softwarové servery). Zrušte zaškrtnutí políček pro všechny weby kromě políčka odkazujícího na umístění modulu plug-in Service Fabric (http://dl.windowsazure.com/eclipse/servicefabric).
 
-## <a name="create-service-fabric-application-using-eclipse"></a>Vytvoření aplikace Service Fabric pomocí Eclipse
+## <a name="create-a-service-fabric-application-in-eclipse"></a>Vytvoření aplikace Service Fabric pomocí Eclipse
 
-1. Přejděte do **File => New => Other** (Soubor => Nový => Jiný). Vyberte **Service Fabric Project** (Projekt Service Fabric). Klikněte na **Další**.
+1.  V Eclipse Neonu přejděte na **File** > **New** > **Other** (Soubor => Nový => Ostatní). Vyberte **Service Fabric Project** (Projekt Service Fabric) a potom klikněte na **Next** (Další).
 
     ![Nový projekt Service Fabric – stránka 1][create-application/p1]
 
-2. Zadejte název projektu. Klikněte na **Další**.
+2.  Zadejte název pro svůj projekt a potom klikněte na **Next** (Další).
 
     ![Nový projekt Service Fabric – stránka 2][create-application/p2]
 
-3. Z dostupné sady šablon (Actor, Stateless, Container nebo Guest-executable – Služba objektu actor, Bezstavová služba, Kontejner nebo Spustitelný soubor typu Host) vyberte šablonu služby. Klikněte na **Další**.
+3.  V seznamu šablon vyberte **Service Template** (Šablona služby). Vyberte typ šablony služby (Actor, Stateless, Container nebo Guest Binary) a potom klikněte na **Next** (Další).
 
     ![Nový projekt Service Fabric – stránka 3][create-application/p3]
 
-4. Na této stránce zadejte název služby a/nebo související podrobnosti o službě a klikněte na **Finish** (Dokončit).
+4.  Zadejte název a podrobnosti služby a potom klikněte na **Finish** (Dokončit).
 
     ![Nový projekt Service Fabric – stránka 4][create-application/p4]
 
-5. Pokud vytváříte první projekt Service Fabric, budete dotázáni, jestli chcete nastavit perspektivu služby Service Fabric – pokračujte výběrem **yes** (Ano).
+5. Když vytvoříte svůj první projekt Service Fabric, v dialogovém okně **Open Associated Perspective** Otevřít přidruženou perspektivu) klikněte na **Yes** (Ano).
 
     ![Nový projekt Service Fabric – stránka 5][create-application/p5]
 
-6. Po úspěšném vytvoření bude projekt vypadat nějak takto:
+6.  Nový projekt vypadá takto:
 
     ![Nový projekt Service Fabric – stránka 6][create-application/p6]
 
-## <a name="build-and-deploy-the-service-fabric-application-using-eclipse"></a>Sestavení a nasazení aplikace Service Fabric pomocí Eclipse
+## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Vytvoření a nasazení aplikace Service Fabric v Eclipse
 
-* Klikněte pravým tlačítkem na aplikaci Service Fabric, kterou jste právě vytvořili v předchozím kroku. V místní nabídce vyberte možnost **Service Fabric**. Otevře se podnabídka s několika možnostmi. Bude vypadat nějak takto:
+1.  Klikněte na novou aplikaci Service Fabric pravým tlačítkem a potom vyberte **Service Fabric**.
 
     ![Nabídka Service Fabric zobrazená po kliknutí pravým tlačítkem][publish/RightClick]
 
-  Jakmile kliknete na možnosti sestavení, opětovného sestavení nebo vyčištění, provedou se příslušné akce.
-  - **Build Application** (Sestavit aplikaci) sestaví aplikaci bez vyčištění.
-  - **Rebuild Application** (Znovu sestavit aplikaci) provede vyčištění a nové sestavení aplikace.
-  - **Clean Application** (Vyčistit aplikaci) vyčistí aplikaci od artefaktů sestavení.
+2. V podnabídce vyberte požadovanou možnost:
+    -   **Build Application** (Sestavit aplikaci) sestaví aplikaci bez vyčištění.
+    -   **Rebuild Application** (Znovu sestavit aplikaci) provede vyčištění a nové sestavení aplikace.
+    -   **Clean Application** (Vyčistit aplikaci) vyčistí aplikaci od artefaktů sestavení.
 
+3.  V této nabídce můžete zvolit také nasazení, zrušení nasazení nebo publikování aplikace:
+    -   **Deploy Application** (Nasadit aplikaci) nasadí aplikaci na místní cluster.
+    -   V dialogovém okně **Publish Application** (Publikovat aplikaci) vyberte profil publikování:
+        -  **Local.json**
+        -  **Cloud.json**
 
-* V této nabídce můžete zvolit také nasazení, zrušení nasazení nebo publikování aplikace.
-  - **Deploy Application** (Nasadit aplikaci) nasadí aplikaci na místní cluster.
-  - **Publish Application...** (Publikovat aplikaci) zobrazí dotaz, jestli chcete použít profil publikování ``Local.json``, nebo ``Cloud.json``. Tyto soubory JSON se používají k uložení informací (například koncové body připojení a informace o zabezpečení) potřebných pro připojení k místnímu nebo cloudovému (Azure) clusteru.
+     Tyto soubory JSON (JavaScript Object Notation) se používají k uložení informací (jako jsou koncové body připojení a informace o zabezpečení) potřebných pro připojení k místnímu nebo cloudovému (Azure) clusteru.
 
-  ![Nabídka Service Fabric zobrazená po kliknutí pravým tlačítkem][publish/Publish]
+  ![Nabídka Publish (Publikovat) v Service Fabric][publish/Publish]
 
-* Existuje alternativní způsob nasazení aplikace Service Fabric pomocí konfigurací spuštění Eclipse.
+Existuje alternativní způsob nasazení aplikace Service Fabric pomocí konfigurací spuštění Eclipse.
 
-  1. Zvolte **Run => Run Configurations** (Spustit > Konfigurace spuštění). Vyberte konfiguraci spuštění **ServiceFabricDeployer** v části **Grade Project** (Klasifikace projektu).
-  2. Na kartě **Arguments** (Argumenty) v pravém podokně zadejte jako **publishProfile** (Profil publikování) **local** (místní) nebo **cloud** (v cloudu). Výchozí nastavení je **local** (místní). Pro nasazení na vzdálený nebo cloudový cluster vyberte **cloud** (v cloudu).
-  3. Ujistěte se, že jsou v profilech publikování vyplněné správné informace a podle potřeby upravte soubor `Local.json` nebo `Cloud.json` s použitím případných podrobností o koncovém bodu a zabezpečovacích přihlašovacích údajů.
-  4. Ujistěte se, že **Working Directory** (Pracovní adresář) v pravém podokně v části **Grade Project** (Klasifikace projektu) odkazuje na aplikaci, kterou chcete nasadit. Pokud ne, stačí kliknout na tlačítko **Workspace...** (Pracovní prostor) a vybrat požadovanou aplikaci.
-  5. Klikněte na **Apply** (Použít) a **Run** (Spustit).
+  1.    Přejděte k části **Run** > **Run Configurations** (Spustit > Konfigurace spuštění).
+  2.    Vyberte konfiguraci spuštění **ServiceFabricDeployer** v části **Gradle Project** (Projekt Gradle).
+  3.    Na kartě **Arguments** (Argumenty) v pravém podokně jako **publishProfile** (Profil publikování) zadejte **local** (místní) nebo **cloud** (cloudový).  Výchozí hodnota je **local** (místní). Pro nasazení na vzdálený nebo cloudový cluster vyberte **cloud** (cloudový).
+  4.    Aby se zajistilo, že v profilech publikování jsou zadané správné informace, upravte **Local.json** nebo **Cloud.json** podle potřeby. Můžete přidat nebo aktualizovat podrobnosti o koncových bodech a zabezpečovací přihlašovací údaje.
+  5.    Ujistěte se, že **Working Directory** (Pracovní adresář) odkazuje na aplikaci, kterou chcete nasadit. Pokud chcete aplikaci změnit, stačí kliknout na **Workspace** (Pracovní prostor) a vybrat požadovanou aplikaci.
+  6.    Klikněte na **Apply** (Použít) a potom na **Run** (Spustit).
 
-Vaše aplikace se během chvilky sestaví a nasadí. Ke sledování jejího stavu můžete využít Service Fabric Explorer.  
+Vaše aplikace se během chvilky sestaví a nasadí. Stav nasazení můžete sledovat v Service Fabric Exploreru.  
 
-## <a name="add-new-service-fabric-service-to-your-service-fabric-application"></a>Přidání nové služby Service Fabric do aplikace Service Fabric
+## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Přidání služby Service Fabric do aplikace Service Fabric
 
-Přidat novou službu Service Fabric do stávající aplikace Service Fabric je možné pomocí následujících kroků:
+Přidat službu Service Fabric do stávající aplikace Service Fabric je možné pomocí následujících kroků:
 
-1. Klikněte pravým tlačítkem na projekt, do kterého chcete přidat službu. Otevře se místní nabídka, ve které vyberte možnost **Service Fabric**. Otevře se podnabídka s několika možnostmi.
+1.  Klikněte pravým tlačítkem na projekt, ke kterému chcete přidat službu, a potom klikněte na **Service Fabric**.
 
     ![Přidat službu Service Fabric – stránka 1][add-service/p1]
 
-2. Vyberte možnost **Add ServiceFabric Service** (Přidat službu Service Fabric) a zobrazí se průvodce dalšími kroky k přidání služby do projektu.
-3. Vyberte šablonu služby, kterou chcete přidat do projektu, a klikněte na **Next** (Další).
+2.  Klikněte na **Add Service Fabric Service** (Přidat službu Service Fabric) a dokončete kroky pro přidání služby k tomuto projektu.
+3.  Vyberte šablonu služby, kterou chcete přidat do projektu, a potom klikněte na **Next** (Další).
 
     ![Přidat službu Service Fabric – stránka 2][add-service/p2]
 
-4. Zadejte název služby (a podle potřeby další nezbytné podrobnosti) a klikněte tlačítko **Add Service** (Přidat službu) v dolní části.  
+4.  Zadejte název služby (a další podrobnosti podle potřeby) a potom klikněte na **Add Service** (Přidat službu).  
 
     ![Přidat službu Service Fabric – stránka 3][add-service/p3]
 
-5. Po úspěšném přidání služby bude celá struktura projektu vypadat nějak takto:
+5.  Celková struktura projektu po přidání služby vypadá podobně jako u tohoto projektu:
 
     ![Přidat službu Service Fabric – stránka 4][add-service/p4]
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Upgrade aplikace Service Fabric v Javě
 
-Předpokládejme, že jste vytvořili a nasadili projekt ``App1`` pomocí modulu plug-in Service Fabric Eclipse, čímž jste vytvořili aplikaci ``fabric:/App1Application`` typu ``App1AppicationType`` ve verzi 1.0. Nyní chcete provést upgrade aplikace bez jejího zastavení.
+Pro scénář upgradu předpokládejme, že jste pomocí modulu plug-in Service Fabric v Eclipse vytvořili projekt **App1**. Pomocí modulu plug-in jste ho nasadili a vytvořili aplikaci s názvem **fabric: / App1Application**. Tato aplikace je typu **App1AppicationType** a verze této aplikace je 1.0. Nyní chcete provést upgrade této aplikace bez přerušení dostupnosti.
 
-Proveďte změnu aplikace a znovu sestavte upravenou službu.  Aktualizujte soubor manifestu upravené služby (``ServiceManifest.xml``) s použitím aktualizovaných verzí pro službu (a podle potřeby i verzí kódu, konfigurace nebo dat). Také upravte manifest aplikace (``ApplicationManifest.xml``) s použitím čísla aktualizované verze pro aplikaci a upravenou službu.  
+Nejdřív proveďte úpravy aplikace a znovu sestavte upravenou službu. Aktualizujte soubor manifestu upravené služby (ServiceManifest.xml) s použitím aktualizovaných verzí pro službu (a podle potřeby i verzí kódu, konfigurace nebo dat). Dál upravte manifest aplikace (ApplicationManifest.xml) s použitím čísla aktualizované verze pro aplikaci a upravenou službu.  
 
-Pokud chcete upgradovat aplikaci pomocí Eclipse, můžete vytvořit duplicitní konfiguraci spuštění a podle potřeby ji použít k upgradu aplikace následujícím způsobem:
-1. Zvolte **Run => Run Configurations** (Spustit > Konfigurace spuštění). Klikněte na malou šipku nalevo od možnosti **Grade Project** (Klasifikace projektu) v levém podokně.
-2. Klikněte pravým tlačítkem na **ServiceFabricDeployer** a vyberte **Duplicate** (Duplikovat). Zadejte nový název této konfigurace, třeba **ServiceFabricUpgrader**.
-3. V pravém panelu na kartě **Arguments** (Argumenty) změňte **-Pconfig='deploy'** na **-Pconfig=upgrade** a klikněte na **Apply** (Použít).
-4. Nyní jste vytvořili a uložili konfiguraci spuštění pro upgrade vaší aplikace, který můžete spustit (**Run**) kdykoli chcete. Postará se o získání nejnovější aktualizované verze typu aplikace ze souboru manifestu aplikace.
+Pokud chcete k upgradu aplikace použít Eclipse Neon, můžete vytvořit duplicitní profil konfigurace spuštění. Potom ho podle potřeby využijte k upgradu vaší aplikace.
 
-Nyní můžete monitorovat upgrade aplikace pomocí Service Fabric Exploreru. Za několik minut bude aplikace aktualizovaná.
+1.  Přejděte k části **Run** > **Run Configurations** (Spustit > Konfigurace spuštění). v levém podokně klikněte na malou šipku nalevo od možnosti **Gradle Project** (Projekt Gradle).
+2.  Klikněte pravým tlačítkem na **ServiceFabricDeployer** a potom vyberte **Duplicate** (Duplikovat). Zadejte nový název pro tuto konfiguraci, třeba **ServiceFabricUpgrader**.
+3.  Na pravém panelu na kartě **Arguments** (Argumenty) změňte **-Pconfig='deploy'** na **-Pconfig=upgrade** a potom klikněte na **Apply** (Použít).
+
+Tento proces vytvoří a uloží profil konfigurace spuštění, který můžete kdykoliv použít k upgradu vaší aplikace. Postará se také o získání nejnovější aktualizované verze typu aplikace ze souboru manifestu aplikace.
+
+Upgrade aplikace trvá několik minut. Průběh upgradu aplikace můžete monitorovat pomocí Service Fabric Exploreru.
 
 <!-- Images -->
 
