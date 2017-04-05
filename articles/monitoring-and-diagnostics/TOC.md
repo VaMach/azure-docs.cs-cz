@@ -4,6 +4,7 @@
 ## [Výstrahy](monitoring-overview-alerts.md)
 ## [Automatické škálování](monitoring-overview-autoscale.md)
 ## [Protokol aktivit](monitoring-overview-activity-logs.md)
+## [Skupiny akcí](monitoring-action-groups.md)
 ## [Diagnostické protokoly](monitoring-overview-of-diagnostic-logs.md)
 ## [Integrace partnerů](monitoring-partners.md)
 ## [Diagnostika Azure](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Konfigurace webhooků a e-mailových oznámení pro automatické škálování](insights-autoscale-to-webhook-email.md)
 ## Použití protokolu aktivit
 ### [Zobrazení událostí v protokolu aktivit](insights-debugging-with-events.md)
-### [Konfigurace webhooku v upozornění protokolu aktivit](insights-auditlog-to-webhook-email.md)
+### [Konfigurace výstrah pro událost protokolu aktivit](monitoring-activity-log-alerts.md)
 ### [Archivace protokolu aktivit](monitoring-archive-activity-log.md)
 ### [Streamování protokolů aktivit do služby Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operací pomocí Resource Manageru](../azure-resource-manager/resource-group-audit.md)
+### [Vytvoření výstrah protokolu aktivit s využitím Resource Manageru](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Oznámení služby
+### [Zobrazení oznámení služby](monitoring-service-notifications.md)
+### [Konfigurace výstrah pro oznámení služby](monitoring-activity-log-alerts-on-service-notifications.md)
+## Skupiny akcí
+### [Další informace o schématu webhooků](monitoring-activity-log-alerts-webhook.md)
+### [Chování výstrah SMS](monitoring-sms-alert-behavior.md)
+### [Omezení četnosti výstrah](monitoring-alerts-rate-limiting.md)
+### [Vytvoření skupiny akcí s využitím Resource Manageru](monitoring-create-action-group-with-resource-manager-template.md)
 ## Správa diagnostických protokolů
 ### [Archiv](monitoring-archive-diagnostic-logs.md)
 ### [Streamování do Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)

@@ -65,6 +65,7 @@
 ### [Předpověď výsledků kontroly potravin](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analýza webových protokolů](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Použití Caffe pro získání hlubších znalostí](hdinsight-deep-learning-caffe-spark.md)
+### [Použití se sadou Microsoft Cognitive Toolkit](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Použití poznámkových bloků Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jádra aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Použití externích balíčků s Jupyterem s využitím magických příkazů v buňkách](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [Použití rozhraní REST k instalací aplikací](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Publikování aplikací HDInsight na Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Zabezpečení
+### [Použití SSH s HDInsightem](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Použití tunelového propojení SSH](hdinsight-linux-ambari-ssh-tunnel.md)
-### [Použití SSH z Linuxu, Unixu, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [Použití SSH z operačního systému Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Omezení přístupu k datům](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Spravovat
 ### [Vytvoření clusterů s Linuxem](hdinsight-hadoop-provision-linux-clusters.md)
@@ -171,6 +171,8 @@
 ### [Porty a identifikátory URI clusterů a služeb](hdinsight-hadoop-port-settings-for-services.md)
 ### [Migrace do vývojových nástrojů Resource Manageru](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [Dostupnost a spolehlivost](hdinsight-high-availability-linux.md)
+### [Upgrade clusteru HDInsight na novější verzi](hdinsight-upgrade-cluster.md)
+### [Opravy operačního systému pro cluster HDInsight](hdinsight-os-patching.md)
 ## Řešení potíží
 ### [Tipy pro Linux](hdinsight-hadoop-linux-information.md)
 ### [Poznámky k verzi](hdinsight-release-notes.md)
@@ -195,16 +197,7 @@
 # Související
 ## Clustery s Windows
 ### [Migrace clusterů s Windows na clustery s Linuxem](hdinsight-migrate-from-windows-to-linux.md)
-### [Začínáme s Hadoopem](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Začínáme se Stormem](hdinsight-apache-storm-tutorial-get-started.md)
-### [Začínáme s HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Ukázky spouštění Hadoop MapReduce](hdinsight-run-samples.md)
-### [Vytvoření clusterů Hadoop](hdinsight-provision-clusters.md)
-#### [Použití portálu Azure Portal](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [Použití sady .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Použití rozhraní příkazového řádku Azure](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Použití Azure Powershellu](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Použití šablon Resource Manageru](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Použití Solru na clusterech](hdinsight-hadoop-solr-install-linux.md)
 ### [Použití Giraphu ke zpracování rozsáhlých grafů](hdinsight-hadoop-giraph-install.md)
 ### [Použití Oozie pro pracovní postupy](hdinsight-use-oozie.md)
@@ -212,7 +205,6 @@
 ### [Použití Mavenu k vytváření aplikací v Javě](hdinsight-hbase-build-java-maven.md)
 ### [Použití uživatelského rozhraní Tez k ladění úloh Tez](hdinsight-debug-tez-ui.md)
 ### [Přizpůsobení pomocí akce skriptu](hdinsight-hadoop-customize-cluster.md)
-### [Dostupnost a spolehlivost](hdinsight-high-availability.md)
 ### [Přístup k protokolům aplikace YARN](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Použití Apache Phoenixu a SQuirreLu](hdinsight-hbase-phoenix-squirrel.md)
 ### [Generování filmových doporučení pomocí Mahoutu](hdinsight-mahout.md)

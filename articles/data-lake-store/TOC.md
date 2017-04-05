@@ -48,6 +48,7 @@
 ### [Použití se službou Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Použití s Power BI](data-lake-store-power-bi.md)
 ### [Použití se službou Data Catalog](data-lake-store-with-data-catalog.md)
+### [Použití funkce PolyBase ve službě SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [Další možnosti integrace Azure](data-lake-store-integrate-with-other-services.md)
 
 ## Spravovat

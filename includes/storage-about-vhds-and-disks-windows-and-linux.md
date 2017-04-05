@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Trvalost disku 
-
-Následující tabulka ilustruje různé stavy pro různé disky ve virtuálních počítačích Azure a zda jsou data v jednotlivých stavech uchována.
-
-| Disk | Start | Stop/<br>Uvolnění | Pozastavení | Re-<br>startování | Vy-<br>pnutí | Odstranění | Selhání | Změna velikosti | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Disk s operačním systémem | Ano | Ano  | Ano | Ano | Ano  | Ne | Ne  | Ano | 
-| Paměť RAM  | Ano | Ano | Ano | Ano | Ne   | Ne | Ne | Ne | 
-| Místní dočasný disk | Ano | Ne | Ano | Ne | Ne  | Ne | Ne | Ne | 
-| Přídavný datový disk | Ano | Ano | Ano | Ano | Ano  | Ano | Ano | Ano | 
 
 ## <a name="about-vhds"></a>Virtuální pevné disky
 
@@ -41,7 +31,7 @@ Služba Storage úrovně Premium je založená na jednotkách SSD a poskytuje po
 
 ### <a name="unmanaged-disks"></a>Nespravované disky
 
-Nespravované disky jsou tradičním typem disků, jaké používají virtuální počítače. U těchto disků si vytvoříte vlastní účet úložiště, který zadáte při vytváření disku. Je třeba zajistit, abyste do stejného účtu úložiště neumístili příliš mnoho disků, protože byste mohli překročit [cíle škálovatelnosti](../articles/storage/storage-scalability-targets.md) účtu úložiště (například&20; 000 IOPS), což by vyústilo v omezení virtuálních počítačů. U nespravovaných disků musíte zjistit, jak maximalizovat využití jednoho nebo více účtů úložiště a získat tak ze svých virtuálních počítačů nejlepší výkon.
+Nespravované disky jsou tradičním typem disků, jaké používají virtuální počítače. U těchto disků si vytvoříte vlastní účet úložiště, který zadáte při vytváření disku. Je třeba zajistit, abyste do stejného účtu úložiště neumístili příliš mnoho disků, protože byste mohli překročit [cíle škálovatelnosti](../articles/storage/storage-scalability-targets.md) účtu úložiště (například 20 000 IOPS), což by vyústilo v omezení virtuálních počítačů. U nespravovaných disků musíte zjistit, jak maximalizovat využití jednoho nebo více účtů úložiště a získat tak ze svých virtuálních počítačů nejlepší výkon.
 
 ### <a name="managed-disks"></a>Managed Disks 
 
@@ -63,7 +53,3 @@ Následující tabulka obsahuje porovnání úrovní Premium a Standard pro spra
 | Velikost disku | P10: 128 GB<br>P20: 512 GB<br>P30: 1 024 GB | Nespravované disky: 1 GB až 1 TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1 024 GB |
 | Maximální propustnost na disk | 200 MB/s | 60 MB/s |
 | Maximum vstupně-výstupních operací za sekundu (IOPS) na disk | 5 000 IOPS | 500 IOPS |
-
-<!--HONumber=Feb17_HO3-->
-
-

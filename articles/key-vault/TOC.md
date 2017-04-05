@@ -24,7 +24,8 @@
 
 ## Automatizace
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Vytvoření a správa pomocí příkazového řádku](key-vault-manage-with-cli.md)
+### [Vytváření a správa pomocí rozhraní příkazového řádku](key-vault-manage-with-cli.md)
+### [Vytváření a správa pomocí CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

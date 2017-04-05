@@ -1,16 +1,16 @@
-# [Přehled](../../virtual-machines-linux-azure-overview.md)
+# [Přehled](../overview.md)
 ## [Image](about-images.md)
 ## [Rozšíření virtuálních počítačů](agents-and-extensions.md)
 ## [Dostupnost](configure-availability.md)
 ## [Nejčastější dotazy](faq.md)
 
-# [Začínáme](../../virtual-machines-linux-opensource-links.md)
+# [Začínáme](../opensource-links.md)
 ## [Vytvoření virtuálního počítače s Linuxem pomocí portálu](createportal.md)
 ## [Instalace rozhraní příkazového řádku Azure](../../../cli-install-nodejs.md)
-## [Vytvoření klíčů SSH](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [Vytvoření klíčů SSH](../mac-create-ssh-keys.md)
 
 # Postup
-## [Compute](../../virtual-machines-linux-intro-on-azure.md)
+## [Compute](../intro-on-azure.md)
 ### [Vytvoření vlastního virtuálního počítače](create-custom.md)
 ### [Zachycení virtuálního počítače](capture-image.md)
 ### [Použití Vzdálené plochy s virtuálním počítačem s Linuxem](remote-desktop.md)

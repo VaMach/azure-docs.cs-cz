@@ -2,7 +2,7 @@ Cloudová řešení Azure jsou založená na virtuálních počítačích (emula
 
 Azure nabízí tyto výhody Dockeru:
 
-* [Řada](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [různých](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) způsobů, jak vytvořit hostitele Docker pro kontejnery tak, aby to odpovídalo vaší situaci.
+* [Řada](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [různých](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) způsobů, jak vytvořit hostitele Docker pro kontejnery tak, aby to odpovídalo vaší situaci.
 * [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) vytváří clustery hostitelů kontejnerů s využitím orchestrátorů, jako je **Marathon** a **Swarm**.
 * [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) a [šablony skupin prostředků](../articles/resource-group-authoring-templates.md) zjednodušují nasazování a aktualizace komplexních distribuovaných aplikací.
 * Integrace se širokou škálou vlastních nebo i opensourcových nástrojů pro správu konfigurace.
@@ -92,19 +92,19 @@ Tyto funkce se potom často přenášejí do nástrojů, jako je [Puppet](https:
 Nedávno bylo vydané rozhraní REST API pro [správu prostředků Azure](../articles/resource-manager-deployment-model.md) a aktualizovaly se nástroje PowerShellu a rozhraní příkazového řádku Azure umožňující jeho snadné využití. Pomocí [šablon Azure Resource Manageru](../articles/resource-group-authoring-templates.md) s rozhraním API pro správu prostředků Azure můžete nasazovat, upravovat nebo opakovaně nasazovat celé topologie aplikací a využít přitom:
 
 * [Šablony na webu Azure Portal](https://github.com/Azure/azure-quickstart-templates) (Tip: Použijte tlačítko DeployToAzure.)
-* [Rozhraní příkazového řádku Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Moduly Azure PowerShellu](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Rozhraní příkazového řádku Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Moduly Azure PowerShellu](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Nasazení a správa celých skupin kontejnerů a virtuálních počítačů Azure
 Existuje několik oblíbených systémů, které umožňují nasadit celé skupiny virtuálních počítačů a nainstalovat na ně Docker (nebo jiné hostitelské systémy kontejnerů Linux) jako na automatizovatelnou skupinu. Přímé odkazy najdete níž v části věnované [kontejnerům a nástrojům](#containers-and-vm-technologies). Systémů, které tuto operaci ve větší nebo menší míře zvládají, je několika a jejich seznam není úplný. V závislosti na vašich dovednostech a scénářích pro vás můžou nebo nemusejí být užitečné.
 
-Docker má vlastní sadu nástrojů pro vytváření virtuálních počítačů ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) a taky nástroj pro správu clusteru s vyrovnáváním zatížení ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). [Rozšíření Azure Docker VM](https://github.com/Azure/azure-docker-extension/blob/master/README.md) navíc nabízí výchozí podporu pro příkaz [`docker-compose`](https://docs.docker.com/compose/), který umožňuje nasadit nakonfigurované kontejnery aplikace přes několik kontejnerů.
+Docker má vlastní sadu nástrojů pro vytváření virtuálních počítačů ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) a taky nástroj pro správu clusteru s vyrovnáváním zatížení ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). [Rozšíření Azure Docker VM](https://github.com/Azure/azure-docker-extension/blob/master/README.md) navíc nabízí výchozí podporu pro příkaz [`docker-compose`](https://docs.docker.com/compose/), který umožňuje nasadit nakonfigurované kontejnery aplikace přes několik kontejnerů.
 
 Můžete taky vyzkoušet [systém DCOS (Data Center Operating System) od Mesosphere](http://docs.mesosphere.com/install/azurecluster/). DCOS využívá opensourcové „jádro distribuovaných systémů“ [mesos](http://mesos.apache.org/), které umožňuje využívat datové centrum jako jednu adresovatelnou službu. DCOS nabízí integrované balíčky pro několik důležitých systémů, jako je [Spark](http://spark.apache.org/) a [Kafka](http://kafka.apache.org/) (a další), a taky integrované služby, jako je [Marathon](https://mesosphere.github.io/marathon/) (systém pro řízení kontejnerů) a [Chronos](https://mesos.github.io/chronos/) (distribuovaný plánovač). Mesos vychází z poznatků zjištěných Twitterem, AirBnb a dalšími webovými společnostmi. **Swarm** jde taky využít jako orchestrační modul.
 
 [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) je opensourcový systém pro správu skupin kontejnerů a virtuálních počítačů, který vychází z poznatků a zkušeností Googlu. Dokonce je možné využít i [Kubernetes a Weave k zajištění síťové podpory](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) je opensourcová platforma jako služba (PaaS), která usnadňuje nasazení a správu aplikací na vlastních serverech. Deis vychází z Dockeru a CoreOS a poskytuje službu jednoduchou službu PaaS s pracovními postupy, které jsou inspirované Heroku. Můžete snadno [vytvořit skupinu virtuálních počítačů Azure se 3 uzly, nainstalovat Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do Azure a potom [nainstalovat aplikaci Hello World typu Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) je opensourcová platforma jako služba (PaaS), která usnadňuje nasazení a správu aplikací na vlastních serverech. Deis vychází z Dockeru a CoreOS a poskytuje službu jednoduchou službu PaaS s pracovními postupy, které jsou inspirované Heroku. Můžete snadno [vytvořit skupinu virtuálních počítačů Azure se 3 uzly, nainstalovat Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do Azure a potom [nainstalovat aplikaci Hello World typu Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), linuxová distribuce s optimalizovanými nároky na místo, podporou Dockeru a vlastním kontejnerovým systémem [rkt](https://github.com/coreos/rkt), taky nabízí nástroj pro správu skupin kontejnerů s názvem [fleet](https://coreos.com/using-coreos/clustering/).
 
@@ -144,13 +144,13 @@ Nástroje Dockeru:
 
 Docker v Microsoft Azure:
 
-* [Rozšíření Docker VM pro Linux v Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Rozšíření Docker VM pro Linux v Azure](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Uživatelská příručka k rozšíření Azure Docker VM](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 * [Použití rozšíření Docker VM z rozhraní příkazového řádku Azure (Azure CLI)](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Použití rozšíření Docker VM z webu Azure Portal](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Jak použít počítač s Dockerem v Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Jak použít počítač s Dockerem v Azure](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Jak použít Docker se Swarmem v Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Začínáme s prostředím Docker a Compose v Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Začínáme s prostředím Docker a Compose v Azure](../articles/virtual-machines/linux/docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Použití šablony skupiny prostředků Azure k rychlému vytvoření hostitele Docker v Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 * [Integrovaná podpora pro `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) pro aplikace v kontejneru
 * [Implementace privátního registru Docker v Azure](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -164,7 +164,7 @@ Konfigurace, správa clusterů a orchestrace kontejnerů:
 * [Fleet v systému CoreOS](https://coreos.com/using-coreos/clustering/)
 * Deis
 
-  * [Vytvoření skupiny virtuálních počítačů Azure se 3 uzly, instalace Deis do Azure a spuštění aplikace Hello World typu Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Vytvoření skupiny virtuálních počítačů Azure se 3 uzly, instalace Deis do Azure a spuštění aplikace Hello World typu Go](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Kubernetes
 
   * [Kompletní pokyny k automatizovanému nasazení clusteru Kubernetes s využitím CoreOS a Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)

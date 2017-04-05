@@ -57,16 +57,19 @@
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java v Linuxu](service-fabric-reliable-services-quick-start-java.md)
-#### [Životní cyklus Reliable Services](service-fabric-reliable-services-lifecycle.md)
+#### [Životní cyklus Reliable Services – C#](service-fabric-reliable-services-lifecycle.md)
+#### [Životní cyklus Reliable Services – Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Použití Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Konfigurace](service-fabric-reliable-services-configuration.md)
 #### [Oznámení](service-fabric-reliable-services-notifications.md)
 #### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
 #### [Komunikace s Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Zabezpečená komunikace s Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Zabezpečená komunikace s využitím Reliable Services – C#](service-fabric-reliable-services-secure-communication.md)
+#### [Zabezpečená komunikace s využitím Reliable Services – Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [Jádro ASP.NET](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Vzdálená komunikace služby](service-fabric-reliable-services-communication-remoting.md)
+##### [Vzdálená komunikace služby – C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Vzdálená komunikace služby – Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverzní proxy server](service-fabric-reverseproxy.md)
 #### [Pokročilé využití](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Správa clusteru pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md) 
 #### [Zabezpečení clusteru](service-fabric-cluster-security.md)
 #### [Zotavení po havárii](service-fabric-disaster-recovery.md)
+#### [Rozdíly ve funkcích mezi systémy Linux a Windows](service-fabric-linux-windows-differences.md)
 
 ### Clustery v Azure
 #### Vytvoření clusteru v Azure

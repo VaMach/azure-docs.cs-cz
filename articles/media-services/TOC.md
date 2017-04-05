@@ -41,6 +41,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Nahrávání velkých souborů pomocí Aspery](media-services-upload-files-with-aspera.md)
+### [Nahrávání souborů pomocí StorSimple](media-services-upload-files-from-storsimple.md)
 ### [Kopírování existujících objektů blob](media-services-copying-existing-blob.md)
 
 ## [Kódování obsahu](media-services-encode-asset.md)

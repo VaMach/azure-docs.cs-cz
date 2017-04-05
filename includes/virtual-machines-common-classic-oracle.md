@@ -7,7 +7,7 @@ Nejnovější sadu imagí virtuálních počítačů s Linuxem a Windows najdete
 Pokud se chcete seznámit s omezeními pro software Oracle ve virtuálních počítačích Azure s Windows serverem, přečtěte si téma [Různé důležité informace pro image virtuálních počítačů Oracle](../articles/virtual-machines/windows/classic/oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="prepare-an-oracle-linux-virtual-machine"></a>Příprava virtuálního počítače s Oracle Linuxem
-Kroky v tématu [Příprava virtuálního počítače s Oracle Linuxem pro Azure](../articles/virtual-machines/virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) vás provedou požadavky a vytvořením virtuálního počítače pro Oracle Linux 6.4+ a Oracle Linux 7.0+.
+Kroky v tématu [Příprava virtuálního počítače s Oracle Linuxem pro Azure](../articles/virtual-machines/linux/oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) vás provedou požadavky a vytvořením virtuálního počítače pro Oracle Linux 6.4+ a Oracle Linux 7.0+.
 
 ## <a name="oracle-data-guard"></a>Oracle Data Guard
 Kroky v tématu [Konfigurace Oracle Data Guard pro Azure](../articles/virtual-machines/windows/classic/configure-oracle-data-guard.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) vás provedou konfigurací pohotovostního prostředí a naslouchacího procesu.
