@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -274,7 +274,7 @@ Po správném nakonfigurování serverů, cloudů a sítí můžete povolit ochr
     ![Ověření virtuálních počítačů](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Na kartě **Konfigurace** ve vlastnostech virtuálního počítače je možné upravit následující vlastnosti sítě.
 
-* **Počet síťových adaptérů na cílovém virtuálním počítači:** Počet síťových adaptérů závisí na velikosti, kterou zadáte pro cílový virtuální počítač. Počet adaptérů podporovaných velikostí virtuálního počítače zjistíte ze [specifikace velikosti virtuálního počítače](../virtual-machines/virtual-machines-linux-sizes.md). Když změníte velikost virtuálního počítače a uložíte nastavení, počet síťových adaptérů se změní při příštím otevření stránky **Konfigurace**. Počet síťových adaptérů cílových virtuálních počítačů představuje minimální počet síťových adaptérů na zdrojovém virtuálním počítači a maximální počet síťových adaptérů, který je podporovaný zvolenou velikostí virtuálního počítače, a to následujícím způsobem:
+* **Počet síťových adaptérů na cílovém virtuálním počítači:** Počet síťových adaptérů závisí na velikosti, kterou zadáte pro cílový virtuální počítač. Počet adaptérů podporovaných velikostí virtuálního počítače zjistíte ze [specifikace velikosti virtuálního počítače](../virtual-machines/linux/sizes.md). Když změníte velikost virtuálního počítače a uložíte nastavení, počet síťových adaptérů se změní při příštím otevření stránky **Konfigurace**. Počet síťových adaptérů cílových virtuálních počítačů představuje minimální počet síťových adaptérů na zdrojovém virtuálním počítači a maximální počet síťových adaptérů, který je podporovaný zvolenou velikostí virtuálního počítače, a to následujícím způsobem:
 
   * Pokud je počet síťových adaptérů na zdrojovém počítači menší nebo roven počtu adaptérů, které jsou povolené pro velikost cílového počítače, pak bude mít cíl stejný počet adaptérů jako zdroj.
   * Pokud počet adaptérů pro zdrojový virtuální počítač překračuje počet povolený pro cílovou velikost, použije se maximální velikost cíle.

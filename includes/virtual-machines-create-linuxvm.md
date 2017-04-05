@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > Pro virtuální počítač s Linuxem musíte v příkazu `vm create` zadat možnost `-e`. Po vytvoření virtuálního počítače už není možné SSH povolit. Další informace o SSH najdete v tématu [Jak použít SSH s Linuxem v Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > Pro virtuální počítač s Linuxem musíte v příkazu `vm create` zadat možnost `-e`. Po vytvoření virtuálního počítače už není možné SSH povolit. Další informace o SSH najdete v tématu [Jak použít SSH s Linuxem v Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. Atributy virtuálního počítače můžete ověřit pomocí příkazu `azure vm show`. Následující příklad zobrazí informace pro virtuální počítač s názvem `myVM`:
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>Další kroky
 Podrobné informace o všech těchto příkazech rozhraní příkazového řádku Azure CLI 1.0 pro virtuální počítače najdete v tématu věnovaném [použití rozhraní příkazového řádku Azure CLI 1.0 s rozhraním API nasazení Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -81,14 +81,14 @@ V Azure se virtuální počítače vytvářejí z imagí. Image obvykle pocháze
 
 Když vytvoříte virtuální počítač pomocí z Azure Marketplace, vlastně pracujete se šablonami. Šablony Azure Resource Manageru jsou deklarativní soubory JSON (JavaScript Object Notation), které se dají využít k vytváření komplexních aplikačních prostředí, která zahrnují virtuální počítače, úložiště, virtuální sítě atd. O použití [šablon Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md), včetně postupu při [vytváření vlastních šablon](../articles/resource-group-authoring-templates.md), si můžete přečíst víc.
 
-Můžete také vytvořit vlastní image a nahrát je pomocí [rozhraní příkazového řádku Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nebo [Azure PowerShellu](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). To vám umožní rychle vytvořit vlastní virtuální počítače splňující konkrétní požadavky na sestavení.
+Můžete také vytvořit vlastní image a nahrát je pomocí [rozhraní příkazového řádku Azure](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nebo [Azure PowerShellu](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). To vám umožní rychle vytvořit vlastní virtuální počítače splňující konkrétní požadavky na sestavení.
 
 ## <a name="availability-sets"></a>Skupiny dostupnosti
-Skupina dostupnosti je logické seskupení virtuálních počítačů, které umožňují Azure pochopit, jak je sestavená vaše aplikace, aby bylo možné zajistit redundanci a dostupnost. Pro aplikace vyžadující vysokou dostupnost a pro zajištění [Azure SLA s&99;,95 dostupností](https://azure.microsoft.com/support/legal/sla/virtual-machines/) se doporučuje vytvořit ve skupině dostupnosti dva nebo víc virtuálních počítačů. Pokud [Azure Premium Storage](../articles/storage/storage-premium-storage.md) využívá jeden virtuální počítač, Azure SLA se vztahuje na neplánovanou údržbu. Skupina dostupnosti se skládá ze dvou dalších seskupení, které chrání před selháním hardwaru a umožňují bezpečnou instalaci aktualizací – doména selhání (FD) a aktualizační doména (UD).
+Skupina dostupnosti je logické seskupení virtuálních počítačů, které umožňují Azure pochopit, jak je sestavená vaše aplikace, aby bylo možné zajistit redundanci a dostupnost. Pro aplikace vyžadující vysokou dostupnost a pro zajištění [Azure SLA s 99,95 dostupností](https://azure.microsoft.com/support/legal/sla/virtual-machines/) se doporučuje vytvořit ve skupině dostupnosti dva nebo víc virtuálních počítačů. Pokud [Azure Premium Storage](../articles/storage/storage-premium-storage.md) využívá jeden virtuální počítač, Azure SLA se vztahuje na neplánovanou údržbu. Skupina dostupnosti se skládá ze dvou dalších seskupení, které chrání před selháním hardwaru a umožňují bezpečnou instalaci aktualizací – doména selhání (FD) a aktualizační doména (UD).
 
 ![Koncepční nákres konfigurace aktualizačních domén a domén selhání](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-O správě dostupnosti [virtuálních počítačů s Linuxem](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nebo [Windows](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) si můžete přečíst víc.
+O správě dostupnosti [virtuálních počítačů s Linuxem](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nebo [Windows](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) si můžete přečíst víc.
 
 ### <a name="fault-domains"></a>Domény selhání
 Doména selhání je logická skupina hardwarových komponent, které sdílejí společný zdroj napájení a síťový přepínač (je obdobou stojanu v místním datovém centru). Když vytváříte virtuální počítače v rámci skupiny dostupnosti, platforma Azure je automaticky distribuuje do těchto domén selhání. Tento přístup omezuje dopady potenciálního selhání fyzického hardwaru, výpadků sítě nebo přerušení napájení.
@@ -101,9 +101,4 @@ Aktualizační doména je logická skupina hardwarových komponent, u kterých j
 
 ## <a name="next-steps"></a>Další kroky
 Teď můžete tyto funkce pro zajištění redundance a dostupnosti začít používat a vytvořit prostředí Azure. Informace o doporučených postupech najdete v tématu věnovaném [osvědčeným postupům pro zajištění dostupnosti v Azure](../articles/best-practices-availability-checklist.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

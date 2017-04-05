@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Datový disk můžete do škálovací sady virtuálních počítačů přidat po
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> Různé velikosti virtuálních počítačů mají různá omezení počtu podporovaných připojených disků. Před přidáním nového disku zkontrolujte [charakteristiky velikostí virtuálních počítačů](../virtual-machines/virtual-machines-windows-sizes.md).
+> Různé velikosti virtuálních počítačů mají různá omezení počtu podporovaných připojených disků. Před přidáním nového disku zkontrolujte [charakteristiky velikostí virtuálních počítačů](../virtual-machines/windows/sizes.md).
 
 Disk můžete přidat také přidáním nového záznamu do vlastnosti _dataDisks_ v profilu _storageProfile_ definice škálovací sady a aplikováním změn. Pokud to chcete otestovat, vyhledejte existující definici škálovací sady v [Průzkumníku prostředků Azure](https://resources.azure.com/). Vyberte _Upravit_ a přidejte nový disk do seznamu datových disků. Například když použijeme výše uvedený příklad:
 ```json
@@ -106,10 +107,5 @@ Během počáteční implementace podpory připojených disků pro škálovací 
 
 Podpora připojených datových disků ve škálovacích sadách je na webu Azure Portal zpočátku omezená. V závislosti na požadavcích můžete ke správě připojených disků použít šablony Azure, rozhraní příkazového řádku, PowerShell, sady SDK nebo rozhraní REST API.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

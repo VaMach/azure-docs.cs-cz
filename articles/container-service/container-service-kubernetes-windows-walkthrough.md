@@ -18,9 +18,9 @@ ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ Všechny virtuální počítače jsou ve stejné privátní virtuální síti a 
 ## <a name="prerequisites"></a>Požadavky
 
 
-* **Veřejný klíč SSH RSA:** Při nasazení pomocí portálu nebo některé ze šablon Azure pro rychlý start budete muset zadat veřejný klíč SSH RSA pro ověření s virtuálními počítači Azure Container Service. Pokud chcete vytvořit klíče SSH (Secure Shell) RSA, postupujte podle pokynů pro systémy [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Veřejný klíč SSH RSA:** Při nasazení pomocí portálu nebo některé ze šablon Azure pro rychlý start budete muset zadat veřejný klíč SSH RSA pro ověření s virtuálními počítači Azure Container Service. Pokud chcete vytvořit klíče SSH (Secure Shell) RSA, postupujte podle pokynů pro systémy [OS X a Linux](../virtual-machines/linux/mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **ID a tajný klíč klienta instančního objektu:** Další informace a pokyny najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
 

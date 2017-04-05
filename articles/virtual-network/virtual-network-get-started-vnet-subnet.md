@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -101,7 +101,7 @@ Pokud chcete vytvořit virtuální počítač s webovým serverem, proveďte ná
     |**Skupina prostředků**|**Použít existující:** Vyberte *MyRG*|I když používáme stejnou skupinu prostředků, jakou jsme použili pro virtuální síť, prostředky nemusí existovat ve stejné skupině prostředků.|
     |**Umístění**|*Západní USA*|Umístění musí být stejné jako umístění, které jste zadali v kroku 5 části [Vytvoření virtuální sítě se dvěma podsítěmi](#create-vnet) tohoto článku. Virtuální počítače a virtuální sítě, ke kterým se připojují, musí existovat ve stejném umístění.|
 
-4. V okně **Zvolit velikost** klikněte na *DS1_V2 Standard* a pak na **Vybrat**. Seznam všech velikostí virtuálních počítačů s Windows, které Azure podporuje, najdete v článku [Velikosti virtuálních počítačů s Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+4. V okně **Zvolit velikost** klikněte na *DS1_V2 Standard* a pak na **Vybrat**. Seznam všech velikostí virtuálních počítačů s Windows, které Azure podporuje, najdete v článku [Velikosti virtuálních počítačů s Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 5. V okně **Nastavení** zadejte nebo vyberte následující hodnoty a klikněte na **OK**:
 
     |**Nastavení**|**Hodnota**|**Podrobnosti**|
@@ -111,7 +111,7 @@ Pokud chcete vytvořit virtuální počítač s webovým serverem, proveďte ná
     |**Podsíť**|Vyberte *Front-end*|Můžete vybrat jakoukoli podsíť, která existuje v rámci vybrané virtuální sítě.|
     |**Veřejná IP adresa**|Přijměte výchozí hodnotu|Veřejná IP adresa umožňuje připojení k virtuálnímu počítači z internetu. Další informace o veřejných IP adresách najdete v článku [IP adresy](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).|
     |**Skupina zabezpečení sítě (brána firewall)**|Přijměte výchozí hodnotu|Klikněte na výchozí skupinu zabezpečení sítě **(nové) MyWebServer-nsg**, kterou portál vytvořil, a zobrazte její nastavení. Otevře se okno **Vytvořit skupinu zabezpečení sítě**. V něm si všimněte, že obsahuje jedno příchozí pravidlo, které umožňuje provoz prostřednictvím protokolu TCP/3389 (RDP) z jakékoli zdrojové IP adresy.|
-    |**Všechny ostatní hodnoty**|Přijměte výchozí hodnoty|Další informace o zbývajících nastaveních najdete v článku [O virtuálních počítačích](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+    |**Všechny ostatní hodnoty**|Přijměte výchozí hodnoty|Další informace o zbývajících nastaveních najdete v článku [O virtuálních počítačích](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 
     Skupiny zabezpečení sítě (NSG) umožňují vytvořit příchozí a odchozí pravidla pro typ síťového provozu, který může téct do a z virtuálního počítače. Ve výchozím nastavení je zakázán veškerý příchozí provoz do virtuálního počítače. Pro produkční webový server můžete přidat další příchozí pravidla pro port TCP/80 (HTTP) a TCP/443 (HTTPS). Pro odchozí provoz žádné pravidlo není, protože ve výchozím nastavení je veškerý odchozí provoz povolen. Přidáváním a odebíráním pravidel můžete řídit provoz pro vaše zásady. Další informace o skupinách NSG najdete v tématu [Skupiny zabezpečení sítě](virtual-networks-nsg.md).
 
@@ -160,7 +160,7 @@ Přestože jste vytvořili jednu virtuální síť a dva virtuální počítače
 
     ![Obsah skupiny prostředků](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Další informace o virtuálních počítačích, discích a účtech úložiště najdete v článcích, které obsahují přehledy [virtuálních počítačů](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [disků](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [účtů úložiště](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vidíte dvě výchozí skupiny zabezpečení sítě, které pro vás portál vytvořil. Vidíte také, že portál vytvořil dva prostředky síťového rozhraní. Síťové rozhraní umožňuje připojení virtuálního počítače k ostatním prostředkům přes virtuální síť. Další informace o síťových rozhraních najdete v článku [Síťová rozhraní](virtual-network-network-interface.md). Portál také vytvořil jeden prostředek veřejné IP adresy. Veřejné IP adresy jsou jedním z nastavení prostředku veřejné IP adresy. Další informace o veřejných IP adresách najdete v článku [IP adresy](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Další informace o virtuálních počítačích, discích a účtech úložiště najdete v článcích, které obsahují přehledy [virtuálních počítačů](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [disků](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [účtů úložiště](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vidíte dvě výchozí skupiny zabezpečení sítě, které pro vás portál vytvořil. Vidíte také, že portál vytvořil dva prostředky síťového rozhraní. Síťové rozhraní umožňuje připojení virtuálního počítače k ostatním prostředkům přes virtuální síť. Další informace o síťových rozhraních najdete v článku [Síťová rozhraní](virtual-network-network-interface.md). Portál také vytvořil jeden prostředek veřejné IP adresy. Veřejné IP adresy jsou jedním z nastavení prostředku veřejné IP adresy. Další informace o veřejných IP adresách najdete v článku [IP adresy](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Připojení k virtuálním počítačům
 
@@ -252,5 +252,5 @@ V tomto cvičení jste vytvořili virtuální síť a dva virtuální počítač
 - [Veřejné IP adresy](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Síťová rozhraní](virtual-network-network-interface.md)
 - [Skupiny zabezpečení sítě](virtual-networks-nsg.md)
-- [Virtual Machines](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Virtual Machines](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

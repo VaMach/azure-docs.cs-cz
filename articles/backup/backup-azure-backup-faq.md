@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -213,7 +213,7 @@ Azure Backup podporuje pro zálohování souborů a složek a pro zálohování 
 
 **Pro zálohování virtuálního počítače Azure:**
 
-* **Linux**: Azure Backup podporuje [seznam distribucí schválených pro Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), kromě základního OS Linux.  Další vlastní distribuce Linuxu mohou také fungovat, pokud je ve virtuálním počítači dostupný agent virtuálního počítače a pokud je podporovaný Python.
+* **Linux**: Azure Backup podporuje [seznam distribucí schválených pro Azure](../virtual-machines/linux/endorsed-distros.md), kromě základního OS Linux.  Další vlastní distribuce Linuxu mohou také fungovat, pokud je ve virtuálním počítači dostupný agent virtuálního počítače a pokud je podporovaný Python.
 * **Windows Server**: Verze starší než Windows Server 2008 R2 nejsou podporovány.
 
 
@@ -222,8 +222,8 @@ Množství dat, která můžete do trezoru zálohovat, není nijak omezené. Azu
 
 | Zdroj č. | Operační systém | Maximální velikost zdroje dat |
 |:---:|:--- |:--- |
-| 1 |Windows Server 2012 nebo novější |54&400; GB |
-| 2 |Windows 8 nebo novější |54&400; GB |
+| 1 |Windows Server 2012 nebo novější |54 400 GB |
+| 2 |Windows 8 nebo novější |54 400 GB |
 | 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
 | 4 |Windows 7 |1700 GB |
 

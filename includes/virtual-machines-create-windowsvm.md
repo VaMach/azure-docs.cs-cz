@@ -16,7 +16,7 @@ Okno Základy požaduje informace pro správu virtuálního počítače.
 
 2. Zadejte **uživatelské jméno** a silné **heslo**, které se použijí k vytvoření místního účtu ve virtuálním počítači. Místní účet slouží k přihlášení k virtuálnímu počítači a jeho správě. Uživatelské jméno v tomto příkladu je _azureuser_.
 
- Heslo musí mít 8 až 123 znaků a musí splňovat tři ze čtyř bezpečnostních požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. Přečtěte si další informace o [požadavcích na uživatelské jméno a heslo](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ Heslo musí mít 8 až 123 znaků a musí splňovat tři ze čtyř bezpečnostních požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak. Přečtěte si další informace o [požadavcích na uživatelské jméno a heslo](../articles/virtual-machines/windows/faq.md).
 
 3. **Předplatné** je volitelné. Jedním z běžných nastavení jsou průběžné platby.
 
