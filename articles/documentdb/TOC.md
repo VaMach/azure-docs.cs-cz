@@ -85,6 +85,7 @@
 
 
 ## Integrace
+### [Připojení ke Sparku](documentdb-spark-connector.md)
 ### [Nasazení webu pomocí služby Azure App Service](documentdb-create-documentdb-website.md)
 ### [Protokolování aplikací pomocí funkce Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Vytvoření vazby na službu Azure Functions](../azure-functions/functions-bindings-documentdb.md)

@@ -23,18 +23,12 @@
 ## Vytvoření a změny konfigurace partnerského vztahu
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (Classic)](expressroute-howto-routing-classic.md)
 ## Propojení virtuální sítě k okruhu ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (Classic)](expressroute-howto-linkvnet-classic.md)
-## Konfigurace brány virtuální sítě pro ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
-## Vytvoření současně existujících připojení typu Site-to-Site VPN Gateway a ExpressRoute
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-coexist-classic.md)
-## [Přesun okruhu z modelu nasazení Classic do Resource Manager](expressroute-howto-move-arm.md)
+## [Konfigurace brány virtuální sítě pro ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](expressroute-howto-coexist-resource-manager.md)
+## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
 ## Konfigurace směrovače pro ExpressRoute
 ### [Konfigurace směrovače](expressroute-config-samples-routing.md)
 ### [Ukázky konfigurace směrovače pro překlad adres (NAT)](expressroute-config-samples-nat.md)

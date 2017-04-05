@@ -37,10 +37,10 @@
 
 # Související
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+## [Zpracování dat pomocí služeb Batch a Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Řešení pro Batch a prostředí HPC v cloudu Azure](batch-hpc-solutions.md)
-## [Big Compute v Azure: Technické prostředky](big-compute-resources.md)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/batch/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
@@ -48,5 +48,8 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Ukázky rozhraní příkazového řádku](batch-cli-samples.md)
+## [Prostředky Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+
 

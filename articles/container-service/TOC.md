@@ -16,6 +16,7 @@
 ### [Vyrovnávání zatížení kontejnerů DC/OS](container-service-load-balancing.md)
 ### [Orchestrator pro konkrétní uživatele/aplikace v DC/OS](container-service-application-specific-marathon.md)
 ### [Přidání sdílené složky](container-service-dcos-fileshare.md)
+### [Použití registru kontejnerů Azure](container-service-dcos-acr.md)
 ### Monitorování DC/OS
 #### [Monitorování pomocí ELK](container-service-monitoring-elk.md)
 #### [Monitorování pomocí OMS](container-service-monitoring-oms.md)
@@ -36,6 +37,7 @@
 ## Správa pomocí Dockeru Swarm
 ### [Docker a Docker Compose](container-service-docker-swarm.md)
 ### [Kontinuální integrace Dockeru Swarm](container-service-docker-swarm-setup-ci-cd.md)
+## [Zabezpečené kontejnery](container-service-security.md)
 # Referenční informace
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
@@ -43,3 +45,4 @@
 ## [Dostupnost v oblastech](https://azure.microsoft.com/regions/services/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-service)

@@ -44,6 +44,7 @@
 ### [Správa uživatelských účtů](api-management-howto-create-or-invite-developers.md)
 ### [Správa s použitím automatizace](automation-manage-api-management.md)
 ### [Konfigurace pomocí Git](api-management-configuration-repository-git.md)
+### [Monitorování pomocí Azure Monitoru](api-management-howto-use-azure-monitor.md)
 # Referenční informace
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)

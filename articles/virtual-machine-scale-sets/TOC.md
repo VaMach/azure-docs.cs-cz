@@ -4,6 +4,7 @@
 # Začínáme
 ## [Nasazení škálovací sady na portálu](virtual-machine-scale-sets-portal-create.md)
 ## [Nasazení škálovací sady s použitím PowerShellu nebo Azure CLI](virtual-machine-scale-sets-create.md)
+## [Nasazení aplikace s automatickým škálováním pomocí šablony](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Postup
 ## Plánování a návrh
