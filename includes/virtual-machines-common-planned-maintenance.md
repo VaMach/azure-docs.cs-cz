@@ -14,7 +14,7 @@ Existují dva typy konfigurace virtuálních počítačů: s více instancemi a 
 
 Konfigurace s více instancemi poskytuje redundanci fyzických počítačů, napájení a sítě a je doporučenou konfigurací pro zajištění dostupnosti aplikace. Všechny virtuální počítače ve skupině dostupnosti by měly pro aplikaci sloužit ke stejnému účelu.
 
-Další informace o konfiguraci virtuálních počítačů pro vysokou dostupnost najdete v tématu [Správa dostupnosti virtuálních počítačů s Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nebo [Správa dostupnosti virtuálních počítačů s Linuxem](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Další informace o konfiguraci virtuálních počítačů pro vysokou dostupnost najdete v tématu [Správa dostupnosti virtuálních počítačů s Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nebo [Správa dostupnosti virtuálních počítačů s Linuxem](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Naproti tomu konfigurace s jednou instancí se používá pro samostatné virtuální počítače, které nejsou umístěné v žádné skupině dostupnosti. Na takové virtuální počítače se nevztahuje smlouva SLA, která vyžaduje nasazení dvou nebo více virtuálních počítačů ve stejné skupině dostupnosti.
 
@@ -28,7 +28,7 @@ Aktualizace konfigurace s více instancemi předpokládá, že všechny virtuál
 Základní platforma Azure každému virtuálnímu počítači ve skupině dostupnosti přiřadí aktualizační doménu a doménu selhání. Každá aktualizační doména je skupina virtuálních počítačů, které se budou restartovat ve stejném časovém období. Každá doména selhání je skupina virtuálních počítačů, které sdílejí společný zdroj napájení a síťový přepínač.
 
 
-Další informace o aktualizačních doménách a doménách selhání najdete v tématu [Konfigurace více virtuálních počítačů ve skupině dostupnosti pro zajištění redundance](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Další informace o aktualizačních doménách a doménách selhání najdete v tématu [Konfigurace více virtuálních počítačů ve skupině dostupnosti pro zajištění redundance](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 Za účelem zachování dostupnosti během aktualizace provádí Azure údržbu podle aktualizačních domén – aktualizuje vždy jenom jednu aktualizační doménu. Údržba v rámci aktualizační domény se skládá z vypnutí všech virtuálních počítačů v doméně, nainstalování aktualizace na hostitelských počítačích a následného restartování virtuálních počítačů. Jakmile je údržba v rámci domény dokončena, Azure tento proces zopakuje pro další aktualizační doménu a tak pokračuje s každou doménou, dokud nejsou aktualizované všechny.
 
@@ -101,4 +101,4 @@ Aktuální párování oblastí najdete v následující tabulce:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/
