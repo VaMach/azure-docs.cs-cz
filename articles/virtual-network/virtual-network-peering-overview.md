@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Požadavky a klíčové aspekty partnerských vztahů virtuálních sítí:
 * Partnerský vztah virtuálních sítí se navazuje mezi dvěma virtuálními sítěmi, ale nevzniká žádný odvozený tranzitivní vztah přes partnerské vztahy. Například pokud je síť VNetA v partnerském vztahu se sítí VNetB a VNetB je v partnerském vztahu se sítí VNetC, VNetA *není* v partnerském vztahu se sítí VNetC.
 * Partnerský vztah lze navázat mezi virtuálními sítěmi ve dvou různých předplatných za předpokladu, že navázání tohoto vztahu u obou předplatných autorizuje uživatel s oprávněním správce a že předplatná jsou přidružená stejnému tenantu Active Directory.
 * Mezi virtuálními sítěmi jde navázat partnerský vztah, pokud jsou obě vytvořené prostřednictvím modelu nasazení Resource Manager, nebo pokud je jedna vytvořená prostřednictvím modelu nasazení Resource Manager a druhá vytvořená prostřednictvím modelu nasazení Classic. Nejde ale navázat partnerský vztah mezi dvěma virtuálními sítěmi, které obě používají model nasazení Classic. Při vytváření partnerského vztahu virtuálních sítí vytvořených prostřednictvím různých modelů nasazení musí obě virtuální sítě existovat ve *stejném* předplatném. Možnost vytváření partnerského vztahu virtuálních sítí vytvořených prostřednictvím různých modelů nasazení v *různých* předplatných je ve verzi **Preview**. Další podrobnosti najdete v tématu [Vytvoření partnerského vztahu virtuálních sítí pomocí PowerShellu](virtual-networks-create-vnetpeering-arm-ps.md).
-* Ačkoli komunikace mezi virtuálními počítači ve virtuálních sítích propojených partnerským vztahem nemá žádná další omezení šířky pásma, stále platí omezení šířky pásma na základě velikosti virtuálního počítače. Další informace o maximální šířce pásma pro různé velikosti virtuálních počítačů najdete v článcích o velikosti virtuálních počítačů pro [Windows](../virtual-machines/virtual-machines-windows-sizes.md) a [Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+* Ačkoli komunikace mezi virtuálními počítači ve virtuálních sítích propojených partnerským vztahem nemá žádná další omezení šířky pásma, stále platí omezení šířky pásma na základě velikosti virtuálního počítače. Další informace o maximální šířce pásma pro různé velikosti virtuálních počítačů najdete v článcích o velikosti virtuálních počítačů pro [Windows](../virtual-machines/windows/sizes.md) a [Linux](../virtual-machines/linux/sizes.md).
 
 ![Základní partnerské vztahy virtuálních sítí](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Existují omezení týkající se počtu partnerských vztahů, které lze vytvo
 ## <a name="pricing"></a>Ceny
 Za příchozí a odchozí přenos dat využívající partnerský vztah virtuálních sítí se účtuje nominální poplatek. Další informace naleznete na [stránce s cenami](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další kroky
 Naučte se vytvořit partnerský vztah virtuálních sítí pomocí následujících metod:
 
 * [Azure Portal](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Šablona Azure Resource Manageru](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

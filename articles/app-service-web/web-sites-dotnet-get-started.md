@@ -3,7 +3,7 @@ title: "Nasazení aplikace ASP.NET do Azure pomocí sady Visual Studio | Dokumen
 description: "Zjistěte, jak nasadit webový projekt ASP.NET do nové webové aplikace ve službě Azure App Service pomocí sady Visual Studio."
 services: app-service\web
 documentationcenter: .net
-author: tdykstra
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 12/16/2016
-ms.author: rachelap
+ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
-ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 93107d19e1814b30d69fc12c92b544d9760bda6a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -50,7 +50,7 @@ Kromě času potřebného k instalaci sady Azure SDK pro rozhraní .NET bude abs
   
     Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](https://azure.microsoft.com/try/app-service/). Zde můžete vytvořit krátkodobou úvodní aplikaci ve službě App Service – aniž by byla požadována platební karta a bez jakýchkoli závazků.
 
-## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Nastavení vývojového prostředí
+## <a name="setupdevenv"></a>Nastavení vývojového prostředí
 Kurz je napsán pro sadu Visual Studio 2015 se sadou [Azure SDK pro .NET](../dotnet-sdk.md) 2.9 nebo novější. 
 
 * [Stáhněte si nejnovější sadu Azure SDK pro sadu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Sada SDK nainstaluje sadu Visual Studio 2015, pokud ji ještě nemáte.
@@ -189,8 +189,6 @@ V této části nasadíte webový projekt do prostředku webové aplikace, kter�
 
 ## <a name="troubleshooting"></a>Řešení potíží
 Pokud během tohoto kurzu narazíte na problém, ujistěte se, zda používáte nejnovější verzi sady Azure SDK pro .NET. To lze nejsnáze provést tak, že si [stáhnete sadu Azure SDK pro Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Máte-li nainstalovánu aktuální verzi, instalační program webové platformy zobrazí informaci, že instalace není zapotřebí.
-
-Pokud jste v podnikové síti a pokoušíte se provést nasazení do služby Azure App Service přes bránu firewall, ujistěte se, zda jsou pro Nasazení webu otevřené porty 443 a 8172. Nelze-li tyto porty otevřít, v následující části Další kroky naleznete jiné možnosti nasazení.
 
 Jakmile webová aplikace ASP.NET poběží ve službě Azure App Service, pravděpodobně se budete chtít blíže seznámit s funkcemi sady Visual Studio, které usnadňují řešení potíží. Informace o protokolování, vzdáleném ladění apod. naleznete v tématu [Řešení potíží s webovými aplikacemi Azure v sadě Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 

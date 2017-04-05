@@ -16,9 +16,9 @@ ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -107,7 +107,7 @@ Při vytváření fondu můžete zadat následující atributy:
 
     Velikosti výpočetních uzlů z **konfigurace služby Cloud Services** jsou uvedeny v seznamu [Velikosti pro Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Služba Batch podporuje všechny velikosti pro Cloud Services kromě `ExtraSmall`, `STANDARD_A1_V2` a `STANDARD_A2_V2`.
 
-    Velikosti výpočetních uzlů z **konfigurace virtuálního počítače** jsou uvedeny v seznamech [Velikosti pro virtuální počítače v Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) a [Velikosti pro virtuální počítače v Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Služba Batch podporuje všechny velikosti VM Azure kromě `STANDARD_A0` a těch, které mají úložiště Premium (série `STANDARD_GS`, `STANDARD_DS` a `STANDARD_DSV2`).
+    Velikosti výpočetních uzlů z **konfigurace virtuálního počítače** jsou uvedeny v seznamech [Velikosti pro virtuální počítače v Azure](../virtual-machines/linux/sizes.md) (Linux) a [Velikosti pro virtuální počítače v Azure](../virtual-machines/windows/sizes.md) (Windows). Služba Batch podporuje všechny velikosti VM Azure kromě `STANDARD_A0` a těch, které mají úložiště Premium (série `STANDARD_GS`, `STANDARD_DS` a `STANDARD_DSV2`).
 
     Při výběru velikosti výpočetního uzlu zvažte charakteristiku a požadavky aplikací, které budete v uzlech spouštět. To, jestli je aplikace vícevláknová, kolik paměti používá, a další aspekty vám mohou pomoci při určování nejvhodnější a cenově nejefektivnější velikosti uzlu. Velikost uzlu se obvykle volí s předpokladem, že na uzlu poběží současně pouze jeden úkol. Ve výpočetních uzlech je však možné mít během zpracování úkolu [paralelně spuštěno](batch-parallel-node-tasks.md) několik úkolů (a tudíž i několik instancí aplikace). V takovém případě je běžné zvolit větší velikost uzlu, aby dostačovala i v případě zvýšené poptávky na paralelní zpracování úkolů. Další informace najdete v části [Zásady plánování úkolů](#task-scheduling-policy).
 

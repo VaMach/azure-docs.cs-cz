@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e4f47341554e2de514c8be2f5c85983d09bbb760
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -34,7 +34,7 @@ Následující obrázek ukazuje architekturu clusteru kontejnerové služby s je
 ![Obrázek clusteru Kubernetes v Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>Požadavky
-Tento názorný průvodce předpokládá, že máte nainstalované a nastavené rozhraní [Azure CLI v. 2.0](/cli/azure/install-az-cli2). Také musíte mít veřejný klíč SSH RSA v souboru `~/.ssh/id_rsa.pub`. Pokud jej nemáte, podívejte se na postup pro [OS X a Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
+Tento názorný průvodce předpokládá, že máte nainstalované a nastavené rozhraní [Azure CLI v. 2.0](/cli/azure/install-az-cli2). Také musíte mít veřejný klíč SSH RSA v souboru `~/.ssh/id_rsa.pub`. Pokud jej nemáte, podívejte se na postup pro [OS X a Linux](../virtual-machines/linux/mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/linux/ssh-from-windows.md).
 
 
 

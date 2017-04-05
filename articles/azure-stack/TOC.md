@@ -65,10 +65,11 @@
 #### [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 #### [Přidání vlastní image virtuálního počítače](azure-stack-add-vm-image.md)
 #### [Nasazení virtuálních počítačů s Linuxem](azure-stack-linux.md)
-### Vyúčtování a vratka
-#### [Vyúčtování a vratka – přehled](azure-stack-billing-and-chargeback.md)
-#### [Rozhraní API využití prostředků poskytovatele](azure-stack-provider-resource-api.md)
-#### [Rozhraní API využití prostředků tenanta](azure-stack-tenant-resource-usage-api.md)
+### Využití a fakturace
+#### [Přehled](azure-stack-billing-and-chargeback.md)
+#### [Generování sestav dat využití](azure-stack-usage-reporting.md)
+#### [Rozhraní API využití zprostředkovatele](azure-stack-provider-resource-api.md)
+#### [Rozhraní API využití tenanta](azure-stack-tenant-resource-usage-api.md)
 #### [Nejčastější dotazy k využití](azure-stack-usage-related-faq.md)
 
 # Použití služeb

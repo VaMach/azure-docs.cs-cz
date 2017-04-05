@@ -16,9 +16,9 @@
 ### [Přidání vlastního kódu s využitím Azure Functions](logic-apps-azure-functions.md)
 ### [Smyčky, obory a rozdělení dávek dat](logic-apps-loops-and-scopes.md)
 ### [Vytváření definic aplikací logiky](logic-apps-author-definitions.md)
+### [Volání, triggery nebo vnořené aplikace logiky](logic-apps-http-endpoint.md)
 ### [Vytvoření vlastních rozhraní API pro aplikace logiky](logic-apps-create-api-app.md)
 ### [Volání vlastních rozhraní API pro aplikace logiky](logic-apps-custom-hosted-api.md)
-### [Volání koncových bodů aplikace logiky jako triggerů](logic-apps-http-endpoint.md)
 ### [Zpracování chyb a výjimek](logic-apps-exception-handling.md)
 ### [Zpracování typů obsahu](logic-apps-content-type.md)
 ### [Zabezpečení aplikací logiky](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [Podniková integrace X12](logic-apps-enterprise-integration-x12.md)
 ### [Kódování X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Dekódování X12](logic-apps-enterprise-integration-x12-decode.md)
+### [Zotavení po havárii](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Přístup k místním datům
 ### [Připojení k místním datům](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## Příklady, scénáře a názorné postupy
 ### [Přehled](logic-apps-examples-and-scenarios.md)
+### [Vytvoření řídicího panelu sociálních sítí bez serveru](logic-apps-scenario-social-serverless.md)
 ### [Volání aplikací logiky se službou Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Přidání zpracování chyb a výjimek](logic-apps-scenario-error-and-exception-handling.md)
 ### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md)

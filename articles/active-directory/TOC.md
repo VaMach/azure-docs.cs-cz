@@ -128,7 +128,6 @@
 
 ## Správa zařízení
 ### [Registrace zařízení](active-directory-device-registration-overview.md)
-#### [Správa automatické registrace](active-directory-device-registration.md)
 #### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
 #### [Nejčastější dotazy](active-directory-device-registration-faq.md)
@@ -161,7 +160,6 @@
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Portál Classic](active-directory-application-proxy-publish.md)
 
-#### [PingAccess pro Azure AD](application-proxy-ping-access.md)
 #### [Zabezpečení](application-proxy-security-considerations.md)
 #### [Sítě](application-proxy-network-topology-considerations.md)
 #### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
@@ -174,7 +172,8 @@
 #### [Vlastní domény](active-directory-application-proxy-custom-domains.md)
 #### [Přístup k aplikacím](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Jednotné přihlašování](active-directory-application-proxy-sso-using-kcd.md)
+#### [Jednotné přihlašování s KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [Jednotné přihlašování se záhlavími](application-proxy-ping-access.md)
 #### [Aplikace pracující s deklaracemi](active-directory-application-proxy-claims-aware-apps.md)
 #### [Nativní klientské aplikace](active-directory-application-proxy-native-client.md)
 #### [Vlastní domovská stránka](application-proxy-office365-app-launcher.md)

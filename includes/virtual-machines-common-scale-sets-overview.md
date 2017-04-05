@@ -23,7 +23,7 @@ Pokud chcete zvýšit nebo snížit počet virtuálních počítačů ve škálo
 
 Pokud šablonu znovu nasazujete s cílem změnit kapacitu, stačí definovat mnohem menší šablonu, která bude obsahovat jen SKU a aktualizovanou kapacitu. Příklad tohoto postupu najdete tady: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Pokud si chcete projít postup vytvoření škálovací sady, která se škáluje automaticky, nahlédněte do tématu [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pokud si chcete projít postup vytvoření škálovací sady, která se škáluje automaticky, nahlédněte do tématu [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="monitoring-your-vm-scale-set"></a>Monitorování škálovací sady virtuálních počítačů
 Aktuálně se pro zobrazení škálovacích sad virtuálních počítačů doporučuje použít [Průzkumníka prostředků Azure](https://resources.azure.com). Škálovací sady virtuálních počítačů jsou prostředky v části Microsoft.Compute, takže z tohoto webu si je můžete zobrazit rozbalením následujících odkazů:
@@ -115,9 +115,4 @@ Tato část uvádí některé typické scénáře použití škálovacích sad v
 **Otázka:** Spolupracují škálovací sady virtuálních počítačů se skupinami dostupnosti Azure?
 
 **Odpověď:** Ano. Škálovací sada virtuálních počítačů je implicitní skupina dostupnosti se 3 doménami selhání a 5 aktualizačními doménami. Pod virtualMachineProfile nemusíte nic konfigurovat. V budoucích verzích budou pravděpodobně škálovací sady virtuálních počítačů pokrývat více tenantů, ale v současnosti představuje škálovací sada jednu skupinu dostupnosti.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

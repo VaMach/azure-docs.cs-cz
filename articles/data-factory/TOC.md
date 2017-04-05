@@ -25,10 +25,11 @@
 
 # Postup
 ## Přesun dat
+### [Přehled aktivit kopírování](data-factory-data-movement-activities.md)
 ### [Průvodce kopírováním služby Data Factory](data-factory-azure-copy-wizard.md)
 #### [Načtení 1 TB za 15 minut](data-factory-load-sql-data-warehouse.md)
-### [Aktivita kopírování](data-factory-data-movement-activities.md)
-#### [Výkon a průvodce laděním](data-factory-copy-activity-performance.md)
+### [Průvodce laděním a výkonem](data-factory-copy-activity-performance.md)
+### Konektory
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
@@ -52,16 +53,14 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webová tabulka](data-factory-web-table-connector.md)
 ### [Brána správy dat](data-factory-data-management-gateway.md)
 ### [Přesun dat mezi lokálním prostředím a cloudem](data-factory-move-data-between-onprem-and-cloud.md)
-### [Mapování sloupců vstupních a výstupních datových sad](data-factory-map-columns.md)
-### [Podporované formáty souborů a komprese](data-factory-supported-file-and-compression-formats.md)
 
 ## [Transformace dat](data-factory-data-transformation-activities.md)
 ### [Aktivita Hivu služby HDInsight](data-factory-hive-activity.md)
@@ -100,9 +99,9 @@
 ### [Doporučení produktů](data-factory-product-reco-usecase.md)
 ### [Profilování zákazníků](data-factory-customer-profiling-usecase.md)
 ### [Zpracování rozsáhlých datových sad pomocí služeb Data Factory a Batch](data-factory-data-processing-using-batch.md)
-## [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-factory)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-factory/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Žádost o funkci](https://feedback.azure.com/forums/270578-azure-data-factory)

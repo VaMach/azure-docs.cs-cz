@@ -17,7 +17,7 @@ Instance NC jsou osazeny kartami NVIDIA Tesla K80. Uživatelé se můžou díky 
 
 **Podporované operační systémy**
 
-* Windows Server 2016, Windows Server 2012 R2 – viz [Instalace ovladačů v instancích N-series s Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 – viz [Instalace ovladačů v instancích N-series s Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
 
 ## <a name="nc-instances"></a>Instance NC
 
@@ -34,8 +34,8 @@ Instance NC jsou osazeny kartami NVIDIA Tesla K80. Uživatelé se můžou díky 
 
 **Podporované operační systémy**
 
-* Windows Server 2016, Windows Server 2012 R2 – viz [Instalace ovladačů v instancích N-series s Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
-* Ubuntu 16.04 LTS – viz [Instalace ovladačů v instancích N-series s Linuxem](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 – viz [Instalace ovladačů v instancích N-series s Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
+* Ubuntu 16.04 LTS – viz [Instalace ovladačů v instancích N-series s Linuxem](../articles/virtual-machines/linux/n-series-driver-setup.md)
 
 <br>
 

@@ -114,7 +114,6 @@
 #### [Použití dotazů Hive](machine-learning-data-science-create-features-hive.md)
 #### [Výběr funkcí TDSP](machine-learning-data-science-select-features.md)
 ### Vytvoření a trénování modelů
-#### [Převod na bodování](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Správa životního cyklu experimentů](machine-learning-version-control.md)
 #### [Správa iterací](machine-learning-manage-experiment-iterations.md)
 #### [Vytváření modelů přes PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Tvorba vlastních modulů R](machine-learning-custom-r-modules.md)
 ##### [Spouštění skriptů Pythonu](machine-learning-execute-python-scripts.md)
 
-## Modely nasazení a využití
+## Zprovoznění modelů
 ### [Přehled](machine-learning-deploy-consume-web-service-guide.md)
 ### Modely nasazení
-#### [Jak to funguje](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Nasazení webové služby](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Jak to funguje](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Příprava nasazení](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Použití externích dat](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Nasazení v několika oblastech](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Použití parametrů webové služby](machine-learning-web-service-parameters.md)
 #### [Povolení protokolování](machine-learning-web-services-logging.md)
 ### Správa webových služeb
-#### [Vytváření koncových bodů](machine-learning-create-endpoint.md)
 #### [Použití portálu webových služeb](machine-learning-manage-new-webservice.md)
 #### [Správa s rozhraními API](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Vytváření koncových bodů](machine-learning-create-endpoint.md)
 #### [Škálování](machine-learning-scaling-webservice.md)
 ### Přeučování modelů
 #### [Přehled](machine-learning-retrain-machine-learning-model.md)
@@ -198,12 +198,6 @@
 #### [Detekce anomálií](machine-learning-apps-anomaly-detection-api.md)
 #### [Analýza textu](machine-learning-apps-text-analytics.md)
 #### [Kognitivní služby](https://azure.microsoft.com/services/cognitive-services/)
-#### Doporučení
-##### [Přehled](machine-learning-recommendation-api-sample-application.md)
-##### [Rychlý start](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Referenční informace](machine-learning-recommendation-api-documentation.md)
-##### [Použití JavaScriptu](machine-learning-recommendation-api-javascript-integration.md)
-##### [Nejčastější dotazy](machine-learning-recommendation-api-faq.md)
 #### Prediktivní údržba
 ##### [Přehled](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Architektura](cortana-analytics-architecture-predictive-maintenance.md)
