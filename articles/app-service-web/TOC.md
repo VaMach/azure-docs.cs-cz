@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Kurzy
-## [Přidání funkce k webové aplikaci](app-service-web-get-started-2.md)
-## [Aplikace v ASP.NET s SQL Database](web-sites-dotnet-get-started.md)
-## [Aplikace Laravel s MySQL](app-service-web-php-get-started.md)
-## [Aplikace Sails.js s databází NOSQL](app-service-web-nodejs-sails.md)
-## [Aplikace v Javě s Eclipsem](app-service-web-eclipse-create-hello-world-web-app.md)
-## [Aplikace v Javě s IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [Aplikace v Djangu s MySQL](web-sites-python-ptvs-django-mysql.md)
 
 # Koncepty
 ## [Jak funguje App Service](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # Návody
 ## Vývoj aplikací    
 ### ASP.NET
-
+#### [Aplikace v ASP.NET s SQL Database](web-sites-dotnet-get-started.md)
 #### [Vývoj aplikace v ASP.NET Core s VS Code](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [Aplikace Laravel s MySQL](app-service-web-php-get-started.md)
 #### [Nastavení projektu PHP](web-sites-php-configure.md)
 #### [Vytvoření víc lokalit WordPress](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [Aplikace Sails.js s databází NOSQL](app-service-web-nodejs-sails.md)
 #### [Použití io.js](web-sites-nodejs-iojs.md)
 #### [Ladění aplikace v Node.js](web-sites-nodejs-debug.md)
 ### Java
-
+#### [Aplikace v Javě s Eclipsem](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [Aplikace v Javě s IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Použití Azure SDK pro Javu](java-create-azure-website-using-java-sdk.md)
 #### [Nahrání existující aplikace](web-sites-java-add-app.md)
 #### [Vzdálené ladění Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Vzdálené ladění IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [Aplikace v Djangu s MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [Odesílání e-mailů pomocí SendGridu](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [Migrace z IIS](web-sites-migration-from-iis-server.md)
 ### [Testování v produkčním prostředí](app-service-web-test-in-production-get-start.md)
+### [Přidání funkce k webové aplikaci](app-service-web-get-started-2.md)
 
 ## Připojení k databázi nebo prostředkům        
 
