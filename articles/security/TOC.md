@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Seznámení s integrací protokolů Azure](security-azure-log-integration-overview.md)
 #### [Začínáme s integrací protokolů Azure](security-azure-log-integration-get-started.md)
+#### [Integrace protokolů auditu služby Azure Active Directory](security-azure-log-integration-ad.md)
+#### [Integrace výstrah služby Security Center](security-azure-log-integration-security-center.md)
 #### [Nejčastější dotazy](security-azure-log-integration-faq.md)
 
 ## Správa identit

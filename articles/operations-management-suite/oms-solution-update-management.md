@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -106,7 +106,7 @@ Po posouzení aktualizací pro všechny počítače s Windows ve vašem prostře
 
 Aktualizace se instalují podle runbooků ve službě Azure Automation.  Tyto runbooky není možné zobrazit a nevyžadují žádnou konfiguraci.  Při vytvoření nasazení aktualizace se vytvoří plán, ve kterém se spouští hlavní runbook aktualizace v zadanou dobu pro zahrnuté počítače.  Tento hlavní runbook spouští podřízený runbook na každém agentovi Windows, který instaluje požadované aktualizace.  
 
-Pro virtuální počítače vytvořené z imagí Red Hat Enterprise Linux (RHEL) na vyžádání dostupných v Azure Marketplace jsou registrované pro přístup k infrastruktuře [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) nasazené v Azure.  Všechny ostatní distribuce Azure musí být aktualizované z online úložiště souborů distribuce podle podporované metody.  
+Pro virtuální počítače vytvořené z imagí Red Hat Enterprise Linux (RHEL) na vyžádání dostupných v Azure Marketplace jsou registrované pro přístup k infrastruktuře [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) nasazené v Azure.  Všechny ostatní distribuce Azure musí být aktualizované z online úložiště souborů distribuce podle podporované metody.  
 
 ### <a name="viewing-update-deployments"></a>Zobrazení nasazení aktualizace
 Klikněte na dlaždici **Aktualizovat nasazení** zobrazíte seznam existujících nasazení aktualizace.  Jsou seskupené podle stavu – **Naplánované**, **Spuštěné** a **Dokončeno**.<br><br> ![Stránka Plán nasazení aktualizace](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

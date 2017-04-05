@@ -1,13 +1,14 @@
 # Přehled
 ## [Co je Application Gateway?](application-gateway-introduction.md)
 ## [Nejčastější dotazy k Application Gateway](application-gateway-faq.md)
-## [Brána firewall webových aplikací](application-gateway-webapplicationfirewall-overview.md)
+## [Brána firewall webových aplikací](application-gateway-web-application-firewall-overview.md)
+### [Základní sady pravidel a pravidla](application-gateway-crs-rulegroups-rules.md)
 ## [Monitorování stavu](application-gateway-probe-overview.md)
 ## [Směrování adres URL](application-gateway-url-route-overview.md)
 ## [Multi-Site](application-gateway-multi-site-overview.md)
 ## [Koncový protokol SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Omezení služby](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Omezení služby](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Začínáme
 ## Vytvoření služby Application Gateway
 ### Veřejně přístupné
@@ -23,6 +24,8 @@
 ## Konfigurace firewallu webových aplikací
 ### [Azure Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Přizpůsobení pravidel firewallu webových aplikací
+### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
 ## Konfigurace pro přesměrování zpracování SSL
 ### [Azure Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

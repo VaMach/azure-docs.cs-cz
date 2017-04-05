@@ -45,6 +45,8 @@
 ## [Protokoly pro ověřování](active-directory-b2c-reference-protocols.md)
 ## [Tokeny](active-directory-b2c-reference-tokens.md)
 
+## [Threat Management](active-directory-b2c-reference-threat-management.md)
+
 # Související
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
@@ -55,7 +57,3 @@
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Podpora](active-directory-b2c-support.md)
-
-<!--HONumber=Nov16_HO4-->
-
-

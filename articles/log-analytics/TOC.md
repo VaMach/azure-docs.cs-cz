@@ -52,7 +52,7 @@
 ### [Stav replikace AD](log-analytics-ad-replication-status.md)
 ### [Správa výstrah](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
-### [Správa kapacit](log-analytics-capacity.md)
+### [Kapacita a výkon](log-analytics-capacity.md)
 ### [Sledování změn](log-analytics-change-tracking.md)
 ### [Kontejnery](log-analytics-containers.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)

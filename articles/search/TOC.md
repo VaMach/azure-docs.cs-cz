@@ -34,7 +34,6 @@
 ## Spravovat
 ### Správa Azure Search
 #### [Azure Portal](search-manage.md)
-#### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Monitorování využití a statistiky](search-monitor-usage.md)
 ### [Prohledání analýzy provozu](search-traffic-analytics.md)
@@ -85,8 +84,3 @@
 ### [Fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

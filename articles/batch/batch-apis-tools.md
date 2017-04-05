@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b886bab44f11354ba60ae06c6d1d671e01316d48
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 405cb202e2b6da0dd24e6f7b8ed55ce8c56e0fe1
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/21/2017
 
 Zpracování paralelních úloh službou Azure Batch se obvykle provádí programově pomocí jednoho z [rozhraní API služby Batch](#batch-development-apis). Vaše klientská aplikace nebo služba může používat rozhraní API služby Batch ke komunikaci se službou Batch. Pomocí rozhraní API služby Batch můžete vytvořit a spravovat fondy výpočetních uzlů – virtuální počítače nebo cloudové služby. Pak můžete plánovat úlohy a úkoly, které se mají v těchto uzlech spouštět. 
 
-Umožní vám to efektivně zpracovávat rozsáhlé úlohy pro vaši organizaci nebo poskytovat front-end služby zákazníkům, aby mohli spouštět úlohy a úkoly – na vyžádání nebo naplánované – na jednom, stovkách nebo tisících uzlů. Službu Azure Batch můžete také používat jako součást rozsáhlejšího pracovního postupu spravovaného nástroji, například [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
+Umožní vám to efektivně zpracovávat rozsáhlé úlohy pro vaši organizaci nebo poskytovat front-end služby zákazníkům, aby mohli spouštět úlohy a úkoly – na vyžádání nebo naplánované – na jednom, stovkách nebo tisících uzlů. Službu Azure Batch můžete také používat jako součást rozsáhlejšího pracovního postupu spravovaného nástroji, například [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
 > Až budete připraveni rozhraní API služby Batch prozkoumat podrobněji, abyste hlouběji porozuměli jeho poskytovaným funkcím, přečtěte si [Přehled funkcí služby Batch pro vývojáře](batch-api-basics.md).
@@ -56,7 +56,7 @@ Vaše aplikace a služby mohou provádět přímá volání rozhraní REST API n
 Funkce poskytované vývojovými rozhraními API jsou dostupné také prostřednictvím nástrojů příkazového řádku: 
 
 * [Rutiny prostředí PowerShell služby Batch][batch_ps]: Rutiny služby Azure Batch vám v modulu [Azure PowerShell](/powershell/azureps-cmdlets-docs) umožňují spravovat prostředky Batch v prostředí PowerShell.
-* [Azure CLI](../cli-install-nodejs.md): Rozhraní příkazového řádku služby Azure (Azure CLI) je sada nástrojů pro různé platformy, která poskytuje příkazy prostředí pro komunikaci s řadou služeb Azure, včetně služby Batch.
+* [Azure CLI](/cli/azure/overview): Rozhraní příkazového řádku služby Azure (Azure CLI) je sada nástrojů pro různé platformy, která poskytuje příkazy prostředí pro komunikaci s řadou služeb Azure, včetně služby Batch.
 
 ## <a name="batch-resource-management"></a>Správa prostředků Batch
 
@@ -98,7 +98,7 @@ Ačkoli následující nástroje nejsou k vytváření řešení pomocí služby
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
-[batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
+[batch_ps]: /powershell/resourcemanager/azurerm.batch/v2.7.0/azurerm.batch
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples

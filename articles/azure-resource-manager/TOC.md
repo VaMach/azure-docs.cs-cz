@@ -46,11 +46,12 @@
 ### [Aspekty zabezpečení](best-practices-resource-manager-security.md)
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### [Přiřazení a správa zásad](resource-manager-policy-create-assign.md)
+### [Přiřazení zásad portálu](resource-manager-policy-portal.md)
+### [Přiřazení zásad skruptů](resource-manager-policy-create-assign.md)
 ### [Zásady pro značky prostředků](resource-manager-policy-tags.md)
 ### [Zásady pro úložiště](resource-manager-policy-storage.md)
-### [Zásady pro virtuální počítače s Linuxem](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Zásady pro virtuální počítače s Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zásady pro virtuální počítače s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zásady pro virtuální počítače s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Auditování a odstraňování potíží
 ### [Řešení potíží s běžnými chybami nasazení](resource-manager-common-deployment-errors.md)
 ### [Zobrazení protokolů aktivit](resource-group-audit.md)

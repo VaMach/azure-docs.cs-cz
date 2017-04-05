@@ -23,6 +23,7 @@
 ## Konfigurace připojení typu VNet-to-VNet
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure Portal (Classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Portál Azure Classic](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Konfigurace připojení typu VNet-to-VNet mezi modely nasazení
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Ověření připojení brány VPN](vpn-gateway-verify-connection-resource-manager.md)
 ## [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
 ## Odstranění brány VPN
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Vytvoření kořenových certifikátů podepsaných svým držitelem pro připojení P2S](vpn-gateway-certificates-point-to-site.md)

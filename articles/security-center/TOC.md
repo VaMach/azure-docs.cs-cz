@@ -30,8 +30,8 @@
 #### [Směrování provozu jenom přes NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Doporučení pro službu SQL](security-center-sql-service-recommendations.md)
-#### [Povolení auditování pro databáze SQL](security-center-enable-auditing-on-sql-databases.md)
-#### [Povolení auditování pro servery SQL](security-center-enable-auditing-on-sql-servers.md)
+#### [Povolení auditování a detekce hrozeb v databázích SQL](security-center-enable-auditing-on-sql-databases.md)
+#### [Povolení auditování a detekce hrozeb na SQL serverech](security-center-enable-auditing-on-sql-servers.md)
 #### [Povolení transparentního šifrování dat](security-center-enable-transparent-data-encryption.md)
 
 ### [Doporučení pro virtuální počítače](security-center-virtual-machine-recommendations.md)
@@ -74,8 +74,3 @@
 ## [Přehled služby](https://azure.microsoft.com/services/security-center/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

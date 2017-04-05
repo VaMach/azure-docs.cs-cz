@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 81cf490eae7f283c0180875cb3a2ed2ffe6333c8
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -36,7 +36,7 @@ Při konfiguraci upozornění existují dvě možnosti volání runbooku.  Konkr
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Volání runbooku pomocí webhooku
 
-Webhook umožňuje spuštění konkrétního runbooku v Azure Automation prostřednictvím jednoho požadavku HTTP.  Před konfigurací [upozornění Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules), aby jako akci upozornění volalo runbook pomocí webhooku, bude třeba nejprve vytvořit webhook pro runbook, který bude touto metodou volán.  Přečtěte si článek [Vytvoření webhooku](automation-webhooks.md#creating-a-webhook) a postupujte podle uvedených kroků – nezapomeňte si poznamenat adresu URL webhooku, abyste na něj mohli odkazovat během konfigurace pravidla upozornění.   
+Webhook umožňuje spuštění konkrétního runbooku v Azure Automation prostřednictvím jednoho požadavku HTTP.  Před konfigurací [upozornění Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules), aby jako akci upozornění volalo runbook pomocí webhooku, bude třeba nejprve vytvořit webhook pro runbook, který bude touto metodou volán.  Přečtěte si článek [Vytvoření webhooku](automation-webhooks.md#creating-a-webhook) a postupujte podle uvedených kroků – nezapomeňte si poznamenat adresu URL webhooku, abyste na něj mohli odkazovat během konfigurace pravidla upozornění.   
 
 ## <a name="calling-a-runbook-directly"></a>Přímé volání runbooku
 
