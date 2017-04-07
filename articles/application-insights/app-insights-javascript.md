@@ -172,7 +172,7 @@ Klikněte na libovolný řádek pro konkrétní podrobnosti.
 Klikněte na tlačítko `...` pro úplnou telemetrii volání Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Žádná nahlášená volání Ajax?
-Volání AJAX zahrnují HTTP/HTTPS volání ze skriptu webové stránky. Pokud je nevidíte nahlášená, zkontrolujte, zda fragment kódu nenastavil parametry `disableAjaxTracking` nebo `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Volání AJAX zahrnují HTTP/HTTPS volání ze skriptu webové stránky. Pokud je nevidíte nahlášená, zkontrolujte, zda fragment kódu nenastavil [parametry](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` nebo `maxAjaxCallsPerView` .
 
 ## <a name="browser-exceptions"></a>Výjimky prohlížečů
 V okně prohlížeče se nachází graf souhrnu výjimek a níže v okně mřížka typů výjimek.
