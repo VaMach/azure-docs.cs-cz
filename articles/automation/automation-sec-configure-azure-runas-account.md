@@ -250,7 +250,7 @@ Abyste získali hodnoty pro parametry *SubscriptionID*, *ResourceGroup* a *Autom
 2. V okně **Všechna nastavení** v části **Nastavení účtu** vyberte **Vlastnosti**. 
 3. Hodnoty v okně **Vlastnosti** si poznamenejte.
 
- ![Podokno vlastností účtu Automation](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![Podokno vlastností účtu Automation](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Vytvoření powershellového skriptu pro účet Spustit jako
 Tento skript PowerShellu zahrnuje podporu následujících konfigurací:
@@ -415,7 +415,6 @@ Pokud chcete spustit skript a nahrát certifikát, postupujte takto:
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
