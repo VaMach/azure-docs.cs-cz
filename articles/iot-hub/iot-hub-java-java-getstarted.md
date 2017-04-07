@@ -65,7 +65,7 @@ V této části vytvoříte konzolovou aplikaci Java, která v registru identit 
     </dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.2.18</version>
     </dependency>
     ```
     
@@ -289,7 +289,7 @@ V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízen�
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.23</version>
+      <version>1.1.24</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
