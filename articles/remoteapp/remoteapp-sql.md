@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure s Azure RemoteAppem
 > [!IMPORTANT]
-> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp se přestává používat dne 31. srpna 2017. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -56,10 +57,5 @@ Pokud má klientská aplikace hostovaná v Azure RemoteAppu používající data
 * Síť používaná k připojení vašeho zařízení k Azure má vysokou latenci. K dosažení nejlepšího výkonu přejděte na nejlepší a nejrychlejší možné síťové připojení. Jako obecný nástroj k testování latence připojení svých zařízení k datovému centru Azure používejte web[azurespeed.com](http://azurespeed.com/).  
 * Klientská aplikace hostovaná v Azure RemoteAppu je vytížená. Vyberte jiný fakturační plán, například Premium, který umožní zvýšení výkonu. Další možností je monitorování prostředků, které aplikace používá: v aktivní relaci stiskněte kombinaci kláves Ctrl+Alt+End, která spustí obrazovku SAS, vyberte Správce úloh a sledujte, jak vaše aplikace používá prostředky.
 * Server SQL je vytížený nebo není optimalizovaný. Postupujte pokynů k odstraňování potíží se serverem SQL. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

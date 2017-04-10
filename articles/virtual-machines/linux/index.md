@@ -5,7 +5,6 @@ services: virtual-machines\linux
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
 ms.service: virtual-machines\linux
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,103 +12,68 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a83884a61475d6bc06e405bc7c72d4ac2435c398
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 5a8813e08d10bc2fa34a49b8b7dd01074da7426e
+ms.lasthandoff: 04/08/2017
 
 ---
-# <a name="linux-virtual-machine-documentation"></a>Dokumentace k virtuálnímu počítači s Linuxem
-
-<div class="introHolder">
-    <div class="intro">
-Naučte se spouštět virtuální počítače v Azure s distribucí Linuxu podle vašeho výběru. Dokumentace, reference k rozhraní API a ukázky ukazují různé způsoby vytváření a nasazení šablon virtuálních počítačů.
+<div class="content">
+    <h1>Dokumentace k virtuálním počítačům s Linuxem</h1>
+    <p style="padding-bottom: 0px; max-width: 1050px;">Virtuální počítače s Linuxem v Azure poskytují vysoce škálovatelnou zabezpečenou virtualizovanou infrastrukturu na vyžádání s využitím Red Hatu, Ubuntu nebo linuxové distribuce podle vaší volby.  Naučte se vytvářet, konfigurovat, spravovat a škálovat linuxové virtuální počítače prostřednictvím našich šablon Rychlý start, výukových kurzů a ukázek.</p>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">Šablony Rychlý start</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Vytvoření virtuálního počítače s Linuxem pomocí nástroje:</p>
+<div class="ico48Case">
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+            <img src="media/index/cli.svg" alt="">
+            <span>Azure CLI</span>
+        </a>
     </div>
-    <div class="calloutHolder">
-        <div class="callout">
-            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg" /> Bezplatné školicí video k PluralSightu – Správa infrastruktury pomocí Microsoft Azure </a>
-        </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <img src="media/index/portal.svg" alt="">
+            <span>Azure Portal</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+            <img src="media/index/logo_powershell.svg" alt="">
+            <span>Azure PowerShell</span>
+        </a>
+    </div>
+<div>
+<div class="columnHolder">
+    <div class="column50">
+        <h2 style="margin-top: 36px">Kurzy</h2>
+        <p>Vytvoření a nasazení virtuálních počítačů s Linuxem</p>
+        <ul class="spaced">
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Vytvoření a správa virtuálních počítačů s Linuxem</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Vyrovnávání zatížení vysoce dostupných virtuálních počítačů</a></li>
+        </ul>
+        <h2>Ukázky</h2>
+        <p>Nasazení první aplikace do Azure</p>
+        <ul class="spaced">
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
+        </ul>
+    </div>
+    <div class="column50" style="max-width: 400px">
+        <h2 style="margin-top: 36px">Bezplatné školicí video</h2>
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
+            <p style="margin-top: 0px">Bezplatné školicí video od PluralSightu – Správa infrastruktury</a></p>
+            <p style="margin-top: 36px"></p>
+                <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-vms.png" width="400" alt="" />
+            <p style="margin-top: 0px">Bezplatné školicí video od PluralSightu – Začínáme s virtuálními počítači</a></p>
+        <p style="margin-top: 36px"></p>
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
+            <p style="margin-top: 0px">Bezplatné školicí video od PluralSightu – Začínáme s monitorováním IaaS</a></p>
     </div>
 </div>
-
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI 2.0</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Vytvoření virtuálního počítače pomocí portálu</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtual-machine.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Přečtěte si o virtuálních počítačích s Linuxem</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Knihovna videí k virtuálním počítačům</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
----
- 
-<h2>Referenční informace</h2>
+<hr />
+<h2 style="margin-top: 36px">Referenční informace</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -118,7 +82,7 @@ Naučte se spouštět virtuální počítače v Azure s distribucí Linuxu podle
                     <div class="cardText">
                         <h3>Příkazový řádek</h3>
                         <p><a href="/cli/azure/vm">Azure CLI</a></p>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -152,6 +116,5 @@ Naučte se spouštět virtuální počítače v Azure s distribucí Linuxu podle
         </div>
     </li>
 </ul>
-
-
+</div>
 
