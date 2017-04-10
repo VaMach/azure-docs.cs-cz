@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Vytvoření databáze SQL Azure na webu Azure Portal
 
 Tento úvodní kurz vás provede postupy vytvoření databáze SQL v Azure.  Azure SQL Database je nabídka „databáze jako služby“, která umožňuje spouštění a škálování vysoce dostupné databáze SQL Serveru v cloudu.  Tento rychlý start ukazuje, jak začít tím, že vytvoříte novou databázi SQL pomocí webu Azure Portal.
+
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k webu Azure Portal
 
@@ -43,10 +45,10 @@ Postupujte podle následujících kroků a vytvořte databázi SQL obsahující 
 
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. Vyplňte formulář databáze SQL pomocí následujících informací, jak je vidět na předchozím obrázku: 
-   - Název databáze: Použijte **mySampleDatabase**.
-   - Skupina prostředků: Použijte **myResourceGroup**.
-   - Zdroj: Vyberte **Ukázka (AdventureWorksLT)**.
+3. Vyplňte formulář databáze SQL pomocí následujících informací, jak je vidět na předchozím obrázku:     
+   - Název databáze: **mySampleDatabase**
+   - Skupina prostředků: **myResourceGroup**
+   - Zdroj: **Ukázka (AdventureWorksLT)**
 
 4. Klikněte na **Server** a vytvořte a nakonfigurujte nový server pro novou databázi. Vyplňte **formuláře nového serveru** zadáním globálně jedinečného názvu serveru, jména pro přihlašování správce serveru a hesla podle svého výběru. 
 
@@ -82,7 +84,7 @@ Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránil
 
 4. Kliknutím na **OK** a pak na **X** zavřete stránku **Nastavení brány firewall**.
 
-Nyní se můžete připojit k databázi a jejímu serveru pomocí aplikace SQL Server Management Studio nebo jiného nástroje podle vašeho výběru.
+Nyní se můžete z této IP adresy připojit k databázi a jejímu serveru pomocí aplikace SQL Server Management Studio nebo jiného nástroje podle vašeho výběru použitím účtu správce serveru vytvořeného dříve.
 
 ## <a name="query-the-sql-database"></a>Dotazování databáze SQL
 
@@ -103,7 +105,7 @@ Když jsme vytvořili naši databázi SQL, naplnili jsme ji ukázkovou databáz�
 5. Když jste ověřeni, do podokna editoru dotazů zadejte následující dotaz.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

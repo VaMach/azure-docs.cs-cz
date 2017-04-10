@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -121,13 +121,13 @@ Server nainstalovaný a nakonfigurovaný a teď můžete do Azure MFA Serveru sn
 ## <a name="send-users-an-email"></a>Zaslání e-mailu uživatelům
 Teď, když jste naimportovali uživatele do MFA Serveru, odešlete jim e-mail s informací, že byli zaregistrování k dvoustupňovému ověřování.
 
-Jaký e-mail odešlete byste měli určit podle toho, jak jste pro uživatele nakonfigurovali dvoustupňové ověřování. Například pokud se vám podařilo naimportovat telefonní čísla z adresáře společnosti, e-mail by měl obsahovat výchozí telefonní čísla, aby uživatelé věděli, co mají očekávat. Pokud jste telefonní čísla nenaimportovali nebo pokud budou uživatelé používat mobilní aplikace, odešlete jim e-mail, který je nasměruje k dokončení registrace účtu prostřednictvím hypertextového odkazu na portál Azure Multi-Factor Authentication User Portal.
+Jaký e-mail odešlete byste měli určit podle toho, jak jste pro uživatele nakonfigurovali dvoustupňové ověřování. Například pokud se vám podařilo naimportovat telefonní čísla z adresáře společnosti, e-mail by měl obsahovat výchozí telefonní čísla, aby uživatelé věděli, co mají očekávat. Pokud jste telefonní čísla nenaimportovali nebo pokud budou uživatelé používat mobilní aplikace, odešlete jim e-mail, který je nasměruje k dokončení registrace účtu. Do e-mailu přidejte hypertextový odkaz na portál Azure Multi-Factor Authentication User Portal.
 
 Obsah e-mailu se liší také podle metody ověřování nastavené pro konkrétního uživatele (telefonní hovor, zpráva SMS nebo mobilní aplikace).  Pokud například uživatel musí při ověřování zadat PIN, v e-mailu se dozví, jaký počáteční PIN je pro něj nastavený.  Uživatelé musí při prvním ověření svůj PIN změnit.
 
 
 ### <a name="configure-email-and-email-templates"></a>Konfigurace e-mailu a šablon e-mailu
-Kliknutím vlevo na ikonu e-mailu můžete změnit nastavení odesílání těchto e-mailů. Tady můžete zadat informace o vašem poštovním serveru SMTP a odesílat e-maily zaškrtnutím políčka **Odesílat uživatelům e-maily**.
+Kliknutím vlevo na ikonu e-mailu můžete změnit nastavení odesílání těchto e-mailů. Na této stránce můžete zadat informace o vašem poštovním serveru SMTP a odesílat e-maily zaškrtnutím políčka **Odesílat uživatelům e-maily**.
 
 ![Nastavení e-mailu](./media/multi-factor-authentication-get-started-server/email1.png)
 
@@ -155,11 +155,7 @@ Vedle těchto polí se s ověřovacími údaji uloží taky výsledek ověření
 
 - Nastavení a konfigurace portálu [User Portal](multi-factor-authentication-get-started-portal.md) pro uživatelskou samoobsluhu.
 
-- Nastavení služby Azure Multi-Factor Authentication se službou [Active Directory Federation Services (AD FS)](multi-factor-authentication-get-started-adfs.md).
-
-- Nastavení a konfigurace Azure MFA Serveru s [ověřováním pomocí protokolu RADIUS](multi-factor-authentication-get-started-server-radius.md). Pomocí protokolu RADIUS můžete integrovat s Azure MFA Serverem různé systémy třetích stran. 
-
-- Nastavení a konfigurace Azure MFA Serveru s [Ověřováním systému Windows](multi-factor-authentication-get-started-server-windows.md).
+- Nastavení a konfigurace Azure MFA Serveru pomocí [služby Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [ověřování pomocí protokolu RADIUS](multi-factor-authentication-get-started-server-radius.md) nebo [ověřování pomocí protokolu LDAP](multi-factor-authentication-get-started-server-ldap.md).
 
 - Nastavení a konfigurace [Brány vzdálené plochy a Azure Multi-Factor Authentication Serveru používajícího protokol RADIUS](multi-factor-authentication-get-started-server-rdg.md). 
 

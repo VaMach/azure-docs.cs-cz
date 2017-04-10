@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem
 > [!IMPORTANT]
-> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp se přestává používat dne 31. srpna 2017. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -121,10 +122,5 @@ Nyní můžete Access používat v libovolném zařízení – stačí si jen na
 Teď, když jste zvládli vytvoření kolekce, zkuste vytvořit [kolekci používající Office 365](remoteapp-tutorial-o365anywhere.md). Nebo můžete vytvořit [hybridní kolekci ](remoteapp-create-hybrid-deployment.md), která má přístup k místní síti.
 
 <!--Image references-->
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -61,6 +61,7 @@ Site Recovery dokáže replikovat jakoukoli aplikaci spuštěnou na podporované
 | Dynamics CRM |Ano |Již brzy |Ano |Připravuje se |
 | Oracle |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |
 | Souborový server systému Windows |Ano |Ano |Ano |Ano |
+| Citrix XenApp a XenDesktop |– |Ano |Není k dispozici |Ano |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikace služby Active Directory a DNS
 Pro většinu firemních aplikací má zásadní význam infrastruktura Active Directory a DNS. Během zotavování po havárii budete muset před obnovením aplikací a úloh ochránit a obnovit tyto součástí infrastruktury.
@@ -143,6 +144,17 @@ Azure Site Recovery poskytuje zotavení po havárii replikací kritických kompo
 -    Možnost testovat plány obnovení v izolovaném prostředí kvůli nacvičení zotavení po havárii.
 
 [Zde jsou další informace](https://aka.ms/asr-iis) o ochraně webové farmy IIS.
+
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Ochrana pro Citrix XenApp a XenDesktop
+K ochraně nasazení Citrix XenApp a XenDesktop použijte Site Recovery následujícím způsobem:
+
+* Povolte ochranu nasazení Citrix XenApp a XenDesktop replikací různých vrstev nasazení (včetně serveru AD DNS, databázového serveru SQL, Citrix Delivery Controlleru, serveru StoreFront, XenApp Masteru (VDA) a Citrix XenApp License Serveru) do Azure.
+* Zjednodušte migraci do cloudu tak, že použijete Site Recovery k migraci nasazení Citrix XenApp a XenDesktop do Azure.
+* Usnadněte testování pro Citrix XenApp/XenDesktop tak, že vytvoříte na vyžádání kopii produkčního prostředí pro testování a ladění.
+* Toto řešení jde použít jenom pro virtuální plochy operačního systému Windows Server, a ne virtuální plochy klienta, protože virtuální plochy klienta se ještě pro licencování v Azure nepodporují. 
+[Další informace](https://azure.microsoft.com/en-us/pricing/licensing-faq/) týkající se licencování pro plochy klienta nebo serveru v Azure
+
+[Další informace](https://aka.ms/citrix-xenapp-xendesktop-with-asr) o ochraně nasazení Citrix XenApp a XenDesktop
 
 ## <a name="next-steps"></a>Další kroky
 [Kontrola požadavků](site-recovery-prereq.md) 

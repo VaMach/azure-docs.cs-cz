@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 23c49393a115d9cd0ac3a1b0f146e9dcc780347e
-ms.openlocfilehash: 42be5d71d8f22a2eb06f7ca0ebd4c33fb3d8bebe
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -137,6 +138,16 @@ Pro účty Azure AD můžou správci resetovat hesla pomocí jedné z následuj�
 
 
 - - -
+## <a name="security"></a>Zabezpečení
+**Otázka: Uzamknou se účty po určitém počtu neúspěšných pokusů o přihlášení, nebo se používá složitější strategie?**</br>
+Používáme složitější strategii pro uzamčení účtů.  Je založená na adrese IP požadavku a zadaných heslech. Doba trvání uzamčení se taky zvyšuje podle pravděpodobnosti, že se jedná o útoku.  
+
+**Otázka: Určitá (běžná) hesla se odmítají se zprávou, že toto heslo se použilo už příliš mnohokrát. Týká se to hesel použitých v aktuální službě Active Directory?**</br>
+To se vztahuje na hesla, která jsou častá globálně, například všechny varianty řetězců „Password“ a „123456“.
+
+**Otázka: Budou všechny žádosti o přihlášení z podezřelých zdrojů (botnety, koncový bod tor) blokované v případě tenanta B2C, nebo to vyžaduje tenanta edice Basic nebo Premium?**</br>
+Máme bránu, která filtruje požadavky a nabízí určitou ochranu před botnety a která se používá pro všechny tenanty B2C. 
+
 ## <a name="application-access"></a>Přístup k aplikaci
 **Otázka: Kde najdu seznam aplikací, které jsou předem integrovány se službou Azure AD a jejími funkcemi?**
 
@@ -202,9 +213,4 @@ Další informace najdete v tématu [Automatizace zřizování uživatelů a jeh
 **Otázka: Je možné vytvořit zabezpečené připojení LDAP se službou Azure Active Directory?**
 
 **Odpověď:** Ne.  Azure AD nepodporuje protokol LDAP.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

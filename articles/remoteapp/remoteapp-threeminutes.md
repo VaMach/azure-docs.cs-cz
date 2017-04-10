@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Vyzkoušejte Azure RemoteApp na svém zařízení za méně než tři minuty
 > [!IMPORTANT]
-> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp se přestává používat dne 31. srpna 2017. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -42,10 +43,5 @@ Váš názor je pro nás důležitý. Na konci každé relaci se zobrazí dialog
 > Protože se jedná o kontrolované prostředí pro ukázkové použití, nepovolili jsme externí přístup k internetu z publikovaných ukázkových aplikací. Proto nejsou přístupné služby, jako je třeba OneDrive. Také je zakázána schránka (kopírování a vkládání) a přesměrování USB a tiskárny.  
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

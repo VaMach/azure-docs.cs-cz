@@ -1,5 +1,5 @@
 ---
-title: "Řešení potíží s přístupem k Azure Active Directory | Dokumentace Microsoftu"
+title: "Řešení potíží typu Odsud se tam nelze dostat na webu Azure Portal ze zařízení s Windows | Dokumentace Microsoftu"
 description: "Zjistěte, co můžete provést při řešení problémů s přístupem k online prostředkům vaší organizace."
 services: active-directory
 keywords: "přístup podmíněný zařízením, registrace zařízení, povolení registrace zařízení, registrace zařízení a MDM"
@@ -12,44 +12,63 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2017
+ms.date: 04/04/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
-ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
+ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="troubleshooting-for-azure-active-directory-access-issues"></a>Řešení potíží s přístupem k Azure Active Directory
-Pokoušíte se o přístup k intranetu SharePoint Online vaší organizace a zobrazí se vám chybová zpráva „přístup byl odepřen“. Co se s tím dá dělat?
+# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Řešení potíží typu Odsud se tam nelze dostat pro zařízení s Windows
+
+Při pokusu například o přístup k intranetu Sharepointu Online ve vaší organizaci můžete narazit na stránku, která uvádí, že *odsud se tam nelze dostat*. Tato stránka se zobrazuje, protože správce nakonfiguroval zásady podmíněného přístupu, které za určitých podmínek brání v přístupu k prostředkům vaší organizace. Možná bude nutné se při řešení těchto potíží obrátit na helpdesk nebo správce, ale existuje několik věcí, které můžete nejdřív vyzkoušet sami.
+
+Pokud používáte zařízení s **Windows**, měli byste zkontrolovat toto:
+
+- Používáte podporovaný prohlížeč?
+
+- Používáte ve vašem zařízení podporovanou verzi systému Windows?
+
+- Odpovídá vaše zařízení požadavkům?
 
 
-Tento článek popisuje nápravné kroky, které vám můžou pomoct vyřešit problémy s přístupem k online prostředkům vaší organizace.
 
-Pomoc s řešením problémů s přístupem k Azure Active Directory (Azure AD) najdete v příslušné části článku určeného po platformu vašeho zařízení:
 
-* Zařízení s Windows
-* Zařízení s iOS (Brzy zde najdete pomoc pro iPhony a iPady.)
-* Zařízení s Androidem (Brzy zde najdete pomoc pro telefony a tablety s Androidem.)
 
-## <a name="access-from-a-windows-device"></a>Přístup ze zařízení s Windows
-Pokud vaše zařízení používá některou z následujících platforem, vyhledejte v následujících částech chybovou zprávu, která se zobrazí při pokusu o přístup k aplikaci nebo službě:
 
-* Windows 10
-* Windows 8.1
-* Windows 8
-* Windows 7
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
+## <a name="supported-browser"></a>Podporovaný prohlížeč
 
-### <a name="device-is-not-registered"></a>Zařízení není registrované
-Pokud zařízení není zaregistrované ve službě Azure AD a aplikace je chráněná zásadami, které jsou založené na konkrétním zařízení, může se zobrazit stránka s některou z těchto chybových zpráv:
+Pokud váš správce nakonfiguroval zásady podmíněného přístupu, můžete pro přístup k prostředkům vaší organizace používat jenom podporovaný prohlížeč. V zařízeních se systémem Windows se podporují jenom prohlížeče **Internet Explorer** a **Edge**.
 
+To, jestli k prostředku nejde přistupovat kvůli nepodporovanému prohlížeči, snadno zjistíte v sekci podrobností chybové stránky:
+
+![Zpráva „Odsud se tam nelze dostat“ pro nepodporované prohlížeče](./media/active-directory-conditional-access-device-remediation/02.png "Scénář")
+
+Jedinou možností odstranění problému je použít prohlížeč, který aplikace pro platformu vašeho zařízení podporuje. Úplný seznam podporovaných prohlížečů najdete v části [Podporované prohlížeče](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+
+
+## <a name="supported-versions-of-windows"></a>Podporované verze Windows
+
+Pro operační systém Windows v zařízení musí být splněné tyto podmínky: 
+
+- Pokud v zařízení používáte desktopový operační systém Windows, musí to být systém Windows 7 nebo novější.
+- Pokud v zařízení používáte serverový operační systém Windows, musí to být systém Windows Server 2008 R2 nebo novější. 
+
+
+## <a name="compliant-device"></a>Odpovídající zařízení
+
+Je možné, že správce nakonfiguroval zásady podmíněného přístupu, které umožňují přístup k prostředkům vaší organizace jenom z odpovídajících zařízení. Zařízení je odpovídající, pokud je připojené k místní službě Active Directory nebo ke službě Azure Active Directory.
+
+To, jestli k prostředku nejde přistupovat kvůli zařízení, které neodpovídá požadavkům, snadno zjistíte v sekci podrobností chybové stránky:
+ 
 ![Zprávy „Odsud se tam nelze dostat“ pro neregistrovaná zařízení](./media/active-directory-conditional-access-device-remediation/01.png "Scénář")
 
-Pokud je zařízení připojené k doméně služby Active Directory ve vaší organizaci, zkuste tohle:
+
+### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Je zařízení připojené k místní službě Active Directory?
+
+**Pokud je zařízení připojené k místní službě Active Directory ve vaší organizaci:**
 
 1. Přihlaste se k Windows pomocí svého pracovního účtu (účtu služby Active Directory).
 2. Připojte se k podnikové síti prostřednictvím virtuální privátní sítě (VPN) nebo technologie DirectAccess.
@@ -58,16 +77,30 @@ Pokud je zařízení připojené k doméně služby Active Directory ve vaší o
 5. Počkejte zhruba minutu a znovu se pokuste o přístup k aplikaci nebo službě.
 6. Pokud se zobrazí stejná stránka, obraťte se na svého správce a sdělte mu podrobnosti, které získáte po kliknutí na odkaz **Podrobnosti**.
 
-Pokud zařízení není připojené k doméně a běží na systému Windows 10, máte dvě možnosti:
+
+### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Zařízení není připojené k místní službě Active Directory?
+
+Pokud zařízení není připojené k místní službě Active Directory a používá systém Windows 10, máte dvě možnosti:
 
 * Spusťte službu Azure AD Join
 * Přidejte svůj pracovní nebo školní účet do Windows.
 
-Informace o rozdílech mezi těmito dvěma možnostmi najdete v článku [Používání zařízení s Windows 10 na pracovišti](active-directory-azureadjoin-windows10-devices.md).
+Informace o rozdílech mezi těmito dvěma možnostmi najdete v článku [Používání zařízení s Windows 10 na pracovišti](active-directory-azureadjoin-windows10-devices.md).  
+Pokud zařízení:
 
-Spusťte službu Azure AD Join, a to pomocí následujících kroků pro platformu vašeho zařízení. (Na telefonech s Windows není Azure AD Join k dispozici.)
+- Patří vaší organizaci, měli byste měli spustit Azure AD Join.
+- Je osobním zařízením nebo je to Windows Phone, měli byste do Windows přidat svůj pracovní nebo školní účet. 
 
-**Windows 10 Anniversary Update**
+
+
+#### <a name="azure-ad-join-on-windows-10"></a>Azure AD Join v systému Windows 10
+
+Kroky pro připojení zařízení k Azure AD závisejí na verzi Windows 10, kterou na tomto zařízení spouštíte. Pokud chcete zjistit verzi operačního systému Windows 10, spusťte příkaz **winver**: 
+
+![Verze systému Windows](./media/active-directory-conditional-access-device-remediation/03.png )
+
+
+**Windows 10 Anniversary Update (verze 1607):**
 
 1. Otevřete aplikaci **Nastavení**.
 2. Klikněte na **Účty**  >  **Přístup do práce nebo do školy**.
@@ -77,7 +110,7 @@ Spusťte službu Azure AD Join, a to pomocí následujících kroků pro platfor
 6. Odhlaste se a znovu se přihlaste pomocí svého pracovního účtu.
 7. Znovu se pokuste o přístup k aplikaci.
 
-**Windows 10 November 2015 Update**
+**Windows 10 November 2015 Update (verze 1511):**
 
 1. Otevřete aplikaci **Nastavení**.
 2. Klikněte na **Systém**  >  **O systému**.
@@ -86,23 +119,8 @@ Spusťte službu Azure AD Join, a to pomocí následujících kroků pro platfor
 5. Odhlaste se a znovu se přihlaste pomocí svého pracovního účtu (účtu Azure AD).
 6. Znovu se pokuste o přístup k aplikaci.
 
-Pokud chcete přidat svůj pracovní nebo školní účet, postupujte takto:
 
-**Windows 10 Anniversary Update**
-
-1. Otevřete aplikaci **Nastavení**.
-2. Klikněte na **Účty**  >  **Přístup do práce nebo do školy**.
-3. Klikněte na **Připojit**.
-4. Ověřte se u své organizace, v případě potřeby proveďte vícefaktorové ověřování a pak postupujte podle zobrazených pokynů.
-5. Znovu se pokuste o přístup k aplikaci.
-
-**Windows 10 November 2015 Update**
-
-1. Otevřete aplikaci **Nastavení**.
-2. Klikněte na **Účty**  >  **Vaše účty**.
-3. Klikněte na **Přidat pracovní nebo školní účet**.
-4. Ověřte se u své organizace, v případě potřeby proveďte vícefaktorové ověřování a pak postupujte podle zobrazených pokynů.
-5. Znovu se pokuste o přístup k aplikaci.
+#### <a name="workplace-join-on-windows-81"></a>Připojení k pracovišti ve Windows 8.1
 
 Pokud zařízení není připojené k doméně a běží na systému Windows 8.1, můžete pomocí následujících kroků provést Workplace Join (připojení k pracovišti) a zaregistrovat se do Microsoft Intune:
 
@@ -113,24 +131,33 @@ Pokud zařízení není připojené k doméně a běží na systému Windows 8.1
 5. Klikněte na **Zapnout**.
 6. Znovu se pokuste o přístup k aplikaci.
 
-### <a name="browser-is-not-supported"></a>Nepodporovaný prohlížeč
-Přístup vám může být odepřen, pokud se o přístup k aplikaci nebo službě pokoušíte pomocí některého z těchto prohlížečů:
 
-* Chrome, Firefox nebo jiný prohlížeč než Microsoft Edge nebo Microsoft Internet Explorer ve Windows 10 nebo Windows Serveru 2016
-* Firefox ve Windows 8.1, Windows 7, Windows Serveru 2012 R2, Windows Serveru 2012 nebo Windows Serveru 2008 R2
 
-Uvidíte chybovou stránku podobnou této:
+#### <a name="add-your-work-or-school-account-to-windows"></a>Přidejte svůj pracovní nebo školní účet do Windows. 
 
-![Zpráva „Odsud se tam nelze dostat“ pro nepodporované prohlížeče](./media/active-directory-conditional-access-device-remediation/02.png "Scénář")
 
-Jedinou možností odstranění problému je použít prohlížeč, který aplikace pro platformu vašeho zařízení podporuje.
+**Windows 10 Anniversary Update (verze 1607):**
+
+1. Otevřete aplikaci **Nastavení**.
+2. Klikněte na **Účty**  >  **Přístup do práce nebo do školy**.
+3. Klikněte na **Připojit**.
+4. Ověřte se u své organizace, v případě potřeby proveďte vícefaktorové ověřování a pak postupujte podle zobrazených pokynů.
+5. Znovu se pokuste o přístup k aplikaci.
+
+
+**Windows 10 November 2015 Update (verze 1511):**
+
+1. Otevřete aplikaci **Nastavení**.
+2. Klikněte na **Účty**  >  **Vaše účty**.
+3. Klikněte na **Přidat pracovní nebo školní účet**.
+4. Ověřte se u své organizace, v případě potřeby proveďte vícefaktorové ověřování a pak postupujte podle zobrazených pokynů.
+5. Znovu se pokuste o přístup k aplikaci.
+
+
+
+
 
 ## <a name="next-steps"></a>Další kroky
 [Podmíněný přístup ke službě Azure Active Directory](active-directory-conditional-access.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

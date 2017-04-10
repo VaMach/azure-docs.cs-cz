@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -83,9 +83,10 @@ Otevřete prostředek Application Insights. Buď se přihlaste k webu [Azure Por
 ![Snímek obrazovky sady Visual Studio ukazující, jak otevřít portál Application Insights](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 > [!NOTE]
-> Pokud se zobrazí chyba přístupu, možná máte pro Microsoft více než jednu sadu přihlašovacích údajů a je možné, že jste přihlášení pomocí nesprávné sady. Odhlaste se z portálu a znovu se přihlaste.
+> Pokud se zobrazí chyba přístupu: Máte pro Microsoft více než jednu sadu přihlašovacích údajů a jste přihlášení pomocí nesprávné sady? Odhlaste se z portálu a znovu se přihlaste.
 
 Portál otevře zobrazení telemetrie z vaší aplikace.
+
 ![Snímek obrazovky stránky s přehledem Application Insights](./media/app-insights-asp-net/66.png)
 
 Klikněte na jakoukoli dlaždici nebo graf, aby se zobrazily podrobnější údaje.

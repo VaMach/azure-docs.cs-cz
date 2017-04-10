@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Připojení k HDInsightu (Hadoop) pomocí protokolu SSH
@@ -30,16 +30,19 @@ Následující tabulka obsahuje informace o adrese a portu potřebné pro připo
 
 | Adresa | Port | Připojení... |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Hraniční uzel (pokud existuje) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Hraniční uzel (R Server v HDInsightu) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Hraniční uzel (všechny ostatní typy clusteru, pokud hraniční uzel existuje) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primární hlavní uzel |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Sekundární hlavní uzel |
 
 > [!NOTE]
-> Parametr `<edgenodename>` nahraďte názvem hraničního uzlu. Další informace o použití hraničních uzlů najdete v tématu věnovaném [použití hraničních uzlů v HDInsightu](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+> Parametr `<edgenodename>` nahraďte názvem hraničního uzlu.
 >
 > Parametr `<clustername>` nahraďte názvem vašeho clusteru HDInsight.
 >
 > Doporučujeme, abyste se __vždycky připojili k hraničnímu uzlu__, pokud je dostupný. Hlavní uzly hostují služby, které jsou důležité pro stav clusteru. Na hraničním uzlu se spustí jenom to, co na něj umístíte.
+>
+> Další informace o použití hraničních uzlů najdete v tématu věnovaném [použití hraničních uzlů v HDInsightu](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## <a name="ssh-clients"></a>Klienti SSH
 

@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +28,7 @@ Tento článek vám pomůže s prvním připojením k SQL Data Warehouse.
 ## <a name="find-your-server-name"></a>Vyhledání názvu serveru
 Prvním krokem při připojení k SQL Data Warehouse je vědět, jak najít název serveru.  Například název serveru v následujícím příkladu je sample.database.windows.net. Plně kvalifikovaný název serveru zjistíte následujícím způsobem:
 
-1. Přejděte na [portál Azure Portal][portál Azure Portal].
+1. Přejděte na web [Azure Portal][Azure portal].
 2. Klikněte na **Databáze SQL**. 
 3. Klikněte na databázi, ke které se chcete připojit.
 4. Vyhledejte úplný název serveru.
@@ -72,11 +74,11 @@ SQL Data Warehouse během připojování a vytváření objektů používá něk
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Další kroky
-Informace o připojení a dotazování pomocí sady Visual Studio najdete v oddílu [Dotazování pomocí sady Visual Studio][Dotazování pomocí sady Visual Studio]. Další informace o možnostech ověřování najdete v oddílu [Ověřování do Azure SQL Data Warehouse][Ověřování do Azure SQL Data Warehouse].
+Informace o připojení a dotazování pomocí sady Visual Studio najdete v oddílu [Dotazování pomocí sady Visual Studio][Query with Visual Studio]. Další informace o možnostech ověřování najdete v oddílu [Ověřování do Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
-[Dotazování pomocí sady Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Ověřování do Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -89,15 +91,10 @@ Informace o připojení a dotazování pomocí sady Visual Studio najdete v odd�
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
-[portál Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ Výše uvedené schéma ukazuje, jak se zpracovávají pravidla NSG.
 ### <a name="default-tags"></a>Výchozí značky
 Výchozí značky jsou identifikátory poskytnuté systémem, které slouží k adresování určité kategorie IP adres. Výchozí značky můžete použít u libovolného pravidla ve vlastnostech **předpona zdrojové adresy** a **předpona cílové adresy**. Existují tři výchozí značky, které můžete použít.
 
-* **VIRTUAL_NETWORK:** Tato výchozí značka označuje veškerý adresní prostor vaší sítě. Zahrnuje adresní prostor virtuální sítě (rozsahy CIDR definované v Azure) a všechny připojené místní adresní prostory a připojené virtuální sítě Azure (místní sítě).
-* **AZURE_LOADBALANCER:** Tato výchozí značka označuje nástroj pro vyrovnávání zatížení infrastruktury Azure. To se přeloží do IP datacentra Azure, kde mají původ testy stavu Azure.
+* **VIRTUAL_NETWORK** (**VirtualNetwork**, pokud používáte Azure Resource Manager): Tato výchozí značka označuje veškerý adresní prostor vaší sítě. Zahrnuje adresní prostor virtuální sítě (rozsahy CIDR definované v Azure) a všechny připojené místní adresní prostory a připojené virtuální sítě Azure (místní sítě).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer**, pokud používáte Azure Resource Manager): Tato výchozí značka označuje nástroj pro vyrovnávání zatížení infrastruktury Azure. To se přeloží do IP datacentra Azure, kde mají původ testy stavu Azure.
 * **INTERNET:** Tato výchozí značka označuje adresní prostor IP adres, který se nachází mimo virtuální síť a je dostupný prostřednictvím veřejného internetu. Tento rozsah taky zahrnuje [veřejný prostor IP adres vlastněný Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Výchozí pravidla
@@ -258,9 +259,4 @@ Některé z výše uvedených skupin NSG je nutné přidružit k jednotlivým s�
 * [Nasazení skupin NSG v modelu nasazení Classic](virtual-networks-create-nsg-classic-ps.md).
 * [Nasazení skupin NSG v modelu Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [Správa protokolů NSG](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

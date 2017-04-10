@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: e9eae9ea648fc0e657d32f3f91e6641046bfae79
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -26,30 +26,36 @@ ms.lasthandoff: 03/15/2017
 Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pracovních postupů.
 
 ## <a name="standard-connectors"></a>Standardní konektory
+
 | Konektory |  |  |  |
 | --- | --- | --- | --- |
-|[![Ikona rozhraní API][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![Ikona rozhraní API][appFiguresicon]<br/>**Appfigures**|![Ikona rozhraní API][Asanaicon]<br/>**Asana**|![Ikona rozhraní API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
-|![Ikona rozhraní API][Azure-MLicon]<br/>**Azure ML**|[![Ikona rozhraní API][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|[![Ikona rozhraní API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![Ikona rozhraní API][Basecamp-3icon]<br/>**Basecamp 3**|
-|![Ikona rozhraní API][Bitlyicon]<br/>**Bitly**|![Ikona rozhraní API][BizTalk-Servericon]<br/>**BizTalk Server**|![Ikona rozhraní API][Bloggericon]<br/>**Blogger**|[![Ikona rozhraní API][Boxicon]<br/>**Box**][boxDoc]|
-|![Ikona rozhraní API][Campfireicon]<br/>**Campfire**|![Ikona rozhraní API][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![Ikona rozhraní API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![Ikona rozhraní API][DB2icon]<br/>**DB2**][db2doc]|
-|[![Ikona rozhraní API][Delayicon]<br/>**Delay**][Delaydoc]|[![Ikona rozhraní API][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![Ikona rozhraní API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
-|![Ikona rozhraní API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Ikona rozhraní API][Easy-Redmineicon]<br/>**Easy Redmine**|[![Ikona rozhraní API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Ikona rozhraní API][FileSystemIcon]<br/>**Systém souborů**][FileSystemdoc]|
-|[![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc]|![Ikona rozhraní API][GitHubicon]<br/>**GitHub**|![Ikona rozhraní API][Google-Calendaricon]<br/>**Kalendář Google**|[![Ikona rozhraní API][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|
-|![Ikona rozhraní API][Google-Sheetsicon]<br/>**Tabulky Google**|![Ikona rozhraní API][Google-Tasksicon]<br/>**Úlohy Google**|![Ikona rozhraní API][HipChaticon]<br/>**HipChat**|[![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![Ikona rozhraní API][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![Ikona rozhraní API][HTTP-Requesticon]<br/>**Požadavek<br/>HTTP**][HTTP-Requestdoc]|[![Ikona rozhraní API][HTTP-Responseicon]<br/>**Odpověď<br/>HTTP**][HTTP-Responsedoc]|[![Ikona rozhraní API][Informixicon]<br/>**Informix**][Informixdoc]|
-|![Ikona rozhraní API][Insightlyicon]<br/>**Insightly**|![Ikona rozhraní API][Instagramicon]<br/>**Instagram**|![Ikona rozhraní API][Instapapericon]<br/>**Instapaper**|![Ikona rozhraní API][JIRAicon]<br/>**JIRA**|
-|[![Ikona rozhraní API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Ikona rozhraní API][Mandrillicon]<br/>**Mandrill**|[![Ikona rozhraní API][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![Ikona rozhraní API][Nested-Logic-Appicon]<br/>**Vnořená<br/>aplikace logiky**][Nested-Logic-Appdoc]|
-|[![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![Ikona rozhraní API][Office-365-Usersicon]][office365-usersdoc]<br/>**Uživatelé<br/>Office 365**|[![Ikona rozhraní API][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![Ikona rozhraní API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![Ikona rozhraní API][OneDrive-for-Businessicon]<br/>**OneDrive<br/>pro firmy**][OneDrive-for-Businessdoc]|[![Ikona rozhraní API][Oracle-DB-icon]<br/>**Databáze Oracle**][oracle-db-doc]|[![Ikona rozhraní API][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Ikona rozhraní API][PagerDutyicon]<br/>**PagerDuty**|
-|![Ikona rozhraní API][Pinteresticon]<br/>**Pinterest**|[![Ikona rozhraní API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![Ikona rozhraní API][Queryicon]<br/>**Dotaz**][Querydoc]|[![Ikona rozhraní API][Recurrenceicon]<br/>**Opakování**][Recurrencedoc]|
-|![Ikona rozhraní API][Redmineicon]<br/>**Redmine**|[![Ikona rozhraní API][RSSicon]<br/>**RSS**][RSSdoc]|[![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona rozhraní API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona rozhraní API][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![Ikona rozhraní API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona rozhraní API][Slackicon]<br/>**Slack**][Slackdoc]|
-|![Ikona rozhraní API][Smartsheeticon]<br/>**Smartsheet**|[![Ikona rozhraní API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona rozhraní API][SparkPosticon]<br/>**SparkPost**|[![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![Ikona rozhraní API][Todoisticon]<br/>**Todoist**|[![Ikona rozhraní API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Ikona rozhraní API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![Ikona rozhraní API][Vimeoicon]<br/>**Vimeo**|![Ikona rozhraní API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![Ikona rozhraní API][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Ikona rozhraní API][WordPressicon]<br/>**WordPress**|
-|[![Ikona rozhraní API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona rozhraní API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Ikona rozhraní API][YouTubeicon]<br/>**YouTube**|
+|[![Ikona rozhraní API][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![Ikona rozhraní API][appFiguresicon]<br/>**appFigures**|![Ikona rozhraní API][Asanaicon]<br/>**Asana**|![Ikona rozhraní API][Azure-Automation-icon]<br/>**Azure Automation**|
+|[![Ikona rozhraní API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![Ikona rozhraní API][Azure-Data-Lake-icon]<br/>**Azure Data<br/>Lake**|![Ikona rozhraní API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|[![Ikona rozhraní API][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|
+|![Ikona rozhraní API][Azure-MLicon]<br/>**Azure ML**|![Ikona rozhraní API][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![Ikona rozhraní API][Azure-Queues-icon]<br/>**Fronty Azure**|![Ikona rozhraní API][Basecamp-3icon]<br/>**Basecamp 3**|
+|![Ikona rozhraní API][Bitbucket-icon]<br/>**Bitbucket**|![Ikona rozhraní API][Bitlyicon]<br/>**Bitly**|![Ikona rozhraní API][BizTalk-Servericon]<br/>**BizTalk Server**|![Ikona rozhraní API][Bloggericon]<br/>**Blogger**|
+|[![Ikona rozhraní API][Boxicon]<br/>**Box**][boxDoc]|![Ikona rozhraní API][Campfireicon]<br/>**Campfire**|![Ikona rozhraní API][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![Ikona rozhraní API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|
+|[![Ikona rozhraní API][DB2icon]<br/>**DB2**][db2doc]|[![Ikona rozhraní API][Delayicon]<br/>**Delay**][Delaydoc]|[![Ikona rozhraní API][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
+|![Ikona rozhraní API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|![Ikona rozhraní API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Ikona rozhraní API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Event-hubs-icon]<br/>**Event Hubs**][event-hubs-doc]|
+|[![Ikona rozhraní API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Ikona rozhraní API][FileSystemIcon]<br/>**Systém souborů**][FileSystemdoc]|[![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc]|![Ikona rozhraní API][GitHubicon]<br/>**GitHub**|
+|![Ikona rozhraní API][Google-Calendaricon]<br/>**Kalendář Google**|[![Ikona rozhraní API][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![Ikona rozhraní API][Google-Sheetsicon]<br/>**Tabulky Google**|![Ikona rozhraní API][Google-Tasksicon]<br/>**Úlohy Google**|
+|![Ikona rozhraní API][HipChaticon]<br/>**HipChat**|[![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![Ikona rozhraní API][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![Ikona rozhraní API][HTTP-Requesticon]<br/>**Požadavek<br/>HTTP**][HTTP-Requestdoc]|
+|[![Ikona rozhraní API][HTTP-Responseicon]<br/>**Odpověď<br/>HTTP**][HTTP-Responsedoc]|[![Ikona rozhraní API][Informixicon]<br/>**Informix**][Informixdoc]|![Ikona rozhraní API][Insightlyicon]<br/>**Insightly**|![Ikona rozhraní API][Instagramicon]<br/>**Instagram**|
+|![Ikona rozhraní API][Instapapericon]<br/>**Instapaper**|![Ikona rozhraní API][JIRAicon]<br/>**JIRA**|[![Ikona rozhraní API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Ikona rozhraní API][Mandrillicon]<br/>**Mandrill**|
+|[![Ikona rozhraní API][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![Ikona rozhraní API][Nested-Logic-Appicon]<br/>**Vnořená<br/>aplikace logiky**][Nested-Logic-Appdoc]|[![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![Ikona rozhraní API][Office-365-Usersicon]][office365-usersdoc]<br/>**Uživatelé<br/>Office 365**|
+|[![Ikona rozhraní API][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![Ikona rozhraní API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![Ikona rozhraní API][OneDrive-for-Businessicon]<br/>**OneDrive<br/>pro firmy**][OneDrive-for-Businessdoc]|[![Ikona rozhraní API][Oracle-DB-icon]<br/>**Databáze Oracle**][oracle-db-doc]|
+|[![Ikona rozhraní API][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Ikona rozhraní API][PagerDutyicon]<br/>**PagerDuty**|![Ikona rozhraní API][Pinteresticon]<br/>**Pinterest**|[![Ikona rozhraní API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![Ikona rozhraní API][Queryicon]<br/>**Dotaz**][Querydoc]|[![Ikona rozhraní API][Recurrenceicon]<br/>**Opakování**][Recurrencedoc]|![Ikona rozhraní API][Redmineicon]<br/>**Redmine**|[![Ikona rozhraní API][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona rozhraní API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona rozhraní API][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+|[![Ikona rozhraní API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona rozhraní API][Slackicon]<br/>**Slack**][Slackdoc]|![Ikona rozhraní API][Smartsheeticon]<br/>**Smartsheet**|[![Ikona rozhraní API][SMTPicon]<br/>**SMTP**][SMTPdoc]|
+|![Ikona rozhraní API][SparkPosticon]<br/>**SparkPost**|[![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![Ikona rozhraní API][Todoisticon]<br/>**Todoist**|[![Ikona rozhraní API][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![Ikona rozhraní API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc]|![Ikona rozhraní API][Vimeoicon]<br/>**Vimeo**|![Ikona rozhraní API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![Ikona rozhraní API][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Ikona rozhraní API][WordPressicon]<br/>**WordPress**|[![Ikona rozhraní API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona rozhraní API][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![Ikona rozhraní API][YouTubeicon]<br/>**YouTube**|
 
-### <a name="integration-account-connectors"></a>Konektory účtu pro integraci 
+> [!TIP]
+> Pokud chcete začít se službou Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). V App Service si můžete hned vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+
+## <a name="integration-account-connectors"></a>Konektory účtu pro integraci 
 
 | Účet pro integraci<br/>konektory |  |  |  |
 | --- | --- | --- | --- |
@@ -57,29 +63,37 @@ Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pra
 | [![Ikona rozhraní API][as2icon]<br/>**Dekódování</br> AS2**][as2decode] |[![Ikona rozhraní API][as2icon]<br/>**Kódování</br> AS2**][as2encode] |[![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> X12**][x12decode] |[![Ikona rozhraní API][x12icon]<br/>**Kódování</br> X12**][x12encode] |
 | [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> EDIFACT**][EDIFACTdecode] |[![Ikona rozhraní API][x12icon]<br/>**Kódování</br> EDIFACT**][EDIFACTencode] | | |
 
-> [!NOTE]
-> Pokud chcete začít se službou Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). V App Service si můžete hned vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
-
 ## <a name="enterprise-connectors"></a>Podnikové konektory
-Podnikové konektory slouží k vytváření aplikací logiky pro scénáře B2B, které zahrnují EAI a EDI.  
+
+Pokud chcete vytvářet aplikace logiky pro scénáře B2B, které zahrnují EAI a EDI, zahrňte tyto podnikové konektory.
 
 | Enterprise<br/>konektory |  |
 | --- | --- |
 |![Ikona rozhraní API][MQicon]<br/>**MQ**|[![Ikona rozhraní API][SAPicon]<br/>**SAP**][sapconnector]|
 
+## <a name="connectors-as-triggers"></a>Konektory jako triggery
 
-
-<!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### <a name="connectors-can-be-triggers"></a>Konektory lze používat jako triggery
-Několik konektorů poskytuje triggery, které mohou vaší aplikaci odesílat upozornění na konkrétní události. Konektor FTP má například trigger OnUpdatedFile. Můžete vytvořit aplikaci logiky, aplikaci PowerApp nebo tok, které tomuto triggeru naslouchají a provádějí akci, kdykoliv se trigger spustí.
+Některé konektory poskytují triggery, které mohou vaší aplikaci odesílat upozornění na konkrétní události. Konektor FTP má například trigger OnUpdatedFile, který vaši aplikaci upozorní při aktualizaci souboru. Můžete vytvořit aplikaci logiky, aplikaci PowerApp nebo tok, které tomuto triggeru naslouchají a provádějí akci, kdykoliv se trigger spustí.
 
 Existují dva typy triggerů:  
 
-* Triggery dotazů: Tyto triggery odesílají službě v zadaných intervalech dotazy a kontrolují jejich pomocí dostupnost nových dat. Pokud jsou k dispozici nová data, spustí novou instanci aplikace a získaná data se použijí jako vstup. Aby se stejná data nepoužívala vícekrát, trigger také může odstranit data, která již aplikace přečetla a zpracovala.
-* Triggery nabízených oznámení: Tyto triggery naslouchají datům v koncovém bodě nebo čekají na výskyt určité události a poté spustí novou instanci vaší aplikace. Jedním z příkladů je konektor Twitter.
+* *Triggery dotazů:* Tyto triggery odesílají službě v zadaných intervalech dotazy a kontrolují jejich pomocí dostupnost nových dat. Pokud jsou k dispozici nová data, spustí novou instanci aplikace a získaná data se použijí jako vstup. Aby se stejná data nepoužívala vícekrát, trigger také může odstranit data, která již aplikace přečetla a zpracovala.
 
-### <a name="connectors-can-be-actions"></a>Konektory mohou být akce
-Konektory můžete v aplikacích použít také jako akce. Akce jsou užitečné pro vyhledávání dat, která lze poté použít při běhu aplikace. Při zpracování objednávky můžete například potřebovat vyhledat informace o zákazníkovi v databázi SQL. Nebo může být nutné zapsat, aktualizovat nebo odstranit data v cílové tabulce. Tyto úkoly můžete provést pomocí akcí poskytovaných konektory. Akce se mapují na operace, které jsou definované v metadatech Swaggeru.
+* *Triggery nabízených oznámení:* Tyto triggery naslouchají datům v koncovém bodě nebo čekají na výskyt určité události a poté spustí novou instanci vaší aplikace. Jedním z příkladů je konektor Twitter.
+
+## <a name="connectors-as-actions"></a>Konektory jako akce
+
+Konektory také poskytují akce, které můžete použít v pracovním postupu vaší aplikace. Vaše aplikace například může vyhledat data, která pak můžete použít při spuštění aplikace. Konkrétněji můžete například při zpracování objednávky potřebovat vyhledat informace o zákazníkovi v databázi SQL. Nebo může být nutné zapsat, aktualizovat nebo odstranit data v cílové tabulce. Akce se mapují na operace, které jsou definované v metadatech Swaggeru.
+
+## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Vlastní konektory a certifikace pro Microsoft Azure
+
+Chcete vytvořit vlastní konektory nebo nemůžete najít požadovaný konektor? Můžete [rozšířit platformu Logic Apps](../logic-apps/logic-apps-create-api-app.md) a vytvořit aplikace API, které volají rozhraní API nebo systémy, které nejsou k dispozici jako předem připravené konektory. Můžete také odeslat své aplikace API k certifikaci Microsoft Azure a pak je dávat k dispozici prostřednictvím Azure. Další informace o získávání [certifikace Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) pro vaše řešení
+
+## <a name="get-help"></a>Podpora
+
+Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatelů Azure Logic Apps můžete ve [fóru Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Pokud chcete pomoci při vylepšování Logic Apps a konektorů, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Další kroky
 * [Vytvoření první aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
@@ -95,6 +109,7 @@ Konektory můžete v aplikacích použít také jako akce. Akce jsou užitečné
 [delaydoc]: ./connectors-native-delay.md "Provádění zpožděných akcí"
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Připojení k Dropboxu. Nahrávání, získávání, odstraňování, vypisování souborů a provádění dalších akcí"
 [Dynamics-365doc]: ./connectors-create-api-crmonline.md "Připojení k aplikaci Dynamics CRM Online, abyste mohli pracovat s daty aplikace CRM Online"
+[event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Připojení k Azure Event Hubs. Příjem a odesílání událostí mezi aplikacemi logiky a Event Hubs"
 [facebookdoc]: ./connectors-create-api-facebook.md "Připojení k Facebooku. Přidávání příspěvků na Timeline, získání kanálu stránky a provádění dalších akcí"
 [filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Připojení k místnímu systému souborů"
 [ftpdoc]: ./connectors-create-api-ftp.md "Připojení k serverům FTP/FTPS a provádění úloh protokolu FTP, jako je odesílání, získávání a odstraňování souborů a provádění dalších akcí"
@@ -118,7 +133,7 @@ Konektory můžete v aplikacích použít také jako akce. Akce jsou užitečné
 [office365-videodoc]: ./connectors-create-api-office365-video.md "Získání informací o videu, seznamů a kanálů videí a adres URL pro přehrávání videí Office 365"
 [onedrivedoc]: ./connectors-create-api-onedrive.md "Připojení k osobnímu Microsoft OneDrivu. Nahrávání, odstraňování, vypisování souborů a provádění dalších akcí"
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Připojení k firemnímu Microsoft OneDrivu. Nahrávání, odstraňování, vypisování souborů a provádění dalších akcí"
-[oracle-db-doc]: https://powerapps.microsoft.com/blog/connecting-to-oracle-database-from-powerapps-flow-and-logic-apps "Připojení k databázi Oracle"
+[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Připojení k databázi Oracle a možnost přidávat, vkládat a odstraňovat řádky a další"
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Připojení k poštovní schránce aplikace Outlook. Správa e-mailů, kalendářů, kontaktů a provádění dalších akcí"
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Připojení k aplikaci Microsoft Project Online. Správa projektů, úloh, prostředků a provádění dalších akcí"
 [querydoc]: ./connectors-native-query.md "Výběr a filtrování polí pomocí akce dotazu"
@@ -159,10 +174,15 @@ Konektory můžete v aplikacích použít také jako akce. Akce jsou užitečné
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
 [Asanaicon]: ./media/apis-list/asana.png
+[Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
-[Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
+[Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
+[Azure-DocumentDBicon]: ./media/apis-list/azure-documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
+[Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
+[Azure-Queues-icon]: ./media/apis-list/azure-queues.png
 [Basecamp-3icon]: ./media/apis-list/basecamp.png
+[Bitbucket-icon]: ./media/apis-list/bitbucket.png
 [Bitlyicon]: ./media/apis-list/bitly.png
 [BizTalk-Servericon]: ./media/apis-list/biztalk.png
 [Bloggericon]: ./media/apis-list/blogger.png
@@ -175,6 +195,7 @@ Konektory můžete v aplikacích použít také jako akce. Akce jsou užitečné
 [Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
 [Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
+[Event-Hubs-icon]: ./media/apis-list/eventhubs.png
 [Facebookicon]: ./media/apis-list/facebook.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png

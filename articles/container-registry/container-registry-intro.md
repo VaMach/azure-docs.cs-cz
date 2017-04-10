@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Úvod k registrům kontejnerů pro Private Docker
@@ -48,9 +48,7 @@ Vývojáři mohou nahrávat do registru kontejnerů také jako součást pracovn
 
 
 ## <a name="key-concepts"></a>Klíčové koncepty
-* **Registr** – Vytvořte jeden nebo více registrů kontejnerů ve svém předplatném Azure. Každý registr je zajišťován standardním [účtem úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Využijte místní úložiště imagí kontejnerů v síťové blízkosti vytvořením registru ve stejném umístění Azure, jako jsou vaše nasazení.
-
-  Registry jsou pojmenované v kořenové doméně podle [tenanta Azure Active Directory](../active-directory/active-directory-howto-tenant.md) daného předplatného. Pokud například máte účet organizace v doméně Contoso, plně kvalifikovaný název registru bude mít podobu `myregistry-contoso.azurecr.io`.
+* **Registr** – Vytvořte jeden nebo více registrů kontejnerů ve svém předplatném Azure. Každý registr je zajišťován standardním [účtem úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Využijte místní úložiště imagí kontejnerů v síťové blízkosti vytvořením registru ve stejném umístění Azure, jako jsou vaše nasazení. Plně kvalifikovaný název registru má formát `myregistry.azurecr.io`.
 
   [Přístup k registru kontejnerů řídíte](container-registry-authentication.md) pomocí [instančního objektu](../active-directory/active-directory-application-objects.md) zajištěného službou Azure Active Directory nebo poskytnutého účtu správce. Spusťte standardní příkaz `docker login` k ověření pomocí registru.
 

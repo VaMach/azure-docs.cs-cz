@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 8da480acc04922a3636821c5303f6380236c5ea3
-ms.openlocfilehash: 1bff76371ea1ca3ee68c9f04ea24a42f95bb7da7
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 45ff2ff08cb36f9a4bf49ff04de149accf157e0e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -27,7 +28,7 @@ Azure Active Directory (AD) jako platforma Správy identit jako služby (IDMaaS)
 1. [Výhody integrace služby Azure AD:](active-directory-how-to-integrate.md) Zjistěte, proč integrace se službou Azure AD nabízí nejlepší řešení pro zabezpečené přihlašování a autorizaci.
 2. [Scénáře ověřování služby Azure AD:](active-directory-authentication-scenarios.md) Využijte výhody zjednodušeného ověřování ve službě Azure AD, které vám umožní přihlášení do vaší aplikace.
 3. [Integrace aplikací s Azure AD:](active-directory-integrating-applications.md) Zjistěte, jak přidávat, aktualizovat a odebírat aplikace ze služby Azure AD, a přečtěte si pokyny k přizpůsobení prostředí značce pro integrované aplikace.
-4. [Azure AD Graph API:](active-directory-graph-api.md) Použijte rozhraní Azure AD Graph API k programovému přístupu ke službě Azure AD prostřednictvím koncových bodů rozhraní REST API. Rozhraní Azure AD Graph API je také přístupné prostřednictvím [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph poskytuje sjednoceného rozhraní API, které umožňuje přístup k několika rozhraním API cloudových služeb společnosti Microsoft pomocí jednoho koncového bodu rozhraní REST API a jednoho přístupového tokenu.
+4. [Microsoft Graph](https://graph.microsoft.io/) a [Azure AD Graph API](active-directory-graph-api.md): Použijte programový přístup ke službě Azure AD prostřednictvím koncových bodů rozhraní REST API. **Důrazně doporučujeme pro přístup k prostředkům Azure Active Directory použít Microsoft Graph místo Azure AD Graph API.** Náš vývojový program se nyní soustředí na Microsoft Graph a pro Azure AD Graph API nejsou plánovaná žádná další vylepšení. Existuje velmi omezený počet scénářů, pro které může být Azure AD Graph API stále vhodné. Další informace najdete v příspěvku [Microsoft Graph nebo Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blogu na webu Office Dev Center.
 5. [Knihovny ověřování služby Azure AD:](active-directory-authentication-libraries.md) Snadno ověřte uživatele, aby získali přístupové tokeny, pomocí knihoven ověřování služby Azure AD pro rozhraní .NET, JavaScript, Objective-C, Android a další.
 
 ## <a name="getting-started"></a>Začínáme
@@ -56,10 +57,10 @@ Tyto kurzy jsou přizpůsobené různým platformám a umožní vám rychle zač
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
 
-### <a name="querying-the-directory-quickstart-guide"></a>Průvodce rychlým zahájením pro dotazování adresáře
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
-|:---:|
-| [Graph API](active-directory-graph-api-quickstart.md) |
+### <a name="microsoft-graph-and-azure-ad-graph-api-quick-start-guides"></a>Úvodní příručky pro Microsoft Graph a Azure AD Graph API
+| [![Microsoft Graph](./media/active-directory-developers-guide/msgraph.png)](https://developer.microsoft.com/graph/quick-start) | [![Azure AD Graph API](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
+|:---:|:---:|
+| [Microsoft Graph](https://developer.microsoft.com/graph/quick-start) | [Azure AD Graph API](active-directory-graph-api-quickstart.md) |
 
 ## <a name="how-tos"></a>Postupy
 Tyto články popisují, jak provádět určité úlohy pomocí služby Azure Active Directory:
@@ -90,9 +91,13 @@ Tyto články poskytují základní referenční informace o rozhraních REST a 
 * [Ukázky pro službu Azure Active Directory](https://github.com/azure-samples?query=active-directory): Nejjednodušší způsob, jak se orientovat v seznamu ukázek, je pomocí [rejstříku ukázkových kódů](active-directory-code-samples.md).
 * Referenční dokumentace ke knihovně [Active Directory Authentication Library (ADAL) pro .NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) je dostupná pro [nejnovější hlavní verzi](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) a [předchozí hlavní verzi](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory).
 
-### <a name="graph-api"></a>Graph API
-* [Referenční informace o rozhraní Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx): Referenční příručka rozhraní REST API pro Azure Active Directory Graph API. [Zobrazení interaktivního referenčního prostředí rozhraní Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* [Obory oprávnění rozhraní Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Obory oprávnění OAuth 2.0, které slouží k řízení přístupu aplikace k datům adresáře v klientovi.
+### <a name="microsoft-graph-and-azure-ad-graph-api"></a>Microsoft Graph a Azure AD Graph API
+> [!IMPORTANT]
+> Důrazně doporučujeme pro přístup k prostředkům Azure Active Directory použít [Microsoft Graph](https://graph.microsoft.io/) místo Azure AD Graph API. Náš vývojový program se nyní soustředí na Microsoft Graph a pro Azure AD Graph API nejsou plánovaná žádná další vylepšení. Existuje velmi omezený počet scénářů, pro které může být Azure AD Graph API stále vhodné. Další informace najdete v příspěvku [Microsoft Graph nebo Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blogu na webu Office Dev Center.
+> 
+* [Microsoft Graph:](https://graph.microsoft.io/) Dokumentace, reference, ukázky a sady SDK pro Microsoft Graph 
+* [Referenční informace k rozhraní Azure AD Graph API:](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) Referenční příručka REST pro Azure Active Directory Graph API 
+* [Obory oprávnění rozhraní Azure AD Graph API:](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) Obory oprávnění OAuth 2.0, které slouží k řízení přístupu aplikace k datům adresáře v tenantovi
 
 ### <a name="authentication-and-authorization-protocols"></a>Ověřovací a autorizační protokoly
 * [Výměna podpisového klíče ve službě Azure AD](active-directory-signing-key-rollover.md): Získejte další informace o četnosti výměny podpisových klíčů služby Azure AD a o tom, jak aktualizovat klíč ve většině běžných scénářů aplikace.
@@ -131,9 +136,4 @@ Informace o používání vývoje Windows Serveru a služby AD FS (Active Direct
 
 * [Scénáře služby AD FS pro vývojáře](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): nabízí přehled komponent služby AD FS a jejich fungování s podrobnostmi o podporovaných scénářích ověřování/autorizace.
 * [Návody pro službu AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): seznam článků s návody, které poskytují podrobné pokyny o implementaci souvisejících postupů ověřování/autorizace.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

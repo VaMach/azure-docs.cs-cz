@@ -9,17 +9,17 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 3d642447526c5562ae3bfad5e4a4592e33e766aa
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 7933567f6c10262b14ea1656b26d8fac148942ea
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -27,7 +27,9 @@ ms.lasthandoff: 03/25/2017
 
 Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tento průvodce podrobně uvádí, jak pomocí Azure CLI nasadit databázi SQL Azure ve [skupině prostředků Azure](../azure-resource-manager/resource-group-overview.md) na [logický server Azure SQL Database](sql-database-features.md).
 
-Než začnete, ujistěte se, že je rozhraní Azure CLI nainstalované. Další informace najdete v tématu [Průvodce instalací Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+K dokončení tohoto rychlého startu se ujistěte, že máte nainstalovanou nejnovější verzi [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 

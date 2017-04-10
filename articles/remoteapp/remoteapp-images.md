@@ -14,14 +14,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 348306795fd3c8275b21e4ec6dceae408916bf72
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-in-the-azure-remoteapp-template-images"></a>Co jsou image šablon Azure Remote Appu?
 > [!IMPORTANT]
-> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp se přestává používat dne 31. srpna 2017. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -111,10 +112,5 @@ Tento image je rozšířením image vanilla a kromě komponent popsaných v imag
 > **Právní informace:** Tento image neobsahuje licenci aplikace Microsoft Office a*nelze ho použít pro produkci*. Image aplikace Professional Plus 2013 Office je určen pouze pro zkušební verzi. Pokud chcete používat aplikace Office v Azure RemoteAppu pro produkci, je třeba použít image Office 365 ProPlus. Další informace o licencování Officu najdete v části [Použití  Officu 365 s Azure RemoteAppem](remoteapp-o365.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
