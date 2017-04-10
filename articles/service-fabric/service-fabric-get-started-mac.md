@@ -3,8 +3,8 @@ title: "Nastavení vývojového prostředí v Mac OS X | Dokumentace Microsoftu"
 description: "Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace v Mac OS X."
 services: service-fabric
 documentationcenter: java
-author: saysa
-manager: raunakp
+author: sayantancs
+manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
+ms.date: 04/06/2017
 ms.author: saysa
 translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
@@ -51,7 +51,7 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
     ```
     Tento postup přinese soubor `Vagrantfile` obsahující konfiguraci virtuálního počítače společně s umístěním virtuálního počítače, ze kterého je stažen.
 
-   
+
 2. Přejděte do místního klonu úložiště.
 
     ```bash
