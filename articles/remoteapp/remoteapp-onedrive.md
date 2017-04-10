@@ -15,24 +15,20 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 98f592ca96d8c332d7cb99679e1ef3834f84a095
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 5fee3d1fed507684b73dc5bb3b6b08014329ace1
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="onedrive-for-business-and-azure-remoteapp"></a>OneDrive pro firmy a Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp se přestává používat. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp se přestává používat dne 31. srpna 2017. Podrobnosti najdete v tomto [oznámení](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
 Synchronizační agent OneDrivu pro firmy se nepodporuje s Azure RemoteAppem.
 
 OneDrive pro firmy můžete zahrnout do kolekce a používat s Office 365. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c3e3e407eb6a05b208863443bb8ccf3cba701b23
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 9bbacea92e54609818d69173fafcea2ee8f849d3
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -27,6 +27,8 @@ ms.lasthandoff: 03/22/2017
 > * [Správa přístupu podle prostředku](role-based-access-control-configure.md)
 
 Řízení přístupu na základě role v Azure umožňuje přesnou správu přístupu. Pomocí řízení přístupu na základě role v Azure můžete uživatelům poskytnout pouze takovou úroveň přístupu, kterou potřebují k provádění svých úloh. Tento článek vám pomůže nastavit a spustit řízení přístupu na základě role v Azure na portálu Azure. Další informace o tom, jak vám řízení přístupu na základě role v Azure pomůže spravovat přístup uživatelů najdete v článku [Co je řízení přístupu na základě role](role-based-access-control-what-is.md).
+
+V rámci každého předplatného můžete udělit až 2000 přiřazení rolí. 
 
 ## <a name="view-access"></a>Zobrazení informací o přístupu
 Na [portálu Azure](https://portal.azure.com) můžete v hlavním okně sledovat, kdo má přístup k prostředku, skupině prostředků nebo předplatnému. Například byste se mohli chtít podívat, kdo má přístup k jedné ze skupin prostředků:

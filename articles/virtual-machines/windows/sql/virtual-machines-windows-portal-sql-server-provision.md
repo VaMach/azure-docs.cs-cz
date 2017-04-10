@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -97,14 +97,17 @@ V okně **Základy** zadejte následující informace:
     ![Okno Základy pro SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Volba velikosti virtuálního počítače
-V kroku **Velikost** zvolte velikost virtuálního počítače v okně **Zvolte velikost**. V okně se po jeho otevření zobrazí doporučené velikosti počítačů na základě image, kterou jste vybrali. Uvidíte tu také odhadované měsíční náklady na provozování virtuálního počítače.
+V kroku **Velikost** zvolte velikost virtuálního počítače v okně **Zvolte velikost**. V okně se po jeho otevření zobrazí doporučené velikosti počítačů na základě image, kterou jste vybrali.
+
+> [!IMPORTANT]
+> Odhadované měsíční náklady zobrazené v okně **Zvolit velikost** nezahrnují náklady na licencování SQL Serveru. Toto jsou náklady pouze na virtuální počítač. U edice SQL Serveru Express a Developer se jedná o celkové odhadované náklady. Pro ostatní edice se podívejte na [stránku s cenami pro virtuální počítače s Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) a vyberte cílovou edici vašeho SQL Serveru. 
 
 ![Možnosti velikosti virtuálního počítače s SQL Serverem](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 Pro úlohy v produkčním prostředí doporučujeme vybrat velikost virtuálního počítače, která podporuje [Storage úrovně Premium](../../../storage/storage-premium-storage.md). Pokud nevyžadujete tuto úroveň výkonu, použijte tlačítko **Zobrazit vše**, kterým si zobrazíte všechny možnosti velikosti počítačů. Může například použít menší velikost počítače pro vývojové nebo testovací prostředí.
 
 > [!NOTE]
-> Další informace o velikostech virtuálních počítačů najdete v tématu [Velikosti virtuálních počítačů](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Důležité informace o velikostech virtuálních počítačů s SQL Serverem najdete v tématu [Osvědčené postupy z hlediska výkonu pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+> Další informace o velikostech virtuálních počítačů najdete v tématu [Velikosti virtuálních počítačů](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Důležité informace o velikostech virtuálních počítačů s SQL Serverem najdete v tématu [Osvědčené postupy z hlediska výkonu pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 > 
 > 
 
@@ -123,7 +126,7 @@ V okně **Nastavení** nakonfigurujte úložiště, sítě a monitorování Azur
 * V části **Účet úložiště** můžete použít název automaticky zřízeného účtu úložiště. Můžete také kliknutím na **Účet úložiště** zvolit existující účet a nakonfigurovat typ účtu úložiště. Ve výchozím nastavení vytvoří Azure nový účet úložiště s místně redundantním úložištěm. Další informace o možnostech úložiště najdete v tématu [Replikace Azure Storage](../../../storage/storage-redundancy.md).
 * V části **Síť** může přijmout automaticky zadané hodnoty. Můžete také kliknutím na jednotlivé funkce ručně nakonfigurovat **virtuální síť**, **podsíť**, **veřejnou IP adresu** a **skupinu zabezpečení sítě**. Pro účely tohoto kurzu nechejte nastavené výchozí hodnoty.
 * Azure umožňuje **monitorování** ve výchozím nastavení se stejným účtem, jaký je nastavený pro virtuální počítač. Tato nastavení tady můžete změnit.
-* V části **Skupina dostupnosti** zadejte nastavení dostupnosti. Pro účely tohoto kurzu můžete vybrat možnost **Žádná**. Pokud budete chtít nastavit Skupiny dostupnosti AlwaysOn SQL, nakonfigurujte dostupnost tak, aby se předešlo opětovnému vytvoření virtuálního počítače.  Další informace najdete v tématu [Správa dostupnosti virtuálních počítačů](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* V části **Skupina dostupnosti** zadejte nastavení dostupnosti. Pro účely tohoto kurzu můžete vybrat možnost **Žádná**. Pokud budete chtít nastavit Skupiny dostupnosti AlwaysOn SQL, nakonfigurujte dostupnost tak, aby se předešlo opětovnému vytvoření virtuálního počítače.  Další informace najdete v tématu [Správa dostupnosti virtuálních počítačů](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Po dokončení konfigurace těchto nastavení klikněte na **OK**.
 

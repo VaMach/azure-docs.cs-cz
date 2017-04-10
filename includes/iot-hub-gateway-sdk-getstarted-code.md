@@ -1,7 +1,8 @@
 ## <a name="typical-output"></a>Příklad typického výstupu
-Níže je uveden příklad výstupu zapsaného do souboru protokolu v příkladu Hello World. Znaky nového řádku a tabulátoru byly přidány pro čitelnost:
 
-```
+Dál je uvedený příklad výstupu zapsaného do souboru protokolu v ukázce Hello World. Výstup je z důvodů lepší čitelnosti formátovaný:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ Níže je uveden příklad výstupu zapsaného do souboru protokolu v příkladu
 ```
 
 ## <a name="code-snippets"></a>Fragmenty kódu
-Tato část popisuje některé klíčové části kódu v ukázce Hello World.
+
+Tato část popisuje některé klíčové části kódu v ukázce hello\_world.
 
 ### <a name="gateway-creation"></a>Vytvoření brány
-Vývojář musí napsat *proces brány*. Tento program vytvoří vnitřní infrastrukturu (zprostředkovatele), načte moduly a nastaví všechny součásti tak, aby správně fungovaly. Sada SDK poskytuje funkci **Gateway_Create_From_JSON**, která umožňuje spustit bránu ze souboru JSON. Pokud chcete použít funkci **Gateway_Create_From_JSON**, musíte jí předat cestu k souboru JSON s informacemi o modulech, které chcete načíst. 
 
-Kód pro proces brány najdete v ukázce Hello World v souboru [main.c][lnk-main-c]. Níže uvedený fragment kódu ukazuje v zájmu čitelnosti zkrácenou verzi kódu pro proces brány. Tento program vytvoří bránu a potom počká, až uživatel stiskne klávesu **ENTER**, a bránu zruší. 
+Vývojář musí napsat *proces brány*. Tento program vytvoří vnitřní infrastrukturu (zprostředkovatele), načte moduly a nastaví všechny součásti tak, aby správně fungovaly. SDK poskytuje funkci **Gateway\_Create\_From\_JSON**, která umožňuje spustit bránu ze souboru JSON. Pokud chcete použít funkci **Gateway\_Create\_From\_JSON**, musíte jí předat cestu k souboru JSON s informacemi o modulech, které chcete načíst.
 
-```
+Kód pro proces brány najdete v ukázce Hello World v souboru [main.c][lnk-main-c]. Následující fragment kódu ukazuje v zájmu čitelnosti zkrácenou verzi kódu pro proces brány. Tento ukázkový program vytvoří bránu a potom počká, až uživatel stiskne klávesu **ENTER**, a bránu zruší.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,22 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-Soubor nastavení JSON obsahuje seznam modulů, které se mají načíst, a propojení mezi těmito moduly.
-Každý modul musí určovat tyto údaje:
+Soubor nastavení JSON obsahuje seznam modulů, které se mají načíst, a propojení mezi těmito moduly. Každý modul musí určovat tyto údaje:
 
 * **name**: jedinečný název modulu.
-* **loader**: zavaděč, který umí načíst požadovaný modul.  Zavaděče jsou rozšiřovacím bodem pro načítání různých typů modulů. Poskytujeme zavaděče pro použití s moduly napsanými v nativním C, Node.js, Javě a .NET. Ukázka Hello World používá pouze nativní zavaděč, protože všechny moduly v této ukázce jsou dynamické knihovny napsané v C. Další informace o používání modulů napsaných v jiných jazycích najdete v ukázkách [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) a [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample).
-    * **name**: název zavaděče sloužícího k načtení modulu.  
-    * **entrypoint**: cesta ke knihovně obsahující modul. V systému Linux se jedná o soubor .so, v systému Windows o soubor .dll. Všimněte si, že tento vstupní bod se odvíjí od typu použitého zavaděče. Například vstupním bodem zavaděče Node.js je soubor .js, vstupním bodem zavaděče Java je cesta k třídě + název třídy a vstupním bodem zavaděče .NET je název sestavení + název třídy.
+* **loader:** zavaděč, který umí načíst požadovaný modul. Zavaděče jsou rozšiřovacím bodem pro načítání různých typů modulů. Poskytujeme zavaděče pro použití s moduly napsanými v nativním C, Node.js, Javě a .NET. Ukázka Hello World používá pouze nativní zavaděč, protože všechny moduly v této ukázce jsou dynamické knihovny napsané v jazyce C. Další informace o používání modulů napsaných v jiných jazycích najdete v ukázkách [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample) a [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample).
+    * **name**: název zavaděče sloužícího k načtení modulu.
+    * **entrypoint**: cesta ke knihovně obsahující modul. V Linuxu je touto knihovnou soubor .so, v systému Windows soubor .dll. Vstupní bod se odvíjí od typu použitého zavaděče. Vstupním bodem zavaděče Node.js je soubor .js. Vstupním bodem zavaděče Java je cesta ke třídě a název třídy. Vstupním bodem zavaděče .NET je název sestavení a název třídy.
 
 * **args**: libovolné konfigurační informace, které modul vyžaduje.
 
-Následující kód ukazuje kód JSON, který deklaruje všechny moduly pro ukázku Hello World na Linuxu. Jestli modul vyžaduje nějaké argumenty, závisí na návrhu modulu. V tomto příkladu protokolovací modul přebírá argument, který určuje cestu k výstupnímu souboru, a modul Hello World nepřebírá žádné argumenty.
+Následující kód ukazuje kód JSON, který deklaruje všechny moduly pro ukázku Hello World na Linuxu. Jestli modul vyžaduje nějaké argumenty, závisí na návrhu modulu. V tomto příkladu protokolovací modul přebírá argument, který určuje cestu k výstupnímu souboru, a modul hello\_world nemá žádné argumenty.
 
-```
+```json
 "modules" :
 [
     {
@@ -94,17 +96,17 @@ Následující kód ukazuje kód JSON, který deklaruje všechny moduly pro uká
 ]
 ```
 
-Soubor JSON obsahuje také propojení mezi moduly, která se předají do zprostředkovatele. Propojení má dvě vlastnosti:
+Soubor JSON obsahuje také propojení mezi moduly, která se předávají do zprostředkovatele. Propojení má dvě vlastnosti:
 
 * **source**: název modulu z části `modules` nebo „\*“
 * **sink**: název modulu z části `modules`
 
-Každé propojení definuje trasu a směr zpráv. Zprávy z modulu `source` se doručí do modulu `sink`. Hodnota `source` může být nastavená na „\*“, což značí, že modul `sink` bude přijímat zprávy ze všech modulů.
+Každé propojení definuje trasu a směr zpráv. Zprávy z modulu `source` se doručí do modulu `sink`. Hodnota `source` může být nastavená na „\*“, což značí, že modul `sink` přijímá zprávy ze všech modulů.
 
-Následující kód ukazuje kód JSON, který konfiguruje propojení mezi moduly použitými v ukázce Hello World na Linuxu. Všechny zprávy vytvořené modulem `hello_world` budou využité modulem `logger`.
+Následující kód ukazuje kód JSON, který konfiguruje propojení mezi moduly použitými v ukázce hello\_world na Linuxu. Všechny zprávy vytvořené modulem `hello_world` využívá modul `logger`.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -113,10 +115,11 @@ Následující kód ukazuje kód JSON, který konfiguruje propojení mezi moduly
 ]
 ```
 
-### <a name="hello-world-module-message-publishing"></a>Publikování zpráv modulu Hello World
-Kód, který používá modul Hello World k publikování zpráv, najdete v souboru [hello_world.c][lnk-helloworld-c]. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
+### <a name="helloworld-module-message-publishing"></a>Publikování zpráv modulu hello\_world
 
-```
+Kód, který používá modul hello\_world k publikování zpráv, najdete v souboru [hello_world.c][lnk-helloworld-c]. Následující fragment kódu ukazuje upravenou verzi kódu s přidanými komentáři a v zájmu čitelnosti je odstraněné ošetření některých chyb:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -162,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="hello-world-module-message-processing"></a>Zpracování zpráv modulu Hello World
-Modul Hello World nikdy nemusí zpracovávat jakékoli zprávy, které do zprostředkovatele publikují ostatní moduly. To provádí implementace zpětného volání zpráv v modulu Hello World ve funkci no-op.
+### <a name="helloworld-module-message-processing"></a>Zpracování zpráv modulu hello\_world
 
-```
+Modul hello\_world nikdy nemusí zpracovávat zprávy, které do zprostředkovatele publikují ostatní moduly. Proto implementace zpětného volání zpráv v modulu hello\_world je funkcí no-op.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -173,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Publikování a zpracování zpráv protokolovacího modulu
+
 Protokolovací modul přijímá zprávy od zprostředkovatele a zapisuje je do souboru. Nikdy publikuje žádné zprávy. Z toho důvodu protokolovací modul nikdy nevolá funkci **Broker_Publish**.
 
-Funkce **Logger_Recieve** v souboru [logger.c][lnk-logger-c] je funkce zpětného volání, kterou zprostředkovatel vyvolá při doručení zprávy protokolovacímu modulu. Níže uvedený fragment kódu ukazuje upravenou verzi s dalšími komentáři a v zájmu čitelnosti byl odstraněno ošetření některých chyb:
+Funkce **Logger_Recieve** v souboru [logger.c][lnk-logger-c] je funkce zpětného volání, kterou zprostředkovatel vyvolá při doručení zprávy protokolovacímu modulu. Následující fragment kódu ukazuje upravenou verzi kódu s přidanými komentáři. V zájmu čitelnosti je odstraněné ošetření některých chyb:
 
-```
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -217,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o použití sady IoT Gateway SDK najdete v následujících tématech:
+
+Další informace o použití sady IoT Gateway SDK najdete v těchto článcích:
 
 * [IoT Gateway SDK – odesílání zpráv typu zařízení-cloud pomocí simulovaného zařízení v systému Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] na GitHubu.
@@ -228,7 +234,3 @@ Další informace o použití sady IoT Gateway SDK najdete v následujících t�
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!--HONumber=Dec16_HO1-->
-
-

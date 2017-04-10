@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ Taky můžete doporučení a výstrahy zabezpečení ze služby Security Center 
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Přístup k řešení Power BI pomocí řídicího panelu Azure Security Center
 K sestavám Power BI můžete získat přístup také pomocí řídicího panelu Azure Security Center. To provedete pomocí tohoto postupu:
 
-1. Na řídicím panelu **Azure Security Center** klikněte na tlačítko **Prozkoumání v Power BI**.
+1. Na řídicím panelu **Azure Security Center** klikněte na tlačítko **Power BI**.
 
-    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. Napravo se otevře okno **Prozkoumání v Power BI**, jak vidíte na následující obrazovce:
+    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. Napravo se otevře okno **Power BI**, jak vidíte na následující obrazovce:
 
-    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. Pokud vytváříte řídicí panel Power BI poprvé, můžete si v okně **Prozkoumání v Power BI** vybrat některou z následujících možností:
 
    * **Řídicí panel přehledů o zabezpečení**: Tuto možnost si vyberte, pokud chcete vytvořit řídicí panel, který obsahuje stav zabezpečení, hrozby a zjištěné výstrahy. Tuto možnost obvykle používají osoby s rolí DevOps, které zodpovídají za analýzu stavu ochrany a zjištěných výstrah v rámci předplatných.
@@ -119,9 +120,4 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 * [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
