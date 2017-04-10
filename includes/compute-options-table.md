@@ -6,9 +6,5 @@
 | [Virtual Machines][lnk_vm] |Přizpůsobené virtuální počítače s Windows a Linuxem nabízející naprostou kontrolu nad operačním systémem |
 
 [lnk_app]: ../articles/app-service-web/app-service-web-overview.md
-[lnk_vm]: ../articles/virtual-machines/virtual-machines-windows-about.md
+[lnk_vm]:../articles/virtual-machines/windows/about.md
 [lnk_cloud]: ../articles/cloud-services/cloud-services-choose-me.md
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Připojení a dotazování dat pomocí aplikace SQL Server Management Studio
 
-Pomocí aplikace [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) můžete vytvářet a spravovat prostředky SQL Serveru z uživatelského rozhraní nebo ve skriptech. Tento průvodce podrobně popisuje použití aplikace SSMS pro připojení k databázi SQL Azure a následné provádění příkazů k dotazování, vložení, aktualizaci a odstranění.
+Pomocí aplikace [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) můžete vytvářet a spravovat prostředky SQL Serveru z uživatelského rozhraní nebo ve skriptech. Tento rychlý start podrobně popisuje použití aplikace SSMS pro připojení k databázi SQL Azure a následné provádění příkazů k dotazování, vložení, aktualizaci a odstranění.
 
 Tento rychlý start používá jako výchozí bod prostředky vytvořené v některém z těchto rychlých startů:
 
@@ -45,11 +45,11 @@ Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Připojení k serveru
+## <a name="connect-to-the-server-and-your-new-database"></a>Připojení k serveru a nové databázi
 
 Pomocí aplikace SQL Server Management Studio navažte připojení k serveru služby Azure SQL Database.
 
-1. Do vyhledávacího pole ve Windows zadejte **SSMS** a stisknutím klávesy **Enter** otevřete aplikaci SSMS.
+1. Otevřete SQL Server Management Studio.
 
 2. V dialogovém okně **Připojení k serveru** zadejte následující informace:
    - **Typ serveru:** Zadejte Databázový stroj.

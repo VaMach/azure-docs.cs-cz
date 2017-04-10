@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
-ms.openlocfilehash: 5145418159aa457be6d1fc9ed5bb1a43a955791c
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 1a662d23c7b8eef68e0f182792699210d2b80bac
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -27,7 +28,7 @@ Azure DNS vám umožňuje hostovat zónu DNS a spravovat záznamy DNS pro domén
 
 ### <a name="domains-and-zones"></a>Domény a zóny
 
-Domain Name System je hierarchie domén. Hierarchie začíná od kořenové domény, jejíž název je jednoduše „**.**“.  Následují domény nejvyšší úrovně, jako jsou „com“, „net“, „org“, „uk“ nebo „jp“.  Následují domény druhé úrovně, jako jsou „org.uk“ nebo „co.jp“.  A tak dále. Domény v hierarchii DNS jsou hostované pomocí oddělených zón DNS. Tyto zóny jsou globálně distribuované a hostované názvovými servery DNS po celém světě.
+Domain Name System je hierarchie domén. Hierarchie začíná od kořenové domény, jejíž název je jednoduše „**.**“.  Následují domény nejvyšší úrovně, jako jsou „com“, „net“, „org“, „uk“ nebo „jp“.  Pod doménami nejvyšší úrovně jsou domény druhé úrovně, jako jsou „org.uk“ nebo „co.jp“.  A tak dále. Domény v hierarchii DNS jsou hostované pomocí oddělených zón DNS. Tyto zóny jsou globálně distribuované a hostované názvovými servery DNS po celém světě.
 
 **Zóna DNS**
 
@@ -35,7 +36,7 @@ Doména je jedinečný název v systému DNS (Domain Name System), například c
 
 **Doménový registrátor**
 
-Doménový registrátor je společnost, která poskytuje názvy internetových domén. Ověří, zda je doména, kterou chcete použít, volná a umožní vám ji zakoupit. Jakmile je název domény registrovaný, stanete se jejím právoplatným vlastníkem. Pokud již máte internetovou doménu, použijete pro delegování do Azure DNS současného doménového registrátora.
+Doménový registrátor je společnost, která poskytuje názvy internetových domén. Ověří, zda je internetová doména, kterou chcete použít, volná a umožní vám ji zakoupit. Jakmile je název domény registrovaný, stanete se jejím právoplatným vlastníkem. Pokud již máte internetovou doménu, použijete pro delegování do Azure DNS současného doménového registrátora.
 
 > [!NOTE]
 > Další informace o tom, kdo vlastní určitý název domény, nebo o tom, jak doménu zakoupit, naleznete v tématu [Správa internetových domén v Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
@@ -50,11 +51,11 @@ Existují dva typy serverů DNS:
 > [!NOTE]
 > Azure DNS poskytuje autoritativní službu DNS.  Neposkytuje rekurzivní službu DNS.
 >
-> Cloud Services a virtuální počítače v Azure se automaticky konfigurují, aby používaly rekurzivní služby DNS, které se poskytují samostatně jako součást infrastruktury Azure.  Informace o tom, jak změnit tato nastavení DNS, najdete v tématu [Překlad názvů v Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+> Cloud Services a virtuální počítače v Azure se automaticky konfigurují, aby používaly rekurzivní službu DNS, která se poskytuje samostatně jako součást infrastruktury Azure.  Informace o tom, jak změnit tato nastavení DNS, najdete v tématu [Překlad názvů v Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 Klient DNS v počítačích nebo na mobilních zařízeních obvykle pro všechny dotazy DNS klientské aplikace volá rekurzivní server DNS.
 
-Když rekurzivní server DNS obdrží dotaz na záznam DNS, jako například www.contoso.com, nejprve musí najít názvový server, který hostuje zónu pro doménu contoso.com. To provede tak, že začne u kořenových názvových serverů a vyhledá názvové servery, které hostují zónu „com“. Následně se dotazuje názvových serverů „com“ a tak najde názvové servery, které hostují zónu contoso.com.  Nakonec se těchto názvových serverů může dotázat na www.contoso.com.
+Když rekurzivní server DNS obdrží dotaz na záznam DNS, jako například www.contoso.com, nejprve musí najít názvový server, který hostuje zónu pro doménu contoso.com. Aby našel názvový server, začne u kořenových názvových serverů a vyhledá názvové servery, které hostují zónu „com“. Následně se dotazuje názvových serverů „com“ a tak najde názvové servery, které hostují zónu contoso.com.  Nakonec se těchto názvových serverů může dotázat na www.contoso.com.
 
 Tento postup se nazývá překlad názvu DNS. Přesněji řečeno, překlad DNS zahrnuje ještě další kroky, jako třeba sledování záznamů CNAME, ale pro pochopení, jak funguje delegování DNS, to není důležité.
 
@@ -62,15 +63,16 @@ Jak nadřazená zóna „ukáže“ na názvové servery pro podřízenou zónu?
 
 ![Názvový server DNS](./media/dns-domain-delegation/image1.png)
 
-Každé delegování má ve skutečnosti dvě kopie záznamů NS – jednu v nadřazené zóně, která ukazuje na podřízenou zónu, a druhou v samotné podřízené zóně. Zóna contoso.com obsahuje záznamy NS pro contoso.com (vedle záznamů NS v „com“). Ty se nazývají záznamy autoritativních NS a nacházejí se na vrcholu podřízené zóny.
+Každé delegování má ve skutečnosti dvě kopie záznamů NS – jednu v nadřazené zóně, která ukazuje na podřízenou zónu, a druhou v samotné podřízené zóně. Zóna contoso.com obsahuje záznamy NS pro contoso.com (vedle záznamů NS v „com“). Tyto záznamy se nazývají záznamy autoritativních NS a nacházejí se na vrcholu podřízené zóny.
 
 ## <a name="delegating-a-domain-to-azure-dns"></a>Delegování domény do Azure DNS
+
 Jakmile v Azure DNS vytvoříte vlastní zónu DNS, je potřeba nastavit záznamy NS v nadřazené zóně a tak udělat z Azure DNS autoritativní zdroj překládání názvů pro vaši zónu. U domén zakoupených od doménového registrátora nabídne registrátor možnost nastavit tyto záznamy NS.
 
 > [!NOTE]
-> Pro vytvoření zóny DNS s názvem domény v Azure DNS nemusíte tuto doménu vlastnit. Chcete-li však u registrátora nastavit delegování domény do Azure DNS, musíte tuto doménu vlastnit.
+> Pro vytvoření zóny DNS s názvem domény v DNS Azure nemusíte tuto doménu vlastnit. Chcete-li však u registrátora nastavit delegování domény do Azure DNS, musíte tuto doménu vlastnit.
 
-Předpokládejme například, že zakoupíte doménu contoso.com a v Azure DNS vytvoříte zónu s názvem contoso.com. Jako vlastníkovi domény vám registrátor nabídne možnost konfigurovat pro vaši doménu adresy názvových serverů (tj. záznamů NS). Doménový registrátor uloží tyto záznamy NS v nadřazené doméně, v tomto případě „.com“. Klienti po celém světě pak budou při pokusu o překlad záznamů DNS v contoso.com přesměrováni na vaši doménu v zóně Azure DNS.
+Předpokládejme například, že zakoupíte doménu contoso.com a v Azure DNS vytvoříte zónu s názvem contoso.com. Jako vlastníkovi domény vám registrátor nabídne možnost konfigurovat pro vaši doménu adresy názvových serverů (tj. záznamů NS). Doménový registrátor uloží tyto záznamy NS v nadřazené doméně, v tomto případě „.com“. Klienti po celém světě pak mohou být při pokusu o překlad záznamů DNS v contoso.com přesměrováni na vaši doménu v zóně Azure DNS.
 
 ### <a name="finding-the-name-server-names"></a>Získání názvů názvových serverů
 Předtím, než budete moci svoji zónu DNS delegovat do Azure DNS, musíte znát názvy názvových serverů pro vaši zónu. Azure DNS přiděluje názvové servery z fondu vždy, když je vytvořena zóna.
@@ -81,7 +83,7 @@ Nejjednodušší způsob, jak zobrazit názvové servery přiřazené pro vaší
 
 Azure DNS automaticky vytvoří ve vaší zóně záznamy autoritativních NS, které obsahují přiřazené názvové servery.  Chcete-li zobrazit názvy názvových serverů prostřednictvím Azure PowerShellu nebo rozhraní příkazového řádku Azure, stačí jednoduše načíst tyto záznamy.
 
-Pomocí Azure PowerShellu lze záznamy autoritativních NS načíst následujícím způsobem. Všimněte si, že název záznamu "@" se používá k odkazování na záznamy na vrcholu zóny.
+Pomocí Azure PowerShellu lze záznamy autoritativních NS načíst následujícím způsobem. Název záznamu „@“ se používá k odkazování na záznamy na vrcholu zóny.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
@@ -131,7 +133,7 @@ info:    network dns record-set show command OK
 
 Každý registrátor má vlastní nástroje pro správu DNS, které umožňují měnit záznamy názvových serverů pro doménu. Na stránce správy DNS vašeho registrátora upravte záznamy NS a nahraďte je záznamy NS, které vytvořil Azure DNS.
 
-Při delegování domény do Azure DNS musíte použít názvy názvových serverů, které poskytuje Azure DNS.  Vždycky byste měli použít všechny čtyři názvy názvových serverů bez ohledu na název domény.  Delegování domény nevyžaduje, aby název názvového serveru používal jako vaši doménu stejnou doménu nejvyšší úrovně.
+Při delegování domény do Azure DNS musíte použít názvy názvových serverů, které poskytuje Azure DNS. Doporučuje se vždycky použít všechny čtyři názvy názvových serverů bez ohledu na název domény.  Delegování domény nevyžaduje, aby název názvového serveru používal jako vaši doménu stejnou doménu nejvyšší úrovně.
 
 Pro ukazování na IP adresy názvových serverů Azure DNS byste neměli používat „spojovací záznamy“, protože se tyto IP adresy mohou v budoucnu měnit. Delegování pomocí názvů názvových serverů ve vaší vlastní zóně, někdy označovaných jako „jednoduché názvové servery“, v současné době není v Azure DNS podporované.
 
@@ -139,7 +141,7 @@ Pro ukazování na IP adresy názvových serverů Azure DNS byste neměli použ�
 
 Po dokončení delegování můžete ověřit, že překlad názvů funguje, pomocí nástroje, jako je například nslookup, který se dotáže na záznam SOA pro vaši zónu (ten je také automaticky vytvořený při vytváření zóny).
 
-Všimněte si, že nemusíte určit názvové servery Azure DNS, protože normální proces překladu DNS nalezne názvové servery automaticky, pokud bylo delegování správně nastavené.
+Nemusíte určit názvové servery Azure DNS, protože pokud bylo delegování správně nastaveno, normální proces překladu DNS najde názvové servery automaticky.
 
 ```
 nslookup -type=SOA contoso.com
@@ -169,7 +171,7 @@ Nastavení subdomény probíhá podobně jako normální delegování. Jediným 
 
 ### <a name="to-delegate-a-sub-domain"></a>Delegování subdomény
 
-Následující příklad PowerShell ukazuje, jak to funguje. Stejný postup lze provést přes portál Azure nebo prostřednictvím víceplatformového rozhraní příkazového řádku Azure.
+Následující příklad PowerShell ukazuje, jak to funguje. Stejný postup lze provést prostřednictvím webu Azure Portal nebo víceplatformového rozhraní příkazového řádku Azure CLI.
 
 #### <a name="step-1-create-the-parent-and-child-zones"></a>Krok 1. Vytvoření nadřazených a podřízených zón
 Nejdříve Vytvoříme nadřazené a podřízené zóny. Ty mohou být ve stejné skupině prostředků, nebo v různých skupinách prostředků.
@@ -189,7 +191,7 @@ $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType
 
 #### <a name="step-3-delegate-the-child-zone"></a>Krok 3. Delegování podřízené zóny
 
-Delegování dokončíte vytvořením odpovídající sady záznamů NS v nadřazené zóně. Všimněte si, že název sady záznamů v nadřazené zóně odpovídá názvu podřízené zóny, v tomto případě „partners“.
+Delegování dokončíte vytvořením odpovídající sady záznamů NS v nadřazené zóně. Název sady záznamů v nadřazené zóně odpovídá názvu podřízené zóny, v tomto případě „partners“.
 
 ```powershell
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
@@ -222,10 +224,5 @@ partners.contoso.com
 [Správa zón DNS](dns-operations-dnszones.md)
 
 [Správa záznamů DNS](dns-operations-recordsets.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

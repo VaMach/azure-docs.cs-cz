@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
-ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -57,7 +57,7 @@ Pakety se přes síť TCP/IP směrují na základě směrovací tabulky definova
 | --- | --- | --- | --- |
 | Předpona adresy |Cílový rozsah CIDR, na který se trasa vztahuje, například 10.1.0.0/16. |Toto musí být platný rozsah CIDR, který reprezentuje adresy ve veřejném internetu, virtuální síti Azure nebo místním datacentru. |Ujistěte se, že **Předpona adresy** neobsahuje adresu uvedenou ve vlastnosti **Adresa dalšího segmentu**, jinak se pakety dostanou do smyčky mezi zdrojem a dalším segmentem a nikdy nedorazí do cíle. |
 | Typ dalšího segmentu |Typ segmentu Azure, do kterého se má paket odeslat. |Toto musí být jedna z následujících hodnot: <br/> **Virtuální síť**. Představuje místní virtuální síť. Pokud máte například dvě podsítě, 10.1.0.0/16 a 10.2.0.0/16, ve stejné virtuální síti, trasa každé podsítě ve směrovací tabulce bude obsahovat hodnotu dalšího segmentu *Virtuální síť*. <br/> **Brána virtuální sítě**. Představuje bránu Azure S2S VPN Gateway. <br/> **Internet.** Představuje výchozí internetovou bránu poskytovanou infrastrukturou Azure. <br/> **Virtuální zařízení.** Představuje virtuální zařízení, které jste přidali do virtuální sítě Azure. <br/> **Žádný**. Představuje černou díru. Pakety předané do černé díry se nepředají vůbec. |Zvažte použití **virtuálního zařízení** k přímému směrování provozu na virtuálního počítač nebo interní IP adresu služby Azure Load Balancer.  Tento typ umožňuje specifikaci IP adresy, jak je popsáno níže. Typ **Žádný** se vám může hodit, pokud chcete zastavit tok paketů do určitého cíle. |
-| Adresa dalšího segmentu |Adresa dalšího segmentu obsahuje IP adresu, na kterou se mají předávat pakety. Hodnoty dalšího segmentu jsou povolené jenom v trasách, kde typ dalšího segmentu je *Virtuální zařízení*. |Musí to být IP adresa, která je dosažitelná z virtuální sítě, ve které je použitá uživatelem definovaná trasa. |Pokud IP adresa představuje virtuální počítač, nezapomeňte tomuto virtuálnímu počítači povolit [předávání IP](#IP-forwarding) v Azure. Pokud IP adresa představuje interní IP adresu služby Azure Load Balancer, ujistěte se, že máte odpovídající pravidlo vyrovnávání zatížení pro každý z portů, pro který chcete vyrovnat zatížení.|
+| Adresa dalšího segmentu |Adresa dalšího segmentu obsahuje IP adresu, na kterou se mají předávat pakety. Hodnoty dalšího segmentu jsou povolené jenom v trasách, kde typ dalšího segmentu je *Virtuální zařízení*. |Musí to být IP adresa, která je dosažitelná z virtuální sítě, ve které je použitá uživatelem definovaná trasa, bez nutnosti přejít přes **bránu virtuální sítě**. IP adresa musí být ve stejné virtuální síti, kde se používá, nebo v partnerské virtuální síti. |Pokud IP adresa představuje virtuální počítač, nezapomeňte tomuto virtuálnímu počítači povolit [předávání IP](#IP-forwarding) v Azure. Pokud IP adresa představuje interní IP adresu služby Azure Load Balancer, ujistěte se, že máte odpovídající pravidlo vyrovnávání zatížení pro každý z portů, pro který chcete vyrovnat zatížení.|
 
 V prostředí Azure PowerShell mají některé hodnoty „NextHopType“ odlišné názvy:
 

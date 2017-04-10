@@ -1,6 +1,6 @@
 ---
-title: MFA Server s AD FS ve Windows Serveru 2012 R2 | Dokumentace Microsoftu
-description: "Tento článek popisuje, jak začít se službami Azure Multi-Factor Authentication a AD FS v systému Windows Server 2012 R2."
+title: MFA Server s AD FS ve Windows Serveru | Dokumentace Microsoftu
+description: "Tento článek popisuje, jak začít se službami Azure Multi-Factor Authentication a AD FS v systému Windows Server 2012 R2 a 2016."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/19/2017
+ms.date: 03/29/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 7fd5c4edadc6d9cc070dff937a963f9a83ec66c2
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f2481c18f12d74a90938ffb0353dd000fe73f440
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="configure-azure-multi-factor-authentication-server-to-work-with-with-ad-fs-in-windows-server-2012-r2"></a>Konfigurace serveru Azure Multi-Factor Authentication pro práci se službou AD FS ve Windows Serveru 2012 R2
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurace serveru Azure Multi-Factor Authentication pro práci se službou AD FS ve Windows Serveru
 Pokud používáte službu AD FS (Active Directory Federation Services) a chcete zabezpečit cloudové nebo místní prostředky, můžete nakonfigurovat Azure Multi-Factor Authentication Server pro práci se službou AD FS. Tato konfigurace aktivuje u citlivých koncových bodů dvoustupňové ověřování.
 
-V tomto článku se podíváme na to, jak používat Azure Multi-Factor Authentication Server s AD FS v systém Windows Server 2012 R2. Další informace najdete v tématu [Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
+V tomto článku se podíváme na to, jak používat Azure Multi-Factor Authentication Server s AD FS v systému Windows Server 2012 R2 nebo Windows Server 2016. Další informace najdete v tématu [Zabezpečení cloudových a lokálních prostředků pomocí Microsoft Azure Multi-Factor Authentication Serveru s AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
-## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multi-factor-authentication-server"></a>Zabezpečení Windows Serveru 2012 R2 AD FS pomocí Azure Multi-Factor Authentication Serveru
+## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Zabezpečení Windows Serveru AD FS pomocí Azure Multi-Factor Authentication Serveru
 Azure Multi-Factor Authentication Server můžete instalovat různě:
 
 * Nainstalujte Azure Multi-Factor Authentication Server lokálně na stejném serveru jako AD FS.
@@ -34,20 +34,22 @@ Azure Multi-Factor Authentication Server můžete instalovat různě:
 
 Před zahájením se ujistěte, že znáte následující informace:
 
-* Azure Multi-Factor Authentication Server není potřeba instalovat na váš server AD FS. Na Windows Server 2012 R2, kde běží služba AD FS, je pak ale nutné nainstalovat adaptér Multi-Factor Authentication pro AD FS. Server můžete nainstalovat na jiný počítač, pokud se jedná o podporovanou verzi, a adaptér AD FS potom nainstalujete samostatně na federační server AD FS. Samostatně adaptér instalujte podle následujících postupů.
-* Když se adaptér AD FS pro MFA Server navrhoval, předpokládalo se, že AD FS může adaptéru předat název přijímající strany. Název přijímající strany se pak dal použít jako název aplikace. Ukázalo se ale, že to tak není. Pokud v organizaci používáte metody ověření pomocí textové zprávy nebo mobilní aplikace, řetězce definované v Nastavení společnosti obsahují zástupný text „<$*application_name*$>“. Ten se při použití adaptéru AD FS nenahradí automaticky. Doporučujeme, abyste při zabezpečování AD FS zástupný text z příslušných řetězců odebrali.
+* Azure Multi-Factor Authentication Server není potřeba instalovat na váš server AD FS. Na Windows Server 2012 R2 nebo Windows Server 2016, kde běží služba AD FS, je pak ale nutné nainstalovat adaptér Multi-Factor Authentication pro AD FS. Server můžete nainstalovat na jiný počítač, pokud se jedná o podporovanou verzi, a adaptér AD FS potom nainstalujete samostatně na federační server AD FS. Samostatně adaptér instalujte podle následujících postupů.
+* Pokud v organizaci používáte metody ověření pomocí textové zprávy nebo mobilní aplikace, řetězce definované v Nastavení společnosti obsahují zástupný text „<$*application_name*$>“. V MFA Serveru verze 7.1 můžete zadat název aplikace, který nahrazuje tento zástupný text. Ve verzi 7.0 nebo dřívější se tento zástupný text při použití adaptéru AD FS nenahradí automaticky. U těchto starších verzí při zabezpečování AD FS odeberte tento zástupný text z příslušných řetězců.
 * Účet, se kterým se přihlašujete, musí mít uživatelská práva k vytváření skupin zabezpečení ve službě Active Directory.
-* Průvodce instalací adaptéru Multi-Factor Authentication AD FS vytvoří v instanci Active Directory skupinu zabezpečení s názvem PhoneFactor Admins. Potom přidá účet služby AD FS vaší služby federace do této skupiny. Doporučujeme, abyste v řadiči domény ověřili, že se skupina PhoneFactor Admins opravdu vytvořila a mezi jejími členy je účet služby AD FS. Pokud je to nutné, přidejte v řadiči domény účet služby AD FS do skupiny PhoneFactor Admins ručně.
+* Průvodce instalací adaptéru Multi-Factor Authentication AD FS vytvoří v instanci Active Directory skupinu zabezpečení s názvem PhoneFactor Admins. Potom přidá účet služby AD FS vaší služby federace do této skupiny. V řadiči domény ověřte, že se skupina PhoneFactor Admins opravdu vytvořila a mezi jejími členy je účet služby AD FS. Pokud je to nutné, přidejte v řadiči domény účet služby AD FS do skupiny PhoneFactor Admins ručně.
 * Informace o tom, jak instalovat sadu SDK webové služby pomocí uživatelského portálu, najdete v tématu [Nasazení uživatelského portálu pro Azure Multi-Factor Authentication Server.](multi-factor-authentication-get-started-portal.md)
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Instalace Azure Multi-Factor Authentication Server místně na serveru AD FS
 1. Stáhněte a nainstalujte Azure Multi-Factor Authentication Server na server AD FS. Informace o instalaci se dočtete v tématu [Začínáme s Azure Multi-Factor Authentication Serverem](multi-factor-authentication-get-started-server.md).
-2. V konzole pro správu Azure Multi-Factor Authentication Serveru klikněte na ikonu **služby AD FS** a potom vyberte možnosti **Povolit zápis uživatele** a **Povolit uživatelům výběr metody**.
+2. Na Azure Multi-Factor Authentication Serveru klikněte na ikonu **AD FS**. Vyberte možnosti **Povolit zápis uživatele** a **Povolit uživatelům výběr metody**.
 3. Vyberte další možnosti, které byste chtěli pro svou organizaci nastavit.
 4. Klikněte na **Instalovat adaptér služby AD FS**.
+   
    <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/server.png)</center>
-5. Pokud se zobrazí okno služby Active Directory, znamená to dvě věci. Počítač je připojený k doméně a konfigurace Active Directory pro zabezpečení komunikace mezi adaptérem AD FS a ověřovací službou Multi-Factor Authentication není kompletní. Kliknutím na možnost **Další** konfiguraci automaticky dokončíte. Nebo můžete zaškrtnout políčko **Vynechat automatickou konfiguraci služby Active Directory a konfigurovat nastavení ručně** a až potom kliknout na **Další**.
-6. Pokud se zobrazí okno místní skupiny, znamená to dvě věci. Počítač není připojený k doméně a konfigurace místní skupiny pro zabezpečení komunikace mezi adaptérem AD FS a ověřovací službou Multi-Factor Authentication není kompletní. Kliknutím na možnost **Další** konfiguraci automaticky dokončíte. Nebo můžete zaškrtnout políčko **Vynechat automatickou konfiguraci místní skupiny a konfigurovat nastavení ručně** a až potom kliknout na **Další**.
+
+5. Pokud se zobrazí okno služby Active Directory, znamená to dvě věci. Počítač je připojený k doméně a konfigurace Active Directory pro zabezpečení komunikace mezi adaptérem AD FS a ověřovací službou Multi-Factor Authentication není kompletní. Kliknutím na možnost **Další** konfiguraci automaticky dokončíte. Nebo můžete zaškrtnout políčko **Vynechat automatickou konfiguraci služby Active Directory a konfigurovat nastavení ručně**. Klikněte na **Další**.
+6. Pokud se zobrazí okno místní skupiny, znamená to dvě věci. Počítač není připojený k doméně a konfigurace místní skupiny pro zabezpečení komunikace mezi adaptérem AD FS a ověřovací službou Multi-Factor Authentication není kompletní. Kliknutím na možnost **Další** konfiguraci automaticky dokončíte. Nebo můžete zaškrtnout políčko **Vynechat automatickou konfiguraci místní skupiny a konfigurovat nastavení ručně**. Klikněte na **Další**.
 7. V průvodci instalací klikněte na tlačítko **Další**. Azure Multi-Factor Authentication Server vytvoří skupinu PhoneFactor Admins a přidá do ní účet služby AD FS.
    <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/adapter.png)</center>
 8. V kroku **Spustit instalační program** klikněte na **Další**.
@@ -77,7 +79,7 @@ Multi-Factor Authentication Server máte teď nastavený jako dodatečného posk
 Postupujte podle těchto kroků a upravte soubor MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Uzel **UseWebServiceSdk** nastavte na **true**.  
-2. Hodnotu **WebServiceSdkUrl** nastavte na URL sady SDK webové služby pro Multi-Factor Authentication. Například: *https://contoso.com/&lt;název_certifikátu&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx*, kde název_certifikátu je název vašeho certifikátu.  
+2. Hodnotu **WebServiceSdkUrl** nastavte na URL sady SDK webové služby pro Multi-Factor Authentication. Například: *https://contoso.com/&lt;název_certifikátu&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, kde *název_certifikátu* je název vašeho certifikátu.  
 3. Upravte skript Register-MultiFactorAuthenticationAdfsAdapter.ps1 tak, že na konec příkazu `Register-AdfsAuthenticationProvider` přidáte *-ConfigurationFilePath &lt;cesta&gt;*, kde *&lt;cesta&gt;* je úplná cesta k souboru MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurace sady SDK webové služby pomocí uživatelského jména a hesla
@@ -134,7 +136,7 @@ K zabezpečení cloudových prostředků nastavte pravidlo deklarace identity ta
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
 
-6. Pojmenujte pravidlo. 
+6. Pojmenujte pravidlo.
 7. Jako typ příchozí deklarace identity vyberte **Odkazy na metody ověřování**.
 8. Vyberte **Předávat všechny hodnoty deklarací identity**.
     ![	Průvodce přidáním pravidla – deklarace identity transformace](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)

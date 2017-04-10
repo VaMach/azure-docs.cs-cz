@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: cee4748a0b24e11cd8a8ee46471418680fcf7b33
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -53,7 +53,7 @@ Nasazení může trvat minutu. Po dokončení nasazení obsahuje vaše předplat
 3. Okno zobrazí souhrn vybraného nasazení. Souhrn obsahuje stav nasazení a jeho operací a také hodnoty, které jste zadali pro parametry. Pokud chcete zobrazit šablonu, kterou jste použili k nasazení, vyberte možnost **Zobrazit šablonu**.
    
      ![zobrazení souhrnu nasazení](./media/resource-manager-export-template/deployment-summary.png)
-4. Resource Manager pro vás načte následujících šest souborů:
+4. Resource Manager pro vás načte následujících sedm souborů:
    
    1. **Template** - Šablona, která definuje infrastrukturu pro vaše řešení. Když jste prostřednictvím portálu vytvářeli účet úložiště, Resource Manager k jeho nasazení použil šablonu a tuto šablonu uložil pro budoucí použití.
    2. **Parameters** - Soubor s parametry, který slouží k předávání hodnot během nasazení. Obsahuje hodnoty, které jste zadali při prvním nasazení. Kteroukoli z nich ale můžete při opětovném nasazování šablony změnit.
@@ -148,28 +148,28 @@ Pokud chcete získat informace o aktuálním stavu skupiny prostředků, vyexpor
      Ne všechny typy prostředků podporují funkci exportu šablony. Pokud vaše skupina prostředků obsahuje jenom účet úložiště a virtuální síť uvedené v tomto článku, nezobrazí se vám žádná chyba. Pokud jste však vytvořili další typy prostředků, může se zobrazit chyba, že nastal problém s exportem. Postup řešení těchto problémů najdete v části [Oprava problémů s exportem](#fix-export-issues).
 2. Opět uvidíte šest souborů, které můžete použít k opětovnému nasazení řešení, tentokrát se ale šablona mírně liší. Tato šablona obsahuje pouze dva parametry: jeden pro název účtu úložiště a jeden pro název virtuální sítě.
 
-  ```json
-  "parameters": {
-    "virtualNetworks_VNET_name": {
-      "defaultValue": "VNET",
-      "type": "String"
-    },
-    "storageAccounts_storagetf05092016_name": {
-      "defaultValue": "storagetf05092016",
-      "type": "String"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "virtualNetworks_VNET_name": {
+       "defaultValue": "VNET",
+       "type": "String"
+     },
+     "storageAccounts_storagetf05092016_name": {
+       "defaultValue": "storagetf05092016",
+       "type": "String"
+     }
+   },
+   ```
    
-     Resource Manager nenačetl šablony, které jste použili během nasazení. Místo toho vygeneroval novou šablonu, která je založená na aktuální konfiguraci prostředků. Šablona například nastaví umístění účtu úložiště a hodnotu replikace takto:
+   Resource Manager nenačetl šablony, které jste použili během nasazení. Místo toho vygeneroval novou šablonu, která je založená na aktuální konfiguraci prostředků. Šablona například nastaví umístění účtu úložiště a hodnotu replikace takto:
 
-  ```json 
-  "location": "northeurope",
-  "tags": {},
-  "properties": {
-    "accountType": "Standard_RAGRS"
-  },
-  ```
+   ```json 
+   "location": "northeurope",
+   "tags": {},
+   "properties": {
+     "accountType": "Standard_RAGRS"
+   },
+   ```
 3. Máte pár možností, jak s touto šablonou dále pracovat. Šablonu si můžete stáhnout a pracovat na ní místně v editoru JSON nebo si ji můžete uložit do knihovny a pracovat s ní prostřednictvím portálu.
    
      Pokud se vám s editorem JSON, jako je [VS Code](resource-manager-vs-code.md) nebo [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), dobře pracuje, můžete si ji stáhnout místně a použít tento editor. Pokud editor JSON nechcete používat, můžete preferovat úpravy šablony prostřednictvím portálu. Ve zbývající části tohoto tématu se předpokládá, že máte šablonu uloženou v knihovně na portálu. Stejné změny syntaxe ale můžete v šabloně provést, ať pracujete místně v editoru JSON nebo prostřednictvím portálu.
@@ -205,88 +205,88 @@ V této části do vyexportované šablony přidáte parametry, abyste ji mohli 
      ![Úprava šablony](./media/resource-manager-export-template/edit-template.png)
 3. Abyste mohli předat hodnoty, které byste mohli chtít zadat během nasazování, nahraďte oddíl **parameters** novými definicemi parametrů. Všimněte si hodnot **allowedValues** pro **storageAccount_accountType**. Pokud nechtěně zadáte neplatnou hodnotu, rozpozná se tato chyba ještě před zahájením nasazování. Ještě je třeba upozornit na to, že zadáváte pouze předponu názvu účtu úložiště a předpona je omezena na 11 znaků. Když předponu omezíte na 11 znaků, zajistíte tím, že úplný název nebude delší než maximální povolený počet znaků pro účet úložiště. Předpona umožňuje pro účty úložiště použít zásady vytváření názvů. To, jak vytvořit jedinečný název v dalším kroku, si ukážeme v dalším kroku.
 
-  ```json
-  "parameters": {
-    "storageAccount_prefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccount_accountType": {
-      "defaultValue": "Standard_RAGRS",
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ]
-    },
-    "virtualNetwork_name": {
-      "type": "string"
-    },
-    "addressPrefix": {
-      "defaultValue": "10.0.0.0/16",
-      "type": "string"
-    },
-    "subnetName": {
-      "defaultValue": "subnet-1",
-      "type": "string"
-    },
-    "subnetAddressPrefix": {
-      "defaultValue": "10.0.0.0/24",
-      "type": "string"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageAccount_prefix": {
+       "type": "string",
+       "maxLength": 11
+     },
+     "storageAccount_accountType": {
+       "defaultValue": "Standard_RAGRS",
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ]
+     },
+     "virtualNetwork_name": {
+       "type": "string"
+     },
+     "addressPrefix": {
+       "defaultValue": "10.0.0.0/16",
+       "type": "string"
+     },
+     "subnetName": {
+       "defaultValue": "subnet-1",
+       "type": "string"
+     },
+     "subnetAddressPrefix": {
+       "defaultValue": "10.0.0.0/24",
+       "type": "string"
+     }
+   },
+   ```
 
 4. Oddíl **variables** šablony je teď prázdný. V oddílu **variables** vytvořte hodnoty, které zjednodušují syntaxi pro zbytek šablony. Tuto část nahraďte novou definicí proměnné. Proměnná **StorageAccount_name** zřetězí předponu z parametru do jedinečného řetězce, který se generuje na základě identifikátoru skupiny prostředků. Při zadávání hodnoty parametru už nemusíte odhadovat jedinečný název.
 
-  ```json
-  "variables": {
-    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 5. Abyste mohli použít parametry a proměnnou v definicích prostředků, nahraďte oddíl **resources** novými definicemi prostředku. Všimněte si, že v definicích prostředků se toho moc nezměnilo – jenom hodnota, která je přiřazená k vlastnosti prostředků. Vlastnosti jsou stejné jako vlastnosti z vyexportované šablony. Jednoduše místo pevně definovaných hodnot přiřazujete hodnotám parametrů vlastnosti. Umístění prostředků je nastavené tak, aby se používalo stejné umístění jako pro skupinu prostředků, a to prostřednictvím výrazu **resourceGroup().location**. Na proměnnou, kterou jste vytvořili pro název účtu úložiště, se odkazuje prostřednictvím výrazu **variables**.
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetwork_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnetAddressPrefix')]"
-            }
-          }
-        ]
-      },
-      "dependsOn": []
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccount_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "accountType": "[parameters('storageAccount_accountType')]"
-      },
-      "dependsOn": []
-    }
-  ]
-  ```
+   ```json
+   "resources": [
+     {
+       "type": "Microsoft.Network/virtualNetworks",
+       "name": "[parameters('virtualNetwork_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "properties": {
+         "addressSpace": {
+           "addressPrefixes": [
+             "[parameters('addressPrefix')]"
+           ]
+         },
+         "subnets": [
+           {
+             "name": "[parameters('subnetName')]",
+             "properties": {
+               "addressPrefix": "[parameters('subnetAddressPrefix')]"
+             }
+           }
+         ]
+       },
+       "dependsOn": []
+     },
+     {
+       "type": "Microsoft.Storage/storageAccounts",
+       "name": "[variables('storageAccount_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "tags": {},
+       "properties": {
+         "accountType": "[parameters('storageAccount_accountType')]"
+       },
+       "dependsOn": []
+     }
+   ]
+   ```
 
 6. Po dokončení úprav šablony vyberte **OK**.
 7. Uložte změny šablony kliknutím na **Uložit**.
@@ -393,7 +393,7 @@ V prostředku webu přidejte definici pro kód k instalaci:
 ```
 
 ### <a name="virtual-machine-extension"></a>Rozšíření virtuálního počítače
-Příklady rozšíření virtuálních počítačů najdete v článku [Ukázky konfigurace rozšíření virtuálních počítačů Azure s Windows](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Příklady rozšíření virtuálních počítačů najdete v článku [Ukázky konfigurace rozšíření virtuálních počítačů Azure s Windows](../virtual-machines/windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 Přidání prostředku typu brána virtuální sítě.

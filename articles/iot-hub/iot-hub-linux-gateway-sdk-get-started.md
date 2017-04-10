@@ -12,41 +12,42 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/28/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 37b2a82d7f6043224e68219fde753eef73078ffd
-ms.openlocfilehash: b3cc8e53b0c8bb7ea40b6ebcebe1f97d4a3e1180
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 856ffeeeb8f9d8296ba972a9e070686171f7fde8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="explore-the-iot-gateway-sdk-architecture-on-linux"></a>Zkoumání architektury IoT Gateway SDK v Linuxu
+
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Postup pro sestavení ukázky
+
 Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro práci se sadou SDK v systému Linux.
 
 1. Otevřete prostředí.
-2. Přejděte do kořenové složky místní kopie úložiště **azure-iot-gateway-sdk**.
-3. Spusťte skript **tools/build.sh**. Tento skript vytvoří v kořenové složce místní kopie úložiště **azure-iot-gateway-sdk** pomocí nástroje **cmake** složku s názvem **build** a vygeneruje soubor pravidel. Skript potom sestaví řešení a přeskočí při tom testy jednotek a celkové testy. Pokud chcete sestavit a spustit testy jednotek, přidejte parametr **--run-unittests**. Pokud chcete sestavit a spustit celkové testy, přidejte parametr **--run-e2e-tests**.
+1. Přejděte do kořenové složky místní kopie úložiště **azure-iot-gateway-sdk**.
+1. Spusťte skript **tools/build.sh**. Tento skript vytvoří v kořenové složce místní kopie úložiště **azure-iot-gateway-sdk** pomocí nástroje **cmake** složku s názvem **build** a vygeneruje soubor pravidel. Skript potom sestaví řešení a přeskočí při tom testy jednotek a celkové testy. Pokud chcete sestavit a spustit testy jednotek, přidejte parametr **--run-unittests**. Pokud chcete sestavit a spustit celkové testy, přidejte parametr **--run-e2e-tests**.
 
 > [!NOTE]
 > Pokaždé když spustíte skript **build.sh**, odstraní a potom znovu vytvoří složku **build** v kořenové složce místní kopie úložiště **azure-iot-gateway-sdk**.
-> 
-> 
 
 ## <a name="how-to-run-the-sample"></a>Spuštění ukázky
-1. Skript **build.sh** generuje výstup ve složce **build** v místní kopii úložiště **azure-iot-gateway-sdk**. To zahrnuje dva moduly používané v tomto příkladu.
-   
-    Skript sestavení umístí modul **liblogger.so** do složky **build/modules/logger/** a modul **libhello_world.so** do složky **build/modules/hello_world/**. Tyto cesty použijte jako hodnotu **module path**, jak vidíte v následujícím souboru nastavení JSON.
-2. Proces hello_world_sample přijímá jako argument v příkazovém řádku cestu ke konfiguračnímu souboru JSON. Příklad souboru JSON je součástí úložiště v umístění **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** a níže je jeho kopie. Tento soubor bude fungovat, pokud jste neupravili skript sestavení, aby umístil moduly nebo ukázkové spustitelné soubory do jiných než výchozích umístění.
+
+1. Skript **build.sh** generuje výstup ve složce **build** v místní kopii úložiště **azure-iot-gateway-sdk**. Tento výstup zahrnuje dva moduly používané v tomto příkladu.
+
+    Skript sestavení umístí modul **liblogger.so** do složky **build/modules/logger/** a modul **libhello\_world.so** do složky **build/modules/hello_world/**. Tyto cesty použijte jako hodnotu **module path**, jak vidíte v následujícím ukázkovém souboru nastavení JSON.
+1. Proces hello\_world\_sample přijímá jako argument příkazového řádku cestu ke konfiguračnímu souboru JSON. Následující ukázkový soubor JSON je součástí úložiště sady SDK v umístění **samples/hello\_world/src/hello\_world\_lin.json**. Tento konfigurační soubor bude fungovat, pokud jste neupravili skript sestavení, aby umístil moduly nebo ukázkové spustitelné soubory do jiných než výchozích umístění.
 
    > [!NOTE]
-   > Cesty k modulům jsou relativní vzhledem k aktuálnímu pracovnímu adresáři, ze kterého je spuštěn spustitelný soubor hello_world_sample, ne k adresáři, ve kterém je spustitelný soubor umístěn. Ukázkový konfigurační soubor JSON ve výchozím nastavení zapíše do aktuálního pracovního adresáře soubor log.txt.
-   
-    ```
+   > Cesty k modulům jsou relativní vzhledem k aktuálnímu pracovnímu adresáři, ze kterého je spuštěn spustitelný soubor hello\_world\_sample, ne k adresáři, ve kterém je spustitelný soubor umístěn. Ukázkový konfigurační soubor JSON ve výchozím nastavení zapíše do aktuálního pracovního adresáře soubor log.txt.
+
+    ```json
     {
         "modules" :
         [
@@ -71,7 +72,7 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
                 "args" : null
             }
         ],
-        "links": 
+        "links":
         [
             {
                 "source": "hello_world",
@@ -80,12 +81,10 @@ Než začnete, musíte [připravit vývojové prostředí][lnk-setupdevbox] pro 
         ]
     }
     ```
-3. Přejděte do složky **azure-iot-gateway-sdk/build**.
-4. Spusťte následující příkaz:
-   
-   ```
-   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
-   ``` 
+1. Přejděte do složky **build**.
+1. Spusťte následující příkaz:
+
+   `./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json`
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights pro služby systému Windows a role pracovního procesu | Dokumentace Microsoftu"
+title: "Azure Application Insights pro server Windows a role pracovního procesu | Dokumentace Microsoftu"
 description: "Ručně přidejte do aplikace ASP.NET sadu SDK Application Insights k analýze využití, dostupnosti a výkonu."
 services: application-insights
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="manually-configure-application-insights-for-aspnet-4-applications"></a>Ruční konfigurace Application Insights pro aplikace ASP.NET 4
-[Application Insights](app-insights-overview.md) představují rozšiřitelný nástroj, který vývojářům pomáhá pochopit výkon a využití živých aplikací. Můžete je ručně nakonfigurovat k monitorování služeb systému Windows, rolí pracovního procesu a dalších aplikací ASP.NET. U webových aplikací je ruční konfigurace alternativou k [automatickému nastavení](app-insights-asp-net.md), které nabízí sada Visual Studio.
+# <a name="manually-configure-application-insights-for-aspnet-applications"></a>Ruční konfigurace Application Insights pro aplikace ASP.NET
+[Application Insights](app-insights-overview.md) představují rozšiřitelný nástroj, který vývojářům pomáhá pochopit výkon a využití živých aplikací. Můžete je ručně nakonfigurovat k monitorování serveru Windows, rolí pracovního procesu a dalších aplikací ASP.NET. U webových aplikací je ruční konfigurace alternativou k [automatickému nastavení](app-insights-asp-net.md), které nabízí sada Visual Studio.
 
 ![Příklady tabulek sledování výkonu](./media/app-insights-windows-services/10-perf.png)
 
@@ -47,13 +47,13 @@ Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá 
 
 Kroky, které jste právě provedli pro vytvoření nového prostředku, jsou vhodný způsob, jak začít monitorovat všechny aplikace. Teď do prostředku můžete odesílat data.
 
-## <a name="sdk"></a>2. Nainstalujte sadu SDK do aplikace
-Instalace a konfigurace Application Insights SDK se liší podle platformy, se kterou právě pracujete. Pro aplikace ASP.NET je to snadné.
+## <a name="sdk"></a>2. Instalace balíčku Application Insights v aplikaci
+Instalace a konfigurace balíčku Application Insights se liší podle platformy, se kterou právě pracujete. Pro aplikace ASP.NET je to snadné.
 
 1. V sadě Visual Studio upravte balíčky NuGet projektu webové aplikace.
    
     ![Klikněte pravým tlačítkem myši a vyberte možnost Spravovat balíčky Nuget](./media/app-insights-windows-services/03-nuget.png)
-2. Nainstalujte službu Application Insights SDK pro webové aplikace.
+2. Nainstalujte balíček Application Insights pro aplikace serveru Windows.
    
     ![Vyhledejte „Application Insights“](./media/app-insights-windows-services/04-ai-nuget.png)
    
@@ -61,10 +61,10 @@ Instalace a konfigurace Application Insights SDK se liší podle platformy, se k
    
     Ano. Pokud chcete rozhraní API používat pouze k odesílání vlastní telemetrie, zvolte základní rozhraní API (Microsoft.ApplicationInsights). Balíček Windows Serveru automaticky zahrnuje základní rozhraní API spolu s dalšími balíčky, jako jsou například kolekce čítačů výkonu a monitorování závislostí. 
 
-#### <a name="to-upgrade-to-future-sdk-versions"></a>Postup upgradu na budoucí verze sady SDK
+#### <a name="to-upgrade-to-future-package-versions"></a>Postup upgradu na budoucí verze balíčku
 Čas od času vydáváme nové verze sady SDK.
 
-K upgradu [novou verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) otevřete znovu Správce balíčků NuGet a filtrujte nainstalované balíčky. Vyberte **Microsoft.ApplicationInsights.Web** a zvolte **Upgradovat**.
+K upgradu [novou verzi balíčku](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) otevřete znovu Správce balíčků NuGet a filtrujte nainstalované balíčky. Vyberte **Microsoft.ApplicationInsights.WindowsServer** a zvolte **Upgradovat**.
 
 Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložte jeho kopii před upgradem a následně slučte změny do nové verze.
 

@@ -4,7 +4,7 @@ SKU brány UltraPerformance se v této tabulce neuvádí. Informace o SKU UltraP
 
 |  | **Propustnost brány sítě VPN (1)** | **Maximální počet tunelových propojení IPsec brány sítě VPN (2)** | **Propustnost brány ExpressRoute** | **Brána sítě VPN a ExpressRoute vedle sebe** |
 | --- | --- | --- | --- | --- |
-| **Základní SKU (3)(5)** |100 Mb/s |10 |500 Mb/s |Ne |
+| **Základní SKU (3)(5)(6)** |100 Mb/s |10 |500 Mb/s (6) |Ne |
 | **Standardní SKU (4)(5)** |100 Mb/s |10 |1000 Mb/s |Ano |
 | **SKU pro vysoký výkon (4)** |200 Mb/s |30 |2000 Mb/s |Ano |
 
@@ -13,9 +13,4 @@ SKU brány UltraPerformance se v této tabulce neuvádí. Informace o SKU UltraP
 * (3) Protokol BGP není podporován pro základní SKU.
 * (4) Sítě VPN typu PolicyBased nejsou pro tuto SKU podporované. Jsou podporované pouze pro základní SKU.
 * (5) Propojení VPN Gateway S2S aktivní-aktivní nejsou pro toto SKU podporovaná. Aktivní-aktivní je podporované jenom v SKU HighPerformance.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) Základní SKU je pro použití se službou ExpressRoute zastaralá.
