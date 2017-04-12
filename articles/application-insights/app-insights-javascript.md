@@ -179,7 +179,7 @@ V okně prohlížeče se nachází graf souhrnu výjimek a níže v okně mří�
 
 ![](./media/app-insights-javascript/39.png)
 
-Pokud nevidíte nahlášené výjimky prohlížeče, zkontrolujte, zda fragment kódu nenastavil parametr `disableExceptionTracking` [](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Pokud nevidíte nahlášené výjimky prohlížeče, zkontrolujte, zda fragment kódu nenastavil [parametr](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
 
 ## <a name="inspect-individual-page-view-events"></a>Zkontrolujte jednotlivé stránky zobrazení událostí
 

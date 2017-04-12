@@ -95,6 +95,7 @@ Tyto články poskytují základní referenční informace o rozhraních REST a 
 > [!IMPORTANT]
 > Důrazně doporučujeme pro přístup k prostředkům Azure Active Directory použít [Microsoft Graph](https://graph.microsoft.io/) místo Azure AD Graph API. Náš vývojový program se nyní soustředí na Microsoft Graph a pro Azure AD Graph API nejsou plánovaná žádná další vylepšení. Existuje velmi omezený počet scénářů, pro které může být Azure AD Graph API stále vhodné. Další informace najdete v příspěvku [Microsoft Graph nebo Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blogu na webu Office Dev Center.
 > 
+
 * [Microsoft Graph:](https://graph.microsoft.io/) Dokumentace, reference, ukázky a sady SDK pro Microsoft Graph 
 * [Referenční informace k rozhraní Azure AD Graph API:](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) Referenční příručka REST pro Azure Active Directory Graph API 
 * [Obory oprávnění rozhraní Azure AD Graph API:](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) Obory oprávnění OAuth 2.0, které slouží k řízení přístupu aplikace k datům adresáře v tenantovi
