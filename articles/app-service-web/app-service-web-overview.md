@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Kromě Web Apps ve službě App Service nabízí Azure další služby, které l
 Pokud chcete začít nasazením ukázkového kódu do nové webové aplikace ve službě App Service, postupujte podle jednoho z kurzů v následujícím rozevíracím seznamu. Budete potřebovat bezplatný účet Azure.
 
 > [!div class="op_single_selector"]
-> * [Nasazení prvního webu v HTML do Azure během 5 minut](app-service-web-get-started-html-cli-nodejs.md)
-> * [Nasazení první webové aplikace v ASP.NET do Azure během 5 minut](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Nasazení první webové aplikace v PHP do Azure během 5 minut](app-service-web-get-started-php-cli-nodejs.md)
-> * [Nasazení první webové aplikace v Node.js do Azure během 5 minut](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Nasazení první webové aplikace v Pythonu do Azure během 5 minut](app-service-web-get-started-python-cli-nodejs.md)
+> * [Nasazení první webové aplikace v ASP.NET do Azure během 5 minut](app-service-web-get-started-dotnet.md)
+> * [Nasazení první webové aplikace v PHP do Azure během 5 minut](app-service-web-get-started-php.md)
+> * [Nasazení první webové aplikace v Node.js do Azure během 5 minut](app-service-web-get-started-nodejs.md)
 > * [Nasazení první webové aplikace v Javě do Azure během 5 minut](app-service-web-get-started-java.md)
+> * [Nasazení první webové aplikace v Pythonu do Azure během 5 minut](app-service-web-get-started-python.md)
+> * [Nasazení prvního webu v HTML do Azure během 5 minut](app-service-web-get-started-html.md)
 > 
 > 
 

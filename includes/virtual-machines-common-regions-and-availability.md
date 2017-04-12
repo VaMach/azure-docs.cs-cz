@@ -9,8 +9,6 @@ Existují speciální oblasti Azure pro právní účely nebo dodržování pře
 
 * **USA (Gov) – Iowa** a **USA (Gov) – Virginia**.
   * Fyzická a logická síťově izolovaná instance Azure pro partnery a úřady státní správy USA, která je obsluhovaná prověřenými občany USA. Zahrnuje další certifikace dodržování předpisů, jako je [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) a [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Další informace o službě [Azure Government](https://azure.microsoft.com/features/gov/)
-* **Střední Indie**, **Jižní Indie** a **Západní Indie**
-  * Tyto oblasti jsou aktuálně dostupné zákazníkům s multilicencemi a partnerům, kteří mají místní registraci v Indii. V roce 2016 k nim uživatelé měli přístup, pokud si zakoupili přímá předplatná.
 * **Severní Čína** a **Východní Čína**
   * Tyto oblasti jsou dostupné prostřednictvím jedinečného partnerství mezi společnostmi Microsoft a 21Vianet, kdy společnost Microsoft nespravuje tato datová centra přímo. Další informace najdete v tématu [Microsoft Azure v Číně](http://www.windowsazure.cn/).
 * **Střední Německo** a **Severovýchodní Německo**

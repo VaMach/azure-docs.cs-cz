@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: fa3f31cdd708729071876ffad707bea70567da83
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -103,7 +103,7 @@ Jakmile Azure dokončí nasazení aplikace, uvidíte další oznámení.
     ![Konfigurace Umbraca – první Umbraco ve službě Azure App Service](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## <a name="next-steps"></a>Další kroky
-* [Nasazení webové aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio](web-sites-dotnet-get-started.md) – informace o vytvoření nové webové aplikace Azure v sadě Visual Studio pomocí některé z obsažených šablon
+* [Nasazení webové aplikace ASP.NET do služby Azure App Service pomocí sady Visual Studio](app-service-web-get-started-dotnet.md) – informace o vytvoření nové webové aplikace Azure v sadě Visual Studio pomocí některé z obsažených šablon
 * [Nasazení kódu do služby Azure App Service](web-sites-deploy.md) – informace o nasazení z FTP nebo úložišť správy zdrojového kódu
 * [Přidání funkce do první webové aplikace](app-service-web-get-started-2.md) – pozvednutí aplikace Azure na další úroveň Ověřte svoje uživatele. Škálujte ji na základě poptávky. Nastavte některá upozornění týkající se výkonu. To vše pomocí několika kliknutí.
 

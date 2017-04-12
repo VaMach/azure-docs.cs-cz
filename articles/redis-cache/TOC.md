@@ -26,7 +26,7 @@
 ###[Distribuovaná mezipaměť pomocí clusterování](cache-how-to-premium-clustering.md)
 ## Automatizace
 ###[Nasazení a správa pomocí PowerShellu](cache-howto-manage-redis-cache-powershell.md)
-###[Nasazení a správa přes rozhraní příkazového řádku Azure](cache-manage-cli.md)
+###[Nasazení a správa přes rozhraní příkazového řádku Azure](cli-samples.md)
 ###[Zřízení mezipaměti Redis Cache](cache-redis-cache-arm-provision.md)
 ###[Zřízení webové aplikace s mezipamětí Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
 ## Integrace s ASP.NET

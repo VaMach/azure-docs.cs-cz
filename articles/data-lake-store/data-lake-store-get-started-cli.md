@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f7748dba30c6e0332c166feda25f4aaa93c06efa
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,19 +29,21 @@ ms.lasthandoff: 03/21/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-> [!NOTE]
-> V případě odesílání a stahování velkého množství dat (velké soubory, velký počet souborů nebo obojí), doporučujeme používat [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) nebo [Azure PowerShell](data-lake-store-get-started-powershell.md). Tyto možnosti mají lepší výkon, protože používají více vláken, aby přesun dat probíhal paralelně.
-> 
->  
-
 Naučte se používat rozhraní příkazového řádku Azure k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake Store najdete v tématu [Přehled Data Lake Store](data-lake-store-overview.md).
 
 Rozhraní příkazového řádku Azure je implementované v Node.js. Dá se použít na jakékoli platformě, která podporuje Node.js, včetně systému Windows, Mac a Linux. Rozhraní příkazového řádku Azure je typu Open Source. Zdrojový kód je spravován na webu GitHub na adrese <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Tento článek se týká jenom používání rozhraní příkazového řádku Azure se službou Data Lake Store. Obecné informace o použití Azure CLI najdete v článku [Jak používat Azure CLI][azure-command-line-tools].
+
+
+> [!NOTE]
+> V případě odesílání a stahování velkého množství dat (velké soubory, velký počet souborů nebo obojí), doporučujeme používat [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) nebo [Azure PowerShell](data-lake-store-get-started-powershell.md). Tyto možnosti mají lepší výkon, protože používají více vláken, aby přesun dat probíhal paralelně.
+> 
+>
 
 ## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto článku měli tyto položky:
@@ -50,10 +52,13 @@ Je nutné, abyste před zahájením tohoto článku měli tyto položky:
 * **Rozhraní příkazového řádku Azure** – Informace týkající se instalace a konfigurace najdete v tématu [Instalace a konfigurace rozhraní příkazového řádku Azure](../cli-install-nodejs.md). Po instalaci rozhraní příkazového řádku nezapomeňte restartovat počítač.
 
 ## <a name="authentication"></a>Authentication
+
 Tento článek využívá jednodušší přístup ověřování ve službě Data Lake Store, kdy se přihlašujete jako koncový uživatel. Úroveň přístupu k účtu služby Data Lake Store a systému souborů se pak řídí úrovní přístupu přihlášeného uživatele. Existují však i jiné přístupy k ověřování ve službě Data Lake Store. Je to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověření ve službě Data Lake Store pomocí služby Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="login-to-your-azure-subscription"></a>Přihlášení k předplatnému Azure
+
 1. Postupujte podle kroků popsaných v tématu [Připojení k předplatnému Azure z rozhraní příkazového řádku Azure](../xplat-cli-connect.md) a připojte se k předplatnému pomocí metody `azure login`.
+
 2. Pomocí příkazu `azure account list` zobrazte seznam předplatných spojených s vaším účtem.
    
         info:    Executing command account list

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 1/24/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 66832a5d3f10f370ad486269c566fc948fd72234
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -66,7 +66,7 @@ Pokud chcete chránit virtuální počítač z portálu Azure Site Recovery, pos
 >
 
 ### <a name="hyper-v-to-azure"></a>Z Hyper-V do Azure
-Pokud chcete chránit virtuální počítač z portálu Azure Site Recovery, postupujte podle pracovního postupu pro [povolení replikace](site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication). Ve čtvrtém kroku pracovního postupu můžete pomocí sloupce **DISK TO REPLICATE** vyloučit disky z replikace. Ve výchozím nastavení jsou pro replikaci vybrány všechny disky. Zrušte výběr disků, které chcete vyloučit z replikace, a potom dokončete postup povolení replikace.
+Pokud chcete chránit virtuální počítač z portálu Azure Site Recovery, postupujte podle pracovního postupu pro [povolení replikace](site-recovery-hyper-v-site-to-azure.md#enable-replication). Ve čtvrtém kroku pracovního postupu můžete pomocí sloupce **DISK TO REPLICATE** vyloučit disky z replikace. Ve výchozím nastavení jsou pro replikaci vybrány všechny disky. Zrušte výběr disků, které chcete vyloučit z replikace, a potom dokončete postup povolení replikace.
 
 ![Vyloučení disků z replikace a povolení replikace pro navrácení služeb po obnovení z Hyper-V do Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -96,10 +96,10 @@ Na zdrojovém virtuálním počítači jsou následující disky:
 **Název disku** | **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disk operačním systému
-DB-Disk1| Disk1 | D:\ | Databáze systému SQL a uživatelská databáze&1;
+DB-Disk1| Disk1 | D:\ | Databáze systému SQL a uživatelská databáze 1
 DB-Disk2 (disk vyloučený z ochrany) | Disk2 | E:\ | Dočasné soubory
 DB-Disk3 (disk vyloučený z ochrany) | Disk3 | F:\ | Databáze SQL tempdb (cesta ke složce (F:\MSSQL\Data\) </br /> </br /> Poznamenejte si cestu ke složce před převzetím služeb při selhání.
-DB Disk4 | Disk4 |G:\ |Uživatelská databáze&2;
+DB Disk4 | Disk4 |G:\ |Uživatelská databáze 2
 
 Protože časté změny dat na dvou discích virtuálního počítače jsou dočasné, při ochraně virtuálního počítače SalesDB vylučte Disk2 a Disk3 z replikace. Azure Site Recovery nebude tyto disky replikovat. Po převzetí služeb při selhání tyto disky nebudou na cílovém virtuálním počítači v Azure připojené.
 
@@ -109,8 +109,8 @@ Ve virtuálním počítači Azure budou po převzetí služeb při selhání tyt
 --- | --- | ---
 DISK0 |    C:\ | Disk operačním systému
 Disk1 |    E:\ | Dočasné úložiště</br /> </br />Azure tento disk přidá a přiřadí mu první dostupné písmeno jednotky.
-Disk2 | D:\ | Databáze systému SQL a uživatelská databáze&1;
-Disk3 | G:\ | Uživatelská databáze&2;
+Disk2 | D:\ | Databáze systému SQL a uživatelská databáze 1
+Disk3 | G:\ | Uživatelská databáze 2
 
 Protože Disk2 a Disk3 byly vyloučeny z virtuálního počítače SalesDB, první volné písmeno jednotky je E:. Azure přiřadí písmeno jednotky E: svazku dočasného úložiště. Pro všechny replikované disky zůstala písmena jednotek stejná.
 
@@ -173,8 +173,8 @@ V předchozím příkladu vypadá konfigurace disků virtuálního počítače A
 --- | --- | ---
 DISK0 | C:\ | Disk operačním systému
 Disk1 |    E:\ | Dočasné úložiště</br /> </br />Azure tento disk přidá a přiřadí mu první dostupné písmeno jednotky.
-Disk2 |    D:\ | Databáze systému SQL a uživatelská databáze&1;
-Disk3 |    G:\ | Uživatelská databáze&2;
+Disk2 |    D:\ | Databáze systému SQL a uživatelská databáze 1
+Disk3 |    G:\ | Uživatelská databáze 2
 
 
 #### <a name="vmware-to-azure"></a>Z VMware do Azure
@@ -185,8 +185,8 @@ Po naplánovaném převzetí služeb při selhání z Azure do místního počí
 **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | ---
 DISK0 | C:\ | Disk operačním systému
-Disk1 |    D:\ | Databáze systému SQL a uživatelská databáze&1;
-Disk2 |    G:\ | Uživatelská databáze&2;
+Disk1 |    D:\ | Databáze systému SQL a uživatelská databáze 1
+Disk2 |    G:\ | Uživatelská databáze 2
 
 #### <a name="hyper-v-to-azure"></a>Z Hyper-V do Azure
 Pokud se navrácení služeb po obnovení provádí do původního umístění, zůstává konfigurace disků virtuálního počítače stejná jako konfigurace disků původního virtuálního počítače Hyper-V. Disky vyloučené z replikace z Hyper-V do Azure budou dostupné po navrácení služeb po obnovení virtuálního počítače.
@@ -196,10 +196,10 @@ Po naplánovaném převzetí služeb při selhání z Azure do místního počí
 **Název disku** | **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 |    C:\ | Disk operačním systému
-DB-Disk1 | Disk1 | D:\ | Databáze systému SQL a uživatelská databáze&1;
+DB-Disk1 | Disk1 | D:\ | Databáze systému SQL a uživatelská databáze 1
 DB-Disk2 (vyloučený disk) | Disk2 | E:\ | Dočasné soubory
 DB-Disk3 (vyloučený disk) | Disk3 | F:\ | SQL databáze tempdb (cesta ke složce (F:\MSSQL\Data\)
-DB Disk4 | Disk4 | G:\ | Uživatelská databáze&2;
+DB Disk4 | Disk4 | G:\ | Uživatelská databáze 2
 
 
 #### <a name="exclude-the-paging-file-pagefilesys-disk"></a>Vyloučení disku se stránkovacím souborem (pagefile.sys)

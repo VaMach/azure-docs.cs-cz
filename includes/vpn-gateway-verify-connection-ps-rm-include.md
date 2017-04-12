@@ -1,8 +1,10 @@
 Pomocí rutiny `Get-AzureRmVirtualNetworkGatewayConnection` s nebo bez `-Debug` můžete ověřit, že vaše připojení bylo úspěšné. 
 
 1. Použijte následující příklad rutiny a nakonfigurujte hodnoty tak, aby odpovídaly vašemu prostředí. Po zobrazení výzvy vyberte možnost „A“, abyste spustili „vše“. V příkladu odkazuje `-Name` na název připojení, které jste vytvořili a chcete ho testovat.
-   
-        Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+
+  ```powershell
+  Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+  ```
 2. Po dokončení zpracování rutiny si prohlédněte hodnoty. Ve výše uvedeném příkladu se zobrazí stav připojení Připojeno a vy vidíte příchozí a odchozí bajty.
    
         Body:
@@ -30,9 +32,4 @@ Pomocí rutiny `Get-AzureRmVirtualNetworkGatewayConnection` s nebo bez `-Debug` 
             "ingressBytesTransferred": 33509044,
             "egressBytesTransferred": 4142431
           }
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
