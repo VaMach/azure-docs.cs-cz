@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1fd8fe3847299d98a55a16ab400b43be074a5f33
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 0dbf6a121c07d7d1340898f51a38c3572e57b3a2
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,10 +29,11 @@ ms.lasthandoff: 03/22/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
-> 
+>
 
 Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) k provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů atd. Další informace týkající se Data Lake najdete v tématu [Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -49,7 +50,7 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 1. Otevřete Visual Studio a vytvořte konzolovou aplikaci.
 2. V nabídce **Soubor** klikněte na položku **Nový** a potom klikněte na položku **Projekt**.
 3. V části **Nový projekt** zadejte nebo vyberte tyto hodnoty:
-   
+
    | Vlastnost | Hodnota |
    | --- | --- |
    | Kategorie |Šablony/Visual C#/Windows |
@@ -57,35 +58,35 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
    | Name (Název) |VytvořeníAplikaceADL |
 4. Kliknutím na tlačítko **OK** vytvořte projekt.
 5. Přidejte do projektu balíčky Nuget.
-   
+
    1. V Průzkumníku řešení klikněte pravým tlačítkem na název projektu a klikněte na možnost **Správa balíčků NuGet**.
    2. Ujistěte se, že na kartě **Správce balíčků Nuget** je položka **Zdroj balíčku** nastavena na možnost **nuget.org** a je zaškrtnuto políčko **Zahrnout předběžné verze**.
    3. Vyhledejte a nainstalujte následující balíčky NuGet:
-      
+
       * `Microsoft.Azure.Management.DataLake.Store` – Tento kurz používá verzi v1.0.4.
       * `Microsoft.Azure.Management.DataLake.StoreUploader` – Tento kurz používá verzi v1.0.1-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – Tento kurz používá verzi v2.2.11.
-        
+
         ![Přidání zdroje Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Vytvoření nového účtu Azure Data Lake")
    4. Zavřete **Správce balíčků Nuget**.
 6. Otevřete soubor **Program.cs**, odstraňte stávající kód a potom vložte následující příkazy, čímž přidáte odkazy na obory názvů.
-   
+
         using System;
         using System.IO;
     using System.Security.Cryptography.X509Certificates; // Vyžadováno pouze pokud používáte aplikaci Azure AD vytvořenou s certifikáty      using System.Threading;
-   
+
         using Microsoft.Azure.Management.DataLake.Store;
     using Microsoft.Azure.Management.DataLake.Store.Models; using Microsoft.Azure.Management.DataLake.StoreUploader; using Microsoft.IdentityModel.Clients.ActiveDirectory; using Microsoft.Rest.Azure.Authentication;
 
 7. Deklarujte proměnné, jak vidíte níže, a zadejte hodnoty názvu služby Data Lake Store a názvu skupiny prostředků, které již existují. Taky se ujistěte, že místní cesta a název souboru, které tady zadáte, existují na počítači. Za deklarace oboru názvů přidejte následující fragment kódu.
-   
+
         namespace SdkSample
         {
             class Program
             {
                 private static DataLakeStoreAccountManagementClient _adlsClient;
                 private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-   
+
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
@@ -112,7 +113,7 @@ Ve zbývajících oddílech tohoto článku uvidíte, jak používat dostupné m
 
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Pokud používáte ověřování koncového uživatele (doporučeno pro tento kurz)
 
-Tuto metodu použijte se stávající nativní aplikací Azure AD, pokud chcete ověřovat vaši aplikaci **interaktivně**, což znamená, že budete vyzváni k zadání přihlašovacích údajů Azure. 
+Tuto metodu použijte se stávající nativní aplikací Azure AD, pokud chcete ověřovat vaši aplikaci **interaktivně**, což znamená, že budete vyzváni k zadání přihlašovacích údajů Azure.
 
 Následující fragment kódu pro snadnější použití pro ID klienta a identifikátor URI přesměrování používá výchozí hodnoty, které budou fungovat s jakýmkoli předplatným Azure. Chcete-li tento kurz projít rychleji, doporučujeme vám použít tento přístup. V následujícím fragmentu kódu stačí zadat hodnotu vašeho ID tenanta. Můžete jej zjistit pomocí pokynů uvedených v tématu [Vytvoření aplikace Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
@@ -135,7 +136,7 @@ Následující fragment kódu můžete použít k **neinteraktivnímu** ověřov
     // Service principal / appplication authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
@@ -143,12 +144,13 @@ Následující fragment kódu můžete použít k **neinteraktivnímu** ověřov
     var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Pokud používáte ověřování služba-služba s certifikátem
-Třetí možností je použít následující fragment kódu k **neinteraktivnímu** ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt Azure Active Directory. Použijte tento fragment kódu se stávající [aplikací Azure AD s certifikáty](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+
+Třetí možností je použít následující fragment kódu k **neinteraktivnímu** ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt Azure Active Directory. Použijte tento fragment kódu se stávající [aplikací Azure AD s certifikáty](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientCert = <AAD-application-client-certificate>
@@ -204,7 +206,7 @@ Následující fragment kódu ukazuje metodu `UploadFile`, kterou můžete použ
 `DataLakeStoreUploader` podporuje rekurzivní nahrávání a stahování mezi místní cestou k souboru a cestou k souboru ve službě Data Lake Store.    
 
 ## <a name="get-file-or-directory-info"></a>Získání informací o souboru nebo adresáři
-Následující fragment kódu ukazuje metodu `GetItemInfo`, kterou můžete použít k načtení informací o souboru nebo adresáři dostupném v Data Lake Store. 
+Následující fragment kódu ukazuje metodu `GetItemInfo`, kterou můžete použít k načtení informací o souboru nebo adresáři dostupném v Data Lake Store.
 
     // Get file or directory info
     public static async Task<FileStatusProperties> GetItemInfo(string path)
@@ -222,7 +224,7 @@ Následující fragment kódu ukazuje metodu `ListItem`, kterou můžete použí
     }
 
 ## <a name="concatenate-files"></a>Řetězení souborů
-Následující fragment kódu ukazuje metodu `ConcatenateFiles`, která slouží k řetězení souborů. 
+Následující fragment kódu ukazuje metodu `ConcatenateFiles`, která slouží k řetězení souborů.
 
     // Concatenate files
     public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
@@ -261,5 +263,4 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Referenční dokumentace sady SDK rozhraní .NET služby Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Referenční dokumentace architektury REST služby Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
-
 

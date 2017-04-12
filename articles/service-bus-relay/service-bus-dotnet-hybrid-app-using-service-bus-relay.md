@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data na
 
    ![][19]
 8. Klikněte na tlačítko **OK**.
-9. Teď musíte nakonfigurovat prostředky Azure pro novou webovou aplikaci. Udělejte všechny kroky v části [Vytvoření webové aplikace](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) a [Vytvoření prostředků Azure](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Potom se vraťte do tohoto kurzu a pokračujte dalším krokem.
+9. Teď musíte nakonfigurovat prostředky Azure pro novou webovou aplikaci. Udělejte všechny kroky v části [Vytvoření webové aplikace](../app-service-web/app-service-web-get-started-dotnet.md) a [Vytvoření prostředků Azure](../app-service-web/app-service-web-get-started-dotnet.md). Potom se vraťte do tohoto kurzu a pokračujte dalším krokem.
 10. V Průzkumníkovi řešení klikněte pravým tlačítkem na **Modely**, pak levým na **Přidat** a pak na **Třída**. Do pole **Název** zadejte název **Product.cs**: Pak klikněte na **Přidat**.
 
     ![][17]
@@ -395,7 +395,7 @@ Na stránce **ProductsPortal** stiskněte **Obnovit**. Pokaždé, když obnovít
 Před dalším krokem zavřete obě aplikace.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Nasazení projektu ProductsPortal do webové aplikace Azure
-Dalším krokem je převod frontendu **ProductsPortal** do webové aplikace Azure. Nejdříve nasaďte projekt **ProductsPortal** a potom proveďte všechny kroky v části [Nasazení webového projektu do Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). Po dokončení nasazení se vraťte do tohoto kurzu a pokračujte dalším krokem.
+Dalším krokem je převod frontendu **ProductsPortal** do webové aplikace Azure. Nejdříve nasaďte projekt **ProductsPortal** a potom proveďte všechny kroky v části [Nasazení webového projektu do Azure](../app-service-web/app-service-web-get-started-dotnet.md). Po dokončení nasazení se vraťte do tohoto kurzu a pokračujte dalším krokem.
 
 > [!NOTE]
 > V okně prohlížeče se při automatickém spuštění webového projektu **ProductsPortal** po nasazení může objevit chybová zpráva. To je v pořádku a děje se to, protože aplikace **ProductsServer** ještě neběží.

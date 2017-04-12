@@ -196,7 +196,6 @@
 ## Cortana Analytics
 ### Rozhraní API
 #### [Detekce anomálií](machine-learning-apps-anomaly-detection-api.md)
-#### [Analýza textu](machine-learning-apps-text-analytics.md)
 #### [Kognitivní služby](https://azure.microsoft.com/services/cognitive-services/)
 #### Prediktivní údržba
 ##### [Přehled](cortana-analytics-playbook-predictive-maintenance.md)

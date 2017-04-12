@@ -50,7 +50,7 @@
 ## Spravovat
 ### [Knihovny pro správu Service Bus](service-bus-management-libraries.md)
 ### [Použití šablon Azure Resource Manageru](service-bus-resource-manager-overview.md)
-### [Použití PowerShellu ke zřizování entit](service-bus-powershell-how-to-provision.md)
+### [Použití PowerShellu ke zřizování entit](service-bus-manage-with-ps.md)
 
 # Referenční informace
 ## .NET
