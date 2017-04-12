@@ -3,7 +3,7 @@
 Pokud chcete odkázat na balíček CloudConfigurationManager, přidejte tento příkaz `using`:
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 Tady je příklad, který ukazuje, jak z konfiguračního souboru získat připojovací řetězec:
@@ -15,9 +15,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 Použití nástroje Azure Configuration Manager není povinné. Můžete také použít rozhraní API, jako třeba třídu [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) rozhraní .NET Framework.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
