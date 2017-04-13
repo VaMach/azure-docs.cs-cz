@@ -24,13 +24,10 @@
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-### [Portál Azure Classic](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Konfigurace připojení typu VNet-to-VNet mezi modely nasazení
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## Vytvoření současně existujících připojení typu Site-to-Site a ExpressRoute
-### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [PowerShell (Classic)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Konfigurace vynuceného tunelování
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (Classic)](vpn-gateway-about-forced-tunneling.md)
@@ -50,8 +47,8 @@
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Referenční informace
-## [PowerShell](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
+## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj154113)
 
