@@ -17,6 +17,7 @@
 ### [Java v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Nasazení aplikací v místním clusteru](service-fabric-get-started-with-a-local-cluster.md)
+## [Vytvoření samostatného clusteru](service-fabric-get-started-standalone-cluster.md)
 
 # Postup
 ## Sestavení aplikace
@@ -145,6 +146,7 @@
 ### Nasazení nebo odebrání aplikací
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [Rozhraní API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [Přehled upgradu aplikace](service-fabric-application-upgrade.md)
 ### [Konfigurace upgradu aplikace](service-fabric-visualstudio-configure-upgrade.md)
 ### [Parametry upgradu aplikace](service-fabric-application-upgrade-parameters.md)
@@ -208,9 +210,9 @@
 ### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Referenční informace
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Rozhraní API Java](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [Rozhraní API Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)
 
 # Zdroje a prostředky

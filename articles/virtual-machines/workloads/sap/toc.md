@@ -16,6 +16,11 @@
 ### [Řešení potíží a monitorování](troubleshooting-monitoring.md)
 ### [Jedna instance SAP HANA](hana-get-started.md)
 ### [Průvodce nasazením S/4 HANA nebo BW/4 HANA](cal-s4h.md)
+### Backup
+#### [Přehled](sap-hana-backup-guide.md)
+#### [Záloha na úrovni souborů](sap-hana-backup-file-level.md)
+#### [Snímky úložiště](sap-hana-backup-storage-snapshots.md)
+
 ## SAP Netweaver
 ### [Přehled a architektura](suse-quickstart.md)
 ### [Plánování a implementace](planning-guide.md)

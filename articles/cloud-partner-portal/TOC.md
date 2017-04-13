@@ -9,6 +9,7 @@
 ## Správa virtuálních počítačů
 ### [Vytvoření nabídky virtuálních počítačů](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Požadavky](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Registrace účtu Microsoft Developer](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Vytvoření nové nabídky virtuálních počítačů](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Formulář pro nastavení nabídky](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [Formulář pro skladové jednotky (SKU)](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [Aktualizace stávající nabídky](./cloud-partner-portal-update-existing-offer.md)
 ### [Odstranění nabídky virtuálního počítače nebo skladové jednotky](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrace na portál Cloud Partner](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Příručka pro prodejce na Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
 ## [Správa potenciálních zákazníků](./cloud-partner-portal-marketing-lead-management.md)
 ### [Tabulka Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)

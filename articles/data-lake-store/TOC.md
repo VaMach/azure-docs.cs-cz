@@ -11,6 +11,7 @@
 ## [Pomocí sady Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)
 ## [Použití Azure CLI](data-lake-store-get-started-cli.md)
+## [Použití Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Pomocí Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Pomocí Pythonu](data-lake-store-get-started-python.md)
 
@@ -49,6 +50,7 @@
 ### [Použití s Power BI](data-lake-store-power-bi.md)
 ### [Použití se službou Data Catalog](data-lake-store-with-data-catalog.md)
 ### [Použití funkce PolyBase ve službě SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [Použití s integračními službami SQL Serveru](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Další možnosti integrace Azure](data-lake-store-integrate-with-other-services.md)
 
 ## Spravovat
@@ -63,8 +65,9 @@
 ## [Python (správa účtů)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (správa systému souborů)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
+## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)

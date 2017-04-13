@@ -185,6 +185,8 @@
     items:
     - name: "Kopírování databáze"
       href: sql-database-copy.md
+    - name: "Import databáze"
+      href: sql-database-import.md
     - name: "Export databáze"
       href: sql-database-export.md
   - name: "Monitorování a ladění"
@@ -209,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: "Návody"
   items:
-  - name: "Správa brány firewall"
-    items:
-    - name: "Portál"
-      href: sql-database-configure-firewall-settings.md
-    - name: "PowerShell"
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: "REST API"
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: "Transact-SQL"
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: "Správa elastických fondů"
     items:
     - name: "Portál"
@@ -249,20 +241,10 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: "Konfigurace maskování"
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "Obnovení"
-    items:
-    - name: "Portál"
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: "PowerShell"
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: "Izolovaná tabulka"
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "Uchovávání"
-    items:
-    - name: "Uchování – portál"
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: "Uchování – PowerShell"
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: "Obnovení jedné tabulky"
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: "Konfigurace úložiště pro zálohy"
+    href: sql-database-long-term-backup-retention-configure.md
   - name: "Geografická replikace dat"
     items:
     - name: "Portál"
@@ -277,10 +259,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: "Přesun dat"
     items:
-    - name: "Import – portál"
-      href: sql-database-import-portal.md
-    - name: "Import – SQLPackage"
-      href: sql-database-import-sqlpackage.md
     - name: "Načítání dat pomocí BCP"
       href: sql-database-load-from-csv-with-bcp.md
     - name: "Načítání dat pomocí ADF"

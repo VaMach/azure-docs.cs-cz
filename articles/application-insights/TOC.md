@@ -30,7 +30,6 @@
 # Postup
 ## Plánování a návrh
 ### [Hloubková diagnostika webových aplikací a služeb](app-insights-devops.md)
-### [Analýzy pro vývojáře pomocí nástrojů Application Insights a HockeyApp](app-insights-developer-analytics.md)
 ### [Sledování výkonu webových aplikací](app-insights-web-monitor-performance.md)
 ### [Analýzy používání pomocí nástroje Application Insights](app-insights-overview-usage.md)
 ### [Oddělení prostředků Application Insights](app-insights-separate-resources.md)
@@ -39,6 +38,7 @@
 
 ## Konfigurace
 ### Azure
+#### [Profiler](app-insights-profiler.md)
 #### [Diagnostika](app-insights-azure-diagnostics.md)
 
 ### ASP.NET
@@ -139,11 +139,6 @@
 
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-insights/)  
 
-## [Příklady a názorné postupy](app-insights-code-samples.md)
-### [Názorný postup: Povolení telemetrie pro Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
-### [Názorný postup: Export do SQL s použitím Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-### [Ukázka kódu: Analýza exportovaných dat](app-insights-code-sample-export-telemetry-sql-database.md)
-
 ## Novinky
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
@@ -156,7 +151,7 @@
 ### [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
-### [Podpora](app-insights-get-dev-support.md)
+### [Podpora](https://azure.microsoft.com/support/)
 
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 

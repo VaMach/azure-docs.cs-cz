@@ -91,8 +91,9 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
+## [JSON](data-factory-json-scripting-reference.md)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Poznámky k verzi pro bránu správy dat](data-factory-gateway-release-notes.md)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Případové studie](data-factory-customer-case-studies.md)

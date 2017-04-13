@@ -1,16 +1,17 @@
 # Přehled
 ## [Co je Azure Automation?](automation-intro.md)
 # Začínáme
-## [Vytvoření runbooku](automation-first-runbook-graphical.md)
-## [Vytvoření powershellového runbooku](automation-first-runbook-textual-powershell.md)
-## [Vytvoření runbooku pracovního postupu PowerShellu](automation-first-runbook-textual.md)
-## [Správa řízení přístupu na základě rolí](automation-role-based-access-control.md)
+## Kurz k runbookům
+### [Vytvoření grafického runbooku](automation-first-runbook-graphical.md)
+### [Vytvoření powershellového runbooku](automation-first-runbook-textual-powershell.md)
+### [Vytvoření runbooku pracovního postupu PowerShellu](automation-first-runbook-textual.md)
 # Postup
-## Nastavení ověřování
+## Ověřování a zabezpečení
 ### [Ověřování ve službě Azure Automation](automation-security-overview.md)
-### [Účet Spustit jako pro Azure](automation-sec-configure-azure-runas-account.md)
-### [Správa služeb Azure a Správce prostředků](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
+### [Konfigurace účtu Spustit jako pro Azure](automation-sec-configure-azure-runas-account.md)
+### [Konfigurace uživatelského účtu Azure AD](automation-sec-configure-aduser-account.md)
+### [Konfigurace ověřování pomocí AWS](automation-sec-configure-aws-account.md)
+### [Správa řízení přístupu na základě rolí](automation-role-based-access-control.md)
 ## Vytváření runbooků
 ### [Typy runbooků](automation-runbook-types.md)
 ### [Vytváření a import runbooků](automation-creating-importing-runbook.md)
