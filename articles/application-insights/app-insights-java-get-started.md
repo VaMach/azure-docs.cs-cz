@@ -398,5 +398,5 @@ Získáte tabulky s dobami odezvy a navíc e-mailová oznámení, pokud váš we
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 
