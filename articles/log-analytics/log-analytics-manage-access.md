@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ Ve výchozím se správcem pracovního prostoru stává účet Microsoft nebo ú
 Existují dva modely oprávnění, které řídí přístup k pracovnímu prostoru Log Analytics:
 
 1. Starší uživatelské role Log Analytics
-2. [Přístup na základě rolí Azure](../active-directory/role-based-access-control-configure.md) 
+2. [Přístup na základě rolí Azure](../active-directory/role-based-access-control-configure.md)
 
 Následující tabulka shrnuje možná nastavení přístupu pomocí jednotlivých modelů oprávnění:
 
@@ -101,13 +101,14 @@ Následující aktivity na portálu Log Analytics vyžadují také oprávnění 
 | Přidání a odebrání řešení pro správu                        | Zápis do skupiny prostředků <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Změna cenové úrovně                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Zobrazení dat na dlaždicích řešení *Backup* a *Site Recovery* | Správce nebo spolusprávce | Má přístup k prostředkům nasazeným pomocí modelu nasazení Azure Classic. |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Správa přístupu k Log Analytics pomocí oprávnění Azure
 Pokud chcete udělit přístup k Log Analytics pomocí oprávnění Azure, postupujte podle kroků v tématu [Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure](../active-directory/role-based-access-control-configure.md).
 
 Pokud máte k pracovnímu prostoru Log Analytics alespoň oprávnění Azure ke čtení, můžete otevřít portál OMS kliknutím na úlohu **Portál OMS** při procházení pracovního prostoru Log Analytics.
 
-Když otevřete portál Log Analytics, přejdete na používání starších uživatelských rolí Log Analytics. Pokud na portálu Log Analytics nemáte přiřazení role, služba [zkontroluje oprávnění Azure, které máte k pracovnímu prostoru](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Vaše přiřazení role na portálu Log Analytics se určuje následujícím způsobem:
+Když otevřete portál Log Analytics, přejdete na používání starších uživatelských rolí Log Analytics. Pokud na portálu Log Analytics nemáte přiřazení role, služba [zkontroluje oprávnění Azure, které máte k pracovnímu prostoru](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+Vaše přiřazení role na portálu Log Analytics se určuje následujícím způsobem:
 
 | Podmínky                                                   | Přiřazená uživatelské role Log Analytics | Poznámky |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ Když otevřete portál Log Analytics, přejdete na používání starších už
 | Pro předplatná spravovaná poskytovatelem Cloud Solution Provider (CSP) <br> Účet, pomocí kterého jste přihlášeni, je ve službě Azure Active Directory propojené s pracovním prostorem. | Správce | Obvykle zákazník poskytovatele CSP |
 | Pro předplatná spravovaná poskytovatelem Cloud Solution Provider (CSP) <br> Účet, pomocí kterého jste přihlášeni, není ve službě Azure Active Directory propojené s pracovním prostorem. | Přispěvatel | Obvykle poskytovatel CSP |
 
-<sup>1</sup> Další informace o definicích rolí najdete v tématu [Oprávnění Azure](../active-directory/role-based-access-control-custom-roles.md). Při vyhodnocování rolí není akce `*` stejná jako `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Další informace o definicích rolí najdete v tématu [Oprávnění Azure](../active-directory/role-based-access-control-custom-roles.md). Při vyhodnocování rolí není akce `*` stejná jako `Microsoft.OperationalInsights/workspaces/*`.
 
 Ohledně webu Azure Portal je třeba pamatovat na několik věcí:
 
