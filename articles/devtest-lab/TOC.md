@@ -27,7 +27,7 @@
 
 ## Správa šablon a bází virtuálních počítačů
 ### [Vytvoření virtuálního počítače s možností deklarace identity](devtest-lab-add-claimable-vm.md)
-### [Vytvoření prostředí více virtuálních počítačů pomocí šablony Azure Resource Manageru](devtest-lab-create-environment-from-arm.md)
+### [Vytvoření prostředí více virtuálních počítačů a prostředků PaaS pomocí šablony Azure Resource Manageru](devtest-lab-create-environment-from-arm.md)
 ### [Konfigurace imagí Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Srovnání imagí a vzorců](devtest-lab-comparing-vm-base-image-types.md)
 ### [Správa vzorců](devtest-lab-manage-formulas.md)

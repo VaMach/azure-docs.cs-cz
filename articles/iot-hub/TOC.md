@@ -103,6 +103,7 @@
 #### [Vizualizace dat ve službě Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Vizualizace dat s využitím Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Předpověď počasí s využitím Azure Machine Learningu](iot-hub-weather-forecast-machine-learning.md)
+#### [Správa zařízení s využitím iothub-exploreru](iot-hub-device-management-iothub-explorer.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Správa zasílání zpráv cloudových zařízení pomocí iothub-exploreru](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +111,7 @@
 #### [Vizualizace dat ve službě Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Vizualizace dat s využitím Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Předpověď počasí s využitím Azure Machine Learningu](iot-hub-weather-forecast-machine-learning.md)
+#### [Správa zařízení s využitím iothub-exploreru](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -138,54 +140,13 @@
 ### [Simulace v Linuxu](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Simulace ve Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## Použití sady IoT Gateway Starter Kit
-### [Simulované zařízení](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Lekce 1: Konfigurace NUC
-##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+### Konfigurace sady IoT Gateway Starter Kit
+#### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [Připojení brány IoT ke službě IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [Použití brány IoT pro převod dat](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### Lekce 2: Vytvoření služby IoT Hub
-##### [Získání nástrojů (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [Získání nástrojů (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Vytvoření služby IoT Hub a registrace zařízení](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-#### Lekce 3: Příjem zpráv ze simulovaného zařízení
-##### [Konfigurace a spuštění ukázkové aplikace BLE](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [Čtení zpráv ze služby IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Lekce 4: Uložení zpráv do Azure Table Storage
-##### [Vytvoření Azure Function App a účtu Azure Storage](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Čtení zpráv uchovávaných v Azure Table Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Lekce 5: Vytvoření prvního modulu Azure IoT Gateway](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Řešení potíží](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [Zařízení SensorTag](iot-hub-gateway-kit-c-get-started.md)
-#### Lekce 1: Konfigurace NUC
-##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### Lekce 2: Vytvoření služby IoT Hub
-##### [Získání nástrojů (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [Získání nástrojů (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [Získání nástrojů (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [Vytvoření služby IoT Hub a registrace zařízení](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Lekce 3: Příjem zpráv ze simulovaného zařízení
-##### [Konfigurace a spuštění ukázkové aplikace BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [Čtení zpráv ze služby IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Lekce 4: Uložení zpráv do Azure Table Storage
-##### [Vytvoření Azure Function App a účtu Azure Storage](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Čtení zpráv uchovávaných v Azure Table Storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Lekce 5: Vytvoření prvního modulu Azure IoT Gateway](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Řešení potíží](iot-hub-gateway-kit-c-troubleshooting.md)
-
-## [Použití sady SDK pro zařízení IoT pro C](iot-hub-device-sdk-c-intro.md)
-### [Použití IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Použití serializátoru](iot-hub-device-sdk-c-serializer.md)
 
 # Postup
 ## Plánování
@@ -211,6 +172,9 @@
 #### [Sady SDK pro zařízení a služby](iot-hub-devguide-sdks.md)
 #### [Podpora MQTT](iot-hub-mqtt-support.md)
 #### [Glosář](iot-hub-devguide-glossary.md)
+### [Použití sady SDK pro zařízení IoT pro C](iot-hub-device-sdk-c-intro.md)
+#### [Použití IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Použití serializátoru](iot-hub-device-sdk-c-serializer.md)
 ### Zpracování zpráv ze zařízení do cloudu
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -268,8 +232,8 @@
 ## [Azure CLI 2.0 (Preview)](/cli/azure/iot)
 ## [.NET (služba)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (zařízení)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (služba)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (zařízení)](/java/api/com.microsoft.azure.iothub)
+## [Java (služba)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (zařízení)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Sady Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (poskytovatel prostředků)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
