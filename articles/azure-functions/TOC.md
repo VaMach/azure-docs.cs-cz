@@ -29,13 +29,13 @@
 ##### [Vazby tabulek](functions-bindings-storage-table.md)
 #### [Trigger časovače](functions-bindings-timer.md)
 #### [Vazba výstupu z Twilia](functions-bindings-twilio.md)
+### [Definování proxy serverů služby Functions](functions-proxies.md)
 ### [Vytvoření Function App na webu Azure Portal](functions-create-function-app-portal.md) 
+### [Provedení naplánované úlohy čištění](functions-scenario-database-table-cleanup.md)
 ### [Testování Azure Functions](functions-test-a-function.md)
 ### [Místní vývoj a ladění](functions-run-local.md)
 ### [Osvědčené postupy pro službu Azure Functions](functions-best-practices.md)
-### [Použití služby Azure Functions k provádění naplánované úlohy čištění](functions-scenario-database-table-cleanup.md)
-### [Vytvoření definice OpenAPI (Preview)](functions-api-definition-getting-started.md)
-#### [OpenAPI 2.0 v referenci k funkcím](functions-api-definition.md)
+### [Vytvoření definice OpenAPI](functions-api-definition-getting-started.md)
 
 ## Spravovat
 ### [Konfigurace nastavení pro aplikaci Function App](functions-how-to-use-azure-function-app-settings.md)

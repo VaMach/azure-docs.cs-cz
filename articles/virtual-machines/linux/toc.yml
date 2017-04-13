@@ -39,6 +39,8 @@
     href: azure-vm-network-overview.md
   - name: "Škálovací sady virtuálních počítačů"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: "Služba metadat instance" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Kontejnery"
     href: containers.md
   - name: "Resource Manager"

@@ -14,7 +14,7 @@
 ## [Požadavky směrování](expressroute-routing.md)
 ## [Požadavky překladu adres (NAT)](expressroute-nat.md)
 ## [Požadavky QoS](expressroute-qos.md)
-## [Přesun okruhů z modelu nasazení Classic do Resource Manager](expressroute-move.md)
+## [Informace o přesunu okruhů z modelu nasazení Classic do Resource Manageru](expressroute-move.md)
 
 # Postup
 ## Vytvoření a změny okruhu
@@ -29,6 +29,7 @@
 ## [Konfigurace brány virtuální sítě pro ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
+## [Migrace přidružených virtuálních sítí z modelu nasazení Classic do Resource Manageru](expressroute-migration-classic-resource-manager.md)
 ## Konfigurace směrovače pro ExpressRoute
 ### [Konfigurace směrovače](expressroute-config-samples-routing.md)
 ### [Ukázky konfigurace směrovače pro překlad adres (NAT)](expressroute-config-samples-nat.md)

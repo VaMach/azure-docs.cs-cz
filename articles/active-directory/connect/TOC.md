@@ -47,6 +47,7 @@
 ### [Rozšíření adresáře](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Změna hesla účtu služby Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Změna hesla účtu služby AD DS](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Povolení odpadkového koše AD](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Správa federačních služeb
 ### [Správa a přizpůsobení](active-directory-aadconnect-federation-management.md)
+### [Federování několika instancí Azure AD s jednou instancí AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Řešení potíží

@@ -1,6 +1,7 @@
 # Začínáme
 ## [Jak zabránit neočekávaným nákladům](billing-getting-started.md)
 ## [Registrace s použitím účtu Office 365](billing-use-existing-office-365-account-azure-subscription.md)
+## [Registrace Office 365 pomocí účtu Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Omezení a kvóty](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Postup
 ## Sledování využití a nákladů
@@ -33,8 +34,3 @@
 
 # Zdroje
 ## [Kontaktování podpory](../azure-supportability/how-to-create-azure-support-request.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

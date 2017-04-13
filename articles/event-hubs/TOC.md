@@ -18,10 +18,13 @@
 
 # Postup
 ## Plánování a návrh
+### [🔧Běžné scénáře integrace se službami Azure](event-hubs-common-integrations.md)
 ### [Vyhrazené služby Event Hubs](event-hubs-dedicated-overview.md)
 ### [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)
 ### [Dostupnost a konzistence](event-hubs-availability-and-consistency.md)
 ## Vývoj
+### [🔧Zpracování chyb a opakované pokusy](event-hubs-handling-errors-retry.md)
+### [🔧Správa výkonu a škálování](event-hubs-performance-scale.md)
 ### [Dostupná rozhraní API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -34,6 +37,7 @@
 #### [Event Hubs Archive](event-hubs-archive-overview.md)
 #### [Povolení funkce Event Hubs Archive pomocí šablony](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Použití Pythonu k povolení funkce Event Hubs Archive](event-hubs-archive-python.md)
+### [Použití PowerShellu ke zřizování entit](event-hubs-manage-with-ps.md) 
 ### [Streamování dat Diagnostiky Azure pomocí Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Vytvoření a nasazení centra událostí pomocí šablony Resource Manageru](event-hubs-resource-manager-namespace-event-hub.md)
 
@@ -58,8 +62,3 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

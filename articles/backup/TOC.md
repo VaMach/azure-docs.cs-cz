@@ -19,6 +19,7 @@
 ## Server Azure Backup
 ### [Příprava úloh Azure Backup Serveru na webu Azure Portal](backup-azure-microsoft-azure-backup.md)
 ### [Příprava úloh Azure Backup Serveru na portálu Azure Classic](backup-azure-microsoft-azure-backup-classic.md)
+### [Použití Azure Backup Serveru k zálohování serveru VMware](backup-azure-backup-server-vmware.md)
 ### [Použití Azure Backup Serveru k zálohování Exchange](backup-azure-exchange-mabs.md)
 ### [Použití Azure Backup Serveru k zálohování sharepointové farmy](backup-azure-backup-sharepoint-mabs.md)
 ### [Použití Azure Backup Serveru k zálohování SQL](backup-azure-sql-mabs.md)

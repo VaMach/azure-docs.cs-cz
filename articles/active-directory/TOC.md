@@ -81,6 +81,7 @@
 ### [Pojmenované sítě](active-directory-known-networks-azure-portal.md)
 ### [Migrace sestav](active-directory-reporting-migration.md)
 ### [Uchování](active-directory-reporting-retention.md)
+### [Latence](active-directory-reporting-latencies-azure-portal.md)
 ### [Nejčastější dotazy](active-directory-reporting-faq.md)
 ### Řešení potíží
 #### [Chybějící data auditu](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Neobvyklé přihlašovací aktivity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Správa hesel](active-directory-manage-passwords.md)
-### [Aktualizace vlastního hesla](active-directory-passwords-update-your-own-password.md)
-### [Nastavení samoobslužného resetování hesla](active-directory-passwords.md)
+### [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+### [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+### [Samoobslužné resetování hesla povolené správci](active-directory-passwords.md)
 ### [Vysvětlení správy hesel](active-directory-passwords-how-it-works.md)
 ### [Vysvětlení zásad a omezení](active-directory-passwords-policy.md)
 ### Resetování hesel
@@ -155,19 +157,12 @@
 ### [Umožnění vzdáleného přístupu k aplikacím](active-directory-application-proxy-get-started.md)
 #### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
 #### [Principy konektorů](application-proxy-understand-connectors.md)
-
-#### Publikování aplikací
-##### [Azure Portal](application-proxy-publish-azure-portal.md)
-##### [Portál Classic](active-directory-application-proxy-publish.md)
-
+#### [Publikování aplikací](application-proxy-publish-azure-portal.md)
 #### [Zabezpečení](application-proxy-security-considerations.md)
 #### [Sítě](application-proxy-network-topology-considerations.md)
 #### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Publikování v samostatných sítích
-##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Portál Classic](active-directory-application-proxy-connectors.md)
+#### [Publikování v samostatných sítích](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Proxy servery](application-proxy-working-with-proxy-servers.md)
 #### [Vlastní domény](active-directory-application-proxy-custom-domains.md)
 #### [Přístup k aplikacím](active-directory-appssoaccess-whatis.md)
@@ -181,6 +176,11 @@
 #### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
+#### Použití portálu Classic
+##### [Stažení konektorů](application-proxy-enable-classic-portal.md)
+##### [Publikování aplikací](active-directory-application-proxy-publish.md)
+##### [Použití konektorů](active-directory-application-proxy-connectors.md)
+
 
 ### Správa podnikových aplikací
 #### [Přiřazení uživatelů](active-directory-coreapps-assign-user-azure-portal.md)
@@ -200,8 +200,21 @@
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)
 #### [Certifikáty pro jednotné přihlašování](active-directory-sso-certs.md)
 #### [Exportní tenanta](active-directory-tenant-restrictions.md)
+#### [Použití uživatelů zřizování SCIM](active-directory-scim-provisioning.md)
 
-### [Použití uživatelů zřizování SCIM](active-directory-scim-provisioning.md)
+### [Řešení problémů](active-directory-application-troubleshoot-content-map.md)
+#### Vývoj aplikací
+##### [Konfigurace a registrace](active-directory-application-dev-config-content-map.md)
+##### [Vývoj](active-directory-application-dev-development-content-map.md)
+#### Správa aplikací
+##### [Konfigurace](active-directory-application-config-content-map.md)
+##### [Přihlášení](active-directory-application-sign-in-content-map.md)
+##### [Zřizování](active-directory-application-provisioning-content-map.md)
+##### [Správa přístupu](active-directory-application-access-content-map.md)
+##### [Přístupový panel](active-directory-application-access-panel-content-map.md)
+##### [Proxy soubor aplikace](active-directory-application-proxy-content-map.md)
+##### [Podmíněný přístup](active-directory-application-conditional-access-content-map.md)
+
 ### [Knihovna dokumentů](active-directory-apps-index.md)
 
 ## Správa adresáře
@@ -315,6 +328,12 @@
 ### [Změna podpisového algoritmu hash](active-directory-federation-sha256-guidance.md)
 
 ## [Řešení problémů](active-directory-troubleshooting.md)
+
+## Nasazení testování konceptu (POC) Azure AD
+### [Scénáře PoC: Úvod](active-directory-playbook-intro.md)
+### [Scénáře PoC: Složky](active-directory-playbook-ingredients.md)
+### [Scénáře PoC: Implementace](active-directory-playbook-implementation.md)
+### [Scénáře PoC: Stavební bloky](active-directory-playbook-building-blocks.md)
 
 
 # Referenční informace

@@ -79,6 +79,7 @@
 ### [Nejčastější dotazy k diskům virtuálních počítačů Azure IaaS](storage-faq-for-disks.md)
 ### Storage úrovně Premium
 #### [Vysoce výkonná služba Storage úrovně Premium pro disky virtuálních počítačů](storage-premium-storage.md)
+#### [Migrace na Storage úrovně Premium pomocí Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Návrh pro vysoký výkon](storage-premium-storage-performance.md)
 ### Storage úrovně Standard
 #### [Nákladově efektivní služba Storage úrovně Standard a spravované a nespravované disky virtuálních počítačů](storage-standard-storage.md)

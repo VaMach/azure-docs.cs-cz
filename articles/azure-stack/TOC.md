@@ -8,6 +8,7 @@
 ## Začínáme
 ### [Požadavky nasazení](azure-stack-deploy.md)
 ### [Nasazení](azure-stack-run-powershell-script.md)
+### [Aktivace portálů](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Registrace](azure-stack-register.md)
 ## Postup
 ### [Připojení k Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Přehled App Service v Azure Stacku](azure-stack-app-service-overview.md)
 #### [Než začnete](azure-stack-app-service-before-you-get-started.md)
 #### [Nasazení poskytovatele prostředků App Service](azure-stack-app-service-deploy.md)
+#### [Nasazení App Service offline](azure-stack-app-service-deploy-offline.md)
 #### [Přidání dalších webových rolí pracovního procesu](azure-stack-app-service-add-worker-roles.md)
 #### [Konfigurace zdrojů nasazení](azure-stack-app-service-configure-deployment-sources.md)
 #### [Povolení FTP ve službě App Service v Azure Stacku](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [Přehled](azure-stack-storage-overview.md)
 ### [Rozdíly a aspekty](azure-stack-acs-differences-tp2.md)
 ## Síť
-### [iDNS pro Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS pro Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS v Azure Stacku](azure-stack-dns.md)
 ### [Principy připojení k sítím Site-to-Site VPN](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault

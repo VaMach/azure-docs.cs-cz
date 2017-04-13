@@ -1,30 +1,26 @@
 # Přehled
-## [Co je Stretch Database?](sql-server-stretch-database-overview.md)
-## [Omezení a blokující problémy](sql-server-stretch-database-limitations.md)
+## [Co je Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
+## [Omezení a blokující problémy](/sql/sql-server/stretch-database/limitations-for-stretch-database)
 
 # Začínáme
-## [Identifikace databází a tabulek](sql-server-stretch-database-identify-databases.md)
-## [Spuštění průvodce](sql-server-stretch-database-wizard.md)
+## [Identifikace databází a tabulek](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
+## [Spuštění průvodce](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # Postup
 ## Povolení
-### [Povolení databáze](sql-server-stretch-database-enable-database.md)
-### [Povolení tabulky](sql-server-stretch-database-enable-table.md)
-### [Výběr řádků pro migraci](sql-server-stretch-database-predicate-function.md)
+### [Povolení databáze](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
+### [Povolení tabulky](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
+### [Výběr řádků pro migraci](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
 ## Spravovat
-### [Monitorování migrace dat](sql-server-stretch-database-monitor.md)
-### [Pozastavení a obnovení migrace](sql-server-stretch-database-pause.md)
-### [Správa a řešení potíží](sql-server-stretch-database-manage.md)
-### [Zálohování a obnovení](sql-server-stretch-database-backup.md)
-### [Zakázání služby Stretch Database](sql-server-stretch-database-disable.md)
+### [Monitorování migrace dat](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
+### [Pozastavení a obnovení migrace](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
+### [Správa a řešení potíží](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)
+### [Zálohování](/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database)
+### [Obnovení](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
+### [Zakázání služby Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)
-
-
-<!--HONumber=Nov16_HO4-->
-
-
