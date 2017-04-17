@@ -1,17 +1,12 @@
-1. Na portálu v části **Všechny prostředky** klikněte na **+Přidat**. Do vyhledávacího pole okna **Všechno** zadejte **Brána místní sítě** a pak kliknutím vyhledejte. Zobrazí se seznam. Kliknutím n **Brána místní sítě** otevřete okno, pak kliknutím na **Vytvořit** otevřete okno **Vytvořit bránu místní sítě**.
+1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search box, type **Local network gateway**, then click to return a list of resources. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
    
-    ![Vytvoření brány místní sítě](./media/vpn-gateway-add-lng-rm-portal-include/newlng.png)
+    ![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
 
-2. V okně **Vytvoření brány místní sítě** zadejte **Název** objektu brány místní sítě.
-3. Zadejte platnou veřejnou **IP adresu** pro zařízení VPN nebo bránu virtuální sítě, ke které se chcete připojit.<br>Pokud tato místní síť představuje místní umístění, toto je veřejná IP adresa zařízení VPN, ke kterému se chcete připojit. IP adresa nemůže být za serverem NAT a musí být dostupná pro Azure.<br>Pokud tato místní síť představuje jinou virtuální síť, zadejte veřejnou IP adresu, která byla přiřazená k bráně virtuální sítě pro takovou virtuální síť.<br>
-4. **Adresní prostor** odkazuje na rozsahy adres sítě, kterou tato místní síť představuje. Můžete přidat více různých rozsahů adres. Zkontrolujte, že se zadané rozsahy nepřekrývají s rozsahy jiných sítí, ke kterým se budete chtít připojit.
-5. V rozevíracím seznamu **Předplatné** zkontrolujte, jestli se zobrazuje správné předplatné.
-6. V rozevíracím seznamu **Skupina prostředků** vyberte skupinu prostředků, kterou chcete použít. Můžete vytvořit novou skupinu prostředků, nebo vybrat skupinu prostředků, kterou jste už vytvořili.
-7. V případě **Umístění** vyberte umístění, ve kterém bude tento objekt vytvořen. Můžete vybrat stejné umístění, ve kterém se nachází vaše virtuální síť, ale není to povinné.
-8. Kliknutím na **Vytvořit** vytvořte bránu místní sítě.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object. If possible, use something intuitive, such as **ClassicVNetLocal** or **TestVNet1Local**. This makes it easier for you to identify the local network gateway in the portal.
+3. Specify a valid Public **IP address** for the VPN device or virtual network gateway to which you want to connect.<br>**If this local network represents an on-premises location:** Specify the Public IP address of the VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.<br>**If this local network represents another VNet:** Specify the Public IP address that was assigned to the virtual network gateway for that VNet.<br>**If you don't yet have the IP address:** You can make up a valid placeholder IP address, and then come back and modify this setting before connecting.
+4. **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks to which you connect.
+5. For **Subscription**, verify that the correct subscription is showing.
+6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
+7. For **Location**, select the location in which this resource will be created. You may want to select the same location that your VNet resides in, but you are not required to do so.
+8. Click **Create** to create the local network gateway.
 
