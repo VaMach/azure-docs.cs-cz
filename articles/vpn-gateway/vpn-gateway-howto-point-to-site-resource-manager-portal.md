@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6703df0f64534ed638e570342eef7fbda2a74d2e
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d559151e49b4c74cef8cb0bf6452436152d2b7fe
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -103,11 +103,11 @@ Každý klientský počítač, který se připojuje k virtuální síti pomocí 
 
 ### <a name="getcer"></a>Krok 1 – Získání souboru .cer pro kořenový certifikát
 
-####<a name="enterprise-certificate"></a>Podnikový certifikát
+#### <a name="enterprise-certificate"></a>Podnikový certifikát
  
 Pokud používáte podnikové řešení, můžete použít stávající řetěz certifikátů. Získejte soubor .cer pro kořenový certifikát, který chcete používat.
 
-####<a name="self-signed-root-certificate"></a>Kořenový certifikát podepsaný svým držitelem
+#### <a name="self-signed-root-certificate"></a>Kořenový certifikát podepsaný svým držitelem
 
 Pokud nepoužíváte podnikové certifikační řešení, musíte vytvořit kořenový certifikát podepsaný svým držitelem. Chcete-li vytvořit kořenový certifikát podepsaný svým držitelem, který obsahuje potřebná pole pro ověřování P2S, můžete použít PowerShell. Téma s popisem [vytvoření kořenového certifikátu podepsaného svým držitelem pro připojení Point-to-Site pomocí PowerShellu](vpn-gateway-certificates-point-to-site.md) vás provede postupem vytvoření kořenového certifikátu podepsaného svým držitelem.
 
@@ -121,38 +121,39 @@ Pokud nepoužíváte podnikové certifikační řešení, musíte vytvořit koř
 
 Připojení Point-to-Site vyžadují, aby byl veřejný klíč (.cer) odeslán do Azure. Následující postup vám pomůže vyexportovat soubor .cer pro váš kořenový certifikát podepsaný svým držitelem.
 
-1. Chcete-li získat soubor .cer z certifikátu, otevřete **certmgr.msc**. Vyhledejte kořenový certifikát podepsaný svým držitelem, obvykle v Certificates - Current User\Personal\Certificates, a klikněte pravým tlačítkem myši. Klikněte na **Všechny úlohy** a potom klikněte na **Exportovat**. Otevře se **Průvodce exportem certifikátu**.
-2. V průvodci klikněte na **Další**. Vyberte **Ne, neexportovat privátní klíč** a klikněte na **Další**.
-3. Na stránce **Formát souboru pro export** vyberte **X.509, kódování Base-64 (CER)** a klikněte na **Další**. 
-4. V části **Soubor pro export** **přejděte** do umístění, do kterého chcete certifikát vyexportovat. V části **Název souboru** zadejte název souboru. Pak klikněte na tlačítko **Další**.
-5. Certifikát vyexportujte kliknutím na **Dokončit**. Zobrazí se zpráva o **úspěšném exportu**. Kliknutím na **OK** zavřete průvodce.
+1. Chcete-li získat soubor .cer z certifikátu, otevřete **správu uživatelských certifikátů**.
+2. Vyhledejte v umístění Certifikáty – Aktuální uživatel\Osobní\Certifikáty kořenový certifikát P2SRootCert podepsaný svým držitelem a klikněte pravým tlačítkem myši. Klikněte na **Všechny úlohy** a potom klikněte na **Exportovat** a otevřete **Průvodce exportem certifikátu**.
+3. V průvodci klikněte na **Další**. Vyberte **Ne, neexportovat privátní klíč** a klikněte na **Další**.
+4. Na stránce **Formát souboru pro export** vyberte **X.509, kódování Base-64 (CER)** a pak klikněte na **Další**. 
+5. Na stránce **Soubor pro export** přejděte na jednotku C:, vytvořte podadresář s názvem cert a vyberte ho. Pojmenujte soubor certifikátu P2SRootCert.cer a pak klikněte na **Uložit**. 
+6. Certifikát vyexportujte kliknutím na **Další** a pak na **Dokončit**. Zobrazí se zpráva o **úspěšném exportu**. Kliknutím na **OK** zavřete průvodce.
 
 ### <a name="generateclientcert"></a>Krok 2 – Vygenerování klientského certifikátu
-Můžete buď vygenerovat jedinečný certifikát pro každého klienta, který se k virtuální síti připojí, nebo můžete použít stejný certifikát pro víc klientů. Výhodou generování jedinečných certifikátů pro klienty je možnost v případě potřeby jednotlivý certifikát odvolat. V opačném případě, pokud všichni používají stejný klientský certifikát a zjistíte, že pro jednoho klienta je třeba tento certifikát odvolat, bude nutné vygenerovat a nainstalovat nové certifikáty pro všechny klienty, u nichž je odvolaný certifikát taktéž používán k ověření.
+Můžete buď vygenerovat jedinečný certifikát pro každého klienta, nebo můžete použít stejný certifikát na více klientů. Výhodou generování jedinečných certifikátů pro klienty je možnost jednotlivý certifikát odvolat. V opačném případě, pokud všichni používají stejný klientský certifikát a vy ho potřebujete odvolat, bude nutné vygenerovat a nainstalovat nové certifikáty pro všechny klienty, kteří používají tento certifikát k ověření.
 
-####<a name="enterprise-certificate"></a>Podnikový certifikát
+#### <a name="enterprise-certificate"></a>Podnikový certifikát
 - Pokud používáte podnikové certifikační řešení, vygenerujte klientský certifikát s běžným názvem ve formátu name@yourdomain.com (namísto formátu název_domény\uživatelské_jméno).
-- Ujistěte se, že je vámi vydaný certifikát založený na šabloně uživatelského certifikátu, která má jako první položku v seznamu používání Ověření klienta místo Přihlášení pomocí čipové karty atd. Certifikát můžete zkontrolovat dvojím kliknutím na klientský certifikát a zobrazením **Podrobnosti > Použití rozšířeného klíče**.
+- Ujistěte se, že je certifikát založený na šabloně uživatelského certifikátu, která má jako první položku v seznamu používání Ověření klienta místo Přihlášení pomocí čipové karty atd. Certifikát můžete zkontrolovat dvojím kliknutím na klientský certifikát a zobrazením **Podrobnosti > Použití rozšířeného klíče**.
 
-####<a name="self-signed-root-certificate"></a>Kořenový certifikát podepsaný svým držitelem 
+#### <a name="self-signed-root-certificate"></a>Kořenový certifikát podepsaný svým držitelem 
 Pokud používáte kořenový certifikát podepsaný svým držitelem, přečtěte si v tématu s popisem [vygenerování klientského certifikátu pomocí PowerShellu](vpn-gateway-certificates-point-to-site.md#clientcert) kroky, podle kterých se generuje klientský certifikát kompatibilní s připojeními Point-to-Site.
 
 
 ### <a name="exportclientcert"></a>Krok 3 – Export klientského certifikátu
 Pokud generujete klientský certifikát pomocí kořenového certifikátu podepsaného svým držitelem podle pokynů pro [PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert), automaticky se nainstaluje na počítač, který jste použili k jeho vygenerování. Pokud chcete klientský certifikát nainstalovat do jiného klientského počítače, musíte ho exportovat.
-
-1. Chcete-li exportovat klientský certifikát, otevřete **certmgr.msc**. Klikněte pravým tlačítkem na klientský certifikát, který chcete exportovat, klikněte na **všechny úlohy**, a poté klikněte na **exportovat**. Otevře se **Průvodce exportem certifikátu**.
+ 
+1. Pokud chcete exportovat klientský certifikát, otevřete **správu uživatelských certifikátů**. Klikněte pravým tlačítkem na klientský certifikát, který chcete exportovat, klikněte na **Všechny úlohy**, a poté klikněte na **Exportovat**, aby se otevřel **Průvodce exportem certifikátu**.
 2. V průvodci klikněte na **Další**, vyberte **Ano, exportovat privátní klíč** a klikněte na **Další**.
-3. Na stránce **Formát souboru pro export** ponechte vybrané výchozí nastavení. Ujistěte se, že je vybrána možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**. Pak klikněte na tlačítko **Další**. 
-4. Na stránce **Zabezpečení** je nutné chránit soukromý klíč. Pokud vyberete použití hesla, ujistěte se, že jste si poznamenali nebo si pamatujete heslo, které jste pro tento certifikát nastavili. Pak klikněte na tlačítko **Další**.
-5. V části **Soubor pro export** **přejděte** do umístění, do kterého chcete certifikát vyexportovat. V části **Název souboru** zadejte název souboru. Pak klikněte na tlačítko **Další**.
+3. Na stránce **Formát souboru pro export** ponechte vybrané výchozí nastavení. Zkontrolujte, že je vybraná možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**, aby se vyexportovaly také informace o požadovaném kořenovém certifikátu. Pak klikněte na **Další**.
+4. Na stránce **Zabezpečení** je nutné chránit soukromý klíč. Pokud vyberete použití hesla, ujistěte se, že jste si poznamenali nebo si pamatujete heslo, které jste pro tento certifikát nastavili. Pak klikněte na **Další**.
+5. V části **Soubor pro export** **přejděte** do umístění, do kterého chcete certifikát vyexportovat. V části **Název souboru** zadejte název souboru. Pak klikněte na **Další**.
 6. Certifikát vyexportujte kliknutím na **Dokončit**.   
 
 ## <a name="addresspool"></a>Část 7 – Přidání fondu adres klienta
 1. Jakmile je brána virtuální sítě vytvořená, přejděte do části **Nastavení** okna brány virtuální sítě. V části **Nastavení** kliknutím na **Konfigurace Point-to-Site** otevřete okno **Konfigurace**.
    
     ![Okno Point-to-Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Fond adres** je fond IP adres, ze kterého získají IP adresu klienti, kteří se připojí. Přidejte fond adres a pak klikněte na **Uložit**.
+2. **Fond adres** je fond IP adres, ze kterého získavají IP adresu klienti, kteří se připojí. Přidejte fond adres a pak klikněte na **Uložit**.
    
     ![Fond adres klienta](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
@@ -160,7 +161,7 @@ Pokud generujete klientský certifikát pomocí kořenového certifikátu podeps
 Po vytvoření brány můžete do Azure nahrát soubor .cer pro důvěryhodný kořenový certifikát. Můžete nahrát soubory až 20 kořenových certifikátů. Privátní klíč kořenového certifikátu nebudete nahrávat do Azure. Nahraný soubor .cer se v Azure používá k ověřování klientů, kteří se připojují k virtuální síti.
 
 1. Certifikáty se přidávají v okně **Konfigurace Point-to-Site** v části **Kořenový certifikát**.  
-2. Ujistěte se, že jste kořenový certifikát vyexportovali jako soubor .cer X.509 s kódováním Base-64. Je nutné jej exportovat v tomto formátu, abyste certifikát mohli otevřít v textovém editoru.
+2. Ujistěte se, že jste kořenový certifikát vyexportovali jako soubor .cer X.509 s kódováním Base-64. Je nutné certifikát exportovat v tomto formátu, abyste ho mohli otevřít v textovém editoru.
 3. Otevřete certifikát v textovém editoru, například v Poznámkovém bloku. Zkopírujte pouze tuto část jako jeden souvislý řádek:
    
     ![Data certifikátu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
@@ -186,51 +187,49 @@ V každém klientském počítači můžete použít stejný konfigurační bal�
 1. V okně **Konfigurace Point-to-Site** kliknutím na **Stáhnout klienta VPN** otevřete okno **Stáhnout klienta VPN**. Generování balíčku bude trvat minutu nebo dvě.
    
     ![Stažení klienta VPN 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
-2. Vyberte pro svého klienta správný balíček a pak klikněte na **Stáhnout**. Soubor konfiguračního balíčku uložte. Nainstalujete ho na každý klientský počítač, který se bude připojovat k virtuální síti.
+2. Vyberte pro svého klienta správný balíček a pak klikněte na **Stáhnout**. Soubor konfiguračního balíčku uložte. Balíček konfigurace klienta VPN nainstalujete na každý klientský počítač, který se připojuje k virtuální síti.
 
     ![Stažení klienta VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
 ### <a name="step-2---install-the-client-configuration-package"></a>Krok 2 – Instalace konfiguračního balíčku klienta
 
 1. Zkopírujte konfigurační soubor do počítače, který chcete připojit k virtuální síti. 
-2. Dvojím kliknutím na soubor .exe spusťte instalaci balíčku na klientském počítači. Protože jste konfigurační balíček vytvořili vy, nebude podepsán. Proto se může zobrazit upozornění. Pokud se zobrazí automaticky otevírané okno filtru Windows SmartScreen, klikněte na **Další informace** (vlevo) a potom na **Přesto spustit**, aby se balíček nainstaloval.
-3. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Zobrazí se příslušné připojení. Zobrazí se název virtuální sítě, ke kterému se bude počítač připojovat. Název bude vypadat nějak takto:
+2. Dvojím kliknutím na soubor .exe spusťte instalaci balíčku na klientském počítači. Protože jste konfigurační balíček vytvořili vy, není podepsaný a může se zobrazit upozornění. Pokud se zobrazí automaticky otevírané okno filtru Windows SmartScreen, klikněte na **Další informace** (vlevo) a potom na **Přesto spustit**, aby se balíček nainstaloval.
 3. Nainstalujte balíček do klientského počítače. Pokud se zobrazí automaticky otevírané okno filtru Windows SmartScreen, klikněte na **Další informace** (vlevo) a potom na **Přesto spustit**, aby se balíček nainstaloval.
-4. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Zobrazí se příslušné připojení. Bude uveden název virtuální sítě, ke které se bude počítač připojovat. Název bude vypadat podobně jako tento příklad: 
-   
-    ![Klient VPN](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png)
+4. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Připojení k síti VPN zobrazuje název virtuální sítě, ke které se připojuje.
 
 
 ## <a name="installclientcert"></a>Část 10 – Instalace exportovaného klientského certifikátu
 
-Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než který jste použili k vytvoření klientských certifikátů, budete muset klientský certifikát nainstalovat. Při instalaci klientského certifikátu budete potřebovat heslo, které bylo vytvořeno při jeho exportu. 
+Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než který jste použili k vytvoření klientských certifikátů, budete muset klientský certifikát nainstalovat. Při instalaci klientského certifikátu budete potřebovat heslo, které bylo vytvořeno při jeho exportu.
 
 1. Vyhledejte a zkopírujte soubor *.pfx* na klientský počítač. Na klientském počítači spusťte instalaci dvojím kliknutím na soubor *.pfx*. Ponechte **Umístění úložiště** jako **Aktuální uživatel** a pak klikněte na **Další**.
 2. Na stránce **Importovaný soubor** neprovádějte žádné změny. Klikněte na **Další**.
-3. Na stránce **Ochrana privátního klíče** zadejte heslo pro certifikát, pokud jste ho použili, nebo ověřte správnost instalujícího objektu zabezpečení, a pak klikněte na **Další**.
+3. Na stránce **Ochrana privátního klíče** zadejte heslo pro certifikát nebo ověřte správnost objektu zabezpečení, a pak klikněte na **Další**.
 4. Na stránce **Úložiště certifikátů** ponechte výchozí umístění a pak klikněte na **Další**.
 5. Klikněte na **Finish** (Dokončit). V okně **Upozornění zabezpečení** pro instalaci certifikátu klikněte na **Ano**. Na tlačítko Ano můžete s klidem kliknout, protože jste certifikát generovali vy. Certifikát se teď úspěšně naimportoval.
 
 ## <a name="connect"></a>Část 11 – Připojení k Azure
-1. Chcete-li se připojit ke své síti VNet, přejděte na klientském počítači na připojení VPN a vyhledejte připojení VPN, které jste vytvořili. Bude mít stejný název jako vaše virtuální síť. Klikněte na **Připojit**. Může se zobrazit místní zpráva týkající se použití certifikátu. Pokud k tomu dojde, klikněte na možnost **Pokračovat**, abyste použili zvýšená oprávnění. 
+ 
+ 1. Chcete-li se připojit ke své síti VNet, přejděte na klientském počítači na připojení VPN a vyhledejte připojení VPN, které jste vytvořili. Bude mít stejný název jako vaše virtuální síť. Klikněte na **Připojit**. Může se zobrazit místní zpráva týkající se použití certifikátu. Klikněte na **Pokračovat** pro použití zvýšených oprávnění.
+
 2. Připojení spustíte kliknutím na tlačítko **Připojit** na stavové stránce **Připojení**. Pokud uvidíte obrazovku **Výběr certifikátu**, ujistěte se, že zobrazený klientský certifikát je ten, který chcete pro připojení použít. Pokud není, vyberte pomocí šipky rozevíracího seznamu správný certifikát, a poté klikněte na **OK**.
    
     ![Připojení klienta VPN k Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
-
-    
-3. Připojení by nyní mělo být navázáno.
+3. Vaše připojení bylo vytvořeno.
    
-    ![Klient VPN připojený k Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
-                                                                                                                                                                           
+    ![Vytvořené připojení](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-> [!NOTE]
-> Pokud používáte certifikát vydaný řešením CA organizace a máte problémy s ověřováním, zkontrolujte pořadí ověřování na klientském certifikátu. Pořadí seznamu ověřování můžete zkontrolovat dvojím kliknutím na klientský certifikát a přechodem na **Podrobnosti > Použití rozšířeného klíče**. Ujistěte se, že je na prvním místě seznamu položka Ověření klienta. Pokud tomu tak není, musíte vydat klientský certifikát založený na šabloně uživatele, která má Ověření klienta jako první položku seznamu. 
->
->
+Pokud máte potíže s připojením, zkontrolujte následující položky:
+
+- Otevřete **správu uživatelských certifikátů** a přejděte do umístění **Důvěryhodné kořenové certifikační autority\Certifikáty**. Zkontrolujte, že je kořenový certifikát uvedený. Aby ověřování fungovalo, musí být kořenový certifikát přítomný. Pokud exportujete klientský certifikát .pfx s výchozím nastavením Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné, vyexportují se také informace o kořenovém certifikátu. Při instalaci klientského certifikátu se pak do klientského počítače nainstaluje i kořenový certifikát. 
+
+- Pokud používáte certifikát vydaný řešením CA organizace a máte problémy s ověřováním, zkontrolujte pořadí ověřování na klientském certifikátu. Pořadí seznamu ověřování můžete zkontrolovat dvojím kliknutím na klientský certifikát a přechodem na **Podrobnosti > Použití rozšířeného klíče**. Ujistěte se, že je na prvním místě seznamu položka Ověření klienta. Pokud tomu tak není, musíte vydat klientský certifikát založený na šabloně uživatele, která má Ověření klienta jako první položku seznamu.
+
 
 ## <a name="verify"></a>Část 12 – Ověření připojení
 1. Chcete-li ověřit, zda je připojení VPN aktivní, v příkazovém řádku se zvýšenými oprávněními spusťte příkaz *ipconfig/all*.
-2. Zkontrolujte výsledky. Všimněte si, že IP adresa, kterou jste obdrželi, je jedna z adres z fondu adres klienta VPN připojení Point-to-Site, který jste určili během konfigurace. Výsledek by se měl podobat následujícímu příkladu:
+2. Zkontrolujte výsledky. Všimněte si, že IP adresa, kterou jste obdrželi, je jedna z adres z fondu adres klienta VPN připojení Point-to-Site, který jste určili během konfigurace. Výsledky jsou podobné tomuto příkladu:
    
         PPP adapter VNet1:
             Connection-specific DNS Suffix .:
@@ -242,6 +241,9 @@ Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než 
             Subnet Mask.....................: 255.255.255.255
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
+
+
+Pokud máte potíže s připojením k virtuálnímu počítači přes P2S, pomocí příkazu ipconfig zkontrolujte IPv4 adresu přiřazenou adaptéru Ethernet na počítači, ze kterého se připojujete. Pokud je IP adresa v rámci rozsahu adres virtuální sítě, ke které se připojujete, nebo v rámci rozsahu adres VPNClientAddressPool, tato situace se označuje jako překrývající se adresní prostor. Když se adresní prostor tímto způsobem překrývá, síťový provoz nemá přístup do Azure a zůstane v místní síti. Pokud se adresní prostory vaší sítě nepřekrývají a vy se pořád nemůžete připojit k virtuálnímu počítači, přečtěte si [řešení potíží s Připojením ke vzdálené ploše pro virtuální počítač](../virtual-machines/windows/troubleshoot-rdp-connection.md).
 
 ## <a name="add"></a>Přidání a odebrání důvěryhodných kořenových certifikátů
 Důvěryhodný kořenový certifikát můžete do Azure přidat nebo ho z Azure odebrat. Pokud odeberete důvěryhodný certifikát, nebude již možné se pomocí klientských certifikátů vygenerovaných z tohoto kořenového certifikátu připojit k Azure prostřednictvím připojení Point-to-Site. Pokud chcete, aby se klienti mohli i nadále připojovat, je nutné nainstalovat nový certifikát, který je vygenerován z certifikátu, který Azure považuje za důvěryhodný.
@@ -257,7 +259,7 @@ Do Azure můžete přidat až 20 souborů .cer s důvěryhodnými kořenovými c
 3. Klikněte na tři tečky vedle certifikátu a potom klikněte na Odebrat.
 
 ## <a name="revokeclient"></a>Odvolání klientského certifikátu
-Certifikáty klientů lze odvolat. Seznam odvolaných certifikátů umožňuje selektivně odepřít připojení Point-to-Site na základě jednotlivých klientských certifikátů. To se liší od odebrání důvěryhodného kořenového certifikátu. Pokud odeberete z Azure důvěryhodný kořenový certifikát v souboru .cer, dojde k odvolání přístupu pro všechny klientské certifikáty, které byly tímto odvolaným kořenovým certifikátem vygenerovány nebo podepsány. Odvolání klientského certifikátu namísto kořenového certifikátu umožňuje používat k ověřování pro připojení typu Point-to-Site další certifikáty vygenerované z kořenového certifikátu.
+Certifikáty klientů lze odvolat. Seznam odvolaných certifikátů umožňuje selektivně odepřít připojení Point-to-Site na základě jednotlivých klientských certifikátů. To se liší od odebrání důvěryhodného kořenového certifikátu. Pokud odeberete z Azure důvěryhodný kořenový certifikát v souboru .cer, dojde k odvolání přístupu pro všechny klientské certifikáty, které byly tímto odvolaným kořenovým certifikátem vygenerovány nebo podepsány. Odvolání klientského certifikátu namísto kořenového certifikátu umožňuje používat k ověřování další certifikáty vygenerované z kořenového certifikátu.
 
 Běžnou praxí je použití kořenového certifikátu pro řízení přístupu na úrovni týmu nebo organizace, přičemž odvolání klientských certifikátů slouží pro detailní kontrolu přístupu jednotlivých uživatelů.
 
@@ -267,7 +269,7 @@ Klientský certifikát můžete odvolat tím, že přidáte jeho kryptografický
 
 1. Načtěte kryptografický otisk klientského certifikátu. Další informace najdete v tématu [Postup načtení kryptografického otisku certifikátu](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Zkopírujte údaje do textového editoru a smažte všechny mezery, aby vznikl souvislý řetězec.
-3. Přejděte do okna **Konfigurace Point-to-Site** brány virtuální sítě. To je okno, které jste použili k [nahrání důvěryhodného kořenového certifikátu](#uploadfile).
+3. Přejděte do okna **Konfigurace Point-to-Site** brány virtuální sítě. To je stejné okno, které jste použili k [nahrání důvěryhodného kořenového certifikátu](#uploadfile).
 4. V části **Odvolané certifikáty** zadejte popisný název certifikátu (nemusí to být CN certifikátu).
 5. Zkopírujte řetězec kryptografického otisku a vložte jej do pole **Kryptografický otisk**.
 6. Kryptografický otisk se ověří a automaticky přidá do seznamu odvolaných certifikátů. Na obrazovce se zobrazí zpráva informující o probíhající aktualizaci seznamu. 

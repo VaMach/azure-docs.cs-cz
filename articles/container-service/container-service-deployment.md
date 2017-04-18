@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Nasazení řešení hostování kontejnerů Dockeru pomocí webu Azure Portal
@@ -36,7 +36,11 @@ Související informace najdete v tématu [Úvod do služby Azure Container Serv
 
 ## <a name="prerequisites"></a>Požadavky
 
-* **Předplatné Azure:** Pokud žádné nemáte, můžete se zaregistrovat k [bezplatné zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Předplatné Azure:** Pokud žádné nemáte, můžete se zaregistrovat k [bezplatné zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Pro větší cluster zvažte předplatné s průběžnými platbami nebo jiné možnosti nákupu.
+
+    > [!NOTE]
+    > Využití vašeho předplatného Azure a [kvóty prostředků](../azure-subscription-service-limits.md), jako jsou například kvóty jader, můžou omezit velikost nasazovaného clusteru. Chcete-li požádat o zvýšení kvóty, otevřete bezplatnou [online žádost o zákaznickou podporu](../azure-supportability/how-to-create-azure-support-request.md).
+    >
 
 * **Veřejný klíč SSH RSA:** Při nasazení pomocí portálu nebo některé ze šablon Azure pro rychlý start budete muset zadat veřejný klíč pro ověření s virtuálními počítači Azure Container Service. Pokud chcete vytvořit klíče SSH (Secure Shell) RSA, postupujte podle pokynů pro systémy [OS X a Linux](../virtual-machines/linux/mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ Dokončení nasazení trvá několik minut. Potom bude cluster Azure Container S
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Vytvoření clusteru pomocí šablony pro rychlý start
 Pro nasazení clusteru ve službě Azure Container Service jsou k dispozici šablony Azure pro rychlý start. Poskytované šablony pro rychlý začátek lze upravit tak, aby obsahovaly další nebo rozšířenou konfiguraci Azure. K vytvoření clusteru Azure Container Service pomocí šablony Azure pro rychlý start potřebujete předplatné Azure. Pokud žádné nemáte, můžete se zaregistrovat k [bezplatné zkušební verzi](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Postupujte podle těchto kroků a nasaďte cluster pomocí šablony a Azure CLI 2.0 (viz [pokyny k instalaci a nastavení](/cli/azure/install-az-cli2.md)).
+Postupujte podle těchto kroků a nasaďte cluster pomocí šablony a Azure CLI 2.0 (viz [pokyny k instalaci a nastavení](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > Pokud jste v systému Windows, můžete k nasazení šablony podobným způsobem použít Azure PowerShell. Postup najdete dál v této části. Můžete taky nasadit šablonu prostřednictvím [portálu](../azure-resource-manager/resource-group-template-deploy-portal.md) nebo jiné metody.

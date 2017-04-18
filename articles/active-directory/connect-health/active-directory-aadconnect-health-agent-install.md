@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
+ms.date: 04/11/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
-ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +35,7 @@ Následující tabulka představuje seznam požadavků pro používání služby
 | Odchozí připojení ke koncovým bodům služby Azure | Agent během instalace a za běhu vyžaduje připojení ke koncovým bodům služby Azure AD Connect Health. Pokud je odchozí připojení blokováno pomocí bran firewall, nezapomeňte do seznamu povolených výjimek přidat následující koncové body: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net – Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Odchozí připojení na základě IP adres | Informace o filtrování podle IP adres v branách firewall najdete v článku [Rozsahy IP adres Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | Kontrola protokolu SSL je pro odchozí připojení filtrovaná nebo zakázaná | Krok registrace agenta nebo operace nahrávání dat můžou selhat, pokud je na síťové vrstvě povolená kontrola nebo ukončování protokolu SSL pro odchozí připojení. |
-| Porty brány firewall na serveru se spuštěným agentem. |Agent vyžaduje, aby následující porty brány firewall byly otevřené. Je to proto, aby agent mohl komunikovat s koncovými body služby Azure AD Health.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li> |
+| Porty brány firewall na serveru se spuštěným agentem. |Agent vyžaduje, aby následující porty brány firewall byly otevřené. Je to proto, aby agent mohl komunikovat s koncovými body služby Azure AD Health.</br></br><li>Port 443 protokolu TCP</li><li>Port 5671 protokolu TCP</li> |
 | Pokud je povoleno rozšířené zabezpečení Internet Exploreru, povolte následující weby |Pokud je povoleno rozšířené zabezpečení Internet Exploreru, musí být na serveru, na který budete agenta instalovat, povoleny následující weby.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Federační server vaší organizace, který je pro službu Azure Active Directory důvěryhodný. Příklad: https://sts.contoso.com</li> |
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalace agenta Azure AD Connect Health pro službu AD FS
@@ -301,8 +302,4 @@ Pokud chcete zobrazit podrobné protokoly, použijte v příkazu příznak - Sho
 * [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

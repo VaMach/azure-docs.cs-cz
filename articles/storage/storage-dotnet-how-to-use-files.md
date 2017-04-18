@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Pokud se chcete připojit ke sdílené složce z lokálního klienta, musíte ne
 > Někteří poskytovatelé internetu můžou port 445 blokovat, v takovém případě se s nimi budete muset domluvit.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Odpojení sdílené složky
+Chcete-li odpojit sdílenou složku, můžete použít příkaz `net use` s možností `/delete`.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Vývoj s úložištěm File
 Pokud chcete psát kód, který volá úložiště File, můžete použít knihovny klienta úložiště pro .NET a Javu nebo REST API pro Azure Storage. Příklad v této části ukazuje, jak pracovat se sdílenou složkou pomocí [Klientské knihovny pro úložiště Azure pro .NET](https://msdn.microsoft.com/library/mt347887.aspx) z jednoduché konzolové aplikace běžící v desktopovém prostředí.
@@ -633,7 +643,7 @@ Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [
     Ano. Je bezplatný, pokud probíhá v jedné a té samé oblasti.
 7. **Závisí připojení z lokálních virtuálních počítačů k Azure File Storage na Azure ExpressRoute?**
    
-    Ne. Pokud nemáte ExpressRoute, můžete ke sdílené složce přistupovat z lokálního prostředí za předpokladu, že máte port 445 (odchozí TCP) otevřený pro přístup k internetu. Pokud ale chcete, ExpressRoute s úložištěm File použít můžete.
+    Ne. Pokud nemáte ExpressRoute, můžete ke sdílené složce přistupovat z místního prostředí za předpokladu, že máte port 445 (odchozí TCP) otevřený pro přístup k internetu. Pokud ale chcete, ExpressRoute s úložištěm File použít můžete.
 8. **Je „určující sdílená složka“ pro cluster s podporou převzetí služeb při selhání jedním z případů využití Azure File Storage?**
    
     To se aktuálně nepodporuje.
@@ -666,11 +676,13 @@ Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [
     Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) (Soubory Azure – řešení problémů).               
 
 18. **Jak povolím šifrování na straně serveru pro Azure Files?**
+> [!NOTE]
+> [Šifrování na straně serveru](storage-service-encryption.md) pro Azure Files je aktuálně ve verzi Preview. Pokud máte dotazy k verzi Preview, obraťte se na [SSEDiscussion](mailto:ssediscussions@microsoft.com).
 
-    [Šifrování na straně serveru](storage-service-encryption.md) pro Azure Files je aktuálně ve verzi Preview. Ve verzi Preview můžete tuto funkci povolit pouze pro nový účet úložiště Azure Resource Manageru vytvořený pomocí webu [Azure Portal](https://portal.azure.com). Povolení této funkce je bez dalších poplatků. Když povolíte šifrování služby Storage pro službu Azure File Storage, vaše data budou automaticky šifrována. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    Plánujeme v budoucnu podporu povolení šifrování pro File Storage pomocí [Azure PowerShellu](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) a rozhraní [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts). 
-    V tématu [Šifrování služby Storage](storage-service-encryption.md) najdete další informace o šifrování v klidovém stavu ve službě Azure Storage a v případě dalších dotazů k verzi Preview se můžete obrátit na adresu ssediscussions@microsoft.com.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o úložišti Azure File jsou dostupné na těchto odkazech.

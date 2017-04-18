@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Řešení potíží typu Odsud se tam nelze dostat pro zařízení s Windows
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Odsud se tam nelze dostat pro zařízení s Windows
 
 Při pokusu například o přístup k intranetu Sharepointu Online ve vaší organizaci můžete narazit na stránku, která uvádí, že *odsud se tam nelze dostat*. Tato stránka se zobrazuje, protože správce nakonfiguroval zásady podmíněného přístupu, které za určitých podmínek brání v přístupu k prostředkům vaší organizace. Možná bude nutné se při řešení těchto potíží obrátit na helpdesk nebo správce, ale existuje několik věcí, které můžete nejdřív vyzkoušet sami.
 

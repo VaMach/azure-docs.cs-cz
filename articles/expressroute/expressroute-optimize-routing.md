@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ Pomocí ExpressRoute můžete povolit komunikaci mezi dvěma virtuálními sít�
 ![Případ 3 ExpressRoute – Neoptimální směrování mezi virtuálními sítěmi](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Řešení: Přiřazení vysoké váhy místnímu připojení
-Řešení je jednoduché. Protože víte, kde se virtuální sítě a obvody nacházejí, můžete nám říct, kterou cestu má každá virtuální síť preferovat. Speciálně v tomto příkladu přiřaďte vyšší váhu místnímu připojení před vzdáleným připojením. Když virtuální síť obdrží předponu jiné virtuální sítě na více připojeních, dá při odeslání provozu určeného pro tuto předponu přednost připojení v nejvyšší váhou.
+Řešení je jednoduché. Protože víte, kde se virtuální sítě a obvody nacházejí, můžete nám říct, kterou cestu má každá virtuální síť preferovat. Speciálně v tomto příkladu přiřaďte vyšší váhu místnímu připojení před vzdáleným připojením (viz [příklad konfigurace](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)). Když virtuální síť obdrží předponu jiné virtuální sítě na více připojeních, dá při odeslání provozu určeného pro tuto předponu přednost připojení v nejvyšší váhou.
 
 ![Případ 3 ExpressRoute – Řešení: Přiřazení vysoké váhy místnímu připojení](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ Pomocí ExpressRoute můžete povolit komunikaci mezi dvěma virtuálními sít�
 > Pokud máte víc okruhů ExpressRoute, můžete také ovlivnit směrování z virtuální sítě do místní sítě tím, že nakonfigurujete váhy připojení místo použití techniky předřazení AS PATH, která je popsaná v druhém scénáři výše. Pro každou předponu se při rozhodování o způsobu odeslání provozu vždy podíváme na váhy připojení dřív, než na délku cesty AS PATH.
 >
 >
+

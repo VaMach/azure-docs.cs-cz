@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Nasazení služby AD FS (Active Directory Federation Service) v Azure
@@ -38,7 +38,7 @@ Výše uvedený diagram zobrazuje doporučenou základní topologii, podle kter�
 
 * **Řadič domény a servery služby AD FS**: Pokud máte méně než 1000 uživatelů, můžete roli služby AD FS jednoduše nainstalovat na řadiče domény. Pokud nechcete ovlivnit výkon řadičů domény nebo pokud máte více než 1000 uživatelů, potom službu AD FS nasaďte na samostatné servery.
 * **Server WAP** – je nutné nasadit proxy servery webových aplikací, aby se uživatelé mohli spojit se službou AD FS i když jsou mimo síť společnosti.
-* **DMZ**: Proxy servery webových aplikací budou umístěny v zóně DMZ a mezi zónou DMZ a interní podsítí je povolený přístup jenom prostřednictvím protokolu TCP a portu&443;.
+* **DMZ**: Proxy servery webových aplikací budou umístěny v zóně DMZ a mezi zónou DMZ a interní podsítí je povolený přístup jenom prostřednictvím protokolu TCP a portu 443.
 * **Nástroje pro vyrovnávání zatížení**: Pokud chcete zajistit vysokou dostupnost služby AD FS a proxy serverů webových aplikací, doporučujeme na serverech služby AD FS používat interní nástroj pro vyrovnávání zatížení a na proxy serverech webových aplikací zase službu Azure Load Balancer.
 * **Skupiny dostupnosti**: Pokud chcete zajistit redundanci pro nasazení služby AD FS, doporučujeme v případě podobných zatížení seskupit dva nebo více virtuálních počítačů do skupiny dostupnosti. Tato konfigurace zajišťuje, aby během plánované nebo neplánované události údržby zůstal dostupný alespoň jeden virtuální počítač.
 * **Účty úložiště**: Je doporučeno mít dva účty úložiště. Pokud máte jen jeden účet úložiště, může se takový účet stát jediným bodem selhání a může způsobit nedostupnost nasazení v nepravděpodobném scénáři, kdy se účet úložiště ocitne mimo provoz. Když budete mít dva účty úložiště, můžete ke každé chybové linii přidružit jeden účet úložiště.
@@ -119,8 +119,8 @@ Vytvoření následujících skupin dostupnosti
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Nasazení virtuálních počítačů
-Dalším krokem je nasazení virtuálních počítačů, které budou hostiteli různých rolí ve vaší infrastruktuře. Jako minimum doporučujeme dva počítače v každé skupině dostupnosti. Vytvořte šest virtuálních počítačů pro základní nasazení.
+### <a name="4-deploy-virtual-machines"></a>4. Nasazení virtuálních počítačů
+Dalším krokem je nasazení virtuálních počítačů, které budou hostiteli různých rolí ve vaší infrastruktuře. Jako minimum doporučujeme dva počítače v každé skupině dostupnosti. Vytvořte čtyři virtuální počítače pro základní nasazení.
 
 | Počítač | Role | Podsíť | Skupina dostupnosti | Účet úložiště | IP adresa |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ Po dokončení nasazení by mělo podokno virtuálního počítače vypadat nás
 * Povýšení dvou serverů na repliky řadičů domény s DNS
 * Nakonfigurujte servery služby AD FS tím, že pomocí správce serveru nainstalujete roli služby AD FS.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    Nasazení interního nástroje pro vyrovnávání zatížení (ILB)
-**6.1.    Vytvoření interního nástroje pro vyrovnávání zatížení**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Nasazení interního nástroje pro vyrovnávání zatížení (ILB)
+**6.1. Vytvoření interního nástroje pro vyrovnávání zatížení**
 
 Pokud chcete nasadit interní nástroj pro vyrovnávání zatížení, vyberte na portálu Azure možnost Nástroje pro vyrovnávání zatížení a klikněte na Přidat (+).
 
@@ -172,7 +172,7 @@ Po kliknutí na tlačítko Vytvořit a po nasazení interního nástroje pro vyr
 
 Dalším krokem je konfigurace back-endového fondu a back-endového testu.
 
-**6.2.    Konfigurace back-endového fondu interního nástroje pro vyrovnávání zatížení**
+**6.2. Konfigurace back-endového fondu interního nástroje pro vyrovnávání zatížení**
 
 Na panelu nástrojů pro vyrovnávání zatížení vyberte nově vytvořený nástroj. Otevře se panel nastavení. 
 
@@ -183,7 +183,7 @@ Na panelu nástrojů pro vyrovnávání zatížení vyberte nově vytvořený n�
 
 ![Konfigurace back-endového fondu interního nástroje pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Konfigurace testu**
+**6.3. Konfigurace testu**
 
 Na panelu nastavení interního nástroje pro vyrovnávání zatížení vyberte Testy.
 
@@ -192,7 +192,7 @@ Na panelu nastavení interního nástroje pro vyrovnávání zatížení vyberte
 
 ![Konfigurace testu interního nástroje pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Vytvoření pravidel vyrovnávání zatížení**
+**6.4. Vytvoření pravidel vyrovnávání zatížení**
 
 Kvůli efektivnímu vyrovnání provozu je nutné nakonfigurovat nástroj pro vyrovnávání zátěže pomocí pravidel vyrovnávání zatížení. Pokud chcete vytvořit pravidlo vyrovnávání zatížení, postupujte následovně: 
 
@@ -202,23 +202,23 @@ Kvůli efektivnímu vyrovnání provozu je nutné nakonfigurovat nástroj pro vy
 
 ![Konfigurace pravidel interního nástroje pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Aktualizace DNS pomocí interního nástroje pro vyrovnávání zatížení**
+**6.5. Aktualizace DNS pomocí interního nástroje pro vyrovnávání zatížení**
 
 Přejděte na server DNS a vytvořte záznam CNAME pro interní nástroj pro vyrovnávání zatížení. Záznam CNAME musí pro službu FS obsahovat IP adresu, která odkazuje na IP adresu interního nástroje pro vyrovnávání zatížení. Pokud má interní nástroj pro vyrovnávání zatížení vyhrazenou IP adresu 10.3.0.8 a služba FS je nainstalovaná na webu fs.contoso.com, potom pro fs.contoso.com vytvořte záznam CNAME, který odkazuje na adresu 10.3.0.8.
 Tím zajistíte, že se veškerá komunikace (která se týká fs.contoso.com) dostane do interního nástroje pro vyrovnávání zatížení a bude odpovídajícím způsobem směrovaná.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Konfigurace proxy serverů webových aplikací
-**7.1.    Konfigurace proxy serverů webových aplikací, aby se mohly spojit se servery služby AD FS**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Konfigurace proxy serverů webových aplikací
+**7.1. Konfigurace proxy serverů webových aplikací, aby se mohly spojit se servery služby AD FS**
 
 Aby se proxy servery webových aplikací mohly spojit se servery služby AD FS za interním nástrojem pro vyrovnávání zatížení, vytvořte pro nástroj záznam %systemroot%\system32\drivers\etc\hosts. Všimněte si, že rozlišující název (DN) musí být názvem služby FS, například fs.contoso.com. A IP adresa musí odpovídat IP adrese interního nástroje pro vyrovnávání zatížení (10.3.0.8 – jako v příkladu).
 
-**7.2.    Instalace role proxy webových aplikací**
+**7.2. Instalace role proxy webových aplikací**
 
 Jakmile si budete jistí, že se proxy servery webových aplikací můžou spojit se servery služby AD FS za interním nástrojem pro vyrovnávání zatížení, můžete v dalším kroku nainstalovat proxy servery webových aplikací. Proxy servery webových aplikací nesmí být připojené k doméně. Výběrem role vzdáleného přístupu nainstalujte role proxy webových aplikací na dva proxy servery webových aplikací. Správce serveru vás provede až do konce instalace WAP.
 Další informace o nasazování WAPu najdete v článku [Instalace a konfigurace proxy serveru webových aplikací](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    Nasazení internetového (veřejného) nástroje pro vyrovnávání zatížení
-**8.1.    Vytvoření internetového (veřejného) nástroje pro vyrovnávání zatížení**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Nasazení internetového (veřejného) nástroje pro vyrovnávání zatížení
+**8.1.  Vytvoření internetového (veřejného) nástroje pro vyrovnávání zatížení**
 
 Na portálu Azure vyberte Nástroje pro vyrovnávání zatížení a potom klikněte na Přidat. Na panelu Vytvoření nástroje pro vyrovnávání zatížení zadejte následující informace:
 
@@ -232,7 +232,7 @@ Po nasazení se nástroj pro vyrovnávání zatížení zobrazí v seznamu nást
 
 ![Seznam nástrojů pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Přiřazení názvu DNS k veřejné IP adrese**
+**8.2. Přiřazení názvu DNS k veřejné IP adrese**
 
 Na panelu nástrojů pro vyrovnávání zatížení klikněte na nově vytvořenou položku nástroje pro vyrovnávání zatížení a vyvolejte konfigurační panel. Podle následujících kroků nakonfigurujte název DNS pro veřejnou IP adresu:
 
@@ -244,26 +244,26 @@ Na panelu nástrojů pro vyrovnávání zatížení klikněte na nově vytvořen
 
 ![Konfigurace internetového nástroje pro vyrovnávání zatížení (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Konfigurace back-endového fondu internetového (veřejného) nástroje pro vyrovnávání zatížení** 
+**8.3. Konfigurace back-endového fondu internetového (veřejného) nástroje pro vyrovnávání zatížení** 
 
 Postupujte stejným způsobem jako při vytváření interního nástroje pro vyrovnávání zatížení a nakonfigurujte back-endový fond internetového (veřejného) nástroje pro vyrovnávání zatížení jako skupinu dostupnosti pro servery WAP. Například contosowapset.
 
 ![Konfigurace back-endového fondu internetového nástroje pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Konfigurace testu**
+**8.4. Konfigurace testu**
 
 Postupujte stejným způsobem jako při konfiguraci interního nástroje pro vyrovnávání zatížení a nakonfigurujte test pro back-endový fond serverů WAP.
 
 ![Konfigurace testu internetového nástroje pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Vytvoření pravidel vyrovnávání zatížení**
+**8.5. Vytvoření pravidel vyrovnávání zatížení**
 
 Postupujte stejným způsobem jako v interním nástroji pro vyrovnávání zatížení a nakonfigurujte pravidlo vyrovnávání zatížení pro protokol TCP 443.
 
 ![Konfigurace pravidel vyrovnávání pro internetový nástroj pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Zabezpečení sítě
-**9.1.    Zabezpečení interní podsítě**
+### <a name="9-securing-the-network"></a>9. Zabezpečení sítě
+**9.1. Zabezpečení interní podsítě**
 
 Celkově budete k efektivnímu zabezpečení interní podsítě (v pořadí, jak je uvedeno níže) potřebovat následující pravidla:
 
@@ -276,7 +276,7 @@ Celkově budete k efektivnímu zabezpečení interní podsítě (v pořadí, jak
 
 [komentář]: <> (![pravidla přístupu INT (příchozí)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [komentář]: <> (![pravidla přístupu INT (odchozí)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Zabezpečení podsítě DMZ**
+**9.2. Zabezpečení podsítě DMZ**
 
 | Pravidlo | Popis | Tok |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ Celkově budete k efektivnímu zabezpečení interní podsítě (v pořadí, jak
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    Test přihlášení ke službě AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Test přihlášení ke službě AD FS
 Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpInitiatedSignon.aspx. Abyste to mohli provést, musíte ve vlastnostech služby AD FS povolit IdpInitiatedSignOn. Pomocí níže uvedených pokynů ověřte nastavení služby AD FS.
 
 1. Pomocí PowerShellu spusťte níže uvedenou rutinu na serveru služby AD FS a povolte požadovanou možnost.

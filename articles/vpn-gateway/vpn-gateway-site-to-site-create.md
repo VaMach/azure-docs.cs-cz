@@ -13,40 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Vytvoření virtuální sítě s připojením typu Site-to-Site pomocí klasického portálu
+
+Připojení brány VPN typu Site-to-Site (S2S) je připojení přes tunel VPN prostřednictvím protokolu IPsec/IKE (IKEv1 nebo IKEv2). Tento typ připojení vyžaduje místní zařízení sítě VPN, které má přiřazenou veřejnou IP adresu a není umístěné za službou NAT. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
+
+![Diagram připojení VPN Gateway typu Site-to-Site mezi různými místy](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+Tento článek vás provede procesem vytvoření virtuální sítě a připojení služby VPN Gateway typu Site-to-Site k místní síti pomocí modelu nasazení Classic a portálu Classic. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace. Tuto konfiguraci pro model nasazení Resource Manager můžete vytvořit také výběrem jiné možnosti z následujícího seznamu:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Classic – Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic – portál Azure Classic](vpn-gateway-site-to-site-create.md)
+> * [Classic – portál Classic](vpn-gateway-site-to-site-create.md)
 >
 >
-
-Tento článek vás provede procesem vytvoření virtuální sítě a připojení služby VPN Gateway typu Site-to-Site k místní síti pomocí modelu nasazení Classic a portálu Classic. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
-
-![Diagram připojení VPN Gateway typu Site-to-Site mezi různými místy](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modely nasazení a metody připojení typu Site-to-Site
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích Site-to-Site. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj.
-
-[!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 #### <a name="additional-configurations"></a>Další konfigurace
 Informace o propojení virtuálních sítí najdete v tématu [Konfigurace připojení typu VNet-to-VNet pro model nasazení Classic](virtual-networks-configure-vnet-to-vnet-connection.md). Pokud chcete přidat připojení Site-to-Site k virtuální síti, která už připojení má, získáte informace v části [Přidání připojení S2S k virtuální síti s existujícím připojením brány VPN](vpn-gateway-multi-site.md).
 
 ## <a name="before-you-begin"></a>Než začnete
-Před zahájením konfigurace ověřte, zda máte následující.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+Před zahájením konfigurace ověřte, zda máte následující:
 
 * Kompatibilní zařízení VPN a někoho, kdo jej umí nakonfigurovat. Viz [Informace o zařízeních VPN](vpn-gateway-about-vpn-devices.md). Pokud nevíte, jak nakonfigurovat zařízení VPN, nebo neznáte rozsahy IP adres v konfiguraci vaší místní sítě, budete se muset spojit s někým, kdo vám s tím pomůže.
 * Veřejnou IP adresu pro vaše zařízení VPN. Tato IP adresa nesmí být umístěná za překladem adres (NAT).

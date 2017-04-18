@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 03/30/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
-ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -39,7 +40,7 @@ Při instalaci služeb synchronizace můžete nechat volitelnou konfiguraci neza
 | Volitelná konfigurace | Popis |
 | --- | --- |
 | Použít existující server SQL Server |Umožňuje zadat název serveru SQL Server a název instance. Tuto možnost zvolte, pokud už máte databázový server, který chcete použít. Pokud SQL Server nemá povoleno procházení, zadejte do položky **Název instance** požadovaný název instance, za nímž následuje čárka a číslo portu. |
-| Použít existující účet služby |Ve výchozím nastavení vytvoří Azure AD Connect místní účet služby, který můžou služby synchronizace používat. Heslo se vygeneruje automaticky a uživatel ho při instalaci Azure AD Connect nezná. Pokud používáte vzdálený server SQL nebo používáte proxy server vyžadující ověření, potřebujete mít účet služby v dané doméně a znát heslo. V těchto případech zadejte účet služby, který chcete použít. Ujistěte se, jestli uživatel, který provádí instalaci, je SA v SQL, aby bylo možné vytvořit přihlašovací jméno pro účet služby. Viz téma [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation). |
+| Použít existující účet služby |Ve výchozím nastavení použije Azure AD Connect virtuální účet služby, který můžou služby synchronizace používat. Pokud používáte vzdálený server SQL nebo používáte proxy server vyžadující ověření, potřebujete mít **účet spravované služby** nebo účet služby v dané doméně a znát heslo. V těchto případech zadejte účet, který chcete použít. Ujistěte se, jestli uživatel, který provádí instalaci, je SA v SQL, aby bylo možné vytvořit přihlašovací jméno pro účet služby. Viz téma [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). |
 | Zadat vlastní skupiny pro synchronizaci |Ve výchozím nastavení vytvoří Azure AD Connect při instalaci služeb synchronizace čtyři skupiny, které jsou místní pro server. Jde o tyto skupiny: skupina Administrators, skupina Operators, skupina Browse a skupina Password Reset. Tady můžete zadat vlastní skupiny. Skupiny musí být místní na serveru a nemůžou být umístěny v doméně. |
 
 ### <a name="user-sign-in"></a>Přihlášení uživatele
@@ -119,7 +120,7 @@ Funkce párování napříč doménovými strukturami vám umožňuje definovat,
 | Atributy sAMAccountName a MailNickName |Tato možnost spojuje atributy, u kterých se dá očekávat, že obsahují přihlašovací ID uživatele. |
 | Konkrétní atribut |Tato možnost umožňuje vybrat vlastní atribut. **Omezení:** Je nutné vybrat atribut, který se už nachází v úložišti metaverse. Pokud vyberete vlastní atribut (který není v úložišti metaverse), průvodce se nedá dokončit. |
 
-**Zdrojové ukotvení** – Atribut sourceAnchor je neměnný po celou dobu životnosti uživatelského objektu. Jedná se o primární klíč propojující místního uživatele s uživatelem v Azure AD. Protože atribut nejde změnit, je nutné naplánovat a použít dobrý atribut. Jednou z vhodných možností je objectGUID. Tento atribut se změní jenom tehdy, pokud se uživatelský účet přesune mezi doménovými strukturami nebo doménami. V prostředí více doménových struktur, kde přesouváte účty mezi doménovými strukturami, je nutné použít jiný atribut, například atribut s employeeID. Vyhněte se atributům, které se mění, když uživatel uzavře manželství nebo se změní jeho přiřazení. Nelze použít atributy se symbolem @-sign,, takže se nedá použít e-mail ani atribut userPrincipalName. V atributu se taky rozlišují velká a malá písmena, proto při přesunutí objektu mezi doménovými strukturami dejte pozor, abyste správně zachovali velká a malá písmena. Binární atributy se zakódují do formátu Base64, ale ostatní typy atributů zůstávají v nekódovaném stavu. Při federacích a v některých rozhraních Azure AD se tento atribut taky nazývá immutableID. Další informace o zdrojovém ukotvení najdete v [konceptech návrhu](active-directory-aadconnect-design-concepts.md#sourceanchor).
+**Zdrojové ukotvení** – Atribut sourceAnchor je neměnný po celou dobu životnosti uživatelského objektu. Jedná se o primární klíč propojující místního uživatele s uživatelem v Azure AD. Protože atribut nejde změnit, je nutné naplánovat a použít dobrý atribut. Jednou z vhodných možností je objectGUID. Tento atribut se změní jenom tehdy, pokud se uživatelský účet přesune mezi doménovými strukturami nebo doménami. V prostředí více doménových struktur, kde přesouváte účty mezi doménovými strukturami, je nutné použít jiný atribut, například atribut s employeeID. Vyhněte se atributům, které se mění, když uživatel uzavře manželství nebo se změní jeho přiřazení. Nelze použít atributy se symbolem @-sign, takže se nedá použít e-mail ani atribut userPrincipalName. V atributu se taky rozlišují velká a malá písmena, proto při přesunutí objektu mezi doménovými strukturami dejte pozor, abyste správně zachovali velká a malá písmena. Binární atributy se zakódují do formátu Base64, ale ostatní typy atributů zůstávají v nekódovaném stavu. Při federacích a v některých rozhraních Azure AD se tento atribut taky nazývá immutableID. Další informace o zdrojovém ukotvení najdete v [konceptech návrhu](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtrování synchronizace podle skupin
 Funkce filtrování podle skupin umožňuje synchronizovat pouze malou podmnožinu objektů pro pilotní nasazení. Pokud chcete tuto funkci použít, vytvořte pro tento účel skupinu v místní službě Active Directory. Jako přímé členy přidejte uživatele a skupiny, které chcete synchronizovat do Azure AD. Později můžete přidáváním uživatelů do této skupiny a jejich odebíráním spravovat seznam objektů, které mají být dostupné v Azure AD. Každý objekt, který chcete synchronizovat, musí být přímým členem skupiny. Přímými členy musí být uživatelé, skupiny, kontakty a počítače/zařízení. Členství ve vnořené skupině se nepřeloží. Když jako člena přidáte skupinu, přidá se jenom samotná skupina, a ne její členové.
@@ -316,9 +317,4 @@ Podrobněji se seznamte s těmito funkcemi, které byly povoleny v rámci instal
 Zjistěte více o těchto běžných tématech: [plánovač a jak aktivovat synchronizaci](active-directory-aadconnectsync-feature-scheduler.md).
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

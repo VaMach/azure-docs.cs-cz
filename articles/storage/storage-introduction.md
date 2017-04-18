@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
-ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -108,7 +108,7 @@ Azure File Storage nabízí cloudové sdílené složky SMB, takže můžete ryc
 
 Protože je sdílená složka File Storage standardní sdílenou složkou SMB, aplikace běžící v Azure můžou k datům ve sdílené složce přistupovat přes rozhraní API pro vstup/výstup souborového systému. Vývojáři tedy můžou využít svoje dovednosti a znalosti kódu při migraci stávajících aplikací. Profesionálové v oblasti výpočetní techniky můžou pomocí rutin prostředí PowerShell vytvářet, připojovat a spravovat sdílené složky File Storage v rámci správy aplikací Azure.
 
-Podobně jako ostatní služby úložiště Azure i úložiště File zpřístupňuje rozhraní REST API pro přístup k datům ve sdílené složce. Lokální aplikace můžou zavolat REST API úložiště File a získat přístup k datům ve sdílené složce. Podnik tak má možnost třeba migrovat některé starší aplikace na Azure a ostatní aplikace nechat běžet ze své organizace. Všimněte si, že připojení sdílené složky je možné jen pro aplikace, které běží v Azure. Lokální aplikace má ke sdílené složce možný přístup jen přes REST API.
+Podobně jako ostatní služby úložiště Azure i úložiště File zpřístupňuje rozhraní REST API pro přístup k datům ve sdílené složce. Místní aplikace můžou zavolat REST API služby File Storage a získat přístup k datům ve sdílené složce. Podnik tak má možnost třeba migrovat některé starší aplikace na Azure a ostatní aplikace nechat běžet ze své organizace. Všimněte si, že připojení sdílené složky je možné jen pro aplikace, které běží v Azure. Lokální aplikace má ke sdílené složce možný přístup jen přes REST API.
 
 Distribuované aplikace můžou taky používat úložiště File k ukládání a sdílení užitečných dat aplikace a testovacích nástrojů. Nějaká aplikace může například uložit konfigurační soubory a diagnostická data (protokoly, metriky a výpisy stavu systému) do úložiště File, aby byly dostupné pro několik virtuálních počítačů nebo rolí. Vývojáři a správci můžou do sdílené složky úložiště File uložit nástroje, které potřebují k sestavení nebo správě aplikace. Tato sdílená složka bude přístupná pro všechny komponenty a nebude je potřeba instalovat do každého virtuálního počítače nebo instance role.
 

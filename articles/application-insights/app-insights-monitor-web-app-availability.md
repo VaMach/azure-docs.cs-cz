@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -165,7 +165,7 @@ Zásuvné moduly webového testu nabízejí způsob parametrizace časů.
 
     ![Zvolte možnost přidat zásuvný modul pro testování webu a vyberte typ.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    V tomto příkladu používáme dvě instance zásuvného modulu Datum čas. Jedna instance je „před&15; minutami“ a druhá „teď“.
+    V tomto příkladu používáme dvě instance zásuvného modulu Datum čas. Jedna instance je „před 15 minutami“ a druhá „teď“.
 2. Otevřete vlastnosti každého zásuvného modulu. Pojmenujte ho a nastavte ho na použití aktuálního času. Pro jeden z nich nastavte Přidat minuty = -15.
 
     ![Nastavte název, použijte aktuální čas a přidejte minuty.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
@@ -241,7 +241,10 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
     Používáme tyto dvě podmínky zaměnitelně.
 * *Chci používat testy dostupnosti na našem interním serveru, který je spuštěný za bránou firewall.*
 
-    Nakonfigurujte bránu firewall, aby povolovala požadavky z [IP adres agentů webového testu](app-insights-ip-addresses.md).
+    Existují dvě možná řešení:
+    
+    * Nakonfigurujte bránu firewall, aby povolovala příchozí požadavky z [IP adres našich agentů webového testu](app-insights-ip-addresses.md).
+    * Napište vlastní kód, který pravidelně testuje interní server. Spusťte kód na testovacím serveru jako proces na pozadí za vaší bránou firewall. Testovací proces můžete odesílat své výsledky do Application Insights pomocí rozhraní API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) v balíčku Core SDK. To vyžaduje, aby měl váš testovací server odchozí přístup ke koncovému bodu ingestování Application Insights, ale to je mnohem menší riziko zabezpečení než případné povolení příchozích požadavků. Výsledky se nebudou zobrazovat v oknech webových testů dostupnosti, ale zobrazí se jako výsledky dostupnosti v Průzkumníku metrik, analýzy a vyhledávání.
 * *Vícekrokový webový test se nepodařilo nahrát.*
 
     Maximální velikost je 300 kB.
@@ -260,10 +263,6 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
     Tuto možnost nepodporujeme, je nám líto.
 
-## <a name="video"></a>Video
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Další kroky
 [Prohledávání diagnostických protokolů][diagnostic]

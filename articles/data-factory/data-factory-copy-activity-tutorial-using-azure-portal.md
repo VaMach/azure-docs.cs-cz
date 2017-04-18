@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 079cb3e69954a9b02e26e005ad4bb1b7ef14c909
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -175,12 +175,12 @@ V tomto kroku vytvoříte datovou sadu s názvem **InputDataset**, která odkazu
     ```   
     Je třeba počítat s následujícím: 
    
-   * Vlastnost **type** datové sady je nastavená na **AzureBlob**.
-   * Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. Tuto propojenou službu jste vytvořili v kroku 2.
-   * Vlastnost **folderPath** je nastavená na kontejner **adftutorial**. Můžete také zadat název objektu blob ve složce pomocí vlastnosti **fileName**. Pokud neurčíte název objektu blob, budou za vstupní data považována data ze všech objektů blob v kontejneru.  
-   * Vlastnost **type** formátu je nastavená na **TextFormat**.
-   * V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**).    
-   * Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce kontejneru objektů blob (**adftutorial**), který jste zadali. 
+    - Vlastnost **type** datové sady je nastavená na **AzureBlob**.
+    - Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. Tuto propojenou službu jste vytvořili v kroku 2.
+    - Vlastnost **folderPath** je nastavená na kontejner **adftutorial**. Můžete také zadat název objektu blob ve složce pomocí vlastnosti **fileName**. Pokud neurčíte název objektu blob, budou za vstupní data považována data ze všech objektů blob v kontejneru.
+    - Vlastnost **type** formátu je nastavená na **TextFormat**.
+    - V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**).
+    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce kontejneru objektů blob (**adftutorial**), který jste zadali. 
      
      Pokud pro **vstupní** datovou sadu nezadáte vlastnost **fileName**, považují se za vstupy všechny soubory a objekty blob ze vstupní složky (**folderPath**). Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
      
@@ -240,11 +240,11 @@ V této části kroku vytvoříte výstupní datovou sadu s názvem **OutputData
     ```       
     Je třeba počítat s následujícím: 
    
-   * Vlastnost **type** datové sady je nastavená na **AzureSQLTable**.
-   * Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService** (tuto propojenou službu jste vytvořili v kroku 2).
-   * Vlastnost **tablename** je nastavená na **emp**.
-   * V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
-   * Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
+    - Vlastnost **type** datové sady je nastavená na **AzureSQLTable**.
+    - Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService** (tuto propojenou službu jste vytvořili v kroku 2).
+    - Vlastnost **tablename** je nastavená na **emp**.
+    - V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
+    - Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
 3. Datovou sadu **OutputDataset** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů. Zkontrolujte, jestli se datová sada **OutputDataset** objevila v zobrazení stromu. 
 
 > [!NOTE]
@@ -303,17 +303,17 @@ V tomto kroku vytvoříte kanál s **aktivitou kopírování**, která použív�
     
     Je třeba počítat s následujícím:
    
-   * V části aktivit je jenom jedna aktivita, jejíž vlastnost **type** je nastavená na **Copy**.
-   * Vstup aktivity je nastavený na **InputDataset** a výstup aktivity je nastavený na **OutputDataset**.
-   * V části **typeProperties** je jako typ zdroje určen **BlobSource** a jako typ jímky **SqlSink**.
+    - V části aktivit je jenom jedna aktivita, jejíž vlastnost **type** je nastavená na **Copy**.
+    - Vstup aktivity je nastavený na **InputDataset** a výstup aktivity je nastavený na **OutputDataset**.
+    - V části **typeProperties** je jako typ zdroje určen **BlobSource** a jako typ jímky **SqlSink**.
      
-     Nahraďte hodnotu vlastnosti **start** aktuálním dnem a **end** následujícím dnem. Můžete zadat jenom část data a přeskočit část času. Například „2016-02-03“ je ekvivalentní hodnotě „2016-02-03T00:00:00Z“.
+    Nahraďte hodnotu vlastnosti **start** aktuálním dnem a **end** následujícím dnem. Můžete zadat jenom část data a přeskočit část času. Například „2016-02-03“ je ekvivalentní hodnotě „2016-02-03T00:00:00Z“.
      
-     Počáteční a koncové hodnoty data a času musí být ve [formátu ISO](http://en.wikipedia.org/wiki/ISO_8601). Například: 2016-10-14T16:32:41Z. Čas hodnoty **end** je nepovinný, ale my ho v tomto kurzu použijeme. 
+    Počáteční a koncové hodnoty data a času musí být ve [formátu ISO](http://en.wikipedia.org/wiki/ISO_8601). Například: 2016-10-14T16:32:41Z. Čas hodnoty **end** je nepovinný, ale my ho v tomto kurzu použijeme. 
      
-     Pokud nezadáte hodnotu vlastnosti **end**, vypočítá se jako „**start + 48 hodin**“. Pokud chcete kanál spouštět bez omezení, zadejte vlastnosti **end** hodnotu **9999-09-09**.
+    Pokud nezadáte hodnotu vlastnosti **end**, vypočítá se jako „**start + 48 hodin**“. Pokud chcete kanál spouštět bez omezení, zadejte vlastnosti **end** hodnotu **9999-09-09**.
      
-     V předchozím příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
+    V předchozím příkladu je 24 datových řezů, protože se vytvářejí každou hodinu.
 3. Kanál **ADFTutorialPipeline** vytvoříte a nasadíte kliknutím na **Nasadit** na panelu nástrojů. Zkontrolujte, jestli se kanál objevil v zobrazení stromu. 
 4. Teď zavřete okno **Editor** kliknutím na **X**. Chcete-li zobrazit domovskou stránku **objektu pro vytváření dat** pro **ADFTutorialDataFactory**, znovu klikněte na **X**.
 

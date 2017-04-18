@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ Složka obsahuje několik souborů a podsložek. Spustitelný soubor je ASRDeplo
 
     Příklad:  
     Zkopírujte soubor .zip na jednotku E:\ a rozbalte jej.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Možnosti
 Nástroj příkazového řádku (ASRDeploymentPlanner.exe) můžete spustit v některém z následujících tří režimů:
@@ -145,6 +145,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Volitelné) Heslo, které se použije pro připojení k serveru vCenter nebo hostiteli vSphere ESXi. Pokud heslo nezadáte teď, budete k tomu vyzváni při spuštění příkazu.|
 | -StorageAccountName | (Volitelné) Název účtu úložiště, který se použije k zjištění dosažitelné propustnost pro replikaci místních dat do Azure. Nástroj vypočítává propustnost tak, že do tohoto účtu úložiště nahrává testovací data.|
 | -StorageAccountKey | (Volitelné) Klíč účtu úložiště, který se použije pro přístup k účtu úložiště. Přejděte na web Azure Portal > Účty úložiště > <*název účtu služby Storage*> > Nastavení > Přístupové klíče > Klíč1 (nebo primární přístupový klíč v případě klasického účtu úložiště). |
+| -Environment | (Volitelné) Toto je vaše cílové prostředí účtu Azure Storage. Může to být jedna ze tří hodnot – AzureCloud, AzureUSGovernment a AzureChinaCloud. Výchozí hodnota je AzureCloud. Tento parametr použijte, pokud vaší cílovou oblastí Azure jsou cloudy Azure US Government nebo Azure China. |
+
 
 Doporučujeme profilovat virtuální počítače po dobu alespoň 15 až 30 dnů. Během období profilace je ASRDeploymentPlanner.exe stále spuštěný. Nástroj na vstupu přijímá zadání času profilace ve dnech. Pokud chcete nástroj rychle otestovat spuštěním profilace na několik hodin nebo minut, ve verzi Public Preview budete muset tento čas převést na odpovídající zlomek dne. Pokud například chcete profilovat po dobu 30 minut, vstup musí být 30/(60×24) = 0,021 dnů. Minimální povolený čas profilace je 30 minut.
 
@@ -286,6 +288,7 @@ Otevřete konzolu příkazového řádku a přejděte do složky nástroje pro p
 | -StorageAccountName | Název účtu úložiště, který se použije k zjištění využité šířky pásma pro replikaci místních dat do Azure. Nástroj zjistí využitou šířku pásma tak, že do tohoto účtu úložiště nahrává testovací data. |
 | -StorageAccountKey | Klíč účtu úložiště, který se použije pro přístup k účtu úložiště. Přejděte na web Azure Portal > Účty úložiště > <*název účtu služby Storage*> > Nastavení > Přístupové klíče > Klíč1 (nebo primární přístupový klíč v případě klasického účtu úložiště). |
 | -VMListFile | Soubor se seznamem virtuálních počítačů určených k profilaci pro výpočet využité šířky pásma. Cesta k souboru může být absolutní nebo relativní. Soubor musí na každém řádku obsahovat jeden název nebo IP adresu virtuálního počítače. Názvy virtuálních počítačů zadané v souboru se musí shodovat s názvy virtuálních počítačů na serveru vCenter nebo hostiteli vSphere ESXi.<br>Například soubor VMList.txt obsahuje následující virtuální počítače:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (Volitelné) Toto je vaše cílové prostředí účtu Azure Storage. Může to být jedna ze tří hodnot – AzureCloud, AzureUSGovernment a AzureChinaCloud. Výchozí hodnota je AzureCloud. Tento parametr použijte, pokud vaší cílovou oblastí Azure jsou cloudy Azure US Government nebo Azure China. |
 
 Nástroj vytvoří v zadaném adresáři několik souborů „asrvhdfile<#>.vhd“ (kde # je počet souborů) o velikosti 64 MB. Nástroj tyto soubory nahraje do účtu úložiště a tak zjistí propustnost. Po změření propustnosti nástroj všechny tyto soubory odstraní z účtu úložiště i z místního serveru. Pokud se nástroj z nějakého důvodu během výpočtu propustnosti ukončí, z úložiště ani z místního serveru tyto soubory neodstraní. Budete je muset odstranit ručně.
 
@@ -477,6 +480,10 @@ Pokud se díky charakteristikám úloh disk umístil do kategorie P20 nebo P30, 
 
 **NICs:** Počet síťových adaptérů ve virtuálním počítači.
 
+**Boot Type:** Jedná se o typ spuštění virtuálního počítače. Může to být buď BIOS, nebo EFI. Azure Site Recovery aktuálně podporuje pouze typ spuštění BIOS. Všechny virtuální počítače s typem spuštění EFI jsou uvedené na listu Nekompatibilní virtuální počítače. 
+
+**OS Type:** Jedná se o typ operačního systému virtuálního počítače. Může to být Windows, Linux, nebo jiný.
+
 ## <a name="incompatible-vms"></a>Nekompatibilní virtuální počítače
 
 ![Tabulka aplikace Excel s nekompatibilními virtuálními počítači](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -486,6 +493,7 @@ Pokud se díky charakteristikám úloh disk umístil do kategorie P20 nebo P30, 
 **VM Compatibility:** Označujte, proč je daný virtuální počítač nekompatibilní se Site Recovery. Pro každý nekompatibilní disk virtuálního počítače jsou popsané důvody. V závislosti na publikovaných [omezeních úložiště](https://aka.ms/azure-storage-scalbility-performance) může důvodem být některá z následujících možností:
 
 * Disk size is >1023 GB (Disk je větší než 1 023 GB). Azure Storage v současné době nepodporuje disky větší než 1 TB.
+* Typ spuštění je EFI. Azure Site Recovery aktuálně podporuje pouze virtuální počítač s typem spuštění BIOS.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB) (Celková velikost virtuálního počítače (replikace + testovací převzetí služeb při selhání) překračuje omezení podporované velikosti účtu úložiště (35 TB)). K této nekompatibilitě obvykle dochází, když je ve virtuálním počítači jeden disk, jehož některé charakteristiky výkonu překračují maximální podporovaná omezení systému Azure nebo Site Recovery pro účet služby Storage úrovně Standard. V takové situaci se virtuální počítač dostává do zóny účtu služby Storage úrovně Premium. Nicméně maximální podporovaná velikost účtu služby Storage úrovně Premium je 35 TB a jeden virtuální počítač nemůže být chráněn v rámci několika účtů úložiště. Všimněte si také, že testovací převzetí služeb při selhání spuštěné na chráněném virtuálním počítači poběží v rámci stejného účtu úložiště, ve kterém probíhá replikace. V takovém případě nastavte dvojnásobnou velikost disku, aby paralelně mohla probíhat replikace a úspěšné testovací převzetí služeb při selhání.
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk (Počet zdrojových IOPS překračuje podporované omezení úložiště – 5 000 IOPS na disk).
@@ -508,6 +516,10 @@ Pokud se díky charakteristikám úloh disk umístil do kategorie P20 nebo P30, 
 **Memory (MB):** Velikost paměti RAM ve virtuálním počítači.
 
 **NICs:** Počet síťových adaptérů ve virtuálním počítači.
+
+**Boot Type:** Jedná se o typ spuštění virtuálního počítače. Může to být buď BIOS, nebo EFI. Azure Site Recovery aktuálně podporuje pouze typ spuštění BIOS. Všechny virtuální počítače s typem spuštění EFI jsou uvedené na listu Nekompatibilní virtuální počítače. 
+
+**OS Type:** Jedná se o typ operačního systému virtuálního počítače. Může to být Windows, Linux, nebo jiný.
 
 
 ## <a name="site-recovery-limits"></a>Omezení Site Recovery
@@ -546,6 +558,18 @@ Pokud chcete aktualizovat Deployment Planner, proveďte následující:
 
 
 ## <a name="version-history"></a>Historie verzí
+### <a name="12"></a>1.2
+Aktualizace: 7. duben 2017
+
+Byly přidány následující opravy:
+
+* Pro každý virtuální počítač byla přidána kontrola typu spuštění (BIOS nebo EFI), aby se určilo, jestli je virtuální počítač kompatibilní nebo nekompatibilní z hlediska ochrany.
+* Pro každý virtuální počítač byla přidána informace o typu operačního systému do listů kompatibilních a nekompatibilních virtuálních počítačů.
+* Operace GetThroughput je nyní podporována v oblastech Microsoft Azure US Government a Čína.
+* Bylo přidáno několik dalších kontrol požadovaných součástí pro vCenter a ESXi Server.
+* Při nastavení národního prostředí na jiné než anglické se generovala nesprávná sestava.
+
+
 ### <a name="11"></a>1.1
 Aktualizováno: 9. března 2017
 

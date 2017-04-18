@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Další informace o databázích SQL Azure najdete v tématu [Databáze SQL](sql
 
 Následující tabulky uvádějí hlavní funkce služby Azure SQL Database a systému SQL Server, specifikují možnosti podpory a obsahují odkaz na další informace o této funkci na jednotlivých platformách. Funkce jazyka Transact-SQL zobrazíte pomocí následujícího odkazu v tabulce pro kategorii funkce. Přečtěte si také téma [Odlišnosti jazyka Transact-SQL ve službě Azure SQL Database](sql-database-transact-sql-information.md), kde najdete další informace o důvodech nedostatečné podpory určitých typů zařízení.
 
-Pokračujeme v přidávání funkcí do V12. Doporučujeme vám proto navštívit webovou stránku aktualizace služeb pro Azure a použít filtry, které obsahuje:
+Pokračujeme v přidávání funkcí do Azure SQL Database. Doporučujeme vám proto navštívit webovou stránku aktualizace služeb pro Azure a použít filtry, které obsahuje:
 
 * Filtrování na [službu SQL Database](https://azure.microsoft.com/updates/?service=sql-database)
 * Filtrování na [oznámení všeobecné dostupnosti ](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) pro funkce služby SQL Database

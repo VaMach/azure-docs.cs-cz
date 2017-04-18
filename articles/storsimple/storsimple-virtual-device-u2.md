@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 | **Maximální kapacita** |30 TB |64 TB |
 | **Virtuální počítač Azure** |Standard_A3 (4 jádra, 7 GB paměti) |Standard_DS3 (4 jádra, 14 GB paměti) |
 | **Kompatibilita verzí** |Verze používající software před Update 2 nebo novější |Verze používající software Update 2 nebo novější |
-| **Dostupnost v oblastech** |Všechny oblasti Azure |Všechny oblasti Azure, které podporují službu Storage úrovně Premium<br></br> Oblasti služby Storage úrovně Premium jsou oblasti, které odpovídají řádku pro *Diskové úložiště* v seznamu [služeb Azure podle oblasti](https://azure.microsoft.com/en-us/regions/services). |
+| **Dostupnost v oblastech** |Všechny oblasti Azure |Všechny oblasti Azure, které podporují službu Storage úrovně Premium a virtuální počítače Azure DS3<br></br> Použijte [tento seznam](https://azure.microsoft.com/en-us/regions/services), abyste zjistili, jestli jsou ve vaší oblasti dostupné obě možnosti *Virtuální počítače > DS-series* a *Úložiště > Diskové úložiště*. |
 | **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/storage-premium-storage.md) |
 | **Pokyny týkající se úloh** |Načítání souborů ze zálohy na úrovni položek |Scénáře vývoje a testování v cloudu, nízká latence, náročnější úlohy <br></br>Sekundární zařízení pro zotavení po havárii |
 

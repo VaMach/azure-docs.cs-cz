@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -49,14 +50,14 @@ V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření da
   3. Získejte **ID tenanta**. 
   4. Přiřaďte aplikaci **ADFCopyTutorialApp** k roli **Přispěvatel Data Factory**.  
 * Nainstalujte [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
-* Spusťte **PowerShell** a potom spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu.
+* Spusťte **PowerShell** a potom proveďte následující kroky. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu.
   
-  1. Spusťte následující příkaz a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal.
+  1. Spusťte následující příkaz a zadejte uživatelské jméno a heslo, které používáte k přihlášení na web Azure Portal:
     
     ```PowerShell 
     Login-AzureRmAccount
     ```   
-  2. Spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet.
+  2. Spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet:
 
     ```PowerShell     
     Get-AzureRmSubscription
@@ -66,7 +67,7 @@ V tomto kurzu je uvedeno, jak vytvořit a monitorovat objekt pro vytváření da
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-  4. Spuštěním následujícího příkazu v PowerShellu vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**.  
+  4. Spuštěním následujícího příkazu v prostředí PowerShell vytvořte skupinu prostředků Azure s názvem **ADFTutorialResourceGroup**:  
 
     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -172,10 +173,10 @@ Definice JSON definuje datovou sadu s názvem **AzureBlobInput**, která předst
 * Vlastnost **linkedServiceName** je nastavená na **AzureStorageLinkedService**. 
 * Vlastnost **folderPath** je nastavena na kontejner **adftutorial** a vlastnost **fileName** je nastavena na **emp.txt**.  
 * Vlastnost **type** formátu je nastavená na **TextFormat**.
-* V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (**columnDelimiter**).    
-* Vlastnost **availability** je nastavená na **hourly** (frequency je nastavená na hour a interval je nastavená na 1). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce zadaného kontejneru objektů blob (**adftutorial**). 
+* V textovém souboru existují dvě pole, **FirstName** a **LastName**, oddělená čárkou (columnDelimiter).    
+* Vlastnost **availability** je nastavená na **hourly** (frequency je nastavená na hour a interval je nastavená na 1). Proto služba Data Factory každou hodinu vyhledá vstupní data v kořenové složce zadaného kontejneru objektů blob (adftutorial). 
 
-Pokud neurčíte **fileName** pro vstupní datovou sadu, všechny soubory nebo objekty ze vstupní složky (**folderPath**) se považují za vstupy. Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
+Pokud pro vstupní datovou sadu nezadáte vlastnost **fileName**, považují se za vstupy všechny soubory a objekty blob ze vstupní složky (folderPath). Pokud zadáte fileName v kódu JSON, bude se za vstup považovat jenom zadaný soubor nebo objekt blob.
 
 Pokud nezadáte **fileName** pro **výstupní tabulku**, generované soubory v **folderPath** se pojmenují podle následujícího formátu: Data.&lt;identifikátor GUID&gt;.txt (například Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -230,7 +231,7 @@ Je třeba počítat s následujícím:
 * Vlastnost **linkedServiceName** je nastavená na **AzureSqlLinkedService**.
 * Vlastnost **tablename** je nastavená na **emp**.
 * V tabulce emp v databázi jsou k dispozici tři sloupce – **ID**, **FirstName** a **LastName**. ID je sloupec identity, takže je zde třeba zadat pouze položky **FirstName** (Jméno) a **LastName** (Příjmení).
-* Vlastnost **availability** je nastavená na **hourly** (**frequency** je nastavená na **hour** a **interval** je nastavená na **1**).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
+* Vlastnost **availability** je nastavená na **hourly** (frequency je nastavená na hour a interval je nastavená na 1).  Služba Data Factory bude generovat řez výstupních dat do tabulky **emp** ve službě Azure SQL Database každou hodinu.
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -316,7 +317,7 @@ $adf = "ADFCopyTutorialDF"
 ```
 
 ## <a name="authenticate-with-aad"></a>Ověření pomocí ADD
-Spuštěním následujícího příkazu proveďte ověření pomocí služby Azure Active Directory (AAD). 
+Spuštěním následujícího příkazu proveďte ověření pomocí služby Azure Active Directory (AAD): 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -360,7 +361,7 @@ Je třeba počítat s následujícím:
 * Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
 * Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat: 
   
-  * V prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory pomocí následujícího příkazu. 
+  * Spuštěním následujícího příkazu v prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory: 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -428,7 +429,7 @@ Abyste připravili služby Azure Blob Storage a Azure SQL Database pro tento kur
 * Vytvořte a odešlete textový soubor **emp.txt** jako objekt blob do kontejneru **adftutorial**. 
 * Vytvořte tabulku s názvem **emp** ve službě Azure SQL Database v databázi Azure SQL, na kterou odkazuje **AzureSqlLinkedService**.
 
-1. Spusťte program Poznámkový blok, vložte následující text a uložte ho jako **emp.txt** do složky **C:\ADFGetStartedPSH** na pevném disku. 
+1. Spusťte Poznámkový blok. Zkopírujte následující text a uložte ho jako **emp.txt** do složky **C:\ADFGetStartedPSH** na pevném disku. 
 
     ```   
     John, Doe
@@ -456,7 +457,7 @@ Abyste připravili služby Azure Blob Storage a Azure SQL Database pro tento kur
     Pokud klient nemá povolený přístup ke službě Azure SQL Server, budete muset nakonfigurovat bránu firewall pro Azure SQL Server tak, aby povolovala přístup z vašeho počítače (IP adresa). Postup konfigurace brány firewall pro server SQL Azure najdete v [tomto článku](../sql-database/sql-database-configure-firewall-settings.md).
 
 ### <a name="create-input-dataset"></a>Vytvoření vstupní datové sady
-V tomto kroku vytvoříte datovou sadu s názvem **AzureBlobInput**, která odkazuje na kontejner objektů blob ve službě Azure Storage reprezentované propojenou službou **AzureStorageLinkedService**. Tento kontejner objektu blob (**adftutorial**) obsahuje vstupní data v souboru **emp.txt**. 
+V tomto kroku vytvoříte datovou sadu s názvem **AzureBlobInput**, která odkazuje na kontejner objektů blob ve službě Azure Storage reprezentované propojenou službou **AzureStorageLinkedService**. Tento kontejner objektů blob (adftutorial) obsahuje vstupní data v souboru **emp.txt**. 
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**. 
 
@@ -475,7 +476,7 @@ V tomto kroku vytvoříte datovou sadu s názvem **AzureBlobInput**, která odka
     ```
 
 ### <a name="create-output-dataset"></a>Vytvoření výstupní datové sady
-V tomto kroku vytvoříte vytvoří výstupní tabulku s názvem **AzureSqlOutput**. Tato datová sada odkazuje na tabulku SQL (**emp**) v Azure SQL Database, kterou reprezentuje **AzureSqlLinkedService**. Kanál kopíruje data z vstupního objektu blob do tabulky **emp**. 
+V tomto kroku vytvoříte vytvoří výstupní tabulku s názvem **AzureSqlOutput**. Tato datová sada odkazuje na tabulku SQL (emp) v Azure SQL Database, kterou reprezentuje **AzureSqlLinkedService**. Kanál kopíruje data z vstupního objektu blob do tabulky **emp**. 
 
 1. Přiřaďte příkaz k proměnné s názvem **cmd**.
 
@@ -573,9 +574,4 @@ V tomto kurzu jste pomocí rozhraní REST API vytvořili objekt pro vytváření
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

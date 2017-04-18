@@ -1,6 +1,6 @@
 ---
 title: "Připojení ke službě Azure SQL Database pomocí technologie .NET (jazyk C#) | Dokumentace Microsoftu"
-description: "Pomocí ukázkového kódu v tomto rychlém startu můžete vytvořit moderní aplikaci v jazyce C#, postavenou na výkonné relační databázi v cloudu, kterou zajišťuje služba Azure SQL Database."
+description: "Obsahuje ukázku kódu .NET, který můžete použít k připojení a dotazování Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Database: Použití technologie .NET (jazyk C#) k připojení a dotazování dat
 
-Pomocí [jazyka C# a technologie ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) se můžete připojit k databázi SQL Azure a provádět dotazování. Tento průvodce podrobně popisuje použití jazyka C# pro připojení k databázi SQL Azure a následné provádění příkazů k dotazování, vložení, aktualizaci a odstranění.
+Tento rychlý start ukazuje použití [C# a ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) k připojení k Azure SQL Database a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem Windows, Mac OS a Ubuntu Linux.
 
 Tento rychlý start používá jako výchozí bod prostředky vytvořené v některém z těchto rychlých startů:
 
 - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
 - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>Konfigurace vývojového prostředí
+## <a name="install-net"></a>Instalace rozhraní .NET
 
-Následující části podrobně popisují konfiguraci vašich existujících vývojových prostředí pro Mac OS, Linux (Ubuntu) a Windows k práci s Azure SQL Database.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework a .NET Core**
+
+Visual Studio 2017 Community je plně vybavené, rozšiřitelné a bezplatné prostředí IDE pro vytváření moderních aplikací pro Android, iOS a Windows, stejně jako webových a databázových aplikací a cloudových služeb. Můžete nainstalovat buď úplné rozhraní .NET Framework, nebo jenom jádro .NET Core. Fragmenty kódu v rychlém startu pracují s oběma. Pokud již máte v počítači nainstalovanou sadu Visual Studio, přeskočte několik dalších kroků.
+
+1. Stáhněte [instalační program](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Spusťte instalační program a podle zobrazených pokynů instalaci dokončete.
 
 ### <a name="mac-os"></a>**Mac OS**
 Otevřete terminál a přejděte do adresáře, kde plánujete vytvoření projektu .NET Core. Zadejte následující příkazy, abyste nainstalovali **brew**, **OpenSSL** a **.NET Core**. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ V systému macOS nainstalujte .NET Core. Stáhněte [oficiální instalační pr
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Otevřete terminál a přejděte do adresáře, kde plánujete vytvoření projektu .NET Core. Zadáním následujících příkazů nainstalujte **.NET Core**.
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Nainstalujte Visual Studio 2015 Community Edition a .NET Framework. Pokud již máte v počítači nainstalovanou sadu Visual Studio, přeskočte několik dalších kroků.
-
-Visual Studio 2015 Community je plně vybavené, rozšiřitelné a bezplatné prostředí IDE pro vytváření moderních aplikací pro Android, iOS a Windows, stejně jako webových a databázových aplikací a cloudových služeb.
-
-1. Stáhněte [instalační program](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Spusťte instalační program a podle zobrazených pokynů instalaci dokončete.
 
 ## <a name="get-connection-information"></a>Získání informací o připojení
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>Další kroky
 
 - Dokumentaci k technologii .NET najdete na stránce [Dokumentace k technologii .NET](https://docs.microsoft.com/dotnet/).
-- Informace o dotazování a upravování dat pomocí nástroje Visual Studio Code najdete na stránce [Visual Studio Code](https://code.visualstudio.com/docs).
+- Informace o připojení a dotazování pomocí aplikace SQL Server Management Studio najdete v tématu [Připojení a dotazování pomocí SSMS](sql-database-connect-query-ssms.md).
+- Informace o připojení a dotazování pomocí sady Visual Studio najdete v tématu [Připojení a dotazování pomocí Visual Studio Code](sql-database-connect-query-vscode.md).
+- Informace o připojení a dotazování pomocí PHP najdete v tématu [Připojení a dotazování pomocí PHP](sql-database-connect-query-php.md).
+- Informace o připojení a dotazování pomocí Node.js najdete v tématu [Připojení a dotazování pomocí Node.js](sql-database-connect-query-nodejs.md).
+- Informace o připojení a dotazování pomocí Javy najdete v tématu [Připojení a dotazování pomocí Javy](sql-database-connect-query-java.md).
+- Informace o připojení a dotazování pomocí Pythonu najdete v tématu [Připojení a dotazování pomocí Pythonu](sql-database-connect-query-python.md).
+- Informace o připojení a dotazování pomocí Ruby najdete v tématu [Připojení a dotazování pomocí Ruby](sql-database-connect-query-ruby.md).
 

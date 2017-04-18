@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Můžete:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migrace místních virtuálních počítačů a fyzických serverů
 
-Při migraci místních virtuálních počítačů Hyper-V, VMware a fyzických serverů postupujete téměř stejně jako při běžné replikaci. Nastavíte trezor služby Recovery Services, nakonfigurujete požadované servery pro správu (podle toho, co chcete migrovat), přidáte je do trezoru a zadáte nastavení replikace. Povolíte replikaci pro počítače, které chcete migrovat, a spustíte rychlé testovací převzetí služeb při selhání, abyste ověřili, že všechno funguje, jak by mělo.
+Při migraci místních virtuálních počítačů Hyper-V, VMware a fyzických serverů postupujete téměř stejně jako při běžné replikaci.
 
-Po ověření, že prostředí replikace funguje, použijete plánované nebo neplánované převzetí služeb při selhání v závislosti na tom, [kterou možnost váš scénář podporuje](site-recovery-failover.md). U migrace není nutné provádět převzetí služeb při selhání. Místo toho vyberete možnost **Dokončit migraci** pro každý počítač, který chcete migrovat. Akce **Dokončit migraci** dokončí proces migrace, odebere z počítače replikaci a zastaví fakturaci za Site Recovery pro daný počítač.
+1. Nastavte trezor služby Recovery Services.
+2. Nakonfigurujte požadované servery pro správu (VMware, VMM, Hyper-V – podle toho, co chcete migrovat), přidejte je do trezoru a zadejte nastavení replikace.
+3. Povolte replikaci pro počítače, které chcete migrovat.
+4. Po počáteční migraci spusťte rychlé testovací převzetí služeb při selhání, abyste zjistili, že všechno funguje, jak má.
+5. Po ověření, že prostředí replikace funguje, použijete plánované nebo neplánované převzetí služeb při selhání v závislosti na tom, [kterou možnost váš scénář podporuje](site-recovery-failover.md). Doporučujeme, že abyste použili plánované převzetí služeb při selhání, pokud je to možné.
+6. U migrace není nutné provádět převzetí služeb při selhání ani ho odstraňovat. Místo toho vyberete možnost **Dokončit migraci** pro každý počítač, který chcete migrovat.
+     - V části **Replikované položky** klikněte pravým tlačítkem na virtuální počítač a klikněte na **Dokončit migraci**. Akci dokončete kliknutím na **OK**. Můžete sledovat průběh ve vlastnostech virtuálního počítače monitorováním úlohy dokončení migrace v **úlohách Site Recovery**.
+     - Akce **Dokončit migraci** dokončí proces migrace, odebere z počítače replikaci a zastaví fakturaci za Site Recovery pro daný počítač.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
