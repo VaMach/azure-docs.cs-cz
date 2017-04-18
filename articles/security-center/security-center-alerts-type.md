@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Příklad tohoto typu výstrahy:
 ![Výstraha na spuštění podezřelého procesu](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Dotazování více doménových účtů
-Security Center dokáže zjistit vícenásobné pokusy o dotazování doménových účtů, což obvykle provádějí útočníci během sondování sítě. Útočníci můžou tuto techniku využít k dotazování domény na identifikaci uživatelů, účtů správců domény, počítačů, které jsou řadiče domény a také potenciálního vztahu důvěryhodnosti s dalšími doménami.
+Security Center dokáže zjistit vícenásobné pokusy o dotazování doménových účtů služby Active Directory, což obvykle provádějí útočníci během sondování sítě. Útočníci můžou tuto techniku využít k dotazování domény na identifikaci uživatelů, účtů správců domény, počítačů, které jsou řadiče domény a také potenciálního vztahu důvěryhodnosti s dalšími doménami.
 
 Příklad tohoto typu výstrahy:
 
 ![Výstraha na dotazování více doménových účtů](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Výpis členů místní skupiny Administrators
+
+Security Center aktivuje výstrahu, když se v systému Windows Server 2016 a Windows 10 aktivuje událost zabezpečení 4798. To se stane, když dojde k výpisu členů skupin místních správců, což obvykle provádí útočníci během rekognoskace sítě. Útočníci mohou využívat tuto techniku k dotazování na identitu uživatelů s oprávněními správce.
+
+Příklad tohoto typu výstrahy:
+
+![Místní správce](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Neobvyklá kombinace velkých a malých písmen
+
+Security Center aktivuje výstrahu, když zjistí použití kombinace velkých a malých písmen na příkazovém řádku. Některé útočníci mohou používat tuto techniku ke skrytí před pravidly počítače pro velká a malá písmena nebo hodnoty hash.
+
+Příklad tohoto typu výstrahy:
+
+![Neobvyklá kombinace](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Podezření na útok Kerberos Golden Ticket
+
+Prozrazený klíč [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) může útočník zneužít k vytvoření „zlatých lístků“ protokolu Kerberos, které útočníkovi umožní zosobnit libovolného uživatele. Security Center aktivuje výstrahu, když zjistí tento typ aktivity.
+
+> [!NOTE] 
+> Další informace o zlatém lístku protokolu Kerberos najdete v [průvodci zmírněním následků krádeže přihlašovacích údajů Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
+
+Příklad tohoto typu výstrahy:
+
+![Zlatý lístek](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Vytvoření podezřelého účtu
+
+Security Center aktivuje výstrahu při vytvoření účtu, který se nápadně podobá existujícímu integrovanému účtu s oprávněním správce. Tento postup můžou použít útočníci k vytvoření podvodného účtu, aby se vyhnuli jeho zaznamenání při lidském ověření.
+ 
+Příklad tohoto typu výstrahy:
+
+![Podezřelý účet](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Vytvoření podezřelého pravidla brány firewall
+
+Útočníci se můžou pokusit obejít zabezpečení hostitele vytvořením vlastních pravidel brány firewall, která umožňují škodlivým aplikacím komunikaci s příkazy a ovládáním nebo spuštění útoků prostřednictvím sítě přes napadeného hostitele. Security Center aktivuje výstrahu, když zjistí, že bylo vytvořeno nové pravidlo brány firewall ze spustitelného souboru v podezřelém umístění.
+ 
+Příklad tohoto typu výstrahy:
+
+![Pravidlo brány firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Podezřelá kombinace HTA a PowerShellu
+
+Security Center aktivuje výstrahu, když zjistí, že Microsoft HTML Application Host (HTA) spouští příkazy PowerShellu. Jde o techniku používanou útočníky ke spuštění škodlivých skriptů PowerShellu.
+ 
+Příklad tohoto typu výstrahy:
+
+![HTA a PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Analýza sítě
 Detekce síťových hrozeb ve službě Security Center funguje tak, že se automaticky shromažďují informace o zabezpečení z přenosu Azure IPFIX (Internet Protocol Flow Information Export). Za účelem identifikace hrozeb služba tyto informace analyzuje a často přitom koreluje data z různých zdrojů.

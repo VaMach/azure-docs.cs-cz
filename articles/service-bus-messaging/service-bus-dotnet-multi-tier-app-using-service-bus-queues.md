@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
 ## <a name="introduction"></a>Úvod
-Vývoj pro Microsoft Azure je snadný při použití Visual Studia a bezplatné sady Azure SDK pro .NET. Tento kurz vás provede jednotlivými kroky při vytváření aplikace, která používá několik prostředků Azure běžících ve vašem lokálním prostředí. Tyto kroky předpokládají, že nemáte žádné předchozí zkušenosti s používáním Azure.
+Vývoj pro Microsoft Azure je snadný při použití Visual Studia a bezplatné sady Azure SDK pro .NET. Tento kurz vás provede jednotlivými kroky při vytváření aplikace, která používá několik prostředků Azure běžících ve vašem lokálním prostředí.
 
 Naučíte se:
 
@@ -34,16 +34,16 @@ Naučíte se:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-V tomto kurzu sestavíte a spustíte vícevrstvou aplikaci v cloudové službě Azure. Front-endem je webová role ASP.NET MVC a back-endem je role pracovního procesu, která používá frontu Service Bus. Můžete vytvořit stejnou vícevrstvou aplikaci s front-endem jako webový projekt, který není nasazený do cloudové služby, ale na web Azure. Pokyny k tomu, co je potřeba udělat jinak na front-endu webové stránky Azure, najdete v části [Další kroky](#nextsteps). Taky můžete vyzkoušet kurz [Hybridní lokální/cloudová aplikace .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+V tomto kurzu sestavíte a spustíte vícevrstvou aplikaci v cloudové službě Azure. Front-endem je webová role ASP.NET MVC a back-endem je role pracovního procesu, která používá frontu Service Bus. Můžete vytvořit stejnou vícevrstvou aplikaci s front-endem jako webový projekt, který není nasazený do cloudové služby, ale na web Azure. Taky můžete vyzkoušet kurz [Hybridní lokální/cloudová aplikace .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Na následujícím snímku obrazovky je vidět hotová aplikace.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Přehled scénáře: komunikace mezi rolemi
-Abyste mohli odeslat objednávku ke zpracování, musí komponenta uživatelského prostředí front-endu, která běží ve webové roli, pracovat s logikou střední úrovně běžící v roli pracovního procesu. Tento příklad používá zprostředkované zasílání zpráv pro komunikaci mezi vrstvami.
+Abyste mohli odeslat objednávku ke zpracování, musí komponenta uživatelského prostředí front-endu, která běží ve webové roli, pracovat s logikou střední úrovně běžící v roli pracovního procesu. Tento příklad používá zasílání zpráv Service Bus pro komunikaci mezi vrstvami.
 
-Pomocí zprostředkovaného zasílání zpráv mezi webem a prostředními úrovněmi odděluje obě části. Na rozdíl od přímého přenosu zpráv (tzn. TCP nebo HTTP) se webová úroveň nemusí k prostřední úrovni připojit přímo, namísto toho odesílá pracovní jednotky jako zprávy do služby Service Bus, která je spolehlivě uchová, dokud nebude prostřední vrstva připravená je spotřebovat a zpracovat.
+Pomocí zasílání zpráv Service Bus mezi webem a prostředními úrovněmi odděluje obě části. Na rozdíl od přímého přenosu zpráv (tzn. TCP nebo HTTP) se webová úroveň nemusí k prostřední úrovni připojit přímo, namísto toho odesílá pracovní jednotky jako zprávy do služby Service Bus, která je spolehlivě uchová, dokud nebude prostřední vrstva připravená je spotřebovat a zpracovat.
 
 Service Bus nabízí dvě entity, které podporují zprostředkované zasílání zpráv: fronty a témata. V případě front se každá zpráva odeslaná do fronty spotřebuje jedním příjemcem. Témata podporují chování typu publikovat/odebírat, ve kterém je každá publikovaná zpráva zpřístupněná odběru registrovanému pro dané téma. Každý odběr logicky uchovává svoji vlastní frontu zpráv. Odběry se taky dají konfigurovat pomocí pravidel filtrů, které omezují skupinu zpráv předávaných do fronty odběru na takové, které odpovídají filtru. Následující příklad používá fronty Service Bus.
 
@@ -63,7 +63,7 @@ V následující části se probírá kód, který tuto architekturu implementuj
 Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojové prostředí.
 
 1. Nainstalujte sadu Azure SDK pro .NET ze [stránky pro stažení SDK](https://azure.microsoft.com/downloads/).
-2. Ve sloupci **.NET** klikněte na verzi sady [Visual Studio](http://www.visualstudio.com), kterou používáte. Kroky v tomto kurzu ukazují postup ve Visual Studiu 2015.
+2. Ve sloupci **.NET** klikněte na verzi sady [Visual Studio](http://www.visualstudio.com), kterou používáte. Kroky v tomto kurzu používají sadu Visual Studio 2015, ale také pracují se sadou Visual Studio 2017.
 3. Když se zobrazí dialog pro spuštění nebo uložení instalačního programu, klikněte na **Spustit**.
 4. V **Instalačním programu webové platformy** klikněte na **Instalovat** a pokračujte v instalaci.
 5. Po dokončení instalace budete mít všechno, co je potřeba k vývoji aplikace. Sada SDK obsahuje nástroje, které vám umožní snadno vyvíjet aplikace pro Azure ve Visual Studiu.
@@ -78,7 +78,7 @@ V této části vytvoříte front-end své aplikace. Nejdřív vytvoříte strá
 Potom přidáte kód, který odesílá položky do fronty Service Bus a zobrazí informace o stavu fronty.
 
 ### <a name="create-the-project"></a>Vytvoření projektu
-1. Spusťte Visual Studio s právy správce. Visual Studio spustíte jako správce tak, že na ikonu programu **Visual Studio** kliknete pravým tlačítkem a vyberete možnost **Spustit jako správce**. Emulátor výpočtů v Azure, který se bude probírat později v tomto článku, potřebuje, aby bylo Visual Studio spuštěné s právy správce.
+1. Jako správce spusťte Visual Studio: klikněte pravým tlačítkem na ikonu programu **Visual Studio** a vyberete možnost **Spustit jako správce**. Emulátor výpočtů v Azure, který se bude probírat později v tomto článku, potřebuje, aby bylo Visual Studio spuštěné s právy správce.
    
    Ve Visual Studiu v nabídce **Soubor** klikněte na **Nový** a pak na **Projekt**.
 2. V **Nainstalovaných šablonách** v části **Visual C#** klikněte na **Cloud** a pak na **Cloudová služba Azure**. Jako název projektu zadejte **MultiTierApp**. Pak klikněte na **OK**.
@@ -97,8 +97,8 @@ Potom přidáte kód, který odesílá položky do fronty Service Bus a zobrazí
    
     ![][16]
 7. Pořád ještě v dialogovém okně **Nový projekt ASP.NET** klikněte na tlačítko **OK** a vytvořte tak projekt.
-8. V **Průzkumníku řešení** v projektu **FrontendWebRole** klikněte pravým tlačítkem na** Reference**, a pak klikněte na **Správa balíčků NuGet**.
-9. Klikněte na kartu **Procházet** a potom najděte `Microsoft Azure Service Bus`. Klikněte na **Instalovat** a přijměte podmínky použití.
+8. V **Průzkumníku řešení** v projektu **FrontendWebRole** klikněte pravým tlačítkem na**Reference**, a pak klikněte na **Správa balíčků NuGet**.
+9. Klikněte na kartu **Procházet** a potom najděte `Microsoft Azure Service Bus`. Vyberte balíček **WindowsAzure.ServiceBus**, klikněte na **Instalovat** a přijměte podmínky použití.
    
    ![][13]
    
@@ -362,7 +362,7 @@ Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objedná
 ## <a name="next-steps"></a>Další kroky
 Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následující zdroje:  
 
-* [Azure Service Bus][sbmsdn]  
+* [Dokumentace ke službě Azure Service Bus][sbdocs]  
 * [Stránka služby Service Bus][sbacom]  
 * [Jak používat fronty Service Bus][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ Další informace o víceúrovňových scénářích najdete v:
 
 * [Vícevrstvá aplikace .NET, která používá tabulky, fronty a objekty blob služby Storage][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ Další informace o víceúrovňových scénářích najdete v:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ Další informace o víceúrovňových scénářích najdete v:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

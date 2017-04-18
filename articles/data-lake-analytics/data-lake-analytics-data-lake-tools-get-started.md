@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Kurz: Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Naučte se nainstalovat nástroje Data Lake pro Visual Studio a používat tyto nástroje k psaní a testování skriptů U-SQL.
+Vytvořte a otestujte skripty U-SQL s využitím nástrojů Data Lake pro Visual Studio.
 
 U-SQL je mimořádně škálovatelný a vysoce rozšiřitelný jazyk pro přípravu, transformaci a analýzu všech dat v úložišti Data Lake i mimo něj. Další informace najdete v tématu [Referenční informace o U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Požadavky
-* **Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 nebo Visual Studio 2012. Jsou podporovány edice Enterprise (Ultimate nebo Premium), Professional a Community; není podporována edice Express. Sada Visual Studio 2017 se v současné době nepodporuje.**
+* **Visual Studio 2017 (v rámci úlohy úložiště dat a zpracování), Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 nebo Visual Studio 2012. Jsou podporovány edice Enterprise (Ultimate nebo Premium), Professional a Community; není podporována edice Express.**
 * **Sada Microsoft Azure SDK pro .NET verze 2.7.1 nebo vyšší**.  Nainstalujte ji pomocí [Instalačního programu webové platformy](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Nástroje Data Lake pro Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Po instalaci nástrojů Data Lake pro Visual Studio se v Průzkumníku serveru pod uzlem „Azure“ zobrazí uzel „Data Lake Analytics“ (Průzkumníka serveru můžete otevřít stisknutím kombinace kláves Ctrl+Alt+S).
+    Po instalaci nástrojů Data Lake pro Visual Studio se v Průzkumníku serveru pod uzlem Azure zobrazí uzel Data Lake Analytics (Průzkumníka serveru otevřete stisknutím kombinace kláves Ctrl+Alt+S).
 
-* **Účet Data Lake Analytics a ukázková data**. Nástroje Data Lake Tools nepodporují vytváření účtů Data Lake Analytics. Účet si můžete vytvořit pomocí webu Azure Portal, prostředí Azure PowerShell, sady .NET SDK nebo rozhraní příkazového řádku Azure CLI.
+* **Účet Data Lake Analytics a ukázková data**. Nástroje Data Lake nepodporují vytváření účtů Data Lake Analytics. Vytvořte účet pomocí webu Azure Portal, Azure PowerShellu, sady .NET SDK nebo rozhraní příkazového řádku Azure CLI.
 Pro usnadnění práce najdete v tématu [Ukázku Appx-A prostředí PowerShell pro přípravu kurzu](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial) ukázkový skript prostředí PowerShell pro vytvoření služby Data Lake Analytics a nahrání zdrojového datového souboru.
 
     Volitelně si můžete projít následující dvě části tématu [Začínáme s Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-get-started-portal.md) a vytvořit si účet a nahrát data ručně:
@@ -44,7 +44,7 @@ Pro usnadnění práce najdete v tématu [Ukázku Appx-A prostředí PowerShell 
     2. [Nahrání souboru SearchLog.tsv do výchozího účtu Data Lake Storage](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Připojení k Azure
-**Postup připojení ke službě Data Lake Analytics**
+**Připojení ke službě Data Lake Analytics**
 
 1. Otevřete sadu Visual Studio.
 2. V nabídce **Zobrazení** klikněte na tlačítko **Průzkumník serveru** a otevřete Průzkumníka serveru. Můžete také stisknout kombinaci kláves **[CTRL]+[ALT]+S**.
@@ -54,9 +54,9 @@ Pro usnadnění práce najdete v tématu [Ukázku Appx-A prostředí PowerShell 
 ## <a name="upload-source-data-files"></a>Nahrání zdrojových datových souborů
 Nějaká data jste již v tomto kurzu nahráli v části **Požadavky**.  
 
-Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání dat z nástrojů Data Lake.
+Chcete-li použít vlastní data, postupujte podle těchto kroků a nahrajte data z nástrojů Data Lake.
 
-**Postup nahrání souborů do závislého účtu Azure Data Lake**
+**Nahrání souborů do závislého účtu Azure Data Lake**
 
 1. V **Průzkumníku serveru** rozbalte položku **Azure**, rozbalte položku **Data Lake Analytics**, rozbalte účet Data Lake Analytics a rozbalte položku **Účty Storage**. Zobrazí se výchozí účet Data Lake Storage, propojené účty Data Lake Storage a propojené účty Azure Storage. Výchozí účet Data Lake má popisek „Výchozí účet úložiště“.
 2. Klikněte pravým tlačítkem na výchozí účet Data Lake Storage a potom klikněte na položku **Explorer**.  Otevře se podokno Nástroje Data Lake pro Průzkumníka Visual Studio.  Na levé straně je stromové zobrazení a na pravé straně je zobrazení obsahu.
@@ -65,7 +65,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 
     ![Projekt U-SQL Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Postup nahrání souborů do propojeného účtu úložiště Azure Blob**
+**Nahrání souborů do propojeného účtu úložiště Azure Blob**
 
 1. V **Průzkumníku serveru** rozbalte položku **Azure**, rozbalte položku **Data Lake Analytics**, rozbalte účet Data Lake Analytics a rozbalte položku **Účty Storage**. Zobrazí se výchozí účet Data Lake Storage, propojené účty Data Lake Storage a propojené účty Azure Storage.
 2. Rozbalte úložiště Azure Storage.
@@ -76,7 +76,7 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
 ## <a name="develop-u-sql-scripts"></a>Vývoj skriptů U-SQL
 Úlohy Data Lake Analytics se píšou v jazyce U-SQL. Další informace o U-SQL najdete v tématu [Začínáme s jazykem U-SQL](data-lake-analytics-u-sql-get-started.md) a [Referenční informace pro jazyk U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
-**Postup vytvoření a odeslání úlohy Data Lake Analytics**
+**Vytvoření a odeslání úlohy Data Lake Analytics**
 
 1. V nabídce **Soubor** klikněte na položku **Nový** a potom klikněte na položku **Projekt**.
 2. Vyberte typ **Projekt U-SQL**.
@@ -128,9 +128,9 @@ Pokud chcete použít vlastní data, níže jsou uvedeny postupy pro nahrání d
        Automaticky se vyplní název a zobrazí se členové Sad řádků, Tříd, Databází, Schémat a Objektů definovaných uživatelem (UDO).
 
        Technologie IntelliSense pro entity katalogu (Databáze, Schémata, Tabulky, UDO atd.) se vztahuje k výpočetnímu účtu. Aktuální aktivní výpočetní účet, databázi a schéma můžete zkontrolovat v horním panelu nástrojů a můžete je přepnout pomocí rozevíracích seznamů.
-   * **Rozbalení* sloupců**
+   * **Rozbalení sloupců ***
 
-       Klikněte vpravo od *a pod* se zobrazí modré podtržení. Umístěte myš na modré podtržení a klikněte na šipku dolů.
+       Klikněte vpravo od * a pod * se zobrazí modré podtržení. Umístěte myš na modré podtržení a klikněte na šipku dolů.
        ![Nástroje Data Lake Visual Studio, rozbalení *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Klikněte na položku **Rozbalit sloupce** a nástroj nahradí znak * názvy sloupců.

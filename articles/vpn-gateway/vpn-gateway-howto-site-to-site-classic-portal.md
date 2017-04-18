@@ -13,42 +13,38 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 619ea430b13c16e8e4338413613d5798f36458ba
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 81eca4b41b6a0726e5fcf851074bfb7dfca16fb8
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Vytvoření připojení typu Site-to-Site pomocí webu Azure Portal (Classic)
+
+Připojení brány VPN typu Site-to-Site (S2S) je připojení přes tunel VPN prostřednictvím protokolu IPsec/IKE (IKEv1 nebo IKEv2). Tento typ připojení vyžaduje místní zařízení sítě VPN, které má přiřazenou veřejnou IP adresu a není umístěné za službou NAT. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
+
+![Diagram připojení VPN Gateway typu Site-to-Site mezi různými místy](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
+
+Tento článek vás provede procesem vytvoření virtuální sítě a připojení brány VPN typu Site-to-Site k místní síti pomocí modelu nasazení Classic a webu Azure Portal. Tuto konfiguraci pro model nasazení Resource Manager můžete vytvořit také výběrem jiné možnosti z následujícího seznamu:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Classic – Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic – portál Azure Classic](vpn-gateway-site-to-site-create.md)
+> * [Classic – portál Classic](vpn-gateway-site-to-site-create.md)
 >
 >
-
-
-Připojení brány VPN typu Site-to-Site (S2S) je připojení přes tunel VPN prostřednictvím protokolu IPsec/IKE (IKEv1 nebo IKEv2). Tento typ připojení vyžaduje místní zařízení sítě VPN, které má přiřazenou veřejnou IP adresu a není umístěné za službou NAT. Připojení typu Site-to-Site lze použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
-
-Tento článek vás provede procesem vytvoření virtuální sítě a připojení brány VPN typu Site-to-Site k místní síti pomocí modelu nasazení Classic a webu Azure Portal. 
-
-![Diagram připojení VPN Gateway typu Site-to-Site mezi různými místy](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modely nasazení a metody připojení typu Site-to-Site
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-Následující tabulka uvádí aktuálně dostupné modely a metody nasazení v konfiguracích Site-to-Site. Když je článek s postupem konfigurace k dispozici, zařadíme do tabulky přímý odkaz na něj.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 #### <a name="additional-configurations"></a>Další konfigurace
 Informace o propojení virtuálních sítí bez vytvoření připojení k místnímu umístění najdete v tématu [Konfigurace připojení typu VNet-to-VNet](virtual-networks-configure-vnet-to-vnet-connection.md). Pokud chcete přidat připojení Site-to-Site k virtuální síti, která už připojení má, získáte informace v části [Přidání připojení S2S k virtuální síti s existujícím připojením brány VPN](vpn-gateway-multi-site.md).
 
 ## <a name="before-you-begin"></a>Než začnete
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Před zahájením konfigurace ověřte, zda máte následující:
 
 * Kompatibilní zařízení VPN a někoho, kdo jej umí nakonfigurovat. Viz [Informace o zařízeních VPN](vpn-gateway-about-vpn-devices.md). Pokud nevíte, jak nakonfigurovat zařízení VPN, nebo neznáte rozsahy IP adres v konfiguraci vaší místní sítě, budete se muset spojit s někým, kdo vám s tím pomůže.
@@ -57,8 +53,7 @@ Před zahájením konfigurace ověřte, zda máte následující:
 * V současné době je se k zadání sdíleného klíče a vytvoření připojení brány VPN vyžaduje PowerShell. Nainstalujte nejnovější verzi rutin PowerShellu pro správu služeb Azure. Další informace najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Při práci s prostředím PowerShell pro tuto konfiguraci se ujistěte, že jej spouštíte jako správce. 
 
 > [!NOTE]
-> Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.                                                                                                                                                                               
->
+> Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.
 >
 
 ### <a name="values"></a>Ukázkové hodnoty konfigurace pro toto cvičení
@@ -103,7 +98,7 @@ Pokud vytváříte virtuální síť pro použití k připojení typu Site-to-Si
 8. Pokud chcete mít k síti VNet snadný přístup na řídicím panelu, vyberte možnost **Připnout na řídicí panel** a potom klikněte na **Vytvořit**.
 
     ![Připnout na řídicí panel](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Připnout na řídicí panel")
-9. Po kliknutí na Vytvořit se na řídicím panelu zobrazí dlaždice s informacemi o průběhu vytváření virtuální sítě. Obsah dlaždice se v průběhu vytváření sítě VNet mění.
+9. Po kliknutí na Vytvořit se na řídicím panelu zobrazí dlaždice, která zobrazuje postup vaší virtuální sítě. Obsah dlaždice se v průběhu vytváření sítě VNet mění.
 
     ![Dlaždice Vytváří se virtuální síť](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Vytváří se virtuální síť")
 
@@ -170,32 +165,48 @@ Pro bránu VPN je nutné vytvořit podsíť brány. Podsíť brány obsahuje IP 
 
 ## <a name="vpndevice"></a>7. Konfigurace zařízení VPN
 
-Pokud potřebujete znát konkrétní informace o konfiguraci a pomoct s konfigurací vašeho zařízení, obraťte se na výrobce zařízení. V článku [Zařízení VPN](vpn-gateway-about-vpn-devices.md) najdete další informace o zařízeních VPN, která dobře fungují s Azure. Zkontrolujte také [Známé problémy s kompatibilitou zařízení](vpn-gateway-about-vpn-devices.md#known) pro zařízení VPN, které chcete použít. 
+Připojení Site-to-Site k místní síti vyžadují zařízení VPN. Protože neposkytujeme kroky konfigurace pro všechna zařízení VPN, můžete najít užitečné informace v následujících odkazech:
 
-Při konfiguraci zařízení VPN budete potřebovat IP adresu brány VPN, kterou jste vytvořili. Najdete ji tak, že přejdete do okna **Přehled** pro vaši virtuální síť.
+- Další informace o kompatibilních zařízeních VPN najdete v tématu s popisem [zařízení VPN](vpn-gateway-about-vpn-devices.md). 
+- Odkazy na nastavení konfigurace zařízení najdete v popisu [ověřených zařízení VPN](vpn-gateway-about-vpn-devices.md#devicetable). Při poskytování těchto odkazů se snažíme maximálně vyhovět. Vždycky je nejlepší obrátit se na výrobce zařízení a vyžádat si nejnovější informace o konfiguraci.
+- Informace o úpravách ukázek konfigurace zařízení najdete v tématu popisujícím [úpravy ukázek](vpn-gateway-about-vpn-devices.md#editing).
+- Parametry protokolu IPsec/IKE najdete v popisu [parametrů](vpn-gateway-about-vpn-devices.md#ipsec).
+- Před konfigurací zařízení VPN zkontrolujte [známé problémy s kompatibilitou zařízení](vpn-gateway-about-vpn-devices.md#known) pro zařízení VPN, které chcete použít.
+
+Při konfiguraci zařízení VPN budete potřebovat následující položky:
+
+- Veřejnou IP adresu vaší brány virtuální sítě. Najdete ji tak, že přejdete do okna **Přehled** pro vaši virtuální síť.
+- Sdílený klíč. Jedná se o stejný sdílený klíč, který zadáváte při vytváření připojení VPN Site-to-Site. V našich ukázkách používáme velmi základní sdílený klíč. Pro použití byste měli generovat složitější klíč.
 
 ## <a name="CreateConnection"></a>8. Vytvoření připojení
 V tomto kroku nastavíte sdílený klíč a vytvoříte připojení. Klíč, který nastavíte, musí být stejný jako klíč, který jste použili v konfiguraci zařízení VPN.
 
 > [!NOTE]
-> Tento krok v současné době není k dispozici na webu Azure Portal. Musíte použít verzi rutin Azure PowerShellu pro správu služeb.                                                                                                                                                                             
->
+> Tento krok v současné době není k dispozici na webu Azure Portal. Musíte použít verzi rutin Azure PowerShellu pro správu služeb.                                        >
 >
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Krok 1. Připojení k účtu Azure
 
 1. Otevřete konzolu PowerShellu se zvýšenými oprávněními a připojte se ke svému účtu. Připojení vám usnadní následující ukázka:
 
-        Login-AzureRmAccount
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Zkontrolujte předplatná pro příslušný účet.
 
-        Get-AzureRmSubscription
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. Máte-li více předplatných, vyberte předplatné, které chcete použít.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Přidejte verzi rutin PowerShellu pro správu služeb.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Krok 2. Nastavení sdíleného klíče a vytvoření připojení
 
@@ -203,13 +214,17 @@ Při práci s PowerShellem a modelem nasazení Classic někdy názvy prostředk�
 
 1. Vytvořte ve svém počítači adresář a potom do něj exportujte soubor konfigurace sítě. V tomto příkladu se soubor konfigurace sítě exportuje do adresáře C:\AzureNet.
 
-         Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 2. Otevřete soubor konfigurace sítě v editoru XML a zkontrolujte hodnoty „LocalNetworkSite name“ (Název místní síťové lokality) a „VirtualNetworkSite name“ (Název virtuální síťové lokality). Upravte příklad tak, aby odpovídal těmto hodnotám. Pokud zadáváte název, který obsahuje mezery, zadejte hodnotu v jednoduchých uvozovkách.
 
 3. Nastavte sdílený klíč a vytvořte připojení. Hodnota, kterou generujete a zadáváte, je „-SharedKey“. V příkladu jsme použili „abc123“, ale můžete (a měli byste) vygenerovat něco složitějšího. Důležité je, aby hodnota, kterou zde zadáte, byla stejná jako hodnota, kterou jste zadali při konfiguraci zařízení VPN.
 
-        Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-        -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```
 Jakmile se připojení vytvoří, výsledkem bude: **Stav: Úspěch**.
 
 ## <a name="verify"></a>9. Ověření stavu připojení

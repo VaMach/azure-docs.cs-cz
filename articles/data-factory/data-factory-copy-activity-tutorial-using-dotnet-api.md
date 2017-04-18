@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,7 +106,7 @@ Vytvořte aplikaci Azure Active Directory, vytvořte pro ni instanční objekt a
     ```PowerShell
     $azureAdApplication    
     ```
-    Poznamenejte si ID aplikace (**applicationID** ve výstupu).
+    Poznamenejte si ID aplikace (applicationID) ve výstupu.
 
 Z těchto kroků byste měli mít tyto čtyři hodnoty:
 
@@ -184,7 +184,7 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
    > [!IMPORTANT]
    > Hodnotu **resourceGroupName** nahraďte názvem skupiny prostředků Azure.
    >
-   > Aktualizujte název objektu pro vytváření dat (**dataFactoryName**) tak, aby byl jedinečný. Název objektu pro vytváření dat musí být globálně jedinečný. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
+   > Aktualizujte název datové továrny (dataFactoryName) tak, aby byl jedinečný. Název objektu pro vytváření dat musí být globálně jedinečný. V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.
 
 7. Do metody **Main** přidejte následující kód, který vytvoří **objekt pro vytváření dat**.
 
@@ -473,7 +473,7 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
     }
     ```
 
-15. V Průzkumníku řešení rozbalte projekt (**DataFactoryAPITestApp**), klikněte pravým tlačítkem na **Odkazy** a potom klikněte na **Přidat odkaz**. Zaškrtněte políčko pro sestavení **System.Configuration** a klikněte na **OK**.
+15. V Průzkumníku řešení rozbalte projekt (DataFactoryAPITestApp), klikněte pravým tlačítkem na **Odkazy** a potom klikněte na **Přidat odkaz**. Zaškrtněte políčko pro sestavení **System.Configuration**. Pak klikněte na **OK**.
 16. Sestavte konzolovou aplikaci. Klikněte v nabídce na **Sestavit** a potom klikněte na **Sestavit řešení**.
 17. Potvrďte, že kontejner **adftutorial** v Azure Blob Storage obsahuje alespoň jeden soubor. Pokud ne, vytvořte v Poznámkovém bloku soubor **Emp.txt** s následujícím obsahem a nahrajte ho do kontejneru adftutorial.
 

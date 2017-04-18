@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Domain Services: Povolení synchronizace hesel | Dokumentace Microsoftu"
+title: "Azure Active Directory Domain Services: Povolení synchronizace hesel | Dokumentace Microsoftu"
 description: "Začínáme se službou Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
@@ -15,18 +15,16 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: f994edd71c6d8ca8a2c3f5de370115747f87da57
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6ed35ca1b83f5f7221824d99817800c1e42e68c1
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Povolení synchronizace hesel do služby Azure AD Domain Services
-V předchozích úlohách jste pro svého tenanta Azure AD povolili službu Azure AD Domain Service. Dalším krokem je povolení synchronizace hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos do služby Azure AD Domain Services. Jakmile je synchronizace přihlašovacích údajů nastavená, uživatelé se do spravované domény mohou přihlásit pomocí podnikových přihlašovacích údajů.
+# <a name="enable-password-synchronization-with-azure-active-directory-domain-services"></a>Povolení synchronizace hesel se službou Azure Active Directory Domain Services
+V předchozích úlohách jste povolili službu Azure Active Directory Domain Services (AD DS) pro klienta služby Azure Active Directory (Azure AD). Dalším krokem je povolení synchronizace hodnot hash přihlašovacích údajů, které se vyžadují pro ověřování pomocí protokolů NT LAN Manager (NTLM) a Kerberos při synchronizaci se službou Azure Active Directory Domain Services. Po nastavení synchronizace přihlašovacích údajů se uživatelé mohou přihlásit ke spravované doméně s použitím podnikových přihlašovacích údajů.
 
-Potřebný postup se liší podle toho, jestli má vaše organizace výhradně cloudového tenanta Azure AD, nebo jestli má nastavenou synchronizaci s místním adresářem pomocí služby Azure AD Connect.
-
-<br>
+Postupy se liší podle toho, jestli má vaše organizace výhradně cloudového tenanta Azure AD, nebo jestli má nastavenou synchronizaci s místním adresářem pomocí služby Azure AD Connect.
 
 > [!div class="op_single_selector"]
 > * [Výhradně cloudový tenant Azure AD](active-directory-ds-getting-started-password-sync.md)
@@ -34,44 +32,42 @@ Potřebný postup se liší podle toho, jestli má vaše organizace výhradně c
 >
 >
 
-<br>
-
-## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Úloha 5: Povolení synchronizace hesel do služby AAD Domain Services u výhradně cloudového tananta Azure AD
-Azure AD Domain Services k ověřování uživatelů na spravované doméně vyžaduje hodnoty hash přihlašovacích údajů ve formátu vhodném pro ověřování protokolů NTLM a Kerberos. Pokud u svého tenanta službu AAD Domain Services nepovolíte, Azure AD nebude generovat ani ukládat hodnoty hash přihlašovacích údajů ve formátu požadovaném pro ověřování protokolů NTLM a Kerberos. Ze zřejmých bezpečnostních důvodů Azure AD také neukládá přihlašovací údaje jako nešifrovaný text. Proto v Azure AD neexistuje způsob, jak vygenerovat tyto hodnoty hash přihlašovacích údajů protokolů NTLM nebo Kerberos na základě stávajících přihlašovacích údajů uživatelů.
+## <a name="task-5-enable-password-synchronization-with-azure-active-directory-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Úloha 5: Povolení synchronizace hesel se službou Azure Active Directory Domain Services u výhradně cloudového tenanta Azure AD
+K ověřování uživatelů ve spravované doméně služba Azure Active Directory Domain Services potřebuje hodnoty hash přihlašovacích údajů ve formátu vhodném pro ověřování pomocí protokolů NTLM a Kerberos. Pokud u svého tenanta službu Azure Active Directory Domain Services nepovolíte, Azure AD nebude generovat ani ukládat hodnoty hash přihlašovacích údajů ve formátu požadovaném pro ověřování pomocí protokolů NTLM a Kerberos. Ze zřejmých bezpečnostních důvodů Azure AD také neukládá přihlašovací údaje jako nešifrovaný text. Proto v Azure AD neexistuje způsob, jak vygenerovat tyto hodnoty hash přihlašovacích údajů protokolů NTLM nebo Kerberos na základě stávajících přihlašovacích údajů uživatelů.
 
 > [!NOTE]
-> Pokud má vaše organizace výhradně cloudového tenanta Azure AD, uživatelé, kteří potřebují používat službu Azure AD Domain Services, si musí změnit heslo.
+> Pokud má vaše organizace výhradně cloudového tenanta Azure AD, uživatelé, kteří potřebují používat službu Azure Active Directory Domain Services, si musí změnit heslo.
 >
 >
 
-Tento proces změny hesla způsobí, že služba Azure AD vygeneruje hodnoty hash přihlašovacích údajů vyžadované službou Azure AD Domain Services pro ověřování pomocí protokolu Kerberos a NTLM. Můžete buď ukončit platnost hesel všech uživatelů v tenantovi, kteří potřebují používat službu Azure AD Domain Services, nebo dát těmto uživatelům pokyny ke změně hesla.
+Tento proces změny hesla způsobí, že služba Azure AD vygeneruje hodnoty hash přihlašovacích údajů vyžadované službou Azure Active Directory Domain Services pro ověřování pomocí protokolů Kerberos a NTLM. Můžete buď ukončit platnost hesel všech uživatelů v tenantovi, kteří potřebují používat službu Azure Active Directory Domain Services, nebo jim dát pokyny ke změně hesel.
 
 ### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Povolení generování hodnot hash přihlašovacích údajů protokolů NTLM a Kerberos u výhradně cloudového tenanta Azure AD
-Tyto pokyny je nutné poskytnout koncovým uživatelům, aby si mohli změnit hesla:
+Tyto pokyny je nutné poskytnout uživatelům, aby si mohli změnit hesla:
 
-1. Přejděte na stránku přístupového panelu služby Azure AD své organizace na webu [http://myapps.microsoft.com](http://myapps.microsoft.com).
-2. Vyberte na této stránce kartu **profilu**.
-3. Na této stránce klikněte na dlaždici **Změnit heslo**.
+1. Přejděte na stránku s [přístupovým panelem Azure AD](http://myapps.microsoft.com) své organizace.
+2. V okně s přístupovým panelem vyberte kartu **Profil**.
+3. Klikněte na dlaždici **Změnit heslo**.
 
-    ![Vytvoření virtuální sítě pro službu Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Dlaždice „Změnit heslo“ na přístupovém panelu Azure AD](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!NOTE]
-   > Pokud se na stránce přístupového panelu možnost **Změnit heslo** nezobrazí, ujistěte se, že je ve vaší organizaci nakonfigurovaná [správa hesel v Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+   > Pokud se v okně s přístupovým panelem možnost **Změnit heslo** nezobrazí, ujistěte se, že je ve vaší organizaci nakonfigurovaná [správa hesel v Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
-4. Na stránce **Změnit heslo** zadejte stávající (staré) heslo, poté zadejte nové heslo a potvrďte jej. Klikněte na **Odeslat**.
+4. Na stránce **Změnit heslo** zadejte stávající (staré) heslo, poté zadejte nové heslo a potvrďte je. 
 
     ![Vytvoření virtuální sítě pro službu Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-Jakmile si změníte heslo, nové heslo bude zanedlouho použitelné ve službě Azure AD Domain Services. Po několika minutách (obvykle přibližně 20 minut) se můžete přihlašovat k počítačům připojeným k spravované doméně pomocí nově změněného hesla.
+5. Klikněte na **Odeslat**.
 
-<br>
+Několik minut poté, co si změníte heslo, je možné používat ve službě Azure Active Directory Domain Services nové heslo. Po několika dalších minutách (obvykle přibližně 20 minut) se můžete přihlašovat k počítačům připojeným k spravované doméně s použitím nově změněného hesla.
 
-## <a name="related-content"></a>Související obsah
+## <a name="next-steps"></a>Další kroky
 * [Postup aktualizace vlastního hesla](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
-* [Začínáme se správou hesel v Azure AD](../active-directory/active-directory-passwords-getting-started.md).
-* [Povolení synchronizace hesel do služby AAD Domain Services u synchronizovaného tenanta Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Správa spravované domény služby Azure AD Domain Services](active-directory-ds-admin-guide-administer-domain.md)
-* [Připojení virtuálního počítače s Windows k spravované doméně služby Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Připojení virtuálního počítače se systémem Red Hat Enterprise Linux k spravované doméně služby Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+* [Začínáme se správou hesel v Azure AD](../active-directory/active-directory-passwords-getting-started.md)
+* [Povolení synchronizace hesel do služby Azure Active Directory Domain Services u synchronizovaného tenanta Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+* [Správa spravované domény služby Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
+* [Připojení virtuálního počítače s Windows k spravované doméně služby Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Připojení virtuálního počítače se systémem Red Hat Enterprise Linux k spravované doméně služby Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 

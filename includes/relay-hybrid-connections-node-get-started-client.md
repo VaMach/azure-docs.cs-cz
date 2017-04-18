@@ -17,7 +17,7 @@
     ```
 2. V podrobnostech o hybridním připojení přidejte do třídy `sender.js` následující konstanty (`constants`) služby Relay: Zástupné symboly v závorkách nahraďte odpovídajícími hodnotami, které jste získali při vytváření hybridního připojení.
    
-   1. `const ns` – obor názvů služby Relay
+   1. `const ns` – obor názvů služby Relay (použijte plně kvalifikovaný název domény, např. `{namespace}.servicebus.windows.net`)
    2. `const path` – název hybridního připojení
    3. `const keyrule` – název klíče SAS
    4. `const key` – hodnota klíče SAS
@@ -71,9 +71,4 @@
         }
     );
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

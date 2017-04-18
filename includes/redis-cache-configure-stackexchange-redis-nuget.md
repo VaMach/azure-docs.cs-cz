@@ -25,7 +25,7 @@ Balíček NuGet se stáhne a přidá klientským aplikacím požadované odkazy 
 > 
 > 
 
-Balíček StackExchange.Redis NuGet můžete nainstalovat také kliknutím na **Správce balíčků NuGet**, **Konzola Správce balíčků** v nabídce **Nástroje** a spuštěním následujícího příkazu z okna `Package Manager Console`.
+Balíček StackExchange.Redis NuGet můžete nainstalovat také kliknutím na **Správce balíčků NuGet**, **Konzola Správce balíčků** v nabídce **Nástroje** a spuštěním následujícího příkazu z okna **Konzola Správce balíčků**.
     
 ```
 Install-Package StackExchange.Redis

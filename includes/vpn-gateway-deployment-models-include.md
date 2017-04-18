@@ -1,2 +1,1 @@
-Je důležité pochopit, že Azure v současné době používá dva modely nasazení: Resource Manager a Classic. Než začnete s vlastní konfigurací, ověřte, že používáte pokyny pro model nasazení, ve kterém chcete pracovat. Další informace najdete v tématu [Vysvětlení modelů nasazení](../articles/resource-manager-deployment-model.md).
-
+Azure v současné době používá dva modely nasazení: Resource Manager a Classic. Než začnete s vlastní konfigurací, ověřte, že používáte pokyny pro model nasazení, ve kterém chcete pracovat. Další informace najdete v tématu [Vysvětlení modelů nasazení](../articles/resource-manager-deployment-model.md).

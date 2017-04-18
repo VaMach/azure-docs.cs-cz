@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ Konektory také poskytují akce, které můžete použít v pracovním postupu v
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Vlastní konektory a certifikace pro Microsoft Azure
 
-Chcete vytvořit vlastní konektory nebo nemůžete najít požadovaný konektor? Můžete [rozšířit platformu Logic Apps](../logic-apps/logic-apps-create-api-app.md) a vytvořit aplikace API, které volají rozhraní API nebo systémy, které nejsou k dispozici jako předem připravené konektory. Můžete také odeslat své aplikace API k certifikaci Microsoft Azure a pak je dávat k dispozici prostřednictvím Azure. Další informace o získávání [certifikace Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) pro vaše řešení
+Chcete-li volat rozhraní API, která spouští vlastní kód nebo nejsou k dispozici jako konektory, můžete [rozšířit platformu Logic Apps](../logic-apps/logic-apps-create-api-app.md) vytvořením aplikací API založených na REST jako vlastních konektorů. Pokud chcete, aby byly vaše vlastní aplikace API veřejné a k dispozici pro použití v Azure, odešlete své kandidáty do [programu Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## <a name="get-help"></a>Podpora
 
