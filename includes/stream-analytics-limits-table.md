@@ -1,16 +1,12 @@
 ---
-| Identifikátor omezení | Omezení | Komentáře |
+| Limit identifier | Limit | Comments |
 | --- | --- | --- |
-| Maximální počet jednotek streamování na předplatné a oblast |50 |Žádost o zvýšení počtu jednotek streamování pro vaše předplatné nad 50 můžete podat kontaktováním [podpory Microsoftu](https://support.microsoft.com/en-us). |
-| Maximální propustnost jednotky streamování |1 MB/s* |Maximální propustnost na jednotku streamování (SU) závisí na daném scénáři. Skutečná propustnost může být nižší a závisí na složitosti a dělení dotazu. Další podrobnosti najdete v článku [Škálování úloh Azure Stream Analytics pro zvýšení propustnosti](../articles/stream-analytics/stream-analytics-scale-jobs.md). |
-| Maximální počet vstupů na úlohu |60 |Platí vynucené omezení 60 vstupů na úlohu Stream Analytics. |
-| Maximální počet výstupů na úlohu |60 |Platí vynucené omezení 60 výstupů na úlohu Stream Analytics. |
-| Maximální počet funkcí na úlohu |60 |Platí vynucené omezení 60 funkcí na úlohu Stream Analytics. |
-| Maximální počet úloh na oblast |1 500 |Každé předplatné může mít až 1 500 úloh na geografickou oblast. |
-| Velikost objektu blob referenčních dat v MB | 100 | Jednotlivé objekty blob referenčních dat nemohou být větší než 100 MB. |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+| Maximum number of Streaming Units per subscription per region |50 |A request to increase streaming units for your subscription beyond 50 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
+| Maximum throughput of a Streaming Unit |1MB/s* |Maximum throughput per SU depends on the scenario. Actual throughput may be lower and depends upon query complexity and partitioning. Further details can be found in the [Scale Azure Stream Analytics jobs to increase throughput](../articles/stream-analytics/stream-analytics-scale-jobs.md) article. |
+| Maximum number of inputs per job |60 |There is a hard limit of 60 inputs per Stream Analytics job. |
+| Maximum number of outputs per job |60 |There is a hard limit of 60 outputs per Stream Analytics job. |
+| Maximum number of functions per job |60 |There is a hard limit of 60 functions per Stream Analytics job. |
+| Maximum number of Streaming Units per job |120 |There is a hard limit of 120 Streaming Units per Stream Analytics job. |
+| Maximum number of jobs per region |1500 |Each subscription may have up to 1500 jobs per geographical region. |
+| Reference data blob MB | 100 | Reference data blobs cannot be larger than 100 MB each. |
 
