@@ -31,7 +31,7 @@
 ## Plánování a návrh
 ### [Hloubková diagnostika webových aplikací a služeb](app-insights-devops.md)
 ### [Sledování výkonu webových aplikací](app-insights-web-monitor-performance.md)
-### [Analýzy používání pomocí nástroje Application Insights](app-insights-overview-usage.md)
+### [Analýzy používání pomocí nástroje Application Insights](app-insights-web-track-usage.md)
 ### [Oddělení prostředků Application Insights](app-insights-separate-resources.md)
 ### [Jak mám... pomocí Application Insights?](app-insights-how-do-i.md)
 
@@ -49,7 +49,6 @@
 #### [Závislosti](app-insights-asp-net-dependencies.md)
 #### [Poznámky k verzi](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [Nejčastější dotazy](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -92,6 +91,7 @@
 #### [Prohlídka](app-insights-analytics-tour.md)
 #### [Použití](app-insights-analytics-using.md)
 #### [Import](app-insights-analytics-import.md)
+#### [Diagnostika](app-insights-analytics-diagnostics.md)
 
 ## Automatizace
 
@@ -146,6 +146,7 @@
 ### [Poznámky k verzi sady SDK](app-insights-release-notes.md)
 ### [Poznámky k verzi pro Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
+## [Nejčastější dotazy](app-insights-troubleshoot-faq.md)
 
 ## Nápověda
 ### [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  

@@ -48,6 +48,7 @@
 ### [Řešení pro správu upozornění](log-analytics-solution-alert-management.md)
 ## Použití řešení
 ### [Přehled řešení](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)
 ### [Posouzení AD](log-analytics-ad-assessment.md)
 ### [Stav replikace AD](log-analytics-ad-replication-status.md)
 ### [Správa výstrah](log-analytics-solution-alert-management.md)

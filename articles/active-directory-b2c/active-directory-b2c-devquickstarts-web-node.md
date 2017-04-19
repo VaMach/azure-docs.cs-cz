@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 443516838190ccad408bc2b3b6b63513b3a3041e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -40,9 +40,6 @@ Kód k tomuto kurzu [je udržovaný na GitHubu](https://github.com/AzureADQuickS
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 Hotová aplikace je k dispozici na konci tohoto kurzu.
-
-> [!WARNING]
-Pro tentokrát musíte použít stejné **ID klienta**/**ID aplikace** a zásady jak pro server úloh webového rozhraní API, tak pro klienta, který se k němu připojuje. To samé platí pro kurzy o iOS a Androidu. Pokud jste již dříve vytvořili aplikaci v některém z těchto rychlých průvodců, použijte tyto hodnoty, nevytvářejte nové.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Získání adresáře služby Azure AD B2C
 
