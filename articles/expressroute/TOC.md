@@ -26,7 +26,9 @@
 ## Propojení virtuální sítě k okruhu ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-## [Konfigurace brány virtuální sítě pro ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## Konfigurace brány virtuální sítě pro ExpressRoute
+### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
 ## [Migrace přidružených virtuálních sítí z modelu nasazení Classic do Resource Manageru](expressroute-migration-classic-resource-manager.md)

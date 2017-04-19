@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -107,7 +107,7 @@ Pokud chcete v telemetrických datech provádět výkonnější hledání, použ
 * [Povolte odesílání diagnostiky Azure](app-insights-azure-diagnostics.md) do Application Insights.
 * [Monitorujte metriky stavu služby](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md), abyste zajistili dostupnost služby a její schopnost dobře reagovat.
 * [Přijímejte oznámení o výstrahách](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) vždy, když nastanou provozní události nebo když metriky překročí prahovou hodnotu.
-* Použitím [Application Insights pro aplikace JavaScript a webové stránky](app-insights-web-track-usage.md) získávejte telemetrické údaje klienta z prohlížečů, které webovou stránky navštíví.
+* Použitím [Application Insights pro aplikace JavaScript a webové stránky](app-insights-javascript.md) získávejte telemetrické údaje klienta z prohlížečů, které webovou stránky navštíví.
 * [Nastavte testy dostupnosti webu](app-insights-monitor-web-app-availability.md) tak, aby se aktivovaly výstrahy, pokud je webový server mimo provoz.
 
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/12/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
-ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: cc3ff1ca5e638896df155b55145b300f70f7540a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,6 @@ Microsoft Monitoring Agent musí mít přístup k číslu portu vašich domén a
 | \*.oms.opinsights.azure.com |443 |Ano |
 | \*.blob.core.windows.net |443 |Ano |
 | \*.azure-automation.net |443 |Ano |
-| ods.systemcenteradvisor.com |443 | |
 
 Následující postup slouží ke konfiguraci nastavení proxy serveru pro Microsoft Monitoring Agent pomocí Ovládacích panelů. Tento postup bude nutné použít pro každý server. pokud máte mnoho serverů, které je nutné nakonfigurovat, může být jednodušší použít skript, který tento proces zautomatizuje. Je-li to váš případ, podívejte se na další postup [Konfigurace nastavení proxy serveru pro Microsoft Monitoring Agent pomocí skriptu](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -102,7 +101,6 @@ Zde je seznam prostředků agenta a portů:<br>
 | \*.ods.opinsights.azure.com |443 |
 | \*.oms.opinsights.azure.com |443 |
 | \*.blob.core.windows.net/\* |443 |
-| ods.systemcenteradvisor.com |443 |
 
 <br>
 Zde je seznam prostředků serveru pro správu a porty:<br>
@@ -112,8 +110,6 @@ Zde je seznam prostředků serveru pro správu a porty:<br>
 | service.systemcenteradvisor.com |443 | |
 | \*.service.opinsights.azure.com |443 | |
 | \*.blob.core.windows.net |443 |Ano |
-| data.systemcenteradvisor.com |443 | |
-| ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Ano |
 | \*.azure-automation.net |443 |Ano |
 

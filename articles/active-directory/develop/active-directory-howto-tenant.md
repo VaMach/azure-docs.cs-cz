@@ -4,7 +4,7 @@ description: "Získání klienta Azure Active Directory pro registraci a vytvá�
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ To provedete podle těchto kroků.  Případně můžete vytvořit nového klien
 3. Měli byste být automaticky přihlášeni k výchozímu adresáři. Pokud ne, můžete adresář změnit kliknutím na název účtu v horním pravém rohu.
 4. V části **Rychlé úlohy** zvolte **Přidat uživatele**.
 5. Ve formuláři pro přidání uživatele zadejte následující podrobnosti:
-   
+
    * Název: (zvolte příslušnou hodnotu)
    * Uživatelské jméno: (zvolte uživatelské jméno pro tohoto správce.)
    * Profil: (vyplňte příslušné hodnoty pro Jméno, Příjmení, Pozice a Oddělení)
@@ -57,16 +58,10 @@ To provedete podle těchto kroků.  Případně můžete vytvořit nového klien
 8. Pokud chcete dočasné heslo změnit, přihlaste se na adrese [https://login.microsoftonline.com](https://login.microsoftonline.com) pomocí tohoto nového uživatelského účtu a po výzvě heslo změňte.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Použití organizačního předplatného Azure
-Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli tenanta najít v části Další služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb. 
+Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli tenanta najít v části Další služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb.
 
 ## <a name="start-from-scratch"></a>Začátek od nuly
 Pokud vám výše uvedené informace připadají nesrozumitelné, nemusíte si dělat starosti.  Navštivte stránku [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) a zaregistrujte se do služby Azure s novou organizací.  Jakmile proces dokončíte, bude mít svého vlastního klienta Azure AD s názvem domény, který jste zvolili při registraci.  Na webu [Azure Portal](https://portal.azure.com) tenanta najdete v části Azure Active Directory v nabídce vlevo.
 
 Součástí registrace do služby Azure je zadání údajů z platební karty.  Můžete bez obav pokračovat – za publikování aplikací v Azure AD ani vytváření nových klientů vám nebude nic účtováno.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

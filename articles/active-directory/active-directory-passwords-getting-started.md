@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Začínáme se správou hesel
 > [!IMPORTANT]
-> **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ Níže jsou uvedeny některé hlavní tipy, které se osvědčily jako užitečn
 * [**Tip 9: ŘEŠENÍ POTÍŽÍ** – Pokud ještě potřebujete pomoc, poskytněte nám dostatek informací, abychom vám mohli pomoci](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>HLAVNÍ TIP: NAVIGACE V DOKUMENTACI – Najděte odpovědi pomocí našeho obsahu a funkce hledání ve vašem prohlížeči
-Pokud používáte některou část naší dokumentace, velmi jsme se snažili v obsahu poskytnout rychlé odkazy na všechna zajímavá místa, kde se správci můžou dozvědět více. 
+Pokud používáte některou část naší dokumentace, velmi jsme se snažili v obsahu poskytnout rychlé odkazy na všechna zajímavá místa, kde se správci můžou dozvědět více.
 
-Podívejte se na následující obsah: 
+Podívejte se na následující obsah:
 * [Resetování hesel Azure AD: Obsah dokumentace](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Tip 1: LICENCOVÁNÍ – Ujistěte se, že rozumíte licenčním požadavkům
@@ -93,9 +93,9 @@ Zásady, které jste nakonfigurovali v uživatelském prostředí pro správu, s
  * ... pro prvních 30 dnů od spuštění zkušební verze, **NEBO**
  * ... pokud není přítomna individuální doména **A** Azure AD Connect nesynchronizuje identity.
  * **_Vyžaduje:_** vyplnění alespoň **jedné** hodnoty pro e-mail pro ověření, alternativní e-mail, telefon pro ověření nebo telefon do zaměstnání.
-* **Dvě zásady brány se použijí...** 
+* **Dvě zásady brány se použijí...**
  * ... po uplynutí prvních 30 dnů používání zkušební verze, **NEBO**
- * ... pokud je přítomna individuální doména, **NEBO** 
+ * ... pokud je přítomna individuální doména, **NEBO**
  * ... pokud jste povolili službě Azure AD Connect synchronizaci identit z místního prostředí.
  * _**Vyžaduje:**_ vyplnění alespoň **dvou** hodnot pro e-mail pro ověření, alternativní e-mail, telefon pro ověření nebo telefon do zaměstnání.
 
@@ -145,7 +145,7 @@ Aby zpětný zápis fungoval správně, je potřeba zajistit:
 * [Nasazení zpětného zápisu – Krok 3: Konfigurace brány firewall](#step-3-configure-your-firewall)
 * [Nasazení zpětného zápisu – Krok 4: Nastavení příslušných oprávnění](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tip 7: GENEROVÁNÍ SESTAV – Zjistěte, kdo se registruje nebo kdo resetuje heslo pomocí protokolů auditu samoobslužného resetování hesla Azure AD 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tip 7: GENEROVÁNÍ SESTAV – Zjistěte, kdo se registruje nebo kdo resetuje heslo pomocí protokolů auditu samoobslužného resetování hesla Azure AD
 Jakmile je resetování hesel nasazené a funkční, dalším logickým krokem je podívat se, jak funguje, a provést analýzu uživatelů, kteří se ještě musí zaregistrovat, běžných problémů uživatelů s resetováním a návratnosti investice do funkce.
 
 To a mnohem více můžete provést pomocí protokolů auditu resetování hesel Azure AD na webu Azure Portal, v PowerBI, prostřednictvím rozhraní API pro generování sestav událostí Azure AD nebo z PowerShellu.  Další informace o používání těchto funkcí pro generování sestav najdete v tématech:
@@ -495,7 +495,7 @@ Zpětný zápis hesla je povolený a resetováním hesla uživatele, jehož úč
 ## <a name="next-steps"></a>Další kroky
 Níže naleznete odkazy na všechny stránky dokumentace k resetování hesel služby Azure AD:
 
-* **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Jste tady, protože máte potíže s přihlášením?** Pokud ano, [přečtěte si informace o tom, jak můžete změnit a resetovat vlastní heslo](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Jak to funguje**](active-directory-passwords-how-it-works.md) – Přečtěte si o šesti různých komponentách služby a o tom, jaké mají funkce.
 * [**Přizpůsobení**](active-directory-passwords-customize.md) – Přečtěte si, jak můžete přizpůsobit vzhled a funkce služby potřebám své organizace.
 * [**Osvědčené postupy**](active-directory-passwords-best-practices.md) – Přečtěte si, jak můžete ve své organizaci rychle nasazovat a efektivně spravovat hesla.

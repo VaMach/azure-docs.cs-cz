@@ -50,7 +50,7 @@
 ### [Osvědčené postupy zabezpečení IoT](../iot-suite/iot-security-best-practices.md)
 
 ## Architektura zabezpečení
-### [Klasifikace dat](azure-security-data-classification.md)
+### [Klasifikace dat](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Zotavení po havárii a vysoká dostupnost pro aplikace založené na Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Související
