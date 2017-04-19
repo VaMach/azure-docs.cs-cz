@@ -18,7 +18,7 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 03/06/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -115,7 +115,7 @@ Pomocí filtru můžete zobrazit jenom zařízení, která odesílají neočeká
 
 ## <a name="update-desired-properties"></a>Aktualizace požadovaných vlastností
 
-Nyní jste identifikovali sadu zařízení, která možná vyžadují opravu. Rozhodnete se ale, že frekvence odesílání dat každých 15 sekund není pro jasnou diagnostiku problému dostatečná. Změníte frekvenci odesílání telemetrie na&5; sekund, což vám poskytne více datových bodů pro lepší diagnostiku problému. Tuto změnu konfigurace můžete z portálu řešení bez vyžádání doručit do vzdálených zařízení. Můžete jednou provést změnu, vyhodnotit její dopad a na základě výsledků se potom rozhodnout.
+Nyní jste identifikovali sadu zařízení, která možná vyžadují opravu. Rozhodnete se ale, že frekvence odesílání dat každých 15 sekund není pro jasnou diagnostiku problému dostatečná. Změníte frekvenci odesílání telemetrie na 5 sekund, což vám poskytne více datových bodů pro lepší diagnostiku problému. Tuto změnu konfigurace můžete z portálu řešení bez vyžádání doručit do vzdálených zařízení. Můžete jednou provést změnu, vyhodnotit její dopad a na základě výsledků se potom rozhodnout.
 
 Postupujte podle těchto kroků a spusťte úlohu, která změní požadovanou vlastnost **TelemetryInterval** pro příslušná zařízení. Zařízení po přijetí nové hodnoty vlastnosti **TelemetryInterval** změní vlastní konfiguraci a budou odesílat telemetrii každých pět sekund namísto každých 15 sekund:
 
