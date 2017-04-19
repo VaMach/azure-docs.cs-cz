@@ -18,7 +18,7 @@ ms.author: heidist
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -117,7 +117,7 @@ Nyní máte index vyhledávání, který je připraven k dotazování. **Průzku
 
    ![Příkazy rozhraní API a index][6]
 
-3. Kliknutím na **Nastavit verzi API** na panelu příkazů zobrazíte, která rozhraní REST API jsou dostupná. Rozhraní API ve verzi Preview poskytují přístup k novým funkcím, které ještě nejsou obecně dostupné. Pro níže uvedené dotazy používejte obecně dostupnou verzi (1. září&2016;), pokud nedostanete jiné pokyny. 
+3. Kliknutím na **Nastavit verzi API** na panelu příkazů zobrazíte, která rozhraní REST API jsou dostupná. Rozhraní API ve verzi Preview poskytují přístup k novým funkcím, které ještě nejsou obecně dostupné. Pro níže uvedené dotazy používejte obecně dostupnou verzi (1. září 2016), pokud nedostanete jiné pokyny. 
 
     > [!NOTE]
     > [Rozhraní REST API služby Azure Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) a [knihovna .NET](search-howto-dotnet-sdk.md#core-scenarios) jsou plně ekvivalentní, ale **průzkumník služby Search** umožňuje zpracovat jenom volání REST. Přijímá syntaxi pro [jednoduché dotazy](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i [kompletní analyzátor dotazů Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) a navíc všechny parametry hledání, které jsou dostupné pro operace [hledání v dokumentech](https://docs.microsoft.com/rest/api/searchservice/search-documents).

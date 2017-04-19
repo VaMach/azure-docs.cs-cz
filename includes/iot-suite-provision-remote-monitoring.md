@@ -22,7 +22,3 @@ Hledali jste informace, které se týkají vašeho řešení a nejsou zde uveden
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
-
-<!--HONumber=Dec16_HO3-->
-
-
