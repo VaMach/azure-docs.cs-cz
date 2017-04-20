@@ -5,7 +5,7 @@
 ## [Scénáře aplikací](service-fabric-application-scenarios.md)
 ## [Architektura](service-fabric-architecture.md)
 ## [Terminologie](service-fabric-technical-overview.md)
-## [Mapa obsahu](service-fabric-content-roadmap.md)
+## [Základy](service-fabric-content-roadmap.md)
 
 # Začínáme
 ## Nastavení vývojového prostředí
@@ -17,7 +17,8 @@
 ### [Java v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Nasazení aplikací v místním clusteru](service-fabric-get-started-with-a-local-cluster.md)
-## [Vytvoření samostatného clusteru](service-fabric-get-started-standalone-cluster.md)
+## [Vytvoření vašeho prvního clusteru v Azure](service-fabric-get-started-azure-cluster.md)
+## [Vytvoření vašeho prvního samostatného clusteru](service-fabric-get-started-standalone-cluster.md)
 
 # Postup
 ## Sestavení aplikace
@@ -124,7 +125,6 @@
 #### [Řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace clusteru](service-fabric-cluster-fabric-settings.md)
 #### [Přidání nebo výměna certifikátů clusteru](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Bezplatné vyzkoušení Party Clusteru](http://aka.ms/tryservicefabric)
 
 ### Samostatné clustery
 #### [Plánování a příprava nasazení](service-fabric-cluster-standalone-deployment-preparation.md)

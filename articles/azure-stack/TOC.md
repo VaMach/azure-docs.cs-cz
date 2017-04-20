@@ -15,7 +15,6 @@
 ### [Přidání výchozí image](azure-stack-add-default-image.md)
 ### [Zřízení virtuálního počítače](azure-stack-provision-vm.md)
 ### [Vytvoření účtu úložiště](azure-stack-provision-storage-account.md)
-### [Přidání tenanta Azure Stacku](azure-stack-add-new-user-aad.md)
 ### [Opětovné nasazení Azure Stack POC](azure-stack-redeploy.md)
 
 # Spravovat
@@ -31,15 +30,17 @@
 ## Postup
 ### [Správa aktualizací](azure-stack-updates.md)
 ### [Monitorování stavu a upozornění](azure-stack-monitor-health.md)
-### [Správa síťových prostředků](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Správa síťových prostředků](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Správa prostředků úložiště](azure-stack-manage-storage-accounts.md)
 ### [Správa virtuálních počítačů se sadou Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Zabezpečení a dodržování předpisů
 ## Postup
 ### [Správa RBAC](azure-stack-manage-permissions.md)
+### [Přidání uživatelů pro Azure AD](azure-stack-add-new-user-aad.md)
 ### [Přidání uživatelů pro AD FS](azure-stack-add-users-adfs.md)
 ### [Vytvoření instančních objektů](Azure-stack-create-service-principals.md)
+### [Povolení víceklientské architektury](azure-stack-enable-multitenancy.md)
 
 # Nabídka služeb
 ## Začínáme

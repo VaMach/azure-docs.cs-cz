@@ -28,7 +28,6 @@
 ## Použití Hadoop pro dávkové dotazy
 ### [Hive se systémem Hadoop](hdinsight-use-hive.md)
 #### [Použití zobrazení Hivu](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [Použití SSH](hdinsight-hadoop-use-hive-ssh.md)
 #### [Použití Beeline](hdinsight-hadoop-use-hive-beeline.md)
 #### [Použití cURL](hdinsight-hadoop-use-hive-curl.md)
 #### [Použití PowerShellu](hdinsight-hadoop-use-hive-powershell.md)
@@ -109,6 +108,7 @@
 ### [Použití se Sparkem](hdinsight-apache-spark-with-kafka.md)
 ### [Použití se Stormem](hdinsight-apache-storm-with-kafka.md)
 ## Vývoj
+### [Vývoj programů MapReduce se streamováním v C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Vývoj programů MapReduce v Javě](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Vývoj úloh MapReduce ve Scaldingu](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Použití nástrojů služby HDInsight k vytvoření aplikací Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -199,6 +199,7 @@
 # Související
 ## Clustery s Windows
 ### [Migrace clusterů s Windows na clustery s Linuxem](hdinsight-migrate-from-windows-to-linux.md)
+### [Migrace řešení .NET do linuxových clusterů](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Ukázky spouštění Hadoop MapReduce](hdinsight-run-samples.md)
 ### [Použití Solru na clusterech](hdinsight-hadoop-solr-install-linux.md)
 ### [Použití Giraphu ke zpracování rozsáhlých grafů](hdinsight-hadoop-giraph-install.md)

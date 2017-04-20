@@ -76,6 +76,7 @@
 ## [Odstranění trezoru služby Azure Backup](backup-azure-delete-vault.md)
 ## [Konfigurace zálohování offline](backup-azure-backup-import-export.md)
 ## [Náhrada páskové knihovny](backup-azure-backup-cloud-as-tape.md)
+## [Aplikačně konzistentní zálohování virtuálních počítačů s Linuxem](backup-azure-linux-app-consistent.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)

@@ -18,6 +18,7 @@
 ## [Zpracování výsledků vyhledávání](search-pagination-page-layout.md)
 ## Kurzy
 ### [.NET](search-howto-dotnet-sdk.md)
+### [Náhled synonym .NET](search-synonyms-tutorial-sdk.md)
 ### [Azure Portal](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -48,7 +49,7 @@
 ### [Indexování objektů blob JSON](search-howto-index-json-blobs.md)
 ### [Konfigurace připojení indexeru do SQL Serveru na virtuálním počítači Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapování polí v indexerech](search-indexer-field-mappings.md)
-##  Hledání 
+##  Hledání
 ### [Jak funguje fulltextové vyhledávání](search-lucene-query-architecture.md)
 ### Konstrukce dotazů
 #### [Jednoduchá syntaxe dotazů](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
@@ -61,6 +62,7 @@
 ### [Vyhodnocování](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Návrhy](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Fasetová navigace](search-faceted-navigation.md)
+### [Náhled synonym](search-synonyms.md)
 
 # Referenční informace
 ## [.NET](/dotnet/api/microsoft.azure.search)

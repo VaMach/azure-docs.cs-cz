@@ -25,6 +25,16 @@
 ### [Rutiny PowerShellu pro účty Batch](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
 ### [Diagnostické protokoly služby Batch](batch-diagnostics.md)
+### [Dávková analýza](batch-analytics.md)
+#### [Událost vytvoření fondu](batch-pool-create-event.md)
+#### [Událost zahájení odstranění fondu](batch-pool-delete-start-event.md)
+#### [Událost dokončení odstranění fondu](batch-pool-delete-complete-event.md)
+#### [Událost zahájení změny velikosti fondu](batch-pool-resize-start-event.md)
+#### [Událost dokončení změny velikosti fondu](batch-pool-resize-complete-event.md)
+#### [Událost zahájení úlohy](batch-task-start-event.md)
+#### [Událost dokončení úlohy](batch-task-complete-event.md)
+#### [Událost selhání úlohy](batch-task-fail-event.md)
+### [Proměnné prostředí výpočetních uzlů Azure Batch](batch-compute-node-environment-variables.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

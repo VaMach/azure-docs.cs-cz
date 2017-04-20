@@ -19,6 +19,7 @@
 ### [Konfigurace správy nákladů](devtest-lab-configure-cost-management.md)
 ### [Konfigurace virtuálních sítí](devtest-lab-configure-vnet.md)
 ### [Principy sdílených IP adres](devtest-lab-shared-ip.md)
+### [Automatizace změn testovacího prostředí pomocí šablon a PowerShellu](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## Správa artefaktů
 ### [Přidání úložiště artefaktů](devtest-lab-add-artifact-repo.md)
