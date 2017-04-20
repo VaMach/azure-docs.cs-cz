@@ -287,10 +287,10 @@
 ### [Jazyky](Translator/languages.md)
 ### [Centrum](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Přehled rozhraní API pro překlad řeči](Translator/speech-overview.md)
-### [Referenční informace k rozhraní API pro překlad řeči](http://docs.microsofttranslator.com/speech-translate.html)
-### [Přehled rozhraní API pro překlad textu](Translator/text-overview.md)
-### [Referenční informace k rozhraní API pro překlad textu](http://docs.microsofttranslator.com/text-translate.html)
+### [Přehled rozhraní Translator Speech API](Translator/speech-overview.md)
+### [Referenční informace k rozhraní Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html)
+### [Přehled rozhraní Translator Text API](Translator/text-overview.md)
+### [Referenční informace k rozhraní Translator Text API](http://docs.microsofttranslator.com/text-translate.html)
 
 ## Video
 ### [Přehled](Video/Home.md)

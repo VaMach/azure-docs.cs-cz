@@ -23,7 +23,7 @@
 ### [Odstranění nabídky virtuálního počítače nebo skladové jednotky](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrace na portál Cloud Partner](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## [Správa potenciálních zákazníků](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md)
+## [Získání potenciálních zákazníků](./cloud-partner-portal-get-customer-leads.md)
 ### [Tabulka Azure](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM Online](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -31,5 +31,4 @@
 
 ## [Správa profilu vydavatele](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Správa uživatelů](./cloud-partner-portal-manage-users.md)
-## [Váš názor](./cloud-partner-portal-give-feedback.md)
 ## [Získat podporu](./cloud-partner-portal-support-for-cloud-partner-portal.md)

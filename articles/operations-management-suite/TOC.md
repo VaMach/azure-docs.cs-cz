@@ -3,15 +3,9 @@
 ## [Architektura OMS](operations-management-suite-architecture.md)
 
 # Začínáme
-## Přehledy a analýza
-### [Registrace ke službě Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automatizace a řízení
-### [Můj první runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Ochrana a obnovení
-### [Seznámení s Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Zabezpečení a dodržování předpisů
-### [Zabezpečení a audit](oms-security-getting-started.md)
-### [Zabezpečení dat](oms-security-data-security.md)
+## Názorné postupy
+### [Mapa služeb](operations-management-suite-walkthrough-servicemap.md)
+
 
 # Postup
 

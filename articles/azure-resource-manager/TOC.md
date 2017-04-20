@@ -14,12 +14,15 @@
 ## Vytváření šablon
 ### [Osvědčené postupy pro šablony](resource-manager-template-best-practices.md)
 ### [Části šablon](resource-group-authoring-templates.md)
+### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
+### Kopírovací smyčka pro vytvoření víc instancí
+#### [Základní syntaxe](resource-group-create-multiple.md)
+#### [Sekvenční smyčka](resource-manager-sequential-loop.md)
+#### [Kopírování vlastnosti](resource-manager-property-copy.md)
 ### [Nastavení umístění](resource-manager-template-location.md)
 ### [Přiřazení značek](resource-manager-template-tags.md)
 ### [Nastavení názvu a typu podřízeného prostředku](resource-manager-template-child-resource.md)
-### [Vytvoření více instancí prostředku daného typu](resource-group-create-multiple.md)
-### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
 ### [Sdílení stavu mezi propojenými šablonami](best-practices-resource-manager-state.md)
 ### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
 ## Nasazení

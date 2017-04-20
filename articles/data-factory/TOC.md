@@ -74,6 +74,8 @@
 ### [Aktivita U-SQL služby Data Lake Analytics](data-factory-usql-activity.md)
 ### [Vlastní aktivita .NET](data-factory-use-custom-activities.md)
 ### [Vyvolání skriptů jazyka R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+### [Znovuzpracování modelů v Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+
 ## Vývoj
 ### [Šablona Azure Resource Manageru](data-factory-how-to-use-resource-manager-templates.md)
 ### [Ukázky](data-factory-samples.md)

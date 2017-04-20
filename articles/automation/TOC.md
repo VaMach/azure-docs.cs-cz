@@ -1,17 +1,20 @@
 # Přehled
 ## [Co je Azure Automation?](automation-intro.md)
 # Začínáme
+## [Začínáme s Azure Automation](automation-offering-get-started.md)
 ## Kurz k runbookům
 ### [Vytvoření grafického runbooku](automation-first-runbook-graphical.md)
 ### [Vytvoření powershellového runbooku](automation-first-runbook-textual-powershell.md)
 ### [Vytvoření runbooku pracovního postupu PowerShellu](automation-first-runbook-textual.md)
 # Postup
 ## Ověřování a zabezpečení
-### [Ověřování ve službě Azure Automation](automation-security-overview.md)
-### [Konfigurace účtu Spustit jako pro Azure](automation-sec-configure-azure-runas-account.md)
-### [Konfigurace uživatelského účtu Azure AD](automation-sec-configure-aduser-account.md)
-### [Konfigurace ověřování pomocí AWS](automation-sec-configure-aws-account.md)
+### [Vytvoření samostatného účtu Automation](automation-create-standalone-account.md)
+### [Vytvoření uživatelského účtu Azure AD](automation-create-aduser-account.md)
+### [Konfigurace ověřování pomocí AWS](automation-config-aws-account.md)
+### [Vytvoření účtu Spustit jako pro Azure pomocí PowerShellu](automation-update-account-powershell.md)
+### [Ověření konfigurace účtu Automation](automation-verify-runas-authentication.md)
 ### [Správa řízení přístupu na základě rolí](automation-role-based-access-control.md)
+### [Správa účtu Automation](automation-manage-account.md)
 ## Vytváření runbooků
 ### [Typy runbooků](automation-runbook-types.md)
 ### [Vytváření a import runbooků](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Zdroje a prostředky
 ## [Poznámky k verzi](https://azure.microsoft.com/updates/?product=automation)

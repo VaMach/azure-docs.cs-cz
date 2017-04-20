@@ -34,10 +34,11 @@
 ## Konfigurace několika připojení typu site-to-site
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (Classic)](vpn-gateway-multi-site.md)
-## [Konfigurace BGP pro Azure VPN Gateway pomocí PowerShellu](vpn-gateway-bgp-resource-manager-ps.md)
+## [Konfigurace BGP pro bránu VPN](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurace vysoce dostupných připojení typu aktivní-aktivní](vpn-gateway-activeactive-rm-powershell.md)
 ## [Úprava nastavení místní síťové brány pomocí PowerShellu](vpn-gateway-modify-local-network-gateway.md)
 ## [Ověření připojení brány VPN](vpn-gateway-verify-connection-resource-manager.md)
+## [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
 ## Odstranění brány VPN
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
