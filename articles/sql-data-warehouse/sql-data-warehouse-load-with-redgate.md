@@ -129,7 +129,7 @@ Pokud chcete prozkoumat data v SQL Data Warehouse, projděte si tyto zdroje info
 Další informace o nástroji Data Platform Studio od společnosti Redgate:
 
 * [Domovská stránka DPS](http://www.dataplatformstudio.com/)
-* [Ukázka DPS na Channel&9;](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Ukázka DPS na Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 Přehled jiných způsobů migrace a načítání dat do SQL Data Warehouse:
 

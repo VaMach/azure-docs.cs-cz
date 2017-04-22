@@ -5,9 +5,3 @@ Na webu Azure Portal můžete zobrazit stav připojení VPN Gateway Resource Man
 3. Kliknutím na název připojení, které chcete ověřit, otevřete **Základní údaje**. V části Základní údaje můžete zobrazit další informace o připojení. **Stav** bude „Úspěšně dokončeno“ a „Připojeno“ po provedení úspěšného připojení.
    
     ![Ověření připojení VPN Gateway pomocí webu Azure Portal](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-
