@@ -62,7 +62,7 @@ Další kurz v této sérii nasadí front-end jednostránkové aplikace do cloud
     Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si tuto službu](https://azure.microsoft.com/try/app-service/). Tam si můžete v App Service hned vytvořit krátkodobou úvodní aplikaci – **nepožaduje se žádná platební karta**, ani to s sebou nenese žádné závazky.
 * Visual Studio 2015 se [sadou Azure SDK pro .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) – sada SDK nainstaluje nástroj Visual Studio 2015 automaticky, pokud ho ještě nemáte.
   
-  * V sadě Visual Studio klikněte na Nápověda -> O aplikaci Microsoft Visual Studio a ujistěte se, že máte Azure App Service Tools ve verzi&2;.9.1 nebo vyšší.
+  * V sadě Visual Studio klikněte na Nápověda -> O aplikaci Microsoft Visual Studio a ujistěte se, že máte Azure App Service Tools ve verzi 2.9.1 nebo vyšší.
     
     ![Verze Azure App Tools](./media/app-service-api-dotnet-get-started/apiversion.png)
     
