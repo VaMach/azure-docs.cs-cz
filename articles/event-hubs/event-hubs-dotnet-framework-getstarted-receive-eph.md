@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ Event Hubs je služba, která zpracovává velké objemy dat událostí (telemet
 
 Tento kurz ukazuje, jak psát aplikace konzoly rozhraní .NET Framework, která přijímá zprávy z centra událostí pomocí třídy **[Event Processor Host][EventProcessorHost]**. Pokud chcete odesílat události pomocí rozhraní .NET Framework, přečtěte si článek [Odesílání událostí do Azure Event Hubs pomocí rozhraní .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) nebo klikněte na příslušný odesílající jazyk v obsahu vlevo.
 
-[Event Processor Host][EventProcessorHost] je třída rozhraní .NET, která zjednodušuje přijímání událostí ze služby Event Hubs tím, že spravuje trvalé kontrolní body a paralelní příjmy ze služby Event Hubs. Pomocí třídy [Event Processor Host][Event Processor Host] můžete události rozdělit mezi několik příjemců, i když jsou hostované v různých uzlech. Tento příklad ukazuje způsob použití třídy [Event Processor Host][EventProcessorHost] pro jednoho příjemce. Ukázka metody [Horizontální navýšení kapacity zpracování událostí][Scale out Event Processing with Event Hubs] znázorňuje způsob použití třídy [Event Processor Host][EventProcessorHost] v případě několika příjemců.
+[Event Processor Host][EventProcessorHost] je třída rozhraní .NET, která zjednodušuje přijímání událostí z center událostí tím, že spravuje trvalé kontrolní body a paralelní příjmy z těchto center událostí. Pomocí třídy [Event Processor Host][Event Processor Host] můžete události rozdělit mezi několik příjemců, i když jsou hostované v různých uzlech. Tento příklad ukazuje způsob použití třídy [Event Processor Host][EventProcessorHost] pro jednoho příjemce. Ukázka metody [Horizontální navýšení kapacity zpracování událostí][Scale out Event Processing with Event Hubs] znázorňuje způsob použití třídy [Event Processor Host][EventProcessorHost] v případě několika příjemců.
 
 ## <a name="prerequisites"></a>Požadavky
 

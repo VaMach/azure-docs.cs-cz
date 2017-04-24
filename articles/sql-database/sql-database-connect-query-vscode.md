@@ -15,12 +15,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Než začnete, ujistěte se, že máte nainstalovanou nejnovější verzi nástr
 ## <a name="configure-vs-code-mac-os-only"></a>Konfigurace VS Code (pouze Mac OS)
 
 ### <a name="mac-os"></a>**Mac OS**
-Pro macOS musíte nainstalovat OpenSSL, což je předpoklad pro DotNet Core, který rozšíření mssql používá. Otevřete terminál a zadejte následující příkazy, abyste nainstalovali **brew** a **OpenSSL***. 
+Pro macOS musíte nainstalovat OpenSSL, což je předpoklad pro DotNet Core, který rozšíření mssql používá. Otevřete terminál a zadejte následující příkazy, abyste nainstalovali **brew** a **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. V podokně **Základy** na stránce webu Azure Portal pro vaši databázi vyhledejte a potom zkopírujte **Název serveru** pro pozdější použití v tomto rychlém startu.
+3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![informace o připojení](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Pokud jste zapomněli přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby obnovili heslo. 
 
 ## <a name="set-language-mode-to-sql"></a>Nastavení jazykového režimu na SQL
 
@@ -65,17 +67,22 @@ Nastavte v nástroji Visual Studio Code jazykový režim na **SQL**, abyste povo
 
 1. Otevřete nové okno nástroje Visual Studio Code. 
 
-2. Chcete-li nastavit režim jazyka na SQL, stiskněte klávesy **⌘+K, M** nebo **CTRL+K, M** (v uvedeném pořadí pro Mac a Windows), zadejte **SQL** a stiskněte **ENTER**. 
+2. Klikněte na **Prostý text** v pravém dolním rohu stavového řádku.
+3. V rozevírací nabídce **Vybrat režim jazyka**, která se otevře, zadejte **SQL** a potom stisknutím klávesy **ENTER** nastavte režim jazyka SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![Režim jazyka SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>Připojení k serveru
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Připojení k vaší databázi na logickému serveru SQL Database
 
 Pomocí nástroje Visual Studio Code navažte připojení k serveru služby Azure SQL Database.
 
+> [!IMPORTANT]
+> Než budete pokračovat, ujistěte se, že máte připravené informace o vašem serveru, databázi a přihlašovacích údajích. Jakmile začnete zadávat informace o profilu připojení a pak změníte fokus na něco jiného než Visual Studio Code, budete muset vytváření profilu připojení začít znovu.
+>
+
 1. V nástroji VS Code stisknutím kombinace kláves **CTRL + SHIFT + P** (nebo **F1**) otevřete paletu příkazů.
 
-2. Zadejte **sqlcon** a stiskněte **ENTER** a nastavte jazyk na **SQL**.
+2. Zadejte **sqlcon** a stiskněte klávesu **ENTER**.
 
 3. Stisknutím klávesy **ENTER** vyberte **Vytvořit profil připojení**. Tím se vytvoří profil připojení pro vaši instanci SQL Serveru.
 
@@ -97,7 +104,7 @@ Pomocí nástroje Visual Studio Code navažte připojení k serveru služby Azur
 
 6. Na stavovém řádku ověřte připojení.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![Stav připojení](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Dotazování dat
 
@@ -114,7 +121,7 @@ K dotazování dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL 
 
 2. Stisknutím kombinace kláves **CTRL + SHIFT + E** načtěte data z tabulek Product a ProductCategory.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Dotaz](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Vložení dat
 

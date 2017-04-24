@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Pokud se vás týkají následující scénáře, můžeme vám pomoct.
 * Nejste si jistí, jak získat přístup k účtu, a zapomněli jste heslo.
 * Nebylo vám přiřazeno heslo a správce vás poslal sem.
 
-## <a name="unlock-your-account"></a>Odemknutí účtu
+## <a name="unlock-my-account"></a>Odemknutí účtu
 
 Pokud chcete odemknout účet, postupujte podle následujících kroků. Až se v kroku 6 níže zobrazí výzva **Vyberte nové heslo**, můžete heslo odemknout nebo změnit a provést odemknutí.
 
@@ -43,6 +43,11 @@ Chcete-li se opět přihlásit ke svému účtu, postupujte podle následující
     ![Nejde se dostat na váš účet][Login]
 
 2. Zadejte pracovní nebo školní **ID uživatele** a prokažte, že nejste robot, zadáním textu zobrazeného v rámci kontroly CAPTCHA a kliknutím na **Další**.
+
+   > [!NOTE]
+   > Pokud správce tuto funkci nepovolil, zobrazí se v tento okamžik odkaz „kontaktujte správce“. Správce vám může poskytnout pomoc prostřednictvím e-mailu nebo vlastního webového portálu.
+   >
+
 3. V závislosti na tom, jakou konfiguraci správce vytvořil, se zobrazí jedna nebo více následujících možností.
     * **Zaslat e-mail na mou alternativní e-mailovou adresu** – Odešle e-mail s 6ciferným kódem na vaši alternativní e-mailovou adresu nebo na vaši ověřovací e-mailovou adresu (můžete zvolit požadovanou variantu).
     * **Poslat mi SMS na mobil** – Odešle vám na mobilní telefon nebo na telefon pro ověření 6ciferný kód (můžete zvolit požadovanou variantu).
@@ -61,10 +66,6 @@ Chcete-li se opět přihlásit ke svému účtu, postupujte podle následující
 7. Až se zobrazí zpráva **Vaše heslo bylo resetováno**, můžete se přihlásit pomocí nového hesla.
 
     ![Vaše heslo bylo resetováno][Complete]
-
-> [!NOTE]
-> Pokud správce tuto funkci nepovolil, zobrazí se odkaz „kontaktujte správce“. Správce vám může poskytnout pomoc prostřednictvím e-mailu nebo vlastního webového portálu.
->
 
 Po použití této metody pro odemknutí nebo resetování hesla můžete obdržet e-mail s potvrzením dokončení tohoto procesu odeslaný z účtu jako „Microsoft jménem společnosti vaše_společnost“. Pokud obdržíte takový e-mail a nepoužili jste samoobslužné resetování hesla k opětnému získání přístupu k účtu, kontaktujte správce.
 

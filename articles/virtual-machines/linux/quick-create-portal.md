@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Virtuální počítače Azure je možné vytvářet na webu Azure Portal. Tato metoda poskytuje uživatelské rozhraní v prohlížeči, pomocí kterého můžete vytvářet a konfigurovat virtuální počítače a všechny související prostředky. Tento Rychlý start prochází jednotlivé kroky k vytvoření virtuálního počítače pomocí webu Azure Portal.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 ## <a name="create-ssh-key-pair"></a>Vytvoření páru klíčů SSH
 
@@ -52,9 +52,9 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
     ![Zadání základních informací o virtuálním počítači v okně portálu](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Zvolte velikost virtuálního počítače a klikněte na **Vybrat**. 
+4. Zvolte velikost virtuálního počítače. Pokud chcete zobrazit další velikosti, vyberte **Zobrazit všechny** nebo změňte filtr **Podporovaný typ disku**. 
 
-    ![Výběr velikosti virtuálního počítače v okně portálu](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Snímek obrazovky zobrazující velikosti virtuálních počítačů](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. V okně Nastavení v části **Použít spravované disky** vyberte **Ano**, pro zbytek nastavení ponechte výchozí hodnoty a klikněte na **OK**.
 
@@ -71,7 +71,7 @@ Ve výchozím nastavení jsou na virtuální počítače s Linuxem, které jsou 
 2. V okně pro skupinu prostředků klikněte v seznamu prostředků na **Skupina zabezpečení sítě**. Název skupiny NSG musí být název virtuálního počítače s příponou -nsg.
 3. Klikněte na záhlaví **Příchozí pravidlo zabezpečení** a otevřete seznam příchozích pravidel. V seznamu byste už měli vidět pravidlo pro protokol RDP.
 4. Klikněte na **+ Přidat** a otevřete okno **Přidat příchozí pravidlo zabezpečení**.
-5. Do pole **Název** zadejte **nginx** a zkontrolujte, že **Rozsah portů** je nastavený na 80 a **Akce** je nastavená na **Povolit**, a pak klikněte na **OK**.
+5. Do pole **Název**, zadejte **nginx**. Zkontrolujte, že **Rozsah portů** je nastavený na 80 a **Akce** je nastavená na **Povolit**. Klikněte na **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Připojení k virtuálnímu počítači
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
-S nainstalovaným serverem NGINX na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku serveru NGINX. Nezapomeňte pro návštěvu výchozí stránky použít adresu `publicIpAddress` popsanou výše. 
+S nainstalovaným serverem NGINX na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku serveru NGINX. Nezapomeňte pro návštěvu výchozí stránky použít popsanou adresu `publicIpAddress`. 
 
 ![Výchozí web NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Odstranění virtuálního počítače

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 04/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
-ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 49aeb711de73bf967f330ec54385fb8bb36dd7ca
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,18 +35,18 @@ K více serverům se lze připojovat prostřednictvím prostředí Windows Power
 ### <a name="what-are-my-cross-premises-connection-options"></a>Jaké jsou možnosti připojení mezi různými místy?
 Podporovány jsou následující možnosti připojení mezi různými místy:
 
-* [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) – připojení VPN prostřednictvím protokolu IPsec (IKE v1 a IKE v2). Tento typ připojení vyžaduje zařízení VPN nebo službu RRAS.
-* [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) – připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Toto připojení nevyžaduje zařízení VPN.
-* [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) – tento typ připojení je stejný jako konfigurace Site-to-Site. VNet-to-VNet je připojení k síti VPN prostřednictvím protokolu IPsec (IKE v1 a IKE v2). Nevyžaduje zařízení VPN.
-* [Více míst](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) – varianta konfigurace Site-to-Site, která umožňuje propojit několik místních serverů do virtuální sítě.
-* [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute je přímé připojení k Azure z vaší sítě WAN, nikoli prostřednictvím veřejného internetu. Další informace najdete v tématech [Technický přehled ExpressRoute](../expressroute/expressroute-introduction.md) a [ExpressRoute – nejčastější dotazy](../expressroute/expressroute-faqs.md).
+* Site-to-Site – připojení VPN prostřednictvím protokolu IPsec (IKE v1 a IKE v2). Tento typ připojení vyžaduje zařízení VPN nebo službu RRAS. Další informace naleznete v tématu [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Point-to-Site – připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Toto připojení nevyžaduje zařízení VPN. Další informace naleznete v tématu [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* VNet-to-VNet – tento typ připojení je stejný jako konfigurace Site-to-Site. VNet-to-VNet je připojení k síti VPN prostřednictvím protokolu IPsec (IKE v1 a IKE v2). Nevyžaduje zařízení VPN. Další informace naleznete v tématu [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* Multi-Site – varianta konfigurace Site-to-Site, která umožňuje propojit několik místních serverů do virtuální sítě. Další informace najdete v tématu [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+* ExpressRoute – ExpressRoute je přímé připojení k Azure z vaší sítě WAN, nikoli prostřednictvím připojení VPN přes veřejný internet. Další informace najdete v tématech [Technický přehled ExpressRoute](../expressroute/expressroute-introduction.md) a [ExpressRoute – nejčastější dotazy](../expressroute/expressroute-faqs.md).
 
 Další informace o připojeních VPN Gateway najdete v tématu [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Jaký je rozdíl mezi připojením Site-to-Site a Point-to-Site?
-Konfigurace **Site-to-Site** jsou mezi místním umístěním a Azure. To znamená, že se můžete z kteréhokoli počítače ve vaší lokalitě připojit k libovolnému virtuálnímu počítači nebo instanci role ve vaší virtuální síti v závislosti na zvoleném způsobu konfigurace směrování. Představuje skvělou možnost připojení mezi různými místy, která je vždy k dispozici a je velmi vhodná pro hybridní konfigurace. Tento typ připojení využívá zařízení sítě VPN s protokolem IPsec (hardwarové nebo softwarové zařízení), které musí být nasazeno v hraniční části sítě. Chcete-li vytvořit tento typ připojení, musíte mít požadovaný hardware sítě VPN a adresu IPv4 přístupnou zvenčí.
+Konfigurace **Site-to-Site** (tunel VPN IPsec/IKE) jsou mezi místním umístěním a Azure. To znamená, že se můžete z kteréhokoli počítače ve vaší lokalitě připojit k libovolnému virtuálnímu počítači nebo instanci role ve vaší virtuální síti v závislosti na zvoleném způsobu konfigurace směrování a oprávněních. Představuje skvělou možnost připojení mezi různými místy, která je vždy k dispozici a je velmi vhodná pro hybridní konfigurace. Tento typ připojení využívá zařízení sítě VPN s protokolem IPsec (hardwarové nebo softwarové zařízení), které musí být nasazeno v hraniční části sítě. Chcete-li vytvořit tento typ připojení, musíte mít adresu IPv4 přístupnou zvenčí, která není za zařízením NAT.
 
-Konfigurace **Point-to-Site** umožňují připojit se z jednoho počítače odkudkoli kamkoli do vaší virtuální sítě. Využívá integrovaného klienta VPN ve Windows. Jako součást konfigurace Point-to-Site nainstalujete certifikát a balíček konfigurace klienta VPN, který obsahuje nastavení umožňující vašemu počítači připojit se ke kterémukoli virtuálnímu počítači nebo instanci role v rámci virtuální sítě. Toto řešení je skvělé, pokud se chcete připojit k virtuální síti, ale nenacházíte se na příslušném místě. Je také vhodné, pokud nemáte přístup k hardwaru sítě VPN nebo adrese IPv4 přístupné zvenčí; obě tyto položky jsou pro připojení Site-to-Site vyžadovány.
+Konfigurace **Point-to-Site** (VPN přes SSTP) umožňují připojit se z jednoho počítače odkudkoli kamkoli do vaší virtuální sítě. Využívá integrovaného klienta VPN ve Windows. Jako součást konfigurace Point-to-Site nainstalujete certifikát a balíček konfigurace klienta VPN, který obsahuje nastavení umožňující vašemu počítači připojit se ke kterémukoli virtuálnímu počítači nebo instanci role v rámci virtuální sítě. Toto řešení je skvělé, pokud se chcete připojit k virtuální síti, ale nenacházíte se na příslušném místě. Je také vhodné, pokud nemáte přístup k hardwaru sítě VPN nebo adrese IPv4 přístupné zvenčí; obě tyto položky jsou pro připojení Site-to-Site vyžadovány.
 
 Virtuální síť můžete nakonfigurovat tak, aby souběžně používala připojení Site-to-Site i Point-to-Site, pokud pro bránu vytvoříte připojení Site-to-Site s použitím typu sítě VPN založeného na směrování. Typy sítí VPN založené na směrování se v modelu nasazení Classic nazývají dynamické brány.
 
@@ -63,7 +64,7 @@ Brány založené na směrování implementují sítě VPN založené na směrov
 ### <a name="do-i-need-a-gatewaysubnet"></a>Potřebuji GatewaySubnet?
 Ano. Podsíť brány obsahuje IP adresy, které používá služba brány virtuální sítě. Pro virtuální síť je třeba vytvořit podsíť brány, aby bylo možné konfigurovat bránu virtuální sítě. Pro správné fungování všech podsítí brány je nutné, aby měly název GatewaySubnet. Nenastavujte pro podsíť brány jiný název. A v podsíti brány nenasazujte virtuální počítače ani žádná jiná zařízení.
 
-Při vytváření podsítě brány zadáte počet IP adres, které podsíť obsahuje. IP adresy v podsíti brány jsou přidělené službě brány. Některé konfigurace vyžadují přidělení více IP adres službám brány než jiné. Ujistěte se, že podsíť brány obsahuje dostatek IP adres, aby se mohla přizpůsobit budoucímu růstu a případným dalším konfiguracím nových připojení. Přestože je tedy možné vytvořit tak malou podsíť brány, jako je /29, doporučujeme vytvořit podsíť brány o velikosti /28 nebo větší (/28, /27, /26 atd.). Podívejte se na požadavky pro konfiguraci, kterou chcete vytvořit, a ověřte, že vaše podsíť brány bude tyto požadavky splňovat.
+Při vytváření podsítě brány zadáte počet IP adres, které podsíť obsahuje. IP adresy v podsíti brány jsou přidělené službě brány. Některé konfigurace vyžadují přidělení více IP adres službám brány než jiné. Ujistěte se, že podsíť brány obsahuje dostatek IP adres, aby se mohla přizpůsobit budoucímu růstu a případným dalším konfiguracím nových připojení. Přestože je tedy možné vytvořit tak malou podsíť brány, jako je /29, doporučujeme vytvořit podsíť brány o velikosti /27 nebo větší (/27, /26, /25 atd.). Podívejte se na požadavky pro konfiguraci, kterou chcete vytvořit, a ověřte, že vaše podsíť brány bude tyto požadavky splňovat.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Je možné nasazovat do podsítě brány virtuální počítače nebo instance role?
 Ne.
@@ -106,11 +107,23 @@ Brána sítě VPN je v podstatě zařízení s více adresami, přičemž jedna 
 Další informace najdete v tématu [Informace o nastavení konfigurace služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## <a name="site-to-site-connections-and-vpn-devices"></a>Připojení typu Site-to-Site a zařízení VPN
-### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Co je třeba zvážit při výběru zařízení VPN?
-Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN pro připojení Site-to-Site. Seznam známých kompatibilních zařízení VPN, příslušné pokyny ke konfiguraci nebo ukázky a specifikace zařízení najdete [zde](vpn-gateway-about-vpn-devices.md). Všechna zařízení v řadách zařízení uvedená jako známá kompatibilní by měla spolupracovat s virtuální sítí. Konfiguraci zařízení VPN vám usnadní ukázka konfigurace zařízení nebo odkaz, který odpovídá příslušné řadě zařízení.
 
-### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isnt-in-the-known-compatible-device-list"></a>Jak postupovat, pokud mám zařízení VPN, které není v seznamu známých kompatibilních zařízení?
-Pokud vaše zařízení není uvedeno v seznamu jako známé kompatibilní zařízení VPN a chcete je použít pro připojení k síti VPN, budete muset ověřit, zda splňuje podporované možnosti konfigurace protokolu IPsec/IKE a parametry uvedené [zde](vpn-gateway-about-vpn-devices.md). Zařízení splňující minimální požadavky by měla spolupracovat s bránami VPN bez problémů. Kvůli další podpoře a pokynům ke konfiguraci se obraťte na výrobce zařízení.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Co je třeba zvážit při výběru zařízení VPN?
+Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN pro připojení Site-to-Site. Seznam známých kompatibilních zařízení VPN, příslušné pokyny ke konfiguraci nebo ukázky a specifikace zařízení najdete v článku [s popisem zařízení VPN](vpn-gateway-about-vpn-devices.md). Všechna zařízení v řadách zařízení uvedená jako známá kompatibilní by měla spolupracovat s virtuální sítí. Konfiguraci zařízení VPN vám usnadní ukázka konfigurace zařízení nebo odkaz, který odpovídá příslušné řadě zařízení.
+
+### <a name="where-can-i-find-configuration-settings-for-vpn-devices"></a>Kde najdu nastavení konfigurace pro zařízení VPN?
+
+Odkazy na nastavení konfigurace zařízení najdete v popisu [ověřených zařízení VPN](vpn-gateway-about-vpn-devices.md#devicetable). Při poskytování odkazů na konfigurace zařízení se snažíme maximálně vyhovět. Vždycky je nejlepší obrátit se na výrobce zařízení a vyžádat si nejnovější informace o konfiguraci.
+
+Před konfigurací zařízení VPN zkontrolujte [známé problémy s kompatibilitou zařízení](vpn-gateway-about-vpn-devices.md#known) pro zařízení VPN, které chcete použít.
+
+### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>Jak upravím ukázky konfigurace zařízení VPN?
+
+Informace o úpravách ukázek konfigurace zařízení najdete v tématu popisujícím [úpravy ukázek](vpn-gateway-about-vpn-devices.md#editing).
+
+### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>Kde najdu parametry protokolu IPsec a IKE?
+
+Parametry protokolu IPsec/IKE najdete v popisu [parametrů](vpn-gateway-about-vpn-devices.md#ipsec).
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>Proč se tunelové připojení sítě VPN založené na zásadách při nečinnosti deaktivuje?
 Toto je očekávané chování u bran VPN pracujících na základě zásad (označují se také výrazem statické směrování). Když je přenos přes tunelové propojení nečinný déle než 5 minut, tunelové propojení se deaktivuje. Když se provoz v některém směru obnoví, tunelové propojení se ihned aktivuje znovu.
@@ -120,11 +133,11 @@ Konfigurace připojení Site-to-Site pro více míst je podporována u serverů 
 
 Jiná softwarová řešení sítě VPN by měla s naší bránou spolupracovat, pokud odpovídají implementacím protokolu IPsec podle průmyslových standardů. Ohledně pokynů ke konfiguraci a podporu se obraťte na výrobce příslušného softwaru.
 
-## <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Připojení typu Point-to-Site
+## <a name="P2S"></a>Připojení typu Point-to-Site
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="a-namev2vmultiavnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Připojení typu VNet-to-VNet a Multi-Site
+## <a name="V2VMulti"></a>Připojení typu VNet-to-VNet a Multi-Site
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
@@ -151,7 +164,7 @@ Ano, sítě VPN Point-to-Site (P2S) je možné používat spolu s bránami VPN, 
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Je možné připojit virtuální síť se sítěmi VPN s protokolem IPsec k okruhu ExpressRoute?
 Ano, tato možnost je podporována. Další informace najdete v tématu [konfigurace ExpressRoute a připojení VPN typu site-to-site, která mohou existovat vedle sebe](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="a-namebgpabgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a>Připojení mezi místními sítěmi a virtuální počítače
@@ -170,8 +183,3 @@ Další informace o virtuálních sítích najdete v tématu [Nejčastější do
 
 * Další informace o službě VPN Gateway najdete v tématu [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md).
 * Další informace o nastavení konfigurace služby VPN Gateway najdete v tématu [Informace o nastavení konfigurace služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

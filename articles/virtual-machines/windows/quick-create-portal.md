@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 17fb538b33a4a4a2b333ff501e6e729f6000f623
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Virtuální počítače Azure je možné vytvářet na webu Azure Portal. Tato metoda poskytuje uživatelské rozhraní v prohlížeči, pomocí kterého můžete vytvářet a konfigurovat virtuální počítače a všechny související prostředky. Tento Rychlý start prochází jednotlivé kroky k vytvoření virtuálního počítače pomocí webu Azure Portal. Po dokončení nasazení se připojíme k serveru a nainstalujeme službu IIS.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
@@ -42,7 +42,9 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
     ![Zadání základních informací o virtuálním počítači v okně portálu](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-5. Zvolte velikost virtuálního počítače a klikněte na **Vybrat**.
+5. Zvolte velikost virtuálního počítače. Pokud chcete zobrazit další velikosti, vyberte **Zobrazit všechny** nebo změňte filtr **Podporovaný typ disku**. 
+
+    ![Snímek obrazovky zobrazující velikosti virtuálních počítačů](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
 6. V okně Nastavení v části **Použít spravované disky** vyberte **Ano**, pro zbytek nastavení ponechte výchozí hodnoty a klikněte na **OK**.
 
@@ -58,7 +60,7 @@ Pokud chcete povolit provoz pro službu IIS, musíte otevřít port 80 pro webov
 2. V okně pro skupinu prostředků klikněte v seznamu prostředků na **Skupina zabezpečení sítě**. Název skupiny NSG musí být název virtuálního počítače s příponou -nsg.
 3. Klikněte na záhlaví **Příchozí pravidlo zabezpečení** a otevřete seznam příchozích pravidel. V seznamu byste už měli vidět pravidlo pro protokol RDP.
 4. Klikněte na **+ Přidat** a otevřete okno **Přidat příchozí pravidlo zabezpečení**.
-5. Do pole **Název** zadejte **IIS** a zkontrolujte, že **Rozsah portů** je nastavený na 80 a **Akce** je nastavená na **Povolit**, a pak klikněte na **OK**.
+5. Do pole **Název**, zadejte **IIS**. Zkontrolujte, že **Rozsah portů** je nastavený na 80 a **Akce** je nastavená na **Povolit**. Klikněte na **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Připojení k virtuálnímu počítači
@@ -78,7 +80,7 @@ Po dokončení nasazení vytvořte připojení ke vzdálené ploše virtuálníh
 
 ## <a name="install-iis-using-powershell"></a>Instalace služby IIS pomocí PowerShellu
 
-Když jste přihlášení k virtuálnímu počítači Azure, můžete k instalaci IIS a k aktivace pravidla místní brány firewall pro povolení webového provozu použít jeden řádek PowerShellu.  Otevřete příkazový řádek PowerShellu a spusťte následující příkaz:
+Na virtuálním počítači otevřete příkazový řádek PowerShellu a spusťte následující příkaz, abyste nainstalovali IIS a aktivovali pravidlo místní brány firewall pro povolení webového provozu:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -90,13 +92,6 @@ S nainstalovanou službou IIS na virtuálním počítači a nyní otevřeným po
 
 ![Výchozí web služby IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>Odstranění virtuálního počítače
-
-Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, virtuálního počítače a všech souvisejících prostředků použít následující příkaz.
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
 ## <a name="delete-virtual-machine"></a>Odstranění virtuálního počítače
 
 Pokud už je nepotřebujete, odstraňte skupinu prostředků, virtuální počítač a všechny související prostředky. Provedete to tak, že v okně virtuálního počítače vyberete skupinu prostředků a kliknete na **Odstranit**.

@@ -15,33 +15,47 @@ ms.topic: hero-article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5c6a6fcf86867fb2195a31d636003f16ed503da2
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 0ceba4142fd7b0e6edc1b7a6c14470d21806004a
+ms.lasthandoff: 04/13/2017
 
 
 ---
-# <a name="tutorial-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí sady Microsoft Visual Studio
-> [!div class="op_single_selector"]
+# <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Kurz: Vytvoření datové továrny pomocí sady Visual Studio
+> [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Přehled a požadavky](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Šablona Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
->
->
 
-V tomto článku vytvoříte svůj první objekt pro vytváření dat Azure pomocí sady Microsoft Visual Studio. Pokud chcete udělat kurz pomocí jiných nástrojů nebo sad SDK, vyberte jednu z možností z rozevíracího seznamu.
+V tomto kurzu se dozvíte, jak vytvořit datovou továrnu Azure pomocí sady Visual Studio. Vytvoříte projektu sady Visual Studio pomocí šablony projektu Data Factory, budete definovat entity Data Factory (propojené služby, datové sady a kanál) ve formátu JSON a potom budete tyto entity publikovat/nasazovat do cloudu. 
+
+Kanál v tomto kurzu má jednu aktivitu: **aktivitu HDInsight Hive**. Tato aktivita spouští skript Hive v clusteru Azure HDInsight, který transformuje vstupní data pro vytvoření výstupních dat. Spuštění kanálu je naplánované jednou za měsíc mezi zadaným počátečním a koncovým časem. 
 
 > [!NOTE]
-> Datový kanál v tomto kurzu transformuje vstupní data, aby vytvořil výstupní data. Nekopíruje data ze zdrojového úložiště dat do cílového úložiště dat. Kurz předvádějící způsoby kopírování dat pomocí Azure Data Factory najdete v tématu popisujícím [kurz kopírování dat z Blob Storage do SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
-> Dvě aktivity můžete zřetězit (spustit jednu aktivitu po druhé) nastavením výstupní datové sady jedné aktivity jako vstupní datové sady druhé aktivity. Podrobné informace najdete v tématu s popisem [plánování a provádění ve službě Data Factory](data-factory-scheduling-and-execution.md). 
+> Tento kurz neukazuje, jak kopírovat data pomocí Azure Data Factory. Kurz předvádějící způsoby kopírování dat pomocí Azure Data Factory najdete v tématu popisujícím [kurz kopírování dat z Blob Storage do SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="prerequisites"></a>Požadavky
-1. Přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte **nutné** kroky.
-2. K publikování entit služby Data Factory ze sady Visual Studio do služby Azure Data Factory musíte být **správce předplatného Azure**.
+
+## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Názorný postup: Vytvoření a publikování entit Data Factory
+V rámci tohoto názorného postupu provedete tyto kroky:
+
+1. Vytvořte dvě propojené služby: **AzureStorageLinkedService1** a **HDInsightOnDemandLinkedService1**. 
+   
+    V tomto kurzu jsou vstupní i výstupní data pro aktivitu Hive ve stejné službě Azure Blob Storage. Ke zpracování existujících vstupních dat a vytvoření výstupních dat můžete použít cluster HDInsight na vyžádání. Cluster HDInsight na vyžádání za vás automaticky vytvoří služba Azure Data Factory za běhu, když jsou vstupní data připravená k zpracování. Musíte propojit úložiště dat nebo výpočetní služby k datové továrně pro vytváření dat tak, aby se k nim služba Data Factory mohla připojit za běhu. Proto propojíte účet Azure Storage k datové továrně pomocí AzureStorageLinkedService1 a připojíte cluster HDInsight na vyžádání pomocí HDInsightOnDemandLinkedService1. Při publikování je potřeba zadat název datové továrny, která se má vytvořit, nebo název existující datové továrny.  
+2. Vytvořte dvě datové sady, **InputDataset** a **OutputDataset**, které představují vstupní a výstupní data uložená ve službě Azure Blob Storage. 
+   
+    Tyto definice datové sady odkazuje na propojenou službu Azure Storage, kterou jste vytvořili v předchozím kroku. Jako InputDataset zadejte kontejner objektů blob (adfgetstarted) a složku (inptutdata), která obsahuje objekt blob se vstupními daty. Jako OutputDataset zadejte kontejner objektů blob (adfgetstarted) a složku (partitioneddata), do které se ukládají výstupní data. Zadáte také další vlastnosti, jako jsou například struktura, dostupnost a zásady.
+3. Vytvořte kanál s názvem **MyFirstPipeline**. 
+  
+    V tomto názorném postupu má kanál má jednu aktivitu: **aktivitu HDInsight Hive**. Tato aktivita spouští skript Hive v clusteru HDInsight na vyžádání, který transformuje vstupní data pro vytvoření výstupních dat. Další informace o aktivitě Hive najdete v tématu [Aktivita Hive](data-factory-hive-activity.md). 
+4. Vytvořte datovou továrnu s názvem **DataFactoryUsingVS**. Nasaďte objekt pro vytváření dat a všechny entity služby Data Factory (propojené služby, tabulky a kanál).
+5. Po publikování použijte okna na webu Azure Portal a aplikaci Monitorování a správa k monitorování kanálu. 
+  
+### <a name="prerequisites"></a>Požadavky
+1. Přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte **nutné** kroky. Pokud chcete přepnout na tento článek, můžete taky v rozevíracím seznamu v horní části okna vybrat možnost **Přehled a požadavky**. Po dokončení požadavků přepněte zpátky na tento článek výběrem možnosti **Visual Studio** v rozevíracím seznamu.  
+2. K publikování entit služby Data Factory ze sady Visual Studio do služby Azure Data Factory musíte být **správce předplatného Azure**. 
 3. Na počítači musíte mít nainstalované tyto položky:
    * Visual Studio 2013 nebo Visual Studio 2015.
    * Stáhněte si sadu Azure SDK pro Visual Studio 2013 nebo Visual Studio 2015. Přejděte na [stránku položek ke stažení pro Azure](https://azure.microsoft.com/downloads/) a klikněte na **VS 2013** nebo **VS 2015** v části **.NET**.
@@ -49,7 +63,7 @@ V tomto článku vytvoříte svůj první objekt pro vytváření dat Azure pomo
 
 Nyní použijeme sadu Visual Studio k vytvoření objektu pro vytváření dat Azure.
 
-## <a name="create-visual-studio-project"></a>Vytvoření projektu v sadě Visual Studio
+### <a name="create-visual-studio-project"></a>Vytvoření projektu v sadě Visual Studio
 1. Spusťte **Visual Studio 2013** nebo **Visual Studio 2015**. Klikněte na **Soubor**, přejděte na **Nový** a klikněte na **Projekt**. Mělo by se zobrazit dialogové okno **Nový projekt**.  
 2. V dialogovém okně **Nový projekt** vyberte šablonu **DataFactory** a klikněte na **Empty Data Factory Project** (Prázdný projekt Data Factory).   
 
@@ -58,65 +72,62 @@ Nyní použijeme sadu Visual Studio k vytvoření objektu pro vytváření dat A
 
     ![Průzkumník řešení](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-## <a name="create-linked-services"></a>Vytvoření propojených služeb
-Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může obsahovat jednu nebo víc aktivit. Může obsahovat například aktivitu kopírování, která slouží ke kopírování dat ze zdrojového do cílového úložiště dat, a aktivitu Hivu HDInsight pro spuštění skriptu Hive, který umožňuje transformovat vstupní data. Všechny zdroje a jímky podporované aktivitou kopírování najdete v tématu [podporovaná úložiště dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Seznam výpočetních služeb podporovaných službou Data Factory najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md).
+### <a name="create-linked-services"></a>Vytvoření propojených služeb
+V tomto kroku vytvoříte dvě propojené služby, **Azure Storage** a **HDInsight na vyžádání**. 
 
-V tomto kroku propojíte svůj účet služby Azure Storage a cluster Azure HDInsight na vyžádání s objektem pro vytváření dat. Účet služby Azure Storage v této ukázce obsahuje vstupní a výstupní data pro kanál. Propojená služba HDInsight slouží v této ukázce ke spuštění skriptu Hive určeného v aktivitě kanálu. Určete, jaké úložiště dat a výpočetní služby se ve vašem scénáři používají, a vytvořením propojených služeb propojte tyto služby s objektem pro vytváření dat.  
+Propojená služba Azure Storage propojuje účet úložiště Azure k datové továrně tím, že poskytuje informace o připojení. Služba Data Factory používá připojovací řetězec z nastavení propojené služby pro připojení k úložišti Azure za běhu. V tomto úložišti jsou uložená vstupní a výstupní data pro kanál a soubor skriptu Hive, který používá aktivita Hive. 
 
-Název a nastavení objektu pro vytváření dat zadáte později, až budete řešení Data Factory publikovat.
+S využitím propojené služby HDInsight na vyžádání se cluster HDInsight automaticky vytvoří za běhu, když jsou vstupní data připravená k zpracování. Až cluster dokončí zpracování, po určité zadané době nečinnosti se odstraní. 
+
+> [!NOTE]
+> Datovou továrnu vytvoříte zadáním názvu a nastavení v době publikování řešení Data Factory.
 
 #### <a name="create-azure-storage-linked-service"></a>Vytvoření propojené služby Azure Storage
-V tomto kroku se svým objektem pro vytváření dat propojíte účet služby Azure Storage. V tomto kurzu použijete tento účet služby Azure Storage taky k uložení vstupních/výstupních dat a souboru skriptu HQL.
-
 1. V Průzkumníku řešení klikněte pravým tlačítkem myši na **Propojené služby**, přejděte na **Přidat** a klikněte na **Nová položka**.      
 2. V dialogovém okně **Přidat novou položku** vyberte v seznamu možnost **Azure Storage Linked Service** (Propojená služba Azure Storage) a klikněte na **Přidat**.
-3. Položky **accountname** a **accountkey** nahraďte názvem účtu úložiště Azure a jeho klíčem. Chcete-li zjistit, jak získat přístupový klíč k úložišti, přečtěte si informace o zobrazení, kopírování a opětovném vygenerování přístupových klíčů k úložišti v tématu [Správa účtu úložiště](../storage/storage-create-storage-account.md#manage-your-storage-account).
+    ![Propojená služba Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+3. Hodnoty `<accountname>` a `<accountkey>` nahraďte názvem účtu služby Azure Storage a jeho klíčem. Chcete-li zjistit, jak získat přístupový klíč k úložišti, přečtěte si informace o zobrazení, kopírování a opětovném vygenerování přístupových klíčů k úložišti v tématu [Správa účtu úložiště](../storage/storage-create-storage-account.md#manage-your-storage-account).
     ![Propojená služba Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Uložte soubor **AzureStorageLinkedService1.json**.
 
 #### <a name="create-azure-hdinsight-linked-service"></a>Vytvoření propojené služby Azure HDInsight
-V tomto kroku propojíte se svým objektem pro vytváření dat cluster HDInsight na vyžádání. Cluster HDInsight se automaticky vytvoří za běhu, a až dokončí zpracování, po určité zadané době nečinnosti se odstraní. Místo clusteru HDInsight na vyžádání můžete použít také vlastní cluster HDInsight. Podrobnosti najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md).
-
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem myši na **Propojené služby**, přejděte na **Přidat** a klikněte na **Nová položka**.
 2. Vyberte **HDInsight On Demand Linked Service** a klikněte na **Přidat**.
 3. Nahraďte kód **JSON** následujícím kódem JSON:
 
-    ```JSON
+     ```json
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
         "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "version": "3.2",
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "AzureStorageLinkedService1"
+            "typeProperties": {
+                "version": "3.2",
+                "clusterSize": 1,
+                "timeToLive": "00:30:00",
+                "linkedServiceName": "AzureStorageLinkedService1"
+            }
         }
-      }
     }
     ```
 
     Následující tabulka obsahuje popis vlastností použitých v tomto fragmentu kódu JSON:
 
-   | Vlastnost | Popis |
-   | -------- | ----------- |
-   | Version | Určuje, že vytvářený cluster HDInsight má mít verzi 3.2. |
-   | ClusterSize |Určuje velikost clusteru HDInsight. |
-   | TimeToLive |Určuje dobu nečinnosti před odstraněním clusteru HDInsight. |
-   | linkedServiceName |Určuje účet úložiště, který se používá k ukládání protokolů generovaných clusterem HDInsight |
+    Vlastnost | Popis
+    -------- | ----------- 
+    Version | Určuje verzi vytvářeného clusteru HDInsight Hadoop.
+    ClusterSize | Určuje velikost clusteru HDInsight Hadoop.
+    TimeToLive | Určuje dobu nečinnosti před odstraněním clusteru HDInsight.
+    linkedServiceName | Určuje účet úložiště, který se používá k ukládání protokolů generovaných clusterem HDInsight Hadoop. 
 
-    Je třeba počítat s následujícím:
+    > [!IMPORTANT]
+    > Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (linkedServiceName). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je záměrné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když se zpracuje určitý řez, pokud neexistuje aktivní cluster (timeToLive). Po dokončení zpracování se cluster automaticky odstraní.
+    > 
+    > Po zpracování dalších řezů se vám ve službě Azure Blob Storage objeví spousta kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů se řídí vzorem: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
 
-   * Pomocí výše uvedeného kódu JSON služba Data Factory vytvoří cluster HDInsight **se systémem Windows** za vás. Můžete ale také vytvořit cluster HDInsight **se systémem Linux**. Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-   * Místo clusteru HDInsight na vyžádání můžete použít také **vlastní cluster HDInsight**. Podrobnosti najdete v tématu [Propojená služba HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-   * Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (**linkedServiceName**). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je záměrné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když je zpracován určitý řez, pokud neexistuje aktivní cluster (**timeToLive**). Po dokončení zpracování se cluster automaticky odstraní.
-
-       Po zpracování dalších řezů se vám ve službě Azure Blob Storage objeví spousta kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů se řídí vzorem: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
-
-     Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+    Další informace o vlastnostech JSON najdete v tématu [Propojené služby Compute](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Uložte soubor **HDInsightOnDemandLinkedService1.json**.
 
-## <a name="create-datasets"></a>Vytvoření datových sad
+### <a name="create-datasets"></a>Vytvoření datových sad
 V tomto kroku vytvoříte datové sady, které představují vstupní a výstupní data pro zpracování Hive. Tyto datové sady odkazují na službu **AzureStorageLinkedService1**, kterou už jste v tomto kurzu vytvořili. Propojená služba odkazuje na účet služby Azure Storage a datové sady určují kontejner, složku a název souboru v úložišti, který obsahuje vstupní a výstupní data.   
 
 #### <a name="create-input-dataset"></a>Vytvoření vstupní datové sady
@@ -124,9 +135,7 @@ V tomto kroku vytvoříte datové sady, které představují vstupní a výstupn
 2. V seznamu vyberte **Azure Blob**, změňte název souboru na **InputDataSet.json** a klikněte na **Přidat**.
 3. Nahraďte kód **JSON** v editoru následujícím fragmentem kódu JSON:
 
-    V tomto fragmentu kódu JSON vytváříte datovou sadu s názvem **AzureBlobInput**, která představuje vstupní data pro aktivitu v kanálu. Kromě toho určujete, že se vstupní data nachází v kontejneru objektů blob s názvem `adfgetstarted` ve složce `inputdata`.
-
-    ```JSON
+    ```json
     {
         "name": "AzureBlobInput",
         "properties": {
@@ -149,65 +158,66 @@ V tomto kroku vytvoříte datové sady, které představují vstupní a výstupn
         }
     }
     ```
+    Tento fragment kódu JSON definuje datovou sadu s názvem **AzureBlobInput**, která představuje vstupní data pro aktivitu Hive v kanálu. Určíte, že vstupní data se nacházejí v kontejneru objektů blob s názvem `adfgetstarted` ve složce `inputdata`.
+
     Následující tabulka obsahuje popis vlastností použitých v tomto fragmentu kódu JSON:
 
-   | Vlastnost | Popis |
-   | -------- | ----------- |
-   | type |Vlastnost type je nastavená na hodnotu AzureBlob, protože se data nachází ve službě Azure Blob Storage. |
-   | linkedServiceName |Odkazuje na službu AzureStorageLinkedService1, kterou jste vytvořili předtím. |
-   | fileName |Tato vlastnost je nepovinná. Pokud ji vynecháte, vyberou se všechny soubory v cestě folderPath. V tomto případě se zpracovává jenom soubor input.log. |
-   | type |Soubory protokolů jsou v textovém formátu, takže použijeme hodnotu TextFormat. |
-   | columnDelimiter |Sloupce v souborech protokolu jsou oddělené znakem čárky (,). |
-   | frequency/interval |Frekvence je nastavená na hodnotu Month (Měsíc) a interval je 1, takže vstupní řezy jsou dostupné jednou za měsíc. |
-   | external |Pokud vstupní data nevygenerovala služba Data Factory, je tato vlastnost nastavená na hodnotu true. |
+    Vlastnost | Popis |
+    -------- | ----------- |
+    type |Vlastnost type je nastavená na hodnotu **AzureBlob**, protože se data nachází ve službě Azure Blob Storage.
+    linkedServiceName | Odkazuje na službu AzureStorageLinkedService1, kterou jste vytvořili předtím.
+    fileName |Tato vlastnost je nepovinná. Pokud ji vynecháte, vyberou se všechny soubory v cestě folderPath. V tomto případě se zpracovává jenom soubor input.log.
+    type | Soubory protokolů jsou v textovém formátu, takže použijeme hodnotu TextFormat. |
+    columnDelimiter | Sloupce v souborech protokolu jsou oddělené znakem čárky (`,`).
+    frequency/interval | Frekvence je nastavená na hodnotu Month (Měsíc) a interval je 1, takže vstupní řezy jsou dostupné jednou za měsíc.
+    external | Pokud vstupní data pro tuto aktivitu nevygeneroval kanál, je tato vlastnost nastavená na hodnotu true. Tato vlastnost se určuje jenom pro vstupní datové sady. U vstupní datové sady první aktivity ji vždycky nastavte na hodnotu true.
 4. Uložte soubor **InputDataset.json**.
 
 #### <a name="create-output-dataset"></a>Vytvoření výstupní datové sady
-Nyní vytvoříte výstupní datovou sadu, která bude představovat výstupní data ve službě Azure Blob Storage.
+Teď vytvoříte výstupní datovou sadu, která bude představovat výstupní data ve službě Azure Blob Storage.
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem myši na **Tabulky**, přejděte na **Přidat** a klikněte na **Nová položka**.
 2. V seznamu vyberte **Azure Blob**, změňte název souboru na **OutputDataSet.json** a klikněte na **Přidat**.
 3. Nahraďte kód **JSON** v editoru následujícím kódem JSON:
-
-    V tomto fragmentu kódu JSON vytváříte datovou sadu s názvem **AzureBlobOutput** a určujete strukturu dat vytvářených skriptem Hive. Kromě toho určujete, že se mají výsledky ukládat do kontejneru objektů blob s názvem `adfgetstarted` do složky `partitioneddata`. Oddíl **availability** určuje, že se výstupní sada vytváří jednou měsíčně.
-
-    ```JSON
+    
+    ```json
     {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "AzureStorageLinkedService1",
-        "typeProperties": {
-          "folderPath": "adfgetstarted/partitioneddata",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "availability": {
-          "frequency": "Month",
-          "interval": 1
+        "name": "AzureBlobOutput",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService1",
+            "typeProperties": {
+                "folderPath": "adfgetstarted/partitioneddata",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Month",
+                "interval": 1
+            }
         }
-      }
     }
     ```
+    Tento fragment kódu JSON definuje datovou sadu s názvem **AzureBlobOutput**, která představuje výstupní data vytvořená aktivitou Hive v kanálu. Určíte, že výstupní data vytvořená aktivitou Hive se nacházejí v kontejneru objektů blob s názvem `adfgetstarted` ve složce `partitioneddata`. 
+     
+    Oddíl **availability** určuje, že se výstupní sada vytváří jednou měsíčně. Výstupní datovou sadu řídí plán kanálu. Kanál se spouští každý měsíc mezi zadaným počátečním a koncovým časem. 
 
-    Popisy těchto vlastností najdete v části **Vytvoření vstupní datové sady**. U výstupní datové sady nenajdete vlastnost external, protože datovou sadu vytváří služba Data Factory.
+    Popisy těchto vlastností najdete v části **Vytvoření vstupní datové sady**. U výstupní datové sady nenajdete vlastnost external, protože datovou sadu vytváří kanál.
 4. Uložte soubor **OutputDataset.json**.
 
 ### <a name="create-pipeline"></a>Vytvoření kanálu
-V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vstupní řez je dostupný jednou měsíčně (frekvence: Měsíc, interval: 1), výstupní řez se vytváří také jednou měsíčně a vlastnost scheduler pro aktivitu je také nastavena na jednou měsíčně. Nastavení výstupní datové sady a vlastnosti scheduler se musí shodovat. V současnosti určuje plán výstupní datová sada, takže musíte výstupní datovou sadu vytvořit i v případě, že aktivita nevytváří žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte. Vysvětlení vlastností použitých v následujícím kódu JSON najdete na konci této části.
+Zatím jste vytvořili propojenou službu Azure Storage a vstupní a výstupní datovou sadu. Teď vytvoříte kanál s aktivitou **HDInsightHive**. **Vstup** aktivity Hive je nastavený na **AzureBlobInput** a **výstup aktivity** je nastavený na **AzureBlobOutput**. Řez vstupní datové sady je dostupný každý měsíc (frekvence: Měsíc, interval: 1). Výstupní datová sada se taky vytváří každý měsíc. 
 
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem myši na **Kanály**, přejděte na **Přidat** a klikněte na **Nová položka**.
 2. V seznamu vyberte **Hive Transformation Pipeline** (Kanál transformace Hive) a klikněte na **Přidat**.
-3. Nahraďte kód **JSON** následujícím fragmentem kódu.
+3. Nahraďte kód **JSON** tímto fragmentem kódu:
 
-   > [!IMPORTANT]
-   > Nahraďte **storageaccountname** názvem vašeho účtu úložiště.
-   >
-   >
+    > [!IMPORTANT]
+    > Nahraďte `<storageaccountname>` názvem vašeho účtu úložiště.
 
-    ```JSON
+    ```json
     {
         "name": "MyFirstPipeline",
         "properties": {
@@ -251,28 +261,32 @@ V tomto kroku vytvoříte svůj první kanál s aktivitou **HDInsightHive**. Vst
         }
     }
     ```
-     V tomto fragmentu kódu JSON vytváříte kanál sestávající z jediné aktivity, která zpracovává data v clusteru HDInsight pomocí skriptu Hive.
 
-    Soubor skriptu Hive **partitionweblogs.hql** je uložený v účtu služby Azure Storage (který určuje služba scriptLinkedService s názvem **AzureStorageLinkedService1**) a ve složce `script` v kontejneru `adfgetstarted`.
+    > [!IMPORTANT]
+    > Nahraďte `<storageaccountname>` názvem vašeho účtu úložiště.
 
-    Oddíl **defines** určuje nastavení běhového prostředí, které se předá skriptu Hive jako konfigurační hodnoty Hive (např. ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+    Fragment JSON definuje kanál, který se skládá z jediné aktivity (aktivita Hive). Tato aktivita spouští skript Hive pro zpracování vstupních dat v clusteru HDInsight na vyžádání s cílem vytvořit výstupní data. V oddílu aktivit JSON kanálu uvidíte jenom jednu aktivitu s nastaveným typem **HDInsightHive**. 
 
-    Vlastnosti kanálu **start** a **end** určují období aktivity kanálu.
+    Ve vlastnostech type, které jsou specifické pro aktivitu HDInsight Hive, zadáte, kterou propojenou službu Azure Storage má soubor skriptu Hive, cestu k tomuto souboru skriptu a parametry pro něj. 
+
+    Soubor skriptu Hive **partitionweblogs.hql** je uložený v účtu služby Azure Storage (který určuje služba scriptLinkedService) a ve složce `script` v kontejneru `adfgetstarted`.
+
+    Oddíl `defines` určuje nastavení běhového prostředí, které se předá skriptu Hive jako konfigurační hodnoty Hive (např. `${hiveconf:inputtable}`, `${hiveconf:partitionedtable})`).
+
+    Vlastnosti kanálu **start** a **end** určují období aktivity kanálu. Nakonfigurovali jste vytváření datové sady jednou měsíčně. Proto taky kanál vytvoří jenom jeden řez (protože měsíc je pro počáteční a koncové datum stejný).
 
     V kódu JSON aktivity určujete, že má skript Hive běžet ve výpočetní službě určené vlastností **linkedServiceName**, tedy **HDInsightOnDemandLinkedService**.
-
-   > [!NOTE]
-   > V části kódu JSON kanálu v tématu [Kanály a aktivity ve službě Azure Data Factory](data-factory-create-pipelines.md) najdete podrobnosti o vlastnostech JSON použitých v příkladu.
-
 4. Uložte soubor **HiveActivity1.json**.
 
 ### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>Přidání souborů partitionweblogs.hql a input.log jako závislosti
 1. Klikněte pravým tlačítkem myši na **Závislosti** v okně **Průzkumník řešení**, přejděte na **Přidat** a klikněte na **Existující položka**.  
 2. Přejděte do složky **C:\ADFGettingStarted**, vyberte soubory **partitionweblogs.hql** a **input.log** a klikněte na **Přidat**. Tyto dva soubory jste vytvořili v rámci požadavků uvedených v článku [Přehled kurzu](data-factory-build-your-first-pipeline.md).
 
-Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se nahraje do složky skriptů v kontejneru objektů blob `adfgetstarted`.   
+Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se nahraje do složky **script** v kontejneru objektů blob `adfgetstarted`.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>Publikování/nasazení entit služby Data Factory
+V tomto kroku publikujete entity služby Data Factory (propojené služby, datové sady a kanál) ve vašem projektu do služby Azure Data Factory. Během publikování zadáte název vaší datové továrny. 
+
 1. V Průzkumníku řešení klikněte pravým tlačítkem na požadovaný projekt a poté klikněte na **Publikovat**.
 2. Pokud se zobrazí dialogové okno **Přihlásit se pomocí účtu Microsoft**, zadejte přihlašovací údaje k účtu s předplatným Azure a klikněte na **Přihlásit**.
 3. Mělo by se zobrazit následující dialogové okno:
@@ -280,22 +294,30 @@ Až řešení v dalším kroku publikujete, soubor **partitionweblogs.hql** se n
    ![Dialogové okno publikování](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 4. Na stránce **Konfigurace datové továrny** proveďte následující kroky:
 
+    ![Publikování – nová nastavení datové továrny](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
+
    1. Vyberte možnost **Create New Data Factory** (Vytvořit nový objekt pro vytváření dat).
-   2. Zadejte jedinečný **název** objektu pro vytváření dat. Například: **FirstDataFactoryUsingVS09152016**. Název musí být globálně jedinečný.
-   3. V poli **Předplatné** vyberte správné předplatné. Pokud nevidíte žádné předplatné, ujistěte se, že jste přihlášeni pomocí účtu, který je správce nebo spolusprávce předplatného.
+   2. Zadejte jedinečný **název** objektu pro vytváření dat. Příklad: **DataFactoryUsingVS09152016**. Název musí být globálně jedinečný.
+   3. V poli **Předplatné** vyberte správné předplatné. 
+        > [!IMPORTANT]
+        > Pokud nevidíte žádné předplatné, ujistěte se, že jste přihlášeni pomocí účtu, který je správce nebo spolusprávce předplatného.
    4. Vyberte **skupinu prostředků** pro objekt pro vytváření dat, který se má vytvořit.
    5. Vyberte **oblast** pro objekt pro vytváření dat.
    6. Kliknutím na **Další** přejděte na stránku **Publish Items** (Publikovat položky). (Pokud je tlačítko **Další** neaktivní, opusťte pole Název stisknutím klávesy **TAB**.)
 
-        > [!IMPORTANT]
-        > Pokud se při publikování zobrazí chyba **Název objektu pro vytváření dat FirstDataFactoryUsingVS není k dispozici**, název změňte (třeba na název váš_název_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.   
-1. Na stránce **Publish Items** (Publikovat položky) zkontrolujte, jestli jsou vybrané všechny entity služby Data Factory, a kliknutím na **Další** přejděte na stránku **Souhrn**.     
+    > [!IMPORTANT]
+    > Pokud se při publikování zobrazí chyba typu **Název objektu pro vytváření dat FirstDataFactoryUsingVS není dostupný**, název změňte (třeba na vaše_jméno_FirstDataFactoryUsingVS). V tématu [Objekty pro vytváření dat – pravidla pojmenování](data-factory-naming-rules.md) najdete pravidla pojmenování artefaktů služby Data Factory.   
+1. Na stránce **Publish Items** (Publikovat položky) zkontrolujte, jestli jsou vybrané všechny entity služby Data Factory, a kliknutím na **Další** přejděte na stránku **Souhrn**.
+
+    ![Stránka publikování položek](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
 2. Zkontrolujte souhrn a klikněte na **Další**. Spustí se proces nasazení a zobrazí se **Stav nasazení**.
+
+    ![Stránka souhrnu](media/data-factory-build-your-first-pipeline-using-vs/summary-page.png)
 3. Na stránce **Stav nasazení** byste měli vidět stav procesu nasazení. Až se nasazení dokončí, klikněte na Dokončit.
 
 Všimněte si těchto důležitých bodů:
 
-- Pokud se zobrazí chyba „**Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**“, proveďte některý z těchto kroků a znovu zkuste název publikovat:
+- Pokud se zobrazí chyba **Pro předplatné není zaregistrované používání oboru názvů Microsoft.DataFactory**, proveďte některý z těchto kroků a znovu zkuste publikovat:
     - V prostředí Azure PowerShell zaregistrujte zprostředkovatele služby Data Factory pomocí následujícího příkazu.
         ```PowerShell    
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -309,13 +331,15 @@ Všimněte si těchto důležitých bodů:
 - Název objektu pro vytváření dat se může v budoucnu zaregistrovat jako název DNS, takže pak bude veřejně viditelný.
 - Chcete-li vytvářet instance služby Data Factory, musíte být správce nebo spolusprávce předplatného Azure.
 
-## <a name="monitor-pipeline"></a>Monitorování kanálu
-### <a name="monitor-pipeline-using-diagram-view"></a>Monitorování kanálu pomocí Zobrazení diagramu
+### <a name="monitor-pipeline"></a>Monitorování kanálu
+V tomto kroku monitorujete kanál pomocí zobrazení diagramu datové továrny. 
+
+#### <a name="monitor-pipeline-using-diagram-view"></a>Monitorování kanálu pomocí Zobrazení diagramu
 1. Přihlaste se na web [Azure Portal](https://portal.azure.com/) a proveďte následující kroky:
    1. Klikněte na **Další služby** a poté na **Objekty pro vytváření dat**.
        
         ![Procházet -> Datové továrny](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-   2. Ze seznamu objektů pro vytváření dat vyberte název svého objektu pro vytváření dat (například: **FirstDataFactoryUsingVS09152016**).
+   2. Ze seznamu datových továren vyberte název své datové továrny (příklad: **DataFactoryUsingVS09152016**).
    
        ![Výběr objektu pro vytváření dat](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. Na domovské stránce objektu pro vytváření dat klikněte na **Diagram**.
@@ -332,7 +356,7 @@ Všimněte si těchto důležitých bodů:
     ![Zobrazení Otevřít kanál](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     Pokud se chcete vrátit do předchozího zobrazení, klikněte v nabídce navigace s popisem cesty v horní části na **Objekt pro vytváření dat**.
-6. V **zobrazení diagramu** dvakrát klikněte na datovou sadu **AzureBlobInput**. Zkontrolujte, jestli je řez ve stavu **Připraveno**. Než se řez zobrazí ve stavu Připraveno, může to několik minut trvat. Pokud se to do nějaké doby nestane, zkontrolujte, jestli je vstupní soubor (input.log) umístěný ve správném kontejneru (`adfgetstarted`) a složce (`inputdata`).
+6. V **zobrazení diagramu** dvakrát klikněte na datovou sadu **AzureBlobInput**. Zkontrolujte, jestli je řez ve stavu **Připraveno**. Než se řez zobrazí ve stavu Připraveno, může to několik minut trvat. Pokud se to do nějaké doby nestane, zkontrolujte, jestli je vstupní soubor (input.log) umístěný ve správném kontejneru (`adfgetstarted`) a složce (`inputdata`). Zkontrolujte taky, že vlastnost **external** vstupní datové sady je nastavená na hodnotu **true**. 
 
    ![Vstupní řez ve stavu Připraveno](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. Kliknutím na tlačítko **X** zavřete okno **AzureBlobInput**.
@@ -343,9 +367,7 @@ Všimněte si těchto důležitých bodů:
 
    > [!IMPORTANT]
    > Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá (přibližně 20 minut). Proto počítejte s tím, že zpracování řezu kanálem bude trvat **přibližně 30 minut**.  
-   >
-   >
-
+   
     ![Datová sada](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. Pokud je řez ve stavu **Připraveno**, zkontrolujte, jestli se ve složce `partitioneddata` v kontejneru `adfgetstarted` ve službě Blob Storage nachází výstupní data.  
 
@@ -361,7 +383,7 @@ Všimněte si těchto důležitých bodů:
 
 Pokyny k monitorování kanálu a datových sad, které jste vytvořili v tomto kurzu, pomocí webu Azure Portal najdete v článku [Monitorování datových sad a kanálu](data-factory-monitor-manage-pipelines.md).
 
-### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorování kanálu pomocí aplikace pro monitorování a správu
+#### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorování kanálu pomocí aplikace pro monitorování a správu
 K monitorování kanálů můžete také použít aplikaci pro monitorování a správu. Podrobnosti o použití této aplikace najdete v tématu [Monitorování a správa kanálů služby Azure Data Factory pomocí aplikace pro monitorování a správu](data-factory-monitor-manage-app.md).
 
 1. Klikněte na dlaždici Monitorování a správa.
@@ -370,13 +392,24 @@ K monitorování kanálů můžete také použít aplikaci pro monitorování a 
 2. Měla by se zobrazit aplikace pro monitorování a správu. Změňte hodnoty **Čas spuštění** a **Čas ukončení** tak, aby odpovídaly času spuštění (01.04.2016 00:00) a ukončení (02.04.2016 00:00) vašeho kanálu, a klikněte na **Použít**.
 
     ![Aplikace pro monitorování a správu](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png)
-3. Výběrem okna aktivity v seznamu Okna aktivit zobrazíte podrobnosti.
+3. Pokud chcete zobrazit podrobnosti o okně aktivity, vyberte ho v seznamu **Okna aktivit**.
     ![Podrobnosti o okně aktivity](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
 > Po úspěšném zpracování řezu se vstupní soubor odstraní. Pokud tedy chcete spustit řez znovu nebo si znovu projít tento kurz, načtěte vstupní soubor (input.log) do složky `inputdata` v kontejneru `adfgetstarted`.
->
->
+
+### <a name="additional-notes"></a>Další poznámky
+- Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může obsahovat jednu nebo víc aktivit. Může obsahovat například aktivitu kopírování, která slouží ke kopírování dat ze zdrojového do cílového úložiště dat, a aktivitu Hivu HDInsight pro spuštění skriptu Hive, který umožňuje transformovat vstupní data. Všechny zdroje a jímky podporované aktivitou kopírování najdete v tématu [podporovaná úložiště dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Seznam výpočetních služeb podporovaných službou Data Factory najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md).
+- Propojené služby propojují úložiště dat nebo výpočetní služby s objektem pro vytváření dat Azure. Všechny zdroje a jímky podporované aktivitou kopírování najdete v tématu [podporovaná úložiště dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Seznam výpočetních služeb podporovaných službou Data Factory a [aktivity transformace](data-factory-data-transformation-activities.md), které se v nich dají spustit, najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md).
+- Podrobné informace o vlastnostech JSON použitých v definici propojené služby Azure Storage najdete v tématu [Přesun dat do a z Azure Blobu](data-factory-azure-blob-connector.md#azure-storage-linked-service).
+- Místo clusteru HDInsight na vyžádání můžete použít také vlastní cluster HDInsight. Podrobnosti najdete v tématu [Propojené výpočetní služby](data-factory-compute-linked-services.md).
+-  Pomocí výše uvedeného kódu JSON služba Data Factory vytvoří cluster HDInsight **se systémem Windows** za vás. Můžete ale také vytvořit cluster HDInsight **se systémem Linux**. Podrobnosti najdete v tématu [Propojená služba HDInsight na vyžádání](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+- Cluster HDInsight vytvoří **výchozí kontejner** ve službě Blob Storage, kterou jste určili v kódu JSON (linkedServiceName). Při odstranění clusteru HDInsight neprovede odstranění tohoto kontejneru. Toto chování je záměrné. Díky propojené službě HDInsight na vyžádání se cluster HDInsight vytvoří pokaždé, když se zpracuje určitý řez, pokud neexistuje aktivní cluster (timeToLive). Po dokončení zpracování se cluster automaticky odstraní.
+    
+    Po zpracování dalších řezů se vám ve službě Azure Blob Storage objeví spousta kontejnerů. Pokud je nepotřebujete k řešení potíží s úlohami, můžete je odstranit, abyste snížili náklady na úložiště. Názvy těchto kontejnerů se řídí vzorem: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. K odstranění kontejnerů ze služby Azure Blob Storage můžete použít nástroje, jako je třeba [Průzkumník úložišť od Microsoftu](http://storageexplorer.com/).
+- V současnosti určuje plán výstupní datová sada, takže musíte výstupní datovou sadu vytvořit i v případě, že aktivita nevytváří žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte. 
+- Tento kurz neukazuje, jak kopírovat data pomocí Azure Data Factory. Kurz předvádějící způsoby kopírování dat pomocí Azure Data Factory najdete v tématu popisujícím [kurz kopírování dat z Blob Storage do SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+
 
 ## <a name="use-server-explorer-to-view-data-factories"></a>Zobrazení objektů pro vytváření dat pomocí Průzkumníka serveru
 1. V sadě **Visual Studio** klikněte v nabídce na **Zobrazit** a potom klikněte na **Průzkumník serveru**.
@@ -399,7 +432,7 @@ Pomocí konfiguračních souborů v sadě Visual Studio můžete pro různá pro
 
 Podívejte se na následující definici JSON pro propojenou službu Azure Storage. U položky **connectionString** můžete určit jiné hodnoty vlastností accountname a accountkey pro různá prostředí (vývojové/testovací/produkční), do kterých nasazujete entity služby Data Factory. Provedete to tak, že pro každé prostředí použijete samostatný konfigurační soubor.
 
-```JSON
+```json
 {
     "name": "StorageLinkedService",
     "properties": {
@@ -419,9 +452,9 @@ Následující postup umožňuje přidat pro každé prostředí jiný konfigura
 2. V seznamu nainstalovaných šablon vlevo vyberte šablonu **Config**, vyberte možnost **Konfigurační soubor**, zadejte jeho **název** a klikněte na **Přidat**.
 
     ![Přidání konfiguračního souboru](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
-3. Přidejte parametry konfigurace a jejich hodnoty v následujícím formátu.
+3. Přidejte parametry konfigurace a jejich hodnoty v následujícím formátu:
 
-    ```JSON
+    ```json
     {
         "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
         "AzureStorageLinkedService1": [
@@ -443,7 +476,7 @@ Následující postup umožňuje přidat pro každé prostředí jiný konfigura
 
     Pokud má kód JSON vlastnost s polem hodnot, jak je znázorněno v následujícím kódu:  
 
-    ```JSON
+    ```json
     "structure": [
           {
               "name": "FirstName",
@@ -458,7 +491,7 @@ Následující postup umožňuje přidat pro každé prostředí jiný konfigura
 
     Nakonfigurujte vlastnosti tak, jak je znázorněno v následujícím konfiguračním souboru (použijte indexování počítané od nuly):
 
-    ```JSON
+    ```json
     {
         "name": "$.properties.structure[0].name",
         "value": "FirstName"
@@ -480,7 +513,7 @@ Následující postup umožňuje přidat pro každé prostředí jiný konfigura
 ### <a name="property-names-with-spaces"></a>Názvy vlastností s mezerami
 Pokud název vlastnosti obsahuje mezery, použijte hranaté závorky, jak ukazuje následující příklad (název databázového serveru):
 
-```JSON
+```json
  {
      "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
      "value": "MyAsqlServer.database.windows.net"
@@ -501,7 +534,7 @@ Pokud chcete publikovat entity v projektu Azure Data Factory pomocí konfigurač
 5. Ujistěte se, že se na stránce **Souhrn** zobrazil název souboru JSON, a klikněte na **Další**.
 6. Po dokončení operace nasazení klikněte na **Dokončit**.
 
-Při nasazení se hodnoty z konfiguračního souboru použijí k nastavení hodnot vlastností v souborech JSON entit služby Data Factory před samotným nasazením entit do služby Azure Data Factory.   
+Při nasazení se hodnoty z konfiguračního souboru použijí k nastavení hodnot vlastností v souborech JSON před samotným nasazením entit do služby Azure Data Factory.   
 
 ## <a name="use-azure-key-vault"></a>Použití Azure Key Vault
 Není vhodné a často je to proti zásadám zabezpečení ukládat citlivá data, jako jsou například připojovací řetězce, do úložišti kódu. V ukázce [zabezpečeného publikování ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) na Githubu získáte další informace o ukládání citlivých informací v Azure Key Vault a jejich používání při publikování entit služby Data Factory. Rozšíření zabezpečeného publikování pro Visual Studio umožňuje ukládat tajné klíče v Key Vault a v konfiguracích propojených služeb a nasazení uvádět pouze odkazy. Tyto odkazy se při publikování entit služby Data Factory do Azure vyhodnotí. Tyto soubory pak lze uložit do úložiště zdrojového kódu bez vystavení jakýchkoli tajných kódů.
@@ -519,10 +552,13 @@ V tomto kurzu jste vytvořili objekt pro zpracování dat Azure, který zpracov�
 ## <a name="next-steps"></a>Další kroky
 V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDInsight), která v clusteru HDInsight na vyžádání spouští skript Hive. Pokud chcete zjistit, jak pomocí aktivity kopírování zkopírovat data z Azure Blob do Azure SQL, projděte si článek [Kurz: Kopírování dat z Azure Blob do Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
+Dvě aktivity můžete zřetězit (spustit jednu aktivitu po druhé) nastavením výstupní datové sady jedné aktivity jako vstupní datové sady druhé aktivity. Podrobné informace najdete v tématu s popisem [plánování a provádění ve službě Data Factory](data-factory-scheduling-and-execution.md). 
+
+
 ## <a name="see-also"></a>Viz také
 | Téma | Popis |
 |:--- |:--- |
-| [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
+| [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení pracovních postupů založených na datech. |
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Aktivity transformace dat](data-factory-data-transformation-activities.md) |Tento článek obsahuje seznam aktivit transformace dat (třeba transformaci HDInsight Hive, kterou jste použili v tomto kurzu) podporovaných službou Azure Data Factory. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |

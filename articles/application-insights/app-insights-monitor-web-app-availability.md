@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -34,23 +34,26 @@ Existují dva typy webového testu:
 
 Můžete vytvořit až 10 webových testů na prostředek aplikace.
 
-## <a name="create"></a>1. Vytvoření prostředku pro testovacích sestavy
-Tento krok přeskočte, pokud jste již [nastavili prostředek Application Insights][start] pro tuto aplikaci a chcete zobrazit sestavy dostupnosti na stejném místě.
+## <a name="create"></a>1. Otevření prostředku pro sestavy vašich webových testů
 
-Zaregistrujte se na portálu [Microsoft Azure](http://azure.com), přejděte na [portál Azure](https://portal.azure.com) a vytvořte prostředek Application Insights.
+**Pokud jste již nakonfigurovali Application Insights** pro webovou aplikaci, otevřete její prostředek Application Insights na webu [Azure Portal](https://portal.azure.com).
+
+**Nebo pokud chcete zobrazit sestavy v novém prostředku**, zaregistrujte se pro [Microsoft Azure](http://azure.com), přejděte na web [Azure Portal](https://portal.azure.com) a vytvořte prostředek Application Insights.
 
 ![Nový > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Kliknutím na možnost **Všechny prostředky** otevřete okno Přehled pro nový prostředek.
 
 ## <a name="setup"></a>2. Vytvoření testu adresy URL pomocí příkazu Ping
-V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte na něj pro otevření okna webové testy pro vaši aplikaci a přidejte webový test.
+Otevřete okno Dostupnost a přidejte webový test.
 
 ![Vyplňte alespoň adresu URL webu](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **Adresa URL** musí být viditelná z veřejného internetu. Může obsahovat řetězec dotazu&#151; takže také například můžete odněkud získat databáze. Pokud se adresa URL přeloží na přesměrování, budeme ji sledovat až po 10 přesměrování.
-* **Analyzovat závislé požadavky**: Obrázky, skripty, soubory stylu a další materiály na stránce jsou požadovány v rámci testu a zaznamenaná doba odezvy zahrnuje tyto časy. Pokud tyto prostředky nelze úspěšně stáhnout v časovém limitu pro celý test, test se nezdaří.
-* **Povolit opakování**: Pokud se test nezdaří, zopakuje se za krátkou dobu. Selhání je nahlášeno pouze v případě tří po sobě jdoucích neúspěšných pokusů. Následné testy jsou pak provedeny s obvyklou frekvencí testu. Opakování je dočasně pozastaveno do dalšího úspěchu. Toto pravidlo platí nezávisle na každém umístění testu. (Doporučujeme toto nastavení. V průměru přibližně 80 % selhání zmizí při opakování.)
+* **Adresa URL** může být libovolná webová stránka, kterou chcete otestovat, ale musí být viditelná z veřejného internetu. Adresa URL může obsahovat řetězec dotazu, takže například můžete také trochu vyzkoušet svou databázi. Pokud se adresa URL přeloží na přesměrování, budeme ji sledovat až po 10 přesměrování.
+* **Analyzovat závislé požadavky:** Je-li tato možnost zaškrtnutá, test si vyžádá obrázky, skripty, soubory stylu a další soubory, které jsou součástí testované webové stránky. Zaznamenaná doba odezvy zahrnuje i čas potřebný k získání těchto souborů. Pokud tyto prostředky nelze úspěšně stáhnout v časovém limitu pro celý test, test se nezdaří. 
+
+    Pokud tato možnost není zaškrtnutá, test si vyžádá pouze soubor na zadané adrese URL.
+* **Povolit opakování:** Je-li tato možnost zaškrtnutá a test se nezdaří, za krátkou dobu se zopakuje. Selhání je nahlášeno pouze v případě tří po sobě jdoucích neúspěšných pokusů. Následné testy jsou pak provedeny s obvyklou frekvencí testu. Opakování je dočasně pozastaveno do dalšího úspěchu. Toto pravidlo platí nezávisle na každém umístění testu. Doporučujeme tuto možnost. V průměru přibližně 80 % selhání při opakování zmizí.
 * **Frekvence testů**: Nastaví, jak často se test spustí z umístění každého testu. S pětiminutovou četností a pěti testovanými místy bude váš web testován v průměru každou minutu.
 * **Testovací umístění** jsou místa, ze kterých naše servery odesílají webové požadavky na adresu URL. Zvolte více než jeden, aby bylo možné rozlišit problémy ve vašem webu od problémů se sítí. Můžete vybrat až 16 umístění.
 * **Kritéria úspěchu**:
@@ -67,14 +70,23 @@ V prostředku Application Insights vyhledejte dlaždici dostupnosti. Klikněte n
 ### <a name="test-more-urls"></a>Testování více adres URL
 Přidat další testy Pro příklad, a také jako testování domovské stránky, můžete zajistit, že vaše databáze se spouští otestováním adresy URL pro hledání.
 
+
 ## <a name="monitor"></a>3. Zobrazení výsledků testu webu
-Po 1–2 minutách se v okně Test webu zobrazí výsledky.
+
+Po 5 minutách kliknutím na **Aktualizovat** zobrazíte výsledky testů. 
 
 ![Souhrnné výsledky na domácím okně](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Kliknutím na libovolný panel v grafu souhrnu získáte podrobnější zobrazení tohoto časového období.
 
-Tyto grafy kombinují výsledky pro všechny webové testy aplikace.
+## <a name="edit"></a> Kontrola a úprava testů
+
+Na stránce souhrnu zvolte konkrétní test. Zde můžete zobrazit jeho konkrétní výsledky a upravit ho nebo dočasně zakázat.
+
+![Upravit nebo zakázat webový test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+Můžete chtít zakázat webové testy během provádění údržby vaší služby.
+
 
 ## <a name="failures"></a>Pokud se zobrazí chyby
 Klikněte na červenou tečku.
@@ -103,7 +115,9 @@ Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Napříkla
 
 Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Studio Enterprise a pak nahrajte tento záznam do služby Application Insights. Application Insights přehrává scénář v intervalech a ověřuje odezvy.
 
-Všimněte si, že nemůžete použít kódované funkce ve svých testech: kroky scénáře musí být obsaženy jako skript v souboru .webtest.
+> [!NOTE]
+> V testech nelze použít programové funkce nebo smyčky. Test musí být zcela obsažený ve skriptu .webtest. Můžete však použít standardní moduly plug-in.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Záznam scénáře
 Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
@@ -144,13 +158,19 @@ Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
 
     Nastavte umístění testu, četnost a parametry výstrah stejným způsobem jako u testů pomocí příkazu ping.
 
-Prohlédněte si výsledky testu a všechny chyby stejným způsobem jako u testů jedné adresy URL.
+#### <a name="3-see-the-results"></a>3. Zobrazení výsledků
 
-Běžným důvodem selhání je, že test běží příliš dlouho. Nesmí se spouštět déle než dvě minuty.
+Prohlédněte si výsledky testu a všechny chyby stejným způsobem jako u testů s jednou adresou URL.
 
-Nezapomeňte, že všechny prostředky stránky se musí načíst správně, včetně skriptů, šablon stylů, obrázků a tak dále, jinak test nebude úspěšný.
+Kromě toho si můžete výsledky testů stáhnout a zobrazit je v sadě Visual Studio.
 
-Všimněte si, že webový test musí být zcela obsažen v souboru .webtest: programové funkce nelze použít v testu.
+#### <a name="too-many-failures"></a>Příliš mnoho selhání?
+
+* Běžným důvodem selhání je, že test běží příliš dlouho. Nesmí se spouštět déle než dvě minuty.
+
+* Nezapomeňte, že všechny prostředky stránky se musí načíst správně, včetně skriptů, šablon stylů, obrázků a tak dále, jinak test nebude úspěšný.
+
+* Webový test musí být zcela obsažen ve skriptu .webtest: programové funkce nelze v testu použít.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Doba zapojení a náhodná čísla do vícekrokového testu
 Předpokládejme, že testujete nástroj, který získá data závislá na čase, například akcie z externího kanálu. Při záznamu webového testu je nutné použít konkrétní časy, ale nastavit je jako parametry testu, čas spuštění a čas ukončení.
@@ -211,12 +231,6 @@ Pokud váš test vyžaduje přihlášení pomocí OAuth, bude obecný postup ná
 * Parametrizujte tokeny, nastavte parametr při vrácení tokenu z ověřovatele a použijte ho v dotazu na web.
   (Sada Visual Studio se pokusí o parametrizaci testu, ale nebude tokeny parametrizovat správně.)
 
-## <a name="edit"></a> Úprava nebo zakázání testu
-Otevřete jednotlivé testy a upravte je nebo je zakažte.
-
-![Upravit nebo zakázat webový test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Můžete chtít zakázat webové testy během provádění údržby vaší služby.
 
 ## <a name="performance-tests"></a>Testy výkonnosti
 Na svém webu můžete spustit zátěžový test. Podobně jako v testu dostupnosti můžete z našich bodů po celém světě odeslat buď jednoduché požadavky, nebo vícekrokové požadavky. Na rozdíl od testu dostupnosti se odesílá mnoho požadavků, které simulují několik souběžných uživatelů.
@@ -229,7 +243,7 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 * [Automaticky používat skripty prostředí PowerShell k nastavení webového](app-insights-powershell.md#add-an-availability-test) testu.
 * Nastavení [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán při vydání výstrahy.
 
-## <a name="questions-problems"></a>Máte dotazy? Problémy?
+## <a name="qna"></a>Máte dotazy? Problémy?
 * *Můžu z webového testu volat kód?*
 
     Ne. Kroky testu musí být v souboru .webtest. A nemůžete volat jiné webové testy nebo používat smyčky. Existují různé zásuvné moduly, které se vám můžou hodit.

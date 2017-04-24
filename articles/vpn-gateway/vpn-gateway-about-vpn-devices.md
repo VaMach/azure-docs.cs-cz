@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: d7c4c5b118dade39bd47ae2c7836157589fcb45a
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,21 +33,21 @@ Pro konfiguraci připojení VPN typu Site-to-Site (S2S) mezi různými místy po
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Při procházení tabulek si všimněte:
 
-* Došlo ke změně terminologie pro služby Azure VPN Gateway. Funkce se nezměnily, změnily se pouze jejich názvy.
+* Došlo ke změně terminologie pro služby Azure VPN Gateway. Nedošlo k žádné změně funkce. Změnily se pouze názvy.
   * Statické směrování = PolicyBased
   * Dynamické směrování = RouteBased
 * Specifikace pro vysokovýkonné brány VPN a brány VPN typu RouteBased jsou stejné, není-li uvedeno jinak. Například ověřená zařízení VPN, která jsou kompatibilní s bránami VPN typu RouteBased, budou kompatibilní také s vysokovýkonnou bránou VPN Azure.
 
 > [!NOTE]
-> Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.                                                                                                                                                                               
+> Při konfiguraci připojení typu Site-to-Site je pro vaše zařízení VPN vyžadována veřejná IP adresa IPv4.
+>                
 
-
-## <a name="devicetable"></a>Ověřená zařízení VPN
+## <a name="devicetable"></a>Ověřená zařízení VPN a průvodci konfigurací zařízení
 Ve spolupráci s dodavateli zařízení jsme ověřili sadu standardních zařízení VPN. Všechna zařízení v řadách zařízení obsažených v následujícím seznamu musí fungovat s bránami Azure VPN Gateway. Podle článku [Informace o bránách VPN](vpn-gateway-about-vpngateways.md) ověřte typ brány, kterou budete muset vytvořit pro řešení, které chcete konfigurovat.
 
-Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají příslušné řadě zařízení.  Při poskytování odkazů na pokyny se snažíme maximálně vyhovět. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
+Pomoc s konfigurací zařízení VPN najdete pod odkazy, které odpovídají příslušné řadě zařízení. Při poskytování odkazů na pokyny se snažíme maximálně vyhovět. Pro podporu zařízení VPN kontaktujte výrobce zařízení.
 
-|**Dodavatel**          |**Řada zařízení**     |**Minimální verze operačního systému** |**PolicyBased** |**RouteBased** |
+|**Dodavatel**          |**Řada zařízení**     |**Minimální verze operačního systému** |**Pokyny ke konfiguraci PolicyBased** |**Pokyny ke konfiguraci RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Není kompatibilní  |[Průvodce konfigurací](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |Směrovače VPN řady AR |2.9.2                  |Připravuje se     |Není kompatibilní  |
@@ -81,7 +81,7 @@ Nevidíte-li své zařízení v tabulce Ověřená zařízení VPN, stále je mo
 ## <a name="editing"></a>Ukázky úpravy konfigurace zařízení
 Po stažení ukázky konfigurace zařízení VPN budete muset nahradit některé hodnoty tak, aby odpovídaly nastavení vašeho prostředí.
 
-###<a name="to-edit-a-sample"></a>Chcete-li upravit ukázku:
+### <a name="to-edit-a-sample"></a>Chcete-li upravit ukázku:
 
 1. Otevřete ukázku pomocí Poznámkového bloku.
 2. Vyhledejte všechny řetězce *text* a nahraďte je hodnotami, které odpovídají vašemu prostředí. Nezapomeňte zahrnout < a >. Zadané názvy by měly být jedinečné. Pokud příkaz nefunguje, obraťte se na dokumentaci výrobce zařízení.
@@ -185,7 +185,7 @@ Následující tabulka uvádí nabídky IPsec SA (rychlý režim IKE). Nabídky 
 >
 >
 
-###<a name="feb-16-2017"></a>16. února 2017
+### <a name="feb-16-2017"></a>16. února 2017
 
 **Zařízení Palo Alto Networks s verzí dřívější než 7.1.4** pro síť VPN Azure založenou na trasách: Pokud používáte zařízení VPN z Palo Alto Networks s verzí PAN-OS dřívější než 7.1.4 a dochází k problémům s připojením k bránám sítě VPN Azure založené na směrování, proveďte následující kroky:
 

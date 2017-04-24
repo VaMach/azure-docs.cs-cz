@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -39,11 +40,7 @@ Trezory Recovery Services podporují oba modely.  Do trezoru Recovery Services m
 Při migraci virtuálních počítačů z klasického režimu do režimu Resource Manageru se neprovede automatická migrace záloh klasických virtuálních počítačů do trezoru služby Backup. Při migraci záloh virtuálních počítačů použijte tento postup:
 
 1. V trezoru služby Backup přejděte na kartu **Chráněné položky** a vyberte virtuální počítač. Klikněte na [Zastavit ochranu](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Políčko *Delete associated backup data* (Odstranit přidružená data záloh) ponechte **nezaškrtnuté**.
-2. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a síť odpovídající tomuto virtuálnímu počítači.
-3. Vytvořte trezor Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Další informace o postupu při [povolení zálohování v trezoru služby Recovery Services](backup-azure-vms-first-look-arm.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+2. Na webu [Azure Portal](https://portal.azure.com) přejděte k nabídce **Rozšíření** pro virtuální počítač a odinstalujte rozšíření **VMSnapshot/VMSnapshotLinux**.
+3. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a síť odpovídající tomuto virtuálnímu počítači.
+4. Vytvořte trezor Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Další informace o postupu při [povolení zálohování v trezoru služby Recovery Services](backup-azure-vms-first-look-arm.md)
 
