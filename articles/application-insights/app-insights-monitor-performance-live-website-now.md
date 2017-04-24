@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -184,6 +184,54 @@ Zjistěte, které aplikace se monitorují:
 
 * Stáhne nejnovější Application Insights SDK na server.
 
+## <a name="questions"></a>Dotazy týkající se Monitorování stavu
+
+### <a name="what-is-status-monitor"></a>Co je Monitorování stavu?
+
+Desktopová aplikace, kterou instalujete s webovým serverem IIS. Pomáhá provádět instrumentaci a konfiguraci webových aplikací. 
+
+### <a name="when-do-i-use-status-monitor"></a>Kdy použít Monitorování stavu?
+
+* Při instrumentaci libovolné webové aplikace, která běží na serveru IIS, i když je už spuštěná.
+* Při povolení další telemetrie pro webové aplikace, které byly [vytvořené pomocí sady Application Insights SDK](app-insights-asp-net.md), v době kompilace. 
+
+### <a name="can-i-close-it-after-it-runs"></a>Můžu ji po spuštění zavřít?
+
+Ano. Poté, co se provedla instrumentaci vybraných webových stránek, můžete ji zavřít.
+
+Sama o sobě telemetrii neshromažďuje. Pouze nakonfiguruje webové aplikace a nastaví některá oprávnění.
+
+### <a name="what-does-status-monitor-do"></a>K čemu Monitorování stavu slouží?
+
+Když vyberete webovou aplikaci pro instrumentaci pomocí Monitorování stavu:
+
+* Stáhne a umístí sestavení Application Insights a soubor .config do složky binárních souborů webové aplikace.
+* Upraví soubor `web.config` přidáním modulu sledování HTTP pro Application Insights.
+* Povolí profilaci CLR shromažďovat volání závislostí.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Je potřeba spustit Monitorování stavu při každé aktualizaci aplikace?
+
+Ne, pokud provádíte opakované nasazení postupně. 
+
+Pokud při procesu publikování vyberete možnost Odstranit stávající soubory, bude potřeba konfigurovat Application Insights opakovaným spuštěním Monitorování stavu.
+
+### <a name="what-telemetry-is-collected"></a>Jaké telemetrická data se shromažďují?
+
+Pro aplikace instrumentované pouze za běhu pomocí Monitorování stavu:
+
+* Požadavky HTTP
+* Volání závislostí
+* Výjimky
+* Čítače výkonu
+
+Pro aplikace již instrumentované v době kompilace:
+
+ * Čítače procesů
+ * Volání závislostí (.NET 4.5); návratové hodnoty ve voláních závislostí (.NET 4.6)
+ * Hodnoty trasování zásobníku výjimek
+
+[Další informace](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +260,5 @@ Přidání další telemetrie:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

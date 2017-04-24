@@ -13,34 +13,43 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f816a6972c0e80c6a7063705917ecf18debc75f6
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Začínáme používat R Server ve službě HDInsight
+
 HDInsight zahrnuje možnost integrace R Serveru do clusteru HDInsight. Díky tomu můžou skripty R používat Spark a MapReduce ke spouštění distribuovaných výpočtů. V tomto dokumentu se naučíte vytvořit R Server v clusteru HDInsight a následně spustit skript R, který ukazuje použití Sparku k distribuovaným výpočtům jazyka R.
 
 ## <a name="prerequisites"></a>Požadavky
-* **Předplatné Azure:** Než začnete tento kurz, musíte mít předplatné Azure. Další informace najdete na stránce [Získat bezplatnou zkušební verzi Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
+* **Předplatné Azure:** Než začnete tento kurz, musíte mít předplatné Azure. Další informace najdete v článku [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Klient Secure Shell (SSH):** Klient SSH slouží k vzdálenému připojení ke clusteru HDInsight a spouštění příkazů přímo v clusteru. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Klíče SSH (volitelné):** Účet SSH používaný k připojení ke clusteru můžete zabezpečit pomocí hesla nebo veřejného klíče. Použití hesla je jednodušší a umožňuje začít bez nutnosti vytvářet pár veřejného a privátního klíče. Použití klíče je ale bezpečnější.
 
-  * **Klíče SSH (volitelné):** Účet SSH používaný k připojení ke clusteru můžete zabezpečit pomocí hesla nebo veřejného klíče. Použití hesla je jednodušší a umožňuje začít bez nutnosti vytvářet pár veřejného a privátního klíče. Použití klíče je ale bezpečnější.
+> [!NOTE]
+> Postupy v tomto dokumentu předpokládají použití hesla.
 
-      Postupy v tomto dokumentu předpokládají použití hesla.
 
 ### <a name="access-control-requirements"></a>Požadavky na řízení přístupu
+
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="create-the-cluster"></a>Vytvoření clusteru
-> [!NOTE]
-> Kroky v tomto dokumentu vás provedou vytvořením R Serveru v clusteru HDInsight s použitím základních informací o konfiguraci. Informace o dalších nastaveních konfigurace clusteru (jako je přidání dalších účtů úložiště, používání služby Azure Virtual Network nebo vytvoření metastoru pro Hive) najdete v tématu popisujícím [vytvoření clusterů HDInsight se systémem Linux](hdinsight-hadoop-provision-linux-clusters.md). Informace o vytvoření R Serveru pomocí šablony Azure Resource Manageru najdete v tématu [Nasazení clusteru HDInsight s R Serverem](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
->
->
+## <a name="automated-cluster-creation"></a>Automatizované vytváření clusterů
+
+Můžete automatizovat vytváření HDInsight R Serverů pomocí šablon ARM, sady SDK a také PowerShellu.
+
+* Informace o vytvoření R Serveru pomocí šablony Azure Resource Manageru najdete v tématu [Nasazení clusteru HDInsight s R Serverem](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+* Pokud chcete vytvořit R Server pomocí sady .NET SDK, přečtěte si [vytváření clusterů se systémem Linux v HDInsight pomocí sady .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+* Pokud chcete vytvořit R Server pomocí PowerShellu, přečtěte si článek o [vytvoření R Serveru v HDInsight pomocí PowerShellu](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+
+
+## <a name="create-the-cluster-using-the-azure-portal"></a>Vytvoření clusteru pomocí webu Azure Portal
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
@@ -164,6 +173,7 @@ Pokud jste se rozhodli do instalace zahrnout komunitní verzi RStudio Serveru, p
    > Bez ohledu na zvolenou metodu bude při prvním přihlášení potřeba dvojí ověření.  Při prvním ověření zadejte ID uživatele a heslo správce clusteru. Až se zobrazí druhá výzva, zadejte ID uživatele a heslo SSH. Při dalším přihlašování už budete potřebovat jenom heslo a ID uživatele SSH.
 
 ## <a name="connect-to-the-r-server-edge-node"></a>Připojení k hraničnímu uzlu R Serveru
+
 Připojte se pomocí SSH k hraničnímu uzlu R Serveru v clusteru HDInsight:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
@@ -225,6 +235,7 @@ Můžete také použít adresování ve stylu WASB.
 `rxHadoopListFiles("wasbs:///")`
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Použití R Serveru ve službě HDInsight ze vzdálené instance Microsoft R Serveru nebo klienta Microsoft R Client
+
 Podle předchozí části popisující použití párů veřejného a privátního klíče pro přístup ke clusteru je možné nastavit přístup k výpočetnímu kontextu HDInsight Hadoop Spark ze vzdálené instance Microsoft R Serveru nebo klienta Microsoft R Client spuštěné na počítači nebo přenosném počítači (informace o použití Microsoft R Serveru jako klienta Hadoop najdete v části [Vytvoření výpočetního kontextu pro Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) v on-line [průvodci Začínáme s RevoScaleR Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  Abyste to mohli provést, při definování výpočetního kontextu RxSpark na svém přenosném počítači budete muset zadat následující možnosti: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches a sshProfileScript. Například:
 
 ```
@@ -253,6 +264,7 @@ Podle předchozí části popisující použití párů veřejného a privátní
 
 
 ## <a name="use-a-compute-context"></a>Použití výpočetního kontextu
+
 Výpočetní kontext vám umožňuje řídit, zda se výpočty budou provádět místně na hraničním uzlu, nebo budou distribuovány napříč uzly v clusteru HDInsight.
 
 1. V RStudio Serveru nebo konzole R (v rámci relace SSH) pomocí následujícího postupu načtěte ukázková data do výchozího úložiště pro službu HDInsight.
@@ -376,6 +388,7 @@ Výpočetní kontext vám umožňuje řídit, zda se výpočty budou provádět 
 
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuování kódu R do více uzlů
+
 S R Serverem můžete snadno vzít existující kód R a spustit ho napříč několika uzly v clusteru pomocí příkazu `rxExec`. To je užitečné při uklízení parametrů nebo provádění simulací. Následuje příklad použití příkazu `rxExec`.
 
 `rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )`
@@ -402,6 +415,7 @@ Pokud stále používáte kontext Spark nebo MapReduce, příkaz vrátí hodnoty
     ```
 
 ## <a name="accessing-data-in-hive-and-parquet"></a>Přístup k datům v Hive a Parquet
+
 Nová funkce, která je k dispozici v R Serveru 9.0 a novějším, umožňuje přímý přístup k datům v Hive a Parquet pro použití ve funkcích ScaleR ve výpočetním kontextu Spark. Tyto možnosti jsou dostupné prostřednictvím nových funkcí zdroje dat ScaleR s názvem RxHiveData a RxParquetData. Funkce pomocí Spark SQL načtou data přímo do struktury DataFrame ve Sparku, aby je ScaleR mohl analyzovat.  
 
 Následuje ukázkový kód pro použití těchto nových funkcí:
@@ -456,6 +470,7 @@ Další informace o používání těchto nových funkcí najdete v on-line náp
 
 
 ## <a name="install-r-packages"></a>Instalace balíčků R
+
 Chcete-li nainstalovat na hraniční uzel další balíčky, můžete přímo v konzole R použít příkaz `install.packages()`, zatímco jste k hraničnímu uzlu připojeni přes SSH. Pokud však potřebujete balíčky R nainstalovat na pracovní uzly clusteru, musíte použít akci skriptu.
 
 Akce skriptů jsou skripty Bash, které se používají k provádění změn konfigurace clusteru HDInsight nebo k instalaci dalšího softwaru. V tomto případě k instalaci dalších balíčků R. Chcete-li nainstalovat další balíčky pomocí akce skriptu, použijte následující postup.
@@ -501,6 +516,7 @@ Akce skriptů jsou skripty Bash, které se používají k provádění změn kon
 4. Vyberte **Vytvořit** a spusťte skript. Po dokončení skriptu budou balíčky R k dispozici na všech pracovních uzlech.
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Použití operacionalizace Microsoft R Serveru
+
 Po dokončení modelování vašich dat můžete model operacionalizovat za účelem provádění předpovědí. Chcete-li nakonfigurovat operacionalizaci Microsoft R Serveru, proveďte následující kroky.
 
 Nejprve se přes SSH připojte k hraničnímu uzlu. Například, ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
@@ -577,6 +593,7 @@ remoteLogin(
 
 
 ### <a name="decommission-the-worker-nodes"></a>Vyřazení pracovních uzlů z provozu
+
 Microsoft R Server v současné době není spravován přes YARN. Pokud se pracovní uzly nevyřadí z provozu, správce prostředků YARN nebude fungovat podle očekávání, protože nebude vědět o prostředcích, které si server zabírá. Abyste tomu zabránili, doporučujeme vyřadit z provozu pracovní uzly, na které chcete škálovat výpočetní uzly.
 
 Postup vyřazení pracovních uzlů z provozu:
@@ -604,6 +621,7 @@ Postup vyřazení pracovních uzlů z provozu:
 * Ukončete nástroj pro správu
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>Přidání podrobností o výpočetních uzlech do webového uzlu
+
 Jakmile budou všechny vyřazené pracovní uzly nakonfigurované tak, aby na nich běžely výpočetní uzly, přejděte zpět do hraničního uzlu a přidejte IP adresy vyřazených pracovních uzlů do konfigurace webového uzlu Microsoft R Serveru:
 
 * Připojte se přes SSH k hraničnímu uzlu.
@@ -613,6 +631,7 @@ Jakmile budou všechny vyřazené pracovní uzly nakonfigurované tak, aby na ni
 ![příkazový řádek vyřazení pracovních uzlů z provozu](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## <a name="next-steps"></a>Další kroky
+
 Teď, když chápete, jak vytvořit nový cluster HDInsight obsahující R Server, a rozumíte základům používání konzoly R z relace SSH, si můžete přečíst následující témata popisující další způsoby práce s R Serverem ve službě HDInsight.
 
 * [Přidání RStudio Serveru do služby HDInsight (pokud nebyl nainstalován během vytváření clusteru)](hdinsight-hadoop-r-server-install-r-studio.md)

@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Připojení webové aplikace ke službě Content Delivery Network
@@ -28,7 +28,7 @@ Nejprve otevřete svůj oblíbený prohlížeč a přejděte na web [Azure Porta
 
 ## <a name="step-2---create-a-cdn-profile"></a>Krok 2 – Vytvoření profilu CDN
 
-Klikněte na tlačítko `+ New` v levém navigačním panelu a pak klikněte na **Web a mobilní zařízení**. V kategorii Web a mobilní zařízení vyberte **CDN**.
+Klikněte na tlačítko **+ Nový** v levém navigačním panelu a pak klikněte na **Web a mobilní zařízení**. V kategorii Web a mobilní zařízení vyberte **CDN**.
 
 Zadejte **Název**, **Umístění**, **Skupina prostředků** a **Cenová úroveň** a pak klikněte na **Vytvořit**.
 
@@ -38,7 +38,7 @@ Otevřete centrum skupin prostředků z levého navigačního panelu a vyberte *
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Krok 3 – Vytvoření koncového bodu CDN
 
-Klikněte na `+ Endpoint` z příkazů vedle pole hledání, a tím otevřete okno pro vytvoření koncového bodu.
+Klikněte na **+ Koncový bod** z příkazů vedle pole hledání, a tím otevřete okno pro vytvoření koncového bodu.
 
 Zadejte **Název**, **Typ původu** a **Původní název hostitele** a pak klikněte na **Přidat**.
 

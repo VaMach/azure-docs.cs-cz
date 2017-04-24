@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 28a14cc68f44a278274e60cf46d5344c85dcc777
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="what-is-azure-event-hubs"></a>Co je služba Azure Event Hubs?
-Event Hubs je vysoce škálovatelná platforma pro streamování dat, která je schopná miliony událostí za sekundu. Data odeslaná do centra událostí je možné transformovat a uložit pomocí libovolného poskytovatele analýz v reálném čase nebo adaptérů pro dávkové zpracování a ukládání. Díky možnosti publikování a odebírání dat s nízkou latencí a v masivním měřítku slouží služba Event Hubs jako vstupní brána k velkým objemům dat.
+# <a name="what-is-event-hubs"></a>Co je služba Event Hubs?
+Azure Event Hubs je vysoce škálovatelná platforma pro streamování dat, která je schopná ingestovat miliony událostí za sekundu. Data odeslaná do centra událostí je možné transformovat a uložit pomocí libovolného poskytovatele analýz v reálném čase nebo adaptérů pro dávkové zpracování a ukládání. Díky možnosti publikování a odebírání dat s nízkou latencí a v masivním měřítku slouží služba Event Hubs jako vstupní brána k velkým objemům dat.
 
 ## <a name="why-use-event-hubs"></a>Proč používat Event Hubs
 Možnosti zpracování telemetrických údajů a událostí, které služba Event Hubs nabízí, jsou zvláště užitečné pro:
@@ -43,10 +43,10 @@ Služba Event Hubs zpracovává události a telemetrii v cloudovém měřítku, 
 Centrum událostí se vytváří na úrovni oboru názvů a jako svoje primární rozhraní API využívá AMQP a HTTP.
 
 ## <a name="event-publishers"></a>Zdroje událostí
-Každá entita, která odesílá data do centra událostí, je *zdroj události*. Zdroje událostí mohou publikovat události pomocí protokolu HTTPS nebo AMQP 1.0. Zdroje událostí se v centru událostí identifikují pomocí tokenu sdíleného přístupového podpisu (SAS) a mohou mít jedinečnou identitu, nebo mohou používat společný token SAS.
+Každá entita, která odesílá data do centra událostí, je *zdroj událostí*. Zdroje událostí mohou publikovat události pomocí protokolu HTTPS nebo AMQP 1.0. Zdroje událostí se v centru událostí identifikují pomocí tokenu sdíleného přístupového podpisu (SAS) a mohou mít jedinečnou identitu, nebo mohou používat společný token SAS.
 
 ### <a name="publishing-an-event"></a>Publikování události
-Událost můžete publikovat prostřednictvím protokolu AMQP 1.0 nebo HTTPS. Služba Service Bus poskytuje třídu [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), která slouží k publikování událostí od klientů .NET do centra událostí. Pro jiné moduly runtime a platformy můžete použít libovolného klienta protokolu AMQP 1.0, například [Apache Qpid](http://qpid.apache.org/). Události můžete publikovat samostatně nebo v dávce. Jedna publikace (instance dat události) je omezena limitem 256 KB – bez ohledu na to, jestli se jedná o jedinou událost nebo dávku (batch). Pokus publikovat události, které tento limit přesahují, skončí chybou. Nejvhodnějším postupem pro zdroje je nezajímat se o oddíly v centru událostí a specifikovat pouze *klíč oddílu* (představíme v další části) nebo svoji identitu prostřednictvím tokenu SAS.
+Událost můžete publikovat prostřednictvím protokolu AMQP 1.0 nebo HTTPS. Služba Service Bus poskytuje třídu [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), která slouží k publikování událostí z klientů .NET do centra událostí. Pro jiné moduly runtime a platformy můžete použít libovolného klienta protokolu AMQP 1.0, například [Apache Qpid](http://qpid.apache.org/). Události můžete publikovat samostatně nebo v dávce. Jedna publikace (instance dat události) je omezena limitem 256 KB – bez ohledu na to, jestli se jedná o jedinou událost nebo dávku (batch). Pokus publikovat události, které tento limit přesahují, skončí chybou. Nejvhodnějším postupem pro zdroje je nezajímat se o oddíly v centru událostí a specifikovat pouze *klíč oddílu* (představíme v další části) nebo svoji identitu prostřednictvím tokenu SAS.
 
 Volba, jestli se použije protokol AMQP nebo HTTPS, závisí na konkrétním scénáři použití. Protokol AMQP vyžaduje nejen protokol TLS (Transport Level Security) nebo SSL/TLS, ale i vytvoření trvalého obousměrného soketu. AMQP má vyšší náklady na síť při inicializaci relace, ale HTTPS pro každý požadavek vyžaduje další režii SSL. AMQP má pro často používané zdroje vyšší výkon.
 
@@ -55,7 +55,7 @@ Volba, jestli se použije protokol AMQP nebo HTTPS, závisí na konkrétním sc�
 Služba Event Hubs zajišťuje, aby se všechny události, které sdílejí hodnotu klíče oddílu, v pořádku doručily do stejného oddílu. Pokud se klíče oddílů používají společně se zásadami zdroje, musí si identita zdroje a hodnota klíče oddílu odpovídat. V opačném případě dojde k chybě.
 
 ### <a name="publisher-policy"></a>Zásady zdroje
-Služba Event Hubs umožňuje podrobnou kontrolu nad zdroji událostí prostřednictvím *zásad zdroje*. Zásady zdroje jsou běhové funkce, které byly navržené pro usnadnění kontroly nad velkým množstvím nezávislých zdrojů událostí. Zásady zdroje poskytují s použitím následujícího mechanismu každému zdroji vlastní identifikátor, který se používá při publikování událostí do centra událostí.
+Služba Event Hubs umožňuje podrobnou kontrolu nad zdroji událostí prostřednictvím *zásad zdroje*. Zásady zdroje jsou běhové funkce, které byly navržené pro usnadnění kontroly nad velkým množstvím nezávislých zdrojů událostí. Zásady zdroje poskytují s použitím následujícího mechanismu každému zdroji vlastní identifikátor, který se používá při publikování událostí do centra událostí:
 
 ```
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]

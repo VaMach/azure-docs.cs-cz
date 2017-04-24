@@ -28,6 +28,8 @@ Služby Azure VPN Gateway budou místním zařízením BGP prezentovat následuj
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Mohu inzerovat výchozí cestu (0.0.0.0/0) do bran Azure VPN Gateway?
 Ano.
 
+Poznámka: Tato akce vynutí převedení veškerého výchozího přenosu virtuální sítě směrem k místní lokalitě a zabrání virtuálním počítačům virtuální sítě v příjmu veřejné komunikace přímo z internetu, jako jsou přenosy RDP nebo SSH z internetu k virtuálním počítačům.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Mohu inzerovat přesné předpony jako předpony mé virtuální sítě?
 
 Ne, inzerování stejných předpon jako předpon adres virtuální sítě bude blokováno nebo filtrováno platformou Azure. Můžete ale inzerovat předponu, která je nadmnožinou toho, co máte ve své virtuální síti. 
@@ -65,9 +67,4 @@ Azure Local Network Gateway určuje počáteční předpony adres pro místní s
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Co je třeba přidat do místního zařízení VPN pro relaci partnerského vztahu protokolu BGP?
 Do zařízení VPN je nutné přidat směrování hostitele IP adresy partnera BGP Azure odkazující na tunel VPN IPsec S2S. Pokud je například IP adresa partnera BGP Azure 10.12.255.30, je nutné přidat směrování hostitele pro adresu 10.12.255.30 s rozhraním nexthop odpovídajícího rozhraní tunelu IPsec ve vašem zařízení VPN.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

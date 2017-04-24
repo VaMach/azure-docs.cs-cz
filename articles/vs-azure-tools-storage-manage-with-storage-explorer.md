@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -47,7 +48,7 @@ Storage Explorer (Preview) nabízí celou řadu způsobů, jak se připojit k ú
 1. V nástroji Storage Explorer (Preview) vyberte **Azure Account Settings** (Nastavení účtu Azure).
 
     ![Nastavení účtu Azure][0]
-2. V levém podokně se zobrazí všechny účty Microsoft, ke kterým jste přihlášeni. Pokud se chcete připojit k jinému účtu, vyberte položku **Add an account ** (Přidat účet) a podle pokynů v dialogových oknech se přihlaste účtem Microsoft, který je přidružený minimálně k jednomu aktivnímu předplatnému Azure.
+2. V levém podokně se zobrazí všechny účty Microsoft, ke kterým jste přihlášeni. Pokud se chcete připojit k jinému účtu, vyberte položku **Add an account** (Přidat účet) a podle pokynů v dialogových oknech se přihlaste účtem Microsoft, který je přidružený minimálně k jednomu aktivnímu předplatnému Azure.
 > [!NOTE]
 >Připojení přes přihlášení k národnímu Azure, jako je Azure Black Forest, Azure Fairfax nebo Azure Mooncake, se v současné době nepodporuje. Informace o připojení k účtům úložiště národního Azure najdete v části **Připojení nebo odpojení externího účtu úložiště**.
 
@@ -57,6 +58,67 @@ Storage Explorer (Preview) nabízí celou řadu způsobů, jak se připojit k ú
 4. V levém podokně se zobrazí všechny účty úložišť, přidružené k vybraným předplatným Azure.
 
     ![Vybraná předplatná Azure][4]
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Připojení k předplatnému Azure Stack
+
+1. Storage Explorer pro vzdálený přístup k předplatnému služby Azure Stack potřebuje připojení VPN. Další informace o tom, jak nastavit připojení VPN ke službě Azure Stack, najdete v tématu [Připojení k Azure Stack pomocí sítě VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn)
+
+2. Pro Azure Stack POC je potřeba vyexportovat kořenový certifikát autority Azure Stacku. Otevřete `mmc.exe` v MAS-CON01, hostitelském počítači Azure Stack nebo místním počítači s připojením VPN k Azure Stacku. V části **Soubor** vyberte **Přidat nebo odebrat modul snap-in** a přidejte **certifikáty** pro správu **účtu** **místního počítače**.
+
+   ![Načtení kořenového certifikátu Azure Stacku pomocí mmc.exe][25]   
+
+   Vyhledejte **AzureStackCertificationAuthority** ve složce **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Klikněte na položku pravým tlačítkem a vyberte **Všechny úkoly -> Export**. Potom postupujte podle pokynů v dialogových oknech a vyexportujte certifikát s **kódováním Base-64 X.509 (. CER)**. Vyexportovaný certifikát se použije v dalším kroku.   
+
+   ![Export kořenového certifikátu autority Azure Stacku][26]   
+
+3. Ve Storage Exploreru (Preview) vyberte v nabídce **Úpravy** postupně **Certifikáty SSL** a **Importovat certifikáty**. Pomocí dialogového okna pro výběr souborů najděte a otevřete certifikát, který jste prozkoumali v předchozím kroku. Po dokončení importu se zobrazí výzva k restartování Storage Exploreru.
+
+   ![Import certifikátu do Storage Exploreru (Preview)][27]
+
+4. Jakmile se Storage Explorer (Preview) znovu spustí, vyberte nabídku **Úpravy** a ujistěte se, že je zaškrtnutá položka **Target Azure Stack** (Cíl –Azure Stack). Pokud není, zaškrtněte ji a restartujte Storage Explorer, aby se tato změna projevila. Tato konfigurace je nutná pro kompatibilitu s vaším prostředím Azure Stack.
+
+   ![Kontrola, že položka Target Azure Stack je vybraná][28]
+
+5. Na panelu vlevo vyberte **Spravovat účty**. V levém podokně se zobrazí všechny účty Microsoft, ke kterým jste přihlášení. Pokud se chcete připojit k účtu Azure Stack, vyberte **Přidat účet**.
+
+   ![Přidání účtu Azure Stack][29]
+
+6. V dialogovém okně **Přidat nový účet** v části **Prostředí Azure** vyberte **Create Custom Environment** (Vytvořit vlastní prostředí) a potom klikněte na **Další**.
+
+7. Zadejte všechny požadované informace pro vlastní prostředí Azure Stack a potom klikněte na **Přihlásit se**.  Vyplňte dialogové okno **Sign in to a Custom Cloud environment**(Přihlásit se k vlastnímu cloudovému prostředí) a přihlaste se pomocí účtu Azure Stack, který je přidružený alespoň k jednomu aktivnímu předplatnému Azure Stack. Podrobnosti k jednotlivým polím v tomto dialogovém okně:
+
+    * **Environment name** (Název prostředí): Toto pole může uživatel přizpůsobit.
+    * **Authority** (Autorita): Hodnotou by měla být adresa https://login.windows.net. Pro Azure Čína (Mooncake) prosím použijte https://login.chinacloudapi.cn.
+    * **Sign in resource id** (ID prostředku přihlášení): Hodnotu načtěte spuštěním příkazu PowerShellu:
+
+    Pokud jste správce cloudu:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Pokud jste tenant:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Graph endpoint** (Koncový bod grafu): Hodnotou by měla být adresa https://graph.windows.net. Pro Azure Čína (Mooncake) prosím použijte https://graph.chinacloudapi.cn.
+    * **ARM resource id** (ID prostředku ARM): Použijte stejnou hodnotu jako pro Sign in resource id.
+    * **ARM resource endpoint** (Koncový bod prostředku ARM): Toto jsou ukázky koncového bodu ARM:
+
+    Pro správce cloudu: https://adminmanagement.local.azurestack.external   
+    Pro tenanta: https://management.local.azurestack.external
+ 
+    * **Tenant Ids** (ID tenanta): Volitelné. Hodnota je uvedená jenom v případě, že musí být zadaný adresář.
+
+8. Jakmile se úspěšně přihlásíte s účtem Azure Stack, zobrazí se v levém podokně předplatná Azure Stack přidružená k tomuto účtu. Vyberte předplatná Azure Stack, se kterými chcete pracovat, a pak vyberte **Apply** (Použít). (Zaškrtnutím políčka **All subscriptions** (Všechna předplatná) přepínáte výběr všech nebo žádných z uvedených předplatných Azure Stack.)
+
+   ![Výběr předplatných Azure Stack po vyplnění dialogového okna Custom Cloud Environment][30]
+
+9. V levém podokně se zobrazí všechny účty úložišť přidružené k vybraným předplatným Azure Stack.
+
+   ![Seznam účtů úložiště, včetně účtů předplatného služby Azure Stack][31]
 
 ## <a name="work-with-local-development-storage"></a>Práce s místním vývojovým úložištěm
 Storage Explorer (Preview) umožňuje pracovat s místním úložištěm pomocí emulátoru úložiště Azure. Můžete tak psát kód pro místní úložiště a otestovat ho, aniž byste museli mít nasazený účet úložiště v Azure (protože účet úložiště je emulovaných emulátorem úložiště Azure).
@@ -207,9 +269,11 @@ Když budete chtít hledání vymazat, vyberte ve vyhledávacím poli tlačítko
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 

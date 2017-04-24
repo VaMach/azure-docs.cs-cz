@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ Kliknutím na položku v zobrazení seznamu k ní zobrazíte všechny dostupné 
 Abyste omezili zobrazovaná data na úroveň, která vám vyhovuje, můžete filtrovat data přihlašování s využitím následujících polí:
 
 - Rozsah dat
-- Spustil(a)
-- Kategorie
+- Spustil(a) (činitel)
 - Kategorie
 - Typ prostředku aktivity
 - Aktivita
@@ -311,7 +310,7 @@ S použitím sestav auditu orientovaných na aplikace můžete najít odpovědi 
 * Změnily se názvy aplikací?
 * Kdo udělil souhlas pro aplikaci?
 
-Pokud chcete jenom zkontrolovat data auditování týkající se aplikací, najdete filtrované zobrazení v sekci **Protokoly auditu** v oddílu **Aktivity** v části **Podnikové aplikace**. Tento vstupní bod má jako **Typ prostředku aktivity** předem vybranou možnost **Aplikace**.
+Pokud chcete jenom zkontrolovat data auditování týkající se aplikací, najdete filtrované zobrazení v sekci **Protokoly auditu** v oddílu **Aktivity** v části **Podnikové aplikace**. Tento vstupní bod má jako **Typ prostředku aktivity** předem vybranou možnost **Podniková aplikace**.
 
 ![Protokoly auditu](./media/active-directory-reporting-activity-audit-logs/134.png "Protokoly auditu")
 

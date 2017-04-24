@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -50,18 +50,26 @@ Postupujte podle následujících kroků a vytvořte databázi SQL obsahující 
    - Skupina prostředků: **myResourceGroup**
    - Zdroj: **Ukázka (AdventureWorksLT)**
 
-4. Klikněte na **Server** a vytvořte a nakonfigurujte server pro novou databázi. Vyplňte **formuláře nového serveru** zadáním globálně jedinečného názvu serveru, jména pro přihlašování správce serveru a hesla podle svého výběru. 
+   > [!IMPORTANT]
+   > V tomto formuláři je nutné vybrat ukázkovou databázi, protože se používá ve zbývající části tohoto rychlého startu.
+   > 
+
+4. Klikněte na **Server** a pak vyplňte **formuláře nového serveru** zadáním globálně jedinečného názvu serveru, jména pro přihlašování správce serveru a hesla podle svého výběru. 
+
+   > [!IMPORTANT]
+   > Zde zadané jméno správce serveru a heslo se vyžadují k přihlášení na server a jeho databáze dále v tomto rychlém startu. Tyto informace si zapamatujte nebo poznamenejte pro pozdější použití. 
+   >  
 
     ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
-5. Klikněte na **Vybrat**.
+5. Pokud jste formulář vyplnili, klikněte na **Vybrat**.
 
-6. Klikněte na **Cenová úroveň** a určete úroveň služby a úroveň výkonu pro novou databázi. Pro tento rychlý start vyberte **20 DTU** a **250** GB úložiště.
+6. Klikněte na **Cenová úroveň** a určete úroveň služby a úroveň výkonu pro novou databázi. Pomocí posuvníku vyberte **20 DTU** a **250** GB úložiště. Další informace o jednotkách DTU najdete v tématu [Co je DTU](sql-database-what-is-a-dtu.md).
 
     ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Klikněte na tlačítko **Použít**.  
+7. Po výběru množství jednotek DTU klikněte na **Použít**.  
 
-8. Klikněte na **Vytvořit**, aby se databáze zřídila. Zřizování trvá několik minut. 
+8. Po vyplnění formuláře pro SQL Database klikněte na **Vytvořit** a databázi zřiďte. Zřizování trvá několik minut. 
 
 9. Na panelu nástrojů klikněte na **Oznámení** a sledujte proces nasazení.
 
@@ -72,13 +80,26 @@ Postupujte podle následujících kroků a vytvořte databázi SQL obsahující 
 
 Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránila externím aplikacím a nástrojům v připojení k serveru nebo ke kterékoli databázi na serveru, pokud není vytvořené pravidlo brány firewall k otevření brány firewall pro konkrétní IP adresy. Postupujte podle těchto kroků a vytvořte [pravidlo brány firewall na úrovni serveru služby SQL Database](sql-database-firewall-configure.md) pro vaši IP adresu klienta a umožněte externí připojení přes bránu firewall služby SQL Database pouze pro vaši IP adresu. 
 
-1. Po dokončení nasazení klikněte na **Databáze SQL** z nabídky na levé straně a klikněte na svoji databázi na stránce **Databáze SQL**. Otevře se stránka s přehledem pro vaši databázi, na které se zobrazí plně kvalifikovaný název serveru (například **mynewserver20170327.database.windows.net**) a možnosti pro další konfiguraci.
+> [!NOTE]
+> SQL Database komunikuje přes port 1433. Pokud se pokoušíte připojit z podnikové sítě, nemusí být odchozí provoz přes port 1433 bránou firewall vaší sítě povolený. Pokud je to tak, nebudete se moct připojit k serveru Azure SQL Database, dokud vaše IT oddělení neotevře port 1433.
+>
 
-      ![pravidlo brány firewall serveru](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. Po dokončení nasazení klikněte na **Databáze SQL** z nabídky na levé straně a klikněte na **mySampleDatabase** na stránce Databáze SQL. Otevře se stránka s přehledem pro vaši databázi, na které se zobrazí plně kvalifikovaný název serveru (například **mynewserver20170411.database.windows.net**) a možnosti pro další konfiguraci.
+
+   > [!IMPORTANT]
+   > Tento plně kvalifikovaný název serveru budete potřebovat pro připojení k serveru a jeho databázím v následujících rychlých startech.
+   > 
+
+      ![název serveru](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Klikněte na **Nastavit bránu firewall serveru** na panelu nástrojů, jak je vidět na předchozím obrázku. Otevře se stránka **Nastavení brány firewall** pro server služby SQL Database. 
 
-3. Na panelu nástrojů klikněte na **Přidat IP adresu klienta** a pak klikněte na **Uložit**. Vytvoří se pravidlo brány firewall na úrovni serveru pro vaši aktuální IP adresu.
+      ![pravidlo brány firewall serveru](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. Klikněte na **Přidat IP adresu klienta** na panelu nástrojů a přidejte svoji aktuální IP adresu do nového pravidla brány firewall. Pravidlo brány firewall může otevřít port 1433 pro jednu IP adresu nebo rozsah IP adres.
+
+4. Klikněte na **Uložit**. Vytvoří se pravidlo brány firewall na úrovni serveru pro vaši aktuální IP adresu, které otevře port 1433 na logickém serveru.
 
       ![nastavení pravidla brány firewall serveru](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
@@ -86,13 +107,12 @@ Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránil
 
 Nyní se můžete z této IP adresy připojit k serveru SQL Database a jeho databázím pomocí aplikace SQL Server Management Studio nebo jiného nástroje podle vašeho výběru použitím účtu správce serveru vytvořeného dříve.
 
-> [!NOTE]
-> SQL Database komunikuje přes port 1433. Pokud se pokoušíte připojit z podnikové sítě, nemusí být odchozí provoz přes port 1433 bránou firewall vaší sítě povolený. Pokud je to tak, nebudete se moct připojit k serveru Azure SQL Database, dokud vaše IT oddělení neotevře port 1433.
->
+> [!IMPORTANT]
+> Standardně je přístup přes bránu firewall služby SQL Database povolený pro všechny služby Azure. Kliknutím na **OFF** na této stránce provedete zákaz pro všechny služby Azure.
 
 ## <a name="query-the-sql-database"></a>Dotazování databáze SQL
 
-Když jsme vytvořili naši databázi SQL, naplnili jsme ji ukázkovou databází **AdventureWorksLT** (to byla jedna z možností, kterou jsme vybrali dříve v uživatelském rozhraní vytvoření v tomto rychlém startu). Použijeme integrovaný nástroj pro dotazy na webu Azure Portal k dotazům na data. 
+Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít integrovaný dotazovací nástroj na webu Azure Portal k potvrzení, že se můžete připojit k databázi a zadávat dotazy na data. 
 
 1. Na stránce služby SQL Database pro vaši databázi klikněte na panelu nástrojů na **Nástroje**. Otevře se stránka **Nástroje**.
 

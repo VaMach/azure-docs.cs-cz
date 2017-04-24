@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6da8b21014966edd9f4cea0fd27f6973b2b820f0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/12/2017
 Samostatný cluster Service Fabric můžete vytvořit v každém virtuálním nebo fyzickém počítači se systémem Windows Server 2012 R2 nebo Windows Server 2016, a to místně nebo v cloudu. Tento rychlý postup vám pomůže vytvořit samostatný vývojový cluster za několik minut.  Po provedení postupu budete mít cluster se třemi uzly, který běží v jednom počítači a do kterého můžete nasazovat aplikace.
 
 ## <a name="before-you-begin"></a>Než začnete
-Service Fabric nabízí instalační balíček pro vytváření samostatných clusterů Service Fabric.  [Stáhněte instalační balíček](http://go.microsoft.com/fwlink/?LinkId=730690).  Rozbalte ho do složky, například *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, ve fyzickém nebo virtuálním počítači, ve kterém chcete vytvořit vývojový cluster.  Obsah instalačního balíčku je podrobně popsán [zde](service-fabric-cluster-standalone-package-contents.md).
+Service Fabric nabízí instalační balíček pro vytváření samostatných clusterů Service Fabric.  [Stáhněte instalační balíček](http://go.microsoft.com/fwlink/?LinkId=730690).  Rozbalte instalační balíček do složky na počítači nebo virtuálním počítači, kde nastavujete vývojový cluster.  Obsah instalačního balíčku je podrobně popsán [zde](service-fabric-cluster-standalone-package-contents.md).
 
 Správce clusteru, který cluster nasazuje a konfiguruje, musí mít v příslušném počítači oprávnění správce. Service Fabric nelze nainstalovat na řadič domény.
 
@@ -37,7 +37,9 @@ Skript *TestConfiguration.ps1* v samostatném balíčku se používá jako analy
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## <a name="create-the-cluster"></a>Vytvoření clusteru
-Několik ukázkových konfiguračních souborů clusteru se nainstaluje spolu s instalačním balíčkem. Soubor *ClusterConfig.Unsecure.DevCluster.json* představuje nejjednodušší konfiguraci clusteru: nezabezpečený cluster se třemi uzly spuštěnými v jednom počítači. Pro účely tohoto kurzu není třeba upravovat žádné výchozí nastavení konfigurace.  Další konfigurační soubory popisují clustery s jedním nebo více počítači zabezpečené pomocí certifikátů X.509 nebo s použitím zabezpečení systému Windows.  V článku [Zabezpečení clusteru](service-fabric-cluster-security.md) najdete další informace o zabezpečení clusteru Service Fabric. 
+Několik ukázkových konfiguračních souborů clusteru se nainstaluje spolu s instalačním balíčkem. Soubor *ClusterConfig.Unsecure.DevCluster.json* představuje nejjednodušší konfiguraci clusteru: nezabezpečený cluster se třemi uzly spuštěnými v jednom počítači.  Další konfigurační soubory popisují clustery s jedním nebo více počítači zabezpečené pomocí certifikátů X.509 nebo s použitím zabezpečení systému Windows.  Nemusíte upravovat žádná výchozí nastavení konfigurace pro tento kurz, ale projděte si konfigurační soubor a seznamte se s nastavením.  Část **nodes** popisuje tři uzly v clusteru: název, IP adresa, [typ uzlu, doména selhání a upgradovací doména](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  Část **properties** definuje [zabezpečení, úroveň spolehlivosti, shromažďování diagnostických dat a typy uzlů](service-fabric-cluster-manifest.md#cluster-properties) pro cluster.
+
+Tento cluster není zabezpečený.  Každý se může anonymně připojit a provádět operace správy, proto by produkční clustery vždy měly být zabezpečené pomocí certifikátů X.509 nebo zabezpečení systému Windows.  Zabezpečení se konfiguruje jenom při vytváření clusteru a není možné povolit zabezpečení po vytvoření clusteru.  V článku [Zabezpečení clusteru](service-fabric-cluster-security.md) najdete další informace o zabezpečení clusteru Service Fabric.  
 
 Chcete-li vytvořit vývojový cluster se třemi uzly, spusťte skript *CreateServiceFabricCluster.ps1* z relace prostředí PowerShell správce:
 
@@ -88,7 +90,7 @@ Pokud chcete z počítače odebrat modul runtime Service Fabric, spusťte násle
 ```
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když jste nastavili samostatný vývojový cluster, zkuste provést následující kroky:
+Teď, když jste nastavili samostatný vývojový cluster, zkuste následující články:
 * [Nastavení samostatného clusteru s více počítači](service-fabric-cluster-creation-for-windows-server.md) a povolení zabezpečení
 * [Nasazení aplikací s použitím prostředí PowerShell](service-fabric-deploy-remove-applications.md)
 

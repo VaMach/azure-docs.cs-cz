@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. V podokně **Základy** na stránce webu Azure Portal pro vaši databázi vyhledejte a potom zkopírujte **Název serveru**.
+3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na obrázku níže. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.
 
    ![informace o připojení](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Pokud jste zapomněli přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby obnovili heslo. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Připojení k serveru a nové databázi
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Připojení k vaší databázi na logickému serveru SQL Database
 
 Pomocí aplikace SQL Server Management Studio navažte připojení k serveru služby Azure SQL Database. 
 
@@ -65,7 +66,7 @@ Pomocí aplikace SQL Server Management Studio navažte připojení k serveru slu
 
    ![Připojení k serveru](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Klikněte na tlačítko **Možnosti**. V části **Připojit k databázi** zadejte **mySampleDatabase**, abyste se připojili k této databázi, kterou jste dříve vytvořili.
+3. Klikněte na **Možnosti** v dialogovém okně **Připojit k serveru**. V části **Připojit k databázi** zadejte **mySampleDatabase**, abyste se připojili k této databázi.
 
    ![připojení k databázi na serveru](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ Pomocí aplikace SQL Server Management Studio navažte připojení k serveru slu
 
    ![Připojeno k serveru](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. V Průzkumníku objektů zobrazte objekty v ukázkové databázi rozbalením **Databáze** a potom **mySampleDatabase**.
+5. V Průzkumníku objektů zobrazte objekty v ukázkové databázi rozbalením **Databáze** a potom **mySampleDatabase**.
 
 ## <a name="query-data"></a>Dotazování dat
 
@@ -91,7 +92,7 @@ K dotazování dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL 
 
 3. Kliknutím na **Provést** na panelu nástrojů načtěte data z tabulek Product a ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Vložení dat
 

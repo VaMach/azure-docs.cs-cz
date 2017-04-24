@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -31,7 +31,7 @@ K ověření využívají rovina správy i rovina dat službu Azure Active Direc
 
 Stručný přehled tímto článkem pokrytých témat:
 
-[Ověření s použitím Azure Active Directory](#authentication-using-azure-active-direcrory): Tato část vysvětluje, jak se volající ověřuje ve službě Azure Active Directory za účelem přístupu k trezoru klíčů prostřednictvím roviny správy i roviny dat. 
+[Ověření s použitím Azure Active Directory](#authentication-using-azure-active-directory): Tato část vysvětluje, jak se volající ověřuje ve službě Azure Active Directory za účelem přístupu k trezoru klíčů prostřednictvím roviny správy i roviny dat. 
 
 [Rovina správy a rovina dat](#management-plane-and-data-plane): Rovina správy a rovina dat jsou dvě roviny přístupu, které se používají pro přístup k vašemu trezoru klíčů. Každá rovina podporuje určité operace. Tato část popisuje koncové body přístupu, podporované operace a metody řízení přístupu používané těmito rovinami. 
 

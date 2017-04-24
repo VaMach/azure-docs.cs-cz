@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -70,16 +70,18 @@ Na webu Azure Portal získejte připojovací řetězec. Připojovací řetězec 
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. V podokně **Základy** pro vaši databázi zkontrolujte plně kvalifikovaný název serveru. 
+3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na obrázku níže. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![název-serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Klikněte na tlačítko **Zobrazit databázové připojovací řetězce**.
+4. Pokud jste zapomněli přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby obnovili heslo.
 
-5. Zkontrolujte úplný připojovací řetězec **ADO.NET**.
+5. Klikněte na tlačítko **Zobrazit databázové připojovací řetězce**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Zkontrolujte úplný připojovací řetězec **ADO.NET**.
+
+    ![Připojovací řetězec pro ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## <a name="add-systemdatasqlclient"></a>Přidání oboru názvů System.Data.SqlClient
 Pokud používáte .NET Core, přidejte do souboru ***csproj*** projektu System.Data.SqlClient jako závislost.
 
@@ -94,8 +96,7 @@ Pokud používáte .NET Core, přidejte do souboru ***csproj*** projektu System.
 1. Ve svém vývojovém prostředí otevřete prázdný soubor kódu.
 2. Přidejte ```using System.Data.SqlClient``` do souboru kódu ([obor názvů System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. K dotazování dat v databázi SQL Azure použijte metodu [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) s příkazem jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx). Přidání příslušných hodnot pro váš server
-
+3. K dotazování dat v databázi SQL Azure použijte metodu [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) s příkazem jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx). Přidejte příslušné hodnoty pro váš server.
 ```csharp
 using System;
 using System.Data;

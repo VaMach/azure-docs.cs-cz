@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Otevřete okno prohlížeče zobrazující agregovaná data výkonu z prohlíže
 
 ![Na stránce portal.azure.com otevřete prostředek vaší aplikace a klikněte na tlačítko Nastavení, Prohlížeč](./media/app-insights-javascript/03.png)
 
-*Žádná data? V horní části stránky klikněte na**Obnovit**. Stále nic? Viz [Poradce při potížích](app-insights-troubleshoot-faq.md).*
+*Žádná data? V horní části stránky klikněte na **Obnovit**. Stále nic? Viz [Poradce při potížích](app-insights-troubleshoot-faq.md).*
 
 Okno prohlížeče je [okno Průzkumníka metrik](app-insights-metrics-explorer.md) s přednastavenými filtry a výběry grafu. Pokud chcete, můžete upravit časové rozmezí, filtry a konfiguraci grafu a uložit výsledek jako oblíbenou položku. Klikněte na tlačítko **Obnovit výchozí nastavení** a vraťte se zpět do původní konfigurace okna.
 
@@ -230,6 +230,6 @@ Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 ## <a name="next"></a> Další kroky
 * [Sledování využití](app-insights-web-track-usage.md)
 * [Vlastní události a metriky](app-insights-api-custom-events-metrics.md)
-* [Sestavení vyhodnocení poučení](app-insights-overview-usage.md)
+* [Sestavení vyhodnocení poučení](app-insights-web-track-usage.md)
 
 
