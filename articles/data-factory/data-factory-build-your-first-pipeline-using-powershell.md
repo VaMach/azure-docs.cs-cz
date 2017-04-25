@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/25/2017
+ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -53,7 +54,7 @@ V tomto kroku vytvoříte pomocí prostředí Azure PowerShell objekt pro vytvá
     ```    
    * Spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet.
     ```PowerShell
-    Get-AzureRmSubscription 
+    Get-AzureRmSubscription    
     ```
    * Spuštěním následujícího příkazu vyberte předplatné, se kterým chcete pracovat. Mělo by to být stejné předplatné, které jste použili na webu Azure Portal.
     ```PowerShell
@@ -413,9 +414,4 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |
 | [Monitorování a správa kanálů pomocí monitorovací aplikace](data-factory-monitor-manage-app.md) |Tento článek popisuje, jak monitorovat, spravovat a ladit kanály pomocí aplikace pro monitorování a správu. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
