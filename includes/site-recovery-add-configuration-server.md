@@ -40,8 +40,3 @@
     ![Souhrn](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 Po dokončení registrace se server zobrazí v okně **Nastavení** > **Servery** v trezoru.
-
-
-<!--HONumber=Feb17_HO4-->
-
-
