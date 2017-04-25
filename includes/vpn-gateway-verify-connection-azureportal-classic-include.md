@@ -11,7 +11,3 @@ Na webu Azure Portal můžete zobrazit stav připojení VPN Gateway klasické vi
 5. Pokud chcete zobrazit další informace o připojení, klikněte na název připojení a otevřete okno **Připojení VPN typu Site-to-Site**.
 
     ![Stav připojení – další informace](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Stav připojení – další informace")
-
-<!--HONumber=Jan17_HO5-->
-
-

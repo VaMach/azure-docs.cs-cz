@@ -6,8 +6,3 @@
 | [Volání webového rozhraní API z webové aplikace .NET](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | [Přidání funkce registrace a přihlášení do aplikace SPA v Javascriptu (NodeJS)](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)| |
 | [Přidání funkcí registrace a přihlášení do aplikace ASP.NET Core](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

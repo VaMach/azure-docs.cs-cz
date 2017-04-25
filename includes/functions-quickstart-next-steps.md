@@ -10,7 +10,3 @@ Tento rychlý start předvádí jednoduché provedení základní funkce protoko
   Toto téma popisuje plány služby, které jsou dostupné se službou Azure Functions (včetně plánu hostování Consumption), a výběr správného plánu. 
 * [Co je Azure App Service?](../articles/app-service/app-service-value-prop-what-is.md)  
   Služba Azure Functions využívá platformu Azure App Service pro základní funkce, jako jsou nasazení, proměnné prostředí a diagnostika. 
-
-<!--HONumber=Feb17_HO1-->
-
-
