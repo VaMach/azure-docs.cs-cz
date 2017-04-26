@@ -126,7 +126,7 @@ V tomto článku budete používat jádro **PySpark**. Další informace o jádr
         # Create a data frame
         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
 
-        # Register the data fram as a table to run queries against
+        # Register the data frame as a table to run queries against
         hvacdf.registerTempTable("hvac")
 
     Clustery Spark ve službě HDInsight se dodávají s ukázkovým datovým souborem **hvac.csv**, který je uložený v **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
