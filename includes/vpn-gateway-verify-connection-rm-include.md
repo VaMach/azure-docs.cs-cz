@@ -1,48 +1,29 @@
-### <a name="to-verify-your-connection-by-using-powershell"></a>Ověření připojení pomocí prostředí PowerShell
-Pomocí rutiny `Get-AzureRmVirtualNetworkGatewayConnection` s nebo bez `-Debug` můžete ověřit, že vaše připojení bylo úspěšné. 
+### <a name="to-verify-your-connection-by-using-powershell"></a>To verify your connection by using PowerShell
 
-1. Použijte následující příklad rutiny a nakonfigurujte hodnoty tak, aby odpovídaly vašemu prostředí. Po zobrazení výzvy vyberte možnost „A“, abyste spustili „vše“. V příkladu odkazuje `-Name` na název připojení, které jste vytvořili a chcete ho testovat.
+You can verify that your connection succeeded by using the 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet, with or without '-Debug'. 
+
+1. Use the following cmdlet example, configuring the values to match your own. If prompted, select 'A' in order to run 'All'. In the example, '-Name' refers to the name of the connection that you created and want to test.
+
+  ```powershell
+  Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+  ```
+2. After the cmdlet has finished, view the values. In the example below, the connection status shows as 'Connected' and you can see ingress and egress bytes.
+
+  ```
+  "connectionType": "IPsec",
+  "routingWeight": 10,
+  "sharedKey": "abc123",
+  "connectionStatus": "Connected",
+  "ingressBytesTransferred": 33509044,
+  "egressBytesTransferred": 4142431
+  ```
+
+### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>To verify your connection by using the Azure portal
+
+In the Azure portal, you can view the connection status by navigating to the connection. There are multiple ways to do this. The following steps show one way to navigate to your connection and verify.
+
+1. In the [Azure portal](http://portal.azure.com), click **All resources** and navigate to your virtual network gateway.
+2. On the blade for your virtual network gateway, click **Connections**. You can see the status of each connection.
+3. Click the name of the connection that you want to verify to open **Essentials**. In Essentials, you can view more information about your connection. The **Status** is 'Succeeded' and 'Connected' when you have made a successful connection.
    
-        Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
-2. Po dokončení zpracování rutiny si prohlédněte hodnoty. Ve výše uvedeném příkladu se zobrazí stav připojení Připojeno a vy vidíte příchozí a odchozí bajty.
-   
-        Body:
-        {
-          "name": "MyGWConnection",
-          "id":
-        "/subscriptions/086cfaa0-0d1d-4b1c-94544-f8e3da2a0c7789/resourceGroups/MyRG/providers/Microsoft.Network/connections/MyGWConnection",
-          "properties": {
-            "provisioningState": "Succeeded",
-            "resourceGuid": "1c484f82-23ec-47e2-8cd8-231107450446b",
-            "virtualNetworkGateway1": {
-              "id":
-        "/subscriptions/086cfaa0-0d1d-4b1c-94544-f8e3da2a0c7789/resourceGroups/MyRG/providers/Microsoft.Network/virtualNetworkGa
-        teways/vnetgw1"
-            },
-            "localNetworkGateway2": {
-              "id":
-        "/subscriptions/086cfaa0-0d1d-4b1c-94544-f8e3da2a0c7789/resourceGroups/MyRG/providers/Microsoft.Network/localNetworkGate
-        ways/LocalSite"
-            },
-            "connectionType": "IPsec",
-            "routingWeight": 10,
-            "sharedKey": "abc123",
-            "connectionStatus": "Connected",
-            "ingressBytesTransferred": 33509044,
-            "egressBytesTransferred": 4142431
-          }
-
-### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>Ověření připojení pomocí webu Azure Portal
-Na webu Azure Portal můžete zobrazit stav připojení otevřením připojení. To lze provést několika způsoby. Následující postup ukazuje jeden ze způsobů přechodu k připojení a jeho ověření.
-
-1. Na webu [Azure Portal](http://portal.azure.com) klikněte na **Všechny prostředky** a přejděte ke své bráně virtuální sítě.
-2. V okně vaší brány virtuální sítě klikněte na **Připojení**. Můžete zobrazit stav každého připojení.
-3. Kliknutím na název připojení, které chcete ověřit, otevřete **Základní údaje**. V části Základní údaje můžete zobrazit další informace o připojení. **Stav** bude „Úspěšně dokončeno“ a „Připojeno“ po provedení úspěšného připojení.
-   
-    ![Ověření připojení](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+    ![Verify connection](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
