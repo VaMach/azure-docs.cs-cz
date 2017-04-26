@@ -35,7 +35,3 @@ Ano, je to možné. Nesmějí se však překrývat předpony IP adres virtuáln�
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Jakou propustnost je možné očekávat u připojení typu Site-to-Site nebo Point-to-Site?
 Určit přesnou propustnost tunelových propojení sítí VPN je obtížné. IPsec a SSTP jsou kryptograficky náročné protokoly sítě VPN. Propustnost je také omezena latencí a šířkou pásma mezi vaší lokalitou a internetem.
-
-<!--HONumber=Feb17_HO3-->
-
-
