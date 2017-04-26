@@ -67,7 +67,7 @@
 ### [Průvodce návrhem tabulky](storage-table-design-guide.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Úložiště souborů
-### [Přehled](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Přehled](/rest/api/storageservices/File-Service-Concepts)
 ### [Řešení problémů se Soubory Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Použití disků
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [Poskytovatel prostředků](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 

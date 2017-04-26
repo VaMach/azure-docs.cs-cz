@@ -22,7 +22,7 @@
 
 ## Vytvoření webové aplikace
 ### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [Přidání nabízených oznámení](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [Práce s klientskou sadou SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [Povolení offline synchronizace](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Přidání ověřování](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Přidání nabízených oznámení](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [Povolení offline synchronizace](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Přidání ověřování](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Přidání nabízených oznámení](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Připojení k Azure Storage z aplikace v Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [Práce s klientskou sadou SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Správa aplikací pomocí Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integrace
-### [Připojení k Azure Storage z aplikace v Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [Přístup k místním prostředkům pomocí hybridních připojení](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Jak odeslat e-maily v Azure pomocí SendGridu](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Ceny](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Ukázky
 ### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Synchronizace strukturovaných dat](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)

@@ -14,6 +14,7 @@
 ## Konfigurace připojení typu site-to-site
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
 ## Konfigurace připojení typu point-to-site
@@ -38,7 +39,6 @@
 ## [Konfigurace vysoce dostupných připojení typu aktivní-aktivní](vpn-gateway-activeactive-rm-powershell.md)
 ## [Úprava nastavení místní síťové brány pomocí PowerShellu](vpn-gateway-modify-local-network-gateway.md)
 ## [Ověření připojení brány VPN](vpn-gateway-verify-connection-resource-manager.md)
-## [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
 ## Odstranění brány VPN
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -46,12 +46,15 @@
 ### [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Vytvoření kořenových certifikátů podepsaných svým držitelem pro připojení P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
+## Řešení potíží
+### [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
 ## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj154113)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 
 # Související
 ## [Virtual Network](/azure/virtual-network/)

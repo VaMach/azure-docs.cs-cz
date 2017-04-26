@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>Virtuální pevné disky
 
-Virtuální pevné disky používané v Azure jsou soubory .vhd uložené jako objekty blob stránky v účtu úložiště úrovně Standard nebo Premium v Azure. Podrobnosti o objektech blob stránky najdete v tématu [Vysvětlení objektů blob bloku a objektů blob stránky](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Podrobnosti o úložišti úrovně Premium najdete v článku [Vysoce výkonné úložiště úrovně Premium a virtuální počítače Azure](../articles/storage/storage-premium-storage.md).
+Virtuální pevné disky používané v Azure jsou soubory .vhd uložené jako objekty blob stránky v účtu úložiště úrovně Standard nebo Premium v Azure. Podrobnosti o objektech blob stránky najdete v tématu [Vysvětlení objektů blob bloku a objektů blob stránky](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Podrobnosti o úložišti úrovně Premium najdete v článku [Vysoce výkonné úložiště úrovně Premium a virtuální počítače Azure](../articles/storage/storage-premium-storage.md).
 
 Azure podporuje virtuální pevné disky s pevným formátem. Pevný formát logický disk lineárně rozvrhne v rámci souboru, takže posun disku o X je uložen na pozici objektu blob s posunem o X. Malé zápatí na konci objektu blob popisuje vlastnosti virtuálního pevného disku. Pevný formát často plýtvá místem, protože většina disků obsahuje velké nevyužité oblasti dat. Azure však ukládá soubory .vhd ve zhuštěném formátu, takže současně můžete těžit z výhod pevných i dynamických disků. Další podrobnosti najdete v tématu [Začínáme s virtuálními pevnými disky](https://technet.microsoft.com/library/dd979539.aspx).
 
