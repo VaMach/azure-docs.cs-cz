@@ -5,8 +5,3 @@ Protože je sdílená složka File Storage standardní sdílenou složkou SMB, a
 
 Sdílené složky Azure můžete vytvářet pomocí [webu Azure Portal](https://portal.azure.com), rutin PowerShell pro Azure Storage, knihovny klienta Azure Storage nebo REST API pro Azure Storage. Protože jsou tyto sdílené složky sdílenými složkami SMB, můžete k nim také přistupovat přes standardní a známá rozhraní API pro souborové systémy.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -13,8 +13,3 @@
    
    ![Snímek obrazovky zobrazující zprávu o ověření identity virtuálního počítače](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
