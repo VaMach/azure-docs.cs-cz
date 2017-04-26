@@ -4,6 +4,7 @@
 ## [Co je DocumentDB: API pro MongoDB?](documentdb-protocol-mongodb.md)
 ## [Základní koncepty](documentdb-resources.md)
 ## [Globální distribuce](documentdb-distribute-data-globally.md)
+## [Místní převzetí služeb při selhání](documentdb-regional-failovers.md)
 ## [Zabezpečení](documentdb-nosql-database-security.md)
 ## [Analýza celkových nákladů na vlastnictví NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scénáře
@@ -47,7 +48,6 @@
 ### [Modelování dat](documentdb-modeling-data.md)
 ### [Automatické vypršení dat](documentdb-time-to-live.md)
 ### [Zálohování a obnovení](documentdb-online-backup-and-restore.md)
-### [Místní převzetí služeb při selhání](documentdb-regional-failovers.md)
 ### Automation
 #### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: Vytvoření účtu](documentdb-automation-resource-manager-cli-nodejs.md)

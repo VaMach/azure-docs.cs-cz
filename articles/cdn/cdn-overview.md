@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
-ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -62,7 +63,7 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | [Rychlé vyprázdnění](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Předběžné načítání prostředku](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Základní analýza](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Podpora HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [Podpora HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Rozšířené sestavy HTTP](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Statistiky v reálném čase](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Výstrahy v reálném čase](cdn-real-time-alerts.md) | | |**&#x2713;** |
@@ -88,10 +89,5 @@ Chcete-li vidět CDN v akci, podívejte se na [video z naší konference Build 2
 Přečtěte si informace o automatizaci Azure CDN s [.NET](cdn-app-dev-net.md) nebo [Node.js](cdn-app-dev-node.md).
 
 Informace o cenách naleznete v tématu [Ceny CDN](https://azure.microsoft.com/pricing/details/cdn/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

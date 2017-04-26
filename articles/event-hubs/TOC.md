@@ -29,7 +29,6 @@
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Diagnostické protokoly](event-hubs-diagnostic-logs.md)
-### [Ověřování a autorizace](../service-bus-messaging/service-bus-sas.md)
 ### [Průvodce protokolem AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Spravovat
 ### [Knihovny pro správu služby Service Bus](event-hubs-management-libraries.md)

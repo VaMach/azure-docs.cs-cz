@@ -7,6 +7,7 @@
 ## [Zobrazení skupin zabezpečení](network-watcher-security-group-view-overview.md)
 ## [Další směrování](network-watcher-next-hop-overview.md)
 ## [Řešení potíží s připojením VPN](network-watcher-troubleshoot-overview.md)
+## [Omezení služby](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Začínáme
 ## [Konfigurace Network Watcheru](network-watcher-create.md)
 ## Správa zachytávání paketů

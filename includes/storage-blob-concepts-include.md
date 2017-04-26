@@ -22,5 +22,5 @@ Služba Blob service obsahuje následující součásti:
   
     *Objekty blob stránek* můžou mít velikost až 1 TB a jsou efektivnější pro časté operace čtení a zápisu. Služba Azure Virtual Machines používá objekty blob stránek jako disky pro operační systém a ukládání dat.
   
-    Podrobnosti o vytváření názvů kontejnerů a objektů blob najdete v článku [Názvy kontejnerů, objektů blob a metadat a odkazování na ně](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+    Podrobnosti o vytváření názvů kontejnerů a objektů blob najdete v článku [Názvy kontejnerů, objektů blob a metadat a odkazování na ně](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 

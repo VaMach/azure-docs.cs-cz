@@ -67,6 +67,9 @@
   - name: "Státní správa"
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
+  - name: "Německo"
+    tocHref: /azure/germany/
+    topicHref: /azure/germany/
   - name: "Portál"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/

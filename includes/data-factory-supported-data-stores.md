@@ -1,8 +1,3 @@
-Aktivita kopírování ve službě Data Factory kopíruje data ze zdrojového úložiště dat do úložiště dat jímky. Data Factory podporuje následující typy úložišť dat. Data z libovolného zdroje lze zapsat do libovolné jímky. Kliknutím na úložiště dat se dozvíte, jak kopírovat data z a do daného úložiště.
-
-> [!NOTE] 
-> Pokud potřebujete přesunout data do nebo z úložiště dat, které aktivita kopírování nepodporuje, použijte ke kopírování nebo přesunu **vlastní aktivitu** ve službě Data Factory s vaší vlastní logikou. Podrobnosti o vytvoření a používání vlastní aktivity najdete v tématu [Použití vlastních aktivit v kanálu služby Azure Data Factory](../articles/data-factory/data-factory-use-custom-activities.md).
-
 | Kategorie | Úložiště dat | Podporované jako zdroj | Podporované jako jímka |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |
@@ -36,7 +31,4 @@ Aktivita kopírování ve službě Data Factory kopíruje data ze zdrojového ú
 | &nbsp; |[Webová tabulka (tabulka z HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓ | |
 | &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> Úložiště dat s * mohou být místní nebo v Azure IaaS a vyžadují nainstalování [Brány správy dat](../articles/data-factory/data-factory-data-management-gateway.md) na místním počítači nebo na počítači Azure IaaS.
->
->
+
