@@ -22,7 +22,7 @@ ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pro Azure Cloud Services
-[Aplikace služby Microsoft Azure Cloud](https://azure.microsoft.com/services/cloud-services/) lze monitorovat prostřednictvím [Application Insights] [ start] z hlediska dostupnosti, výkonu, chyb a využití. Na základě zpětné vazby ohledně výkonu a efektivity vaší aplikace při běžném používání můžete informovaně rozhodovat o směrování návrhu v každé fázi vývoje.
+[Aplikace služby Microsoft Azure Cloud](https://azure.microsoft.com/services/cloud-services/) lze monitorovat prostřednictvím [Application Insights][start] z hlediska dostupnosti, výkonu, chyb a využití. Na základě zpětné vazby ohledně výkonu a efektivity vaší aplikace při běžném používání můžete informovaně rozhodovat o směrování návrhu v každé fázi vývoje.
 
 ![Příklad](./media/app-insights-cloudservices/sample.png)
 
