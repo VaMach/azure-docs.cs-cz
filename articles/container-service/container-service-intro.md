@@ -74,6 +74,8 @@ Docker Swarm poskytuje nativní clustering pro Docker. Protože Docker Swarm obs
 
 ![Služba Azure Container Service nakonfigurovaná pro používání Swarmu.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Mezi podporované nástroje pro správu kontejnerů v clusteru Swarmu patří mimo jiné následující:
 
 * Dokku
