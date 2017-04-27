@@ -12,7 +12,3 @@ Při vytváření zóny DNS v DNS Azure:
 > Pro vytvoření zóny DNS s názvem domény v DNS Azure nemusíte tento název domény vlastnit. Doménu ale musíte vlastnit, pokud chcete nakonfigurovat názvové servery DNS Azure jako správné názvové servery pro daný název domény u registrátora názvu domény.
 > 
 > Další informace najdete v tématu [Delegování domény do DNS Azure](../articles/dns/dns-domain-delegation.md).
-
-<!--HONumber=Jan17_HO1-->
-
-
