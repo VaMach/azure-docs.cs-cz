@@ -14,8 +14,3 @@ K restartování virtuálního zařízení slouží následující rutina.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -4,8 +4,3 @@
 2. Klikněte na **Virtuální počítače** a potom vyberte virtuální zařízení.
 3. Klikněte na **Odstranit** a zvolte odstranění všech disků virtuálního počítače.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

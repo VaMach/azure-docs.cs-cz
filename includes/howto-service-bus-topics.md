@@ -41,8 +41,3 @@ Vytvoření oboru názvů:
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

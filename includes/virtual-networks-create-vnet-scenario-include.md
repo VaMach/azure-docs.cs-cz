@@ -8,8 +8,3 @@ V tomto scénáři vytvoříte virtuální síť VNet s názvem **TestVNet** s v
 * **FrontEnd** s blokem CIDR **192.168.1.0/24**
 * **BackEnd** s blokem CIDR **192.168.2.0/24**
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

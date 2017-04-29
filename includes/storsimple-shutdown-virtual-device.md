@@ -3,8 +3,3 @@
 2. Klikněte na **Virtuální počítače** a potom vyberte virtuální zařízení.
 3. Klikněte na **Vypnout**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

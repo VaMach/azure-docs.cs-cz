@@ -15,8 +15,3 @@ Při výběru SKU zvažte následující informace:
 * Konfigurace současného fungování ExpressRoute a služby VPN Gateway nejsou podporované v základní SKU.
 * Propojení VPN Gateway S2S aktivní-aktivní jde konfigurovat jenom v SKU HighPerformance.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

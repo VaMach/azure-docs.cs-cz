@@ -7,8 +7,3 @@
 5. Kliknutím na **Download Remote Management Certificate** (Stáhnout certifikát pro vzdálenou správu) stáhnete certifikát pro vzdálenou správu. Zadáte umístění, do kterého chcete tento soubor uložit. Tento certifikát se potom musí nainstalovat na klientský nebo hostitelský počítač, pomocí kterého se budete připojovat k virtuálnímu zařízení.
 6. V dolní části stránky klikněte na **Uložit**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

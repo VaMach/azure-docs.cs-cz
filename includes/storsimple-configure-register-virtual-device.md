@@ -17,8 +17,3 @@ Po dokončení konfigurace a registrace zařízení přejde do režimu online. (
 
 ![Fáze režimu online virtuálního zařízení StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

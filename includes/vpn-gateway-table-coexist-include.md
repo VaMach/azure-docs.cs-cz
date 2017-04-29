@@ -4,8 +4,3 @@
 | **Azure Portal** |Nepodporuje se |Nepodporuje se |
 | **PowerShell** |[Článek](../articles/expressroute/expressroute-howto-coexist-classic.md) |[Článek](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
