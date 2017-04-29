@@ -21,8 +21,3 @@
    
     Pomocí této hodnoty klíče API potom povolíte službě Azure ověření na serveru GCM a odesílání nabízených oznámení jménem vaší aplikace.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

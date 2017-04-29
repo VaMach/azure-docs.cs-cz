@@ -12,8 +12,3 @@
 
 Po vytvoření koncového bodu můžete zobrazit jeho podrobnosti, abyste zjistili virtuální IP adresu (VIP). Tuto adresu si poznamenejte.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
