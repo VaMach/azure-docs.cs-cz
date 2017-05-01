@@ -34,8 +34,3 @@ Po nakonfigurování možností nové mezipaměti klikněte na **Vytvořit**. Vy
 
 ![Mezipaměť vytvořena](media/redis-cache-create/redis-cache-cache-created.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
