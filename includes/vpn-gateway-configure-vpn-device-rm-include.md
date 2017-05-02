@@ -6,16 +6,8 @@ Připojení Site-to-Site k místní síti vyžadují zařízení VPN. Protože n
 - Parametry protokolu IPsec/IKE najdete v popisu [parametrů](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
 - Před konfigurací zařízení VPN zkontrolujte [známé problémy s kompatibilitou zařízení](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) pro zařízení VPN, které chcete použít.
 
-Při konfiguraci zařízení VPN budete potřebovat následující položky:
+Při konfiguraci zařízení VPN potřebujete následující:
 
-- Veřejnou IP adresu vaší brány virtuální sítě.
+- Sdílený klíč. Jedná se o stejný sdílený klíč, který zadáváte při vytváření připojení VPN Site-to-Site. V našich ukázkách používáme základní sdílený klíč. Doporučujeme, abyste pro použití vygenerovali složitější klíč.
 
-    -  Chcete-li najít veřejnou IP adresu pomocí webu Azure Portal, přejděte na **Brány virtuální sítě** a klikněte na název brány. 
-    - Pokud chcete zjistit veřejnou IP adresu brány virtuální sítě pomocí PowerShellu, použijte následující ukázku, ve které nahradíte hodnoty vlastními.
-
-            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-- Sdílený klíč. Jedná se o stejný sdílený klíč, který zadáváte při vytváření připojení VPN Site-to-Site. V našich ukázkách používáme velmi základní sdílený klíč. Pro použití byste měli generovat složitější klíč.
-
-
-
-
+- Veřejnou IP adresu vaší brány virtuální sítě. Veřejnou IP adresu můžete zobrazit pomocí webu Azure Portal, PowerShellu nebo rozhraní příkazového řádku.

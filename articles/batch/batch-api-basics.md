@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -73,11 +73,12 @@ Některé z následujících prostředků – účty, výpočetní uzly, fondy, 
 
 Účet Batch můžete vytvořit prostřednictvím webu [Azure Portal](batch-account-create-portal.md) nebo prostřednictvím programu, například s použitím [knihovny Batch Management .NET](batch-management-dotnet.md). Při vytváření účtu můžete přidružit účet úložiště Azure.
 
-Služba Batch podporuje dvě konfigurace účtu podle vlastnosti *režimu přidělování fondů*. Tyto dvě konfigurace poskytují různé možnosti pro ověřování službou Batch a pro zřizování a správu [fondů](#pool) Batch (viz dále v tomto článku). 
+Služba Batch podporuje dvě konfigurace účtu podle vlastnosti *režimu přidělování fondů*. Tyto dvě konfigurace poskytují přístup k různým možnostem souvisejícím s [fondy](#pool) služby Batch (viz dále v tomto článku). 
 
 
-* **Služba Batch** (výchozí): Můžete využívat přístup k rozhraním API Batch buď s použitím ověřování pomocí sdíleného klíče, nebo s použitím [ověřování Azure Active Directory](batch-aad-auth.md). Výpočetní prostředky Batch se v rámci účtu spravovaného Azure přidělují na pozadí.   
-* **Předplatné uživatele:** Přístup k rozhraním API Batch můžete využívat pouze s použitím [ověřování Azure Active Directory](batch-aad-auth.md). Batch výpočetní prostředky se přidělují přímo ve vašem předplatném Azure. Tento režim poskytuje větší flexibilitu při konfiguraci výpočetních uzlů a integraci s jinými službami. Tento režim vyžaduje, abyste pro účet Batch nastavili další trezor klíčů Azure.
+* **Služba Batch:** Toto je výchozí možnost, kdy se virtuální počítače ve fondu služby Batch přidělují na pozadí v rámci předplatných spravovaných Azure. Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy služby Cloud Services, ale nelze ji použít v případě, že jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Můžete využívat přístup k rozhraním API služby Batch buď s použitím ověřování pomocí sdíleného klíče, nebo s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md). 
+
+* **Předplatné uživatele:** Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Přístup k rozhraním API služby Batch můžete využívat pouze s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md) a fondy služby Cloud Services nejsou podporovány. Výpočetní virtuální počítače služby Batch se přidělují přímo v rámci vašeho předplatného Azure. Tento režim vyžaduje, abyste pro účet Batch nastavili trezor klíčů Azure.
  
 
 ## <a name="compute-node"></a>Výpočetní uzel

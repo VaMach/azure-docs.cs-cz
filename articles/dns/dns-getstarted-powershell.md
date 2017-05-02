@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9f9c2ad56483919bf676fc84af49a7c90ba042f9
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -35,6 +35,14 @@ Tento článek vás provede kroky k vytvoření první zóny a záznamu DNS pomo
 K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svou doménu v DNS Azure, musíte vytvořit zónu DNS pro daný název domény. Všechny záznamy DNS pro vaši doménu se pak vytvoří v této zóně DNS. Nakonec, pokud chcete zónu DNS publikovat na internetu, bude potřeba nakonfigurovat pro doménu názvové servery. Jednotlivé kroky jsou popsány níže.
 
 Tyto pokyny předpokládají, že již máte nainstalované prostředí Azure PowerShell a jste k němu přihlášeni. Nápovědu získáte v tématu [Správa zón DNS pomocí PowerShellu](dns-operations-dnszones.md).
+
+## <a name="create-the-resource-group"></a>Vytvoření skupiny prostředků
+
+Před vytvořením zóny DNS se vytvoří skupina prostředků, která bude obsahovat zónu DNS. Následuje ukázka příkazu.
+
+```powershell
+New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```
 
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
@@ -84,6 +92,13 @@ MaxNumberOfRecordSets : 5000
 
 Tyto názvové servery by měly být nakonfigurované u registrátora názvu domény (u kterého jste zakoupili název domény). Registrátor vám nabídne možnost nastavit názvové servery pro doménu. Další informace najdete v tématu [Delegování domény do DNS Azure](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Odstranění všech prostředků
+
+Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující krok:
+
+```powershell
+Remove-AzureRMResourceGroup -Name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f84ac7f1fa20af2e495df89609c810107c65583a
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -36,6 +36,13 @@ K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud c
 
 Tyto pokyny předpokládají, že již máte nainstalované Azure CLI 1.0 a jste k němu přihlášeni. Nápovědu získáte v tématu [Správa zón DNS pomocí Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).
 
+## <a name="create-the-resource-group"></a>Vytvoření skupiny prostředků
+
+Před vytvořením zóny DNS se vytvoří skupina prostředků, která bude obsahovat zónu DNS. Následuje ukázka příkazu.
+
+```azurecli
+azure group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
@@ -98,6 +105,13 @@ info:    network dns zone show command OK
 
 Tyto názvové servery by měly být nakonfigurované u registrátora názvu domény (u kterého jste zakoupili název domény). Registrátor vám nabídne možnost nastavit názvové servery pro doménu. Další informace najdete v tématu [Delegování domény do DNS Azure](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Odstranění všech prostředků
+ 
+Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující krok:
+
+```azurecli
+azure group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Další kroky
 

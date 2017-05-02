@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -33,14 +33,14 @@ Microsoft Operations Management Suite (OMS) je cloudové řešení společnosti 
 
 1. Na hlavním řídicím panelu **Microsoft Operations Management Suite** klikněte na dlaždici **Nastavení** nalevo.
 2. V okně **Nastavení** v části **Řešení** klikněte na možnost **Zabezpečení a audit**.
-3. Objeví se řídicí panel **Zabezpečení a audit**:
+3. Zobrazí se řídicí panel **Zabezpečení a audit**:
    
     ![Řídicí panel Zabezpečení a audit v OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
 Pokud tento řídicí panel otvíráte poprvé a nemáte ve službě OMS žádná sledovaná zařízení, dlaždice nebudou obsahovat žádná data z agentů. Po instalaci agenta může načtení dat ještě nějakou dobu trvat, proto mohou zpočátku chybět některá data, která se ještě odesílají do cloudu.  V takovém případě je normální, že některé dlaždice neobsahují smysluplné informace. Další informace o instalaci agenta OMS v systému Windows obsahuje článek [Přímé připojení počítačů s Windows do OMS](https://technet.microsoft.com/library/mt484108.aspx) a článek [Připojení počítačů s Linuxem do OMS](https://technet.microsoft.com/library/mt622052.aspx) obsahuje stejné informace pro systém Linux.
 
 > [!NOTE]
-> Agent bude shromažďovat informace na základě aktuálních povolených událostí, například název počítače, IP adresa a uživatelské jméno. Nejsou ale shromažďovány žádné soubory, dokumenty, databáze nebo soukromá data.   
+> Agent shromažďuje informace na základě aktuálních povolených událostí, například název počítače, IP adresu a uživatelské jméno. Nejsou ale shromažďovány žádné soubory, dokumenty, databáze nebo soukromá data.   
 > 
 > 
 
@@ -99,12 +99,12 @@ Stejně jako u kterékoli jiné živé dlaždice na řídicím panelu OMS může
 Pokud kliknete na název počítače, získáte chronologický přehled o stavu jeho zabezpečení. To je velmi užitečné v případech, kdy potřebujete zjistit, zda byl nainstalován antimalwarový software, případně kdy byl odebrán.   
 
 ### <a name="update-assessment"></a>Posouzení aktualizací
-Tato možnost umožňuje rychle určit celkovou míru vystavení potenciálním problémům zabezpečení a zda a jak kritické jsou dostupné aktualizace pro vaše prostředí. Řešení Zabezpečení a audit v OMS pouze poskytuje vizualizaci těchto aktualizací, skutečná data pocházejí z řešení [System Updates](https://technet.microsoft.com/library/mt484096.aspx), což je jiný modul v rámci OMS. Následuje příklad aktualizací:
+Tato možnost umožňuje rychle určit celkovou míru vystavení potenciálním problémům zabezpečení a zda a jak kritické jsou dostupné aktualizace pro vaše prostředí. Řešení Zabezpečení a audit v OMS pouze poskytuje vizualizaci těchto aktualizací, skutečná data pocházejí z [řešení Správa aktualizací](oms-solution-update-management.md), což je jiný modul v rámci OMS. Následuje příklad aktualizací:
 
-![Aktualizace systému](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![Aktualizace systému](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> Další informace o řešení System Updates najdete v článku [Aktualizace serverů pomocí řešení System Updates](https://technet.microsoft.com/library/mt484096.aspx).
+> Další informace o řešení Správa aktualizací najdete v tématu [Řešení Správa aktualizací v OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -134,6 +134,14 @@ Tuto dlaždici můžete použít pro přístup ke všem počítačům, na který
 ![Počítače](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
 Můžete pokračovat v šetření kliknutím na každý počítač a kontrolou hlášených událostí zabezpečení.
+
+### <a name="threat-intelligence"></a>Analýza hrozeb
+
+Pomocí možnosti Analýza hrozeb, která je dostupná v řešení Zabezpečení a audit v OMS, můžou správci IT identifikovat ohrožení zabezpečení prostředí – například můžou určit, jestli je konkrétní počítač součástí botnetu. Z počítačů se můžou stát uzly v botnetu, když útočníci neoprávněně nainstalují malware, který tajně připojí počítač k řídicímu serveru. Může také identifikovat potenciální hrozby přicházející z alternativních komunikačních kanálů, jako je například darknet. Další informace o analýze hrozeb najdete v článku [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md).
+
+### <a name="baseline-assessment"></a>Vyhodnocení standardních hodnot
+
+Společnost Microsoft, spolu s organizacemi z oboru a vládními organizacemi po celém světě, definuje konfiguraci systému Windows, která představuje vysoce zabezpečená nastavení serverů. Tuto konfiguraci tvoří sada klíčů registru, nastavení zásad auditu, nastavení zásad zabezpečení a společností Microsoft doporučené hodnoty pro tato nastavení. Tato sada pravidel se označuje jako standardní hodnoty zabezpečení. Další informace o této možnosti najdete v tématu [Vyhodnocování standardních hodnot v řešení Zabezpečení a audit v Operations Management Suite](oms-security-baseline.md).
 
 ### <a name="azure-security-center"></a>Azure Security Center
 Tato dlaždice je v podstatě zkratkou k řídicímu panelu Azure Security Center. Další informace o tomto řešení najdete v článku [Začínáme s Azure Security Center](../security-center/security-center-get-started.md).

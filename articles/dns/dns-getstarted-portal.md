@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/29/2017
 
 Tento článek vás provede kroky k vytvoření první zóny a záznamu DNS pomocí webu Azure Portal. Tyto kroky můžete provést také pomocí Azure PowerShellu nebo Azure CLI pro různé platformy.
 
-K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svou doménu v DNS Azure, musíte vytvořit zónu DNS pro daný název domény. Všechny záznamy DNS pro vaši doménu se pak vytvoří v této zóně DNS. Nakonec, pokud chcete zónu DNS publikovat na internetu, bude potřeba nakonfigurovat pro doménu názvové servery. Jednotlivé kroky jsou popsány níže.
+K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svou doménu v DNS Azure, musíte vytvořit zónu DNS pro daný název domény. Všechny záznamy DNS pro vaši doménu se pak vytvoří v této zóně DNS. Nakonec, pokud chcete zónu DNS publikovat na internetu, bude potřeba nakonfigurovat pro doménu názvové servery. Každý z těchto kroků je popsán v následujících krocích.
 
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
@@ -41,41 +41,36 @@ K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud c
 
     ![Zóna DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. V okně **Vytvořit zónu DNS** pojmenujte zónu DNS. Například *contoso.com*.
- 
-    ![Vytvoření zóny](./media/dns-getstarted-portal/newzone250.png)
+4. V okně **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
 
-5. Dále určete skupinu prostředků, kterou chcete použít. Můžete vytvořit novou skupinu prostředků, nebo vybrat již existující. Pokud se rozhodnete vytvořit novou skupinu prostředků, pomocí rozevírací nabídky **Umístění** zadejte umístění skupiny prostředků. Pamatujte, že toto nastavení se týká umístění skupiny prostředků a nemá žádný vliv na zónu DNS. Umístění zóny DNS je vždy globální a není zobrazeno.
 
-6. Políčko **Připnout na řídicí panel** můžete ponechat zaškrtnuté, pokud chcete novou zónu snadno najít na řídicím panelu. Poté klikněte na **Vytvořit**.
+   | **Nastavení** | **Hodnota** | **Podrobnosti** |
+   |---|---|---|
+   |**Název**|contoso.com|Název zóny DNS|
+   |**Předplatné**|[Vaše předplatné]|Vyberte předplatné, ve kterém se má služba Application Gateway vytvořit.|
+   |**Skupina prostředků**|**Vytvořit novou:** contosoDNSRG|Vytvořte skupinu prostředků. Název skupiny prostředků musí být v rámci vybraného předplatného jedinečný. Další informace o skupinách prostředků najdete v článku s přehledem [Resource Manageru](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Umístění**|Západní USA||
 
-    ![Připnutí na řídicí panel](./media/dns-getstarted-portal/pindashboard150.png)
-
-7. Po kliknutí na Vytvořit uvidíte na řídicím panelu probíhající konfiguraci nové zóny.
-
-    ![Vytváření](./media/dns-getstarted-portal/creating150.png)
-
-8. Po vytvoření nové zóny se na řídicím panelu otevře okno nové zóny.
-
+> [!NOTE]
+> Skupina prostředků označuje umístění skupiny prostředků a nemá žádný vliv na zónu DNS. Umístění zóny DNS je vždy globální a není zobrazeno.
 
 ## <a name="create-a-dns-record"></a>Vytvoření záznamu DNS
 
 Následující příklad vás provede procesem vytvoření nového záznamu A. Informace o dalších typech záznamů a úpravě existujících záznamů najdete v tématu [Správa záznamů a sad záznamů DNS pomocí webu Azure Portal](dns-operations-recordsets-portal.md). 
 
+1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. V okně Všechny prostředky klikněte na zónu DNS **contoso.com**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contoso.com** do pole **Filtrovat podle názvu...** pro snadný přístup k zóně DNS.
 
 1. V horní části okna **Zóna DNS** vyberte **Sada záznamů**. Otevře se okno **Přidat sadu záznamů**.
 
-    ![Nová sada záznamů](./media/dns-getstarted-portal/newrecordset500.png)
+1. V okně **Přidat sadu záznamů** zadejte následující hodnoty a klikněte na **OK**. V tomto příkladu vytváříte záznam A.
 
-4. V okně **Přidat sadu záznamů** pojmenujte sadu záznamů. Sadu záznamů můžete pojmenovat například **www**.
-
-    ![Přidat sadu záznamů](./media/dns-getstarted-portal/addrecordset500.png)
-
-5. Vyberte typ záznamu, který chcete vytvořit. Pro účely tohoto příkladu vyberte **A**.
-6. Nastavte hodnotu **TTL**. Výchozí hodnota TTL (Time to Live) je jedna hodina.
-7. Přidejte IP adresu záznamu.
-8. Vytvořte záznam DNS výběrem **OK** v dolní části okna.
-
+   |**Nastavení** | **Hodnota** | **Podrobnosti** |
+   |---|---|---|
+   |**Název**|www|Název záznamu|
+   |**Typ**|A| Typ záznamu DNS, který se má vytvořit. Přípustné hodnoty jsou A, AAAA, CNAME, MX, NS, SRV, TXT, a PTR.  Další informace o typech záznamů najdete v tématu [Přehled záznamů a zón DNS](dns-zones-records.md).|
+   |**Hodnota TTL**|1|Hodnota TTL (Time to Live) žádosti DNS.|
+   |**Jednotka hodnoty TTL**|Hodiny|Měřené jednotky času pro hodnotu TTL.|
+   |**IP adresa**|{ipAddressValue| Tato hodnota je IP adresa, kterou záznam DNS překládá.|
 
 ## <a name="view-records"></a>Zobrazení záznamů
 
@@ -92,7 +87,15 @@ Názvové servery vaší zóny můžete zobrazit na webu Azure Portal:
 
 ![zóna](./media/dns-getstarted-portal/viewzonens500.png)
 
-Tyto názvové servery by měly být nakonfigurované u registrátora názvu domény (u kterého jste zakoupili název domény). Registrátor vám nabídne možnost nastavit názvové servery pro doménu. Další informace najdete v tématu [Delegování domény do DNS Azure](dns-domain-delegation.md).
+Tyto názvové servery by měly být nakonfigurované u registrátora názvu domény (u kterého jste zakoupili název domény). Registrátor nabízí možnost nastavit názvové servery pro doménu. Další informace najdete v tématu [Delegování domény do DNS Azure](dns-domain-delegation.md).
+
+## <a name="delete-all-resources"></a>Odstranění všech prostředků
+
+Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující kroky:
+
+1. Na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. V okně Všechny prostředky klikněte na skupinu prostředků **MyResourceGroup**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **MyResourceGroup** do pole **Filtrovat podle názvu...** pro snadný přístup ke skupině prostředků.
+1. V okně **MyResourceGroup** klikněte na tlačítko **Odstranit**.
+1. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Klikněte na **Odstranit**, jako název skupiny prostředků zadejte *MyResourceGroup*, a pak klikněte na **Odstranit**. Odstraněním skupiny prostředků se odstraní všechny prostředky v rámci dané skupiny prostředků. Proto nikdy nezapomeňte před odstraněním skupiny prostředků zkontrolovat její obsah. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
 
 
 ## <a name="next-steps"></a>Další kroky

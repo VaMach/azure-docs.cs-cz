@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,6 +32,8 @@ Tento rychlý start používá jako výchozí bod prostředky vytvořené v něk
 - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
 
 ## <a name="install-net"></a>Instalace rozhraní .NET
+
+Kroky v této části předpokládají, že máte zkušenosti s vývojem pomocí rozhraní .NET a teprve začínáte pracovat s Azure SQL Database. Pokud s vývojem pomocí rozhraní .NET začínáte, přejděte na web [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Sestavení aplikace s použitím SQL Serveru), vyberte **jazyk C#** a pak váš operační systém.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework a .NET Core**
 
@@ -66,7 +68,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>Získání informací o připojení
 
-Na webu Azure Portal získejte připojovací řetězec. Připojovací řetězec použijete k připojení k databázi SQL Azure.
+Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
@@ -96,7 +98,8 @@ Pokud používáte .NET Core, přidejte do souboru ***csproj*** projektu System.
 1. Ve svém vývojovém prostředí otevřete prázdný soubor kódu.
 2. Přidejte ```using System.Data.SqlClient``` do souboru kódu ([obor názvů System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. K dotazování dat v databázi SQL Azure použijte metodu [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) s příkazem jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx). Přidejte příslušné hodnoty pro váš server.
+3. Použijte následující kód k zadání dotazu na Top 20 produktů podle kategorie pomocí příkazu [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) s příkazem jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx). Přidejte příslušné hodnoty pro váš server, databázi, uživatele a heslo.
+
 ```csharp
 using System;
 using System.Data;
@@ -152,7 +155,7 @@ namespace ConsoleApplication1
 
 ## <a name="insert-data"></a>Vložení dat
 
-K vložení dat do databáze SQL Azure použijte metodu [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) s příkazem jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
+Použijte následující kód k vložení nového produktu do tabulky SalesLT.Product pomocí příkazu [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) s příkazem jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx). Přidejte příslušné hodnoty pro váš server, databázi, uživatele a heslo.
 
 ```csharp
 using System;
@@ -207,7 +210,7 @@ namespace ConsoleApplication1
 
 ## <a name="update-data"></a>Aktualizace dat
 
-K aktualizaci dat v databázi SQL Azure použijte metodu [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) s příkazem jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
+Použijte následující kód k aktualizaci nového produktu, který jste přidali dříve, pomocí příkazu [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) s příkazem jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx). Přidejte příslušné hodnoty pro váš server, databázi, uživatele a heslo.
 
 ```csharp
 using System;
@@ -257,7 +260,7 @@ namespace ConsoleApplication1
 
 ## <a name="delete-data"></a>Odstranění dat
 
-K odstranění dat z databáze SQL Azure použijte metodu [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) s příkazem jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
+Použijte následující kód k odstranění nového produktu, který jste přidali dříve, pomocí příkazu [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) s příkazem jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx). Přidejte příslušné hodnoty pro váš server, databázi, uživatele a heslo.
 
 ```csharp
 using System;

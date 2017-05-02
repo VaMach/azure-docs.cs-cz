@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -37,7 +37,7 @@ Než začnete, ujistěte se, že máte nainstalovanou nejnovější verzi aplika
 
 ## <a name="get-connection-information"></a>Získání informací o připojení
 
-Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure SQL Database. Plně kvalifikovaný název serveru použijete k připojení k serveru pomocí aplikace SQL Server Management Studio.
+Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
@@ -78,7 +78,7 @@ Pomocí aplikace SQL Server Management Studio navažte připojení k serveru slu
 
 ## <a name="query-data"></a>Dotazování dat
 
-K dotazování dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
+Použijte následující kód k zadání dotazu na Top 20 produktů podle kategorie pomocí příkazu jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
 1. V Průzkumníku objektů klikněte pravým tlačítkem na **mySampleDatabase** a potom klikněte na **Nový dotaz**. Otevře se prázdné okno dotazu připojené k vaší databázi.
 2. Do okna dotazu zadejte následující dotaz:
@@ -96,7 +96,7 @@ K dotazování dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL 
 
 ## <a name="insert-data"></a>Vložení dat
 
-K vložení dat do databáze SQL Azure použijte příkaz jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
+Použijte následující kód k vložení nového produktu do tabulky SalesLT.Product pomocí příkazu jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
 1. V okně dotazu nahraďte předchozí dotaz následujícím dotazem:
 
@@ -126,7 +126,7 @@ K vložení dat do databáze SQL Azure použijte příkaz jazyka Transact-SQL [I
 
 ## <a name="update-data"></a>Aktualizace dat
 
-K aktualizaci dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
+Použijte následující kód k aktualizaci nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
 1. V okně dotazu nahraďte předchozí dotaz následujícím dotazem:
 
@@ -142,7 +142,7 @@ K aktualizaci dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL [
 
 ## <a name="delete-data"></a>Odstranění dat
 
-K odstranění dat z databáze SQL Azure použijte příkaz jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
+Použijte následující kód k odstranění nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
 1. V okně dotazu nahraďte předchozí dotaz následujícím dotazem:
 

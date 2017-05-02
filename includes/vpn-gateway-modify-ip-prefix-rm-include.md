@@ -1,28 +1,27 @@
-### <a name="noconnection"></a>Postup přidání nebo odebrání předpon – žádné připojení brány
-### <a name="to-add-additional-prefixes"></a>Přidání dalších předpon
+### <a name="noconnection"></a>Úprava předpon – žádné připojení brány
 
-Pokud chcete přidat další předpony adresy k bráně místní sítě, kterou jste vytvořili, ale ještě nemáte připojení brány, použijte následující příklad. Nezapomeňte změnit hodnoty na své vlastní.
+- Přidání dalších předpon adres:
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-```
-### <a name="to-remove-an-address-prefix"></a>Odebrání předpony adresy
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  ```
 
-Pokud chcete odebrat předponu adresy z brány místní sítě, která nemá připojení k síti VPN, použijte níže uvedený příklad. Vynechte předpony, které už nepotřebujete. V tomto příkladu už nepotřebujeme předponu 20.0.0.0/24 (z předchozího příkladu), takže bránu místní sítě aktualizujeme a tuto předponu vyloučíme.
+- Odebrání předpony adresy:<br>
+  Vynechte předpony, které už nepotřebujete. V tomto příkladu už nepotřebujeme předponu 20.0.0.0/24 (z předchozího příkladu), takže bránu místní sítě aktualizujeme a tuto předponu vyloučíme.
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-```
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+  ```
 
-### <a name="withconnection"></a>Postup přidání nebo odebrání předpon – existující připojení brány
-Pokud jste vytvořili připojení k bráně a chcete přidat nebo odebrat předpony IP adres obsažené v bráně místní sítě, musíte v uvedeném pořadí provést následující kroky. Způsobí to určitý výpadek připojení k síti VPN. Při aktualizaci předpon nejprve odeberete připojení, upravíte předpony a pak vytvořte nové připojení. V následujících příkladech nezapomeňte změnit hodnoty na své vlastní.
+### <a name="withconnection"></a>Úprava předpon – existující připojení brány
+Pokud máte připojení k bráně a chcete přidat nebo odebrat předpony IP adres obsažené v bráně místní sítě, musíte v uvedeném pořadí provést následující kroky. Způsobí to určitý výpadek připojení VPN.
 
 > [!IMPORTANT]
-> Bránu sítě VPN neodstraňujte. Pokud to uděláte, budete muset znovu provést postup pro její vytvoření a znovu nakonfigurovat místní směrovač s využitím nového nastavení.
+> Bránu sítě VPN neodstraňujte. Pokud to uděláte, budete muset znovu provést kroky k jejímu vytvoření. Kromě toho je nutné aktualizovat místní zařízení VPN o novou IP adresu brány VPN.
 > 
 > 
 
@@ -53,7 +52,7 @@ Pokud jste vytvořili připojení k bráně a chcete přidat nebo odebrat předp
   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
   ```
    
-  Vytvořte připojení. Všimněte si, že v tomto příkladu se používá proměnná $local, kterou jste nastavili v předchozím kroku.
+  Vytvořte připojení. Tento příklad používá proměnnou $local, kterou jste nastavili v kroku 2.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `

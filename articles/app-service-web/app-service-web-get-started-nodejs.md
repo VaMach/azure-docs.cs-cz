@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Vytvoření aplikace Node.js Application ve webové aplikaci
@@ -148,7 +148,7 @@ Po vytvoření plánu služby App Service se v rozhraní příkazového řádku 
 
 Po vytvoření plánu služby App Service teď vytvořte v rámci plánu služby App Service `quickStartPlan` webovou aplikaci. Tato aplikace poskytuje prostor hostitele pro nasazení kódu a také adresu URL, jejímž prostřednictvím lze nasazenou aplikaci zobrazit. Pomocí příkazu [az appservice web create](/cli/azure/appservice/web#create) vytvořte webovou aplikaci.
 
-V následujícím příkladu nahraďte zástupný symbol <název_aplikace> vlastním jedinečným názvem aplikace. <název_aplikace> se použije jako výchozí název DNS pro příslušnou webovou aplikaci, proto musí být mezi všemi aplikacemi v Azure jedinečný. Později můžete na webovou aplikaci namapovat libovolné vlastní záznamy DNS, než ji zpřístupníte uživatelům.
+V následujícím příkazu nahraďte zástupný symbol `<app_name>` vlastním jedinečným názvem aplikace. `<app_name>` se použije jako výchozí název DNS pro příslušnou webovou aplikaci, proto musí být mezi všemi aplikacemi v Azure jedinečný. Později můžete na webovou aplikaci namapovat libovolné vlastní záznamy DNS, než ji zpřístupníte uživatelům.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -296,7 +296,7 @@ Přejděte na web Azure Portal a podívejte se na webovou aplikaci, kterou jste 
 
 Chcete-li to provést, přihlaste se na adrese [https://portal.azure.com](https://portal.azure.com).
 
-V levé nabídce klikněte na **App Service** a pak klikněte na název vaší webové aplikace Azure.
+V levé nabídce klikněte na **App Services** a pak klikněte na název vaší webové aplikace Azure.
 
 ![Navigace portálem k webové aplikaci Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -321,3 +321,4 @@ Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své 
 ## <a name="next-steps"></a>Další kroky
 
 Prozkoumejte předem vytvořené [skripty rozhraní příkazového řádku pro Web Apps](app-service-cli-samples.md).
+
