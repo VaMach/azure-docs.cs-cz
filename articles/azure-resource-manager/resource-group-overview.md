@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6d88b7c5ad96a1c7cfb60bde3c9d952b654adb9f
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -256,7 +256,7 @@ V některých případech chcete spustit kód nebo skript, který bude mít př�
 
 * [Vytvoření instančního objektu pro přístup k prostředkům pomocí Azure PowerShellu](resource-group-authenticate-service-principal.md)
 * [Vytvoření instančního objektu pro přístup k prostředkům pomocí rozhraní příkazového řádku Azure](resource-group-authenticate-service-principal-cli.md)
-* [Vytvoření aplikace služby Active Directory a instančního objektu s přístupem k prostředkům pomocí portálu](resource-group-create-service-principal-portal.md)
+* [Vytvoření aplikace Azure Active Directory a instančního objektu s přístupem k prostředkům pomocí portálu](resource-group-create-service-principal-portal.md)
 
 Je také možné explicitně zamknout důležité prostředky a zabránit tak uživatelům v jejich změně nebo odstranění. Další informace najdete v tématu [Zamknutí prostředků pomocí Azure Resource Manageru](resource-group-lock-resources.md).
 

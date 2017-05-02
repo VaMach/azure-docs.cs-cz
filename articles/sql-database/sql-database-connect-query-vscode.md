@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -35,7 +35,7 @@ Tento rychlý start používá jako výchozí bod prostředky vytvořené v něk
 
 Než začnete, ujistěte se, že máte nainstalovanou nejnovější verzi nástroje [Visual Studio Code](https://code.visualstudio.com/Download) a načtené [rozšíření mssql](https://aka.ms/mssql-marketplace). Pokyny k instalaci rozšíření mssql najdete v tématu popisujícím [instalaci nástroje VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) a [mssql pro Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code-mac-os-only"></a>Konfigurace VS Code (pouze Mac OS)
+## <a name="configure-vs-code"></a>Konfigurace VS Code 
 
 ### <a name="mac-os"></a>**Mac OS**
 Pro macOS musíte nainstalovat OpenSSL, což je předpoklad pro DotNet Core, který rozšíření mssql používá. Otevřete terminál a zadejte následující příkazy, abyste nainstalovali **brew** a **OpenSSL**. 
@@ -49,9 +49,17 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+
+Není potřeba žádná zvláštní konfigurace.
+
+### <a name="windows"></a>**Windows**
+
+Není potřeba žádná zvláštní konfigurace.
+
 ## <a name="get-connection-information"></a>Získání informací o připojení
 
-Na webu Azure Portal získejte plně kvalifikovaný název serveru služby Azure SQL Database. Plně kvalifikovaný název serveru použijete k připojení k serveru pomocí nástroje Visual Studio Code.
+Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
@@ -108,7 +116,7 @@ Pomocí nástroje Visual Studio Code navažte připojení k serveru služby Azur
 
 ## <a name="query-data"></a>Dotazování dat
 
-K dotazování dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
+Použijte následující kód k zadání dotazu na Top 20 produktů podle kategorie pomocí příkazu jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
 1. V okně **Editor** zadejte do prázdného okna dotazu následující dotaz:
 
@@ -125,7 +133,7 @@ K dotazování dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL 
 
 ## <a name="insert-data"></a>Vložení dat
 
-K vložení dat do databáze SQL Azure použijte příkaz jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
+Použijte následující kód k vložení nového produktu do tabulky SalesLT.Product pomocí příkazu jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
 1. V okně **Editor** smažte předchozí dotaz a zadejte následující dotaz:
 
@@ -153,7 +161,7 @@ K vložení dat do databáze SQL Azure použijte příkaz jazyka Transact-SQL [I
 
 ## <a name="update-data"></a>Aktualizace dat
 
-K aktualizaci dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
+Použijte následující kód k aktualizaci nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
 1.  V okně **Editor** smažte předchozí dotaz a zadejte následující dotaz:
 
@@ -167,7 +175,7 @@ K aktualizaci dat v databázi SQL Azure použijte příkaz jazyka Transact-SQL [
 
 ## <a name="delete-data"></a>Odstranění dat
 
-K odstranění dat z databáze SQL Azure použijte příkaz jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
+Použijte následující kód k odstranění nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
 1. V okně **Editor** smažte předchozí dotaz a zadejte následující dotaz:
 

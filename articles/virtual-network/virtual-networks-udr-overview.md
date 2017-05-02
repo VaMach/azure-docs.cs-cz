@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ Následující obrázek znázorňuje příklad tras definovaných uživatelem a 
 ![Systémové trasy v Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Trasy definované uživatelem se použijí jenom u odchozího provozu z podsítě. Například nemůžete vytvořit trasy a určit, jak datové přenosy přicházejí do podsítě ze sítě internet. Zároveň zařízení, na která předáváte datové přenosy, nesmí být ve stejné podsíti, odkud pochází datové přenosy. Pro svoje zařízení vždycky vytvořte samostatnou podsíť. 
+> Trasy definované uživatelem se použijí u odchozího provozu z podsítě ze všech prostředků (například síťová rozhraní připojená k virtuálním počítačům) v dané podsíti. Například nemůžete vytvořit trasy a určit, jak datové přenosy přicházejí do podsítě z internetu. Zařízení, na která předáváte provoz, nesmí být ve stejné podsíti, odkud provoz pochází. Pro svoje zařízení vždycky vytvořte samostatnou podsíť. 
 > 
 > 
 

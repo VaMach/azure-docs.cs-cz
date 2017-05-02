@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -40,9 +41,11 @@ Následující kroky ukazují postup vytvoření testovacího prostředí ve slu
    2. Vyberte **Předplatné**, které bude přidruženo k testovacímu prostředí.
    3. Vyberte **Umístění**, do kterého se testovací prostředí uloží.
    4. Chcete-li povolit a nastavit parametry pro automatické vypínání virtuálních počítačů v testovacím prostředí, vyberte **Automatické vypnutí**. 
-   5. Vyberte **Vytvořit**.
-      
-      ![Okno pro vytvoření testovacího prostředí](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Pokud chcete na řídicím panelu portálu vytvořit zástupce testovacího prostředí, vyberte možnost **Připnout na řídicí panel**.
+   6. Pokud chcete získat šablony Azure Resource Manageru pro automatizaci konfigurace, vyberte **Možnosti automatizace**. 
+   7. Vyberte **Vytvořit**.
+    
+    ![Okno pro vytvoření testovacího prostředí](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ Po vytvoření testovacího prostředí je zde několik kroků, které je vhodn�
 * [Vytvoření šablony testovacího prostředí](devtest-lab-create-template.md)
 * [Vytvoření vlastních artefaktů pro virtuální počítače](devtest-lab-artifact-author.md)
 * [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

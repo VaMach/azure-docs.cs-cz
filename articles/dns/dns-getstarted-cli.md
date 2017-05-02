@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c912aee814d339b979b4d2055425d195d2b9f346
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -34,14 +34,21 @@ Tento článek vás provede kroky k vytvoření první zóny a záznamu DNS pomo
 
 K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svou doménu v DNS Azure, musíte vytvořit zónu DNS pro daný název domény. Všechny záznamy DNS pro vaši doménu se pak vytvoří v této zóně DNS. Nakonec, pokud chcete zónu DNS publikovat na internetu, bude potřeba nakonfigurovat pro doménu názvové servery. Jednotlivé kroky jsou popsány níže.
 
-Tyto pokyny předpokládají, že již máte nainstalované Azure CLI 1.0 a jste k němu přihlášeni. Nápovědu získáte v tématu [Správa zón DNS pomocí Azure CLI 2.0](dns-operations-dnszones-cli.md).
+Tyto pokyny předpokládají, že již máte nainstalované Azure CLI 2.0 a jste k němu přihlášeni. Nápovědu získáte v tématu [Správa zón DNS pomocí Azure CLI 2.0](dns-operations-dnszones-cli.md).
 
+## <a name="create-the-resource-group"></a>Vytvoření skupiny prostředků
+
+Před vytvořením zóny DNS se vytvoří skupina prostředků, která bude obsahovat zónu DNS. Následuje ukázka příkazu.
+
+```azurecli
+az group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
 Zóna DNS se vytvoří příkazem `az network dns zone create`. Pokud chcete zobrazit nápovědu k tomuto příkazu, zadejte `az network dns zone create -h`.
 
-Následující příklad vytvoří zónu DNS s názvem *contoso.com* ve skupině prostředků s názvem *MyResourceGroup*. Nahraďte hodnoty vlastními a použijte tento příklad k vytvoření zóny DNS.
+Následující příklad vytvoří zónu DNS s názvem *contoso.com* ve skupině prostředků *MyResourceGroup*. Nahraďte hodnoty vlastními a použijte tento příklad k vytvoření zóny DNS.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.com
@@ -100,6 +107,13 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 
 Tyto názvové servery by měly být nakonfigurované u registrátora názvu domény (u kterého jste zakoupili název domény). Registrátor vám nabídne možnost nastavit názvové servery pro doménu. Další informace najdete v tématu [Delegování domény do DNS Azure](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Odstranění všech prostředků
+ 
+Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující krok:
+
+```azurecli
+az group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Další kroky
 

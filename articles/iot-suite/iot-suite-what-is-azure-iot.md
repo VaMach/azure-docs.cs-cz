@@ -16,15 +16,16 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
-ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1c8703d64ff45e589a7ce93f1f2176681e1bf331
+ms.lasthandoff: 04/25/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT Suite
-Microsoft Azure IoT Suite je podnikové řešení umožňující rychlý start prostřednictvím sady rozšiřitelných předkonfigurovaných řešení. Tato řešení se vztahují k běžným scénářům IoT, jako je [vzdálené monitorování][lnk-preconfigured-solutions] a [prediktivní údržba][lnk-predictive-maintenance]. Tato řešení jsou implementacemi architektury řešení IoT, která je vysvětlená v tomto článku.
+Microsoft Azure IoT Suite je podnikové řešení umožňující rychlý start prostřednictvím sady rozšiřitelných předkonfigurovaných řešení. Tato řešení se vztahují k běžným scénářům IoT, jako je [vzdálené monitorování][lnk-preconfigured-solutions], [prediktivní údržba][lnk-predictive-maintenance] a [propojená továrna][lnk-connected-factory]. Tato řešení jsou implementacemi architektury řešení IoT, která je vysvětlená v tomto článku.
 
 Předkonfigurovaná řešení jsou kompletní, funkční, ucelená řešení, která zahrnují:
 
@@ -52,9 +53,4 @@ Prostudováním těchto materiálů zjistíte další informace o sadě IoT Suit
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-connected-factory]: iot-suite-connected-factory-overview.md

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -157,7 +157,7 @@ Doporučenou metodou připojení služby Automation je výběr nabídky Automati
 >[!NOTE]
 >Abyste mohli vytvořit účet Automation, musíte být členem role Správci služeb nebo spolusprávcem předplatného, který k tomuto předplatnému uděluje přístup. K výchozí instanci Active Directory tohoto předplatného musíte být přihlášení jako uživatel. Účtu nemusí mít přiřazenou privilegovanou roli.
 >
->Pokud před přidáním k roli spolusprávce nejste členem instance Active Directory příslušného předplatného, budete do služby Active Directory přidaní jako host. V takovém případě se v okně **Přidat účet Automation** zobrazí upozornění Nemáte oprávnění k vytvoření...
+>Pokud před přidáním k roli spolusprávce nejste členem instance Active Directory příslušného předplatného, budete do služby Active Directory přidaní jako host. V tomto případě se zobrazí varování, že nemáte oprávnění k vytvoření, v okně **Přidání účtu Automation**.
 >
 >Uživatele, kteří byli nejdřív přidaní do role spolusprávce, je možné z instance Active Directory předplatného odebrat a potom je znovu přidat – tak se z nich ve službě Active Directory stanou úplní uživatelé. Takovou situaci můžete ověřit v podokně **Azure Active Directory** na webu Azure Portal. Vyberte **Uživatelé a skupiny**, potom **Všichni uživatelé** a po výběru konkrétního uživatele vyberte **Profil**. Hodnota atributu **Typ uživatele** v profilu uživatele by neměla být **Host**.
 
@@ -211,7 +211,7 @@ Po úspěšném vytvoření účtu Automation se pro vaší potřebu automaticky
 | Runbook AzureClassicAutomationTutorial | Ukázkový grafický runbook, který získá všechny virtuální počítače vytvořené v rámci předplatného pomocí modelu nasazení Classic s využitím účtu Spustit jako pro Classic (certifikát) a potom zapíše název a stav virtuálního počítače. |
 | Runbook se skriptem AzureClassicAutomationTutorial | Ukázkový runbook PowerShellu, který získá všechny klasické virtuální počítače v rámci předplatného pomocí účtu Spustit jako pro Azure Classic (certifikát) a potom vypíše název a stav virtuálního počítače. |
 | AzureClassicRunAsCertificate | Automaticky vytvořený prostředek certifikátu, který použijete k ověřování pomocí Azure, abyste mohli spravovat klasické prostředky Azure pomocí runbooků. Tento certifikát má životnost jeden rok. |
-| AzureClassicRunAsConnection | Automaticky vytvořený prostředek připojení, který použijete k ověřování pomocí Azure, abyste mohli spravovat klasické prostředky Azure pomocí runbooků. |Umožňuje ověření pomocí Azure, abyste mohli spravovat prostředky Azure Classic pomocí runbooků. |
+| AzureClassicRunAsConnection | Automaticky vytvořený prostředek připojení, který použijete k ověřování pomocí Azure, abyste mohli spravovat klasické prostředky Azure pomocí runbooků.|
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete ověřit, že nový účet Automation umožňuje ověřování prostřednictvím prostředků Azure, prohlédněte si [test ověřování účtu Azure Automation Spustit jako](automation-verify-runas-authentication.md).
