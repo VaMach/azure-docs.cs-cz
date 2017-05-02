@@ -33,18 +33,19 @@
       href: sql-database-connect-query-python.md
     - name: "Ruby"
       href: sql-database-connect-query-ruby.md
+- name: "Kurzy"
+  items:
+  - name: "1. Vytvoření a návrh nové databáze SQL DB"
+    href: sql-database-design-first-database.md
+  - name: "2. Migrace stávajícího SQL Serveru"
+    href: sql-database-migrate-your-sql-server-database.md 
 - name: "Ukázky"
   items:
   - name: "Azure CLI"
     href: sql-database-cli-samples.md
   - name: "PowerShell"
     href: sql-database-powershell-samples.md
-- name: "Kurzy"
-  items:
-  - name: "Návrh databáze"
-    href: sql-database-design-first-database.md
-  - name: "Migrace databáze"
-    href: sql-database-migrate-your-sql-server-database.md  
+ 
 - name: "Koncepty"
   items:
   - name: "Databáze a servery"
@@ -55,8 +56,6 @@
       href: sql-database-server-overview.md
     - name: "Elastické fondy"
       href: sql-database-elastic-pool.md
-    - name: "Použít elastický fond?"
-      href: sql-database-elastic-pool-guidance.md
   - name: "Zdroje a prostředky"
     items:
     - name: "Úrovně služby"

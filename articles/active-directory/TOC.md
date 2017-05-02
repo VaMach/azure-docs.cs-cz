@@ -69,6 +69,7 @@
 #### [Identifikace a řešení potíží s licencemi pro skupinu](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
+#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Vytvoření samoobslužných skupin](active-directory-accessmanagement-self-service-group-management.md)
 ### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
 

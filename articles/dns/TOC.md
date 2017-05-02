@@ -1,6 +1,8 @@
 # Přehled
 ## [Co je Azure DNS?](dns-overview.md)
 ## [Záznamy a zóny DNS](dns-zones-records.md)
+## [Delegování DNS s využitím Azure DNS](dns-domain-delegation.md)
+## [Nejčastější dotazy k DNS](dns-faq.md)
 
 # Začínáme
 
@@ -10,7 +12,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Delegování domény do Azure DNS](dns-domain-delegation.md)
+## [Delegování domény do Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Vytvoření vlastních záznamů DNS pro webovou aplikaci](dns-web-sites-custom-domain.md)
 
 # Postup

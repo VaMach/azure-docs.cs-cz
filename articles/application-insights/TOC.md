@@ -18,6 +18,7 @@
 ### [Web Apps – běhové prostředí](app-insights-java-live.md)
 ### [Aplikace v Dockeru](app-insights-docker.md)
 
+
 ## Monitorování webových stránek
 ### [JavaScript](app-insights-javascript.md)
 
@@ -75,6 +76,7 @@
 #### [Řídicí panely](app-insights-dashboards.md)
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metriky](app-insights-metrics-explorer.md)
+#### [Živý datový proud](app-insights-live-stream.md)
 
 #### [Mapa aplikace](app-insights-app-map.md)
 #### [Aplikace HockeyApp](app-insights-hockeyapp-bridge-app.md)
@@ -132,6 +134,14 @@
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
+## [Datový model](application-insights-data-model.md)
+### [Požadavek](application-insights-data-model-request-telemetry.md)
+### [Závislost](application-insights-data-model-dependency-telemetry.md)
+### [Výjimka](application-insights-data-model-exception-telemetry.md)
+### [Trasování](application-insights-data-model-trace-telemetry.md)
+### [Události](application-insights-data-model-event-telemetry.md)
+### [Metrika](application-insights-data-model-metric-telemetry.md)
+## [Korelace telemetrie](application-insights-correlation.md)
 
 # Zdroje
 

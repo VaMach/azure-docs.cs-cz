@@ -12,7 +12,12 @@
 ##[Integrace místní brány dat](analysis-services-gateway.md)
 ##[Propojení s Excelem](analysis-services-connect-excel.md)
 ##[Propojení s Power BI](analysis-services-connect-pbi.md)
+##[Poskytovatelé dat](analysis-services-data-providers.md)
 ##[Zálohování a obnovení](analysis-services-backup.md)
+##[Vysoká dostupnost](analysis-services-bcdr.md)
+##[Připojení zdrojů dat](analysis-services-datasource.md)
+
+##[Vytvoření souboru .odc](analysis-services-odc.md)
 
 # Referenční informace
 ##[PowerShell](analysis-services-powershell.md)
@@ -21,6 +26,11 @@
 ##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Zdroje a prostředky
-##[Připojení zdrojů dat](analysis-services-datasource.md)
-##[Poskytovatelé dat](analysis-services-data-providers.md)
-##[Vytvoření souboru .odc](analysis-services-odc.md)
+##[Blog týmu Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
+##[Fórum Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+##[Váš názor](https://feedback.azure.com/forums/556165-azure-analysis-services)
+##[Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+##[Ceny](https://azure.microsoft.com/pricing/details/analysis-services/)
+##[Videa](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+##[Stav Azure](https://azure.microsoft.com/status/)
+

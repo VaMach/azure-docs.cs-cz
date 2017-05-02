@@ -1,7 +1,6 @@
 # Přehled
-## [Co je DevTest Labs?](devtest-lab-overview.md)
-## [Proč právě DevTest Labs?](devtest-lab-why.md)
-## [Koncepce DevTest Labs](devtest-lab-concepts.md)
+## [Služba Azure Devtest Labs](devtest-lab-overview.md)
+## [Koncepty](devtest-lab-concepts.md)
 
 # Začínáme
 ## [Vytvoření testovacího prostředí](devtest-lab-create-lab.md)

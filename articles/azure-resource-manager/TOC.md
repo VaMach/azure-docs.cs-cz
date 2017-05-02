@@ -10,6 +10,12 @@
 ## [Vytvoření první šablony](resource-manager-create-first-template.md)
 ## [Visual Studio s Resource Managerem](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Ukázky
+## PowerShell
+### [Nasazení šablony](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Nasazení šablony](resource-manager-samples-cli-deploy.md)
+
 # Postup
 ## Vytváření šablon
 ### [Osvědčené postupy pro šablony](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Sdílení stavu mezi propojenými šablonami](best-practices-resource-manager-state.md)
 ### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
 ## Nasazení
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Nasazení šablony](resource-group-template-deploy.md)
+#### [Nasazení privátní šablony s tokenem SAS](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [Nasazení šablony](resource-group-template-deploy-cli.md)
+#### [Nasazení privátní šablony s tokenem SAS](resource-manager-cli-sas-token.md)
 ### [Azure Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Průběžná integrace se sadou Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

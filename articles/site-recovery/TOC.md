@@ -9,16 +9,17 @@
 
 # Začínáme
 ## [Replikace virtuálních počítačů VMware do Azure](site-recovery-vmware-to-azure.md)
-## [Replikace virtuálních počítačů VMware do Azure ve víceklientském nasazení (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replikace fyzických serverů do Azure](site-recovery-physical-servers-to-azure.md) 
 ## [Replikace virtuálních počítačů Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure.md)
 ## [Replikace virtuálních počítačů Hyper-V do Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Replikace fyzických serverů a virtuálních počítačů VMware do sekundární lokality](site-recovery-vmware-to-vmware.md)
 ## [Replikace virtuálních počítačů Hyper-V do sekundární lokality (s VMM)](site-recovery-vmm-to-vmm.md)
+## [Replikace fyzických serverů a virtuálních počítačů VMware do sekundární lokality](site-recovery-vmware-to-vmware.md)
+## [Replikace virtuálních počítačů VMware do Azure ve víceklientském nasazení (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # Postup
 ## Plánování
 ### [Požadavky nasazení](site-recovery-prereq.md)
-### [Důležité informace o síťové infrastruktuře](site-recovery-network-design.md)
+### [Plánování síťové infrastruktury](site-recovery-network-design.md)
 ### [Plánování kapacity a škálování replikace VMware do Azure](site-recovery-plan-capacity-vmware.md)
 ### [Plánovač nasazení pro replikaci VMware do Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner pro replikaci Hyper-V](site-recovery-capacity-planner.md)

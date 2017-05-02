@@ -56,6 +56,7 @@
 ### [Kapacita a výkon](log-analytics-capacity.md)
 ### [Sledování změn](log-analytics-change-tracking.md)
 ### [Kontejnery](log-analytics-containers.md)
+### [Analýzy DNS](log-analytics-dns.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Zprávy B2B Logic Apps
 #### [Řešení zpráv B2B Logic Apps](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
