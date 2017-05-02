@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: "Vytvoření webu ve statickém HTML"
     href: app-service-web-get-started-html.md
+- name: "Kurzy"
+  items:
+  - name: "1. .NET s SQL DB"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "1. Node.js s MongoDB"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "2. Mapování vlastní domény"
+    href: app-service-web-tutorial-custom-domain.md
+  - name: "3. Vazba certifikátu protokolu SSL"
+    href: app-service-web-tutorial-custom-ssl.md
 - name: "Ukázky"
   items:
   - name: "Azure CLI"
     href: app-service-cli-samples.md
   - name: "PowerShell"
     href: app-service-powershell-samples.md
-- name: "Kurzy"
-  items:
-  - name: ".NET s SQL Database"
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "Node.js s MongoDB"
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: "Koncepty"
   items:
   - name: "Jak funguje App Service"
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: "Přiřazení vlastního protokolu SSL"
       items:
-      - name: "Zakoupení certifikátů SSL"
-        href: web-sites-purchase-ssl-web-site.md
       - name: "Konfigurace certifikátů SSL třetí strany"
         href: web-sites-configure-ssl-certificate.md
     - name: "Vynucení HTTPS"

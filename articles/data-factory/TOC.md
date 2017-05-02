@@ -1,10 +1,9 @@
 # Přehled
 ## [Úvod do Azure Data Factory](data-factory-introduction.md)
 ## Koncepty
-### [Datové sady](data-factory-create-datasets.md)
 ### [Kanály a aktivity](data-factory-create-pipelines.md)
+### [Datové sady](data-factory-create-datasets.md)
 ### [Plánování a provádění](data-factory-scheduling-and-execution.md)
-### [Propojené služby Compute](data-factory-compute-linked-services.md)
 
 # Začínáme
 ## [Kurz: Vytvoření kanálu pro kopírování dat](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Šablona Azure Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
 ### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Kurz: Přesun dat mezi místním prostředím a cloudem](data-factory-move-data-between-onprem-and-cloud.md)
 ## [Nejčastější dotazy](data-factory-faq.md)
 
 # Postup
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webová tabulka](data-factory-web-table-connector.md)
 ### [Brána správy dat](data-factory-data-management-gateway.md)
-### [Přesun dat mezi lokálním prostředím a cloudem](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Transformace dat](data-factory-data-transformation-activities.md)
 ### [Aktivita Hivu služby HDInsight](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [Vlastní aktivita .NET](data-factory-use-custom-activities.md)
 ### [Vyvolání skriptů jazyka R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Znovuzpracování modelů v Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Propojené služby Compute](data-factory-compute-linked-services.md)
 
 ## Vývoj
 ### [Šablona Azure Resource Manageru](data-factory-how-to-use-resource-manager-templates.md)

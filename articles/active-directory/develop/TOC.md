@@ -1,10 +1,11 @@
 # Přehled
+## [Integrace s Azure AD](active-directory-how-to-integrate.md)
 ## [Příručka pro vývojáře](active-directory-developers-guide.md)
 ## [Aplikace a Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Glosář pro vývojáře](active-directory-dev-glossary.md)
-## [Graph API AAD](active-directory-graph-api.md)
+## [Azure AD Graph API](active-directory-graph-api.md)
 # Šablony Rychlý start
-## [Získání tenanta AAD](active-directory-howto-tenant.md)
+## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
 ## [Integrace aplikací s AAD](active-directory-integrating-applications.md)
 ## Mobilní a PC aplikace
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Web API
 ### [Web API a .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [Graph API AAD](active-directory-graph-api-quickstart.md)
+## [Azure AD Graph API](active-directory-graph-api-quickstart.md)
 # Průvodci
-## [Vzory ověřování](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Vzory ověřování](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Nativní aplikace](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Web Apps](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Webové rozhraní API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [Protokol SAML pro jednotné přihlašování](active-directory-single-sign-on-protocol-reference.md)
 ### [Protokol SAML pro jednotné odhlašování](active-directory-single-sign-out-protocol-reference.md)
 ## Práce se sadou Visual Studio
-### [Začínáme s Azure Active Directory a připojenými službami sady Visual Studio (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Začínáme s připojenými službami sady Visual Studio (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Chyba během detekce ověřování](vs-active-directory-error.md)
 ### [Začínáme s WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Co se stalo s mým projektem webového rozhraní API](vs-active-directory-webapi-what-happened.md)

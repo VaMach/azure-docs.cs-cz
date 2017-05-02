@@ -8,6 +8,7 @@
 ## [Začínáme s předkonfigurovanými řešeními](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Oprávnění na webu azureiotsuite.com](iot-suite-permissions.md)
 ## [Přehled řešení prediktivní údržby](iot-suite-predictive-overview.md)
+## [Přehled řešení propojené továrny](iot-suite-connected-factory-overview.md)
 ## [Seznámení s řešením vzdáleného monitorování](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Seznámení s řešením prediktivní údržby](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [Použití dynamické telemetrie s řešením vzdáleného monitorování](iot-suite-dynamic-telemetry.md)
 ## [Vytvoření vlastního pravidla v řešení vzdáleného monitorování](iot-suite-custom-rule.md)
 ## [Informace o zařízení v řešení vzdáleného monitorování](iot-suite-remote-monitoring-device-info.md)
+## [Nasazení brány pro propojenou továrnu](iot-suite-connected-factory-gateway-deployment.md)
 
 # Referenční informace
 ## [Architektura zabezpečení](iot-security-architecture.md)
@@ -39,10 +41,5 @@
 ## [Postup výuky pro IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

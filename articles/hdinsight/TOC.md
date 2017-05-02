@@ -105,6 +105,7 @@
 ### [Konfigurace zásad Hivu](hdinsight-domain-joined-run-hive.md)
 ## Použití Kafky (Preview)
 ### [Replikace dat Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Použití se službou Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Použití se Sparkem](hdinsight-apache-spark-with-kafka.md)
 ### [Použití se Stormem](hdinsight-apache-storm-with-kafka.md)
 ## Vývoj

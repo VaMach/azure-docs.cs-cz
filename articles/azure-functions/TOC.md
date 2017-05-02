@@ -2,7 +2,7 @@
 ## [Co je služba Azure Functions?](functions-overview.md)
 # Začínáme
 ## [Vytvoření první funkce](functions-create-first-azure-function.md)
-## [Vytvoření funkce webhooku](functions-create-a-web-hook-or-api-function.md)
+## [Vytvoření funkce aktivované webhookem](functions-create-github-webhook-triggered-function.md)
 ## [Vytvoření připojené funkce Azure](functions-create-an-azure-connected-function.md)
 ## [Vytvoření funkce pro zpracování událostí](functions-create-an-event-processing-function.md)
 # Postup
