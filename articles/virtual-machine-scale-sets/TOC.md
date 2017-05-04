@@ -44,7 +44,7 @@
 ### [Nejčastější dotazy týkající se škálovacích sad](virtual-machine-scale-sets-faq.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

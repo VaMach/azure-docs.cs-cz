@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 813217567c7e1fa5fc9ac11492933ad0c34553d1
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: cf652f1ba6b7d3aa0717a2e3a54000a4aebccc78
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -79,12 +79,12 @@ Po vytvoření si cluster můžete prohlédnout na portálu v okně **Přehled**
 ![Service Fabric Explorer][service-fabric-explorer]
 
 ## <a name="connect-to-the-cluster-using-powershell"></a>Připojení ke clusteru pomocí prostředí PowerShell
-Připojte se pomocí PowerShellu a ověřte, že cluster je spuštěný.  Modul PowerShell ServiceFabric se instaluje spolu se sadou [Service Fabric SDK](service-fabric-get-started.md).  Rutina [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) vytvoří připojení ke clusteru.   
+Připojte se pomocí PowerShellu a ověřte, že cluster je spuštěný.  Modul PowerShell ServiceFabric se instaluje spolu se sadou [Service Fabric SDK](service-fabric-get-started.md).  Rutina [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) vytvoří připojení ke clusteru.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-Další příklady připojení ke clusteru najdete v článku [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md). Po připojení ke clusteru zobrazte pomocí rutiny [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) seznam uzlů v clusteru a stavové informace pro každý uzel. Položka **HealthState** by měla mít pro každý uzel hodnotu *OK*.
+Další příklady připojení ke clusteru najdete v článku [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md). Po připojení ke clusteru zobrazte pomocí rutiny [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) seznam uzlů v clusteru a stavové informace pro každý uzel. Položka **HealthState** by měla mít pro každý uzel hodnotu *OK*.
 
 ```powershell
 PS C:\> Get-ServiceFabricNode |Format-Table
@@ -119,3 +119,4 @@ Teď, když jste nastavili samostatný vývojový cluster, zkuste provést násl
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
+

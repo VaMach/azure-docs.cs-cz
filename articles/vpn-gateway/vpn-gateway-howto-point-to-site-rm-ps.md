@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Pro tuto konfiguraci používáme následující hodnoty. Nastavíme proměnné 
 
 ## <a name="before-beginning"></a>Před zahájením
 * Ověřte, že máte předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial).
-* Nainstalujte nejnovější verzi rutin PowerShellu pro Azure Resource Manager. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). 
+* Nainstalujte nejnovější verzi rutin PowerShellu pro Azure Resource Manager. Další informace o instalaci rutin prostředí PowerShell najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Část 1 – Přihlášení a nastavení proměnných
 V této části se přihlásíte a deklarujete hodnoty používané pro tuto konfiguraci. Deklarované hodnoty jsou použity v ukázkových skriptech. Změňte hodnoty tak, aby odpovídaly vašemu prostředí. Můžete také použít deklarované hodnoty a projít kroky jako cvičení.
@@ -284,7 +284,7 @@ Pokud máte potíže s připojením, zkontrolujte následující:
 
 ## <a name="connectVM"></a>Připojení k virtuálnímu počítači
 
-1. Po připojení k virtuální síti se můžete připojit k virtuálnímu počítači přes připojení P2S. Pro připojení k virtuálnímu počítači potřebujete privátní IP adresu virtuálního počítače. Následující příklad ilustruje získání privátní IP adresy pomocí volání [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). V rámci výsledků je vrácen seznam virtuálních počítačů a odpovídajících privátních IP adres ve všech vašich skupinách prostředků. 
+1. Po připojení k virtuální síti se můžete připojit k virtuálnímu počítači přes připojení P2S. Pro připojení k virtuálnímu počítači potřebujete privátní IP adresu virtuálního počítače. Následující příklad ilustruje získání privátní IP adresy pomocí volání [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). V rámci výsledků je vrácen seznam virtuálních počítačů a odpovídajících privátních IP adres ve všech vašich skupinách prostředků. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ Klientský certifikát lze obnovit odebráním jeho kryptografického otisku ze 
 
 ## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Bližší informace o sítích a virtuálních počítačích najdete v tématu s [přehledem sítě virtuálních počítačů s Linuxem v Azure](../virtual-machines/linux/azure-vm-network-overview.md).
+

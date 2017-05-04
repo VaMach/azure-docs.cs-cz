@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 09d8634d8d1b16edb058d0bb259b089a54748279
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8b5cb66ea958cf6643fa34abb8d484b97b212373
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ V tomto kurzu vytvoříte a budete monitorovat instanci Azure Data Factory pomoc
 Aktivita kopírování provádí přesun dat ve službě Data Factory. Aktivita používá globálně dostupnou službu, která může kopírovat data mezi různými úložišti dat zabezpečeným, spolehlivým a škálovatelným způsobem. Podrobnosti o aktivitě kopírování najdete v tématu [Aktivity přesunu dat](data-factory-data-movement-activities.md).   
 
 > [!NOTE]
-> Tento článek nepopisuje všechny rutiny služby Data Factory. Úplnou dokumentaci k těmto rutinám najdete v článku [Referenční informace o rutinách služby Data Factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories).
+> Tento článek nepopisuje všechny rutiny služby Data Factory. Úplnou dokumentaci k těmto rutinám najdete v článku [Referenční informace o rutinách služby Data Factory](/powershell/module/azurerm.datafactories).
 >
 > Datový kanál v tomto kurzu kopíruje data ze zdrojového úložiště dat do cílového úložiště dat. Neprovádí transformaci vstupních dat, aby vytvořil výstupní data. Kurz předvádějící způsoby transformace dat pomocí Azure Data Factory najdete v tématu popisujícím [kurz vytvoření kanálu, který umožňuje transformovat data pomocí clusteru Hadoop](data-factory-build-your-first-pipeline.md).
 
@@ -482,7 +482,7 @@ V tomto kurzu jste vytvořili objekt pro vytváření dat Azure pro zkopírován
 ## <a name="see-also"></a>Viz také
 | Téma | Popis |
 |:--- |:--- |
-| [Referenční informace o rutinách služby Data Factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) | Tato část obsahuje informace o všech rutinách služby Data Factory. |
+| [Referenční informace o rutinách služby Data Factory](/powershell/module/azurerm.datafactories) | Tato část obsahuje informace o všech rutinách služby Data Factory. |
 | [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory. |
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a spouštění aplikačního modelu služby Azure Data Factory. |

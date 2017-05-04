@@ -1,11 +1,7 @@
-Azure Data Lake Store je celopodnikové, flexibilně škálovatelné úložiště pro analytické úlohy s velkými objemy dat. Data Lake Store umožňuje zaznamenávat data libovolné velikosti, typu a rychlosti příjmu do jediného místa pro účely provozní a zjišťovací analýzy. Neexistuje omezení objemu dat, které můžete uložit na účtu Data Lake Store.
+Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics. There is no limit to the amount of data you can store in a Data Lake Store account.
 
-| **Prostředek** | **Výchozí omezení** | **Komentáře** |
+| **Resource** | **Default Limit** | **Comments** |
 | --- | --- | --- |
-| Maximální počet účtů Data Lake Store na předplatné a oblast |10 | Pokud chcete toto omezení zvýšit, kontaktujte podporu. |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+| Max number of Data Lake Store accounts, per subscription, per region |10 | Contact Support to request an increase for this limit |
+| Max number of access ACLs, per file or folder |32 | This is a hard limit. Use groups to manage access with fewer entries |
+| Max number of default ACLs, per file or folder |32 | This is a hard limit. Use groups to manage access with fewer entries |

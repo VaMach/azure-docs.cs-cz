@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +35,11 @@ Informace o protokolování jsou přístupné do 10 minut od proběhnutí operac
 Tento kurz vám pomůže začít s protokolováním v Azure Key Vault, vytvořením vlastního účtu úložiště, povolením protokolování a interpretací shromážděných informací.  
 
 > [!NOTE]
-> Tento kurz neobsahuje pokyny k vytvoření trezorů klíčů, klíčů nebo tajných klíčů. Další informace naleznete v tématu [Začínáme s Azure Key Vault](key-vault-get-started.md) Pokyny pro rozhraní příkazového řádku pro různé platformy naleznete v [tomto ekvivalentním kurzu](key-vault-manage-with-cli.md).
-> 
+> Tento kurz neobsahuje pokyny k vytvoření trezorů klíčů, klíčů nebo tajných klíčů. Další informace naleznete v tématu [Začínáme s Azure Key Vault](key-vault-get-started.md) Pokyny pro rozhraní příkazového řádku pro různé platformy naleznete v [tomto ekvivalentním kurzu](key-vault-manage-with-cli2.md).
+>
 > V současné době nelze Azure Key Vault konfigurovat na portálu Azure. Místo toho použijte tyto pokyny pro Azure PowerShell.
-> 
-> 
+>
+>
 
 Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault?](key-vault-whatis.md).
 
@@ -47,7 +47,7 @@ Souhrnné informace o Azure Key Vault naleznete v tématu [Co je Azure Key Vault
 K dokončení tohoto kurzu potřebujete:
 
 * Existující trezor klíčů, který již používáte.  
-* Azure PowerShell v **minimální verzi 1.0.1**. Chcete-li nainstalovat Azure PowerShell a přidružit ho ke svému předplatnému Azure, prohlédněte si téma [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Pokud jste již Azure PowerShell nainstalovali, ale neznáte jeho verzi, z konzoly Azure PowerShell zadejte `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell v **minimální verzi 1.0.1**. Chcete-li nainstalovat Azure PowerShell a přidružit ho ke svému předplatnému Azure, prohlédněte si téma [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview). Pokud jste již Azure PowerShell nainstalovali, ale neznáte jeho verzi, z konzoly Azure PowerShell zadejte `(Get-Module azure -ListAvailable).Version`.  
 * Dostatečné úložiště v Azure pro vaše protokoly Key Vault.
 
 ## <a id="connect"></a>Připojení k předplatným
@@ -66,11 +66,11 @@ Chcete-li specifikovat předplatné přidružené k trezoru klíčů, který bud
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> Jedná se důležitý a obzvláště užitečný krok, pokud máte víc předplatných přidružených vašemu účtu. Pokud se tento krok přeskočí, můžete v registru Microsoft.Insights obdržet chybu. 
+> Jedná se důležitý a obzvláště užitečný krok, pokud máte víc předplatných přidružených vašemu účtu. Pokud se tento krok přeskočí, můžete v registru Microsoft.Insights obdržet chybu.
 >   
 >
 
-Další informace o konfiguraci Azure PowerShellu naleznete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs).
+Další informace o konfiguraci Azure PowerShellu naleznete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview).
 
 ## <a id="storage"></a>Vytvoření nového účtu úložiště pro protokoly
 Pro svoje protokoly můžete použít i stávající účet úložiště, my však vytvoříme nový účet úložiště, který bude vyhrazený pro protokoly Key Vault. Abychom si usnadnili práci při pozdějším zadávání, uložíme si podrobnosti do proměnné s názvem **sa**.
@@ -82,8 +82,8 @@ Pro další usnadnění správy použijeme také stejnou skupinu prostředků, j
 
 > [!NOTE]
 > Rozhodnete-li se použít stávající účet úložiště, pak musí používat stejné předplatné jako váš trezor klíčů, a musí místo klasického modelu nasazení používat model nasazení Resource Manageru.
-> 
-> 
+>
+>
 
 ## <a id="identify"></a>Určení trezoru klíčů pro protokoly
 V našem kurzu Začínáme byl název trezoru klíčů **ContosoKeyVault**, budeme tedy pokračovat v používání tohoto názvu a podrobnosti uložíme do proměnné s názvem **kv**:
@@ -168,13 +168,13 @@ Když spustíte tento druhý příkaz, oddělovač **/** v názvech objektů blo
 Chcete-li stahovat objekty blob selektivně, použijte zástupné znaky. Příklad:
 
 * Máte-li více trezorů klíčů a chcete stáhnout pouze protokoly pro jeden trezor klíčů s názvem CONTOSOKEYVAULT3:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 * Máte-li více skupin prostředků a chcete stáhnout pouze protokoly pro jednu skupinu prostředků, použijte `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 * Chcete-li stáhnout všechny protokoly pro měsíc leden 2016, použijte `-Blob '*/year=2016/m=01/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 Nyní jste připraveni podívat se, co je v protokolech. Ale ještě předtím si ukážeme další dva parametry Get-AzureRmDiagnosticSetting, které byste mohli potřebovat:
@@ -272,8 +272,7 @@ Chcete-li používat Azure Key Vault ve webové aplikaci, podívejte se na kurz 
 
 Programátorské reference najdete v [příručce pro vývojáře Azure Key Vault](key-vault-developers-guide.md).
 
-Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+Seznam rutin Azure PowerShellu 1.0 pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 
 Kurz k rotaci klíčů a auditování protokolu pomocí služby Azure Key Vault najdete v článku [Jak nastavit Key Vault s komplexní rotací klíčů a auditováním](key-vault-key-rotation-log-monitoring.md).
-
 

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d128d1f5bdf054accac87631a5d6a65f3bb15ea6
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,7 +59,7 @@ Tato tabulka ukazuje několik způsobů, jak můžete získat seznam dostupných
 | Metoda | Popis |
 | --- | --- |
 | portál Azure |Při vytváření virtuálního počítače vyberte umístění ze seznamu. |
-| Azure PowerShell |Použijte příkaz [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| Azure PowerShell |Použijte příkaz [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | REST API |Použijte operaci [Vypsat umístění](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
 ### <a name="vm-size"></a>Velikost virtuálního počítače
@@ -80,7 +80,7 @@ Tato tabulka ukazuje několik způsobů, jak můžete najít informace o imagi.
 | Metoda | Popis |
 | --- | --- |
 | portál Azure |Hodnoty se pro vás zadají automaticky, když vyberete image, která se má použít. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "umístění"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "umístění" -Publisher "název_vydavatele"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "umístění" -Publisher "název_vydavatele" -Offer "název_nabídky" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "umístění"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "umístění" -Publisher "název_vydavatele"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "umístění" -Publisher "název_vydavatele" -Offer "název_nabídky" |
 | Rozhraní REST API |[Vypsat vydavatele imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Vypsat nabídky imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Vypsat skladové jednotky (SKU) imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 Můžete se rozhodnout [nahrát a použít vlastní image](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pokud tak učiníte, název vydavatele, nabídka a skladová jednotka (SKU) se nepoužijí.

@@ -28,7 +28,7 @@
 ### [Vytváření a správa pomocí CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)

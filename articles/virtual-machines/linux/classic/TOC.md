@@ -66,7 +66,7 @@
 ### [Restartování nebo změna velikosti virtuálního počítače](restart-resize-error-troubleshooting.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Tvorba šablon Resource Manageru](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

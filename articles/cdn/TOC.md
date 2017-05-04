@@ -41,11 +41,11 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Řešení potíží
-### [Stav&404;](cdn-troubleshoot-endpoint.md)
+### [Stav 404](cdn-troubleshoot-endpoint.md)
 ### [Komprese](cdn-troubleshoot-compression.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
@@ -61,8 +61,3 @@
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

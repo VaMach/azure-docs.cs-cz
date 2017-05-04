@@ -173,7 +173,7 @@
 
 # Referenční informace
 
-## [Modul PowerShell (nový)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Modul PowerShell (nový)](/powershell/module/azurerm.machinelearning)
 ## [Modul PowerShell (klasický)](machine-learning-powershell-module.md)
 ## [Referenční materiály k modulům a algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST API – referenční informace](/rest/api/machinelearning)

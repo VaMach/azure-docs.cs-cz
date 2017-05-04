@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,8 +41,8 @@ V tomto článku vytvoříte první objekt pro vytváření dat Azure pomocí pr
 
 ## <a name="prerequisites"></a>Požadavky
 * Přečtěte si článek [Přehled kurzu](data-factory-build-your-first-pipeline.md) a proveďte **nutné** kroky.
-* Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs) si na počítač nainstalujte nejnovější verzi prostředí Azure PowerShell.
-* (volitelné) Tento článek nepopisuje všechny rutiny služby Data Factory. Úplnou dokumentaci o rutinách služby Data Factory najdete v článku [Referenční informace o rutinách služby Data Factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories).
+* Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) si na počítač nainstalujte nejnovější verzi prostředí Azure PowerShell.
+* (volitelné) Tento článek nepopisuje všechny rutiny služby Data Factory. Úplnou dokumentaci o rutinách služby Data Factory najdete v článku [Referenční informace o rutinách služby Data Factory](/powershell/module/azurerm.datafactories).
 
 ## <a name="create-data-factory"></a>Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí prostředí Azure PowerShell objekt pro vytváření dat Azure s názvem **FirstDataFactoryPSH**. Objekt pro vytváření dat může mít jeden nebo víc kanálů. Kanál může obsahovat jednu nebo víc aktivit. Může obsahovat například aktivitu kopírování, která slouží ke kopírování dat ze zdrojového do cílového úložiště dat, a aktivitu Hivu HDInsight pro spuštění skriptu Hive, který umožňuje transformovat vstupní data. V tomto kroku začneme vytvořením objektu pro vytváření dat.
@@ -409,7 +409,7 @@ V tomto článku jste vytvořili kanál s aktivitou transformace (aktivita HDIns
 ## <a name="see-also"></a>Viz také
 | Téma | Popis |
 |:--- |:--- |
-| [Referenční informace o rutinách služby Data Factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) |Tady najdete rozsáhlou dokumentaci o rutinách služby Data Factory. |
+| [Referenční informace o rutinách služby Data Factory](/powershell/module/azurerm.datafactories) |Tady najdete rozsáhlou dokumentaci o rutinách služby Data Factory. |
 | [Kanály](data-factory-create-pipelines.md) |Tento článek vám pomůže pochopit kanály a aktivity ve službě Azure Data Factory a porozumět tomu, jak se dají ve vaší situaci nebo firmě použít k sestavení kompletních pracovních postupů založených na datech. |
 | [Datové sady](data-factory-create-datasets.md) |Tento článek vám pomůže pochopit datové sady ve službě Azure Data Factory. |
 | [Plánování a provádění](data-factory-scheduling-and-execution.md) |Tento článek vysvětluje aspekty plánování a provádění aplikačního modelu služby Azure Data Factory. |

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 78117fd3947be922e339931a0f8f31040ebf79fe
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19fe97eb41be3222a846f86b2a390bf86157884f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,7 +47,7 @@ V tomto článku vytvoříte první objekt pro vytváření dat Azure pomocí ro
   2. Získejte **ID klienta** a **tajný klíč**.
   3. Získejte **ID tenanta**.
   4. Přiřaďte aplikaci **ADFGetStartedApp** k roli **Přispěvatel Data Factory**.
-* Nainstalujte [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Nainstalujte [Azure PowerShell](/powershell/azure/overview).
 * Spusťte **PowerShell** a potom spusťte následující příkaz. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu.
   1. Spusťte příkaz **Login-AzureRmAccount** a zadejte uživatelské jméno a heslo, které používáte k přihlášení na webu Azure Portal.
   2. Spuštěním příkazu **Get-AzureRmSubscription** zobrazte všechna předplatná pro tento účet.

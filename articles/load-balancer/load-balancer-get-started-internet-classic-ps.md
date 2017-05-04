@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
-ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 Pokud chcete nastavit nástroj pro vyrovnávání zatížení pomocí prostředí PowerShell, použijte následující postup:
 
-1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
+1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
 2. Po vytvoření virtuálního počítače můžete pomocí rutin prostředí PowerShell přidat nástroj pro vyrovnávání zatížení do virtuálního počítače v rámci stejné cloudové služby.
 
 V následujícím příkladu přidáte sadu nástroje pro vyrovnávání zatížení s názvem webfarm do cloudové služby mytestcloud (nebo mytestcloud.cloudapp.net). Zároveň pro nástroj pro vyrovnávání zatížení přidáte koncové body do virtuálních počítačů s názvy web1 a web2. Nástroj pro vyrovnávání zatížení přijímá síťový provoz na portu 80 a vyrovnává zatížení mezi virtuální počítače definované místním koncovým bodem (v tomto případě portem 80) pomocí protokolu TCP.
@@ -73,9 +74,4 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 Můžete také [začít vytvářet interní nástroj pro vyrovnávání zatížení](load-balancer-get-started-ilb-classic-ps.md) a nakonfigurovat, jaký typ [distribučního režimu](load-balancer-distribution-mode.md) se má použít pro konkrétní chování nástroje pro vyrovnávání zatížení síťového provozu.
 
 Pokud vaše aplikace potřebuje udržovat aktivní připojení serverů, které jsou za nástrojem pro vyrovnávání zatížení, můžete zjistit více o [nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md). Pomůže vám to pochopit chování nečinného připojení při používání služby Azure Load Balancer.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

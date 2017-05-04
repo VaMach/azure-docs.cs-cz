@@ -24,7 +24,7 @@
 ### [Zabezpečení na úrovni řádků v Power BI Embedded](power-bi-embedded-rls.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Stažení sady .NET SDK](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)

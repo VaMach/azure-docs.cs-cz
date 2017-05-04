@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 1acd56f13c06d45287c38ea4f62aecf0ce0cf072
-ms.lasthandoff: 04/20/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ec9da5c9818f03a85e858800bd38be49d8ed14e6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -79,7 +79,7 @@ Existují dvě různé sady postupů, ze kterých si můžete vybrat. Postup kon
 ## <a name="new"></a>Vytvoření nové virtuální sítě a současně existujících připojení
 Tento postup vás provede procesem vytvoření virtuální sítě a připojení ExpressRoute a VPN typu Site-to-Site, která budou existovat společně.
 
-1. Nainstalujte nejnovější verzi rutin Azure PowerShellu. Informace o instalaci rutin najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Rutiny, které použijete pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech.
+1. Nainstalujte nejnovější verzi rutin Azure PowerShellu. Informace o instalaci rutin najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview). Rutiny, které použijete pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech.
 2. Přihlaste se ke svému účtu a nastavte prostředí.
 
   ```powershell
@@ -179,7 +179,7 @@ Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená p�
 > 
 > 
 
-1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs). Rutiny, které použijete pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech. 
+1. Budete potřebovat nainstalovat nejnovější verzi rutin Azure PowerShellu. Další informace o instalaci rutin najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview). Rutiny, které použijete pro tuto konfiguraci, se můžou mírně lišit od těch, co znáte. Ujistěte se, že používáte rutiny určené v těchto pokynech. 
 2. Odstraňte existující bránu ExpressRoute nebo VPN typu site-to-site.
 
   ```powershell 
@@ -232,3 +232,4 @@ Další informace o VPN typu point-to-site najdete v tématu [Konfigurace připo
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
+

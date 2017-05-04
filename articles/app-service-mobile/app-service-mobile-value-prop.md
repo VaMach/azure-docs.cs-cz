@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 43ad434b21fd358b8d72702445126dea5ce179cb
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -39,7 +40,7 @@ Pro vývoj mobilních řešení využívajících cloud jsou důležité násled
 * **Ověřování a autorizace** – vyberte si ze stále se rozšiřujícího seznamu zprostředkovatelů identity, mezi které patří Azure Active Directory pro podnikové ověřování i služby sociálních sítí, jako je Facebook, Google, Twitter a účet Microsoft.  Služba Azure Mobile Apps poskytuje službu OAuth 2.0 pro každého zprostředkovatele.  Můžete také integrovat sadu SDK pro daného zprostředkovatele, aby se zajistila specifická funkcionalita.
   
   Projděte si další informace o našich [funkcích ověřování].
-* **Přístup k datům** – Služba Azure Mobile Apps poskytuje zdroj dat OData verze&3;, který skvěle funguje s mobilními zařízeními a je propojen se službou SQL Azure nebo místním systémem SQL Server.  Tato služba může být založena na Entity Framework, což vám umožní snadnou integraci s jinými zprostředkovateli dat NoSQL i SQL, včetně [Azure Table Storage], MongoDB, [DocumentDB] a rozhraní API pro SaaS, jako je Office 365 a Salesforce.com.
+* **Přístup k datům** – Služba Azure Mobile Apps poskytuje zdroj dat OData verze 3, který skvěle funguje s mobilními zařízeními a je propojen se službou SQL Azure nebo místním systémem SQL Server.  Tato služba může být založena na Entity Framework, což vám umožní snadnou integraci s jinými zprostředkovateli dat NoSQL i SQL, včetně [Azure Table Storage], MongoDB, [DocumentDB] a rozhraní API pro SaaS, jako je Office 365 a Salesforce.com.
 * **Synchronizace offline dat** – naše klientské sady SDK usnadňují vytváření robustních a rychle reagujících mobilních aplikací, které budou pracovat s offline datovou sadou. Tu pak lze automaticky synchronizovat s back-endovými daty, a to i s podporou řešení konfliktů.
   
   Projděte si další informace o našich [datových funkcích].
@@ -82,7 +83,7 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Začínáme]: app-service-mobile-ios-get-started.md
-[Azure Table Storage]: ../storage/storage-getting-started-guide.md
+[Azure Table Storage]: ../storage/storage-dotnet-how-to-use-tables.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [funkcích ověřování]: ./app-service-mobile-auth.md
 [datových funkcích]: ./app-service-mobile-offline-data-sync.md
@@ -101,9 +102,4 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 [ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [Prostředí App Service]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapa kurzů]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
