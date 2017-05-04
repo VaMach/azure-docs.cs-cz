@@ -47,7 +47,7 @@
 ### [Monitorování pomocí Azure Monitoru](api-management-howto-use-azure-monitor.md)
 ### [Řízení přístupu na základě rolí](api-management-role-based-access-control.md)
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [Rozhraní REST (původní)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Zásady](api-management-policies.md)

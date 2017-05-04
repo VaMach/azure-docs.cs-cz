@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -64,7 +64,7 @@ Tyto pokyny je nutné poskytnout uživatelům, aby si mohli změnit hesla:
 Několik minut poté, co si změníte heslo, je možné používat ve službě Azure Active Directory Domain Services nové heslo. Po několika dalších minutách (obvykle přibližně 20 minut) se můžete přihlašovat k počítačům připojeným k spravované doméně s použitím nově změněného hesla.
 
 ## <a name="next-steps"></a>Další kroky
-* [Postup aktualizace vlastního hesla](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [Postup aktualizace vlastního hesla](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Začínáme se správou hesel v Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Povolení synchronizace hesel do služby Azure Active Directory Domain Services u synchronizovaného tenanta Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Správa spravované domény služby Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)

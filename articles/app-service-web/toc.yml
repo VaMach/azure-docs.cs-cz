@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: "Porovnání možností hostování"
     href: choose-web-site-cloud-service-vm.md
-- name: "Rychlý start"
+- name: "Šablony Rychlý start"
   expanded: true
   items:
   - name: "Vytvoření aplikace .NET"

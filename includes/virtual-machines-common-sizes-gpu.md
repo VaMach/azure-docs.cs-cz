@@ -1,41 +1,31 @@
-Velikosti NC a NV se také označují jako instance s podporou grafického procesoru. Jsou to specializované virtuální počítače s grafickými kartami NVIDIA, optimalizované pro různé scénáře a případy použití. Velikosti NV jsou optimalizované a navržené pro vzdálené vizualizace, streamování, hry, kódování a VDI díky využití architektur typu OpenGL a DirectX. Velikosti NC jsou vhodnější pro výpočetně a síťově náročné úlohy a algoritmy včetně aplikací a simulací využívajících technologie CUDA a OpenCL. 
+The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. 
 
 
-Instance NV jsou osazeny grafickými kartami NVIDIA Tesla M60 a NVIDIA GRID pro urychlení desktopových aplikací i virtuálních desktopů, na kterých budou zákazníci vizualizovat svoje data nebo simulace. Uživatelé budou moci vizualizovat své graficky náročné pracovní postupy na instancích NV a využít tak jejich špičkové grafické možnosti, a navíc spouštět úlohy s jednoduchou přesností, například kódování a vykreslování. Tesla M60 má 4096 jader CUDA v provedení dual-GPU a dokáže zpracovat až 36 datových proudů 1080p H.264. 
+The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264. 
 
-Instance NC jsou osazeny kartami NVIDIA Tesla K80. Uživatelé se můžou díky technologii CUDA prokousávat daty daleko rychleji, například v aplikacích pro výzkum energie, simulace srážek, vykreslování sledováním paprsku, hloubkové učení a dalších. Tesla K80 má 4992 jader CUDA v provedení dual-GPU a nabízí výkon až 2,91 Teraflops v dvojité přesnosti a až 8,93 Teraflops v jednoduché přesnosti.
+The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
 
-## <a name="nv-instances"></a>Instance NV
+## <a name="nv-instances"></a>NV instances
 
-| Velikost | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | GPU |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |380 | 1 |
 | Standard_NV12 |12 |112 |680 | 2 |
 | Standard_NV24 |24 |224 |1440 | 4 |
 
-1 GPU = polovina karty M60.
+1 GPU = one-half M60 card.
 
-**Podporované operační systémy**
+## <a name="nc-instances"></a>NC instances
 
-* Windows Server 2016, Windows Server 2012 R2 – viz [Instalace ovladačů v instancích N-series s Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-
-## <a name="nc-instances"></a>Instance NC
-
-| Velikost | Procesorová jádra | Paměť: GiB | Místní SSD: GiB | GPU |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 380 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 |
 
-1 GPU = polovina karty K80.
+1 GPU = one-half K80 card.
 
-*Podpora RDMA
+*RDMA capable
 
-**Podporované operační systémy**
-
-* Windows Server 2016, Windows Server 2012 R2 – viz [Instalace ovladačů v instancích N-series s Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-* Ubuntu 16.04 LTS – viz [Instalace ovladačů v instancích N-series s Linuxem](../articles/virtual-machines/linux/n-series-driver-setup.md)
-
-<br>
 

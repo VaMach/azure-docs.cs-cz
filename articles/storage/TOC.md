@@ -4,7 +4,6 @@
 
 # Začínáme
 
-## [Úvodní příručka](storage-getting-started-guide.md)
 ## [Vytvoření účtu úložiště](storage-create-storage-account.md)
 
 ## Blob Storage
@@ -166,7 +165,7 @@
 #### [Zálohování manifestů jednotek](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostika a zotavení z chyb pro úlohy Import/export](storage-import-export-diagnostics-and-error-recovery.md)
 # Referenční informace
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [Objekty blob, tabulky, fronty a soubory](/rest/api/storageservices)
 ### [Poskytovatel prostředků](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 

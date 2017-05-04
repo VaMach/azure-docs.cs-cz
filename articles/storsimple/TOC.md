@@ -197,7 +197,7 @@
 ### [Vydání – GA](storsimple-july-2014-release-notes.md)
 
 ## Referenční informace
-### [Azure PowerShell](/powershell/servicemanagement)
+### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ### [Rutiny prostředí Windows PowerShell pro StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple Data Manager (Private Preview)

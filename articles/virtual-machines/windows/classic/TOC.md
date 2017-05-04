@@ -9,7 +9,7 @@
 # Začínáme
 ## [Vytvoření virtuálního počítače pomocí portálu](tutorial.md)
 ## [Přihlášení k virtuálnímu počítači](connect-logon.md)
-## [Instalace Azure PowerShellu](/powershell/azureps-cmdlets-docs)
+## [Instalace Azure PowerShellu](/powershell/azure/overview)
 ## [Instalace rozhraní příkazového řádku Azure](../../../cli-install-nodejs.md)
 
 # Postup
@@ -88,7 +88,7 @@
 ## [Resetování hesla protokolu RDP](reset-rdp.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

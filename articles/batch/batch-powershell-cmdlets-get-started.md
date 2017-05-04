@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 Pomocí rutin prostředí PowerShell služby Batch můžete provádět a převádět na skripty řadu stejných úkolů, které se provádějí pomocí rozhraní API služby Batch, webu Azure Portal a rozhraní příkazového řádku (CLI) Azure. Tento článek obsahuje rychlý úvod do rutin, s jejichž pomocí můžete spravovat účty Batch a pracovat s prostředky služby Batch, jako jsou fondy, úlohy a úkoly.
 
-Úplný seznam rutin prostředí Batch a podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Úplný seznam rutin prostředí Batch a podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](/powershell/module/azurerm.batch/#batch).
 
 Tento článek vychází z rutin prostředí Azure PowerShell verze 3.0.0. Prostředí Azure PowerShell doporučujeme často aktualizovat, abyste mohli využívat výhody, které vám přinášejí aktualizace a vylepšení služby.
 
 ## <a name="prerequisites"></a>Požadavky
 Pokud chcete používat Azure PowerShell ke správě prostředků služby Batch, proveďte následující operace.
 
-* [Nainstalujte a nakonfigurujte Azure PowerShell.](/powershell/azureps-cmdlets-docs)
+* [Nainstalujte a nakonfigurujte Azure PowerShell.](/powershell/azure/overview)
 * Spusťte rutinu **Login-AzureRmAccount**, abyste připojili své předplatné (rutiny služby Azure Batch jsou dodávané v modulu Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ Pokud chcete používat Azure PowerShell ke správě prostředků služby Batch,
 
 ## <a name="manage-batch-accounts-and-keys"></a>Správa účtů a klíčů služby Batch
 ### <a name="create-a-batch-account"></a>Vytvoření účtu Batch
-Rutina **New-AzureRmBatchAccount** vytvoří v zadané skupině prostředků účet služby Batch. Pokud skupinu prostředků ještě nemáte, použijte k jejímu vytvoření rutinu [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). Do parametru **Location** zadejte některou oblast Azure, třeba „Střed USA“. Například:
+Rutina **New-AzureRmBatchAccount** vytvoří v zadané skupině prostředků účet služby Batch. Pokud skupinu prostředků ještě nemáte, použijte k jejímu vytvoření rutinu [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Do parametru **Location** zadejte některou oblast Azure, třeba „Střed USA“. Například:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ Aktualizovali jste vlastnosti fondu ve službě Batch. Pokud chcete nový balí�
 > 
 
 ## <a name="next-steps"></a>Další kroky
-* Podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Podrobný popis syntaxe rutin najdete v článku [Rutiny služby Azure Batch – reference](/powershell/module/azurerm.batch/#batch).
 * Další informace o aplikacích a balíčcích aplikací ve službě Batch najdete v tématu [Nasazení aplikace v balíčcích aplikace služby Azure Batch](batch-application-packages.md).
 
 

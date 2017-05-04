@@ -59,7 +59,7 @@
 ### [Pokyny pro diagnostiku](notification-hubs-push-notification-fixer.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

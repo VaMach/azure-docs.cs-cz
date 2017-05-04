@@ -29,6 +29,7 @@
 ### [Průvodce kopírováním služby Data Factory](data-factory-azure-copy-wizard.md)
 #### [Načtení 1 TB za 15 minut](data-factory-load-sql-data-warehouse.md)
 ### [Průvodce laděním a výkonem](data-factory-copy-activity-performance.md)
+### [Aspekty zabezpečení](data-factory-data-movement-security-considerations.md)
 ### Konektory
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
@@ -91,7 +92,7 @@
 ### [Řešení potíží při použití brány správy dat](data-factory-troubleshoot-gateway-issues.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)

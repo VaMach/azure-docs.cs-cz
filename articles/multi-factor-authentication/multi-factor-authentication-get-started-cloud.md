@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Pomocí následujícího postupu povolte MFA pro uživatele.
 Až uživatele povolíte, měli byste je upozornit e-mailem. Při dalším pokusu o přihlášení se jim zobrazí výzva k přihlášení účtu k dvoustupňovému ověřování. Až začnou dvoustupňové ověřování používat, budou také muset nastavit hesla pro aplikace, aby se jim nestalo, že pro ně budou uzamknuty aplikace nezaložené na prohlížeči.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Automatizace PowerShellu k automatizaci zapnutí dvoustupňového ověřování
-Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD PowerShellu](/powershell/azureps-cmdlets-docs) můžete použít následující.  Můžete změnit `$st.State` na jeden z následujících stavů:
+Ke změně [stavu](multi-factor-authentication-whats-next.md) pomocí [Azure AD PowerShellu](/powershell/azure/overview) můžete použít následující.  Můžete změnit `$st.State` na jeden z následujících stavů:
 
 * Povoleno
 * Vynuceno

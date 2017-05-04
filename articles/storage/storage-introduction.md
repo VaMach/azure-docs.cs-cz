@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Azure Storage je řešení cloudového úložiště pro moderní aplikace, kter�
 * Jak se chrání vaše data v úložišti Storage pomocí redundance a replikace.
 * Kam jít dál, abyste mohli vytvořit svoji první aplikaci pro Azure Storage.
 
-Pokud chcete Azure Storage zprovoznit rychle, podívejte se na téma [Zprovoznění aplikace Azure Storage v pěti minutách](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Podrobné informace o knihovnách a dalších prostředcích pro práci s Azure Storage najdete dole v části [Další kroky](#next-steps).
 
@@ -185,12 +187,12 @@ Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytv
 * [Klientská knihovna pro úložiště pro PHP](https://azure.microsoft.com/develop/php/)
 * [Klientská knihovna pro úložiště pro Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Klientská knihovna pro úložiště pro Python](https://azure.microsoft.com/develop/python/)
-* [Rutiny pro úložiště pro PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Rutiny pro úložiště pro PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Služby správy pro Azure Storage
 * [REST API pro poskytovatele prostředků úložiště – referenční informace](/rest/api/storagerp/)
 * [Klientská knihovna pro .NET pro poskytovatele prostředků úložiště](/dotnet/api/microsoft.azure.management.storage)
-* [Rutiny pro PowerShell 1.0 pro poskytovatele prostředků úložiště](/powershell/storage/)
+* [Rutiny pro PowerShell 1.0 pro poskytovatele prostředků úložiště](/powershell/module/azure.storage)
 * [REST API pro správu služeb úložiště (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Služby pro přesun dat v Azure Storage
@@ -202,7 +204,7 @@ Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytv
 * [Klientské nástroje pro Azure Storage](storage-explorers.md)
 * [Sady SDK a nástroje Azure](https://azure.microsoft.com/tools/)
 * [Emulátor úložiště Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Nástroj příkazového řádku AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Další kroky
@@ -211,7 +213,11 @@ Další informace o službě Azure Storage najdete v těchto zdrojích informac�
 ### <a name="documentation"></a>Dokumentace
 * [Dokumentace k Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Vytvoření účtu úložiště](storage-create-storage-account.md)
-* [Začínáme se službou Azure Storage v pěti minutách](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Pro správce
 * [Použití Azure Powershell s Azure Storage](storage-powershell-guide-full.md)
