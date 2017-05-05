@@ -81,6 +81,7 @@
 ### Použití přímých metod
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Java back-end / zařízení Java](iot-hub-java-java-direct-methods.md)
 ### Začínáme se správou zařízení
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-device-management-get-started.md)

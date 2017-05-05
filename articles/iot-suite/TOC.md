@@ -11,12 +11,22 @@
 ## [Přehled řešení propojené továrny](iot-suite-connected-factory-overview.md)
 ## [Seznámení s řešením vzdáleného monitorování](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Seznámení s řešením prediktivní údržby](iot-suite-predictive-walkthrough.md)
+## [Připojte Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### Použití jazyka C
+#### [Simulovaná data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Použití reálných senzorů](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Implementace aktualizací firmwaru](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Použití Node.js
+#### [Simulovaná data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Použití reálných senzorů](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Implementace aktualizací firmwaru](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Postup
-## [Připojení zařízení k řešení vzdáleného monitorování (Windows)](iot-suite-connecting-devices.md)
-## [Připojení zařízení k řešení vzdáleného monitorování (Linux)](iot-suite-connecting-devices-linux.md)
-## [Připojení zařízení k řešení vzdáleného monitorování (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Připojení zařízení k řešení vzdáleného monitorování (Node)](iot-suite-connecting-devices-node.md)
+## Připojení simulovaného zařízení
+### [C ve Windows](iot-suite-connecting-devices.md)
+### [C v Linuxu](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
+## [Připojení zařízení mbed](iot-suite-connecting-devices-mbed.md)
 ## [Připojení aplikace logiky k řešení vzdáleného monitorování](iot-suite-logic-apps-tutorial.md)
 ## [Přizpůsobení předkonfigurovaného řešení](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Použití dynamické telemetrie s řešením vzdáleného monitorování](iot-suite-dynamic-telemetry.md)

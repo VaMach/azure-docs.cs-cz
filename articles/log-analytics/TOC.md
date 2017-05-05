@@ -48,6 +48,7 @@
 ### [Řešení pro správu upozornění](log-analytics-solution-alert-management.md)
 ## Použití řešení
 ### [Přehled řešení](log-analytics-add-solutions.md)
+### [Cílová řešení](../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [Posouzení AD](log-analytics-ad-assessment.md)
 ### [Stav replikace AD](log-analytics-ad-replication-status.md)
@@ -57,6 +58,8 @@
 ### [Sledování změn](log-analytics-change-tracking.md)
 ### [Kontejnery](log-analytics-containers.md)
 ### [Analýzy DNS](log-analytics-dns.md)
+### [IT Service Management Connector v OMS](log-analytics-itsmc-overview.md)
+#### [Připojení Správy služeb IT v OMS](log-analytics-itsmc-connections.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Zprávy B2B Logic Apps
 #### [Řešení zpráv B2B Logic Apps](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -84,7 +87,7 @@
 ### [Rozhraní API pro výstrahy](log-analytics-api-alerts.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [PowerShell](/powershell/module/azurerm.operationalinsights)
 ## [REST](/rest/api/loganalytics)
 
 # Zdroje a prostředky

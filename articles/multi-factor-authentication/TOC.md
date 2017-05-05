@@ -31,7 +31,7 @@
 
 ## Integrace
 ### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [Použití služby AD FS&2;.0](multi-factor-authentication-get-started-adfs-cloud.md)
+#### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-cloud.md)
 #### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 #### [Použití služby Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 ### Adresáře
@@ -47,3 +47,4 @@
 ## Řešení potíží
 ### [Nejčastější dotazy](multi-factor-authentication-faq.md)
 ### [Zeptejte se](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [Chyby rozšíření NPS](multi-factor-authentication-nps-errors.md)

@@ -29,15 +29,19 @@
 ### [Nastavení umístění](resource-manager-template-location.md)
 ### [Přiřazení značek](resource-manager-template-tags.md)
 ### [Nastavení názvu a typu podřízeného prostředku](resource-manager-template-child-resource.md)
+### [Aktualizace prostředku](resource-manager-update.md)
+### [Použití objektů pro parametry](resource-manager-objects-as-parameters.md)
 ### [Sdílení stavu mezi propojenými šablonami](best-practices-resource-manager-state.md)
 ### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
 ## Nasazení
 ### PowerShell
 #### [Nasazení šablony](resource-group-template-deploy.md)
 #### [Nasazení privátní šablony s tokenem SAS](resource-manager-powershell-sas-token.md)
+#### [Export šablony a opětovné nasazení](resource-manager-export-template-powershell.md)
 ### Azure CLI
 #### [Nasazení šablony](resource-group-template-deploy-cli.md)
 #### [Nasazení privátní šablony s tokenem SAS](resource-manager-cli-sas-token.md)
+#### [Export šablony a opětovné nasazení](resource-manager-export-template-cli.md)
 ### [Azure Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Průběžná integrace se sadou Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Referenční informace
 ## [Funkce šablon](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Funkce pole a objektu](resource-group-template-functions-array.md)
+### [Funkce porovnání](resource-group-template-functions-comparison.md)
+### [Funkce nasazení](resource-group-template-functions-deployment.md)
+### [Numerické funkce](resource-group-template-functions-numeric.md)
+### [Funkce prostředků](resource-group-template-functions-resource.md)
+### [Funkce řetězců](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

@@ -2,6 +2,7 @@
 ## [Zabezpečení privilegovaného přístupu](active-directory-securing-privileged-access.md)
 ## [Co je Azure AD PIM](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Role](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Pracovní postupy schvalování Privileged Identity Management](azure-ad-pim-approval-workflow.md)
 
 # Začínáme
 ## [Požadavky na předplatné](subscription-requirements.md)

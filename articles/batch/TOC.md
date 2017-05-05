@@ -7,11 +7,14 @@
 ## [Vytvoření účtu služby Batch](batch-account-create-portal.md)
 ## [Výukový kurz k Batch .NET](batch-dotnet-get-started.md)
 ## [Kurz k Batch Pythonu](batch-python-tutorial.md)
+## [Kurz k Batch Node.js](batch-nodejs-get-started.md)
 # Postup
 ## Vývoj
 ### [Balíčky aplikací](batch-application-packages.md)
 ### [Automatické škálování výpočetních uzlů](batch-automatic-scaling.md)
-### [Ověřování Azure AD](batch-aad-auth.md)
+### Ověřování Azure AD
+#### [Azure AD se službou Batch](batch-aad-auth.md)
+#### [Azure AD se službou Batch Management](batch-aad-auth-management.md)
 ### [Souběžné úlohy uzlu](batch-parallel-node-tasks.md)
 ### [Efektivní seznamové dotazy](batch-efficient-list-queries.md)
 ### [Příprava úlohy a dokončovací úkoly](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [Azure CLI](batch-cli-get-started.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

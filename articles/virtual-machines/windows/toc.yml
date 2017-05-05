@@ -4,7 +4,7 @@
   items:
   - name: "Informace o službě Virtual Machines"
     href: overview.md
-- name: "Rychlý start"
+- name: "Šablony Rychlý start"
   expanded: true
   items:
   - name: "Vytvoření virtuálního počítače – portál"
@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3. Automatizace konfigurace"
     href: tutorial-automate-vm-deployment.md
-  - name: "4. Vyrovnávání zatížení virtuálních počítačů"
+  - name: "4. Vytvoření virtuálního počítače"
+    href: tutorial-custom-images.md
+  - name: "5. Vysoce dostupné virtuální počítače"
+    href: tutorial-availability-sets.md
+  - name: "6. Vytvoření škálovací sady virtuálních počítačů"
+    href: tutorial-create-vmss.md
+  - name: "7. Vyrovnávání zatížení virtuálních počítačů"
     href: tutorial-load-balancer.md
-  - name: "5. Správa sítě"
+  - name: "8. Správa sítě"
     href: tutorial-virtual-network.md
+  - name: "9. Správa zabezpečení virtuálních počítačů"
+    href: tutorial-azure-security.md
+
 - name: "Ukázky"
   items:
   - name: "PowerShell"

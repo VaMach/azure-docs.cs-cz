@@ -8,19 +8,19 @@
 ## [Integrace se SAP Netweaverem](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Integrace se SAP Business ByDesignem](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 # Řešení SAP v Azure
-## SAP HANA
+## Velké instance SAP HANA
 ### [Přehled a architektura](hana-overview-architecture.md)
 ### [Infrastruktura a možnosti připojení](hana-overview-infrastructure-connectivity.md)
 ### [Instalace SAP HANA](hana-installation.md)
 ### [Vysoká dostupnost a zotavení po havárii](hana-overview-high-availability-disaster-recovery.md)
 ### [Řešení potíží a monitorování](troubleshooting-monitoring.md)
+## SAP HANA ve službě Virtual Machines
 ### [Jedna instance SAP HANA](hana-get-started.md)
 ### [Průvodce nasazením S/4 HANA nebo BW/4 HANA](cal-s4h.md)
-### Backup
-#### [Přehled](sap-hana-backup-guide.md)
-#### [Záloha na úrovni souborů](sap-hana-backup-file-level.md)
-#### [Snímky úložiště](sap-hana-backup-storage-snapshots.md)
-
+### [Vysoká dostupnost ve virtuálních počítačích] (sap-hana-high-availability.md)
+### [Přehled služby Backup](sap-hana-backup-guide.md)
+### [Záloha na úrovni souborů](sap-hana-backup-file-level.md)
+### [Zálohy snímků úložiště](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
 ### [Přehled a architektura](suse-quickstart.md)
 ### [Plánování a implementace](planning-guide.md)

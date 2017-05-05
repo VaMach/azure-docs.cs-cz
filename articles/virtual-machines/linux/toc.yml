@@ -4,7 +4,7 @@
   items:
   - name: "Informace o službě Virtual Machines"
     href: overview.md
-- name: "Rychlý start"
+- name: "Šablony Rychlý start"
   expanded: true
   items:
   - name: "Vytvoření virtuálního počítače – Azure CLI"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8. Správa sítě"
     href: tutorial-virtual-network.md
+  - name: "9. Správa zabezpečení virtuálních počítačů"
+    href: tutorial-azure-security.md
 - name: "Ukázky"
   items:
   - name: "Azure CLI"

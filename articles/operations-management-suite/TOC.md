@@ -30,6 +30,7 @@
 
 ## Použití řešení
 ### [Řešení pro správu](operations-management-suite-solutions.md)
+### [Cílová řešení](operations-management-suite-solution-targeting.md)
 ### Přehledy a analýza
 #### [Posouzení AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Stav replikace AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -58,6 +59,7 @@
 ### [Prostředky služby Automation](operations-management-suite-solutions-resources-automation.md)
 ### [Prohledávání protokolu a upozornění](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Zobrazení](operations-management-suite-solutions-resources-views.md)
+### [Osvědčené postupy](operations-management-suite-solutions-best-practices.md)
 
 ## [Integrace s OMS](operations-management-suite-integration.md)
 

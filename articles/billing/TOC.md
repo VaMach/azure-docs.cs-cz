@@ -33,6 +33,7 @@
 
 # Referenční informace
 ## [Přehled rozhraní API](billing-usage-rate-card-overview.md)
+## [Přehled rozhraní API Enterprise Reporting](billing-enterprise-api.md)
 ## [REST pro faktury](/rest/api/billing)
 ## [REST pro využití a RateCard](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Partnerské řešení: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)

@@ -30,6 +30,7 @@
 #### [Notification Hubs](functions-bindings-notification-hubs.md)
 #### [Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Externí soubor](functions-bindings-external-file.md)
+#### [Externí tabulka](functions-bindings-external-table.md)
 ### [Definování proxy serverů služby Functions](functions-proxies.md)
 ### [Vytvoření Function App na webu Azure Portal](functions-create-function-app-portal.md)
 ### [Provedení naplánované úlohy čištění](functions-scenario-database-table-cleanup.md)

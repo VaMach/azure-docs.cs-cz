@@ -32,23 +32,33 @@
 
 ## Spravovat
 ### [Spolehlivost úloh](stream-analytics-job-reliability.md)
-### [Monitorování úloh](stream-analytics-monitoring.md)
-### [Diagnostické protokoly](stream-analytics-job-diagnostic-logs.md)
 ### [Programové monitorování úloh](stream-analytics-monitor-jobs.md)
 ### [Monitorování úloh s PowerShellem](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Škálování pro zvýšení prostupnosti](stream-analytics-scale-jobs.md)
 ### [Škálování pro funkce Machine Learningu](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Pravidelná změna přihlašovacích údajů pro vstup a výstup](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Řešení potíží
+### [Průvodce řešením problémů](stream-analytics-troubleshooting-guide.md)
+### [Monitorování úloh](stream-analytics-monitoring.md)
+### [Okno Resource Health](stream-analytics-resource-health.md)
+### [Metriky a diagram úloh](stream-analytics-job-diagram-with-metrics.md)
+### [Testování dotazů](stream-analytics-test-query.md)
+### [Ukázka vstupních dat](stream-analytics-sample-data-input.md)
+### [Ladění SELECT INTO](stream-analytics-select-into.md)
+### [Zpracování pořadí událostí](stream-analytics-out-of-order-and-late-events.md)
+### [Omezení čtečky centra událostí](stream-analytics-event-hub-consumer-groups.md)
+### [Optimalizace jednotek streamování](stream-analytics-streaming-unit-consumption.md)
+### [Protokoly diagnostiky](stream-analytics-job-diagnostic-logs.md)
+
 ## Automatizace
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Dotazovací jazyk](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Zdroje a prostředky
 ## [Poznámky k verzi](stream-analytics-release-notes.md)
