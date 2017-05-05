@@ -9,14 +9,14 @@
 ## Příručky Rychlý start
 ### [Vytváření aplikací pro iOS](active-directory-b2c-devquickstarts-ios.md)
 ### [Vytváření aplikací pro Android](active-directory-b2c-devquickstarts-android.md)
-### [Vytvoření webového rozhraní API Node.Js](active-directory-b2c-devquickstarts-api-node.md)
-### [Vytvoření webové aplikace .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Registrace a přihlášení k webové aplikaci ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### Vytvoření webové aplikace .NET
+#### [Registrace a přihlášení k webové aplikaci .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Volání webového rozhraní API z webové aplikace .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [Vytvoření webového rozhraní API .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Vytváření desktopových aplikací pro Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Volání webového rozhraní API z webové aplikace .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Vytvoření webové aplikace Node.Js](active-directory-b2c-devquickstarts-web-node.md)
+### [Vytvoření webového rozhraní API Node.Js](active-directory-b2c-devquickstarts-api-node.md)
+### [Vytvoření počítačové aplikace .NET](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Použití rozhraní Graph API v Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Přidání přihlašování do webové aplikace Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## [Nejčastější dotazy](active-directory-b2c-faqs.md)
 
 # Postup
@@ -53,7 +53,7 @@
 
 # Zdroje a prostředky
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Fórum Azure pro názory](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Fórum Azure AD B2C pro názory](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Podpora](active-directory-b2c-support.md)

@@ -6,6 +6,7 @@
 ## [Globální distribuce](documentdb-distribute-data-globally.md)
 ## [Místní převzetí služeb při selhání](documentdb-regional-failovers.md)
 ## [Zabezpečení](documentdb-nosql-database-security.md)
+## [Šifrování v klidovém stavu](documentdb-nosql-database-encryption-at-rest.md)
 ## [Analýza celkových nákladů na vlastnictví NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scénáře
 ### [Běžné případy použití](documentdb-use-cases.md)

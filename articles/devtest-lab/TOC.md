@@ -1,36 +1,34 @@
 # Přehled
 ## [Služba Azure Devtest Labs](devtest-lab-overview.md)
 ## [Koncepty](devtest-lab-concepts.md)
+## Scénáře
+### [Použití testovacích prostředí pro školení](devtest-lab-training-lab.md)
 
 # Začínáme
 ## [Vytvoření testovacího prostředí](devtest-lab-create-lab.md)
-## [Vytváření vzorců](devtest-lab-create-formulas.md)
-## [Vytvoření virtuálního počítače](devtest-lab-add-vm.md)
-## [Správa základních zásad testovacího prostředí](devtest-lab-get-started-with-lab-policies.md)
-## [Vytvoření testovacího prostředí pro školení](devtest-lab-training-lab.md)
-## [Nejčastější dotazy](devtest-lab-faq.md)
+## [Vytvoření prvního virtuálního počítače](devtest-lab-create-first-vm.md)
+## [Nastavení zásad spouštění](devtest-lab-get-started-with-lab-policies.md)
 
 # Postup
-## Správa testovacích prostředí
-### [Přidání uživatelů a vlastníků testovacího prostředí](devtest-lab-add-devtest-user.md)
-### [Správa všech zásad testovacího prostředí](devtest-lab-set-lab-policy.md)
-### [Udělení oprávnění pro zásady](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
-### [Konfigurace správy nákladů](devtest-lab-configure-cost-management.md)
-### [Konfigurace virtuálních sítí](devtest-lab-configure-vnet.md)
-### [Principy sdílených IP adres](devtest-lab-shared-ip.md)
-### [Automatizace změn testovacího prostředí pomocí šablon a PowerShellu](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-
-## Správa artefaktů
-### [Přidání úložiště artefaktů](devtest-lab-add-artifact-repo.md)
-### [Přidání vlastních artefaktů](devtest-lab-artifact-author.md)
-### [Správa artefaktů](devtest-lab-add-vm-with-artifacts.md)
-
-## Správa šablon a bází virtuálních počítačů
+## Použití virtuálních počítačů v testovacím prostředí
+### [Vytvoření virtuálních počítačů](devtest-lab-add-vm.md)
 ### [Vytvoření virtuálního počítače s možností deklarace identity](devtest-lab-add-claimable-vm.md)
-### [Vytvoření prostředí více virtuálních počítačů a prostředků PaaS pomocí šablony Azure Resource Manageru](devtest-lab-create-environment-from-arm.md)
+
+## Použití prostředí v testovacím prostředí
+### [Vytvoření prostředí](devtest-lab-create-environment-from-arm.md)
+
+## Zabezpečený přístup k testovacím prostředím
+### [Přidání uživatelů a vlastníků testovacího prostředí](devtest-lab-add-devtest-user.md)
+### [Přizpůsobení oprávnění s vlastními rolemi](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
+
+## Konfigurace testovacího prostředí
+### [Nastavení zásad a plánů ](devtest-lab-set-lab-policy.md)
+### [Konfigurace správy nákladů](devtest-lab-configure-cost-management.md)
 ### [Konfigurace imagí Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Srovnání imagí a vzorců](devtest-lab-comparing-vm-base-image-types.md)
-### [Správa vzorců](devtest-lab-manage-formulas.md)
+
+## [Výběr vlastní image nebo vzorce](devtest-lab-comparing-vm-base-image-types.md)
+
+## Správa vlastních imagí
 ### [Vytvoření vlastní image z virtuálního počítače](devtest-lab-create-custom-image-from-vm-using-portal.md)
 ### [Vytvoření vlastní image z VHD pomocí webu Azure Portal](devtest-lab-create-template.md)
 ### [Vytvoření vlastní image z VHD pomocí PowerShellu](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
@@ -38,9 +36,28 @@
 ### [Nahrání souboru VHD pomocí PowerShellu](devtest-lab-upload-vhd-using-powershell.md)
 ### [Nahrání souboru VHD pomocí průzkumníka úložišť](devtest-lab-upload-vhd-using-storage-explorer.md)
 
-# Zdroje a prostředky
+## Správa opětovně využitelných šablon
+### [Přidání úložiště Git pro artefakty a šablony](devtest-lab-add-artifact-repo.md)
+### [Přidání vlastních artefaktů](devtest-lab-artifact-author.md)
+### [Správa vzorců](devtest-lab-manage-formulas.md)
+
+## Správa virtuálních sítí
+### [Konfigurace virtuálních sítí](devtest-lab-configure-vnet.md)
+### [Výběr možnosti konfigurace IP](devtest-lab-shared-ip.md)
+
+# Referenční informace
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+### [Automatická tvorba a úpravy testovacích prostředí](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
+## [REST API](https://docs.microsoft.com/rest/api/dtl/)
+## [Šablony Resource Manageru](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
+
+
+# Související
+## [Nejčastější dotazy](devtest-lab-faq.md)
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=devtest-lab)
-## [Ceny](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Blog týmu](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
+## [Ceny](https://azure.microsoft.com/pricing/details/devtest-lab/)

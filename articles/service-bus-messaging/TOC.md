@@ -42,8 +42,10 @@
 ### [Zpracování transakcí](service-bus-transactions.md)
 ### [Diagnostické protokoly](service-bus-diagnostic-logs.md)
 ### AMQP
+#### [Přehled AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
+#### [Java Message Service a AMQP](service-bus-java-how-to-use-jms-api-amqp.md)
 #### [Průvodce protokolem AMQP](service-bus-amqp-protocol-guide.md)
 #### [Operace na základě odpovědí na požadavky AMQP](service-bus-amqp-request-response.md)
 
@@ -56,7 +58,7 @@
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
+## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Výjimky](service-bus-messaging-exceptions.md)
 ## [Kvóty](service-bus-quotas.md)

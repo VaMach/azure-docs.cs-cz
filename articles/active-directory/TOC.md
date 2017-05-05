@@ -1,9 +1,9 @@
 # Přehled
 ## [Představení služby Azure Active Directory](active-directory-whatis.md)
 ## [Výběr edice](active-directory-editions.md)
-## [Správa identit Azure](fundamentals-identity.md)
-## [Seznámení s prostředím portálu Azure AD](active-directory-preview-explainer.md)
 
+## [Správa identit Azure](identity-fundamentals.md)
+## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
 
 # Začínáme
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
@@ -58,6 +58,7 @@
 ### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
 ### [Povolení vyhrazených skupin](active-directory-accessmanagement-dedicated-groups.md)
 ### [Přidání skupiny k aplikacím SaaS](active-directory-accessmanagement-group-saasapps.md)
+### [Obnovení odstraněné skupiny Office 365](active-directory-groups-restore-azure-portal.md)
 ### Správa nastavení skupin
 #### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Rutiny](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -110,24 +111,27 @@
 ##### [Neznámé zdroje](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Neobvyklé přihlašovací aktivity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Správa hesel](active-directory-manage-passwords.md)
-### [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
-### [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
-### [Samoobslužné resetování hesla povolené správci](active-directory-passwords.md)
-### [Vysvětlení správy hesel](active-directory-passwords-how-it-works.md)
-### [Vysvětlení zásad a omezení](active-directory-passwords-policy.md)
-### Resetování hesel
+## [Správa hesel](active-directory-passwords.md)
+### Dokumenty uživatele
+#### [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+#### [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+### [Rychlý start: Samoobslužné resetování hesla](active-directory-passwords-getting-started.md)
+### [Samoobslužné resetování hesla licence](active-directory-passwords-licensing.md)
+### [Nasazení samoobslužného resetování hesla](active-directory-passwords-best-practices.md)
+### Správci IT: Resetování hesel
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Portál Classic](active-directory-create-users-reset-password.md)
-### [Nastavení zásady vypršení platnosti](active-directory-passwords-set-expiration-policy.md)
-### Povolení správy hesel
-#### [Začínáme](active-directory-passwords-getting-started.md)
-#### [Nasazení](active-directory-passwords-best-practices.md)
-#### [Přizpůsobení](active-directory-passwords-customize.md)
-#### [Zobrazení sestav](active-directory-passwords-get-insights.md)
-#### [Další informace](active-directory-passwords-learn-more.md)
-#### [Nejčastější dotazy](active-directory-passwords-faq.md)
-#### [Řešení problémů](active-directory-passwords-troubleshoot.md)
+#### [Portál Azure Classic](active-directory-create-users-reset-password.md)
+### [Pochopení zásad samoobslužného resetování hesla ](active-directory-passwords-policy.md)
+### [Pochopení resetování hesla](active-directory-passwords-how-it-works.md)
+### [Přizpůsobení samoobslužného resetování hesla](active-directory-passwords-customize.md)
+### [Data používaná samoobslužným resetováním hesla](active-directory-passwords-data.md)
+### [Vytváření sestav o samoobslužném resetování hesla](active-directory-passwords-reporting.md)
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Zpětný zápis hesla](active-directory-passwords-writeback.md)
+### [Synchronizace hodnoty hash hesel](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [Řešení problémů](active-directory-passwords-troubleshoot.md)
+### [Nejčastější dotazy](active-directory-passwords-faq.md)
+
 
 ## Správa zařízení
 ### [Registrace zařízení](active-directory-device-registration-overview.md)
@@ -289,6 +293,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Řešení problémů](role-based-access-control-troubleshooting.md)
+#### [Operace poskytovatele prostředků](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
 
 ## Zabezpečení identit
@@ -341,7 +346,7 @@
 
 
 # Referenční informace
-## [Rutiny PowerShellu](/powershell/ )
+## [Rutiny PowerShellu](/powershell/azure/overview)
 ## [Referenční informace k Java API](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Limity a omezení služby](active-directory-service-limits-restrictions.md)

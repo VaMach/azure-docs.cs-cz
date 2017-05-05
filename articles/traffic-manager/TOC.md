@@ -22,9 +22,11 @@
 ## [Měření výkonu Traffic Manageru](traffic-manager-performance-considerations.md)
 ## [Použití PowerShellu ke správě Traffic Manageru](traffic-manager-powershell-arm.md)
 ## [Nasměrování internetové domény na Traffic Manager](traffic-manager-point-internet-domain.md)
+## Řešení potíží
+### [Řešení potíží při sníženém výkonu Azure Traffic Manageru](traffic-manager-troubleshooting-degraded.md)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

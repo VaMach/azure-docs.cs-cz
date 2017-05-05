@@ -7,6 +7,13 @@
 ## [Vytvoření zdroje událostí](time-series-insights-add-event-source.md)
 ## [Odesílání událostí](time-series-insights-send-events.md)
 
+# Postup
+## [Vytvoření zdroje událostí centra událostí](time-series-insights-how-to-add-an-event-source-eventhub.md)
+## [Vytvoření zdroje událostí IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md)
+## [Škálování prostředí](time-series-insights-how-to-scale-your-environment.md)
+## [Diagnóza a řešení problémů](time-series-insights-diagnose-and-solve-problems.md)
+## [Dotazování dat pomocí jazyka C#](time-series-insights-query-data-csharp.md)
+
 # Referenční informace
 ## [Rozhraní API pro dotazy](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
 ## [Syntaxe dotazů](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)

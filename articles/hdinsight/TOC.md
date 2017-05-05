@@ -132,8 +132,9 @@
 ## Rozšíření clusterů
 ### [Přizpůsobení clusterů pomocí Bootstrapu](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Přizpůsobení clusterů pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md)
-### [Přidání knihoven Hivu](hdinsight-hadoop-add-hive-libraries.md)
 ### [Vývoj akcí skriptů](hdinsight-hadoop-script-actions-linux.md)
+### [Instalace nebo aktualizace Mono](hdinsight-hadoop-install-mono.md)
+### [Přidání knihoven Hivu](hdinsight-hadoop-add-hive-libraries.md)
 ### [Použití Giraphu](hdinsight-hadoop-giraph-install-linux.md)
 ### [Použití Hue](hdinsight-hadoop-hue-linux.md)
 ### [Použití R](hdinsight-hadoop-r-scripts-linux.md)
@@ -190,7 +191,7 @@
 #### [Ladění výkonu dotazů Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referenční informace
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

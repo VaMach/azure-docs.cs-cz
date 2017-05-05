@@ -15,13 +15,12 @@
 ### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
-## [Zpracování výsledků vyhledávání](search-pagination-page-layout.md)
-## Kurzy
-### [.NET](search-howto-dotnet-sdk.md)
-### [Náhled synonym .NET](search-synonyms-tutorial-sdk.md)
-### [Azure Portal](search-get-started-portal.md)
-### [NodeJS](search-get-started-nodejs.md)
-### [Java](search-get-started-java.md)
+# Kurzy
+## [.NET](search-howto-dotnet-sdk.md)
+## [Náhled synonym .NET](search-synonyms-tutorial-sdk.md)
+## [Azure Portal](search-get-started-portal.md)
+## [Node.js](search-get-started-nodejs.md)
+## [Java](search-get-started-java.md)
 # Postup
 ## Plánování a návrh
 ### [Omezení služby](search-limits-quotas-capacity.md)
@@ -59,14 +58,16 @@
 ### Vlastní vyhledávání
 #### [Analyzátory jazyka](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Vlastní analyzátory](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Výsledky stránkování](search-pagination-page-layout.md)
 ### [Vyhodnocování](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Návrhy](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Fasetová navigace](search-faceted-navigation.md)
 ### [Náhled synonym](search-synonyms.md)
 
 # Referenční informace
-## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET (správa)](/dotnet/api/microsoft.azure.management.search)
+
+## [.NET](/dotnet/api/?term=microsoft.azure.search)
+## [.NET (správa)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (správa)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (správa)](/rest/api/searchmanagement)

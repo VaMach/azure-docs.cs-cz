@@ -12,7 +12,6 @@
 ## [Požadavky](expressroute-prerequisites.md)
 ## [Pracovní postupy](expressroute-workflows.md)
 ## [Požadavky směrování](expressroute-routing.md)
-## [Požadavky překladu adres (NAT)](expressroute-nat.md)
 ## [Požadavky QoS](expressroute-qos.md)
 ## [Informace o přesunu okruhů z modelu nasazení Classic do Resource Manageru](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## Osvědčené postupy
 ### [Osvědčené postupy pro zabezpečení sítě a cloudové služby](../best-practices-network-security.md)
-## [Optimalizace směrování](expressroute-optimize-routing.md)
+### [Optimalizace směrování](expressroute-optimize-routing.md)
 ### [Asymetrické směrování](expressroute-asymmetric-routing.md)
+### [NAT pro ExpressRoute](expressroute-routing-nat.md)
 
 ## Řešení potíží
 ### [Ověření připojení ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [Získání tabulek protokolu ARP (Classic)](expressroute-troubleshooting-arp-classic.md)
 
 # Referenční informace
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
