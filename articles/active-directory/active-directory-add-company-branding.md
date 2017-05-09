@@ -1,5 +1,5 @@
 ---
-title: "Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu v Azure Active Directory"
+title: "Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu"
 description: "Postup přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu v Azure"
 services: active-directory
 documentationcenter: 
@@ -8,108 +8,111 @@ manager: femila
 editor: 
 ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
-ms.workload: identity
+ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/07/2017
+ms.date: 03/03/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6d4fbfe97288fcb76628b45649b8b678152198a9
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="add-company-branding-to-sign-in-and-access-panel-pages"></a>Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
-Mnoho společností upřednostňuje jednotný vzhled a chování všech webů a služeb, které spravují. Azure Active Directory tuto možnost nabízí a umožňuje odborníkům na IT pomocí firemních log a obrázků přizpůsobit vzhled následujících webových stránek:
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu
+Mnoho společností chce předcházet zmatení uživatele a upřednostňuje jednotný vzhled všech webů a služeb, které spravují. Azure Active Directory tuto možnost nabízí a umožňuje přizpůsobení vzhledu následujících webových stránek, na které můžete přidat svoje firemní logo a vlastní barevná schémata:
 
-* **Přihlašovací stránka:** To je stránka, která se zobrazí, když se zaměstnanci nebo hosté přihlásí k Office 365 nebo k jiným aplikacím, které používají Azure AD.
-* **Stránka přístupového panelu:** Přístupový panel je webový portál, který vám umožňuje zobrazovat a spouštět cloudové aplikace, ke kterým vám správce Azure AD udělil přístup. Přístupový panel najdete na adrese [https://myapps.microsoft.com](https://myapps.microsoft.com).
+* **Přihlašovací stránka**: To je stránka, která se zobrazuje při přihlašování k Office 365 nebo k jiným webovým aplikacím, které používají Azure AD jako zprostředkovatele identity. Tuto stránku budete používat při vyhledávání domovské sféry nebo při zadávání přihlašovacích údajů. Vyhledávání domovské sféry umožňuje systému přesměrovat federované uživatele na jejich místní službu tokenů zabezpečení (například AD FS).
+* **Stránka přístupového panelu**: Přístupový panel je webový portál, který vám umožňuje zobrazovat a spouštět cloudové aplikace, ke kterým vám správce Azure AD udělil přístup. Přístupový panel otevřete na následující adrese URL: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 Toto téma popisuje možnosti přizpůsobení přihlašovací stránky a stránky přístupového panelu.
 
 > [!NOTE]
-> * Firemní branding je dostupný jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory nebo pokud máte licenci Office 365. Další informace najdete v článku Edice služby Azure Active Directory.
-> 
-> * Edice Premium a Basic služby Azure Active Directory jsou zákazníkům v Číně dostupné prostřednictvím celosvětové instance služby Azure Active Directory. Edice Premium a Basic služby Azure Active Directory nejsou aktuálně podporované ve službě Microsoft Azure provozované v Číně společností 21Vianet. Další informace si vyžádejte na fóru služby Azure Active Directory.
-
+> * Firemní branding je funkce, která je dostupná jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory nebo jste uživatelem Office 365. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
+> * Edice Premium a Basic služby Azure Active Directory jsou zákazníkům v Číně dostupné prostřednictvím celosvětové instance služby Azure Active Directory. Edice Premium a Basic služby Azure Active Directory nejsou aktuálně podporované ve službě Microsoft Azure provozované v Číně společností 21Vianet. Další informace si vyžádejte na [fóru služby Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Přizpůsobení přihlašovací stránky
-Uživatelé obvykle na přihlašovací stránku Azure AD narazí při pokusu o přístup ke cloudovým aplikacím a službám, které si vaše organizace předplatila.
+Pokud potřebujete v prohlížeči otevřít cloudové aplikace a služby, které si vaše organizace předplatila, obvykle použijete přihlašovací stránku.
 
-Pokud na přihlašovací stránce měníte branding, může trvat až hodinu, než se taková změna projeví koncovým uživatelům.
+Pokud jste přihlašovací stránku změnili, může se taková změna projevit až za hodinu.
 
-Prvky firemního brandingu se na přihlašovací stránce služby Azure AD zobrazí, když uživatel přistupuje k adrese URL konkrétního tenanta, třeba https://outlook.com/contoso.com.
+Přihlašovací stránka ve vaší firemní úpravě se zobrazí jenom tehdy, když službu navštívíte pomocí adresy URL konkrétního klienta, například https://outlook.com/**contoso**.com nebo https://mail.**contoso**.com.
 
-Když uživatel navštíví službu na obecné adrese URL, třeba www.office.com, přihlašovací stránka ještě nebude obsahovat firemní branding, protože systém nebude vědět, kdo tento uživatel je. Jakmile ale uživatel zadá svoje ID uživatele nebo vybere dlaždici uživatele, firemní branding se zobrazí.
+Když službu navštívíte pomocí adresy URL, která se neváže ke konkrétnímu klientu (např: https://mail.office365.com), zobrazí se přihlašovací stránka bez firemní úpravy. V tomto případě se branding zobrazí až potom, co zadáte ID uživatele nebo vyberete dlaždici uživatele.
 
 > [!NOTE]
 > * Název domény se musí v sekci portálu Azure Classic **Active Directory** > **Adresář** > **Domény**, kde jste branding nakonfigurovali, zobrazovat jako „Aktivní“.
-> * Branding přihlašovací stránky se nepřenáší na přihlašovací stránku pro osobní účty Microsoftu. Pokud se zaměstnanci nebo obchodní hosté přihlásí pomocí osobního účtu Microsoft, na jejich přihlašovací stránce se branding vaší organizace nezobrazí.
+> * Branding přihlašovací stránky se nepřenáší na spotřebitelskou přihlašovací stránku Microsoftu. Pokud se přihlásíte pomocí osobního účtu Microsoft, může se vám zobrazit seznam uživatelských dlaždic s brandingem, které vykreslí Azure AD, ale branding vaší organizace se na přihlašovací stránku účtu Microsoft nepoužije.
+>
 >
 
-Na následujících snímcích obrazovky je vysvětlené, jak se přihlašovací stránky přizpůsobují.
+Pokud chcete na této stránce zobrazit značku, barvy a další přizpůsobitelné prvky vaší společnosti, prohlédněte si následující obrázky, abyste pochopili rozdíl mezi oběma prostředími.
 
-### <a name="scenario-1-contoso-employee-goes-to-a-generic-app-url-for-example-wwwofficecom"></a>Scénář 1: Zaměstnanec společnosti Contoso přejde na obecnou adresu URL aplikace (třeba www.office.com)
+Následující snímek obrazovky ukazuje příklad přihlašovací stránky Office 365 na stolním počítači **před** přizpůsobením:
 
-V tomto příkladu se uživatel Contoso přihlásí k mobilní nebo webové aplikaci pomocí obecné adresy URL. Obrázek nalevo vždycky reprezentuje aplikaci. Podokno interakce napravo se aktualizuje, aby se případně zobrazily prvky značky Contoso.
+![Přihlašovací stránka Office 365 před přizpůsobením][1]
 
-![Přihlašovací stránka Office 365 před přizpůsobením a po něm][1]
+Následující snímek obrazovky ukazuje příklad přihlašovací stránky Office 365 na stolním počítači **po** přizpůsobení:
 
-### <a name="scenario-2-contoso-employee-goes-to-contoso-app-thats-restricted-to-internal-users"></a>Scénář 2: Zaměstnanec společnosti Contoso přejde na aplikaci Contoso, která je omezená jenom na interní uživatele
+![Přihlašovací stránka Office 365 po přizpůsobení][2]
 
-V tomto příkladu se uživatel Contoso přihlašuje k interní aplikaci pomocí konkrétní firemní adresy URL. Ilustrace nalevo představuje firemní značku (Contoso). Podokno interakce na pravé straně je pevně spojené se společností Contoso a pomáhá zaměstnancům při přihlašování.
+Následující snímek obrazovky ukazuje příklad přihlašovací stránky Office 365 na mobilním zařízení **před** přizpůsobením:
 
-![Přihlašovací stránka aplikace s omezeným přístupem][2]
+![Přihlašovací stránka Office 365 před přizpůsobením][3]
 
-### <a name="scenario-3-contoso-employee-goes-to-a-contoso-app-thats-open-to-external-users"></a>Scénář 3: Zaměstnanec společnosti Contoso přejde na aplikaci Contoso, která je otevřená i pro externí uživatele
+Následující snímek obrazovky ukazuje příklad přihlašovací stránky Office 365 na mobilním zařízení **po** přizpůsobení:
 
-V tomto příkladu se uživatel přihlašuje k obchodní aplikaci ze společnosti Contoso, přitom ale nemusí být jejím zaměstnancem. Obrázek na levé straně představuje vlastníka prostředku (Contoso), stejně jako ve scénáři \#2. Ale tentokrát podokno interakce na pravé straně není vázané na Contoso, aby se externí uživatele neodrazovalo od přihlášení.
+![Přihlašovací stránka Office 365 po přizpůsobení][4]
 
-![Přihlášení s otevřeným přístupem][3]
+Když změníte velikost okna prohlížeče, velký obrázek (podobný jako výše uvedený) se často bude muset oříznout, aby vyhovoval poměrům stran různých obrazovek. Myslete na to a snažte se zachovat klíčové vizuální prvky obrázku tím, že se budou vždy zobrazovat v levém horním rohu (v pravém horním rohu v případě jazyků psaných zprava doleva). Je to důležité kvůli tomu, že změna velikosti obvykle začíná v pravém dolním rohu a postupuje směrem nahoru a doleva nebo zezdola směrem nahoru.
 
-### <a name="scenario-4-fabrikam-business-guest-goes-to-contoso-app-thats-open-to-external-users"></a>Scénář 4: Obchodní host Fabrikam přejde k aplikaci Contoso, která je otevřená pro externí uživatele
+Následující obrázek znázorňuje oříznutí obrázku při změně velikosti prohlížeče doleva:
 
-V tomto příkladu se uživatel Contoso přihlašuje k interní aplikaci pomocí konkrétní firemní adresy URL. Ilustrace nalevo představuje firemní značku (Contoso). Podokno interakce na pravé straně je pevně spojené se společností Contoso a pomáhá zaměstnancům při přihlašování.
+![][6]
 
-![Přihlášení jako externí uživatel][4]
+Zde je zobrazení po změně velikosti prohlížeče směrem nahoru:
 
+![][7]
 
 ## <a name="what-elements-on-the-page-can-i-customize"></a>Přizpůsobitelné prvky na stránce
-
 Na přihlašovací stránce může přizpůsobit následující prvky:
 
 ![][5]
 
 | Prvek stránky | Umístění na stránce |
 |:--- | --- |
-| Banner s logem | Zobrazuje se v pravé horní části stránky. Nahrazuje logo aplikace, jakmile se určí organizace uživatele (obvykle po zadání uživatelského jména). |
-| Obrázek na pozadí | Zobrazuje se jako celoplošný obrázek na levé straně přihlašovací stránky. Nahrazuje obrázek aplikace v případě přihlašování s použitím tenantů (když uživatelé přistupují k aplikaci, kterou publikovala jejich vlastní organizace nebo organizace, ve které jsou obchodním hostem).<br>U připojení s nízkou šířkou pásma se obrázek na pozadí nahrazuje barvou pozadí. Na úzkých obrazovkách (třeba na telefonech) se tento obrázek nezobrazuje.<br>Když uživatelé změní velikost okna prohlížeče, obrázek na pozadí se ořízne. Při návrhu obrázku proto důležité vizuální prvky umístěte do levého horního rohu, aby nedošlo k jejich oříznutí. | 
-| Zaškrtávací pole Zůstat přihlášeni | Zobrazuje se pod polem **Heslo**. |
-| Text na přihlašovací stránce | Často používaný text, který se zobrazí nad zápatím stránky. Dá se využít k předání informací užitečných pro vaše uživatele, jako je třeba telefonní číslo technické podpory nebo právní prohlášení. |
+| Banner s logem |Zobrazuje se v pravé horní části stránky. Nahrazuje logo, které zobrazuje cílový web, ke kterému se přihlašujete (například Office 365 nebo Azure). |
+| Velký obrázek / barva pozadí |Zobrazuje se v levé části stránky. Nahrazuje obrázek, který zobrazuje cílový web, ke kterému se přihlašujete. Barva pozadí se může zobrazit místo velkého obrázku v případě připojení s malou šířkou pásma nebo na úzkých obrazovkách. |
+| Zůstat přihlášeni |Zobrazuje se pod textovým polem Heslo. |
+| Text na přihlašovací stránce |Zobrazuje se nad zápatím stránky, když potřebujete sdělit užitečné informace před samotným přihlášením pomocí pracovního nebo školního účtu. Můžete chtít například zobrazit telefonní číslo na oddělení technické podpory nebo právní prohlášení. |
 
 > [!NOTE]
-> Všechny prvky jsou volitelné. Pokud zadáte banner s logem, ale ne obrázek na pozadí, na přihlašovací stránce se zobrazí vaše logo a obrázek z cílového webu (v tomto případě obrázek kalifornské dálnice z Office 365).
+> Všechny prvky jsou volitelné. Pokud například určíte banner s logem, ale neurčíte žádný velký obrázek, přihlašovací stránka zobrazí vaše logo a obrázek z cílového webu (v tomto případě obrázek kalifornské dálnice z Office 365).
+>
 >
 
-Zaškrtávací políčko **Zůstat přihlášeni** na vaší přihlašovací stránce umožňuje, aby příslušný uživatel zůstal přihlášený i po zavření a dalším spuštění prohlížeče, a na životnost relace nemá vliv.
+Na přihlašovací stránce umožňuje zaškrtávací políčko **Zůstat přihlášeni**, aby příslušný uživatel zůstal přihlášen i po zavření a dalším spuštění prohlížeče. Na životnost relace to vliv nemá. Příslušné zaškrtávací políčko na přihlašovací stránce služby Azure Active Directory lze skrýt.
 
 Zobrazení zaškrtávacího políčka závisí na nastavení **Skrýt políčko Zůstat přihlášeni**.
 
-![Nastavení Skrýt políčko Zůstat přihlášeni][6]
+![][9]
 
-Pokud chcete toto zaškrtávací políčko skrýt, použijte pro toto nastavení hodnotu **Skryté**.
+Chcete-li zaškrtávací políčko skrýt, použijte pro toto nastavení hodnotu **Skryté**.
 
 > [!NOTE]
-> Některé funkce služeb SharePoint Online a Office 2010 závisí na tom, že uživatelé mohou toto políčko zaškrtnout. Pokud ho nastavíte jako skryté, mohou se vašim uživatelům zobrazovat další (neočekávané) výzvy k přihlášení.
+> Některé funkce služeb SharePoint Online a Office 2010 závisí na tom, zda uživatelé mohou toto políčko zaškrtnout. Pokud je nastavíte jako skryté, mohou se vašim uživatelům zobrazovat další (neočekávané) výzvy k přihlášení.
 >
 >
 
 Všechny prvky na této stránce můžete lokalizovat. Po konfiguraci „výchozí“ sady prvků přizpůsobení můžete nakonfigurovat další verze pro různá národní prostředí. Různé prvky mezi sebou můžete kombinovat. Můžete například provést následující věci:
 
-* Vytvořte „výchozí“ obrázek, který je použitelný pro všechny jazykové verze, a potom vytvořte specifické verze pro angličtinu a francouzštinu. Když svoje prohlížeče nastavíte na jeden z těchto dvou jazyků, zobrazí se tento konkrétní obrázek. U všech ostatních jazyků se zobrazí výchozí obrázek.
-* Nakonfigurujte různá loga vaší organizace (třeba verze pro japonštinu nebo hebrejštinu).
+* Vytvořte „výchozí“ velký obrázek, který je použitelný pro všechny kultury, a potom vytvořte specifické verze pro angličtinu a francouzštinu. Když svoje prohlížeče nastavíte na jeden z těchto dvou jazyků, zobrazí se tento konkrétní obrázek. U všech ostatních jazyků se zobrazí výchozí obrázek.
+* Nakonfigurujte různá loga vaší organizace (například verze pro japonštinu nebo hebrejštinu).
 
 ## <a name="access-panel-page-customization"></a>Přizpůsobení stránky přístupového panelu
 Stránka přístupového panelu je v podstatě stránkou portálu, která umožňuje rychlý přístup ke cloudové aplikaci, ke které vám správce udělil přístup. Na této stránce se vaše aplikace zobrazují jako dlaždice aplikací, na které můžete kliknout.
@@ -131,6 +134,10 @@ Představte si následující konfiguraci:
 Pokud je vaším preferovaným jazykem němčina, zobrazí se vám výchozí banner s logem, ale s německým textem.
 
 Technicky je možné nakonfigurovat sadu pro každý jazyk podporovaný službou Azure AD, přesto doporučujeme raději menší počet variant – z důvodu snazší údržby a lepšího výkonu.
+
+> [!IMPORTANT]
+> Yammer nezobrazuje přihlašovací stránku Azure AD s brandingem, dokud se uživatel nepřihlásí. Uživateli se nejdřív zobrazí obecná přihlašovací stránka Office 365, a pak stránka s brandingem.   
+ 
  
 **Pokud chcete do adresáře přidat vlastní firemní branding, postupujte takto:**
 
@@ -176,31 +183,48 @@ fs3. Na panelu nástrojů v horní části stránky klikněte na **Konfigurovat*
 8. V případě potřeby znovu klikněte na **Přizpůsobit branding** a opakujte tyto kroky pro každý branding pro konkrétní jazyk, který chcete odebrat.
     Že jsou všechna nastavení brandingu odebraná poznáte tak, že když kliknete na **Přizpůsobit branding**, uvidíte formulář **Přizpůsobit výchozí branding**, který neobsahuje žádnou konfiguraci nastavení.
 
+## <a name="testing-and-examples"></a>Testování a příklady
+Před provedením změn v produkčním prostředí doporučujeme nejprve experimenty s testovacím klientem.
+
+**Pokud chcete ověřit, jestli se váš branding používá, postupujte takto:**
+
+1. Otevřete relaci prohlížeče InPrivate nebo Incognito.
+2. Navštivte stránku https://outlook.com/contoso.com a text „contoso.com“ nahraďte doménou, kterou jste přizpůsobili.
+
+Tento postup funguje i s doménami, které mají tvar contoso.onmicrosoft.com.
+
+Abychom vám pomohli s vytvářením efektivních sad přizpůsobení, přizpůsobili jsme dvě fiktivní přihlašovací stránky:
+
+* [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
+* [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
+
+Abyste mohli otestovat nastavení pro konkrétní jazyk, změňte výchozí jazykové předvolby webového prohlížeče na jazyk, který jste nastavili ve vašem vlastním přizpůsobení. V Internet Exploreru můžete konfiguraci provést v nabídce **Možnosti Internetu**.
 
 ## <a name="customizable-elements"></a>Přizpůsobitelné prvky
-Firemní loga se používají pro přihlašovací stránku i pro stránku přístupového panelu, zatímco ostatní prvky se používají jenom na přihlašovací stránce. Následující tabulka obsahuje podrobnosti o různých přizpůsobitelných prvcích.
+Některé přizpůsobitelné prvky v Azure AD mají více možností použití. Firemní logo můžete v adresáři nakonfigurovat jen jednou a používat ho na přihlašovací stránce i na stránce přístupového panelu. Některé přizpůsobitelné prvky jsou určené jenom pro přihlašovací stránku. Následující tabulka obsahuje podrobnosti o různých přizpůsobitelných prvcích.
 
 | Name (Název) | Popis | Omezení | Doporučení |
 | --- | --- | --- | --- |
-| Banner s logem |Banner s logem se zobrazuje na přihlašovací stránce a na přístupovém panelu. |<p>JPG nebo PNG</p><p>60 x 280 pixelů</p><p>10 kB</p> |<p>Použijte celé logo vaší organizace (včetně piktogramu a logotypu).</p><p>Dodržte maximální výšku 30 pixelů, aby se na mobilních zařízeních nezobrazovaly posuvníky.</p><p>Dodržte maximální velikost 4 kB.</p><p>Použijte průhledný obrázek PNG (nepředpokládejte, že přihlašovací stránka bude mít vždy bílé pozadí).</p> |
-| Dlaždice s logem | Momentálně se nepoužívá |<p>JPG nebo PNG</p><p>120 x 120 pixelů</p><p>10 kB</p> |<p>Udržte to jednoduché (žádný drobný text), protože velikost obrázku může být změněna na 50 %. |
+| Banner s logem |Banner s logem se zobrazuje na přihlašovací stránce a na přístupovém panelu. |<p>JPG nebo PNG</p><p>60 x&280; pixelů</p><p>10 kB</p> |<p>Použijte celé logo vaší organizace (včetně piktogramu a logotypu).</p><p>Dodržte maximální výšku 30 pixelů, aby se na mobilních zařízeních nezobrazovaly posuvníky.</p><p>Dodržte maximální velikost 4 kB.</p><p>Použijte průhledný obrázek PNG (nepředpokládejte, že přihlašovací stránka bude mít vždy bílé pozadí).</p> |
+| Dlaždice s logem |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný piktogram „pracovní nebo školní účet“. |<p>JPG nebo PNG</p><p>120 x&120; pixelů</p><p>10 kB</p> |<p>Udržte to jednoduché (žádný drobný text), protože velikost obrázku může být změněna na 50 %. |
 | </p> | | | |
-| Štítek s přihlašovacím uživatelským jménem | Momentálně se nepoužívá |<p>Text v kódu Unicode, až 50 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |<p>Pište krátce a jednoduše.</p><p>Zeptejte se uživatelů, jak obvykle nazývají pracovní nebo školní účet, který jim poskytujete.</p> |
-| Často používaný text přihlašovací stránky |Tento často používaný text se zobrazuje pod formulářem přihlašovací stránky a vy ho můžete použít k uvedení dalších pokynů nebo k nasměrování na nápovědu a podporu. |<p>Text v kódu Unicode, až 256 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |Dodržte maximální délku textu 250 znaků (přibližně tři řádky textu). |
-| Obrázek na pozadí na přihlašovací stránce | Velký obrázek, který se zobrazuje na levé straně přihlašovací stránky (pro jazyky psané zprava doleva na pravé straně), když uživatel přistupuje k adrese URL konkrétního klienta. |<p>JPG nebo PNG</p><p>1420 × 1200</p><p>500 kB</p> |<p>1420 × 1200 pixelů</p><p>Důležité: Pokuste se udržet co nejmenší, ideálně do 200 kB. Pokud je obrázek příliš velký, ovlivní to výkon přihlašovací stránky v případě, kdy obrázek není načtený v mezipaměti.</p><p>Tento obrázek bude skoro vždycky oříznutý, aby se zohlednily poměry stran různých obrazovek. Primární vizuální prvky proto umístěte do levého horního rohu.</p> |
-| Barva pozadí na přihlašovací stránce | U připojení s nízkou šířkou pásma tato plná barva nahrazuje obrázek na pozadí. | Musí to být barva RGB v šestnáctkovém formátu (příklad: \#FFFFFF). | Doporučujeme vybrat primární barvu banneru s logem. |
+| Popisek uživatelského jména na přihlašovací stránce |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný řetězec „pracovní nebo školní účet“. Můžete ho nastavit třeba na „Účet Contoso“ nebo „Contoso ID“. |<p>Text v kódu Unicode, až 50 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |<p>Pište krátce a jednoduše.</p><p>Zeptejte se uživatelů, jak obvykle nazývají pracovní nebo školní účet, který jim poskytujete.</p> |
+| Text na přihlašovací stránce |Tento často používaný text se zobrazuje pod formulářem přihlašovací stránky a vy ho můžete použít ke sdělení dalších pokynů nebo k nasměrování na nápovědu a podporu. |<p>Text v kódu Unicode, až 256 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |Dodržte maximální délku textu 250 znaků (přibližně tři řádky textu). |
+| Obrázek na přihlašovací stránce |Jedná se o velký obrázek, který se zobrazí na přihlašovací stránce nalevo od formuláře. |<p>JPG nebo PNG</p><p>1420 ×&1200;</p><p>500 kB</p> |<p>1420 ×&1200; pixelů</p><p>Důležité: Pokuste se udržet co nejmenší, ideálně do 200 kB. Pokud je obrázek příliš velký, ovlivní to výkon přihlašovací stránky v případě, kdy obrázek není načtený v mezipaměti.</p><p>Obrázek se často ořezává, aby vyhovoval poměrům stran různých obrazovek. Klíčové vizuální prvky umístěte do levého horního rohu (do pravého horního rohu v případě jazyků psaných zprava doleva), protože při zmenšení okna prohlížeče začíná změna velikosti obvykle v pravém dolním rohu a postupuje směrem nahoru a doleva.</p> |
+| Barva pozadí na přihlašovací stránce |Barva pozadí na přihlašovací stránce se používá v oblasti, která je nalevo od formuláře. |Musí to být barva RGB v šestnáctkovém formátu (příklad: #FFFFFF). |<p>Barva pozadí se může zobrazit místo velkého obrázku v případě připojení s malou šířkou pásma.</p><p>Doporučujeme vybrat primární barvu banneru s logem.</p> |
 
 ## <a name="next-steps"></a>Další kroky
 * [Začínáme se službou Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Zobrazení sestav přístupů a používání](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-add-company-branding/signin-page_before-customization.png
-[2]: ./media/active-directory-add-company-branding/signin-page-restricted-app.png
-[3]: ./media/active-directory-add-company-branding/signin-page-open-access.png
-[4]: ./media/active-directory-add-company-branding/signin-page-external-guest.png
-[5]: ./media/active-directory-add-company-branding/which-elements-can-i-customize.png
-[6]: ./media/active-directory-add-company-branding/hide-kmsi.png
+[1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
+[2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
+[3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png
+[4]: ./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png
+[5]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png
+[6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
+[7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
