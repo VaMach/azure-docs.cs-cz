@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/04/2016
+ms.date: 05/08/2016
 ms.author: curtand;jeffsta
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 77d34a6ebce12465a15de158b9160a03db58c48e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -64,10 +66,5 @@ Pokud vaše organizace používá několik vlastních názvů domén, napříkla
 * [Další informace o konceptech správy domén ve službě Azure AD](active-directory-add-domain-concepts.md)
 * [Zobrazení firemního brandingu během přihlašování uživatelů](active-directory-add-company-branding.md)
 * [Používání PowerShellu ke správě názvů domén ve službě Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
