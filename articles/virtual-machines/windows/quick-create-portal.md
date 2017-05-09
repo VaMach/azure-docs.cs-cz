@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 2. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
-3. V okně **Nový** vyberte **Compute**, v okně **Compute** vyberte **Windows Server 2016 Datacenter** a potom klikněte na tlačítko **Vytvořit**.
+3. V okně **Nový** vyberte **Compute**, v okně **Compute** vyberte *Windows Server 2016 Datacenter* a potom klikněte na tlačítko **Vytvořit**.
 
 4. Vyplňte formulář **Základní informace** o virtuálním počítači. Uživatelské jméno a heslo, které tady zadáte, se používá k přihlášení k virtuálnímu počítači. V části **Skupina prostředků** vytvořte novou. Skupina prostředků je logický kontejner, ve kterém se vytváří a hromadně spravují prostředky Azure. Jakmile budete hotovi, klikněte na **OK**.
 
@@ -46,21 +47,21 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
     ![Snímek obrazovky zobrazující velikosti virtuálních počítačů](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. V okně Nastavení v části **Použít spravované disky** vyberte **Ano**, pro zbytek nastavení ponechte výchozí hodnoty a klikněte na **OK**.
+6. V okně Nastavení v části **Použít spravované disky** vyberte *Ano*, pro zbytek nastavení ponechte výchozí hodnoty a klikněte na **OK**.
 
 7. Na stránce Souhrn kliknutím na **Ok** spusťte nasazení virtuálního počítače.
 
-8. Chcete-li monitorovat stav nasazení, klikněte na virtuální počítač. Virtuální počítač najdete na webu Azure Portal na řídicím panelu nebo výběrem možnosti **Virtual Machines** z nabídky vlevo. Po vytvoření virtuálního počítače se stav se změní z **Nasazování** na **Spuštěno**.
+8. Chcete-li monitorovat stav nasazení, klikněte na virtuální počítač. Virtuální počítač najdete na webu Azure Portal na řídicím panelu nebo výběrem možnosti **Virtual Machines** z nabídky vlevo. Po vytvoření virtuálního počítače se stav se změní z *Nasazování* na *Spuštěno*.
 
 ## <a name="open-port-80-for-web-traffic"></a>Otevření portu 80 pro webový provoz 
 
 Pokud chcete povolit provoz pro službu IIS, musíte otevřít port 80 pro webový provoz. Tento krok vás provede procesem vytvoření pravidla skupiny zabezpečení sítě (NSG), aby byla možná příchozí připojení na portu 80.
 
 1. V okně pro virtuální počítač v části **Základy** klikněte na název **skupiny prostředků**.
-2. V okně pro skupinu prostředků klikněte v seznamu prostředků na **Skupina zabezpečení sítě**. Název skupiny NSG musí být název virtuálního počítače s příponou -nsg.
+2. V okně pro skupinu prostředků klikněte v seznamu prostředků na **Skupina zabezpečení sítě**. Název NSG musí být název virtuálního počítače s příponou *-nsg*.
 3. Klikněte na záhlaví **Příchozí pravidlo zabezpečení** a otevřete seznam příchozích pravidel. V seznamu byste už měli vidět pravidlo pro protokol RDP.
 4. Klikněte na **+ Přidat** a otevřete okno **Přidat příchozí pravidlo zabezpečení**.
-5. Do pole **Název**, zadejte **IIS**. Zkontrolujte, že **Rozsah portů** je nastavený na 80 a **Akce** je nastavená na **Povolit**. Klikněte na **OK**.
+5. Do pole **Název**, zadejte *IIS*. Zkontrolujte, že **Rozsah portů** je nastavený na *80* a **Akce** je nastavená na *Povolit*. Klikněte na **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Připojení k virtuálnímu počítači
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Zobrazení úvodní stránky služby IIS
 
-S nainstalovanou službou IIS na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku služby IIS. Získejte **veřejnou IP adresu** v okně pro virtuální počítač a použijte ji k navštívení výchozí webové stránky. 
+S nainstalovanou službou IIS na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku služby IIS. Získejte *veřejnou IP adresu* v okně pro virtuální počítač a použijte ji k navštívení výchozí webové stránky. 
 
 ![Výchozí web služby IIS](./media/quick-create-powershell/default-iis-website.png) 
 

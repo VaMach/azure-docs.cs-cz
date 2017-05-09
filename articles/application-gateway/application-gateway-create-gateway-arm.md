@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ V předchozím příkladu jsme vytvořili skupinu prostředků s názvem **appgw
 > [!NOTE]
 > Když potřebujete nakonfigurovat vlastní test paměti služby Application Gateway, přečtěte si článek [Vytvoření služby Application Gateway s vlastními testy paměti pomocí prostředí PowerShell](application-gateway-create-probe-ps.md). Další informace najdete v části [vlastní testy paměti a sledování stavu](application-gateway-probe-overview.md).
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Vytvoření virtuální sítě a podsítě pro službu Application Gateway
+## <a name="create-a-virtual-network-and-a-subnet"></a>Vytvoření virtuální sítě a podsítě
 
 Následující příklad ukazuje, jak vytvořit virtuální síť pomocí Resource Manageru. Tento příklad vytvoří virtuální síť pro službu Application Gateway. Služba Application Gateway vyžaduje vlastní podsíť. Z toho důvodu je podsíť vytvořená pro službu Application Gateway menší než adresní prostor virtuální sítě. Použití menší podsítě umožňuje konfigurování dalších prostředků (včetně webových serverů a jiných prostředků) v téže virtuální síti.
 
@@ -135,7 +136,7 @@ Přiřaďte proměnnou podsítě pro další kroky. Tato proměnná bude v budou
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Vytvoření veřejné IP adresy pro front-end konfiguraci
+## <a name="create-a-public-ip-address"></a>Vytvoření veřejné IP adresy
 
 Vytvořte prostředek veřejné IP adresy **publicIP01** ve skupině prostředků **appgw-rg** pro oblast Západní USA. Služba Application Gateway může pro příjem požadavků na vyrovnávání zatížení používat veřejnou IP adresu, interní IP adresu nebo obojí.  V tomto příkladu se používá jen veřejná IP adresa. V následujícím příkladu není pro vytvoření veřejné IP adresy nakonfigurován žádný název DNS.  Služba Application Gateway nepodporuje u veřejných IP adres vlastní názvy DNS.  Pokud je pro veřejný koncový bod vyžadován vlastní název, měl by být vytvořen záznam CNAME odkazující na automaticky vygenerovaný název DNS pro příslušnou veřejnou IP adresu.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > Výchozí hodnota **InstanceCount** je 2, přičemž maximální hodnota je 10. Výchozí hodnota **GatewaySize** je Medium (Střední). Můžete si vybrat mezi hodnotami **Standard_Small** (Standardní_malá), **Standard_Medium** (Standardní_střední) a **Standard_Large** (Standardní_velká).
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Vytvoření služby Application Gateway pomocí New-AzureApplicationGateway
+## <a name="create-the-application-gateway"></a>Vytvoření služby Application Gateway
 
 Vytvořte službu Application Gateway se všemi položkami konfigurace z předchozích kroků. V tomto příkladu má služba Application Gateway název **appgwtest**.
 
@@ -233,7 +234,7 @@ Načtěte podrobnosti o DNS a VIP služby Application Gateway z veřejného IP p
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Odstranění služby Application Gateway
+## <a name="delete-the-application-gateway"></a>Odstranění služby Application Gateway
 
 Pokud chcete službu Application Gateway odstranit, postupujte takto:
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>Odstranění všech prostředků
+
+Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující kroky:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>Další kroky

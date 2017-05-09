@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight zahrnuje možnost integrace R Serveru do clusteru HDInsight. Díky tom
 > Postupy v tomto dokumentu předpokládají použití hesla.
 
 
-### <a name="access-control-requirements"></a>Požadavky na řízení přístupu
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Automatizované vytváření clusterů
 
-Můžete automatizovat vytváření HDInsight R Serverů pomocí šablon ARM, sady SDK a také PowerShellu.
+Vytváření HDInsight R Serverů můžete automatizovat pomocí šablon Azure Resource Manageru, sady SDK a také PowerShellu.
 
 * Informace o vytvoření R Serveru pomocí šablony Azure Resource Manageru najdete v tématu [Nasazení clusteru HDInsight s R Serverem](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * Pokud chcete vytvořit R Server pomocí sady .NET SDK, přečtěte si [vytváření clusterů se systémem Linux v HDInsight pomocí sady .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
@@ -589,7 +586,7 @@ remoteLogin(
 )
 ```
 
-## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Jak je možné škálovat výpočetní uzly operacionalizace Microsoft R Serveru na pracovní uzly HDInsight?
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Škálování výpočetních uzlů operacionalizace Microsoft R Serveru na pracovní uzly HDInsight
 
 
 ### <a name="decommission-the-worker-nodes"></a>Vyřazení pracovních uzlů z provozu
@@ -629,6 +626,10 @@ Jakmile budou všechny vyřazené pracovní uzly nakonfigurované tak, aby na ni
 * Vyhledejte část „URIs“ (Identifikátory URI) a přidejte IP adresy a podrobnosti o portu pracovního uzlu.
 
 ![příkazový řádek vyřazení pracovních uzlů z provozu](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Řešení potíží
+
+Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Další kroky
 

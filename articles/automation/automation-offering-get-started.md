@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ Když na webu Azure Portal vytvoříte účet Automation, automaticky se vytvoř
 
 Řízení přístupu na základě role je dostupné v aplikaci Azure Resource Manager pro udělování povolených akcí na uživatelském účtu služby Azure AD a účtu Spustit jako a ověřování takového objektu služby.  Přečtěte si článek [Řízení přístupu na základě role ve službě Azure Automation](automation-role-based-access-control.md), kde najdete další informace, které vám pomůžou s vývojem vašeho modelu pro správu oprávnění ve službě Automation.  
 
-
-
 #### <a name="authentication-methods"></a>Metody ověřování
 Následující tabulka shrnuje různé metody ověřování pro jednotlivá prostředí podporovaná službou Azure Automation.
 
@@ -136,6 +135,13 @@ Pokud máte účet Automation definovaný pro konkrétní oblast a chcete komuni
 | Austrálie – jihovýchod |ase-jobruntimedata-prod-su1.azure-automation.net |
 | Spojené království – jih | uks-jobruntimedata-prod-su1.azure-automation.net |
 | USA (Gov) – Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Pokud chcete seznam IP adres místo názvů, z Microsoft Download Center si stáhněte a prohlédněte soubor XML [IP adresy datacentra Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
+
+> [!NOTE]
+> Tento soubor obsahuje rozsahy IP adres (včetně rozsahů pro Compute, SQL a službu Storage), které se používají v datacentrech Microsoft Azure. Každý týden se zveřejňuje aktualizovaný soubor odrážející aktuálně nasazené rozsahy a všechny nadcházející změny rozsahů IP adres. Rozsahy, které jsou v souboru uvedeny nově, se v datacentrech nebudou používat ještě minimálně týden. Každý týden si stáhněte nový soubor XML a proveďte na svém webu potřebné změny pro zajištění správné identifikace služeb spuštěných v Azure. Uživatelé ExpressRoute si můžou všimnout, že se tento soubor používá k aktualizaci inzerování prostoru Azure pomocí protokolu BGP, která probíhá první týden každého měsíce. 
+> 
+
 
 ## <a name="implementation"></a>Implementace
 
@@ -191,27 +197,6 @@ Doporučenou metodou připojení služby Automation je výběr nabídky Automati
 8. Klikněte na **Vytvořit** a pokračujte ve zprovozňování služby Automation a pracovního prostoru OMS. Všechna nastavení se ověří a potom se provede pokus o nasazení nabídky v rámci vašeho předplatného.  Dokončení tohoto procesu může trvat několik sekund a průběh zpracování můžete sledovat prostřednictvím možnosti nabídky **Oznámení**. 
 
 Po zprovoznění nabídky můžete začít vytvářet runbooky, pracovat s řešeními pro správu, která jste povolili, nebo začít využívat službu [Log Analytics](https://docs.microsoft.com/azure/log-analytics) ke shromažďování dat vygenerovaných vašimi prostředky v cloudových nebo místních prostředích.   
-
-### <a name="resources-included"></a>Zahrnuté prostředky
-Po úspěšném vytvoření účtu Automation se pro vaší potřebu automaticky vytvoří několik prostředků. Prostředky jsou shrnuté v následujících dvou tabulkách:<br>
-
-#### <a name="run-as-account-resources"></a>Prostředky účtu Spustit jako
-
-| Prostředek | Popis |
-| --- | --- |
-| Runbook AzureAutomationTutorial | Ukázkový grafický runbook, který předvádí ověření pomocí účtu Spustit jako a získává všechny prostředku Resource Manageru. |
-| Runbook AzureAutomationTutorialScript | Ukázkový runbook PowerShellu, který předvádí ověření pomocí účtu Spustit jako a získává všechny prostředku Resource Manageru. |
-| AzureRunAsCertificate | Prostředek certifikátu vytvořený automaticky během vytváření účtu Automation. Pro stávající účet použijte následující skript PowerShellu. Certifikát umožňuje ověření pomocí Azure, abyste mohli spravovat prostředky Azure Resource Manageru pomocí runbooků. Tento certifikát má životnost jeden rok. |
-| AzureRunAsConnection | Prostředek připojení vytvořený automaticky během vytváření účtu Automation. Pro stávající účet použijte skript PowerShellu. |
-
-#### <a name="classic-run-as-account-resources"></a>Prostředky účtu Spustit jako pro Classic
-
-| Prostředek | Popis |
-| --- | --- |
-| Runbook AzureClassicAutomationTutorial | Ukázkový grafický runbook, který získá všechny virtuální počítače vytvořené v rámci předplatného pomocí modelu nasazení Classic s využitím účtu Spustit jako pro Classic (certifikát) a potom zapíše název a stav virtuálního počítače. |
-| Runbook se skriptem AzureClassicAutomationTutorial | Ukázkový runbook PowerShellu, který získá všechny klasické virtuální počítače v rámci předplatného pomocí účtu Spustit jako pro Azure Classic (certifikát) a potom vypíše název a stav virtuálního počítače. |
-| AzureClassicRunAsCertificate | Automaticky vytvořený prostředek certifikátu, který použijete k ověřování pomocí Azure, abyste mohli spravovat klasické prostředky Azure pomocí runbooků. Tento certifikát má životnost jeden rok. |
-| AzureClassicRunAsConnection | Automaticky vytvořený prostředek připojení, který použijete k ověřování pomocí Azure, abyste mohli spravovat klasické prostředky Azure pomocí runbooků.|
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete ověřit, že nový účet Automation umožňuje ověřování prostřednictvím prostředků Azure, prohlédněte si [test ověřování účtu Azure Automation Spustit jako](automation-verify-runas-authentication.md).

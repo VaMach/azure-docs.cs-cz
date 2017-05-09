@@ -1,6 +1,6 @@
 ---
-title: "Začínáme s Azure Search v NodeJS | Dokumentace Microsoftu"
-description: "Projděte si sestavení vyhledávací aplikace v hostované cloudové vyhledávací službě v Azure pomocí programovacího jazyka NodeJS."
+title: "Začínáme se službou Azure Search v Node.js | Dokumentace Microsoftu"
+description: "Projděte si sestavení vyhledávací aplikace v hostované cloudové vyhledávací službě v Azure pomocí programovacího jazyka Node.js."
 services: search
 documentationcenter: 
 author: EvanBoyle
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 07/14/2016
+ms.date: 04/26/2017
 ms.author: evboyle
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a66c8f6079671b16c1c60467e6d458ed54be5af
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
+ms.contentlocale: cs-cz
+ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>Začínáme s Azure Search v NodeJS
+# <a name="get-started-with-azure-search-in-nodejs"></a>Začínáme se službou Azure Search v Node.js
 > [!div class="op_single_selector"]
 > * [Azure Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
-Naučte se sestavit vlastní vyhledávací aplikaci NodeJS, která k hledání používá službu Azure Search. V tomto kurzu se pomocí [rozhraní REST API služby Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) vytvoří objekty a operace, které se použijí v tomto cvičení.
+Naučte se sestavit vlastní vyhledávací aplikaci v Node.js, která k hledání používá službu Azure Search. V tomto kurzu se pomocí [rozhraní REST API služby Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) vytvoří objekty a operace, které se použijí v tomto cvičení.
 
-Tento kód jsme vyvinuli a testovali pomocí [NodeJS](https://nodejs.org) a NPM, [Sublime Text 3](http://www.sublimetext.com/3) a prostředí Windows PowerShell v systému Windows 8.1.
+Tento kód jsme vyvinuli a testovali pomocí [Node.js](https://Nodejs.org) a NPM, [Sublime Text 3](http://www.sublimetext.com/3) a Windows PowerShellu v systému Windows 8.1.
 
 Pokud chcete tuto ukázku spustit, musíte mít službu Azure Search, ke které se můžete zaregistrovat na webu [Azure Portal](https://portal.azure.com). Podrobné pokyny najdete v tématu [Vytvoření služby Azure Search na portálu](search-create-service-portal.md).
 
@@ -45,26 +47,24 @@ Program **DataIndexer** v této aplikaci sestaví a načte index pomocí konstru
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Nalezení názvu služby a klíče API služby Azure Search
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Nalezení názvu služby a klíče API služby Azure Search
 Po vytvoření služby se vraťte na portál a získejte adresu URL nebo `api-key`. Připojení k službě Search vyžadují, abyste k ověření volání měli adresu URL i `api-key`.
 
-1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
-2. Na panelu odkazů klikněte na **Služba Search** a zobrazte výpis všech služeb Azure Search zřízených pro předplatné.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na panelu odkazů klikněte na **Služba Search** a zobrazte výpis všech služeb Azure Search zřízených pro vaše předplatné.
 3. Vyberte službu, kterou chcete použít.
-4. Na řídicím panelu služby uvidíte dlaždice se základními informacemi a ikonu klíče pro přístup ke klíčům správce.
-   
-      ![][3]
+4. Na řídicím panelu služby byste měli vidět dlaždice se základními informacemi, jako například ikonu klíče pro přístup ke klíčům správce.
 5. Zkopírujte adresu URL služby, klíč správce a klíč dotazu. Všechny tři položky budete potřebovat později, kdy je přidáte do souboru config.js.
 
 ## <a name="download-the-sample-files"></a>Stažení ukázkových souborů
 Stáhněte ukázku pomocí libovolného z následujících dvou přístupů.
 
-1. Přejděte na [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
+1. Přejděte na [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
 2. Klikněte na **Stáhnout ZIP**, uložte soubor .zip a potom z něj extrahujte všechny soubory.
 
-Všechny následné úpravy souborů a spouštěné příkazy se budou provádět na souborech v této složce.
+Všechny následné úpravy souborů a spouštěné příkazy se provádí na souborech v této složce.
 
-## <a name="update-the-configjs-with-your-search-service-url-and-apikey"></a>Aktualizace souboru config.js. pomocí adresy URL služby Search a klíče rozhraní API
+## <a name="update-the-configjs-with-your-search-service-url-and-api-key"></a>Aktualizace souboru config.js. pomocí adresy URL služby Search a klíče rozhraní API
 Pomocí adresy URL a klíče rozhraní API, které jste zkopírovali dříve, zadejte do konfiguračního souboru adresu URL, klíč správce a klíč dotazu.
 
 Klíče správce poskytují plnou kontrolu nad operacemi služby, včetně vytvoření nebo odstranění indexu a nahrávání dokumentů. Klíče dotazu oproti tomu slouží k operacím jen pro čtení, které se obvykle používají v klientských aplikacích, které se připojují k službě Azure Search.
@@ -104,21 +104,16 @@ Může taky zkusit kterýkoli z těchto výrazů:
 * goose +cape
 
 ## <a name="next-steps"></a>Další kroky
-Toto je první kurz služby Azure Search založený na NodeJS a sadě dat USGS. Postupně ho budeme rozšiřovat o ukázky dalších vyhledávacích funkcí, které by se vám ve vlastních řešeních mohly hodit.
+Toto je první kurz služby Azure Search založený na Node.js a sadě dat USGS. Postupně ho budeme rozšiřovat o ukázky dalších vyhledávacích funkcí, které by se vám ve vlastních řešeních mohly hodit.
 
 Pokud už službu Azure Search trochu znáte, tato ukázka vám může posloužit jako odrazový můstek k vyzkoušení modulů pro automatické návrhy (našeptávání nebo automatické dokončování dotazů), filtrů a fasetové navigace. Můžete taky zdokonalit stránku výsledků hledání přidáním počtů a dávkováním dokumentů, aby se výsledky daly procházet po stránkách.
 
 Jste nováčky ve službě Azure Search? Doporučujeme vyzkoušet ostatní kurzy a vytvořit si představu o tom, co se dá vytvořit. Pokud hledáte další zdroje, přejděte na [stránku dokumentace](https://azure.microsoft.com/documentation/services/search/). Přístup k dalším informacím vám poskytnou taky odkazy v [Seznamu videí a kurzů](search-video-demo-tutorial-list.md).
 
 <!--Image references-->
-[1]: ./media/search-get-started-nodejs/create-search-portal-1.PNG
-[2]: ./media/search-get-started-nodejs/create-search-portal-2.PNG
-[3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
-[5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
-[9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG
+[2]: ./media/search-get-started-Nodejs/create-search-portal-2.PNG
+[3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
+[5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
+[9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
 

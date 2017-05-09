@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: cs-cz
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ Jakmile jsou vaše zdroje aktualizované, můžete nainstalovat sadu SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    Pokud chcete instalaci automatizovat, můžete výzvu k vyjádření souhlasu s licenční smlouvou přeskočit tak, že pro balíčky Service Fabric nastavíte výběry debconf. Můžete spustit následující dva příkazy
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Spusťte instalační skript sady SDK.
 
     ```bash
@@ -203,6 +211,11 @@ Pokud chcete aktualizovat sadu SDK a modul runtime na nejnovější verze, spus�
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> Výše popsaná aktualizace balíčků může způsobit zastavení místního vývojového clusteru. Po provedení upgradu restartujte místní cluster podle pokynů na této stránce.
+>
+>
 
 Pokud chcete aktualizovat rozhraní příkazového řádku, přejděte do adresáře, kam jste naklonovali rozhraní příkazového řádku a proveďte aktualizaci spuštěním příkazu `git pull`.  Pokud jsou k aktualizaci potřeba další kroky, budou je obsahovat poznámky k verzi. 
 

@@ -1,6 +1,6 @@
 **Vytvoření nového profilu CDN**
 
-1. Na [webu Azure Portal](https://portal.azure.com) klikněte v levém horním rohu na **Nový**.  V okně **Nový** vyberte **Média a CDN** a potom **CDN**.
+1. Na [webu Azure Portal](https://portal.azure.com) klikněte v levém horním rohu na **Nový**.  V okně **Nový** vyberte **Web a mobilní zařízení** a potom **CDN**.
    
     Zobrazí se nové okno profilu CDN.
    
@@ -13,9 +13,4 @@
     ![Výběr cenové úrovně CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 6. Vyberte **Předplatné** pro tento profil CDN.
 7. Nový profil vytvoříte kliknutím na tlačítko **Vytvořit**. 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

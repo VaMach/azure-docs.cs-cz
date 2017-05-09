@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 317399c04afa9f81e5916c08b750d494dd7704dc
+ms.contentlocale: cs-cz
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -29,34 +30,34 @@ Po vytvoření clusteru Azure Container Service je nutné se ke clusteru připoj
 
 Clustery Kubernetes, DC/OS a Docker Swarm poskytují koncové body HTTP místně. V případě Kubernetes je tento koncový bod bezpečně zpřístupněn na internetu a můžete se k němu přímo připojit z libovolného počítače připojeného k internetu spuštěním pomocí nástroje `kubectl` z příkazového řádku. 
 
-V případě DC/OS a Docker Swarm je nutné vytvořit tunel Secure Shell (SSH) k internímu systému. Po vytvoření tunelu můžete spouštět příkazy, které využívají koncové body HTTP, a zobrazovat webové rozhraní clusteru z místního systému. 
+V případě DC/OS a Docker Swarm doporučujeme z místního počítače k systému pro správu clusteru vytvořit tunel Secure Shell (SSH). Po vytvoření tunelu můžete spouštět příkazy, které využívají koncové body HTTP, a zobrazovat webové rozhraní orchestrátoru (pokud je k dispozici) z místního systému. 
 
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Cluster Kubernetes, DC/OS nebo Swarm [nasazený ve službě v Azure Container Service](container-service-deployment.md)
-* Privátní klíč SSH RSA odpovídající veřejnému klíči SSH přidaného do clusteru během nasazení Tyto příkazy předpokládají, že privátní klíč SSH je ve vašem počítači ve složce `$HOME/.ssh/id_rsa`. Tyto pokyny existují také pro [OS X a Linux](../virtual-machines/linux/mac-create-ssh-keys.md) nebo pro [Windows](../virtual-machines/linux/ssh-from-windows.md). Pokud připojení SSH nefunguje, možná budete muset [resetovat vaše klíče SSH](../virtual-machines/linux/troubleshoot-ssh-connection.md).
+* Cluster Kubernetes, DC/OS nebo Docker Swarm [nasazený ve službě Azure Container Service](container-service-deployment.md).
+* Privátní klíč SSH RSA odpovídající veřejnému klíči SSH přidaného do clusteru během nasazení Tyto příkazy předpokládají, že privátní klíč SSH je ve vašem počítači ve složce `$HOME/.ssh/id_rsa`. Tyto pokyny existují také pro [macOS a Linux](../virtual-machines/linux/mac-create-ssh-keys.md) nebo pro [Windows](../virtual-machines/linux/ssh-from-windows.md). Pokud připojení SSH nefunguje, možná budete muset [resetovat vaše klíče SSH](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Připojení ke clusteru Kubernetes
 
 Podle následujícího postupu nainstalujete a nakonfigurujete `kubectl` ve vašem počítači.
 
 > [!NOTE] 
-> V Linuxu nebo v OS X může být nutné spouštět uvedené příkazy pomocí `sudo`.
+> V Linuxu nebo v macOS může být nutné spouštět uvedené příkazy pomocí `sudo`.
 > 
 
 ### <a name="install-kubectl"></a>Instalace kubectl
 Jedním ze způsobů, jak tento nástroj nainstalovat, je použít nástroj příkazového řádku Azure 2.0 `az acs kubernetes install-cli`. Pokud chcete spustit tento příkaz, ujistěte se, že jste [nainstalovali](/cli/azure/install-az-cli2) nejnovější příkazový řádek Azure CLI 2.0 a jste přihlášení k účtu Azure (`az login`).
 
 ```azurecli
-# Linux or OS X
+# Linux or macOS
 az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 
 # Windows
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Případně si můžete nejnovějšího klienta stáhnout přímo ze [stránky vydaných verzí Kubernetes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Další informace najdete v tématu [Instalace a nastavení kubectl](https://kubernetes.io/docs/user-guide/prereqs/).
+Případně si můžete nejnovějšího klienta `kubectl` stáhnout přímo ze [stránky vydaných verzí Kubernetes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Další informace najdete v tématu [Instalace a nastavení kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
 
 ### <a name="download-cluster-credentials"></a>Stažení přihlašovacích údajů clusteru
 Jakmile budete mít `kubectl` nainstalovaný, je třeba, abyste na svůj počítač zkopírovali přihlašovací údaje clusteru. Přihlašovací údaje můžete získat například příkazem `az acs kubernetes get-credentials`. Předejte název skupiny prostředků a název prostředku kontejnerové služby:
@@ -70,26 +71,26 @@ Tento příkaz stáhne přihlašovací údaje clusteru do složky `$HOME/.kube/c
 
 Případně můžete použít `scp` a bezpečně zkopírovat soubor ze složky `$HOME/.kube/config` na hlavním virtuálním počítači do svého místního počítače. Například:
 
-```console
+```bash
 mkdir $HOME/.kube
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
-V systému Windows je třeba použít Bash on Ubuntu on Windows, klienta pro bezpečné kopírování souborů PuTTY nebo něco podobného.
+V systému Windows můžete použít Bash on Ubuntu on Windows, klienta pro bezpečné kopírování souborů PuTTY nebo podobný nástroj.
 
 
 
 ### <a name="use-kubectl"></a>Použití kubectl
 
-Jakmile bude `kubectl` nakonfigurovaný, můžete otestovat připojení výpisem uzlů ve vašem clusteru:
+Jakmile bude `kubectl` nakonfigurovaný, otestujte připojení výpisem uzlů ve vašem clusteru:
 
-```console
+```bash
 kubectl get nodes
 ```
 
 Můžete vyzkoušet i další příkazy nástroje `kubectl`. Můžete například zobrazit řídicí panel Kubernetes. Nejprve spusťte proxy na serveru Kubernetes API:
 
-```console
+```bash
 kubectl proxy
 ```
 
@@ -99,19 +100,19 @@ Další informace najdete v tématu [Rychlé představení Kubernetes](http://ku
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Připojení ke clusteru DC/OS nebo Swarm
 
-Pokud chcete používat clustery DC/OS a Docker Swarm nasazené ve službě Azure Container Service, postupujte podle těchto pokynů a vytvořte tunel Secure Shell (SSH) z místního systému Linux, OS X nebo Windows. 
+Pokud chcete používat clustery DC/OS a Docker Swarm nasazené ve službě Azure Container Service, postupujte podle těchto pokynů a vytvořte tunel SSH z místního systému Linux, macOS nebo Windows. 
 
 > [!NOTE]
 > Tyto pokyny se zaměřují na tunelování přenosů TCP přes protokol SSH. Můžete také spustit interaktivní relaci SSH s jedním z interních systémů pro správu clusteru, ale nedoporučuje se to. Práce přímo v interním systému s sebou nese riziko neúmyslných změn konfigurace.  
 > 
 
-### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Vytvoření tunelu SSH v Linuxu a OS X
-První věc, kterou je nutné udělat, když vytváříte tunel SSH v Linuxu nebo OS X, je nalezení veřejného názvu DNS hlavních serverů s vyrovnáváním zatížení. Postupujte následovně:
+### <a name="create-an-ssh-tunnel-on-linux-or-macos"></a>Vytvoření tunelu SSH v Linuxu a macOS
+První věc, kterou je nutné udělat, když vytváříte tunel SSH v Linuxu nebo macOS, je nalezení veřejného názvu DNS hlavních serverů s vyrovnáváním zatížení. Postupujte následovně:
 
 
 1. Na webu [Azure Portal](https://portal.azure.com) přejděte do skupiny prostředků obsahující váš cluster kontejnerové služby. Rozbalte skupinu prostředků, aby se zobrazily všechny prostředky. 
 
-2. Klikněte na prostředek kontejnerové služby a potom klikněte na **Přehled**. V části **Základy** se zobrazí **Hlavní plně kvalifikovaný název domény** clusteru. Uložte si tento název pro pozdější použití. 
+2. Klikněte na prostředek **Služba kontejneru** a potom klikněte na **Přehled**. V části **Základy** se zobrazí **Hlavní plně kvalifikovaný název domény** clusteru. Uložte si tento název pro pozdější použití. 
 
     ![Veřejný název DNS](media/pubdns.png)
 
@@ -119,7 +120,7 @@ První věc, kterou je nutné udělat, když vytváříte tunel SSH v Linuxu neb
 
 3. Nyní otevřete prostředí shell a spusťte příkaz `ssh` s následujícími parametry: 
 
-    **LOCAL_PORT** je port TCP na straně služby tunelu, ke kterému se chcete připojit. Pro Swarm nastavte tuto hodnotu na 2375. Pro DC/OS nastavte tuto hodnotu na 80.  
+    **LOCAL_PORT** je port TCP na straně služby tunelu, ke kterému se chcete připojit. Pro Swarm nastavte tuto hodnotu na 2375. Pro DC/OS nastavte tuto hodnotu na 80. 
     **REMOTE_PORT** je port koncového bodu, který chcete zveřejnit. Pro Swarm použijte 2375. Pro DC/OS použijte port 80.  
     **USERNAME** je uživatelské jméno zadané ve chvíli, kdy jste nasadili cluster.  
     **DNSPREFIX** je předpona DNS zadaná ve chvíli, kdy jste nasadili cluster.  
@@ -127,13 +128,14 @@ První věc, kterou je nutné udělat, když vytváříte tunel SSH v Linuxu neb
     **PATH_TO_PRIVATE_KEY** [NEPOVINNÉ] je cesta k privátnímu klíči, který odpovídá veřejnému klíči zadanému při vytváření clusteru. Tuto možnost použijte spolu s příznakem `-i`.
 
     ```bash
-    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
-    > [!NOTE]
-    > Port pro připojení SSH je 2200, nikoli standardní port 22. V clusteru s více hlavními virtuálními počítači je to port pro připojení k prvnímu hlavnímu virtuálnímu počítači.
-    > 
+  
+  > [!NOTE]
+  > Port pro připojení SSH je 2200, nikoli standardní port 22. V clusteru s více hlavními virtuálními počítači je to port pro připojení k prvnímu hlavnímu virtuálnímu počítači.
+  > 
 
-
+  Příkaz nevrací žádný výstup.
 
 Podívejte se na příklady pro DC/OS a Swarm v následujících částech.    
 
@@ -145,7 +147,8 @@ sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudap
 ```
 
 > [!NOTE]
-> Můžete zadat jiný místní port než 80, třeba port 8888. Při použití tohoto portu ale některé odkazy webového uživatelského rozhraní nemusí fungovat.
+> Ujistěte se, že se na port 80 neváže žádný jiný místní proces. V případě potřeby můžete zadat jiný místní port než 80, třeba port 8080. Při použití tohoto portu ale některé odkazy webového uživatelského rozhraní nemusí fungovat.
+>
 
 Nyní máte ke koncovým bodům DC/OS přístup z místního systému prostřednictvím následujících adres URL (předpokládá se místní port 80):
 
@@ -161,21 +164,34 @@ Pokud chcete otevřít tunel ke koncovým bodům Swarmu, spusťte příkaz podob
 ```bash
 ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
+> [!NOTE]
+> Ujistěte se, že se na port 2375 neváže žádný jiný místní proces. Pokud například místně spouštíte démona Dockeru, ve výchozím nastavení používá port 2375. V případě potřeby můžete zadat jiný místní port než 2375.
+>
 
-Nyní můžete nastavit proměnnou prostředí vašeho DOCKER_HOST následujícím způsobem. Můžete nadále používat rozhraní příkazového řádku Docker (CLI) jako za normálních okolností.
+Nyní můžete přistupovat ke clusteru Docker Swarm pomocí rozhraní příkazového řádku Dockeru (Docker CLI) v místním systému. Pokyny k instalaci najdete v tématu [Instalace Dockeru](https://docs.docker.com/engine/installation/).
+
+Nastavte proměnnou prostředí DOCKER_HOST na místní port, který jste nakonfigurovali pro tunel. 
 
 ```bash
 export DOCKER_HOST=:2375
 ```
 
+Spusťte příkazy Dockeru, které vytvoří tunel ke clusteru Docker Swarm. Například:
+
+```bash
+docker info
+```
+
+
+
 ### <a name="create-an-ssh-tunnel-on-windows"></a>Vytvoření tunelu SSH ve Windows
-Tunely SSH je ve Windows možné vytvořit několika způsoby. Tato část popisuje, jak pomocí PuTTY vytvořit tunel.
+Tunely SSH je ve Windows možné vytvořit několika způsoby. Pokud používáte Bash on Ubuntu on Windows nebo podobný nástroj, můžete postupovat podle pokynů k tunelování SSH popsaných výše v tomto článku pro macOS a Linux. Tato část popisuje, jak ve Windows alternativně vytvořit tunel pomocí PuTTY.
 
 1. [Stáhněte si PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) do svého počítače s Windows.
 
 2. Spusťte aplikaci.
 
-3. Zadejte název hostitele, který se skládá z uživatelského jména správce clusteru a veřejného názvu DNS prvního hlavního serveru v clusteru. **Název hostitele** vypadá podobně jako `adminuser@PublicDNSName`. Jako **port** zadejte 2200.
+3. Zadejte název hostitele, který se skládá z uživatelského jména správce clusteru a veřejného názvu DNS prvního hlavního serveru v clusteru. **Název hostitele** vypadá podobně jako `azureuser@PublicDNSName`. Jako **port** zadejte 2200.
 
     ![Konfigurace PuTTY 1](media/putty1.png)
 

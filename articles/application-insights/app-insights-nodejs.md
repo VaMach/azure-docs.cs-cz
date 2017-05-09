@@ -1,9 +1,9 @@
 ---
-title: "Monitorování aplikace Node.js pomocí Azure Application Insights| Dokumentace Microsoftu"
-description: "Analýza místního využití, dostupnosti a výkonu nebo webová aplikace Microsoft Azure pomocí Application Insights."
+title: "Monitorování služeb Node.js pomocí Azure Application Insights | Dokumentace Microsoftu"
+description: "Monitorujte výkon a diagnostikujte problémy ve službách Node.js pomocí Application Insights."
 services: application-insights
-documentationcenter: 
-author: alancameronwills
+documentationcenter: nodejs
+author: joshgav
 manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
@@ -11,191 +11,197 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 310ada88bb4d9b39eeaa10f303b9e1bd3b1f927f
-ms.lasthandoff: 04/13/2017
+ms.date: 05/01/2017
+ms.author: joshgav
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 76a8025cd2a67533beb321c88e924517c1977dfc
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/02/2017
 
 
 ---
-# <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Přidejte Application Insights SDK pro sledování aplikace Node.js
 
+# <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorování služeb a aplikací Node.js pomocí Application Insights
 
-[Azure Application Insights](app-insights-overview.md) monitoruje vaše živé aplikace a pomáhá vám [najít a diagnostikovat problémy s výkonem a výjimkami](app-insights-detect-triage-diagnose.md) a [zjistit, jak se vaše aplikace používá](app-insights-web-track-usage.md). Funguje pro aplikace, které jsou hostovány na místních serverech IIS nebo na virtuálních počítačích Azure a také webových aplikacích Azure.
+[Azure Application Insights](app-insights-overview.md) monitoruje po nasazení vaše back-endové služby a komponenty a tím vám pomáhá [zjišťovat a rychle diagnostikovat problémy nejen s výkonem](app-insights-detect-triage-diagnose.md). Tuto službu můžete použít pro služby Node.js hostované kdekoli: ve vašem datacentru, na virtuálních počítačích nebo ve webových aplikacích Azure a dokonce i v dalších veřejných cloudech.
 
-Sada SDK poskytuje automatický sběr hodnot příchozích požadavků HTTP a odpovědí, čítačů výkonu (procesor, paměť, RPS) a neošetřených výjimek. Kromě toho můžete přidat vlastní volání ke sledování závislostí, metrik a dalších událostí.
+Pokud chcete přijímat, ukládat a prozkoumávat data monitorování, postupujte podle následujících pokynů a vložte do svého kódu agenta a nastavte v Azure odpovídající prostředek Application Insights. Agent do tohoto prostředku odesílá data pro další analýzy a prozkoumávání.
+
+Agent Node.js dokáže automaticky monitorovat příchozí a odchozí požadavky HTTP, řadu systémových metrik a výjimky. Počínaje verzí 0.20 dokáže monitorovat také některé běžné balíčky třetích stran, jako například `mongodb`, `mysql` a `redis`. Všechny události související s příchozím požadavkem HTTP se korelují za účelem rychlejšího řešení potíží.
+
+Můžete monitorovat více aspektů aplikace a systému, pokud je ručně nakonfigurujete pomocí rozhraní API agenta popsaného níže.
 
 ![Příklady tabulek sledování výkonu](./media/app-insights-nodejs/10-perf.png)
 
-#### <a name="before-you-start"></a>Než začnete
-Budete potřebovat:
+## <a name="getting-started"></a>Začínáme
 
-* Předplatné [Microsoft Azure](http://azure.com). Pokud váš tým nebo společnost má předplatné Azure, vlastník vás do něj může přidat pomocí vašeho [účtu Microsoft](http://live.com).
+Projděme si nastavení monitorování pro aplikaci nebo službu.
 
-## <a name="add"></a> Vytvoření prostředku Application Insights
-Přihlaste se k webu [Azure Portal][portal] a vytvořte nový prostředek Application Insights. [Prostředek][roles] v Azure je instancí služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
+### <a name="resource"></a> Nastavení prostředku App Insights
 
-![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
+**Než začnete**, ujistěte se, že máte předplatné Azure nebo [zdarma získejte nové předplatné][azure-free-offer]. Pokud vaše organizace již má předplatné Azure, správce vás do něj může přidat pomocí [těchto pokynů][add-aad-user].
 
-Vyberte jako typ aplikace Obecný. Volba typu aplikace nastaví výchozí obsah oken prostředků a vlastnosti viditelné v [Průzkumníku metrik][metrics].
+[azure-free-offer]: https://azure.microsoft.com/en-us/free/
+[add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
 
-#### <a name="copy-the-instrumentation-key"></a>Zkopírovat klíč instrumentace
-Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá data do prostředku.
+Nyní se přihlaste k webu [Azure Portal][portal] a vytvořte prostředek Application Insights, jak je znázorněno na následujícím obrázku – Klikněte na Nový > Vývojářské nástroje > Application Insights. Prostředek zahrnuje koncový bod pro příjem telemetrických dat, úložiště pro tato data, uložené sestavy a řídicí panely, konfigurace pravidel a upozornění a ještě více.
 
-![Klikněte na tlačítko Vlastnosti, vyberte klíč a stiskněte klávesy ctrl + C](./media/app-insights-nodejs/02-props-asp.png)
+![Vytvoření prostředku App Insights](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
-## <a name="sdk"></a> Instalace sady SDK do aplikace
-```
+Na stránce vytváření prostředku vyberte z rozevírací nabídky typu aplikace možnost Aplikace Node.js. Typ aplikace určuje výchozí sadu řídicích panelů a sestav, které se pro vás vytvoří. Ale nebojte se, každý prostředek App Insights může ve skutečnosti shromažďovat data z jakéhokoli jazyka a libovolné platformy.
+
+![Formulář Nový prostředek App Insights](./media/app-insights-nodejs/04-create_appinsights_resource.png)
+
+### <a name="agent"></a> Nastavení agenta Node.js
+
+Nyní je čas do aplikace vložit agenta, aby mohl shromažďovat data.
+Začněte zkopírováním instrumentačního klíče vašeho prostředku (dále jen `ikey`) z portálu, jak je znázorněno níže. Systém App Insights pomocí tohoto klíče mapuje data na váš prostředek Azure, proto ho musíte zadat ve svém kódu jako proměnnou prostředí, aby ho agent mohl použít.  
+
+![Zkopírování instrumentačního klíče](./media/app-insights-nodejs/05-appinsights_ikey_portal.png)
+
+Dále přidejte do závislostí aplikace knihovnu agenta Node.js prostřednictvím souboru package.json. Z kořenové složky aplikace spusťte:
+
+```bash
 npm install applicationinsights --save
 ```
 
-## <a name="usage"></a>Využití
-Tím povolíte sledování požadavku, sledování neošetřených výjimek a sledování výkonu systému (procesoru a paměti nebo RPS).
+Nyní je potřeba knihovnu explicitně načíst v kódu. Vzhledem k tomu, že agent vkládá instrumentaci do mnoha dalších knihoven, musíte ho načíst co nejdříve, dokonce ještě před dalšími příkazy `require`. Začněte tak, že na začátek vašeho prvního souboru .js přidáte:
 
 ```javascript
-
-var appInsights = require("applicationinsights");
-appInsights.setup("<instrumentation_key>").start();
+const appInsights = require("applicationinsights");
+appInsights.setup("<instrumentation_key>");
+appInsights.start();
 ```
 
-Klíč instrumentace můžete také nastavit v proměnném prostředí APPINSIGHTS_INSTRUMENTATIONKEY. Když toto dokončíte, není třeba žádný argument při volání metody `appInsights.setup()` nebo `appInsights.getClient()`.
+Metoda `setup` konfiguruje instrumentační klíč (a tedy prostředek Azure), který se použije jako výchozí pro všechny sledované položky. Po dokončení konfigurace zavolejte metodu `start`, která spustí shromažďování a odesílání telemetrických dat.
 
-Sadu SDK můžete vyzkoušet bez odesílání telemetrie: nastavte klíč instrumentace na neprázdný řetězec.
+Istrumentační klíč můžete místo ručního předávání do metod `setup()` nebo`getClient()` zadat také přes proměnnou prostředí APPINSIGHTS\_INSTRUMENTATIONKEY. Tento postup umožňuje oddělit instrumentační klíče od potvrzeného zdrojového kódu a určit různé instrumentační klíče pro různá prostředí.
 
-## <a name="run"></a> Spuštění projektu
-Spusťte aplikaci a vyzkoušejte ji: otevřete různé stránky k vygenerování nějaké telemetrie.
+Další možnosti konfigurace jsou popsány níže.
 
-## <a name="monitor"></a> Zobrazení telemetrických dat
-Přihlaste se do [portálu Azure](https://portal.azure.com) a procházejte do zdroje Application Insights.
+Agenta můžete vyzkoušet bez odesílání telemetrie tak, že instrumentační klíč nastavíte na neprázdný řetězec.
 
-Vyhledejte data na stránce Přehled. Na první pohled uvidíte pouze jeden nebo dva body. Příklad:
+### <a name="monitor"></a> Monitorování aplikace
 
-![Proklikejte se k dalším datům](./media/app-insights-nodejs/12-first-perf.png)
+Agent automaticky shromažďuje telemetrii o modulu runtime Node.js a některých dalších modulech třetích stran. Nyní použijte svou aplikaci k vygenerování nějakých dat.
 
-Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.][perf]
+Potom na webu [Azure Portal][portal] přejděte do prostředku Application Insights, který jste vytvořili dříve, a na časové ose Přehled vyhledejte vaše první datové body, jak je znázorněno na následujícím obrázku. Přes grafy se můžete proklikat k dalším podrobnostem.
+
+![První datové body](./media/app-insights-nodejs/12-first-perf.png)
+
+Kliknutím na tlačítko Mapa aplikace zobrazte zjištěnou topologii vaší aplikace, jak je znázorněno na následujícím obrázku. Přes komponenty na mapě se můžete proklikat k dalším podrobnostem.
+
+![Mapa jedné aplikace](./media/app-insights-nodejs/06-appinsights_appmap.png)
+
+Pomocí dalších zobrazení dostupných v části Prozkoumávání můžete zjistit další informace o vaší aplikaci a řešit problémy.
+
+![Část Prozkoumávání](./media/app-insights-nodejs/07-appinsights_investigate_blades.png)
 
 #### <a name="no-data"></a>Žádná data?
-* Použijte aplikaci a otevřete různé stránky tak, aby došlo k vygenerování nějaké telemetrie.
-* Otevřete dlaždici [Vyhledávání](app-insights-diagnostic-search.md) a zobrazte jednotlivé události. Někdy trvá událostem trochu déle, než se dostanou skrz kanály metriky.
-* Počkejte několik sekund a klikněte na tlačítko **Aktualizovat**. Grafy se pravidelně samy aktualizují, ale můžete je aktualizovat ručně, pokud čekáte na zobrazení některých dat.
-* Další informace najdete v tématu [Poradce při potížích][qna].
 
-## <a name="publish-your-app"></a>Publikování aplikace
-Teď nasaďte aplikaci do služby IIS nebo do Azure a sledujte shromažďování dat.
+Vzhledem k tomu, že agent seskupuje data do dávek pro odesílání, může docházet k prodlevám v zobrazení položek na portálu. Pokud ve svém prostředku nevidíte data, vyzkoušejte některou z následujících oprav:
 
-#### <a name="no-data-after-you-publish-to-your-server"></a>Žádná data po publikování na serveru?
-Zkontrolujte, jestli [jsou otevřené potřebné porty firewallu](app-insights-ip-addresses.md).
+* Používejte aplikaci trochu více a proveďte více akcí pro vygenerování další telemetrie.
+* V zobrazení prostředku na portálu klikněte na **Aktualizovat**. Grafy se samy pravidelně automaticky aktualizují, ale aktualizace vynutí, že k tomu dojde okamžitě.
+* Ověřte, že jsou otevřené [požadované výchozí porty](app-insights-ip-addresses.md).
+* Otevřete dlaždici [Vyhledávání](app-insights-diagnostic-search.md) a vyhledejte jednotlivé události.
+* Přečtěte si část [Nejčastější dotazy][].
 
-#### <a name="trouble-on-your-build-server"></a>Potíže na vašem serveru sestavení?
-Naleznete v tématu [tato položka Poradce při potížích](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-## <a name="customized-usage"></a>Přizpůsobené využití
-### <a name="disabling-auto-collection"></a>Zakázání automatického sběru
+## <a name="agent-configuration"></a>Konfigurace agenta
+
+Dále jsou uvedeny metody konfigurace agenta a jejich výchozí hodnoty.
+
+Pro úplnou korelaci událostí ve službě nezapomeňte nastavit `.setAutoDependencyCorrelation(true)`. To agentovi umožní sledovat kontext napříč asynchronními zpětnými voláními v Node.js.
+
 ```javascript
-import appInsights = require("applicationinsights");
+const appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
-    .setAutoCollectRequests(false)
-    .setAutoCollectPerformance(false)
-    .setAutoCollectExceptions(false)
-    // no telemetry will be sent until .start() is called
+    .setAutoDependencyCorrelation(false)
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
     .start();
 ```
 
-### <a name="custom-monitoring"></a>Vlastní sledování
-```javascript
-import appInsights = require("applicationinsights");
-var client = appInsights.getClient();
+## <a name="agent-api"></a>Rozhraní API agenta
 
-client.trackEvent("custom event", {customProperty: "custom property value"});
+<!-- TODO: Fully document agent API. -->
+
+Rozhraní API agenta pro .NET je podrobně popsané [tady](app-insights-api-custom-events-metrics.md).
+
+Pomocí klienta Application Insights pro Node.js můžete sledovat jakékoli žádosti, události, metriky nebo výjimky. Následující příklad ukazuje některá dostupná rozhraní API.
+
+```javascript
+let appInsights = require("applicationinsights");
+appInsights.setup().start(); // assuming ikey in env var
+let client = appInsights.getClient();
+
+client.trackEvent("my custom event", {customProperty: "custom property value"});
 client.trackException(new Error("handled exceptions can be logged with this method"));
 client.trackMetric("custom metric", 3);
 client.trackTrace("trace message");
-```
 
-[Další informace o rozhraní API telemetrie](app-insights-api-custom-events-metrics.md).
-
-### <a name="using-multiple-instrumentation-keys"></a>Použití více klíčů instrumentace
-```javascript
-import appInsights = require("applicationinsights");
-
-// configure auto-collection with one instrumentation key
-appInsights.setup("<instrumentation_key>").start();
-
-// get a client for another instrumentation key
-var otherClient = appInsights.getClient("<other_instrumentation_key>");
-otherClient.trackEvent("custom event");
-```
-
-## <a name="examples"></a>Příklady
-### <a name="tracking-dependency"></a>Sledování závislostí
-```javascript
-import appInsights = require("applicationinsights");
-var client = appInsights.getClient();
-
-var startTime = Date.now();
-// execute dependency call
-var endTime = Date.now();
-
-var elapsedTime = endTime - startTime;
-var success = true;
-client.trackDependency("dependency name", "command name", elapsedTime, success);
-```
-
-
-
-### <a name="manual-request-tracking-of-all-get-requests"></a>Sledování ručního požadavku všech žádostí o "GET"
-```javascript
-var http = require("http");
-var appInsights = require("applicationinsights");
-appInsights.setup("<instrumentation_key>")
-    .setAutoCollectRequests(false) // disable auto-collection of requests for this example
-    .start();
-
-// assign common properties to all telemetry sent from the default client
-appInsights.client.commonProperties = {
-    environment: process.env.SOME_ENV_VARIABLE
-};
-
-// track a system startup event
-appInsights.client.trackEvent("server start");
-
-// create server
-var port = process.env.port || 1337
-var server = http.createServer(function (req, res) {
-    // track all "GET" requests
-    if(req.method === "GET") {
-        appInsights.client.trackRequest(req, res);
-    }
-
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Hello World\n");
-}).listen(port);
-
-// track startup time of the server as a custom metric
-var start = +new Date;
-server.on("listening", () => {
-    var end = +new Date;
-    var duration = end - start;
-    appInsights.client.trackMetric("StartupTime", duration);
+let http = require("http");
+http.createServer( (req, res) => {
+  client.trackRequest(req, res); // Place at the beginning of your request handler
 });
 ```
 
-## <a name="video"></a>Video
+### <a name="track-your-dependencies"></a>Sledování závislostí
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+```javascript
+let appInsights = require("applicationinsights");
+let client = appInsights.getClient();
 
-## <a name="next-steps"></a>Další kroky
+var success = false;
+let startTime = Date.now();
+// execute dependency call here....
+let duration = Date.now() - startTime;
+success = true;
+
+client.trackDependency("dependency name", "command name", duration, success);
+```
+
+### <a name="add-a-custom-property-to-all-events"></a>Přidání vlastní vlastnosti do všech událostí
+
+```javascript
+appInsights.client.commonProperties = {
+    environment: process.env.SOME_ENV_VARIABLE
+};
+```
+
+### <a name="track-http-get-requests"></a>Sledování požadavků HTTP GET
+
+```javascript
+var server = http.createServer((req, res) => {
+    if ( req.method === "GET" ) {
+            appInsights.client.trackRequest(req, res);
+    }
+    // other work here....
+    res.end();
+});
+```
+
+### <a name="track-server-startup-time"></a>Sledování času spuštění serveru
+
+```javascript
+let start = Date.now();
+server.on("listening", () => {
+    let duration = Date.now() - start;
+    appInsights.client.trackMetric("server startup time", duration);
+});
+```
+
+## <a name="more-resources"></a>Další zdroje informací
+
 * [Monitorování telemetrických dat na portálu](app-insights-dashboards.md)
 * [Psaní analytických dotazů do telemetrických dat](app-insights-analytics-tour.md)
 
-<!--Link references-->
+<!--references-->
 
-[knowUsers]: app-insights-web-track-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[roles]: app-insights-resources-roles-access-control.md
+[portal]: https://portal.azure.com/
+[Nejčastější dotazy]: app-insights-troubleshoot-faq.md
 
