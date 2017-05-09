@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>Zřízení řešení
+
+Pokud jste ve svém účtu ještě nezřídili předkonfigurované řešení vzdáleného monitorování:
+
 1. Pomocí svých přihlašovacích údajů k účtu Azure se přihlaste na webu [azureiotsuite.com][lnk-azureiotsuite] a kliknutím na tlačítko **+** vytvořte řešení.
 2. Klikněte na tlačítko **Vybrat**, které se nachází na dlaždici **Vzdálené monitorování**.
 3. Zadejte **Název řešení** pro předkonfigurované řešení vzdáleného monitorování.

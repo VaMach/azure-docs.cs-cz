@@ -1,6 +1,6 @@
 ---
 title: Konektory pro Azure Logic Apps | Dokumentace Microsoftu
-description: "Vyberte si z konektorů spravovaných Microsoftem konektor pro sestavování a vytváření aplikací logiky"
+description: "Vyberte si ze všech dostupných konektorů spravovaných Microsoftem konektor pro sestavování a vytváření aplikací logiky"
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -13,81 +13,116 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/27/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
-ms.lasthandoff: 04/07/2017
+ms.date: 04/26/2017
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 851ccd5a429eeed7d20a02cb7e36c62ab24d0780
+ms.contentlocale: cs-cz
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="connectors-list"></a>Seznam konektorů
-Když vyberete konektor, dozvíte se, jak ho rychle použít k sestavování pracovních postupů.
-
-## <a name="standard-connectors"></a>Standardní konektory
-
-| Konektory |  |  |  |
-| --- | --- | --- | --- |
-|[![Ikona rozhraní API][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![Ikona rozhraní API][appFiguresicon]<br/>**appFigures**|![Ikona rozhraní API][Asanaicon]<br/>**Asana**|![Ikona rozhraní API][Azure-Automation-icon]<br/>**Azure Automation**|
-|[![Ikona rozhraní API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![Ikona rozhraní API][Azure-Data-Lake-icon]<br/>**Azure Data<br/>Lake**|![Ikona rozhraní API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|[![Ikona rozhraní API][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|
-|![Ikona rozhraní API][Azure-MLicon]<br/>**Azure ML**|![Ikona rozhraní API][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![Ikona rozhraní API][Azure-Queues-icon]<br/>**Fronty Azure**|![Ikona rozhraní API][Basecamp-3icon]<br/>**Basecamp 3**|
-|![Ikona rozhraní API][Bitbucket-icon]<br/>**Bitbucket**|![Ikona rozhraní API][Bitlyicon]<br/>**Bitly**|![Ikona rozhraní API][BizTalk-Servericon]<br/>**BizTalk Server**|![Ikona rozhraní API][Bloggericon]<br/>**Blogger**|
-|[![Ikona rozhraní API][Boxicon]<br/>**Box**][boxDoc]|![Ikona rozhraní API][Campfireicon]<br/>**Campfire**|![Ikona rozhraní API][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![Ikona rozhraní API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|
-|[![Ikona rozhraní API][DB2icon]<br/>**DB2**][db2doc]|[![Ikona rozhraní API][Delayicon]<br/>**Delay**][Delaydoc]|[![Ikona rozhraní API][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
-|![Ikona rozhraní API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|![Ikona rozhraní API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Ikona rozhraní API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Event-hubs-icon]<br/>**Event Hubs**][event-hubs-doc]|
-|[![Ikona rozhraní API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Ikona rozhraní API][FileSystemIcon]<br/>**Systém souborů**][FileSystemdoc]|[![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc]|![Ikona rozhraní API][GitHubicon]<br/>**GitHub**|
-|![Ikona rozhraní API][Google-Calendaricon]<br/>**Kalendář Google**|[![Ikona rozhraní API][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![Ikona rozhraní API][Google-Sheetsicon]<br/>**Tabulky Google**|![Ikona rozhraní API][Google-Tasksicon]<br/>**Úlohy Google**|
-|![Ikona rozhraní API][HipChaticon]<br/>**HipChat**|[![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![Ikona rozhraní API][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![Ikona rozhraní API][HTTP-Requesticon]<br/>**Požadavek<br/>HTTP**][HTTP-Requestdoc]|
-|[![Ikona rozhraní API][HTTP-Responseicon]<br/>**Odpověď<br/>HTTP**][HTTP-Responsedoc]|[![Ikona rozhraní API][Informixicon]<br/>**Informix**][Informixdoc]|![Ikona rozhraní API][Insightlyicon]<br/>**Insightly**|![Ikona rozhraní API][Instagramicon]<br/>**Instagram**|
-|![Ikona rozhraní API][Instapapericon]<br/>**Instapaper**|![Ikona rozhraní API][JIRAicon]<br/>**JIRA**|[![Ikona rozhraní API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Ikona rozhraní API][Mandrillicon]<br/>**Mandrill**|
-|[![Ikona rozhraní API][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![Ikona rozhraní API][Nested-Logic-Appicon]<br/>**Vnořená<br/>aplikace logiky**][Nested-Logic-Appdoc]|[![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![Ikona rozhraní API][Office-365-Usersicon]][office365-usersdoc]<br/>**Uživatelé<br/>Office 365**|
-|[![Ikona rozhraní API][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![Ikona rozhraní API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![Ikona rozhraní API][OneDrive-for-Businessicon]<br/>**OneDrive<br/>pro firmy**][OneDrive-for-Businessdoc]|[![Ikona rozhraní API][Oracle-DB-icon]<br/>**Databáze Oracle**][oracle-db-doc]|
-|[![Ikona rozhraní API][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Ikona rozhraní API][PagerDutyicon]<br/>**PagerDuty**|![Ikona rozhraní API][Pinteresticon]<br/>**Pinterest**|[![Ikona rozhraní API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-|[![Ikona rozhraní API][Queryicon]<br/>**Dotaz**][Querydoc]|[![Ikona rozhraní API][Recurrenceicon]<br/>**Opakování**][Recurrencedoc]|![Ikona rozhraní API][Redmineicon]<br/>**Redmine**|[![Ikona rozhraní API][RSSicon]<br/>**RSS**][RSSdoc]|
-|[![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona rozhraní API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona rozhraní API][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-|[![Ikona rozhraní API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona rozhraní API][Slackicon]<br/>**Slack**][Slackdoc]|![Ikona rozhraní API][Smartsheeticon]<br/>**Smartsheet**|[![Ikona rozhraní API][SMTPicon]<br/>**SMTP**][SMTPdoc]|
-|![Ikona rozhraní API][SparkPosticon]<br/>**SparkPost**|[![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![Ikona rozhraní API][Todoisticon]<br/>**Todoist**|[![Ikona rozhraní API][Trelloicon]<br/>**Trello**][Trellodoc]|
-|[![Ikona rozhraní API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc]|![Ikona rozhraní API][Vimeoicon]<br/>**Vimeo**|![Ikona rozhraní API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
-|[![Ikona rozhraní API][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Ikona rozhraní API][WordPressicon]<br/>**WordPress**|[![Ikona rozhraní API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona rozhraní API][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![Ikona rozhraní API][YouTubeicon]<br/>**YouTube**|
-
 > [!TIP]
-> Pokud chcete začít se službou Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). V App Service si můžete hned vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> [Úplný seznam A–Z](#az) (v tomto tématu) obsahuje seznam všech dostupných konektorů, které můžete použít ve vašich aplikacích Logic Apps.
+
+Konektory jsou nedílnou součástí vytváření aplikací logiky. Pomocí těchto konektorů můžete naplno využít svoje místní a cloudové aplikace k provádění nejrůznějších operací s daty, která vytváříte, a daty, která už máte. Konektory jsou dostupné v následujících kategoriích: 
+
+* **Standardní konektory:** Jsou automaticky dostupné a zahrnuté při používání aplikací logiky. Mezi příklady patří Service Bus, DropBox, GoogleDrive, Power BI, Oracle Database, OneDrive a mnoho dalších.
+
+* **Konektory účtu pro integraci:** Jsou dostupné po zakoupení účtu pro integraci. Pomocí těchto konektorů můžete transformovat a ověřovat XML, zpracovávat zprávy typu business-to-business pomocí AS2, X12 nebo EDIFACT a kódovat a dekódovat ploché soubory. Pokud pracujete s BizTalk Serverem, tyto konektory jsou ideální k rozšíření pracovních postupů BizTalk do Azure.  
+
+    BizTalk Server obsahuje také [Adaptér Logic Apps](https://msdn.microsoft.com/library/mt787163.aspx), který zahrnuje příjem z aplikace logiky a odesílání do aplikace logiky.
+
+* **Podnikové konektory:** Zahrnují MQ a SAP. Také se na ně vztahují další poplatky. 
+
+Další informace o poplatcích najdete v tématech [Ceny Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) a [Cenový model Logic Apps](../logic-apps/logic-apps-pricing.md). 
+
+## <a name="popular-connectors"></a>Oblíbené konektory
+Pomocí těchto konektorů úspěšně zpracovávají data a informace tisíce aplikací s miliony spuštění. Následující tabulka uvádí nejoblíbenější konektory našich uživatelů:
+
+| |  |  |  |
+| --- | --- | --- | --- |
+| [![Ikona rozhraní API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Pokud chcete automatizovat jakoukoli úlohu s vaším účtem úložiště, měli byste se podívat na tento konektor. Podporuje operace CRUD (vytvoření, čtení, aktualizace a odstranění). | [![Ikona rozhraní API][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Vytvořte funkce, které spouští vlastní fragmenty kódu v jazyce C# nebo Node.js, a potom tyto funkce použijte ve svých aplikacích logiky.  |
+| [![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Toto je jeden z nejžádanějších konektorů. Obsahuje triggery a akce usnadňující automatizaci pracovních postupů pomocí vodítek a dalších možností. | [![Ikona rozhraní API][Event-hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Zpracovávejte a publikujte události v centru událostí. Například můžete pomocí služby Event Hubs získat výstup vaší aplikace logiky a pak ho odeslat poskytovateli analýz v reálném čase. |
+| [![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc] | Pokud je váš server FTP přístupný z internetu, můžete automatizovat pracovní postupy pro práci se soubory a složkami. <br/><br/>V konektoru SFTP je k dispozici i SFTP. | [![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][httpdoc] | Použijte aplikace logiky ke komunikaci s jakýmkoli koncovým bodem přes HTTP. |
+| [![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Velké množství triggerů a ještě více akcí umožňujících využití e-mailu a událostí Office 365 v rámci vašich pracovních postupů. <br/><br/>Tento konektor zahrnuje akci *e-mailu se schválením* pro schvalování žádostí o dovolenou, vyúčtování výdajů atd. <br/><br/>V konektoru Uživatelé Office 365 jsou k dispozici i uživatelé Office 365.| [![Ikona rozhraní API][HTTP-Requesticon]<br/>**Žádost a odpověď**][HTTP-Requestdoc] | Tento konektor poskytuje adresu URL HTTPS. Po přijetí žádosti na této adrese URL se spustí aplikace logiky. |
+| [![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Jednoduše se přihlaste pomocí účtu Salesforce a získejte přístup k objektům, jako jsou vodítka, a dalším. |  [![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Nejoblíbenější konektor v aplikacích logiky. Zahrnuje triggery a akce zajišťující asynchronní zasílání zpráv a publikování a přihlašování k odběru dotazů, předplatných a témat. |
+|  [![Ikona rozhraní API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Pokud SharePoint k ničemu nepoužíváte a mohli byste využít automatizaci, měli byste se podívat na tento konektor. Můžete ho použít s místní službou SharePoint nebo SharePoint Online. | [![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Jeden z nejpoužívanějších konektorů. Dokáže se připojit k místnímu SQL Serveru a ke službě Azure SQL Database. | 
+| [![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc] | Jednoduše se přihlaste pomocí účtu Twitteru a následně spouštějte pracovní postup, když se publikuje nový tweet. Pak tyto tweety uložte do databáze SQL nebo seznamu služby SharePoint. | | | 
 
 ## <a name="integration-account-connectors"></a>Konektory účtu pro integraci 
 
-| Účet pro integraci<br/>konektory |  |  |  |
+Enterprise Integration Pack (EIP) obsahuje konektory, které jsou dobře známé komunitě BizTalk Serveru. Po zakoupení [účtu pro integraci](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) obdržíte také následující konektory: 
+
+|  |  |  |  |
 | --- | --- | --- | --- |
-| [![Ikona rozhraní API][xmlvalidateicon]<br/>**XML<br/>validace**][xmlvalidatedoc] |[![Ikona rozhraní API][xmltransformicon]<br/>**XML<br/>transformace**][xmltransformdoc] |[![Ikona rozhraní API][flatfileicon]<br/>**Kódování</br> plochého souboru**][flatfiledoc] |[![Ikona rozhraní API][flatfiledecodeicon]<br/>**Dekódování</br> plochého souboru**][flatfiledecodedoc] |
-| [![Ikona rozhraní API][as2icon]<br/>**Dekódování</br> AS2**][as2decode] |[![Ikona rozhraní API][as2icon]<br/>**Kódování</br> AS2**][as2encode] |[![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> X12**][x12decode] |[![Ikona rozhraní API][x12icon]<br/>**Kódování</br> X12**][x12encode] |
-| [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> EDIFACT**][EDIFACTdecode] |[![Ikona rozhraní API][x12icon]<br/>**Kódování</br> EDIFACT**][EDIFACTencode] | | |
+| [![Ikona rozhraní API][as2icon]<br/>**Dekódování</br> AS2**][as2decode] | [![Ikona rozhraní API][as2icon]<br/>**Kódování</br> AS2**][as2encode] | [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> EDIFACT**][EDIFACTdecode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br> EDIFACT**][EDIFACTencode] |
+[![Ikona rozhraní API][flatfileicon]<br/>**Kódování</br> plochého souboru**][flatfiledoc] | [![Ikona rozhraní API][flatfiledecodeicon]<br/>**Dekódování</br> plochého souboru**][flatfiledecodedoc] | [![Ikona rozhraní API][integrationaccounticon]<br/>**Účet<br/>pro integraci**][integrationaccountdoc] | [![Ikona rozhraní API][xmltransformicon]<br/>**Transformace<br/>XML**][xmltransformdoc] |
+| [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> X12**][x12decode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br> X12**][x12encode] | [![Ikona rozhraní API][xmlvalidateicon]<br/>**XML<br/>validace**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>Podnikové konektory
 
-Pokud chcete vytvářet aplikace logiky pro scénáře B2B, které zahrnují EAI a EDI, zahrňte tyto podnikové konektory.
+Připojte s podnikovým aplikacím v rámci vašich aplikací logiky.
 
-| Enterprise<br/>konektory |  |
+|  |  |
 | --- | --- |
 |![Ikona rozhraní API][MQicon]<br/>**MQ**|[![Ikona rozhraní API][SAPicon]<br/>**SAP**][sapconnector]|
 
-## <a name="connectors-as-triggers"></a>Konektory jako triggery
 
-Některé konektory poskytují triggery, které mohou vaší aplikaci odesílat upozornění na konkrétní události. Konektor FTP má například trigger OnUpdatedFile, který vaši aplikaci upozorní při aktualizaci souboru. Můžete vytvořit aplikaci logiky, aplikaci PowerApp nebo tok, které tomuto triggeru naslouchají a provádějí akci, kdykoliv se trigger spustí.
+## <a name="az"></a>Úplný seznam A-Z
 
-Existují dva typy triggerů:  
+| | | | | | | | | | | | | |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| [**1**](#1) | [**A**](#a) | [**B**](#b) | [**C**](#c) | [**D**](#d) | [**E**](#e) | [**F**](#f) | [**G**](#g) | [**H**](#h) | [**I**](#i) | [**J**](#j) | [**L**](#l) | [**M**](#m) |
+| [**N**](#n) | [**O**](#o) | [**P**](#p) | [**R**](#r) | [**S**](#s) | [**T**](#t) | [**U**](#u) | [**V**](#v) | [**W**](#w) | [**X**](#x) | [**Y**](#y) | [**Z**](#z) | | 
 
-* *Triggery dotazů:* Tyto triggery odesílají službě v zadaných intervalech dotazy a kontrolují jejich pomocí dostupnost nových dat. Pokud jsou k dispozici nová data, spustí novou instanci aplikace a získaná data se použijí jako vstup. Aby se stejná data nepoužívala vícekrát, trigger také může odstranit data, která již aplikace přečetla a zpracovala.
+| | |
+|---|---|
+|<a name="1"></a>Plánování schůzek 10to8<br/><br/><a name="a"></a>Act!<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory<br/>Azure API Management<br/>Azure App Services<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Fronty Azure<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Benchmark Email<br/>Vyhledávání pomocí služby Bing<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Campfire<br/>Capsule CRM<br/>Chatter<br/>Rozhraní API služeb Cognitive Services pro počítačové zpracování obrazu<br/>Rozhraní API služeb Cognitive Services pro rozpoznávání tváře<br/>Cognitive Services LUIS<br/>Analýza textu služeb Cognitive Services<br/>Common Data Service<br/>[Vlastní rozhraní API / webové aplikace][api/web-appdoc]<br/><br/><a name="d"></a>Operace s daty<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[Systém souborů][filesystemdoc]<br/>[Plochý soubor][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Kalendář Google<br/>Kontakty Google<br/>Disk Google<br/>Tabulky Google<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Účet pro integraci<br/>Intercom | <a name="j"></a>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Střednědobé používání<br/>Microsoft Translator<br/>MQ<br/>MSN Počasí<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Uživatelé Office 365<br/>Office 365 Video<br/>OneDrive<br/>OneDrive pro firmy<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer<br/>Úkoly v aplikaci Outlook<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Žádost a odpověď][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[Aplikační server SAP][sapconnector]<br/>[Server zpráv SAP][sapconnector]<br/>[Plán][recurrencedoc]<br/>Rozsah<br/>SendGrid<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>Switch Case<br/>SurveyMonkey<br/><br/><a name="t"></a>Teradata<br/>Todoist<br/>Toodledo<br/>[Transformace XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Proměnné<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[Ověření XML][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
-* *Triggery nabízených oznámení:* Tyto triggery naslouchají datům v koncovém bodě nebo čekají na výskyt určité události a poté spustí novou instanci vaší aplikace. Jedním z příkladů je konektor Twitter.
+> [!TIP]
+> Pokud chcete začít s Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). Ihned si můžete vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 
-## <a name="connectors-as-actions"></a>Konektory jako akce
+## <a name="connectors-as-triggers-and-actions"></a>Konektory jako triggery a akce
 
-Konektory také poskytují akce, které můžete použít v pracovním postupu vaší aplikace. Vaše aplikace například může vyhledat data, která pak můžete použít při spuštění aplikace. Konkrétněji můžete například při zpracování objednávky potřebovat vyhledat informace o zákazníkovi v databázi SQL. Nebo může být nutné zapsat, aktualizovat nebo odstranit data v cílové tabulce. Akce se mapují na operace, které jsou definované v metadatech Swaggeru.
+**Trigger** spouští instanci aplikace logiky. Některé konektory poskytují triggery, které vaší aplikaci odesílají upozornění na konkrétní události. Konektor FTP má například trigger `OnUpdatedFile`, který spustí vaši aplikaci při aktualizaci souboru. 
 
-## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Vlastní konektory a certifikace pro Microsoft Azure
+Služba Logic Apps obsahuje následující typy triggerů:  
 
-Chcete-li volat rozhraní API, která spouští vlastní kód nebo nejsou k dispozici jako konektory, můžete [rozšířit platformu Logic Apps](../logic-apps/logic-apps-create-api-app.md) vytvořením aplikací API založených na REST jako vlastních konektorů. Pokud chcete, aby byly vaše vlastní aplikace API veřejné a k dispozici pro použití v Azure, odešlete své kandidáty do [programu Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+* *Triggery dotazů:* Tyto triggery odesílají službě v zadaných intervalech dotazy a kontrolují jejich pomocí dostupnost nových dat. 
+
+    Když jsou k dispozici nová data, spustí se nová instance aplikace logiky, která použije tato data jako vstup. 
+
+* *Triggery nabízených oznámení:* Tyto triggery naslouchají datům v koncovém bodě nebo čekají na výskyt určité události a poté aktivují novou instanci vaší aplikace logiky.
+
+* *Trigger opakování:* Tento trigger vytvoří instanci aplikace logiky podle předepsaného plánu.
+
+Konektory také poskytují **akce**, které můžete použít ve vašem pracovním postupu. Vaše aplikace logiky například může vyhledávat data pro pozdější použití. Přesněji řečeno můžete vyhledat data o zákaznících z databáze SQL a pak tato data o zákaznících použít k sestavení pracovního postupu. 
+
+> [!TIP]
+> Další podrobnosti o triggerech a akcích najdete v tématu [Přehled konektorů](connectors-overview.md). 
+
+
+## <a name="message-manipulation-actions"></a>Akce pro manipulaci se zprávami
+
+Aplikace logiky zahrnují integrované akce, které můžou měnit datové části nebo s nimi manipulovat. Integrovaný konektor **Operace s daty** obsahuje následující akce: 
+
+| | |
+|---|---|
+| **Vytvoření** | Sestaví nebo vygeneruje hodnoty nebo objekty pro pozdější použití nebo pro použití při sestavování pracovního postupu.  Můžete například vytvořit objekt JSON s hodnotami získanými z několika kroků nebo vypočítat konstantu pro pozdější použití ve spuštěné aplikaci logiky. |
+| **Vytvoření tabulky CSV**<br/>**Vytvoření tabulky HTML** | Vytvoří ze sedy výsledků tabulku CSV nebo HTML. Například přidáním akce „Výpis záznamů“ a filtru můžete získat záznamy přidané dnes. Potom výsledky odešlete v e-mailu jako tabulku HTML. |
+| **Pole filtru** (dotaz) | Umožňuje filtrovat sadu výsledků pro získání položek, které vás zajímají.  Můžete například vyhledat všechny tweety se značkou `#Azure` a vrácené tweety pak filtrovat, aby se zobrazily jenom tweety s hodnotou `Tweeted_by_followers > 50`. |
+| **Spojení** | Spojí pole s použitím nějakého oddělovače.  Například operace Detekce klíčových frází vrací pole klíčových frází.  Můžete je „spojit“ s použitím oddělovače `,` nebo podobného. Takže místo `[“Some”, “Phrase”]` budete mít `“Some, Phrase”`. |
+| **Parsování formátu JSON** | Pomocí parsování získá hodnoty z objektu JSON a zpřístupní je v návrháři.  Například pokud vaše funkce Azure vrací datovou část JSON, můžete ji parsovat, abyste později v dalším kroku měli přístup k vlastnostem JSON. Tato akce při spuštění také ověří, že formát JSON odpovídá zadanému schématu. | 
+| **Výběr** | Vybere určité vlastnosti pole pro další zpracování.  Pokud provedete „Výpis záznamů“ z SQL a vrátí se 15 sloupců, můžete pro další zpracování vybrat jenom některé z těchto sloupců (výstupem je pole, které obsahuje pouze vlastnosti, které vyberete). |
+
+## <a name="custom-connectors-and-azure-certification"></a>Vlastní konektory a certifikace Azure 
+
+Chcete-li volat rozhraní API, která spouští vlastní kód nebo nejsou k dispozici jako konektory, můžete rozšířit platformu Logic Apps [vytvořením funkcí API Apps založených na REST jako vlastních konektorů](../logic-apps/logic-apps-create-api-app.md). 
+
+Pokud chcete, aby byly vaše vlastní funkce API Apps veřejné a k dispozici pro použití v Azure, odešlete své kandidáty do [programu Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## <a name="get-help"></a>Podpora
 
@@ -101,60 +136,30 @@ Pokud chcete pomoci při vylepšování Logic Apps a konektorů, hlasujte nebo z
 * [Monitorování aplikací logiky](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
+
 [api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrace aplikací logiky s funkcí App Service API Apps"
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Správa souborů v kontejneru objektů blob pomocí konektoru služby Blob Storage"
-[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrace aplikací logiky se službou Azure Functions."
-[boxDoc]: ./connectors-create-api-box.md "Připojení ke službě Box. Nahrávání, získávání, odstraňování, vypisování souborů a provádění dalších akcí"
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrace aplikací logiky se službou Azure Functions"
 [db2doc]: ./connectors-create-api-db2.md "Připojení k IBM DB2 v cloudu nebo místním prostředí. Aktualizace řádku, získání tabulky a provádění dalších akcí"
-[delaydoc]: ./connectors-native-delay.md "Provádění zpožděných akcí"
-[dropboxdoc]: ./connectors-create-api-dropbox.md "Připojení k Dropboxu. Nahrávání, získávání, odstraňování, vypisování souborů a provádění dalších akcí"
 [Dynamics-365doc]: ./connectors-create-api-crmonline.md "Připojení k aplikaci Dynamics CRM Online, abyste mohli pracovat s daty aplikace CRM Online"
 [event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Připojení k Azure Event Hubs. Příjem a odesílání událostí mezi aplikacemi logiky a Event Hubs"
-[facebookdoc]: ./connectors-create-api-facebook.md "Připojení k Facebooku. Přidávání příspěvků na Timeline, získání kanálu stránky a provádění dalších akcí"
 [filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Připojení k místnímu systému souborů"
 [ftpdoc]: ./connectors-create-api-ftp.md "Připojení k serverům FTP/FTPS a provádění úloh protokolu FTP, jako je odesílání, získávání a odstraňování souborů a provádění dalších akcí"
-[githubdoc]: ./connectors-create-api-github.md "Připojení ke GitHubu a sledování problémů"
-[google-drivedoc]: ./connectors-create-api-googledrive.md "Připojení k Disku Google a práce s daty"
-[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Připojení k Tabulkám Google a upravování tabulek"
-[google-tasksdoc]: ./connectors-create-api-googletasks.md "Připojení k Úkolům Google a správa úkolů"
-[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Připojí se ke Kalendáři Google a může kalendář spravovat."
 [httpdoc]: ./connectors-native-http.md "Provádění volání HTTP pomocí konektoru HTTP"
 [http-requestdoc]: ./connectors-native-reqres.md "Přidání akcí pro požadavky a odpovědi HTTP do aplikací logiky"
-[http-responsedoc]: ./connectors-native-reqres.md "Přidání akcí pro požadavky a odpovědi HTTP do aplikací logiky"
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "Provádění volání HTTP pomocí konektoru HTTP + Swagger"
 [informixdoc]: ./connectors-create-api-informix.md "Připojení k Informix v cloudu nebo místním prostředí. Čtení řádku, výpis tabulek a provádění dalších akcí"
-[instagramdoc]: ./connectors-create-api-instagram.md "Připojení k Instagramu. Aktivování nebo reakce na události"
-[mailchimpdoc]: ./connectors-create-api-mailchimp.md "Připojení k účtu MailChimp. Správa a automatizace e-mailů"
-[mandrilldoc]: ./connectors-create-api-mandrill.md "Připojení k Mandrillu pro komunikaci"
-[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md "Připojení ke službě Microsoft Translator. Překlad textu, zjišťování jazyků a provádění dalších akcí" 
 [nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integrace aplikací logiky s vnořenými pracovními postupy"
 [office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Připojení k účtu Office 365. Odesílání a příjem e-mailů, správa kalendáře a kontaktů a provádění dalších akcí"
-[office365-usersdoc]: ./connectors-create-api-office365-users.md 
-[office365-videodoc]: ./connectors-create-api-office365-video.md "Získání informací o videu, seznamů a kanálů videí a adres URL pro přehrávání videí Office 365"
-[onedrivedoc]: ./connectors-create-api-onedrive.md "Připojení k osobnímu Microsoft OneDrivu. Nahrávání, odstraňování, vypisování souborů a provádění dalších akcí"
-[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Připojení k firemnímu Microsoft OneDrivu. Nahrávání, odstraňování, vypisování souborů a provádění dalších akcí"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Připojení k databázi Oracle a možnost přidávat, vkládat a odstraňovat řádky a další"
-[outlook.comdoc]: ./connectors-create-api-outlook.md "Připojení k poštovní schránce aplikace Outlook. Správa e-mailů, kalendářů, kontaktů a provádění dalších akcí"
-[project-onlinedoc]: ./connectors-create-api-projectonline.md "Připojení k aplikaci Microsoft Project Online. Správa projektů, úloh, prostředků a provádění dalších akcí"
-[querydoc]: ./connectors-native-query.md "Výběr a filtrování polí pomocí akce dotazu"
 [recurrencedoc]:  ./connectors-native-recurrence.md "Aktivace opakujících se akcí pro aplikace logiky"
-[rssdoc]: ./connectors-create-api-rss.md "Publikování a načítání položek informačních kanálů a aktivace operací při publikování nové položky v informačním kanálu RSS."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Připojení k účtu Salesforce. Správa účtů, zájemců, příležitostí a provádění dalších akcí"
-[sendgriddoc]: ./connectors-create-api-sendgrid.md "Připojení k SendGridu. Odesílání e-mailů a správa seznamů příjemců"
-[service-busdoc]: ./connectors-create-api-servicebus.md "Odesílání zpráv z front a témat služby Service Bus a příjem zpráv z front a odběrů služby Service Bus."
-[sftpdoc]: ./connectors-create-api-sftp.md "Připojení k účtu SFTP. Nahrávání, získávání, odstraňování souborů a provádění dalších akcí"
+[sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Připojení k místnímu systému SAP"
+[service-busdoc]: ./connectors-create-api-servicebus.md "Odesílání zpráv z front a témat služby Service Bus a příjem zpráv z front a odběrů služby Service Bus"
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "Připojení k SharePointu Online. Správa dokumentů, vypisování položek a provádění dalších akcí"
-[slackdoc]: ./connectors-create-api-slack.md "Připojení ke Slacku a odesílání zpráv do kanálů Slacku."
-[smtpdoc]: ./connectors-create-api-smtp.md "Připojení k serveru SMTP a odesílání e-mailů s přílohami"
-[sparkpostdoc]: ./connectors-create-api-sparkpost.md "Připojení ke SparkPostu pro komunikaci"
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Připojení ke službě Azure SQL Database nebo serveru SQL. Vytváření, aktualizace, získávání a odstraňování položek v tabulce databáze SQL."
-[trellodoc]: ./connectors-create-api-trello.md "Připojení k Trello. Správa projektů a organizace čehokoli s kýmkoli"
-[twiliodoc]: ./connectors-create-api-twilio.md "Připojení k Twiliu. Odesílání a získávání zpráv, získávání dostupných čísel, správa příchozích hovorů z telefonních čísel a provádění dalších akcí"
 [twitterdoc]: ./connectors-create-api-twitter.md "Připojení k Twitteru. Získávání časových os, odesílání tweetů a provádění dalších akcí"
 [webhookdoc]: ./connectors-native-webhook.md "Přidávání akcí a aktivačních událostí webhooků do aplikací logiky"
-[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Připojení k Wunderlistu. Správa úkolů a seznamů úkolů, udržování synchronizace všeho, co potřebujete k životu, a provádění dalších akcí"
-[yammerdoc]: ./connectors-create-api-yammer.md "Připojení k Yammeru. Odesílání zpráv, získávání nových zpráv a provádění dalších akcí"
-[youtubedoc]: ./connectors-create-api-youtube.md "Připojení k Youtube. Správa videí a kanálů"
 
 [as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Přečtěte si víc o podnikové integraci AS2."
 [x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Přečtěte si víc o podnikové integraci X12."
@@ -168,8 +173,42 @@ Pokud chcete pomoci při vylepšování Logic Apps a konektorů, hlasujte nebo z
 [X12encode]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Přečtěte si víc o kódování pro podnikovou integraci X12."
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Přečtěte si víc o dekódování pro podnikovou integraci EDIFACT."
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Přečtěte si víc o kódování pro podnikovou integraci EDIFACT."
+[integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Vyhledání schémat, map, partnerů a dalších v účtu pro integraci"
 
-[sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Připojení k místnímu systému SAP"
+
+[boxDoc]: ./connectors-create-api-box.md "Připojení ke službě Box. Nahrávání, získávání, odstraňování, vypisování souborů a provádění dalších akcí"
+[delaydoc]: ./connectors-native-delay.md "Provádění zpožděných akcí"
+[dropboxdoc]: ./connectors-create-api-dropbox.md "Připojení k Dropboxu. Nahrávání, získávání, odstraňování, vypisování souborů a provádění dalších akcí"
+[facebookdoc]: ./connectors-create-api-facebook.md "Připojení k Facebooku. Přidávání příspěvků na Timeline, získání kanálu stránky a provádění dalších akcí"
+[githubdoc]: ./connectors-create-api-github.md "Připojení ke GitHubu a sledování problémů"
+[google-drivedoc]: ./connectors-create-api-googledrive.md "Připojení k Disku Google a práce s daty"
+[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Připojení k Tabulkám Google a upravování tabulek"
+[google-tasksdoc]: ./connectors-create-api-googletasks.md "Připojení k Úkolům Google a správa úkolů"
+[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Připojí se ke Kalendáři Google a může kalendář spravovat."
+[http-responsedoc]: ./connectors-native-reqres.md "Přidání akcí pro požadavky a odpovědi HTTP do aplikací logiky"
+[instagramdoc]: ./connectors-create-api-instagram.md "Připojení k Instagramu. Aktivování nebo reakce na události"
+[mailchimpdoc]: ./connectors-create-api-mailchimp.md "Připojení k účtu MailChimp. Správa a automatizace e-mailů"
+[mandrilldoc]: ./connectors-create-api-mandrill.md "Připojení k Mandrillu pro komunikaci"
+[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md "Připojení ke službě Microsoft Translator. Překlad textu, zjišťování jazyků a provádění dalších akcí" 
+[office365-usersdoc]: ./connectors-create-api-office365-users.md 
+[office365-videodoc]: ./connectors-create-api-office365-video.md "Získání informací o videu, seznamů a kanálů videí a adres URL pro přehrávání videí Office 365"
+[onedrivedoc]: ./connectors-create-api-onedrive.md "Připojení k osobnímu Microsoft OneDrivu. Nahrávání, odstraňování, vypisování souborů a provádění dalších akcí"
+[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Připojení k firemnímu Microsoft OneDrivu. Nahrávání, odstraňování, vypisování souborů a provádění dalších akcí"
+[outlook.comdoc]: ./connectors-create-api-outlook.md "Připojení k poštovní schránce aplikace Outlook. Správa e-mailů, kalendářů, kontaktů a provádění dalších akcí"
+[project-onlinedoc]: ./connectors-create-api-projectonline.md "Připojení k aplikaci Microsoft Project Online. Správa projektů, úloh, prostředků a provádění dalších akcí"
+[querydoc]: ./connectors-native-query.md "Výběr a filtrování polí pomocí akce dotazu"
+[rssdoc]: ./connectors-create-api-rss.md "Publikování a načítání položek informačních kanálů a aktivace operací při publikování nové položky v informačním kanálu RSS."
+[sendgriddoc]: ./connectors-create-api-sendgrid.md "Připojení k SendGridu. Odesílání e-mailů a správa seznamů příjemců"
+[sftpdoc]: ./connectors-create-api-sftp.md "Připojení k účtu SFTP. Nahrávání, získávání, odstraňování souborů a provádění dalších akcí"
+[slackdoc]: ./connectors-create-api-slack.md "Připojení ke Slacku a odesílání zpráv do kanálů Slacku."
+[smtpdoc]: ./connectors-create-api-smtp.md "Připojení k serveru SMTP a odesílání e-mailů s přílohami"
+[sparkpostdoc]: ./connectors-create-api-sparkpost.md "Připojení ke SparkPostu pro komunikaci"
+[trellodoc]: ./connectors-create-api-trello.md "Připojení k Trello. Správa projektů a organizace čehokoli s kýmkoli"
+[twiliodoc]: ./connectors-create-api-twilio.md "Připojení k Twiliu. Odesílání a získávání zpráv, získávání dostupných čísel, správa příchozích hovorů z telefonních čísel a provádění dalších akcí"
+[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Připojení k Wunderlistu. Správa úkolů a seznamů úkolů, udržování synchronizace všeho, co potřebujete k životu, a provádění dalších akcí"
+[yammerdoc]: ./connectors-create-api-yammer.md "Připojení k Yammeru. Odesílání zpráv, získávání nových zpráv a provádění dalších akcí"
+[youtubedoc]: ./connectors-create-api-youtube.md "Připojení k Youtube. Správa videí a kanálů"
+
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -264,10 +303,11 @@ Pokud chcete pomoci při vylepšování Logic Apps a konektorů, hlasujte nebo z
 [Webhookicon]: ./media/apis-list/webhook.png
 
 <!-- EIP Icons -->
-[as2icon]: ./media/apis-list/as2new.png
+[as2icon]: ./media/apis-list/as2.png
 [x12icon]: ./media/apis-list/x12new.png
 [flatfileicon]: ./media/apis-list/flatfileencoding.png
 [flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
+[integrationaccounticon]: ./media/apis-list/integrationaccount.png
 

@@ -18,10 +18,11 @@ ms.author: magoedte
 ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.contentlocale: cs-cz
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +67,7 @@ V této části vytvoříte na webu Azure Portal účet služby Azure Automation
 >[!NOTE]
 >Abyste mohli vytvořit účet Automation, musíte být členem role Správci služeb nebo spolusprávcem předplatného, který k tomuto předplatnému uděluje přístup. K výchozí instanci Active Directory tohoto předplatného musíte být přihlášení jako uživatel. Účtu nemusí mít přiřazenou privilegovanou roli.
 >
->Pokud před přidáním k roli spolusprávce nejste členem instance Active Directory příslušného předplatného, budete do služby Active Directory přidaní jako host. V takovém případě se na kartě **Přidat účet Automation** zobrazí upozornění typu Nemáte oprávnění k vytvoření...
+>Pokud před přidáním k roli spolusprávce nejste členem instance Active Directory příslušného předplatného, budete do služby Active Directory přidaní jako host. V tomto případě se zobrazí varování, že nemáte oprávnění k vytvoření, v okně **Přidání účtu Automation**.
 >
 >Uživatele, kteří byli nejdřív přidaní do role spolusprávce, je možné z instance Active Directory předplatného odebrat a potom je znovu přidat – tak se z nich ve službě Active Directory stanou úplní uživatelé. Takovou situaci můžete ověřit v podokně **Azure Active Directory** na webu Azure Portal. Vyberte **Uživatelé a skupiny**, potom **Všichni uživatelé** a po výběru konkrétního uživatele vyberte **Profil**. Hodnota atributu **Typ uživatele** v profilu uživatele by neměla být **Host**.
 >
@@ -245,7 +246,7 @@ Tyto potíže s účtem Spustit jako můžete rychle vyřešit jeho odstranění
 Tento skript má následující požadavky:
 
 * Tento skript je možné spustit jenom v systémech Windows 10 a Windows Server 2016 s nainstalovanými moduly Azure Resource Manageru verze 2.01 nebo novější. V předchozích verzích Windows není podporován.
-* Azure PowerShell 1.0 nebo novější. Informace o vydání PowerShellu 1.0 najdete v článku [Postup instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 nebo novější. Informace o vydání PowerShellu 1.0 najdete v článku [Postup instalace a konfigurace Azure PowerShellu](/powershell/azure/overview).
 * Účet Automation, na který se odkazuje jako na hodnotu parametrů *-AutomationAccountName* a *-ApplicationDisplayName* v následujícím skriptu PowerShellu.
 
 Abyste získali hodnoty pro parametry *SubscriptionID*, *ResourceGroup* a *AutomationAccountName*, které jsou pro skripty povinné, postupujte takto:
@@ -515,7 +516,7 @@ Můžete použít následující aktualizovaný ukázkový kód z ukázkového r
          }
     }
 
-Skript obsahuje dva další řádky kódu, které podporují odkazování na kontext předplatného, abyste mohli lépe pracovat v prostředí s několika předplatnými. Prostředek proměnné s názvem *SubscriptionId* obsahuje ID předplatného. Po příkazu rutiny `Add-AzureRmAccount` bude uvedená rutina [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) s nastaveným parametrem *-SubscriptionId*. Pokud je název proměnné příliš obecný, můžete ho upravit tak, že přidáte předponu nebo použijete jinou zásadu vytváření názvů, abyste tuto proměnnou dokázali lépe identifikovat. Alternativně můžete místo *-SubscriptionId* použít sadu parametrů *-SubscriptionName* s odpovídajícím prostředkem proměnné.
+Skript obsahuje dva další řádky kódu, které podporují odkazování na kontext předplatného, abyste mohli lépe pracovat v prostředí s několika předplatnými. Prostředek proměnné s názvem *SubscriptionId* obsahuje ID předplatného. Po příkazu rutiny `Add-AzureRmAccount` bude uvedená rutina [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) s nastaveným parametrem *-SubscriptionId*. Pokud je název proměnné příliš obecný, můžete ho upravit tak, že přidáte předponu nebo použijete jinou zásadu vytváření názvů, abyste tuto proměnnou dokázali lépe identifikovat. Alternativně můžete místo *-SubscriptionId* použít sadu parametrů *-SubscriptionName* s odpovídajícím prostředkem proměnné.
 
 Rutina, kterou používáte pro ověřování v runbooku, `Add-AzureRmAccount`, používá sadu parametrů *ServicePrincipalCertificate*. Ověřování provádí pomocí certifikátu instančního objektu, a ne pomocí přihlašovacích údajů uživatele.
 

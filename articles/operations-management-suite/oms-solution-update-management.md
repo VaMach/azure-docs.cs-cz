@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ Jakmile povolíte toto řešení, každý počítač s Windows přímo připojen
 Počítače s Windows ale můžete přidat do skupiny Hybrid Runbook Worker ve vašem účtu Automation pro podporu runbooků Automation, pokud používáte stejný účet pro toto řešení i pro členství ve skupině Hybrid Runbook Worker.  Tuto funkci jsme do funkce Hybrid Runbook Worker přidali ve verzi 7.2.12024.0.  
 
 ## <a name="configuration"></a>Konfigurace
-Pomocí následujících kroků přidejte řešení pro správu aktualizací do pracovního prostoru OMS a potvrďte, že se agenti hlásí. Agenti Windows se přidají automaticky bez dodatečné konfigurace. 
+Pomocí následujících kroků přidejte řešení pro správu aktualizací do pracovního prostoru OMS a potvrďte, že se agenti hlásí. Agenti Windows, kteří jsou již připojeni k vašemu pracovnímu prostoru, se přidají automaticky bez dodatečné konfigurace. 
 
-Toto řešení můžete přidat třemi různými způsoby: z Azure Marketplace na webu Azure Portal výběrem nabídky Automation and Control nebo řešení pro správu aktualizací, nebo z Galerie řešení OMS ve vašem pracovním prostoru OMS.  Pokud již máte propojený účet Automation s pracovním prostorem OMS ve stejné skupině prostředků a oblasti, po výběru nabídky Automation and Control se ověří vaše konfigurace a řešení se nainstaluje a nakonfiguruje pouze v těchto dvou službách.  Výběr řešení pro správu aktualizací z Azure Marketplace se bude chovat stejně.  Pokud některou z těchto služeb nemáte ve svém předplatném nasazenou, postupujte podle kroků v okně **Vytvoření nového řešení** a potvrďte, že chcete nainstalovat další předem vybraná doporučená řešení.  Volitelně můžete přidat řešení pro správu aktualizací do svého pracovního prostoru OMS z galerie řešení pomocí postupu popsaného v části [Přidání řešení OMS](../log-analytics/log-analytics-add-solutions.md).  
+Řešení můžete nasadit pomocí následujících metod:
+
+* Z Azure Marketplace na webu Azure Portal výběrem nabídky Automation and Control nebo řešení pro správu aktualizací.
+* Z Galerie řešení OMS ve vašem pracovním prostoru OMS.
+
+Pokud již máte propojený účet Automation s pracovním prostorem OMS ve stejné skupině prostředků a oblasti, po výběru nabídky Automation and Control se ověří vaše konfigurace a řešení se nainstaluje a nakonfiguruje pouze v těchto dvou službách.  Výběr řešení pro správu aktualizací z Azure Marketplace se bude chovat stejně.  Pokud některou z těchto služeb nemáte ve svém předplatném nasazenou, postupujte podle kroků v okně **Vytvoření nového řešení** a potvrďte, že chcete nainstalovat další předem vybraná doporučená řešení.  Volitelně můžete přidat řešení pro správu aktualizací do svého pracovního prostoru OMS z galerie řešení pomocí postupu popsaného v části [Přidání řešení OMS](../log-analytics/log-analytics-add-solutions.md).  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Ověření připojení agentů OMS a skupiny pro správu Operations Manageru k OMS
 
@@ -144,7 +150,7 @@ Po posouzení aktualizací pro všechny počítače s Linuxem a Windows ve vaše
 > [!NOTE]
 > Virtuální počítače s Windows nasazené z Azure Marketplace jsou standardně nastaveny na přijímání automatických aktualizací ze služby Windows Update.  Toto chování se po přidání tohoto řešení nebo virtuálních počítačů s Windows do vašeho pracovního prostoru nezmění.  Pokud aktivně nespravujete aktualizace pomocí tohoto řešení, použije se výchozí chování (automatické aktualizace).  
 
-Pro virtuální počítače vytvořené z imagí Red Hat Enterprise Linux (RHEL) na vyžádání dostupných v Azure Marketplace jsou registrované pro přístup k infrastruktuře [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) nasazené v Azure.  Všechny ostatní distribuce Azure musí být aktualizované z online úložiště souborů distribuce podle podporované metody.  
+Pro virtuální počítače vytvořené z imagí Red Hat Enterprise Linux (RHEL) na vyžádání dostupných v Azure Marketplace jsou registrované pro přístup k infrastruktuře [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) nasazené v Azure.  Všechny ostatní distribuce Azure musí být aktualizované z online úložiště souborů distribuce podle podporované metody.  
 
 ### <a name="viewing-update-deployments"></a>Zobrazení nasazení aktualizace
 Klikněte na dlaždici **Aktualizovat nasazení** zobrazíte seznam existujících nasazení aktualizace.  Jsou seskupené podle stavu – **Naplánované**, **Spuštěné** a **Dokončeno**.<br><br> ![Stránka Plán nasazení aktualizace](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Úprava předpon – žádné připojení brány
+### <a name="noconnection"></a>Úprava předpon IP adres místní síťové brány – žádné připojení brány
 
 - Přidání dalších předpon adres:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Odebrání předpony adresy:<br>
+- Odebrání předpon adres:<br>
   Vynechte předpony, které už nepotřebujete. V tomto příkladu už nepotřebujeme předponu 20.0.0.0/24 (z předchozího příkladu), takže bránu místní sítě aktualizujeme a tuto předponu vyloučíme.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Úprava předpon – existující připojení brány
-Pokud máte připojení k bráně a chcete přidat nebo odebrat předpony IP adres obsažené v bráně místní sítě, musíte v uvedeném pořadí provést následující kroky. Způsobí to určitý výpadek připojení VPN.
+### <a name="withconnection"></a>Úprava předpon IP adres místní síťové brány – existující připojení brány
 
-> [!IMPORTANT]
-> Bránu sítě VPN neodstraňujte. Pokud to uděláte, budete muset znovu provést kroky k jejímu vytvoření. Kromě toho je nutné aktualizovat místní zařízení VPN o novou IP adresu brány VPN.
-> 
-> 
+Pokud máte připojení k bráně a chcete přidat nebo odebrat předpony IP adres obsažené v bráně místní sítě, musíte v uvedeném pořadí provést následující kroky. Způsobí to určitý výpadek připojení VPN. Při upravování předpon IP adres není potřeba odstraňovat bránu VPN. Stačí jenom odebrat připojení.
+
 
 1. Odeberte připojení.
 

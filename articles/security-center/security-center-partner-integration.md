@@ -4,7 +4,7 @@ description: "Tento dokument popisuje, jak Azure Security Center umožňuje inte
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -37,10 +38,10 @@ Existují čtyři hlavní důvody využití integrace partnerských řešení ve
 ## <a name="what-partners-are-integrated-with-security-center"></a>Kteří partneři se integrují se službou Security Center?
 Security Center se v současnosti integruje s řešeními následujících partnerů:
 
-- Ochrana koncových bodů (Trend Micro) 
-- Firewall webových aplikací (Barracuda, F5, Imperva a brzy také Microsoft WAF a Fortinet), 
-- Firewall nové generace (Check Point, Barracuda a brzy také Fortinet a Cisco) 
-- Posouzení ohrožení zabezpečení (Qualys – Preview) 
+- Ochrana koncových bodů ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
+- Firewall webových aplikací ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [WAF služby Application Gateway](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- Firewall nové generace ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) a [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- Posouzení ohrožení zabezpečení ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) – Preview)  
 
 Postupem času bude Security Center rozšiřovat počet partnerů v těchto kategoriích a přidávat nové kategorie. 
 
@@ -57,7 +58,7 @@ V závislosti na konfiguraci prostředí Azure a nadefinovaných zásadách zabe
 
 Jakmile je partnerské řešení nasazeno, můžete zobrazit informace o stavu řešení a provádět základní úlohy správy z dlaždice Partnerská řešení na hlavním řídicím panelu Security Center. Další informace o správě partnerských řešení v Security Center najdete v článku [Monitorování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md).
 
-![Integrace partnerských řešení](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![Integrace partnerských řešení](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
 
 
 ## <a name="see-also"></a>Viz také

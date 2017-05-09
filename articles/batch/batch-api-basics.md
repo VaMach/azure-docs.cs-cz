@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -337,7 +338,7 @@ Při vytváření fondu výpočetních uzlů v Azure Batch můžete prostřednic
 
 * Určená podsíť musí umožňovat komunikaci ze služby Batch, aby mohla plánovat úlohy ve výpočetních uzlech. Pokud je komunikace s výpočetními uzly zakázána **skupinou zabezpečení sítě (NSG)** přidruženou k virtuální síti, nastaví služba Batch stav výpočetních uzlů na **nepoužitelné**. 
 
-* Pokud jsou k určené virtuální síti přidruženy nějaké skupiny zabezpečení sítě, musí být povolena příchozí komunikace. Pro fond Linux musí být povoleny porty 29876, 29877 a 22. Pro fond Windows musí být povolen port 3389.
+* Pokud jsou k určené virtuální síti přidruženy nějaké skupiny zabezpečení sítě, musí být povolena příchozí komunikace. Pro fondy Linux i Windows musí být povolené porty 29876 a 29877. Volitelně můžete povolit (nebo selektivně filtrovat) port 22 pro protokol SSH ve fondech Linux nebo port 3389 pro protokol RDP ve fondech Windows.
 
 Další nastavení pro virtuální síť se liší v závislosti na režimu přidělování fondů pro účet Batch.
 

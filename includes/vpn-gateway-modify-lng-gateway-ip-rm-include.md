@@ -1,9 +1,8 @@
-Pokud chcete upravit IP adresu brány, použijte k tomu rutinu New-AzureRmVirtualNetworkGatewayConnection. Rutina Set v současné době nepodporuje úpravu IP adresy brány.
+### <a name="gwipnoconnection"></a>Úprava IP adresy brány místní sítě (GatewayIpAddress) – žádné připojení brány
 
-### <a name="gwipnoconnection"></a>Úprava IP adresy brány – žádné připojení brány
-Pokud chcete upravit IP adresu brány místní sítě, která ještě nemá připojení, použijte následující příklad. Můžete také zároveň upravit předpony adresy. Ujistěte se, že k přepsání aktuálního nastavení používáte existující název brány místní sítě. Pokud to neuděláte, vytvoříte novou bránu místní sítě, místo abyste přepsali tu stávající.
+Pokud zařízení VPN, ke kterému se chcete připojit, změnilo svou veřejnou IP adresu, musíte upravit bránu místní sítě, aby odrážela tuto změnu. Pomocí tohoto příkladu upravte bránu místní sítě, která nemá připojení brány.
 
-Použijte následující příklad a nahraďte v něm hodnoty vlastními hodnotami:
+Při upravování této hodnoty můžete také zároveň upravit předpony adres. Ujistěte se, že k přepsání aktuálního nastavení používáte existující název brány místní sítě. Pokud použijete jiný název, vytvoříte novou bránu místní sítě, místo abyste přepsali tu stávající.
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
@@ -11,13 +10,10 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>Úprava IP adresy brány – existující připojení brány
-Pokud už nějaké připojení brány existuje, musíte ho nejdřív odebrat. Po odebrání připojení můžete upravit IP adresu brány a vytvořit nové připojení. Můžete také zároveň upravit předpony adresy. Způsobí to určitý výpadek připojení VPN.
+### <a name="gwipwithconnection"></a>Úprava IP adresy brány místní sítě (GatewayIpAddress) – existující připojení brány
 
-> [!IMPORTANT]
-> Bránu sítě VPN neodstraňujte. Pokud to uděláte, budete muset znovu provést kroky k jejímu vytvoření. Kromě toho je nutné aktualizovat místní zařízení VPN o novou IP adresu brány VPN.
-> 
-> 
+Pokud zařízení VPN, ke kterému se chcete připojit, změnilo svou veřejnou IP adresu, musíte upravit bránu místní sítě, aby odrážela tuto změnu. Pokud už nějaké připojení brány existuje, musíte ho nejdřív odebrat. Po odebrání připojení můžete upravit IP adresu brány a vytvořit nové připojení. Můžete také zároveň upravit předpony adresy. Způsobí to určitý výpadek připojení VPN. Při upravování IP adresy brány není potřeba odstraňovat bránu VPN. Stačí jenom odebrat připojení.
+ 
 
 1. Odeberte připojení. Název vašeho připojení můžete najít pomocí rutiny Get-AzureRmVirtualNetworkGatewayConnection.
 

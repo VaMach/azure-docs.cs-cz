@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5faf7dc0b544f6fe2f83565cc368e218c6df35af
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Rozdíly mezi Service Fabric v Linuxu (verze Preview) a ve Windows (obecně dostupná verze)
 
-Protože Service Fabric v Linuxu je ve verzi Preview, existují určité funkce, které jsou ve Windows podporované, ale v Linuxu ne. Nakonec si sady funkcí budou odpovídat, až bude Service Fabric v Linuxu v obecně dostupné verzi.
+Protože Service Fabric v Linuxu je ve verzi Preview, existují určité funkce, které jsou ve Windows podporované, ale v Linuxu zatím ne. Nakonec si sady funkcí budou odpovídat, až bude Service Fabric v Linuxu v obecně dostupné verzi.
 
 * Služby Reliable Collections (a Reliable Stateful Services) nejsou v Linuxu podporované.
 * ReverseProxy není v Linuxu k dispozici.
@@ -32,13 +33,13 @@ Protože Service Fabric v Linuxu je ve verzi Preview, existují určité funkce,
 * Přesměrování konzoly není v Linuxu podporováno. 
 * Služba FAS (Fault Analysis Service) není v Linuxu k dispozici.
 * Podpora Azure Active Directory není v Linuxu k dispozici.
-* Některé příkazy prostředí Powershell nejsou v rozhraní příkazového řádku k dispozici.
+* Ekvivalenty některých příkazů Powershellu nejsou v rozhraní příkazového řádku k dispozici.
 * Proti clusteru Linux lze spustit pouze podmnožinu příkazů Powershellu (jak je rozvedeno v další části).
 
 >[!NOTE]
 >Přesměrování konzoly se nepodporuje v produkčních clusterech, dokonce ani ve Windows.
 
-Nástroje pro vývoj se liší: ve Windows se používají Visual Studio, Powershell, VSTS a ETW, v Linuxu se používají Yeoman, Eclipse, Jenkins a LTTng.
+Nástroje pro vývoj ve Windows a v Linuxu se také liší. Ve Windows se používá sada Visual Studio, PowerShell, VSTS a Trasování událostí pro Windows, zatímco v Linuxu se používá Yeoman, Eclipse, Jenkins a LTTng.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Rutiny PowerShellu, které nefungují proti linuxovému clusteru Service Fabric
 
