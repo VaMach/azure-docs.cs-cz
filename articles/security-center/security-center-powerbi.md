@@ -4,7 +4,7 @@ description: "Balíček obsahu Azure Security Center Power BI usnadňuje hledán
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -32,7 +32,7 @@ K sestavám Power BI můžete získat přístup také pomocí řídicího panelu
 
 1. Na řídicím panelu **Azure Security Center** klikněte na tlačítko **Power BI**.
 
-    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-newUI-2017.png)
+    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. Napravo se otevře okno **Power BI**, jak vidíte na následující obrazovce:
 
     ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
