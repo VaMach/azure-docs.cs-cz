@@ -1,29 +1,29 @@
-## <a name="specifying-formats"></a>Zadávání formátů
-Azure Data Factory podporuje následující typy formátů:
+## <a name="specifying-formats"></a>Specifying formats
+Azure Data Factory supports the following format types:
 
-* [Formát Text](#specifying-textformat)
-* [Formát JSON](#specifying-jsonformat)
-* [Formát Avro](#specifying-avroformat)
-* [Formát ORC](#specifying-orcformat)
-* [Formát Parquet](#specifying-parquetformat)
+* [Text Format](#specifying-textformat)
+* [JSON Format](#specifying-jsonformat)
+* [Avro Format](#specifying-avroformat)
+* [ORC Format](#specifying-orcformat)
+* [Parquet Format](#specifying-parquetformat)
 
-### <a name="specifying-textformat"></a>Zadávání formátu TextFormat
-Pokud chcete analyzovat textové soubory nebo zapisovat data v textovém formátu, nastavte vlastnost `format` `type` na hodnotu **TextFormat**. Můžete také zadat následující **nepovinné** vlastnosti v oddílu `format`. Postup konfigurace najdete v části [Příklad typu TextFormat](#textformat-example).
+### <a name="specifying-textformat"></a>Specifying TextFormat
+If you want to parse the text files or write the data in text format, set the `format` `type` property to **TextFormat**. You can also specify the following **optional** properties in the `format` section. See [TextFormat example](#textformat-example) section on how to configure.
 
-| Vlastnost | Popis | Povolené hodnoty | Požaduje se |
+| Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| columnDelimiter |Znak, který slouží k oddělení sloupců v souboru. Můžete zvážit použití málo častého netisknutelného znaku, který ve vašich datech pravděpodobně neexistuje. Zadejte třeba znak \u0001, který reprezentuje začátek hlavičky (SOH). |Je povolený jenom jeden znak. **Výchozí** hodnota je **čárka (,)**. <br/><br/>Pokud chcete použít znak Unicode, přejděte k tématu [Znaky Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters), kde pro něj najdete odpovídající kód. |Ne |
-| rowDelimiter |Znak, který slouží k oddělení řádků v souboru. |Je povolený jenom jeden znak. **Výchozí** hodnotou pro čtení může být libovolná z těchto hodnot: **[\r\n, \r, \n]** a pro zápis hodnota **\r\n**. |Ne |
-| escapeChar |Speciální znak, který slouží k potlačení oddělovače sloupců v obsahu vstupního souboru. <br/><br/>Pro tabulku nejde zadat escapeChar a quoteChar současně. |Je povolený jenom jeden znak. Žádná výchozí hodnota. <br/><br/>Příklad: Pokud jako oddělovač sloupců používáte čárku (,), ale chcete znak čárky použít v textu (příklad: Hello, world), můžete jako řídicí znak definovat $ a použít ve zdroji řetězec Hello$, world. |Ne |
-| quoteChar |Znak, který slouží k uvození textového řetězce. Oddělovače sloupců a řádků uvnitř znaků uvozovek budou považované za součást hodnoty příslušného řetězce. Tato vlastnost se vztahuje na vstupní i výstupní datové sady.<br/><br/>Pro tabulku nejde zadat escapeChar a quoteChar současně. |Je povolený jenom jeden znak. Žádná výchozí hodnota. <br/><br/>Příklad: Pokud jako oddělovač sloupců používáte čárku (,), ale chcete znak čárky použít v textu (příklad: <Hello, world>), můžete jako znak uvozovek definovat " (dvojité uvozovky) a použít ve zdroji řetězec "Hello$, world". |Ne |
-| nullValue |Jeden nebo několik znaků, které se používají jako reprezentace hodnoty Null. |Jeden nebo několik znaků. **Výchozí** hodnoty jsou **\N a NULL** pro čtení a **\N** pro zápis. |Ne |
-| encodingName |Zadejte název kódování. |Platný název kódování. Další informace najdete v tématu [Vlastnost Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Příklad: windows-1250 nebo shift_jis. **Výchozí** hodnota je **UTF-8**. |Ne |
-| firstRowAsHeader |Určuje, jestli se má první řádek považovat za záhlaví. U vstupní datové sady Data Factory načítá první řádek jako záhlaví. U výstupní datové sady Data Factory zapisuje první řádek jako záhlaví. <br/><br/>Vzorové scénáře najdete v tématu [Scénáře použití `firstRowAsHeader` a `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/>**False (výchozí)** |Ne |
-| skipLineCount |Určuje počet řádků, které se při čtení dat ze vstupních souborů mají přeskočit. Pokud je zadaný parametr skipLineCount i firstRowAsHeader, nejdřív se přeskočí příslušný počet řádků a potom se ze vstupního souboru načtou informace záhlaví. <br/><br/>Vzorové scénáře najdete v tématu [Scénáře použití `firstRowAsHeader` a `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Ne |
-| treatEmptyAsNull |Určuje, jestli se při čtení dat ze vstupního souboru má prázdný řetězec nebo řetězec s hodnotou null považovat za hodnotu null. |**True (výchozí)**<br/>False |Ne |
+| columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable char which not likely exists in your data: e.g. specify "\u0001" which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use an Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
+| rowDelimiter |The character used to separate rows in a file. |Only one character is allowed. The **default** value is any of the following values on read: **["\r\n", "\r", "\n"]** and **"\r\n"** on write. |No |
+| escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. |No |
+| quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
+| nullValue |One or more characters used to represent a null value. |One or more characters. The **default** values are **"\N" and "NULL"** on read and **"\N"** on write. |No |
+| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
+| firstRowAsHeader |Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |True<br/>**False (default)** |No |
+| skipLineCount |Indicates the number of rows to skip when reading data from input files. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |Integer |No |
+| treatEmptyAsNull |Specifies whether to treat null or empty string as a null value when reading data from an input file. |**True (default)**<br/>False |No |
 
-#### <a name="textformat-example"></a>Příklad typu TextFormat
-Následující příklad ukazuje některé vlastnosti formátu TextFormat.
+#### <a name="textformat-example"></a>TextFormat example
+The following sample shows some of the format properties for TextFormat.
 
 ```json
 "typeProperties":
@@ -44,39 +44,39 @@ Následující příklad ukazuje některé vlastnosti formátu TextFormat.
 },
 ```
 
-Pokud chcete místo `quoteChar` použít `escapeChar`, nahraďte řádek s `quoteChar` touto hodnotou escapeChar:
+To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar` with the following escapeChar:
 
 ```json
 "escapeChar": "$",
 ```
 
-#### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scénáře použití firstRowAsHeader a skipLineCount
-* Kopírujete z nesouborového zdroje do textového souboru a chcete přidat řádek záhlaví obsahující metadata schématu (třeba schéma SQL). V tomto scénáři zadejte ve vstupní sadě `firstRowAsHeader` jako true.
-* Kopírujete text z textového souboru obsahujícího řádek záhlaví do nesouborové jímky a chcete tento řádek vynechat. Zadejte ve vstupní sadě `firstRowAsHeader` jako true.
-* Kopírujete text z textového souboru a chcete vynechat několik prvních řádků, které neobsahují data ani informace záhlaví. Zadáním `skipLineCount` určete, kolik řádků se má přeskočit. Pokud zbytek souboru obsahuje řádek záhlaví, můžete také zadat `firstRowAsHeader`. Pokud je zadaný parametr `skipLineCount` i `firstRowAsHeader`, nejdřív se přeskočí příslušný počet řádků a potom se ze vstupního souboru načtou informace záhlaví.
+#### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenarios for using firstRowAsHeader and skipLineCount
+* You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify `firstRowAsHeader` as true in the output dataset for this scenario.
+* You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify `firstRowAsHeader` as true in the input dataset.
+* You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify `skipLineCount` to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify `firstRowAsHeader`. If both `skipLineCount` and `firstRowAsHeader` are specified, the lines are skipped first and then the header information is read from the input file
 
-### <a name="specifying-jsonformat"></a>Zadávání formátu JsonFormat
-Pokud chcete **importovat/exportovat soubory JSON tak, jak jsou, do nebo z DocumentDB**, přečtěte si podrobné informace v tématu [Import/export dokumentů JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) v konektoru DocumentDB.
+### <a name="specifying-jsonformat"></a>Specifying JsonFormat
+To **import/export JSON files as-is into/from Azure Cosmos DB**, see [Import/export JSON documents](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) section in the Azure Cosmos DB connector with details.
 
-Pokud chcete analyzovat soubory JSON nebo zapisovat data ve formátu JSON, nastavte vlastnost `format` `type` na hodnotu **JsonFormat**. Můžete také zadat následující **nepovinné** vlastnosti v oddílu `format`. Postup konfigurace najdete v části [Příklad typu JsonFormat](#jsonformat-example).
+If you want to parse the JSON files or write the data in JSON format, set the `format` `type` property to **JsonFormat**. You can also specify the following **optional** properties in the `format` section. See [JsonFormat example](#jsonformat-example) section on how to configure.
 
-| Vlastnost | Popis | Požaduje se |
+| Property | Description | Required |
 | --- | --- | --- |
-| filePattern |Určete vzor dat uložených v jednotlivých souborech JSON. Povolené hodnoty jsou **setOfObjects** a **arrayOfObjects**. **Výchozí hodnota** je **setOfObjects**. Podrobné informace o těchto vzorech najdete v tématu [Vzory souborů JSON](#json-file-patterns). |Ne |
-| jsonNodeReference | Pokud chcete iterovat a extrahovat data z objektů uvnitř pole se stejným vzorem, zadejte pro toto pole cestu JSON. Tato vlastnost se podporuje jenom pro kopírování dat ze souborů JSON. | Ne |
-| jsonPathDefinition | Zadejte výraz cesty JSON pro každé mapování sloupců s vlastním názvem sloupce (s počátečním malým písmenem). Tato vlastnost se podporuje jenom pro kopírování dat ze souborů JSON. Můžete extrahovat data z objektu nebo pole. <br/><br/> U polí v kořenovém objektu začtěte s kořenem $, u polí uvnitř pole vybraného pomocí vlastnosti `jsonNodeReference` začněte elementem pole. Postup konfigurace najdete v části [Příklad typu JsonFormat](#jsonformat-example). | Ne |
-| encodingName |Zadejte název kódování. Seznam platných názvů kódování najdete v tématu věnovaném vlastnosti [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Příklad: windows-1250 nebo shift_jis. **Výchozí** hodnota je **UTF-8**. |Ne |
-| nestingSeparator |Znak, který se používá k oddělení úrovní vnoření. Výchozí hodnota je tečka (.). |Ne |
+| filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
+| jsonNodeReference | If you want to iterate and extract data from the objects inside an array field with the same pattern, specify the JSON path of that array. This property is supported only when copying data from JSON files. | No |
+| jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name (start with lowercase). This property is supported only when copying data from JSON files, and you can extract data from object or array. <br/><br/> For fields under root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
+| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
+| nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
 
-#### <a name="json-file-patterns"></a>Vzory souborů JSON
+#### <a name="json-file-patterns"></a>JSON file patterns
 
-Aktivita kopírování může analyzovat tyto vzory souborů JSON:
+Copy activity can parse below patterns of JSON files:
 
-- **Typ I: setOfObjects**
+- **Type I: setOfObjects**
 
-    Každý soubor obsahuje jeden objekt nebo několik objektů, které jsou zřetězené nebo oddělené řádkem. Když je pro výstupní datovou sadu vybraná tato možnost, aktivita kopírování vytvoří jeden soubor JSON, ve kterém je každý objekt na jednom řádku (oddělení řádkem).
+    Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy activity produces a single JSON file with each object per line (line-delimited).
 
-    * **Příklad JSON s jedním objektem**
+    * **single object JSON example**
 
         ```json
         {
@@ -89,7 +89,7 @@ Aktivita kopírování může analyzovat tyto vzory souborů JSON:
         }
         ```
 
-    * **Příklad JSON s oddělením řádky**
+    * **line-delimited JSON example**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -97,7 +97,7 @@ Aktivita kopírování může analyzovat tyto vzory souborů JSON:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **Příklad JSON se zřetězením**
+    * **concatenated JSON example**
 
         ```json
         {
@@ -126,9 +126,9 @@ Aktivita kopírování může analyzovat tyto vzory souborů JSON:
         }
         ```
 
-- **Typ II: arrayOfObjects**
+- **Type II: arrayOfObjects**
 
-    Každý soubor obsahuje pole objektů.
+    Each file contains an array of objects.
 
     ```json
     [
@@ -159,15 +159,15 @@ Aktivita kopírování může analyzovat tyto vzory souborů JSON:
     ]
     ```
 
-#### <a name="jsonformat-example"></a>Příklad typu JsonFormat
+#### <a name="jsonformat-example"></a>JsonFormat example
 
-**Případ 1: Kopírování dat ze souborů JSON**
+**Case 1: Copying data from JSON files**
 
-Dál najdete dva typy ukázek kopírování dat z souborů JSON a obecné poznámky:
+See below two types of samples when copying data from JSON files, and the generic points to note:
 
-**Ukázka 1: Extrakce dat z objektu a pole**
+**Sample 1: extract data from object and array**
 
-V této ukázce očekáváte, že jeden kořenový objekt JSON se mapuje na jeden záznam v tabulkovém výsledku. Pokud máte soubor JSON s následujícím obsahem:  
+In this sample, you expect one root JSON object maps to single record in tabular result. If you have a JSON file with the following content:  
 
 ```json
 {
@@ -192,16 +192,16 @@ V této ukázce očekáváte, že jeden kořenový objekt JSON se mapuje na jede
     }
 }
 ```
-a chcete ho zkopírovat do tabulky Azure SQL v následujícím formátu a přitom data uvnitř pole linearizovat, a to extrakcí dat z objektů i z pole:
+and you want to copy it into an Azure SQL table in the following format, by extracting data from both objects and array:
 
 | id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
-Vstupní datová sada typu **JsonFormat** je definovaná následujícím způsobem (částečná definice obsahující jenom relevantní části). A konkrétně:
+The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- Oddíl `structure` definuje vlastní názvy sloupců a odpovídající datový typ při převodu do tabulkového formátu. Pokud mapování sloupců není potřeba, je tento oddíl **nepovinný**. Další informace najdete v tématu věnovaném [určení definice struktury pro obdélníkové datové sady](#specifying-structure-definition-for-rectangular-datasets).
-- `jsonPathDefinition` určuje cestu JSON pro jednotlivé sloupce a udává, odkud se mají extrahovat data. Chcete-li kopírovat data z pole, můžete použít tvar **pole[x].vlastnost** a extrahovat hodnotu dané vlastnosti z x-tého objektu, nebo můžete použít tvar * *pole[*].vlastnost** a najít hodnotu v libovolném objektu, který obsahuje tuto vlastnost.
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
+- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. To copy data from array, you can use **array[x].property** to extract value of the given property from the xth object, or you can use **array[*].property** to find the value from any object containing such property.
 
 ```json
 "properties": {
@@ -238,9 +238,9 @@ Vstupní datová sada typu **JsonFormat** je definovaná následujícím způsob
 }
 ```
 
-**Ukázka 2: Křížové použití více objektů se stejným vzorkem z pole**
+**Sample 2: cross apply multiple objects with the same pattern from array**
 
-V této ukázce očekáváte, že transformujete jeden kořenový objekt JSON do několika záznamů v tabulkovém výsledku. Pokud máte soubor JSON s následujícím obsahem:  
+In this sample, you expect to transform one root JSON object into multiple records in tabular result. If you have a JSON file with the following content:  
 
 ```json
 {
@@ -263,7 +263,7 @@ V této ukázce očekáváte, že transformujete jeden kořenový objekt JSON do
     "city": [ { "sanmateo": "No 1" } ]
 }
 ```
-a chcete ho zkopírovat do tabulky Azure SQL v následujícím formátu a přitom data uvnitř pole linearizovat a propojit je se společnými kořenovými informacemi:
+and you want to copy it into an Azure SQL table in the following format, by flattening the data inside the array and cross join with the common root info:
 
 | ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
@@ -271,11 +271,11 @@ a chcete ho zkopírovat do tabulky Azure SQL v následujícím formátu a přito
 | 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
 | 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
-Vstupní datová sada typu **JsonFormat** je definovaná následujícím způsobem (částečná definice obsahující jenom relevantní části). A konkrétně:
+The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- Oddíl `structure` definuje vlastní názvy sloupců a odpovídající datový typ při převodu do tabulkového formátu. Pokud mapování sloupců není potřeba, je tento oddíl **nepovinný**. Další informace najdete v tématu věnovaném [určení definice struktury pro obdélníkové datové sady](#specifying-structure-definition-for-rectangular-datasets).
-- `jsonNodeReference` určuje, že se budou iterovat a extrahovat data z objektů se stejným vzorem v rámci **pole** orderlines.
-- `jsonPathDefinition` určuje cestu JSON pro jednotlivé sloupce a udává, odkud se mají extrahovat data. V tomto příkladu jsou položky ordernumber, orderdate a city v kořenovém objektu s cestou JSON, která začíná řetězcem „$.“. Oproti tomu order_pd a order_price jsou definované pomocí cesty odvozené z elementu pole bez řetězce „$.“.
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
+- `jsonNodeReference` indicates to iterate and extract data from the objects with the same pattern under **array** orderlines.
+- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, "ordernumber", "orderdate" and "city" are under root object with JSON path starting with "$.", while "order_pd" and "order_price" are defined with path derived from the array element without "$.".
 
 ```json
 "properties": {
@@ -313,16 +313,16 @@ Vstupní datová sada typu **JsonFormat** je definovaná následujícím způsob
 }
 ```
 
-**Je třeba počítat s následujícím:**
+**Note the following points:**
 
-* Pokud v datové sadě Data Factory nejsou `structure` a `jsonPathDefinition` definované, aktivita kopírování detekuje schéma z prvního objektu a celý objekt linearizuje.
-* Pokud vstup JSON obsahuje pole, aktivita kopírování ve výchozím nastavení převede celou hodnotu pole na řetězec. Můžete si vybrat, jestli z něj budete data extrahovat pomocí `jsonNodeReference` a/nebo `jsonPathDefinition`, nebo jestli ho přeskočíte tím, že ho nezadáte v `jsonPathDefinition`.
-* Pokud je několik duplicitních názvů na stejné úrovni, aktivita kopírování vybere poslední z nich.
-* V názvech vlastností se rozlišují velká a malá písmena. Vlastnosti se stejným názvem, ale různým použitím velkých a malých písmen, se budou považovat za různé.
+* If the `structure` and `jsonPathDefinition` are not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object.
+* If the JSON input has an array, by default the Copy Activity converts the entire array value into a string. You can choose to extract data from it using `jsonNodeReference` and/or `jsonPathDefinition`, or skip it by not specifying it in `jsonPathDefinition`.
+* If there are duplicate names at the same level, the Copy Activity picks the last one.
+* Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties.
 
-**Příklad 2: Zápis dat do souboru JSON**
+**Case 2: Writing data to JSON file**
 
-Pokud máte v SQL Database tuto tabulku:
+If you have below table in SQL Database:
 
 | id | order_date | order_price | order_by |
 | --- | --- | --- | --- |
@@ -330,7 +330,7 @@ Pokud máte v SQL Database tuto tabulku:
 | 2 | 20170120 | 3500 | Patrick |
 | 3 | 20170121 | 4000 | Jason |
 
-a pro každý záznam očekáváte, že budete zapisovat do objektu JSON v tomto formátu:
+and for each record, you expect to write to a JSON object in below format:
 ```json
 {
     "id": "1",
@@ -342,7 +342,7 @@ a pro každý záznam očekáváte, že budete zapisovat do objektu JSON v tomto
 }
 ```
 
-Výstupní datová sada typu **JsonFormat** je definovaná následujícím způsobem (částečná definice obsahující jenom relevantní části). Konkrétně oddíl `structure` definuje vlastní názvy vlastností v cílovém souboru a k určení vrstvy vnoření a názvu se použije `nestingSeparator` (výchozí nastavení je „.“). Pokud nechcete měnit název vlastnosti v porovnání se zdrojovým názvem sloupce nebo vnořit některé z vlastností, je tento oddíl **nepovinný**.
+The output dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically, `structure` section defines the customized property names in destination file, `nestingSeparator` (default is ".") will be used to identify the nest layer from the name. This section is **optional** unless you want to change the property name comparing with source column name, or nest some of the properties.
 
 ```json
 "properties": {
@@ -373,8 +373,8 @@ Výstupní datová sada typu **JsonFormat** je definovaná následujícím způs
 }
 ```
 
-### <a name="specifying-avroformat"></a>Zadávání formátu AvroFormat
-Pokud chcete analyzovat soubory Avro nebo zapisovat data ve formátu Avro, nastavte vlastnost `format` `type` na hodnotu **AvroFormat**. V oddílu Format v části typeProperties není potřeba zadávat žádné vlastnosti. Příklad:
+### <a name="specifying-avroformat"></a>Specifying AvroFormat
+If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
 ```json
 "format":
@@ -383,14 +383,14 @@ Pokud chcete analyzovat soubory Avro nebo zapisovat data ve formátu Avro, nasta
 }
 ```
 
-Pokud chcete formát Avro použít v tabulce Hive, najdete potřebné informace v [kurzu k Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-Je třeba počítat s následujícím:  
+Note the following points:  
 
-* [Komplexní datové typy](http://avro.apache.org/docs/current/spec.html#schema_complex) se nepodporují (záznamy, výčty, pole, mapy, sjednocení a pevné typy).
+* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed).
 
-### <a name="specifying-orcformat"></a>Zadávání formátu OrcFormat
-Pokud chcete analyzovat soubory ORC nebo zapisovat data ve formátu ORC, nastavte vlastnost `format` `type` na hodnotu **OrcFormat**. V oddílu Format v části typeProperties není potřeba zadávat žádné vlastnosti. Příklad:
+### <a name="specifying-orcformat"></a>Specifying OrcFormat
+If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
 ```json
 "format":
@@ -400,17 +400,17 @@ Pokud chcete analyzovat soubory ORC nebo zapisovat data ve formátu ORC, nastavt
 ```
 
 > [!IMPORTANT]
-> Pokud soubory ORC mezi místním prostředím a cloudovým úložištěm dat nekopírujete **tak, jak jsou**, musíte si na počítači brány nainstalovat prostředí JRE 8 (Java Runtime Environment). 64bitová verze brány vyžaduje 64bitové prostředí JRE a 32bitová verze brány vyžaduje 32bitové prostředí JRE. Obě verze najdete [tady](http://go.microsoft.com/fwlink/?LinkId=808605). Vyberte z nich tu vhodnou.
+> If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 >
 >
 
-Je třeba počítat s následujícím:
+Note the following points:
 
-* Komplexní datové typy se nepodporují (STRUCT, MAP, LIST, UNION).
-* Soubory ORC mají tři [možnosti komprese](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB a SNAPPY. Data Factory podporuje čtení dat ze souborů ORC v libovolném z těchto komprimovaných formátů. K načtení dat využívá kompresní kodek v metadatech. Při zápisu do souboru ORC ale Data Factory využívá možnost ZLIB, která je pro formát ORC výchozí. V současnosti toto chování nejde potlačit.
+* Complex data types are not supported (STRUCT, MAP, LIST, UNION)
+* ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
 
-### <a name="specifying-parquetformat"></a>Zadávání formátu ParquetFormat
-Pokud chcete analyzovat soubory Parquet nebo zapisovat data ve formátu Parquet, nastavte vlastnost `format` `type` na hodnotu **Format**. V oddílu Format v části typeProperties není potřeba zadávat žádné vlastnosti. Příklad:
+### <a name="specifying-parquetformat"></a>Specifying ParquetFormat
+If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
 ```json
 "format":
@@ -419,16 +419,11 @@ Pokud chcete analyzovat soubory Parquet nebo zapisovat data ve formátu Parquet,
 }
 ```
 > [!IMPORTANT]
-> Pokud soubory Parquet mezi místním prostředím a cloudovým úložištěm dat nekopírujete **tak, jak jsou**, musíte si na počítači brány nainstalovat prostředí JRE 8 (Java Runtime Environment). 64bitová verze brány vyžaduje 64bitové prostředí JRE a 32bitová verze brány vyžaduje 32bitové prostředí JRE. Obě verze najdete [tady](http://go.microsoft.com/fwlink/?LinkId=808605). Vyberte z nich tu vhodnou.
+> If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 >
 >
 
-Je třeba počítat s následujícím:
+Note the following points:
 
-* Komplexní datové typy se nepodporují (MAP, LIST).
-* Soubory Parquet mají tyto možnosti komprese: NONE, SNAPPY, GZIP a LZO. Data Factory podporuje čtení dat ze souborů ORC v libovolném z těchto komprimovaných formátů. K načtení dat využívá kompresní kodek v metadatech. Při zápisu do souboru Parquet ale Data Factory využívá možnost SNAPPY, která je pro formát Parquet výchozí. V současnosti toto chování nejde potlačit.
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+* Complex data types are not supported (MAP, LIST)
+* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
