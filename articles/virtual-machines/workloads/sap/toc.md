@@ -17,7 +17,7 @@
 ## SAP HANA ve službě Virtual Machines
 ### [Jedna instance SAP HANA](hana-get-started.md)
 ### [Průvodce nasazením S/4 HANA nebo BW/4 HANA](cal-s4h.md)
-### [Vysoká dostupnost ve virtuálních počítačích] (sap-hana-high-availability.md)
+### [Vysoká dostupnost ve virtuálních počítačích](sap-hana-high-availability.md)
 ### [Přehled služby Backup](sap-hana-backup-guide.md)
 ### [Záloha na úrovni souborů](sap-hana-backup-file-level.md)
 ### [Zálohy snímků úložiště](sap-hana-backup-storage-snapshots.md)
