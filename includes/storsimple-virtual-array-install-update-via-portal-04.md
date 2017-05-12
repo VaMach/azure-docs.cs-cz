@@ -50,10 +50,4 @@
 
     ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Po úspěšné instalaci aktualizací se o tom zobrazí zpráva v okně **Aktualizace zařízení**. Verze softwaru se zároveň změní na **10.0.10289.0**.
-
-    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
-
-<!--HONumber=Feb17_HO1-->
-
-
+9. Po úspěšné instalaci aktualizací se o tom zobrazí zpráva v okně **Aktualizace zařízení**. 
