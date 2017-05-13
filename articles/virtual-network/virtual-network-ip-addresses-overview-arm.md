@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,7 +73,7 @@ Můžete zadat popisek názvu domény DNS pro veřejný IP prostředek. Na serve
 >
 
 ### <a name="virtual-machines"></a>Virtuální počítače
-Veřejnou IP adresu můžete k virtuálnímu počítači s [Windows](../virtual-machines/windows/about.md) nebo [Linuxem](../virtual-machines/virtual-machines-linux-about.md) přidružit tak, že ji přiřadíte jeho **síťovému rozhraní**. V případě virtuálních počítačů s více síťovými rozhraními můžete přiřazovat jenom k *primárnímu* síťovému rozhraní. Virtuálnímu počítači můžete přiřadit dynamickou nebo statickou veřejnou IP adresu.
+Veřejnou IP adresu můžete k virtuálnímu počítači s [Windows](../virtual-machines/windows/overview.md) nebo [Linuxem](../virtual-machines/virtual-machines-linux-about.md) přidružit tak, že ji přiřadíte jeho **síťovému rozhraní**. V případě virtuálních počítačů s více síťovými rozhraními můžete přiřazovat jenom k *primárnímu* síťovému rozhraní. Virtuálnímu počítači můžete přiřadit dynamickou nebo statickou veřejnou IP adresu.
 
 ### <a name="internet-facing-load-balancers"></a>Internetové nástroje pro vyrovnávání zatížení
 Veřejnou IP adresu můžete přiřadit službě [Azure Load Balancer](../load-balancer/load-balancer-overview.md) tak, že ji přiřadíte konfiguraci **front-endu** tohoto nástroje pro vyrovnávání zatížení. Tato veřejná IP adresa slouží jako virtuální IP adresa (VIP) s vyrovnáváním zatížení. Front-endu nástroje pro vyrovnávání zatížení můžete přiřadit dynamickou nebo statickou veřejnou IP adresu. Front-endu nástroje pro vyrovnávání zatížení můžete také přiřadit několik veřejných IP adres, což umožňuje použití scénářů s [několika VIP](../load-balancer/load-balancer-multivip.md), jako je víceklientské prostředí s weby využívajícími SSL.
@@ -116,7 +117,7 @@ Statické privátní IP adresy se obvykle používají pro:
 * Prostředky, ke kterým se přistupuje z jiných aplikací nebo prostředků prostřednictvím IP adresy.
 
 ### <a name="virtual-machines"></a>Virtuální počítače
-Privátní IP adresa se přiřazuje **síťovému rozhraní** virtuálního počítače s [Windows](../virtual-machines/windows/about.md) nebo [Linuxem](../virtual-machines/virtual-machines-linux-about.md). V případě virtuálního počítače s několika síťovými rozhraními se privátní IP adresa přiřadí každému z těchto rozhraní. Pro síťové rozhraní můžete určit dynamickou nebo statickou metodu přidělení.
+Privátní IP adresa se přiřazuje **síťovému rozhraní** virtuálního počítače s [Windows](../virtual-machines/windows/overview.md) nebo [Linuxem](../virtual-machines/virtual-machines-linux-about.md). V případě virtuálního počítače s několika síťovými rozhraními se privátní IP adresa přiřadí každému z těchto rozhraní. Pro síťové rozhraní můžete určit dynamickou nebo statickou metodu přidělení.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Překlad názvů hostitelů interních služeb DNS (pro virtuální počítače)
 Všechny virtuální počítače Azure jsou ve výchozím nastavení nakonfigurované se [servery DNS spravovanými Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) (pokud explicitně nenakonfigurujete vlastní servery DNS). Tyto servery DNS poskytují interní překlad IP adres pro virtuální počítače umístěné ve stejné virtuální síti.
