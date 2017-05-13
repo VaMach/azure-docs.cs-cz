@@ -1,7 +1,7 @@
 # Přehled
 ## [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway – nejčastější dotazy](vpn-gateway-vpn-faq.md)
-## [Předplatné a omezení služeb](../azure-subscription-service-limits.md)
+## [Předplatné a omezení služeb](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Začínáme
 ## [Plánování a návrh pro VPN Gateway](vpn-gateway-plan-design.md)
@@ -46,7 +46,9 @@
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Vytvoření certifikátů podepsaných svým držitelem pro připojení typu Point-to-Site](vpn-gateway-certificates-point-to-site.md)
+## Vytvoření certifikátů podepsaných svým držitelem pro připojení typu Point-to-Site
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Řešení potíží
 ### [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
