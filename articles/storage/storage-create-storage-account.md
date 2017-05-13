@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="about-azure-storage-accounts"></a>Informace o účtech Azure Storage
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Přehled
 Účet úložiště Azure Storage poskytuje jedinečný obor názvů pro ukládání datových objektů Azure Storage a přístup k nim. Všechny objekty v rámci účtu úložiště se fakturují společně jako skupina. Ve výchozím nastavení jsou data ve vašem účtu dostupná pouze pro vás, vlastníka účtu.
@@ -153,15 +155,11 @@ Pokud účet úložiště používá model nasazení Classic, můžete disk virt
 Další informace najdete v [dokumentaci ke službě Azure Virtual Machine](http://azure.microsoft.com/documentation/services/virtual-machines/). 
 
 ## <a name="next-steps"></a>Další kroky
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) je bezplatná samostatná aplikace od Microsoftu, která umožňuje vizuálně pracovat s daty Azure Storage ve Windows, macOS a Linuxu.
 * [Azure Blob Storage: úrovně Cool a Hot](storage-blob-storage-tiers.md)
 * [Účet replikace Azure Storage](storage-redundancy.md)
 * [Nakonfigurování připojovacích řetězců Azure Storage](storage-configure-connection-string.md)
 * [Přenos dat pomocí nástroje příkazového řádku AzCopy](storage-use-azcopy.md)
 * Navštivte [Blog týmu Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
