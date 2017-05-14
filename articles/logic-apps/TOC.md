@@ -80,6 +80,16 @@
 ### [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Měření využití](logic-apps-pricing.md)
 
+# Bez serveru
+## Přehled
+### [Bez serveru v Azure](logic-apps-serverless-overview.md)
+## Začínáme
+### [Vytvoření aplikace bez serveru v sadě Visual Studio](logic-apps-serverless-get-started-vs.md)
+## Scénáře a názorné postupy
+### [Shromažďování zpětné vazby zákazníků](logic-apps-scenario-social-serverless.md)
+### [Odesílání automatizovaných e-mailů](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [Pořadí zpracování B2B/EDI](logic-apps-enterprise-integration-overview.md)
+
 # Referenční informace
 ## [Jazyk pro definování pracovních postupů](logic-apps-workflow-definition-language.md)
 ## [Triggery a akce pracovních postupů](logic-apps-workflow-actions-triggers.md)

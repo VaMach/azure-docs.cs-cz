@@ -1,4 +1,4 @@
-# [Přehled](security-get-started-overview.md)
+# [Přehled](azure-security.md)
 ## [Zabezpečení sítě](security-network-overview.md)
 ## [Zabezpečení úložiště](security-storage-overview.md)
 ## [Zabezpečení služby Compute](security-virtual-machines-overview.md)
@@ -6,6 +6,10 @@
 ## [Správa identit](security-identity-management-overview.md)
 ## [Zabezpečení IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Architektura zabezpečení](azure-security-architecture-overview.md)
+### [Provozní zabezpečení](azure-operational-security.md)
+### [Pokročilá detekce hrozeb](azure-threat-detection.md)
+### [Protokolování a auditování](azure-log-audit.md)
+### [Izolace ve veřejném cloudu](azure-isolation.md)
 
 # Začínáme
 ## [Začínáme se zabezpečením Azure](azure-security-getting-started.md)
