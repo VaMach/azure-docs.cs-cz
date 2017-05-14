@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 15c47d6641e6f5198f88dbe83980f098510916f8
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6f4e6629b6058eec292f13e236eba8a91679d5b4
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -42,7 +43,7 @@ Následující tabulka obsahuje mapování oblastí Azure na umístění Express
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- |
-| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Západní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střed USA – západ, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Québec, Toronto |
+| **Severní Amerika** |Východní USA, Západní USA, Východní USA 2, Západní USA 2, Střed USA, Střed USA – jih, Střed USA – sever, Střed USA – západ, Střední Kanada, Východní Kanada |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **Jižní Amerika** |Brazílie – jih |Sao Paulo |
 | **Evropa** |Severní Evropa, Západní Evropa, Spojené království – západ, Spojené království – jih |Amsterdam, Dublin, Londýn, Newport (Wales), Paříž |
 | **Asie** |Východní Asie, Jihovýchodní Asie |Hongkong, Singapur |
@@ -56,7 +57,7 @@ Následující tabulka obsahuje informace o oblastech a geopolitických hranicí
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
 | --- | --- | --- | --- |
-| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia, US DoD – střed, US DoD – východ  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
+| **Cloud vlády USA** |USA (Gov) – Iowa, USA (Gov) – Virginia, US DoD – střed, US DoD – východ  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **Čína** |Severní Čína, Východní Čína |Peking, Šanghaj |
 | **Německo** |Střední Německo, Východní Německo |Berlín, Frankfurt |
 
@@ -125,7 +126,7 @@ Následující tabulka uvádí umístění podle poskytovatele služby. Pokud ch
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365** | **Umístění** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Podporuje se |Podporuje se |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Seattle+, Silicon Valley, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Podporuje se |Podporuje se |Chicago, New York+, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se | Podporuje se | Chicago, Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Washington DC |
