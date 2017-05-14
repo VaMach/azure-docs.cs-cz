@@ -18,12 +18,13 @@
 ### [Web Apps – běhové prostředí](app-insights-java-live.md)
 ### [Aplikace v Dockeru](app-insights-docker.md)
 
+## Monitorování aplikací Node.js
+### [Node.js](app-insights-nodejs.md)
 
 ## Monitorování webových stránek
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Monitorování jiných platforem
-### [Aplikace v Node.js](app-insights-nodejs.md)
 ### [Weby SharePoint](app-insights-sharepoint.md)
 ### [Další platformy](app-insights-platforms.md)
 
@@ -32,7 +33,6 @@
 ## Plánování a návrh
 ### [Hloubková diagnostika webových aplikací a služeb](app-insights-devops.md)
 ### [Sledování výkonu webových aplikací](app-insights-web-monitor-performance.md)
-### [Analýzy používání pomocí nástroje Application Insights](app-insights-web-track-usage.md)
 ### [Oddělení prostředků Application Insights](app-insights-separate-resources.md)
 ### [Jak mám... pomocí Application Insights?](app-insights-how-do-i.md)
 
@@ -50,7 +50,7 @@
 #### [Závislosti](app-insights-asp-net-dependencies.md)
 #### [Poznámky k verzi](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [Ladicí program snímků](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Trasování protokolů](app-insights-java-trace-logs.md)
@@ -86,6 +86,11 @@
 #### [F5 insights](app-insights-visual-studio.md)
 #### [Trendy](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
+
+### Využití
+#### [Přehled](app-insights-usage-overview.md)
+#### [Uchování](app-insights-usage-retention.md)
+#### [Uživatelé, relace, události](app-insights-usage-segmentation.md)
 
 ### Analýza
 
@@ -152,14 +157,14 @@
 ## Novinky
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Aktualizace služeb](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Aktualizace služeb](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [Poznámky k verzi sady SDK](app-insights-release-notes.md)
 ### [Poznámky k verzi pro Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
 ## [Nejčastější dotazy](app-insights-troubleshoot-faq.md)
 
 ## Nápověda
-### [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Podpora](https://azure.microsoft.com/support/)

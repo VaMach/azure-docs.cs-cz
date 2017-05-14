@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
-ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
-ms.lasthandoff: 02/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -71,7 +72,7 @@ Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme s odesíláním nabízených oznámení do Androidu (FCM) pomocí Azure Notification Hubs</h3>
+                        <h3>Začínáme s odesíláním nabízených oznámení do Androidu (FCM) pomocí služby Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +108,7 @@ Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme s odesíláním nabízených oznámení do aplikací pro Chrome pomocí Azure Notification Hubs</h3>
+                        <h3>Začínáme s odesíláním nabízených oznámení do aplikací pro Chrome pomocí služby Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +126,7 @@ Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme s odesíláním nabízených oznámení do iOS pomocí Azure Notification Hubs</h3>
+                        <h3>Začínáme s odesíláním nabízených oznámení do iOS pomocí služby Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +144,7 @@ Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme používat službu Notification Hubs pro aplikace Kindle</h3>
+                        <h3>Začínáme s použitím Notification Hubs pro aplikace Kindle</h3>
                     </div>
                 </div>
             </div>

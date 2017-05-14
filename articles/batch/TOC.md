@@ -19,6 +19,7 @@
 ### [Efektivní seznamové dotazy](batch-efficient-list-queries.md)
 ### [Příprava úlohy a dokončovací úkoly](batch-job-prep-release.md)
 ### [Výpočetní uzly s Linuxem](batch-linux-nodes.md)
+### [Virtuální počítače s nízkou prioritou](batch-low-pri-vms.md)
 ### [Správa účtů služby Batch pomocí rozhraní Batch Management .NET](batch-management-dotnet.md)
 ### [Trvalý výstup úloh a funkcí](batch-task-output.md)
 ### [Spouštění úloh MPI ve službě Batch](batch-mpi.md)

@@ -31,7 +31,11 @@
     href: tutorial-load-balancer.md
   - name: "8. Správa sítě"
     href: tutorial-virtual-network.md
-  - name: "9. Správa zabezpečení virtuálních počítačů"
+  - name: "9. Zálohování virtuálních počítačů"
+    href: tutorial-backup-vms.md
+  - name: "10. Monitorování virtuálních počítačů"
+    href: tutorial-monitoring.md
+  - name: "11. Správa zabezpečení virtuálního počítače"
     href: tutorial-azure-security.md
 
 - name: "Ukázky"
@@ -202,7 +206,7 @@
       - name: "Azure PowerShell"
         href: attach-disk-ps.md
       - name: "portál Azure"
-        href: attach-disk-portal.md
+        href: attach-managed-disk-portal.md
     - name: "Odpojení datového disku"
       href: detach-disk.md
     - name: "Rozbalení disku operačního systému"
@@ -223,6 +227,8 @@
         href: vhd-copy.md
       - name: "Vytvoření virtuálního počítače ze specializovaného virtuálního pevného disku"
         href: create-vm-specialized.md
+      - name: "Připojení nespravovaného datového disku"
+        href: attach-disk-portal.md
   - name: "Sítě virtuálních počítačů"
     href: ps-common-network-ref.md
     items:
@@ -392,9 +398,9 @@
   - name: "Java"
     href: /java/api
   - name: "Node.js"
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: "Python"
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: "Rozhraní REST pro Compute"
     href: /rest/api/compute
   - name: "Rozhraní REST pro Managed Disks"

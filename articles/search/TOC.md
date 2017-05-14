@@ -43,7 +43,7 @@
 ### [Indexer pro Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indexer pro Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indexer pro Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexer pro Azure DocumentDB](search-howto-index-documentdb.md)
+### [Indexer databáze Azure Cosmos](search-howto-index-documentdb.md)
 ### [Indexování objektů blob CSV](search-howto-index-csv-blobs.md)
 ### [Indexování objektů blob JSON](search-howto-index-json-blobs.md)
 ### [Konfigurace připojení indexeru do SQL Serveru na virtuálním počítači Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)

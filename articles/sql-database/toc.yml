@@ -41,6 +41,26 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3. Zabezpečení databáze SQL"
     href: sql-database-security-tutorial.md
+  - name: "4. Vylepšení výkonu SQL DB"
+    href: sql-database-performance-tutorial.md
+  - name: "5. Implementace aplikace s více tenanty"
+    href: sql-database-multi-tenant-application.md
+  - name: "6. Nasazení aplikace s více tenanty"
+    href: sql-database-saas-tutorial.md
+  - name: "7. Zřízení a přidání nových tenantů do katalogu"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8. Monitorování výkonu"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9. Obnovení jednoho tenanta"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10. Správa schémat tenantů"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11. Spuštění analýzy ad hoc"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12. Monitorování pomocí Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13. Správa analýz tenantů"
+
 - name: "Ukázky"
   items:
   - name: "Azure CLI"
@@ -142,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Obnovení databáze"
       href: sql-database-recovery-using-backups.md
-    - name: "Geografická replikace"
+    - name: "Automatické převzetí služeb při selhání a geografická replikace"
       href: sql-database-geo-replication-overview.md
     - name: "Přihlášení"
       href: sql-database-geo-replication-security-config.md

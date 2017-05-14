@@ -15,12 +15,14 @@
 
 # Postup
 ## Vývoj
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Základy U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Katalog U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Parametry U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funkce okna U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Uživatelsky definované operátory U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Rozšíření U-SQL pomocí Pythonu](data-lake-analytics-u-sql-python-extensions.md)
 ### [Rozšíření U-SQL R](data-lake-analytics-u-sql-r-extensions.md)
-### [Kognitivní možnosti U-SQL](data-lake-analytics-u-sql-cognitive.md)
+### [Kognitivní rozšíření U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Vytváření řešení
 ### [Analýza webových protokolů](data-lake-analytics-analyze-weblogs.md)

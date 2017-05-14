@@ -53,6 +53,7 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Použití značek k uspořádání prostředků](resource-group-using-tags.md)
 ### [Přesunutí prostředků do nové skupiny nebo předplatného](resource-group-move-resources.md)
+### [Vytvoření definic uživatelského rozhraní](managed-application-createuidefinition-overview.md)
 ## Řízení přístupu
 ### [Vytvoření instančního objektu pomocí PowerShellu](resource-group-authenticate-service-principal.md)
 ### [Vytvoření instančního objektu pomocí Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -82,6 +83,7 @@
 ### [Numerické funkce](resource-group-template-functions-numeric.md)
 ### [Funkce prostředků](resource-group-template-functions-resource.md)
 ### [Funkce řetězců](resource-group-template-functions-string.md)
+## [Funkce definic uživatelského rozhraní](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

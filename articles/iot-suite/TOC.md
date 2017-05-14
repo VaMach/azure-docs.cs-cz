@@ -20,6 +20,9 @@
 #### [Simulovaná data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Použití reálných senzorů](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Implementace aktualizací firmwaru](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Připojení brány Intel NUC
+### [Simulovaná data](iot-suite-gateway-kit-get-started-simulator.md)
+### [Použití reálných senzorů](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Postup
 ## Připojení simulovaného zařízení
@@ -33,6 +36,7 @@
 ## [Vytvoření vlastního pravidla v řešení vzdáleného monitorování](iot-suite-custom-rule.md)
 ## [Informace o zařízení v řešení vzdáleného monitorování](iot-suite-remote-monitoring-device-info.md)
 ## [Nasazení brány pro propojenou továrnu](iot-suite-connected-factory-gateway-deployment.md)
+## [Přizpůsobení propojené továrny](iot-suite-connected-factory-customize.md)
 
 # Referenční informace
 ## [Architektura zabezpečení](iot-security-architecture.md)
