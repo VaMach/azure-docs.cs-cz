@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -89,7 +90,7 @@ Azure Site Recovery pomáhá chránit nasazení SharePointu následujícím způ
 * Usnadňuje vývoj a testování aplikací SharePointu díky tomu, že je možné na vyžádání vytvořit repliku produkčního prostředí pro účely testování a ladění.
 * Zjednodušuje přechod na cloud tím, že se pomocí Site Recovery provede migrace nasazení SharePointu do Azure.
 
-[Zde jsou další informace](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) o ochraně SharePointu.
+[Zde jsou další informace](site-recovery-sharepoint.md) o ochraně SharePointu.
 
 ## <a name="protect-dynamics-ax"></a>Ochrana Dynamics AX
 Azure Site Recovery zvyšuje ochranu vašeho řešení Dynamics AX ERP tímto způsobem:
@@ -98,7 +99,7 @@ Azure Site Recovery zvyšuje ochranu vašeho řešení Dynamics AX ERP tímto zp
 * Zjednodušení migrace nasazení Dynamics AX do cloudu (Azure)
 * Usnadnění vývoje a testování aplikací Dynamics AX díky tomu, že je možné na vyžádání vytvořit kopii produkčního prostředí pro účely testování a ladění
 
-[Zde jsou další informace](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) o ochraně Dynamic AX.
+[Zde jsou další informace](site-recovery-dynamicsax.md) o ochraně Dynamic AX.
 
 ## <a name="protect-rds"></a>Ochrana Vzdálené plochy
 Služba Vzdálená plocha (RDS) umožňuje nasazení infrastruktury virtuálních klientských počítačů (VDI), tedy stolních počítačů a aplikací na bázi relací, což umožňuje uživatelům pracovat odkudkoli. S Azure Site Recovery můžete:

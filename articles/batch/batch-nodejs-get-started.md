@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/25/2017
 ms.author: shwetams
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 14edac7896ac3aff8788b26906b8a97a35fae60e
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 23e833b9eb926c81fd8c02cd96d43da8cffcaa43
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -45,9 +45,9 @@ Následující diagram znázorňuje možnost škálování skriptu Pythonu pomoc
 
 Klient Node.js nasadí dávkovou úlohu s přípravným úkolem (podrobně si ho popíšeme později) a sadou úkolů v závislosti na počtu kontejnerů v účtu úložiště. Skripty si můžete stáhnout z úložiště GitHub.
 
-* [Node.js](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/storehbaseclient.js)
-* [Skripty prostředí pro přípravný úkol](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh)
-* [Procesor formátu CSV do formátu JSON v Pythonu](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py)
+* [Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
+* [Skripty prostředí pro přípravný úkol](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
+* [Procesor formátu CSV do formátu JSON v Pythonu](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
 > Klient Node.js na uvedeném odkazu neobsahuje konkrétní kód umožňující nasadit ho jako aplikaci Azure Function App. Na následujících odkazech najdete pokyny k jejímu vytvoření.

@@ -1,0 +1,5 @@
+| **Kategorie** | Úložiště dat | 
+| :-------- | :----------- | 
+| Azure | [Azure Blob Storage](../articles/data-factory/data-factory-azure-blob-connector.md)<br/>[Azure Data Lake Store](../articles/data-factory/data-factory-azure-datalake-connector.md)<br/>[Azure DocumentDB](../articles/data-factory/data-factory-azure-documentdb-connector.md)<br/>[Azure SQL Database](../articles/data-factory/data-factory-azure-sql-connector.md)<br/>[Azure SQL Data Warehouse](../articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md)<br/>[Index Azure Search](../articles/data-factory/data-factory-azure-search-connector.md)<br/>[Azure Table storage](../articles/data-factory/data-factory-azure-table-connector.md) | 
+| Databáze | [SQL Server](../articles/data-factory/data-factory-sqlserver-connector.md)<br/>[Oracle](../articles/data-factory/data-factory-onprem-oracle-connector.md) | 
+| File | [Systém souborů](../articles/data-factory/data-factory-onprem-file-system-connector.md) |
