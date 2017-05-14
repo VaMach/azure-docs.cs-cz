@@ -16,10 +16,10 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 V tomto přehledu základních součástí služby Azure Batch probereme primární funkce a prostředky služby, které mohou vývojáři služby Batch použít k tvorbě rozsáhlých paralelních výpočetních řešení.
 
-Ať vyvíjíte distribuovanou výpočetní aplikaci nebo službu, která vystavuje přímá volání rozhraní [REST API][batch_rest_api], nebo pracujete s některou ze [sad SDK služby Batch](batch-apis-tools.md#batch-development-apis), používáte mnoho prostředků a funkcí popsaných v tomto článku.
+Ať vyvíjíte distribuovanou výpočetní aplikaci nebo službu, která vystavuje přímá volání rozhraní [REST API][batch_rest_api], nebo pracujete s některou ze [sad SDK služby Batch](batch-apis-tools.md#azure-accounts-for-batch-development), používáte mnoho prostředků a funkcí popsaných v tomto článku.
 
 > [!TIP]
 > Obecný úvod do služby Batch najdete v části [Základy služby Azure Batch](batch-technical-overview.md).
@@ -74,13 +74,13 @@ Některé z následujících prostředků – účty, výpočetní uzly, fondy, 
 
 Účet Batch můžete vytvořit prostřednictvím webu [Azure Portal](batch-account-create-portal.md) nebo prostřednictvím programu, například s použitím [knihovny Batch Management .NET](batch-management-dotnet.md). Při vytváření účtu můžete přidružit účet úložiště Azure.
 
-Služba Batch podporuje dvě konfigurace účtu podle vlastnosti *režimu přidělování fondů*. Tyto dvě konfigurace poskytují přístup k různým možnostem souvisejícím s [fondy](#pool) služby Batch (viz dále v tomto článku). 
+Služba Batch podporuje dvě konfigurace účtu podle vlastnosti *režimu přidělování fondů*. Tyto dvě konfigurace poskytují přístup k různým možnostem souvisejícím s [fondy](#pool) služby Batch (viz dále v tomto článku).
 
 
-* **Služba Batch:** Toto je výchozí možnost, kdy se virtuální počítače ve fondu služby Batch přidělují na pozadí v rámci předplatných spravovaných Azure. Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy služby Cloud Services, ale nelze ji použít v případě, že jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Můžete využívat přístup k rozhraním API služby Batch buď s použitím ověřování pomocí sdíleného klíče, nebo s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md). 
+* **Služba Batch:** Toto je výchozí možnost, kdy se virtuální počítače ve fondu služby Batch přidělují na pozadí v rámci předplatných spravovaných Azure. Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy služby Cloud Services, ale nelze ji použít v případě, že jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Můžete využívat přístup k rozhraním API služby Batch buď s použitím ověřování pomocí sdíleného klíče, nebo s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md).
 
 * **Předplatné uživatele:** Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Přístup k rozhraním API služby Batch můžete využívat pouze s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md) a fondy služby Cloud Services nejsou podporovány. Výpočetní virtuální počítače služby Batch se přidělují přímo v rámci vašeho předplatného Azure. Tento režim vyžaduje, abyste pro účet Batch nastavili trezor klíčů Azure.
- 
+
 
 ## <a name="compute-node"></a>Výpočetní uzel
 Výpočetní uzel je virtuální stroj (VM) služby Azure, který je vyhrazen pro zpracování části vašich úloh. Velikost uzlu určuje počet jader procesoru, kapacita paměti a velikost místního systému souborů, který je přidělen k uzlu. Fondy uzlů Windows nebo Linux můžete vytvořit pomocí imagí Azure Cloud Services nebo Virtual Machines Marketplace. Další informace o těchto možnostech najdete v následující části [Fond](#pool).
@@ -336,7 +336,7 @@ Při vytváření fondu výpočetních uzlů v Azure Batch můžete prostřednic
 
 * Virtuální síť by měla mít dostatek volných **IP adres**, aby vyhovovala vlastnosti fondu `targetDedicated`. Pokud podsíť nemá dostatek volných IP adres, služba Batch částečně přidělí výpočetní uzly ve fondu a vrátí chybu změny velikosti.
 
-* Určená podsíť musí umožňovat komunikaci ze služby Batch, aby mohla plánovat úlohy ve výpočetních uzlech. Pokud je komunikace s výpočetními uzly zakázána **skupinou zabezpečení sítě (NSG)** přidruženou k virtuální síti, nastaví služba Batch stav výpočetních uzlů na **nepoužitelné**. 
+* Určená podsíť musí umožňovat komunikaci ze služby Batch, aby mohla plánovat úlohy ve výpočetních uzlech. Pokud je komunikace s výpočetními uzly zakázána **skupinou zabezpečení sítě (NSG)** přidruženou k virtuální síti, nastaví služba Batch stav výpočetních uzlů na **nepoužitelné**.
 
 * Pokud jsou k určené virtuální síti přidruženy nějaké skupiny zabezpečení sítě, musí být povolena příchozí komunikace. Pro fondy Linux i Windows musí být povolené porty 29876 a 29877. Volitelně můžete povolit (nebo selektivně filtrovat) port 22 pro protokol SSH ve fondech Linux nebo port 3389 pro protokol RDP ve fondech Windows.
 
@@ -345,7 +345,7 @@ Další nastavení pro virtuální síť se liší v závislosti na režimu při
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Virtuální sítě pro fondy zřízené v rámci služby Batch
 
 V režim přidělování služby Batch je možné přiřadit virtuální síť pouze k fondům **konfigurace služby Cloud Services**. Kromě toho musí být určená virtuální síť **klasickou** virtuální sítí. Virtuální sítě vytvořené pomocí modelu nasazení Azure Resource Manager se nepodporují.
-   
+
 
 
 * Instanční objekt *MicrosoftAzureBatch* musí mít pro zadanou virtuální síť roli řízení přístupu na základě rolí [Přispěvatel virtuálních počítačů modelu Classic](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor). Na webu Azure Portal:
@@ -368,7 +368,7 @@ Služba Batch může díky [automatickému škálování](batch-automatic-scalin
 
 Automatické škálování můžete zapnout napsáním [vzorce automatického škálování](batch-automatic-scaling.md#automatic-scaling-formulas) a jeho přidružením k fondu. Služba Batch používá tento vzorec k určování cílového počtu uzlů ve fondu pro další interval škálování (ten můžete nakonfigurovat). Nastavení automatického škálování můžete pro fond zadat při jeho vytvoření, nebo můžete škálování povolit ve fondu později. Také můžete aktualizovat nastavení škálování ve fondu, v němž je škálování povoleno.
 
-Jako příklad si vezměme úlohu, která může vyžadovat odeslání velkého počtu úkolů ke spuštění. Fondu můžete přiřadit vzorec škálování na základě aktuálního počtu úkolů čekajících ve frontě a rychlosti dokončování těchto úkolů v úloze, který přizpůsobí počet uzlů ve fondu. Služba Batch vzorec pravidelně vyhodnocuje a mění velikost fondu na základě vytížení a dalších nastavení vzorce. Služba podle potřeby přidává uzly, když ve frontě čeká velký počet úkolů, a naopak uzly odebírá, když ve frontě nejsou žádné úkoly nebo žádné úkoly právě neběží. 
+Jako příklad si vezměme úlohu, která může vyžadovat odeslání velkého počtu úkolů ke spuštění. Fondu můžete přiřadit vzorec škálování na základě aktuálního počtu úkolů čekajících ve frontě a rychlosti dokončování těchto úkolů v úloze, který přizpůsobí počet uzlů ve fondu. Služba Batch vzorec pravidelně vyhodnocuje a mění velikost fondu na základě vytížení a dalších nastavení vzorce. Služba podle potřeby přidává uzly, když ve frontě čeká velký počet úkolů, a naopak uzly odebírá, když ve frontě nejsou žádné úkoly nebo žádné úkoly právě neběží.
 
 Vzorec škálování může být založen na následujících metrikách:
 

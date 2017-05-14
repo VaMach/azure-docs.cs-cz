@@ -106,6 +106,7 @@
 ### Konfigurace odesílání souborů
 #### [Použití portálu](iot-hub-configure-file-upload.md)
 #### [Použití PowerShellu](iot-hub-configure-file-upload-powershell.md)
+#### [Použití CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Hromadná správa zařízení IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Metriky využití](iot-hub-metrics.md)
 ### [Monitorování operací](iot-hub-operations-monitoring.md)

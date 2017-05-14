@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ca88b355416b4ae4785bc69244185a67756ca916
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Použití interaktivních kurzů Azure Data Lake Analytics
 Azure Portal poskytuje interaktivní kurz, který vám umožní začít se službou Data Lake Analytics. Tento článek ukazuje, jak absolvovat kurz a analyzovat webové protokoly.
-
-> [!NOTE]
-> Pokud chcete absolvovat stejný kurz pomocí sady Visual Studio, informace najdete v tématu [Analýza webových protokolů pomocí Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-> Další interaktivní kurzy budou přidány na portál.
-> 
-> 
 
 Další kurzy najdete v tématech:
 
@@ -87,10 +83,5 @@ Každý účet Data Lake Analytics má závislost účtu [Azure Data Lake Store]
 * [Začínáme se službou Data Lake Analytics pomocí Azure PowerShellu](data-lake-analytics-get-started-powershell.md)
 * [Vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Analýza webových protokolů pomocí služby Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

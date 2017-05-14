@@ -29,6 +29,7 @@
 ### [Sledování prostředků](cdn-resource-health.md)
 ### [Potlačení chování pomocí pravidel](cdn-rules-engine.md)
 ### [Získávání výstrah v reálném čase](cdn-real-time-alerts.md)
+### [Podpora HTTP/2](cdn-http2.md)
 
 ## Analýza
 ### [Analýza vzorců používání](cdn-analyze-usage-patterns.md)
