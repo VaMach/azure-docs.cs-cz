@@ -3,7 +3,6 @@
 ## [Výběr edice](active-directory-editions.md)
 
 ## [Správa identit Azure](identity-fundamentals.md)
-## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
 
 # Začínáme
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
@@ -18,7 +17,9 @@
 
 # Postup
 ## Plánování a návrh
+### [Pochopení architektury Azure AD](active-directory-architecture.md)
 ### [Nasazení řešení s hybridní identitou](active-directory-hybrid-identity-design-considerations-overview.md)
+
 #### Určení požadavků
 ##### [Identita](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Synchronizace adresářů](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -80,7 +81,7 @@
 ### [Ohrožení uživatelé](active-directory-reporting-security-user-at-risk.md)
 ### [Riziková přihlášení](active-directory-reporting-security-risky-sign-ins.md)
 ### [Rizikové události](active-directory-reporting-risk-events.md)
-### [Pojmenované sítě](active-directory-known-networks-azure-portal.md)
+### [Pojmenovaná umístění](active-directory-named-locations.md)
 ### [Migrace sestav](active-directory-reporting-migration.md)
 ### [Uchování](active-directory-reporting-retention.md)
 ### [Latence](active-directory-reporting-latencies-azure-portal.md)
@@ -91,6 +92,7 @@
 ###    Programový přístup
 #### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
 #### [Ukázky auditu](active-directory-reporting-api-audit-samples.md)
+#### [Získání dat](active-directory-reporting-api-with-certificates.md)
 #### [Požadavky](active-directory-reporting-api-prerequisites.md)
 #### [Referenční informace k přihlašování](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Ukázky přihlašování](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -114,6 +116,7 @@
 ## [Správa hesel](active-directory-passwords.md)
 ### Dokumenty uživatele
 #### [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+#### [Osvědčené postupy pro hesla](active-directory-secure-passwords.md)
 #### [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
 ### [Rychlý start: Samoobslužné resetování hesla](active-directory-passwords-getting-started.md)
 ### [Samoobslužné resetování hesla licence](active-directory-passwords-licensing.md)
@@ -159,33 +162,37 @@
 #### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Umožnění vzdáleného přístupu k aplikacím](active-directory-application-proxy-get-started.md)
-#### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
-#### [Principy konektorů](application-proxy-understand-connectors.md)
-#### [Publikování aplikací](application-proxy-publish-azure-portal.md)
-#### [Zabezpečení](application-proxy-security-considerations.md)
-#### [Sítě](application-proxy-network-topology-considerations.md)
-#### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
-#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-#### [Publikování v samostatných sítích](active-directory-application-proxy-connectors-azure-portal.md)
-#### [Proxy servery](application-proxy-working-with-proxy-servers.md)
-#### [Vlastní domény](active-directory-application-proxy-custom-domains.md)
-#### [Přístup k aplikacím](active-directory-appssoaccess-whatis.md)
-##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Jednotné přihlašování s KCD](active-directory-application-proxy-sso-using-kcd.md)
-#### [Jednotné přihlašování se záhlavími](application-proxy-ping-access.md)
-#### [Aplikace pracující s deklaracemi](active-directory-application-proxy-claims-aware-apps.md)
-#### [Nativní klientské aplikace](active-directory-application-proxy-native-client.md)
-#### [Vlastní domovská stránka](application-proxy-office365-app-launcher.md)
-#### [Podmíněný přístup](active-directory-application-proxy-conditional-access.md)
-#### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
-#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
+### [Vzdálený přístup k aplikací s App Proxy](active-directory-application-proxy-get-started.md)
+#### Začínáme
+##### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
+##### [Publikování aplikací](application-proxy-publish-azure-portal.md)
+##### [Vlastní domény](active-directory-application-proxy-custom-domains.md)
+#### [Přístup s jednotným přihlašováním](active-directory-appssoaccess-whatis.md)
+##### [Jednotné přihlašování s KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Jednotné přihlašování se záhlavími](application-proxy-ping-access.md)
+##### [Jednotné přihlašování s ukládáním hesel do trezoru](application-proxy-sso-azure-portal.md)
+#### Pochopení osvědčených postupů
+##### [Konektory](application-proxy-understand-connectors.md)
+##### [Zabezpečení](application-proxy-security-considerations.md)
+##### [Sítě](application-proxy-network-topology-considerations.md)
+#### 
+#### Pokročilá konfigurace
+##### [Publikování v samostatných sítích](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Proxy servery](application-proxy-working-with-proxy-servers.md)
+##### [Aplikace pracující s deklaracemi](active-directory-application-proxy-claims-aware-apps.md)
+##### [Nativní klientské aplikace](active-directory-application-proxy-native-client.md)
+##### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
+##### [Vlastní domovská stránka](application-proxy-office365-app-launcher.md)
+#### Názorné postupy publikování
+##### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
+##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
 #### Použití portálu Classic
 ##### [Stažení konektorů](application-proxy-enable-classic-portal.md)
 ##### [Publikování aplikací](active-directory-application-proxy-publish.md)
 ##### [Použití konektorů](active-directory-application-proxy-connectors.md)
-
+##### [Podmíněný přístup](active-directory-application-proxy-conditional-access.md)
 
 ### Správa podnikových aplikací
 #### [Přiřazení uživatelů](active-directory-coreapps-assign-user-azure-portal.md)
@@ -297,14 +304,18 @@
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
 
 ## Zabezpečení identit
-### [Podmíněný přístup](active-directory-conditional-access.md)
-#### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
+### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)
+#### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
 #### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
 #### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
+#### [Technické referenční informace](active-directory-conditional-access-technical-reference.md)
 #### [Nejčastější dotazy](active-directory-conditional-faqs.md)
-#### [Řešení problémů](active-directory-conditional-access-device-remediation.md)
-#### [Referenční informace](active-directory-conditional-access-technical-reference.md)
+#### [Nápravy](active-directory-conditional-access-device-remediation.md)
+#### [Portál Classic](active-directory-conditional-access.md)
+##### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
+
+
 ### Windows Hello
 #### [Ověření bez hesla](active-directory-azureadjoin-passport.md)
 #### [Povolení Windows Hello pro firmy](active-directory-azureadjoin-passport-deployment.md)

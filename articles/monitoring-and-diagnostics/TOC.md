@@ -1,5 +1,6 @@
 # Přehled
-## [Přehled služby Azure Monitor](monitoring-overview.md)
+## [Nástroje pro monitorování v Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Metriky](monitoring-overview-metrics.md)
 ## [Výstrahy](monitoring-overview-alerts.md)
 ## [Automatické škálování](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [Skupiny akcí](monitoring-action-groups.md)
 ## [Diagnostické protokoly](monitoring-overview-of-diagnostic-logs.md)
 ## [Integrace partnerů](monitoring-partners.md)
-## [Diagnostika Azure](azure-diagnostics.md)
+## [Rozšíření diagnostiky Azure](azure-diagnostics.md)
 
 
 # Začínáme
 ## [Začínáme se službou Azure Monitor](monitoring-get-started.md)
+## [Začínáme s automatickým škálováním](monitoring-autoscale-get-started.md)
 ## [Role Oprávnění a Zabezpečení](monitoring-roles-permissions-security.md)
+
 
 # Postup
 ## Použití výstrah
@@ -24,6 +27,8 @@
 ## Použití automatického škálování
 ### [Osvědčené postupy pro automatické škálování](insights-autoscale-best-practices.md)
 ### [Běžné metriky pro automatické škálování](insights-autoscale-common-metrics.md)
+### [Obecné vzory automatického škálování](monitoring-autoscale-common-scale-patterns.md)
+### [Automatické škálování s použitím vlastních metrik](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Automatické škálování škálovacích sad virtuálních počítačů pomocí šablon Resource Manageru](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Automatické škálování počítačů ve škálovací sadě virtuálních počítačů](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Konfigurace webhooků a e-mailových oznámení pro automatické škálování](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Povolení diagnostických nastavení pomocí šablon Resource Manageru](monitoring-enable-diagnostic-logs-using-template.md)
 ## Použití rozhraní REST API
 ### [Návod s využitím rozhraní REST API](monitoring-rest-api-walkthrough.md)
-## Použití diagnostiky Azure
+## Použití rozšíření diagnostiky Azure
 ### [Odeslání do Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Odeslání do Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Řešení potíží](azure-diagnostics-troubleshooting.md)

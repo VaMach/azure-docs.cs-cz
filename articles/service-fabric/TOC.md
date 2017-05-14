@@ -18,8 +18,10 @@
 ### [Java v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Nasazení aplikací v místním clusteru](service-fabric-get-started-with-a-local-cluster.md)
+## [Nasazení aplikací .NET v kontejneru](service-fabric-host-app-in-a-container.md)
 ## [Vytvoření vašeho prvního clusteru v Azure](service-fabric-get-started-azure-cluster.md)
 ## [Vytvoření vašeho prvního samostatného clusteru](service-fabric-get-started-standalone-cluster.md)
+## [Vytvoření první aplikace kontejneru](service-fabric-get-started-containers.md)
 
 # Postup
 ## Sestavení aplikace
@@ -27,6 +29,7 @@
 ### Koncepty
 #### [Podporované programovací modely](service-fabric-choose-framework.md)
 #### [Aplikační model](service-fabric-application-model.md)
+#### [Model hostingu](service-fabric-hosting-model.md)
 #### [Prostředky manifestu služby](service-fabric-service-manifest-resources.md)
 #### [Stav služby](service-fabric-concepts-state.md)
 #### [Dělení služby](service-fabric-concepts-partitioning.md)
@@ -44,20 +47,29 @@
 #### [Přehled](service-fabric-containers-overview.md)
 #### [Nasazení kontejneru s Windows](service-fabric-deploy-container.md)
 #### [Nasazení kontejneru Linuxu](service-fabric-deploy-container-linux.md)
+#### [Docker Compose (Preview)](service-fabric-docker-compose.md)
+#### [Zásady správného řízení prostředků pro kontejnery a služby](service-fabric-resource-governance.md)
 
 ### Sestavení služby s modelem Reliable Service
 #### [Přehled](service-fabric-reliable-services-introduction.md)
 #### Koncepty
 ##### [Životní cyklus Reliable Services – C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Životní cyklus Reliable Services – Java](service-fabric-reliable-services-lifecycle-java.md)
+
+#### Reliable Collections
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+##### [Pokyny a doporučení k Reliable Collection](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [Práce s Reliable Collections](service-fabric-work-with-reliable-collections.md)
+##### [Transakce a zámky](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Spolehlivá souběžná fronta](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Spolehlivá serializace kolekcí](service-fabric-reliable-services-reliable-collections-serialization.md)
+##### [Interní informace Reliable State Manager a Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java v Linuxu](service-fabric-reliable-services-quick-start-java.md)
 
 #### Životní cyklus Reliable Services
-#### [Použití Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Konfigurace](service-fabric-reliable-services-configuration.md)
 #### [Odeslání oznámení](service-fabric-reliable-services-notifications.md)
 #### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
@@ -94,6 +106,7 @@
 
 ### Komunikace se službami
 #### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
+#### [Služba DNS](service-fabric-dnsservice.md)
 #### [Reverzní proxy server](service-fabric-reverseproxy.md)
 
 ### [Přidání webového front-endu](service-fabric-add-a-web-frontend.md)

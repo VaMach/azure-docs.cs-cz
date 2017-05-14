@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Dokumentace ke službě Azure Functions"
+metadata:
+  title: "Dokumentace ke službě Azure Functions – kurzy | Dokumentace Microsoftu"
+  description: "Naučte se vyvíjet a nasazovat funkce v jazyce podle svého výběru a využívat je ke spouštění úloh na pozadí nebo plánování bez speciální infrastruktury."
+  services: functions
+  author: apexprodleads
+  manager: carolz
+  ms.service: virtual-machines\linux
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01-23-2017
+  ms.author: carolz
+abstract:
+  description: "Azure Functions je výpočetní služba bez serveru umožňující spouštění kódu na vyžádání bez nutnosti explicitně zřizovat nebo spravovat infrastrukturu. Azure Functions můžete použít ke spuštění skriptu nebo kusu kódu jako reakci na různé události. Naučte se používat službu Azure Functions prostřednictvím našich šablon Rychlý start, kurzů a ukázek."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/get-started-with-azure-functions.png
+      width: 250  
+    title: "Začínáme se službou Azure Functions. (2:39)"
+    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    width: 250
+sections:
+- title: "Zprovoznění během 5 minut"
+  items:
+  - type: paragraph
+    text: 'Learn how to create a Hello World function using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure portal
+      href: /azure/azure-functions/functions-create-first-azure-function
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
+- title: "Podrobné kurzy"
+  items:
+  - type: paragraph
+    text: 'Learn how to build and manage Azure Functions'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
+- title: "Ukázky"
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+- title: "Referenční informace"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Příkazový řádek"
+      html: <p><a href="/cli/azure">Azure CLI</a></p>

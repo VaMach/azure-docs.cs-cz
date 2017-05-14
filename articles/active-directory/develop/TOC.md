@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Volání mezi službami](active-directory-protocols-oauth-service-to-service.md)
+### [Tok On-Behalf-Of](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Podporované typy deklarací identity a tokenů](active-directory-token-and-claims.md)
 ### [Výměna podpisových klíčů](active-directory-signing-key-rollover.md)
 ### [Metadata federování](active-directory-federation-metadata.md)
@@ -77,31 +78,27 @@
 ## [Omezení služby](../active-directory-service-limits-restrictions.md)
 # koncový bod verze 2.0
 ## [Přehled](active-directory-appmodel-v2-overview.md)
-### [Rozdíly](active-directory-v2-compare.md)
 ### [Typy aplikací](active-directory-v2-flows.md)
 ### [Omezení](active-directory-v2-limitations.md)
-## Šablony Rychlý start
-### Mobile Apps
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Webové aplikace a rozhraní API
-#### [AngularJS s NodeJS](active-directory-v2-devquickstarts-angular-node.md)
-#### [AngularJS s .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [Webová aplikace .NET](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [Webové rozhraní API .NET](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [Rozhraní API NodeJS](active-directory-v2-devquickstarts-node-api.md)
+### [Porovnání v1 a v2](active-directory-v2-compare.md)
+## Začínáme
+### Mobilní aplikace a aplikace počítače
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Desktopová aplikace .NET pro Windows](guidedsetups/active-directory-windesktop.md)
+### Webové aplikace
+#### [JavaScript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Webový server ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Webová aplikace NodeJS](active-directory-v2-devquickstarts-node-web.md)
-#### [Webové rozhraní API z webové aplikace .NET](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Průvodci
 ### [Registrace aplikace](active-directory-v2-app-registration.md)
 ## Referenční informace
-### [Reference k registraci aplikací](active-directory-v2-registration-portal.md)
 ### [Knihovny ověřování](active-directory-v2-libraries.md)
 ### [Protokoly pro ověřování v2.0](active-directory-v2-protocols.md)
-#### [Referenční informace o tokenech](active-directory-v2-tokens.md)
-#### [Tok kódu při autorizaci OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Implicitní tok](active-directory-v2-protocols-implicit.md)
-#### [Přihlašovací údaje pro klienta OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Udělení autorizačního kódu OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+#### [Implicitní grant Oauth 2.0](active-directory-v2-protocols-implicit.md)
+#### [Udělení přihlašovacích údajů klienta protokolu OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Tok Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Referenční informace o tokenech](active-directory-v2-tokens.md)
 ### [Obory](active-directory-v2-scopes.md)

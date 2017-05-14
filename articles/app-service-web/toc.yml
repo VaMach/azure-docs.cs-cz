@@ -1,270 +1,298 @@
-- name: "Dokumentace k Web Apps"
-  href: index.md
-- name: "Přehled"
+- name: Dokumentace k Web Apps
+  href: index.yml
+- name: Přehled
   items:
-  - name: "Informace o funkci Web Apps"
+  - name: Informace o funkci Web Apps
     href: app-service-web-overview.md
-  - name: "Porovnání možností hostování"
+  - name: Porovnání možností hostování
     href: choose-web-site-cloud-service-vm.md
-- name: "Šablony Rychlý start"
+- name: Šablony Rychlý start
   expanded: true
   items:
-  - name: "Vytvoření aplikace .NET"
+  - name: Vytvoření aplikace .NET
     href: app-service-web-get-started-dotnet.md
-  - name: "Vytvoření aplikace v Node.js"
+  - name: Vytvoření aplikace v Node.js
     href: app-service-web-get-started-nodejs.md
-  - name: "Vytvoření aplikace v PHP"
+  - name: Vytvoření aplikace v PHP
     href: app-service-web-get-started-php.md
-  - name: "Vytvoření aplikace v Javě"
+  - name: Vytvoření aplikace v Javě
     href: app-service-web-get-started-java.md
-  - name: "Vytvoření aplikace v Pythonu"
+  - name: Vytvoření aplikace v Pythonu
     href: app-service-web-get-started-python.md
-  - name: "Vytvoření webu ve statickém HTML"
+  - name: Vytvoření webu ve statickém HTML
     href: app-service-web-get-started-html.md
-- name: "Kurzy"
+- name: Kurzy
   items:
-  - name: "1. .NET s SQL DB"
+  - name: 1. .NET s SQL DB
     href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "1. Node.js s MongoDB"
+  - name: 1. Node.js s MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: "2. Mapování vlastní domény"
+  - name: 1. PHP s MySQL
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: 1. WordPress s MySQL
+    href: app-service-web-create-web-app-from-marketplace.md
+  - name: 1. Python s PostgreSQL
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
+  - name: 2. Mapování vlastní domény
     href: app-service-web-tutorial-custom-domain.md
-  - name: "3. Vazba certifikátu protokolu SSL"
+  - name: 3. Vazba certifikátu protokolu SSL
     href: app-service-web-tutorial-custom-ssl.md
-- name: "Ukázky"
+  - name: 4. Přidání služby Content Delivery Network
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
+- name: Ukázky
   items:
-  - name: "Azure CLI"
+  - name: Azure CLI
     href: app-service-cli-samples.md
-  - name: "PowerShell"
+  - name: PowerShell
     href: app-service-powershell-samples.md
-- name: "Koncepty"
+- name: Koncepty
   items:
-  - name: "Jak funguje App Service"
+  - name: Jak funguje App Service
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "Plány služby App Service"
+  - name: Plány služby App Service
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "Prostředí App Service"
+  - name: Prostředí App Service
     href: app-service-app-service-environment-intro.md
-  - name: "Ověřování a autorizace"
+  - name: Ověřování a autorizace
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "Ověřování pomocí místní služby AD"
+  - name: Ověřování pomocí místní služby AD
     href: web-sites-authentication-authorization.md
-- name: "Návody"
+- name: Návody
   items:
-  - name: "Vývoj aplikací"
+  - name: Vývoj aplikací
     items:
-    - name: "ASP.NET"
+    - name: ASP.NET
       items:
-      - name: "Aplikace v ASP.NET s SQL Database"
+      - name: Aplikace v ASP.NET s SQL Database
         href: web-sites-dotnet-get-started.md
-      - name: "Vývoj aplikace v ASP.NET Core s VS Code"
+      - name: Vývoj aplikace v ASP.NET Core s VS Code
         href: web-sites-create-web-app-using-vscode.md
-    - name: "PHP"
+    - name: PHP
       items:
-      - name: "Aplikace Laravel s MySQL"
+      - name: Aplikace Laravel s MySQL
         href: app-service-web-php-get-started.md
-      - name: "Nastavení projektu PHP"
+      - name: Nastavení projektu PHP
         href: web-sites-php-configure.md
-      - name: "Vytvoření víc lokalit WordPress"
+      - name: Vytvoření víc lokalit WordPress
         href: web-sites-php-convert-wordpress-multisite.md
-    - name: "Node.js"
+    - name: Node.js
       items:
-      - name: "Aplikace Sails.js s databází NOSQL"
+      - name: Aplikace Sails.js s databází NOSQL
         href: app-service-web-nodejs-sails.md
-      - name: "Použití io.js"
+      - name: Použití io.js
         href: web-sites-nodejs-iojs.md
-      - name: "Ladění aplikace v Node.js"
+      - name: Ladění aplikace v Node.js
         href: web-sites-nodejs-debug.md
-    - name: "Java"
+    - name: Java
       items:
-      - name: "Aplikace v Javě s Eclipsem"
+      - name: Aplikace v Javě s Eclipsem
         href: app-service-web-eclipse-create-hello-world-web-app.md
-      - name: "Aplikace v Javě s IntelliJ"
+      - name: Aplikace v Javě s IntelliJ
         href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: "Použití Azure SDK pro Javu"
+      - name: Použití Azure SDK pro Javu
         href: java-create-azure-website-using-java-sdk.md
-      - name: "Nahrání existující aplikace"
+      - name: Nahrání existující aplikace
         href: web-sites-java-add-app.md
-      - name: "Vzdálené ladění Eclipse"
+      - name: Vzdálené ladění Eclipse
         href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: "Vzdálené ladění IntelliJ"
+      - name: Vzdálené ladění IntelliJ
         href: app-service-web-debug-java-web-app-in-intellij.md
-    - name: "Python"
+    - name: Python
       items:
-      - name: "Aplikace v Djangu s MySQL"
+      - name: Aplikace v Djangu s MySQL
         href: web-sites-python-ptvs-django-mysql.md
-    - name: "Odesílání e-mailů pomocí SendGridu"
+    - name: Odesílání e-mailů pomocí SendGridu
       href: sendgrid-dotnet-how-to-send-email.md
-    - name: "Konfigurace modulu runtime"
+    - name: Konfigurace modulu runtime
       items:
-      - name: "PHP ve Windows"
+      - name: PHP ve Windows
         href: web-sites-php-configure.md
-      - name: "Java"
+      - name: Java
         href: web-sites-java-add-app.md
-      - name: "Node.js v Linuxu"
-        href: app-service-linux-using-nodejs-pm2.md
-      - name: "Python"
+      - name: Python
         href: web-sites-python-configure.md
-    - name: "Konfigurace aplikace"
+    - name: Konfigurace aplikace
       items:
-      - name: "Použití nastavení aplikace"
+      - name: Použití nastavení aplikace
         href: web-sites-configure.md
-  - name: "Nasazení do Azure"
+    - name: Webová aplikace v Linuxu
+      items:
+      - name: Přehled
+        href: app-service-linux-intro.md
+      - name: Vytvoření webové aplikace v Linuxu
+        href: app-service-linux-how-to-create-web-app.md
+      - name: Webová aplikace Ruby v Linuxu
+        href: app-service-linux-ruby-get-started.md
+      - name: Webová aplikace Node.js v Linuxu
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: Webová aplikace .NET Core v Linuxu
+        href: app-service-linux-using-dotnetcore.md
+      - name: Vlastní webová aplikace .Dockeru v Linuxu
+        href: app-service-linux-using-custom-docker-image.md
+      - name: Připojení pomocí protokolu SSH
+        href: app-service-linux-ssh-support.md
+      - name: Průběžné nasazování
+        href: app-service-linux-ci-cd.md
+      - name: Webová aplikace v Linuxu – Nejčastější dotazy
+        href: app-service-linux-faq.md
+  - name: Nasazení do Azure
     href: web-sites-deploy.md
     items:
-    - name: "Nasazení prostřednictvím FTP"
+    - name: Nasazení prostřednictvím FTP
       href: app-service-deploy-content-sync.md
-    - name: "Nasazení prostřednictvím cloudové synchronizace"
+    - name: Nasazení prostřednictvím cloudové synchronizace
       href: web-sites-deploy.md
-    - name: "Průběžné nasazování"
+    - name: Průběžné nasazování
       href: app-service-continuous-deployment.md
-    - name: "Nasazení do přípravného prostředí"
+    - name: Nasazení do přípravného prostředí
       href: web-sites-staged-publishing.md
-    - name: "Nasazení z místního Gitu"
+    - name: Nasazení z místního Gitu
       href: app-service-deploy-local-git.md
-    - name: "Nasazení pomocí šablony"
+    - name: Nasazení pomocí šablony
       href: app-service-deploy-complex-application-predictably.md
-    - name: "Agilní nasazení"
+    - name: Agilní nasazení
       href: app-service-agile-software-development.md
-    - name: "Testování verze beta"
+    - name: Testování verze beta
       href: app-service-web-test-in-production-controlled-test-flight.md
-    - name: "Nastavení přihlašovacích údajů nasazení"
+    - name: Nastavení přihlašovacích údajů nasazení
       href: app-service-deployment-credentials.md
-    - name: "Mapování vlastní domény"
+    - name: Mapování vlastní domény
       items:
-      - name: "Zakoupení domény"
+      - name: Zakoupení domény
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: "Mapování domény třetí strany"
+      - name: Mapování domény třetí strany
         href: web-sites-custom-domain-name.md
-      - name: "Mapování domén s Traffic Managerem"
+      - name: Mapování domén s Traffic Managerem
         href: web-sites-traffic-manager-custom-domain-name.md
-      - name: "Mapování domén GoDaddy"
+      - name: Mapování domén GoDaddy
         href: web-sites-godaddy-custom-domain-name.md
-      - name: "Migrace aktivní domény"
+      - name: Migrace aktivní domény
         href: app-service-custom-domain-name-migrate.md
-    - name: "Migrace z IIS"
+    - name: Migrace z IIS
       href: web-sites-migration-from-iis-server.md
-    - name: "Testování v produkčním prostředí"
+    - name: Testování v produkčním prostředí
       href: app-service-web-test-in-production-get-start.md
-    - name: "Přidání funkce k webové aplikaci"
+    - name: Přidání funkce k webové aplikaci
       href: app-service-web-get-started-2.md
-  - name: "Připojení k databázi nebo prostředkům"
+  - name: Připojení k databázi nebo prostředkům
     items:
-    - name: "Připojení k místním datům"
+    - name: Připojení k místním datům
       href: web-sites-hybrid-connection-get-started.md
-    - name: "Připojení k virtuální síti Azure"
+    - name: Připojení k virtuální síti Azure
       href: web-sites-integrate-with-vnet.md
-    - name: "Připojení k virtuální síti Azure s využitím PowerShellu"
+    - name: Připojení k virtuální síti Azure s využitím PowerShellu
       href: app-service-vnet-integration-powershell.md
-    - name: "Připojení k MongoDB na virtuálním počítači Azure"
+    - name: Připojení k MongoDB na virtuálním počítači Azure
       href: web-sites-dotnet-store-data-mongodb-vm.md
-  - name: "Zabezpečená aplikace"
+  - name: Zabezpečená aplikace
     items:
-    - name: "Ověřování uživatelů"
+    - name: Ověřování uživatelů
       items:
-      - name: "Ověřování pomocí Azure AD"
+      - name: Ověřování pomocí Azure AD
         href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Ověřování pomocí Facebooku"
+      - name: Ověřování pomocí Facebooku
         href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Ověřování pomocí Googlu"
+      - name: Ověřování pomocí Googlu
         href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Ověřování pomocí účtu Microsoft"
+      - name: Ověřování pomocí účtu Microsoft
         href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Ověřování pomocí Twitteru"
+      - name: Ověřování pomocí Twitteru
         href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Ověřování pomocí místní služby AD"
+      - name: Ověřování pomocí místní služby AD
         href: web-sites-authentication-authorization.md
-      - name: "Aplikace s víceklientskou databází"
+      - name: Aplikace s víceklientskou databází
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: "Přiřazení vlastního protokolu SSL"
+    - name: Přiřazení vlastního protokolu SSL
       items:
-      - name: "Konfigurace certifikátů SSL třetí strany"
+      - name: Konfigurace certifikátů SSL třetí strany
         href: web-sites-configure-ssl-certificate.md
-    - name: "Vynucení HTTPS"
+    - name: Vynucení HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
-    - name: "Konfigurace vzájemného ověřování TLS"
+    - name: Konfigurace vzájemného ověřování TLS
       href: app-service-web-configure-tls-mutual-auth.md
-  - name: "Škálování aplikace"
+  - name: Škálování aplikace
     items:
-    - name: "Vertikální navýšení kapacity"
+    - name: Vertikální navýšení kapacity
       href: web-sites-scale.md
-    - name: "Horizontální navýšení kapacity"
+    - name: Horizontální navýšení kapacity
       href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Vyrovnávání zatížení s využitím Traffic Manageru"
+    - name: Vyrovnávání zatížení s využitím Traffic Manageru
       href: web-sites-traffic-manager.md
-    - name: "Rozsáhlé škálování s využitím služeb App Service Environment"
+    - name: Rozsáhlé škálování s využitím služeb App Service Environment
       href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Použití Azure CDN k zajištění globálního dosahu"
+    - name: Použití Azure CDN k zajištění globálního dosahu
       href: cdn-websites-with-cdn.md
-    - name: "Připojení k Redis Cache prostřednictvím Memcache"
+    - name: Připojení k Redis Cache prostřednictvím Memcache
       href: web-sites-connect-to-redis-using-memcache-protocol.md
-    - name: "Vytvoření Redis Cache"
+    - name: Vytvoření Redis Cache
       href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Správa stavu relace pomocí Azure Redis Cache"
+    - name: Správa stavu relace pomocí Azure Redis Cache
       href: web-sites-dotnet-session-state-caching.md
-  - name: "Monitorování"
+  - name: Monitorování
     items:
-    - name: "Monitorování aplikací"
+    - name: Monitorování aplikací
       href: web-sites-monitor.md
-    - name: "Povolení protokolů"
+    - name: Povolení protokolů
       href: web-sites-enable-diagnostic-log.md
-    - name: "Protokoly datových proudů"
+    - name: Protokoly datových proudů
       href: web-sites-streaming-logs-and-console.md
-  - name: "Zálohování obsahu"
+  - name: Zálohování obsahu
     items:
-    - name: "Zálohování aplikace"
+    - name: Zálohování aplikace
       href: web-sites-backup.md
-    - name: "Obnovení aplikace ze zálohy"
+    - name: Obnovení aplikace ze zálohy
       href: web-sites-restore.md
-    - name: "Zálohování pomocí REST API"
+    - name: Zálohování pomocí REST API
       href: websites-csm-backup.md
-  - name: "Správa prostředků aplikace"
+  - name: Správa prostředků aplikace
     items:
-    - name: "Klonování aplikací s využitím PowerShellu"
+    - name: Klonování aplikací s využitím PowerShellu
       href: app-service-web-app-cloning.md
-    - name: "Klonování aplikací s využitím portálu"
+    - name: Klonování aplikací s využitím portálu
       href: app-service-web-app-cloning-portal.md
-    - name: "Přesunutí prostředků"
+    - name: Přesunutí prostředků
       href: app-service-move-resources.md
-    - name: "Použití Azure Resource Manageru v prostředí PowerShell"
+    - name: Použití Azure Resource Manageru v prostředí PowerShell
       href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: "Správa aplikací pomocí Azure Automation"
+    - name: Správa aplikací pomocí Azure Automation
       href: automation-manage-web-app.md
-- name: "Referenční informace"
+- name: Referenční informace
   items:
-  - name: "CLI 2.0"
+  - name: CLI 2.0
     href: /cli/azure/appservice
-  - name: "PowerShell"
+  - name: PowerShell
     href: /powershell
-  - name: "REST API"
+  - name: REST API
     href: /rest/api/appservice/
-- name: "Zdroje a prostředky"
+- name: Zdroje a prostředky
   items:
-  - name: "Řešení potíží"
+  - name: Řešení potíží
     items:
-    - name: "Řešení potíží se sadou Visual Studio"
+    - name: Řešení potíží se sadou Visual Studio
       href: web-sites-dotnet-troubleshoot-visual-studio.md
-    - name: "Řešení potíží s aplikací v Node.js"
+    - name: Řešení potíží s aplikací v Node.js
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
-    - name: "Řešení chyb HTTP 502 a 503"
+    - name: Řešení chyb HTTP 502 a 503
       href: app-service-web-troubleshoot-http-502-http-503.md
-    - name: "Řešení potíží s výkonem"
+    - name: Řešení potíží s výkonem
       href: app-service-web-troubleshoot-performance-degradation.md
-  - name: "Ceny"
+  - name: Ceny
     href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: "Informace o kvótách"
+  - name: Informace o kvótách
     href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: "Aktualizace služeb a poznámky k verzi"
+  - name: Aktualizace služeb a poznámky k verzi
     href: https://azure.microsoft.com/updates/?product=app-service
-  - name: "Osvědčené postupy"
+  - name: Osvědčené postupy
     href: app-service-best-practices.md
-  - name: "Ukázky"
+  - name: Ukázky
     href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: "Videa"
+  - name: Videa
     href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-  - name: "Podrobné návody"
+  - name: Podrobné návody
     items:
-    - name: "Referenční architektury"
+    - name: Referenční architektury
       href: ../guidance/guidance-ra-app-service.md
-    - name: "Skripty nasazení"
+    - name: Skripty nasazení
       href: https://azure.microsoft.com/documentation/scripts/

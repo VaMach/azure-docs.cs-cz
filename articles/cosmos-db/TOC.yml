@@ -1,0 +1,312 @@
+- name: "Dokumentace k databázi Cosmos"
+  href: index.yml
+- name: "Přehled"
+  items:
+  - name: "Informace o databázi Azure Cosmos"
+    href: introduction.md
+- name: "Šablony Rychlý start"
+  expanded: true
+  items:
+  - name: "DocumentDB"
+    items:
+    - name: ".NET"
+      href: create-documentdb-dotnet.md
+    - name: ".NET Core"
+      href: create-documentdb-dotnet-core.md
+    - name: "Java"
+      href: create-documentdb-java.md
+    - name: "Node.js"
+      href: create-documentdb-nodejs.md
+    - name: "Python"
+      href: create-documentdb-python.md
+    - name: "Xamarin"
+      href: create-documentdb-xamarin-dotnet.md
+  - name: "MongoDB"
+    items:
+    - name: "Node.js"
+      href: create-mongodb-nodejs.md
+    - name: ".NET"
+      href: create-mongodb-dotnet.md
+    - name: "Java"
+      href: create-mongodb-java.md
+  - name: "Graph"
+    items:
+    - name: ".NET"
+      href: create-graph-dotnet.md
+    - name: "Konzola Gremlin"
+      href: create-graph-gremlin-console.md
+    - name: "Java"
+      href: create-graph-java.md
+    - name: "Node.js"
+      href: create-graph-nodejs.md
+  - name: "Table"
+    items:
+    - name: ".NET"
+      href: create-table-dotnet.md
+- name: "Kurzy"
+  items:
+  - name: "1. Vytvoření"
+    items:
+    - name: "DocumentDB"
+      href: tutorial-develop-documentdb-dotnet.md
+    - name: "MongoDB"
+      href: tutorial-develop-mongodb.md
+    - name: "Table"
+      href: tutorial-develop-table-dotnet.md
+    - name: "Graph"
+      href: tutorial-develop-graph-dotnet.md
+  - name: "2. Import"
+    items:
+    - name: "DocumentDB"
+      href: ../documentdb/documentdb-import-data.md
+    - name: "MongoDB"
+      href: ../documentdb/documentdb-mongodb-migrate.md
+  - name: "3. Dotazování"
+    items:
+    - name: "DocumentDB"
+      href: tutorial-query-documentdb.md
+    - name: "MongoDB"
+      href: tutorial-query-mongodb.md
+    - name: "Table"
+      href: tutorial-query-table.md
+    - name: "Graph"
+      href: tutorial-query-graph.md
+  - name: "4. Globální distribuce"
+    items:
+    - name: "DocumentDB"
+      href: tutorial-global-distribution-documentdb.md
+    - name: "MongoDB"
+      href: tutorial-global-distribution-mongodb.md
+    - name: "Table"
+      href: tutorial-global-distribution-table.md
+    - name: "Graph"
+      href: tutorial-global-distribution-graph.md
+  - name: "5. Vývoj v místním prostředí"
+    items:
+    - name: "Použití emulátoru"
+      href: ../documentdb/documentdb-nosql-local-emulator.md
+    - name: "Export certifikátů"
+      href: ../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md
+- name: "Ukázky"
+  items:
+  - name: "Azure CLI 2.0"
+    href: cli-samples.md
+  - name: "Azure PowerShell"
+    href: powershell-samples.md
+- name: "Koncepty"
+  items:
+  - name: "Globální distribuce"
+    href: ../documentdb/documentdb-distribute-data-globally.md
+  - name: "Dělení"
+    href: partition-data.md
+  - name: "Konzistence"
+    href: ../documentdb/documentdb-consistency-levels.md
+  - name: "Propustnost"
+    href: ../documentdb/documentdb-request-units.md
+    items:
+    - name: "Jednotky žádosti za minutu"
+      href: request-units-per-minute.md
+  - name: "Rozhraní API s více modely"
+    items:
+    - name: "DocumentDB"
+      href: ../documentdb/documentdb-introduction.md
+    - name: "MongoDB"
+      href: ../documentdb/documentdb-protocol-mongodb.md
+    - name: "Table"
+      href: table-introduction.md
+    - name: "Graph"
+      href: graph-introduction.md
+  - name: "Zabezpečení"
+    href: ../documentdb/documentdb-nosql-database-security.md
+  - name: "Celkové náklady na vlastnictví"
+    href: https://aka.ms/documentdb-tco-paper
+  - name: "Případy použití"
+    href: ../documentdb/documentdb-use-cases.md
+- name: "Průvodce postupy"
+  items:
+  - name: "Vývoj"
+    items:
+    - name: "Rozhraní DocumentDB API"
+      items:
+      - name: "Zdroje a prostředky"
+        href: ../documentdb/documentdb-resources.md
+      - name: "Dotaz SQL"
+        href: ../documentdb/documentdb-sql-query.md
+      - name: "SQL Playground"
+        href: https://www.documentdb.com/sql/demo
+      - name: "Dělení"
+        href: ../documentdb/documentdb-partition-data.md
+      - name: "Uložené procedury, triggery a systémy souborů UDF"
+        href: ../documentdb/documentdb-programming.md
+      - name: "Testování výkonu"
+        href: ../documentdb/documentdb-performance-testing.md
+      - name: "Tipy pro zvýšení výkonu"
+        href: ../documentdb/documentdb-performance-tips.md
+      - name: "Nastavení s několika hlavními databázemi"
+        href: ../documentdb/documentdb-multi-region-writers.md
+      - name: "Typy DateTime"
+        href: ../documentdb/documentdb-working-with-dates.md
+      - name: "Kurzy"
+        items:
+        - name: "Vytvoření první aplikace"
+          items:
+          - name: ".NET"
+            href: ../documentdb/documentdb-get-started.md
+          - name: ".NET Core"
+            href: ../documentdb/documentdb-dotnetcore-get-started.md
+          - name: "Java"
+            href: ../documentdb/documentdb-java-get-started.md
+          - name: "Node.js"
+            href: ../documentdb/documentdb-nodejs-get-started.md
+          - name: "C++"
+            href: ../documentdb/documentdb-cpp-get-started.md
+        - name: "Vytvoření webové aplikace"
+          items:
+          - name: ".NET"
+            href: ../documentdb/documentdb-dotnet-application.md
+          - name: "Xamarin"
+            href: ../documentdb/documentdb-mobile-apps-with-xamarin.md
+          - name: "Node.js"
+            href: ../documentdb/documentdb-nodejs-application.md
+          - name: "Java"
+            href: ../documentdb/documentdb-java-application.md
+          - name: "Python Flask"
+            href: ../documentdb/documentdb-python-application.md
+      - name: "Ukázky"
+        items:
+        - name: "Ukázky .NET"
+          href: ../documentdb/documentdb-dotnet-samples.md
+        - name: "Ukázky Node.js"
+          href: ../documentdb/documentdb-nodejs-samples.md
+        - name: "Ukázky Pythonu"
+          href: ../documentdb/documentdb-python-samples.md
+        - name: "Syntaxe SQL"
+          href: https://msdn.microsoft.com/library/azure/dn782250.aspx
+        - name: "Tahák pro gramatiku jazyka SQL"
+          href: ../documentdb/documentdb-sql-query-cheat-sheet.md
+      - name: "Zdroje a prostředky"
+        items:
+        - name: "Stack Overflow"
+          href: http://stackoverflow.com/questions/tagged/azure-documentdb
+        - name: "Videa"
+          href: https://azure.microsoft.com/documentation/videos/index/?services=documentdb
+        - name: "Aktualizace služeb"
+          href: https://azure.microsoft.com/updates/?product=documentdb
+        - name: "Portál komunity"
+          href: ../documentdb/documentdb-community.md
+        - name: "Dokument o indexování bez schémat"
+          href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
+        - name: "Vyřazení S1, S2, S3"
+          href: ../documentdb/documentdb-performance-levels.md
+    - name: "Rozhraní MongoDB API"
+      items:
+      - name: "Připojení k účtu MongoDB"
+        href: ../documentdb/documentdb-connect-mongodb-account.md
+      - name: "Použití MongoChef"
+        href: ../documentdb/documentdb-mongodb-mongochef.md
+      - name: "Použití Robomongo"
+        href: ../documentdb/documentdb-mongodb-robomongo.md
+      - name: "Kurzy"
+        items:
+        - name: "Aplikace konzoly Node.js"
+          href: ../documentdb/documentdb-mongodb-samples.md
+    - name: "Graph API"
+      items:
+      - name: "Podpora Gremlin"
+        href: gremlin-support.md
+    - name: "Rozhraní Table API"
+      items:
+      - name: "Úložiště Table"
+        href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+    - name: "Změna kanálu"
+      href: ../documentdb/documentdb-change-feed.md
+    - name: "Geoprostorové"
+      href: ../documentdb/documentdb-geospatial.md
+    - name: "Indexování"
+      href: ../documentdb/documentdb-indexing-policies.md
+  - name: "Spravovat"
+    items:
+    - name: "Nákladově efektivní čtení a zápisy"
+      href: ../documentdb/documentdb-key-value-store-cost.md
+    - name: "Automatické vypršení dat"
+      href: ../documentdb/documentdb-time-to-live.md
+    - name: "Zálohování a obnovení"
+      href: ../documentdb/documentdb-online-backup-and-restore.md
+    - name: "Místní převzetí služeb při selhání"
+      href: ../documentdb/documentdb-regional-failovers.md
+    - name: "Automation"
+      items:
+      - name: "Azure CLI 1.0 – Vytvoření účtu"
+        href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
+      - name: "Azure CLI 1.0 – Přidání nebo odebrání oblastí"
+        href: ../documentdb/documentdb-automation-region-management.md
+      - name: "Azure PowerShell"
+        href: ../documentdb/documentdb-manage-account-with-powershell.md
+    - name: "Zabezpečení"
+      items:
+      - name: "Šifrování v klidovém stavu"
+        href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
+      - name: "Podpora brány firewall"
+        href: ../documentdb/documentdb-firewall-support.md
+  - name: "Integrace"
+    items:
+    - name: "Připojení ke Sparku"
+      href: ../documentdb/documentdb-spark-connector.md
+    - name: "Nasazení webu pomocí služby Azure App Service"
+      href: ../documentdb/documentdb-create-documentdb-website.md
+    - name: "Protokolování aplikací pomocí funkce Logic Apps"
+      href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+    - name: "Vytvoření vazby na službu Azure Functions"
+      href: ../azure-functions/functions-bindings-documentdb.md
+    - name: "Analýza dat pomocí systému Hadoop"
+      href: ../documentdb/documentdb-run-hadoop-with-hdinsight.md
+    - name: "Integrace se službou Azure Search"
+      href: ../search/search-howto-index-documentdb.md
+    - name: "Přesun dat pomocí služby Azure Data Factory"
+      href: ../data-factory/data-factory-azure-documentdb-connector.md
+    - name: "Analýza dat v reálném čase pomocí Azure Stream Analytics"
+      href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
+    - name: "Získání změněného záznamu HL7 FHIR pomocí Logic Apps"
+      href: ../documentdb/documentdb-change-feed-hl7-fhir-logic-apps.md
+    - name: "Zpracování dat ze snímačů v reálném čase"
+      href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+    - name: "Vizualizace dat pomocí Power BI"
+      href: ../documentdb/documentdb-powerbi-visualize.md
+    - name: "Využití ovladače ODBC pro vizualizaci dat"
+      href: ../documentdb/documentdb-nosql-odbc-driver.md
+- name: "Referenční informace"
+  items:
+  - name: "Rozhraní DocumentDB API"
+    items:
+    - name: "Java"
+      href: ../documentdb/documentdb-sdk-java.md
+    - name: ".NET"
+      href: ../documentdb/documentdb-sdk-dotnet.md
+    - name: ".NET Core"
+      href: ../documentdb/documentdb-sdk-dotnet-core.md
+    - name: "Node.js"
+      href: ../documentdb/documentdb-sdk-node.md
+    - name: "Python"
+      href: ../documentdb/documentdb-sdk-python.md
+    - name: "REST"
+      href: /rest/api/documentdb/
+    - name: "Poskytovatel prostředků REST"
+      href: /rest/api/documentdbresourceprovider/
+  - name: "Rozhraní Table API"
+    items:
+    - name: ".NET"
+      href: table-sdk-dotnet.md
+  - name: "Rozhraní Graph API"
+    items:
+    - name: ".NET"
+      href: graph-sdk-dotnet.md
+- name: "Zdroje a prostředky"
+  items:
+  - name: "Ceny"
+    href: https://azure.microsoft.com/pricing/details/documentdb/
+  - name: "Nejčastější dotazy"
+    href: ../documentdb/documentdb-faq.md
+  - name: "Stack Overflow"
+    href: http://stackoverflow.com/questions/tagged/azure-cosmos-db
+  - name: "Vysvětlení konzistence dat pomocí baseballu"
+    href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

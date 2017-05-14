@@ -1,4 +1,5 @@
 # StorSimple Virtual Array
+
 ## Přehled
 ### [Informace o řešení](storsimple-ova-overview.md)
 
@@ -8,7 +9,7 @@
 #### [Pochopení limitů](storsimple-ova-limits.md)
 #### [Kontrola osvědčených postupů](storsimple-ova-best-practices.md)
 
-### Nasazení (Azure Portal)
+### Nasazení
 #### [Příprava nasazení](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Nasazení služby StorSimple Manager](storsimple-virtual-array-manage-service.md)
 #### [Zřizování v prostředí Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -16,17 +17,10 @@
 #### [Nastavení jako souborového serveru](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [Nastavení jako serveru iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-### Nasazení (portál Azure Classic)
-#### [Příprava nasazení](storsimple-ova-deploy1-portal-prep.md)
-##### [Nasazení služby StorSimple Manager](storsimple-ova-manage-service.md)
-#### [Zřizování v prostředí Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Zřizování v prostředí VMWare](storsimple-ova-deploy2-provision-vmware.md)
-#### [Nastavení jako souborového serveru](storsimple-ova-deploy3-fs-setup.md)
-#### [Nastavení jako serveru iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
-
 ## Postup
 ### [Správa prostřednictvím portálu Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Instalace nejnovější aktualizace](storsimple-virtual-array-install-update-04.md)
+#### [Instalace nejnovější aktualizace](storsimple-virtual-array-install-update-05.md)
+##### [Instalace aktualizace 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Instalace aktualizace 0.3](storsimple-virtual-array-install-update.md)
 #### [Vytvoření a správa záloh](storsimple-virtual-array-backup.md)
 #### [Klonování ze zálohy](storsimple-virtual-array-clone.md)
@@ -44,22 +38,11 @@
 #### [Diagnostika a řešení potíží](storsimple-virtual-array-diagnose-problems.md)
 #### [Protokolování žádosti o podporu](storsimple-virtual-array-log-support-ticket.md)
 
-### [Správa přes portál Azure Classic](storsimple-ova-manager-service-administration.md)
-#### [Instalace nejnovější aktualizace](storsimple-ova-install-update-01.md)
-#### [Vytvoření a správa záloh](storsimple-ova-backup.md)
-#### [Obnovení ze zálohy](storsimple-ova-restore.md)
-#### [Převzetí služeb při selhání a zotavení po havárii](storsimple-ova-failover-dr.md)
-#### [Deaktivace a odstranění](storsimple-ova-deactivate-and-delete-device.md)
-#### [Monitorování řídicího panelu služby](storsimple-ova-service-dashboard.md)
-#### [Změna hesla zařízení](storsimple-ova-change-device-admin-password.md)
-#### [Správa záznamů ACR](storsimple-ova-manage-acrs.md)
-#### [Správa účtů úložiště](storsimple-ova-manage-storage-accounts.md)
-#### [Správa úloh](storsimple-ova-manage-jobs.md)
-#### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-ova-configure-mpio-windows-server.md)
 ### [Konfigurace prostřednictvím místního webového uživatelského rozhraní](storsimple-ova-web-ui-admin.md)
 
 ## Poznámky k verzi
-### [Aktualizace 0.4 – aktuální](storsimple-virtual-array-update-04-release-notes.md)
+### [Aktualizace 0.5 – aktuální](storsimple-virtual-array-update-05-release-notes.md)
+### [Aktualizace 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Aktualizace 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Aktualizace 0.2 a 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -71,6 +54,7 @@
 ### [Aspekty zabezpečení](storsimple-security.md)
 
 ## Začínáme
+
 ### Plánování
 #### [Kontrola požadavků](storsimple-system-requirements.md)
 #### [Kontrola technických specifikací](storsimple-technical-specifications-and-compliance.md)
@@ -80,7 +64,6 @@
 ### Instalace
 #### [Kontrola zabezpečení](storsimple-safety.md)
 #### [Rozbalení modelu 8100, jeho usazení do racku a propojení kabely](storsimple-8100-hardware-installation.md)
-
 #### [Rozbalení modelu 8600, jeho usazení do racku a propojení kabely](storsimple-8600-hardware-installation.md)
 #### [Podporovaný hardware pro rozhraní sítí 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -96,6 +79,7 @@
 #### [StorSimple Adapter pro SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Postup
+
 ### Spravovat
 #### [Použití služby StorSimple Manager](storsimple-manager-service-administration.md)
 ##### [Obnovení ze zálohy](storsimple-restore-from-backup-set-u2.md)
@@ -214,6 +198,7 @@
 ### [Změna výchozí cesty objektu blob](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple pro partnery
+
 ## Přehled
 ### [Informace o řešení](storsimple-partner-csp-overview.md)
 
