@@ -63,7 +63,7 @@
 ## [Blog o sítích](https://azure.microsoft.com/blog/topics/networking/)
 ## [Případové studie](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
-## [Předplatné a omezení služeb](../azure-subscription-service-limits.md)
+## [Předplatné a omezení služeb](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Vytvoření okruhu ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Jak nastavit privátní partnerské vztahy pro váš okruh](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)

@@ -24,7 +24,6 @@
 
 ## Automatizace
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Vytváření a správa pomocí rozhraní příkazového řádku](key-vault-manage-with-cli.md)
 ### [Vytváření a správa pomocí CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referenční informace
