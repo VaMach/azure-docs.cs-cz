@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Virtuální počítače služby Storage úrovně Premium je možné obnovit do �
 Azure Backup chrání virtuální počítače se spravovanými disky. Díky zpravovaným diskům už nemusíte spravovat účty úložiště virtuálních počítačů a zřizování virtuálních počítačů je výrazně zjednodušené.
 
 ### <a name="back-up-managed-disk-vms"></a>Zálohování virtuálních počítačů se spravovanými disky
-Zálohování virtuálních počítačů na spravovaných discích se nijak neliší od zálohování virtuálních počítačů vytvořených pomocí Resource Manageru. Na webu Azure Portal můžete úlohu zálohování konfigurovat přímo ze zobrazení virtuálního počítače nebo ze zobrazení trezoru služby Recovery Services. Virtuální počítače na spravovaných discích můžete zálohovat prostřednictvím kolekcí RestorePoint postavených na spravovaných discích. Azure Backup v současné době nepodporuje zálohování virtuálních počítačů se spravovanými disky, které jsou šifrované pomocí služby Azure Disk Encryption (ADE).
+Zálohování virtuálních počítačů na spravovaných discích se nijak neliší od zálohování virtuálních počítačů vytvořených pomocí Resource Manageru. Na webu Azure Portal můžete úlohu zálohování konfigurovat přímo ze zobrazení virtuálního počítače nebo ze zobrazení trezoru služby Recovery Services. Virtuální počítače na spravovaných discích můžete zálohovat prostřednictvím kolekcí RestorePoint postavených na spravovaných discích. Azure Backup podporuje také zálohování virtuálních počítačů se spravovanými disky, které jsou šifrované pomocí služby Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Obnovení virtuálních počítačů se spravovanými disky
-Azure Backup umožňuje kompletní obnovení virtuálního počítače se spravovanými disky nebo obnovení spravovaných disků do účtu úložiště Resource Manageru. Azure během procesu obnovení spravuje spravované disky. Vy (zákazník) spravujete účet úložiště vytvořený jako součást procesu obnovení.
+Azure Backup umožňuje kompletní obnovení virtuálního počítače se spravovanými disky nebo obnovení spravovaných disků do účtu úložiště Resource Manageru. Azure během procesu obnovení spravuje spravované disky. Vy (zákazník) spravujete účet úložiště vytvořený jako součást procesu obnovení. Pokud chcete obnovit spravované, šifrované virtuální počítače, klíče a tajné kódy daného virtuálního počítače musí v trezoru klíčů existovat ještě před obnovením.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Jaké jsou funkce jednotlivých komponent služby Backup?
 Následující části obsahují tabulky, které shrnují dostupnost nebo podporu různých funkcí v jednotlivých komponentách Azure Backup. Informace o další podpoře nebo podrobnosti najdete pod jednotlivými tabulkami.

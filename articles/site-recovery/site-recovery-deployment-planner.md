@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
-Tento článek je uživatelská příručka k Azure Site Recovery pro produkční nasazení VMware do Azure.
+Tento článek představuje uživatelskou příručku k nástroji Azure Site Recovery Deployment Planner pro produkční nasazení VMware do Azure.
 
 ## <a name="overview"></a>Přehled
 
@@ -36,7 +37,7 @@ Nástroj poskytuje následující podrobnosti:
 
 **Posouzení kompatibility**
 
-* Vyhodnocení způsobilosti virtuálního počítače na základě počtu disků, velikosti disků, počtu vstupně-výstupních operací za sekundu (IOPS) a četnosti změn
+* Vyhodnocení způsobilosti virtuálního počítače na základě počtu disků, velikosti disků, počtu vstupně-výstupních operací za sekundu (IOPS, četnosti změn a typu spuštění (EFI nebo BIOS)
 * Odhadovaná šířka pásma sítě potřebná pro rozdílovou replikaci
 
 **Srovnání šířky pásma sítě a posouzení cíle bodu obnovení**
@@ -204,6 +205,10 @@ Po dokončení profilace můžete nástroj spustit v režimu generování sestav
 | -StartDate | (Volitelné) Počáteční datum a čas ve formátu MM-DD-YYYY:HH:MM (ve 24hodinovém formátu). Parametr *StartDate* je nutné zadat společně s parametrem *EndDate*. Pokud zadáte parametr StartDate, sestava se vygeneruje pro profilovaná data shromážděná mezi StartDate a EndDate. |
 | -EndDate | (Volitelné) Koncové datum a čas ve formátu MM-DD-YYYY:HH:MM (ve 24hodinovém formátu). Parametr *EndDate* je nutné zadat společně s parametrem *StartDate*. Pokud zadáte parametr EndDate, sestava se vygeneruje pro profilovaná data shromážděná mezi StartDate a EndDate. |
 | -GrowthFactor | (Volitelné) Faktor růstu vyjádřený v procentech. Výchozí hodnota je 30 procent. |
+| -UseManagedDisks | (Volitelné) UseManagedDisks – Yes/No (Ano/Ne). Výchozí hodnota je Yes (Ano). Počet virtuálních počítačů, které lze umístit do jednoho účtu úložiště, se počítá na základě toho, jestli je pro převzetí služeb při selhání nebo testovací převzetí služeb při selhání vybrán spravovaný disk. |
+
+umístění do jednoho účtu úložiště se vypočítá s ohledem na to, že převzetí služeb při selhání nebo testovací převzetí služeb při selhání virtuálních počítačů se provádí na spravovaný disk namísto nespravovaného disku. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Příklad 1: Generování sestavy s použitím výchozích hodnot pro profilovaná data umístěná na místním disku
 ```
@@ -480,7 +485,7 @@ Pokud se díky charakteristikám úloh disk umístil do kategorie P20 nebo P30, 
 
 **NICs:** Počet síťových adaptérů ve virtuálním počítači.
 
-**Boot Type:** Jedná se o typ spuštění virtuálního počítače. Může to být buď BIOS, nebo EFI. Azure Site Recovery aktuálně podporuje pouze typ spuštění BIOS. Všechny virtuální počítače s typem spuštění EFI jsou uvedené na listu Nekompatibilní virtuální počítače. 
+**Boot Type:** Jedná se o typ spuštění virtuálního počítače. Může to být buď BIOS, nebo EFI. Azure Site Recovery aktuálně podporuje pouze typ spuštění BIOS. Všechny virtuální počítače s typem spuštění EFI jsou uvedené na listu Nekompatibilní virtuální počítače.
 
 **OS Type:** Jedná se o typ operačního systému virtuálního počítače. Může to být Windows, Linux, nebo jiný.
 
@@ -517,7 +522,7 @@ Pokud se díky charakteristikám úloh disk umístil do kategorie P20 nebo P30, 
 
 **NICs:** Počet síťových adaptérů ve virtuálním počítači.
 
-**Boot Type:** Jedná se o typ spuštění virtuálního počítače. Může to být buď BIOS, nebo EFI. Azure Site Recovery aktuálně podporuje pouze typ spuštění BIOS. Všechny virtuální počítače s typem spuštění EFI jsou uvedené na listu Nekompatibilní virtuální počítače. 
+**Boot Type:** Jedná se o typ spuštění virtuálního počítače. Může to být buď BIOS, nebo EFI. Azure Site Recovery aktuálně podporuje pouze typ spuštění BIOS. Všechny virtuální počítače s typem spuštění EFI jsou uvedené na listu Nekompatibilní virtuální počítače.
 
 **OS Type:** Jedná se o typ operačního systému virtuálního počítače. Může to být Windows, Linux, nebo jiný.
 
@@ -558,6 +563,15 @@ Pokud chcete aktualizovat Deployment Planner, proveďte následující:
 
 
 ## <a name="version-history"></a>Historie verzí
+
+### <a name="13"></a>1.3
+Aktualizováno: 9. května 2017
+
+Je přidána následující nová funkce:
+
+* Přidána podpora spravovaného disku v generování sestav. Počet virtuálních počítačů, které lze umístit do jednoho účtu úložiště, se počítá na základě toho, jestli je pro převzetí služeb při selhání nebo testovací převzetí služeb při selhání vybrán spravovaný disk.        
+
+
 ### <a name="12"></a>1.2
 Aktualizace: 7. duben 2017
 

@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -116,7 +117,18 @@ Teď máte aplikaci a můžete ji zkusit spustit.
    
     ![Prohlížeč diagnostických událostí po převzetí služeb při selhání][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>Přepnutí režimu clusteru
+## <a name="cleaning-up-the-local-cluster-optional"></a>Vyčištění místního clusteru (volitelné)
+Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Při zastavení ladicího programu se odebere instance aplikace a zruší se registrace typu aplikace. Cluster ale dál běží na pozadí. Při správě clusteru máte několik možností:
+
+1. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
+2. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Cluster odstraňte jenom v případě, že se místní cluster nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>Nasazení aplikace do clusteru Azure
+Teď, když jste nasadili aplikaci místně, můžete stejnou aplikaci nasadit do Azure. Dokument [Vytvoření prvního clusteru Service Fabric v Azure](service-fabric-get-started-azure-cluster.md) vás provede postupem s použitím Azure PowerShellu nebo portálu.
+
+Jakmile nastavíte cluster Azure, můžete tuto aplikaci publikovat do Azure ze sady Visual Studio pomocí postupů v článku týkajícím se [publikování do clusteru Azure](service-fabric-publish-app-remote-cluster.md).  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>Přepnutí režimu místního vývojového clusteru
 Místní vývojový cluster je ve výchozím nastavení nakonfigurovaný tak, aby běžel jako cluster s pěti uzly, což se hodí při ladění služeb nasazených na více uzlech. Nasazení aplikace do vývojového clusteru s pěti uzly může ovšem určitý čas trvat. Pokud chcete rychle iterovat změny kódu bez toho, aby vaše aplikace běžela na pěti uzlech, přepněte vývojový cluster do režimu jednoho uzlu. Jestliže chcete svůj kód spustit na clusteru s jedním uzlem, klikněte na hlavním panelu systému pravým tlačítkem na nástroj Local Cluster Manager a vyberte **Přepnout režim clusteru -> 1 uzel**.  
 
 ![Přepnutí režimu clusteru][switch-cluster-mode]
@@ -136,11 +148,7 @@ Můžete také změnit režim clusteru pomocí PowerShellu:
    
     ![Výstup po instalaci clusteru][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>Čištění
-Před zabalením je dobré si uvědomit, že místní cluster je skutečný. Při zastavení ladicího programu se odebere instance aplikace a zruší se registrace typu aplikace. Cluster ale dál běží na pozadí. Při správě clusteru máte několik možností:
 
-1. Pokud chcete cluster zastavit, ale ponechat si data aplikací a trasování, klikněte v aplikaci na hlavním panelu systému na **Stop Local Cluster** (Zastavit místní cluster).
-2. Pokud chcete cluster úplně odstranit, klikněte v aplikaci na hlavním panelu systému na možnost **Remove Local Cluster** (Odebrat místní cluster). Pokud vyberete tuto možnost, další nasazení po příštím stisknutí klávesy F5 ve Visual Studiu bude zase pomalé. Cluster odstraňte jenom v případě, že se místní cluster nechystáte nějakou dobu používat nebo potřebujete uvolnit prostředky.
 
 ## <a name="next-steps"></a>Další kroky
 * Naučte se vytvořit [cluster v Azure](service-fabric-cluster-creation-via-portal.md) nebo [samostatný clusteru ve Windows](service-fabric-cluster-creation-for-windows-server.md).

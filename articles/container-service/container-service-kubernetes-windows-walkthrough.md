@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/04/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 4e730b65a98af05ea00c5f8ebd9914e3367b66a7
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -28,184 +29,203 @@ ms.lasthandoff: 04/03/2017
 # <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Začínáme s kontejnery Windows a Kubernetes v Container Service
 
 
-Tento článek ukazuje, jak vytvořit cluster Kubernetes ve službě Azure Container Service, který obsahuje uzly Windows pro spouštění kontejnerů Windows. 
+Tento článek ukazuje, jak vytvořit cluster Kubernetes v Azure Container Service, který obsahuje uzly Windows pro spouštění kontejnerů Windows. Začnete použitím příkazu Azure CLI 2.0 `az acs` k vytvoření clusteru Kubernetes v Azure Container Service. Potom začnete pomocí nástroje příkazového řádku Kubernetes `kubectl` pracovat s kontejnery Windows sestavenými z imagí Dockeru. 
 
 > [!NOTE]
-> Podpora pro kontejnery Windows s Kubernetes ve službě Azure Container Service je ve verzi Preview. K vytvoření clusteru Kubernetes s uzly Windows použijte Azure Portal nebo šablonu Resource Manageru. Azure CLI 2.0 v současné době tuto funkci nepodporuje.
+> Podpora pro kontejnery Windows s Kubernetes ve službě Azure Container Service je ve verzi Preview. 
 >
 
 
 
 Následující obrázek ukazuje architekturu clusteru Kubernetes ve službě Azure Container Service s jedním hlavním linuxovým uzlem a dvěma agentskými uzly Windows. 
 
+![Obrázek clusteru Kubernetes v Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
+
 * Hlavní linuxový uzel obsluhuje pro Kubernetes rozhraní REST API a je přístupný prostřednictvím SSH na portu 22 nebo `kubectl` na portu 443. 
 * Agentské uzly Windows jsou seskupené ve skupině dostupnosti Azure a spouští vaše kontejnery. Uzly Windows jsou přístupné prostřednictvím tunelu RDP SSH přes hlavní uzel. Pravidla nástroje pro vyrovnávání zatížení Azure se dynamicky přidávají do clusteru v závislosti na vystavených službách.
 
 
-![Obrázek clusteru Kubernetes v Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
 
 Všechny virtuální počítače jsou ve stejné privátní virtuální síti a jsou vzájemně plně přístupné. Na všech virtuálních počítačích běží kubelet, Docker a proxy server.
 
+Další související informace najdete v tématu [Úvod do Azure Container Service](container-service-intro.md) a v [dokumentaci ke Kubernetes](https://kubernetes.io/docs/home/).
+
 ## <a name="prerequisites"></a>Požadavky
+K vytvoření clusteru Azure Container Service pomocí Azure CLI 2.0 musíte mít:
+* účet Azure ([získejte bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/)),
+* nainstalované [Azure CLI 2.0](/cli/azure/install-az-cli2), k němuž jste přihlášeni.
+
+Pro cluster Kubernetes potřebujete také následující položky. Můžete si je připravit předem nebo je pomocí možností příkazu `az acs create` vygenerovat automaticky při nasazování clusteru. 
+
+* **Veřejný klíč SSH RSA:** Pokud chcete vytvořit klíče SSH (Secure Shell) RSA, postupujte podle pokynů pro systémy [macOS a Linux](../virtual-machines/linux/mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/linux/ssh-from-windows.md). 
+
+* **ID a tajný klíč klienta instančního objektu:** Postup vytvoření instančního objektu služby Azure Active Directory a další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
+
+Příklad příkazu v tomto článku automaticky vygeneruje klíče SSH a instanční objekt.
+  
+## <a name="create-your-kubernetes-cluster"></a>Vytvoření clusteru Kubernetes
+
+Tady najdete příkazy Azure CLI 2.0 pro vytvoření clusteru. 
+
+### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+Vytvořte skupinu prostředků v umístění, kde je Azure Container Service [dostupná](https://azure.microsoft.com/regions/services/). Následující příkaz vytvoří skupinu prostředků *myKubernetesResourceGroup* v umístění *westus*:
+
+```azurecli
+az group create --name=myKubernetesResourceGroup --location=westus
+```
+
+### <a name="create-a-kubernetes-cluster-with-windows-agent-nodes"></a>Vytvoření clusteru Kubernetes s uzly agentů Windows
+
+Vytvořte ve skupině prostředků cluster Kubernetes pomocí příkazu `az acs create` s použitím `--orchestrator-type=kubernetes` a možností agenta `--windows`. Syntaxi příkazu najdete v [nápovědě](/cli/azure/acs#create) k příkazu `az acs create`.
+
+Následující příkaz vytvoří cluster Container Service *myKubernetesClusterName* s předponou DNS *myPrefix* pro uzel správy a zadanými přihlašovacími údaji pro přístup k uzlům Windows. Tato verze příkazu pro cluster Kubernetes automaticky vygeneruje klíče SSH RSA a instanční objekt.
 
 
-* **Veřejný klíč SSH RSA:** Při nasazení pomocí portálu nebo některé ze šablon Azure pro rychlý start budete muset zadat veřejný klíč SSH RSA pro ověření s virtuálními počítači Azure Container Service. Pokud chcete vytvořit klíče SSH (Secure Shell) RSA, postupujte podle pokynů pro systémy [OS X a Linux](../virtual-machines/linux/mac-create-ssh-keys.md) nebo [Windows](../virtual-machines/linux/ssh-from-windows.md). 
+```azurecli
+az acs create --orchestrator-type=kubernetes \
+    --resource-group myKubernetesResourceGroup \
+    --name=myKubernetesClusterName \
+    --dns-prefix=myPrefix \
+    --agent-count=2 \
+    --generate-ssh-keys \
+    --windows --admin-username myWindowsAdminName \
+    --admin-password myWindowsAdminPassword
+```
 
-* **ID a tajný klíč klienta instančního objektu:** Další informace a pokyny najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md).
+Po několika minutách se příkaz dokončí a měli byste mít funkční cluster Kubernetes.
+
+> [!IMPORTANT]
+> Pokud váš účet nemá oprávnění k vytvoření instančního objektu služby Azure AD, příkaz vygeneruje chybu podobnou této: `Insufficient privileges to complete the operation.`. Další informace najdete v tématu [O instančním objektu pro cluster Kubernetes](container-service-kubernetes-service-principal.md). 
+> 
+
+## <a name="connect-to-the-cluster-with-kubectl"></a>Připojení ke clusteru pomocí kubectl
+
+Pokud se chcete připojit ke clusteru Kubernetes z klientského počítače, použijte klienta příkazového řádku Kubernetes [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/). 
+
+Pokud `kubectl` nemáte místně nainstalovaný, můžete k instalaci použít příkaz `az acs kubernetes install-cli`. (Můžete si ho také stáhnout z [webu Kubernetes](https://kubernetes.io/docs/tasks/kubectl/install/).)
+
+**Linux nebo macOS**
+
+```azurecli
+sudo az acs kubernetes install-cli
+```
+
+**Windows**
+```azurecli
+az acs kubernetes install-cli
+```
+
+> [!TIP]
+> Ve výchozím nastavení tento příkaz nainstaluje binární soubor `kubectl` do adresáře `/usr/local/bin/kubectl` v systému Linux nebo macOS, nebo do adresáře `C:\Program Files (x86)\kubectl.exe` ve Windows. Pokud chcete zadat jinou instalační cestu, použijte parametr `--install-location`.
+>
+> Po instalaci `kubectl` se ujistěte, že jeho adresář je v systémové cestě, nebo ho tam přidejte. 
 
 
+Pak spuštěním následujícího příkazu stáhněte hlavní konfiguraci clusteru Kubernetes do místního souboru `~/.kube/config`:
 
+```azurecli
+az acs kubernetes get-credentials --resource-group=myKubernetesResourceGroup --name=myKubernetesClusterName
+```
 
-## <a name="create-the-cluster"></a>Vytvoření clusteru
+V tomto okamžiku jste být připraveni přistoupit ke clusteru ze svého počítače. Zkuste spustit:
 
-K [vytvoření clusteru Kubernetes](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) s agentskými uzly Windows můžete použít Azure Portal. Při vytváření clusteru si všimněte následujících nastavení:
+```bash
+kubectl get nodes
+```
 
-* V okně **Základy** v části **Orchestrátor** vyberte **Kubernetes**. 
+Ověřte, že vidíte seznam počítačů v clusteru.
 
-  ![Výběr orchestrátoru Kubernetes](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
-
-* V okně **Hlavní konfigurace** zadejte uživatelské přihlašovací údaje a přihlašovací údaje instančního objektu pro hlavní linuxové uzly. Zvolte 1, 3 nebo 5 hlavních serverů.
-
-* V okně **Konfigurace agenta** v části **Operační systém**, vyberte **Windows (Preview)**. Zadejte přihlašovací údaje správce pro uzly agenta systému Windows.
-
-  ![Výběr agentů Windows](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
-
-Další podrobnosti najdete v tématu [Nasazení clusteru Azure Container Service](container-service-deployment.md).
-
-## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
-
-Pomocí nástroje příkazového řádku `kubectl` se můžete připojit z místního počítače k hlavnímu uzlu clusteru Kubernetes. Postup instalace a nastavení `kubectl` najdete v části [Připojení ke clusteru Azure Container Service](container-service-connect.md#connect-to-a-kubernetes-cluster). Pomocí příkazů `kubectl` můžete přistupovat k webovému uživatelskému rozhraní Kubernetes a vytvářet a spravovat úlohy kontejneru Windows.
+![Uzly spuštěné v clusteru Kubernetes](media/container-service-kubernetes-windows-walkthrough/kubectl-get-nodes.png)
 
 ## <a name="create-your-first-kubernetes-service"></a>Vytvoření první služby Kubernetes
 
-Po vytvoření clusteru a připojení pomocí `kubectl` můžete vyzkoušet spuštění základní webové aplikace Windows a její zpřístupnění na internetu. V tomto příkladu určíte prostředky kontejneru pomocí souboru YAML a následně kontejner vytvoříte pomocí příkazu `kubctl apply`.
+Po vytvoření clusteru a připojení pomocí `kubectl` zkuste z kontejneru Dockeru spustit aplikaci Windows a zpřístupnit ji na internetu. Tento základní příklad používá soubor JSON k určení kontejneru se serverem služby Microsoft IIS a pak ho vytvoří pomocí příkazu `kubctl apply`. 
 
-1. Pokud chcete zobrazit seznam uzlů, zadejte `kubectl get nodes`. Pokud chcete zobrazit úplné podrobnosti o uzlech, zadejte:  
+1. Vytvořte místní soubor `iis.json` a zkopírujte do něj následující. Tento soubor říká Kubernetes, aby spustil službu IIS v systému Windows Server 2016 Server Core s použitím veřejné image z [Docker Hubu](https://hub.docker.com/r/microsoft/iis/). Kontejner používá port 80, ale zpočátku je přístupný pouze v rámci sítě s clustery.
 
-    ```
-    kubectl get nodes -o yaml
-    ```
+  ```JSON
+  {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+      "name": "iis",
+      "labels": {
+        "name": "iis"
+      }
+    },
+    "spec": {
+      "containers": [
+        {
+          "name": "iis",
+          "image": "microsoft/iis",
+          "ports": [
+            {
+            "containerPort": 80
+            }
+          ]
+        }
+      ],
+      "nodeSelector": {
+        "beta.kubernetes.io/os": "windows"
+      }
+    }
+  }
+  ```
+2. Chcete-li spustit aplikaci, zadejte:  
+  
+  ```bash
+  kubectl apply -f iis.json
+  ```  
+3. Pokud chcete sledovat nasazení kontejneru, zadejte:  
+  ```bash
+  kubectl get pods
+  ```
+  Zatímco se kontejner nasazuje, je jeho stav `ContainerCreating` (Vytváření kontejneru). 
 
-2. Vytvořte soubor `simpleweb.yaml` a zkopírujte do něj následující. Tento soubor nastaví webovou aplikaci pomocí základní image jádra operačního systému Windows Server 2016 z [Docker Hubu](https://hub.docker.com/r/microsoft/windowsservercore/).  
+  ![Kontejner služby IIS ve stavu ContainerCreating](media/container-service-kubernetes-windows-walkthrough/iis-pod-creating.png)   
 
-```yaml
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: win-webserver
-    labels:
-      app: win-webserver
-  spec:
-    ports:
-      # the port that this service should serve on
-    - port: 80
-      targetPort: 80
-    selector:
-      app: win-webserver
-    type: LoadBalancer
-  ---
-  apiVersion: extensions/v1beta1
-  kind: Deployment
-  metadata:
-    labels:
-      app: win-webserver
-    name: win-webserver
-  spec:
-    replicas: 1
-    template:
-      metadata:
-        labels:
-          app: win-webserver
-        name: win-webserver
-      spec:
-        containers:
-        - name: windowswebserver
-          image: microsoft/windowsservercore
-          command:
-          - powershell.exe
-          - -command
-          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add('http://*:80/') ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at http://*:80/') ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
-        nodeSelector:
-          beta.kubernetes.io/os: windows
+  Kvůli velikosti image služby IIS může přechod kontejneru do stavu `Running` (Spuštěný) trvat několik minut.
+
+  ![Kontejner služby IIS ve stavu Running](media/container-service-kubernetes-windows-walkthrough/iis-pod-running.png)
+
+4. Pokud chcete cluster zpřístupnit celému světu, zadejte následující příkaz:
+
+  ```bash
+  kubectl expose pods iis --port=80 --type=LoadBalancer
   ```
 
-      
-> [!NOTE] 
-> Konfigurace zahrnuje `type: LoadBalancer`. Toto nastavení způsobí, že služba bude na internetu zpřístupněna prostřednictvím nástroje pro vyrovnávání zatížení Azure. Další informace najdete v tématu [Kontejnery pro vyrovnávání zatížení v clusteru Kubernetes v Azure Container Service](container-service-kubernetes-load-balancing.md).
->
+  Tento příkaz způsobí, že Kubernetes vytvoří pravidlo nástroje pro vyrovnávání zatížení Azure s veřejnou IP adresou. Rozšíření této změny do nástroje pro vyrovnávání zatížení trvá několik minut. Další informace najdete v tématu [Kontejnery pro vyrovnávání zatížení v clusteru Kubernetes v Azure Container Service](container-service-kubernetes-load-balancing.md).
 
-## <a name="start-the-application"></a>Spuštění aplikace
+5. Spuštěním následujícího příkazu zobrazte stav služby.
 
-1. Chcete-li spustit aplikaci, zadejte:  
+  ```bash
+  kubectl get svc
+  ```
 
-    ```
-    kubectl apply -f simpleweb.yaml
-    ```  
+  Zpočátku se IP adresa bude zobrazovat jako `pending` (čekající):
+
+  ![Externí IP adresa ve stavu Pending](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose.png)
+
+  Po několika minutách je IP adresa nastavena:
   
-  
-2. Pokud chcete ověřit nasazení služby (které trvá přibližně 30 sekund), zadejte:  
-
-    ```
-    kubectl get pods
-    ```
-
-3. Jakmile je služba spuštěná, můžete zobrazit interní a externí IP adresy zadáním:
-
-    ```
-    kubectl get svc
-    ``` 
-  
-    ![IP adresy služby pro Windows](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
-
-    Přidání externí IP adresy trvá několik minut. Předtím, než nástroj pro vyrovnávání zatížení externí IP adresu nakonfiguruje, bude zobrazena se stavem `<pending>` (čekající).
-
-4. Jakmile je externí IP adresa dostupná, můžete ke službě přistupovat z webového prohlížeče.
-
-    ![Aplikace pro Windows Server v prohlížeči](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
+  ![Externí IP adresa pro službu IIS](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose-public.png)
 
 
-## <a name="access-the-windows-nodes"></a>Přístup k uzlům Windows
-K uzlům Windows můžete přistupovat z místního počítače s Windows prostřednictvím Připojení ke vzdálené ploše. Doporučujeme použít tunel RDP SSH přes hlavní uzel. 
+6. Jakmile je externí IP adresa k dispozici, můžete na ni přejít pomocí prohlížeče:
 
-Tunely SSH je ve Windows možné vytvořit několika způsoby. Tato část popisuje, jak pomocí PuTTY vytvořit tunel.
+  ![Obrázek přechodu na službu IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
-1. [Stáhněte si PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) do svého počítače s Windows.
+7. Pokud chcete odstranit pod služby IIS, zadejte:
 
-2. Spusťte aplikaci.
-
-3. Zadejte název hostitele, který se skládá z uživatelského jména správce clusteru a veřejného názvu DNS prvního hlavního uzlu v clusteru. **Název hostitele** vypadá podobně jako `adminuser@PublicDNSName`. Jako **Port** zadejte 22.
-
-  ![Konfigurace PuTTY 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
-
-4. Vyberte **SSH > Ověřování**. Pro ověření přidejte cestu ke svému souboru privátního klíče (formát .ppk). Můžete použít nástroj typu [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) k vygenerování tohoto souboru z klíč SSH použitého při vytváření clusteru.
-
-  ![Konfigurace PuTTY 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
-
-5. Vyberte **SSH > Tunely** a nakonfigurujte přesměrované porty. Vzhledem k tomu, že váš počítač s Windows již používá port 3389, doporučujeme pro přístup k uzlu Windows 0 a uzlu Windows 1 použít následující nastavení. (Tento vzor použijte i pro další uzly Windows.)
-
-    **Uzel Windows 0**
-
-    * **Zdrojový port:** 3390
-    * **Cíl:** 10.240.245.5:3389
-
-    **Uzel Windows 1**
-
-    * **Zdrojový port:** 3391
-    * **Cíl:** 10.240.245.6:3389
-
-    ![Obrázek tunelů Windows RDP](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
-
-6. Po dokončení uložte konfiguraci připojení kliknutím na **Relace > Uložit**.
-
-7. K relaci PuTTY se připojíte kliknutím na **Otevřít**. Dokončete připojení k hlavnímu uzlu.
-
-8. Spusťte Připojení ke vzdálené ploše. Pokud se chcete připojit k prvnímu uzlu Windows, jako **Počítač** zadejte `localhost:3390` a klikněte na **Připojit**. (Pro připojení k druhému zadejte `localhost:3390` atd.) Pro dokončení připojení zadejte heslo místního správce Windows, které jste nakonfigurovali během nasazení.
-
+  ```bash
+  kubectl delete pods iis
+  ```
 
 ## <a name="next-steps"></a>Další kroky
 
-Zde jsou doporučené odkazy na další informace o Kubernetes:
+* Pokud chcete použít uživatelské rozhraní Kubernetes, spusťte příkaz `kubectl proxy`. Pak přejděte na adresu http://localhost:8001/ui.
 
-* [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) – ukazuje, jak nasadit, škálovat, aktualizovat a ladit kontejnerizované aplikace.
-* [Uživatelská příručka Kubernetes](http://kubernetes.io/docs/user-guide/) – poskytuje informace o spouštění programů v existujícím clusteru Kubernetes.
-* [Příklady Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples) – poskytuje příklady spouštění skutečných aplikací s využitím Kubernetes.
+* Postup sestavení webu IIS a jeho spuštění v kontejneru Windows najdete v doprovodných materiálech na [Docker Hubu](https://hub.docker.com/r/microsoft/iis/).
+
+* Pokud chcete přistupovat k uzlům Windows prostřednictvím tunelu RDP SSH k hlavnímu serveru pomocí nástroje PuTTy, přečtěte si [dokumentaci k ACS-Engine](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#create-port-80-tunnel-to-the-master). 
+

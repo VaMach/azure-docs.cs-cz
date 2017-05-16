@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -44,11 +45,9 @@ K dokončení kroků v tomto kurzu budete také potřebovat předplatné Azure. 
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Vytvoření dynamického webového projektu v Eclipse
 
-V integrovaném vývojovém prostředí Eclipse klikněte na **File** (Soubor), **New** (Nový) a pak na **Dynamic Web Project** (Dynamický webový projekt).
+V Eclipse vyberte nabídku **File** (Soubor), pak **New** (Nový) a **Dynamic Web Project** (Dynamický webový projekt).
 
-![Nový dynamický webový projekt](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-Až se zobrazí dialogové okno Dynamic Web Project (Dynamický webový projekt), pojmenujte aplikaci **MyFirstJavaOnAzureWebApp** a pak klikněte na **Finish** (Dokončit).
+V dialogovém okně **New Dynamic Web Project** (Nový dynamický webový projekt) pojmenujte projekt **MyFirstJavaOnAzureWebApp** a vyberte **Finish** (Dokončit).
    
 ![Dialogové okno Dynamic Web Project (Dynamický webový projekt)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ Když se v Eclipse otevře vaše nová stránka, nahraďte stávající část `
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 Uložte provedené změny stránky.
-
-![Úprava kódu JSP](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>Publikování webové aplikace do Azure
 
@@ -183,14 +180,12 @@ Nejprve změňte ukázkový kód JSP z předchozí části tak, aby se název na
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![Aktualizace kódu JSP](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-Po uložení změn stránky klikněte pravým tlačítkem myši na svůj projekt v zobrazení **Project Explorer** (Průzkumník projektů) v Eclipse, klikněte na **Azure** a pak klikněte na **Publikovat jako webovou aplikaci Azure**.
+Po uložení změn klikněte pravým tlačítkem myši na svůj projekt v zobrazení **Project Explorer** (Průzkumník projektů) v Eclipse, klikněte na **Azure** a pak klikněte na **Publikovat jako webovou aplikaci Azure**.
 
 ![Publikování aktualizované webové aplikace](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,9 +202,9 @@ Po publikování změn si všimněte, že se název stránky v prohlížeči zm�
 
 ![Přechod do webové aplikace](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>Odstranění webové aplikace
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud chcete odstranit webovou aplikaci, můžete použít zobrazení **Azure Explorer**, které je součástí sady Azure Toolkit. Pokud zobrazení **Azure Explorer** ještě v Eclipse nevidíte, zobrazte ho pomocí následujících kroků:
+Pokud chcete odstranit webovou aplikaci, použijte **Azure Explorer**, který je součástí sady nástrojů Azure. Pokud zobrazení **Azure Explorer** ještě v Eclipse nevidíte, zobrazte ho pomocí následujících kroků:
 
 1. Klikněte na **Window** (Okno), **Show View** (Zobrazit zobrazení) a pak klikněte na **Other** (Ostatní).
 

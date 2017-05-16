@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d138f4135d008c746bd5501680392b80a51786fa
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -61,15 +61,15 @@ Tento průvodce předpokládá, že již máte funkčního tenanta Azure AD ve z
 **Právě jste pro svého tenanta Azure AD nakonfigurovali samoobslužné resetování hesla**. Tady můžete skončit nebo pokračovat a nakonfigurovat synchronizaci hesel s místní doménou AD.
 
 > [!NOTE]
-> Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty typu správce Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem [podrobném článku](active-directory-passwords-how-it-works.md).
+> Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty typu správce Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem [článku o zásadách hesel](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Konfigurace synchronizace s existujícím zdrojem identit
 
-Pokud chcete povolit místní synchronizaci identit s Azure AD, je nutné na serveru ve vaší organizaci nainstalovat a nakonfigurovat službu [Azure AD Connect](/connect/active-directory-aadconnect.md). Tato aplikace se stará o synchronizaci uživatelů a identit mezi vaším existujícím zdrojem identit a vaší doménou Azure AD.
+Pokud chcete povolit místní synchronizaci identit s Azure AD, je nutné na serveru ve vaší organizaci nainstalovat a nakonfigurovat službu [Azure AD Connect](./connect/active-directory-aadconnect.md). Tato aplikace se stará o synchronizaci uživatelů a identit mezi vaším existujícím zdrojem identit a vaší doménou Azure AD.
 
-[Začínáme se službou Azure AD Connect s použitím expresního nastavení](/connect/active-directory-aadconnect-get-started-express.md)
+[Začínáme se službou Azure AD Connect s použitím expresního nastavení](./connect/active-directory-aadconnect-get-started-express.md)
 
-[Upgrade z nástroje DirSync nebo z Azure AD Sync na Azure AD Connect](/connect/active-directory-aadconnect-dirsync-deprecated.md)
+[Upgrade z nástroje DirSync nebo z Azure AD Sync na Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## <a name="disabling-self-service-password-reset"></a>Zakázání samoobslužného resetování hesla
 
