@@ -1,6 +1,7 @@
 ---
-title: "Sestavy aktivit přihlašování na portálu Azure Active Directory ve verzi Preview | Dokumentace Microsoftu"
-description: "Seznámení se sestavami aktivit přihlašování na portálu Azure Active Directory ve verzi Preview"
+
+title: "Sestavy aktivit přihlašování na portálu Azure Active Directory | Dokumentace Microsoftu"
+description: "Seznámení se sestavami aktivit přihlašování na portálu Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Sestavy aktivit přihlašování na portálu Azure Active Directory ve verzi Preview
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Sestavy aktivit přihlašování na portálu Azure Active Directory
 
-Díky možnosti vytváření sestav v Azure Active Directory ve verzi [Preview](active-directory-preview-explainer.md) získáte všechny informace, které potřebujete ke zjištění stavu vašeho prostředí.
+Generování sestav Azure Active Directory (Azure AD) na webu [Azure Portal](https://portal.azure.com) umožňuje získat všechny informace potřebné ke zjištění stavu vašeho prostředí.
 
 Architektuře generování sestav v Azure Active Directory se skládá z těchto součástí:
 
@@ -44,7 +46,7 @@ Na základě informací poskytnutých sestavou přihlašování uživatelů najd
 * Kolik uživatelů se přihlásilo za týden?
 * Jaký je stav těchto přihlášení?
 
-Váš první vstupní bod pro všechna data aktivit přihlašování je **Přihlášení** v části Aktivity služby **Azure Active** Directory.
+Váš první vstupní bod pro všechna data aktivit přihlašování je **Přihlášení** v části Aktivity služby **Azure Active**
 
 
 ![Aktivita přihlašování](./media/active-directory-reporting-activity-sign-ins/61.png "Aktivita přihlašování")

@@ -1,6 +1,7 @@
 ---
-title: "Generování sestav v Azure Active Directory – verze Preview | Dokumentace Microsoftu"
-description: "Obsahuje seznam různých dostupných sestav pro Azure Active Directory ve verzi Preview."
+
+title: "Generování sestav v Azure Active Directory | Dokumentace Microsoftu"
+description: "Obsahuje seznam různých dostupných sestav pro Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Generování sestav v Azure Active Directory – verze Preview
+# <a name="azure-active-directory-reporting"></a>Generování sestav v Azure Active Directory
 
 
 *Tato dokumentace je součástí [Příručky generování sestav v Azure Active Directory](active-directory-reporting-guide.md).*
 
-Díky možnosti vytváření sestav v Azure Active Directory ve verzi Preview získáte všechny informace, které potřebujete při určování stavu prostředí. [Co je součástí verze Preview?](active-directory-preview-explainer.md)
+Generování sestav v Azure Active Directory (Azure AD) umožňuje získat všechny informace potřebné ke zjištění stavu vašeho prostředí.
 
 Existují dvě hlavní oblasti vytváření sestav:
 

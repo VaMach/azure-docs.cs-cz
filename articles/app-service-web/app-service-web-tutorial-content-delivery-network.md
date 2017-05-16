@@ -1,148 +1,300 @@
 ---
-title: "Přidání sítě Content Delivery Network do služby Azure App Service | Dokumentace Microsoftu"
-description: "Přidejte do služby Azure App Service síť Content Delivery Network pro doručování statických souborů z hraničních uzlů."
+title: "Přidání služby Content Delivery Network (CDN) do služby Azure App Service | Dokumentace Microsoftu"
+description: "Přidejte do služby Azure App Service službu Content Delivery Network (CDN) umožňující ukládání statických souborů do mezipaměti a jejich doručování ze serverů blízko zákazníkům po celém světe."
 services: app-service
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/03/2017
+ms.date: 05/01/2017
 ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 7ba3737566401152a3171e8926beca188045230c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 ---
-# <a name="add-a-content-deliver-network-on-an-azure-app-service"></a>Přidání sítě Content Delivery Network do služby Azure App Service
+# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Přidání služby Content Delivery Network (CDN) do služby Azure App Service
 
-V tomto kurzu přidáte síť Content Delivery Network (CDN) do služby Azure App Service, abyste zpřístupnili statický obsah na serveru Edge. Vytvoříte profil CDN, což je kolekce až 10 koncových bodů CDN.
+[Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) ukládá statický webový obsah do mezipaměti na strategicky umístěných místech, a tak poskytuje maximální propustnost pro doručování obsahu uživatelům. CDN také snižuje zatížení serveru na webovou aplikaci. Tento kurz ukazuje, jak přidat Azure CDN do [webové aplikace ve službě Azure App Service](app-service-web-overview.md). 
 
-Síť Content Delivery Network ukládá statický webový obsah do mezipaměti na strategicky umístěných místech, a tak poskytuje maximální propustnost pro doručování obsahu uživatelům. Mezi výhody používání CDN k ukládání webových prostředků do mezipaměti patří:
+V tomto kurzu se naučíte:
 
-* Lepší výkon a uživatelské prostředí pro koncové uživatele, zvláště při používání aplikací, které k načtení obsahu vyžadují vícenásobný přenos.
-* Velké škálování pro lepší zvládání náhlého vysokého zatížení, například v případě uvedení produktu na trh.
-* Díky distribuci uživatelských požadavků a poskytování obsahu ze serverů Edge dochází k nižšímu přenosu ke zdroji.
+> [!div class="checklist"]
+> * Vytvořit koncový bod CDN.
+> * Aktualizovat prostředky uložené v mezipaměti.
+> * Spravovat verze uložené v mezipaměti pomocí řetězců dotazu.
+> * Použít vlastní doménu pro koncový bod CDN.
 
-> [!TIP]
-> Zkontrolujte aktuální seznam [lokalit POP v Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
->
+Tady je domovská stránka ukázkového statického webu v HTML, se kterým budete pracovat:
 
-## <a name="deploy-the-sample"></a>Nasazení ukázky
+![Domovská stránka ukázkové aplikace](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
-K dokončení tohoto kurzu budete potřebovat aplikaci nasazenou ve webové aplikaci. Postupujte podle [rychlého úvodu ke statickému HTML](app-service-web-get-started-html.md), který poskytuje základy pro tento kurz.
+## <a name="create-the-web-app"></a>Vytvoření webové aplikace
 
-## <a name="step-1---login-to-azure-portal"></a>Krok 1 – přihlášení k webu Azure Portal
+Při vytváření webové aplikace, se kterou budete pracovat, postupujte podle [rychlého úvodu ke statickému HTML](app-service-web-get-started-html.md), ale neprovádějte krok **Vyčištění prostředků**.
 
-Nejprve otevřete svůj oblíbený prohlížeč a přejděte na web [Azure Portal](https://portal.azure.com).
+Po dokončení tohoto kurzu ponechte otevřený příkazový řádek, abyste do webové aplikace mohli nasadit další změny později v tomto kurzu.
 
-## <a name="step-2---create-a-cdn-profile"></a>Krok 2 – Vytvoření profilu CDN
+### <a name="have-a-custom-domain-ready"></a>Připravení vlastní domény
 
-Klikněte na tlačítko `+ New` (+ Nový) v levém navigačním panelu a pak klikněte na **Web a mobilní zařízení**. V kategorii Web a mobilní zařízení vyberte **CDN**.
+K dokončení kroku týkajícího se vlastní domény v tomto kurzu potřebujete mít přístup k registru DNS vašeho poskytovatele domény (jako je například GoDaddy). Abyste například mohli přidat záznamy DNS pro `contoso.com` a `www.contoso.com`, musíte mít přístup ke konfiguraci nastavení DNS pro kořenovou doménu `contoso.com`.
 
-Do následujících polí zadejte:
+Pokud ještě nemáte název domény, zvažte nákup domény pomocí webu Azure Portal podle postupu v [kurzu k doménám App Service](custom-dns-web-site-buydomains-web-app.md). 
 
-| Pole | Ukázková hodnota | Popis |
-|---|---|---|
-| Name (Název) | myCDNProfile | Název profilu CDN. |
-| Umístění | Západní Evropa | Toto je umístění v Azure, kam se uloží informace o vašem profilu CDN. Nemá žádný vliv na umístění koncových bodů CDN. |
-| Skupina prostředků | myResourceGroup | Další informace o skupinách prostředků najdete v tématu [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md#resource-groups). |
-| Cenová úroveň | Akamai Standard | V článku [Přehled sítě CDN](../cdn/cdn-overview.md#azure-cdn-features) najdete porovnání cenových úrovní. |
+## <a name="log-in-to-the-azure-portal"></a>Přihlášení k webu Azure Portal
 
-Klikněte na možnost **Vytvořit**.
+Otevřete prohlížeč a přejděte na web [Azure Portal](https://portal.azure.com).
 
-Otevřete centrum skupin prostředků z levého navigačního panelu a vyberte **myResourceGroup**. Ze seznamu prostředků vyberte **myCDNProfile**.
+## <a name="create-a-cdn-profile-and-endpoint"></a>Vytvoření koncového bodu a profilu CDN
 
-![azure-cdn-profile-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-profile-created.png)
+Na levém navigačním panelu vyberte **App Services** a pak vyberte aplikaci, kterou jste vytvořili v [rychlém úvodu ke statickému HTML](app-service-web-get-started-html.md).
 
-## <a name="step-3---create-a-cdn-endpoint"></a>Krok 3 – Vytvoření koncového bodu CDN
+![Výběr aplikace App Service na portálu](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-Klikněte na **+ Koncový bod** z příkazů vedle pole hledání, a tím otevřete okno pro vytvoření koncového bodu.
+Na stránce **App Service** v části **Nastavení** vyberte **Sítě > Konfigurovat Azure CDN pro aplikaci**.
 
-Do následujících polí zadejte:
+![Výběr CDN na portálu](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-| Pole | Ukázková hodnota | Popis |
-|---|---|
-| Name (Název) |  | Tento název se použije pro přístup k prostředkům v mezipaměti v doméně `<endpointname>.azureedge.net`. |
-| Typ zdroje | Webová aplikace | Po výběru typu zdroje se zobrazí místní nabídky pro zbývající pole. Pokud vyberete vlastní zdroj, zobrazí se textové pole pro název počátečního hostitele. |
-| Název počátečního hostitele | |  Tento rozevírací seznam bude obsahovat všechny dostupné zdroje zadaného typu. Pokud jste jako Typ zdroje vybrali možnost Vlastní zdroj, zadáte doménu vlastního zdroje.  |
+Na stránce **Azure Content Delivery Network** zadejte pro **Nový koncový bod** nastavení tak, jak je uvedeno v tabulce.
 
-Klikněte na tlačítko **Add** (Přidat).
+![Vytvoření profilu a koncového bodu na portálu](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-Vytvoří se koncový bod, a jakmile se vytvoří koncový bod Content Delivery Network, stav se zaktualizuje na **spuštění**.
+| Nastavení | Navrhovaná hodnota | Popis |
+| ------- | --------------- | ----------- |
+| **Profil CDN** | myCDNProfile | Vyberte **Vytvořit nový** a vytvořte nový profil CDN. Profil CDN je kolekce koncových bodů CDN se stejnou cenovou úrovní. |
+| **Cenová úroveň** | Akamai Standard | [Cenová úroveň](../cdn/cdn-overview.md#azure-cdn-features) určuje poskytovatele a dostupné funkce. V tomto kurzu používáme Akamai Standard. |
+| **Název koncového bodu CDN** | Libovolný název, který je jedinečný v doméně azureedge.net | K prostředkům uloženým v mezipaměti přistupujete na doméně *\<název_koncového_bodu>.azureedge.net*.
 
-![azure-cdn-endpoint-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-endpoint-created.png)
+Vyberte **Vytvořit**.
 
-## <a name="step-4---serve-from-azure-cdn"></a>Krok 4 – Poskytování obsahu z Azure CDN
+Azure vytvoří profil a koncový bod. Nový koncový bod se zobrazí na stejné stránce v seznamu **Koncové body** a až se zřídí, bude jeho stav **Spuštěno**.
 
-Teď, když je koncový bod CDN **spuštěný**, byste měli mít přístup k obsahu z koncového bodu CDN.
+![Nový koncový bod v seznamu](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
-Vzhledem k tomu, že jsme jako základ pro tento kurz použili [rychlý úvod ke statickému HTML](app-service-web-get-started-html.md), měli bychom mít v naší síti CDN dostupné následující složky: `css`, `img` a `js`.
+### <a name="test-the-cdn-endpoint"></a>Testování koncového bodu CDN
 
-Cesty k obsahu v adrese URL webové aplikace `http://<app_name>.azurewebsites.net/img/` a adrese URL koncového bodu CDN `http://<endpointname>.azureedge.net/img/` jsou stejné. To znamená, že můžete jednoduše dosadit doménu koncového bodu CDN pro jakýkoli obsah, který se pak bude poskytovat ze sítě CDN.
+Pokud jste vybrali cenovou úroveň Verizon, rozšíření koncového bodu obvykle trvá přibližně 90 minut. U Akamai trvá rozšíření několik minut.
 
-Načtěte z koncového bodu CDN první obrázek tak, že přejdete ve svém oblíbeném webovém prohlížeči na následující adresu URL:
+Ukázková aplikace má soubor `index.html` a složky *css*, *img* a *js* obsahující další statické prostředky. Cesty k obsahu jsou v koncovém bodu CDN pro všechny tyto soubory stejné. Například obě následující adresy URL slouží k přístupu k souboru *bootstrap.css* ve složce *css*:
 
-```bash
-http://<endpointname>.azureedge.net/img/03-enterprise.png
+```
+http://<appname>.azurewebsites.net/css/bootstrap.css
 ```
 
-Když je teď statický obsah dostupný v síti CDN, můžete svou aplikaci aktualizovat, aby používala k doručování obsahu koncovému uživateli koncový bod CDN.
+```
+http://<endpointname>.azureedge.net/css/bootstrap.css
+```
 
-V závislosti na jazyku, na kterém je váš web postavený, může být k dispozici mnoho rozhraní, která vám pomohou s náhradním řešením v případě selhání CDN. Například ASP.NET poskytuje podporu [sdružování a minimalizace](https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification#using-a-cdn) umožňující také náhradní řešení v případě selhání CDN.
+Přejděte v prohlížeči na následující adresu URL a uvidíte stejnou stránku, jako jste spustili dříve ve webové aplikaci Azure, ale teď ji poskytuje CDN.
 
-Pokud ve vašem jazyce není podpora náhradního řešení v případě selhání CDN integrovaná nebo pro ni není k dispozici knihovna, můžete použít rozhraní JavaScriptu, jako je [FallbackJS](http://fallback.io/), které podporuje načítání [skriptů](https://github.com/dolox/fallback/tree/master/examples/loading-scripts), [šablon stylů](https://github.com/dolox/fallback/tree/master/examples/loading-stylesheets) a [obrázků](https://github.com/dolox/fallback/tree/master/examples/loading-images).
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-## <a name="step-5---purge-the-cdn"></a>Krok 5 – Vyprázdnění CDN
+![Domovská stránka ukázkové aplikace poskytnutá z CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-Někdy může být nutné vynutit vyprázdnění CDN, například pokud chcete ukončit platnost obsahu před vypršení hodnoty TTL (Time to Live).
+To ukazuje, že služba Azure CDN načetla prostředky původní webové aplikace a poskytuje je z koncového bodu CDN. 
 
-Azure CDN je možné vyprázdnit ručně z okna Profil CDN nebo Koncový bod CDN. Pokud vyberete vyprázdnění na stránce Profil, bude nutné vybrat, který koncový bod chcete vyprázdnit.
+Abyste zajistili uložení této stránky v mezipaměti v CDN, aktualizujte stránku. Někdy jsou k uložení požadovaného obsahu do mezipaměti v CDN potřeba dva požadavky na stejný prostředek.
 
-Chcete-li vyprázdnit obsah, zadejte cesty k obsahu, který chcete vyprázdnit. Můžete předat úplnou cestu k souboru pro vyprázdnění jednotlivých souborů, nebo část cesty pro vyprázdnění a obnovení obsahu z konkrétní složky.
+Další informace o vytváření koncových bodů a profilů CDN najdete v tématu [Začínáme s Azure CDN](../cdn/cdn-create-new-endpoint.md).
 
-Jakmile zadáte všechny cesty k obsahu, který chcete vyprázdnit, klikněte na **Vyprázdnit**.
+## <a name="purge-the-cdn"></a>Vyprázdnění CDN
 
-![app-service-web-purge-cdn](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+CDN pravidelně aktualizuje prostředky z původní webové aplikace podle konfigurace hodnoty TTL (Time to Live). Výchozí hodnota TTL je 7 dní.
 
-## <a name="step-6---map-a-custom-domain"></a>Krok 6 – Mapování vlastní domény
+Čas od času může být nutné aktualizovat CDN před vypršením hodnoty TTL – například při nasazení aktualizovaného obsahu do webové aplikace. Aktualizaci můžete aktivovat ručním vyprázdněním prostředků CDN. 
 
-Mapování vlastní domény na koncový bod CDN poskytuje jednotnou doménu pro vaši webovou aplikaci.
+V této části kurzu nasadíte do webové aplikace změnu a vyprázdníte CDN, abyste v CDN aktivovali aktualizaci mezipaměti.
 
-Pokud chcete mapovat vlastní doménu na koncový bod CDN, vytvořte u svého registrátora domény záznam CNAME.
+### <a name="deploy-a-change-to-the-web-app"></a>Nasazení změny do webové aplikace
 
-> [!NOTE]
-> Záznam CNAME je funkce DNS, která mapuje zdrojovou doménu, například `www.contosocdn.com` nebo `static.contosocdn.com`, na cílovou doménu.
+Otevřete soubor `index.html` a do nadpisu H1 přidejte „– V2“, jak je znázorněno v následujícím příkladu: 
 
-V tomto případě přidáme zdrojovou doménu `static.contosocdn.com`, která bude odkazovat na cílovou doménu, což je koncový bod CDN.
+```
+<h1>Azure App Service - Sample Static HTML Site - V2</h1>
+```
 
-| zdrojová doména | cílová doména |
-|---|---|
-| static.contosocdn.com | &lt;název_koncového_bodu&gt;.azureedge.net |
+Potvrďte změnu a nasaďte ji do webové aplikace.
 
-V okně přehledu koncového bodu CDN klikněte na tlačítko `+ Custom domain` (+ Vlastní doména).
+```bash
+git commit -am "version 2"
+git push azure master
+```
 
-V okně Přidat vlastní doménu zadejte do dialogového okna vlastní doménu včetně poddomény. Zadejte například název domény ve formátu `static.contosocdn.com`.
+Po dokončení nasazení přejděte na adresu URL webové aplikace a uvidíte změnu.
 
-Klikněte na tlačítko **Add** (Přidat).
+```
+http://<appname>.azurewebsites.net/index.html
+```
 
-## <a name="step-7---version-content"></a>Krok 7 – Správa verzí obsahu
+![V2 v nadpisu ve webové aplikaci](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
 
-V levém navigačním panelu koncového bodu CDN vyberte **Mezipaměť** v části Nastavení.
+Přejděte na adresu URL koncového bodu CDN pro domovskou stránku – změnu neuvidíte, protože platnost verze uložené v mezipaměti v CDN ještě nevypršela. 
 
-Okno **Mezipaměť** umožňuje konfigurovat, jak síť CDN zpracovává řetězce dotazu v žádosti.
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-> [!NOTE]
-> Popis možností chování při ukládání řetězců dotazu do mezipaměti najdete v tématu [Řízení chování při ukládání do mezipaměti Azure CDN pomocí řetězců dotazu](../cdn/cdn-query-string.md).
+![Žádné V2 v nadpisu v CDN](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
 
-Z rozevíracího seznamu Chování při ukládání řetězců dotazu do mezipaměti vyberte **Ukládat do mezipaměti každou jedinečnou adresu URL**.
+### <a name="purge-the-cdn-in-the-portal"></a>Vyprázdnění CDN na portálu
 
-Klikněte na **Uložit**.
+Pokud chcete v CDN aktivovat aktualizaci verze uložené v mezipaměti, vyprázdněte CDN.
+
+Na levém navigačním panelu portálu vyberte **Skupiny prostředků** a pak vyberte skupinu prostředků vytvořenou pro vaši webovou aplikaci (myResourceGroup).
+
+![Výběr skupiny prostředků](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
+
+V seznamu prostředků vyberte koncový bod CDN.
+
+![Výběr koncového bodu](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
+
+V horní části stránky **Koncový bod** klikněte na **Vyprázdnit**.
+
+![Výběr možnosti Vyprázdnit](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
+
+Zadejte cesty k obsahu, který chcete vyprázdnit. Můžete předat úplnou cestu k souboru pro vyprázdnění jednotlivých souborů, nebo část cesty pro vyprázdnění a aktualizaci veškerého obsahu ze složky. Protože jste změnili soubor `index.html`, ujistěte se, že zadáte jeho cestu.
+
+V dolní části stránky klikněte na **Vyprázdnit**.
+
+![Stránka Vyprázdnit](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+
+### <a name="verify-that-the-cdn-is-updated"></a>Ověření aktualizace CDN
+
+Počkejte na dokončení zpracování žádosti o vyprázdnění, obvykle to trvá pár minut. Pokud chcete zobrazit aktuální stav, vyberte ikonu zvonku v horní části stránky. 
+
+![Oznámení vyprázdnění](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
+
+Přejděte na adresu URL koncového bodu CDN pro soubor `index.html` a nyní uvidíte text „V2“, který jste přidali do nadpisu na domovské stránce. To ukazuje, že se mezipaměť CDN aktualizovala.
+
+```
+http://<endpointname>.azureedge.net/index.html
+```
+
+![V2 v nadpisu v CDN](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title.png)
+
+Další informace najdete v tématu [Vyprázdnění koncového bodu Azure CDN](../cdn/cdn-purge-endpoint.md). 
+
+## <a name="use-query-strings-to-version-content"></a>Správa verzí obsahu pomocí řetězců dotazu
+
+Azure CDN nabízí následující možnosti chování při ukládání do mezipaměti:
+
+* Ignorovat řetězce dotazu
+* Nepoužívat ukládání do mezipaměti pro řetězce dotazu
+* Ukládat do mezipaměti každou jedinečnou adresu URL 
+
+Výchozí je první z těchto možností, to znamená, že existuje pouze jedna verze prostředku uložená do mezipaměti bez ohledu na řetězec dotazu použitý k přístupu v adrese URL. 
+
+V této části kurzu změníte chování při ukládání do mezipaměti tak, že se do mezipaměti bude ukládat každá jedinečná adresa URL.
+
+### <a name="change-the-cache-behavior"></a>Změna chování mezipaměti
+
+Na webu Azure Portal na stránce **Koncový bod CDN** vyberte **Mezipaměť**.
+
+Z rozevíracího seznamu **Chování při ukládání řetězců dotazu do mezipaměti** vyberte **Ukládat do mezipaměti každou jedinečnou adresu URL**.
+
+Vyberte **Uložit**.
+
+![Výběr chování při ukládání řetězce dotazu do mezipaměti](media/app-service-web-tutorial-content-delivery-network/portal-select-caching-behavior.png)
+
+### <a name="verify-that-unique-urls-are-cached-separately"></a>Ověření samostatného ukládání jedinečných adres URL do mezipaměti
+
+V prohlížeči přejděte na domovskou stránku na koncovém bodu CDN, ale přidejte řetězec dotazu: 
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+CDN vrátí aktuální obsah webové aplikace, který obsahuje text „V2“ v nadpisu. 
+
+Abyste zajistili uložení této stránky v mezipaměti v CDN, aktualizujte stránku. 
+
+Otevřete soubor `index.html`, změňte „V2“ na „V3“ a nasaďte změnu. 
+
+```bash
+git commit -am "version 3"
+git push azure master
+```
+
+V prohlížeči přejděte na adresu URL koncového bodu CDN s novým řetězcem dotazu, například `q=2`. CDN získá aktuální soubor `index.html` a zobrazí „V3“.  Pokud ale přejdete na koncový bod CDN s řetězcem dotazu `q=1`, uvidíte „V2“.
+
+```
+http://<endpointname>.azureedge.net/index.html?q=2
+```
+
+![V3 v nadpisu v CDN, řetězec dotazu 2](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs2.png)
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+![V2 v nadpisu v CDN, řetězec dotazu 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
+
+Tento výstup ukazuje, že se každý řetězec dotazu zpracovává jinak: q=1 se použil dříve, proto se vrátí obsah uložený v mezipaměti (V2), zatímco q=2 je nový, takže se načte a vrátí nejnovější obsah webové aplikace (V3).
+
+Další informace najdete v tématu [Řízení chování Azure CDN při ukládání řetězců dotazu do mezipaměti](../cdn/cdn-query-string.md).
+
+## <a name="map-a-custom-domain-to-a-cdn-endpoint"></a>Mapování vlastní domény na koncový bod CDN
+
+Na koncový bod CDN namapujete vlastní doménu vytvořením záznamu CNAME. Záznam CNAME je funkce DNS, která mapuje zdrojovou doménu na cílovou doménu. Například můžete namapovat `cdn.contoso.com` nebo `static.contoso.com` na `contoso.azureedge.net`.
+
+Pokud nemáte vlastní doménu, zvažte nákup domény pomocí webu Azure Portal podle postupu v [kurzu k doménám App Service](custom-dns-web-site-buydomains-web-app.md). 
+
+### <a name="find-the-hostname-to-use-with-the-cname"></a>Zjištění názvu hostitele pro použití v záznamu CNAME
+
+Na webu Azure Portal se na stránce **Koncový bod** ujistěte, že je na levém navigačním panelu vybrán **Přehled** a pak vyberte tlačítko **+ Vlastní doména** v dolní části stránky.
+
+![Výběr možnosti Přidat vlastní doménu](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
+
+Na stránce **Přidat vlastní doménu** se zobrazí název hostitele koncového bodu pro použití k vytvoření záznamu CNAME. Název hostitele je odvozený z adresy URL koncového bodu CDN: **&lt;název_koncového_bodu>.azureedge.net**. 
+
+![Stránka Přidat doménu](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
+
+### <a name="configure-the-cname-with-your-domain-registrar"></a>Konfigurace záznamu CNAME u registrátora domény
+
+Přejděte na web registrátora vaší domény a vyhledejte část pro vytváření záznamů DNS. Může to být v části, jako je **Název domény**, **DNS** nebo **Správa názvového serveru**.
+
+Najděte část pro správu záznamů CNAME. Možná bude nutné přejít na stránku rozšířeného nastavení a hledat slova jako CNAME, Alias nebo Subdomény.
+
+Vytvořte nový záznam CNAME mapující zvolenou subdoménu (například **static** nebo **cdn**) na **název hostitele koncového bodu**, který jste na portálu zobrazili dříve. 
+
+### <a name="enter-the-custom-domain-in-azure"></a>Zadání vlastní domény v Azure
+
+Vraťte se na stránku **Přidat vlastní doménu** a do dialogového okna zadejte vlastní doménu včetně poddomény. Zadejte například `cdn.contoso.com`.   
+   
+Azure ověří, že pro zadaný název domény existuje záznam CNAME. Pokud je záznam CNAME správný, vaše vlastní doména se ověří.
+
+Rozšíření záznamu CNAME na názvové servery na internetu může nějakou dobu trvat. Pokud se vaše doména neověří okamžitě a myslíte si, že záznam CNAME je správný, počkejte pár minut a zkuste to znovu.
+
+### <a name="test-the-custom-domain"></a>Testování vlastní domény
+
+V prohlížeči přejděte na soubor `index.html` s použitím vlastní domény (například `cdn.contoso.com/index.html`) a ověřte, že výsledek je stejný, jako když přejdete přímo na `<endpointname>azureedge.net/index.html`.
+
+![Domovská stránka ukázkové aplikace s použitím adresy URL vlastní domény](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
+
+Další informace najdete v tématu [Mapování obsahu Azure CDN na vlastní doménu](../cdn/cdn-map-content-to-custom-domain.md).
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Co je Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-* [Povolení HTTPS pro vlastní doménu Azure CDN](../cdn/cdn-custom-ssl.md)
-* [Vylepšení výkonu prostřednictvím komprimace souborů v Azure CDN](../cdn/cdn-improve-performance.md)
-* [Předběžné načtení prostředků v koncovém bodu Azure CDN](../cdn/cdn-preload-endpoint.md)
+V tomto kurzu jste se naučili:
+
+> [!div class="checklist"]
+> * Vytvořit koncový bod CDN.
+> * Aktualizovat prostředky uložené v mezipaměti.
+> * Spravovat verze uložené v mezipaměti pomocí řetězců dotazu.
+> * Použít vlastní doménu pro koncový bod CDN.
+
+V následujících článcích se dozvíte, jak optimalizovat výkon CDN.
+
+> [!div class="nextstepaction"]
+> [Vylepšení výkonu prostřednictvím komprimace souborů v Azure CDN](../cdn/cdn-improve-performance.md)
+
+> [!div class="nextstepaction"]
+> [Předběžné načtení prostředků v koncovém bodu Azure CDN](../cdn/cdn-preload-endpoint.md)
+
 

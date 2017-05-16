@@ -1,6 +1,7 @@
 ---
-title: "Sestavy rizikových přihlášení na portálu Azure Active Directory ve verzi Preview | Dokumentace Microsoftu"
-description: "Informace o sestavách rizikových přihlášení na portálu Azure Active Directory ve verzi Preview"
+
+title: "Sestavy rizikových přihlášení na portálu Azure Active Directory | Dokumentace Microsoftu"
+description: "Informace o sestavách rizikových přihlášení na portálu Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,28 +11,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Sestavy rizikových přihlášení na portálu Azure Active Directory ve verzi Preview
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Sestavy rizikových přihlášení na portálu Azure Active Directory
 
-Sestavy zabezpečení ve verzi [Preview](active-directory-preview-explainer.md) služby Azure Active Directory umožňují získat přehled o pravděpodobnosti ohrožení uživatelských účtů ve vašem prostředí. 
+Sestavy zabezpečení v Azure Active Directory (Azure AD) umožňují získat přehled o pravděpodobnosti ohrožení uživatelských účtů ve vašem prostředí. 
 
-Azure Active Directory detekuje podezřelé akce, které souvisejí s vašimi uživatelskými účty. Pro každou zjištěnou akci se vytvoří záznam nazvaný *riziková událost*. Další podrobnosti najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Azure AD detekuje podezřelé akce, které souvisejí s vašimi uživatelskými účty. Pro každou zjištěnou akci se vytvoří záznam nazvaný *riziková událost*. Další podrobnosti najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
 Zjištěné rizikové události se použijí k výpočtu těchto údajů:
 
-- **Riziková přihlášení** –Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. Další podrobnosti najdete v tématu [Riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins). 
+- **Riziková přihlášení** – Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. Další podrobnosti najdete v tématu [Riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins). 
 
 - **Uživatelé označení příznakem rizika** – Rizikový uživatel je indikátorem uživatelského účtu, který mohl být ohrožený. Další podrobnosti najdete v tématu [Uživatelé označení příznakem rizika](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-Na webu Azure Portal najdete sestavy zabezpečení v okně **Azure Active Directory** v části **Zabezpečení**. 
+Na webu [Azure Portal](https://portal.azure.com) najdete sestavy zabezpečení v okně **Azure Active Directory** v části **Zabezpečení**. 
 
 ![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 

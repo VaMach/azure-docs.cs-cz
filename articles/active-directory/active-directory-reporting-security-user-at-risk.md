@@ -1,6 +1,7 @@
 ---
-title: "Sestava Ohrožení uživatelé na portálu Azure Active Directory – Preview | Dokumentace Microsoftu"
-description: "Přečtěte si o sestavě o ohrožených uživatelích na portálu Azure Active Directory ve verzi Preview"
+
+title: "Sestava zabezpečení Ohrožení uživatelé na portálu Azure Active Directory | Dokumentace Microsoftu"
+description: "Přečtěte si o sestavě zabezpečení Ohrožení uživatelé na portálu Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,24 +11,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Sestava Ohrožení uživatelé na portálu Azure Active Directory – Preview
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Sestava zabezpečení Ohrožení uživatelé na portálu Azure Active Directory
 
-Sestavy zabezpečení ve verzi [Preview](active-directory-preview-explainer.md) služby Azure Active Directory umožňují získat přehled o pravděpodobnosti ohrožení uživatelských účtů ve vašem prostředí. 
+Sestavy zabezpečení v Azure Active Directory (Azure AD) umožňují získat přehled o pravděpodobnosti ohrožení uživatelských účtů ve vašem prostředí. 
 
 Azure Active Directory detekuje podezřelé akce, které souvisejí s vašimi uživatelskými účty. Pro každou zjištěnou akci se vytvoří záznam nazvaný *riziková událost*. Další podrobnosti najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
 Zjištěné rizikové události se použijí k výpočtu těchto údajů:
 
-- **Riziková přihlášení** –Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. Další podrobnosti najdete v tématu [Riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins). 
+- **Riziková přihlášení** – Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. Další podrobnosti najdete v tématu [Riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins). 
 
 - **Uživatelé označení příznakem rizika** – Rizikový uživatel je indikátorem uživatelského účtu, který mohl být ohrožený. Další podrobnosti najdete v tématu [Uživatelé označení příznakem rizika](active-directory-identityprotection.md#users-flagged-for-risk).  
 

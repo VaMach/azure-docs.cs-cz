@@ -15,67 +15,57 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/21/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
-ms.openlocfilehash: 40552b5d3cea5b04826c08e7b4b1d046a9fcefba
-ms.lasthandoff: 04/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: c27123ad54bbd6e1d2b416c6bffd4c8560514cdc
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/04/2017
 
 
 ---
-# <a name="introduction-to-azure-data-factory-service-a-data-integration-service-in-the-cloud"></a>Úvod do služby Azure Data Factory, služby pro integraci dat v cloudu
+# <a name="introduction-to-azure-data-factory"></a>Úvod do Azure Data Factory 
 ## <a name="what-is-azure-data-factory"></a>Co je služba Azure Data Factory?
-Jak se ve světě velkých objemů dat využívají existující data ve firmách? Je možné rozšířit data generovaná v cloudu pomocí referenčních dat z místních zdrojů dat nebo jiných různorodých zdrojů dat? Proto je potřeba platforma pro shromažďování a zpracování dat z široké škály zdrojů. Azure Data Factory je cloudová služba pro integraci dat, která orchestruje a automatizuje **přesun** a **transformaci** dat. Můžete vytvářet řešení pro integraci dat, která mohou ingestovat vstupní data z různorodých úložišť dat, transformovat a zpracovávat je, a výstupní data publikovat do dalších úložišť dat. 
+Jak se ve světě velkých objemů dat využívají existující data ve firmách? Je možné rozšířit data generovaná v cloudu pomocí referenčních dat z místních zdrojů dat nebo jiných různorodých zdrojů dat? Například herní společnost shromažďuje mnoho protokolů vyprodukovaných hrami v cloudu. Tyto protokoly chce analyzovat za účelem získání informací o preferencích zákazníků, demografických ukazatelích, chování uživatelů atd. a na základě těchto ukazatelů identifikovat příležitosti křížového a následného prodeje, vyvíjet nové, zajímavé funkce podporující obchodní růst a zlepšovat zkušenosti zákazníků. 
 
-![Diagram: Přehled služby Data Factory, služby pro integraci dat](./media/data-factory-introduction/what-is-azure-data-factory.png)
+Aby společnost mohla tyto protokoly analyzovat, potřebuje použít referenční data, jako jsou informace o zákaznících, hrách a marketingových kampaních, které jsou uložené v místním úložišti dat. Společnost proto chce ingestovat data z cloudového úložiště dat a referenční data z místního úložiště dat. Následně chce data zpracovat pomocí Hadoopu v cloudu (Azure HDInsight) a publikovat výsledná data do cloudového datového skladu, jako je Azure SQL Data Warehouse, nebo do místního úložiště dat, jako je SQL Server. Tento pracovní postup chce spouštět jednou týdně. 
 
-**Obrázek 1.** Ingestujte data z mnoha různých místních zdrojů dat, připravte, transformujte a analyzujte je, a poté publikujte data připravená k použití.
+Společnost potřebuje platformu, která jí umožní vytvořit pracovní postup se schopností ingestovat data z místních i cloudových úložišť dat, transformovat nebo zpracovat data pomocí existujících výpočetních služeb, jako je Hadoop, a publikovat výsledky do místního nebo cloudového úložiště dat, aby je mohly využívat aplikace BI. 
 
+![Přehled služby Data Factory](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
-## <a name="what-does-it-offer"></a>Co nabízí? 
-Projekty integrace dat se tradičně zabývají vytvářením procesů extrakce, transformace a načítání (ETL), které extrahují data z různých zdrojů v rámci organizace, transformují je, aby byly v souladu s cílovým schématem podnikového datového skladu, a načítají je do podnikového datového skladu, jak je znázorněno na následujícím obrázku. K podnikovému datovému skladu se pak přistupuje jako k jedinému zdroji pravdivých informací pro řešení analýzy BI.
+Azure Data Factory je platforma pro tento druh scénářů. Je to **cloudová služba pro integraci dat umožňující vytváření pracovních postupů řízených daty v cloudu za účelem orchestrace a automatizace přesunu a transformace dat**. Pomocí služby Azure Data Factory můžete vytvářet a plánovat pracovní postupy řízené daty (nazývané kanály) se schopností ingestovat data z různorodých úložišť dat, zpracovat a transformovat tato data pomocí výpočetních služeb, jako je Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics a Azure Machine Learning, a publikovat výstupní data do úložišť dat, jako je Azure SQL Data Warehouse, aby je mohly využívat aplikace business intelligence (BI).  
 
-![Tradiční ETL](media/data-factory-introduction/traditional-etl.png)
-**Tradiční ETL**
+Spíše než o tradiční platformu extrakce, transformace a načítání (ETL) se jedná o platformu extrakce a načítání (EL) a následné transformace a načtení (TL). Prováděné transformace slouží k transformaci nebo zpracování dat pomocí výpočetních služeb, a nikoli k provádění transformací například za účelem přidání odvozených sloupců, spočtení řádků, řazení dat atd. 
 
-Dnešní prostředí dat pro podniky neustále exponenciálně roste v objemu, rozmanitosti a složitosti, jak je znázorněno na následujícím obrázku. Díky různým formám a rychlostem vzniku místních a cloudových dat je různorodější než kdy jindy. Zpracování dat se musí odehrávat v různých zeměpisných umístěních a zahrnuje kombinaci open source softwaru, komerčních řešení a vlastních služeb zpracování, jejichž integrace a údržba je nákladná a složitá. Flexibilita potřebná k přizpůsobení se dnešnímu měnícímu se prostředí velkých objemů dat je příležitostí ke spojení tradičních podnikových datových skladů s možnostmi, které vyžaduje moderní systém vytváření informací. Azure Data Factory je kompoziční platforma, která pracuje s tradičními podnikovými datovými sklady a měnícím se prostředím dat, aby umožnila podnikům využívat veškerá dostupná data k rozhodování založeném na datech.
-
-![Nové prostředí velkých objemů dat](media/data-factory-introduction/new-big-data-landscape.png)
-**Nové prostředí velkých objemů dat**
-
-Služba Azure Data Factory umožňuje podnikům využívat tuto různorodost tím, že poskytuje platformu pro **sestavování kanálů vytváření informací zahrnujících služby pro zpracování, ukládání a přesun dat**, a pro správu důvěryhodných datových prostředků.
-
-Služba Azure Data Factory umožňuje:
-- **Jednoduše pracovat s různými systémy pro ukládání a zpracování dat**. 
-
-    Podniky mají data nejrůznějších typů, která se nachází v různých zdrojích. Prvním krokem při sestavování systému vytváření informací je připojení ke všem požadovaným zdrojům dat a zpracování, jako jsou například služby SaaS, sdílené složky, FTP nebo webové služby, a přesun dat podle potřeby do centralizovaného umístění pro následné zpracování.
-
-    Bez služby Data Factory musí podniky sestavovat vlastní komponenty pro přesun dat nebo vyvíjet vlastní služby pro integraci a zpracování těchto zdrojů dat. To je nákladné a integrace a údržba takových systémů je složitá. Kromě toho často postrádají monitorování a upozorňování na podnikové úrovni a ovládací prvky, které může nabídnout plně spravovaná služba.
-
-    Se službou Data Factory můžete použít aktivitu kopírování v datovém kanálu pro přesun dat z místních i cloudových zdrojů dat do centralizovaného úložiště v cloudu pro další analýzu. Například můžete shromažďovat data v Azure Data Lake Store a později je transformovat pomocí výpočetní služby Azure Data Lake Analytics. Nebo můžete data shromažďovat v Azure Blob Storage a později je transformovat pomocí clusteru Azure HDInsight Hadoop.
-- **Transformovat data na důvěryhodné informace**. 
-
-    Jakmile budou data v centralizovaném úložišti dat v cloudu, budete chtít vytvořit a nasadit datové kanály pro spolehlivé vytváření transformovaných dat podle udržitelného a řízeného plánu, abyste mohli do produkčních prostředí dodávat důvěryhodná data. Transformaci dat v Azure Data Factory provádí aktivity transformace, jako je například Hive, Pig, MapReduce nebo aktivita Provedení dávky služby Azure Machine Learning a vlastní aktivity v jazyce C# spuštěné v clusteru Azure HDInsight Hadoop, na virtuálních počítačích se službou Azure Machine Learning nebo ve fondu virtuálních počítačů Azure Batch.
-- **Monitorovat datové kanály na jednom místě**.
-
-    S různorodým portfoliem dat je důležité mít spolehlivý a úplný přehled o službách pro ukládání, zpracování a přesun dat. Data Factory vám pomůže rychle vyhodnotit komplexní stav datového kanálu, určit problémy a v případě potřeby provést opravné akce. Vizuálně sledujte data a vztahy mezi daty napříč libovolnými zdroji. Zobrazte úplné historické záznamy o spouštění úloh, stavu systému a závislostech z jediného monitorovacího řídicího panelu.
+V současné době jsou ve službě Azure Data Factory data využívaná a produkovaná pracovními postupy **data dělená podle času** (po hodinách, dnech, týdnech atd.). Kanál například může číst vstupní data, zpracovat je a vyprodukovat výstupní data jednou denně. Pracovní postup můžete také spustit jenom jednou.  
+  
 
 ## <a name="how-does-it-work"></a>Jak to funguje? 
-V Azure Data Factory se vytváření informací dělí na tři fáze:
+Kanály (pracovní postupy řízené daty) ve službě Azure Data Factory obvykle provádí následující tři kroky:
 
-![Tři fáze vytváření informací](media/data-factory-introduction/three-information-production-stages.png)
+![Tři fáze služby Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)
 
-- **Připojení a shromažďování:** V této fázi se data z různých zdrojů shromažďují na jednom místě.
-- **Transformace a rozšíření:** V této fázi se shromážděná data zpracovávají nebo transformují.
-- **Publikování**. V této fázi se data publikují, aby je mohly využívat nástroje BI, analytické nástroje a další aplikace.
+### <a name="connect-and-collect"></a>Připojení a shromažďování
+Podniky mají data různých typů, která se nachází v různorodých zdrojích. Prvním krokem při sestavování systému vytváření informací je připojení ke všem požadovaným zdrojům dat a zpracování, jako jsou například služby SaaS, sdílené složky, FTP nebo webové služby, a přesun dat podle potřeby do centralizovaného umístění pro následné zpracování.
+
+Bez služby Data Factory musí podniky sestavovat vlastní komponenty pro přesun dat nebo vyvíjet vlastní služby pro integraci a zpracování těchto zdrojů dat. To je nákladné a integrace a údržba takových systémů je složitá. Kromě toho často postrádají monitorování a upozorňování na podnikové úrovni a ovládací prvky, které může nabídnout plně spravovaná služba.
+
+Se službou Data Factory můžete použít aktivitu kopírování v datovém kanálu pro přesun dat z místních i cloudových zdrojů dat do centralizovaného úložiště v cloudu pro další analýzu. Například můžete shromažďovat data v Azure Data Lake Store a později je transformovat pomocí výpočetní služby Azure Data Lake Analytics. Nebo můžete data shromažďovat v Azure Blob Storage a později je transformovat pomocí clusteru Azure HDInsight Hadoop.
+
+### <a name="transform-and-enrich"></a>Transformace a rozšíření
+Jakmile budou data v centralizovaném úložišti dat v cloudu, budete chtít shromážděná data zpracovat nebo transformovat pomocí výpočetních služeb, jako je HDInsight Hadoop, Spark, Data Lake Analytics a Machine Learning. Budete chtít spolehlivě produkovat transformovaná data podle udržitelného a řízeného plánu, abyste mohli do produkčních prostředí dodávat důvěryhodná data. 
+
+### <a name="publish"></a>Publikování 
+Přenášejte transformovaná data z cloudu do místních zdrojů, jako je SQL Server, nebo je uchovávejte ve zdrojích cloudového úložiště, aby je mohly využívat nástroje business intelligence (BI), analytické nástroje a další aplikace.
 
 ## <a name="key-components"></a>Klíčové komponenty
-Předplatné Azure může obsahovat jednu nebo více instancí služby Azure Data Factory (neboli datových továren). Azure Data Factory se skládá ze čtyř klíčových komponent, které společně poskytují platformu, na které můžete pro váš tok dat vytvářet jednoduché i komplexní orchestrace přesunu a transformace dat.
+Předplatné Azure může obsahovat jednu nebo více instancí služby Azure Data Factory (neboli datových továren). Azure Data Factory se skládá ze čtyř klíčových komponent, které společně poskytují platformu, na které můžete vytvářet pracovní postupy řízené daty s kroky pro přesun a transformaci dat. 
+
+### <a name="pipeline"></a>Kanál
+Datová továrna může mít jeden nebo víc kanálů. Kanál je skupina aktivit. Aktivity v kanálu společně provádí úlohy. Kanál může například obsahovat skupinu aktivit, které ingestují data z objektu blob Azure a pak na clusteru HDInsight spustí dotaz Hive pro rozdělení dat. Výhodou tohoto přístupu je, že vám kanál umožňuje spravovat aktivity jako sadu, a ne každou jednotlivě. Například můžete nasadit a naplánovat kanál namísto jednotlivých aktivit. 
 
 ### <a name="activity"></a>Aktivita
-Aktivity definují akce, které se mají provést na vašich datech. Například můžete použít aktivitu kopírování ke kopírování dat z jednoho úložiště dat do jiného. Podobně můžete použít aktivitu Hivu, která spustí dotaz Hivu na clusteru Azure HDInsight, aby transformoval a analyzoval vaše data. Data Factory podporuje dva typy aktivit: aktivity přesunu dat a transformace dat.
-
-Každá aktivita může mít nula nebo více vstupních datových sad a může generovat jednu nebo více výstupních datových sad. 
-
+Kanál může mít jednu nebo víc aktivit. Aktivity definují akce, které se mají provést na vašich datech. Například můžete použít aktivitu kopírování ke kopírování dat z jednoho úložiště dat do jiného. Podobně můžete použít aktivitu Hivu, která spustí dotaz Hivu na clusteru Azure HDInsight, aby transformoval a analyzoval vaše data. Data Factory podporuje dva typy aktivit: aktivity přesunu dat a transformace dat.
 
 ### <a name="data-movement-activities"></a>Aktivity přesunu dat
 Aktivita kopírování ve službě Data Factory kopíruje data ze zdrojového úložiště dat do úložiště dat jímky. Data Factory podporuje následující typy úložišť dat. Data z libovolného zdroje lze zapsat do libovolné jímky. Kliknutím na úložiště dat se dozvíte, jak kopírovat data z a do daného úložiště.
@@ -89,16 +79,16 @@ Podrobnosti najdete v článku [Aktivity přesunu dat](data-factory-data-movemen
 
 Podrobnosti najdete v článku [Aktivity transformace dat](data-factory-data-transformation-activities.md).
 
+### <a name="custom-net-activities"></a>Vlastní aktivity .NET
 Pokud potřebujete přesunout data do nebo z úložiště dat, které aktivita kopírování nepodporuje, nebo transformovat data pomocí vlastní logiky, vytvořte **vlastní aktivitu .NET**. Podrobnosti o vytvoření a používání vlastní aktivity najdete v tématu [Použití vlastních aktivit v kanálu služby Azure Data Factory](data-factory-use-custom-activities.md).
 
-### <a name="pipeline"></a>Kanál
-Kanál je skupina aktivit. Aktivity v kanálu společně provádí úlohy. Kanál může například obsahovat skupinu aktivit, které ingestují data z objektu blob Azure a pak na clusteru HDInsight spustí dotaz Hive pro rozdělení dat protokolu. Výhodou tohoto přístupu je, že vám kanál umožňuje spravovat aktivity jako sadu, a ne každou jednotlivě. Například můžete nasadit a naplánovat kanál namísto jednotlivých aktivit.
-
 ### <a name="datasets"></a>Datové sady
-Datové sady představují datové struktury v rámci úložišť dat, které jednoduše odkazují na data, která chcete ve vašich aktivitách použít jako vstupy nebo výstupy. Datová sada služby Azure Blob například určuje kontejner objektů blob a složku ve službě Azure Blob Storage, ze kterých by měl kanál číst data. 
+Aktivita přijímá jako vstup nula nebo více datových sad a produkuje jednu nebo více datových sad jako výstup. Datové sady představují datové struktury v rámci úložišť dat, které jednoduše odkazují na data, která chcete ve vašich aktivitách použít jako vstupy nebo výstupy. Datová sada služby Azure Blob například určuje kontejner objektů blob a složku ve službě Azure Blob Storage, ze kterých by měl kanál číst data. Nebo datová sada tabulky SQL Azure určuje tabulku, do které aktivita zapisuje výstupní data. 
 
 ### <a name="linked-services"></a>Propojené služby
-Propojené služby jsou velmi podobné připojovacím řetězcům, které definují informace o připojení, které služba Data Factory potřebuje pro připojení k externím prostředkům. Můžete si to představit tak, že datová sada reprezentuje strukturu dat a propojená služba definuje připojení ke zdroji dat.  Propojené služby slouží ve službě Data Factory ke dvěma účelům:
+Propojené služby jsou velmi podobné připojovacím řetězcům, které definují informace o připojení, které služba Data Factory potřebuje pro připojení k externím prostředkům. Můžete si to představit tak, že propojená služba definuje připojení ke zdroji dat a datová sada reprezentuje strukturu těchto dat. Například propojená služba Azure Storage určuje připojovací řetězec pro připojení k účtu služby Azure Storage. A datová sada služby Azure Blob určuje kontejner objektů blob a složku obsahující data.   
+
+Propojené služby slouží ve službě Data Factory ke dvěma účelům:
 
 * Představují **úložiště dat**, k nimž mimo jiné patří například místní SQL Server, databáze Oracle, sdílená složka nebo účet Azure Blob Storage. Seznam podporovaných úložišť dat najdete v oddílu [Aktivity přesunu dat](#data-movement-activities).
 * Představují **výpočetní prostředek**, který může hostovat provádění aktivity. Například aktivita HDInsightHive se spouští na clusteru HDInsight Hadoop. Seznam podporovaných výpočetních prostředí najdete v oddílu [Aktivity transformace dat](#data-transformation-activities).
@@ -110,15 +100,22 @@ Propojené služby jsou velmi podobné připojovacím řetězcům, které definu
 ## <a name="supported-regions"></a>Podporované oblasti
 V současné době můžete vytvářet datové továrny v oblastech **Západní USA**, **Východní USA** a **Severní Evropa**. Objekt služby Data Factory nicméně může přistupovat k úložištím dat a výpočetním službám v jiných oblastech Azure za účelem přesouvání dat mezi úložišti dat nebo zpracování dat pomocí výpočetních služeb.
 
-Samotná služba Azure Data Factory žádná data neuchovává. Umožňuje vám vytvořit toky řízené daty k orchestraci přesouvání dat mezi [podporovanými úložišti dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats) a zpracování dat pomocí [výpočetních služeb](data-factory-compute-linked-services.md) v jiných oblastech nebo v místním prostředí. Také vám umožňuje [monitorovat a spravovat pracovní postupy](data-factory-monitor-manage-pipelines.md) pomocí uživatelského prostředí nebo prostřednictvím kódu programu.
+Samotná služba Azure Data Factory žádná data neuchovává. Umožňuje vytvářet pracovní postupy řízené daty k orchestraci přesouvání dat mezi [podporovanými úložišti dat](#data-movement-activities) a zpracování dat pomocí [výpočetních služeb](#data-transformation-activities) v jiných oblastech nebo v místním prostředí. Také vám umožňuje [monitorovat a spravovat pracovní postupy](data-factory-monitor-manage-pipelines.md) pomocí uživatelského prostředí nebo prostřednictvím kódu programu.
 
-Přestože je služba Data Factory dostupná pouze v oblastech **Západní USA**, **Východní USA** a **Severní Evropa**, služba pohánějící přesouvání dat ve službě Data Factory je dostupná [globálně](data-factory-data-movement-activities.md#global) v několika oblastech. V případě, že je úložiště dat umístěné za bránou firewall, se o přesouvání dat postará [Brána správy dat](data-factory-move-data-between-onprem-and-cloud.md) nainstalovaná ve vašem místním prostředí.
+Přestože je služba Data Factory dostupná pouze v oblastech **Západní USA**, **Východní USA** a **Severní Evropa**, služba pohánějící přesouvání dat ve službě Data Factory je dostupná [globálně](data-factory-data-movement-activities.md#global) v několika oblastech. Pokud je úložiště dat za bránou firewall, o přesun dat se postará [Brána správy dat](data-factory-move-data-between-onprem-and-cloud.md) nainstalovaná ve vašem místním prostředí.
 
 Předpokládejme například, že vaše výpočetní prostředí, jako je cluster Azure HDInsight nebo Azure Machine Learning, běží v oblasti Západní Evropa. Můžete vytvořit instanci služby Azure Data Factory v oblasti Severní Evropa a použít ji k plánování úloh na výpočetních prostředích v oblasti Západní Evropa. Trvá několik milisekund, než Data Factory aktivuje úlohu na výpočetním prostředí, ale čas potřebný pro vykonání úlohy na výpočetním prostředí se nemění.
 
-V budoucnu plánujeme zajistit dostupnost služby Azure Data Factory ve všech oblastech podporovaných v Azure.
+## <a name="get-started-with-creating-a-pipeline"></a>Začínáme s vytvořením kanálu
+Datové kanály ve službě Azure Data Factory můžete vytvořit pomocí některého z těchto nástrojů nebo rozhraní API: 
 
-## <a name="next-steps"></a>Další kroky
+- portál Azure
+- Visual Studio
+- PowerShell
+- .NET API
+- REST API
+- Šablona Azure Resource Manageru 
+
 Chcete-li se dozvědět, jak sestavit datové továrny s datovými kanály, postupujte podle podrobných pokynů v následujících kurzech:
 
 | Kurz | Popis |

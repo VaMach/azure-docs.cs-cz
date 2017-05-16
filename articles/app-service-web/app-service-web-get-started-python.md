@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Tento rychlý úvodní kurz vás provede vývojem a nasazením aplikace v Python
 
 Podle následujících kroků můžete postupovat v případě počítačů Mac, Windows nebo Linux. K provedení všech kroků by mělo stačit přibližně 5 minut.
 
-## <a name="before-you-begin"></a>Než začnete
+## <a name="prerequisites"></a>Požadavky
 
 Před spuštěním této ukázky místně nainstalujte následující požadované položky:
 
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Vytvoření služby Azure App Service
 
-Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvoříte plán služby App Service pro systém Linux.
+Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvořte plán služby App Service.
 
 > [!NOTE]
 > Plán služby App Service představuje kolekci fyzických prostředků použitých k hostování vašich aplikací. Všechny aplikace přiřazené k plánu služby App Service sdílí službou definované prostředky, a tím umožňují snížení nákladů při hostování více aplikací.
@@ -119,7 +120,7 @@ Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create)
 > * SKU (Free, Shared, Basic, Standard, Premium)
 >
 
-Následující příklad vytvoří v pracovních procesech systému Linux plán služby App Service s názvem `quickStartPlan` s použitím cenové úrovně **FREE**.
+Následující příklad vytvoří plán služby App Service s názvem `quickStartPlan` s použitím cenové úrovně **FREE**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -160,7 +161,7 @@ V následujícím příkazu nahraďte zástupný symbol `<app_name>` vlastním j
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-Po vytvoření webové aplikace se v rámci rozhraní příkazového řádku Azure zobrazí podobné informace jako v následujícím příkladu.
+Po vytvoření webové aplikace se v Azure CLI zobrazí podobné informace jako v následujícím příkladu.
 
 ```json
 {
@@ -208,9 +209,9 @@ az appservice web config update --python-version 3.4 --name <app-name> --resourc
 
 ## <a name="configure-local-git-deployment"></a>Konfigurace nasazení místního gitu
 
-K nasazení do webové aplikace můžete použít celou řadu způsobů, včetně FTP, místního Gitu, GitHubu, služby Visual Studio Team Services nebo Bitbucketu.
+K nasazení do webové aplikace můžete použít celou řadu způsobů, včetně FTP, místního Gitu, GitHubu, Visual Studio Team Services nebo Bitbucketu.
 
-Pomocí příkazu [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) nastavte přístup k webové aplikaci přes místní git.
+Pomocí příkazu [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) nakonfigurujte přístup k webové aplikaci přes místní git.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Tentokrát je stránka, která zobrazuje zprávu Hello World, spuštěná pomocí našeho kódu v Pythonu, který je spuštěný jako webová aplikace Azure App Service.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Aktualizace a nasazení kódu
 
@@ -309,7 +310,7 @@ git push azure master
 
 Po dokončení nasazení se přepněte zpět do okna prohlížeče, které se otevřelo v kroku Přechod do aplikace, a stiskněte tlačítko Aktualizovat.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Správa vaší nové webové aplikace Azure
 
@@ -319,13 +320,13 @@ Chcete-li to provést, přihlaste se na adrese [https://portal.azure.com](https:
 
 V levé nabídce klikněte na **App Services** a pak klikněte na název vaší webové aplikace Azure.
 
-![Navigace portálem k webové aplikaci Azure](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Navigace portálem k webové aplikaci Azure](./media/app-service-web-get-started-python/app-service-list.png)
 
 Dostali jste se do _okna_ vaší webové aplikace (stránka portálu, která se otvírá vodorovně).
 
 Ve výchozím nastavení bude okno vaší webové aplikace obsahovat stránku **Přehled**. Tato stránka poskytuje přehled, jak si vaše aplikace stojí. Tady můžete také provést základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění. Karty na levé straně okna zobrazují další stránky konfigurace, které můžete otevřít.
 
-![Okno App Service na webu Azure Portal](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Okno App Service na webu Azure Portal](media/app-service-web-get-started-python/app-service-detail.png)
 
 Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své webové aplikace přidat. Následující seznam obsahuje jen několik možností:
 
@@ -341,4 +342,6 @@ Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své 
 
 ## <a name="next-steps"></a>Další kroky
 
-Prozkoumejte předem vytvořené [skripty rozhraní příkazového řádku pro Web Apps](app-service-cli-samples.md).
+> [!div class="nextstepaction"]
+> [Prozkoumejte ukázkové skripty rozhraní příkazového řádku pro Web Apps](app-service-cli-samples.md)
+

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,9 +31,7 @@ ms.lasthandoff: 04/28/2017
 Proxy aplikace služby Azure AD umožňuje podporu vzdálených pracovních procesů publikováním místních aplikací, aby byly přístupné přes internet. V tomto bodě byste už měli mít [povolenou proxy aplikaci v portálu Azure Classic](active-directory-application-proxy-enable.md). Tento článek vám ukáže postup, jak publikovat aplikace, které běží v místní síti, a jak poskytnout zabezpečený vzdálený přístup mimo síť. Po dokončení tohoto článku budete připravení ke konfiguraci aplikace pomocí individuálních informací nebo požadavků na zabezpečení.
 
 > [!NOTE]
-> Proxy aplikace je funkce, která je dostupná jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
-
-Pokud chcete použít proxy aplikace ve verzi Public Preview, můžete [Publikovat aplikace na webu Azure Portal](application-proxy-publish-azure-portal.md).
+> Proxy aplikace je funkce, která je dostupná jenom v případě, pokud jste upgradovali na edici Premium nebo Basic služby Azure Active Directory. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md). Pokud chcete použít proxy aplikace, můžete [Publikovat aplikace na webu Azure Portal](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Publikování aplikace pomocí průvodce
 1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com/).

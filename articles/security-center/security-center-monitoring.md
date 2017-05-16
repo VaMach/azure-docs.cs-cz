@@ -4,7 +4,7 @@ description: "Tento článek vám pomůže začít pracovat s funkcemi sledován
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -28,18 +29,17 @@ Tento článek vám pomůže s využíváním možností v Azure Security Center
 Pod pojmem sledování si často představujeme pozorování a čekání, až se stane nějaká událost, abychom na situaci reagovali. Sledování zabezpečení odkazuje na používání proaktivní strategie, kdy se auditují vaše prostředky a identifikují ty systémy, které nesplňují organizační standardy nebo osvědčené postupy.
 
 ## <a name="monitoring-security-health"></a>Sledování stavu zabezpečení
-Po povolení [zásad zabezpečení](security-center-policies.md) pro prostředky předplatného služba Security Center analyzuje zabezpečení vašich prostředků, aby identifikovala potenciální ohrožení zabezpečení. Informace o konfiguraci vaší sítě jsou k dispozici okamžitě. Získání informací o konfiguraci virtuálního počítače, jako je stav aktualizace zabezpečení nebo konfigurace operačního systému, může trvat hodinu i déle. V okně **Stav zabezpečení prostředku** můžete zobrazit stav zabezpečení svých prostředků a případné problémy. Můžete také zobrazit seznam těchto problémů v okně **Doporučení**.
+Po povolení [zásad zabezpečení](security-center-policies.md) pro prostředky předplatného služba Security Center analyzuje zabezpečení vašich prostředků, aby identifikovala potenciální ohrožení zabezpečení. Informace o konfiguraci vaší sítě jsou k dispozici okamžitě. Získání informací o konfiguraci virtuálního počítače, jako je stav aktualizace zabezpečení nebo konfigurace operačního systému, může trvat hodinu i déle. V části **Prevence** můžete zobrazit stav zabezpečení svých prostředků a případné problémy. Seznam těchto problémů můžete zobrazit také na dlaždici **Doporučení**.
 
 Další informace o tom, jak používat doporučení, najdete v článku [Implementace doporučení zabezpečení v Azure Security Center](security-center-recommendations.md).
 
-Na dlaždici **Stav zabezpečení prostředku** můžete sledovat stav zabezpečení svých prostředků. V následujícím příkladu vidíte, že řada problémů má vysokou a střední závažnost a vyžadují pozornost. Zásady zabezpečení, které jsou povolené, budou mít vliv na typy ovládacích prvků, které jsou monitorovány.
+V části **Prevence** můžete monitorovat stav zabezpečení svých prostředků. V následujícím příkladu vidíte, že dlaždice každého prostředku (Compute, Sítě, Úložiště a data a Aplikace) obsahuje celkový počet identifikovaných problémů.
 
-![Dlaždice stavu zabezpečení prostředků](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Dlaždice stavu zabezpečení prostředků](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Pokud Security Center identifikuje ohrožení zabezpečení, které je potřeba řešit, jako je například virtuální počítač s chybějícími aktualizacemi zabezpečení nebo podsíť bez [skupiny zabezpečení sítě](/virtual-network/virtual-networks-nsg.md), budou zde uvedené.
 
 ### <a name="monitor-compute"></a>Monitorování služby Compute
-Když kliknete na **Compute** na dlaždici **Stav zabezpečení prostředků**, okno **Compute**, které se otevře, zobrazuje tři karty:
+Po kliknutí na dlaždici **Compute** se otevře okno **Compute** se třemi kartami:
 
 - **Přehled:** Doporučení pro monitorování a virtuální počítač
 - **Virtuální počítače:** Seznam všech virtuálních počítačů a jejich aktuálního stavu zabezpečení
@@ -119,7 +119,7 @@ Pokud chcete zobrazit podrobnější vysvětlení tohoto doporučení, klikněte
 ![Doporučení pro Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Monitorování virtuálních sítí
-Po kliknutí na **Sítě** na dlaždici **Stav zabezpečení prostředku** se otevře okno **Sítě** s dalšími podrobnostmi, jak je znázorněno na následujícím snímku obrazovky:
+Po kliknutí na dlaždici **Sítě** se otevře okno **Sítě** s dalšími podrobnostmi, jak je znázorněno na následujícím snímku obrazovky:
 
 ![Okno Sítě](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ V tomto zobrazení topologie obsahuje první úroveň [virtuální sítě](../vi
 
 Dolní část tohoto okna obsahuje doporučení pro tento virtuální počítač, podobně jako jsme už uváděli dříve. Kliknutím na doporučení získáte další informace nebo použijete potřebný ovládací prvek zabezpečení nebo konfiguraci zabezpečení.
 
-### <a name="monitor-data"></a>Monitorování dat
+### <a name="monitor-storage--data"></a>Monitorování úložiště a dat
 
-Když kliknete na **SQL & Data** na dlaždici **Stav zabezpečení prostředků**, otevře se okno **Datové prostředky** s doporučeními pro SQL a službu Storage. Také obsahuje [doporučení](security-center-sql-service-recommendations.md) pro obecný stav databáze. Další informace o šifrování úložiště najdete v tématu [Povolení šifrování účtu úložiště Azure v Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+Po kliknutí na **Úložiště a data** v části **Prevence** se otevře okno **Datové prostředky** s doporučeními pro SQL a službu Storage. Také obsahuje [doporučení](security-center-sql-service-recommendations.md) pro obecný stav databáze. Další informace o šifrování úložiště najdete v tématu [Povolení šifrování účtu úložiště Azure v Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-![Datové prostředky](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Datové prostředky](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 V části **Doporučení SQL** můžete kliknout na jakékoli doporučení a získáte další podrobnosti o další akci pro řešení problému. Následující příklad ukazuje rozbalení doporučení **Auditování databáze a detekce hrozeb u databází SQL**.
 

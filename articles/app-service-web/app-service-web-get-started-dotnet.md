@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Tento Rychlý start vám pomůže nasadit první webovou aplikaci v ASP.NET do s
 
 ![Webová aplikace ASP.NET ve službě Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Než začnete
+## <a name="prerequisites"></a>Požadavky
 
 Tento kurz ukazuje, jak používat Visual Studio 2017 k sestavení a nasazení webové aplikace ASP.NET do Azure. Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
@@ -37,7 +38,7 @@ Tento kurz ukazuje, jak používat Visual Studio 2017 k sestavení a nasazení w
 
 ## <a name="create-an-aspnet-web-app"></a>Vytvoření webové aplikace v ASP.NET
 
-V sadě Visual Studio vytvořte nový projekt pomocí `Ctrl`+`Shift`+`N`.
+V sadě Visual Studio vytvořte projekt pomocí `Ctrl`+`Shift`+`N`.
 
 V dialogovém okně **Nový projekt** klikněte na položku **Visual C# > Web > ASP.NET Web Application (.NET Framework)**.
 
@@ -110,7 +111,7 @@ V dialogovém okně **Konfigurace plánu služby App Service** nastavte nový pl
 
 Klikněte na **OK**.
 
-![Vytvoření nového plánu služby App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Vytvoření plánu služby App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Vytvoření a publikování webové aplikace
 
@@ -145,7 +146,7 @@ Najděte HTML značku `<div class="jumbotron">` poblíž začátku a celou ji na
 </div>
 ```
 
-Opětovné nasazení do Azure provedete tak, že v **Průzkumníku řešení** klikněte pravým tlačítkem na projekt **myFirstAzureWebApp** a vyberte možnost **Publikovat**.
+Opětovné nasazení do Azure provedete tak, že v **Průzkumníku řešení** kliknete pravým tlačítkem na projekt **myFirstAzureWebApp** a vyberete **Publikovat**.
 
 Na stránce publikování klikněte na **Publikovat**.
 
@@ -165,11 +166,11 @@ V levé nabídce klikněte na **App Services** a pak klikněte na název vaší 
 
 Dostali jste se do _okna_ vaší webové aplikace (stránka portálu, která se otvírá vodorovně). 
 
-Ve výchozím nastavení bude okno vaší webové aplikace obsahovat stránku **Přehled**. Tato stránka poskytuje přehled, jak si vaše aplikace stojí. Tady můžete také provést základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění. Karty na levé straně okna zobrazují další stránky konfigurace, které můžete otevřít. 
+Ve výchozím nastavení bude okno vaší webové aplikace obsahovat stránku **Přehled**. Tato stránka poskytuje přehled, jak si vaše aplikace stojí. Tady můžete také provést základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění.  
 
 ![Okno App Service na webu Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své webové aplikace přidat. Následující seznam obsahuje jen několik možností:
+Karty na levé straně okna zobrazují další stránky konfigurace, které můžete otevřít. Následující seznam obsahuje jen několik možností:
 
 - Mapování vlastního názvu DNS
 - Vazba vlastního certifikátu SSL
@@ -193,5 +194,9 @@ V okně potvrzení zadejte pro kontrolu název skupiny prostředků **myResource
 
 ## <a name="next-steps"></a>Další kroky
 
-Prozkoumejte předem vytvořené [skripty prostředí PowerShell pro webové aplikace](app-service-powershell-samples.md).
+> [!div class="nextstepaction"]
+> [Zjistěte, jak v Azure vytvořit aplikaci ASP.NET se službou SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Prozkoumejte ukázkové skripty PowerShellu pro Web Apps](app-service-powershell-samples.md)
 
