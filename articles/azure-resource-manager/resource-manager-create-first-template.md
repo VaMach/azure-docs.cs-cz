@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ VS Code vám opět pomůže návrhem dostupných funkcí.
 
 ![zobrazení funkcí](./media/resource-manager-create-first-template/show-functions.png)
 
-Všimněte si, že je funkce obalena do hranatých závorek. Funkce [resourceGroup](resource-group-template-functions.md#resourcegroup) vrací objekt s vlastností `location`. Skupina prostředků obsahuje všechny související prostředky pro vaše řešení. Vlastnost location (Umístění) můžete pevně nastavit třeba na hodnotu Central US (Střed USA), ale pokud byste chtěli šablonu znovu nasadit do jiného umístění, museli byste ji ručně změnit. Pomocí funkce `resourceGroup` můžete šablonu snadno nasadit do jiné skupiny prostředků v jiném umístění.
+Všimněte si, že je funkce obalena do hranatých závorek. Funkce [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) vrací objekt s vlastností `location`. Skupina prostředků obsahuje všechny související prostředky pro vaše řešení. Vlastnost location (Umístění) můžete pevně nastavit třeba na hodnotu Central US (Střed USA), ale pokud byste chtěli šablonu znovu nasadit do jiného umístění, museli byste ji ručně změnit. Pomocí funkce `resourceGroup` můžete šablonu snadno nasadit do jiné skupiny prostředků v jiném umístění.
 
 Vaše šablona teď vypadá nějak takto:
 
@@ -216,7 +217,7 @@ Vaše šablona teď vypadá nějak takto:
 ## <a name="add-parameters-and-variables"></a>Přidání parametrů a proměnných
 V šabloně zbývá nastavit už jen dvě hodnoty – **name** (Název) a **sku.name** (Název SKU). Pro tyto vlastnosti přidáte parametry, které vám umožní přizpůsobit tyto hodnoty během nasazení. 
 
-Pro názvy účtů úložiště platí několik omezení, proto je jejich nastavení obtížné. Název musí být dlouhý 3 až 24 znaků, obsahovat pouze číslice a malá písmena a být jedinečný. Místo toho, abyste se snažili uhodnout jedinečnou hodnotu splňující tato omezení, použijte funkci [uniqueString](resource-group-template-functions.md#uniquestring), která vygeneruje hodnotu hash. Aby byla tato hodnota hash srozumitelnější, přidejte předponu, která vám pomůže identifikovat ji po nasazení jako účet úložiště. 
+Pro názvy účtů úložiště platí několik omezení, proto je jejich nastavení obtížné. Název musí být dlouhý 3 až 24 znaků, obsahovat pouze číslice a malá písmena a být jedinečný. Místo toho, abyste se snažili uhodnout jedinečnou hodnotu splňující tato omezení, použijte funkci [uniqueString](resource-group-template-functions-string.md#uniquestring), která vygeneruje hodnotu hash. Aby byla tato hodnota hash srozumitelnější, přidejte předponu, která vám pomůže identifikovat ji po nasazení jako účet úložiště. 
 
 1. Pokud chcete předat předponu názvu, která odpovídá vašim zásadám vytváření názvů, přejděte do části **parameters** (Parametry) vaší šablony. Přidejte do šablony parametr, který přijímá předponu pro název účtu úložiště:
 
