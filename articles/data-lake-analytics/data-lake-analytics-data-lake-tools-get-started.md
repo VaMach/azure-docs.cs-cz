@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.contentlocale: cs-cz
 ms.lasthandoff: 04/07/2017
 
 
@@ -128,7 +129,7 @@ Chcete-li použít vlastní data, postupujte podle těchto kroků a nahrajte dat
        Automaticky se vyplní název a zobrazí se členové Sad řádků, Tříd, Databází, Schémat a Objektů definovaných uživatelem (UDO).
 
        Technologie IntelliSense pro entity katalogu (Databáze, Schémata, Tabulky, UDO atd.) se vztahuje k výpočetnímu účtu. Aktuální aktivní výpočetní účet, databázi a schéma můžete zkontrolovat v horním panelu nástrojů a můžete je přepnout pomocí rozevíracích seznamů.
-   * **Rozbalení sloupců ***
+   * **Rozbalení * sloupců**
 
        Klikněte vpravo od * a pod * se zobrazí modré podtržení. Umístěte myš na modré podtržení a klikněte na šipku dolů.
        ![Nástroje Data Lake Visual Studio, rozbalení *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
