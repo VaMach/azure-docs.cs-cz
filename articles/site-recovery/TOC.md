@@ -9,7 +9,7 @@
 
 # Začínáme
 ## [Replikace virtuálních počítačů VMware do Azure](site-recovery-vmware-to-azure.md)
-## [Replikace fyzických serverů do Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replikace fyzických serverů do Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replikace virtuálních počítačů Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure.md)
 ## [Replikace virtuálních počítačů Hyper-V do Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replikace virtuálních počítačů Hyper-V do sekundární lokality (s VMM)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Plánování kapacity a škálování replikace VMware do Azure](site-recovery-plan-capacity-vmware.md)
 ### [Plánovač nasazení pro replikaci VMware do Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner pro replikaci Hyper-V](site-recovery-capacity-planner.md)
+### [Řízení přístupu na základě rolí](site-recovery-role-based-linked-access-control.md)
 
 ## Konfigurace
 ### [Nastavení zdrojového prostředí](site-recovery-set-up-vmware-to-azure.md)
