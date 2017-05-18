@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7fcf35b99cc410655f2a3b9b6961f5e3bef3aeb5
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -57,10 +58,10 @@ Functions poskytuje šablony, které vám pomůžou začít s klíčovými scén
 
 Azure Functions podporuje *triggery*, které představují jeden ze způsobů spuštění provádění kódu, a *vazby*, které zjednodušují kódování u vstupních a výstupních dat. Podrobný popis triggerů a vazeb podporovaných Azure Functions najdete v tématu [Referenční informace pro vývojáře triggerů a vazeb Azure Functions](functions-triggers-bindings.md).
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integrace
+## <a name="integrations"></a>Integrace
 Azure Functions se integruje s celou řadou služeb Azure a služeb třetích stran. Tyto služby mohou aktivovat funkci a spustit provádění, nebo mohou sloužit jako vstup a výstup kódu. Azure Functions podporuje následující integrace služeb. 
 
-* Azure DocumentDB
+* Databáze Azure Cosmos
 * Azure Event Hubs 
 * Azure Mobile Apps (tabulky)
 * Azure Notification Hubs
@@ -70,7 +71,7 @@ Azure Functions se integruje s celou řadou služeb Azure a služeb třetích st
 * Místní (pomocí služby Service Bus)
 * Twilio (SMS zprávy)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Kolik stojí Functions?
+## <a name="pricing"></a>Kolik stojí Functions?
 Azure Functions nabízí dva druhy cenových plánů. Zvolte ten, který nejlíp vyhovuje vašim potřebám: 
 
 * **Plán Consumption** – Když je funkce spuštěná, Azure poskytuje všechny nezbytné výpočetní prostředky. Nemusíte se starat o správu prostředků a platíte jenom čas, kdy byl kód spuštěný. 
