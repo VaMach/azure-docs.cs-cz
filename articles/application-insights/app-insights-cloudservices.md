@@ -3,7 +3,7 @@ title: Application Insights pro Azure Cloud Services | Dokumentace Microsoftu
 description: "Efektivní sledování webových rolí a rolí pracovních procesů s využitím Application Insights"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
