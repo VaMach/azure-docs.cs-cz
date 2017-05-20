@@ -1,8 +1,9 @@
 # Přehled
 ## [Představení služby Azure Active Directory](active-directory-whatis.md)
 ## [Výběr edice](active-directory-editions.md)
-
-## [Správa identit Azure](identity-fundamentals.md)
+## [Správa identit Azure](fundamentals-identity.md)
+## [Vysvětlení řešení identit Azure](understand-azure-identity-solutions.md)
+## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
 
 # Začínáme
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
@@ -91,16 +92,17 @@
 #### [Chybějící data v souborech ke stažení](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Programový přístup
 #### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
-#### [Ukázky auditu](active-directory-reporting-api-audit-samples.md)
-#### [Získání dat](active-directory-reporting-api-with-certificates.md)
-#### [Požadavky](active-directory-reporting-api-prerequisites.md)
 #### [Referenční informace k přihlašování](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Požadavky](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Ukázky auditu](active-directory-reporting-api-audit-samples.md)
 #### [Ukázky přihlašování](active-directory-reporting-api-sign-in-activity-samples.md)
+#### [Získání dat](active-directory-reporting-api-with-certificates.md)
 ### [Portál Classic](active-directory-view-access-usage-reports.md)
 #### [Sestavy Azure AD](active-directory-reporting-getting-started.md)
 #### [Průvodce vytvářením sestav](active-directory-reporting-guide.md)
 #### [Známé sítě](active-directory-known-networks.md)
 #### [Rozhraní API](active-directory-reporting-api-getting-started.md)
+##### [Požadavky](active-directory-reporting-api-prerequisites.md)
 #### [Události auditu](active-directory-reporting-audit-events.md)
 #### [Latence](active-directory-reporting-latencies.md)
 #### [Oznámení](active-directory-reporting-notifications.md)
@@ -171,11 +173,14 @@
 ##### [Jednotné přihlašování s KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Jednotné přihlašování se záhlavími](application-proxy-ping-access.md)
 ##### [Jednotné přihlašování s ukládáním hesel do trezoru](application-proxy-sso-azure-portal.md)
-#### Pochopení osvědčených postupů
+#### Koncepty
 ##### [Konektory](application-proxy-understand-connectors.md)
 ##### [Zabezpečení](application-proxy-security-considerations.md)
 ##### [Sítě](application-proxy-network-topology-considerations.md)
-#### 
+
+
+##### [Upgrade z TMG nebo UAG](application-proxy-transition-from-uag-tmg.md)
+
 #### Pokročilá konfigurace
 ##### [Publikování v samostatných sítích](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxy servery](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +191,6 @@
 #### Názorné postupy publikování
 ##### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
 #### Použití portálu Classic
 ##### [Stažení konektorů](application-proxy-enable-classic-portal.md)
@@ -201,12 +205,6 @@
 #### [Odebrání uživatelů](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Zobrazení všech mých aplikací](active-directory-coreapps-view-azure-portal.md)
 #### [Správa zřizování uživatelských účtů](active-directory-enterprise-apps-manage-provisioning.md)
-
-### Vývoj
-#### [Přiřazení uživatelů](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Přiřazení skupin](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Vyžadování přiřazení](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [Vývoj obchodních aplikací](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)
@@ -226,7 +224,7 @@
 ##### [Přístupový panel](active-directory-application-access-panel-content-map.md)
 ##### [Proxy soubor aplikace](active-directory-application-proxy-content-map.md)
 ##### [Podmíněný přístup](active-directory-application-conditional-access-content-map.md)
-
+### [Vývoj aplikací](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Knihovna dokumentů](active-directory-apps-index.md)
 
 ## Správa adresáře
@@ -294,6 +292,7 @@
 ##### [Podle prostředku](role-based-access-control-configure.md)
 #### [Předdefinované role](role-based-access-built-in-roles.md)
 #### [Vlastní role](role-based-access-control-custom-roles.md)
+#### [Přiřazení vlastních rolí pro interní a externí uživatele](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Vytváření sestav](role-based-access-control-access-change-history-report.md)
 #### Další způsoby, jak spravovat role
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
@@ -306,12 +305,13 @@
 ## Zabezpečení identit
 ### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
+#### [Technické referenční informace](active-directory-conditional-access-technical-reference.md)
 #### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
 #### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
 #### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
-#### [Technické referenční informace](active-directory-conditional-access-technical-reference.md)
-#### [Nejčastější dotazy](active-directory-conditional-faqs.md)
 #### [Nápravy](active-directory-conditional-access-device-remediation.md)
+#### [Nejčastější dotazy](active-directory-conditional-faqs.md)
 #### [Portál Classic](active-directory-conditional-access.md)
 ##### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
 
@@ -332,6 +332,7 @@
 #### [Přihlašovací prostředí](active-directory-identityprotection-flows.md)
 #### [Simulace rizikových událostí](active-directory-identityprotection-playbook.md)
 #### [Odblokování uživatelů](active-directory-identityprotection-unblock-howto.md)
+#### [Nejčastější dotazy](active-directory-identity-protection-faqs.md)
 #### [Glosář](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

@@ -1,5 +1,6 @@
 # Přehled
 ## [Co je Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Funkce Event Hubs](event-hubs-features.md)
 ## [Nejčastější dotazy](event-hubs-faq.md)
 
 # Začínáme

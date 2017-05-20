@@ -9,7 +9,7 @@
 ## [Vytvoření prvního virtuálního počítače](devtest-lab-create-first-vm.md)
 ## [Nastavení zásad spouštění](devtest-lab-get-started-with-lab-policies.md)
 
-# Postup
+# Návody
 ## Použití virtuálních počítačů v testovacím prostředí
 ### [Vytvoření virtuálních počítačů](devtest-lab-add-vm.md)
 ### [Vytvoření virtuálního počítače s možností deklarace identity](devtest-lab-add-claimable-vm.md)
@@ -44,6 +44,8 @@
 ## Správa virtuálních sítí
 ### [Konfigurace virtuálních sítí](devtest-lab-configure-vnet.md)
 ### [Výběr možnosti konfigurace IP](devtest-lab-shared-ip.md)
+
+## [Škálování testovacího prostředí](devtest-lab-scale-lab.md)
 
 # Referenční informace
 ## [CLI 2.0](/cli/azure/lab)

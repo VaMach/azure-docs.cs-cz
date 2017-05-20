@@ -71,9 +71,11 @@
 ### [Pomalé zálohování souborů a složek ve službě Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Koncepty
+## [Přehled trezorů služby Recovery Services](backup-azure-recovery-services-vault-overview.md)
+## [Upgrade úložiště záloh do trezoru služby Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Odstranění trezoru služby Azure Backup](backup-azure-delete-vault.md)
 ## [Řízení přístupu na základě rolí](backup-rbac-rs-vault.md)
 ## [Zabezpečení pro hybridní zálohy](backup-azure-security-feature.md)
-## [Odstranění trezoru služby Azure Backup](backup-azure-delete-vault.md)
 ## [Konfigurace zálohování offline](backup-azure-backup-import-export.md)
 ## [Náhrada páskové knihovny](backup-azure-backup-cloud-as-tape.md)
 ## [Aplikačně konzistentní zálohování virtuálních počítačů s Linuxem](backup-azure-linux-app-consistent.md)

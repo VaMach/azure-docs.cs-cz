@@ -12,6 +12,7 @@
 ### [Již spuštěné webové aplikace](app-insights-monitor-performance-live-website-now.md)
 ### [Služby Windows](app-insights-windows-services.md)
 ### [Plocha Windows](app-insights-windows-desktop.md)
+### [Jádro ASP.NET](app-insights-asp-net-core.md)
 
 ## Monitorování aplikací v Javě
 ### [Web Apps](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## Plánování a návrh
 ### [Hloubková diagnostika webových aplikací a služeb](app-insights-devops.md)
 ### [Sledování výkonu webových aplikací](app-insights-web-monitor-performance.md)
-### [Oddělení prostředků Application Insights](app-insights-separate-resources.md)
+### [Separace vývoje, testování a provozu](app-insights-separate-resources.md)
+### [Monitorování aplikací s více rolemi](app-insights-monitor-multi-role-apps.md)
 ### [Jak mám... pomocí Application Insights?](app-insights-how-do-i.md)
 
 
@@ -112,9 +114,8 @@
 ### [Rozhraní API pro vlastní události a metriky](app-insights-api-custom-events-metrics.md)
 ### [Filtrování a předběžné zpracování telemetrie](app-insights-api-filtering-sampling.md)
 ### [Vzorkování](app-insights-sampling.md)
-### [Jádro ASP.NET](app-insights-asp-net-core.md)
 
-## Správa
+## Spravovat
 ### [Správa cen a kvót](app-insights-pricing.md)
 ### [Sledování výkonu aplikací pomocí Application Insights pro SCOM](app-insights-scom.md)
 

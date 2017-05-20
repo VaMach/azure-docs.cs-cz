@@ -70,9 +70,9 @@
 ##### [Java v Linuxu](service-fabric-reliable-services-quick-start-java.md)
 
 #### Životní cyklus Reliable Services
-#### [Konfigurace](service-fabric-reliable-services-configuration.md)
-#### [Odeslání oznámení](service-fabric-reliable-services-notifications.md)
-#### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
+##### [Konfigurace](service-fabric-reliable-services-configuration.md)
+##### [Odeslání oznámení](service-fabric-reliable-services-notifications.md)
+##### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
 
 #### Komunikace se službami
 ##### [Komunikace s Reliable Services](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 
 ### [Správa clusteru pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md)
+### [Oprava uzlů clusteru](service-fabric-patch-orchestration-application.md)
 
 ### Správa a orchestrace prostředků clusteru
 #### [Přehled Cluster Resource Manageru](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Shromažďování protokolů z procesu služeb](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Monitorování kontejnerů Windows Serveru](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnostika ve stavovém modelu Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Řešení potíží s místním clusterem](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referenční informace
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Rozhraní API Java](/java/api/)
 ## [.NET](/dotnet/api/)

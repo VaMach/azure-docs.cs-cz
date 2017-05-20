@@ -1,85 +1,87 @@
-- name: "LUIS Documentation"
+- name: Dokumentace k LUIS
   href: ../index.md
-- name: "Overview"
+- name: Přehled
   items: 
-  - name: "Learn about Language Understanding Intelligent Service"
+  - name: Další informace o službě Language Understanding Intelligent Service
     href: Home.md
-- name: "Quickstarts"
+- name: Šablony Rychlý start
   expanded: true
   items: 
-  - name: "Create a new app"
+  - name: Vytvoření nové aplikace
     href: luis-get-started-create-app.md
-- name: "Tutorials"
+- name: Kurzy
   items: 
-  - name: "Integrate LUIS with a bot using Node.js"
+  - name: Integrace LUIS s využitím botu pomocí Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: "Concepts"
+- name: Koncepty
   items: 
-  - name: "Intents"
+  - name: Záměry
     href: luis-concept-intent.md
-  - name: "Entities"
+  - name: Entity
     href: luis-concept-entity-types.md
-  - name: "Utterances"
+  - name: Projevy
     href: luis-concept-utterance.md
-  - name: "Support for multiple languages"
+  - name: Podpora více jazyků
     href: luis-concept-language-support.md
-- name: "How-to guides"
+- name: Návody
   items: 
-  - name: "Plan your app"
+  - name: Plánování aplikace
     href: Plan-your-app.md
-  - name: "Build a LUIS app"
+  - name: Sestavení aplikace LUIS
     items: 
-    - name: "Start a new app"
+    - name: Vytvoření nové aplikace
       href: Create-new-app.md
-    - name: "Add intents"
+    - name: Přidání záměrů
       href: Add-intents.md
-    - name: "Add utterances"
+    - name: Přidání projevů
       href: Add-example-utterances.md
-    - name: "Add entities"
+    - name: Přidání entit
       href: Add-entities.md
-    - name: "Improve performance using features"
+    - name: Zlepšení výkonu pomocí funkcí
       href: Add-Features.md
-    - name: "Train and test the app"
+    - name: Trénování a testování aplikace
       href: Train-Test.md
-    - name: "Use active learning"
+    - name: Použití aktivního učení
       href: Label-Suggested-Utterances.md
-    - name: "Publish your app"
+    - name: Publikování aplikace
       href: PublishApp.md
-  - name: "Prebuilt models"
+  - name: Předem připravené modely
     items: 
-    - name: "Use prebuilt entities"
+    - name: Použití předem připravených entit
       href: Pre-builtEntities.md
-    - name: "Use prebuilt domains"
+    - name: Použití předem připravených domén
       href: luis-how-to-use-prebuilt-domains.md
-    - name: "Use the Cortana prebuilt app"
+    - name: Použití předem připravené aplikace Cortana
       href: Cortana-Prebuilt-App.md
-  - name: "Manage your LUIS app"
+  - name: Správa aplikace LUIS
     items: 
-    - name: "Monitor your app using the dashboard"
+    - name: Monitorování aplikací pomocí řídicího panelu
       href: App-Dashboard.md
-    - name: "Manage keys"
+    - name: Správa klíčů
       href: Manage-Keys.md
-    - name: "Create subscription keys"
+    - name: Vytvoření klíčů předplatného
       href: AzureIbizaSubscription.md
-    - name: "Manage versions"
+    - name: Správa verzí
       href: luis-how-to-manage-versions.md
-    - name: "Collaborate on a LUIS app"
+    - name: Spolupráce na aplikaci LUIS
       href: luis-how-to-collaborate.md    
-- name: "Reference"
+- name: Referenční informace
   items: 
-  - name: "LUIS API"
+  - name: Rozhraní API pro vytváření
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: "SDKs"
+  - name: Rozhraní API pro koncové body
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
+  - name: Sady SDK
     items:
-    - name: "Android"
+    - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: "Node.js"
+    - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
-    - name: "Python"
+    - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: "Windows"
+    - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
-- name: "Resources"
+- name: Zdroje a prostředky
   items: 
-  - name: "LUIS FAQ"
+  - name: Nejčastější dotazy k LUIS
     href: luis-resources-faq.md
