@@ -1,5 +1,5 @@
 # Přehled
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [HDInsight a Hadoop](hdinsight-hadoop-introduction.md)
 ## [Součásti systému Hadoop ve službě HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [Přizpůsobení clusterů pomocí Bootstrapu](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Přizpůsobení clusterů pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Vývoj akcí skriptů](hdinsight-hadoop-script-actions-linux.md)
+### [Instalace a použití Presta](hdinsight-hadoop-install-presto.md)
 ### [Instalace nebo aktualizace Mono](hdinsight-hadoop-install-mono.md)
 ### [Přidání knihoven Hivu](hdinsight-hadoop-add-hive-libraries.md)
 ### [Použití Giraphu](hdinsight-hadoop-giraph-install-linux.md)
@@ -166,6 +167,7 @@
 #### [Použití rozhraní Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Přidání účtů úložiště](hdinsight-hadoop-add-storage.md)
 ### [Nahrání dat pro úlohy Hadoopu](hdinsight-upload-data.md)
+### [Více clusterů HDInsight se službou Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Import a export dat pomocí Sqoopu](hdinsight-use-sqoop.md)
 #### [Připojení přes SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Spuštění pomocí cURL](hdinsight-hadoop-use-sqoop-curl.md)
@@ -219,6 +221,7 @@
 ### [Správa clusterů přes portál Azure Portal](hdinsight-administer-use-management-portal.md)
 ### [Monitorování clusterů pomocí rozhraní Ambari API](hdinsight-monitor-use-ambari-api.md)
 
-# Zdroje
+# Zdroje a prostředky
+## [Nástroje Windows pro HDInsight](hdinsight-hadoop-windows-tools.md)
 ## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

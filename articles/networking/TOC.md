@@ -3,6 +3,7 @@
 ## Architektura
 ### [Asymetrické směrování s několika síťovými cestami](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Zabezpečení návrhů sítí](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Topologie centrum – paprsky](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Osvědčené postupy zabezpečení sítě](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Vysoce dostupná virtuální síťová zařízení](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Kombinace metod vyrovnávání zatížení](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)

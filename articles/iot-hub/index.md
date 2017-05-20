@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 1895c271483ee17ded6022c049d41f87b49f93e3
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: d7f6274b6c72827c0f73da816a524bc35a30bb27
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/16/2017
 
 ---
 
-# <a name="iot-hub-documentation"></a>Dokumentace ke službě IoT Hub
+# <a name="iot-hub-documentation"></a>Dokumentace ke službě IoT Hub 
 
 Zjistěte, jak můžete IoT Hub použít k propojení, monitorování a řízení milionů assetů Internetu věcí. Kurzy, reference k rozhraní API, videa a další dokumentace pomáhají nasadit spolehlivou a obousměrnou komunikaci mezi zařízeními IoT a back-endem řešení. 
 
@@ -163,7 +164,7 @@ Zjistěte, jak můžete IoT Hub použít k propojení, monitorování a řízen�
                         <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Node (služba)</a></p>
                         <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Node (zařízení)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Sady Azure IoT SDK</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
             </div>

@@ -29,6 +29,10 @@
 ## Spravovat
 ### [Rutiny PowerShellu pro účty Batch](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [Vytvoření účtu služby Batch](./scripts/batch-cli-sample-create-account.md)
+#### [Přidání aplikace](./scripts/batch-cli-sample-add-application.md)
+#### [Správa fondů](./scripts/batch-cli-sample-manage-pool.md)
+#### [Spuštění úlohy a úkolů](./scripts/batch-cli-sample-run-job.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Ukázky rozhraní příkazového řádku](batch-cli-samples.md)
 ## [Prostředky Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 
