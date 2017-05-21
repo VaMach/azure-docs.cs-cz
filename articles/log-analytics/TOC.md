@@ -5,7 +5,6 @@
 # Začínáme
 ## [Registrace ke službě Log Analytics](log-analytics-get-started.md)
 ## [Správa přístupu](log-analytics-manage-access.md)
-## [Proxy a brána firewall](log-analytics-proxy-firewall.md)
 ## [Údaje o využití](log-analytics-usage.md)
 ## [Nejčastější dotazy k Log Analytics](log-analytics-faq.md)
 ## [Poskytovatelé služeb](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Shromažďování dat
 ### Připojené zdroje
 #### [Agenti systému Windows](log-analytics-windows-agents.md)
-#### [Agenti systému Linux](log-analytics-linux-agents.md)
+#### [Agenti systému Linux](log-analytics-agent-linux.md)
 #### [Virtuální počítače Azure](log-analytics-azure-vm-extension.md)
 #### [Prostředky Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Zdroje dat
 #### [Přehled zdrojů dat](log-analytics-data-sources.md)
 #### [Události systému Windows](log-analytics-data-sources-windows-events.md)
+#### [Vlastní data JSON](log-analytics-data-sources-json.md)
+#### [Shromážděná výkonnostní data](log-analytics-data-sources-collectd.md)
+#### [Výstrahy Nagios a Zabbix](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Čítače výkonu](log-analytics-data-sources-performance-counters.md)
+#### [Výkon aplikací Linux](log-analytics-data-sources-linux-applications.md)
 #### [Protokoly IIS](log-analytics-data-sources-iis-logs.md)
 #### [Vlastní protokoly](log-analytics-data-sources-custom-logs.md)
 #### [Vlastní pole](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Přehled prohledávání protokolů](log-analytics-log-searches.md)
 ### [Reference ke službě Search](log-analytics-search-reference.md)
 #### [Regulární výrazy](log-analytics-log-searches-regex.md)
+### [Provedení akce z výsledků hledání](log-analytics-log-search-takeaction.md)
 ### [Skupiny počítačů](log-analytics-computer-groups.md)
 ## Analýza dat
 ### [Řídicí panely](log-analytics-dashboards.md)
@@ -54,6 +58,7 @@
 ### [Stav replikace AD](log-analytics-ad-replication-status.md)
 ### [Správa výstrah](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
+### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Kapacita a výkon](log-analytics-capacity.md)
 ### [Sledování změn](log-analytics-change-tracking.md)
 ### [Kontejnery](log-analytics-containers.md)

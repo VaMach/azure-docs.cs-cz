@@ -3,29 +3,28 @@
 # Začínáme
 ## [Vytvoření adresáře Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registrace vaší aplikace](active-directory-b2c-app-registration.md)
-## Mobilní aplikace a aplikace počítače
+## Mobilní a desktopové aplikace
 ### [Přehled](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [iOS Swift s použitím MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [iOS ObjC s použitím AppAuth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth)
+#### [iOS ObjC s použitím AppAuth](active-directory-b2c-devquickstarts-ios.md)
 ### Android
 #### [Android s použitím MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [Android s použitím AppAuth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
+#### [Android s použitím AppAuth](active-directory-b2c-devquickstarts-android.md)
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
-## Web Apps
+## Webové aplikace
 ### [Přehled](active-directory-b2c-reference-oidc.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [NodeJS](active-directory-b2c-devquickstarts-web-node.md)
+### [Jádro ASP.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## Jednostránkové aplikace
 ### [Přehled](active-directory-b2c-reference-spa.md)
-### [JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-### [NodeJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
+### [JavaScript s využitím MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript s využitím Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Webová rozhraní API
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [NodeJS](active-directory-b2c-devquickstarts-api-node.md)
+### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Volání webového rozhraní API .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Průvodci
@@ -48,9 +47,10 @@
 ## [Přizpůsobení uživatelského rozhraní](active-directory-b2c-reference-ui-customization.md)
 ### [Pomocný nástroj pro přizpůsobení](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Vlastní nastavení jazyka](active-directory-b2c-reference-language-customization.md)
+## [Použití rozhraní API pro vytváření sestav](active-directory-b2c-refererence-usage-reporting-api.md)
 ## [Nastavení samoobslužného resetování hesla](active-directory-b2c-reference-sspr.md)
 
-# Modul prostředí identity
+# Architektura prostředí identit
 ## [Vlastní zásady](active-directory-b2c-overview-custom.md)
 ## Průvodci
 ### [Začínáme](active-directory-b2c-get-started-custom.md)
@@ -62,14 +62,13 @@
 #### [Získání dalších deklarací identity](active-directory-b2c-rest-api-step-custom.md)
 #### [Ověření vstupu uživatele](active-directory-b2c-rest-api-validation-custom.md)
 ### Přizpůsobení přihlášení
-#### [Konfigurace vstupu uživatele](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Konfigurace uživatelského vstupu](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom.md)
-#### [Přizpůsobení tokenu](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Přizpůsobení tokenů](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Řešení potíží
 #### [Shromažďování protokolů pomocí Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referenční informace
 ### [Poznámky k verzi](active-directory-b2c-developer-notes-custom.md)
-
 
 # Referenční informace
 ## Glosář
@@ -78,7 +77,8 @@
 ### [Předdefinované zásady](active-directory-b2c-reference-policies.md)
 ### [Tokeny](active-directory-b2c-reference-tokens.md)
 ## [Rezidence dat a dostupnost oblastí](active-directory-b2c-reference-tenant-type.md)
-## [Threat Management](active-directory-b2c-reference-threat-management.md)
+## [Povolení fakturace](active-directory-b2c-how-to-enable-billing.md)
+## [Řízení rizik](active-directory-b2c-reference-threat-management.md)
 ## [Limity a omezení](active-directory-b2c-limitations.md)
 ## [Potíže při vytváření adresáře](active-directory-b2c-support-create-directory.md)
 
