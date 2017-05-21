@@ -2,6 +2,7 @@
 ## [Co je Traffic Manager?](traffic-manager-overview.md)
 ## [Metody směrování](traffic-manager-routing-methods.md)
 ### [Hierarchie zemí/oblastí používaná Traffic Managerem](traffic-manager-geographic-regions.md)
+## [Vnořené profily Traffic Manageru](traffic-manager-nested-profiles.md)
 ## [Typy koncových bodů](traffic-manager-endpoint-types.md)
 ## [Monitorování koncových bodů](traffic-manager-monitoring.md)
 ## [Nejčastější dotazy](traffic-manager-FAQs.md)

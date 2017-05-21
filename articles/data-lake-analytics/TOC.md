@@ -17,6 +17,7 @@
 ## Vývoj
 ### [Základy U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [Katalog U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Spojení U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
 ### [Parametry U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funkce okna U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Uživatelsky definované operátory U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)

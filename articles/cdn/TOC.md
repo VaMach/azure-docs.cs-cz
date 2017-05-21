@@ -36,6 +36,7 @@
 ### [Generování pokročilých sestav HTTP](cdn-advanced-http-reports.md)
 ### [Zobrazení statistik v reálném čase](cdn-real-time-stats.md)
 ### [Analýza výkonu hraničních uzlů](cdn-edge-performance.md)
+### [Export metrik s využitím diagnostických protokolů](cdn-log-analysis.md)
 
 ## Vývoj
 ### [.NET](cdn-app-dev-net.md)

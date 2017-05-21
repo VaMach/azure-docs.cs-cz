@@ -11,6 +11,7 @@
 ## [Přehled řešení propojené továrny](iot-suite-connected-factory-overview.md)
 ## [Seznámení s řešením vzdáleného monitorování](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Seznámení s řešením prediktivní údržby](iot-suite-predictive-walkthrough.md)
+## [Názorný postup řešení propojené továrny](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Připojte Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### Použití jazyka C
 #### [Simulovaná data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)

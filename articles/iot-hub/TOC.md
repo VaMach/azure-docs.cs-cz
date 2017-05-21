@@ -116,7 +116,7 @@
 ### [Osvědčené postupy zabezpečení](iot-hub-security-best-practices.md)
 ### [Architektura zabezpečení](iot-hub-security-architecture.md)
 ### [Zabezpečení nasazení IoT](iot-hub-security-deployment.md)
-## Gateway SDK
+## IoT Edge
 ### Simulace zařízení
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -129,7 +129,7 @@
 ## [Java (služba)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (zařízení)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Sady Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
-## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (poskytovatel prostředků)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (identity zařízení)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (dvojčata zařízení)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)

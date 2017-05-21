@@ -13,6 +13,7 @@
 ## Vytvoření šablony
 ### [Další informace o šablonách škálovacích sad](virtual-machine-scale-sets-mvss-start.md)
 ### [Přidání virtuální sítě](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Použití vlastní image](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Nasazení
 ### [Vytvoření pomocí portálu](virtual-machine-scale-sets-portal-create.md)
