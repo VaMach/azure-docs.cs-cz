@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -77,13 +77,12 @@ Některé z následujících prostředků – účty, výpočetní uzly, fondy, 
 Služba Batch podporuje dvě konfigurace účtu podle vlastnosti *režimu přidělování fondů*. Tyto dvě konfigurace poskytují přístup k různým možnostem souvisejícím s [fondy](#pool) služby Batch (viz dále v tomto článku).
 
 
-* **Služba Batch:** Toto je výchozí možnost, kdy se virtuální počítače ve fondu služby Batch přidělují na pozadí v rámci předplatných spravovaných Azure. Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy služby Cloud Services, ale nelze ji použít v případě, že jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Můžete využívat přístup k rozhraním API služby Batch buď s použitím ověřování pomocí sdíleného klíče, nebo s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md).
+* **Služba Batch:** Toto je výchozí možnost, kdy se virtuální počítače ve fondu služby Batch přidělují na pozadí v rámci předplatných spravovaných Azure. Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy služby Cloud Services, ale nelze ji použít v případě, že jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Můžete využívat přístup k rozhraním API služby Batch buď s použitím ověřování pomocí sdíleného klíče, nebo s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md). Ve fondech konfiguraci účtu služby Batch můžete použít buď vyhrazené výpočetní uzly, nebo výpočetní uzly s nízkou prioritou.
 
-* **Předplatné uživatele:** Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Přístup k rozhraním API služby Batch můžete využívat pouze s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md) a fondy služby Cloud Services nejsou podporovány. Výpočetní virtuální počítače služby Batch se přidělují přímo v rámci vašeho předplatného Azure. Tento režim vyžaduje, abyste pro účet Batch nastavili trezor klíčů Azure.
-
+* **Předplatné uživatele:** Tuto konfiguraci účtu je nutné použít, pokud jsou vyžadovány fondy virtuálních počítačů vytvořených z vlastních imagí nebo pokud tyto virtuální počítače používají virtuální síť. Přístup k rozhraním API služby Batch můžete využívat pouze s použitím [ověřování pomocí Azure Active Directory](batch-aad-auth.md) a fondy služby Cloud Services nejsou podporovány. Výpočetní virtuální počítače služby Batch se přidělují přímo v rámci vašeho předplatného Azure. Tento režim vyžaduje, abyste pro účet Batch nastavili trezor klíčů Azure. V konfiguraci účtu předplatného uživatele smíte ve fondech použít jenom vyhrazené výpočetní uzly. 
 
 ## <a name="compute-node"></a>Výpočetní uzel
-Výpočetní uzel je virtuální stroj (VM) služby Azure, který je vyhrazen pro zpracování části vašich úloh. Velikost uzlu určuje počet jader procesoru, kapacita paměti a velikost místního systému souborů, který je přidělen k uzlu. Fondy uzlů Windows nebo Linux můžete vytvořit pomocí imagí Azure Cloud Services nebo Virtual Machines Marketplace. Další informace o těchto možnostech najdete v následující části [Fond](#pool).
+Výpočetní uzel je virtuální počítač Azure nebo virtuální počítač cloudové služby, který je vyhrazený pro zpracování části úloh vaší aplikace. Velikost uzlu určuje počet jader procesoru, kapacita paměti a velikost místního systému souborů, který je přidělen k uzlu. Fondy uzlů Windows nebo Linux můžete vytvořit pomocí imagí Azure Cloud Services nebo Virtual Machines Marketplace. Další informace o těchto možnostech najdete v následující části [Fond](#pool).
 
 Uzly mohou spustit libovolný spustitelný soubor nebo skript, který je podporován prostředím operačního systému uzlu. To zahrnuje soubory s příponami \*.exe, \*cmd, \*.bat a skripty PowerShellu pro Windows a binární soubory, shell a Python skripty pro Linux.
 
@@ -117,6 +116,25 @@ Při vytváření fondu můžete zadat následující atributy. Některá nastav
   * *Řada operačního systému* také určuje, jaké verze rozhraní .NET jsou s operačním systémem nainstalovány.
   * Podobně jako u rolí pracovního procesu v rámci služby Cloud Services lze zadat *verzi operačního systému* (další informace o rolích pracovního procesu najdete v části [Více informací o cloudových službách](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) v článku [Přehled služby Cloud Services](../cloud-services/cloud-services-choose-me.md)).
   * Stejně jako u rolí pracovního procesu se doporučuje jako *Verze operačního systému* zadat `*`, aby se uzly automaticky upgradovaly a nebyla potřeba žádná práce k ošetření nově vydaných verzí. Hlavním případem použití s výběrem konkrétní verze operačního systému scénář zajištění kompatibility aplikací, který umožní testovat zpětnou kompatibilitu, než se povolí aktualizace verze. Po ověření funkčnosti je možné aktualizovat *verzi operačního systému* pro fond a nainstalovat image nového operačního systému – jakékoli spuštěné úkoly se přeruší a zařadí do fronty.
+
+* **Typ výpočetního uzlu** a **cílový počet uzlů**
+
+    Při vytváření fondu můžete určit, které typy výpočetních uzlů chcete, a zadat jejich cílový počet. Existují dva typy výpočetních uzlů:
+
+    - **Výpočetní uzly s nízkou prioritou.** Uzly s nízkou prioritou mají tu výhodu, že ke spouštění úloh služby Batch využívají nadbytečnou kapacitu v Azure. Uzly s nízkou prioritou jsou cenově výhodnější než vyhrazené uzly a umožňují používat úlohy náročné na výpočetní výkon. Další informace najdete v tématu [Použití virtuálních počítačů s nízkou prioritou ve službě Batch](batch-low-pri-vms.md).
+
+        Pokud má Azure nedostatek nadbytečné kapacity, může dojít ke zrušení výpočetních uzlů s nízkou prioritou. Pokud dojde ke zrušení uzlu během spouštění úloh, tyto úlohy se znovu zařadí do fronty, a jakmile bude uzel zase dostupný, znovu se spustí. Uzly s nízkou prioritou jsou dobrou volbou pro úlohy s flexibilním časem dokončení a pro úkony distribuované mezi velký počet uzlů.
+
+        Výpočetní uzly s nízkou prioritou jsou dostupné jenom u účtů služby Batch vytvořených s režimem přiřazování fondů nastaveným na hodnotu **Služba Batch**.
+
+    - **Vyhrazené výpočetní uzly.** Vyhrazené výpočetní uzly jsou rezervované pro vaše úlohy. Jsou dražší než uzly s nízkou prioritou, ale nabízejí záruku toho, že nikdy nedojde k jejich zrušení.    
+
+    Ve stejném fondu můžete mít výpočetní uzly s nízkou prioritou i vyhrazené uzly. Každý typ uzlu (uzly s nízkou prioritu a vyhrazené uzly) má vlastní cílové nastavení, ve kterém můžete určit požadovaný počet uzlů. 
+        
+    Počet výpočetních uzlů se označuje jako *cílový* z toho důvodu, že v některých situacích nemusí váš fond dosáhnout požadovaného počtu uzlů. Fond třeba nemusí dosáhnout cílového nastavení v případě, že dřív dosáhne [základní kvóty](batch-quota-limit.md) daného účtu služby Batch. Fond taky nemusí dosáhnout cílového nastavení tehdy, když ve fondu použijete vzorec pro automatické škálování, který omezí maximální počet uzlů.
+
+    Informace o cenách výpočetních uzlů s nízkou prioritou a vyhrazených uzlů najdete v tématu [Ceny služby Batch](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Velikost uzlů**
 
     Velikosti výpočetních uzlů z **konfigurace služby Cloud Services** jsou uvedeny v seznamu [Velikosti pro Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Služba Batch podporuje všechny velikosti pro Cloud Services kromě `ExtraSmall`, `STANDARD_A1_V2` a `STANDARD_A2_V2`.
@@ -126,12 +144,11 @@ Při vytváření fondu můžete zadat následující atributy. Některá nastav
     Při výběru velikosti výpočetního uzlu zvažte charakteristiku a požadavky aplikací, které budete v uzlech spouštět. To, jestli je aplikace vícevláknová, kolik paměti používá, a další aspekty vám mohou pomoci při určování nejvhodnější a cenově nejefektivnější velikosti uzlu. Velikost uzlu se obvykle volí s předpokladem, že na uzlu poběží současně pouze jeden úkol. Ve výpočetních uzlech je však možné mít během zpracování úkolu [paralelně spuštěno](batch-parallel-node-tasks.md) několik úkolů (a tudíž i několik instancí aplikace). V takovém případě je běžné zvolit větší velikost uzlu, aby dostačovala i v případě zvýšené poptávky na paralelní zpracování úkolů. Další informace najdete v části [Zásady plánování úkolů](#task-scheduling-policy).
 
     Všechny uzly ve fondu mají stejnou velikost. Pokud máte v úmyslu spouštět aplikace s různými požadavky na systém nebo úrovně zatížení, doporučujeme vám používat oddělené fondy.
-* **Cílový počet uzlů**
 
-    Toto je počet výpočetních uzlů, které chcete ve fondu nasadit. Označuje se jako *cílový* proto, že v některých situacích nemusí váš fond dosáhnout požadovaného počtu uzlů. Fond nemusí dosáhnout požadovaného počtu uzlů, pokud dosáhne [základní kvóty](batch-quota-limit.md) pro váš účet Batch nebo pokud existuje vzorec automatického škálování, který jste použili pro fond a který omezuje maximální počet uzlů (viz následující část „Zásady škálování“).
 * **Zásady škálování**
 
     Pro dynamické úlohy můžete pro fond napsat a použít [vzorec automatického škálování](#scaling-compute-resources). Služba Batch pak vzorec pravidelně vyhodnocuje a upravuje počet uzlů v rámci fondu na základě různých vámi zadaných parametrů fondu, úloh a úkolů.
+
 * **Zásady plánování úkolů**
 
     Možnost konfigurace [maximálního počtu úkolů na uzel](batch-parallel-node-tasks.md) určuje maximální počet úkolů, které lze spustit souběžně na jednotlivých výpočetních uzlech v rámci fondu.

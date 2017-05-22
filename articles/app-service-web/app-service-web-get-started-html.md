@@ -3,7 +3,7 @@ title: "Vytvoření webové aplikace ve statickém HTML v Azure během pěti min
 description: "Nasazením ukázkové aplikace zjistíte, jak snadné je spustit webové aplikace ve službě App Service."
 services: app-service\web
 documentationcenter: 
-author: cephalin
+author: rick-anderson
 manager: wpickett
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
@@ -12,73 +12,77 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
-ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ba9b9b780da74c44f6314fa289f1d6b8c231dd30
-ms.lasthandoff: 05/03/2017
+ms.date: 05/08/2017
+ms.author: riande
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 895906e1ab4bc50093ed3b18f043c3dd515ca054
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-static-html-web-app-in-azure-in-five-minutes"></a>Vytvoření webové aplikace ve statickém HTML v Azure během pěti minut
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-Tento Rychlý start vám pomůže nasadit jednoduchý web HTML+CSS do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md) během pár minut.
+Tento rychlý start vás provede postupem nasazení základní lokality HTML + CSS do Azure. Aplikaci spustíte s použitím [plánu služby Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) a vytvoříte v něm novou webovou aplikaci pomocí rozhraní [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli). Aplikaci nasadíte do Azure pomocí systému Git. Pokud máte splněné všechny požadavky, zabere vám tento kurz zhruba pět minut.
 
-Než začnete, ujistěte se, že je rozhraní Azure CLI nainstalované. Další informace najdete v tématu [Průvodce instalací Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
-Přihlaste se k Azure spuštěním příkazu `az login` a postupem podle pokynů na obrazovce.
-   
-```azurecli
-az login
+## <a name="prerequisites"></a>Požadavky
+
+Před vytvořením této ukázky si stáhněte a nainstalujte následující komponenty:
+
+- [Git](https://git-scm.com/)
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="download-the-sample"></a>Stažení ukázky
+
+V okně terminálu naklonujte úložiště ukázkové aplikace do místního počítače:
+
+```bash
+git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků   
-Vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md). To je místo, kam dáte všechny prostředky Azure, které chcete spravovat společně, jako je webová aplikace a její back-end SQL Database.
+## <a name="view-the-html"></a>Zobrazení kódu HTML
 
-```azurecli
-az group create --location "West Europe" --name myResourceGroup
+Přejděte do adresáře, který obsahuje ukázkový kód HTML. Otevřete v prohlížeči soubor *index.html*.
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
+
+[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
+
+[!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
+
+Vytvořte [webovou aplikaci](app-service-web-overview.md) v plánu služby App Service `quickStartPlan`. Tato webová aplikace poskytuje prostor pro hostování vašeho kódu a adresu URL, na které si můžete nasazenou aplikaci zobrazit.
+
+[!INCLUDE [app-service-web-quickstart2](../../includes/app-service-web-quickstart2.md)] 
+
+Stránka běží jako webová aplikace Azure App Service:
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+## <a name="update-and-redeploy-the-app"></a>Aktualizace a opětovné nasazení aplikace
+
+Otevřete soubor *index.html*. Změňte kód. Můžete třeba změnit `Hello world!` na `Hello Azure!`.
+
+Potvrďte změny v Gitu a potom odešlete změny kódu do Azure.
+
+```bash
+git commit -am "updated HTML"
+git push azure master
 ```
 
-K zobrazení možných hodnot, které se dají použít pro `--location`, použijte příkaz `az appservice list-locations` rozhraní příkazového řádku Azure CLI.
+Po dokončení nasazení aktualizujte prohlížeč, aby se změny projevily.
 
+[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
 
-## <a name="create-an-app-service-plan"></a>Vytvoření plánu služby App Service
-Vytvořte [plán služby App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) Free. 
-
-```azurecli
-az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-```
-
-## <a name="create-a-web-app"></a>Vytvoření webové aplikace
-Vytvořte webovou aplikaci s jedinečným názvem ve značce `<app_name>`.
-
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-```
-
-## <a name="deploy-sample-application"></a>Nasazení ukázkové aplikace
-Nasaďte ukázkový web HTML z Githubu.
-
-```azurecli
-az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
---repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
-```
-
-## <a name="browse-to-web-app"></a>Přechod do webové aplikace
-Pokud chcete vidět svou aplikaci živě běžet v Azure, spusťte tento příkaz.
-
-```azurecli
-az appservice web browse --name <app_name> --resource-group myResourceGroup
-```
-
-Blahopřejeme, váš první web ve statickém HTML běží živě v Azure App Service.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Další kroky
 
-Prozkoumejte předem vytvořené [skripty rozhraní příkazového řádku pro webové aplikace](app-service-cli-samples.md).
-
+- Prozkoumejte [ukázkové skripty rozhraní CLI Web Apps](app-service-cli-samples.md).
+- Zjistěte, jak provést [mapování vlastního názvu domény](app-service-web-tutorial-custom-domain.md), třeba contoso.com, do [aplikace služby App Service](app-service-web-tutorial-custom-domain.md).
