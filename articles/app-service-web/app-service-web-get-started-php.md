@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření PHP aplikace v rámci webové aplikace | Dokumentace Microsoftu"
+title: "Vytvoření aplikace PHP ve webové aplikaci Azure | Dokumentace Microsoftu"
 description: "Během několika minut můžete nasadit svou první PHP aplikaci Hello World ve webové aplikaci App Service."
 services: app-service\web
 documentationcenter: 
@@ -12,30 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/31/2017
+ms.date: 05/04/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d5126f3b9fa92ff95eaa8bc06554c49f9836bab9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0541778e07193c4903a90ce0b91db224bdf60342
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-php-application-on-web-app"></a>Vytvoření PHP aplikace v rámci webové aplikace
 
-Tento rychlý úvodní kurz vás provede vývojem a nasazením PHP aplikace do Azure. Aplikaci spustíme s použitím Azure App Service v prostředí Linuxu a zde vytvoříme a nakonfigurujeme novou webovou aplikaci s použitím rozhraní příkazového řádku Azure. Poté prostřednictvím gitu nasadíme PHP aplikaci do Azure.
+Tento rychlý úvodní kurz vás provede vývojem a nasazením PHP aplikace do Azure. Aplikaci spustíme s použitím [plánu služby Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) a vytvoříme a nakonfigurujeme v něm novou webovou aplikaci pomocí Azure CLI. Poté prostřednictvím gitu nasadíme PHP aplikaci do Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-Podle následujících kroků můžete postupovat v případě počítačů Mac, Windows nebo Linux. K provedení všech kroků by mělo stačit přibližně 5 minut.
+Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. K provedení všech kroků by mělo stačit přibližně 5 minut.
 
-## <a name="before-you-begin"></a>Než začnete
+## <a name="prerequisites"></a>Požadavky
 
-Před spuštěním této ukázky místně nainstalujte následující požadované položky:
+Před vytvořením této ukázky si stáhněte a nainstalujte následující položky:
 
-1. [Stáhněte a nainstalujte git](https://git-scm.com/).
-1. [Stáhněte a nainstalujte PHP](https://php.net).
-1. Stáhněte a nainstalujte [rozhraní příkazového řádku Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Git](https://git-scm.com/)
+* [PHP](https://php.net)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,9 +47,6 @@ Naklonujte úložiště ukázkové aplikace Hello World do místního počítač
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 ```
-
-> [!TIP]
-> Alternativně můžete [stáhnout ukázku](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) jako soubor ZIP a rozbalit ho.
 
 Přejděte do adresáře, který obsahuje ukázkový kód.
 
@@ -84,20 +82,8 @@ Teď prostřednictvím rozhraní příkazového řádku Azure CLI 2.0 v okně te
 az login
 ```
 
-## <a name="configure-a-deployment-user"></a>Konfigurace uživatele nasazení
-
-Pro FTP a místní Git je třeba mít na serveru nakonfigurovaného uživatele nasazení, aby bylo možné nasazení ověřit. Vytvoření uživatele nasazení představuje jednorázovou konfiguraci. Uživatelské jméno a heslo si poznamenejte, protože je použijete v následujícím kroku.
-
-> [!NOTE]
-> Uživatel nasazení je vyžadován pro nasazení pomocí FTP a místního Gitu do webové aplikace.
-> Položky `username` a `password` jsou na úrovni účtu, a tudíž se liší od přihlašovacích údajů předplatného Azure. **Vytvoření těchto přihlašovacích údajů je vyžadováno pouze jednou.**
->
-
-Pomocí příkazu [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) vytvořte své přihlašovací údaje na úrovni účtu.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+<!-- ## Configure a Deployment User -->
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
@@ -107,24 +93,19 @@ Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/gr
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-an-azure-app-service"></a>Vytvoření služby Azure App Service
+## <a name="create-an-azure-app-service-plan"></a>Vytvoření plánu služby Azure App Service
 
-Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvoříte plán služby App Service pro systém Linux.
+Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvořte [plán služby App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) na úrovni FREE.
 
-> [!NOTE]
-> Plán služby App Service představuje kolekci fyzických prostředků použitých k hostování vašich aplikací. Všechny aplikace přiřazené k plánu služby App Service sdílí službou definované prostředky, a tím umožňují snížení nákladů při hostování více aplikací.
->
-> Plány služby App Service definují:
-> * Oblast (Severní Evropa, Východní USA, Jihovýchodní Asie)
-> * Velikost instance (Malá, Střední, Velká)
-> * Počet škálování (jedna, dvě nebo tři instance atd.)
-> * SKU (Free, Shared, Basic, Standard, Premium)
->
+<!--
+ An App Service plan represents the collection of physical resources used to ..
+-->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Následující příklad vytvoří v pracovních procesech systému Linux plán služby App Service s názvem `quickStartPlan` s použitím cenové úrovně **Standard**.
+Následující příklad vytvoří plán služby App Service s názvem `quickStartPlan` a s cenovou úrovní **Free**.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 Po vytvoření plánu služby App Service se v rozhraní příkazového řádku Azure zobrazí podobné informace jako v následujícím příkladu.
@@ -132,7 +113,6 @@ Po vytvoření plánu služby App Service se v rozhraní příkazového řádku 
 ```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
     "location": "West Europe",
     "sku": {
     "capacity": 1,
@@ -147,9 +127,13 @@ Po vytvoření plánu služby App Service se v rozhraní příkazového řádku 
 
 ## <a name="create-a-web-app"></a>Vytvoření webové aplikace
 
-Po vytvoření plánu služby App Service teď vytvořte v rámci plánu služby App Service `quickStartPlan` webovou aplikaci. Tato aplikace poskytuje prostor hostitele pro nasazení kódu a také adresu URL, jejímž prostřednictvím lze nasazenou aplikaci zobrazit. Pomocí příkazu [az appservice web create](/cli/azure/appservice/web#create) vytvořte webovou aplikaci.
+Po vytvoření plánu služby App Service teď vytvořte v rámci plánu služby App Service `quickStartPlan` [webovou aplikaci](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview). Tato aplikace poskytuje prostor hostitele pro nasazení kódu a také adresu URL, jejímž prostřednictvím lze nasazenou aplikaci zobrazit. Pomocí příkazu [az appservice web create](/cli/azure/appservice/web#create) vytvořte webovou aplikaci.
 
-V následujícím příkladu nahraďte zástupný symbol <název_aplikace> vlastním jedinečným názvem aplikace. <název_aplikace> se použije jako výchozí název DNS pro příslušnou webovou aplikaci, proto musí být mezi všemi aplikacemi v Azure jedinečný. Později můžete na webovou aplikaci namapovat libovolné vlastní záznamy DNS, než ji zpřístupníte uživatelům.
+V následujícím příkazu nahraďte zástupný symbol `<app_name>` vlastním jedinečným názvem aplikace. `<app_name>` se používá ve výchozí lokalitě DNS pro webovou aplikaci. Pokud název `<app_name>` není jedinečný, zobrazí se popisná chybová zpráva „Web s názvem <app_name> již existuje“.
+
+<!-- removed per https://github.com/Microsoft/azure-docs-pr/issues/11878
+You can later map any custom DNS entry to the web app before you expose it to your users.
+-->
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -183,22 +167,11 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-Nyní jsme v Azure vytvořili novou prázdnou webovou aplikaci. Teď webovou aplikaci nakonfigurujeme tak, aby používala PHP, a nasadíme do ní naši aplikaci.
-
-## <a name="configure-to-use-php"></a>Konfigurace pro použití PHP
-
-Pomocí příkazu [az appservice web config update](/cli/azure/app-service/web/config#update) nakonfigurujte webovou aplikaci tak, aby používala PHP verze `7.0.x`.
-
-> [!TIP]
-> Tento způsob nastavení verze PHP používá výchozí kontejner poskytovaný platformou. Pokud chcete použít vlastní kontejner, vyhledejte referenční informace pro příkaz příkazového řádku [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
-
-```azurecli
-az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> --resource-group myResourceGroup
-```
+Nyní jsme v Azure vytvořili novou prázdnou webovou aplikaci.
 
 ## <a name="configure-local-git-deployment"></a>Konfigurace nasazení místního gitu
 
-K nasazení do webové aplikace můžete použít celou řadu způsobů, včetně FTP, místního Gitu, GitHubu, služby Visual Studio Team Services nebo Bitbucketu.
+K nasazení do webové aplikace můžete použít celou řadu způsobů, včetně FTP, místního Gitu, GitHubu, Visual Studio Team Services nebo Bitbucketu.
 
 Pomocí příkazu [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) nastavte přístup k webové aplikaci přes místní git.
 
@@ -220,13 +193,13 @@ Přidejte vzdálené úložiště Azure do místního úložiště Gitu.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Nasaďte aplikaci do vzdáleného úložiště Azure. Zobrazí se výzva k zadání hesla, které jste zadali dříve v rámci vytváření nasazení uživatele.
+Nasaďte aplikaci do vzdáleného úložiště Azure. Zobrazí se výzva k zadání hesla, které jste zadali už dřív, při vytváření uživatele nasazení. Dejte pozor na to, abyste zadali heslo, které jste vytvořili v kroku [Konfigurace uživatele nasazení](#configure-a-deployment-user), ne heslo, se kterým se přihlašujete na web Azure Portal.
 
-```azurecli
+```bash
 git push azure master
 ```
 
-Během nasazení bude služba Azure App Service komunikovat průběh nasazování s Gitem.
+Během nasazení bude služba Azure App Service hlásit Gitu průběh nasazení.
 
 ```bash
 Counting objects: 2, done.
@@ -280,7 +253,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Po dokončení nasazení se přepněte zpět do okna prohlížeče, které se otevřelo v kroku Přechod do aplikace, a stiskněte tlačítko Aktualizovat.
+Po dokončení nasazení se vraťte do okna prohlížeče, které se otevřelo v kroku **Přechod do aplikace**, a stiskněte tlačítko Aktualizovat.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -312,6 +285,7 @@ Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Další kroky
+> [!div class="nextstepaction"]
+> [Prozkoumejte ukázkové skripty rozhraní CLI služby Web Apps](app-service-cli-samples.md)
 
-Prozkoumejte předem vytvořené [skripty rozhraní příkazového řádku pro Web Apps](app-service-cli-samples.md).
+
