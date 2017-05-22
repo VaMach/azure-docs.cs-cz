@@ -13,18 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Database: Použití technologie .NET (jazyk C#) k připojení a dotazování dat
 
-Tento rychlý start ukazuje použití [C# a ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) k připojení k Azure SQL Database a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem Windows, Mac OS a Ubuntu Linux.
+Tento Rychlý start ukazuje použití [jazyka C# a ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) k připojení k databázi SQL Azure a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem Windows, Mac OS a Ubuntu Linux.
 
 Tento rychlý start používá jako výchozí bod prostředky vytvořené v některém z těchto rychlých startů:
 
@@ -33,13 +34,13 @@ Tento rychlý start používá jako výchozí bod prostředky vytvořené v něk
 
 ## <a name="install-net"></a>Instalace rozhraní .NET
 
-Kroky v této části předpokládají, že máte zkušenosti s vývojem pomocí rozhraní .NET a teprve začínáte pracovat s Azure SQL Database. Pokud s vývojem pomocí rozhraní .NET začínáte, přejděte na web [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Sestavení aplikace s použitím SQL Serveru), vyberte **jazyk C#** a pak váš operační systém.
+Kroky v této části předpokládají, že máte zkušenosti s vývojem pomocí rozhraní .NET a teprve začínáte pracovat se službou Azure SQL Database. Pokud s vývojem pomocí rozhraní .NET začínáte, přejděte na web [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Sestavení aplikace s použitím SQL Serveru), vyberte **jazyk C#** a pak váš operační systém.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework a .NET Core**
 
-Visual Studio 2017 Community je plně vybavené, rozšiřitelné a bezplatné prostředí IDE pro vytváření moderních aplikací pro Android, iOS a Windows, stejně jako webových a databázových aplikací a cloudových služeb. Můžete nainstalovat buď úplné rozhraní .NET Framework, nebo jenom jádro .NET Core. Fragmenty kódu v rychlém startu pracují s oběma. Pokud již máte v počítači nainstalovanou sadu Visual Studio, přeskočte několik dalších kroků.
+Visual Studio 2017 Community je plně vybavené, rozšiřitelné a bezplatné integrované vývojové prostředí (IDE) pro vytváření moderních aplikací pro Android, iOS a Windows, stejně jako webových a databázových aplikací a cloudových služeb. Můžete nainstalovat buď úplné rozhraní .NET Framework, nebo jenom jádro .NET Core. Fragmenty kódu v rychlém startu pracují s oběma. Pokud již máte v počítači nainstalovanou sadu Visual Studio, přeskočte několik dalších kroků.
 
-1. Stáhněte [instalační program](https://go.microsoft.com/fwlink/?LinkId=691978). 
+1. Stáhněte si [instalační program sady Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Spusťte instalační program a podle zobrazených pokynů instalaci dokončete.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -76,7 +77,7 @@ Získejte informace o připojení potřebné pro připojení k databázi SQL Azu
 
    ![název-serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Pokud jste zapomněli přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby obnovili heslo.
+4. Pokud zapomenete přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby obnovili heslo.
 
 5. Klikněte na tlačítko **Zobrazit databázové připojovací řetězce**.
 
@@ -308,13 +309,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>Další kroky
+- [Návrh první databáze SQL Azure](sql-database-design-first-database.md)
+- [Dokumentace k rozhraní .NET](https://docs.microsoft.com/dotnet/)
+- [Připojení a dotazování pomocí SSMS](sql-database-connect-query-ssms.md)
+- [Připojení a dotazování pomocí Visual Studio Code](sql-database-connect-query-vscode.md)
 
-- Dokumentaci k technologii .NET najdete na stránce [Dokumentace k technologii .NET](https://docs.microsoft.com/dotnet/).
-- Informace o připojení a dotazování pomocí aplikace SQL Server Management Studio najdete v tématu [Připojení a dotazování pomocí SSMS](sql-database-connect-query-ssms.md).
-- Informace o připojení a dotazování pomocí sady Visual Studio najdete v tématu [Připojení a dotazování pomocí Visual Studio Code](sql-database-connect-query-vscode.md).
-- Informace o připojení a dotazování pomocí PHP najdete v tématu [Připojení a dotazování pomocí PHP](sql-database-connect-query-php.md).
-- Informace o připojení a dotazování pomocí Node.js najdete v tématu [Připojení a dotazování pomocí Node.js](sql-database-connect-query-nodejs.md).
-- Informace o připojení a dotazování pomocí Javy najdete v tématu [Připojení a dotazování pomocí Javy](sql-database-connect-query-java.md).
-- Informace o připojení a dotazování pomocí Pythonu najdete v tématu [Připojení a dotazování pomocí Pythonu](sql-database-connect-query-python.md).
-- Informace o připojení a dotazování pomocí Ruby najdete v tématu [Připojení a dotazování pomocí Ruby](sql-database-connect-query-ruby.md).
 

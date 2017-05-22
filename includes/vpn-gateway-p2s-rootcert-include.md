@@ -1,0 +1,8 @@
+Můžete použít buď kořenový certifikát vygenerovaný pomocí podnikového řešení (doporučeno), nebo můžete vygenerovat certifikát podepsaný svým držitelem. Pokud použijete certifikát podepsaný svým držitelem, řiďte se informacemi v článku [Vytvoření kořenového certifikátu podepsaného svým držitelem pro připojení typu Point-to-Site](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert). Tento článek obsahuje konkrétní nastavení nutná k vygenerování certifikátu kompatibilního s Point-to-Site.
+
+Po vytvoření kořenového certifikátu vyexportujete data veřejného certifikátu (ne privátní klíč) jako soubor .cer X.509 v kódování Base-64. Pak odešlete data veřejného certifikátu z kořenového certifikátu do Azure.
+
+* **Podnikový certifikát:** Pokud používáte podnikové řešení, můžete použít stávající řetěz certifikátů. Získejte soubor .cer pro kořenový certifikát, který chcete používat.
+* **Kořenový certifikát podepsaný svým držitelem:** Pokud nepoužíváte podnikové certifikační řešení, musíte vytvořit kořenový certifikát podepsaný svým držitelem. Kořenový certifikát musí obsahovat konkrétní hodnoty, aby fungoval s připojením typu Point-to-Site. Pokyny najdete v těchto článcích:
+  * Informace k vytvoření kořenového certifikátu podepsaného svým držitelem najdete v tématu [Vytvoření kořenového certifikátu podepsaného svým držitelem pro připojení typu Point-to-Site](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert).
+  * Informace k exportování veřejného klíče (soubor .cer) najdete v tématu [Vytvoření kořenového certifikátu podepsaného svým držitelem pro připojení typu Point-to-Site](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer).

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -66,7 +67,7 @@ Zásady zabezpečení můžete nakonfigurovat pro každé předplatné nebo skup
    >
 9. V okně **Zásady zabezpečení** kliknutím na **Zapnout** povolte doporučení zabezpečení, která chcete v tomto předplatném používat. Po kliknutí na **Zásady prevence** se zobrazí možnosti jako na následujícím snímku obrazovky:
 
-    ![Výběr zásad zabezpečení](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Výběr zásad zabezpečení](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Následující tabulku použijte jako referenci pro pochopení jednotlivých možností:
 
@@ -82,6 +83,7 @@ Následující tabulku použijte jako referenci pro pochopení jednotlivých mo�
 | Auditování SQL a zjišťováním hrozeb |Doporučuje, abyste povolili auditování přístupu ke službě Azure Database za účelem vyšetřování dodržování předpisů a také rozšířeného zjišťování hrozeb. |
 | Transparentní šifrování dat SQL |Doporučuje povolení neuplatněného šifrování pro služby Azure SQL Database, přidružené zálohy a soubory protokolů transakcí. I v případě, že dojde k porušení zabezpečení vašich dat, nebudou čitelná. |
 | Posouzení ohrožení zabezpečení |Doporučuje, abyste na vašem virtuálním počítači nainstalovali řešení posouzení ohrožení zabezpečení. |
+| Šifrování služby Storage |Tato funkce je aktuálně dostupná pro Soubory a objekty blob Azure. Pamatujte, že po povolení šifrování služby Storage budou šifrována pouze nová data a veškeré stávající soubory v účtu úložiště zůstanou nezašifrované. |
 
 Až nakonfigurujete všechny možnosti, klikněte na **OK** v okně **Zásady zabezpečení**, ve kterém se zobrazují doporučení, a poté v okně **Zásady zabezpečení**, které obsahuje počáteční nastavení, klikněte na **Uložit**.
 
