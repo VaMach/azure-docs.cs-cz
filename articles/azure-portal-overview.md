@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ Portál Microsoft Azure je centrálním místem, kde můžete zřizovat a spravo
   ![Orientace v uživatelském rozhraní webu Azure Portal][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Než začnete
-Abyste mohli absolvovat tento kurz, budete potřebovat platné předplatné Azure.  Pokud žádné nemáte, můžete si hned [zaregistrovat bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/).  Až budete předplatné mít, dostanete se na portál na adrese [https://portal.azure.com].
+Abyste mohli absolvovat tento kurz, budete potřebovat platné předplatné Azure.  Pokud žádné nemáte, můžete si hned [zaregistrovat bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/).  Až budete mít předplatné, na portál se dostanete na adrese <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Jak vytvářet prostředky
 Azure má Marketplace s tisíci položkami, které můžete vytvořit z jednoho místa.  Řekněme, že chcete vytvořit nový virtuální počítač s Windows Serverem 2012.  Vašim vstupním bodem do kurátorované sady vybraných kategorií z Marketplace je centrum +NOVÝ.  Každá kategorie obsahuje menší skupinu vybraných položek spolu s odkazem na kompletní nabídku Marketplace se všemi kategoriemi a vyhledáváním. Když budete chtít vytvořit nový virtuální počítač s Windows Serverem 2012, udělejte toto:  

@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: cba0b278d84e25876a8b73cedb7e35f84500fc5e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -70,27 +70,33 @@ Teď naklonujeme aplikaci API DocumentDB z GitHubu, nastavíme připojovací ř
 
 ## <a name="review-the-code"></a>Kontrola kódu
 
-Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor DocumentDBRepository.cs a zjistíte, že tyto řádky kódu vytvářejí prostředky Azure Cosmos DB. 
+Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor Program.cs a zjistíte, že tyto řádky kódu vytvářejí prostředky databáze Azure Cosmos. 
 
 * Inicializuje se DocumentClient.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* Vytvoří se nová databáze.
+* Vytvoří se nová tabulka, pokud ještě neexistuje.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* Vytvoří se nový kontejner grafu.
+* Vytvoří se nový kontejner tabulky. Všimněte si, že tento kód se velmi podobá sadě Azure Table Storage SDK. 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
@@ -106,7 +112,7 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 3. Název účtu Azure Cosmos DB zkopírujte z portálu a nastavte ho jako hodnotu AccountName v hodnotě řetězce PremiumStorageConnection v souboru app.config. Na snímku obrazovky výše je název účtu cosmos-db-quickstart. Název účtu se zobrazí v horní části portálu.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Pak z portálu zkopírujte hodnotu primárního klíče a nastavte ji jako hodnotu AccountKey v řetězci PremiumStorageConnectionString. 
 
@@ -114,7 +120,7 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 5. Nakonec zkopírujte hodnotu identifikátoru URI ze stránky Klíče na portálu (pomocí tlačítka Kopírovat) a nastavte ji jako hodnotu TableEndpoint v řetězci PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     Řetězec StandardStorageConnectionString můžete nechat beze změny.
 

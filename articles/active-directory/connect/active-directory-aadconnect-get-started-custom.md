@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 5120b3f11549c936daacdfab37190a7193fde89f
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,9 +75,19 @@ Pokud se zobrazí chyba a máte problémy s připojením, přečtěte si téma [
 ## <a name="pages-under-the-section-sync"></a>Stránky v části Synchronizace
 
 ### <a name="connect-your-directories"></a>Připojení adresářů
-Aby se služba Azure AD Connect mohla připojit k službě Active Directory Domain Services, potřebuje přihlašovací údaje účtu s dostatečnými oprávněními. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. jako FABRIKAM\syncuser nebo fabrikam.com\syncuser. Tento účet může být běžný uživatelský účet, protože potřebuje pouze výchozí oprávnění ke čtení. Je ale možné, že v závislosti na scénáři budete potřebovat větší oprávnění. Další informace najdete v tématu [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+Azure AD Connect pro připojení ke službě Active Directory Domain Services potřebuje název doménové struktury a přihlašovací údaje účtu s dostatečnými oprávněními.
 
-![Připojení adresáře](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+![Připojení adresáře](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
+
+Po vytvoření názvu doménové struktury a kliknutí na **Přidat adresář** se otevře vyskakovací dialogové okno s výzvou k výběru následujících možností:
+
+| Možnost | Popis |
+| --- | --- |
+| Použít existující účet | Tuto možnost vyberte, pokud chcete, aby Azure AD Connect pro připojení k doménové struktuře AD během synchronizace adresáře použil existující účet AD DS. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. jako FABRIKAM\syncuser nebo fabrikam.com\syncuser. Tento účet může být běžný uživatelský účet, protože potřebuje pouze výchozí oprávnění ke čtení. Je ale možné, že v závislosti na scénáři budete potřebovat větší oprávnění. Další informace najdete v tématu [Účty a oprávnění v Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
+| Vytvořit nový účet | Tuto možnost vyberte, pokud chcete, aby průvodce Azure AD Connect vytvořil účet AD DS vyžadovaný pro připojení Azure AD Connect k doménové struktuře AD během synchronizace adresáře. Když je tato možnost vybrána, zadejte uživatelské jméno a heslo účtu podnikového správce. Zadaný účet podnikového správce použije průvodce Azure AD Connect k vytvoření požadovaného účtu AD DS. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. FABRIKAM\administrator nebo fabrikam.com\administrator. |
+
+![Připojení adresáře](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
+
 
 ### <a name="azure-ad-sign-in-configuration"></a>Konfigurace přihlášení k Azure AD
 Tato stránka vám umožní zkontrolovat domény hlavního názvu uživatele (UPN), které se nacházejí v místní službě AD DS a které byly ověřeny v Azure AD. Tato stránka vám také umožní konfigurovat atribut userPrincipalName, který chcete použít.
@@ -99,7 +110,7 @@ Ve výchozím nastavení se synchronizují všechny domény a organizační jedn
 ![Filtrování organizačních jednotek domén](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
 Tato stránka průvodce konfiguruje filtrování podle domén a organizačních jednotek. Pokud plánujete změny, před jejich provedením si přečtěte témata [filtrování podel domén](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) a [filtrování podle organizačních jednotek](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Některé organizační jednotky jsou zásadní pro funkčnost a měly by být vybrány.
 
-Pokud používáte filtrování podle organizačních jednotek, ve výchozím nastavení se nové organizační jednotky přidané později synchronizují. Pokud chcete, aby se nové organizační jednotky nesynchronizovaly, můžete je po dokončení průvodce nakonfigurovat pomocí [filtrování podle organizačních jednotek](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+Pokud použijete filtrování podle organizačních jednotek v Azure AD Connect verze starší než 1.1.524.0, nové organizační jednotky přidané později se budou synchronizovat automaticky. Pokud chcete, aby se nové organizační jednotky nesynchronizovaly, můžete je po dokončení průvodce nakonfigurovat pomocí [filtrování podle organizačních jednotek](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). V Azure AD Connect verze 1.1.524.0 nebo novější můžete určit, jestli se mají nové organizační jednotky synchronizovat, nebo ne.
 
 Pokud chcete použít [filtrování podle skupin](#sync-filtering-based-on-groups), zajistěte, aby byly organizační jednotky zahrnuté ve skupinách a aby se nepoužívalo filtrování podle organizačních jednotek. Filtrování podle organizačních jednotek se vyhodnocuje dřív než filtrování podle skupin.
 
@@ -108,6 +119,8 @@ Je také možné, že některé domény nejsou dostupné kvůli omezení brány 
 Pokud se zobrazí toto upozornění, ujistěte se, jestli jsou tyto domény skutečně nedostupné a jestli je upozornění očekávané.
 
 ### <a name="uniquely-identifying-your-users"></a>Jednoznačná identifikace uživatelů
+
+#### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Vyberte způsob, jakým se mají uživatelé identifikovat v místních adresářích
 Funkce párování napříč doménovými strukturami vám umožňuje definovat, jak jsou uživatelé z vašich doménových struktur AD DS reprezentováni v Azure AD. Uživatel buď může být reprezentován jenom jednou v rámci všech doménových struktur, nebo může mít kombinaci povolených a zakázaných účtů. Uživatel také může být v některých doménových strukturách reprezentován jako kontakt.
 
 ![Jedinečná](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -120,7 +133,15 @@ Funkce párování napříč doménovými strukturami vám umožňuje definovat,
 | Atributy sAMAccountName a MailNickName |Tato možnost spojuje atributy, u kterých se dá očekávat, že obsahují přihlašovací ID uživatele. |
 | Konkrétní atribut |Tato možnost umožňuje vybrat vlastní atribut. **Omezení:** Je nutné vybrat atribut, který se už nachází v úložišti metaverse. Pokud vyberete vlastní atribut (který není v úložišti metaverse), průvodce se nedá dokončit. |
 
-**Zdrojové ukotvení** – Atribut sourceAnchor je neměnný po celou dobu životnosti uživatelského objektu. Jedná se o primární klíč propojující místního uživatele s uživatelem v Azure AD. Protože atribut nejde změnit, je nutné naplánovat a použít dobrý atribut. Jednou z vhodných možností je objectGUID. Tento atribut se změní jenom tehdy, pokud se uživatelský účet přesune mezi doménovými strukturami nebo doménami. V prostředí více doménových struktur, kde přesouváte účty mezi doménovými strukturami, je nutné použít jiný atribut, například atribut s employeeID. Vyhněte se atributům, které se mění, když uživatel uzavře manželství nebo se změní jeho přiřazení. Nelze použít atributy se symbolem @-sign, takže se nedá použít e-mail ani atribut userPrincipalName. V atributu se taky rozlišují velká a malá písmena, proto při přesunutí objektu mezi doménovými strukturami dejte pozor, abyste správně zachovali velká a malá písmena. Binární atributy se zakódují do formátu Base64, ale ostatní typy atributů zůstávají v nekódovaném stavu. Při federacích a v některých rozhraních Azure AD se tento atribut taky nazývá immutableID. Další informace o zdrojovém ukotvení najdete v [konceptech návrhu](active-directory-aadconnect-design-concepts.md#sourceanchor).
+#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Vyberte, jak se mají uživatelé identifikovat s Azure AD – zdrojové ukotvení
+Atribut sourceAnchor je atribut, který se za dobu existence objektu uživatele nemění. Jedná se o primární klíč propojující místního uživatele s uživatelem v Azure AD.
+
+| Nastavení | Popis |
+| --- | --- |
+| Nechat správu zdrojového ukotvení na Azure | Tuto možnost vyberte, pokud chcete, aby Azure AD vybral atribut za vás. |
+| Konkrétní atribut | Tuto možnost vyberte, pokud chcete jako atribut sourceAnchor zadat existující atribut AD. |
+
+Protože atribut nejde změnit, je nutné naplánovat a použít dobrý atribut. Jednou z vhodných možností je objectGUID. Tento atribut se změní jenom tehdy, pokud se uživatelský účet přesune mezi doménovými strukturami nebo doménami. V prostředí více doménových struktur, kde přesouváte účty mezi doménovými strukturami, je nutné použít jiný atribut, například atribut s employeeID. Vyhněte se atributům, které se mění, když uživatel uzavře manželství nebo se změní jeho přiřazení. Nelze použít atributy se symbolem @-sign, takže se nedá použít e-mail ani atribut userPrincipalName. V atributu se taky rozlišují velká a malá písmena, proto při přesunutí objektu mezi doménovými strukturami dejte pozor, abyste správně zachovali velká a malá písmena. Binární atributy se zakódují do formátu Base64, ale ostatní typy atributů zůstávají v nekódovaném stavu. Při federacích a v některých rozhraních Azure AD se tento atribut taky nazývá immutableID. Další informace o zdrojovém ukotvení najdete v [konceptech návrhu](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtrování synchronizace podle skupin
 Funkce filtrování podle skupin umožňuje synchronizovat pouze malou podmnožinu objektů pro pilotní nasazení. Pokud chcete tuto funkci použít, vytvořte pro tento účel skupinu v místní službě Active Directory. Jako přímé členy přidejte uživatele a skupiny, které chcete synchronizovat do Azure AD. Později můžete přidáváním uživatelů do této skupiny a jejich odebíráním spravovat seznam objektů, které mají být dostupné v Azure AD. Každý objekt, který chcete synchronizovat, musí být přímým členem skupiny. Přímými členy musí být uživatelé, skupiny, kontakty a počítače/zařízení. Členství ve vnořené skupině se nepřeloží. Když jako člena přidáte skupinu, přidá se jenom samotná skupina, a ne její členové.
@@ -147,6 +168,7 @@ Na této obrazovce můžete vybrat volitelné funkce pro konkrétní scénáře.
 | Volitelné funkce | Popis |
 | --- | --- |
 | Hybridní nasazení systému Exchange |Funkce Hybridní nasazení systému Exchange umožňuje souběžnou existenci poštovních schránek serveru Exchange jak místně, tak v Office 365. Azure AD Connect synchronizuje konkrétní sadu [atributů](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) z Azure AD zpátky do místního adresáře. |
+| Veřejné složky e-mailu Exchange | Funke veřejné složky e-mailu Exchange umožňuje synchronizaci pro e-mail povolených objektů veřejných složek z místní služby Active Directory do Azure AD. |
 | Filtrování aplikací a atributů Azure AD |Když zapnete filtrování aplikací a atributů Azure AD, můžete přizpůsobit sadu synchronizovaných atributů. Tato možnost rozšíří průvodce o další dvě stránky konfigurace. Další informace najdete v tématu [Filtrování aplikací a atributů Azure AD](#azure-ad-app-and-attribute-filtering). |
 | Synchronizace hesel |Tuto možnost můžete povolit, pokud jste jako řešení přihlašování vybrali federaci. Synchronizaci hesel je pak možné použít jako záložní možnost. Další informace najdete v tématu [Synchronizace hesel](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Pokud jste vybrali předávací ověřování, bude tato možnost ve výchozím nastavení povolená pro zajištění podpory starších klientů a jako záložní možnost. Další informace najdete v tématu [Synchronizace hesel](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Zpětný zápis hesla |Když zapnete zpětný zápis hesla, změny hesel vzniklé ve službě Azure AD se zapíšou zpátky do místního adresáře. Další informace najdete v tématu [Začínáme se správou hesel](../active-directory-passwords-getting-started.md). |

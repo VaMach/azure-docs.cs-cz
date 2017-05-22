@@ -13,12 +13,13 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7ff1317cdf6ccfe6b4e5035878fc4e096fcc0f9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 756711abb014829971af126c5cb60c12e79c920e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -27,59 +28,43 @@ V Azure máte flexibilitu vytvoření virtuálního počítače s Linuxem pomoc�
 
 Rozhraní [Azure CLI 2.0](/cli/azure/install-az-cli2) je dostupné napříč platformami jako balíček npm, balíček distribuce nebo kontejner Docker. Nainstalujte sestavení nejvhodnější pro vaše prostředí a přihlaste se k účtu Azure pomocí příkazu [az login](/cli/azure/#login).
 
-V následujících příkladech se používá Azure CLI 2.0. V příslušných článcích najdete další podrobnosti o použitých příkazech. Můžete také použít příklady vytváření instancí s Linuxem pomocí [Azure CLI 1.0](creation-choices-nodejs.md).
-
-* [Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Vytvoření virtuálního počítače s Linuxem pomocí Azure CLI 2.0](quick-create-cli.md)
   
-  * Tento příklad vytvoří skupinu prostředků s názvem `myResourceGroup` pomocí příkazu [az group create](/cli/azure/group#create): 
--    
+  * Pomocí příkazu [az group create](/cli/azure/group#create) vytvořte skupinu prostředků *myResourceGroup*: 
+   
     ```azurecli
-    az group create --name myResourceGroup --location westus
+    az group create --name myResourceGroup --location eastus
     ```
     
-  * Tento příklad pomocí příkazu [az vm create](/cli/azure/vm#create) vytvoří virtuální počítač s názvem `myVM` s použitím nejnovějšího image Debian s Azure Managed Disks a veřejným klíčem `id_rsa.pub`:
+  * Pomocí příkazu [az vm create](/cli/azure/vm#create) vytvořte virtuální počítač *myVM* s použitím nejnovější image *UbuntuLTS* a vygenerujte klíče SSH, pokud ještě neexistují ve složce *~/.ssh*:
 
     ```azurecli
     az vm create \
-    --image credativ:Debian:8:latest \
-     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
-    --resource-group myResourceGroup \
-    --location westus \
-    --name myVM
+        --resource-group myResourceGroup \
+        --name myVM \
+        --image UbuntuLTS \
+        --generate-ssh-keys
     ```
 
-    * Pokud chcete použít nespravované disky, přidejte k výše uvedenému příkazu příznak `--use-unmanaged-disks`. Vytvoří se pro vás účet úložiště. Další informace najdete v tématu [Přehled služby Azure Managed Disks](../../storage/storage-managed-disks-overview.md).
-
-* [Vytvoření zabezpečeného virtuálního počítače s Linuxem pomocí šablony Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Vytvoření virtuálního počítače s Linuxem pomocí šablony Azure](create-ssh-secured-vm-from-template.md)
   
-  * Následující příklad vytvoří virtuální počítač pomocí šablony uložené na GitHubu příkazem [az group deployment create](/cli/azure/group/deployment#create):
+  * Následující příklad pomocí příkazu [az group deployment create](/cli/azure/group/deployment#create) vytvoří virtuální počítač ze šablony uložené na GitHubu:
     
     ```azurecli
     az group deployment create --resource-group myResourceGroup \ 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
       --parameters @myparameters.json
     ```
-    
-* [Vytvoření kompletního linuxového prostředí pomocí Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  
-  * Zahrnuje vytvoření nástroje pro vyrovnávání zatížení a více virtuálních počítačů ve skupině dostupnosti.
+* [Vytvoření a přizpůsobení virtuálního počítače s Linuxem pomocí cloud-init](tutorial-automate-vm-deployment.md)
 
-* [Přidání disku do virtuálního počítače s Linuxem](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  
-  * Následující příklad pomocí příkazu [az vm disk attach-new](/cli/azure/vm/disk#attach-new) přidá do existujícího virtuálního počítače s názvem `myVM` disk o velikosti 50 GB:
-  
-    ```azurecli
-    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
-    –-new --size-gb 50
-    ```
+* [Vytvoření vysoce dostupné aplikace s vyrovnáváním zatížení na více virtuálních počítačích s Linuxem](tutorial-load-balancer.md)
+
 
 ## <a name="azure-portal"></a>portál Azure
 [Azure Portal](https://portal.azure.com) umožňuje rychle vytvořit virtuální počítač, protože není nutné nic instalovat na váš systém. Vytvoření virtuálního počítače pomocí Portálu Azure:
 
-* [Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [Připojení disku pomocí webu Azure Portal](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal](quick-create-portal.md) 
+
 
 ## <a name="operating-system-and-image-choices"></a>Operační systém a volba image
 Při vytváření virtuálního počítače zvolíte image podle operačního systému, který chcete používat. Azure a příslušní partneři nabízí celou řadu imagí, přičemž některé už obsahují předinstalované aplikace a nástroje. Nebo nahrajte některou z vlastních imagí (viz [následující oddíl](#use-your-own-image)).
@@ -90,30 +75,30 @@ Pomocí příkazů [az vm image](/cli/azure/vm/image) zobrazíte dostupné image
 Seznam dostupných vydavatelů:
 
 ```azurecli
-az vm image list-publishers --location WestUS
+az vm image list-publishers --location eastus
 ```
 
 Seznam dostupných produktů (nabídek) pro daného vydavatele:
 
 ```azurecli
-az vm image list-offers --publisher Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location eastus
 ```
 
 Seznam dostupných SKU (vydání distribuce) pro danou nabídku:
 
 ```azurecli
-az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location eastus
 ```
 
 Seznam všech dostupných imagí pro dané vydání:
 
 ```azurecli
-az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location WestUS
+az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location eastus
 ```
 
-Další příklady vyhledávání a použití dostupných imagí najdete v tématu [Vyhledání a výběr imagí virtuálních počítačů Azure pomocí Azure CLI](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Další příklady vyhledávání a použití dostupných imagí najdete v tématu [Vyhledání a výběr imagí virtuálních počítačů Azure pomocí Azure CLI](cli-ps-findimage.md).
 
-Příkaz **az vm create** má aliasy, které můžete použít pro rychlý přístup k častějším distribucím a jejich nejnovějším vydáním. Použití aliasů je často rychlejší, než zadávání vydavatele, nabídky, SKU a verze při každém vytváření virtuálního počítače:
+Příkaz [az vm create](/cli/azure/vm#create) má aliasy, které můžete použít pro rychlý přístup k častějším distribucím a jejich nejnovějším vydáním. Použití aliasů je často rychlejší, než zadávání vydavatele, nabídky, SKU a verze při každém vytváření virtuálního počítače:
 
 | Alias | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze |
 |:--- |:--- |:--- |:--- |:--- |
@@ -126,22 +111,22 @@ Příkaz **az vm create** má aliasy, které můžete použít pro rychlý pří
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |nejnovější |
 
 ### <a name="use-your-own-image"></a>Použití vlastní image
-Pokud budete potřebovat image se zvláštními úpravami, můžete *zachytit* stávající virtuální počítač a použít image založenou na tomto virtuálním počítači. Můžete také nahrát místně vytvořenou image. Další informace o podporovaných distribucích a o tom, jak používat vlastní image, najdete v následujících článcích:
+Pokud budete potřebovat image se zvláštními úpravami, můžete zachytit stávající virtuální počítač a použít image založenou na tomto virtuálním počítači. Můžete také nahrát místně vytvořenou image. Další informace o podporovaných distribucích a o tom, jak používat vlastní image, najdete v následujících článcích:
 
-* [Distribuce schválené pro Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Informace pro neschválené distribuce](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Jak zachytit virtuální počítač s Linuxem do šablony Resource Manageru](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Distribuce schválené pro Azure](endorsed-distros.md)
+* [Informace pro neschválené distribuce](create-upload-generic.md)
+* [Vytvoření image z existujícího virtuálního počítače Azure](tutorial-custom-images.md)
   
-  * Příklady příkazů **az vm** pro rychlé zachycení existujícího virtuálního počítače s využitím nespravovaných disků:
+  * Příklady příkazů pro vytvoření image z existujícího virtuálního počítače Azure:
     
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     az vm generalize --resource-group myResourceGroup --name myVM
-    az vm capture --resource-group myResourceGroup --name myVM --vhd-name-prefix myCapturedVM
+    az vm image create --resource-group myResourceGroup --source myVM --name myImage
     ```
 
 ## <a name="next-steps"></a>Další kroky
-* Vytvořte virtuální počítač s Linuxem z webu [Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), přes [rozhraní příkazového řádku](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nebo pomocí [šablony Azure Resource Manageru](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Po vytvoření virtuálního počítače s Linuxem můžete [přidat datový disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Rychlé kroky pro [resetování hesla nebo klíčů SSH a správu uživatelů](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Vytvořte virtuální počítač s Linuxem pomocí [rozhraní příkazového řádku](quick-create-cli.md), z [portálu](quick-create-portal.md) nebo pomocí [šablony Azure Resource Manageru](../windows/cli-deploy-templates.md).
+* Po vytvoření virtuálního počítače s Linuxem [si přečtěte o discích a úložišti Azure](tutorial-manage-disks.md).
+* Rychlý postup k [resetování hesla nebo klíčů SSH a správě uživatelů](using-vmaccess-extension.md).
 

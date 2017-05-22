@@ -1,6 +1,6 @@
 ---
-title: "Přehled Saas (ukázková SaaS aplikace využívající Azure SQL Database) | Dokumentace Microsoftu"
-description: "Vytváření SaaS aplikací pomocí SQL Database"
+title: "Ukázková aplikace s více tenanty využívající službu Azure SQL Database | Dokumentace Microsoftu"
+description: "Seznámení s ukázkovou aplikací Wingtip Tickets (WTP) využívající službu Azure SQL Database"
 keywords: kurz k sql database
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf5745a788cd9ab6bf2ea8d5d97b8c04f083fc5d
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

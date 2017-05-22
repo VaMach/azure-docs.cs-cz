@@ -1,6 +1,7 @@
 ---
-title: "Začínáme s clusterem Apache Spark v prostředí Azure HDInsight | Dokumentace Microsoftu"
-description: "Podrobné pokyny, jak rychle vytvořit cluster Apache Spark v HDInsight a pak použít Spark SQL z poznámkových bloků Jupyter ke spuštění interaktivních dotazů."
+title: "Začínáme – Apache Spark a interaktivní dotazy Spark SQL – Azure HDInsight | Dokumentace Microsoftu"
+description: "Rychlý start k HDInsight Spark týkající se vytvoření clusteru Apache Spark v HDInsight a spouštění interaktivních dotazů pomocí poznámkových bloků Jupyter."
+keywords: spark quickstart, interactive spark, interactive query, hdinsight spark, azure spark
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,32 +10,34 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 05/12/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e2a9802e76579a523897d8904add6b317652ff05
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 0c59792423bfe2848ab5773746db466890228ddc
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="get-started-create-apache-spark-cluster-in-azure-hdinsight-and-run-interactive-queries-using-spark-sql"></a>Začínáme: Vytvoření clusteru Apache Spark ve službě Azure HDInsight a spuštění interaktivních dotazů pomocí Spark SQL
+# <a name="get-started-create-an-apache-spark-cluster-in-hdinsight-and-run-interactive-spark-sql-queries"></a>Začínáme: Vytvoření clusteru Apache Spark ve službě HDInsight a spouštění interaktivních dotazů Spark SQL
 
-Naučte se vytvářet cluster [Apache Spark](hdinsight-apache-spark-overview.md) ve službě HDInsight a pak použijte poznámkový blok [Jupyter](https://jupyter.org) ke spouštění interaktivních dotazů Spark SQL v clusteru Spark.
+Naučte se vytvořit cluster [Apache Spark](hdinsight-apache-spark-overview.md) ve službě HDInsight a spouštět interaktivní dotazy Spark SQL pomocí poznámkového bloku [Jupyter](https://jupyter.org).
 
-   ![Začněte používat Apache Spark v HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Kurz Začněte používat Apache Spark v HDInsight Popsané postupy: vytvoření účtu úložiště; vytvoření clusteru; spuštění příkazů Spark SQL")
+   ![Diagram rychlého startu popisující postup vytvoření clusteru Apache Spark ve službě Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Rychlý start k použití Apache Spark ve službě HDInsight. Popsané postupy: vytvoření clusteru, spuštění interaktivního dotazu Spark")
 
 ## <a name="prerequisites"></a>Požadavky
+
 * **Předplatné Azure**. Než začnete tento kurz, musíte mít předplatné Azure. Přečtěte si téma [Bezplatné vytvoření účtu Microsoft Azure ještě dnes](https://azure.microsoft.com/free).
 
-## <a name="create-a-spark-cluster"></a>Vytvoření clusteru Spark
-V této části vytvoříte cluster Spark ve službě HDInsight pomocí [šablony Azure Resource Manageru](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Ostatní metody tvorby clusteru najdete v části [Tvorba clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="create-hdinsight-spark-cluster"></a>Vytvoření clusteru HDInsight Spark
+
+V této části vytvoříte cluster HDInsight Spark pomocí [šablony Azure Resource Manageru](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Ostatní metody tvorby clusteru najdete v části [Tvorba clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Kliknutím na následující obrázek otevřete šablonu na portálu Azure Portal.         
 
@@ -42,7 +45,7 @@ V této části vytvoříte cluster Spark ve službě HDInsight pomocí [šablon
 
 2. Zadejte následující hodnoty:
 
-    ![Vytvoření clusteru Spark ve službě HDInsight pomocí šablony Azure Resource Manageru](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Vytvoření clusteru Spark ve službě HDInsight pomocí šablony Azure Resource Manageru")
+    ![Vytvoření clusteru HDInsight Spark pomocí šablony Azure Resource Manageru](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Vytvoření clusteru Spark ve službě HDInsight pomocí šablony Azure Resource Manageru")
 
     * **Předplatné:** Vyberte předplatné Azure pro tento cluster.
     * **Skupina prostředků:** Vytvořte skupinu prostředků nebo vyberte stávající. Skupina prostředků slouží ke správě prostředků Azure pro vaše projekty.
@@ -61,19 +64,19 @@ V této části vytvoříte cluster Spark ve službě HDInsight pomocí [šablon
 >
 >
 
-## <a name="run-a-spark-sql-query"></a>Spuštění dotazu Spark SQL
+## <a name="run-an-interactive-spark-sql-query"></a>Spuštění interaktivního dotazu Spark SQL
 
-V této části použijete ke spouštění dotazů Spark SQL poznámkový blok Jupyter v clusteru Spark. Clustery HDInsight Spark poskytují tři jádra, která můžete použít s poznámkovým blokem Jupyter. Jsou to:
+V této části použijete poznámkový blok Jupyter ke spuštění interaktivních dotazů Spark SQL v clusteru Spark, který jste vytvořili dříve. Clustery HDInsight Spark poskytují tři jádra, která můžete použít s poznámkovým blokem Jupyter. Jsou to:
 
 * **PySpark** (pro aplikace napsané v Pythonu)
 * **PySpark3** (pro aplikace napsané v Pythonu3)
 * **Spark** (pro aplikace napsané v jazyce Scala)
 
-V tomto článku budete používat jádro **PySpark**. Další informace o jádrech najdete v tématu s popisem [použití jader poznámkových bloků Jupyter s clustery Apache Spark v HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Zde je několik z klíčových výhod používání jádra PySpark:
+V tomto článku použijete jádro **PySpark** v poznámkovém bloku, ze kterého spouštíte interaktivní dotaz Spark SQL. Další informace o jádrech najdete v tématu s popisem [použití jader poznámkových bloků Jupyter s clustery Apache Spark v HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Zde je několik z klíčových výhod používání jádra PySpark:
 
 * Kontexty pro Spark a Hive se nastaví automaticky.
-* Můžete použít buňky magic, jako je `%%sql`, pro přímé spouštění dotazů SQL nebo Hive bez předchozích fragmentů kódu.
-* Výstup pro dotazy SQL nebo Hive se automaticky vizualizuje.
+* Můžete použít buňky magic, jako je `%%sql`, pro přímé spouštění interaktivních dotazů SQL nebo Hive bez předchozích fragmentů kódu.
+* Výstup interaktivních dotazů se automaticky vizualizuje.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Vytvoření poznámkového bloku Jupyter s jádrem PySpark
 
@@ -85,33 +88,33 @@ V tomto článku budete používat jádro **PySpark**. Další informace o jádr
 
 3. V části **Rychlé odkazy** klikněte na **Řídicí panely clusteru** a potom klikněte na **Poznámkový blok Jupyter**. Po vyzvání zadejte přihlašovací údaje správce clusteru.
 
-   ![Řídicí panely clusteru HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "Řídicí panely clusteru HDInsight")
+   ![Otevření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Otevření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL")
 
    > [!NOTE]
-   > Může také otevřít poznámkový blok Jupyter pro váš cluster tak, že otevřete následující adresu URL v prohlížeči. Nahraďte **CLUSTERNAME** názvem clusteru:
+   > K poznámkovému bloku Jupyter pro váš cluster se dostanete také otevřením následující adresy URL v prohlížeči. Nahraďte **CLUSTERNAME** názvem clusteru:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
 3. Vytvořte poznámkový blok. Klikněte na tlačítko **Nový** a pak klikněte na tlačítko **PySpark**.
 
-   ![Vytvoření poznámkového bloku Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Vytvoření poznámkového bloku Jupyter")
+   ![Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL")
 
    Nový poznámkový blok se vytvoří a otevře s názvem Bez názvu (Bez názvu.pynb).
 
 4. Pokud chcete, klikněte na název poznámkového bloku v horní části a zadejte popisný název.
 
-    ![Zadání názvu poznámkového bloku](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Zadání názvu poznámkového bloku")
+    ![Zadání názvu, ze kterého má poznámkový blok Jupyter spustit interaktivní dotaz Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Zadání názvu, ze kterého má poznámkový blok Jupyter spustit interaktivní dotaz Spark")
 
-5. Do prázdné buňky vložte následující kód a stiskněte **SHIFT + ENTER** ke spuštění kódu. Kód naimportuje typy potřebné pro tento scénář:
+5. Do prázdné buňky vložte následující kód a stisknutím **SHIFT + ENTER** kód spusťte. Kód naimportuje typy potřebné pro tento scénář:
 
         from pyspark.sql.types import *
 
     Vzhledem k tomu, že jste poznámkový blok vytvořili pomocí jádra PySpark, není nutné explicitně tvořit kontexty. Kontexty Spark a Hive se automaticky vytvoří za vás při spuštění první buňky kódu.
 
-    ![Stav úlohy poznámkového bloku Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Stav úlohy poznámkového bloku Jupyter")
+    ![Stav interaktivního dotazu Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-interactive-spark-query-status.png "Stav interaktivního dotazu Spark SQL")
 
-    Při každém spuštění úlohy v Jupyter se název okna webového prohlížeče zobrazí jako **(Zaneprázdněn)** společně s názvem poznámkového bloku. Zobrazí se také plný kroužek vedle textu **PySpark** v pravém horním rohu. Po dokončení úlohy se změní na prázdný kruh.
+    Při každém spuštění interaktivního dotazu v Jupyter se název okna webového prohlížeče zobrazí jako **(Zaneprázdněn)** společně s názvem poznámkového bloku. Zobrazí se také plný kroužek vedle textu **PySpark** v pravém horním rohu. Po dokončení úlohy se změní na prázdný kruh.
 
 6. Zaregistrujte ukázkovou datovou sadu jako dočasnou tabulku (**hvac**) spuštěním následujícího kódu.
 
@@ -132,32 +135,29 @@ V tomto článku budete používat jádro **PySpark**. Další informace o jádr
 
     Clustery Spark ve službě HDInsight se dodávají s ukázkovým datovým souborem **hvac.csv**, který je uložený v **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
-7. Chcete-li se dotazovat na data, spusťte následující kód.
+7. Ke spuštění interaktivního dotazu na data použijte následující kód.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Vzhledem k tomu, že používáte jádro PySpark, můžete nyní přímo spustit dotaz SQL na dočasnou tabulku **hvac**, kterou jste vytvořili pomocí magických příkazů `%%sql`. Další informace o magických příkazech `%%sql` a dalších magických příkazech, které jsou k dispozici s jádrem PySpark, najdete v části [Jádra dostupná v poznámkových blocích Jupyter s clustery Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Vzhledem k tomu, že používáte jádro PySpark, můžete nyní přímo spustit interaktivní dotaz SQL nad dočasnou tabulkou **hvac**, kterou jste vytvořili pomocí magických příkazů `%%sql`. Další informace o magických příkazech `%%sql` a dalších magických příkazech, které jsou k dispozici s jádrem PySpark, najdete v části [Jádra dostupná v poznámkových blocích Jupyter s clustery Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    Ve výchozím nastavení se zobrazí následující tabulkový výstup.
 
-     ![Tabulkový výstup výsledků dotazu](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Tabulkový výstup výsledků dotazu")
+     ![Tabulkový výstup výsledku interaktivního dotazu Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result.png "Tabulkový výstup výsledku interaktivního dotazu Spark")
 
     Výsledky můžete také zobrazit v dalších vizualizacích. Například plošný graf pro stejný výstup bude vypadat následovně.
 
-    ![Plošný graf výsledku dotazu](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Plošný graf výsledku dotazu")
+    ![Plošný graf výsledku interaktivního dotazu Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result-area-chart.png "Plošný graf výsledku interaktivního dotazu Spark")
 
 9. Po dokončení spuštění aplikace můžete poznámkový blok vypnout a uvolnit tak prostředky clusteru. To provedete kliknutím na položku **Zavřít a zastavit** z nabídky **Soubor** v poznámkovém bloku.
 
-## <a name="troubleshoot"></a>Řešení potíží
-
-Tady jsou některé běžné problémy, se kterými se můžete setkat při práci s clustery HDInsight.
-
-### <a name="access-control-requirements"></a>Požadavky na řízení přístupu
-Pokud narazíte na problém s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
-
 ## <a name="delete-the-cluster"></a>Odstranění clusteru
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot-access-control"></a>Řešení potíží s řízením přístupu
+
+Pokud narazíte na problém s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="see-also"></a>Viz také
 * [Přehled: Apache Spark v Azure HDInsight](hdinsight-apache-spark-overview.md)
