@@ -4,7 +4,7 @@ Klientská knihovna serializéru služby IoT Hub používá model k určení for
 
 1. Přidejte následující deklarace proměnných za příkazy `#include`. Nahraďte zástupné hodnoty [Device Id] (ID zařízení) a [Device Key] (Klíč zařízení) hodnotami, které jste si pro své zařízení poznamenali na řídicím panelu řešení vzdáleného monitorování. K nahrazení hodnoty [IoTHub Name] (Název služby IoT Hub) použijte název hostitele služby IoT Hub z řídicího panelu řešení. Pokud je například název hostitele vaší služby IoT Hub **contoso.azure-devices.net**, nahraďte hodnotu [IoTHub Name] za **contoso**:
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@ Klientská knihovna serializéru služby IoT Hub používá model k určení for
    - Může přijímat požadované vlastnosti nastavené ve dvojčeti zařízení ve službě IoT Hub a jednat podle nich.
    - Může reagovat na přímé metody **Reboot** a **InitiateFirmwareUpdate** vyvolané prostřednictvím portálu řešení. Zařízení odesílá informace o přímých metodách, které podporuje, pomocí ohlášených vlastností.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@ Nyní přidejte kód, který implementuje chování definované v modelu.
 
 1. Přidejte následující funkce, které zpracovávají požadované vlastnosti nastavené na řídicím panelu řešení. Tyto požadované vlastnosti jsou definované v modelu:
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@ Nyní přidejte kód, který implementuje chování definované v modelu.
 
 1. Přidejte následující funkce, které zpracovávají přímé metody vyvolané prostřednictvím služby IoT Hub. Tyto přímé metody jsou definované v modelu:
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@ Nyní přidejte kód, který implementuje chování definované v modelu.
 
 1. Přidejte následující funkci, která odesílá zprávu do předkonfigurovaného řešení:
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@ Nyní přidejte kód, který implementuje chování definované v modelu.
 
 1. Přidejte následující obsluhu zpětného volání, která se spustí, když zařízení do předkonfigurovaného řešení odešle nové hodnoty požadovaných vlastností:
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@ Nyní přidejte kód, který implementuje chování definované v modelu.
     - Vytvoří smyčku pro odesílání telemetrie každou sekundu.
     - Uvolní všechny prostředky.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)
