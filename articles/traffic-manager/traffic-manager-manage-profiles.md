@@ -1,6 +1,6 @@
 ---
 title: "Správa profilů Azure Traffic Manageru | Dokumentace Microsoftu"
-description: "Tento článek vám pomůže vytvořit, zakázat, povolit nebo odstranit profil Azure Traffic Manageru, případně zobrazit jeho historii."
+description: "Tento článek vám pomůže vytvořit, zakázat, povolit nebo odstranit profil Azure Traffic Manageru."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 05/10/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 7e7de7dc1eca6903403afef03fdd6afb98ff16c9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 3d30024920295298ad2a8a6e22e11ef829934255
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -24,19 +26,22 @@ ms.openlocfilehash: 7e7de7dc1eca6903403afef03fdd6afb98ff16c9
 
 Profily Traffic Manageru využívají metody směrování provozu k řízení provozu do vašich cloudových služeb nebo na koncové body webů. Tento článek vysvětluje, jak tyto profily vytvořit a spravovat.
 
-## <a name="create-a-traffic-manager-profile-using-quick-create"></a>Vytvoření profilu Traffic Manageru pomocí funkce Rychle vytvořit
+## <a name="create-a-traffic-manager-profile"></a>Vytvoření profilu Traffic Manageru
 
-Profil Traffic Manageru můžete rychle vytvořit pomocí funkce Rychle vytvořit na portálu Azure Classic. Prostřednictvím funkce Rychle vytvořit můžete vytvářet profily se základními nastaveními konfigurace. Funkci Rychle vytvořit však nelze použít pro nastavení, jako je sada koncových bodů (pro služby Cloud Services a weby), pořadí převzetí služeb při selhání pro metodu směrování provozu s převzetím služeb při selhání nebo nastavení monitorování. Po vytvoření profilu, můžete tato nastavení konfigurovat na portálu Azure Classic. Traffic Manager podporuje až 200 koncových bodů na jeden profil. Většina scénářů použití však vyžaduje jen několik koncových bodů.
+Profil Traffic Manageru můžete vytvořit pomocí webu Azure Portal. Po vytvoření profilu můžete nakonfigurovat koncové body, monitorování a další nastavení na webu Azure Portal. Traffic Manager podporuje až 200 koncových bodů na jeden profil. Většina scénářů použití však vyžaduje jen několik koncových bodů.
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Vytvoření profilu Traffic Manageru
 
-1. **Nasaďte služby Cloud Services a weby do produkčního prostředí.** Další informace o službách Cloud Services najdete v tématu [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). Další informace o webech najdete v tématu [Weby](http://go.microsoft.com/fwlink/p/?LinkId=393327).
-2. **Přihlaste se na portál Azure Classic.** Klikněte na **Nový** v levém dolním rohu portálu, na **Síťové služby > Traffic Manager** a pak na **Rychle vytvořit** a začněte profil konfigurovat.
-3. **Nakonfigurujte předponu DNS.** Zadejte pro profil Traffic Manageru jedinečný název předpony DNS. Pro název domény Traffic Manageru můžete určit pouze předponu.
-4. **Vyberte předplatné.** Vyberte příslušné předplatné Azure. Každý profil je přidružen k jednomu předplatnému. Pokud máte pouze jedno předplatné, tato možnost se nezobrazí.
-5. **Vyberte metodu směrování provozu.** V části **Zásady směrování provozu** vyberte metodu směrování provozu. Další informace o metodách směrování provozu najdete v tématu [Informace o metodách směrování provozu Traffic Manageru](traffic-manager-routing-methods.md).
-6. **Kliknutím na Vytvořit vytvořte profil.** Po dokončení konfigurace profilu můžete příslušný profil vyhledat v podokně Traffic Manageru na portálu Azure Classic.
-7. **Na portálu Azure Classic nakonfigurujte koncové body, monitorování a další nastavení.** Funkce pro rychlé vytvoření nakonfiguruje jen základní nastavení. Je nutné nakonfigurovat další nastavení, například seznam koncových bodů a pořadí přebírání služeb koncových bodů při selhání.
+1. V prohlížeči se přihlaste k webu [Azure Portal](http://portal.azure.com). Pokud ještě účet nemáte, můžete si zaregistrovat [zkušební verzi na měsíc zdarma](https://azure.microsoft.com/free/). 
+2. V nabídce **Centrum** klikněte na **Nový** >  **Sítě** > **Zobrazit vše** a pak na profil **Traffic Manager**, otevřete okno **Vytvořit profil Traffic** Manageru, kde klikněte na **Vytvořit**.
+3. Okno **Vytvořit profil Traffic Manageru** vyplňte následovně:
+    1. Do pole **Název** zadejte název profilu. Tento název musí být jedinečný v rámci zóny trafficmanager.net a ve výsledcích názvu DNS <name>, trafficmanager.net.
+    2. Jakou **Metodu směrování** vyberte **Priorita**.
+    3. V poli **Předplatné** vyberte předplatné, v rámci kterého chcete profil vytvořit.
+    4. V části **Skupina prostředků** vytvořte novou skupinu prostředků, do které chcete profil umístit.
+    5. V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení se týká umístění skupiny prostředků a nemá žádný vliv na profil Traffic Manageru, který se nasadí globálně.
+    6. Klikněte na možnost **Vytvořit**.
+    7. Po dokončení globálního nasazení profilu Traffic Manageru bude uveden jako jeden z prostředků v příslušné skupině prostředků.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Zakázání, povolení nebo odstranění profilu
 
@@ -46,47 +51,29 @@ Existující profil můžete zakázat, aby Traffic Manager neodkazoval požadavk
 
 1. Pokud používáte vlastní název domény, změňte si na internetovém serveru DNS záznam CNAME tak, aby už neodkazoval na váš profil Traffic Manageru.
 2. Nasměrování provozu do koncových bodů prostřednictvím nastavení profilu Traffic Manageru se zastaví.
-3. Vyberte profil, který chcete zakázat. Na stránce Traffic Manageru zvýrazněte profil kliknutím do sloupce vedle jeho názvu. Nezapomeňte, že kliknutím na jeho název nebo na šipku u něh byste otevřeli stránku nastavení pro příslušný profil.
-4. Po výběru profilu klikněte na **Zakázat** v dolní části stránky.
+3. V prohlížeči se přihlaste k webu [Azure Portal](http://portal.azure.com).
+2. Na panelu hledání na portálu vyhledejte název **profilu služby Traffic Manager**, který chcete upravit, a pak na tento profil služby Traffic Manager klikněte v zobrazených výsledcích.
+3. V okně **Profil Traffic Manageru** klikněte na **Přehled**. v okně Přehled klikněte na Zakázat a pak potvrzením **zakažte** profil Traffic Manageru.
 
 ### <a name="to-enable-a-profile"></a>Povolení profilu
 
-1. Vyberte profil, který chcete zakázat. Na stránce Traffic Manageru zvýrazněte profil kliknutím do sloupce vedle jeho názvu. Nezapomeňte, že kliknutím na jeho název nebo na šipku u něh byste otevřeli stránku nastavení pro příslušný profil.
-2. Po výběru profilu klikněte na **Povolit** v dolní části stránky.
-3. Pokud používáte vlastní název domény, vytvořte si na internetovém serveru DNS záznam prostředku DNS, který bude odkazovat na název domény ve vašem profilu Traffic Manageru.
-4. Provoz se směruje do příslušných koncových bodů.
+1. V prohlížeči se přihlaste k webu [Azure Portal](http://portal.azure.com).
+2. Na panelu hledání na portálu vyhledejte název **profilu služby Traffic Manager**, který chcete upravit, a pak na tento profil služby Traffic Manager klikněte v zobrazených výsledcích.
+3. V okně **Profil Traffic Manageru** klikněte na **Přehled** a v okně Přehled klikněte na **Povolit**.
+5. Pokud používáte vlastní název domény, vytvořte si na internetovém serveru DNS záznam prostředku DNS, který bude odkazovat na název domény ve vašem profilu Traffic Manageru.
+6. Provoz se směruje do příslušných koncových bodů.
 
 ### <a name="to-delete-a-profile"></a>Odstranění profilu
 
 1. Ověřte, že záznam prostředku DNS na vašem serveru DNS pro internet již nepoužívá záznam prostředku CNAME, který odkazuje na název domény pro váš profil Traffic Manageru.
-2. Vyberte profil, který chcete zakázat. Na stránce Traffic Manageru zvýrazněte profil kliknutím do sloupce vedle jeho názvu. Nezapomeňte, že kliknutím na jeho název nebo na šipku u něh byste otevřeli stránku nastavení pro příslušný profil.
-3. Po výběru profilu klikněte na **Odstranit** v dolní části stránky.
-
-## <a name="view-traffic-manager-profile-change-history"></a>Zobrazení historie změn profilu Traffic Manageru
-
-Můžete zobrazit historii změn pro svůj profil Traffic Manageru na portálu Azure Classic v části Služby správy.
-
-### <a name="to-view-your-traffic-manager-change-history"></a>Zobrazení historie změn v Traffic Manageru
-
-1. V levém podokně portálu Azure Classic klikněte na **Služby správy**.
-2. Na stránce Služby správy klikněte na **Protokoly operací**.
-3. Na stránce Protokoly operací můžete filtrovat údaje a zobrazit historii změn pro svůj profil Traffic Manageru. Po výběru možností filtrování klikněte na symbol zaškrtnutí, aby se zobrazily výsledky.
-
-   * Chcete-li zobrazit změny všech svých profilů, vyberte své předplatné a časový rozsah a pak **Traffic Manager** z místní nabídky **Typ**.
-   * Chcete-li filtrovat údaje podle názvu profilu, zadejte název profilu do pole **Název služby** pole nebo ho vyberte v místní nabídce.
-   * Chcete-li zobrazit podrobnosti o každé jednotlivé změně, vyberte řádek se změnou, kterou chcete zobrazit, a pak klikněte na **Podrobnosti** v dolní části stránky. V okně **Detaily operace** můžete zobrazit reprezentaci XML pro objekt rozhraní API, který byl vytvořen nebo aktualizován v rámci operace.
+2. Na panelu hledání na portálu vyhledejte název **profilu služby Traffic Manager**, který chcete upravit, a pak na tento profil služby Traffic Manager klikněte v zobrazených výsledcích.
+3. V okně **Profil Traffic Manageru** klikněte na **Přehled**, v okně Přehled klikněte na **Odstranit** a potvrďte odstranění profilu Traffic Manageru.
 
 ## <a name="next-steps"></a>Další kroky
 
 * [Přidání koncového bodu](traffic-manager-endpoints.md)
-* [Konfigurace metody směrování s převzetím služeb při selhání](traffic-manager-configure-failover-routing-method.md)
-* [Konfigurace metody směrování s kruhovým dotazováním](traffic-manager-configure-round-robin-routing-method.md)
+* [Konfigurace metody prioritního směrování](traffic-manager-configure-priority-routing-method.md)
+* [Konfigurace metody geografického směrování](traffic-manager-configure-geographic-routing-method.md) 
+* [Konfigurace metody váženého směrování](traffic-manager-configure-weighted-routing-method.md)
 * [Konfigurace metody směrování podle výkonu](traffic-manager-configure-performance-routing-method.md)
-* [Nasměrování internetové domény společnosti na název domény Traffic Manageru](traffic-manager-point-internet-domain.md)
-* [Řešení potíží při sníženém výkonu Traffic Manageru](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

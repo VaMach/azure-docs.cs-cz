@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 89921997f68bd72ee6086d2b635361eeeaba1c28
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,7 +34,7 @@ Služba Azure Recovery Services přispívá ke strategii BCDR. Služba [Azure Ba
 
 - **Zotavení po havárii v cloudu** – Úlohy běžící ve virtuálních počítačích a na fyzických serverech můžete replikovat do Azure namísto sekundární lokality. Tím se eliminují náklady a složitost spojené s udržováním sekundárního datového centra.
 - **Flexibilní replikace pro hybridní prostředí** – Můžete replikovat libovolné úlohy běžící v podporovaných místních virtuálních počítačích Hyper-V a VMware a na fyzických serverech s Windows nebo Linuxem.
-- **Migrace** – Pomocí Site Recovery můžete migrovat místní instance AWS na virtuální počítače Azure nebo migrovat virtuální počítače Azure mezi oblastmi Azure.
+- **Migrace** – Pomocí Site Recovery můžete migrovat instance AWS na virtuální počítače Azure nebo migrovat virtuální počítače Azure mezi oblastmi Azure.
 - **Zjednodušená strategie BCDR** – Replikaci můžete nasadit z jednoho místa na webu Azure Portal.  Můžete spouštět jednoduché převzetí služeb při selhání a navrácení služeb po obnovení u jednoho nebo několika počítačů.
 - **Odolnost** – Site Recovery orchestruje replikace a převzetí služeb při selhání bez zachycování dat aplikací.
 Replikovaná data se ukládají ve službě Azure Storage s odolností, kterou tato služba nabízí. Pokud dojde k převzetí služeb při selhání, vytvoří se virtuální počítače Azure na základě replikovaných dat.

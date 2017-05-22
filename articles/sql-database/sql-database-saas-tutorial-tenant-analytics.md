@@ -1,6 +1,6 @@
 ---
-title: "Spouštění analytických dotazů v několika tenantech (ukázková SaaS aplikace využívající Azure SQL Database) | Dokumentace Microsoftu"
-description: "Spouštění analytických dotazů v několika tenantech"
+title: "Spouštění analytických dotazů pro více databází SQL Azure | Dokumentace Microsoftu"
+description: "Spouštění distribuovaných dotazů ve více databázích SQL Azure"
 keywords: kurz k sql database
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Spouštění analytických dotazů v několika tenantech
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Spouštění distribuovaných dotazů ve více databázích SQL Azure
 
 V tomto kurzu budete spouštět analytické dotazy u všech tenantů v katalogu. Vytvoří se elastická úloha, která spouští dotazy. Úloha načítá data a nahraje je do samostatné analytické databáze vytvořené na katalogovém serveru. Tato databáze může být dotazována k extrahování přehledů, které jsou skryté v každodenních provozních datech všech tenantů. Výstupem úlohy je tabulka vytvořená z dotazů, které vracejí výsledky v rámci analytické databáze tenantů.
 

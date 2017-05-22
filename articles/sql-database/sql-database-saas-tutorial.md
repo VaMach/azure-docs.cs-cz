@@ -1,6 +1,6 @@
 ---
-title: "Nasazení aplikace WTP (Wingtip Tickets Platform) a seznámení s ní (ukázková SaaS aplikace využívající službu Azure SQL Database) | Dokumentace Microsoftu"
-description: "Nasazení a zkoumání ukázkové SaaS aplikace využívající službu Azure SQL Database"
+title: "Nasazení a zkoumání SaaS aplikace využívající službu Azure SQL Database | Dokumentace Microsoftu"
+description: "Nasazení a prozkoumání ukázkové aplikace Wingtip Tickets (WTP) využívající službu Azure SQL Database"
 keywords: kurz k sql database
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,20 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ff4dc19bb6e24ea9ceeed9721cfb3a85b4d10965
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Nasazení a zkoumání SaaS aplikace pro více tenantů, která využívá službu Azure SQL Database
+# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Nasazení a zkoumání SaaS aplikace s více tenanty využívající službu Azure SQL Database
 
 V tomto kurzu nasadíte a prozkoumáte SaaS aplikaci WTP (Wingtip Tickets Platform) a seznámíte se s ní. Aplikace používá k poskytování služeb více tenantům strukturu SaaS aplikací, tj. s jednou databází pro každého tenanta. Aplikace je navržená tak, aby ukazovala funkce služby Azure SQL Database, které umožňují scénáře SaaS, a vzorce návrhu a správy SaaS aplikací.
 
 Pět minut po kliknutí na tlačítko *Nasadit do Azure* zobrazené níže budete mít k dispozici SaaS aplikaci pro více klientů využívající službu SQL Database, která bude běžet v cloudu. Aplikace se nasazuje se třemi ukázkovými klienty, přičemž každý má vlastní databází a všichni jsou nasazení do elastického fondu SQL. Aplikace se nasazuje do vašeho předplatného Azure, díky čemuž máte úplný přístup ke kontrole jednotlivých komponent aplikace a práci s nimi.
+
+Skripty a zdrojový kód aplikace jsou k dispozici v úložišti GitHubu [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS).
 
 V tomto kurzu se dozvíte:
 

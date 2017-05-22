@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bf0fa92b4f0a54738da86e2c8f26a51d053cfac
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -29,7 +29,7 @@ Azure CLI slouží k vytváření a správě prostředků Azure z příkazového
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-Tento kurz vyžaduje Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Tento Rychlý start vyžaduje Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
 
@@ -104,7 +104,7 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
+## <a name="view-the-nginx-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
 S nainstalovaným serverem NGINX na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku serveru NGINX. Nezapomeňte pro návštěvu výchozí stránky použít veřejnou IP adresu (*publicIpAddress*) popsanou výše. 
 
