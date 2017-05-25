@@ -47,7 +47,7 @@
 ## [Přizpůsobení uživatelského rozhraní](active-directory-b2c-reference-ui-customization.md)
 ### [Pomocný nástroj pro přizpůsobení](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Vlastní nastavení jazyka](active-directory-b2c-reference-language-customization.md)
-## [Použití rozhraní API pro vytváření sestav](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Použití rozhraní API pro vytváření sestav](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Nastavení samoobslužného resetování hesla](active-directory-b2c-reference-sspr.md)
 
 # Architektura prostředí identit
@@ -59,8 +59,8 @@
 ### Konfigurace zprostředkovatelů SAML
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrace rozhraní RESTful API
-#### [Získání dalších deklarací identity](active-directory-b2c-rest-api-step-custom.md)
 #### [Ověření vstupu uživatele](active-directory-b2c-rest-api-validation-custom.md)
+#### [Získání dalších deklarací identity](active-directory-b2c-rest-api-step-custom.md)
 ### Přizpůsobení přihlášení
 #### [Konfigurace uživatelského vstupu](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Rezidence dat a dostupnost oblastí](active-directory-b2c-reference-tenant-type.md)
 ## [Povolení fakturace](active-directory-b2c-how-to-enable-billing.md)
 ## [Řízení rizik](active-directory-b2c-reference-threat-management.md)
-## [Limity a omezení](active-directory-b2c-limitations.md)
 ## [Potíže při vytváření adresáře](active-directory-b2c-support-create-directory.md)
 
 # Související

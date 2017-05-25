@@ -76,7 +76,6 @@
 ### Reach
 #### [Začínáme používat a spravovat nabízená oznámení](mobile-engagement-how-tos.md)
 #### [Odesílání emoji v oznámeních](mobile-engagement-use-emoji-with-push.md)
-#### [Odesílání přizpůsobených oznámení](mobile-engagement-send-personalized-notifications.md)
 
 ### Přístup k rozhraním API služby
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
