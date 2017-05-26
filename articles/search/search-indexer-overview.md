@@ -1,6 +1,6 @@
 ---
 title: "Indexery ve službě Azure Search | Dokumentace Microsoftu"
-description: "Procházejte databázi Azure SQL, DocumentDB nebo úložiště Azure, extrahujte prohledávatelná data a naplňte jimi index služby Azure Search."
+description: "Procházejte databázi SQL Azure, službu Azure Cosmos DB nebo úložiště Azure, extrahujte prohledávatelná data a naplňte jimi index služby Azure Search."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -27,9 +29,9 @@ ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 > * [Přehled](search-indexer-overview.md)
 > * [Azure Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](search-howto-index-documentdb.md)
-> * [Blob Storage (Preview)](search-howto-indexing-azure-blob-storage.md)
-> * [Table Storage (Preview)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -40,7 +42,7 @@ Můžete použít indexer jako jediný prostředek přijímání dat, nebo můž
 Indexery můžete spouštět na vyžádání nebo podle pravidelného plánu aktualizace dat, která může probíhat až každých 15 minut. Častější aktualizace vyžadují model Push, který aktualizuje data současně ve službě Azure Search i v externím zdroji dat.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Přístupy k vytváření a správě indexerů
-Všeobecně dostupné indexery jako SQL Azure nebo DocumentDB můžete vytvořit a spravovat pomocí těchto přístupů:
+Všeobecně dostupné indexery jako SQL Azure nebo Azure Cosmos DB můžete vytvořit a spravovat pomocí těchto přístupů:
 
 * [Portál > Průvodce importem dat](search-get-started-portal.md)
 * [Rozhraní API služby REST](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -56,7 +58,7 @@ Indexer automatizuje některé úkoly související s příjmem dat, ale vytvá�
 Indexer získává data ze **zdroje dat**, který obsahuje informace, jako je například připojovací řetězec. Aktuálně jsou podporované tyto zdroje dat:
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -69,14 +71,9 @@ Definice indexeru je konstrukce, která určuje index, zdroj dat a plán. Indexe
 Teď jste získali základní představu. V dalším kroku se zaměříme na požadavky a úlohy specifické pro různé typy zdrojů dat.
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Indexování objektů blob CSV pomocí indexeru Azure Search Blob (Preview)](search-howto-index-csv-blobs.md)
-* [Indexování objektů blob JSON pomocí indexeru Azure Search Blob (Preview)](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Indexování objektů blob CSV pomocí indexeru Azure Search Blob](search-howto-index-csv-blobs.md)
+* [Indexování objektů blob JSON pomocí indexeru Azure Search Blob](search-howto-index-json-blobs.md)
 

@@ -1,28 +1,29 @@
 ---
-title: 'Kurz k NoSQL: DocumentDB .NET SDK | Dokumentace Microsoftu'
-description: "Kurz k NoSQL, v rámci kterého se vytváří online databáze a konzolová aplikace v jazyce C# pomocí sady DocumentDB .NET SDK. DocumentDB je databáze NoSQL pro JSON."
+title: "Azure Cosmos DB: Úvodní kurz k rozhraní DocumentDB API | Dokumentace Microsoftu"
+description: "Kurz, v rámci kterého se vytvoří online databáze a konzolová aplikace v jazyce C# pomocí rozhraní DocumentDB API."
 keywords: "kurz nosql, online databáze konzolová aplikace jazyka c#"
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/19/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 648aa01beaffccf69250f1028e27bc13ed70837c
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 765c1329422f5890c018f71d6e3c409fc0d56a6e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Kurz k NoSQL: Vytvoření konzolové aplikace DocumentDB v jazyce C#
+# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: Úvodní kurz k rozhraní DocumentDB API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/28/2017
 >  
 > 
 
-Vítejte v kurzu k NoSQL pro sadu Azure DocumentDB .NET SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
+Vítejte v úvodním kurzu k rozhraní DocumentDB API služby Azure Cosmos DB! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
 
 Budeme se zabývat těmito tématy:
 
-* Vytvoření a připojení k účtu DocumentDB
+* Vytvoření účtu služby Azure Cosmos DB a připojení k němu
 * Konfigurace řešení v nástroji Visual Studio
 * Vytvoření online databáze
 * Vytvoření kolekce
@@ -57,11 +58,11 @@ Můžeme začít!
 Ujistěte se prosím, že máte následující:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/). 
-    * Alternativně můžete pro tento kurz použít [emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    * Alternativně můžete pro tento kurz použít [emulátor služby Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/)
 
-## <a name="step-1-create-a-documentdb-account"></a>Krok 1: Vytvoření účtu DocumentDB
-Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení řešení v nástroji Visual Studio](#SetupVS). Pokud používáte emulátor DocumentDB, postupujte prosím podle kroků v tématu [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md), abyste nastavili emulátor, a přeskočte k části [Nastavení řešení v sadě Visual Studio](#SetupVS).
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1: Vytvoření účtu služby Azure Cosmos DB
+Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení řešení v nástroji Visual Studio](#SetupVS). Pokud používáte emulátor služby Azure Cosmos DB, nastavte emulátor pomocí postupu v tématu [Emulátor služby Azure Cosmos DB](documentdb-nosql-local-emulator.md) a přeskočte k části [Nastavení řešení v sadě Visual Studio](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -75,14 +76,14 @@ Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, m�
     ![Snímek obrazovky místní nabídky projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. Na kartě **NuGet** klikněte na **Procházet** a do vyhledávacího pole zadejte **azure documentdb**.
 6. Najděte ve výsledcích **Microsoft.Azure.DocumentDB** a klikněte na **Nainstalovat**.
-   ID balíčku klientské knihovny DocumentDB je [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-   ![Snímek obrazovky nabídky Nuget pro vyhledání sady DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   ID balíčku s klientskou knihovnou služby Azure Cosmos DB je [Microsoft.Azure.Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Azure Cosmos DB).
+   ![Snímek obrazovky nabídky Nuget pro vyhledání sady Azure Cosmos DB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Pokud se vám zobrazí zpráva týkající se kontroly změn řešení, klikněte na **OK**. Pokud se vám zobrazí zpráva týkající se přijetí licence, klikněte na **Souhlasím**.
 
 Výborně! Teď když jsme dokončili nastavování, napišme nějaký kód. Úplný projekt s kódem pro tento kurz najdete na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
+## <a id="Connect"></a>Krok 3: Připojení k účtu služby Azure Cosmos DB
 Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
 
     using System;
@@ -96,7 +97,7 @@ Nejprve přidejte na začátek aplikace C# do souboru Program.cs tyto reference:
     using Newtonsoft.Json;
 
 > [!IMPORTANT]
-> Přidání závislostí uvedených výše je nezbytné pro dokončení tohoto kurzu NoSQL.
+> Přidání výše uvedených závislostí je nezbytné pro dokončení tohoto kurzu.
 > 
 > 
 
@@ -109,13 +110,13 @@ Nyní přidejte tyto dvě konstanty a proměnnou *client* pod veřejnou třídu 
         private const string PrimaryKey = "<your primary key>";
         private DocumentClient client;
 
-Dále přejděte zpět na [Azure Portal](https://portal.azure.com) a získejte adresu URL koncového bodu a primární klíč. Adresa koncového bodu a primární klíč jsou potřeba k tomu, aby aplikace věděla, kam se připojit, a aby DocumentDB důvěřovala připojení aplikace.
+Dále přejděte zpět na [Azure Portal](https://portal.azure.com) a získejte adresu URL koncového bodu a primární klíč. Adresa URL koncového bodu a primární klíč jsou potřeba k tomu, aby aplikace věděla, kam se má připojit, a aby služba Azure Cosmos DB důvěřovala připojení aplikace.
 
-Na webu Azure Portal přejděte na účet DocumentDB a klikněte na **Klíče**.
+Na webu Azure Portal přejděte do účtu služby Azure Cosmos DB a klikněte na **Klíče**.
 
 Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URL>` v souboru program.cs. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your primary key>`.
 
-![Snímek obrazovky Portálu Azure, který se v kurzu NoSQL používá k vytvoření konzolové aplikace v C#. Zobrazuje účet DocumentDB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem Klíče v okně účtu DocumentDB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče.][keys]
+![Snímek obrazovky Portálu Azure, který se v kurzu NoSQL používá k vytvoření konzolové aplikace v C#. Ukazuje účet služby Azure Cosmos DB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem KLÍČE v okně účtu služby Azure Cosmos DB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče.][keys]
 
 Potom vytvořením nové instance **DocumentClient** spustíme aplikaci.
 
@@ -159,7 +160,7 @@ Přidejte následující kód, aby se asynchronní úkol spustil z metody **Main
 
 Stisknutím klávesy **F5** spusťte aplikaci. Výstup okna konzoly zobrazuje zprávu `End of demo, press any key to exit.`, která potvrzuje vytvoření připojení.  Potom můžete okno konzoly zavřít. 
 
-Blahopřejeme! Úspěšně jste se připojili k účtu DocumentDB. Nyní se podívejme, jak se pracuje s prostředky DocumentDB.  
+Blahopřejeme! Úspěšně jste se připojili k účtu služby Azure Cosmos DB. Nyní se podívejme, jak se pracuje s prostředky Azure Cosmos DB.  
 
 ## <a name="step-4-create-a-database"></a>Krok 4: Vytvoření databáze
 Než přidáte kód pro vytvoření databáze, přidejte pomocnou metodu pro výpis do konzoly.
@@ -174,7 +175,7 @@ Zkopírujte a vložte metodu **WriteToConsoleAndPromptToContinue** za metodu **G
             Console.ReadKey();
     }
 
-[Databázi](documentdb-resources.md#databases) DocumentDB je možné vytvořit pomocí metody [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) třídy **DocumentClient**. Databáze je logický kontejner úložiště dokumentů JSON rozděleného mezi kolekcemi.
+[Databázi](documentdb-resources.md#databases) Azure Cosmos DB je možné vytvořit pomocí metody [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) třídy **DocumentClient**. Databáze je logický kontejner úložiště dokumentů JSON rozděleného mezi kolekcemi.
 
 Zkopírujte a vložte následující kód do metody **GetStartedDemo** za vytvoření klienta. Tím se vytvoří databáze s názvem *FamilyDB*.
 
@@ -187,7 +188,7 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** za vytvo�
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
-Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.  
+Blahopřejeme! Úspěšně jste vytvořili databázi Azure Cosmos DB.  
 
 ## <a id="CreateColl"></a>Krok 5: Vytvoření kolekce
 > [!WARNING]
@@ -208,12 +209,12 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** za vytvo�
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
-Blahopřejeme! Úspěšně jste vytvořili kolekci dokumentů DocumentDB.  
+Blahopřejeme! Úspěšně jste vytvořili kolekci dokumentů Azure Cosmos DB.  
 
 ## <a id="CreateDoc"></a>Krok 6: Vytvoření dokumentů JSON
 [Dokument](documentdb-resources.md#documents) je možné vytvořit pomocí metody [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) třídy **DocumentClient**. Dokumenty představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete vložit jeden nebo více dokumentů. Pokud již máte data, která chcete uložit do databáze, můžete použít [nástroj pro migraci dat](documentdb-import-data.md) služby DocumentDB a importovat tato data do databáze.
 
-Nejprve musíme vytvořit třídu **Family**, která bude v této ukázce představovat objekty uložené v DocumentDB. Kromě toho vytvoříme i podtřídy **Parent**, **Child**, **Pet** a **Address**, které se použijí v rámci **Family**. Povšimněte si, že dokumenty musí mít vlastnost **Id** serializovanou jako **id** ve formátu JSON. Vytvořte tyto třídy tak, že za metodu **GetStartedDemo** přidáte následující vnitřní podtřídy.
+Nejprve musíme vytvořit třídu **Family**, která bude v této ukázce představovat objekty uložené ve službě Azure Cosmos DB. Kromě toho vytvoříme i podtřídy **Parent**, **Child**, **Pet** a **Address**, které se použijí v rámci **Family**. Povšimněte si, že dokumenty musí mít vlastnost **Id** serializovanou jako **id** ve formátu JSON. Vytvořte tyto třídy tak, že za metodu **GetStartedDemo** přidáte následující vnitřní podtřídy.
 
 Zkopírujte a vložte třídy **Family**, **Parent**, **Child**, **Pet** a **Address** za metodu **WriteToConsoleAndPromptToContinue**.
 
@@ -368,12 +369,12 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** za vytvo�
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
-Blahopřejeme! Úspěšně jste vytvořili dva dokumenty DocumentDB.  
+Blahopřejeme! Úspěšně jste vytvořili dva dokumenty Azure Cosmos DB.  
 
 ![Diagram ilustrující hierarchický vztah mezi účtem, online databází, kolekcí a dokumenty používanými v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
-DocumentDB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující ukázkový kód ukazuje různé dotazy – používající jak syntaxi DocumentDB SQL, tak LINQ – které spouštíme oproti dokumentům vloženým v předchozím kroku.
+## <a id="Query"></a>Krok 7: Dotazování prostředků Azure Cosmos DB
+Azure Cosmos DB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující ukázkový kód ukazuje různé dotazy – používající jak syntaxi SQL služby Azure Cosmos DB, tak LINQ – které můžeme spouštět na dokumenty vložené v předchozím kroku.
 
 Zkopírujte a vložte metodu **ExecuteSimpleQuery** za metodu **CreateFamilyDocumentIfNotExists**.
 
@@ -420,16 +421,16 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** za vytvo�
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
-Blahopřejeme! Úspěšně jste provedli dotaz proti kolekci DocumentDB.
+Blahopřejeme! Úspěšně jste provedli dotaz na kolekci Azure Cosmos DB.
 
-Následující diagram ilustruje, jak se volá syntaxe dotazu DocumentDB SQL proti kolekci, kterou jste vytvořili. Stejná logika platí také pro dotaz LINQ.
+Následující diagram ilustruje volání syntaxe příkazu jazyka SQL služby Azure Cosmos DB na kolekci, kterou jste vytvořili. Stejná logika platí také pro dotaz LINQ.
 
 ![Diagram ilustrující obor a význam dotazu použitého v kurzu NoSQL k vytvoření konzolové aplikace v jazyce C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 Klíčové slovo [FROM](documentdb-sql-query.md#FromClause) je v dotazu volitelné, protože dotazy DocumentDB již mají obor nastaven na jedinou kolekci. Proto je možné příkaz „FROM Families f“ vyměnit za „FROM root r“ nebo jakoukoli jinou proměnnou, kterou si zvolíte. DocumentDB standardně vyvodí, že Families, root nebo zvolený název proměnné odkazují na aktuální kolekci.
 
 ## <a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
-DocumentDB podporuje nahrazování dokumentů JSON.  
+Azure Cosmos DB podporuje nahrazování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **ReplaceFamilyDocument** za metodu **ExecuteSimpleQuery**.
 
@@ -456,10 +457,10 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** za spušt
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
-Blahopřejeme! Úspěšně jste nahradili dokument DocumentDB.
+Blahopřejeme! Úspěšně jste nahradili dokument Azure Cosmos DB.
 
 ## <a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
-DocumentDB podporuje odstraňování dokumentů JSON.  
+Azure Cosmos DB podporuje odstraňování dokumentů JSON.  
 
 Zkopírujte a vložte metodu **DeleteFamilyDocument** za metodu **ReplaceFamilyDocument**.
 
@@ -481,7 +482,7 @@ Zkopírujte a vložte následující kód do metody **GetStartedDemo** za spušt
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
-Blahopřejeme! Úspěšně jste odstranili dokument DocumentDB.
+Blahopřejeme! Úspěšně jste odstranili dokument Azure Cosmos DB.
 
 ## <a id="DeleteDatabase"></a>Krok 10: Odstranění databáze
 Odstraněním vytvořené databáze dojde k odstranění databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
@@ -498,7 +499,7 @@ Pokud chcete odstranit celou databázi a její podřízené prostředky, zkopír
 
 Stisknutím klávesy **F5** spusťte aplikaci.
 
-Blahopřejeme! Úspěšně jste odstranili databázi DocumentDB.
+Blahopřejeme! Úspěšně jste odstranili databázi Azure Cosmos DB.
 
 ## <a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
 Stiskněte v nástroji Visual Studio klávesu F5 – aplikace se sestaví v režimu ladění.
@@ -526,28 +527,28 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup bude zobrazovat výs
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou aplikaci jazyka C#!
+Blahopřejeme! Dokončili jste tento kurz a máte funkční konzolovou aplikaci jazyka C#!
 
-## <a id="GetSolution"></a>Získání úplného řešení kurzu NoSQL
+## <a id="GetSolution"></a>Získání úplného řešení kurzu
 Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu nebo si jen chcete stáhnout ukázky kódu, můžete je získat z [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 K vytvoření řešení GetStarted budete potřebovat toto:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/).
-* [Účet DocumentDB][documentdb-create-account].
+* [Účet služby Azure Cosmos DB][documentdb-create-account].
 * Řešení [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) dostupné na GitHubu
 
-Pokud chcete obnovit reference na sadu DocumentDB .NET SDK v nástroji Visual Studio, klikněte v Průzkumníkovi řešení pravým tlačítkem na řešení **GetStarted** a pak levým na **Povolit obnovení balíčků NuGet**. Dále v souboru App.config aktualizujte hodnoty EndpointUrl a AuthorizationKey tak, jak je popsáno v části [Připojení k účtu DocumentDB](#Connect).
+Pokud chcete obnovit reference na sadu DocumentDB .NET SDK v nástroji Visual Studio, klikněte v Průzkumníkovi řešení pravým tlačítkem na řešení **GetStarted** a pak levým na **Povolit obnovení balíčků NuGet**. Dále v souboru App.config aktualizujte hodnoty EndpointUrl a AuthorizationKey tak, jak je popsáno v části [Připojení k účtu služby Azure Cosmos DB](#Connect).
 
 A to je vše, stačí sestavit a máte hotovo.
 
 
 ## <a name="next-steps"></a>Další kroky
-* Chcete složitější kurz NoSQL pro ASP.NET MVC? Přečtěte si o [vytvoření webové aplikace pomocí ASP.NET MVC a DocumentDB](documentdb-dotnet-application.md).
-* Chcete testovat škálování a výkon s DocumentDB? Přečtěte si o [testování výkonu a škálování s Azure DocumentDB](documentdb-performance-testing.md).
-* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Chcete komplexnější kurz pro ASP.NET MVC? Viz [Vytvoření webové aplikace pomocí ASP.NET MVC a služby Azure Cosmos DB](documentdb-dotnet-application.md).
+* Chcete testovat škálování a výkon pomocí služby Azure Cosmos DB? Viz [Testování výkonu a škálování pomocí služby Azure Cosmos DB](documentdb-performance-testing.md).
+* Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
-* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace ke službě Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

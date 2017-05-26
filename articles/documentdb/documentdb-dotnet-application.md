@@ -1,28 +1,29 @@
 ---
-title: "Kurz k ASP.NET MVC pro DocumentDB: Vývoj webových aplikací | Microsoft Docs"
-description: "Kurz k ASP.NET MVC, v rámci kterého se vytvoří webová aplikace MVC pomocí DocumentDB. Budete ukládat JSON a přístupová data z aplikace seznamu úkolů hostované na Webech Azure – podrobný kurz ASP.NET MVC."
+title: "Kurz k ASP.NET MVC pro službu Azure Cosmos DB: Vývoj webové aplikace | Dokumentace Microsoftu"
+description: "Kurz k ASP.NET MVC, v rámci kterého se vytvoří webová aplikace MVC s použitím služby Azure Cosmos DB. Budete ukládat JSON a přístupová data z aplikace seznamu úkolů hostované na Webech Azure – podrobný kurz ASP.NET MVC."
 keywords: "kurz asp.net mvc, vývoj webových aplikací, aplikace mvc web, kurz asp net mvc krok za krokem"
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 48736ab63a74c78a7d111011faf135f32c0c4f9e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webových aplikací s DocumentDB| Microsoft Azure
+# <a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webové aplikace s použitím služby Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET pro MongoDB](documentdb-mongodb-application.md)
@@ -32,11 +33,11 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Pro větší názornost, jak lze pomocí Azure DocumentDB efektivně ukládat dokumenty JSON a zadávat na ně dotazy, obsahuje tento článek úplný podrobný návod, jak pomocí Azure DocumentDB vytvořit aplikaci pro seznam úkolů. Úkoly se budou ukládat jako dokumenty JSON do Azure DocumentDB.
+Pro větší názornost, jak lze pomocí služby Azure Cosmos DB efektivně ukládat dokumenty JSON a zadávat na ně dotazy, obsahuje tento článek úplný podrobný návod, jak pomocí služby Azure Cosmos DB vytvořit aplikaci seznamu úkolů. Úkoly se budou ve službě Azure Cosmos DB ukládat jako dokumenty JSON.
 
 ![Snímek obrazovky webové aplikace MVC pro seznam úkolů vytvořené v tomto kurzu – podrobný kurz ASP.NET MVC](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-Tento návod popisuje, jak pomocí služby DocumentDB, kterou poskytuje Azure, ukládat data a přistupovat k nim z webové aplikace ASP.NET MVC, která je hostována v Azure. Pokud hledáte kurz, který se zaměřuje jenom na DocumentDB, nikoli komponenty ASP.NET MVC, přečtěte si téma o [vytvoření konzolové aplikace DocumentDB v jazyce C#](documentdb-get-started.md).
+Tento návod popisuje, jak pomocí služby Azure Cosmos DB, kterou poskytuje Azure, ukládat data a přistupovat k nim z webové aplikace ASP.NET MVC hostované v Azure. Pokud hledáte kurz, který se zaměřuje jenom na službu Azure Cosmos DB, nikoli komponenty ASP.NET MVC, přečtěte si téma popisující [vytvoření konzolové aplikace využívající službu Azure Cosmos DB v jazyce C#](documentdb-get-started.md).
 
 > [!TIP]
 > V tomto kurzu se předpokládá, že již máte zkušenosti s používáním ASP.NET MVC a Webů Azure. Pokud jsou pro vás technologie ASP.NET nebo [požadované nástroje](#_Toc395637760) nové, doporučujeme stáhnout úplný ukázkový projekt z [GitHubu][GitHub] a postupovat podle pokynů v této ukázce. Až jej budete mít sestavený, můžete se k tomuto článku vrátit, abyste kódu lépe porozuměli v kontextu projektu.
@@ -50,14 +51,14 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 
     NEBO
 
-    Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    Místní instalaci [emulátoru služby Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) nebo Visual Studio 2013 Update 4 nebo vyšší. Pokud používáte sadu Visual Studio 2013, budete muset nainstalovat [balíček nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) a přidat podporu pro C# 6.0. 
 * Azure SDK pro rozhraní .NET verze 2.5.1 nebo vyšší, k dispozici prostřednictvím [instalace webové platformy Microsoft][Microsoft Web Platform Installer].
 
 Všechny snímky obrazovky v tomto článku byly pořízeny pomocí nástroje Visual Studio 2013 s aktualizací Update 4 a sady Azure SDK pro .NET verze 2.5.1. Pokud konfigurace vašeho serveru využívá jiné verze, je možné, že se vaše obrazovky a možnosti budou mírně lišit, ale pokud splníte předpoklady uvedené výše, řešení by mělo fungovat.
 
-## <a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
-Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Vytvoření nové aplikace ASP.NET MVC](#_Toc395637762).
+## <a name="_Toc395637761"></a>Krok 1: Vytvoření účtu databáze Azure Cosmos DB
+Začněme vytvořením účtu služby Azure Cosmos DB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor služby Azure Cosmos DB, můžete přeskočit na [Vytvoření nové aplikace ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -89,26 +90,26 @@ Nyní když máte účet, můžeme vytvořit nový projekt ASP.NET.
 
 8. Pokud se rozhodnete aplikaci hostovat v cloudu, zobrazí se nejméně jedna další obrazovka, která vás bude žádat o přihlášení k účtu Azure a zadání několika hodnot pro nový web. Zadejte všechny dodatečné hodnoty a pokračujte. 
    
-      Nevybrali jsme tady Databázový server, protože v tomto projektu nepoužíváme server služby Azure SQL Database. Později na Portálu Azure vytvoříme nový účet Azure DocumentDB.
+      Nevybrali jsme tady Databázový server, protože v tomto projektu nepoužíváme server služby Azure SQL Database. Později na webu Azure Portal vytvoříme nový účet služby Azure Cosmos DB.
    
     Další informace o volbě **plánu služby App Service** a **skupiny prostředků** najdete v tématu [Podrobný přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
    
       ![Snímek obrazovky dialogového okna Konfigurace webu Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 9. Až nástroj Visual Studio dokončí vytváření standardní aplikace MVC, budete mít k dispozici prázdnou aplikaci ASP.NET, kterou můžete spouštět místně.
    
-    Lokální spouštění projektu přeskočíme, protože všichni jsme již určitě viděli aplikaci ASP.NET Hello World. Přejděme rovnou na přidání DocumentDB do projektu a sestavení aplikace.
+    Lokální spouštění projektu přeskočíme, protože všichni jsme již určitě viděli aplikaci ASP.NET Hello World. Přejděme rovnou k přidání služby Azure Cosmos DB do projektu a sestavení aplikace.
 
-## <a name="_Toc395637767"></a>Krok 3: Přidání DocumentDB do projektu webové aplikace MVC
-Teď již máme za sebou většinu potřebných příprav technologie ASP.NET MVC, které potřebujeme pro toto řešení. Přejděme tedy ke skutečnému účelu tohoto kurzu, a tím je přidání Azure DocumentDB k webové aplikaci MVC.
+## <a name="_Toc395637767"></a>Krok 3: Přidání služby Azure Cosmos DB do projektu webové aplikace MVC
+Teď již máme za sebou většinu potřebných příprav technologie ASP.NET MVC, které potřebujeme pro toto řešení. Přejděme tedy ke skutečnému účelu tohoto kurzu, a tím je přidání služby Azure Cosmos DB do webové aplikace MVC.
 
 1. Sada DocumentDB .NET SDK se připravuje a distribuuje jako balíček NuGet. Balíček NuGet získáte v nástroji Visual Studio tak, že v něm použijete správce balíčků NuGet. Klikněte pravým tlačítkem na projekt v **Průzkumníkovi řešení** a pak levým na **Spravovat balíčky NuGet**.
    
-      ![Snímek obrazovky možností nabídky po kliknutí pravým tlačítkem na projekt webové aplikace v Průzkumníkovi řešení se zvýrazněnou možností Spravovat balíčky NuGet](./media/documentdb-dotnet-application/image21.png)
+      ![Snímek obrazovky možností nabídky po kliknutí pravým tlačítkem na projekt webové aplikace v Průzkumníkovi řešení se zvýrazněnou možností Spravovat balíčky NuGet.](./media/documentdb-dotnet-application/image21.png)
    
     Zobrazí se dialogové okno **Správa balíčků NuGet**.
-2. Do pole **Procházet** NuGet zadejte ***Azure DocumentDB***.
+2. Do pole **Procházet** NuGet zadejte ***Azure Cosmos DB***.
    
-    Z výsledků nainstalujte balíček **Microsoft Azure DocumentDB Client Library**. Tím se stáhne a nainstaluje balíček DocumentDB včetně všech jeho závislostí, například Newtonsoft.Json. Dokončete instalaci tak, že v okně **Náhled** kliknete na **OK** a v okně **Souhlas s podmínkami licence** na **Přijímám**.
+    Z výsledků nainstalujte balíček **Microsoft Azure Cosmos DB Client Library**. Tím se stáhne a nainstaluje balíček služby Azure Cosmos DB včetně všech závislostí, jako je například Newtonsoft.Json. Dokončete instalaci tak, že v okně **Náhled** kliknete na **OK** a v okně **Souhlas s podmínkami licence** na **Přijímám**.
    
       ![Snímek obrazovky okna Správa balíčků NuGet se zvýrazněnou položkou Microsoft Azure DocumentDB Client Library](./media/documentdb-dotnet-application/nuget.png)
    
@@ -159,7 +160,7 @@ Začněme vytvořením velkého **M** v MVC, tedy modelem.
             public bool Completed { get; set; }
         }
    
-    Všechna data v DocumentDB se přenesou a uloží jako dokumenty JSON. Pokud chcete řídit způsob, jakým se objekty serializují a deserializují technologií JSON.NET, můžete použít atribut **JsonProperty**, jak je předvedeno v třídě **Item**, kterou jsme právě vytvořili. Není nezbytně **nutné** to provést, ale chceme se ujistit, že naše vlastnosti dodržují konvence pojmenování ve formátu JSON camelCase. 
+    Všechna data ve službě Azure Cosmos DB se přenesou a uloží jako dokumenty JSON. Pokud chcete řídit způsob, jakým se objekty serializují a deserializují technologií JSON.NET, můžete použít atribut **JsonProperty**, jak je předvedeno v třídě **Item**, kterou jsme právě vytvořili. Není nezbytně **nutné** to provést, ale chceme se ujistit, že naše vlastnosti dodržují konvence pojmenování ve formátu JSON camelCase. 
    
     Nejenže můžete určovat formát názvu vlastnosti, když se ukládá do formátu JSON, ale můžete zcela přejmenovat vlastnosti .NET, jako jsme to udělali s vlastností **Popis**. 
 
@@ -232,8 +233,8 @@ A nakonec stejným způsobem jako předtím přidejte jedno poslední zobrazení
 
 Až bude vše hotovo, zavřete všechny dokumenty cshtml v nástroji Visual Studio, protože se k těmto zobrazením vrátíme později.
 
-## <a name="_Toc395637769"></a>Krok 5: Připojení DocumentDB
-Nyní, když jsou vyřešeny všechny standardní náležitosti MVC, se můžeme zaměřit na přidávání kódu pro DocumentDB. 
+## <a name="_Toc395637769"></a>Krok 5: Připojení služby Azure Cosmos DB
+Nyní, když jsou vyřešeny všechny standardní náležitosti MVC, se můžeme zaměřit na přidání kódu pro službu Azure Cosmos DB. 
 
 V této části přidáme kód pro zpracování následujícího:
 
@@ -242,7 +243,7 @@ V této části přidáme kód pro zpracování následujícího:
 * [Úprava položek](#_Toc395637772)
 
 ### <a name="_Toc395637770"></a>Výpis neúplných položek ve webové aplikaci MVC
-První věc, kterou je zde potřeba udělat, je přidat třídu, která bude obsahovat všechnu logiku pro připojení a používání DocumentDB. Pro účely tohoto kurzu zapouzdříme všechnu tuto logiku do třídy úložiště nazvané DocumentDBRepository. 
+První věc, kterou je zde potřeba udělat, je přidat třídu, která bude obsahovat veškerou logiku pro připojení a používání služby Azure Cosmos DB. Pro účely tohoto kurzu zapouzdříme všechnu tuto logiku do třídy úložiště nazvané DocumentDBRepository. 
 
 1. V **Průzkumníkovi řešení** klikněte pravým tlačítkem na složku projekt, pak levým na **Přidat** a nakonec také levým na **Třída**. Pojmenujte novou třídu **DocumentDBRepository** a klikněte na **Přidat**.
 2. Do nově vytvořené třídy **DocumentDBRepository** přidejte následující *příkazy using* nad deklaraci *namespace*.
@@ -318,7 +319,7 @@ První věc, kterou je zde potřeba udělat, je přidat třídu, která bude obs
         }
    
    > [!TIP]
-   > Při vytváření nové DocumentCollection můžete zadat volitelný parametr RequestOptions typu OfferType, který vám umožní určit úroveň výkonu nové kolekce. Pokud tento parametr nebude zadán, využije se výchozí typ nabídky. Další informace o typech nabídek DocumentDB si prosím přečtěte v tématu [Úrovně výkonu DocumentDB](documentdb-performance-levels.md).
+   > Při vytváření nové DocumentCollection můžete zadat volitelný parametr RequestOptions typu OfferType, který vám umožní určit úroveň výkonu nové kolekce. Pokud tento parametr nebude zadán, využije se výchozí typ nabídky. Další informace o typech nabídek služby Azure Cosmos DB najdete v článku týkajícím se [úrovní výkonu služby Azure Cosmos DB](documentdb-performance-levels.md).
    > 
    > 
 3. Čteme několik hodnot z konfigurace, proto si otevřete soubor **Web.config** své aplikace a do části `<AppSettings>` přidejte následující řádky.
@@ -395,7 +396,7 @@ Pokud teď projekt sestavíte a spustíte, mělo by se zobrazit něco přibližn
 ### <a name="_Toc395637771"></a>Přidávání položek
 Přidejme do databáze nějaké položky, abychom tam neměli jen prázdnou mřížku.
 
-Přidejme nějaký kód do DocumentDBRepository a ItemController, aby byl záznam v DocumentDB zachován jako trvalý.
+Přidejme do třídy Azure Cosmos DBRepository a ItemController kód, který zajistí trvalé uchování záznamu ve službě Azure Cosmos DB.
 
 1. Do třídy **DocumentDBRepository** přidejte následující metodu.
    
@@ -468,9 +469,9 @@ Ještě musíme implementovat jednu poslední funkci, a to přidat schopnost upr
             }
         }
    
-    První z těchto metod, **GetItem**, načítá položku z DocumentDB, která se předá zpět do **ItemControlleru** a pak do zobrazení **Edit**.
+    První z těchto metod, **GetItem**, načítá položku ze služby Azure Cosmos DB, která se předá zpět do kontroleru **ItemController** a pak do zobrazení **Edit**.
    
-    Druhá metoda, kterou jsme právě přidali, nahrazuje **dokument** v DocumentDB verzí **dokumentu** předanou z **ItemControlleru**.
+    Druhá metoda, kterou jsme právě přidali, nahrazuje **dokument** ve službě Azure Cosmos DB verzí **dokumentu** předanou z kontroleru **ItemController**.
 2. Do třídy **ItemController** přidejte následující kód.
    
         [HttpPost]
@@ -504,11 +505,11 @@ Ještě musíme implementovat jednu poslední funkci, a to přidat schopnost upr
             return View(item);
         }
    
-    První metoda zpracovává operaci HTTP GET, ke které dochází, když uživatel klikne na odkaz **Upravit** v zobrazení **Index**. Tato metoda načítá [**dokument**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) z DocumentDB a předává jej do zobrazení **Edit**.
+    První metoda zpracovává operaci HTTP GET, ke které dochází, když uživatel klikne na odkaz **Upravit** v zobrazení **Index**. Tato metoda načítá [**dokument**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) ze služby Azure Cosmos DB a předává jej do zobrazení **Edit**.
    
     Zobrazení **Edit** pak provede operaci HTTP POST do **IndexControlleru**. 
    
-    Druhá metoda, kterou jsme přidali, zpracovává předávání aktualizovaného objektu do DocumentDB, aby zůstal v databázi zachován jako trvalý.
+    Druhá metoda, kterou jsme přidali, zpracovává předávání aktualizovaného objektu do služby Azure Cosmos DB pro trvalé uchování v databázi.
 
 To je vše, nic dalšího ke spuštění aplikace, vypsání neúplných **položek**, přidávání nových **položek** a úpravě **položek** nepotřebujeme.
 
@@ -534,7 +535,7 @@ Aplikaci otestujete na svém místním počítači tak, že provedete následuj�
 5. Až budete s testováním aplikace hotovi, stiskněte Ctrl+F5, aby se ukončilo ladění aplikace. Jste připraveni aplikaci nasadit!
 
 ## <a name="_Toc395637774"></a>Krok 7: Nasazení aplikace na Azure Websites
-Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme tuto webovou aplikaci na Weby Azure. Pokud jste při vytváření prázdného projektu ASP.NET MVC vybrali možnost **Hostovat v cloudu**, Visual Studio tento krok velmi usnadní a většinu práce odvede za vás. 
+Nyní, když je aplikace dokončena a správně funguje se službou Azure Cosmos DB, nasadíme tuto webovou aplikaci ve službě Azure Websites. Pokud jste při vytváření prázdného projektu ASP.NET MVC vybrali možnost **Hostovat v cloudu**, Visual Studio tento krok velmi usnadní a většinu práce odvede za vás. 
 
 1. K publikování této aplikace stačí kliknout pravým tlačítkem na projekt v **Průzkumníkovi řešení** a kliknout na **Publikovat**.
    
@@ -565,7 +566,7 @@ Pokud se při pokusu o nasazení webové aplikace zobrazí chyba „Během zprac
 
 
 ## <a name="_Toc395637775"></a>Další kroky
-Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci ASP.NET MVC, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure. Zdrojový kód hotové aplikace včetně podrobností a odstraněných funkcí, které nebyly součástí tohoto kurzu, si můžete stáhnout nebo naklonovat z [GitHubu][GitHub]. Pokud byste tedy chtěli tyto funkce zahrnout do své aplikace, můžete si kód stáhnout a přidat.
+Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci ASP.NET MVC, která využívá službu Azure Cosmos DB, a publikovali jste ji ve službě Azure Websites. Zdrojový kód hotové aplikace včetně podrobností a odstraněných funkcí, které nebyly součástí tohoto kurzu, si můžete stáhnout nebo naklonovat z [GitHubu][GitHub]. Pokud byste tedy chtěli tyto funkce zahrnout do své aplikace, můžete si kód stáhnout a přidat.
 
 Pokud chcete rozšířit funkce aplikace, prohlédněte si rozhraní API dostupná v [knihovně .NET DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) a nebojte se přispět do knihovny .NET DocumentDB na [GitHubu][GitHub]. 
 

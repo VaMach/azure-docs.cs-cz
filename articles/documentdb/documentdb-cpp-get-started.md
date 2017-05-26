@@ -1,27 +1,28 @@
 ---
-title: Kurz k NoSQL C++ pro DocumentDB | Microsoft Docs
-description: "Kurz k NoSQL C++, v rámci kterého se vytváří databáze a konzolová aplikace v jazyce C++ pomocí DocumentDB se schválenou sadou SDK pro jazyk C++. DocumentDB je databázová služba NoSQL na globální úrovni."
-services: documentdb
+title: "Kurz jazyka C++ pro službu Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Kurz jazyka C++, v rámci kterého se vytvoří databáze a konzolová aplikace v jazyce C++ pomocí služby Azure Cosmos DB se schválenou sadou SDK pro jazyk C++. Azure Cosmos DB je databázová služba na globální úrovni."
+services: cosmosdb
 documentationcenter: cpp
 author: asthana86
 manager: jhubbard
 editor: 
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 17cf6de0256983f383a417573d02fddd81ccd104
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-c-tutorial-documentdb-c-console-application"></a>Kurz k NoSQL C++: Vytvoření konzolové aplikace DocumentDB v jazyce C++
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB: Kurz konzolové aplikace v jazyce C++ pro rozhraní DocumentDB API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,19 +34,19 @@ ms.lasthandoff: 04/18/2017
 > 
  
 
-Vítejte v kurzu k NoSQL pro Azure DocumentDB se schválenou sadou SDK pro jazyk C++. Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB, včetně databáze v jazyce C++, a dotazuje se na ně.
+Vítejte v kurzu jazyka C++ pro rozhraní Azure Cosmos DB DocumentDB API se schválenou sadou SDK pro jazyk C++! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky Azure Cosmos DB, včetně databáze v jazyce C++, a dotazuje se na ně.
 
 Budeme se zabývat těmito tématy:
 
-* Vytvoření a připojení k účtu DocumentDB
+* Vytvoření účtu služby Azure Cosmos DB a připojení k němu
 * Nastavení aplikace
-* Vytvoření databáze DocumentDB v jazyce C++
+* Vytvoření databáze Azure Cosmos DB v jazyce C++
 * Vytvoření kolekce
 * Vytvoření dokumentů JSON
 * Dotazování na kolekci
 * Nahrazení dokumentu
 * Odstranění dokumentu
-* Odstranění databáze DocumentDB v jazyce C++
+* Odstranění databáze Azure Cosmos DB v jazyce C++
 
 Nemáte čas? Nevadí! Úplné řešení je k dispozici na [GitHubu](https://github.com/stalker314314/DocumentDBCpp). Rychlé pokyny najdete v části [Získání úplného řešení](#GetSolution).
 
@@ -61,8 +62,8 @@ Ujistěte se prosím, že máte následující:
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/) s nainstalovanými komponentami jazyka C++
 
-## <a name="step-1-create-a-documentdb-account"></a>Krok 1: Vytvoření účtu DocumentDB
-Vytvořme účet DocumentDB. Pokud už máte účet, který chcete použít, můžete přeskočit na [Nastavení aplikace C++](#SetupNode).
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1: Vytvoření účtu služby Azure Cosmos DB
+Vytvořme účet služby Azure Cosmos DB. Pokud už máte účet, který chcete použít, můžete přeskočit na [Nastavení aplikace C++](#SetupNode).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -81,12 +82,12 @@ Vytvořme účet DocumentDB. Pokud už máte účet, který chcete použít, mů
    
     Jakmile se balíčky přidají do vašeho projektu, můžeme začít psát kód.   
 
-## <a id="Config"></a>Krok 3: Zkopírování podrobností o připojení z webu Azure Portal pro databázi DocumentDB
-Otevřete web [Azure Portal](https://portal.azure.com) a přejděte do databázového účtu NoSQL (DocumentDB), který jste vytvořili. Pro další krok budete z webu Azure Portal potřebovat identifikátor URI a primární klíč, pomocí kterých navážete připojení z fragmentu kódu v jazyce C++. 
+## <a id="Config"></a>Krok 3: Zkopírování podrobností o připojení z webu Azure Portal pro databázi Azure Cosmos DB
+Otevřete web [Azure Portal](https://portal.azure.com) a přejděte do účtu databáze Azure Cosmos DB, který jste vytvořili. Pro další krok budete z webu Azure Portal potřebovat identifikátor URI a primární klíč, pomocí kterých navážete připojení z fragmentu kódu v jazyce C++. 
 
-![Identifikátor URI a klíče pro DocumentDB na webu Azure Portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
+![Identifikátor URI a klíče pro službu Azure Cosmos DB na webu Azure Portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a id="Connect"></a>Krok 4: Připojení k účtu DocumentDB
+## <a id="Connect"></a>Krok 4: Připojení k účtu služby Azure Cosmos DB
 1. Do zdrojového kódu zadejte níže uvedené hlavičky a obory názvů za `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
@@ -97,15 +98,15 @@ Otevřete web [Azure Portal](https://portal.azure.com) a přejděte do databázo
         using namespace documentdb;
         using namespace std;
         using namespace web::json;
-2. Do hlavní funkce přidejte níže uvedený kód a změňte konfiguraci účtu a primární klíč tak, aby se shodovaly s nastavením databáze DocumentDB popsaným v kroku 3. 
+2. Dále do hlavní funkce přidejte následující kód a změňte konfiguraci účtu a primární klíč tak, aby se shodovaly s nastavením služby Azure Cosmos DB popsaným v kroku 3. 
    
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Nyní, když máte kód pro inicializaci klienta documentdb, se budeme věnovat práci s prostředky DocumentDB.
+    Nyní, když máte kód pro inicializaci klienta documentdb, se budeme věnovat práci s prostředky Azure Cosmos DB.
 
 ## <a id="CreateDBColl"></a>Krok 5: Vytvoření databáze a kolekce v jazyce C++
-Pokud s DocumentDB začínáte, přečtěte si ještě před provedením tohoto kroku, jak databáze, kolekce a dokumenty vzájemně komunikují. [Databáze](documentdb-resources.md#databases) je logický kontejner úložiště dokumentů rozděleného mezi kolekcemi. [Kolekce](documentdb-resources.md#collections) je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace. Další informace o konceptech a hierarchickém modelu prostředků DocumentDB najdete v tématu [Koncepty a hierarchický model prostředků DocumentDB](documentdb-resources.md).
+Pokud se službou Azure Cosmos DB začínáte, přečtěte si ještě před provedením tohoto kroku, jak databáze, kolekce a dokumenty vzájemně komunikují. [Databáze](documentdb-resources.md#databases) je logický kontejner úložiště dokumentů rozděleného mezi kolekcemi. [Kolekce](documentdb-resources.md#collections) je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace. Další informace o konceptech a hierarchickém modelu prostředků Azure Cosmos DB najdete v tématu [Koncepty a hierarchický model prostředků Azure Cosmos DB](documentdb-resources.md).
 
 Databázi a odpovídající kolekci vytvoříte vložením níže uvedeného kódu na konec hlavní funkce. Prostřednictvím konfigurace klienta deklarované v předchozím kroku vznikne databáze „FamilyRegistry“ a kolekce „FamilyCollection“.
 
@@ -118,7 +119,7 @@ Databázi a odpovídající kolekci vytvoříte vložením níže uvedeného kó
 
 
 ## <a id="CreateDoc"></a>Krok 6: Vytvoření dokumentu
-[Dokumenty](documentdb-resources.md#documents) představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete vložit dokument do DocumentDB. Dokument můžete vytvořit zkopírováním níže uvedeného kódu na konec hlavní funkce. 
+[Dokumenty](documentdb-resources.md#documents) představují uživatelem definovaný (libovolný) obsah JSON. Nyní můžete do služby Azure Cosmos DB vložit dokument. Dokument můžete vytvořit zkopírováním níže uvedeného kódu na konec hlavní funkce. 
 
     try {
       value document_family;
@@ -135,12 +136,12 @@ Databázi a odpovídající kolekci vytvoříte vložením níže uvedeného kó
       wcout << ex.message();
     }
 
-Souhrnně řečeno, tento kód vytvoří databázi, kolekci a dokumenty, na které se můžete dotazovat v průzkumníku dokumentů na webu Azure Portal. 
+Souhrnně řečeno, tento kód vytvoří databázi, kolekci a dokumenty Azure Cosmos DB, na které se můžete dotazovat v Průzkumníku dokumentů na webu Azure Portal. 
 
 ![Kurz k C++ – diagram ilustrující hierarchický vztah mezi účtem, databází, kolekcí a dokumenty](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a id="QueryDB"></a>Krok 7: Dotazování prostředků DocumentDB
-DocumentDB podporuje [bohaté dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí. Následující ukázkový kód ukazuje dotaz vytvořený pomocí syntaxe DocumentDB SQL, kterou můžete spouštět oproti dokumentům vytvořeným v předchozím kroku.
+## <a id="QueryDB"></a>Krok 7: Dotazování prostředků Azure Cosmos DB
+Azure Cosmos DB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí. Následující ukázkový kód ukazuje dotaz vytvořený pomocí syntaxe SQL, který můžete spouštět proti dokumentům vytvořeným v předchozím kroku.
 
 Tato funkce využívá jako argumenty společně s klientem dokumentu i unikátní identifikátor nebo ID prostředku databáze a kolekce. Vložte tento kód před hlavní funkci.
 
@@ -171,7 +172,7 @@ Tato funkce využívá jako argumenty společně s klientem dokumentu i unikátn
     }
 
 ## <a id="Replace"></a>Krok 8: Nahrazení dokumentu
-DocumentDB podporuje nahrazování dokumentů JSON, jak můžete vidět na níže uvedeném kódu. Tento kód vložte za funkci executesimplequery.
+Azure Cosmos DB podporuje nahrazování dokumentů JSON, jak můžete vidět na následujícím kódu. Tento kód vložte za funkci executesimplequery.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
                          const wstring collresourceid,
@@ -191,7 +192,7 @@ DocumentDB podporuje nahrazování dokumentů JSON, jak můžete vidět na níž
     }
 
 ## <a id="Delete"></a>Krok 9: Odstranění dokumentu
-DocumentDB podporuje odstraňování dokumentů JSON. Provedete to tak, že zkopírujete a vložíte níže uvedený kód za funkci replacedocument. 
+Azure Cosmos DB podporuje odstraňování dokumentů JSON. Provedete to tak, že zkopírujete a vložíte následující kód za funkci replacedocument. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
                         const wstring collresourceid, const wstring docresourceid) {
@@ -219,7 +220,7 @@ Zkopírujte a za funkci deletedocument vložte následující fragment kódu (vy
     }
 
 ## <a id="Run"></a>Krok 11: Spuštění celé konzolové aplikace jazyka C#
-Vložili jsme kód, pomocí kterého můžete vytvářet, upravovat a odstraňovat různé prostředky DocumentDB nebo se na ně dotazovat.  Pojďme ho uvést do provozu přidáním volání těchto funkcí z naší hlavní funkce v projektu hellodocumentdb.cpp a některých diagnostických zpráv.
+Vložili jsme kód, pomocí kterého můžete vytvářet, upravovat a odstraňovat různé prostředky Azure Cosmos DB nebo se na ně dotazovat.  Pojďme ho uvést do provozu přidáním volání těchto funkcí z naší hlavní funkce v projektu hellodocumentdb.cpp a některých diagnostických zpráv.
 
 Provedete to tak, že hlavní funkci vaší aplikace nahradíte níže uvedeným kódem. account_configuration_uri a primary_key, které jste do kódu zkopírovali v kroku 3, se přepíší, takže tento řádek uložte nebo hodnoty znovu zkopírujte z webu. 
 
@@ -274,20 +275,20 @@ Teď už by mělo být možné vytvořit a spustit kód v sadě Visual Studio st
 
 Měl by se zobrazit výstup počáteční aplikace. Tento výstup by se měl shodovat se snímkem obrazovky níže.
 
-![Výstup aplikace DocumentDB v jazyce C++](media/documentdb-cpp-get-started/docdbconsole.png)
+![Výstup aplikace v jazyce C++ využívající službu Azure Cosmos DB](media/documentdb-cpp-get-started/docdbconsole.png)
 
-Blahopřejeme! Dokončili jste kurz k C++ a máte svou první konzolovou aplikaci DocumentDB!
+Blahopřejeme! Dokončili jste kurz jazyka C++ a máte svou první konzolovou aplikaci využívající službu Azure Cosmos DB!
 
 ## <a id="GetSolution"></a>Získání úplného řešení kurzu k C++
 Abyste mohli sestavit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
-* [Účet DocumentDB][documentdb-create-account]
+* [Účet služby Azure Cosmos DB][documentdb-create-account]
 * Řešení [GetStarted](https://github.com/stalker314314/DocumentDBCpp) dostupné na GitHubu
 
 ## <a name="next-steps"></a>Další kroky
-* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
-* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace ke službě Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 

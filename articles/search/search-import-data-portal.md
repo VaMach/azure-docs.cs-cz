@@ -1,6 +1,6 @@
 ---
 title: "Import dat do služby Azure Search na portálu | Dokumentace Microsoftu"
-description: "Použijte Průvodce importem dat do služby Azure Search na webu Azure Portal k procházení dat Azure z NoSQL DocumentDB, ze služby Blob Storage, Table Storage, SQL Database a systému SQL Server na virtuálních počítačích Azure."
+description: "Použijte Průvodce importem dat do služby Azure Search na webu Azure Portal k procházení dat Azure z databáze NoSQL Azure Cosmos DB, ze služby Blob Storage, Table Storage, SQL Database a SQL Serveru na virtuálních počítačích Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
-ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,17 +34,17 @@ Průvodce interně konfiguruje a vyvolává *indexer*, čímž automatizuje něk
 * Generování upravitelného schématu indexu na základě struktury zdrojových dat
 * Načtení dokumentů JSON do indexu s použitím sady řádků získané ze zdroje dat
 
-Tento pracovní postup můžete vyzkoušet v DocumentDB s použitím vzorových dat. Pokyny najdete v tématu [Začínáme se službou Azure Search na webu Azure Portal](search-get-started-portal.md).
+Tento pracovní postup můžete vyzkoušet s použitím ukázkových dat ve službě Azure Cosmos DB. Pokyny najdete v tématu [Začínáme se službou Azure Search na webu Azure Portal](search-get-started-portal.md).
 
 > [!NOTE]
-> Z řídicího panelu DocumentDB můžete spustit průvodce **Importem dat** a zjednodušit tak indexování zdroje dat. Začněte tak, že v levém navigačním panelu přejdete do **Collections** (Kolekce) > **Add Azure Search** (Přidat službu Azure Search).
+> Z řídicího panelu služby Azure Cosmos DB můžete spustit průvodce **Importem dat** a zjednodušit tak indexování zdroje dat. Začněte tak, že v levém navigačním panelu přejdete do **Collections** (Kolekce) > **Add Azure Search** (Přidat službu Azure Search).
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Zdroje dat podporované Průvodcem importem dat
 Průvodce importem dat podporuje následující zdroje dat: 
 
 * Azure SQL Database
 * Relační data systému SQL Server na virtuálním počítači Azure
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure Blob Storage
 * Azure Table Storage
 
@@ -58,7 +60,7 @@ Plochá datová sada je požadovaný vstup. Importovat můžete pouze z jedné t
 | **Stávající zdroj dat** |Pokud již ve vyhledávací službě máte definované indexery, můžete pro další import vybrat stávající definici zdroje dat. |
 | **Azure SQL Database** |Název služby, přihlašovací údaje uživatele s oprávněním ke čtení a název databáze můžete zadat na této stránce nebo přes připojovací řetězec technologie ADO.NET. Chcete-li zobrazit nebo přizpůsobit vlastnosti, zvolte možnost připojovacího řetězce. <br/><br/>Na této stránce je třeba určit tabulku nebo zobrazení poskytující sadu řádků. Tato možnost se zobrazí po úspěšném připojení v podobě rozevíracího seznamu, ze kterého můžete vybírat. |
 | **SQL Server na virtuálním počítači Azure** |Zadejte plně kvalifikovaný název služby, ID a heslo uživatele a databázi jako připojovací řetězec. Abyste mohli použít tento zdroj dat, je třeba mít v místním úložišti dříve nainstalovaný certifikát šifrující připojení. Pokyny najdete v tématu [Připojení virtuálního počítače SQL ke službě Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Na této stránce je třeba určit tabulku nebo zobrazení poskytující sadu řádků. Tato možnost se zobrazí po úspěšném připojení v podobě rozevíracího seznamu, ze kterého můžete vybírat. |
-| **DocumentDB** |Požadavky zahrnují účet, databázi a kolekci. Všechny dokumenty v kolekci budou zahrnuty v indexu. Můžete definovat dotaz, který zploští nebo vyfiltruje sadu řádků nebo který rozpozná změněné dokumenty pro následné operace aktualizace dat. |
+| **Azure Cosmos DB** |Požadavky zahrnují účet, databázi a kolekci. Všechny dokumenty v kolekci budou zahrnuty v indexu. Můžete definovat dotaz, který zploští nebo vyfiltruje sadu řádků nebo který rozpozná změněné dokumenty pro následné operace aktualizace dat. |
 | **Azure Blob Storage** |Požadavky zahrnují účet úložiště a kontejner. Pokud se názvy objektů blob řídí zásadami virtuálního pojmenovávání pro účely seskupování, můžete volitelně zadat část názvu obsahující virtuální adresář jako složku v kontejneru. Další informace najdete v tématu [Indexování služby Blob Storage](search-howto-indexing-azure-blob-storage.md). |
 | **Azure Table Storage** |Požadavky zahrnují účet úložiště a název tabulky. Volitelně můžete zadat dotaz pro načtení podmnožiny tabulek. Další informace najdete v tématu [Indexování služby Table Storage](search-howto-indexing-azure-tables.md). |
 
@@ -113,16 +115,11 @@ Průvodce vytvořil také **index**. Strukturální aktualizace indexu ve služb
 Další informace o indexerech najdete na těchto odkazech:
 
 * [Indexování služby Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexování DocumentDB](search-howto-index-documentdb.md)
+* [Indexování služby Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Indexování služby Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexování služby Table Storage](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ V dnešní době nejrůznější sítě přenášejí obrovské objemy dat. Orga
 * **Nízké náklady:** Jako cloudová služba je služba Stream Analytics optimalizovaná tak, aby zprovoznění a následný provoz řešení analýz v reálném čase byl pro uživatele co nejekonomičtější. Služba je zpoplatněna na základě jednotek datových proudů a tedy míry svého používání ve smyslu objemu zpracovaných dat. Míra využití je založena na objemu zpracovaných událostí a výpočetním výkonu poskytnutém v rámci clusteru ke zpracování příslušné úlohy služby Stream Analytics.  
 * **Referenční data:** Stream Analytics poskytuje uživatelům možnost definování a používání referenčních dat. Může se jednat o historická data nebo data nepocházející z datových proudů, která se v průběhu času méně často mění. Systém zjednodušuje použití referenčních dat tím, že je lze používat jako jakékoliv jiné příchozí datové proudy a v reálném čase spojovat s dalšími datovými proudy událostí k provádění transformací.  
 * **Funkce definovaná uživatelem:** Stream Analytics zahrnuje integraci s Azure Machine Learning k definování volání funkcí ve službě Machine Learning jako součásti dotazu Stream Analytics. Tím se rozšiřují možnosti Stream Analytics při využívání stávajících řešení Azure Machine Learning. Pro další informace o těchto možnostech si přečtěte [Průvodce integrací Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* **Možnosti připojení:** Služba Stream Analytics se za účelem ingestování datových proudů připojuje přímo ke službám Azure Event Hubs a Azure IoT Hubs a za účelem ingestování historických dat přímo ke službě Azure Blob. Výsledky ze služby Stream Analytics lze zapisovat do služeb Azure Storage Blobs nebo Tables, Azure SQL DB, Azure Data Lake Stores, DocumentDB, Event Hubs, Azure Service Bus Topics nebo Queues a Power BI, kde je lze následně vizualizovat, dále zpracovávat v pracovních postupech, používat v dávkových analýzách [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) nebo znovu zpracovávat jako řady událostí. Při použití služby Event Hubs je možné kombinovat více různých instancí služby Stream Analytics s dalšími zdroji a stroji pro zpracování dat, aniž by došlo k narušení streamovací podstaty výpočtů.  
+* **Možnosti připojení:** Služba Stream Analytics se za účelem ingestování datových proudů připojuje přímo ke službám Azure Event Hubs a Azure IoT Hubs a za účelem ingestování historických dat přímo ke službě Azure Blob. Výsledky ze služby Stream Analytics lze zapisovat do služeb Azure Storage Blobs nebo Tables, Azure SQL DB, Azure Data Lake Stores, Azure Cosmos DB, Event Hubs, Azure Service Bus Topics nebo Queues a Power BI, kde je lze následně vizualizovat, dále zpracovávat v pracovních postupech, používat v dávkových analýzách služby [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) nebo znovu zpracovávat jako řady událostí. Při použití služby Event Hubs je možné kombinovat více různých instancí služby Stream Analytics s dalšími zdroji a stroji pro zpracování dat, aniž by došlo k narušení streamovací podstaty výpočtů.  
 
 ## <a name="get-help"></a>Podpora
 Další podporu naleznete v našem [fóru služby Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

@@ -1,28 +1,29 @@
 ---
-title: "Kurz vývoje aplikace Java pomocí DocumentDB | Microsoft Docs"
-description: "Tento kurz vývoje webové aplikace Java popisuje, jak pomocí služby Azure DocumentDB ukládat data a přistupovat k nim z aplikace Java hostované na Webech Azure."
+title: "Kurz vývoje aplikace Java využívající službu Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Tento kurz vývoje webové aplikace Java ukazuje, jak pomocí služby Azure Cosmos DB ukládat data a přistupovat k nim z aplikace Java hostované ve službě Azure Websites."
 keywords: "Vývoj aplikací, databázový kurz, aplikace v jazyce java, kurz vývoje webových aplikací v jazyce java, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: dennyglee
 manager: jhubbard
 editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6e315ea33fe4a493f1ab349482f9af3a732b3127
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a9ba49cb52fee446b7bffaa1579995f2cd095ead
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-java-web-application-using-documentdb"></a>Vytvoření webové aplikace Java pomocí DocumentDB
+# <a name="build-a-java-web-application-using-azure-cosmos-db"></a>Sestavení webové aplikace Java využívající službu Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET pro MongoDB](documentdb-mongodb-application.md)
@@ -32,12 +33,12 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Tento kurz vývoje webové aplikace Java popisuje, jak pomocí služby [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) ukládat data a přistupovat k nim z aplikace Java hostované na Webech Azure. V tomto tématu se naučíte:
+Tento kurz vývoje webové aplikace Java ukazuje, jak pomocí služby [Microsoft Azure Cosmos DB](https://portal.azure.com/#gallery/Microsoft.Azure Cosmos DB) ukládat data a přistupovat k nim z aplikace Java hostované ve službě Azure Websites. V tomto tématu se naučíte:
 
 * Jak vytvořit základní aplikaci JSP v prostředí Eclipse
-* Jak pracovat se službou Azure DocumentDB pomocí [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java)
+* Jak pracovat se službou Azure Cosmos DB pomocí sady [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
-Tento kurz o aplikaci Java vám ukáže, jak vytvořit webovou aplikaci pro správu úkolů, která umožňuje vytvářet a získávat úkoly a označovat je jako dokončené, jak ilustruje následující obrázek. Každý z úkolů v seznamu je ukládán jako dokument JSON v Azure DocumentDB.
+Tento kurz o aplikaci Java vám ukáže, jak vytvořit webovou aplikaci pro správu úkolů, která umožňuje vytvářet a získávat úkoly a označovat je jako dokončené, jak ilustruje následující obrázek. Každý z úkolů v seznamu se ve službě Azure Cosmos DB ukládá jako dokument JSON.
 
 ![Aplikace pro seznam úkolů v jazyce Java](./media/documentdb-java-application/image1.png)
 
@@ -53,15 +54,15 @@ Než zahájíte tento kurz vývoje aplikace, musíte mít následující:
 
     NEBO
 
-    Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    Místní instalaci [emulátoru služby Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Integrované vývojové prostředí Eclipse pro vývojáře v jazyce Java EE](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Web Azure se zapnutou platformou Java Runtime Environment (např. Tomcat nebo Jetty)](../app-service-web/web-sites-java-get-started.md)
 
 Pokud tyto nástroje instalujete poprvé, coreservlets.com poskytuje k procesu instalace návod v části Quick Start článku [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Kurz: Instalace TomCat7 a jeho použití s Eclipse).
 
-## <a id="CreateDB"></a>Krok 1: Vytvoření databázového účtu DocumentDB
-Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Krok 2: Vytvoření aplikace Java JSP](#CreateJSP).
+## <a id="CreateDB"></a>Krok 1: Vytvoření účtu databáze Azure Cosmos DB
+Začněme vytvořením účtu služby Azure Cosmos DB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor služby Azure Cosmos DB, můžete přeskočit na [Krok 2: Vytvoření aplikace Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,7 +117,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
 6. Klikněte na **OK** a Maven nainstaluje DocumentDB Java SDK.
 7. Uložte soubor pom.xml.
 
-## <a id="UseService"></a>Krok 4: Využití služby DocumentDB v aplikaci Java
+## <a id="UseService"></a>Krok 4: Využití služby Azure Cosmos DB v aplikaci Java
 1. Nejdříve definujme objekt TodoItem:
    
         @Data
@@ -129,7 +130,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
         }
    
     V tomto projektu používáme [Project Lombok](http://projectlombok.org/), pomocí kterého generujeme konstruktor, metody getter a setter a tvůrce (builder). Alternativně můžete tento kód napsat ručně nebo jej vygenerovat pomocí rozhraní IDE.
-2. Abyste mohli vyvolat službu DocumentDB, musíte vytvořit novou instanci **DocumentClient**. Obecně je lépe opakovaně používat **DocumentClient** než pro každý další požadavek vytvářet nového klienta. Klienta můžeme opakovaně používat tak, že jej zabalíme do **DocumentClientFactory**. Na toto místo je také zapotřebí vložit hodnotu URI a PRIMARY KEY, kterou jste uložili do schránky v [kroku 1](#CreateDB). Nahraďte [YOUR\_ENDPOINT\_HERE] hodnotou URI a [YOUR\_KEY\_HERE] hodnotou PRIMARY KEY.
+2. Abyste mohli vyvolat službu Azure Cosmos DB, musíte vytvořit novou instanci **DocumentClient**. Obecně je lépe opakovaně používat **DocumentClient** než pro každý další požadavek vytvářet nového klienta. Klienta můžeme opakovaně používat tak, že jej zabalíme do **DocumentClientFactory**. Na toto místo je také zapotřebí vložit hodnotu URI a PRIMARY KEY, kterou jste uložili do schránky v [kroku 1](#CreateDB). Nahraďte [YOUR\_ENDPOINT\_HERE] hodnotou URI a [YOUR\_KEY\_HERE] hodnotou PRIMARY KEY.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -140,7 +141,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
         public static DocumentClient getDocumentClient() {
             return documentClient;
         }
-3. Nyní vytvořme objekt pro přístup k datům (DAO), pomocí kterého zajistíme abstrakci uchovávání položek ToDo v DocumentDB.
+3. Nyní vytvořme objekt pro přístup k datům (DAO), pomocí kterého zajistíme abstrakci uchovávání položek ToDo ve službě Azure Cosmos DB.
    
     Abychom mohli položky ToDo ukládat do kolekce, klient musí vědět, která databáze nebo kolekce se má k uchovávání použít (podle odkazů na sebe sama). Obecně je nejlépe uložit databázi a kolekci do mezipaměti, kdykoli je to možné, aby se zamezilo nadbytečným přístupům do databáze.
    
@@ -153,7 +154,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
             // The name of our collection.
             private static final String COLLECTION_ID = "TodoCollection";
    
-            // The DocumentDB Client
+            // The Azure Cosmos DB Client
             private static DocumentClient documentClient = DocumentClientFactory
                     .getDocumentClient();
    
@@ -257,7 +258,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Podobně jako databáze a kolekce DocumentDB se i dokumenty odkazují pomocí odkazů na sebe sama. Následující pomocná funkce nám umožní získat dokumenty podle jiného atributu (např. id) namísto odkazu na sebe sama:
+5. Podobně jako databáze a kolekce Azure Cosmos DB se i dokumenty odkazují pomocí odkazů na sebe sama. Následující pomocná funkce nám umožní získat dokumenty podle jiného atributu (např. id) namísto odkazu na sebe sama:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -334,7 +335,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
    
         @Override
         public boolean deleteTodoItem(String id) {
-            // DocumentDB refers to documents by self link rather than id.
+            // Azure Cosmos DB refers to documents by self link rather than id.
    
             // Query for the document to retrieve the self link.
             Document todoItemDocument = getDocumentById(id);
@@ -464,7 +465,7 @@ Nyní když jsme dokončili ty zábavné části, zbývá již jen vytvořit ryc
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
           <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-          <title>Azure DocumentDB Java Sample</title>
+          <title>Azure Cosmos DB Java Sample</title>
    
           <!-- Bootstrap -->
           <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -748,7 +749,7 @@ Všechny ukázky v tomto kurzu jsou součástí projektu [todo](https://github.c
 7. Na obrazovce **Branch Selection** (Výběr větve) se ujistěte, že je zvolena možnost **master** (hlavní), a klikněte na **Next**.
 8. Na obrazovce **Local Destination** (Místní cíl) klikněte na **Browse** (Procházet), vyberte složku, do které lze úložiště zkopírovat, a pak klikněte na **Next**.
 9. Na obrazovce **Select a wizard to use for importing projects** (Výběr průvodce, který se použije k importování projektů) se ujistěte, že je vybrána možnost **Import existing projects** (Import existujících projektů) a klikněte na **Next**.
-10. Na obrazovce **Import Projects** (Import projektů) zrušte výběr projektu **DocumentDB** a klikněte na **Finish** (Dokončit). Projekt DocumentDB obsahuje sadu DocumentDB Java SDK, kterou přidáme jako závislost.
+10. Na obrazovce **Import Projects** (Import projektů) zrušte výběr projektu **Azure Cosmos DB** a klikněte na **Finish** (Dokončit). Projekt Azure Cosmos DB obsahuje sadu Azure Cosmos DB Java SDK, kterou přidáme jako závislost.
 11. V **Project Exploreru** přejděte na azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java a nahraďte hodnoty HOST a MASTER_KEY hodnotami URI a PRIMARY KEY pro účet DocumentDB. Pak soubor uložte. Další informace najdete v části [Krok 1. Vytvoření databázového účtu DocumentDB](#CreateDB).
 12. V **Project Exploreru** klikněte pravým tlačítkem na **azure-documentdb-java-sample**, pak levým na **Build Path** (Cesta sestavení) a nakonec na **Configure Build Path** (Konfigurovat cestu sestavení).
 13. Na obrazovce **Java Build Path** (Cesta sestavení Java) v pravém podokně vyberte kartu **Libraries** (Knihovny) a klikněte na **Add External JARs** (Přidat externí balíčky JAR). Přejděte na umístění souboru lombok.jar, klikněte na **Open** (Otevřít) a pak na **OK**.

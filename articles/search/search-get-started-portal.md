@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Nyní máte index vyhledávání, který je připraven k dotazování. **Průzku
 
   Chcete-li zobrazit jednotlivé komponenty, klikněte na dlaždice **Index**, **Indexer** nebo **Zdroje dat** na řídicím panelu, aby se zobrazil seznam existujících objektů. Další informace o úpravách indexu, které nevyžadují opětovné sestavení, najdete v části věnované [aktualizaci indexu (rozhraní REST API služby Azure Search)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Uvedené nástroje a kroky vyzkoušejte i pro další zdroje dat. Ukázková datová sada, `realestate-us-sample`, je ze služby Azure SQL Database, kterou může Azure Search procházet. Kromě služby Azure SQL Database může Azure Search procházet také ploché struktury dat (a odvozovat z nich indexy) ve službách Azure Table Storage, Blob Storage, SQL Server na virtuálním počítači Azure a DocumentDB. Tento průvodce podporuje všechny tyto zdroje dat. V kódu můžete index snadno vytvořit a naplnit pomocí *indexeru*.
++ Uvedené nástroje a kroky vyzkoušejte i pro další zdroje dat. Ukázková datová sada, `realestate-us-sample`, je ze služby Azure SQL Database, kterou může Azure Search procházet. Kromě služby Azure SQL Database může Azure Search procházet také ploché struktury dat (a odvozovat z nich indexy) ve službách Azure Table Storage, Blob Storage, SQL Server na virtuálním počítači Azure a ve službě Azure Cosmos DB. Tento průvodce podporuje všechny tyto zdroje dat. V kódu můžete index snadno vytvořit a naplnit pomocí *indexeru*.
 
 + Všechny ostatní zdroje dat bez indexeru jsou podporované prostřednictvím modelu Push, kdy kód do indexu aktivně vkládá nové a změněné sady řádků ve formátu JSON. Další informace najdete v tématu věnovaném [přidání, aktualizaci a odstranění dokumentů ve službě Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 

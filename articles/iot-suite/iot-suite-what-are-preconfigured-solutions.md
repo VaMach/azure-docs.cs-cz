@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -108,7 +108,7 @@ Možnost správy zařízení služby IoT Hub umožňuje spravovat vlastnosti za�
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Předkonfigurované řešení používá tři úlohy [Azure Stream Analytics][lnk-asa] (ASA), jejichž pomocí filtruje datový proud telemetrických dat ze zařízení:
 
-* *Úloha DeviceInfo* (Informace o zařízení) – Odesílá výstupní data do centra událostí, které do registru zařízení pro řešení (databáze DocumentDB) směruje zprávy specifické pro registraci zařízení. Zpráva se odešle ve chvíli, kdy se zařízení poprvé připojí, nebo v reakci na příkaz **Change Device State**.
+* *Úloha DeviceInfo* (Informace o zařízení) – Odesílá výstupní data do centra událostí, které do registru zařízení pro řešení (databáze Azure Cosmos DB) směruje zprávy specifické pro registraci zařízení. Zpráva se odešle ve chvíli, kdy se zařízení poprvé připojí, nebo v reakci na příkaz **Change Device State**.
 * *Úloha Telemetry (Telemetrie)* – Odesílá veškerá nezpracovaná telemetrická data do služby Azure Blob Storage, uloží málo používaná data a vypočítá ze získaných telemetrických dat agregované hodnoty, které se zobrazují na řídicím panelu řešení.
 * *Úloha Rules (Pravidla)* – Filtruje datový proud telemetrie podle hodnot, které přesahují stanovené mezní hodnoty pravidel. Výstupní data odesílá do centra událostí. Jakmile se spustí pravidlo, na řídicím panelu portálu řešení se tato událost objeví jako nový řádek v tabulce historie alarmů. Tato pravidla můžou také aktivovat akce v závislosti na nastaveních definovaných v zobrazeních **Pravidla** a **Akce** na portálu řešení.
 
@@ -118,10 +118,10 @@ V tomto předkonfigurovaném řešení jsou úlohy ASA součástí **back-endu �
 V tomto předkonfigurovaném řešení je procesor událostí součástí **back-endu řešení IoT** v typické [architektuře řešení IoT][lnk-what-is-azure-iot].
 
 Úlohy ASA **DeviceInfo** a **Rules** odesílají výstup do center událostí, odkud se přeposílají do dalších služeb back-endu. Toto řešení využívá instanci třídy [EventPocessorHost][lnk-event-processor] spuštěnou v rámci [webové úlohy][lnk-web-job] ke čtení zpráv z těchto center událostí. Instance **EventProcessorHost** využívá:
-- Data úlohy **DeviceInfo** k aktualizaci dat zařízení v databázi DocumentDB.
+- Data úlohy **DeviceInfo** k aktualizaci dat zařízení v databázi Cosmos DB.
 - Data úlohy **Rules** k vyvolání aplikace logiky a aktualizaci zobrazování upozornění na portálu řešení.
 
-## <a name="device-identity-registry-device-twin-and-documentdb"></a>Registr identit zařízení, dvojčata zařízení a DocumentDB
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Registr identit zařízení, dvojče zařízení a služba Cosmos DB
 Každá služba IoT Hub obsahuje [registr identit zařízení][lnk-identity-registry], který ukládá klíče zařízení. IoT Hub používá tuto informaci k ověřování zařízení – pokud se má zařízení připojit k centru, musí být registrováno a mít platný klíč.
 
 [Dvojče zařízení][lnk-device-twin] je dokument JSON spravovaný službou IoT Hub. Dvojče každého zařízení obsahuje:
@@ -130,9 +130,9 @@ Každá služba IoT Hub obsahuje [registr identit zařízení][lnk-identity-regi
 - Požadované vlastnosti, které chcete odeslat do zařízení. Tyto vlastnosti můžete nastavit na portálu řešení.
 - Značky, které existují pouze ve dvojčeti zařízení a nikoli v samotném zařízení. Pomocí těchto značek můžete na portálu řešení filtrovat seznamy zařízení.
 
-Toto řešení využívá dvojčata zařízení ke správě metadat zařízení. Řešení také využívá databázi DocumentDB, ve které ukládá další data zařízení specifická pro řešení, jako jsou příkazy podporované jednotlivými zařízeními nebo historie příkazů.
+Toto řešení využívá dvojčata zařízení ke správě metadat zařízení. Řešení také využívá databázi Cosmos DB, ve které ukládá další data zařízení specifická pro řešení, jako jsou příkazy podporované jednotlivými zařízeními nebo historie příkazů.
 
-Řešení musí také udržovat informace o identitě registru zařízení stále synchronizované s obsahem databáze DocumentDB. Příkaz **EventProcessorHost** používá k řízení synchronizace data z úlohy analýzy datového proudu **DeviceInfo**.
+Řešení také musí stále udržovat synchronizované informace v registru identit zařízení s obsahem databáze Cosmos DB. Příkaz **EventProcessorHost** používá k řízení synchronizace data z úlohy analýzy datového proudu **DeviceInfo**.
 
 ## <a name="solution-portal"></a>Portál řešení
 ![portál řešení][img-dashboard]
@@ -169,3 +169,4 @@ Nyní víte, co je to předem nakonfigurované řešení a můžete začít nasa
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+

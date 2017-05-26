@@ -1,14 +1,14 @@
 ---
-title: "Kurz webové aplikace Python Flask pro Azure DocumentDB | Dokumentace Microsoftu"
-description: "Projděte si databázový kurz na téma, jak ukládat a přistupovat k datům ve webové aplikaci Python Flask hostované v Azure pomocí DocumentDB. Naleznete zde řešení pro vývoj aplikací."
+title: "Kurz webové aplikace Python Flask pro službu Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Projděte si databázový kurz na téma, jak pomocí služby Azure Cosmos DB ukládat data a přistupovat k nim z webové aplikace Python Flask hostované v Azure. Naleznete zde řešení pro vývoj aplikací."
 keywords: "Vývoj aplikací, python flask, webová aplikace python, vývoj pro web python"
-services: documentdb
+services: cosmosdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,14 +16,15 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68b3fd109291551294b58b3cda75fd6a9619b4b4
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-python-flask-web-application-using-documentdb"></a>Sestavení webové aplikace Python Flask pomocí DocumentDB
+# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Sestavení webové aplikace Python Flask využívající službu Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET pro MongoDB](documentdb-mongodb-application.md)
@@ -33,13 +34,13 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-V tomto kurzu se dozvíte, jak pomocí Azure DocumentDB zajistit ukládání a přístup k datům ve webové aplikace Python hostované v Azure. Předpokládá se, že máte zkušenosti s používáním Pythonu a Webů Azure.
+V tomto kurzu se dozvíte, jak pomocí služby Azure Cosmos DB zajistit ukládání a přístup k datům z webové aplikace Python hostované v Azure. Předpokládá se, že máte zkušenosti s používáním Pythonu a služby Azure Websites.
 
 Tento databázový kurz se zabývá:
 
-1. Vytvořením a zřízením účtu DocumentDB
+1. Vytvořením a zřízením účtu služby Cosmos DB
 2. Vytvořením aplikace Python MVC
-3. Připojením a používáním Azure DocumentDB z webové aplikace
+3. Připojením ke službě Cosmos DB a jejím používáním z webové aplikace
 4. Nasazením webové aplikace na Weby Azure
 
 Podle postupu uvedeného v tomto kurzu sestavíte jednoduchou hlasovací aplikaci, která vám umožní hlasovat v anketě.
@@ -53,7 +54,7 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
  
     NEBO 
 
-    Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    Místní instalaci [emulátoru služby Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) nebo vyšší nebo bezplatnou verzi [Visual Studio Express](). Pokyny v tomto kurzu jsou psány konkrétně pro Visual Studio 2015. 
 * Python Tools for Visual Studio z [GitHubu](http://microsoft.github.io/PTVS/). V tomto kurzu se používá Python Tools for VS 2015. 
 * Azure Python SDK for Visual Studio, verze 2.4 nebo vyšší dostupná na [azure.com](https://azure.microsoft.com/downloads/). Použili jsme Microsoft Azure SDK for Python 2.7
@@ -68,8 +69,8 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 
 * Microsoft Visual C++ Compiler for Python 2.7 z webu [Microsoft Download Center][3]
 
-## <a name="step-1-create-a-documentdb-database-account"></a>Krok 1: Vytvoření databázového účtu DocumentDB
-Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Krok 2: Vytvoření nové webové aplikace Python Flask](#step-2:-create-a-new-python-flask-web-application).
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Krok 1: Vytvoření účtu databáze Azure Cosmos DB
+Začněme vytvořením účtu služby Cosmos DB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor služby Azure Cosmos DB, můžete přeskočit na [Krok 2: Vytvoření nové webové aplikace Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -155,7 +156,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>Přidání požadovaných importů do views.py
 1. V Průzkumníkovi řešení rozbalte složku **tutorial** a otevřete soubor **views.py**. 
-2. Do horní části souboru **views.py** přidejte následující příkazy import a soubor uložte. Tyto příkazu importují balíčky PythonSDK pro DocumentDB a Flask.
+2. Do horní části souboru **views.py** přidejte následující příkazy import a soubor uložte. Tyto příkazu importují balíčky Flask a PythonSDK pro službu Cosmos DB.
    
     ```python
     from forms import VoteForm
@@ -202,7 +203,7 @@ def create():
 ```
 
 > [!TIP]
-> Metoda **CreateCollection** přijímá volitelný třetí parametr **RequestOptions**. Lze jej použít k určení typu nabídky kolekce. Pokud se nezadá žádná hodnota offerType, kolekce se vytvoří pomocí výchozího typu nabídky. Další informace o typech nabídek DocumentDB najdete v tématu [Úrovně výkonu v DocumentDB](documentdb-performance-levels.md).
+> Metoda **CreateCollection** přijímá volitelný třetí parametr **RequestOptions**. Lze jej použít k určení typu nabídky kolekce. Pokud se nezadá žádná hodnota offerType, kolekce se vytvoří pomocí výchozího typu nabídky. Další informace o typech nabídek služby Cosmos DB najdete v článku týkajícím se [úrovní výkonu ve službě Azure Cosmos DB](documentdb-performance-levels.md).
 > 
 > 
 
@@ -314,7 +315,7 @@ def vote():
     ```html
     {% extends "layout.html" %}
     {% block content %}
-    <h2>Python + DocumentDB Voting Application.</h2>
+    <h2>Python + Azure Cosmos DB Voting Application.</h2>
     <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
@@ -336,7 +337,7 @@ def vote():
     DOCUMENTDB_COLLECTION = 'voting collection'
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
-3. Na [Portálu Azure](https://portal.azure.com/) přejděte do okna **Klíče** tak, že kliknete na **Procházet**, **Účty DocumentDB**, dvakrát kliknete na název účtu, který chcete použít, a v oblasti **Základy** kliknete na tlačítko **Klíče**. V okně **Klíče** zkopírujte hodnotu **URI** a vložte ji do souboru **config.py** jako hodnotu vlastnosti **DOCUMENTDB\_HOST**. 
+3. Na webu [Azure Portal](https://portal.azure.com/) přejděte do okna **Klíče** tak, že kliknete na **Procházet**, **Účty služby Azure Cosmos DB**, dvakrát kliknete na název účtu, který chcete použít, a v oblasti **Základy** kliknete na tlačítko **Klíče**. V okně **Klíče** zkopírujte hodnotu **URI** a vložte ji do souboru **config.py** jako hodnotu vlastnosti **DOCUMENTDB\_HOST**. 
 4. Zpět na Portálu Azure v okně **Klíče** zkopírujte hodnotu **Primární klíč** nebo **Sekundární klíč** a vložte ji do souboru **config.py** jako hodnotu vlastnosti **DOCUMENTDB\_KEY**.
 5. Do souboru **\_\_init\_\_.py** přidejte následující řádek. 
    
@@ -358,7 +359,7 @@ def vote():
 1. Sestavte řešení stisknutím **CTRL**+**SHIFT**+**B**.
 2. Po úspěšném sestavení spusťte web klávesou **F5**. Na obrazovce byste měli vidět následující.
    
-    ![Snímek obrazovky hlasovací aplikace vytvořené v Pythonu a DocumentDB zobrazené ve webovém prohlížeči](./media/documentdb-python-application/image16.png)
+    ![Snímek obrazovky hlasovací aplikace vytvořené pomocí Pythonu a služby Azure Cosmos DB zobrazené ve webovém prohlížeči](./media/documentdb-python-application/image16.png)
 3. Klikněte na **Create/Clear the Voting Database** (Vytvořit nebo vyčistit hlasovací databázi), aby se vygenerovala databáze.
    
     ![Snímek obrazovky webové aplikace a její stránky Vytvořit – podrobnosti o vývoji](./media/documentdb-python-application/image17.png)
@@ -371,7 +372,7 @@ def vote():
 6. Kombinací kláves SHIFT+F5 ukončete ladění projektu.
 
 ## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Krok 5: Nasazení webové aplikace na Weby Azure
-Nyní, když je aplikace dokončena a správně funguje s DocumentDB, nasadíme ji na Weby Azure.
+Nyní, když je aplikace dokončena a správně funguje se službou Cosmos DB, nasadíme ji ve službě Azure Websites.
 
 1. Klikněte pravým tlačítkem na projekt v Průzkumníkovi řešení (ujistěte se, že aplikace již není spuštěná místně) a vyberte **Publikovat**.  
    
@@ -398,7 +399,7 @@ Pokud je toto první aplikace Python, kterou jste spustili na svém počítači,
 Pokud jste projekt pojmenovali jinak než **tutorial** a na stránce hlasování se zobrazí chyba, ujistěte se, že soubor **\_\_init\_\_.py** odkazuje na následujícím řádku na správný projekt: `import tutorial.view`.
 
 ## <a name="next-steps"></a>Další kroky
-Blahopřejeme! Právě jste dokončili svou první webovou aplikaci Python, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure.
+Blahopřejeme! Právě jste dokončili svou první webovou aplikaci Python, která využívá službu Cosmos DB, a publikovali jste ji ve službě Azure Websites.
 
 Toto téma často aktualizujeme a vylepšujeme podle vaší zpětné vazby.  Až kurz dokončíte, použijte prosím hlasovací tlačítka v horní a dolní části této stránky a sdělte nám svůj názor, jaká vylepšení byste si přáli vidět. Pokud chcete, abychom vás kontaktovali přímo, můžete nám nechat e-mailovou adresu v komentářích.
 

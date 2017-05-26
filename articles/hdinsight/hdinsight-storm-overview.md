@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/31/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 73e524bf9e7d51cee841a3c5599ab33aa31cbc37
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 90043b27360cfea4235c4401bcba9e6a254b8627
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -65,7 +66,7 @@ Storm pro HDInsight poskytuje následující klíčové výhody:
 
     * Azure Storage
 
-    * Azure DocumentDB
+    * Azure Cosmos DB
 
 * Bezpečně kombinuje možnosti více clusterů HDInsight s použitím virtuální sítě. Můžete vytvářet analytické kanály, které používají clustery HDInsight, HBase nebo Hadoop.
 
@@ -103,7 +104,7 @@ V HDInsight můžete zřídit nový cluster Storm během několika minut. Dalš�
 
     * [Zpracování událostí z Azure Event Hubs se Stormem v HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__, __DocumentDB__, __Event Hubs__ a __HBase__: Příklady šablony jsou součástí nástrojů Data Lake Tools pro Visual Studio. Další informace najdete v článku [Vývoj topologií v jazyce C# pro Storm v HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Database__, __Azure Cosmos DB__, __Event Hubs__ a __HBase__: Příklady šablon jsou součástí nástrojů Data Lake pro Visual Studio. Další informace najdete v článku [Vývoj topologií v jazyce C# pro Storm v HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="reliability"></a>Spolehlivost
 
