@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: a8c815326c255833fc7944821199d80e26b735ee
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3daf74e480854255a40e7ee74e96993fff930471
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,9 +34,16 @@ Tento článek ukazuje postup vytvoření virtuální sítě s připojením typu
 >
 >
 
-Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální síti. P2S je připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Připojení Point-to-Site jsou užitečná, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. Připojení typu P2S nevyžadují zařízení VPN ani veřejnou IP adresu. Připojení VPN se navazuje ze strany klientského počítače. Další informace o připojení Point-to-Site najdete v části [Nejčastější dotazy týkající se připojení Point-to-Site](#faq) na konci tohoto článku.
+Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální síti. P2S je připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Připojení Point-to-Site jsou užitečná, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. Připojení typu P2S nevyžadují zařízení VPN ani veřejnou IP adresu. Připojení VPN se navazuje ze strany klientského počítače.
 
 ![Diagram Point-to-Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
+
+Připojení typu Point-to-Site vyžadují:
+
+* Bránu VPN typu RouteBased.
+* Veřejný klíč (soubor .cer) pro kořenový certifikát nahraný do Azure. Ten se považuje za důvěryhodný certifikát a používá se k ověřování.
+* Klientský certifikát vygenerovaný z kořenového certifikátu a nainstalovaný na každém klientském počítači, který se bude připojovat. Tento certifikát se používá k ověřování klienta.
+* Na každém klientském počítači, který se bude připojovat, musí být vygenerován a nainstalován balíček pro konfiguraci klienta VPN. Balíček pro konfiguraci klienta konfiguruje nativního klienta VPN, který již je v operačním systému, s použitím informací potřebných pro připojení k virtuální síti.
 
 ### <a name="example"></a>Příklady hodnot
 
@@ -98,7 +105,7 @@ Připojení typu Point-to-Site vyžaduje následující nastavení:
 
 ## <a name="generatecert"></a>6 – Vygenerování certifikátů
 
-Azure používá certifikáty k ověřování klientů VPN pro sítě VPN Point-to-Site.
+Azure používá certifikáty k ověřování klientů VPN pro sítě VPN Point-to-Site. Nahrajete do Azure informace o veřejném klíči kořenového certifikátu. Veřejný klíč se pak bude považovat za důvěryhodný. Klientské certifikáty musí být vygenerované z důvěryhodného kořenového certifikátu a pak nainstalované na každém klientském počítači v úložišti certifikátů v adresáři Certificates-Current User/Personal. Tento certifikát se používá k ověřování klienta při zahájení připojení k virtuální síti. Další informace o generování a instalaci certifikátů najdete v tématu [Certifikáty pro připojení typu Point-to-Site](vpn-gateway-certificates-point-to-site.md).
 
 ### <a name="getcer"></a>Krok 1 – Získání souboru .cer pro kořenový certifikát
 
@@ -110,16 +117,18 @@ Azure používá certifikáty k ověřování klientů VPN pro sítě VPN Point-
 
 ## <a name="addresspool"></a>7 – Přidání fondu adres klienta
 
+Fond adres klienta je rozsah privátních IP adres, který zadáte. Klienti připojující se přes Point-to-Site obdrží IP adresu z tohoto rozsahu. Použijte rozsah privátních IP adres, který se nepřekrývá s místním umístěním, ze kterého se budete připojovat, nebo s virtuální sítí, ke které se chcete připojit.
+
 1. Jakmile je brána virtuální sítě vytvořená, přejděte do části **Nastavení** okna brány virtuální sítě. V části **Nastavení** kliknutím na **Konfigurace Point-to-Site** otevřete okno **Konfigurace**.
 
   ![Okno Point-to-Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Fond adres** je fond IP adres, ze kterého získavají IP adresu klienti, kteří se připojí. Přidejte fond adres a pak klikněte na **Uložit**.
+2. Automaticky vyplněný rozsah můžete odstranit a pak přidat rozsah privátních IP adres, který chcete použít. Kliknutím na **Uložit** ověřte a uložte nastavení.
 
   ![Fond adres klienta](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
 ## <a name="uploadfile"></a>8 – Nahrání souboru .cer kořenového certifikátu
 
-Po vytvoření brány můžete do Azure nahrát soubor .cer pro důvěryhodný kořenový certifikát. Můžete nahrát soubory až 20 kořenových certifikátů. Privátní klíč kořenového certifikátu nebudete nahrávat do Azure. Nahraný soubor .cer se v Azure používá k ověřování klientů, kteří se připojují k virtuální síti.
+Po vytvoření brány můžete nahrát soubor .cer (obsahující informace o veřejném klíči) důvěryhodného kořenového certifikátu do Azure. Jakmile je soubor .cer nahraný, Azure ho může použít k ověřování klientů s nainstalovaným klientským certifikátem vygenerovaným z důvěryhodného kořenového certifikátu. Později můžete podle potřeby nahrát další soubory s důvěryhodnými kořenovými certifikáty – celkem až 20. 
 
 1. Certifikáty se přidávají v okně **Konfigurace Point-to-Site** v části **Kořenový certifikát**.  
 2. Ujistěte se, že jste kořenový certifikát vyexportovali jako soubor .cer X.509 s kódováním Base-64. Je nutné certifikát exportovat v tomto formátu, abyste ho mohli otevřít v textovém editoru.
@@ -132,9 +141,9 @@ Po vytvoření brány můžete do Azure nahrát soubor .cer pro důvěryhodný k
 
 ## <a name="clientconfig"></a>9 – Instalace balíčku pro konfiguraci klienta VPN
 
-Pokud se chcete připojit k virtuální síti pomocí sítě VPN Point-to-Site, musí mít každý klient nainstalovaný konfigurační balíček klienta VPN. Balíček neinstaluje klienta VPN. V každém klientském počítači můžete použít stejný konfigurační balíček klienta VPN za předpokladu, že jeho verze odpovídá architektuře klienta. Seznam podporovaných klientských operačních systémů naleznete v části [Nejčastější dotazy o připojení Point-to-Site](#faq) na konci tohoto článku.
+Pokud se chcete připojit k virtuální síti pomocí sítě VPN typu Point-to-Site, musí mít každý klient nainstalovaný balíček pro konfiguraci nativního klienta VPN ve Windows. Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení nutných k připojení k virtuální síti, a pokud jste pro virtuální síť zadali server DNS, obsahuje IP adresu serveru DNS, který klient použije pro překlad IP adres. Pokud později po vygenerování balíčku pro konfiguraci klienta změníte zadaný server DNS, nezapomeňte vygenerovat nový balíček pro konfiguraci klienta, který nainstalujete na klientských počítačích.
 
-Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení nutných k připojení k virtuální síti, a pokud jste pro virtuální síť zadali server DNS, obsahuje IP adresu serveru DNS, který klient použije pro překlad IP adres. Pokud později po vygenerování balíčku pro konfiguraci klienta změníte zadaný server DNS, nezapomeňte vygenerovat nový balíček pro konfiguraci klienta, který nainstalujete na klientských počítačích.
+V každém klientském počítači můžete použít stejný konfigurační balíček klienta VPN za předpokladu, že jeho verze odpovídá architektuře klienta. Seznam podporovaných klientských operačních systémů naleznete v části [Nejčastější dotazy o připojení Point-to-Site](#faq) na konci tohoto článku.
 
 ### <a name="step-1---download-the-client-configuration-package"></a>Krok 1 – Stažení konfiguračního balíčku klienta
 

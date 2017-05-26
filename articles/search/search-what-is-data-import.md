@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 05/01/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
-ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5a601b75ec67824e72d8736bc3c45f8e1231ca86
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -41,11 +43,11 @@ Tento přístup je flexibilnější než model Pull, protože můžete nahrávat
 Azure Search rozumí formátu JSON a všechny dokumenty v datové sadě musí mít pole, která jdou namapovat na pole definovaná ve schématu indexu. 
 
 ## <a name="pull-data-into-an-index"></a>Získání dat do indexu
-Model Pull prochází podporovaný zdroj dat a automaticky nahrává data do vašeho indexu. Ve službě Azure Search je tato schopnost implementovaná prostřednictvím *indexerů*, aktuálně dostupných pro [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [DocumentDB](http://aka.ms/documentdb-search-indexer) a pro [Azure SQL Database a SQL Server na virtuálních počítačích Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
+Model Pull prochází podporovaný zdroj dat a automaticky nahrává data do vašeho indexu. Ve službě Azure Search je tato schopnost implementovaná prostřednictvím *indexerů*, aktuálně dostupných pro služby [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer), [Azure SQL Database a SQL Server na virtuálních počítačích Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
 Indexery propojují index se zdrojem dat (obvykle tabulka, zobrazení nebo ekvivalentní struktura) a mapují pole zdroje na odpovídající pole v indexu. Během provádění je sada řádků automaticky převedena na formát JSON a načtena do určeného indexu. Všechny indexery podporují plánování, takže můžete určit, jak často se data budou aktualizovat. Většina indexerů umožňuje sledování změn dat, pokud ho zdroj dat podporuje. Indexery sledují změny a odstranění ve stávajících dokumentech a rozpoznávají nové dokumenty, a díky tomu není potřeba aktivně spravovat data v indexu. 
 
-Funkce indexeru jsou přístupné pomocí webu [Azure Portal](search-import-data-portal.md), rozhraní [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) a sady [.NET SDK](https://docs.microsoft.com/otnet/api/microsoft.azure.search.iindexersoperations?redirectedfrom=MSDN#microsoft_azure_search_iindexersoperations). 
+Funkce indexeru jsou přístupné pomocí webu [Azure Portal](search-import-data-portal.md), rozhraní [REST API](/rest/api/searchservice/Indexer-operations) a sady [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperations). 
 
 Výhodou použití portálu je, že Azure Search většinou za vás dokáže vygenerovat výchozí schéma indexu podle metadat zdrojové datové sady. Vygenerovaný index můžete upravit až do zpracování indexu. Poté jsou povoleny jen takové změny schématu, které nevyžadují přeindexování. Pokud provedené změny přímo ovlivní schéma indexu, bude nutné index znovu sestavit. 
 
@@ -53,12 +55,7 @@ Po naplnění indexu můžete jako ověřovací krok použít **Průzkumníka sl
 
 ## <a name="query-an-index-using-search-explorer"></a>Dotazování indexu pomocí Průzkumník služby Search
 
-Rychlý způsob, jak provést předběžnou kontrolu při odeslání dokumentu, představuje **Průzkumník služby Search** na portálu. Průzkumníka můžete použít k zadávání dotazů na index, aniž byste museli programovat. Funkce vyhledávání je založena na výchozím nastavení, jako je [jednoduchá syntaxe](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) a výchozí [parametr dotazu searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents). Výsledky jsou vráceny ve formátu JSON, abyste si mohli prohlédnout celý dokument.
+Rychlý způsob, jak provést předběžnou kontrolu při odeslání dokumentu, představuje **Průzkumník služby Search** na portálu. Průzkumníka můžete použít k zadávání dotazů na index, aniž byste museli programovat. Funkce vyhledávání je založena na výchozím nastavení, jako je [jednoduchá syntaxe](/rest/api/searchservice/simple-query-syntax-in-azure-search) a výchozí [parametr dotazu searchMode](/rest/api/searchservice/search-documents). Výsledky jsou vráceny ve formátu JSON, abyste si mohli prohlédnout celý dokument.
 
 > [!TIP]
 > Jako výchozí bod můžete využít celou řadu [ukázek kódu pro Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) zahrnujících vložené nebo snadno dostupné datové sady. Na portálu také najdete ukázkový indexer a zdroj dat, obsahující datovou sadu malé realitní kanceláře (s názvem realestate-us-sample). Když spustíte předkonfigurovaný indexer na ukázkový zdroj dat, vytvoří se index a načtou se do něj dokumenty, na které se můžete dotazovat pomocí Průzkumníka služby Search nebo pomocí vlastního kódu.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/3/2017
+ms.date: 5/8/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cd07cfe9663ffe2561f87b76b3eef1a551c9d665
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Přehled funkcí ve službě Azure Backup
-Azure Backup je služba Azure, kterou můžete využívat k zálohování (ochraně) a obnovování vašich dat v Microsoft Cloudu. Azure Backup nahrazuje současná řešení místního nebo odlehlého zálohování spolehlivým, bezpečným a cenově konkurenceschopným cloudovým řešením. Azure Backup nabízí několik komponent, které můžete stáhnout a nasadit na vhodném počítači, na serveru, nebo v cloudu. Nasazená komponenta nebo agent závisí na tom, co chcete chránit. Všechny komponenty Azure Backup (bez ohledu na to, jestli chráníte data v místním nebo cloudovém úložišti) je možné použít pro zálohování dat do trezoru služby Backup v Azure. Informace o tom, kterou komponentu použít pro ochranu konkrétních data, aplikací nebo úloh, najdete v [tabulce komponent Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (dále v tomto článku).
+Azure Backup je služba Azure, kterou můžete využívat k zálohování (ochraně) a obnovování vašich dat v Microsoft Cloudu. Azure Backup nahrazuje současná řešení místního nebo odlehlého zálohování spolehlivým, bezpečným a cenově konkurenceschopným cloudovým řešením. Azure Backup nabízí několik komponent, které můžete stáhnout a nasadit na vhodném počítači, na serveru, nebo v cloudu. Nasazená komponenta nebo agent závisí na tom, co chcete chránit. Všechny komponenty služby Azure Backup (bez ohledu na to, jestli chráníte data v místním nebo cloudovém úložišti) je možné použít k zálohování dat do trezoru služby Recovery Services v Azure. Informace o tom, kterou komponentu použít pro ochranu konkrétních data, aplikací nebo úloh, najdete v [tabulce komponent Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (dále v tomto článku).
 
 [Podívejte se na video s přehledem Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
@@ -42,7 +42,7 @@ Tradiční řešení zálohování se vyvinula tak, že cloud považují za konc
 
 * Geograficky redundantní úložiště (GRS) replikuje vaše data do sekundární oblasti (vzdálené stovky kilometrů od primárního umístění zdrojových dat). Geograficky redundantní úložiště je nákladnější než místně redundantní úložiště, ale nabízí vyšší úroveň odolnosti dat i v případě regionálního výpadku.
 
-**Neomezené přenosy dat** – Azure Backup neomezuje množství příchozích ani odchozích dat, která přenesete. V rámci Azure Backup se přenesená data neúčtují. Pokud ale použijete službu importu/exportu v Azure k importu velkého množství dat, účtují se náklady související s příchozími daty. Další informace o těchto nákladech najdete v části [Pracovní postup zálohování offline v Azure Backup](backup-azure-backup-import-export.md). Odchozí data jsou data přenesená z trezoru služby Backup během operace obnovování.
+**Neomezené přenosy dat** – Azure Backup neomezuje množství příchozích ani odchozích dat, která přenesete. V rámci Azure Backup se přenesená data neúčtují. Pokud ale použijete službu importu/exportu v Azure k importu velkého množství dat, účtují se náklady související s příchozími daty. Další informace o těchto nákladech najdete v části [Pracovní postup zálohování offline v Azure Backup](backup-azure-backup-import-export.md). Odchozí data označují data přenášená z trezoru služby Recovery Services během operace obnovení.
 
 **Šifrování dat** – Šifrování dat umožňuje bezpečný přenos a ukládání vašich dat ve veřejném cloudu. Šifrovací heslo máte uložené v místním úložišti a do Azure se nikdy nepřenáší ani se tam neukládá. Pokud je nutné obnovit některá data, máte šifrovací heslo (klíč) k dispozici jen vy.
 
@@ -55,18 +55,18 @@ Pokud si nejste jisti, která komponenta Azure Backup splňuje vaše potřeby, n
 
 | Komponenta | Výhody | Omezení | Co se chrání? | Kde jsou zálohy uložené? |
 | --- | --- | --- | --- | --- |
-| Agent Azure Backup (MARS) |<li>Zálohování souborů a složek ve fyzickém nebo virtuálním operačním systému Windows (virtuální počítač může být místní nebo v Azure)<li>Není vyžadován samostatný záložní server. |<li>Zálohování 3x denně <li>Nerozpoznávají se aplikace; obnovování pouze na úrovni souboru, složky nebo svazku. <li>  Bez podpory Linux |<li>Soubory <li>Složky |Trezor služby Azure Backup |
-| System Center DPM |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware <li>Zálohování a obnovení virtuálních počítačů VMware pomocí DPM 2012 R2 |Nejde zálohovat úlohu Oracle.|<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk,<li>  Páska (pouze místní) |
-| Server Azure Backup |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může používat trezor služby Azure Backup<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware<li>Zálohování a obnovení virtuálních počítačů VMware <li>Nevyžaduje licenci produktu System Center |<li>Nejde zálohovat úlohu Oracle.<li>Vždy vyžaduje živé předplatné Azure<li>Nepodporuje zálohování na pásku |<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Azure Backup,<li> Místně připojený disk |
-| Zálohování virtuálních počítačů Azure IaaS |<li>Nativní zálohy pro Windows a Linux<li>Bez nutnosti instalace konkrétního agenta<li>Zálohování na úrovni prostředků infrastruktury bez potřeby infrastruktury zálohování |<li>Zálohování virtuálních počítačů jednou denně <li>Obnovení virtuálních počítačů pouze na úrovni disku<li>Nemožnost místního zálohování |<li>Virtuální počítače <li>Všechny disky (pomocí PowerShellu) |<p>Trezor služby Azure Backup</p> |
+| Agent Azure Backup (MARS) |<li>Zálohování souborů a složek ve fyzickém nebo virtuálním operačním systému Windows (virtuální počítač může být místní nebo v Azure)<li>Není vyžadován samostatný záložní server. |<li>Zálohování 3x denně <li>Nerozpoznávají se aplikace; obnovování pouze na úrovni souboru, složky nebo svazku. <li>  Bez podpory Linux |<li>Soubory <li>Složky |Trezor služby Recovery Services |
+| System Center DPM |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může použít trezor služby Recovery Services<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware <li>Zálohování a obnovení virtuálních počítačů VMware pomocí DPM 2012 R2 |Nejde zálohovat úlohu Oracle.|<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Recovery Services,<li> Místně připojený disk,<li>  Páska (pouze místní) |
+| Server Azure Backup |<li>Snímky schopné rozeznávat aplikace (VSS)<li>Úplná flexibilita času zálohování<li>Členitost obnovení (všechny)<li>Může použít trezor služby Recovery Services<li>Podpora Linuxu ve virtuálních počítačích Hyper-V a VMware<li>Zálohování a obnovení virtuálních počítačů VMware <li>Nevyžaduje licenci produktu System Center |<li>Nejde zálohovat úlohu Oracle.<li>Vždy vyžaduje živé předplatné Azure<li>Nepodporuje zálohování na pásku |<li>Soubory <li>Složky<li> Svazky <li>Virtuální počítače<li> Aplikace<li> Úlohy |<li>Trezor služby Recovery Services,<li> Místně připojený disk |
+| Zálohování virtuálních počítačů Azure IaaS |<li>Nativní zálohy pro Windows a Linux<li>Bez nutnosti instalace konkrétního agenta<li>Zálohování na úrovni prostředků infrastruktury bez potřeby infrastruktury zálohování |<li>Zálohování virtuálních počítačů jednou denně <li>Obnovení virtuálních počítačů pouze na úrovni disku<li>Nemožnost místního zálohování |<li>Virtuální počítače <li>Všechny disky (pomocí PowerShellu) |<p>Trezor služby Recovery Services</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Jaké jsou scénáře nasazení pro jednotlivé komponenty?
 | Komponenta | Lze nasadit v Azure? | Lze nasadit místně? | Podpora cílového úložiště |
 | --- | --- | --- | --- |
-| Agent Azure Backup (MARS) |<p>**Ano**</p> <p>Agenta Azure Backup lze nasadit na jakýkoli virtuální počítač s Windows Serverem, který běží v Azure.</p> |<p>**Ano**</p> <p>Agenta služby Backup lze nasadit na jakýkoli virtuální nebo fyzický počítač s Windows Serverem.</p> |<p>Trezor služby Azure Backup</p> |
-| System Center DPM |<p>**Ano**</p><p>Další informace o tom, [jak chránit úlohy v Azure pomocí aplikace System Center DPM](backup-azure-dpm-introduction.md).</p> |<p>**Ano**</p> <p>Další informace o tom, [jak chránit úlohy a virtuální počítače ve vašem datovém centru](https://technet.microsoft.com/en-us/system-center-docs/dpm/data-protection-manager).</p> |<p>Místně připojený disk,</p> <p>Trezor služby Azure Backup,</p> <p>páska (pouze místní)</p> |
-| Server Azure Backup |<p>**Ano**</p><p>Další informace o tom, [jak chránit úlohy v Azure pomocí Serveru Azure Backup](backup-azure-microsoft-azure-backup.md).</p> |<p>**Ano**</p> <p>Další informace o tom, [jak chránit úlohy v Azure pomocí Serveru Azure Backup](backup-azure-microsoft-azure-backup.md).</p> |<p>Místně připojený disk,</p> <p>Trezor služby Azure Backup</p> |
-| Zálohování virtuálních počítačů Azure IaaS |<p>**Ano**</p><p>Součást prostředků infrastruktury Azure</p><p>Specializované pro [zálohování virtuálních počítačů Azure IaaS (infrastruktura jako služba)](backup-azure-vms-introduction.md).</p> |<p>**Ne**</p> <p>Pro zálohování virtuálních počítačů ve svém datovém centru použijte aplikaci System Center DPM.</p> |<p>Trezor služby Azure Backup</p> |
+| Agent Azure Backup (MARS) |<p>**Ano**</p> <p>Agenta Azure Backup lze nasadit na jakýkoli virtuální počítač s Windows Serverem, který běží v Azure.</p> |<p>**Ano**</p> <p>Agenta služby Backup lze nasadit na jakýkoli virtuální nebo fyzický počítač s Windows Serverem.</p> |<p>Trezor služby Recovery Services</p> |
+| System Center DPM |<p>**Ano**</p><p>Další informace o tom, [jak chránit úlohy v Azure pomocí aplikace System Center DPM](backup-azure-dpm-introduction.md).</p> |<p>**Ano**</p> <p>Další informace o tom, [jak chránit úlohy a virtuální počítače ve vašem datovém centru](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager).</p> |<p>Místně připojený disk,</p> <p>Trezor služby Recovery Services,</p> <p>páska (pouze místní)</p> |
+| Server Azure Backup |<p>**Ano**</p><p>Další informace o tom, [jak chránit úlohy v Azure pomocí Serveru Azure Backup](backup-azure-microsoft-azure-backup.md).</p> |<p>**Ano**</p> <p>Další informace o tom, [jak chránit úlohy v Azure pomocí Serveru Azure Backup](backup-azure-microsoft-azure-backup.md).</p> |<p>Místně připojený disk,</p> <p>Trezor služby Recovery Services</p> |
+| Zálohování virtuálních počítačů Azure IaaS |<p>**Ano**</p><p>Součást prostředků infrastruktury Azure</p><p>Specializované pro [zálohování virtuálních počítačů Azure IaaS (infrastruktura jako služba)](backup-azure-vms-introduction.md).</p> |<p>**Ne**</p> <p>Pro zálohování virtuálních počítačů ve svém datovém centru použijte aplikaci System Center DPM.</p> |<p>Trezor služby Recovery Services</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Které aplikace a úlohy lze zálohovat?
 Následující tabulka obsahuje matici dat a úloh, které se dají chránit s použitím Azure Backup. Sloupec řešení Azure Backup obsahuje odkazy na dokumentaci k nasazení pro příslušné řešení. Každou komponentu Azure Backup je možné nasadit v prostředí Classic (nasazení v Service Manageru) nebo v prostředí modelu nasazení Resource Manageru.
@@ -91,15 +91,15 @@ Následující tabulka uvádí komponenty Azure Backup s podporou pro Linux.
 | Komponenta | Podpora Linuxu (schváleného Azure) |
 | --- | --- |
 | Agent Azure Backup (MARS) |Ne (pouze agent založený na Windows) |
-| System Center DPM |Záloha s konzistentními soubory virtuálních počítačů hosta s Linuxem v Hyper-V a VMWaru<br/> (není k dispozici pro virtuální počítač Azure)<br/> Obnovení virtuálního počítače pro virtuální počítače hosta s Linuxem v Hyper-V a VMwaru |
-| Server Azure Backup |Záloha s konzistentními soubory virtuálních počítačů hosta s Linuxem v Hyper-V a VMWaru<br/> (není k dispozici pro virtuální počítač Azure)<br/> Obnovení virtuálního počítače pro virtuální počítače hosta s Linuxem v Hyper-V a VMwaru |
-| Zálohování virtuálních počítačů Azure IaaS |Zálohování konzistentní s aplikací pomocí [rozhraní s předzálohovacími a pozálohovacími skripty](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Detailní obnovení souborů](backup-azure-restore-files-from-vm.md)<br/> [Obnovení všech disků virtuálního počítače](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [Obnovení virtuálního počítače](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
+| System Center DPM |<li> Záloha s konzistentními soubory virtuálních počítačů hosta s Linuxem v Hyper-V a VMWaru<br/> <li> Obnovení virtuálního počítače pro virtuální počítače hosta s Linuxem v Hyper-V a VMwaru </br> </br>  *Zálohování s konzistentními soubory není dostupné pro virtuální počítače Azure* <br/> |
+| Server Azure Backup |<li>Záloha s konzistentními soubory virtuálních počítačů hosta s Linuxem v Hyper-V a VMWaru<br/> <li> Obnovení virtuálního počítače pro virtuální počítače hosta s Linuxem v Hyper-V a VMwaru </br></br> *Zálohování s konzistentními soubory není dostupné pro virtuální počítače Azure*  |
+| Zálohování virtuálních počítačů Azure IaaS |Zálohování konzistentní s aplikací pomocí [rozhraní s předzálohovacími a pozálohovacími skripty](backup-azure-linux-app-consistent.md)<br/> [Detailní obnovení souborů](backup-azure-restore-files-from-vm.md)<br/> [Obnovení všech disků virtuálního počítače](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Obnovení virtuálního počítače](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Použití virtuálních počítačů služby Storage úrovně Premium s Azure Backup
 Azure Backup chrání virtuální počítače služby Storage úrovně Premium. Azure Premium Storage představuje úložiště využívající disky SSD (solid-state drive) určené pro podporu úloh náročných na množství vstupně-výstupních operací. Služba Storage úrovně Premium je zajímavá pro úlohy virtuálních počítačů. Další informace o službě Storage úrovně Premium najdete v článku [Premium Storage: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Zálohování virtuálních počítačů služby Storage úrovně Premium
-Během zálohování virtuálních počítačů služby Storage úrovně Premium vytvoří služba Backup v účtu Storage úrovně Premium dočasné pracovní umístění s názvem „AzureBackup-“. Pracovní umístění velikostí odpovídá snímku bodu obnovení. Ujistěte se, že je v účtu úložiště dostatek volného místa pro toto dočasné pracovní umístění. Další informace najdete v článku věnovaném [omezení služby Storage úrovně Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets). Po dokončení úlohy zálohování je pracovní umístění odstraněno. Cena úložiště použitého pro pracovní umístění je konzistentní s [Cenami Storage úrovně Premium](../storage/storage-premium-storage.md#pricing-and-billing).
+Během zálohování virtuálních počítačů služby Storage úrovně Premium vytvoří služba Backup v účtu Storage úrovně Premium dočasné pracovní umístění s názvem „AzureBackup-“. Velikost pracovního umístění odpovídá velikosti snímku bodu obnovení. Ujistěte se, že je v účtu služby Storage úrovně Premium dostatek volného místa pro toto dočasné pracovní umístění. Další informace najdete v článku věnovaném [omezení služby Storage úrovně Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets). Po dokončení úlohy zálohování je pracovní umístění odstraněno. Cena úložiště použitého pro pracovní umístění je konzistentní s [Cenami Storage úrovně Premium](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Pracovní umístění neměňte, ani neupravujte.
@@ -116,7 +116,7 @@ Azure Backup chrání virtuální počítače se spravovanými disky. Díky zpra
 Zálohování virtuálních počítačů na spravovaných discích se nijak neliší od zálohování virtuálních počítačů vytvořených pomocí Resource Manageru. Na webu Azure Portal můžete úlohu zálohování konfigurovat přímo ze zobrazení virtuálního počítače nebo ze zobrazení trezoru služby Recovery Services. Virtuální počítače na spravovaných discích můžete zálohovat prostřednictvím kolekcí RestorePoint postavených na spravovaných discích. Azure Backup podporuje také zálohování virtuálních počítačů se spravovanými disky, které jsou šifrované pomocí služby Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Obnovení virtuálních počítačů se spravovanými disky
-Azure Backup umožňuje kompletní obnovení virtuálního počítače se spravovanými disky nebo obnovení spravovaných disků do účtu úložiště Resource Manageru. Azure během procesu obnovení spravuje spravované disky. Vy (zákazník) spravujete účet úložiště vytvořený jako součást procesu obnovení. Pokud chcete obnovit spravované, šifrované virtuální počítače, klíče a tajné kódy daného virtuálního počítače musí v trezoru klíčů existovat ještě před obnovením.
+Azure Backup umožňuje kompletní obnovení virtuálního počítače se spravovanými disky nebo obnovení spravovaných disků do účtu úložiště. Azure během procesu obnovení spravuje spravované disky. Vy (zákazník) spravujete účet úložiště vytvořený jako součást procesu obnovení. Při obnovování spravovaných šifrovaných virtuálních počítačů existují klíče a tajné kódy daného virtuálního počítače v trezoru klíčů ještě před spuštěním operace obnovení.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Jaké jsou funkce jednotlivých komponent služby Backup?
 Následující části obsahují tabulky, které shrnují dostupnost nebo podporu různých funkcí v jednotlivých komponentách Azure Backup. Informace o další podpoře nebo podrobnosti najdete pod jednotlivými tabulkami.
@@ -124,19 +124,19 @@ Následující části obsahují tabulky, které shrnují dostupnost nebo podpor
 ### <a name="storage"></a>Úložiště
 | Funkce | Agent Azure Backup | System Center DPM | Server Azure Backup | Zálohování virtuálních počítačů Azure IaaS |
 | --- | --- | --- | --- | --- |
-| Trezor služby Azure Backup |![Ano][green] |![Ano][green] |![Ano][green] |![Ano][green] |
+| Trezor služby Recovery Services |![Ano][green] |![Ano][green] |![Ano][green] |![Ano][green] |
 | Diskové úložiště | |![Ano][green] |![Ano][green] | |
 | Páskové úložiště | |![Ano][green] | | |
-| Komprese <br/>(v trezoru služby Azure Backup) |![Ano][green] |![Ano][green] |![Ano][green] | |
+| Komprese <br/>(v trezoru služby Recovery Services) |![Ano][green] |![Ano][green] |![Ano][green] | |
 | Přírůstkové zálohování |![Ano][green] |![Ano][green] |![Ano][green] |![Ano][green] |
-| Odstranění duplicit disku | |![Částečně][yellow] |![Částečně][yellow] | |
+| Odstranění duplicit disku | |![Částečně][yellow] |![Částečně][yellow] | | |
 
 ![klíč tabulky](./media/backup-introduction-to-azure-backup/table-key.png)
 
-Trezor záloh je upřednostňovaným cílem úložiště napříč všemi komponentami. Aplikace System Center DPM a Azure Backup Server také poskytují možnost kopie místního disku. Pouze System Center DPM však nabízí možnost zápisu dat na zařízení páskového úložiště.
+Trezor služby Recovery Services je upřednostňovaným cílem úložiště napříč všemi komponentami. Aplikace System Center DPM a Azure Backup Server také poskytují možnost kopie místního disku. Pouze System Center DPM však nabízí možnost zápisu dat na zařízení páskového úložiště.
 
 #### <a name="compression"></a>Komprese
-Díky komprimování záloh dochází ke zmenšení potřebného prostoru úložiště. Jedinou komponentou, která nepoužívá komprimaci, je rozšíření virtuálního počítače. Rozšíření virtuálního počítače kopíruje veškerá zálohovaná data z vašeho účtu úložiště do trezoru služby Backup ve stejné oblasti. Při přenosu dat se nepoužívá žádná komprese. Přenosem dat bez komprese se mírně zvýší využití úložiště. Ukládání dat bez komprese však umožňuje rychlejší obnovení v případě, že potřebujete tento bod obnovení.
+Díky komprimování záloh dochází ke zmenšení potřebného prostoru úložiště. Jedinou komponentou, která nepoužívá komprimaci, je rozšíření virtuálního počítače. Rozšíření virtuálního počítače kopíruje veškerá zálohovaná data z vašeho účtu úložiště do trezoru služby Recovery Services ve stejné oblasti. Při přenosu dat se nepoužívá žádná komprese. Přenosem dat bez komprese se mírně zvýší využití úložiště. Ukládání dat bez komprese však umožňuje rychlejší obnovení v případě, že potřebujete tento bod obnovení.
 
 
 #### <a name="disk-deduplication"></a>Odstranění duplicit disku
@@ -148,7 +148,7 @@ Výhody odstranění duplicit můžete využívat při nasazení aplikace System
 >
 
 ### <a name="incremental-backup-explained"></a>Vysvětlení přírůstkového zálohování
-Všechny komponenty služby Azure Backup podporují přírůstkové zálohování bez ohledu na typ cílového úložiště (disk, páska, trezor záloh). Přírůstkové zálohování díky přenášení pouze změn od poslední zálohy zajišťuje efektivitu zálohování z hlediska úložiště a času.
+Všechny komponenty služby Azure Backup podporují přírůstkové zálohování bez ohledu na typ cílového úložiště (disk, páska, trezor služby Recovery Services). Přírůstkové zálohování díky přenášení pouze změn od poslední zálohy zajišťuje efektivitu zálohování z hlediska úložiště a času.
 
 #### <a name="comparing-full-differential-and-incremental-backup"></a>Porovnání úplného, rozdílového a přírůstkového zálohování
 
@@ -171,10 +171,10 @@ U **úplného zálohování** každá záložní kopie obsahuje celý zdroj dat.
 ![klíč tabulky](./media/backup-introduction-to-azure-backup/table-key.png)
 
 #### <a name="network-security"></a>Zabezpečení sítě
-Veškerý provoz zálohování z vašeho serveru do trezoru služby Backup je šifrován pomocí standardu AES (Advanced Encryption Standard) 256. Data zálohy se odesílají prostřednictvím zabezpečeného spojení HTTPS. Zálohovaná data jsou i v trezoru služby Backup uložena v šifrovaném tvaru. Heslo k odemknutí těchto dat má k dispozici pouze příslušný zákazník Azure. Microsoft za žádných okolností nemůže zálohovaná data dešifrovat.
+Veškerý provoz zálohování z vašich serverů do trezoru služby Recovery Services je šifrován pomocí standardu AES (Advanced Encryption Standard) 256. Data zálohy se odesílají prostřednictvím zabezpečeného spojení HTTPS. Zálohovaná data jsou uložena v šifrované podobě i v trezoru služby Recovery Services. Heslo k odemknutí těchto dat má k dispozici pouze příslušný zákazník Azure. Microsoft za žádných okolností nemůže zálohovaná data dešifrovat.
 
 > [!WARNING]
-> Po vytvoření trezoru služby Backup máte k šifrovacímu klíči přístup jen vy. Microsoft nikdy neuchovává kopii vašeho šifrovacího klíče a nemá ke klíči přístup. Pokud dojde ke ztrátě klíče, Microsoft nemůže zálohovaná data obnovit.
+> Po vytvoření trezoru služby Recovery Services máte k šifrovacímu klíči přístup jen vy. Microsoft nikdy neuchovává kopii vašeho šifrovacího klíče a nemá ke klíči přístup. Pokud dojde ke ztrátě klíče, Microsoft nemůže zálohovaná data obnovit.
 >
 >
 
@@ -185,15 +185,15 @@ Zálohování virtuálních počítačů Azure vyžaduje nastavení šifrování
 | Funkce | Agent Azure Backup | System Center DPM | Server Azure Backup | Zálohování virtuálních počítačů Azure IaaS |
 | --- | --- | --- | --- | --- |
 | Komprese sítě <br/>(na **záložní server**) | |![Ano][green] |![Ano][green] | |
-| Komprese sítě <br/>(do **trezoru záloh**) |![Ano][green] |![Ano][green] |![Ano][green] | |
+| Komprese sítě <br/>(do **trezoru služby Recovery Services**) |![Ano][green] |![Ano][green] |![Ano][green] | |
 | Síťový protokol <br/>(na **záložní server**) | |TCP |TCP | |
-| Síťový protokol <br/>(do **trezoru záloh**) |HTTPS |HTTPS |HTTPS |HTTPS |
+| Síťový protokol <br/>(do **trezoru služby Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
 ![klíč tabulky](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
 Rozšíření virtuálního počítače (ve virtuálním počítači IaaS) čte data přímo z účtu úložiště Azure přes síť úložiště, takže není potřeba tento provoz komprimovat.
 
-Pokud data zálohujete do aplikace System Center DPM nebo na Azure Backup Server, komprimujte data přenášená z primárního serveru na záložní server. Komprese dat před jejich zálohováním do DPM nebo na Azure Backup Server šetří šířku pásma.
+Pokud jako sekundární záložní server používáte server System Center DPM nebo Azure Backup Server, komprimujte data přenášená z primárního serveru na záložní server. Komprese dat před jejich zálohováním do DPM nebo na Azure Backup Server šetří šířku pásma.
 
 #### <a name="network-throttling"></a>Omezování šířky pásma sítě
 Agent Azure Backup nabízí možnost omezování šířky pásma sítě, která vám umožňuje kontrolu využití šířky pásma sítě během přenosu dat. Omezování může být užitečné, pokud potřebujete zálohovat data v pracovní době, ale nechcete, aby proces zálohování narušoval ostatní internetový provoz. Omezování pro přenos dat platí pro činnosti zálohování a obnovení.
@@ -204,7 +204,7 @@ Azure Backup má limit 9999 bodů obnovení (označovaných také jako záložn�
 
 |  | Agent Azure Backup | System Center DPM | Server Azure Backup | Zálohování virtuálních počítačů Azure IaaS |
 | --- | --- | --- | --- | --- |
-| Frekvence zálohování<br/> (do trezoru služby Backup) |Tři zálohy za den |Dvě zálohy za den |Dvě zálohy za den |Jedna záloha za den |
+| Frekvence zálohování<br/> (do trezoru služby Recovery Services) |Tři zálohy za den |Dvě zálohy za den |Dvě zálohy za den |Jedna záloha za den |
 | Frekvence zálohování<br/> (na disk) |Neuvedeno |<li>Každých 15 minut pro SQL Server <li>Každou hodinu pro ostatní úlohy |<li>Každých 15 minut pro SQL Server <li>Každou hodinu pro ostatní úlohy</p> |Neuvedeno |
 | Možnosti uchovávání |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |Denně, týdně, měsíčně, ročně |
 | Maximální počet bodů obnovení na chráněnou instanci |9999|9999|9999|9999|
@@ -222,12 +222,12 @@ Mezi běžné příklady chráněných instancí patří virtuální počítače
 
 
 ## <a name="what-is-the-vault-credential-file"></a>Co je soubor s přihlašovacími údaji trezoru?
-Soubor s přihlašovacími údaji trezoru je certifikát vytvořený portálem pro každý trezor služby Backup. Portál poté odešle veřejný klíč do Access Control Service (ACS). Privátní klíč budete mít k dispozici v rámci stahování přihlašovacích údajů. Použijte ho k registraci počítačů, které chráníte. Privátní klíč vám umožňuje ověřovat servery nebo počítače pro odesílání zálohovaných dat do konkrétního trezoru služby Backup.
+Soubor s přihlašovacími údaji trezoru je certifikát vygenerovaný portálem pro každý trezor služby Recovery Services. Portál poté odešle veřejný klíč do Access Control Service (ACS). Privátní klíč budete mít k dispozici v rámci stahování přihlašovacích údajů. Použijte ho k registraci počítačů, které chráníte. Privátní klíč umožňuje ověřovat servery nebo počítače pro odesílání zálohovaných dat do konkrétního trezoru služby Recovery Services.
 
-Přihlašovací údaje úložiště slouží jen k registraci serverů nebo počítačů. S přihlašovacími údaji trezoru je ale třeba nakládat opatrně. V případě jejich ztráty nebo jejich získání jinými uživateli mohou být použity k registraci jiných počítačů pro stejný trezor. Vzhledem k tomu, že jsou zálohovaná data šifrovaná pomocí hesla přístupného jen pro vás, nemůže dojít k ohrožení bezpečnosti stávajících zálohovaných dat. Platnost přihlašovacích údajů trezoru vyprší po 48 hodinách. I když přihlašovací údaje pro trezor služby Backup můžete stahovat, jak často chcete, k registraci je možné použít jen nejnovější přihlašovací údaje.
+Přihlašovací údaje úložiště slouží jen k registraci serverů nebo počítačů. S přihlašovacími údaji trezoru je ale třeba nakládat opatrně. V případě jejich ztráty nebo jejich získání jinými uživateli mohou být použity k registraci jiných počítačů pro stejný trezor. Vzhledem k tomu, že jsou zálohovaná data šifrovaná pomocí hesla přístupného jen pro vás, nemůže dojít k ohrožení bezpečnosti stávajících zálohovaných dat. Platnost přihlašovacích údajů trezoru vyprší po 48 hodinách. I když přihlašovací údaje pro trezor služby Recovery Services můžete stahovat, jak často chcete, k registraci je možné použít pouze nejnovější přihlašovací údaje.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Čím se liší Azure Backup od Azure Site Recovery?
-Služby Azure Backup a Azure Site Recovery spolu souvisí v tom smyslu, že obě služby zálohují data a můžou tato data obnovit. Tyto služby se ale liší v nabídce hodnoty.
+Služby Azure Backup a Azure Site Recovery spolu souvisí v tom smyslu, že obě služby zálohují data a můžou tato data obnovit. Tyto služby však v podniku slouží k jiným účelům, co se týče zajištění kontinuity podnikových procesů a zotavení po havárii. Pomocí služby Azure Backup můžete chránit a obnovovat data na podrobnější úrovni. Pokud se například poškodí prezentace na přenosném počítači, pomocí služby Azure Backup můžete tuto prezentaci obnovit. Pokud chcete replikovat konfiguraci a data virtuálního počítače do jiného datacentra, použijte službu Azure Site Recovery.
 
 Azure Backup chrání data v místním a cloudovém úložišti. Azure Site Recovery koordinuje replikaci, převzetí služeb při selhání a navrácení služeb po obnovení mezi virtuálním počítačem a fyzickým serverem. Obě služby jsou důležité, protože je třeba, aby řešení zotavení po havárii zachovalo vaše data zabezpečená a obnovitelná (služba Backup) *a* aby vaše úlohy byly dostupné (služba Site Recovery) i v případě výpadku.
 

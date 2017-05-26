@@ -3,7 +3,7 @@ title: "Sledování dostupnosti a odezvy libovolných webů | Dokumentace Micros
 description: "Nastavení testů webu ve službě Application Insights. Zasílání upozornění, pokud web přestane být k dispozici nebo reaguje pomalu."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,30 +11,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
-ms.lasthandoff: 04/13/2017
+ms.date: 04/26/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Sledování dostupnosti a odezvy libovolných webů
-Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit webové testy ke sledování dostupnosti a odezvy. [Azure Application Insights](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
+Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit testy ke sledování dostupnosti a odezvy. [Azure Application Insights](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
 
-![Příklad webového testu](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+Testy dostupnosti můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS, který je přístupný z veřejného internetu. Na testovaný web není třeba nic přidávat. Dokonce se ani nemusí jednat o váš web – můžete například testovat službu REST API, na které jste závislí.
 
-Webové testy můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS, který je přístupný z veřejného internetu. Na testovaný web není třeba nic přidávat. Dokonce se ani nemusí jednat o váš web – můžete například testovat službu REST API, na které jste závislí.
-
-Existují dva typy webového testu:
+Existují dva typy testů dostupnosti:
 
 * [Testování ping adresy URL](#create): jednoduchý test, který můžete vytvořit na portálu Azure.
 * [Vícekrokový webový test](#multi-step-web-tests): který můžete vytvořit v sadě Visual Studio Enterprise a odeslat na portál.
 
-Můžete vytvořit až 10 webových testů na prostředek aplikace.
+Pro každý prostředek aplikace můžete vytvořit až 25 testů dostupnosti.
 
-## <a name="create"></a>1. Otevření prostředku pro sestavy vašich webových testů
+## <a name="create"></a>1. Otevření prostředku pro sestavy testů dostupnosti
 
 **Pokud jste již nakonfigurovali Application Insights** pro webovou aplikaci, otevřete její prostředek Application Insights na webu [Azure Portal](https://portal.azure.com).
 
@@ -45,12 +44,12 @@ Můžete vytvořit až 10 webových testů na prostředek aplikace.
 Kliknutím na možnost **Všechny prostředky** otevřete okno Přehled pro nový prostředek.
 
 ## <a name="setup"></a>2. Vytvoření testu adresy URL pomocí příkazu Ping
-Otevřete okno Dostupnost a přidejte webový test.
+Otevřete okno Dostupnost a přidejte test.
 
 ![Vyplňte alespoň adresu URL webu](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **Adresa URL** může být libovolná webová stránka, kterou chcete otestovat, ale musí být viditelná z veřejného internetu. Adresa URL může obsahovat řetězec dotazu, takže například můžete také trochu vyzkoušet svou databázi. Pokud se adresa URL přeloží na přesměrování, budeme ji sledovat až po 10 přesměrování.
-* **Analyzovat závislé požadavky:** Je-li tato možnost zaškrtnutá, test si vyžádá obrázky, skripty, soubory stylu a další soubory, které jsou součástí testované webové stránky. Zaznamenaná doba odezvy zahrnuje i čas potřebný k získání těchto souborů. Pokud tyto prostředky nelze úspěšně stáhnout v časovém limitu pro celý test, test se nezdaří. 
+* **Adresa URL** může být libovolná webová stránka, kterou chcete otestovat, ale musí být viditelná z veřejného internetu. Adresa URL může obsahovat řetězec dotazu. To znamená, že můžete také trochu vyzkoušet svou databázi. Pokud se adresa URL přeloží na přesměrování, budeme ji sledovat až po 10 přesměrování.
+* **Analyzovat závislé požadavky:** Pokud zaškrtnete tuto možnost, test si vyžádá obrázky, skripty, soubory stylu a další soubory, které jsou součástí testované webové stránky. Zaznamenaná doba odezvy zahrnuje i čas potřebný k získání těchto souborů. Pokud tyto prostředky nelze úspěšně stáhnout v časovém limitu pro celý test, test se nezdaří. 
 
     Pokud tato možnost není zaškrtnutá, test si vyžádá pouze soubor na zadané adrese URL.
 * **Povolit opakování:** Je-li tato možnost zaškrtnutá a test se nezdaří, za krátkou dobu se zopakuje. Selhání je nahlášeno pouze v případě tří po sobě jdoucích neúspěšných pokusů. Následné testy jsou pak provedeny s obvyklou frekvencí testu. Opakování je dočasně pozastaveno do dalšího úspěchu. Toto pravidlo platí nezávisle na každém umístění testu. Doporučujeme tuto možnost. V průměru přibližně 80 % selhání při opakování zmizí.
@@ -68,33 +67,41 @@ Otevřete okno Dostupnost a přidejte webový test.
     Můžete nastavit [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán, když je vydána výstraha. (Všimněte si, že v současné době parametry dotazu neprocházejí jako vlastnosti.)
 
 ### <a name="test-more-urls"></a>Testování více adres URL
-Přidat další testy Pro příklad, a také jako testování domovské stránky, můžete zajistit, že vaše databáze se spouští otestováním adresy URL pro hledání.
+Přidat další testy Vedle testování domovské stránky si můžete ověřit spuštění databáze taky tím, že provedete test adresy URL pro hledání.
 
 
-## <a name="monitor"></a>3. Zobrazení výsledků testu webu
+## <a name="monitor"></a>3. Zobrazení výsledků testu dostupnosti
 
-Po 5 minutách kliknutím na **Aktualizovat** zobrazíte výsledky testů. 
+Po pár minutách kliknutím na **Aktualizovat** zobrazíte výsledky testů. 
 
-![Souhrnné výsledky na domácím okně](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Souhrnné výsledky na domácím okně](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Kliknutím na libovolný panel v grafu souhrnu získáte podrobnější zobrazení tohoto časového období.
+Korelační diagram znázorňuje ukázky výsledků testu s podrobnostmi o krocích diagnostického testu. V případě testů obsahujících selhání ukládá testovací modul diagnostické informace. U úspěšných testů se diagnostické informace ukládají pro celou dílčí sadu provedení. Podržením ukazatele na zelených/červených tečkách zobrazíte časové razítko, dobu trvání, umístění a název testu. Klikáním na jednotlivé tečky v korelačním diagramu zobrazíte podrobnosti o výsledcích testu.  
+
+Výběrem určitého testu nebo umístění nebo zkrácením časového období zobrazíte více výsledků v požadovaném časovém období. V Průzkumníku služby Hledání můžete zobrazit výsledky všech provedení a pomocí dotazů služby Analytics můžete na těchto datech spouštět vlastní sestavy.
+
+Vedle nezpracovaných výsledků jsou v Průzkumníku metrik dostupné dvě metriky dostupnosti: 
+
+1. Dostupnost: procento testů, které proběhly úspěšně, vzhledem k celkovému počtu provedení testu. 
+2. Doba trvání testu: průměrná doba trvání u všech provedení testu.
+
+Můžete použít filtry podle názvu a umístění testu a analyzovat trendy určitého testu nebo umístění.
 
 ## <a name="edit"></a> Kontrola a úprava testů
 
 Na stránce souhrnu zvolte konkrétní test. Zde můžete zobrazit jeho konkrétní výsledky a upravit ho nebo dočasně zakázat.
 
-![Upravit nebo zakázat webový test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Upravit nebo zakázat webový test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Můžete chtít zakázat webové testy během provádění údržby vaší služby.
-
+Při provádění údržby služby může být vhodné zakázat testy dostupnosti nebo pravidla upozornění, která jsou s nimi spojená. 
 
 ## <a name="failures"></a>Pokud se zobrazí chyby
 Klikněte na červenou tečku.
 
-![Klikněte na červenou tečku](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Klikněte na červenou tečku](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-Z výsledku webového testu můžete provádět následující akce:
+Výsledek testu dostupnosti umožňuje:
 
 * Kontrolovat odpověď přijatou ze serveru.
 * Otevřít telemetrii zaslanou aplikací serveru při zpracovávání instance neúspěšné žádosti.
@@ -104,7 +111,7 @@ Z výsledku webového testu můžete provádět následující akce:
 
 *Zdá se, že všechno je v pořádku, ale přesto je hlášena chyba.* Zkontrolujte všechny image, skripty, šablony stylů a všechny další soubory, které stránka načetla. Pokud některý z nich selže, test se ohlásí jako neúspěšný i v případě, že se hlavní html stránka načte bez problémů.
 
-*Žádné související položky?* To může být způsobené tím, že je v probíhá [Vzorkování](app-insights-sampling.md).
+*Žádné související položky?* Pokud máte pro aplikaci na straně serveru nastavenou službu Application Insights, může být důvodem to, že právě probíhá [vzorkování](app-insights-sampling.md). 
 
 ## <a name="multi-step-web-tests"></a>Vícekrokové webové testy
 Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Například pokud sledujete prodejní web, můžete otestovat, zda správně funguje přidávání položek do nákupního košíku.
@@ -149,7 +156,7 @@ Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
     ![V sadě Visual Studio otevřete soubor .webtest a klikněte na tlačítko Spustit.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### <a name="2-upload-the-web-test-to-application-insights"></a>2. Nahrajte test webu do služby Application Insights
-1. Na portálu služby Application Insights vytvořte nový webový test.
+1. Na portálu služby Application Insights vytvořte webový test.
 
     ![V okně webového testu zvolte možnost Přidat.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. Vyberte vícekrokový test a nahrajte soubor .webtest.
@@ -240,7 +247,7 @@ V okně Přehled otevřete **Nastavení**, **Testy výkonnosti**. Při vytváře
 Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 
 ## <a name="automation"></a>Automation
-* [Automaticky používat skripty prostředí PowerShell k nastavení webového](app-insights-powershell.md#add-an-availability-test) testu.
+* [Automatické nastavení testu dostupnosti pomocí skriptů PowerShell](app-insights-powershell.md#add-an-availability-test).
 * Nastavení [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán při vydání výstrahy.
 
 ## <a name="qna"></a>Máte dotazy? Problémy?
@@ -252,13 +259,13 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
     Podporujeme protokoly TLS 1.1 a TLS 1.2.
 * *Je nějaký rozdíl mezi „webovými testy“ a „testy dostupnosti“?*
 
-    Používáme tyto dvě podmínky zaměnitelně.
+    Významy těchto dvou výrazů jsou zaměnitelné. Testy dostupnosti jsou obecnější označení, které kromě webových testů s více kroky zahrnuje taky jednorázové testy adres URL příkazem Ping.
 * *Chci používat testy dostupnosti na našem interním serveru, který je spuštěný za bránou firewall.*
 
     Existují dvě možná řešení:
     
     * Nakonfigurujte bránu firewall, aby povolovala příchozí požadavky z [IP adres našich agentů webového testu](app-insights-ip-addresses.md).
-    * Napište vlastní kód, který pravidelně testuje interní server. Spusťte kód na testovacím serveru jako proces na pozadí za vaší bránou firewall. Testovací proces můžete odesílat své výsledky do Application Insights pomocí rozhraní API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) v balíčku Core SDK. To vyžaduje, aby měl váš testovací server odchozí přístup ke koncovému bodu ingestování Application Insights, ale to je mnohem menší riziko zabezpečení než případné povolení příchozích požadavků. Výsledky se nebudou zobrazovat v oknech webových testů dostupnosti, ale zobrazí se jako výsledky dostupnosti v Průzkumníku metrik, analýzy a vyhledávání.
+    * Napište vlastní kód, který pravidelně testuje interní server. Spusťte kód na testovacím serveru jako proces na pozadí za vaší bránou firewall. Testovací proces můžete odesílat své výsledky do Application Insights pomocí rozhraní API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) v balíčku Core SDK. To vyžaduje, aby měl váš testovací server odchozí přístup ke koncovému bodu ingestování Application Insights, ale to je mnohem menší riziko zabezpečení než případné povolení příchozích požadavků. Výsledky se nebudou zobrazovat v oknech webových testů dostupnosti, ale zobrazí se jako výsledky dostupnosti ve službě Analytics, ve službě Hledání a v Průzkumníku metrik.
 * *Vícekrokový webový test se nepodařilo nahrát.*
 
     Maximální velikost je 300 kB.
@@ -291,4 +298,3 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

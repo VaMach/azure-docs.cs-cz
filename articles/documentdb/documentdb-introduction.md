@@ -1,68 +1,84 @@
 ---
-title: "Úvod do DocumentDB, databáze JSON | Microsoft Docs"
-description: "Informace o Azure DocumentDB, databázi NoSQL JSON Tato dokumentová databáze je navržena pro velký objem dat, elastickou škálovatelnost a vysokou dostupnost."
+title: "Azure Cosmos DB: Rozhraní DocumentDB API | Dokumentace Microsoftu"
+description: "Zjistěte, jak můžete používat službu Azure Cosmos DB k ukládání a dotazování velkého množství dokumentů JSON s nízkou latencí pomocí jazyka SQL a JavaScriptu."
 keywords: "json databáze, databáze dokumentu"
-services: documentdb
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 05/04/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4f6ae0c3c40a10f75b46c6e44b0aa9e8ce440b4d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 60cc7b5acf0a8c54d8927e992b2189f49af1db3c
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="introduction-to-documentdb-a-nosql-json-database"></a>Úvod do DocumentDB: Databáze NoSQL JSON
-## <a name="what-is-documentdb"></a>Co je DocumentDB?
-DocumentDB je plně spravovaná databázová služba NoSQL navržená pro vysoký a předvídatelný výkon, vysokou dostupnost, elastické škálování, globální distribuci a jednoduchý vývoj. Protože je DocumentDB databáze NoSQL bez schématu, poskytuje bohaté a známé schopnosti příkazů jazyka SQL s konsistentní nízkou latencí dat JSON – zajišťuje tak, že 99 % čtení je obslouženo do 10 milisekund a 99 % zápisů je obslouženo do 15 milisekund. Tyto jedinečné výhody činí z DocumentDB ideální řešení pro web, mobilní a herní zařízení, IoT a mnoho dalších aplikací s potřebou snadného škálování a globální replikace.
+# <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Úvod do služby Azure Cosmos DB: Rozhraní DocumentDB API
 
-## <a name="how-can-i-learn-about-documentdb"></a>Jak mohu zjistit více o DocumentDB?
-Rychlý způsob, jak se dozvědět informace o DocumentDB a vidět ji v provozu, představují tyto tři kroky: 
+[Azure Cosmos DB](../cosmos-db/introduction.md) je globálně distribuovaná databázová služba Microsoftu s více modely pro klíčové aplikace. Azure Cosmos DB poskytuje [globální distribuci na klíč](../documentdb/documentdb-distribute-data-globally.md), [elastické škálování propustnosti a úložiště](../cosmos-db/partition-data.md) po celém světě, latence v řádu milisekund na 99. percentilu, [pět jasně definovaných úrovní konzistence](../documentdb/documentdb-consistency-levels.md) a zaručenou vysokou dostupnost. To vše je podloženo [nejlepšími smlouvami SLA v oboru](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/). Azure Cosmos DB [automaticky indexuje data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), aniž by vyžadovala zapojení správy schémat a indexů. Zahrnuje více modelů a podporuje modely dokumentů, klíčových hodnot, grafů a sloupcových dat. 
 
-1. Podívejte se na dvouminutové video [Co je DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/), které představuje výhody DocumentDB.
-2. Podívejte se na tříminutové video [Vytvoření DocumentDB v Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/), ve kterém se dozvíte, jak s DocumentDB začít přes Portál Azure.
+![Rozhraní Azure DocumentDB API](./media/documentdb-introduction/cosmosdb-documentdb.png) 
+
+Díky rozhraní DocumentDB API poskytuje služba Azure Cosmos DB bohaté a známé [schopnosti příkazů jazyka SQL](documentdb-sql-query.md) nad daty JSON bez schématu s konsistentní nízkou latencí dat. Tento článek poskytuje přehled rozhraní DocumentDB API pro službu Azure Cosmos DB a popisuje, jak ho použít k ukládání velkých objemů dat JSON, dotazování těchto dat s latencí v řádu milisekund a snadnému rozšíření schématu. 
+
+## <a name="how-can-i-learn-about-the-documentdb-api"></a>Jak mohu zjistit více o rozhraní DocumentDB API?
+Rychlý způsob, jak se dozvědět informace o rozhraní DocumentDB API a vidět ho v akci, představují tyto tři kroky: 
+
+1. Podívejte se na dvouminutové video [Co je služba Azure Cosmos DB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/), které představuje výhody používání služby Azure Cosmos DB.
+2. Podívejte se na tříminutové video [Vytvoření služby Azure Cosmos DB v Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/), ve kterém se dozvíte, jak se službou Azure Cosmos DB začít pomocí webu Azure Portal.
 3. Navštivte [Query Playground](http://www.documentdb.com/sql/demo), kde si můžete projít různé aktivity a dozvědět se o bohatých funkcích pro dotazování dostupných v DocumentDB. Pak zamiřte na kartu Izolovaný prostor (sandbox), kde můžete spustit své vlastní dotazy SQL a experimentovat s DocumentDB.
 
 Poté se vraťte k tomuto článku, kde ji prozkoumáme důkladněji.  
 
-## <a name="what-capabilities-and-key-features-does-documentdb-offer"></a>Jaké schopnosti a klíčové funkce nabízí DocumentDB?
-Azure DocumentDB nabízí následující klíčové funkce a výhody:
+## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Jaké schopnosti a klíčové funkce nabízí databáze Azure Cosmos?
+Azure Cosmos DB prostřednictvím rozhraní DocumentDB API nabízí následující klíčové funkce a výhody:
 
-* **Elasticky škálovatelná propustnost a úložiště:** Databázi JSON DocumentDB je možné snadno škálovat nahoru i dolů, aby splňovala potřeby vaší aplikace. Data se ukládají na discích SSD (solid-state drive), které nabízí nízkou a předvídatelnou latenci. DocumentDB podporuje kontejnery pro ukládání dat JSON, kterým se říká kolekce a které je možné škálovat na prakticky neomezené velikosti úložiště a zřízenou propustnost. S růstem vaší aplikace je možné DocumentDB bezproblémově elasticky škálovat s předvídatelným výkonem. 
-* **Replikace více oblastí:** DocumentDB transparentně replikuje data do všech oblastí, které jste přidružili k vašemu účtu DocumentDB a umožňuje vám vytvářet aplikace, které vyžadují globální přístup k datům a zároveň poskytují kompromisy mezi konzistencí, dostupností a výkonem, a to vše s odpovídajícími zárukami. DocumentDB poskytuje transparentní regionální převzetí služeb při selhání se souběžnou instalací rozhraní API a schopností pružného škálování propustnosti a úložišť po celém světě. Další informace naleznete v části [Globální distribuce dat pomocí DocumentDB](documentdb-distribute-data-globally.md).
-* **Ad hoc dotazy se známou syntaxí SQL:** Do DocumentDB můžete ukládat heterogenní dokumenty JSON a dotazovat se na ně známou syntaxí SQL. DocumentDB využívá vysoce souběžnou technologii indexování strukturovanou do protokolů, která nevyžaduje zamykání a automaticky indexuje všechen obsah dokumentů. Díky tomu lze používat bohaté dotazy v reálném čase, aniž by bylo potřeba specifikovat parametry schématu, sekundární indexy nebo zobrazení. Další informace najdete v tématu [Dotazování DocumentDB](documentdb-sql-query.md). 
-* **Spuštění JavaScriptu uvnitř databáze:** Logiku aplikace je možné vyjádřit jako uložené procedury, triggery a uživatelem definované funkce (UDF) prostřednictvím standardního JavaScriptu. To logice aplikace umožňuje pracovat s daty, aniž by bylo nutné se obávat neshody mezi aplikací a schématem databáze. DocumentDB poskytuje možnost plného spouštění logiky aplikace JavaScript z transakcí přímo v databázovém stroji. Tato těsná integrace JavaScriptu umožňuje spouštět operace INSERT, REPLACE, DELETE a SELECT z javascriptového programu jako izolované transakce. Další informace najdete v tématu [DocumentDB – Programování na straně serveru](documentdb-programming.md).
-* **Přizpůsobitelné úrovně konzistence:** Pro dosažení optimálního poměru mezi konzistencí a výkonem si můžete vybrat ze čtyř dobře definovaných úrovní konzistence. Pro dotazy a operace čtení DocumentDB nabízí čtyři úrovně konzistence: silnou, s ohraničenou odolností, založenou na relaci a případnou. Tyto podrobné, dobře definované úrovně konzistence umožňují zvolit vhodný poměr mezi konzistencí, dostupností a latencí. Další informace najdete v tématu o [využití úrovní konzistence pro maximalizaci dostupnosti a výkonu v DocumentDB](documentdb-consistency-levels.md).
-* **Plně spravovaná služba:** Není nutné spravovat prostředky databáze a počítačů. DocumentDB je plně spravovaná služba Microsoft Azure – nepotřebujete spravovat virtuální počítače, nasazovat a konfigurovat software, spravovat škálování nebo řešit komplexní upgradování datové vrstvy. Každá databáze je automaticky zálohována a chráněna proti selháním v dané oblasti. Snadno si můžete přidat účet DocumentDB a zřídit kapacitu podle potřeby. Díky tomu se můžete soustředit na svou aplikaci, ne na provoz a správu databáze. 
-* **Otevřené řešení:** Pomocí existujících dovedností a nástrojů můžete začít rychle. Programování s DocumentDB je jednoduché, srozumitelné a nevyžaduje, abyste se naučili pracovat s novými nástroji nebo využívali vlastní rozšíření technologií JSON nebo JavaScript. Máte přístup k veškerým funkcím databáze, včetně CRUD, dotazování a zpracování JavaScriptu přes jednoduché rozhraní RESTful HTTP. DocumentDB pracuje s existujícími formáty, jazyky a standardy a zároveň k nim nabízí hodnotné schopnosti databáze.
-* **Automatické indexování:** DocumentDB ve výchozím nastavení automaticky indexuje všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Nechcete indexovat všechno? Buďte bez obav, můžete také [výslovně nesouhlasit s používáním cest v souborech JSON](documentdb-indexing-policies.md).
-* **Kompatibilita s aplikacemi MongoDB:** Pomocí rozhraní DocumentDB: API pro MongoDB můžete použít databáze DocumentDB jako úložiště dat pro aplikace napsané pro MongoDB. To znamená, že pomocí existujících ovladačů pro databáze MongoDB aplikace napsané pro MongoDB můžou nyní komunikovat s DocumentDB a používat databáze DocumentDB místo databází MongoDB. V mnoha případech můžete přepnout od užívání MongoDB na DocumentDB jednoduchou změnou připojovacího řetězce. Další informace najdete v tématu [Co je DocumentDB: API pro MongoDB?](documentdb-protocol-mongodb.md).
+* **Elasticky škálovatelná propustnost a úložiště:** Kapacitu databáze JSON je možné snadno vertikálně navyšovat nebo snižovat, aby splňovala potřeby vaší aplikace. Data se ukládají na discích SSD (solid-state drive), které nabízí nízkou a předvídatelnou latenci. Azure Cosmos DB podporuje kontejnery pro ukládání dat JSON, kterým se říká kolekce a které je možné škálovat na prakticky neomezené velikosti úložiště a zřízenou propustnost. S růstem vaší aplikace je možné službu Azure Cosmos DB bezproblémově elasticky škálovat s předvídatelným výkonem. 
 
-## <a name="data-management"></a>Jak DocumentDB spravuje data?
-Azure DocumentDB spravuje data JSON prostřednictvím dobře definovaných databázových prostředků. Tyto prostředky se pro zachování vysoké dostupnosti replikují a je možné je jedinečně adresovat pomocí logického identifikátoru URI. DocumentDB nabízí pro všechny prostředky jednoduchý programovací model RESTful založený na HTTP. 
 
-Databázový účet DocumentDB je jedinečný obor názvů, který vám dává přístup k Azure DocumentDB. Před vytvořením databázového účtu si musíte pořídit předplatné Azure, které vám umožní přístup k různým službám Azure. 
+* **Replikace ve více oblastech:** Azure Cosmos DB transparentně replikuje data do všech oblastí, které jste přidružili k vašemu účtu služby Azure Cosmos DB, a umožňuje vyvíjet aplikace, které vyžadují globální přístup k datům a zároveň poskytují kompromisy mezi konzistencí, dostupností a výkonem, a to vše s odpovídajícími zárukami. Azure Cosmos DB poskytuje transparentní regionální převzetí služeb při selhání se souběžnou instalací rozhraní API a schopností elastického škálování propustnosti a úložiště po celém světě. Další informace najdete v tématu [Globální distribuce dat pomocí služby Azure Cosmos DB](documentdb-distribute-data-globally.md).
 
-Všechny prostředky v DocumentDB jsou modelovány a ukládány jako dokumenty JSON. Prostředky se spravují jako položky, kterými jsou dokumenty JSON obsahující metadata, a jako kanály, jimiž jsou kolekce položek. Sady položek se uchovávají ve svých příslušných kanálech.
+* **Ad hoc dotazy se známou syntaxí SQL:** Můžete ukládat heterogenní dokumenty JSON a dotazovat se na ně pomocí známé syntaxe SQL. Azure Cosmos DB využívá vysoce souběžnou technologii indexování strukturovanou do protokolů, která nevyžaduje zamykání a automaticky indexuje veškerý obsah dokumentů. Díky tomu lze používat bohaté dotazy v reálném čase, aniž by bylo potřeba specifikovat parametry schématu, sekundární indexy nebo zobrazení. Další informace najdete v tématu [Dotazování služby Azure Cosmos DB](documentdb-sql-query.md). 
+* **Spuštění JavaScriptu uvnitř databáze:** Logiku aplikace je možné vyjádřit jako uložené procedury, triggery a uživatelem definované funkce (UDF) prostřednictvím standardního JavaScriptu. To logice aplikace umožňuje pracovat s daty, aniž by bylo nutné se obávat neshody mezi aplikací a schématem databáze. Rozhraní DocumentDB API poskytuje možnost plného spouštění logiky aplikace JavaScript z transakcí přímo v databázovém stroji. Tato těsná integrace JavaScriptu umožňuje spouštět operace INSERT, REPLACE, DELETE a SELECT z javascriptového programu jako izolované transakce. Další informace najdete v tématu [DocumentDB – Programování na straně serveru](documentdb-programming.md).
 
-Obrázek níže znázorňuje vztahy mezi prostředky DocumentDB:
+* **Přizpůsobitelné úrovně konzistence:** Pro dosažení optimálního poměru mezi konzistencí a výkonem si můžete vybrat z pěti jasně definovaných úrovní konzistence. Pro dotazy a operace čtení nabízí služba Azure Cosmos DB pět různých úrovní konzistence: silná, omezená neaktuálnost, relace, konzistentní předpona a konečný výsledek. Tyto podrobné, dobře definované úrovně konzistence umožňují zvolit vhodný poměr mezi konzistencí, dostupností a latencí. Další informace najdete v tématu popisujícím [využití úrovní konzistence pro maximalizaci dostupnosti a výkonu](documentdb-consistency-levels.md).
 
-![Hierarchický vztah mezi prostředky v DocumentDB, databázi NoSQL JSON][1] 
+* **Plně spravovaná služba:** Není nutné spravovat prostředky databáze a počítačů. DocumentDB je plně spravovaná služba Microsoft Azure – nepotřebujete spravovat virtuální počítače, nasazovat a konfigurovat software, spravovat škálování nebo řešit komplexní upgradování datové vrstvy. Každá databáze je automaticky zálohována a chráněna proti selháním v dané oblasti. Jednoduše si můžete přidat účet služby Azure Cosmos DB a zřídit kapacitu podle potřeby. Díky tomu se můžete soustředit na svou aplikaci, ne na provoz a správu databáze. 
+
+* **Otevřené řešení:** Pomocí existujících dovedností a nástrojů můžete začít rychle. Programování s rozhraním DocumentDB API je jednoduché, srozumitelné a nevyžaduje, abyste se učili pracovat s novými nástroji nebo využívali vlastní rozšíření JSON nebo JavaScriptu. Máte přístup k veškerým funkcím databáze, včetně CRUD, dotazování a zpracování JavaScriptu přes jednoduché rozhraní RESTful HTTP. Rozhraní DocumentDB API pracuje s existujícími formáty, jazyky a standardy a zároveň k nim nabízí hodnotné schopnosti databáze.
+
+* **Automatické indexování:** Azure Cosmos DB ve výchozím nastavení automaticky indexuje všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Nechcete indexovat všechno? Buďte bez obav, můžete také [výslovně nesouhlasit s používáním cest v souborech JSON](documentdb-indexing-policies.md).
+
+## <a name="data-management"></a>Jak se spravují data pomocí rozhraní DocumentDB API?
+Rozhraní DocumentDB API pomáhá spravovat data JSON prostřednictvím jasně definovaných databázových prostředků. Tyto prostředky se pro zachování vysoké dostupnosti replikují a je možné je jedinečně adresovat pomocí logického identifikátoru URI. DocumentDB nabízí pro všechny prostředky jednoduchý programovací model RESTful založený na HTTP. 
+
+
+Účet databáze Azure Cosmos DB je jedinečný obor názvů, který vám dává přístup ke službě Azure Cosmos DB. Před vytvořením databázového účtu si musíte pořídit předplatné Azure, které vám umožní přístup k různým službám Azure. 
+
+Všechny prostředky ve službě Azure Cosmos DB jsou modelovány a ukládány jako dokumenty JSON. Prostředky se spravují jako položky, kterými jsou dokumenty JSON obsahující metadata, a jako kanály, jimiž jsou kolekce položek. Sady položek se uchovávají ve svých příslušných kanálech.
+
+Obrázek níže znázorňuje vztahy mezi prostředky Azure Cosmos DB:
+
+![Hierarchický vztah mezi prostředky ve službě Azure Cosmos DB][1] 
 
 Databázový účet se skládá ze sady databází, kde každá obsahuje několik kolekcí, z nichž každá pak může obsahovat uložené procedury, triggery, funkce UDF, dokumenty a související přílohy. K databázi jsou také přiřazeni uživatelé. Každý má sadu oprávnění pro přístup k různým kolekcím, uloženým procedurám, triggerům, funkcím UDF, dokumentům a přílohám. Databáze, uživatelé, oprávnění a kolekce jsou systémem definované prostředky s dobře známými schématy – dokumenty, uložené procedury, triggery, funkce UDF a přílohy obsahují libovolný, uživatelem definovaný obsah JSON.  
 
-## <a name="develop"></a>Jak mohu vyvíjet aplikace s DocumentDB?
-Azure DocumentDB zveřejňuje prostředky přes rozhraní REST API, které je možné volat v jakémkoli jazyce schopném zasílat požadavky HTTP/HTTPS. DocumentDB dále nabízí programovací knihovny pro několik oblíbených jazyků a je kompatibilní s rozhraními API MongoDB. Tyto klientské knihovny zjednodušují mnoho aspektů práce s Azure DocumentDB. Řeší podrobnosti, jako například ukládání adres do mezipaměti, správu výjimek, automatické opakované pokusy apod. Knihovny jsou v tuto chvíli k dispozici pro následující jazyky a platformy:  
+> [!NOTE]
+> Vzhledem k tomu, že rozhraní DocumentDB API bylo dříve dostupné jako služba Azure DocumentDB, můžete pokračovat ve zřizování, monitorování a správě účtů vytvořených prostřednictvím nástrojů nebo rozhraní REST API pro správu prostředků Azure s použitím názvů prostředků Azure DocumentDB nebo Azure Cosmos DB. Když mluvíme o rozhraních Azure DocumentDB API, používáme tyto názvy zaměnitelně. 
+
+## <a name="develop"></a>Jak se vyvíjí aplikace pomocí rozhraní DocumentDB API?
+
+Azure Cosmos DB zveřejňuje prostředky přes rozhraní DocumentDB REST API, které je možné volat v jakémkoli jazyce schopném zasílat požadavky HTTP/HTTPS. Kromě toho pro rozhraní DocumentDB API nabízíme programovací knihovny pro řadu oblíbených jazyků. Tyto klientské knihovny zjednodušují mnoho aspektů práce s tímto rozhraním API. Řeší detaily, jako je například ukládání adres do mezipaměti, správa výjimek, automatické opakované pokusy apod. Knihovny jsou v tuto chvíli k dispozici pro následující jazyky a platformy:  
 
 | Ke stažení | Dokumentace |
 | --- | --- |
@@ -74,23 +90,24 @@ Azure DocumentDB zveřejňuje prostředky přes rozhraní REST API, které je mo
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Knihovna Python](http://azure.github.io/azure-documentdb-python/) |
 | neuvedeno | [Rozhraní API pro MongoDB](documentdb-protocol-mongodb.md)
 
-Pomocí [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md) můžete vyvíjet a testovat aplikace místně bez vytváření předplatného Azure a bez jakýchkoli nákladů. Jakmile budete spokojeni s fungováním aplikace v emulátoru DocumentDB, můžete přejít na účet Azure DocumentDB v cloudu.
 
-Kromě základních operací vytvoření, čtení, aktualizace a odstranění nabízí DocumentDB také bohaté rozhraní SQL k získávání dokumentů JSON a podporu spouštění logiky aplikací JavaScript z transakcí na straně serveru. Rozhraní pro spouštění dotazů a skriptů jsou k dispozici prostřednictvím všech knihoven platforem i rozhraní REST API. 
+Pomocí [emulátoru služby Azure Cosmos DB](documentdb-nosql-local-emulator.md) můžete vyvíjet a testovat aplikace místně s použitím rozhraní DocumentDB API bez vytváření předplatného Azure a bez jakýchkoli nákladů. Jakmile budete spokojeni s fungováním aplikace v emulátoru, můžete přejít na účet služby Azure Cosmos DB v cloudu.
+
+Kromě základních operací vytvoření, čtení, aktualizace a odstranění nabízí rozhraní DocumentDB API také bohaté rozhraní příkazů jazyka SQL k získávání dokumentů JSON a podporu spouštění logiky aplikací JavaScript z transakcí na straně serveru. Rozhraní pro spouštění dotazů a skriptů jsou k dispozici prostřednictvím všech knihoven platforem i rozhraní REST API. 
 
 ### <a name="sql-query"></a>Dotaz SQL
-Azure DocumentDB podporuje dotazování dokumentů pomocí jazyka SQL, který je integrován do systému typů JavaScript, a výrazy s podporou relačních, hierarchických a prostorových dotazů. Dotazovací jazyk DocumentDB je jednoduché, ale výkonné rozhraní pro dotazování dokumentů JSON. Tento jazyk podporuje podmnožinu gramatiky ANSI SQL a přidává těsnou integraci s javascriptovými objekty, poli, vytvářením objektů a voláním funkcí. DocumentDB poskytuje svůj model dotazování bez explicitního schématu nebo parametrů indexování od vývojáře.
+Rozhraní DocumentDB API podporuje dotazování dokumentů pomocí jazyka SQL, který je integrován do systému typů JavaScript, a výrazy s podporou relačních, hierarchických a prostorových dotazů. Dotazovací jazyk DocumentDB je jednoduché, ale výkonné rozhraní pro dotazování dokumentů JSON. Tento jazyk podporuje podmnožinu gramatiky ANSI SQL a přidává těsnou integraci s javascriptovými objekty, poli, vytvářením objektů a voláním funkcí. DocumentDB poskytuje svůj model dotazování bez explicitního schématu nebo parametrů indexování od vývojáře.
 
-Do DocumentDB je možné zaregistrovat uživatelem definované funkce (UDF) a odkazovat na ně jako součást dotazu SQL. Tím se gramatika rozšiřuje o podporu vlastní logiky aplikace. Tyto funkce se píší jako javascriptové programy a spouští se uvnitř databáze. 
+V rozhraní DocumentDB API je možné zaregistrovat uživatelem definované funkce (UDF) a odkazovat na ně jako součást příkazu jazyka SQL. Tím se gramatika rozšiřuje o podporu vlastní logiky aplikace. Tyto funkce se píší jako javascriptové programy a spouští se uvnitř databáze. 
 
-Pro vývojáře .NET DocumentDB nabízí i poskytovatele dotazů LINQ jako součást sady [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx). 
+Sada DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) navíc pro vývojáře v .NET nabízí poskytovatele dotazů LINQ. 
 
 ### <a name="transactions-and-javascript-execution"></a>Transakce a spouštění JavaScriptu
-DocumentDB umožňuje psát logiku aplikace jako pojmenované programy vytvořené zcela v JavaScriptu. Tyto programy se registrují ke kolekci a s dokumenty v dané kolekci můžou provádět databázové operace. JavaScript je možné zaregistrovat ke spouštění jako trigger, uloženou proceduru nebo uživatelem definovanou funkci. Triggery a uložené procedury mohou vytvářet, číst, aktualizovat a odstraňovat dokumenty, zatímco uživatelem definované funkce se mohou spouštět jako součást logiky provádění dotazu bez přístupu pro zápis do kolekce.
+Rozhraní DocumentDB API umožňuje psát logiku aplikace jako pojmenované programy vytvořené zcela v JavaScriptu. Tyto programy se registrují ke kolekci a s dokumenty v dané kolekci můžou provádět databázové operace. JavaScript je možné zaregistrovat ke spouštění jako trigger, uloženou proceduru nebo uživatelem definovanou funkci. Triggery a uložené procedury mohou vytvářet, číst, aktualizovat a odstraňovat dokumenty, zatímco uživatelem definované funkce se mohou spouštět jako součást logiky provádění dotazu bez přístupu pro zápis do kolekce.
 
-Spouštění JavaScriptu v rámci DocumentDB je modelováno podle konceptů podporovaných relačními databázovými systémy. JavaScript zde slouží jako moderní náhrada Transact-SQL. Všechna logika JavaScriptu se spouští v ambientní transakci ACID s izolací snímku. Pokud během spouštění JavaScript vyvolá výjimku, je celá transakce zrušena.
+Spouštění JavaScriptu v rámci rozhraní DocumentDB API je modelováno podle konceptů podporovaných relačními databázovými systémy. JavaScript zde slouží jako moderní náhrada jazyka Transact-SQL. Všechna logika JavaScriptu se spouští v ambientní transakci ACID s izolací snímku. Pokud během spouštění JavaScript vyvolá výjimku, je celá transakce zrušena.
 
-## <a name="are-there-any-online-courses-on-documentdb"></a>Existují nějaké online kurzy pro DocumentDB?
+## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Existují nějaké online kurzy pro službu Azure Cosmos DB?
 
 Ano, existuje kurz [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) pro Azure DocumentDB. 
 
@@ -99,15 +116,7 @@ Ano, existuje kurz [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/t
 >
 
 ## <a name="next-steps"></a>Další kroky
-Máte už účet Azure? Pak můžete začít s DocumentDB na webu [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) [vytvořením databázového účtu DocumentDB](documentdb-create-account.md).
-
-Nemáte účet Azure? Můžete:
-
-* Zaregistrovat se k [bezplatné zkušební verzi Azure](https://azure.microsoft.com/free/), s níž získáte 30 dnů a 200 USD na vyzkoušení všech služeb Azure. 
-* Pokud máte předplatné MSDN, jste oprávněni získat [bezplatný kredit Azure v hodnotě&150; USD měsíčně](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), který můžete využít pro libovolnou službu Azure. 
-* Stáhněte si [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md) pro místní vývoj aplikací.
-
-Jakmile pak budete připraveni se dozvědět více, nahlédněte do [schématu kurzů](https://azure.microsoft.com/documentation/learning-paths/documentdb/), kde si můžete projít všechny pro vás dostupné materiály. 
+Máte už účet Azure? Pak můžete se službou Azure Cosmos DB začít pomocí našich [Rychlých startů](../cosmos-db/create-documentdb-dotnet.md), které vás provedou vytvořením účtu a začátky práce se službou Cosmos DB.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
 

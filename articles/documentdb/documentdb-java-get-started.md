@@ -2,23 +2,24 @@
 title: 'Kurz k NoSQL: Sada Azure DocumentDB Java SDK | Dokumentace Microsoftu'
 description: "Kurz k NoSQL, v rámci kterého se vytváří online databáze a konzolová aplikace jazyka Java pomocí sady DocumentDB Java SDK. Azure DocumentDB je databáze NoSQL pro JSON."
 keywords: nosql tutorial, online database, java console application
-services: documentdb
+services: cosmosdb
 documentationcenter: Java
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: da7907ffc515ea2e3040075c93bcd53840cf3ff5
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e54ca49e46b7e15e7adb306c5f578d8b53255010
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ Vítejte v kurzu k NoSQL pro sadu Azure DocumentDB Java SDK! Až projdete tímto
 
 Kurz zahrnuje:
 
-* Vytvoření a připojení k účtu DocumentDB
+* Vytvoření účtu služby Azure Cosmos DB a připojení k němu
 * Konfigurace řešení v nástroji Visual Studio
 * Vytvoření online databáze
 * Vytvoření kolekce
@@ -54,18 +55,18 @@ Můžeme začít!
 ## <a name="prerequisites"></a>Požadavky
 Ujistěte se, že máte následující:
 
-* Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/). Alternativně můžete pro tento kurz použít [emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md).
+* Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/). Alternativně můžete pro tento kurz použít [emulátor služby Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Git](https://git-scm.com/downloads)
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven](http://maven.apache.org/download.cgi).
 
-## <a name="step-1-create-a-documentdb-account"></a>Krok 1: Vytvoření účtu DocumentDB
-Vytvořme účet DocumentDB. Pokud už máte účet, který chcete použít, můžete přeskočit k části [Klonování projektu z GitHubu](#GitClone). Pokud používáte emulátor DocumentDB, nastavte emulátor pomocí postupu v tématu [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md) a přeskočte k části [Klonování projektu z GitHubu](#GitClone).
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1: Vytvoření účtu služby Azure Cosmos DB
+Vytvořme účet služby Azure Cosmos DB. Pokud už máte účet, který chcete použít, můžete přeskočit k části [Klonování projektu z GitHubu](#GitClone). Pokud používáte emulátor služby Azure Cosmos DB, nastavte emulátor pomocí postupu v tématu [Emulátor služby Azure Cosmos DB](documentdb-nosql-local-emulator.md) a přeskočte k části [Klonování projektu z GitHubu](#GitClone).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="GitClone"></a>Krok 2: Klonování projektu z GitHubu
-Můžete začít naklonováním úložiště GitHub pro projekt [Začínáme s DocumentDB a jazykem Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Například spusťte z místního adresáře následující příkaz, který načte ukázkový projekt pro místní použití.
+Můžete začít naklonováním úložiště GitHub pro projekt [Začínáme se službou Azure Cosmos DB a Javou](https://github.com/Azure-Samples/documentdb-java-getting-started). Například spusťte z místního adresáře následující příkaz, který načte ukázkový projekt pro místní použití.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 
@@ -79,10 +80,10 @@ Adresář obsahuje soubor `pom.xml` pro projekt a složku `src` obsahující zdr
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>Krok 3: Připojení k účtu DocumentDB
-Dále přejděte zpět na [Azure Portal](https://portal.azure.com) a získejte koncový bod a primární hlavní klíč. Koncový bod a primární klíč pro DocumentDB jsou potřeba k tomu, aby aplikace věděla, kam se připojit, a aby DocumentDB důvěřovala připojení aplikace.
+## <a id="Connect"></a>Krok 3: Připojení k účtu služby Azure Cosmos DB
+Dále přejděte zpět na [Azure Portal](https://portal.azure.com) a získejte koncový bod a primární hlavní klíč. Koncový bod a primární klíč služby Azure Cosmos DB jsou potřeba k tomu, aby aplikace věděla, kam se má připojit, a aby služba Azure Cosmos DB důvěřovala připojení aplikace.
 
-Na webu Azure Portal přejděte na účet DocumentDB a klikněte na **Klíče**. Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URI>` v souboru Program.java. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your key>`.
+Na webu Azure Portal přejděte do účtu služby Azure Cosmos DB a klikněte na **Klíče**. Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URI>` v souboru Program.java. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your key>`.
 
     this.client = new DocumentClient(
         "<your endpoint URI>",
@@ -90,10 +91,10 @@ Na webu Azure Portal přejděte na účet DocumentDB a klikněte na **Klíče**.
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Snímek obrazovky webu Azure Portal, který se v kurzu NoSQL používá k vytvoření konzolové aplikace v jazyce Java. Zobrazuje účet DocumentDB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem Klíče v okně účtu DocumentDB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče.][keys]
+![Snímek obrazovky webu Azure Portal, který se v kurzu NoSQL používá k vytvoření konzolové aplikace v jazyce Java. Ukazuje účet služby Azure Cosmos DB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem KLÍČE v okně účtu služby Azure Cosmos DB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče.][keys]
 
 ## <a name="step-4-create-a-database"></a>Krok 4: Vytvoření databáze
-[Databázi](documentdb-resources.md#databases) DocumentDB je možné vytvořit pomocí metody [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) třídy **DocumentClient**. Databáze je logický kontejner úložiště dokumentů JSON rozděleného mezi kolekcemi.
+[Databázi](documentdb-resources.md#databases) Azure Cosmos DB je možné vytvořit pomocí metody [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) třídy **DocumentClient**. Databáze je logický kontejner úložiště dokumentů JSON rozděleného mezi kolekcemi.
 
     Database database = new Database();
     database.setId("familydb");
@@ -111,7 +112,7 @@ Na webu Azure Portal přejděte na účet DocumentDB a klikněte na **Klíče**.
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId("familycoll");
 
-    // DocumentDB collections can be reserved with throughput specified in request units/second. 
+    // Azure Cosmos DB collections can be reserved with throughput specified in request units/second. 
     // Here we create a collection with 400 RU/s.
     RequestOptions requestOptions = new RequestOptions();
     requestOptions.setOfferThroughput(400);
@@ -141,8 +142,8 @@ Na webu Azure Portal přejděte na účet DocumentDB a klikněte na **Klíče**.
 
 ![Diagram ilustrující hierarchický vztah mezi účtem, online databází, kolekcí a dokumenty používanými v kurzu NoSQL k vytvoření konzolové aplikace v jazyce Java](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Krok 7: Dotazování prostředků DocumentDB
-DocumentDB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující vzorový kód ukazuje dotazování na dokumenty v DocumentDB pomocí syntaxe SQL a metody [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
+## <a id="Query"></a>Krok 7: Dotazování prostředků Azure Cosmos DB
+Azure Cosmos DB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí.  Následující ukázkový kód ukazuje dotazování na dokumenty ve službě Azure Cosmos DB pomocí syntaxe SQL a metody [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -155,7 +156,7 @@ DocumentDB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON
     }
 
 ## <a id="ReplaceDocument"></a>Krok 8: Nahrazení dokumentu JSON
-DocumentDB podporuje aktualizaci dokumentů JSON pomocí metody [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
+Azure Cosmos DB podporuje aktualizaci dokumentů JSON pomocí metody [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -166,7 +167,7 @@ DocumentDB podporuje aktualizaci dokumentů JSON pomocí metody [replaceDocument
         null);
 
 ## <a id="DeleteDocument"></a>Krok 9: Odstranění dokumentu JSON
-Podobně DocumentDB podporuje odstraňování dokumentů JSON pomocí metody [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
+Podobně Azure Cosmos DB podporuje odstraňování dokumentů JSON pomocí metody [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
@@ -180,17 +181,17 @@ Pokud chcete spustit aplikaci z konzoly, nejprve ji zkompilujte pomocí nástroj
     
     mvn package
 
-Spuštěním příkazu `mvn package` se z nástroje Maven stáhne nejnovější verze knihovny DocumentDB a vytvoří se soubor `GetStarted-0.0.1-SNAPSHOT.jar`. Potom spusťte aplikaci následujícím příkazem:
+Spuštěním příkazu `mvn package` se z nástroje Maven stáhne nejnovější verze knihovny Azure Cosmos DB a vytvoří se soubor `GetStarted-0.0.1-SNAPSHOT.jar`. Potom spusťte aplikaci následujícím příkazem:
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
 Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou aplikaci jazyka Java!
 
 ## <a name="next-steps"></a>Další kroky
-* Chcete kurz vývoje webové aplikace v jazyce Java? Viz [Vytvoření webové aplikace pomocí jazyka Java a DocumentDB](documentdb-java-application.md).
-* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Chcete kurz vývoje webové aplikace v jazyce Java? Viz [Vytvoření webové aplikace pomocí Javy a služby Azure Cosmos DB](documentdb-java-application.md).
+* Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
-* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace ke službě Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ Předkonfigurovaná řešení obvykle využívají následující služby:
 
 * Základem Azure IoT Suite je služba [Azure IoT Hub][lnk-iot-hub]. Tato služba zajišťuje obousměrnou výměnu zpráv mezi zařízením a cloudem a funguje jako brána ke cloudu a ostatním klíčovým službám IoT Suite. Umožňuje příjem zpráv z vašich zařízení a odesílání příkazů do zařízení. Tato služba také umožňuje [správu zařízení][lnk-device-management]. Můžete třeba nakonfigurovat, restartovat nebo obnovit tovární nastavení na jednom nebo několika zařízeních připojených k rozbočovači.
 * Služba [Azure Stream Analytics][lnk-asa] umožňuje analyzovat data za provozu. IoT Suite využívá tuto službu ke zpracování příchozích telemetrických dat, vytváření agregací a zjišťování událostí. Předkonfigurovaná řešení dále s využitím analýzy datových proudů zpracovávají informační zprávy, které obsahují například metadata nebo odezvy zařízení na příkazy. Řešení využívají službu Stream Analytics ke zpracování zpráv ze zařízení a přenosu těchto zpráv do dalších služeb.
-* Služby [Azure Storage][lnk-azure-storage] a [Azure DocumentDB][lnk-document-db] zajišťují funkce pro ukládání dat. Tato předkonfigurovaná řešení využívají úložiště objektů blob k ukládání telemetrie a její zpřístupnění pro analýzu. Službu DocumentDB využívají k ukládání metadat ze zařízení a zpřístupnění funkcí pro správu zařízení v těchto řešeních.
+* Služby [Azure Storage][lnk-azure-storage] a [Azure Cosmos DB][lnk-document-db] zajišťují funkce pro ukládání dat. Tato předkonfigurovaná řešení využívají úložiště objektů blob k ukládání telemetrie a její zpřístupnění pro analýzu. Řešení používají službu Cosmos DB k ukládání metadat zařízení a zpřístupnění funkcí pro správu zařízení v těchto řešeních.
 * Funkce pro vizualizaci dat zajišťují služby [Azure Web Apps][lnk-web-apps] a [Microsoft Power BI][lnk-power-bi]. Díky flexibilitě služby Power BI si rychle sestavíte svůj vlastní interaktivní řídicí panel, který bude využívat data ze sady IoT Suite.
 
 Informace o tom, jak vypadá architektura typického řešení IoT, najdete v tématu [Microsoft Azure a Internet věcí (IoT)][iot-suite-what-is-azure-iot].

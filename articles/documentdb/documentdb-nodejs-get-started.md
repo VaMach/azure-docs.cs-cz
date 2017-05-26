@@ -1,28 +1,29 @@
 ---
-title: Kurz k NoSQL Node.js pro DocumentDB | Dokumentace Microsoftu
-description: "Kurz k NoSQL Node.js, v rámci kterého se vytváří databáze NoSQL a konzolová aplikace pomocí sady DocumentDB Node.js SDK DocumentDB je databáze NoSQL pro JSON."
+title: "Kurz Node.js k rozhraní DocumentDB API pro službu Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Kurz Node.js, v rámci kterého se vytvoří služba Cosmos DB pomocí rozhraní DocumentDB API."
 keywords: "kurz node.js, databáze uzlů"
-services: documentdb
+services: cosmosdb
 documentationcenter: node.js
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8e34fe6461683801ad6c0423567308b7b38d7a00
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>Kurz k NoSQL Node.js: Konzolová aplikace DocumentDB Node.js
+# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Kurz Node.js: Konzolová aplikace DocumentDB Node.js
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/28/2017
 >  
 > 
 
-Vítejte v kurzu k Node.js pro sadu Azure DocumentDB Node.js SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky DocumentDB a dotazuje se na ně.
+Vítejte v kurzu Node.js pro sadu Azure Cosmos DB Node.js SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky Azure Cosmos DB a dotazuje se na ně.
 
 Budeme se zabývat těmito tématy:
 
-* Vytvoření a připojení k účtu DocumentDB
+* Vytvoření účtu služby Azure Cosmos DB a připojení k němu
 * Nastavení aplikace
 * Vytvoření databáze Node
 * Vytvoření kolekce
@@ -57,11 +58,11 @@ Můžeme začít!
 Ujistěte se prosím, že máte následující:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
-    * Alternativně můžete pro tento kurz použít [emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    * Alternativně můžete pro tento kurz použít [emulátor služby Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Node.js](https://nodejs.org/) verze 0.10.29 nebo vyšší
 
-## <a name="step-1-create-a-documentdb-account"></a>Krok 1: Vytvoření účtu DocumentDB
-Vytvořme účet DocumentDB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení aplikace Node.js](#SetupNode). Pokud používáte emulátor DocumentDB, postupujte prosím podle kroků v tématu [Emulátor Azure DocumentDB](documentdb-nosql-local-emulator.md), abyste nastavili emulátor, a přeskočte k části [Nastavení aplikace Node.js](#SetupNode).
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1: Vytvoření účtu služby Azure Cosmos DB
+Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení aplikace Node.js](#SetupNode). Pokud používáte emulátor služby Azure Cosmos DB, nastavte emulátor pomocí postupu v tématu [Emulátor služby Azure Cosmos DB](documentdb-nosql-local-emulator.md) a přeskočte k části [Nastavení aplikace Node.js](#SetupNode).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -85,7 +86,7 @@ Ve svém oblíbeném textovém editoru otevřete ```config.js```.
 
 Pak zkopírujte a vložte fragment kódu níže a nastavte vlastnosti ```config.endpoint``` a ```config.primaryKey``` na hodnoty identifikátoru URI a primárního klíče vašeho koncového bodu DocumentDB. Obě tyto konfigurace je možné najít na [Portálu Azure](https://portal.azure.com).
 
-![Kurz k Node.js – snímek obrazovky Portálu Azure znázorňující účet DocumentDB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem Klíče v okně účtu DocumentDB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče – databáze Node][keys]
+![Kurz Node.js – snímek obrazovky webu Azure Portal ukazující účet služby Azure Cosmos DB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem KLÍČE v okně účtu služby Azure Cosmos DB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče – databáze Node][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
@@ -93,7 +94,7 @@ Pak zkopírujte a vložte fragment kódu níže a nastavte vlastnosti ```config.
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Zkopírujte ```database id```, ```collection id``` a ```JSON documents``` a vložte je do objektu ```config``` níže, kde nastavíte vlastnosti ```config.endpoint``` a ```config.authKey```. Pokud již máte data, která chcete uložit do databáze, můžete místo přidávání definic dokumentů použít [nástroj pro migraci dat](documentdb-import-data.md) DocumentDB.
+Zkopírujte ```database id```, ```collection id``` a ```JSON documents``` a vložte je do objektu ```config``` níže, kde nastavíte vlastnosti ```config.endpoint``` a ```config.authKey```. Pokud již máte data, která chcete uložit do databáze, můžete místo přidávání definic dokumentů použít [nástroj pro migraci dat](documentdb-import-data.md) služby Azure Cosmos DB.
 
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -177,7 +178,7 @@ Nakonec exportujte objekt ```config```, abyste na něj mohli odkazovat ze soubor
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a id="Connect"></a>Krok 4: Připojení k účtu DocumentDB
+## <a id="Connect"></a>Krok 4: Připojení k účtu služby Azure Cosmos DB
 V textovém editoru otevřete prázdný soubor ```app.js```. Zkopírováním a vložením kódu níže importujte modul ```documentdb``` a nově vytvořený modul ```config```.
 
     // ADD THIS PART TO YOUR CODE
@@ -259,7 +260,7 @@ Zkopírujte a vložte kód níže, kde za funkci **getDatabase** přidáte pomoc
 
 V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz ```node app.js```.
 
-Blahopřejeme! Úspěšně jste vytvořili databázi DocumentDB.
+Blahopřejeme! Úspěšně jste vytvořili databázi Azure Cosmos DB.
 
 ## <a id="CreateColl"></a>Krok 6: Vytvoření kolekce
 > [!WARNING]
@@ -369,8 +370,8 @@ Blahopřejeme! Úspěšně jste vytvořili dokument DocumentDB.
 
 ![Kurz k Node.js – diagram ilustrující hierarchický vztah mezi účtem, databází, kolekcí a dokumenty – databáze Node](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a id="Query"></a>Krok 8: Dotazování prostředků DocumentDB
-DocumentDB podporuje [bohaté dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí. Následující ukázka kódu obsahuje dotaz, který je možné spustit proti dokumentům v kolekci.
+## <a id="Query"></a>Krok 8: Dotazování prostředků Azure Cosmos DB
+Azure Cosmos DB podporuje bohaté [dotazy](documentdb-sql-query.md) na dokumenty JSON uložené v každé z kolekcí. Následující ukázka kódu obsahuje dotaz, který je možné spustit proti dokumentům v kolekci.
 
 Zkopírujte funkci **queryCollection** a vložte ji pod funkci **getFamilyDocument** v souboru app.js. Jak je vidět níže, DocumentDB podporuje dotazy podobné jazyku SQL. Další informace o vytváření komplexních dotazů najdete v [Query Playground](https://www.documentdb.com/sql/demo) a [dokumentaci k dotazům](documentdb-sql-query.md).
 
@@ -424,10 +425,10 @@ Zkopírujte a vložte kód pod voláním funkce **getFamilyDocument**, aby se sp
 
 V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz ```node app.js```.
 
-Blahopřejeme! Úspěšně jste se dotázali na dokument DocumentDB.
+Blahopřejeme! Úspěšně jste provedli dotaz na dokumenty Azure Cosmos DB.
 
 ## <a id="ReplaceDocument"></a>Krok 9: Nahrazení dokumentu
-DocumentDB podporuje nahrazování dokumentů JSON.
+Azure Cosmos DB podporuje nahrazování dokumentů JSON.
 
 Zkopírujte funkci **replaceFamilyDocument** a vložte ji pod funkci **queryCollection** v souboru app.js.
 
@@ -471,10 +472,10 @@ Zkopírujte a vložte kód pod voláním funkce **queryCollection**, aby se spus
 
 V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz ```node app.js```.
 
-Blahopřejeme! Úspěšně jste nahradili dokument DocumentDB.
+Blahopřejeme! Úspěšně jste nahradili dokument Azure Cosmos DB.
 
 ## <a id="DeleteDocument"></a>Krok 10: Odstranění dokumentu
-DocumentDB podporuje odstraňování dokumentů JSON.
+Azure Cosmos DB podporuje odstraňování dokumentů JSON.
 
 Zkopírujte funkci **deleteFamilyDocument** a vložte ji pod funkci **replaceFamilyDocument**.
 
@@ -515,7 +516,7 @@ Zkopírujte a vložte kód pod druhým voláním funkce **queryCollection**, aby
 
 V terminálu vyhledejte soubor ```app.js``` a spusťte příkaz ```node app.js```.
 
-Blahopřejeme! Úspěšně jste odstranili dokument DocumentDB.
+Blahopřejeme! Úspěšně jste odstranili dokument Azure Cosmos DB.
 
 ## <a id="DeleteDatabase"></a>Krok 11: Odstranění databáze Node
 Odstraněním vytvořené databáze dojde k odstranění databáze a všech jejích podřízených prostředků (kolekcí, dokumentů atd.).
@@ -601,14 +602,14 @@ Měl by se zobrazit výstup počáteční aplikace. Výstup by měl odpovídat u
     Completed successfully
     Press any key to exit
 
-Blahopřejeme! Dokončili jste kurz k Node.js a máte svou první konzolovou aplikaci DocumentDB!
+Blahopřejeme! Dokončili jste kurz Node.js a máte svou první konzolovou aplikaci využívající službu Azure Cosmos DB!
 
 ## <a id="GetSolution"></a>Získání úplného řešení kurzu k Node.js
 Pokud jste neměli dostatek času k dokončení kroků v tomto kurzu nebo si jenom chcete stáhnout kód, můžete ho získat z [GitHubu](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Abyste mohli spustit řešení GetStarted, které obsahuje všechny ukázky tohoto článku, budete potřebovat následující:
 
-* [Účet DocumentDB][documentdb-create-account]
+* [Účet služby Azure Cosmos DB][documentdb-create-account]
 * Řešení [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) dostupné na GitHubu
 
 Přes npm nainstalujte modul **documentdb**. Použijte následující příkaz:
@@ -622,10 +623,10 @@ Potom v terminálu vyhledejte soubor ```app.js``` a spusťte příkaz: ```node a
 A to je vše, stačí sestavit a máte hotovo. 
 
 ## <a name="next-steps"></a>Další kroky
-* Hledáte složitější ukázku Node.js? Přečtěte si [Vytvoření webové aplikace Node.js pomocí DocumentDB](documentdb-nodejs-application.md).
-* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Hledáte složitější ukázku Node.js? Viz [Sestavení webové aplikace Node.js využívající službu Azure Cosmos DB](documentdb-nodejs-application.md).
+* Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
-* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace ke službě Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

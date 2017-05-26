@@ -3,7 +3,7 @@ title: "Monitorování živé webové aplikace v ASP.NET pomocí Azure Applicati
 description: "Monitorování výkonu webu bez opětovného nasazení. Funguje s místně hostovanými webovými aplikacemi v ASP.NET, na virtuálních počítačích nebo v Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -59,6 +60,20 @@ Pokud vaše aplikace běží jako webová služba Azure, monitorování zapnete 
     ![Proklikání se k Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Monitorování cloudových aplikací a aplikací virtuálních počítačů](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Povolení monitorování na straně klienta v Azure
+
+Pokud jste v Azure povolili nástroje Application Insights, můžete přidat zobrazení stránky a telemetrii uživatelů.
+
+1. Klikněte na Nastavení > Nastavení aplikace.
+2.  V části Nastavení aplikace přidejte novou dvojici klíče a hodnoty: 
+   
+    Klíč: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Hodnota: `true`
+3. Kliknutím na **Uložit** uložte nastavení a kliknutím na **Restartovat** restartujte aplikaci.
+
+Každá webová stránka má teď vloženou sadu SDK Application Insights JavaScript.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Monitorování živé webové aplikace IIS
 

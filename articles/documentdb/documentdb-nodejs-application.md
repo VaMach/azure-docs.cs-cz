@@ -1,28 +1,29 @@
 ---
-title: "Výuka Node.js – kurz k DocumentDB Node.js | Dokumentace Microsoftu"
-description: "Naučte se pracovat s Node.js! Tento kurz popisuje, jak pomocí Microsoft Azure DocumentDB ukládat data a přistupovat k nim z webové aplikace Node.js Express hostované na Webech Azure."
+title: "Výuka Node.js – Kurz Node.js pro službu Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Naučte se pracovat s Node.js! Tento kurz popisuje, jak pomocí služby Microsoft Azure Cosmos DB ukládat data a přistupovat k nim z webové aplikace Node.js Express hostované ve službě Azure Websites."
 keywords: "Vývoj aplikací, databázový kurz, naučte se pracovat s node.js, kurz k node.js, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: nodejs
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 20b04f07581354144ef3dd3fc98da10cbff78e63
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js pomocí DocumentDB
+# <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js využívající službu Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET pro MongoDB](documentdb-mongodb-application.md)
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Tento kurz Node.js popisuje, jak pomocí Azure DocumentDB ukládat data a přistupovat k nim z aplikace Node.js Express hostované ve službě Azure Websites. Vytvoříte jednoduchou webovou aplikaci pro správu úkolů, aplikaci seznamu úkolů, která umožní vytvářet, získávat a dokončovat úkoly. Úkoly se budou ukládat jako dokumenty JSON do Azure DocumentDB. Tento kurz vás provede procesem vytvoření a nasazení aplikace a vysvětlí, co se v každé části děje.
+Tento kurz Node.js ukazuje, jak pomocí služby Azure Cosmos DB ukládat data a přistupovat k nim z aplikace Node.js Express hostované ve službě Azure Websites. Vytvoříte jednoduchou webovou aplikaci pro správu úkolů, aplikaci seznamu úkolů, která umožní vytvářet, získávat a dokončovat úkoly. Úkoly se ve službě Azure Cosmos DB ukládají jako dokumenty JSON. Tento kurz vás provede procesem vytvoření a nasazení aplikace a vysvětlí, co se v každé části děje.
 
 ![Snímek obrazovky aplikace pro seznam úkolů vytvořené v tomto kurzu k Node.js](./media/documentdb-nodejs-application/image1.png)
 
@@ -50,13 +51,13 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 
    NEBO
 
-   Místní instalaci [emulátoru Azure DocumentDB](documentdb-nosql-local-emulator.md).
+   Místní instalaci [emulátoru služby Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Node.js][Node.js] verze 0.10.29 nebo vyšší
 * [Generátor Express](http://www.expressjs.com/starter/generator.html) (lze nainstalovat prostřednictvím `npm install express-generator -g`)
 * [Git][Git]
 
-## <a name="_Toc395637761"></a>Krok 1: Vytvoření databázového účtu DocumentDB
-Začněme vytvořením účtu DocumentDB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor DocumentDB, můžete přeskočit na [Krok 2: Vytvoření nové aplikace Node.js](#_Toc395783178).
+## <a name="_Toc395637761"></a>Krok 1: Vytvoření účtu databáze Azure Cosmos DB
+Začněme vytvořením účtu služby Azure Cosmos DB. Pokud již účet máte nebo pokud používáte pro účely tohoto kurzu emulátor služby Azure Cosmos DB, můžete přeskočit na [Krok 2: Vytvoření nové aplikace Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,8 +117,8 @@ Soubor **package.json** je jedním ze souborů vytvořených v kořenu projektu.
    
     To říká uzlu (a později Azure), že vaše aplikace závisí na těchto dalších modulech.
 
-## <a name="_Toc395783180"></a>Krok 4: Využití služby DocumentDB v aplikaci Node
-Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se budeme zabývat tím, proč tu jsme, tedy psaním kódu s využitím Azure DocumentDB.
+## <a name="_Toc395783180"></a>Krok 4: Využití služby Azure Cosmos DB v aplikaci Node.js
+Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se budeme zabývat tím, proč tu jsme, tedy psaním kódu s využitím služby Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Vytvoření modelu
 1. V adresáři projektu vytvořte nový adresář s názvem **models** ve stejném adresáři jako soubor package.json.
@@ -194,7 +195,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
    > [!TIP]
    > createCollection přijímá volitelný parametr requestOptions, který je možné použít k určení typu nabídky kolekce. Pokud se nezadá žádná hodnota requestOptions.offerType, kolekce se vytvoří pomocí výchozího typu nabídky.
    > 
-   > Další informace o typech nabídek DocumentDB najdete v tématu [Úrovně výkonu v DocumentDB](documentdb-performance-levels.md). 
+   > Další informace o typech nabídek služby Azure Cosmos DB najdete v článku týkajícím se [úrovní výkonu ve službě Azure Cosmos DB](documentdb-performance-levels.md). 
    > 
    > 
 5. Uložte a zavřete soubor **docdbUtils.js**.
@@ -214,7 +215,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
         }
    
         module.exports = TaskDao;
-8. Dále přidejte následující kód, který definuje další metody objektu Task. Ty umožňují pracovat s daty uloženými v DocumentDB.
+8. Dále přidejte následující kód, který definuje další metody objektu Task. Ty umožňují pracovat s daty uloženými ve službě Azure Cosmos.
    
         TaskDao.prototype = {
             init: function (callback) {
@@ -397,7 +398,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
         config.collectionId = "Items";
    
         module.exports = config;
-3. V souboru **config.js** aktualizujte hodnoty HOST a AUTH_KEY hodnotami, které získáte v okně Klíče účtu DocumentDB na [portálu Microsoft Azure Portal](https://portal.azure.com).
+3. V souboru **config.js** aktualizujte hodnoty HOST a AUTH_KEY s použitím hodnot, které získáte v okně Klíče účtu služby Azure Cosmos DB na webu [Microsoft Azure Portal](https://portal.azure.com).
 4. Uložte a zavřete soubor **config.js**.
 
 ### <a name="modify-appjs"></a>Úprava souboru app.js
@@ -427,7 +428,7 @@ Tím je hotovo veškeré počáteční nastavování a konfigurace – nyní se 
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
         app.set('view engine', 'jade');
-5. Tyto řádky definují novou instanci objektu **TaskDao** s novým připojením k DocumentDB (pomocí hodnot přečtených ze souboru **config.js**), inicializují objekt úkolů a svážou akce formuláře s metodami kontroleru **TaskList**. 
+5. Tyto řádky definují novou instanci objektu **TaskDao** s novým připojením ke službě Azure Cosmos DB (pomocí hodnot přečtených ze souboru **config.js**), inicializují objekt úkolů a svážou akce formuláře s metodami kontroleru **TaskList**. 
 6. Nakonec soubor **app.js** uložte a zavřete a jsme téměř hotovi.
 
 ## <a name="_Toc395783181"></a>Krok 5: Vytvoření uživatelského rozhraní
@@ -529,7 +530,7 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
     > [!TIP]
     > Pokud se vám zobrazí chyba týkající se odsazení v souboru layout.jade nebo index.jade, ujistěte se, že jsou první dva řádky v obou souborech zarovnané vlevo a nejsou tam žádné mezery. Pokud jsou před prvními dvěma řádky mezery, odeberte je, oba soubory uložte a pak aktualizujte okno prohlížeče. 
 
-2. Pro zadání nového úkolu použijte pole Položka, Název položky a Kategorie a pak klikněte na **Přidat položku**. Takto ve službě DocumentDB vytvoříte dokument s těmito vlastnostmi. 
+2. Pro zadání nového úkolu použijte pole Položka, Název položky a Kategorie a pak klikněte na **Přidat položku**. Tak se ve službě Azure Cosmos DB vytvoří dokument s těmito vlastnostmi. 
 3. Stránka by se měla aktualizovat, aby se v seznamu úkolů zobrazila nově vytvořená položka.
    
     ![Snímek obrazovky aplikace s novou položkou v seznamu úkolů](./media/documentdb-nodejs-application/image19.png)
@@ -547,16 +548,16 @@ Nyní se zaměřme na vytvoření uživatelského rozhraní, aby uživatelé moh
         git push azure master
 4. Za několik sekund Git dokončí publikování webové aplikace a spustí prohlížeč, kde se můžete podívat, jak vaše práce běží v Azure!
 
-    Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci Node.js Express, která používá Azure DocumentDB, a publikovali jste ji na Weby Azure.
+    Blahopřejeme! Právě jste vytvořili svou první webovou aplikaci Node.js Express využívající službu Azure Cosmos DB a publikovali jste ji ve službě Azure Websites.
 
     Pokud chcete stáhnout nebo odkazovat na úplnou aplikaci referencí tohoto kurzu, můžete ji stáhnout z [GitHubu][GitHub].
 
 ## <a name="_Toc395637775"></a>Další kroky
 
-* Chcete testovat škálování a výkon s DocumentDB? Přečtěte si o [testování výkonu a škálování s Azure DocumentDB](documentdb-performance-testing.md).
-* Naučte se [monitorovat účet DocumentDB](documentdb-monitor-accounts.md).
+* Chcete testovat škálování a výkon pomocí služby Azure Cosmos DB? Viz [Testování výkonu a škálování pomocí služby Azure Cosmos DB](documentdb-performance-testing.md).
+* Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
-* Projděte si [dokumentaci ke službě DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/).
+* Prozkoumejte [dokumentaci ke službě Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

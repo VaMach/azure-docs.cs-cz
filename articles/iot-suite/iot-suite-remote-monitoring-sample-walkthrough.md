@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc8ee6a0f17c20c5255d95c7b6f636d89ffe3aee
-ms.openlocfilehash: 9bd4232670256ec7889dd367ea2ea01a2845e789
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ Každé simulované zařízení může odesílat do služby IoT Hub následujíc
 | Telemetrická data |Zařízení pravidelně odesílá zprávu **telemetry**, která hlásí simulované hodnoty teploty a vlhkosti získané ze simulovaných senzorů zařízení. |
 
 > [!NOTE]
-> Řešení ukládá seznam příkazů, které zařízení podporuje, v databázi DocumentDB a nikoli ve dvojčeti zařízení.
+> Řešení ukládá seznam příkazů, které zařízení podporuje, v databázi Cosmos DB a nikoli ve dvojčeti zařízení.
 > 
 > 
 
@@ -229,10 +230,10 @@ GROUP BY
 Toto řešení využívá službu Azure Blob Storage k trvalému uchování všech nezpracovaných a souhrnných telemetrických dat ze zařízení v řešení. Portál načítá telemetrická data z úložiště objektů blob a vytváří z nich grafy. Za účelem zobrazení upozornění portál načítá z úložiště objektů blob data, která zaznamenává, když hodnoty telemetrie překračují nakonfigurované prahové hodnoty. Řešení také využívá úložiště objektů blob pro záznam prahových hodnot, které nastavíte na portálu řešení.
 
 ## <a name="webjobs"></a>Webové úlohy
-Webové úlohy v řešení kromě hostování simulátorů zařízení také hostují **Procesor událostí** spuštěný ve webové úloze Azure, který zpracovává odezvy na příkazy. Zprávy s odezvami na příkazy používá k aktualizaci historie příkazů zařízení (uložené v databázi DocumentDB).
+Webové úlohy v řešení kromě hostování simulátorů zařízení také hostují **Procesor událostí** spuštěný ve webové úloze Azure, který zpracovává odezvy na příkazy. Zprávy s odezvami na příkazy používá k aktualizaci historie příkazů zařízení (uložené v databázi Cosmos DB).
 
-## <a name="documentdb"></a>DocumentDB
-Řešení používá k ukládání informací o zařízeních připojených k řešení databázi DocumentDB. Tyto informace zahrnují historii příkazů odeslaných do zařízení z portálu řešení a metod vyvolaných z portálu řešení.
+## <a name="cosmos-db"></a>Cosmos DB
+Řešení používá k ukládání informací o zařízeních připojených k řešení databázi Cosmos DB. Tyto informace zahrnují historii příkazů odeslaných do zařízení z portálu řešení a metod vyvolaných z portálu řešení.
 
 ## <a name="solution-portal"></a>Portál řešení
 
@@ -244,7 +245,7 @@ Tato stránka ve webové aplikaci používá ovládací prvky PowerBI v jazyce J
 ### <a name="device-list"></a>Seznam zařízení
 Na této stránce portálu řešení můžete provádět následující akce:
 
-* Zřízení nového zařízení. Tato akce nastaví jedinečné ID zařízení a vygeneruje klíč pro ověřování. Zapisuje informace o zařízení do registru identity služby IoT Hub a databáze DocumentDB specifické pro řešení.
+* Zřízení nového zařízení. Tato akce nastaví jedinečné ID zařízení a vygeneruje klíč pro ověřování. Zapisuje informace o zařízení do registru identity služby IoT Hub a databáze Cosmos DB specifické pro řešení.
 * Správa vlastností zařízení. Tato akce zahrnuje zobrazení existujících vlastností a aktualizaci novými vlastnostmi.
 * Odesílat příkazy do zařízení.
 * Zobrazit historii příkazů pro zařízení.
@@ -271,3 +272,4 @@ Další informace o sadě IoT Suite najdete v následujících článcích:
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+
