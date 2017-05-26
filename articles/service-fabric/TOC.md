@@ -49,6 +49,7 @@
 #### [Nasazení kontejneru Linuxu](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (Preview)](service-fabric-docker-compose.md)
 #### [Zásady správného řízení prostředků pro kontejnery a služby](service-fabric-resource-governance.md)
+#### [Svazek a ovladače protokolování](service-fabric-containers-volume-logging-drivers.md)
 
 ### Sestavení služby s modelem Reliable Service
 #### [Přehled](service-fabric-reliable-services-introduction.md)
@@ -69,10 +70,9 @@
 ##### [C# v systému Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java v Linuxu](service-fabric-reliable-services-quick-start-java.md)
 
-#### Životní cyklus Reliable Services
-##### [Konfigurace](service-fabric-reliable-services-configuration.md)
-##### [Odeslání oznámení](service-fabric-reliable-services-notifications.md)
-##### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
+#### [Konfigurace](service-fabric-reliable-services-configuration.md)
+#### [Odeslání oznámení](service-fabric-reliable-services-notifications.md)
+#### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
 
 #### Komunikace se službami
 ##### [Komunikace s Reliable Services](service-fabric-reliable-services-communication.md)
@@ -87,12 +87,12 @@
 ### Sestavení služby s objekty Reliable Actor
 #### [Přehled](service-fabric-reliable-actors-introduction.md)
 #### Koncepty
-#### [Architektura](service-fabric-reliable-actors-platform.md)
-#### [Životní cyklus a uvolňování paměti](service-fabric-reliable-actors-lifecycle.md)
-#### [Správa stavu](service-fabric-reliable-actors-state-management.md)
-#### [Polymorfismus](service-fabric-reliable-actors-polymorphism.md)
-#### [Vícenásobný přístup](service-fabric-reliable-actors-reentrancy.md)
-#### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Architektura](service-fabric-reliable-actors-platform.md)
+##### [Životní cyklus a uvolňování paměti](service-fabric-reliable-actors-lifecycle.md)
+##### [Správa stavu](service-fabric-reliable-actors-state-management.md)
+##### [Polymorfismus](service-fabric-reliable-actors-polymorphism.md)
+##### [Vícenásobný přístup](service-fabric-reliable-actors-reentrancy.md)
+##### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
 #### [Služba DNS](service-fabric-dnsservice.md)
 #### [Reverzní proxy server](service-fabric-reverseproxy.md)
+#### [Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Přidání webového front-endu](service-fabric-add-a-web-frontend.md)
 

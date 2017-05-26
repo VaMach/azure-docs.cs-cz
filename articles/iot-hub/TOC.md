@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Použití simulované brány 
-#### [Simulace v Linuxu](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Simulace ve Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### Použití simulované brány
+#### [Simulace v Linuxu](iot-hub-linux-iot-edge-get-started.md)
+#### [Simulace ve Windows](iot-hub-windows-iot-edge-get-started.md)
 
 ### Použití fyzického zařízení
 #### [Raspberry Pi s Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Adafruit Feather M0 s rozhraním Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Použití sady IoT Gateway Starter Kit
-##### [Nastavení Intel NUC jako brány IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Připojení brány IoT ke službě IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Použití brány IoT pro převod dat](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Nastavení Intel NUC jako brány](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Připojení brány ke službě IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Použití brány pro převod dat](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [Správa zasílání zpráv cloudových zařízení pomocí iothub-exploreru](iot-hub-explorer-cloud-device-messaging.md)
 ## [Uložení zpráv IoT Hub do úložiště dat Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### Začínáme s dvojčaty zařízení
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-getstarted.md)
+#### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Použití přímých metod
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### Začínáme se správou zařízení
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java back-end / zařízení Java](iot-hub-java-java-device-management-getstarted.md)
 ### Jak používat vlastnosti dvojčat
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [Zabezpečení nasazení IoT](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Simulace zařízení
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Použití skutečného zařízení](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Použití skutečného zařízení](iot-hub-iot-edge-physical-device.md)
 
 # Referenční informace
 ## [Azure CLI 2.0 (Preview)](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centrum pro vývojáře Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Katalog zařízení Azure Certified for IoT](https://catalog.azureiotsuite.com/)
+## [Technické případové studie](https://microsoft.github.io/techcasestudies/#technology=IoT)

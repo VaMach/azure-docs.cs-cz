@@ -1,7 +1,7 @@
 # Přehled
 ## [Představení služby Azure Active Directory](active-directory-whatis.md)
 ## [Výběr edice](active-directory-editions.md)
-## [Správa identit Azure](fundamentals-identity.md)
+## [Správa identit Azure](identity-fundamentals.md)
 ## [Vysvětlení řešení identit Azure](understand-azure-identity-solutions.md)
 ## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Řešení potíží
 #### [Chybějící data auditu](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Chybějící data v souborech ke stažení](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Programový přístup
+###    [Programový přístup](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
 #### [Referenční informace k přihlašování](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Požadavky](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Neznámé zdroje](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Neobvyklé přihlašovací aktivity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Správa hesel](active-directory-passwords.md)
+## [Správa hesel](active-directory-passwords-overview.md)
 ### Dokumenty uživatele
 #### [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
 #### [Osvědčené postupy pro hesla](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Zvýšení úrovně přístupu správce tenanta](role-based-access-control-tenant-admin-access.md)
 #### [Řešení problémů](role-based-access-control-troubleshooting.md)
 #### [Operace poskytovatele prostředků](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
