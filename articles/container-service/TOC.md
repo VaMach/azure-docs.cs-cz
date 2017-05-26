@@ -10,7 +10,6 @@
 ## [Nasazení clusteru – Portal](container-service-deployment.md)
 ## [Nasazení clusteru – Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [CI/CD s Kubernetes a Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD s DC/OS a VSTS](container-service-setup-ci-cd.md)
 ## [CI/CD s Docker Swarm a VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Koncepty
@@ -44,6 +43,7 @@
 #### [Monitorování pomocí OMS](container-service-kubernetes-oms.md)
 #### [Monitorování pomocí služby Datadog](container-service-kubernetes-datadog.md)
 #### [Monitorování pomocí služby Sysdig](container-service-kubernetes-sysdig.md)
+#### [Monitorování pomocí služby CoScale](container-service-kubernetes-coscale.md)
 ## Správa pomocí Dockeru Swarm
 ### [Docker a Docker Compose](container-service-docker-swarm.md)
 

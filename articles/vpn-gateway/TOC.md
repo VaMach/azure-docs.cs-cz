@@ -21,9 +21,13 @@
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Generování certifikátů podepsaných svým držitelem pro připojení typu Point-to-Site
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Konfigurace připojení typu VNet-to-VNet
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Konfigurace připojení typu VNet-to-VNet mezi modely nasazení
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Vytvoření certifikátů podepsaných svým držitelem pro připojení typu Point-to-Site
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Řešení potíží
 ### [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # Referenční informace
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # Související
 ## [Virtual Network](/azure/virtual-network/)

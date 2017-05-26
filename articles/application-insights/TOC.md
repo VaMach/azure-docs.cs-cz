@@ -35,7 +35,7 @@
 ### [Hloubková diagnostika webových aplikací a služeb](app-insights-devops.md)
 ### [Sledování výkonu webových aplikací](app-insights-web-monitor-performance.md)
 ### [Separace vývoje, testování a provozu](app-insights-separate-resources.md)
-### [Monitorování aplikací s více rolemi](app-insights-monitor-multi-role-apps.md)
+### [Monitorování aplikací s více komponentami](app-insights-monitor-multi-role-apps.md)
 ### [Jak mám... pomocí Application Insights?](app-insights-how-do-i.md)
 
 
@@ -139,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [Rozhraní API pro přístup k datům](https://dev.applicationinsights.io/)
 ## [Datový model](application-insights-data-model.md)
 ### [Požadavek](application-insights-data-model-request-telemetry.md)
 ### [Závislost](application-insights-data-model-dependency-telemetry.md)
@@ -147,6 +147,7 @@
 ### [Trasování](application-insights-data-model-trace-telemetry.md)
 ### [Události](application-insights-data-model-event-telemetry.md)
 ### [Metrika](application-insights-data-model-metric-telemetry.md)
+### [Kontext](application-insights-data-model-context.md)
 ## [Korelace telemetrie](application-insights-correlation.md)
 
 # Zdroje

@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Koncepty
   items:
-  - name: Plány hostingu
+  - name: Využití a plány služby App Service
     href: functions-scale.md
   - name: Triggery a vazby
     href: functions-triggers-bindings.md
+  - name: Jazyky
+    items:
+    - name: 'Koncepty funkcí jazyka C#'
+      href: functions-reference-csharp.md
+    - name: 'Koncepty funkcí jazyka F#'
+      href: functions-reference-fsharp.md
+    - name: Koncepty funkcí v JavaScriptu
+      href: functions-reference-node.md    
 - name: Návody
   items:
+  - name: Příručka pro vývojáře
+    href: functions-reference.md
   - name: Testování Azure Functions
     href: functions-test-a-function.md
   - name: Místní vývoj a ladění
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Instalace modulu runtime služby Functions
     href: functions-runtime-install.md
+  - name: Připojení ke službě SQL Database
+    href: functions-scenario-database-table-cleanup.md
+  - name: Vytvoření definice OpenAPI 2.0
+    href: functions-api-definition-getting-started.md     
+  - name: Osvědčené postupy pro službu Azure Functions
+    href: functions-best-practices.md     
 - name: Referenční informace
   items:
-  - name: Vývoj funkčních aplikací
-    href: functions-reference.md
-    items:
-    - name: OpenAPI 2.0
-      href: functions-api-definition.md
-  - name: Osvědčené postupy pro službu Azure Functions
-    href: functions-best-practices.md
   - name: Vazby
     items:
     - name: Vazby databáze Cosmos
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Vazby výstupu z Twilia
       href: functions-bindings-twilio.md
-  - name: Rozhraní
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: Referenční informace k OpenAPI
+    href: functions-api-definition.md     
 - name: Zdroje a prostředky
   items:
   - name: Ceny

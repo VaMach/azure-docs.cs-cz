@@ -44,6 +44,7 @@
 
 ## Spravovat
 ### [Registrace](notification-hubs-push-notification-registration-management.md)
+### [Ověřování založené na tokenech APNs](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Zabezpečení](notification-hubs-push-notification-security.md)
 ### Zabezpečené nabízení

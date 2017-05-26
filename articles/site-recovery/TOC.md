@@ -18,12 +18,13 @@
 
 # Postup
 ## Plánování
-### [Požadavky nasazení](site-recovery-prereq.md)
+### [Požadavky pro replikaci Azure](site-recovery-prereq.md)
 ### [Plánování síťové infrastruktury](site-recovery-network-design.md)
+### [Plánování mapování sítě](site-recovery-network-mapping.md)
 ### [Plánování kapacity a škálování replikace VMware do Azure](site-recovery-plan-capacity-vmware.md)
 ### [Plánovač nasazení pro replikaci VMware do Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner pro replikaci Hyper-V](site-recovery-capacity-planner.md)
-### [Řízení přístupu na základě rolí](site-recovery-role-based-linked-access-control.md)
+### [Řízení replikace virtuálních počítačů pomocí přístupu na základě role](site-recovery-role-based-linked-access-control.md)
 
 ## Konfigurace
 ### [Nastavení zdrojového prostředí](site-recovery-set-up-vmware-to-azure.md)
@@ -53,6 +54,8 @@
 ### [Vzdálená plocha](site-recovery-workload.md#protect-rds)
 ### [Výměna](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [Webové aplikace založené na službě IIS](site-recovery-iis.md)
+### [Citrix XenApp a XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Další úlohy](site-recovery-workload.md#workload-summary)
 ## Automatizace replikace
 ### [Automatizace replikace Hyper-V do Azure (bez VMM)](site-recovery-deploy-with-powershell-resource-manager.md)

@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Zdroje a prostředky
     items:
-    - name: Úrovně služby
+    - name: Cenové úrovně
       href: concepts-service-tiers.md
-    - name: Výpočetní jednotky a jednotky úložiště
+    - name: Výpočetní jednotky
       href: concepts-compute-unit-and-storage.md
     - name: Omezení
       href: concepts-limits.md

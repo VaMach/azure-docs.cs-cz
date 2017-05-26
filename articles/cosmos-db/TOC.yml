@@ -5,7 +5,7 @@
   - name: Informace o databázi Azure Cosmos
     href: introduction.md
   - name: Vítáme zákazníky DocumentDB
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Šablony Rychlý start
   expanded: true
   items:
@@ -236,6 +236,12 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Místní převzetí služeb při selhání
       href: ../documentdb/documentdb-regional-failovers.md
+    - name: Nastavení propustnosti
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: Monitorování smluv SLA
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Správa klíčů a konzistence
+      href: ../documentdb/documentdb-manage-account.md
     - name: Automation
       items:
       - name: Azure CLI 1.0 – Vytvoření účtu
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Podpora brány firewall
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Zabezpečení přístupu k datům
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Integrace
     items:
     - name: Připojení ke Sparku
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Připojení ke Spark GraphX
+      href: spark-connector-graph.md      
     - name: Nasazení webu pomocí služby Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Protokolování aplikací pomocí funkce Logic Apps
