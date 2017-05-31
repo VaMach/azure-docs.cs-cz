@@ -3,7 +3,7 @@ title: "Vizualizace dat SQL Data Warehouse pomocí Power BI – Microsoft Azure"
 description: "Vizualizace dat SQL Data Warehouse pomocí Power BI"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
