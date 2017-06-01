@@ -2,7 +2,6 @@
 ## [Co je služba Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Začínáme
-## [Interaktivní kurz: Analýza webových protokolů](data-lake-analytics-use-interactive-tutorials.md)
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
@@ -27,6 +26,8 @@
 
 ## Vytváření řešení
 ### [Analýza webových protokolů](data-lake-analytics-analyze-weblogs.md)
+### [Interaktivní kurz: Analýza webových protokolů](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Spravovat
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)

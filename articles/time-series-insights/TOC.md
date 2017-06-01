@@ -12,7 +12,9 @@
 ## [Vytvoření zdroje událostí IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Škálování prostředí](time-series-insights-how-to-scale-your-environment.md)
 ## [Diagnóza a řešení problémů](time-series-insights-diagnose-and-solve-problems.md)
-## [Dotazování dat pomocí jazyka C#](time-series-insights-query-data-csharp.md)
+## Vývoj
+### [Ověřování a autorizace](time-series-insights-authentication-and-authorization.md)
+### [Dotazování dat pomocí jazyka C#](time-series-insights-query-data-csharp.md)
 
 # Referenční informace
 ## [Rozhraní API pro dotazy](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

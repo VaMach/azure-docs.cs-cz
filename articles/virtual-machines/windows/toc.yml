@@ -130,6 +130,8 @@
     items:
     - name: Přehled vytváření virtuálních počítačů
       href: creation-choices.md
+    - name: Vytvoření virtuálního počítače ze specializovaného virtuálního pevného disku
+      href: create-vm-specialized.md
     - name: Vytvoření virtuálního počítače pomocí šablony
       href: ps-template.md
     - name: 'Vytvoření virtuálního počítače pomocí C#'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: 'Použití disku D: jako datového disku'
       href: change-drive-letter.md
-    - name: Vytvoření virtuálních počítačů s využitím nespravovaných disků
-      items:
-      - name: Nahrání virtuálního pevného disku
-        href: upload-image.md
-      - name: Vytvoření nespravované image
-        href: capture-image.md
-      - name: Vytvoření nespravovaného virtuálního počítače z generalizovaného virtuálního pevného disku
-        href: create-vm-generalized.md
-      - name: Kopírování virtuálního počítače
-        href: vhd-copy.md
-      - name: Vytvoření virtuálního počítače ze specializovaného virtuálního pevného disku
-        href: create-vm-specialized.md
-      - name: Připojení nespravovaného datového disku
-        href: attach-disk-portal.md
   - name: Sítě virtuálních počítačů
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Migrace z AWS (Amazon Web Services) do Azure
         href: aws-to-azure.md
-    - name: Nahrání a vytvoření virtuálního počítače z generalizovaného VHD
-      href: upload-generalized-managed.md
-    - name: Nahrání a vytvoření virtuálního počítače z specializovaného VHD
-      href: upload-specialized.md
+      - name: Nahrání a vytvoření virtuálního počítače z generalizovaného VHD
+        href: upload-generalized-managed.md
     - name: Migrace z modelu Classic na Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
