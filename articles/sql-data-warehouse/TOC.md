@@ -11,7 +11,7 @@
 ## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
 ## [Správa](sql-data-warehouse-overview-manage.md)
 ## [Získat podporu](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Řešení problémů](sql-data-warehouse-troubleshoot.md)
+
 
 # Postup
 
@@ -114,7 +114,7 @@
 
 ### [Přehled](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Komprese columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Dotazy](sql-data-warehouse-manage-monitor.md)
+### [Monitorování](sql-data-warehouse-manage-monitor.md)
 ### [Úloha](sql-data-warehouse-develop-concurrency.md)
 
 ## Zabezpečení
@@ -126,6 +126,9 @@
 ### [Šifrování](sql-data-warehouse-encryption-tde.md)
 ### [Šifrování pomocí jazyka T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Detekce hrozeb](sql-data-warehouse-security-threat-detection.md)
+
+## Řešení potíží
+### [Řešení problémů](sql-data-warehouse-troubleshoot.md)
 
 # Referenční informace
 

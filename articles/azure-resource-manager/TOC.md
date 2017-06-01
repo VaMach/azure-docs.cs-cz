@@ -64,7 +64,6 @@
 #### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Ověřovací rozhraní API pro přístup k předplatným](resource-manager-api-authentication.md)
 ### [Uzamčení prostředků](resource-group-lock-resources.md)
-### [Aspekty zabezpečení](best-practices-resource-manager-security.md)
 
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)

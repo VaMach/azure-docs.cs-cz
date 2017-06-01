@@ -1,5 +1,6 @@
 # Přehled
 ## [Co je služba Azure Analysis Services?](analysis-services-overview.md)
+## [Podporované zdroje dat](analysis-services-datasource.md)
 
 # Šablony Rychlý start
 ## [Vytvoření serveru – portál](analysis-services-create-server.md)
@@ -17,7 +18,7 @@
 ### [Lekce 6: Vytvoření měřítek](tutorials/aas-lesson-6-create-measures.md)  
 ### [Lekce 7: Vytvoření klíčových ukazatelů výkonu](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [Lekce 8: Vytvoření perspektiv](tutorials/aas-lesson-8-create-perspectives.md) 
-### [Lekce 9: Vytvoření hierarchií](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [Lekce 9: Vytvoření hierarchií](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [Lekce 10: Vytvoření oddílů](tutorials/aas-lesson-10-create-partitions.md) 
 ### [Lekce 11: Vytvoření rolí](tutorials/aas-lesson-11-create-roles.md)
 ### [Lekce 12: Analýza v aplikaci Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -36,7 +37,6 @@
 ## [Získání klientských knihoven](analysis-services-data-providers.md)
 ## [Zálohování a obnovení](analysis-services-backup.md)
 ## [Vysoká dostupnost](analysis-services-bcdr.md)
-## [Připojení zdrojů dat](analysis-services-datasource.md)
 ## [Vytvoření souboru .odc](analysis-services-odc.md)
 
 # Referenční informace
