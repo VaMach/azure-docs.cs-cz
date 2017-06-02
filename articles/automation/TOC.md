@@ -41,6 +41,7 @@
 ### [Připojování počítačů pro správu](automation-dsc-onboarding.md)
 ### [Kompilace konfigurací DSC](automation-dsc-compile.md)
 ### [Nepřetržité nasazování pomocí Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Předání dat sestav Azure Automation DSC do služby OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Správa prostředků Automation
 ### [Certifikáty](automation-certificates.md)
 ### [Připojení](automation-connections.md)

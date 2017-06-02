@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Nahrání existující aplikace
         href: web-sites-java-add-app.md
-      - name: Vzdálené ladění Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Vzdálené ladění IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Aplikace v Djangu s MySQL
@@ -162,8 +158,6 @@
       items:
       - name: Zakoupení domény
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Mapování domény třetí strany
-        href: web-sites-custom-domain-name.md
       - name: Mapování domén s Traffic Managerem
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Mapování domén GoDaddy
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: Aplikace s víceklientskou databází
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Přiřazení vlastního protokolu SSL
-      items:
-      - name: Konfigurace certifikátů SSL třetí strany
-        href: web-sites-configure-ssl-certificate.md
     - name: Vynucení HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Konfigurace vzájemného ověřování TLS
@@ -278,6 +268,18 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Řešení potíží s výkonem
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: Nejčastější dotazy
+      items:
+      - name: 'Nejčastější dotazy k dostupnosti, výkonu a aplikacím'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Nejčastější dotazy k nasazení
+        href: app-service-web-deployment-faq.md
+      - name: Nejčastější dotazy k opensourcovým technologiím
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Nejčastější dotazy ke konfiguraci a správě
+        href: app-service-web-configuration-and-management-faq.md
+      - name: Další nejčastější dotazy
+        href: app-service-web-others-faq.md
   - name: Ceny
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Informace o kvótách

@@ -10,6 +10,7 @@
 ### [Pokročilá detekce hrozeb](azure-threat-detection.md)
 ### [Protokolování a auditování](azure-log-audit.md)
 ### [Izolace ve veřejném cloudu](azure-isolation.md)
+### [Technické možnosti zabezpečení](azure-security-technical-capabilities.md)
 
 # Začínáme
 ## [Začínáme se zabezpečením Azure](azure-security-getting-started.md)
@@ -18,6 +19,7 @@
 
 ## Zabezpečení sítě
 ### [Osvědčené postupy zabezpečení sítě](azure-security-network-security-best-practices.md)
+###[Zabezpečení sítě Azure](azure-network-security.md)
 ### [Zabezpečení hranic](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Zabezpečení hybridní síťové architektury](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 

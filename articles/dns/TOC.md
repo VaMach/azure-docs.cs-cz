@@ -1,4 +1,5 @@
 # Přehled
+
 ## [Co je Azure DNS?](dns-overview.md)
 ## [Záznamy a zóny DNS](dns-zones-records.md)
 ## [Delegování DNS s využitím Azure DNS](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # Postup
 
 ## Správa zón DNS
+### [Azure Portal](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-
-## [Správa záznamů DNS](dns-operations-recordsets-portal.md)
+## Správa záznamů DNS
+### [Azure Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
-## [Správa reverzních záznamů DNS](dns-reverse-dns-record-operations-ps.md)
-### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Správa reverzních záznamů DNS
+### [Přehled](dns-reverse-dns-overview.md)
+### [Hostování zón zpětného vyhledávání v Azure DNS](dns-reverse-dns-hosting.md)
+### [Správa reverzních záznamů DNS pro služby Azure](dns-reverse-dns-for-azure-services.md)
 
 ## [Import a export souboru zóny DNS](dns-import-export.md)
 ## [Integrace s ostatními službami Azure](dns-for-azure-services.md)

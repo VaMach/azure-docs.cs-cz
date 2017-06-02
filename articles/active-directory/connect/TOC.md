@@ -32,6 +32,7 @@
 ### [Možnosti přihlášení uživatele](active-directory-aadconnect-user-signin.md)
 ### [Podpora více domén pro federaci](active-directory-aadconnect-multiple-domains.md)
 ### [Automatický upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Použití zprostředkovatele identity (IdP) SAML 2.0 pro Jednotné přihlašování](active-directory-aadconnect-federation-saml-idp.md)
 
 
 

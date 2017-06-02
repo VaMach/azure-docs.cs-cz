@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: Vytvoření vysoce dostupných virtuálních počítačů
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Instalace a konfigurace
+        href: ansible-install-configure.md
+      - name: Vytvoření základního virtuálního počítače
+        href: ansible-create-vm.md
+      - name: Vytvoření kompletního virtuálního počítače
+        href: ansible-create-complete-vm.md
     - name: Nasazení aplikace pomocí šablony virtuálního počítače
       items:
       - name: Přehled kurzu
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: Zachycení stávajícího virtuálního počítače do image
       href: capture-image.md
-    - name: Vytvoření imagí schválených pro Azure
+    - name: Vytvoření imagí Azure
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Správa úložiště virtuálního počítače
     items:
     - name: Azure Managed Disks

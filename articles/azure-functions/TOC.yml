@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Průběžné nasazování se službou Azure Functions
     href: functions-continuous-deployment.md
-  - name: Nasazení služby Functions s použitím infrastruktury jako kódu
+  - name: Automatizace nasazení prostředků
     href: functions-infrastructure-as-code.md
   - name: Monitorování služby Azure Functions
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Vazby
     items:
-    - name: Vazby databáze Cosmos
+    - name: Blob Storage
+      href: functions-bindings-storage-blob.md
+    - name: Databáze Cosmos
       href: functions-bindings-documentdb.md
-    - name: Vazby Centra událostí
+    - name: Centrum událostí
       href: functions-bindings-event-hubs.md
-    - name: HTTP a webhookové vazby
+    - name: Externí soubor
+      href: functions-bindings-external-file.md
+    - name: HTTP a webhooky
       href: functions-bindings-http-webhook.md
-    - name: Vazby Mobile Apps
+    - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
-    - name: Výstupní vazby Centra oznámení
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: Aktivační události Service Bus a vazby pro fronty a témata
+    - name: Queue Storage
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: Vazby služby Sendgrid
-      href: functions-bindings-sendgrid.md
-    - name: Vazby služby Storage
-      items:
-      - name: Vazby objektů blob
-        href: functions-bindings-storage-blob.md
-      - name: Vazby front
-        href: functions-bindings-storage-queue.md
-      - name: Vazby tabulek
-        href: functions-bindings-storage-table.md
-      - name: Vazby externích souborů
-        href: functions-bindings-external-file.md
-    - name: Vazby služby Sendgrid
-      href: functions-bindings-sendgrid.md
-    - name: Trigger časovače
+    - name: Úložiště Table
+      href: functions-bindings-storage-table.md
+    - name: Časovač
       href: functions-bindings-timer.md
-    - name: Vazby výstupu z Twilia
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: Referenční informace k OpenAPI
     href: functions-api-definition.md     

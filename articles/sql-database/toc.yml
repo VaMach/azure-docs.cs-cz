@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Vytvoření databáze – PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Spravovat
+  - name: Připojení a dotazování
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-  - name: Připojení
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1. Vytvoření a návrh nové databáze SQL DB
     href: sql-database-design-first-database.md
-  - name: 2. Migrace stávajícího SQL Serveru
+  - name: 2. Migrace databáze SQL Serveru
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3. Zabezpečení databáze SQL
     href: sql-database-security-tutorial.md
@@ -45,6 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5. Implementace aplikace s více tenanty
     href: sql-database-multi-tenant-application.md
+  - name: 6. Implementace geograficky distribuované databáze
+    href: sql-database-implement-geo-distributed-database.md 
   - name: Kurzy SaaS aplikace Wingtip
     items:
     - name: Úvod k SaaS aplikaci Wingtip
@@ -55,15 +55,15 @@
       href: sql-database-saas-tutorial-provision-and-catalog.md
     - name: Monitorování výkonu
       href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Monitorování pomocí Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
     - name: Obnovení jednoho tenanta
       href: sql-database-saas-tutorial-restore-single-tenant.md
     - name: Správa schémat tenantů
       href: sql-database-saas-tutorial-schema-management.md
     - name: Spuštění analýzy ad hoc
       href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Monitorování pomocí Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Správa analýz tenantů
+    - name: Spuštění analýz tenantů
       href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Ukázky
   items:
@@ -145,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditování
       href: sql-database-auditing.md
-    - name: Auditování a TDS
+    - name: TDS a auditování tabulek
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Detekce hrozeb
       href: sql-database-threat-detection.md
@@ -355,6 +355,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Rozšířené události – cyklická vyrovnávací paměť
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Protokolování diagnostiky
+      href: sql-database-metrics-diag-logging.md
   - name: Spravovat
     items:
     - name: Azure Automation

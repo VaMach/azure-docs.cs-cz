@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
-ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3d8b07dc9903a48f6481ceda1922479cc7cd9ef6
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/26/2017
 
 ---
 #<a name="backup-documentation"></a>Dokumentace ke službě Backup
@@ -77,7 +79,7 @@ Naučte se používat Azure Backup k ochraně dat pro dlouhodobé uchování a o
         </a>
     </li>
      <li>
-        <a href="/azure/backup/backup-azure-vms-first-look">
+        <a href="/azure/backup/backup-azure-backup-server-vmware">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,7 +89,7 @@ Naučte se používat Azure Backup k ochraně dat pro dlouhodobé uchování a o
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Začínáme se zálohováním virtuálních počítačů Azure pomocí Azure Backup</h3>
+                        <h3>Začínáme se zálohováním serveru VMware s využitím Azure Backup Serveru</h3>
                     </div>
                 </div>
             </div>
@@ -142,12 +144,17 @@ Naučte se používat Azure Backup k ochraně dat pro dlouhodobé uchování a o
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/recoveryservices">Referenční materiály k rozhraní REST API služby Recovery Services</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
