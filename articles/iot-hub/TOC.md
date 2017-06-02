@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Použití simulované brány
-#### [Simulace v Linuxu](iot-hub-linux-iot-edge-get-started.md)
-#### [Simulace ve Windows](iot-hub-windows-iot-edge-get-started.md)
-
 ### Použití fyzického zařízení
 #### [Raspberry Pi s Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi s C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Nastavení Intel NUC jako brány](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Připojení brány ke službě IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Použití brány pro převod dat](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Použití online simulátoru zařízení](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Správa zasílání zpráv cloudových zařízení pomocí iothub-exploreru](iot-hub-explorer-cloud-device-messaging.md)
 ## [Uložení zpráv IoT Hub do úložiště dat Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Podpora dalších protokolů](iot-hub-protocol-gateway.md)
 ## [Vývoj](iot-hub-how-to.md)
 ### [Příručka pro vývojáře](iot-hub-devguide.md)
-#### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
 #### [Průvodce funkcemi ze zařízení do cloudu](iot-hub-devguide-d2c-guidance.md)
 #### [Průvodce funkcemi z cloudu do zařízení](iot-hub-devguide-c2d-guidance.md)
+#### [Odesílání a příjem zpráv](iot-hub-devguide-messaging.md)
+##### [Odeslání zpráv ze zařízení do cloudu do IoT Hubu](iot-hub-devguide-messages-d2c.md)
+##### [Čtení zpráv ze zařízení do cloudu z integrovaného koncového bodu](iot-hub-devguide-messages-read-builtin.md)
+##### [Použití vlastních koncových bodů a pravidel směrování pro zprávy ze zařízení do cloudu](iot-hub-devguide-messages-read-custom.md)
+##### [Odesílání zpráv z cloudu do zařízení z IoT Hubu](iot-hub-devguide-messages-c2d.md)
+##### [Vytvoření a čtení zpráv IoT Hubu](iot-hub-devguide-messages-construct.md)
 #### [Odeslání souborů ze zařízení](iot-hub-devguide-file-upload.md)
 #### [Správa identit zařízení](iot-hub-devguide-identity-registry.md)
 #### [Řízení přístupu k IoT Hubu](iot-hub-devguide-security.md)
 #### [Principy dvojčat zařízení](iot-hub-devguide-device-twins.md)
 #### [Vyvolání přímých metod v zařízení](iot-hub-devguide-direct-methods.md)
 #### [Plánování úloh na několika zařízeních](iot-hub-devguide-jobs.md)
+#### [Volba komunikačního protokolu](iot-hub-devguide-protocols.md)
 #### [Koncové body IoT Hubu](iot-hub-devguide-endpoints.md)
 #### [Dotazovací jazyk](iot-hub-devguide-query-language.md)
 #### [Kvóty a omezování](iot-hub-devguide-quotas-throttling.md)
@@ -119,18 +123,22 @@
 ### [Architektura zabezpečení](iot-hub-security-architecture.md)
 ### [Zabezpečení nasazení IoT](iot-hub-security-deployment.md)
 ## IoT Edge
+### Začínáme
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Simulace zařízení
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Použití skutečného zařízení](iot-hub-iot-edge-physical-device.md)
 
 # Referenční informace
-## [Azure CLI 2.0 (Preview)](/cli/azure/iot)
+## [Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (služba)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (zařízení)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (služba)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (zařízení)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Sady Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
+## [Sady SDK pro Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [Sady SDK pro zařízení jazyka C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (poskytovatel prostředků)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (identity zařízení)](https://docs.microsoft.com/rest/api/iothub/deviceapi)

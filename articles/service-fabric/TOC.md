@@ -235,25 +235,27 @@
 
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 
-## Kontrola stavu aplikace a clusteru
-### [Monitorování stavu Service Fabric](service-fabric-health-introduction.md)
-### [Hlášení a kontrola stavu služeb](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Přidání vlastních stavových sestav](service-fabric-report-health.md)
-### [Řešení potíží se systémovými stavovými sestavami](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [Zobrazení stavových sestav](service-fabric-view-entities-aggregated-health.md)
-
 ## Monitorování a diagnóza
 ### [Monitorování a diagnostika aplikací](service-fabric-diagnostics-overview.md)
-### Místní monitorování a diagnostika služeb
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Protokoly diagnostiky Azure
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Shromažďování protokolů z procesu služeb](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Monitorování kontejnerů Windows Serveru](service-fabric-diagnostics-containers-windowsserver.md)
-### [Diagnostika ve stavovém modelu Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### Generování událostí
+#### [Generování událostí na úrovni infrastruktury](service-fabric-diagnostics-event-generation-infra.md)
+##### [Události Reliable Services](service-fabric-reliable-services-diagnostics.md)
+##### [Události Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+#### [Generování událostí na úrovni aplikace](service-fabric-diagnostics-event-generation-app.md)
+### Kontrola stavu aplikace a clusteru
+#### [Monitorování stavu Service Fabric](service-fabric-health-introduction.md)
+#### [Hlášení a kontrola stavu služeb](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Přidání vlastních stavových sestav](service-fabric-report-health.md)
+#### [Řešení potíží se systémovými stavovými sestavami](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Zobrazení stavových sestav](service-fabric-view-entities-aggregated-health.md)
+### Agregace událostí
+#### [Agregace událostí s využitím EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Agregace událostí s využitím Azure Diagnostics
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analýza událostí
+#### [Analýza událostí s využitím Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analýza událostí s využitím OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Řešení potíží s místním clusterem](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referenční informace

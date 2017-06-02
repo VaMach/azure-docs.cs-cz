@@ -116,7 +116,7 @@
 ### [Vzorkování](app-insights-sampling.md)
 
 ## Spravovat
-### [Správa cen a kvót](app-insights-pricing.md)
+### [Správa cen a objemu dat](app-insights-pricing.md)
 ### [Sledování výkonu aplikací pomocí Application Insights pro SCOM](app-insights-scom.md)
 
 ## Export

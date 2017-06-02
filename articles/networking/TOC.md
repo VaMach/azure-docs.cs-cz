@@ -1,6 +1,7 @@
 # Přehled
 ## [Informace o sítích Azure](networking-overview.md)
 ## Architektura
+### [Virtuální datová centra](networking-virtual-datacenter.md)
 ### [Asymetrické směrování s několika síťovými cestami](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Zabezpečení návrhů sítí](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologie centrum – paprsky](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [Ověření toků protokolu IP pro virtuální počítač](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Ukázkové skripty
 ### [Azure CLI](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Kurzy
 ### [Vyrovnávání zatížení virtuálních počítačů](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Připojení počítače k virtuální síti](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)

@@ -60,9 +60,9 @@
   - name: 2. Import
     items:
     - name: DocumentDB
-      href: ../documentdb/documentdb-import-data.md
+      href: import-data.md
     - name: MongoDB
-      href: ../documentdb/documentdb-mongodb-migrate.md
+      href: mongodb-migrate.md
   - name: 3. Dotazování
     items:
     - name: DocumentDB
@@ -86,9 +86,9 @@
   - name: 5. Vývoj v místním prostředí
     items:
     - name: Použití emulátoru
-      href: ../documentdb/documentdb-nosql-local-emulator.md
+      href: local-emulator.md
     - name: Export certifikátů
-      href: ../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md
+      href: local-emulator-export-ssl-certificates.md
 - name: Ukázky
   items:
   - name: Azure CLI 2.0
@@ -98,32 +98,35 @@
 - name: Koncepty
   items:
   - name: Globální distribuce
-    href: ../documentdb/documentdb-distribute-data-globally.md
+    href: distribute-data-globally.md
   - name: Dělení
     href: partition-data.md
   - name: Konzistence
-    href: ../documentdb/documentdb-consistency-levels.md
+    href: consistency-levels.md
   - name: Propustnost
-    href: ../documentdb/documentdb-request-units.md
+    href: request-units.md
     items:
     - name: Jednotky žádosti za minutu
       href: request-units-per-minute.md
   - name: Rozhraní API s více modely
     items:
     - name: DocumentDB
-      href: ../documentdb/documentdb-introduction.md
+      href: documentdb-introduction.md
     - name: MongoDB
-      href: ../documentdb/documentdb-protocol-mongodb.md
+      href: mongodb-introduction.md
     - name: Table
       href: table-introduction.md
     - name: Graph
       href: graph-introduction.md
   - name: Zabezpečení
-    href: ../documentdb/documentdb-nosql-database-security.md
+    href: database-security.md
   - name: Celkové náklady na vlastnictví
     href: https://aka.ms/documentdb-tco-paper
   - name: Případy použití
-    href: ../documentdb/documentdb-use-cases.md
+    href: use-cases.md
+    items:
+      - name: Aplikace sociálních médií
+        href: social-media-apps.md
 - name: Průvodce postupy
   items:
   - name: Vývoj
@@ -131,87 +134,90 @@
     - name: Rozhraní DocumentDB API
       items:
       - name: Zdroje a prostředky
-        href: ../documentdb/documentdb-resources.md
+        href: documentdb-resources.md
       - name: Dotaz SQL
-        href: ../documentdb/documentdb-sql-query.md
+        href: documentdb-sql-query.md
       - name: SQL Playground
         href: https://www.documentdb.com/sql/demo
       - name: Dělení
-        href: ../documentdb/documentdb-partition-data.md
+        href: documentdb-partition-data.md
       - name: 'Uložené procedury, triggery a systémy souborů UDF'
-        href: ../documentdb/documentdb-programming.md
+        href: programming.md
       - name: Testování výkonu
-        href: ../documentdb/documentdb-performance-testing.md
+        href: performance-testing.md
       - name: Tipy pro zvýšení výkonu
-        href: ../documentdb/documentdb-performance-tips.md
+        href: performance-tips.md
       - name: Nastavení s několika hlavními databázemi
-        href: ../documentdb/documentdb-multi-region-writers.md
+        href: multi-region-writers.md
       - name: Typy DateTime
-        href: ../documentdb/documentdb-working-with-dates.md
+        href: working-with-dates.md
+      - name: Modelování dat dokumentů
+ 
+        href: modeling-data.md 
       - name: Kurzy
         items:
         - name: Vytvoření první aplikace
           items:
           - name: .NET
-            href: ../documentdb/documentdb-get-started.md
+            href: documentdb-get-started.md
           - name: .NET Core
-            href: ../documentdb/documentdb-dotnetcore-get-started.md
+            href: documentdb-dotnetcore-get-started.md
           - name: Java
-            href: ../documentdb/documentdb-java-get-started.md
+            href: documentdb-java-get-started.md
           - name: Node.js
-            href: ../documentdb/documentdb-nodejs-get-started.md
+            href: documentdb-nodejs-get-started.md
           - name: C++
-            href: ../documentdb/documentdb-cpp-get-started.md
+            href: documentdb-cpp-get-started.md
         - name: Vytvoření webové aplikace
           items:
           - name: .NET
-            href: ../documentdb/documentdb-dotnet-application.md
+            href: documentdb-dotnet-application.md
           - name: Xamarin
-            href: ../documentdb/documentdb-mobile-apps-with-xamarin.md
+            href: mobile-apps-with-xamarin.md
           - name: Node.js
-            href: ../documentdb/documentdb-nodejs-application.md
+            href: documentdb-nodejs-application.md
           - name: Java
-            href: ../documentdb/documentdb-java-application.md
+            href: documentdb-java-application.md
           - name: Python Flask
-            href: ../documentdb/documentdb-python-application.md
+            href: documentdb-python-application.md
       - name: Ukázky
         items:
         - name: Ukázky .NET
-          href: ../documentdb/documentdb-dotnet-samples.md
+          href: documentdb-dotnet-samples.md
         - name: Ukázky Node.js
-          href: ../documentdb/documentdb-nodejs-samples.md
+          href: documentdb-nodejs-samples.md
         - name: Ukázky Pythonu
-          href: ../documentdb/documentdb-python-samples.md
+          href: documentdb-python-samples.md
         - name: Syntaxe SQL
           href: https://msdn.microsoft.com/library/azure/dn782250.aspx
         - name: Tahák pro gramatiku jazyka SQL
-          href: ../documentdb/documentdb-sql-query-cheat-sheet.md
+          href: documentdb-sql-query-cheat-sheet.md
       - name: Zdroje a prostředky
         items:
         - name: Stack Overflow
-          href: http://stackoverflow.com/questions/tagged/azure-documentdb
+          href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videa
-          href: https://azure.microsoft.com/documentation/videos/index/?services=documentdb
+          href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
         - name: Aktualizace služeb
-          href: https://azure.microsoft.com/updates/?product=documentdb
+          href: https://azure.microsoft.com/updates/?product=cosmos-db
         - name: Portál komunity
-          href: ../documentdb/documentdb-community.md
+          href: community.md
         - name: Dokument o indexování bez schémat
           href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
         - name: 'Vyřazení S1, S2, S3'
-          href: ../documentdb/documentdb-performance-levels.md
+          href: performance-levels.md
     - name: Rozhraní MongoDB API
       items:
       - name: Připojení k účtu MongoDB
-        href: ../documentdb/documentdb-connect-mongodb-account.md
+        href: connect-mongodb-account.md
       - name: Použití MongoChef
-        href: ../documentdb/documentdb-mongodb-mongochef.md
+        href: mongodb-mongochef.md
       - name: Použití Robomongo
-        href: ../documentdb/documentdb-mongodb-robomongo.md
+        href: mongodb-robomongo.md
       - name: Kurzy
         items:
         - name: Aplikace konzoly Node.js
-          href: ../documentdb/documentdb-mongodb-samples.md
+          href: mongodb-samples.md
     - name: Graph API
       items:
       - name: Podpora Gremlin
@@ -221,57 +227,49 @@
       - name: Úložiště Table
         href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
     - name: Změna kanálu
-      href: ../documentdb/documentdb-change-feed.md
+      href: change-feed.md
     - name: Geoprostorové
-      href: ../documentdb/documentdb-geospatial.md
+      href: geospatial.md
     - name: Indexování
-      href: ../documentdb/documentdb-indexing-policies.md
+      href: indexing-policies.md
   - name: Spravovat
     items:
     - name: Nákladově efektivní čtení a zápisy
-      href: ../documentdb/documentdb-key-value-store-cost.md
+      href: key-value-store-cost.md
     - name: Automatické vypršení dat
-      href: ../documentdb/documentdb-time-to-live.md
+      href: time-to-live.md
     - name: Zálohování a obnovení
-      href: ../documentdb/documentdb-online-backup-and-restore.md
+      href: online-backup-and-restore.md
     - name: Místní převzetí služeb při selhání
-      href: ../documentdb/documentdb-regional-failovers.md
+      href: regional-failover.md
     - name: Nastavení propustnosti
-      href: ../documentdb/documentdb-set-throughput.md
+      href: set-throughput.md
     - name: Monitorování smluv SLA
-      href: ../documentdb/documentdb-monitor-accounts.md
+      href: monitor-accounts.md
     - name: Správa klíčů a konzistence
-      href: ../documentdb/documentdb-manage-account.md
-    - name: Automation
-      items:
-      - name: Azure CLI 1.0 – Vytvoření účtu
-        href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
-      - name: Azure CLI 1.0 – Přidání nebo odebrání oblastí
-        href: ../documentdb/documentdb-automation-region-management.md
-      - name: Azure PowerShell
-        href: ../documentdb/documentdb-manage-account-with-powershell.md
+      href: manage-account.md
     - name: Zabezpečení
       items:
       - name: Šifrování v klidovém stavu
-        href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
+        href: database-encryption-at-rest.md
       - name: Podpora brány firewall
-        href: ../documentdb/documentdb-firewall-support.md
+        href: firewall-support.md
       - name: Zabezpečení přístupu k datům
-        href: ../documentdb/documentdb-secure-access-to-data.md
+        href: secure-access-to-data.md
   - name: Integrace
     items:
     - name: Připojení ke Sparku
-      href: ../documentdb/documentdb-spark-connector.md
+      href: spark-connector.md
     - name: Připojení ke Spark GraphX
       href: spark-connector-graph.md      
     - name: Nasazení webu pomocí služby Azure App Service
-      href: ../documentdb/documentdb-create-documentdb-website.md
+      href: create-website.md
     - name: Protokolování aplikací pomocí funkce Logic Apps
       href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
     - name: Vytvoření vazby na službu Azure Functions
       href: ../azure-functions/functions-bindings-documentdb.md
     - name: Analýza dat pomocí systému Hadoop
-      href: ../documentdb/documentdb-run-hadoop-with-hdinsight.md
+      href: run-hadoop-with-hdinsight.md
     - name: Integrace se službou Azure Search
       href: ../search/search-howto-index-documentdb.md
     - name: Přesun dat pomocí služby Azure Data Factory
@@ -279,27 +277,27 @@
     - name: Analýza dat v reálném čase pomocí Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
     - name: Získání změněného záznamu HL7 FHIR pomocí Logic Apps
-      href: ../documentdb/documentdb-change-feed-hl7-fhir-logic-apps.md
+      href: change-feed-hl7-fhir-logic-apps.md
     - name: Zpracování dat ze snímačů v reálném čase
       href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
     - name: Vizualizace dat pomocí Power BI
-      href: ../documentdb/documentdb-powerbi-visualize.md
+      href: powerbi-visualize.md
     - name: Využití ovladače ODBC pro vizualizaci dat
-      href: ../documentdb/documentdb-nosql-odbc-driver.md
+      href: odbc-driver.md
 - name: Referenční informace
   items:
   - name: Rozhraní DocumentDB API
     items:
     - name: Java
-      href: ../documentdb/documentdb-sdk-java.md
+      href: documentdb-sdk-java.md
     - name: .NET
-      href: ../documentdb/documentdb-sdk-dotnet.md
+      href: documentdb-sdk-dotnet.md
     - name: .NET Core
-      href: ../documentdb/documentdb-sdk-dotnet-core.md
+      href: documentdb-sdk-dotnet-core.md
     - name: Node.js
-      href: ../documentdb/documentdb-sdk-node.md
+      href: documentdb-sdk-node.md
     - name: Python
-      href: ../documentdb/documentdb-sdk-python.md
+      href: documentdb-sdk-python.md
     - name: REST
       href: /rest/api/documentdb/
     - name: Poskytovatel prostředků REST
@@ -317,8 +315,8 @@
   - name: Ceny
     href: https://azure.microsoft.com/pricing/details/documentdb/
   - name: Nejčastější dotazy
-    href: ../documentdb/documentdb-faq.md
+    href: faq.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cosmos-db
+    href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
   - name: Vysvětlení konzistence dat pomocí baseballu
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

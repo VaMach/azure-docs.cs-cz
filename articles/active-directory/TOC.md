@@ -5,6 +5,7 @@
 ## [Vysvětlení řešení identit Azure](understand-azure-identity-solutions.md)
 ## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
 
+
 # Začínáme
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
 ## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
@@ -14,7 +15,8 @@
 ### [Portál Classic](active-directory-licensing-what-is.md)
 ## [Získejte Azure pro vaši organizaci](sign-up-organization.md)
 ## [Nejčastější dotazy](active-directory-faq.md)
-## [Kurzy aplikací SaaS](active-directory-saas-tutorial-list.md)
+## [Získání podpory pro Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Kurzy integrace aplikací SaaS](active-directory-saas-tutorial-list.md)
 
 # Postup
 ## Plánování a návrh

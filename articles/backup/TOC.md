@@ -17,12 +17,22 @@
 ### [Windows Server na portálu Azure Classic](backup-client-automation-classic.md)
 
 ## Server Azure Backup
-### [Příprava úloh Azure Backup Serveru na webu Azure Portal](backup-azure-microsoft-azure-backup.md)
-### [Příprava úloh Azure Backup Serveru na portálu Azure Classic](backup-azure-microsoft-azure-backup-classic.md)
-### [Použití Azure Backup Serveru k zálohování serveru VMware](backup-azure-backup-server-vmware.md)
-### [Použití Azure Backup Serveru k zálohování Exchange](backup-azure-exchange-mabs.md)
-### [Použití Azure Backup Serveru k zálohování sharepointové farmy](backup-azure-backup-sharepoint-mabs.md)
-### [Použití Azure Backup Serveru k zálohování SQL](backup-azure-sql-mabs.md)
+### [Systém ochrany Azure Backup Serveru](backup-mabs-protection-matrix.md)
+### Instalace nebo upgrade
+#### [Příprava úloh Azure Backup Serveru na webu Azure Portal](backup-azure-microsoft-azure-backup.md)
+#### [Příprava úloh Azure Backup Serveru na portálu Azure Classic](backup-azure-microsoft-azure-backup-classic.md)
+#### [Přidání úložiště do Azure Backup Serveru](backup-mabs-add-storage.md)
+#### [Upgrade Azure Backup Serveru na v.2](backup-mabs-upgrade-to-v2.md)
+#### [Bezobslužná instalace Azure Backup Serveru](backup-mabs-unattended-install.md)
+### Ochrana úloh
+#### [Použití Azure Backup Serveru k zálohování serveru VMware](backup-azure-backup-server-vmware.md)
+#### [Použití Azure Backup Serveru k zálohování Exchange](backup-azure-exchange-mabs.md)
+#### [Použití Azure Backup Serveru k zálohování sharepointové farmy](backup-azure-backup-sharepoint-mabs.md)
+#### [Použití Azure Backup Serveru k zálohování SQL](backup-azure-sql-mabs.md)
+#### [Ochrana stavu systému a úplné obnovení systému](backup-mabs-system-state-and-bmr.md)
+### Řešení potíží
+#### [Odstraňování potíží Azure Backup Serveru](backup-azure-mabs-troubleshoot.md)
+
 
 ## Data Protection Manager
 ### [Příprava úloh DPM na webu Azure Portal](backup-azure-dpm-introduction.md)
@@ -33,19 +43,25 @@
 ### [Použití DPM k zálohování sharepointové farmy](backup-azure-backup-sharepoint.md)
 
 ## Virtuální počítače Azure
-### [Příprava virtuálních počítačů Azure](backup-azure-vms-prepare.md)
-### [Příprava virtuálních počítačů nasazených Resource Managerem](backup-azure-arm-vms-prepare.md)
-### [Plánování infrastruktury zálohování virtuálních počítačů](backup-azure-vms-introduction.md)
-### [Zálohování virtuálních počítačů Azure do úložiště záloh](backup-azure-vms.md)
-### [Zálohování virtuálních počítačů Azure do trezoru služby Recovery Services](backup-azure-arm-vms.md)
-### [Zálohování a obnovení šifrovaných virtuálních počítačů](backup-azure-vms-encryption.md)
-### [Správa a sledování záloh virtuálních Počítačů Azure na klasickém portálu](backup-azure-manage-vms-classic.md)
-### [Správa záloh virtuálních počítačů Azure na webu Azure Portal](backup-azure-manage-vms.md)
-### [Monitorování výstrah pro zálohy virtuálních počítačů Azure na webu Azure Portal](backup-azure-monitor-vms.md)
-### [Obnovení souborů ze záloh virtuálních počítačů Azure](backup-azure-restore-files-from-vm.md)
-### [Obnovení virtuálních počítačů v Azure](backup-azure-restore-vms.md)
-### [Obnovení virtuálních počítačů nasazených Azure Resource Managerem na webu Azure Portal](backup-azure-arm-restore-vms.md)
-### [Obnovení klíče a tajného kódu Key Vault pro šifrované virtuální počítače pomocí Azure Backup](backup-azure-restore-key-secret.md)
+### Příprava virtuálního počítače
+#### [Příprava virtuálních počítačů Azure](backup-azure-vms-prepare.md)
+#### [Příprava virtuálních počítačů nasazených Resource Managerem](backup-azure-arm-vms-prepare.md)
+### Plánování prostředí
+#### [Plánování infrastruktury zálohování virtuálních počítačů](backup-azure-vms-introduction.md)
+### Zálohování serverů a úloh
+#### [Zálohování virtuálních počítačů Azure do úložiště záloh](backup-azure-vms.md)
+#### [Zálohování virtuálních počítačů Azure do trezoru služby Recovery Services](backup-azure-arm-vms.md)
+#### [Zálohování šifrovaných virtuálních počítačů](backup-azure-vms-encryption.md)
+### Správa a monitorování virtuálních počítačů
+#### [Správa a sledování záloh virtuálních Počítačů Azure na klasickém portálu](backup-azure-manage-vms-classic.md)
+#### [Správa záloh virtuálních počítačů Azure na webu Azure Portal](backup-azure-manage-vms.md)
+#### [Monitorování výstrah pro zálohy virtuálních počítačů Azure na webu Azure Portal](backup-azure-monitor-vms.md)
+### Obnovení dat z virtuálních počítačů
+#### [Obnovení souborů ze záloh virtuálních počítačů Azure](backup-azure-restore-files-from-vm.md)
+#### [Obnovení virtuálních počítačů v Azure](backup-azure-restore-vms.md)
+#### [Obnovení virtuálních počítačů nasazených Azure Resource Managerem na webu Azure Portal](backup-azure-arm-restore-vms.md)
+#### [Obnovení klíče a tajného kódu Key Vault pro šifrované virtuální počítače pomocí Azure Backup](backup-azure-restore-key-secret.md)
+#### [Obnovení šifrovaných virtuálních počítačů](backup-azure-vms-encryption.md)
 
 ## Azure SQL Database
 ### [Konfigurace dlouhodobého uchovávání záloh](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
@@ -66,7 +82,6 @@
 ## Řešení potíží
 ### [Potíže se zálohami virtuálních počítačů Azure na webu Azure Portal](backup-azure-vms-troubleshoot.md)
 ### [Potíže se zálohami virtuálních počítačů Azure na portálu Azure Classic](backup-azure-vms-troubleshoot-classic.md)
-### [Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 ### [Selhání zálohování virtuálních počítačů Azure: S agentem virtuálního počítače nebylo možné komunikovat – Dílčí úloze snímku virtuálního počítače vypršel časový limit](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Pomalé zálohování souborů a složek ve službě Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 

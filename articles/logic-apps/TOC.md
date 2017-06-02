@@ -7,6 +7,7 @@
 ## [Vytvoření první aplikace logiky](logic-apps-create-a-logic-app.md)
 ## [Šablony pro Logic Apps](logic-apps-use-logic-app-templates.md)
 ## [Vytvoření aplikací logiky ze šablon](logic-apps-arm-provision.md)
+## [Přesun aplikací MABS do aplikací logiky](logic-apps-move-from-mabs.md)
 
 # Postup
 ## Sestavení
@@ -80,6 +81,7 @@
 ### [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Měření využití](logic-apps-pricing.md)
 
+
 # Bez serveru
 ## Přehled
 ### [Bez serveru v Azure](logic-apps-serverless-overview.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [Ověření XML](logic-apps-enterprise-integration-xml-validation.md)
+
+## [Konektory: podrobnosti](https://docs.microsoft.com/connectors/)
 ## Historie schématu
 ### [GA](logic-apps-schema-2016-04-01.md)
 ### [Preview](logic-apps-schema-2015-08-01.md)

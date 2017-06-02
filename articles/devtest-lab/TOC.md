@@ -2,6 +2,7 @@
 ## [Služba Azure Devtest Labs](devtest-lab-overview.md)
 ## [Koncepty](devtest-lab-concepts.md)
 ## Scénáře
+### [Použití testovacích prostředí pro vývojáře](devtest-lab-developer-lab.md)
 ### [Použití testovacích prostředí pro školení](devtest-lab-training-lab.md)
 
 # Začínáme

@@ -61,6 +61,9 @@
 ### [Zobrazení](operations-management-suite-solutions-resources-views.md)
 ### [Osvědčené postupy](operations-management-suite-solutions-best-practices.md)
 
+## Scénáře správy
+### [Shromažďování analytických dat z runbooků](operations-management-suite-runbook-datacollect.md)
+
 ## [Integrace s OMS](operations-management-suite-integration.md)
 
 # Referenční informace
