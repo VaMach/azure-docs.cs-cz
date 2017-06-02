@@ -1,13 +1,14 @@
 # Přehled
 ## [Co je Site Recovery?](site-recovery-overview.md)
-## [Jak funguje Site Recovery?](site-recovery-components.md)
+## [Jak funguje Site Recovery?](site-recovery-azure-to-azure-architecture.md)
 ## [Jak funguje replikace Hyper-V do Azure?](site-recovery-hyper-v-azure-architecture.md)
 ## [Jaké úlohy můžete chránit?](site-recovery-workload.md)
-## [Matice podpory Site Recovery](site-recovery-support-matrix-to-azure.md)
+## [Matice podpory Site Recovery](site-recovery-support-matrix-azure-to-azure.md)
 ## [Nejčastější dotazy](site-recovery-faq.md)
 ## [Podívejte se na základní přehled](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Začínáme
+## [Replikace virtuálních počítačů Azure (Preview)](site-recovery-azure-to-azure.md)
 ## [Replikace virtuálních počítačů VMware do Azure](site-recovery-vmware-to-azure.md)
 ## [Replikace fyzických serverů do Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replikace virtuálních počítačů Hyper-V do Azure (s VMM)](site-recovery-vmm-to-azure.md)
@@ -18,9 +19,10 @@
 
 # Postup
 ## Plánování
-### [Požadavky pro replikaci Azure](site-recovery-prereq.md)
-### [Plánování síťové infrastruktury](site-recovery-network-design.md)
-### [Plánování mapování sítě](site-recovery-network-mapping.md)
+### [Požadavky pro replikaci Azure](site-recovery-azure-to-azure-prereq.md)
+### [Plánování odchozího připojení sítě pro virtuální počítače Azure (Preview)](site-recovery-azure-to-azure-networking-guidance.md)
+### [Plánování síťové infrastruktury pro místní počítače](site-recovery-network-design.md)
+### [Plánování mapování sítě](site-recovery-network-mapping-azure-to-azure.md)
 ### [Plánování kapacity a škálování replikace VMware do Azure](site-recovery-plan-capacity-vmware.md)
 ### [Plánovač nasazení pro replikaci VMware do Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner pro replikaci Hyper-V](site-recovery-capacity-planner.md)
@@ -33,19 +35,21 @@
 ### [Nasazení služby Mobility pro replikaci VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Nasazení služby Mobility s využitím System Center Configuration Manageru](site-recovery-install-mobility-service-using-sccm.md)
 #### [Nasazení služby Mobility s využitím Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Povolení replikace](site-recovery-replicate-vmware-to-azure.md)
+### [Povolení replikace](site-recovery-replicate-azure-to-azure.md)
 ## Převzetí služeb při selhání a navrácení služeb po obnovení
-### [Převzetí služeb při selhání u chráněných počítačů](site-recovery-failover.md)
 ### [Nastavení plánů obnovení](site-recovery-create-recovery-plans.md)
 #### [Přidání runbooků Azure do plánů obnovení](site-recovery-runbook-automation.md)
 ### [Spuštění testovacího převzetí služeb při selhání](site-recovery-test-failover-to-azure.md)
-### [Znovunastavení ochrany počítačů po převzetí služeb při selhání](site-recovery-how-to-reprotect.md)
+### [Převzetí služeb při selhání u chráněných počítačů](site-recovery-failover.md)
+### [Znovunastavení ochrany počítačů po převzetí služeb při selhání](site-recovery-how-to-reprotect-azure-to-azure.md)
 ### [Navrácení služeb po obnovení z Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Migrace
 ### [Migrace do Azure](site-recovery-migrate-to-azure.md)
 ### [Migrace mezi oblastmi Azure](site-recovery-migrate-azure-to-azure.md)
 ### [Migrace instancí Windows AWS do Azure](site-recovery-migrate-aws-to-azure.md)
+### [Replikace migrovaných počítačů do jiné oblasti Azure](site-recovery-azure-to-azure-after-migration.md)
+
 ## Úlohy
 ### [Active Directory a DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -68,7 +72,9 @@
 ### [Správa procesových serverů s horizontálním navýšením kapacity](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Správa serverů vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Odebrání serverů a zakázání ochrany](site-recovery-manage-registration-and-protection.md)
-## [Monitorování a odstraňování potíží](site-recovery-monitoring-and-troubleshooting.md)
+## Monitorování a odstraňování potíží
+### [Potíže s replikací virtuálních počítačů Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Potíže s replikací z místního prostředí do Azure](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
