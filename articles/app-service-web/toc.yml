@@ -278,8 +278,6 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Nejčastější dotazy ke konfiguraci a správě
         href: app-service-web-configuration-and-management-faq.md
-      - name: Další nejčastější dotazy
-        href: app-service-web-others-faq.md
   - name: Ceny
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Informace o kvótách
