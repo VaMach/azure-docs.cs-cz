@@ -30,31 +30,34 @@
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-## Konfigurace zásad IPsec/IKE pro připojení
-### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Konfigurace připojení typu VNet-to-VNet mezi modely nasazení
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Konfigurace několika připojení typu site-to-site
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (Classic)](vpn-gateway-multi-site.md)
 ## Připojení několika zařízení VPN na základě zásad
 ### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
-## [Konfigurace BGP pro bránu VPN](vpn-gateway-bgp-resource-manager-ps.md)
+## Konfigurace zásad IPsec/IKE pro připojení
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## Konfigurace vysoce dostupných připojení typu aktivní-aktivní
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
+## Konfigurace BGP pro bránu VPN
+### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## Konfigurace vynuceného tunelování
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (Classic)](vpn-gateway-about-forced-tunneling.md)
-## [Konfigurace vysoce dostupných připojení typu aktivní-aktivní](vpn-gateway-activeactive-rm-powershell.md)
-## Správa bran Azure VPN Gateway
-### [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
-### [Odstranění brány pomocí webu Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-### [Odstranění brány pomocí prostředí PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Odstranění brány pomocí prostředí PowerShell – Classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## Úprava nastavení místní síťové brány
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [Rozhraní příkazového řádku](vpn-gateway-modify-local-network-gateway-cli.md)
+### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Ověření připojení brány VPN](vpn-gateway-verify-connection-resource-manager.md)
+## [Resetování brány VPN](vpn-gateway-resetgw-classic.md)
+## Odstranění brány VPN
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Řešení potíží
 ### [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
