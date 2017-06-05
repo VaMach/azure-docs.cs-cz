@@ -45,26 +45,6 @@
     href: sql-database-multi-tenant-application.md
   - name: 6. Implementace geograficky distribuované databáze
     href: sql-database-implement-geo-distributed-database.md 
-  - name: Kurzy SaaS aplikace Wingtip
-    items:
-    - name: Úvod k SaaS aplikaci Wingtip
-      href: sql-database-wtp-overview.md
-    - name: Nasazení ukázkové SaaS aplikace Wingtip
-      href: sql-database-saas-tutorial.md
-    - name: Zřízení nových tenantů a jejich přidání do katalogu
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Monitorování výkonu
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Monitorování pomocí Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Obnovení jednoho tenanta
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Správa schémat tenantů
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Spuštění analýzy ad hoc
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Spuštění analýz tenantů
-      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Ukázky
   items:
   - name: Azure CLI
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: Upgrady aplikací
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Vývoj
+  - name: Vývoj databází
     items:
     - name: Přehled
       href: sql-database-develop-overview.md
     - name: Připojení
       href: sql-database-libraries.md
-    - name: Návrh aplikací – SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Zabezpečení – SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Porty – ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Ověření aplikace
- 
-      href: sql-database-client-id-keys.md
-    - name: Chybové zprávy
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: Data JSON
       href: sql-database-json-features.md
     - name: V paměti
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Doprovodné materiály k výkonu
       href: sql-database-performance-guidance.md
-    - name: Dávkování
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Rozšířené události
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Úrovně kompatibility
@@ -365,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS – MFA
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Vývoj aplikací
+    items:
+    - name: Porty – ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: Ověření aplikace
+ 
+      href: sql-database-client-id-keys.md
+    - name: Chybové zprávy
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Dávkování pro zajištění výkonu
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: Návrh aplikací SaaS
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: Zabezpečení aplikací SaaS
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: Kurz aplikací SaaS
+      href: sql-database-wtp-overview.md
 - name: Referenční informace
   items:
   - name: PowerShell
@@ -444,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Vlastní řídicí panel elastického fondu
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-

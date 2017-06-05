@@ -3,6 +3,7 @@
 # Začínáme
 ## [Vytvoření adresáře Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registrace vaší aplikace](active-directory-b2c-app-registration.md)
+## [Předdefinované zásady](active-directory-b2c-reference-policies.md)
 ## Mobilní a desktopové aplikace
 ### [Přehled](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -63,6 +64,7 @@
 #### [Získání dalších deklarací identity](active-directory-b2c-rest-api-step-custom.md)
 ### Přizpůsobení přihlášení
 #### [Konfigurace uživatelského vstupu](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Vlastní atributy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom.md)
 #### [Přizpůsobení tokenů](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Řešení potíží
@@ -74,7 +76,6 @@
 ## Glosář
 ### [Typy aplikací](active-directory-b2c-apps.md)
 ### [Protokoly pro ověřování](active-directory-b2c-reference-protocols.md)
-### [Předdefinované zásady](active-directory-b2c-reference-policies.md)
 ### [Tokeny](active-directory-b2c-reference-tokens.md)
 ## [Rezidence dat a dostupnost oblastí](active-directory-b2c-reference-tenant-type.md)
 ## [Povolení fakturace](active-directory-b2c-how-to-enable-billing.md)

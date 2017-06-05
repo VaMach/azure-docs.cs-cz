@@ -72,9 +72,10 @@
 ### [Správa procesových serverů s horizontálním navýšením kapacity](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Správa serverů vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Odebrání serverů a zakázání ochrany](site-recovery-manage-registration-and-protection.md)
-## Monitorování a odstraňování potíží
+## Řešení potíží
+### [Shromažďování protokolů](site-recovery-monitoring-and-troubleshooting.md)
 ### [Potíže s replikací virtuálních počítačů Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [Potíže s replikací z místního prostředí do Azure](site-recovery-monitoring-and-troubleshooting.md)
+### [Potíže s replikací z místního prostředí do Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
