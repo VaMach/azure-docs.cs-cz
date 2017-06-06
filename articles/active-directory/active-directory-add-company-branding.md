@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c558bd5f2b7fae91483cc2c6724c40442bb65045
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -205,12 +205,12 @@ Některé přizpůsobitelné prvky v Azure AD mají více možností použití. 
 
 | Name (Název) | Popis | Omezení | Doporučení |
 | --- | --- | --- | --- |
-| Banner s logem |Banner s logem se zobrazuje na přihlašovací stránce a na přístupovém panelu. |<p>JPG nebo PNG</p><p>60 x&280; pixelů</p><p>10 kB</p> |<p>Použijte celé logo vaší organizace (včetně piktogramu a logotypu).</p><p>Dodržte maximální výšku 30 pixelů, aby se na mobilních zařízeních nezobrazovaly posuvníky.</p><p>Dodržte maximální velikost 4 kB.</p><p>Použijte průhledný obrázek PNG (nepředpokládejte, že přihlašovací stránka bude mít vždy bílé pozadí).</p> |
-| Dlaždice s logem |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný piktogram „pracovní nebo školní účet“. |<p>JPG nebo PNG</p><p>120 x&120; pixelů</p><p>10 kB</p> |<p>Udržte to jednoduché (žádný drobný text), protože velikost obrázku může být změněna na 50 %. |
+| Banner s logem |Banner s logem se zobrazuje na přihlašovací stránce a na přístupovém panelu. |<p>JPG nebo PNG</p><p>60x280 pixelů</p><p>10 kB</p> |<p>Použijte celé logo vaší organizace (včetně piktogramu a logotypu).</p><p>Dodržte maximální výšku 30 pixelů, aby se na mobilních zařízeních nezobrazovaly posuvníky.</p><p>Dodržte maximální velikost 4 kB.</p><p>Použijte průhledný obrázek PNG (nepředpokládejte, že přihlašovací stránka bude mít vždy bílé pozadí).</p> |
+| Dlaždice s logem |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný piktogram „pracovní nebo školní účet“. |<p>JPG nebo PNG</p><p>120x120 pixelů</p><p>10 kB</p> |<p>Udržte to jednoduché (žádný drobný text), protože velikost obrázku může být změněna na 50 %. |
 | </p> | | | |
 | Popisek uživatelského jména na přihlašovací stránce |(Aktuálně se na přihlašovací stránce nepoužívá.) V budoucnu může tento text na různých místech prostředí nahradit obecný řetězec „pracovní nebo školní účet“. Můžete ho nastavit třeba na „Účet Contoso“ nebo „Contoso ID“. |<p>Text v kódu Unicode, až 50 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |<p>Pište krátce a jednoduše.</p><p>Zeptejte se uživatelů, jak obvykle nazývají pracovní nebo školní účet, který jim poskytujete.</p> |
 | Text na přihlašovací stránce |Tento často používaný text se zobrazuje pod formulářem přihlašovací stránky a vy ho můžete použít ke sdělení dalších pokynů nebo k nasměrování na nápovědu a podporu. |<p>Text v kódu Unicode, až 256 znaků.</p><p>Jenom prostý text (žádné odkazy nebo značky jazyka HTML).</p> |Dodržte maximální délku textu 250 znaků (přibližně tři řádky textu). |
-| Obrázek na přihlašovací stránce |Jedná se o velký obrázek, který se zobrazí na přihlašovací stránce nalevo od formuláře. |<p>JPG nebo PNG</p><p>1420 ×&1200;</p><p>500 kB</p> |<p>1420 ×&1200; pixelů</p><p>Důležité: Pokuste se udržet co nejmenší, ideálně do 200 kB. Pokud je obrázek příliš velký, ovlivní to výkon přihlašovací stránky v případě, kdy obrázek není načtený v mezipaměti.</p><p>Obrázek se často ořezává, aby vyhovoval poměrům stran různých obrazovek. Klíčové vizuální prvky umístěte do levého horního rohu (do pravého horního rohu v případě jazyků psaných zprava doleva), protože při zmenšení okna prohlížeče začíná změna velikosti obvykle v pravém dolním rohu a postupuje směrem nahoru a doleva.</p> |
+| Obrázek na přihlašovací stránce |Jedná se o velký obrázek, který se zobrazí na přihlašovací stránce nalevo od formuláře. |<p>JPG nebo PNG</p><p>1420×1200</p><p>500 kB</p> |<p>1420×1200 pixelů</p><p>Důležité: Pokuste se udržet co nejmenší, ideálně do 200 kB. Pokud je obrázek příliš velký, ovlivní to výkon přihlašovací stránky v případě, kdy obrázek není načtený v mezipaměti.</p><p>Obrázek se často ořezává, aby vyhovoval poměrům stran různých obrazovek. Klíčové vizuální prvky umístěte do levého horního rohu (do pravého horního rohu v případě jazyků psaných zprava doleva), protože při zmenšení okna prohlížeče začíná změna velikosti obvykle v pravém dolním rohu a postupuje směrem nahoru a doleva.</p> |
 | Barva pozadí na přihlašovací stránce |Barva pozadí na přihlašovací stránce se používá v oblasti, která je nalevo od formuláře. |Musí to být barva RGB v šestnáctkovém formátu (příklad: #FFFFFF). |<p>Barva pozadí se může zobrazit místo velkého obrázku v případě připojení s malou šířkou pásma.</p><p>Doporučujeme vybrat primární barvu banneru s logem.</p> |
 
 ## <a name="next-steps"></a>Další kroky
