@@ -2,6 +2,6 @@
 
 Pokud chcete vyčistit prostředky, spusťte následující příkaz:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
