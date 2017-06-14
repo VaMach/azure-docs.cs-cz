@@ -3,7 +3,7 @@ title: "Azure AD B2C: Zabezpečení webového rozhraní API pomocí Node.js | Do
 description: "Jak sestavit webové rozhraní API Node.js, které přijímá tokeny z klienta B2C"
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
