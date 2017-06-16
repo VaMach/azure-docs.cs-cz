@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ Ve virtuálním počítači Azure budou po převzetí služeb při selhání tyt
 
 **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | ---
-DISK0 |    C:\ | Disk operačním systému
-Disk1 |    E:\ | Dočasné úložiště</br /> </br />Azure tento disk přidá a přiřadí mu první dostupné písmeno jednotky.
+DISK0 | C:\ | Disk operačním systému
+Disk1 | E:\ | Dočasné úložiště</br /> </br />Azure tento disk přidá a přiřadí mu první dostupné písmeno jednotky.
 Disk2 | D:\ | Databáze systému SQL a uživatelská databáze 1
 Disk3 | G:\ | Uživatelská databáze 2
 
@@ -141,13 +141,13 @@ Existují dva způsoby, jak tuto cestu vytvořit:
 3. Spuštěním následujícího příkazu sqlcmd změňte cestu k databázi tempdb na novou cestu.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ V předchozím příkladu vypadá konfigurace disků virtuálního počítače A
 **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | ---
 DISK0 | C:\ | Disk operačním systému
-Disk1 |    E:\ | Dočasné úložiště</br /> </br />Azure tento disk přidá a přiřadí mu první dostupné písmeno jednotky.
-Disk2 |    D:\ | Databáze systému SQL a uživatelská databáze 1
-Disk3 |    G:\ | Uživatelská databáze 2
+Disk1 | E:\ | Dočasné úložiště</br /> </br />Azure tento disk přidá a přiřadí mu první dostupné písmeno jednotky.
+Disk2 | D:\ | Databáze systému SQL a uživatelská databáze 1
+Disk3 | G:\ | Uživatelská databáze 2
 
 
 #### <a name="vmware-to-azure"></a>Z VMware do Azure
@@ -186,8 +186,8 @@ Po naplánovaném převzetí služeb při selhání z Azure do místního počí
 **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | ---
 DISK0 | C:\ | Disk operačním systému
-Disk1 |    D:\ | Databáze systému SQL a uživatelská databáze 1
-Disk2 |    G:\ | Uživatelská databáze 2
+Disk1 | D:\ | Databáze systému SQL a uživatelská databáze 1
+Disk2 | G:\ | Uživatelská databáze 2
 
 #### <a name="hyper-v-to-azure"></a>Z Hyper-V do Azure
 Pokud se navrácení služeb po obnovení provádí do původního umístění, zůstává konfigurace disků virtuálního počítače stejná jako konfigurace disků původního virtuálního počítače Hyper-V. Disky vyloučené z replikace z Hyper-V do Azure budou dostupné po navrácení služeb po obnovení virtuálního počítače.
@@ -196,7 +196,7 @@ Po naplánovaném převzetí služeb při selhání z Azure do místního počí
 
 **Název disku** | **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | Disk operačním systému
+DB-Disk0-OS | DISK0 |   C:\ | Disk operačním systému
 DB-Disk1 | Disk1 | D:\ | Databáze systému SQL a uživatelská databáze 1
 DB-Disk2 (vyloučený disk) | Disk2 | E:\ | Dočasné soubory
 DB-Disk3 (vyloučený disk) | Disk3 | F:\ | SQL databáze tempdb (cesta ke složce (F:\MSSQL\Data\)
