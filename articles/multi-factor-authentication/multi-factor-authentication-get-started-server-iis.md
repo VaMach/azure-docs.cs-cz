@@ -5,19 +5,20 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
 ms.openlocfilehash: 71ba44c00036b3ed45518f58fa534a1767ab8c34
+ms.contentlocale: cs-cz
 ms.lasthandoff: 02/28/2017
 
 ---
@@ -36,17 +37,17 @@ Pro zabezpečení webové aplikace služby IIS, která používá ověřování 
 4. K automatické detekci uživatelského jména, hesla a proměnných domény zadejte v dialogovém okně Automatická konfigurace webové stránky s formuláři adresu URL pro přihlášení (třeba https://localhost/contoso/auth/login.aspx) a klikněte na **OK**.
 5. Zaškrtněte políčko **Vyžadovat porovnání uživatele u služby Multi-Factor Authentication**, pokud se všichni uživatelé importovali nebo budou importovat na server a budou podléhat vícefaktorovému ověřování. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté.
 6. Pokud proměnné stránky nejde rozpoznat automaticky, v dialogovém okně Automatická konfigurace webové stránky s formuláři klikněte na **Zadat ručně**.
-7. V dialogovém okně Přidat web na základě formuláře zadejte adresu URL do přihlašovací stránky v poli Adresa URL pro odeslání a zadejte název aplikace (volitelný). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování. 
+7. V dialogovém okně Přidat web na základě formuláře zadejte adresu URL do přihlašovací stránky v poli Adresa URL pro odeslání a zadejte název aplikace (volitelný). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování.
 8. Vyberte správný formát požadavku. Tato hodnota je u většiny webových aplikací nastavena na **POST nebo GET**.
 9. Zadejte proměnné pro uživatelské jméno, heslo a doménu (pokud se zobrazí na stránce přihlášení). Pokud chcete vyhledat názvy vstupních polí, přejděte ve webovém prohlížeči na přihlašovací stránku, klikněte na ni pravým tlačítkem a vyberte **Zobrazit zdrojový kód**.
-10. Zaškrtněte políčko **Vyžadovat porovnání uživatele u služby Multi-Factor Authentication**, pokud se všichni uživatelé importovali nebo budou importovat na server a budou podléhat vícefaktorovému ověřování. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté. 
+10. Zaškrtněte políčko **Vyžadovat porovnání uživatele u služby Multi-Factor Authentication**, pokud se všichni uživatelé importovali nebo budou importovat na server a budou podléhat vícefaktorovému ověřování. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté.
 11. Po kliknutí na **Upřesnit** můžete zkontrolovat upřesňující nastavení:
 
   - Výběr vlastního souboru odmítnutí stránky
   - Ukládání úspěšných ověření na webu na určitou dobu do mezipaměti s využitím souborů cookie
   - Vyberte, jestli chcete primární přihlašovací údaje ověřit pomocí domény Windows, adresáře LDAP nebo serveru RADIUS.
 
-12. Kliknutím na **OK** se vraťte do dialogového okna Přidat webovou stránku s formuláři. 
+12. Kliknutím na **OK** se vraťte do dialogového okna Přidat webovou stránku s formuláři.
 13. Klikněte na tlačítko **OK**.
 14. Po zjištění nebo zadání adresy URL a proměnných hodnot stránek se data webové stránky zobrazí v panelu založeném na formulářích.
 
@@ -54,11 +55,11 @@ Pro zabezpečení webové aplikace služby IIS, která používá ověřování 
 Pro zabezpečení webové aplikace služby IIS, která používá integrované HTTP ověřování systému Windows, nainstalujte Azure MFA Server na webový server služby IIS a nakonfigurujte ho pomocí následujících kroků:
 
 1. V Azure Multi-Factor Authentication Serveru klikněte na ikonu Ověřování IIS v levé nabídce.
-2. Klikněte na kartu **HTTP**. 
+2. Klikněte na kartu **HTTP**.
 3. Klikněte na tlačítko **Přidat**.
 4. V dialogovém okně Přidat základní adresu URL zadejte adresu URL pro webovou stránku, kde se provádí ověřování HTTP (např. http://localhost/owa), a zadejte název aplikace (volitelné). Název aplikace se zobrazí v sestavách Azure Multi-Factor Authentication a může se zobrazit v rámci SMS zpráv nebo mobilních aplikací ověřování.
 5. Pokud je výchozí hodnota nedostatečná, upravte časový limit nečinnosti a maximální dobu trvání relace.
-6. Zaškrtněte políčko **Vyžadovat porovnání uživatele u služby Multi-Factor Authentication**, pokud se všichni uživatelé importovali nebo budou importovat na server a budou podléhat vícefaktorovému ověřování. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté. 
+6. Zaškrtněte políčko **Vyžadovat porovnání uživatele u služby Multi-Factor Authentication**, pokud se všichni uživatelé importovali nebo budou importovat na server a budou podléhat vícefaktorovému ověřování. Pokud dosud nebyl importován velký počet uživatelů do serveru a/nebo budou vyloučeni z Multi-Factor Authentication, nechejte pole nezaškrtnuté.
 7. V případě potřeby zaškrtněte políčko pro **mezipaměť souborů cookie**.
 8. Klikněte na tlačítko **OK**.
 
@@ -76,5 +77,4 @@ Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Mu
 2. Klikněte na tlačítko **Přidat**.
 3. Jakmile se zobrazí dialogové okno Přidat důvěryhodné IP adresy, vyberte přepínač **Samostatná IP adresa**, **Rozsah IP adres** nebo **Podsíť**.
 4. Zadejte IP adresu, rozsah IP adres nebo podsíť, které chcete zařadit na seznam povolených adres. Pokud zadáváte podsíť, vyberte příslušnou síťovou masku a klikněte na **OK**. Seznam povolených adres byl přidán.
-
 

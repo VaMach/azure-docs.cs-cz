@@ -5,19 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
-
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrace adresáře mezi Azure MFA Serverem a službou Active Directory
@@ -94,7 +96,7 @@ Atributy můžete zadat ručně a nemusí se shodovat s atributem v seznamu atri
 | Linka |Zadejte název atributu, který v záznamu uživatele obsahuje linku telefonního čísla.  Hodnota pole Linka se použije jako linka jen pro primární telefonní číslo.  Výchozí hodnota je prázdná. <br><br>Pokud atribut Linka není zadaný, můžete linky zadat v rámci atributu telefon. V takovém případě před linku zadejte znak „x“, aby se mohla správně parsovat.  Například hodnota 555-123-4567 x890 by znamenala telefonní číslo 555-123-4567 a linku 890. |
 | Tlačítko Obnovit výchozí |Pokud kliknete na **Obnovit výchozí**, všechny atributy se obnoví na výchozí hodnoty.  Výchozí hodnoty by měly fungovat s normální službou Active Directory nebo schématem ADAM. |
 
-Pokud chcete atributy upravit, klikněte na **Upravit** na kartě Atributy.  Otevře se okno, kde můžete atributy upravit. Výběrem **...** vedle libovolného atributu otevřete okno, kde můžete zvolit, jaké atributy se mají zobrazit. 
+Pokud chcete atributy upravit, klikněte na **Upravit** na kartě Atributy.  Otevře se okno, kde můžete atributy upravit. Výběrem **...** vedle libovolného atributu otevřete okno, kde můžete zvolit, jaké atributy se mají zobrazit.
 
 ![Upravit atributy](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -137,10 +139,4 @@ Tlačítka Přesunout nahoru a Přesunout dolů umožňují správci změnit po�
 Můžete zřídit další Multi-Factor Auth Servery, které budou sloužit jako záložní servery proxy pro RADIUS, servery proxy pro LDAP nebo jako servery pro Ověřování IIS. Konfigurace synchronizace se sdílí mezi všemi agenty. Služba Multi-Factor Auth Server ale může běžet jen na jednom z těchto agentů. Tato karta vám umožní vybrat Multi-Factor Auth Server, který se měl povolit pro synchronizaci.
 
 ![Multi-Factor-Auth Servery](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
