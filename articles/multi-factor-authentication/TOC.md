@@ -7,15 +7,15 @@
 ## [Výběr místa nasazení](multi-factor-authentication-get-started.md)
 ## [MFA v cloudu](multi-factor-authentication-get-started-cloud.md)
 ## [Místní MFA](multi-factor-authentication-get-started-server.md)
-## [MFA pro uživatele O365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [MFA pro uživatele O365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Osvědčené postupy zabezpečení](multi-factor-authentication-security-best-practices.md)
 
 # Postup
 ## Nasazení a používání
-### [Vytvoření poskytovatele ověřování](multi-factor-authentication-get-started-auth-provider.md)
 ### [Konfigurace nastavení](multi-factor-authentication-whats-next.md)
 ### [Sestavy v MFA](multi-factor-authentication-manage-reports.md)
 ### [Použití stávajících serverů NPS](multi-factor-authentication-nps-extension.md)
+### [Vytvoření poskytovatele ověřování](multi-factor-authentication-get-started-auth-provider.md)
 ### Místní Azure MFA
 #### [Instalace uživatelského portálu](multi-factor-authentication-get-started-portal.md)
 #### [Pokročilé konfigurace sítě VPN](multi-factor-authentication-advanced-vpn-configurations.md)
