@@ -40,12 +40,7 @@
 #### [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 #### [Rozhraní příkazového řádku (Classic)](virtual-network-create-udr-classic-cli.md)
 
-### Partnerské vztahy virtuálních sítí
-#### [Azure Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Šablona](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Veřejné IP adresy](virtual-network-public-ip-address.md)
+### [Partnerské vztahy virtuálních sítí](virtual-network-create-peering.md)
 
 ### Virtuální počítače
 #### Vytvoření virtuálního počítače se statickou veřejnou IP adresou
@@ -118,6 +113,7 @@
 #### [Přidání, změna nebo odstranění IP adresy](virtual-network-network-interface-addresses.md)
 ### Virtuální počítače
 #### [Přesun virtuálního počítače do jiné podsítě](virtual-networks-move-vm-role-to-subnet.md)
+### [Veřejné IP adresy](virtual-network-public-ip-address.md)
 
 ## Řešení potíží
 ### Skupiny zabezpečení sítě

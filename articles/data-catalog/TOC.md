@@ -23,6 +23,7 @@
 
 # Referenční informace
 ## [REST](/rest/api/datacatalog/)
+## [Reference k syntaxi služby Search](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Koncepce pro vývojáře](data-catalog-developer-concepts.md)
 ## [Ukázky pro vývojáře](data-catalog-samples.md)
 
@@ -34,8 +35,3 @@
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
