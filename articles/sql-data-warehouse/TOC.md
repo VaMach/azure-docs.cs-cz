@@ -48,6 +48,7 @@
 #### [Datové typy](sql-data-warehouse-tables-data-types.md)
 #### [Distribuované tabulky](sql-data-warehouse-tables-distribute.md)
 #### [Indexy](sql-data-warehouse-tables-index.md)
+#### [Identita](sql-data-warehouse-tables-identity.md)
 #### [Oddíly](sql-data-warehouse-tables-partition.md)
 #### [Statistika](sql-data-warehouse-tables-statistics.md)
 #### [Dočasné](sql-data-warehouse-tables-temporary.md)

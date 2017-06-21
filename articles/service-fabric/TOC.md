@@ -200,13 +200,13 @@
 #### [Odstranění](service-fabric-cluster-delete.md)
 
 ### Samostatné clustery
-#### [Obsah samostatného balíčku](service-fabric-cluster-standalone-package-contents.md)
 #### [Plánování a příprava nasazení](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Vytvořit
 ##### [Místní vytvoření](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Vytvoření na virtuálních počítačích Azure](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Zabezpečení pomocí certifikátů](service-fabric-windows-cluster-x509-security.md)  
 ##### [Zabezpečení pomocí zabezpečení systému Windows](service-fabric-windows-cluster-windows-security.md)
+##### [Obsah samostatného balíčku](service-fabric-cluster-standalone-package-contents.md)
 #### [Škálování](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Nastavení řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace](service-fabric-cluster-manifest.md)
@@ -232,8 +232,6 @@
 #### [Vyvážení clusteru](service-fabric-cluster-resource-manager-balancing.md)
 #### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
-
-### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 
 ## Monitorování a diagnóza
 ### [Monitorování a diagnostika aplikací](service-fabric-diagnostics-overview.md)
@@ -261,8 +259,9 @@
 # Referenční informace
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Rozhraní API Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [Azure CLI](/cli/azure/sf)
+## [Rozhraní API Java](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Zdroje a prostředky
