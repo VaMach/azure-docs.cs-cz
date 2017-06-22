@@ -155,7 +155,7 @@
 #### [Přeučování existující webové služby](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Řešení problémů](machine-learning-troubleshooting-retraining-models.md)
 ### Použití modelů
-#### [Přehled](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Přehled](machine-learning-consume-web-services.md)
 #### [Použití Excelu](machine-learning-consuming-from-excel.md)
 #### [Použití doplňků Excelu](machine-learning-excel-add-in-for-web-services.md)
 #### [Použití šablony webové aplikace](machine-learning-consume-web-service-with-web-app-template.md)

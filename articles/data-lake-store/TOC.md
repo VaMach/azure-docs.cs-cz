@@ -10,7 +10,6 @@
 ## [Pomocí sady .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Pomocí sady Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)
-## [Použití Azure CLI](data-lake-store-get-started-cli.md)
 ## [Použití Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Pomocí Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Pomocí Pythonu](data-lake-store-get-started-python.md)

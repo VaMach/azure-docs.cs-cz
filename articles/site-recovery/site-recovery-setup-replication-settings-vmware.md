@@ -8,7 +8,7 @@ manager: rochakm
 editor: rayne-wiselman
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/21/2017
 2. V části **Pro VMware a fyzické počítače** vyberte **Zásady replikace**.
 3. Vyberte **+Zásada replikace**.
 
-      ![Vytvoření zásady replikace](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+    ![Vytvoření zásady replikace](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Zadejte název zásady.
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/21/2017
 ![Přidružení konfiguračního serveru](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
 3. Ze seznamu serverů vyberte konfigurační server.
-4. Klikněte na tlačítko **OK**. Přidružení konfiguračního serveru by se mělo provést během přibližně&1; až&2; minut.
+4. Klikněte na tlačítko **OK**. Přidružení konfiguračního serveru by se mělo provést během přibližně 1 až 2 minut.
 
 ![Přidružení konfiguračního serveru](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/21/2017
 ![Úprava nastavení zásady replikace](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Změňte nastavení podle vašich potřeb.
-4. Klikněte na **Uložit**. Zásada by se měla uložit během přibližně&2; až&5; minut v závislosti na tom, kolik virtuálních počítačů tuto zásadu replikace používá.
+4. Klikněte na **Uložit**. Zásada by se měla uložit během přibližně 2 až 5 minut v závislosti na tom, kolik virtuálních počítačů tuto zásadu replikace používá.
 
 ![Uložení zásady replikace](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/21/2017
 1. Vyberte zásadu replikace, ke které chcete přidružit konfigurační server.
 2. Klikněte na **Zrušit přidružení**.
 3. Ze seznamu serverů vyberte konfigurační server.
-4. Klikněte na tlačítko **OK**. Přidružení konfiguračního serveru by se mělo zrušit během přibližně&1; až&2; minut.
+4. Klikněte na tlačítko **OK**. Přidružení konfiguračního serveru by se mělo zrušit během přibližně 1 až 2 minut.
 
     > [!NOTE]
     > Přidružení konfiguračního serveru nejde zrušit, pokud existuje alespoň jedna replikovaná položka, která zásadu používá. Před zrušením přidružení konfiguračního serveru zkontrolujte, že žádné replikované položky zásadu nepoužívají.

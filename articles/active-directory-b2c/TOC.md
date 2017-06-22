@@ -25,6 +25,7 @@
 ### [JavaScript s využitím Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Webová rozhraní API
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Jádro ASP.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Volání webového rozhraní API .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 

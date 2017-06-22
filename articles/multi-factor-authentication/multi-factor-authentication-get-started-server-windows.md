@@ -5,19 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 06/06/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
 ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
-
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Ověření Windows a server Azure Multi-Factor Authentication
@@ -49,9 +51,4 @@ ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
 - [Konfigurace zařízení sítě VPN třetích stran pro Azure MFA Server](multi-factor-authentication-advanced-vpn-configurations.md)
 
 - [Posílení vaší stávající infrastruktury pro ověřování pomocí rozšíření NPS pro Azure MFA](multi-factor-authentication-nps-extension.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
