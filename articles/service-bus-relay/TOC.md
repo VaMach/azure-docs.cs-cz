@@ -4,6 +4,7 @@
 
 # Začínáme
 ## [Vytvoření oboru názvů](relay-create-namespace-portal.md)
+## [Vytvoření hybridní lokální/cloudové aplikace](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybridní připojení
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)

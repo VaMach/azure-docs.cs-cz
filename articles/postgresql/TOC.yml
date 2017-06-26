@@ -11,12 +11,14 @@
     href: quickstart-create-server-database-portal.md
   - name: Vytvoření databáze – Azure CLI
     href: quickstart-create-server-database-azure-cli.md
-  - name: Připojení
-    items:
-    - name: Node.js
-      href: connect-nodejs.md
+  - name: Připojení a dotazování
+    items: 
     - name: Python
       href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: .NET
+      href: connect-csharp.md
 - name: Kurzy
   items:
   - name: 1. Návrh databáze
@@ -27,6 +29,10 @@
       href: tutorial-design-database-using-azure-cli.md
   - name: 2. Návrh webové aplikace – Python
     href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- name: Ukázky
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Koncepty
   items:
   - name: Databáze a servery
@@ -57,10 +63,6 @@
     items:
     - name: Knihovny připojení
       href: concepts-connection-libraries.md
-- name: Ukázky
-  items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
 - name: Návody
   items:
   - name: Pravidla brány firewall
@@ -73,6 +75,8 @@
     items:
     - name: portál Azure
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Migrace databáze
     items:
     - name: Výpis a obnovení
@@ -99,6 +103,8 @@
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Videa
+    href: videos.md    
   - name: Fórum pro názory
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Dostupnost v oblastech

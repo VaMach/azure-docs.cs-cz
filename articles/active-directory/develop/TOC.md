@@ -1,4 +1,5 @@
 # [Přehled](active-directory-developers-guide.md)
+## [Proč Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Základy ověřování](active-directory-authentication-scenarios.md)
 ## [Typy aplikací](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Začínáme
@@ -71,6 +72,7 @@
 ### [Podporované typy deklarací identity a tokenů](active-directory-token-and-claims.md)
 ### [Výměna podpisových klíčů](active-directory-signing-key-rollover.md)
 ### [Metadata federování](active-directory-federation-metadata.md)
+### [Přihlašovací údaje ve formě certifikátu](active-directory-certificate-credentials.md)
 ## [Objekty aplikací](active-directory-application-objects.md)
 ### [Aplikace a Azure AD](active-directory-how-applications-are-added.md)
 ## [Manifest aplikace](active-directory-application-manifest.md)
@@ -101,4 +103,5 @@
 #### [Udělení přihlašovacích údajů klienta protokolu OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Tok Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Referenční informace o tokenech](active-directory-v2-tokens.md)
+#### [Přihlašovací údaje ve formě certifikátu](active-directory-certificate-credentials.md)
 ### [Obory](active-directory-v2-scopes.md)

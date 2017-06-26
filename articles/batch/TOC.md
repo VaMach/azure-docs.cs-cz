@@ -22,6 +22,8 @@
 ### [Virtuální počítače s nízkou prioritou](batch-low-pri-vms.md)
 ### [Správa účtů služby Batch pomocí rozhraní Batch Management .NET](batch-management-dotnet.md)
 ### [Trvalý výstup úloh a funkcí](batch-task-output.md)
+#### [Trvalý výstup pomocí rozhraní API služby Batch](batch-task-output-files.md)
+#### [Trvalý výstup pomocí knihovny File Conventions](batch-task-output-file-conventions.md)
 ### [Spouštění úloh MPI ve službě Batch](batch-mpi.md)
 ### [Závislosti úkolů](batch-task-dependencies.md)
 ### [Uživatelské účty pro spouštění úloh](batch-user-accounts.md)

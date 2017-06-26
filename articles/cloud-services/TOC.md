@@ -102,7 +102,11 @@
 ### [Běžné problémy s nasazením](cloud-services-troubleshoot-deployment-problems.md)
 ### [Role se nespustila](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Pokyny k zotavení](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services – nejčastější dotazy](cloud-services-faq.md)
+### Cloud Services – nejčastější dotazy
+#### [Dostupnost aplikací a služeb – nejčastější dotazy](cloud-services-application-and-service-availability-faq.md)
+#### [Konfigurace a správa – nejčastější dotazy](cloud-services-configuration-and-management-faq.md)
+#### [Možnosti připojení a sítě – nejčastější dotazy](cloud-services-connectivity-and-networking-faq.md)
+#### [Nasazení – nejčastější dotazy](cloud-services-deployment-faq.md)
 
 # Referenční informace
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)

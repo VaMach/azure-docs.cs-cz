@@ -48,7 +48,7 @@
 #### [Příprava virtuálních počítačů nasazených Resource Managerem](backup-azure-arm-vms-prepare.md)
 ### Plánování prostředí
 #### [Plánování infrastruktury zálohování virtuálních počítačů](backup-azure-vms-introduction.md)
-### Zálohování serverů a úloh
+### Zálohování virtuálních počítačů
 #### [Zálohování virtuálních počítačů Azure do úložiště záloh](backup-azure-vms.md)
 #### [Zálohování virtuálních počítačů Azure do trezoru služby Recovery Services](backup-azure-arm-vms.md)
 #### [Zálohování šifrovaných virtuálních počítačů](backup-azure-vms-encryption.md)

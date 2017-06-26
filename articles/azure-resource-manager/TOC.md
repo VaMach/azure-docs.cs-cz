@@ -1,6 +1,6 @@
 # Přehled
 ## [Co je Resource Manager?](resource-group-overview.md)
-## [Podporované služby](resource-manager-supported-services.md)
+## [Poskytovatelé a typy prostředků](resource-manager-supported-services.md)
 ## [Resource Manager a klasické nasazení](resource-manager-deployment-model.md)
 ## [Zásady správného řízení pro předplatná](resource-manager-subscription-governance.md)
 ## [Spravované aplikace](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### [Přiřazení zásad portálu](resource-manager-policy-portal.md)
-### [Přiřazení zásad skruptů](resource-manager-policy-create-assign.md)
-### [Zásady pro značky prostředků](resource-manager-policy-tags.md)
-### [Zásady pro úložiště](resource-manager-policy-storage.md)
-### [Zásady pro virtuální počítače s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Zásady pro virtuální počítače s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Přiřazení zásad pomocí portálu](resource-manager-policy-portal.md)
+### [Přiřazení zásad pomocí skriptů](resource-manager-policy-create-assign.md)
+### Příklady
+#### [Značky prostředku](resource-manager-policy-tags.md)
+#### [Storage](resource-manager-policy-storage.md)
+#### [Virtuální počítač s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Virtuální počítač s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Použití spravovaných aplikací
 ### [Publikace spravovaných aplikací](managed-application-publishing.md)

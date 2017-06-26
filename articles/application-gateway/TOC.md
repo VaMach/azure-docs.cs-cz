@@ -41,6 +41,7 @@
 ### [Azure Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
+## [Integrace služby Azure Security Center](application-gateway-integration-security-center.md)
 ## [Kombinace služeb pro vyrovnávání zatížení](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Řešení potíží
 ### [Řešení chyb ve službě Application Gateway](application-gateway-troubleshooting-502.md)

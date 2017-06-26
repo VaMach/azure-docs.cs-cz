@@ -13,8 +13,6 @@
     items:
     - name: .NET
       href: create-documentdb-dotnet.md
-    - name: .NET Core
-      href: create-documentdb-dotnet-core.md
     - name: Java
       href: create-documentdb-java.md
     - name: Node.js
@@ -135,7 +133,7 @@
       items:
       - name: Zdroje a prostředky
         href: documentdb-resources.md
-      - name: Dotaz SQL
+      - name: Dotazy SQL
         href: documentdb-sql-query.md
       - name: SQL Playground
         href: https://www.documentdb.com/sql/demo
@@ -188,12 +186,10 @@
           href: documentdb-nodejs-samples.md
         - name: Ukázky Pythonu
           href: documentdb-python-samples.md
-        - name: Syntaxe SQL
-          href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: Tahák pro gramatiku jazyka SQL
-          href: documentdb-sql-query-cheat-sheet.md
       - name: Zdroje a prostředky
         items:
+        - name: Tahák pro gramatiku jazyka SQL
+          href: documentdb-sql-query-cheat-sheet.md
         - name: Stack Overflow
           href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videa
@@ -302,6 +298,8 @@
       href: /rest/api/documentdb/
     - name: Poskytovatel prostředků REST
       href: /rest/api/documentdbresourceprovider/
+    - name: SQL
+      href: documentdb-sql-query-reference.md
   - name: Rozhraní Table API
     items:
     - name: .NET

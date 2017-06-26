@@ -11,7 +11,7 @@
 ### [Vytvoření samostatného účtu Automation](automation-create-standalone-account.md)
 ### [Vytvoření uživatelského účtu Azure AD](automation-create-aduser-account.md)
 ### [Konfigurace ověřování pomocí AWS](automation-config-aws-account.md)
-### [Vytvoření účtu Spustit jako pro Azure pomocí PowerShellu](automation-update-account-powershell.md)
+### [Vytvoření účtu Automation Spustit jako](automation-create-runas-account.md)
 ### [Ověření konfigurace účtu Automation](automation-verify-runas-authentication.md)
 ### [Správa řízení přístupu na základě rolí](automation-role-based-access-control.md)
 ### [Správa účtu Automation](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Náprava výstrah virtuálních počítačů Azure](automation-azure-vm-alert-integration.md)
 ### [Spuštění/zastavení virtuálního počítače se značkami JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Odebrání skupiny prostředků](automation-scenario-remove-resourcegroup.md)
-### [Spuštění/zastavení virtuálních počítačů mimo špičku](automation-solution-vm-management.md)
 ### [Integrace správy zdrojového kódu pomocí GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integrace správy zdrojového kódu pomocí VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Řešení
 ### [Sledování změn](../log-analytics/log-analytics-change-tracking.md)
 ### [Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)
+### [Spuštění/zastavení virtuálních počítačů mimo špičku](automation-solution-vm-management.md)
 ## Monitorování
 ### [Předávání dat úloh Azure Automation do Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Zrušení propojení účtu Azure Automation s Log Analytics](automation-unlink-from-log-analytics.md)

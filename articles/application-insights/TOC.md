@@ -43,6 +43,7 @@
 ### Azure
 #### [Profiler](app-insights-profiler.md)
 #### [Diagnostika](app-insights-azure-diagnostics.md)
+#### [Náhledy](app-insights-previews.md)
 
 ### ASP.NET
 #### [Získání další telemetrie](app-insights-asp-net-more.md)
@@ -91,8 +92,9 @@
 
 ### Využití
 #### [Přehled](app-insights-usage-overview.md)
-#### [Uchování](app-insights-usage-retention.md)
 #### [Uživatelé, relace, události](app-insights-usage-segmentation.md)
+#### [Uchování](app-insights-usage-retention.md)
+#### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analýza
 
@@ -108,6 +110,7 @@
 ### [Vytvoření prostředků](app-insights-powershell-script-create-resource.md)
 ### [Nastavení výstrah](app-insights-powershell-alerts.md)
 ### [Získání diagnostiky Azure](app-insights-powershell-azure-diagnostics.md)
+### [Automatizace pomocí Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Vývoj
 

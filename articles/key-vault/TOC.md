@@ -21,6 +21,9 @@
 ### [Změna ID tenanta](key-vault-subscription-move-fix.md)
 ### [Dostupnost a redundance](key-vault-disaster-recovery-guidance.md)
 ### [Zabezpečení trezoru klíčů](key-vault-secure-your-key-vault.md)
+### [Přehled světů zabezpečení](key-vault-ovw-security-worlds.md)
+### [Přehled obnovitelného odstranění](key-vault-ovw-soft-delete.md)
+### [Přehled klíčů účtu úložiště](key-vault-ovw-storage-keys.md)
 
 ## Automatizace
 ### [Azure Automation](automation-manage-key-vault.md)
@@ -43,7 +46,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Zdroje a prostředky
-## [Informace o klíčích a tajných klíčích](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Informace o klíčích, tajných kódech a certifikátech](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Ukázky kódu](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Ceny](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
