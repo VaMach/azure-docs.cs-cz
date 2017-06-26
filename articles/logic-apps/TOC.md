@@ -45,10 +45,12 @@
 ### [Podniková integrace EDIFACT](logic-apps-enterprise-integration-edifact.md)
 ### [Kódování EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
 ### [Dekódování EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
+### [Zpracování dokumentů EDIFACT se segmentem UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [Podniková integrace X12](logic-apps-enterprise-integration-x12.md)
 ### [Kódování X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Dekódování X12](logic-apps-enterprise-integration-x12-decode.md)
 ### [Zotavení po havárii](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Chyby a řešení](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Přístup k místním datům
 ### [Připojení k místním datům](logic-apps-gateway-connection.md)
@@ -75,7 +77,6 @@
 ### [Volání aplikací logiky se službou Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Přidání zpracování chyb a výjimek](logic-apps-scenario-error-and-exception-handling.md)
 ### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md)
-### [Zpracování dokumentů EDIFACT se segmentem UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Ceny a fakturace
 ### [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -116,6 +117,7 @@
 ### [HTTP Webhook](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Účet pro integraci](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
 ### [Žádost / odezva](../connectors/connectors-native-reqres.md)

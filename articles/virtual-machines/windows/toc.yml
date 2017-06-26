@@ -140,6 +140,14 @@
       href: csharp-template.md
     - name: Vytvoření virtuálního počítače pomocí Chefu
       href: chef-automation.md
+    - name: Vytvoření virtuálního počítače pomocí Pythonu
+      href: python.md
+    - name: Vytvoření virtuálního počítače pomocí Terraformu
+      items:
+      - name: Instalace a konfigurace
+        href: ../terraform-install-configure.md
+      - name: Vytvoření základní infrastruktury
+        href: ../terraform-create-complete-vm.md      
     - name: Vytvoření virtuálního počítače s oblíbenými aplikačními architekturami
       href: app-frameworks.md
     - name: Přesun virtuálních počítačů mezi předplatnými
@@ -185,13 +193,10 @@
       href: capture-image-resource.md
     - name: Vytvoření virtuálního počítače z generalizované image spravovaného disku
       href: create-vm-generalized-managed.md
+    - name: Vytvoření image pomocí Packeru
+      href: build-image-with-packer.md
   - name: Správa úložiště virtuálního počítače
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: Nejčastější dotazy
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Vytvoření spravovaného disku
       href: create-managed-disk-ps.md
     - name: Migrace virtuálních počítačů na Managed Disks
@@ -215,6 +220,8 @@
       href: expand-os-disk.md
     - name: Rozbalení datového disku
       href: expand-data-disks.md
+    - name: Použití sdílené složky
+      href: mount-azure-file-storage.md
     - name: 'Použití disku D: jako datového disku'
       href: change-drive-letter.md
   - name: Sítě virtuálních počítačů
@@ -348,6 +355,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Řešení potíží
     items:
+    - name: Vysvětlení restartování systému
+      href: understand-vm-reboot.md
     - name: Připojení Vzdálené plochy
       href: troubleshoot-rdp-connection.md
       items:

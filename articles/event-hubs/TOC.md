@@ -19,13 +19,11 @@
 
 # Postup
 ## Plánování a návrh
-### [🔧Běžné scénáře integrace se službami Azure](event-hubs-common-integrations.md)
 ### [Vyhrazené služby Event Hubs](event-hubs-dedicated-overview.md)
 ### [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)
 ### [Dostupnost a konzistence](event-hubs-availability-and-consistency.md)
+### [Automatické škálování jednotek propustnosti](event-hubs-auto-inflate.md)
 ## Vývoj
-### [🔧Zpracování chyb a opakované pokusy](event-hubs-handling-errors-retry.md)
-### [🔧Správa výkonu a škálování](event-hubs-performance-scale.md)
 ### [Dostupná rozhraní API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

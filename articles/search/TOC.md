@@ -78,6 +78,7 @@
 ## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
 ## Ukázkové weby
+### [Ukázka analyzátoru hledání](http://alice.unearth.ai/)
 ### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
 ### [Živé ukázkové aplikace](https://searchsamples.azurewebsites.net/)
 ## Studijní materiály a kurzy

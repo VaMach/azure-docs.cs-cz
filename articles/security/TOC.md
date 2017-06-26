@@ -11,6 +11,7 @@
 ### [Protokolování a auditování](azure-log-audit.md)
 ### [Izolace ve veřejném cloudu](azure-isolation.md)
 ### [Technické možnosti zabezpečení](azure-security-technical-capabilities.md)
+### [Zásady správného řízení v Azure](governance-in-azure.md)
 
 # Začínáme
 ## [Začínáme se zabezpečením Azure](azure-security-getting-started.md)

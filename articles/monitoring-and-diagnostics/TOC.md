@@ -39,10 +39,10 @@
 ### [Streamování protokolů aktivit do služby Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operací pomocí Resource Manageru](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Vytvoření výstrah protokolu aktivit s využitím Resource Manageru](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Oznámení služby
+## Použití oznámení služby
 ### [Zobrazení oznámení služby](monitoring-service-notifications.md)
 ### [Konfigurace výstrah pro oznámení služby](monitoring-activity-log-alerts-on-service-notifications.md)
-## Skupiny akcí
+## Použití skupin akcí
 ### [Další informace o schématu webhooků](monitoring-activity-log-alerts-webhook.md)
 ### [Chování výstrah SMS](monitoring-sms-alert-behavior.md)
 ### [Omezení četnosti výstrah](monitoring-alerts-rate-limiting.md)

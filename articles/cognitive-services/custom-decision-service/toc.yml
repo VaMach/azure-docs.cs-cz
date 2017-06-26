@@ -1,14 +1,16 @@
-- name: "Custom Decision Service"
+- name: Custom Decision Service
   href: ../index.md
-- name: "Overview"
+- name: Přehled
   href: custom-decision-service-overview.md
-- name: "Get started"
+- name: Začínáme
   items:
-  - name: "Call API from a browser"
+  - name: Registrace vaší aplikace
+    href: custom-decision-service-get-started-register.md
+  - name: Volání rozhraní API z prohlížeče
     href: custom-decision-service-get-started-browser.md
-  - name: "Call API from an app"
+  - name: Volání rozhraní API z aplikace
     href: custom-decision-service-get-started-app.md
-- name: "Tutorial"
+- name: Kurz
   href: custom-decision-service-tutorial.md
-- name: "API reference"
+- name: API – referenční informace
   href: custom-decision-service-api-reference.md

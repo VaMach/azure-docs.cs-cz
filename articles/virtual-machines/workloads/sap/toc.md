@@ -16,12 +16,13 @@
 ### [Řešení potíží a monitorování](troubleshooting-monitoring.md)
 ## SAP HANA ve službě Virtual Machines
 ### [Jedna instance SAP HANA](hana-get-started.md)
-### [Průvodce nasazením S/4 HANA nebo BW/4 HANA](cal-s4h.md)
+### [Průvodce nasazením S/4 HANA nebo BW/4 HANA SAP CAL](cal-s4h.md)
 ### [Vysoká dostupnost ve virtuálních počítačích](sap-hana-high-availability.md)
 ### [Přehled služby Backup](sap-hana-backup-guide.md)
 ### [Záloha na úrovni souborů](sap-hana-backup-file-level.md)
 ### [Zálohy snímků úložiště](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
+### [Průvodce nasazením SAP IDES na Windows/SQL Server SAP CAL](sap-cal-ides-erp6-ehp7-sp3-sql.md)
 ### [Přehled a architektura](suse-quickstart.md)
 ### [Plánování a implementace](planning-guide.md)
 ### [Vysoká dostupnost](high-availability-guide.md)

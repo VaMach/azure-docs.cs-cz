@@ -6,7 +6,13 @@
 ## [Vytvoření a nastavení vývojového prostředí](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Připojení prostřednictvím kódu programu
+## [Přístup k rozhraní API pomocí ověřování AAD](media-services-use-aad-auth-to-access-ams-api.md)
+###[Správa ověřování AAD pomocí portálu](media-services-portal-get-started-with-aad.md)
+###[Přístup k rozhraní API pomocí .NET](media-services-dotnet-get-started-with-aad.md)
+###[Přístup k rozhraní API pomocí REST](media-services-rest-connect-with-aad.md)
+###[Vytvoření a konfigurace aplikace AAD pomocí rozhraní příkazového řádku](media-services-cli-create-and-configure-aad-app.md)
+###[Vytvoření a konfigurace aplikace AAD pomocí PowerShellu](media-services-powershell-create-and-configure-aad-app.md)
+## Připojení prostřednictvím kódu programu pomocí klíčů ACS
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -214,7 +220,7 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (správa prostředků)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Zdroje a prostředky
 ## [Poznámky k verzi](media-services-release-notes.md)

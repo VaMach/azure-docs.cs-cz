@@ -22,7 +22,8 @@
 ## [Izolovaný prostor (sandbox) systému Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Nástroje služby Data Lake s Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Nástroje pro Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [Možnosti úložiště HDInsight](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight využívající Azure Storage](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight využívající Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # Postup
 ## Použití Hadoop pro dávkové dotazy
@@ -105,14 +106,17 @@
 ### [Konfigurace zásad Hivu](hdinsight-domain-joined-run-hive.md)
 ## Použití Kafky (Preview)
 ### [Replikace dat Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Konfigurace úložiště a škálovatelnosti Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Použití se službou Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Použití se Sparkem](hdinsight-apache-spark-with-kafka.md)
+### [Použití s Apache Sparkem (strukturované streamování)](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Použití s Apache Sparkem (DStream)](hdinsight-apache-spark-with-kafka.md)
 ### [Použití se Stormem](hdinsight-apache-storm-with-kafka.md)
 ## Vývoj
 ### [Vývoj programů MapReduce se streamováním v C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Vývoj programů MapReduce v Javě](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Vývoj úloh MapReduce ve Scaldingu](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Použití nástrojů služby HDInsight k vytvoření aplikací Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Použití nástrojů služby HDInsight ke vzdálenému ladění aplikací Apache Spark](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
 ### [Použití prázdných hraničních uzlů](hdinsight-apps-use-edge-node.md)
 ### [Vývoj streamovacích programů v Pythonu](hdinsight-hadoop-streaming-python.md)
 ### [Zpracování a analýza dokumentů JSON](hdinsight-using-json-in-hive.md)
@@ -141,7 +145,7 @@
 ### [Použití R](hdinsight-hadoop-r-scripts-linux.md)
 ### [Použití Solru](hdinsight-hadoop-solr-install-linux.md)
 ### [Použití služby Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
-### [Použití Zeppelinu](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Použití Zeppelinu](hdinsight-apache-spark-zeppelin-notebook.md)
 ### Vytváření aplikací HDInsight
 #### [Instalace aplikací HDInsight](hdinsight-apps-install-applications.md)
 #### [Instalace vlastních aplikací](hdinsight-apps-install-custom-applications.md)
@@ -222,6 +226,7 @@
 ### [Monitorování clusterů pomocí rozhraní Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Zdroje a prostředky
-## [Nástroje Windows pro HDInsight](hdinsight-hadoop-windows-tools.md)
+## [Program Microsoft Professional pro velké objemy dat](https://academy.microsoft.com/en-us/professional-program/big-data/)
 ## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Nástroje Windows pro HDInsight](hdinsight-hadoop-windows-tools.md)

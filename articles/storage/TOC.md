@@ -1,6 +1,7 @@
 # Přehled
 
 ## [Úvod](storage-introduction.md)
+## [Výběr objektů blob, souborů nebo datových disků](storage-decide-blobs-files-disks.md)
 
 # Začínáme
 
@@ -50,6 +51,7 @@
 ### [Přidání spravovaného disku k virtuálnímu počítači s Linuxem](../virtual-machines/linux/add-disk.md)
 ### [Vytvoření kopie VHD uložené jako spravovaný disk pomocí snímků ve Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Vytvoření kopie VHD uložené jako spravovaný disk pomocí snímků v Linuxu](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Použití spravovaných disků v šablonách Resource Manageru](storage-using-managed-disks-template-deployments.md)
 
 # Postup
 ## [Vytvoření účtu úložiště](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Úložiště souborů
 ### [Přehled](/rest/api/storageservices/File-Service-Concepts)
-### [Řešení problémů se Soubory Azure](storage-troubleshoot-file-connection-problems.md)
+### [Řešení problémů se Soubory Azure – Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Řešení problémů se Soubory Azure – Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Ukázky](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Použití disků
 ### [Disky a virtuální pevné disky (VHD) pro virtuální počítače s Windows](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Zabezpečení
 ### [Příručka zabezpečení](storage-security-guide.md)
 ### [Šifrování pro neaktivní uložená data](storage-service-encryption.md)
+### [Šifrování v klidovém stavu pomocí klíčů zákazníka](storage-service-encryption-customer-managed-keys.md)
 ### [Ověřování pomocí sdíleného klíče](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Sdílené přístupové podpisy (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Kurz: Šifrování a dešifrování objektů blob pomocí Azure Key Vaultu](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Pokyny pro zotavení po havárii](storage-disaster-recovery-guidance.md)
 ## Přenos dat
 ### [Přesouvání dat do a ze Storage](storage-moving-data.md)
-### [Nástroj příkazového řádku AzCopy](storage-use-azcopy.md)
+### [AzCopy ve Windows](storage-use-azcopy.md)
+### [AzCopy v Linuxu](storage-use-azcopy-linux.md)
 ### [Použití služby Import/export](storage-import-export-service.md)
 ### [Použití nástroje Import/export](storage-import-export-tool-how-to.md)
 #### [ Nastavení nástroje Import/export](storage-import-export-tool-setup.md)
