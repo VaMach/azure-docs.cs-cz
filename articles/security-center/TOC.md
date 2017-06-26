@@ -5,11 +5,13 @@
 ## Scénáře
 ### [Reakce na incidenty](security-center-incident-response.md)
 ### [Doporučení k vylepšení zabezpečení](security-center-using-recommendations.md)
+## [Migrace platformy](security-center-platform-migration.md)
 
 # Začínáme
 ## [Rychlý start](security-center-get-started.md)
 ## [Plánování a provoz](security-center-planning-and-operations-guide.md)
 ## [Oprávnění](security-center-permissions.md)
+## [Podporované platformy](security-center-os-coverage.md)
 ## [Integrace partnerských řešení](security-center-partner-integration.md)
 ## [Nejčastější dotazy](security-center-faq.md)
 
