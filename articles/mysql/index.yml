@@ -20,7 +20,7 @@ sections:
 - title: Zprovoznění během 5 minut
   items:
   - type: paragraph
-    text: 'Learn how to create a MySQL database on Azure using:'
+    text: 'Naučte se vytvářet databáze MySQL v Azure s použitím:'
   - type: list
     style: icon48
     items: 
@@ -35,12 +35,12 @@ sections:
 - title: Podrobné kurzy
   items:
   - type: paragraph
-    text: 'Learn how to design your database and develop apps:'
+    text: 'Naučte se navrhovat databáze a vyvíjet aplikace:'
   - type: list
     style: ordered
     items:
-    - html: Design a Database&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>
-    - html: Create a Web App&#58; <a href="../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>
+    - html: 'Návrh databáze&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Web Azure Portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
+    - html: 'Vytvoření webové aplikace&#58; <a href="../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json">Wordpress – Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP – Azure CLI</a>'
 - title: Referenční informace
   items:
   - type: list
