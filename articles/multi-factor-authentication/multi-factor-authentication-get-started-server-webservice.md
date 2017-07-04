@@ -39,7 +39,7 @@ Instalace portálu uživatele na jiném serveru, než je Azure Multi-Factor Auth
 
 Pokud chcete použít aplikaci Microsoft Authenticator, je třeba splnit následující podmínky, aby aplikace mohla úspěšně komunikovat s webovou službou mobilní aplikace:
 
-* Azure Multi-Factor Authentication Server verze&6;.0 nebo vyšší
+* Azure Multi-Factor Authentication Server verze 6.0 nebo vyšší
 * Instalace webové služby mobilní aplikace na internetovém webovém serveru s [Internetovou informační službou Microsoft® (IIS) IIS 7.x nebo vyšší](http://www.iis.net/)
 * Nainstalované, registrované a povolené rozhraní ASP.NET v4.0.30319
 * Požadované role služby zahrnují technologie ASP.NET a kompatibilitu metabáze služby IIS 6
