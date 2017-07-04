@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: cs-cz
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -55,7 +57,7 @@ Služba Azure Data Lake Store dokáže ukládat libovolná data v nativním form
 
 Kontejnery na data Azure Data Lake Store jsou v podstatě složky a soubory. S uloženými daty pracujete pomocí sady SDK, webu Azure Portal a prostředí Azure Powershell. Pokud ukládáte data do úložiště pomocí těchto rozhraní a příslušných kontejnerů, můžete ukládat jakýkoli typ dat. Služba Data Lake Store nezpracovává uložená data žádným zvláštním způsobem, který by závisel na jejich typu.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Zabezpečení dat v Azure Data Lake Storu
+## <a name="DataLakeStoreSecurity"></a>Zabezpečení dat v Azure Data Lake Storu
 Azure Data Lake Store využívá k ověřování službu Azure Active Directory a spravuje přístup k datům pomocí seznamů řízení přístupu (ACL).
 
 | Funkce | Popis |
@@ -101,10 +103,5 @@ Pokud se raději učíte při sledování videa, služba Data Lake Store nabíz�
 * Použití Apache Sqoop k přesouvání dat [mezi relačními zdroji a Azure Data Lake Storem](https://mix.office.com/watch/1butcdjxmu114)
 * [Orchestrace dat pomocí Azure Data Factory pro Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Zabezpečení dat v Azure Data Lake Storu](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
