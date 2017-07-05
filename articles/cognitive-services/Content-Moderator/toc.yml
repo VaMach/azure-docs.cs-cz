@@ -1,56 +1,58 @@
-- name: Dokumentace ke Content Moderatoru
+- name: Content Moderator Documentation
   href: ../index.md
-- name: Přehled
+- name: Overview
   items: 
-  - name: Další informace o rozhraní API Content Moderatoru
+  - name: Learn about the Content Moderator API
     href: overview.md
-- name: Začínáme
+- name: Get started
   items: 
-  - name: Začínáme s Content Moderatorem
+  - name: Get started with Content Moderator
     href: quick-start.md
-- name: Postup
+- name: How to
   items: 
-  - name: Uživatelská příručka k nástroji pro recenze
+  - name: Review tool user guide
     items:
-    - name: Zapojení lidí
+    - name: Human in the loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Vytvoření týmu
+    - name: Create team
       href: Review-Tool-User-Guide/Sign-up.md
-    - name: Nahrávání obrázků
+    - name: Upload images
       href: Review-Tool-User-Guide/Upload-Images.md
-    - name: Recenze obrázků
+    - name: Image reviews
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Recenze textu
+    - name: Text reviews
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Tým a podtýmy
+    - name: Team and subteams
       href: Review-Tool-User-Guide/SubTeams.md
-    - name: Použití pracovních postupů
+    - name: Using workflows
       href: Review-Tool-User-Guide/Workflows.md
-    - name: Nastavení
+    - name: Settings
       href: Review-Tool-User-Guide/Configure.md
-    - name: Zobrazení řídicího panelu
+    - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: Referenční informace
+- name: Reference
   items: 
-  - name: Referenční příručka k rozhraní API
+  - name: API Reference Guide
   
     href: api-reference.md
     items:
-  - name: Recenze rozhraní API
+  - name: Review APIs
     href: review-api.md
-  - name: Moderování obrázků
+  - name: Image moderation
     href: image-moderation-api.md
-  - name: Moderování textu
+  - name: Text moderation
     href: text-moderation-api.md
-  - name: Moderování textu – jazyky
+  - name: Text moderation - languages
     href: Text-Moderation-API-Languages.md
-  - name: Moderování videa
+  - name: Video moderation
     href: video-moderation-api.md
-- name: Zdroje a prostředky
+- name: Resources
   items:  
-  - name: Sada SDK pro Windows
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: Ukázky
+  - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
-  - name: Nejčastější dotazy
+  - name: FAQ
     href: FAQs.md
