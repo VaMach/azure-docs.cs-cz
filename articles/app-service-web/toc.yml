@@ -53,8 +53,8 @@
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Plány služby App Service
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Prostředí App Service
-    href: app-service-app-service-environment-intro.md
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/intro.md
   - name: Ověřování a autorizace
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Ověřování pomocí místní služby AD
@@ -248,6 +248,24 @@
       href: app-service-web-app-azure-resource-manager-powershell.md
     - name: Správa aplikací pomocí Azure Automation
       href: automation-manage-web-app.md
+  - name: App Service Environment
+    items:
+    - name: Použití prostředí App Service Environment
+      href: ../app-service/app-service-environment/using-an-ase.md
+    - name: Vytvoření externího prostředí App Service Environment
+      href: ../app-service/app-service-environment/create-external-ase.md
+    - name: Vytvoření pomocí Azure Resource Manageru
+      href: ../app-service/app-service-environment/create-from-template.md
+    - name: Vytvoření pomocí interního nástroje pro vyrovnávání zatížení
+      href: ../app-service/app-service-environment/create-ilb-ase.md
+    - name: Aspekty sítí
+      href: ../app-service/app-service-environment/network-info.md
+    - name: Konfigurace vlastního nastavení
+      href: ./app-service-app-service-environment-custom-settings.md
+    - name: Integrace s firewallem webových aplikací
+      href: ./app-service-app-service-environment-web-application-firewall.md
+    - name: Geograficky distribuované škálování
+      href: ./app-service-app-service-environment-geo-distributed-scale.md
 - name: Referenční informace
   items:
   - name: CLI 2.0
@@ -256,8 +274,12 @@
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/readme.md
 - name: Zdroje a prostředky
   items:
+  - name: Plány Azure do budoucna
+    href: https://azure.microsoft.com/roadmap/
   - name: Řešení potíží
     items:
     - name: Řešení potíží se sadou Visual Studio
@@ -278,6 +300,32 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Nejčastější dotazy ke konfiguraci a správě
         href: app-service-web-configuration-and-management-faq.md
+  - name: App Service Environment v1
+    items:
+    - name: Přehled
+      href: app-service-app-service-environment-intro.md
+    - name: Způsob vytvoření prostředí ASE
+      href: app-service-web-how-to-create-an-app-service-environment.md
+    - name: Vytvoření webové aplikace v prostředí App Service Environment
+      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+    - name: Použití interního nástroje pro vyrovnávání zatížení
+      href: app-service-environment-with-internal-load-balancer.md
+    - name: Konfigurace služby App Service Environment
+      href: app-service-web-configure-an-app-service-environment.md
+    - name: Škálování aplikací ve službě App Service Environment
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Přehled architektury sítě
+      href: app-service-app-service-environment-network-architecture-overview.md
+    - name: Implementace vrstvené architektury zabezpečení
+      href: app-service-app-service-environment-layered-security.md
+    - name: Řízení příchozího provozu
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Bezpečné připojení k back-endovým prostředkům
+      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+    - name: Podrobnosti o konfiguraci sítě pomocí ExpressRoute
+      href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: Automatické škálování ve službě App Service Environment
+      href: ../app-service/app-service-environment-auto-scale.md
   - name: Ceny
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Informace o kvótách

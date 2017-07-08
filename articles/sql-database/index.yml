@@ -52,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-design-first-database">Vytvoření a návrh schématu pro novou službu SQL Database</a>
+    - html: '<a href="/azure/sql-database/sql-database-design-first-database">Vytvoření a návrh schématu pro novou databázi SQL pomocí SSMS</a> nebo <a href="/azure/sql-database/sql-database-design-first-database-csharp">Vytvoření a návrh schématu pro novou databázi SQL pomocí C#</a>'
     - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrace existující databáze SQL Serveru a použití Azure SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Zabezpečení SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-performance-tutorial">Vylepšení výkonu SQL Database</a>
@@ -85,7 +85,7 @@ sections:
     className: cardsD
     items:
     - title: Příkazový řádek
-      html: <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (elastická databáze)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
+      html: '<p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (elastická databáze)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>'
     - title: Jazyky
       html: '<p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
     - title: REST

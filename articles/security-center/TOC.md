@@ -70,7 +70,8 @@
 # Související
 ## [Zabezpečení Azure](/azure/security/)
 
-# Zdroje
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog věnovaný zabezpečení, ochraně osobních údajů a dodržování předpisů v Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Ceny](security-center-pricing.md)
 ## [Přehled služby](https://azure.microsoft.com/services/security-center/)

@@ -67,5 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=load-balancer)

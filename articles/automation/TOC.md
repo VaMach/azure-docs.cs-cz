@@ -25,16 +25,17 @@
 ### [Podřízené runbooky](automation-child-runbooks.md)
 ### [Výstup runbooku](automation-runbook-output-and-messages.md)
 ### [Integrace správy zdrojového kódu](automation-source-control-integration.md)
-## Automatizace runbooků
+## Automatizace
 ### [Spuštění runbooku](automation-starting-a-runbook.md)
 ### [Spuštění runbooku z webhooku](automation-webhooks.md)
-### [Spouštění runbooků v datovém centru](automation-hybrid-runbook-worker.md)
+### [Spouštění runbooků ve funkci Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Vstupní parametry runbooku](automation-runbook-input-parameters.md)
 ### [Zpracování chyb v grafických runbookách](automation-runbook-graphical-error-handling.md)
 ### [Sledování úlohy runbooku](automation-runbook-execution.md)
 ### [Nastavení runbooku](automation-runbook-settings.md)
 ### [Správa dat Azure Automation](automation-managing-data.md)
 ### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
+### [Předání objektu JSON do runbooku Azure Automation](automation-pass-json-string.md)
 ## Nasazení správy konfigurace (DSC)
 ### [Přehled konfigurace požadovaného stavu (DSC)](automation-dsc-overview.md)
 ### [Začínáme](automation-dsc-getting-started.md)
@@ -42,7 +43,7 @@
 ### [Kompilace konfigurací DSC](automation-dsc-compile.md)
 ### [Nepřetržité nasazování pomocí Chocolatey](automation-dsc-cd-chocolatey.md)
 ### [Předání dat sestav Azure Automation DSC do služby OMS Log Analytics](automation-dsc-diagnostics.md)
-## Správa prostředků Automation
+## Správa prostředků
 ### [Certifikáty](automation-certificates.md)
 ### [Připojení](automation-connections.md)
 ### [Přihlašovací údaje](automation-credentials.md)
@@ -50,7 +51,7 @@
 ### [Plány](automation-schedules.md)
 ### [Proměnné](automation-variables.md)
 ### [Aktualizace modulů Azure PowerShellu](automation-update-azure-modules.md)
-## Automatizace scénářů
+## Scénáře
 ### [Galerie runbooků](automation-runbook-gallery.md)
 ### [Vytvoření virtuálního počítače webové služby Amazon](automation-scenario-aws-deployment.md)
 ### [Náprava výstrah virtuálních počítačů Azure](automation-azure-vm-alert-integration.md)
@@ -58,6 +59,7 @@
 ### [Odebrání skupiny prostředků](automation-scenario-remove-resourcegroup.md)
 ### [Integrace správy zdrojového kódu pomocí GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integrace správy zdrojového kódu pomocí VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Řešení
 ### [Sledování změn](../log-analytics/log-analytics-change-tracking.md)
 ### [Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)
@@ -78,12 +80,13 @@
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Zdroje a prostředky
-## [Poznámky k verzi](https://azure.microsoft.com/updates/?product=automation)
-## [Ceny](https://azure.microsoft.com/pricing/details/automation/)  
+## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
+## [Školení pro Azure Automation](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Ceny](https://azure.microsoft.com/pricing/details/automation/)  
+## [Poznámky k verzi](https://azure.microsoft.com/updates/?product=automation)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=automation)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=automation)
-## [Školení pro Azure Automation](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/automation/)
-## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

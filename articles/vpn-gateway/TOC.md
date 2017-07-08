@@ -63,6 +63,10 @@
 ## [Skladové jednotky (SKU) brány (staré)](vpn-gateway-about-skus-legacy.md)
 ## Řešení potíží
 ### [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
+### [Nastavení zařízení brány firewall nebo VPN navrhované komunitou](vpn-gateway-third-party-settings.md)
+### [Problémy s připojením typu Point-to-Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+### [Připojení typu Site-to-Site se přerušovaně odpojuje](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+### [Připojení typu Site-to-Site se nemůže připojit](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 
 # Referenční informace
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -80,6 +84,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ceny](https://azure.microsoft.com/pricing/details/vpn-gateway)

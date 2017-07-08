@@ -20,5 +20,6 @@
 ## [Příručka návrhu hybridní identity](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ##[Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 

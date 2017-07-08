@@ -134,13 +134,13 @@
       href: create-vm-specialized.md
     - name: Vytvoření virtuálního počítače pomocí šablony
       href: ps-template.md
-    - name: 'Vytvoření virtuálního počítače pomocí C#'
+    - name: 'Vytvoření a správa virtuálního počítače pomocí C#'
       href: csharp.md
     - name: 'Vytvoření virtuálního počítače pomocí C# a šablony'
       href: csharp-template.md
     - name: Vytvoření virtuálního počítače pomocí Chefu
       href: chef-automation.md
-    - name: Vytvoření virtuálního počítače pomocí Pythonu
+    - name: Vytvoření a správa virtuálního počítače pomocí Pythonu
       href: python.md
     - name: Vytvoření virtuálního počítače pomocí Terraformu
       items:
@@ -173,8 +173,6 @@
       href: cli-manage.md
     - name: Správa virtuálních počítačů pomocí rozhraní příkazového řádku
       href: cli-deploy-templates.md
-    - name: 'Správa virtuálních počítačů pomocí jazyka C#'
-      href: csharp-manage.md
   - name: Připojení přes RDP
     items:
     - name: Přihlášení k virtuálnímu počítači
@@ -187,6 +185,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Použití imagí klienta Windows
       href: client-images.md
+    - name: Stažení virtuálního pevného disku
+      href: download-vhd.md
     - name: Příprava VHD pro nahrání
       href: prepare-for-upload-vhd-image.md
     - name: Vytvoření image spravovaného disku
@@ -366,15 +366,22 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Obnovení hesla protokolu RDP
       href: reset-rdp.md
+    - name: Resetování síťové karty
+      href: reset-network-interface.md
     - name: Diagnostika spouštění
  
       href: boot-diagnostics.md
     - name: Vytvoření virtuálního počítače
       href: troubleshoot-deployment-new-vm.md
+    - name: Problémy při nasazení
+ 
+      href: troubleshoot-deploy-vm.md
     - name: Restartování nebo změna velikosti virtuálního počítače
       href: restart-resize-error-troubleshooting.md
     - name: Přístup k aplikaci
       href: troubleshoot-app-connection.md
+    - name: Problémy s aktivací
+      href: troubleshoot-activation-problems.md
     - name: Selhání přidělení
       href: allocation-failure.md
     - name: Znovunasazení virtuálního počítače
@@ -409,6 +416,8 @@
   items:
   - name: Tvorba šablon
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Plány Azure do budoucna
+    href: https://azure.microsoft.com/roadmap/
   - name: Komunitní šablony
     href: https://azure.microsoft.com/documentation/templates
   - name: Ceny

@@ -41,10 +41,11 @@
 ## [Azure DNS](/azure/dns/)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/traffic-manager/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-## [Omezení služby](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Ceny](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Omezení služby](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

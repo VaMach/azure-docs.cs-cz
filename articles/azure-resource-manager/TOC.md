@@ -70,7 +70,8 @@
 ### [Přiřazení zásad pomocí portálu](resource-manager-policy-portal.md)
 ### [Přiřazení zásad pomocí skriptů](resource-manager-policy-create-assign.md)
 ### Příklady
-#### [Značky prostředku](resource-manager-policy-tags.md)
+#### [Značky](resource-manager-policy-tags.md)
+#### [Zásady vytváření názvů](resource-manager-policy-naming-convention.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Virtuální počítač s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Virtuální počítač s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -119,8 +120,9 @@
 ## [REST](/rest/api/resources/)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Omezování požadavků](resource-manager-request-limits.md)
 ## [Sledování asynchronních operací](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)

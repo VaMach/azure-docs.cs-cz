@@ -7,10 +7,10 @@
 ## [Kompatibilní software jiných výrobců](active-directory-ds-compatible-software.md)
 
 # Začínáme
-## [Vytvoření skupiny pro správu](active-directory-ds-getting-started.md)
+## [Vytvoření skupiny pro správu](active-directory-ds-getting-started-create-group.md)
 ## [Vytvoření nebo výběr virtuální sítě](active-directory-ds-getting-started-vnet.md)
 ## [Povolení služby Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
-## [Aktualizace nastavení DNS](active-directory-ds-getting-started-dns.md)
+## [Aktualizace nastavení DNS](active-directory-ds-getting-started-update-dns.md)
 ## Povolení synchronizace hesel
 ### [Výhradně cloudový tenant](active-directory-ds-getting-started-password-sync.md)
 ### [Synchronizovaný tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -41,12 +41,8 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Fórum Azure AD pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Kontaktujte nás](active-directory-ds-contact-us.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-ds)

@@ -10,7 +10,11 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Sdílení prostředků různého původu](cdn-cors.md)
-
+## Optimalizace obsahu
+### [Přehled optimalizace](cdn-optimization-overview.md)
+####[Optimalizace velkých souborů](cdn-large-file-optimization.md)
+####[Optimalizace streamování médií](cdn-media-streaming-optimization.md)
+ 
 ## Spravovat
 ### [Povolení HTTPS pro vlastní doménu](cdn-custom-ssl.md)
 ### [Správa pomocí PowerShellu](cdn-manage-powershell.md)
@@ -54,12 +58,13 @@
 
 # Zdroje
 ##  [Referenční informace ke stroji pravidel](cdn-rules-engine-reference.md)
-### [Podmíněné výrazy stroje pravidel](cdn-rules-engine-reference-conditional-expressions.md)
-### [Podmínky shody stroje pravidel](cdn-rules-engine-reference-match-conditions.md)
-### [Funkce stroje pravidel](cdn-rules-engine-reference-features.md)
 ## [Lokality POP v Azure CDN](cdn-pop-locations.md)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cdn)
-## [Ceny](https://azure.microsoft.com/pricing/details/cdn/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Ceny](https://azure.microsoft.com/pricing/details/cdn/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+### [Podmíněné výrazy stroje pravidel](cdn-rules-engine-reference-conditional-expressions.md)
+### [Funkce stroje pravidel](cdn-rules-engine-reference-features.md)
+### [Podmínky shody stroje pravidel](cdn-rules-engine-reference-match-conditions.md)

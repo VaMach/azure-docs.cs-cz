@@ -1,6 +1,6 @@
 # Přehled
 ## [Co je Application Insights?](app-insights-overview.md)
-## [Sledování výkonu v cyklu vývoje a provozu](app-insights-detect-triage-diagnose.md)
+## [Přehled monitorování výkonu pro DevOps](app-insights-detect-triage-diagnose.md)
 
 # Začínáme
 ## Monitorování Azure
@@ -80,7 +80,6 @@
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metriky](app-insights-metrics-explorer.md)
 #### [Živý datový proud](app-insights-live-stream.md)
-
 #### [Mapa aplikace](app-insights-app-map.md)
 #### [Aplikace HockeyApp](app-insights-hockeyapp-bridge-app.md)
 
@@ -93,6 +92,7 @@
 ### Využití
 #### [Přehled](app-insights-usage-overview.md)
 #### [Uživatelé, relace, události](app-insights-usage-segmentation.md)
+#### [Trychtýře](app-insights-understand-usage-patterns.md)
 #### [Uchování](app-insights-usage-retention.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
@@ -111,6 +111,7 @@
 ### [Nastavení výstrah](app-insights-powershell-alerts.md)
 ### [Získání diagnostiky Azure](app-insights-powershell-azure-diagnostics.md)
 ### [Automatizace pomocí Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automatizace pomocí Azure Logic App](automate-with-logic-apps.md)
 
 ## Vývoj
 
@@ -153,7 +154,8 @@
 ### [Kontext](application-insights-data-model-context.md)
 ## [Korelace telemetrie](application-insights-correlation.md)
 
-# Zdroje
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 
 ## [Jazyky a platformy](app-insights-platforms.md)
 

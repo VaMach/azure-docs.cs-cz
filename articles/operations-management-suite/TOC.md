@@ -36,6 +36,7 @@
 ### Přehledy a analýza
 #### [Posouzení AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Stav replikace AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Stav agenta](oms-solution-agenthealth.md)
 #### [Správa výstrah](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analýza sítí Azure](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Kontejnery](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -73,3 +74,5 @@
 # Referenční informace
 ## [Sada SDK](operations-management-suite-sdk.md)
 
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

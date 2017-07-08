@@ -27,7 +27,8 @@
 ## [Nastavení portu](relay-port-settings.md)
 
 # Zdroje a prostředky
-## [Ukázky](https://github.com/azure/azure-relay/tree/master/samples)
-## [Ceny](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Ceny](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Ukázky](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: Místní vývoj a ladění
        href: functions-run-local.md
+     - name: Vývoj sady Visual Studio
+       href: functions-develop-vs.md
   - name: Nasazení
     items:
     - name: Průběžné nasazování
@@ -98,9 +100,9 @@
     items:
     - name: Blob Storage
       href: functions-bindings-storage-blob.md
-    - name: Databáze Cosmos
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Centrum událostí
+    - name: Event Hubs
       href: functions-bindings-event-hubs.md
     - name: Externí soubor
       href: functions-bindings-external-file.md
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: Zdroje a prostředky
   items:
+  - name: Plány Azure do budoucna
+    href: https://azure.microsoft.com/roadmap/
   - name: Ceny
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Regionální dostupnost

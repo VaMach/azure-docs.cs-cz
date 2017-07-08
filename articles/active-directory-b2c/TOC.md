@@ -88,10 +88,11 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Fórum Azure AD B2C pro názory](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Nejčastější dotazy](active-directory-b2c-faqs.md)
+## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Podpora](active-directory-b2c-support.md)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)

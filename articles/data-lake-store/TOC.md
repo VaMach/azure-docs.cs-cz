@@ -67,11 +67,12 @@
 ## [REST](/rest/api/datalakestore)
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
-# Zdroje
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-lake-store)
-## [Ceny](https://azure.microsoft.com/pricing/details/data-lake-store/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Fórum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog služby Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Ceny](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Fórum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

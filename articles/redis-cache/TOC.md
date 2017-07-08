@@ -55,6 +55,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Zdroje a prostředky
-## [Ukázky mezipaměti Redis Cache](cache-redis-samples.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/cache/)
+## [Ukázky mezipaměti Redis Cache](cache-redis-samples.md)
 

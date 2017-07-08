@@ -113,9 +113,10 @@
 ### [Příručka zabezpečení](storage-security-guide.md)
 ### [Šifrování pro neaktivní uložená data](storage-service-encryption.md)
 ### [Šifrování v klidovém stavu pomocí klíčů zákazníka](storage-service-encryption-customer-managed-keys.md)
-### [Ověřování pomocí sdíleného klíče](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Ověřování pomocí sdíleného klíče](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Sdílené přístupové podpisy (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Kurz: Šifrování a dešifrování objektů blob pomocí Azure Key Vaultu](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Vyžádání bezpečného přenosu](storage-require-secure-transfer.md)
 ### Šifrování na straně klienta
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
@@ -200,12 +201,13 @@
 ### [Monitorování, diagnostika a řešení potíží](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
 ### [Kurz odstraňování potíží](storage-e2e-troubleshooting-classic-portal.md)
 
-# Zdroje
-## [Ceny](https://azure.microsoft.com/pricing/details/storage/blobs/)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Klientské nástroje pro Azure Storage](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Ceny](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Storage Explorer
