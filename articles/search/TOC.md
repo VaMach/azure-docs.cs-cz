@@ -73,21 +73,22 @@
 ## [REST (správa)](/rest/api/searchmanagement)
 
 # Zdroje a prostředky
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
 ## [Verze rozhraní API](search-api-versions.md)
-## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
+## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
+## Studijní materiály a kurzy
 ## Ukázkové weby
-### [Ukázka analyzátoru hledání](http://alice.unearth.ai/)
+## Partneři a komunita
+### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
 ### [Živé ukázkové aplikace](https://searchsamples.azurewebsites.net/)
-## Studijní materiály a kurzy
-### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
-### [Videa a kurzy](search-video-demo-tutorial-list.md)
-### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-## Partneři a komunita
 ### [Modelování relačních dat](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Omezující vlastnosti na více úrovních](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Ukázka analyzátoru hledání](http://alice.unearth.ai/)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
-### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Videa a kurzy](search-video-demo-tutorial-list.md)
+### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)

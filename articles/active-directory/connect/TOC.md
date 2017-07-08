@@ -105,5 +105,6 @@
 
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ##[Azure AD Connect – nejčastější dotazy](active-directory-aadconnect-faq.md)
 ##[Zastarání DirSync](active-directory-aadconnect-dirsync-deprecated.md)

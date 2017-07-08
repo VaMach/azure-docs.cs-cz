@@ -22,10 +22,12 @@
 ### [Záloha na úrovni souborů](sap-hana-backup-file-level.md)
 ### [Zálohy snímků úložiště](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
-### [Průvodce nasazením SAP IDES na Windows/SQL Server SAP CAL](sap-cal-ides-erp6-ehp7-sp3-sql.md)
+### [Průvodce nasazením SAP IDES na Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ### [Přehled a architektura](suse-quickstart.md)
 ### [Plánování a implementace](planning-guide.md)
 ### [Vysoká dostupnost](high-availability-guide.md)
 ### [Konfigurace několika identifikátorů SID](high-availability-multi-sid.md)
 ### [Průvodce nasazením](deployment-guide.md)
 ### [Průvodce nasazením DBMS](dbms-guide.md)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

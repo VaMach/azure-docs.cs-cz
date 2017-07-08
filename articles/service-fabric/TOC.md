@@ -2,11 +2,11 @@
 # Přehled
 ## [Co je Service Fabric?](service-fabric-overview.md)
 ## [Principy mikroslužeb](service-fabric-overview-microservices.md)
+## [Celkový přehled](service-fabric-content-roadmap.md)
 ## [Scénáře aplikací](service-fabric-application-scenarios.md)
 ## [Vzory a scénáře](service-fabric-patterns-and-scenarios.md)
 ## [Architektura](service-fabric-architecture.md)
 ## [Terminologie](service-fabric-technical-overview.md)
-## [Základy](service-fabric-content-roadmap.md)
 
 # Začínáme
 ## Nastavení vývojového prostředí
@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Integrace se službou API Management
+#### [Přehled](service-fabric-api-management-overview.md)
+#### [Rychlý start](service-fabric-api-management-quick-start.md)
+
 ### Migrace ze služby Cloud Services
 #### [Porovnání služby Cloud Services se Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migrace do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -142,6 +146,7 @@
 ### [Principy nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Nasazení nebo odebrání aplikací
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [Rozhraní API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Upgrade aplikace
@@ -215,7 +220,8 @@
 ### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 
-### [Správa clusteru pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md)
+### [Správa clusteru pomocí rozhraní příkazového řádku XPlat](service-fabric-azure-cli.md)
+### [Správa clusteru pomocí příkazů Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 ### [Oprava uzlů clusteru](service-fabric-patch-orchestration-application.md)
 
 ### Správa a orchestrace prostředků clusteru
@@ -258,18 +264,19 @@
 
 # Referenční informace
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Rozhraní API Java](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Běžné otázky týkající se Service Fabric](service-fabric-common-questions.md)
-## [Možnosti podpory pro Service Fabric](service-fabric-support.md)
-## [Ukázka kódu](http://aka.ms/servicefabricsamples)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Ceny](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Aktualizace služby](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Ceny](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Ukázka kódu](http://aka.ms/servicefabricsamples)
+## [Možnosti podpory pro Service Fabric](service-fabric-support.md)
+## [Aktualizace služby](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

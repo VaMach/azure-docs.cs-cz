@@ -33,6 +33,7 @@
 ## [Rozhraní příkazového řádku Azure Insights – ukázky kódu pro rychlý start](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 

@@ -67,7 +67,8 @@
 ### [Řešení potíží s cloudovou kolekcí](remoteapp-cloudtrouble.md)
 
 # Zdroje a prostředky
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=remoteapp)
-## [Ceny](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Ceny](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

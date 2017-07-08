@@ -105,3 +105,5 @@
 #### [Referenční informace o tokenech](active-directory-v2-tokens.md)
 #### [Přihlašovací údaje ve formě certifikátu](active-directory-certificate-credentials.md)
 ### [Obory](active-directory-v2-scopes.md)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

@@ -62,14 +62,15 @@
 ## [Řešení pro Batch a prostředí HPC v cloudu Azure](batch-hpc-solutions.md)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/batch/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Prostředky Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Ceny](https://azure.microsoft.com/pricing/details/batch/)
+## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 

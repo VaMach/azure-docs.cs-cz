@@ -64,8 +64,9 @@
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [Ceny](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

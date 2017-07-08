@@ -14,8 +14,5 @@
 ### [Přihlášení pomocí telefonu](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Nejčastější dotazy](microsoft-authenticator-app-faq.md)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

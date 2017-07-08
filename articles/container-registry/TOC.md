@@ -25,7 +25,8 @@
 ## [Container Service](/azure/container-service/)
 
 # Zdroje a prostředky
-## [Dostupnost v oblastech](https://azure.microsoft.com/regions/services/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Dostupnost v oblastech](https://azure.microsoft.com/regions/services/)
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

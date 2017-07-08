@@ -127,17 +127,18 @@
 ### [Sada SDK pro Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
 
 # Zdroje a prostředky
+## [Ukázka .NET API](mobile-engagement-dotnet-sdk-service-api.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Ceny](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Ukázkové aplikace](mobile-engagement-demo-apps.md)
+## [Smlouvy o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## [Videa a aktualizace](https://azure.microsoft.com/documentation/services/mobile-engagement/)
 ## Poznámky k verzi
 ### [Sada SDK pro Android](mobile-engagement-android-release-notes.md)
 ### [Sada SDK pro iOS](mobile-engagement-ios-release-notes.md)
 ### [Sada Web SDK](mobile-engagement-web-release-notes.md)
-### [Sada SDK univerzální aplikace pro Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Sada SDK pro Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
-## [Ceny](https://azure.microsoft.com/pricing/details/mobile-engagement/)
-## [Ukázkové aplikace](mobile-engagement-demo-apps.md)
-## [Ukázka .NET API](mobile-engagement-dotnet-sdk-service-api.md)
-## [Videa a aktualizace](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Smlouvy o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+### [Sada SDK univerzální aplikace pro Windows](mobile-engagement-windows-store-release-notes.md)
 
 
 

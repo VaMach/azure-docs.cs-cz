@@ -99,3 +99,5 @@
 #### [Připojení počítače k virtuální síti](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Další kroky](azure-operations-guide.md#next-steps)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

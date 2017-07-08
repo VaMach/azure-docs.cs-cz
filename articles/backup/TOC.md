@@ -91,6 +91,8 @@
 ## [Odstranění trezoru služby Azure Backup](backup-azure-delete-vault.md)
 ## [Řízení přístupu na základě rolí](backup-rbac-rs-vault.md)
 ## [Zabezpečení pro hybridní zálohy](backup-azure-security-feature.md)
+## [Konfigurace sestav Azure Backup](backup-azure-configure-reports.md)
+## [Datový model pro sestavy Azure Backup](backup-azure-reports-data-model.md)
 ## [Konfigurace zálohování offline](backup-azure-backup-import-export.md)
 ## [Náhrada páskové knihovny](backup-azure-backup-cloud-as-tape.md)
 ## [Aplikačně konzistentní zálohování virtuálních počítačů s Linuxem](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/backup/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Ceny](https://azure.microsoft.com/pricing/details/backup/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=backup)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=backup)

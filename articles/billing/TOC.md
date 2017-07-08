@@ -39,5 +39,6 @@
 ## [Partnerské řešení: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [Partnerské řešení: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
-# Zdroje
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Kontaktování podpory](../azure-supportability/how-to-create-azure-support-request.md)

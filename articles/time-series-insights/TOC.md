@@ -5,6 +5,7 @@
 ## [Vytvoření prostředí](time-series-insights-get-started.md)
 ## [Udělení přístupu k datům](time-series-insights-data-access.md)
 ## [Vytvoření zdroje událostí](time-series-insights-add-event-source.md)
+## [Vytvoření referenční datové sady](time-series-insights-add-reference-data-set.md)
 ## [Odesílání událostí](time-series-insights-send-events.md)
 
 # Postup
@@ -15,6 +16,7 @@
 ## Vývoj
 ### [Ověřování a autorizace](time-series-insights-authentication-and-authorization.md)
 ### [Dotazování dat pomocí jazyka C#](time-series-insights-query-data-csharp.md)
+### [Správa referenčních dat pomocí jazyka C#](time-series-insights-manage-reference-data-csharp.md)
 
 # Referenční informace
 ## [Rozhraní API pro dotazy](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
@@ -25,5 +27,6 @@
 ## [Azure Event Hubs](/azure/event-hubs/)
 ## [Azure Stream Analytics](/azure/stream-analytics/)
 
-# Zdroje
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/time-series-insights/)

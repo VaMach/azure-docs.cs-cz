@@ -1,11 +1,14 @@
 # Přehled
 ## [Co je služba Azure Analysis Services?](analysis-services-overview.md)
 ## [Podporované zdroje dat](analysis-services-datasource.md)
+## [Ověřování a uživatelská oprávnění](analysis-services-manage-users.md)
 
 # Šablony Rychlý start
 ## [Vytvoření serveru – portál](analysis-services-create-server.md)
 ## [Nasazení modelu – SSDT](analysis-services-deploy.md)
 
+# Ukázky
+## [Ukázky Analysis Services v GitHubu](https://github.com/Microsoft/Analysis-Services)
 
 # Kurzy
 ## Vytvoření a nasazení modelu
@@ -29,9 +32,9 @@
 
 # Postupy 
 ## [Správa serveru](analysis-services-manage.md)
-## [Správa uživatelů](analysis-services-manage-users.md)
+## [Správa uživatelů databáze](analysis-services-database-users.md)
+## [Správa správců serveru](analysis-services-server-admins.md)
 ## [Integrace místní brány dat](analysis-services-gateway.md)
-## [Připojení k serverům](analysis-services-connect.md)
 ## [Propojení s Excelem](analysis-services-connect-excel.md)
 ## [Propojení s Power BI](analysis-services-connect-pbi.md)
 ## [Získání klientských knihoven](analysis-services-data-providers.md)
@@ -44,13 +47,15 @@
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
+## [Jazyk TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Zdroje a prostředky
 ## [Blog týmu Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Fórum Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Váš názor](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-## [Ceny](https://azure.microsoft.com/pricing/details/analysis-services/)
-## [Videa](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Stav Azure](https://azure.microsoft.com/status/)
+## [Váš názor](https://feedback.azure.com/forums/556165-azure-analysis-services)
+## [Ceny](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Videa](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

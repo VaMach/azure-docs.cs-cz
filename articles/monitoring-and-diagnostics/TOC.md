@@ -70,6 +70,7 @@
 ### [1.3 a novější](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Zdroje a prostředky
-## [Ukázky pro PowerShell](insights-powershell-samples.md)
 ## [Ukázky Azure CLI 1.0](insights-cli-samples.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Ukázky pro PowerShell](insights-powershell-samples.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=monitor)

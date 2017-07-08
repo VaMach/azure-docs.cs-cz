@@ -111,5 +111,6 @@
 
 # Zdroje a prostředky
 ## [Oblasti Azure](https://azure.microsoft.com/regions/)
-## [Videa](https://azure.microsoft.com/resources/videos/home/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ukázky](https://azure.microsoft.com/resources/samples/)
+## [Videa](https://azure.microsoft.com/resources/videos/home/)

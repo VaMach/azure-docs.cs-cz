@@ -33,9 +33,10 @@
 
 
 # Zdroje a prostředky
-## [Ukázková aplikace](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Vložená ukázka JavaScriptu](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [Úložiště Git JavaScriptu](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Úložiště Git Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Komunita Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Ukázková aplikace](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

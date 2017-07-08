@@ -140,10 +140,11 @@
 ## [Rutiny PowerShellu](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Ceny](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partneři

@@ -51,6 +51,7 @@
 ## [Machine Learning](/azure/machine-learning/)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Nejčastější dotazy](iot-suite-faq.md)
 ## [Postup výuky pro IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 

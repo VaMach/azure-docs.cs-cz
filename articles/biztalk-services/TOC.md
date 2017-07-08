@@ -23,9 +23,10 @@
 ### [Vytvoření a správa](integration-hybrid-connection-create-manage.md)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Ceny](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [Poznámky k verzi](biztalk-release-notes.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=biztalk-services)
-## [Ceny](https://azure.microsoft.com/pricing/details/biztalk-services/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

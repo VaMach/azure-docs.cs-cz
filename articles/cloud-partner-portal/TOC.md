@@ -33,3 +33,5 @@
 ## [Správa profilu vydavatele](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Správa uživatelů](./cloud-partner-portal-manage-users.md)
 ## [Získat podporu](./cloud-partner-portal-support-for-cloud-partner-portal.md)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

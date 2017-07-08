@@ -28,10 +28,11 @@
 ## [Ukázky pro vývojáře](data-catalog-samples.md)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Klávesové zkratky pro Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminologie](data-catalog-terminology.md)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Ceny](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Poznámky k verzi](data-catalog-whats-new.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Ceny](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Terminologie](data-catalog-terminology.md)

@@ -6,3 +6,5 @@
 ## [Konfigurace Oracle ASM](configure-oracle-asm.md)
 ## [Konfigurace Oracle DataGuardu](configuring-oracle-dataguard.md)
 ## [Konfigurace Oracle GoldenGate](configure-oracle-golden-gate.md)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

@@ -216,14 +216,15 @@
 ## [StorSimple řady 5000-7000](http://onlinehelp.storsimple.com)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=storsimple)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Marketingový blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Ceny](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Blog podpory](http://blogs.msdn.com/b/storsimple/)
 ## [Oznámení třetích stran](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 
