@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -35,9 +37,8 @@ V současné době je nutné, aby mnoho scénářů v [Microsoft Cloudu Německo
 * Následující funkce nejsou k dispozici:
   * Azure AD Connect Health
   * Automatické aktualizace
-  * Zpětný zápis hesla
-
-## <a name="download"></a>Stáhnout
+ 
+## <a name="download"></a>Ke stažení
 Službu Azure AD Connect lze stáhnout z okna Azure AD Connect v rámci portálu.  Pomocí pokynů níže vyhledejte okno Azure AD Connect.
 
 ### <a name="the-azure-ad-connect-blade"></a>Okno Azure AD Connect
@@ -64,10 +65,5 @@ Chcete-li nainstalovat službu Azure AD Connect, můžete využít dokumentaci, 
 
 ## <a name="advanced-features-and-additional-information"></a>Pokročilé funkce a další informace
 Hledáte-li další informace a doprovodné materiály k vlastním nastavením nebo pokročilým konfiguracím, začněte s tématem [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).  Tato stránka poskytuje informace a odkazy na další doprovodné materiály.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

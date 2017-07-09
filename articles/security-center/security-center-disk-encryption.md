@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -53,7 +54,7 @@ Budete potřebovat, aby na vašem počítači byl nainstalovaný Azure PowerShel
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Získání a spuštění konfiguračního skriptu požadovaných součástí pro Azure Disk Encryption
 Konfigurační skript požadovaných součástí pro Azure Disk Encryption nastaví všechny požadované součásti, které jsou potřeba pro šifrování Azure Virtual Machines.
 
-1. Přejděte na stránku GitHubu, která obsahuje [skript pro instalaci požadovaných součástí pro Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Přejděte na stránku GitHubu, která obsahuje [skript pro instalaci požadovaných součástí pro Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 2. Na stránce GibHubu klikněte na tlačítko **Raw**.
 3. Pomocí kombinace kláves **CTRL-A** vyberte veškerý text na této stránce a potom pomocí kombinace kláves **CTRL-C** zkopírujte tento text do schránky.
 4. Otevřete **Poznámkový blok** a vložte zkopírovaný text do Poznámkového bloku.
