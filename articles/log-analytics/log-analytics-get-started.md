@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
 ms.contentlocale: cs-cz
-ms.lasthandoff: 03/28/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,7 +56,7 @@ Dalším krokem je vytvoření pracovního prostoru.
    * **Cenová úroveň**  
        ![Rychlé vytvoření](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Po kliknutí na **OK** se zobrazí seznam vašich pracovních prostorů.
-4. Po výběru pracovního prostoru se na webu Azure Portal zobrazí jeho podrobnosti.       
+4. Vyberte pracovní prostor a na webu Azure Portal se zobrazí jeho podrobnosti.       
     ![Podrobnosti o pracovním prostoru](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## <a name="3-add-solutions-and-solution-offerings"></a>3. Přidávání řešení a nabídek řešení

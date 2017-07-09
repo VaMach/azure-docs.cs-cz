@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 53f8db832e829ed7111af8f0d0aa789f31843e18
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 6c9a50c1f3dcd55cd03a694c7d4e13b8a55c3cd4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -157,7 +157,8 @@ apt-get -y install nginx
 S nainstalovaným serverem NGINX na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku serveru NGINX. Nezapomeňte pro návštěvu výchozí stránky použít veřejnou IP adresu popsanou výše. 
 
 ![Výchozí web NGINX](./media/quick-create-cli/nginx.png) 
-## <a name="delete-virtual-machine"></a>Odstranění virtuálního počítače
+
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, virtuálního počítače a všech souvisejících prostředků použít příkaz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 

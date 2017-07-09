@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Raději se díváte, než čtete? Podívejte se na níže uvedené video z relac
 [Azure Automation DSC](automation-dsc-overview.md) je cloudové řešení pro DSC PowerShellu, které poskytuje služby nezbytné pro podniková prostředí.  Svoje prostředky DSC můžete spravovat v Azure Automation a konfigurace můžete používat na virtuálních nebo fyzických počítačích, které je načtou ze serveru vyžádaných replikací s DSC v cloudu Azure.  Poskytuje také služby generování sestav, které informují o důležitých událostech, například když se uzly odchylují od svých přiřazených konfigurací a když se používá nová konfigurace. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Vytvoření vlastních konfigurací DSC pomocí Azure Automation
-[Konfigurace DSC](automation-dsc-overview.md#azure-automation-dsc-terms) určují požadovaný stav uzlu.  Stejnou konfiguraci můžete použít na několik uzlů, abyste zajistili, že si všechny udrží identický stav.  Konfiguraci můžete vytvořit pomocí libovolného textového editoru na místním počítači a následně ji naimportovat do Azure Automation, kde ji můžete zkompilovat a použít na uzly.
+[Konfigurace DSC](automation-dsc-overview.md) určují požadovaný stav uzlu.  Stejnou konfiguraci můžete použít na několik uzlů, abyste zajistili, že si všechny udrží identický stav.  Konfiguraci můžete vytvořit pomocí libovolného textového editoru na místním počítači a následně ji naimportovat do Azure Automation, kde ji můžete zkompilovat a použít na uzly.
 
 ## <a name="getting-modules-and-configurations"></a>Získávání modulů a konfigurací
 [Moduly PowerShellu](automation-runbook-gallery.md#modules-in-powershell-gallery) obsahující rutiny, které můžete použít v runboocích a konfiguracích DSC, můžete získat z [galerie prostředí PowerShell](http://www.powershellgallery.com/). Tuto galerii můžete spustit na webu Azure Portal a moduly můžete importovat přímo do Azure Automation nebo si je můžete stáhnout a naimportovat je ručně. Moduly nemůžete instalovat přímo z webu Azure Portal, ale můžete si je stáhnout a nainstalovat je stejně jako ostatní moduly. 
@@ -83,10 +85,5 @@ K dispozici jsou různé druhy zdrojů, ze kterých můžete získat další inf
 
 ## <a name="can-i-provide-feedback"></a>Posílání připomínek
 **Budeme velmi rádi za vaše připomínky.** Pokud hledáte řešení runbooku služby Azure Automation nebo hledáte modul integrace, zadejte v Centru skriptů požadavek na skript. Pokud máte požadavky k připomínkám nebo funkcím Azure Automation, odešlete je na [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Děkujeme! 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

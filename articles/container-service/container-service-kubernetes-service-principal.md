@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 48b3a3090573718ff5d3ba70e93567e6428ff59b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 33a1ab822f2900fd51d801f94ad8679fe65ba21f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -104,7 +104,7 @@ Následující příklad ukazuje jeden ze způsobů předání parametrů pomoc�
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Možnost 2: Vygenerování instančního objektu při vytváření clusteru pomocí příkazu `az acs create`
 
-Pokud vytváříte cluster Kubernetes spuštěním příkazu [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), máte možnost instanční objekt vygenerovat automaticky.
+Pokud vytváříte cluster Kubernetes spuštěním příkazu [`az acs create`](/cli/azure/acs#create), máte možnost instanční objekt vygenerovat automaticky.
 
 Stejně jako u ostatních možností vytvoření clusteru Kubernetes můžete při spuštění příkazu `az acs create` určit parametry pro existující instanční objekt. Pokud však tyto parametry vynecháte, Azure CLI automaticky vytvoří instanční objekt pro použití se službou Container Service. Tato akce se provede transparentně během nasazení. 
 

@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Úvod k registrům kontejnerů pro Private Docker
@@ -39,7 +40,7 @@ Související informace o Dockeru a kontejnerech najdete v tématech:
 Stažení imagí z registru kontejnerů Azure na různé cíle nasazení:
 
 * **Škálovatelné systémy orchestrace**, které spravují kontejnerizované aplikace napříč clustery hostitelů, včetně [DC/OS](https://docs.mesosphere.com/), [Dockeru Swarm](https://docs.docker.com/swarm/) a [Kubernetes](http://kubernetes.io/docs/).
-* **Služby Azure**, které podporují vytváření a spouštění škálovaných aplikací, včetně [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) a dalších.
+* **Služby Azure**, které podporují vytváření a spouštění škálovaných aplikací, včetně [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) a dalších.
 
 Vývojáři mohou nahrávat do registru kontejnerů také jako součást pracovního postupu vývoje kontejneru. Mohou například určit registr kontejnerů jako cíl v nástroji pro nasazení a nástroji průběžné integrace, jako je například [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) nebo [Jenkins](https://jenkins.io/).
 
@@ -69,6 +70,6 @@ Vývojáři mohou nahrávat do registru kontejnerů také jako součást pracovn
 * [Vytvoření registru kontejnerů pomocí webu Azure Portal](container-registry-get-started-portal.md)
 * [Vytvoření registru kontejnerů pomocí Azure CLI](container-registry-get-started-azure-cli.md)
 * [Nahrání první image pomocí rozhraní příkazového řádku Dockeru](container-registry-get-started-docker-cli.md)
-* Informace o sestavení pracovního postupu průběžné integrace a nasazení pomocí Visual Studio Team Services, Azure Container Service a Azure Container Registry, najdete v [tomto kurzu](../container-service/container-service-setup-ci-cd.md).
+* Informace o sestavení pracovního postupu průběžné integrace a nasazení pomocí Visual Studio Team Services, Azure Container Service a Azure Container Registry, najdete v [tomto kurzu](../container-service/container-service-docker-swarm-setup-ci-cd.md).
 * Pokud chcete v Azure nastavit vlastní privátní registr Dockeru (bez veřejného koncového bodu), přečtěte si téma [Nasazení vlastního privátního registru Dockeru v Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 

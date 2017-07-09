@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ead9fcc5ec582420d731faccb7abba0dc815ed84
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -69,7 +70,7 @@ Následující části popisují požadavky na konfiguraci pro virtuální zař�
 #### <a name="azure-requirements"></a>Požadavky na Azure
 Než zřídíte virtuální zařízení, je třeba provést následující přípravy v prostředí Azure:
 
-* Pro virtuální zařízení [nakonfigurujte virtuální síť na Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Používáte-li službu Premium Storage, musíte vytvořit virtuální síť v oblasti Azure, která podporuje službu Premium Storage. Oblasti služby Storage úrovně Premium jsou oblasti, které odpovídají řádku pro *Diskové úložiště* v seznamu [služeb Azure podle oblasti](https://azure.microsoft.com/en-us/regions/services).
+* Pro virtuální zařízení [nakonfigurujte virtuální síť na Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Používáte-li službu Premium Storage, musíte vytvořit virtuální síť v oblasti Azure, která podporuje službu Premium Storage. Oblasti služby Storage úrovně Premium jsou oblasti, které odpovídají řádku pro *Diskové úložiště* v seznamu [služeb Azure podle oblasti](https://azure.microsoft.com/en-us/regions/services).
 * Je vhodné použít výchozí server DNS poskytovaný platformou Azure místo zadávání vlastního názvu serveru DNS. Pokud název serveru DNS není platný nebo pokud server DNS není schopen správně přeložit IP adresy, vytvoření virtuálního zařízení se nezdaří.
 * Připojení point-to-site a site-to-site jsou volitelná, ale nejsou vyžadována. Pokud chcete, můžete nastavit tyto možnosti pro pokročilejší scénáře.
 * Můžete vytvořit [virtuální počítače Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (hostitelské servery) ve virtuální síti, které mohou používat svazky vystavené virtuálním zařízením. Tyto servery musí splňovat následující požadavky:                             
