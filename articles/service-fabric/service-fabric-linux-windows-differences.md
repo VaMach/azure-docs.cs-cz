@@ -12,28 +12,33 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Rozdíly mezi Service Fabric v Linuxu (verze Preview) a ve Windows (obecně dostupná verze)
+<a id="differences-between-service-fabric-on-linux-preview-and-windows-generally-available" class="xliff"></a>
 
-Protože Service Fabric v Linuxu je ve verzi Preview, existují určité funkce, které jsou ve Windows podporované, ale v Linuxu zatím ne. Nakonec si sady funkcí budou odpovídat, až bude Service Fabric v Linuxu v obecně dostupné verzi.
+# Rozdíly mezi Service Fabric v Linuxu (verze Preview) a ve Windows (obecně dostupná verze)
 
-* Služby Reliable Collections (a Reliable Stateful Services) nejsou v Linuxu podporované.
-* ReverseProxy není v Linuxu k dispozici.
-* Samostatný instalační program není v Linuxu k dispozici.
-* Ověření schématu XML pro soubory manifestu se v Linuxu neprovádí. 
-* Přesměrování konzoly není v Linuxu podporováno. 
-* Služba FAS (Fault Analysis Service) není v Linuxu k dispozici.
-* Podpora Azure Active Directory není v Linuxu k dispozici.
-* Ekvivalenty některých příkazů Powershellu nejsou v rozhraní příkazového řádku k dispozici.
+Protože Service Fabric v Linuxu je ve verzi Preview, existují určité funkce, které jsou ve Windows podporované, ale v Linuxu zatím ne. Nakonec si sady funkcí budou odpovídat, až bude Service Fabric v Linuxu v obecně dostupné verzi. S budoucími verzemi se bude tato mezera zmenšovat. Mezi nejnovějšími dostupnými verzemi (tedy mezi verzí 5.6 pro Windows a verzí 5.5 pro Linux) existují následující rozdíly: 
+
+* Reliable Collections (a Reliable Stateful Services) 
+* ReverseProxy 
+* Samostatný instalační program 
+* Ověření schématu XML pro soubory manifestu 
+* Přesměrování konzoly 
+* Fault Analysis Service (FAS)
+* Ovladače protokolování a svazku a Docker Compose pro kontejnery 
+* Zásady správného řízení prostředků pro kontejnery a služby 
+* Služba DNS
+* Podpora Azure Active Directory
+* Ekvivalenty příkazů rozhraní příkazového řádku pro určité příkazy PowerShellu 
 * Proti clusteru Linux lze spustit pouze podmnožinu příkazů Powershellu (jak je rozvedeno v další části).
 
 >[!NOTE]
@@ -41,7 +46,9 @@ Protože Service Fabric v Linuxu je ve verzi Preview, existují určité funkce,
 
 Nástroje pro vývoj ve Windows a v Linuxu se také liší. Ve Windows se používá sada Visual Studio, PowerShell, VSTS a Trasování událostí pro Windows, zatímco v Linuxu se používá Yeoman, Eclipse, Jenkins a LTTng.
 
-## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Rutiny PowerShellu, které nefungují proti linuxovému clusteru Service Fabric
+<a id="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster" class="xliff"></a>
+
+## Rutiny PowerShellu, které nefungují proti linuxovému clusteru Service Fabric
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario
@@ -99,7 +106,9 @@ Nástroje pro vývoj ve Windows a v Linuxu se také liší. Ve Windows se použ�
 
 
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 * [Příprava vývojového prostředí v Linuxu](service-fabric-get-started-linux.md)
 * [Příprava vývojového prostředí v OSX](service-fabric-get-started-mac.md)
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí Yeomana](service-fabric-create-your-first-linux-application-with-java.md)

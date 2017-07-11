@@ -1,0 +1,3 @@
+Nástroje Azure Functions Core umožňují spouštět projekt Azure Functions na místním počítači pro vývoj. K instalaci těchto nástrojů budete vyzváni při prvním spuštění funkce ze sady Visual Studio.  
+
+Chcete-li funkci otestovat, klikněte pravým tlačítkem v **Průzkumníku řešení** na uzel projektu a vyberte **Ladit** > **Spustit novou instanci**. Po výzvě přijměte požadavek ze sady Visual Studio na stažení a instalaci nástrojů Azure Functions Core (CLI).  Můžete být také potřeba povolit výjimku brány firewall umožňující nástrojům zpracovávat požadavky HTTP.

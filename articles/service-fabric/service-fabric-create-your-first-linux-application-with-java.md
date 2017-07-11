@@ -3,7 +3,7 @@ title: "Vytvoření první aplikace mikroslužeb Azure v Linuxu pomocí Javy | D
 description: "Vytvoření a nasazení aplikace Service Fabric pomocí Javy"
 services: service-fabric
 documentationcenter: java
-author: seanmck
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -12,16 +12,19 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: eedddf7a40acfba7513efd810d115f1afe2f224d
-ms.lasthandoff: 03/23/2017
+ms.date: 06/02/2017
+ms.author: ryanwi
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: e229602b4bfa72977c9b15e854d796ed09fa55d2
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>Vytvoření první aplikace Azure Service Fabric
+<a id="create-your-first-service-fabric-java-application-on-linux" class="xliff"></a>
+
+# Vytvoření první aplikace Service Fabric v Javě v Linuxu
 > [!div class="op_single_selector"]
 > * [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -29,46 +32,43 @@ ms.lasthandoff: 03/23/2017
 >
 >
 
-Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET Core a Javy. V tomto kurzu vytvoříme aplikaci pro Linux a sestavíme službu pomocí Javy.  
+Tento rychlý start vám pomůže během několika minut vytvořit první aplikaci Azure Service Fabric v Javě v linuxovém vývojovém prostředí.  Až budete hotovi, budete mít jednoduchou jednoúčelovou aplikaci v Javě spuštěnou v místním vývojovém clusteru.  
 
-> [!NOTE]
-> Java jako prvotřídní integrovaný programovací jazyk je podporována pouze ve verzi Preview pro Linux (podporu pro Windows plánujeme). Nicméně všechny aplikace, včetně aplikací v Javě, můžete spustit jako hostující spustitelné soubory nebo uvnitř kontejnerů v systému Windows nebo v Linuxu. Další informace najdete v tématu [Nasazení existujícího spustitelného souboru do Azure Service Fabric](service-fabric-deploy-existing-app.md) a [Nasazení kontejnerů do Service Fabric](service-fabric-deploy-container.md).
->
+<a id="prerequisites" class="xliff"></a>
 
-## <a name="video-tutorial"></a>Videokurz
+## Požadavky
+Než začnete, nainstalujte sadu Service SDK a Azure CLI a nastavte vývojový cluster ve svém [linuxovém vývojovém prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového vývojového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
 
-Následující video Microsoft Virtual Academy vás provede procesem vytváření aplikace v Javě v Linuxu:  
-<center><a target="\_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Budete také pro nasazení aplikace chtít nakonfigurovat [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (doporučeno) nebo [XPlat CLI](service-fabric-azure-cli.md).
 
+<a id="create-the-application" class="xliff"></a>
 
-## <a name="prerequisites"></a>Požadavky
-Než začnete, ujistěte se, že máte [v Linuxu nastavené vývojové prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
-
-## <a name="create-the-application"></a>Vytvoření aplikace
-Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Service Fabric SDK pro Linux zahrnuje generátor [Yeoman](http://yeoman.io/), který vám usnadní vytvoření první služby a případná další rozšíření později. Pomocí generátoru Yeoman vytvoříme aplikaci s jedinou službou.
+## Vytvoření aplikace
+Aplikace Service Fabric obsahuje jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Service Fabric SDK pro Linux zahrnuje generátor [Yeoman](http://yeoman.io/), který vám usnadní vytvoření první služby a případná další rozšíření později.  Vytvořit, sestavit a nasadit aplikace Service Fabric v Javě můžete také pomocí modulu plug-in pro Eclipse. Viz [Vytvoření a nasazení první aplikace v Javě pomocí Eclipse](service-fabric-get-started-eclipse.md). Pro účely tohoto rychlého startu použijte Yeoman k vytvoření aplikace s jednou službou, která ukládá a získává hodnotu čítače.
 
 1. V terminálu zadejte ``yo azuresfjava``.
-2. Pojmenujte svoji aplikaci.
-3. Vyberte typ první služby a pojmenujte ji. Pro účely tohoto kurzu zvolíme službu Reliable Actor.
-
+2. Pojmenujte svoji aplikaci. 
+3. Vyberte typ první služby a pojmenujte ji. Pro účely tohoto kurzu zvolte službu Reliable Actor. Další informace o ostatních typech služeb najdete v tématu [Přehled programovacího modelu Service Fabric](service-fabric-choose-framework.md).
    ![Generátor Service Fabric Yeoman pro Javu][sf-yeoman]
 
-> [!NOTE]
-> Další informace o možnostech najdete v tématu [Přehled programovacího modelu Service Fabric](service-fabric-choose-framework.md).
->
+<a id="build-the-application" class="xliff"></a>
 
-## <a name="build-the-application"></a>Sestavení aplikace
-Šablona Service Fabric Yeoman zahrnuje skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace u terminálu.
+## Sestavení aplikace
+Šablona Service Fabric Yeoman zahrnuje skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace u terminálu. Pokud chcete sestavit a zabalit aplikaci, spusťte následující:
 
   ```bash
   cd myapp
   gradle
   ```
 
-## <a name="deploy-the-application"></a>Nasazení aplikace
-Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru pomocí rozhraní příkazového řádku Azure.
+<a id="deploy-the-application" class="xliff"></a>
+
+## Nasazení aplikace
+Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru.
+
+<a id="using-xplat-cli" class="xliff"></a>
+
+### Použití XPlat CLI
 
 1. Připojte se k místnímu clusteru služby Service Fabric.
 
@@ -76,52 +76,75 @@ Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru pomoc
     azure servicefabric cluster connect
     ```
 
-2. Pomocí instalačního skriptu, který je součástí šablony, zkopírujte balíček aplikace do úložiště imagí clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
+2. Spuštěním instalačního skriptu, který je součástí šablony, zkopírujte balíček aplikace do úložiště imagí clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
 
     ```bash
     ./install.sh
     ```
 
-3. Otevřete prohlížeč a přejdete k Service Fabric Exploreru na adrese http://localhost:19080/Explorer (pokud používáte Vagrant v Mac OS X, místo localhost použijte privátní IP adresu virtuálního počítače).
+<a id="using-azure-cli-20" class="xliff"></a>
 
-4. Rozbalte uzel Aplikace a všimněte si, že už obsahuje položku pro váš typ aplikace a další položku pro první instanci tohoto typu.
+### Použití Azure CLI 2.0
 
-## <a name="start-the-test-client-and-perform-a-failover"></a>Spuštění klienta testování a převzetí služeb při selhání
-Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba nebo klient posílali zprávy. Šablona actor zahrnuje jednoduchý testovací skript, který můžete použít k interakci se službou actor.
+Nasazení sestavené aplikace je stejné jako u všech ostatních aplikací Service Fabric. Podrobné pokyny najdete v dokumentaci s popisem [správy aplikace Service Fabric pomocí Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
-1. Spusťte skript pomocí pomocného sledovacího programu a prohlédněte si výstup služby actor.
+Parametry těchto příkazů najdete v generovaných manifestech uvnitř balíčku aplikace.
+
+Jakmile je aplikace nasazená, otevřete prohlížeč a přejděte k nástroji [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) na adrese [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Pak rozbalte uzel **Aplikace** a všimněte si, že už obsahuje položku pro váš typ aplikace a další položku pro první instanci tohoto typu.
+
+<a id="start-the-test-client-and-perform-a-failover" class="xliff"></a>
+
+## Spuštění klienta testování a převzetí služeb při selhání
+Samotné objekty actor nic nedělají – vyžadují, aby jim jiná služba nebo klient posílali zprávy. Šablona actor zahrnuje jednoduchý testovací skript, který můžete použít k interakci se službou actor.
+
+1. Spusťte skript pomocí pomocného sledovacího programu a prohlédněte si výstup služby actor.  Testovací skript volá metodu `setCountAsync()` objektu actor pro zvýšení čítače a metodu `getCountAsync()` objektu actor pro získání nové hodnoty čítače, kterou zobrazí v konzole.
 
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 
-2. V Service Fabric Exploreru vyhledejte uzel, který je hostitelem primární repliky pro službu actor. Na snímku níže je to uzel 3.
+2. V nástroji Service Fabric Explorer vyhledejte uzel, který je hostitelem primární repliky pro službu objektu actor. Na snímku níže je to uzel 3. Primární replika služby zpracovává operace čtení a zápisu.  Změny stavu služby se následně replikují do sekundárních replik, které jsou na následujícím snímku obrazovku spuštěné na uzlech 0 a 1.
 
     ![Vyhledání primární repliky v Service Fabric Exploreru][sfx-primary]
 
-3. Klikněte na uzel, který jste našli v předchozím kroku, a potom v nabídce Akce vyberte **Deaktivovat (restartovat)**. Tato akce restartuje jeden z pěti uzlů v místním clusteru a vynutí převzetí služeb při selhání jednou ze sekundárních replik spuštěných v jiném uzlu. Při provádění této akce věnujte pozornost výstupu z klienta testování a všimněte si, že se čítač bez ohledu na převzetí služeb při selhání pořád postupně zvyšuje.
+3. V části **Uzly** klikněte na uzel, který jste našli v předchozím kroku, a pak v nabídce Akce vyberte **Deaktivovat (restartovat)**. Tato akce restartuje uzel spuštěný v primární replice služby a vynutí převzetí služeb při selhání jednou ze sekundárních replik spuštěných na jiném uzlu.  Úroveň této sekundární repliky se zvýší na primární, v jiném uzlu se vytvoří jiná sekundární replika a primární replika začne přijímat operace čtení a zápisu. Při restartování uzlu sledujte výstup z testovacího klienta a všimněte si, že se čítač bez ohledu na převzetí služeb při selhání pořád postupně zvyšuje.
 
-## <a name="create-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Vytvoření a nasazení aplikace pomocí modulu plug-in Eclipse Neon
+<a id="add-another-service-to-the-application" class="xliff"></a>
 
-Service Fabric nabízí také možnost vytvořit, sestavit a nasadit aplikaci Service Fabric Java pomocí Eclipse. Při instalaci Eclipse vyberte **Eclipse IDE pro vývojáře Java**. Navíc Service Fabric teď podporuje modul plug-in pro Eclipse **Neon**. Další informace najdete v podrobné dokumentaci popisující [vytvoření a nasazení vaší první aplikace Service Fabric Java pomocí modulu plug-in Service Fabric pro Eclipse v Linuxu](service-fabric-get-started-eclipse.md).
-
-## <a name="adding-more-services-to-an-existing-application"></a>Přidání více služeb do stávající aplikace
-
-### <a name="using-command-line-utility"></a>Použití nástroje příkazového řádku
-Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, proveďte následující kroky:
+## Přidání další služby do aplikace
+Pokud chcete do existující aplikace přidat další službu pomocí `yo`, proveďte následující kroky:
 1. Změňte adresář na kořenovou složku stávající aplikace.  Například `cd ~/YeomanSamples/MyApplication`, pokud `MyApplication` je aplikace vytvořená pomocí Yeomanu.
 2. Spusťte `yo azuresfjava:AddService`.
+3. Sestavte a nasaďte aplikaci stejně jako v předchozích krocích.
 
-### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Použití modulu plug-in Service Fabric Eclipse pro Javu v Linuxu
-Informace o přidání služby do stávající aplikace vytvořené pomocí modul plug-in Eclipse pro Service Fabric najdete v dokumentaci [tady](service-fabric-get-started-eclipse.md#add-a-service-fabric-service-to-your-service-fabric-application).
+<a id="remove-the-application" class="xliff"></a>
 
-## <a name="next-steps"></a>Další kroky
-* [Vytvoření a nasazení první aplikace Service Fabric Java pomocí modul plug-in Service Fabric pro Eclipse v Linuxu](service-fabric-get-started-eclipse.md)
+## Odebrání aplikace
+Pomocí odinstalačního skriptu, který je součástí šablony, odstraňte instanci aplikace, zrušte registraci balíčku aplikace a odeberete balíček aplikace z úložiště imagí clusteru.
+
+```bash
+./uninstall.sh
+```
+
+V nástroji Service Fabric Explorer uvidíte, že se aplikace a typ aplikace už nezobrazují v uzlu **Aplikace**.
+
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
+* [Vytvoření první aplikace Service Fabric v Javě v Linuxu pomocí Eclipse](service-fabric-get-started-eclipse.md)
 * [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md)
+* [Komunikace s clustery Service Fabric pomocí Azure CLI](service-fabric-azure-cli.md)
 * [Řešení potíží s nasazením](service-fabric-azure-cli.md#troubleshooting)
 * Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
+
+<a id="related-articles" class="xliff"></a>
+
+## Související články
+
+* [Začínáme s platformou Service Fabric a Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Začínáme se Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

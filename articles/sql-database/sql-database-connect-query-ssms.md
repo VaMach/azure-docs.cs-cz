@@ -10,32 +10,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 05/26/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Připojení a dotazování dat pomocí aplikace SQL Server Management Studio
+<a id="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data" class="xliff"></a>
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) je nástroj správy používaný k vytváření a správě prostředků SQL Serveru z uživatelského rozhraní nebo ve skriptech. Tento rychlý start ukazuje použití SSMS k připojení k Azure SQL Database a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi. 
+# Azure SQL Database: Připojení a dotazování dat pomocí aplikace SQL Server Management Studio
+
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) je integrované prostředí pro správu jakékoliv infrastruktury SQL, od SQL Serveru po SQL Database pro Microsoft Windows. Tento rychlý start ukazuje použití SSMS k připojení k Azure SQL Database a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi. 
+
+<a id="prerequisites" class="xliff"></a>
+
+## Požadavky
 
 Tento rychlý start používá jako výchozí bod prostředky vytvořené v některém z těchto rychlých startů:
 
 - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
 - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
+- [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
 
 Než začnete, ujistěte se, že máte nainstalovanou nejnovější verzi aplikace [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## <a name="get-connection-information"></a>Získání informací o připojení
+<a id="get-connection-information" class="xliff"></a>
+
+## Získání informací o připojení
 
 Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
 
@@ -43,11 +53,13 @@ Získejte informace o připojení potřebné pro připojení k databázi SQL Azu
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
 3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na obrázku níže. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.
 
-   ![informace o připojení](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informace o připojení](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Pokud jste zapomněli přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby obnovili heslo. 
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Připojení k vaší databázi na logickému serveru SQL Database
+<a id="connect-to-your-database" class="xliff"></a>
+
+## Připojení k databázi
 
 Pomocí aplikace SQL Server Management Studio navažte připojení k serveru služby Azure SQL Database. 
 
@@ -58,11 +70,14 @@ Pomocí aplikace SQL Server Management Studio navažte připojení k serveru slu
 1. Otevřete SQL Server Management Studio.
 
 2. V dialogovém okně **Připojení k serveru** zadejte následující informace:
-   - **Typ serveru:** Zadejte Databázový stroj.
-   - **Název serveru:** Zadejte plně kvalifikovaný název serveru, například **mynewserver20170313.database.windows.net**.
-   - **Ověřování:** Zadejte Ověřování SQL Serveru.
-   - **Přihlášení:** Zadejte účet správce serveru.
-   - **Heslo:** Zadejte heslo pro účet správce serveru.
+
+   | Nastavení       | Navrhovaná hodnota | Popis | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Typ serveru** | Databázový stroj | Tato hodnota se vyžaduje. |
+   | **Název serveru** | Plně kvalifikovaný název serveru | Název musí vypadat přibližně takto: **mynewserver20170313.database.windows.net**. |
+   | **Ověřování** | Ověřování SQL Serveru | Ověřování SQL je jediný typ ověřování, který jsme v tomto kurzu nakonfigurovali. |
+   | **Přihlášení** | Účet správce serveru | Jedná se o účet, který jste zadali při vytváření serveru. |
+   | **Heslo** | Heslo pro účet správce serveru | Jedná se o heslo, které jste zadali při vytváření serveru. |
 
    ![Připojení k serveru](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -76,7 +91,9 @@ Pomocí aplikace SQL Server Management Studio navažte připojení k serveru slu
 
 5. V Průzkumníku objektů zobrazte objekty v ukázkové databázi rozbalením **Databáze** a potom **mySampleDatabase**.
 
-## <a name="query-data"></a>Dotazování dat
+<a id="query-data" class="xliff"></a>
+
+## Dotazování dat
 
 Použijte následující kód k zadání dotazu na Top 20 produktů podle kategorie pomocí příkazu jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
@@ -94,7 +111,9 @@ Použijte následující kód k zadání dotazu na Top 20 produktů podle katego
 
     ![query](./media/sql-database-connect-query-ssms/query.png)
 
-## <a name="insert-data"></a>Vložení dat
+<a id="insert-data" class="xliff"></a>
+
+## Vložení dat
 
 Použijte následující kód k vložení nového produktu do tabulky SalesLT.Product pomocí příkazu jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
@@ -124,7 +143,9 @@ Použijte následující kód k vložení nového produktu do tabulky SalesLT.Pr
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
-## <a name="update-data"></a>Aktualizace dat
+<a id="update-data" class="xliff"></a>
+
+## Aktualizace dat
 
 Použijte následující kód k aktualizaci nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
@@ -140,7 +161,9 @@ Použijte následující kód k aktualizaci nového produktu, který jste přida
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
-## <a name="delete-data"></a>Odstranění dat
+<a id="delete-data" class="xliff"></a>
+
+## Odstranění dat
 
 Použijte následující kód k odstranění nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
@@ -155,8 +178,11 @@ Použijte následující kód k odstranění nového produktu, který jste přid
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
 
+## Další kroky
+
+- Další informace o vytváření a správě serverů a databází pomocí jazyka Transact-SQL najdete v tématu [Další informace o serverech a databázích Azure SQL Database](sql-database-servers-databases.md).
 - Další informace o aplikaci SSMS najdete v tématu [Použití aplikace SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Informace o připojení a dotazování pomocí Visual Studio Code najdete v tématu [Připojení a dotazování pomocí Visual Studio Code](sql-database-connect-query-vscode.md).
 - Informace o připojení a dotazování pomocí .NET najdete v tématu [Připojení a dotazování pomocí .NET](sql-database-connect-query-dotnet.md).

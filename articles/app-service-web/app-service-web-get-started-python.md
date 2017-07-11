@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření první webové aplikace v Pythonu v Azure během pěti minut | Dokumentace Microsoftu"
-description: "Během několika minut můžete nasadit svou první aplikaci v Pythonu Hello World ve webové aplikaci App Service."
+title: "Vytvoření webové aplikace v Pythonu v Azure | Dokumentace Microsoftu"
+description: "Během několika minut můžete nasadit svou první aplikaci Hello World v Pythonu pomocí služby Azure App Service Web Apps."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -14,40 +14,49 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 06/28/2017
 
 ---
-# <a name="create-a-python-application-on-web-app"></a>Vytvoření aplikace v Pythonu na základě webové aplikace
+<a id="create-a-python-web-app-in-azure" class="xliff"></a>
 
-Tento rychlý úvodní kurz vás provede vývojem a nasazením aplikace v Pythonu do Azure. Aplikaci spustíme s použitím služby Azure App Service a zde vytvoříme a nakonfigurujeme novou webovou aplikaci pomocí Azure CLI. Poté prostřednictvím gitu nasadíme aplikaci v Pythonu do Azure.
+# Vytvoření webové aplikace v Pythonu v Azure
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  Tento kurz Rychlý start vás provede vývojem a nasazením aplikace v Pythonu do Azure Web Apps. Vytvoříte webovou aplikaci pomocí rozhraní příkazového řádku [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu nasadíte do této webové aplikace ukázkový kód v Pythonu.
 
-Podle následujících kroků můžete postupovat v případě počítačů Mac, Windows nebo Linux. K provedení všech kroků by mělo stačit přibližně 5 minut.
+![Ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-## <a name="prerequisites"></a>Požadavky
+Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
+<a id="prerequisites" class="xliff"></a>
 
-Před spuštěním této ukázky místně nainstalujte následující požadované položky:
+## Požadavky
 
-1. [Stáhněte a nainstalujte git](https://git-scm.com/).
-1. [Stáhněte a nainstalujte Python](https://www.python.org/downloads/).
-1. Stáhněte a nainstalujte [rozhraní příkazového řádku Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Pro absolvování tohoto kurzu potřebujete:
 
-## <a name="download-the-sample"></a>Stažení ukázky
+1. [Nainstalovat Git](https://git-scm.com/).
+1. [Nainstalovat Python](https://www.python.org/downloads/).
 
-Naklonujte úložiště ukázkové aplikace Hello World do místního počítače.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+<a id="download-the-sample" class="xliff"></a>
+
+## Stažení ukázky
+
+V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-> [!TIP]
-> Alternativně můžete [stáhnout ukázku](https://github.com/Azure-Samples/Python-docs-hello-world/archive/master.zip) jako soubor ZIP a rozbalit ho.
+Toto okno terminálu budete používat ke spuštění všech příkazů v tomto kurzu Rychlý start.
 
 Přejděte do adresáře, který obsahuje ukázkový kód.
 
@@ -55,189 +64,54 @@ Přejděte do adresáře, který obsahuje ukázkový kód.
 cd Python-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>Místní spuštění aplikace
+<a id="run-the-app-locally" class="xliff"></a>
 
-Spusťte aplikaci místně tak, že otevřete okno terminálu a pomocí příkazu `Python` pro ukázku spustíte vestavěný webový server Python.
+## Místní spuštění aplikace
+
+Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí příkazu `Python` spustíte integrovaný webový server Python.
 
 ```bash
 python main.py
 ```
 
-Otevřete webový prohlížeč a přejděte k ukázce.
-
-```bash
-http://localhost:5000
-```
+Otevřete webový prohlížeč a přejděte na ukázkovou aplikaci na adrese http://localhost:5000.
 
 Na stránce se zobrazí zpráva **Hello World** od ukázkové aplikace.
 
-![localhost-hello-world-in-browser](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
+![Ukázková aplikace spuštěná místně](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
 V okně terminálu ukončete webový server stisknutím **Ctrl + C**.
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
-Teď prostřednictvím rozhraní příkazového řádku Azure CLI 2.0 v okně terminálu vytvoříme prostředky potřebné pro hostování aplikace v Pythonu v Azure. Přihlaste se k předplatnému Azure pomocí příkazu [az login](/cli/azure/#login) a postupujte podle pokynů na obrazovce.
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-```azurecli
-az login
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+
+![Prázdná stránka webové aplikace](media/app-service-web-get-started-python/app-service-web-service-created.png)
+
+Nyní jste v Azure vytvořili novou prázdnou webovou aplikaci.
+
+<a id="configure-to-use-python" class="xliff"></a>
+
+## Konfigurace pro použití Pythonu
+
+Pomocí příkazu [az webapp config set](/cli/azure/webapp/config#set) nakonfigurujte webovou aplikaci tak, aby používala Python verze `3.4`.
+
+```azurecli-interactive
+az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="configure-a-deployment-user"></a>Konfigurace uživatele nasazení
 
-Pro FTP a místní Git je třeba mít na serveru nakonfigurovaného uživatele nasazení, aby bylo možné nasazení ověřit. Vytvoření uživatele nasazení představuje jednorázovou konfiguraci. Uživatelské jméno a heslo si poznamenejte, protože je použijete v následujícím kroku.
+Pokud nastavíte verzi Pythonu tímto způsobem, použije se výchozí kontejner poskytnutý platformou. Pokud chcete použít vlastní kontejner, v referenci k rozhraní CLI vyhledejte příkaz [az webapp config container set](/cli/azure/webapp/config/container#set).
 
-> [!NOTE]
-> Uživatel nasazení je vyžadován pro nasazení pomocí FTP a místního Gitu do webové aplikace.
-> Položky `username` a `password` jsou na úrovni účtu, a tudíž se liší od přihlašovacích údajů předplatného Azure. **Vytvoření těchto přihlašovacích údajů je vyžadováno pouze jednou.**
->
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-Pomocí příkazu [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) vytvořte své přihlašovací údaje na úrovni účtu.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
-
-## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
-
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure, jako například webové aplikace, databáze a účty úložiště.
-
-```azurecli
-az group create --name myResourceGroup --location westeurope
-```
-
-## <a name="create-an-azure-app-service"></a>Vytvoření služby Azure App Service
-
-Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvořte plán služby App Service.
-
-> [!NOTE]
-> Plán služby App Service představuje kolekci fyzických prostředků použitých k hostování vašich aplikací. Všechny aplikace přiřazené k plánu služby App Service sdílí službou definované prostředky, a tím umožňují snížení nákladů při hostování více aplikací.
->
-> Plány služby App Service definují:
-> * Oblast (Severní Evropa, Východní USA, Jihovýchodní Asie)
-> * Velikost instance (Malá, Střední, Velká)
-> * Počet škálování (jedna, dvě nebo tři instance atd.)
-> * SKU (Free, Shared, Basic, Standard, Premium)
->
-
-Následující příklad vytvoří plán služby App Service s názvem `quickStartPlan` s použitím cenové úrovně **FREE**.
-
-```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
-```
-
-Po vytvoření plánu služby App Service se v rozhraní příkazového řádku Azure zobrazí podobné informace jako v následujícím příkladu.
-
-```json
-{
-"appServicePlanName": "quickStartPlan",
-"geoRegion": "North Europe",
-"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-"kind": "app",
-"location": "North Europe",
-"maximumNumberOfWorkers": 1,
-"name": "quickStartPlan",
-"provisioningState": "Succeeded",
-"resourceGroup": "myResourceGroup",
-"sku": {
-  "capacity": 0,
-  "family": "F",
-  "name": "F1",
-  "size": "F1",
-  "tier": "Free"
-},
-"status": "Ready",
-"type": "Microsoft.Web/serverfarms",
-}
-```
-
-## <a name="create-a-web-app"></a>Vytvoření webové aplikace
-
-Po vytvoření plánu služby App Service teď vytvořte v rámci plánu služby App Service `quickStartPlan` webovou aplikaci. Tato aplikace poskytuje prostor hostitele pro nasazení kódu a také adresu URL, jejímž prostřednictvím lze nasazenou aplikaci zobrazit. Pomocí příkazu [az appservice web create](/cli/azure/appservice/web#create) vytvořte webovou aplikaci.
-
-V následujícím příkazu nahraďte zástupný symbol `<app_name>` vlastním jedinečným názvem aplikace. `<app_name>` se použije jako výchozí název DNS pro příslušnou webovou aplikaci, proto musí být mezi všemi aplikacemi v Azure jedinečný. Později můžete na webovou aplikaci namapovat libovolné vlastní záznamy DNS, než ji zpřístupníte uživatelům.
-
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
-```
-
-Po vytvoření webové aplikace se v Azure CLI zobrazí podobné informace jako v následujícím příkladu.
-
-```json
-{
-  "clientAffinityEnabled": true,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "hostNames": [
-    "<app_name>.azurewebsites.net"
-  ],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
-  "kind": "app",
-  "location": "North Europe",
-  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
-  "resourceGroup": "myResourceGroup",
-  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-  "state": "Running",
-  "type": "Microsoft.Web/sites",
-}
-```
-
-Přejděte na web a zobrazte nově vytvořenou webovou aplikaci.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
-
-Nyní jsme v Azure vytvořili novou prázdnou webovou aplikaci. Teď webovou aplikaci nakonfigurujeme tak, aby používala Python, a nasadíme do ní naši aplikaci.
-
-## <a name="configure-to-use-python"></a>Konfigurace pro použití Pythonu
-
-Pomocí příkazu [az appservice web config update](/cli/azure/app-service/web/config#update) nakonfigurujte webovou aplikaci tak, aby používala Python verze `3.4`.
-
-> [!TIP]
-> Tento způsob nastavení verze Pythonu používá výchozí kontejner poskytovaný platformou. Pokud chcete použít vlastní kontejner, vyhledejte referenční informace pro příkaz příkazového řádku [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
-
-```azurecli
-az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
-```
-
-## <a name="configure-local-git-deployment"></a>Konfigurace nasazení místního gitu
-
-K nasazení do webové aplikace můžete použít celou řadu způsobů, včetně FTP, místního Gitu, GitHubu, Visual Studio Team Services nebo Bitbucketu.
-
-Pomocí příkazu [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) nakonfigurujte přístup k webové aplikaci přes místní git.
-
-```azurecli
-az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
-```
-
-Zkopírujte výstup z terminálu, budete ho potřebovat v dalším kroku.
-
-```bash
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
-```
-
-## <a name="push-to-azure-from-git"></a>Přenos z Gitu do Azure
-
-Přidejte vzdálené úložiště Azure do místního úložiště Gitu.
-
-```bash
-git remote add azure <paste-previous-command-output-here>
-```
-
-Nasaďte aplikaci do vzdáleného úložiště Azure. Zobrazí se výzva k zadání hesla, které jste zadali dříve v rámci vytváření nasazení uživatele.
-
-```azurecli
-git push azure master
-```
-
-Během nasazení bude služba Azure App Service komunikovat průběh nasazování s Gitem.
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
@@ -281,7 +155,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Přechod do aplikace
+<a id="browse-to-the-app" class="xliff"></a>
+
+## Přechod do aplikace
 
 V prohlížeči zadejte adresu nasazené aplikace.
 
@@ -289,59 +165,55 @@ V prohlížeči zadejte adresu nasazené aplikace.
 http://<app_name>.azurewebsites.net
 ```
 
-Tentokrát je stránka, která zobrazuje zprávu Hello World, spuštěná pomocí našeho kódu v Pythonu, který je spuštěný jako webová aplikace Azure App Service.
+Ukázkový kód Pythonu je spuštěný ve webové aplikaci služby Azure App Service.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-## <a name="updating-and-deploying-the-code"></a>Aktualizace a nasazení kódu
+**Blahopřejeme!** Nasadili jste svoji první aplikaci v Pythonu do služby App Service.
 
-Pomocí místního textového editoru otevřete soubor `main.py` v rámci aplikace v Pythonu a proveďte malou změnu textu v řetězci vedle příkazu `return`:
+<a id="update-and-redeploy-the-code" class="xliff"></a>
+
+## Aktualizace a opětovné nasazení kódu
+
+Pomocí místního textového editoru otevřete soubor `main.py` v rámci aplikace v Pythonu a proveďte malou změnu textu vedle příkazu `return`:
 
 ```python
 return 'Hello, Azure!'
 ```
 
-Potvrďte změny v gitu a potom odešlete změny kódu do Azure.
+Potvrďte změny v Gitu a potom odešlete změny kódu do Azure.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Po dokončení nasazení se přepněte zpět do okna prohlížeče, které se otevřelo v kroku Přechod do aplikace, a stiskněte tlačítko Aktualizovat.
+Po dokončení nasazení se vraťte do okna prohlížeče, které se otevřelo v kroku [Přechod do aplikace](#browse-to-the-app), a aktualizujte zobrazení stránky.
 
-![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
+![Aktualizovaná ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Správa vaší nové webové aplikace Azure
+<a id="manage-your-new-azure-web-app" class="xliff"></a>
 
-Přejděte na web Azure Portal a podívejte se na webovou aplikaci, kterou jste právě vytvořili.
+## Správa vaší nové webové aplikace Azure
 
-Chcete-li to provést, přihlaste se na adrese [https://portal.azure.com](https://portal.azure.com).
+Pokud chcete spravovat webovou aplikaci, kterou jste vytvořili, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 V levé nabídce klikněte na **App Services** a pak klikněte na název vaší webové aplikace Azure.
 
-![Navigace portálem k webové aplikaci Azure](./media/app-service-web-get-started-python/app-service-list.png)
+![Navigace portálem k webové aplikaci Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
-Dostali jste se do _okna_ vaší webové aplikace (stránka portálu, která se otvírá vodorovně).
+Zobrazí se stránka s přehledem vaší webové aplikace. Tady můžete provádět základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění. 
 
-Ve výchozím nastavení bude okno vaší webové aplikace obsahovat stránku **Přehled**. Tato stránka poskytuje přehled, jak si vaše aplikace stojí. Tady můžete také provést základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění. Karty na levé straně okna zobrazují další stránky konfigurace, které můžete otevřít.
+![Okno App Service na webu Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-![Okno App Service na webu Azure Portal](media/app-service-web-get-started-python/app-service-detail.png)
-
-Tyto karty v okně zobrazují mnoho skvělých funkcí, které můžete do své webové aplikace přidat. Následující seznam obsahuje jen několik možností:
-
-* Mapování vlastního názvu DNS
-* Vazba vlastního certifikátu SSL
-* Konfigurace průběžného nasazování
-* Vertikální i horizontální navýšení kapacity
-* Přidání ověřování uživatelů
-
-**Blahopřejeme!** Nasadili jste svoji první aplikaci v Pythonu do služby App Service.
+Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplikace. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 
 > [!div class="nextstepaction"]
-> [Prozkoumejte ukázkové skripty rozhraní příkazového řádku pro Web Apps](app-service-cli-samples.md)
+> [Python sh PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)
 

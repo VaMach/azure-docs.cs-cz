@@ -1,6 +1,6 @@
 ---
-title: "Začínáme s Apache Kafka v prostředí HDInsight | Dokumentace Microsoftu"
-description: "Přečtěte si základní informace o vytváření a používání platforem Kafka v prostředí HDInsight."
+title: "Začínáme s Apache Kafka – Azure HDInsight | Dokumentace Microsoftu"
+description: "Zjistěte, jak vytvořit cluster Apache Kafka v Azure HDInsight. Naučte se, jak vytvářet témata, odběratele a příjemce."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,37 +13,37 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 06/23/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 695c6bd0a08e88be2d8e28eb15d903f3ae1eccaf
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 80d4aced5e4f4b053b3b5f30a6fc383f1c4d6d27
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Začínáme s Apache Kafka (Preview) v prostředí HDInsight
+<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
 
-[Apache Kafka](https://kafka.apache.org) je open source distribuovaná streamovací platforma, která je dostupná pro HDInsight. Často se používá jako zprostředkovatel zpráv, protože nabízí funkce podobné frontě pro publikování a odběr zpráv. V tomto dokumentu si ukážeme, jak vytvořit cluster HDInsight se systémem Kafka a jak potom odesílat a přijímat data z aplikace v Javě.
+# Začínáme s Apache Kafka (Preview) v prostředí HDInsight
+
+Zjistěte, jak vytvořit a používat cluster [Apache Kafka](https://kafka.apache.org) v Azure HDInsight. Kafka je opensourcová distribuovaná streamovací platforma, která je dostupná pro HDInsight. Často se používá jako zprostředkovatel zpráv, protože nabízí funkce podobné frontě pro publikování a odběr zpráv.
 
 > [!NOTE]
 > Aktuálně jsou pro HDInsight dostupné dvě verze Kafka: 0.9.0 (HDInsight 3.4) a 0.10.0 (HDInsight 3.5). Postupy v tomto dokumentu platí pro HDInsight 3.5.
 
-## <a name="prerequisite"></a>Požadavek
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Pro úspěšné dokončení tohoto kurzu Apache Kafka budete potřebovat následující:
+<a id="prerequisites" class="xliff"></a>
 
-* **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-* **Znalost SSH a SCP**. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+## Požadavky
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) nebo ekvivalentní, například OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-## <a name="create-a-kafka-cluster"></a>Vytvoření clusteru Kafka
+<a id="create-a-kafka-cluster" class="xliff"></a>
+
+## Vytvoření clusteru Kafka
 
 Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDInsight:
 
@@ -74,27 +74,38 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
      
     ![Výběr typu clusteru](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
-    > [!NOTE]
-    > Pokud vaše předplatné Azure nemá přístup k verzi Kafka Preview, zobrazí se pokyny, jak tento přístup získat. Zobrazí se obrazovka s pokyny podobná této:
-    >
-    > ![Zpráva o verzi Preview: Pokud chcete nasadit spravovaný cluster Apache Kafka v HDInsight, pošlete nám e-mail se žádostí o přístup k verzi Preview.](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
-
 4. Po výběru typu clusteru použijte tlačítko __Vybrat__ k výběru typu clusteru. Dále stisknutím tlačítka __Další__ dokončete základní konfiguraci.
 
 5. V okně **Úložiště** vyberte nebo vytvořte účet úložiště. Pro ukázkový postup v tomto dokumentu ponechte všechna ostatní pole v tomto okně na výchozích hodnotách. Stisknutím tlačítka __Další__ uložte konfiguraci úložiště.
 
     ![Nastavení účtu úložiště pro HDInsight](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. V okně **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec stisknutím tlačítka Vytvořit cluster vytvořte.
+6. Pokud chcete pokračovat, v okně __Aplikace (volitelné)__ vyberte __Další__. Pro tento příklad se nepožadují žádné aplikace.
+
+7. Pokud chcete pokračovat, v okně __Velikost clusteru__ vyberte __Další__.
+
+    > [!WARNING]
+    > Pokud chcete zajistit dostupnost Kafka v HDInsightu, musí cluster obsahovat aspoň tři pracovní uzly.
+
+    ![Nastavení velikosti clusteru Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
+
+    > [!NOTE]
+    > Položka počtu disků v pracovním uzlu určuje škálovatelnost Kafka v HDInsightu. Další informace najdete v tématu věnovaném [konfiguraci úložiště a škálovatelnosti Kafka v HDInsightu](hdinsight-apache-kafka-scalability.md).
+
+8. Pokud chcete pokračovat, v okně __Upřesňující nastavení__ vyberte __Další__.
+
+9. V okně **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec stisknutím tlačítka Vytvořit cluster vytvořte.
    
     ![Souhrn konfigurace clusteru](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
     > [!NOTE]
     > Vytvoření clusteru trvá přibližně 20 minut.
 
-## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
+<a id="connect-to-the-cluster" class="xliff"></a>
 
-Z klienta se připojte ke clusteru pomocí SSH. Pokud používáte systém Linux, Unix, MacOS nebo prostředí Bash ve Windows 10, použijte následující příkaz:
+## Připojení ke clusteru
+
+Z klienta se připojte ke clusteru pomocí SSH:
 
 ```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
 
@@ -104,7 +115,7 @@ Po zobrazení výzvy zadejte heslo, které jste pro účet SSH nastavili.
 
 Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-##<a id="getkafkainfo"></a>Získání informací o hostiteli Zookeeper a Broker
+## <a id="getkafkainfo"></a>Získání informací o hostiteli Zookeeper a Broker
 
 Při práci s platformou Kafka musíte znát dvě hodnoty hostitelů; hostitele *Zookeeper* a hostitele *Broker*. Tito hostitelé se používají s rozhraním Kafka API s mnohými z nástrojů, které se s tímto systémem dodávají.
 
@@ -116,12 +127,12 @@ Podle následujícího postupu vytvoříte proměnné prostředí s informacemi 
     sudo apt -y install jq
     ```
 
-2. Použitím následujících příkazů nastavte proměnné prostředí s informace získanými z Ambari. Místo __KAFKANAME__ zadejte název vašeho clusteru Kafka. Místo __PASSWORD__ zadejte heslo (správce) pro určené při vytváření clusteru.
+2. Použitím následujících příkazů nastavte proměnné prostředí s informace získanými z Ambari. Místo __CLUSTERNAME__ zadejte název vašeho clusteru Kafka. Místo __PASSWORD__ zadejte heslo (správce) pro určené při vytváření clusteru.
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
@@ -136,16 +147,18 @@ Podle následujícího postupu vytvoříte proměnné prostředí s informacemi 
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
    
     > [!WARNING]
-    > Nespoléhejte na to, že informace vrácené v této relaci budou vždy přesné. Při škálování clusteru můžou být zprostředkovatelé přidáni nebo odebráni. Pokud dojde k chybě a dojde k nahrazení uzlu, může se změnit název hostitele pro uzel. 
-    > 
+    > Nespoléhejte na to, že informace vrácené v této relaci budou vždy přesné. Při škálování clusteru můžou být zprostředkovatelé přidáni nebo odebráni. Pokud dojde k chybě a dojde k nahrazení uzlu, může se změnit název hostitele pro uzel.
+    >
     > Pokud chcete mít jistotu, že jsou informace platné, načtěte informace o hostitelích Zookeeper a Broker až krátce před jejich použitím.
 
-## <a name="create-a-topic"></a>Vytvoření tématu
+<a id="create-a-topic" class="xliff"></a>
+
+## Vytvoření tématu
 
 Kafka ukládá datové proudy do kategorií označovaných jako *témata*. V okně SSH připojenému k hlavnímu uzlu clusteru připojení použijte skript pro vytvoření tématu, dodaný se systémem Kafka:
 
 ```bash
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
 Tento příkaz se připojí k hostiteli Zookeeper s použitím informací uložených v proměnné `$KAFKAZKHOSTS` a vytvoří téma Kafka s názvem **test**. Vytvoření tématu můžete ověřit použitím následujícího skriptu pro vypsání témat:
@@ -156,7 +169,9 @@ Tento příkaz se připojí k hostiteli Zookeeper s použitím informací ulože
 
 Výstup tohoto příkazu vypíše seznam témat Kafka, který obsahuje i téma **test**.
 
-## <a name="produce-and-consume-records"></a>Produkce a konzumace záznamů
+<a id="produce-and-consume-records" class="xliff"></a>
+
+## Produkce a konzumace záznamů
 
 Kafka ukládá *záznamy* v tématech. Záznamy jsou vytvářeny *producenty* a spotřebovávány *konzumenty*. Producenti načítají záznamy ze *zprostředkovatelů* Kafka. Každý pracovní uzel v clusteru HDInsight je zprostředkovatelem Kafka.
 
@@ -173,14 +188,16 @@ Následujícím postupem uložíte záznamy do dříve vytvořeného tématu tes
 2. Ke čtení záznamů z tématu použijte skript dodaný se systémem Kafka:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
    
-    Ten načte záznamy z tématu a zobrazí je. Parametr `--from-beginning` způsobí, že konzument začne načítat od začátku datového proudu a zpracuje tak všechny záznamy.
+    Tento příkaz načte záznamy z tématu a zobrazí je. Parametr `--from-beginning` způsobí, že konzument začne načítat od začátku datového proudu a zpracuje tak všechny záznamy.
 
 3. Konzumenta zastavíte stisknutím __Ctrl+C__.
 
-## <a name="producer-and-consumer-api"></a>Rozhraní API pro producenta a konzumenta
+<a id="producer-and-consumer-api" class="xliff"></a>
+
+## Rozhraní API pro producenta a konzumenta
 
 Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému Kafka](http://kafka.apache.org/documentation#api). Ke stažení a sestavení producenta a konzumenta v jazyce Java použijte následující postup:
 
@@ -192,12 +209,12 @@ Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému 
 
     * **Consumer** – čte záznamy z tématu.
 
-2. Na příkazové řádku ve vašem vývojovém prostředí přejděte do adresáře `Producer-Consumer` tohoto příkladu a pak zadáním následujícího příkazu vytvořte balíček jar:
-   
+2. Přejděte do adresáře `Producer-Consumer` tohoto příkladu a pak zadáním následujícího příkazu vytvořte balíček jar:
+
     ```
     mvn clean package
     ```
-   
+
     Tento příkaz vytvoří adresář s názvem `target`, který bude obsahovat soubor s názvem `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
 3. Pomocí následujících příkazů zkopírujte soubor `kafka-producer-consumer-1.0-SNAPSHOT.jar` do vašeho clusteru HDInsight:
@@ -208,13 +225,13 @@ Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému 
    
     Místo **SSHUSER** použijte jméno uživatele SSH pro váš cluster a místo **CLUSTERNAME** zadejte název clusteru. Po zobrazení výzvy zadejte heslo uživatele SSH.
 
-4. Až příkaz `scp` dokončí kopírování souboru, připojte se ke clusteru pomocí SSH a pak následujícím příkazem zapište záznamy do tématu test, které jste vytvořili dříve.
-   
+4. Jakmile příkaz `scp` dokončí kopírování souboru, připojte se ke clusteru pomocí SSH. Pomocí následujícího příkazu zapište záznamy do tématu test:
+
     ```bash
     ./kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-   
-    Tento program spustí producenta a zapíše záznamy. Zobrazí se počitadlo jako ukazatel průběhu.
+
+    Zobrazí se počitadlo jako ukazatel průběhu.
 
     > [!NOTE]
     > Pokud se zobrazí chyba oprávnění, pomocí následujícího příkazu nastavte soubor jako spustitelný: ```chmod +x kafka-producer-consumer.jar```
@@ -229,7 +246,9 @@ Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému 
 
 6. Konzumenta ukončíte stisknutím __Ctrl+C__.
 
-### <a name="multiple-consumers"></a>Víc současných konzumentů
+<a id="multiple-consumers" class="xliff"></a>
+
+### Víc současných konzumentů
 
 Důležitou koncepcí platformy Kafka je, že konzumenti můžou při čtení záznamů používat skupiny konzumentů (definované pomocí ID skupiny). Výsledkem použití skupiny s více konzumenty je vyvážení zatížení při čtení záznamů z tématu. Každý konzument ze skupiny obdrží určitou část záznamů. Pokud chcete vidět tento proces v akci, použijte následující postup:
 
@@ -240,7 +259,7 @@ Důležitou koncepcí platformy Kafka je, že konzumenti můžou při čtení z�
     ```
 
     > [!NOTE]
-    > Protože jde o novou relaci SSH, musíte pomocí příkazů popsaných v části [Získání informací o hostiteli Zookeeper a Broker](#getkafkainfo) nastavit proměnnou `$KAFKABROKERS`.
+    > Příkazů popsaných v části [Získání informací o hostiteli Zookeeper a Broker](#getkafkainfo) nastavte proměnnou `$KAFKABROKERS` pro tuto relaci SSH.
 
 2. Sledujte, jak v každé relaci narůstá počet načtených záznamů. Celkový počet v obou relacích by měl být stejný jako v předchozím příkladu s jedním konzumentem.
 
@@ -251,7 +270,9 @@ Konzumace klienty ze stejné skupiny se realizuje rozdělením tématu na oddíl
 
 Záznamy se v systému Kafka ukládají v pořadí, ve kterém je oddíl přijme. Pro dosažení doručování záznamů ve správném pořadí *v rámci oddílu* vytvořte skupinu příjemců, ve které bude počet instancí konzumentů odpovídat počtu oddílů. Pro dosažení doručování záznamů ve správném pořadí *v rámci tématu* vytvořte skupinu obsahující pouze jednu instanci konzumenta.
 
-## <a name="streaming-api"></a>API pro streamování
+<a id="streaming-api" class="xliff"></a>
+
+## API pro streamování
 
 Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.0; starší verze nechávají zpracování datových proudů na Apache Spark nebo Storm.
 
@@ -260,11 +281,11 @@ Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.
     Tento projekt obsahuje pouze jednu třídu, `Stream`, která čte záznamy z dříve vytvořeného tématu `test`. Počítá přečtená slova a odesílá každé slovo a aktuální počet do tématu s názvem `wordcounts`. Téma `wordcounts` vytvoříme později v této části.
 
 2. Na příkazovém řádku ve vašem vývojovém prostředí přejděte do adresáře `Streaming` a pak zadáním následujícího příkazu vytvořte balíček jar:
-   
-    ```
+
+    ```bash
     mvn clean package
     ```
-   
+
     Tento příkaz vytvoří adresář s názvem `target`, který bude obsahovat soubor s názvem `kafka-streaming-1.0-SNAPSHOT.jar`.
 
 3. Pomocí následujících příkazů zkopírujte soubor `kafka-streaming-1.0-SNAPSHOT.jar` do vašeho clusteru HDInsight:
@@ -278,7 +299,7 @@ Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.
 4. Až příkaz `scp` dokončí kopírování souboru, připojte se ke clusteru pomocí SSH a pak následujícím příkazem vytvořte téma `wordcounts`:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
     ```
 
 5. Potom spusťte streamovací proces pomocí následujícího příkazu:
@@ -326,20 +347,29 @@ Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.
 
 7. Stisknutím __Ctrl+C__ ukončete konzumenta a pak pomocí příkazu `fg` přeneste streamovací úlohu z pozadí zpět na popředí. Ukončete i ji stisknutím __Ctrl+C__.
 
-## <a name="delete-the-cluster"></a>Odstranění clusteru
+<a id="delete-the-cluster" class="xliff"></a>
+
+## Odstranění clusteru
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Řešení potíží
+<a id="troubleshoot" class="xliff"></a>
+
+## Řešení potíží
 
 Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 
 V tomto dokumentu jste se naučili základy práce s platformou Apache Kafka v HDInsight. Další informace o práci s platformou Kafka najdete v těchto zdrojích:
 
+* [Zajištění vysoké dostupnosti dat s využitím Kafka ve službě HDInsight](hdinsight-apache-kafka-high-availability.md)
+* [Zvýšení škálovatelnosti konfigurací spravovaných disků s využitím Kafka v HDInsightu](hdinsight-apache-kafka-scalability.md)
 * [Dokumentace Apache Kafka](http://kafka.apache.org/documentation.html) na webu kafka.apache.org.
 * [Vytvoření repliky Kafka ve službě HDInsight pomocí MirrorMakeru](hdinsight-apache-kafka-mirroring.md)
 * [Použití Apache Stormu se systémem Kafka ve službě HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Použití Apache Sparku se systémem Kafka ve službě HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Připojení k systému Kafka přes virtuální síť Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
+
