@@ -1,17 +1,37 @@
-Při vytváření brány virtuální sítě musíte určit SKU brány, které chcete použít. Pokud vyberete vyšší SKU brány, přidělí se pro bránu víc procesorů a šířky pásma sítě, a v důsledku toho může brána podporovat vyšší propustnost sítě k virtuální síti.
+Při vytváření brány virtuální sítě musíte určit SKU brány, které chcete použít. Vyberte SKU, které splňují vaše požadavky na základě typů úloh, propustnosti, funkcí a SLA.
 
-VPN Gateway může používat následující SKU:
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-* Basic
-* Standard
-* HighPerformance
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-VPN Gateway nepoužívá SKU brány UltraPerformance. Informace o SKU UltraPerformance najdete v dokumentaci k [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+###  <a name="workloads"></a>Produkční *vs.* vývojářské a testovací úlohy
 
-Při výběru SKU zvažte následující informace:
+Vzhledem k rozdílům ve SLA a sadách funkcí doporučujeme pro produkci *vs.* vývoj a testování následující SKU:
 
-* Pokud chcete použít síť VPN typu PolicyBased, musíte použít SKU Basic. Sítě VPN typu PolicyBased (dříve nazývané Statické směrování) nejsou podporovány jinými SKU.
-* Protokol BGP není podporován v základní SKU.
-* Konfigurace současného fungování ExpressRoute a služby VPN Gateway nejsou podporované v základní SKU.
-* Propojení VPN Gateway S2S aktivní-aktivní jde konfigurovat jenom v SKU HighPerformance.
+| **Úloha**                       | **SKU**               |
+| ---                                | ---                    |
+| **Produkce, kritické úlohy** | VpnGw1, VpnGw2, VpnGw3 |
+| **Vývoj a testování nebo testování konceptu**   | Basic                  |
+|                                    |                        |
 
+Pokud používáte staré SKU, pro produkci se doporučují Standard a HighPerformance SKU. Informace o starých SKU najdete v tématu věnovaném [SKU brány (staré)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+
+###  <a name="feature"></a>Sady funkcí SKU brány
+
+Nové SKU brány zjednodušují sady funkcí, které se na branách nabízejí:
+
+| **SKU**| **Funkce**|
+| ---    | ---         |
+| VpnGw1<br>VpnGw2<br>VpnGw3|Síť VPN založená na směrování, až 30 tunelů* <br>P2S, BGP, aktivní-aktivní, vlastní zásady IPsec/IKE, koexistence ExpressRoute/VPN <br><br>* Můžete nakonfigurovat PolicyBasedTrafficSelectors pro připojení brány sítě VPN založené na směrování (VpnGw1, VpnGw2, VpnGw3) k několika místním zařízením brány firewall založeným na zásadách. Podrobnosti najdete v tématu věnovaném [připojení bran VPN k několika místním zařízením VPN založeným na zásadách s využitím PowerShellu](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md). |
+|Basic   | Založené na směrování: 10 tunelů s P2S<br>Založené na zásadách (IKEv1): 1 tunel, bez P2S|
+|        |             |
+
+###  <a name="resize"></a>Změna velikosti SKU brány
+
+1. Můžete měnit velikost mezi VpnGw1, VpnGw2 a VpnGw3 SKU.
+2. Pokud používáte staré SKU brány, můžete měnit velikost mezi Basic, Standard a HighPerformance SKU.
+2. **Není možné** změnit velikost z Basic/Standard/HighPerformance SKU na nové VpnGw1/VpnGw2/VpnGw3 SKU. Místo toho je nutné na nové SKU [migrovat](#migrate).
+
+###  <a name="migrate"></a>Migrace ze starých SKU na nové SKU
+
+[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

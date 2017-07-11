@@ -4,7 +4,7 @@ description: "Tento dokument vám poskytne úvodní přehled řešení Zabezpeč
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,22 +13,29 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Začínáme s řešením Zabezpečení a audit v Operations Management Suite
+<a id="getting-started-with-operations-management-suite-security-and-audit-solution" class="xliff"></a>
+
+# Začínáme s řešením Zabezpečení a audit v Operations Management Suite
 Tento dokument vám umožní rychle začít používat řešení Zabezpečení a audit v Operations Management Suite (OMS) a provede vás jednotlivými možnostmi.
 
-## <a name="what-is-oms"></a>Co je OMS?
+<a id="what-is-oms" class="xliff"></a>
+
+## Co je OMS?
 Microsoft Operations Management Suite (OMS) je cloudové řešení společnosti Microsoft pro správu IT, které pomáhá se správou a ochranou místních a cloudových infrastruktur. Další informace o OMS najdete v článku [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## <a name="oms-security-and-audit-dashboard"></a>Řídicí panel Zabezpečení a audit v OMS
+<a id="oms-security-and-audit-dashboard" class="xliff"></a>
+
+## Řídicí panel Zabezpečení a audit v OMS
 Řešení Zabezpečení a audit v OMS poskytuje ucelený přehled o stavu zabezpečení IT vaší organizace pomocí předdefinovaných vyhledávacích dotazů na důležité problémy, které vyžadují vaši pozornost. Řídicí panel **Zabezpečení a audit** je domovskou obrazovkou pro všechno, co v OMS souvisí se zabezpečením. Poskytuje celkový přehled o stavu zabezpečení vašich počítačů. Umožňuje také zobrazit všechny události za posledních 24 hodin, 7 dní nebo za jakýkoli zadaný interval. Řídicí panel **Zabezpečení a audit** je přístupný podle tohoto postupu:
 
 1. Na hlavním řídicím panelu **Microsoft Operations Management Suite** klikněte na dlaždici **Nastavení** nalevo.
@@ -59,7 +66,9 @@ Pokud tento řídicí panel otvíráte poprvé a nemáte ve službě OMS žádn�
 > 
 > 
 
-## <a name="security-domains"></a>Domény zabezpečení
+<a id="security-domains" class="xliff"></a>
+
+## Domény zabezpečení
 Při monitorování prostředků je důležité, abyste byli schopni rychle se dostat k aktuálnímu stavu prostředí. Je ale také důležité mít možnost zpětně vysledovat události, ke kterým došlo v minulosti a které vám pomůžou pochopit, co se v daném okamžiku v prostředí děje. 
 
 > [!NOTE]
@@ -82,7 +91,9 @@ Výsledek vyhledávání je rozdělen do dvou podoken: v levém podokně je rozp
 > 
 > 
 
-### <a name="antimalware-assessment"></a>Posouzení antimalwaru
+<a id="antimalware-assessment" class="xliff"></a>
+
+### Posouzení antimalwaru
 Tato možnost umožňuje rychle identifikovat počítače s nedostatečnou ochranou a počítače, které jsou zasažené malwarem. Načte se posouzení stavu malwaru a zjištěná ohrožení na monitorovaných serverech a výsledky se odešlou službě OMS v cloudu pro zpracování. Servery, na kterých byla nalezena ohrožení a servery s nedostatečnou ochranou se zobrazí v řídicím panelu posouzení malwaru, která je přístupný kliknutím na dlaždici **Posouzení antimalwaru**. 
 
 ![Posouzení malwaru](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
@@ -98,7 +109,9 @@ Stejně jako u kterékoli jiné živé dlaždice na řídicím panelu OMS může
 
 Pokud kliknete na název počítače, získáte chronologický přehled o stavu jeho zabezpečení. To je velmi užitečné v případech, kdy potřebujete zjistit, zda byl nainstalován antimalwarový software, případně kdy byl odebrán.   
 
-### <a name="update-assessment"></a>Posouzení aktualizací
+<a id="update-assessment" class="xliff"></a>
+
+### Posouzení aktualizací
 Tato možnost umožňuje rychle určit celkovou míru vystavení potenciálním problémům zabezpečení a zda a jak kritické jsou dostupné aktualizace pro vaše prostředí. Řešení Zabezpečení a audit v OMS pouze poskytuje vizualizaci těchto aktualizací, skutečná data pocházejí z [řešení Správa aktualizací](oms-solution-update-management.md), což je jiný modul v rámci OMS. Následuje příklad aktualizací:
 
 ![Aktualizace systému](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
@@ -108,7 +121,9 @@ Tato možnost umožňuje rychle určit celkovou míru vystavení potenciálním 
 > 
 > 
 
-### <a name="identity-and-access"></a>Identita a přístup
+<a id="identity-and-access" class="xliff"></a>
+
+### Identita a přístup
 Identita by měla být základní „řídicí plochou“ vaší organizace a její ochrana je tou nejvyšší prioritou. V minulosti byly kolem organizací vytyčeny perimetry, které byly hlavní obrannou linií. V současné době se ale čím dál víc dat a aplikací přesouvá do cloudu a novým perimetrem se proto stává identita. 
 
 > [!NOTE]
@@ -128,32 +143,50 @@ Informace, které jsou k dispozici na tomto řídicím panelu, vám pomůžou ok
 
 Podrobná sestava obsahuje důležité informace o této události, včetně cílového počítače, typu přihlášení (v tomto případě přihlášení k síti), aktivity (v tomto případě událost 4625) a podrobného časování každého pokusu. 
 
-### <a name="computers"></a>Počítače
+<a id="computers" class="xliff"></a>
+
+### Počítače
 Tuto dlaždici můžete použít pro přístup ke všem počítačům, na kterých právě dochází k událostem zabezpečení. Po kliknutí na tuto dlaždici se zobrazí seznam počítačů s událostmi zabezpečení a počet událostí na každém z nich:
 
 ![Počítače](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
 Můžete pokračovat v šetření kliknutím na každý počítač a kontrolou hlášených událostí zabezpečení.
 
-### <a name="threat-intelligence"></a>Analýza hrozeb
+<a id="threat-intelligence" class="xliff"></a>
+
+### Analýza hrozeb
 
 Pomocí možnosti Analýza hrozeb, která je dostupná v řešení Zabezpečení a audit v OMS, můžou správci IT identifikovat ohrožení zabezpečení prostředí – například můžou určit, jestli je konkrétní počítač součástí botnetu. Z počítačů se můžou stát uzly v botnetu, když útočníci neoprávněně nainstalují malware, který tajně připojí počítač k řídicímu serveru. Může také identifikovat potenciální hrozby přicházející z alternativních komunikačních kanálů, jako je například darknet. Další informace o analýze hrozeb najdete v článku [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md).
 
-### <a name="baseline-assessment"></a>Vyhodnocení standardních hodnot
+V některých scénářích si můžete všimnout potenciálně škodlivé IP adresy, ke které přistupoval jeden monitorovaný počítač:
+
+![mapa analýzy hrozeb](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Tato výstraha a další v rámci stejné kategorie se generují prostřednictvím zabezpečení OMS s využitím [analýzy hrozeb Microsoftu](https://youtu.be/O4WtxgUrDc8). Data analýzy hrozeb shromažďuje Microsoft a také se kupují od vedoucích poskytovatelů analýzy hrozeb. Tato data se často aktualizují a přizpůsobují rychle se měnícím hrozbám. Díky jejich povaze je třeba při [vyšetřování](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) výstrah zabezpečení kombinovat je s dalšími zdroji informací o zabezpečení. 
+
+<a id="baseline-assessment" class="xliff"></a>
+
+### Vyhodnocení standardních hodnot
 
 Společnost Microsoft, spolu s organizacemi z oboru a vládními organizacemi po celém světě, definuje konfiguraci systému Windows, která představuje vysoce zabezpečená nastavení serverů. Tuto konfiguraci tvoří sada klíčů registru, nastavení zásad auditu, nastavení zásad zabezpečení a společností Microsoft doporučené hodnoty pro tato nastavení. Tato sada pravidel se označuje jako standardní hodnoty zabezpečení. Další informace o této možnosti najdete v tématu [Vyhodnocování standardních hodnot v řešení Zabezpečení a audit v Operations Management Suite](oms-security-baseline.md).
 
-### <a name="azure-security-center"></a>Azure Security Center
+<a id="azure-security-center" class="xliff"></a>
+
+### Azure Security Center
 Tato dlaždice je v podstatě zkratkou k řídicímu panelu Azure Security Center. Další informace o tomto řešení najdete v článku [Začínáme s Azure Security Center](../security-center/security-center-get-started.md).
 
-## <a name="notable-issues"></a>Významné problémy
+<a id="notable-issues" class="xliff"></a>
+
+## Významné problémy
 Hlavním záměrem této skupiny možností je poskytnout rychlý přehled o problémech, které máte ve svém prostředí roztříděním na kritické události, na upozornění a na informativní sdělení. Dlaždice typu Aktivní problém obsahuje vizualizaci těchto problémů, ale neumožňuje zkoumání jejich podrobností. K tomu budete muset použít dolní část této dlaždice, ve které je název problému, počet zasažených objektů a závažnost.
 
 ![Významné problémy](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
 Můžete si všimnout, že tyto problémy již jsou pokryté ostatními oblastmi skupiny **Domény zabezpečení**, což posiluje záměr tohoto zobrazení: vizualizovat nejdůležitější problémy ve vašem prostředí na jednom místě.
 
-## <a name="detections-preview"></a>Zjištění (Preview)
+<a id="detections-preview" class="xliff"></a>
+
+## Zjištění (Preview)
 Hlavním záměrem této možnosti je umožnit správcům IT rychle identifikovat potenciální ohrožení jejich prostředí a závažnost těchto hrozeb.
 
 ![Analýza hrozeb](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -165,14 +198,18 @@ Tuto možnost můžete použít také při [šetření incidentů](https://blogs
 > 
 > 
 
-## <a name="threat-intelligence"></a>Analýza hrozeb
+<a id="threat-intelligence" class="xliff"></a>
+
+## Analýza hrozeb
 Nový oddíl analýzy hrozeb v řešení Zabezpečení a audit vizualizuje vzory možných útoků různými způsoby: celkový počet serverů s odchozími škodlivými přenosy, typy škodlivých hrozeb a mapa, která ukazuje, odkud příslušné IP adresy pocházejí. S mapou můžete pracovat a zjišťovat další informace klikáním na IP adresy.
 
 Žluté špendlíky na mapě označují příchozí provoz ze škodlivých IP adres. U serverů dostupných z internetu je určitý podíl škodlivého provozu normální, doporučujeme ale tyto pokusy kontrolovat a ujistit se, že nejsou úspěšné. Tyto indikátory jsou založené na protokolech služby IIS, WireData a brány Windows Firewall.  
 
 ![Analýza hrozeb](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
-## <a name="common-security-queries"></a>Běžné dotazy zabezpečení
+<a id="common-security-queries" class="xliff"></a>
+
+## Běžné dotazy zabezpečení
 Seznam běžných dotazů zabezpečení může být užitečný pro rychlé získání informací z prostředků a jejich přizpůsobení podle potřeb vašeho prostředí. Mezi běžné dotazy patří:
 
 * Všechny aktivity zabezpečení
@@ -186,7 +223,9 @@ Seznam běžných dotazů zabezpečení může být užitečný pro rychlé zís
 * Aktivity přihlášení podle účtu
 * Účty, které se vzdáleně přihlásily k počítači "computer01.contoso.com" (nahraďte název počítače podle potřeby)
 
-## <a name="see-also"></a>Viz také
+<a id="see-also" class="xliff"></a>
+
+## Viz také
 V tomto dokumentu jste se seznámili s řešením Zabezpečení a audit v OMS. Další informace o zabezpečení v OMS najdete v následujících článcích:
 
 * [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)

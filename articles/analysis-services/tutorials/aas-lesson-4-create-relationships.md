@@ -1,0 +1,119 @@
+---
+title: "Kurz služby Azure Analysis Services – Lekce 4: Vytvoření relací | Dokumentace Microsoftu"
+description: "Popisuje, jak vytvořit relace v projektu Kurz služby Azure Analysis Services."
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/03/2017
+
+---
+<a id="lesson-4-create-relationships" class="xliff"></a>
+
+# Lekce 4: Vytvoření relací
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+V této lekci ověříte relace, které se automaticky vytvořily při importu dat, a přidáte nové relace mezi různými tabulkami. Relace je propojení dvou tabulek, které určuje, jakým způsobem se data v těchto tabulkách mají korelovat. Například tabulky DimProduct a DimProductSubcategory mají relaci na základě toho, že každý produkt patří do nějaké podkategorie. Další informace najdete v tématu [Relace](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
+  
+Odhadovaný čas dokončení této lekce: **10 minut**  
+  
+<a id="prerequisites" class="xliff"></a>
+
+## Požadavky  
+Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 3: Označení jako tabulky kalendářních dat](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+  
+<a id="review-existing-relationships-and-add-new-relationships" class="xliff"></a>
+
+## Kontrola existujících relací a přidání nových relací  
+Při importu dat pomocí funkce Získání dat jste z databáze AdventureWorksDW2014 získali sedm tabulek. Obecně platí, že při importu dat z relačního zdroje se společně s daty automaticky importují i existující relace. Přesto byste však před tím, než budete pokračovat ve vytváření modelu, měli ověřit správné vytvoření těchto relací mezi tabulkami. Pro účely tohoto kurzu přidáte tři nové relace.  
+  
+<a id="to-review-existing-relationships" class="xliff"></a>
+
+#### Kontrola existujících relací  
+  
+1.  Klikněte na nabídku **Model** > **Zobrazení modelu** > **Zobrazení diagramu**.  
+
+    V zobrazení diagramu se zobrazí návrhář modelů – grafický formát zobrazující všechny importované tabulky propojené čárami. Čáry mezi tabulkami označují relace, které se automaticky vytvořily při importu dat.
+    
+    ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
+  
+    Zahrnuje co nejvíc tabulek je možné s využitím ovládacích prvků minimapy v pravém dolním rohu návrháře modelů. Můžete také kliknout na tabulky a přetáhnout je jinam, přiblížit tabulky k sobě nebo je uspořádat do určitého pořadí. Přesun tabulek nemá vliv na už existující relace mezi nimi. Pokud chcete zobrazit všechny sloupce konkrétní tabulky, klikněte na okraj tabulky a tažením ji zvětšete nebo zmenšete.  
+  
+2.  Klikněte na plnou čáru mezi tabulkami **DimCustomer** a **DimGeography**. Plná čára mezi těmito dvěma tabulkami ukazuje, že je tato relace aktivní, tzn. že se používá ve výchozím nastavení při výpočtech vzorců DAX.  
+  
+    Všimněte si, že se teď v rámečku zobrazuje sloupec **GeographyKey** v tabulce **DimCustomer** i sloupec **GeographyKey** v tabulce **DimGeography**. Tyto sloupce se používají v relaci. V okně **Vlastnosti** se teď také zobrazují vlastnosti relace.  
+  
+    > [!TIP]  
+    > Kromě použití návrháře modelů v zobrazení diagramu můžete také zobrazit relace mezi všemi tabulkami ve formátu tabulky pomocí dialogového okna Správa relací. V Průzkumníku tabelárních modelů klikněte pravým tlačítkem na **Relace** > **Správa relací**.
+  
+3.  Ověřte, že se při importu jednotlivých tabulek z databáze AdventureWorksDW vytvořily následující relace:  
+  
+    |Aktivní|Table|Související vyhledávací tabulka|  
+    |----------|---------|------------------------|  
+    |Ano|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |Ano|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |Ano|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |Ano|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |Ano|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+  
+    Pokud jakákoli z těchto relací chybí, ověřte, že váš model obsahuje následující tabulky: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory a FactInternetSales. Pokud se tabulky ze stejného připojení ke zdroji dat importují v různou dobu, případné relace mezi těmito tabulkami se nevytvoří a musí být vytvořeny ručně.  
+
+<a id="take-a-closer-look" class="xliff"></a>
+
+### Bližší prozkoumání
+V zobrazení diagramu si všimněte šipky, hvězdičky a čísla na čárách znázorňujících relace mezi tabulkami.
+
+![aas-lesson4-line](../tutorials/media/aas-lesson4-line.png)
+
+Šipka zobrazuje směr filtru. Hvězdička znázorňuje, že tabulka je v kardinalitě relace 1:N na straně N, zatímco jednička znázorňuje, že tabulka je v relaci na straně 1. Pokud potřebujete upravit relaci, například změnit směr filtru relace nebo kardinalitu, dvakrát klikněte na čáru relace a otevřete dialogové okno Upravit relaci.
+
+![aas-lesson4-edit](../tutorials/media/aas-lesson4-edit.png)
+
+Tyto funkce jsou určené pro pokročilé modelování dat a jsou nad rámec tohoto kurzu. Další informace najdete v tématu [Obousměrné křížové filtry pro tabelární modely ve službě Analysis Services](https://docs.microsoft.com/sql/analysis-services/tabular-models/bi-directional-cross-filters-tabular-models-analysis-services).
+
+V některých případech můžete potřebovat vytvořit mezi tabulkami ve vašem modelu další relace pro podporu určité obchodní logiky. Pro účely tohoto kurzu potřebujete vytvořit další tři relace mezi tabulkami FactInternetSales a DimDate.  
+  
+<a id="to-add-new-relationships-between-tables" class="xliff"></a>
+
+#### Přidání nových relací mezi tabulkami  
+  
+1.  V návrháři modelů v tabulce **FactInternetSales** klikněte a přidržte sloupec **OrderDate**, přesuňte kurzor na sloupec **Date** v tabulce **DimDate** a uvolněte tlačítko.  
+
+    Zobrazí se plná čára znázorňující, že jste vytvořili aktivní relaci mezi sloupcem **OrderDate** v tabulce **Internet Sales** a sloupcem **Date** v tabulce **DimDate**. 
+  
+      ![aas-lesson4-new](../tutorials/media/aas-lesson4-new.png) 
+  
+    > [!NOTE]  
+    > Při vytváření relací se kardinalita a směr filtru mezi primární tabulkou a související vyhledávací tabulkou vybere automaticky.  
+  
+2.  V tabulce **FactInternetSales** klikněte a přidržte sloupec **DueDate**, přesuňte kurzor na sloupec **Date** v tabulce **DimDate** a uvolněte tlačítko.  
+  
+    Zobrazí se tečkovaná čára znázorňující, že jste vytvořili neaktivní relaci mezi sloupcem **DueDate** v tabulce **FactInternetSales** a sloupcem **Date** v tabulce **DimDate**. Mezi tabulkami můžete mít víc relací, ale aktivní může vždy být pouze jedna relace. Neaktivní relace se můžou aktivovat pro provádění speciálních agregací ve vlastních výrazech DAX.  
+  
+3.  Nakonec vytvořte ještě jednu relaci. V tabulce **FactInternetSales** klikněte a přidržte sloupec **ShipDate**, přesuňte kurzor na sloupec **Date** v tabulce **DimDate** a uvolněte tlačítko.  
+    
+     ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
+  
+<a id="whats-next" class="xliff"></a>
+
+## Co dále?
+[Lekce 5: Vytvoření počítaných sloupců](../tutorials/aas-lesson-5-create-calculated-columns.md)
+  
+  
+  
+

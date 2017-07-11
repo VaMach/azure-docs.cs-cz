@@ -1,6 +1,6 @@
 Můžete ověřit, zda bylo připojení úspěšně vytvořeno, spuštěním rutiny Get-AzureRmVirtualNetworkGatewayConnection s přepínačem -Debug nebo bez něj. 
 
-1. Použijte následující příklad rutiny a nakonfigurujte hodnoty tak, aby odpovídaly vašemu prostředí. Po zobrazení výzvy vyberte možnost „A“, abyste spustili „vše“. V příkladu odkazuje -Name na název připojení, které jste vytvořili a chcete ho testovat.
+1. Použijte následující příklad rutiny a nakonfigurujte hodnoty tak, aby odpovídaly vašemu prostředí. Po zobrazení výzvy vyberte možnost „A“, abyste spustili „vše“. V příkladu odkazuje -Name na název připojení, které chcete testovat.
 
   ```powershell
   Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG

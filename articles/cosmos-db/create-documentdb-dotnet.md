@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB: Sestavení webové aplikace s rozhraním API .NET a DocumentDB | Dokumentace Microsoftu"
 description: "Představuje ukázku kódu .NET, který můžete použít k připojení a dotazování do rozhraní DocumentDB API služby Azure Cosmos DB."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -16,40 +16,53 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c05863d8a891f8edf95afa73782e2d498c9bc4e
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: d17f90d5ed5440dc336d1e3ae890a13077e33c4d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Sestavení webové aplikace s rozhraním API DocumentDB v prostředí .NET a na webu Azure Portal
+<a id="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
+
+# Azure Cosmos DB: Sestavení webové aplikace s rozhraním API DocumentDB v prostředí .NET a na webu Azure Portal
 
 Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB. 
 
-Tento rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB, databáze dokumentů a kolekce pomocí portálu Azure Portal. Potom budete moct sestavit a nasadit webovou aplikaci seznamu úkolů založenou na [rozhraní API DocumentDB .NET](../documentdb/documentdb-sdk-dotnet.md), jak znázorňuje následující snímek obrazovky. 
+Tento rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB, databáze dokumentů a kolekce pomocí portálu Azure Portal. Potom budete moct sestavit a nasadit webovou aplikaci seznamu úkolů založenou na [rozhraní API DocumentDB .NET](documentdb-sdk-dotnet.md), jak znázorňuje následující snímek obrazovky. 
 
 ![Aplikace seznamu úkolů s ukázkovými daty](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-## <a name="prerequisites"></a>Požadavky
+<a id="prerequisites" class="xliff"></a>
+
+## Požadavky
 
 Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Vytvoření účtu databáze
+<a id="create-account"></a>
+<a id="create-a-database-account" class="xliff"></a>
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+## Vytvoření účtu databáze
 
-## <a name="add-a-collection"></a>Přidání kolekce
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+<a id="create-collection"></a>
+<a id="add-a-collection" class="xliff"></a>
 
-## <a name="add-sample-data"></a>Přidání ukázkových dat
+## Přidání kolekce
+
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+
+<a id="add-sample-data"></a>
+<a id="add-sample-data" class="xliff"></a>
+
+## Přidání ukázkových dat
 
 Teď můžete do nové kolekce přidávat data pomocí Průzkumníka dat.
 
-1. V Průzkumníku dat se nová databáze zobrazí v podokně Kolekce. Rozbalte databázi **Items**, rozbalte kolekci **ToDoList**, klikněte na **Dokumenty** a potom klikněte na **Nové dokumenty**. 
+1. V Průzkumníku dat se nová databáze zobrazí v podokně Kolekce. Rozbalte databázi **Tasks**, rozbalte kolekci **Items**, klikněte na **Dokumenty** a potom klikněte na **Nové dokumenty**. 
 
    ![Vytváření nových dokumentů v Průzkumníku dat na portálu Azure Portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
@@ -60,19 +73,26 @@ Teď můžete do nové kolekce přidávat data pomocí Průzkumníka dat.
          "id": "1",
          "category": "personal",
          "name": "groceries",
-         "description": "Pick up apples and strawberries."
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
      }
      ```
+
+3. Po přidání formátu json na kartu **Dokumenty** klikněte na **Uložit**.
+
+    ![Zkopírujte data json a v Průzkumníku dat na webu Azure Portal klikněte na Uložit.](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
      Teď můžete k načítání dat používat dotazy v Průzkumníku dat. Ve výchozím nastavení používá Průzkumník dat pro načtení všech dokumentů v kolekci příkaz `SELECT * FROM c`. Ten můžete změnit na příkaz `SELECT * FROM c ORDER BY c.name ASC`, který vrátí všechny dokumenty ve vzestupném abecedním pořadí podle vlastnosti name. 
  
      Průzkumník dat můžete použít také pro vytváření uložených procedur, funkcí UDF a triggerů pro provádění obchodní logiky a také propustnosti škálování na straně serveru. Průzkumník dat zpřístupní všechna integrovaná programová data v rozhraních API, ale zajistí jednoduchý přístup k vašim datům na portálu Azure Portal.
 
-## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
+<a id="clone-the-sample-application" class="xliff"></a>
+
+## Klonování ukázkové aplikace
 
 Teď naklonujeme aplikaci API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu Git, jako je třeba Git Bash, a pomocí `CD` přejděte do pracovního adresáře.  
+1. Otevřete okno terminálu Git, jako je třeba Git Bash, a pomocí `CD` přejděte do pracovního adresáře.  
 
 2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. 
 
@@ -80,25 +100,27 @@ Teď naklonujeme aplikaci API DocumentDB z GitHubu, nastavíme připojovací ř
     git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
-3. Potom otevřete soubor řešení v sadě Visual Studio. 
+3. Potom otevřete soubor řešení todo v sadě Visual Studio. 
 
-## <a name="review-the-code"></a>Kontrola kódu
+<a id="review-the-code" class="xliff"></a>
+
+## Kontrola kódu
 
 Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor DocumentDBRepository.cs a zjistíte, že tyto řádky kódu vytvářejí prostředky Azure Cosmos DB. 
 
-* Inicializuje se DocumentClient.
+* Na řádku 73 se inicializuje DocumentClient.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
     ```
 
-* Vytvoří se nová databáze.
+* Na řádku 88 se vytvoří nová databáze.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* Vytvoří se nová kolekce.
+* Na řádku 107 se vytvoří nová kolekce.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -107,7 +129,9 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
+<a id="update-your-connection-string" class="xliff"></a>
+
+## Aktualizace připojovacího řetězce
 
 Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
@@ -125,7 +149,9 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
     `<add key="authKey" value="FILLME" />`
     
-## <a name="run-the-web-app"></a>Spuštění webové aplikace
+<a id="run-the-web-app" class="xliff"></a>
+
+## Spuštění webové aplikace
 1. V sadě Visual Studio klikněte v **Průzkumníku řešení** pravým tlačítkem myši na projekt a potom klikněte na **Spravovat balíčky NuGet**. 
 
 2. Do pole **Procházet** v NuGetu zadejte *DocumentDB*.
@@ -140,23 +166,29 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 Teď se můžete vrátit do Průzkumníku dat a zobrazit dotaz nebo provést úpravy a pracovat s těmito novými daty. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Ověření podmínek SLA na portálu Azure Portal
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+## Ověření podmínek SLA na portálu Azure Portal
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+
+<a id="clean-up-resources" class="xliff"></a>
+
+## Vyčištění prostředků
 
 Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu:
 
 1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 
 V tomto rychlém startu jste se seznámili s postupem vytvoření účtu Azure Cosmos DB, vytvoření kolekce pomocí Průzkumníka dat a spuštění webové aplikace. Teď můžete do účtu Cosmos DB importovat další data. 
 
 > [!div class="nextstepaction"]
-> [Importování dat do služby Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importování dat do služby Azure Cosmos DB](import-data.md)
 
 
 

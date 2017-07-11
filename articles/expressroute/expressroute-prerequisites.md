@@ -12,37 +12,48 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 06/30/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="expressroute-prerequisites--checklist"></a>Požadavky ExpressRoute a kontrolní seznam
+<a id="expressroute-prerequisites--checklist" class="xliff"></a>
+
+# Požadavky ExpressRoute a kontrolní seznam
 Pokud se chcete připojit ke cloudovým službám Microsoftu pomocí služby ExpressRoute, musíte ověřit, že jsou splněné požadavky uvedené v následujících oddílech.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-## <a name="azure-account"></a>Účet Azure
-* Platný a aktivní účet Microsoft Azure. Tento účet je nutný k nastavení okruhu ExpressRoute. Okruhy ExpressRoute jsou prostředky v rámci předplatných Azure. Předplatné Azure je požadavkem i v případě, že připojení je omezené na cloudové služby Microsoftu mimo Azure, jako jsou například služby Office 365 a CRM Online.
+<a id="azure-account" class="xliff"></a>
+
+## Účet Azure
+* Platný a aktivní účet Microsoft Azure. Tento účet je nutný k nastavení okruhu ExpressRoute. Okruhy ExpressRoute jsou prostředky v rámci předplatných Azure. Předplatné Azure je požadavkem i v případě, že připojení je omezené na cloudové služby Microsoftu mimo Azure, jako jsou například služby Office 365 a Dynamics 365.
 * Aktivní předplatné Office 365 (pokud používáte služby Office 365). Další informace najdete v tomto článku v části [Specifické požadavky Office 365](#office-365-specific-requirements).
 
-## <a name="connectivity-provider"></a>Poskytovatel připojení
+<a id="connectivity-provider" class="xliff"></a>
 
-* Abyste se připojili ke cloudu Microsoftu, můžete spolupracovat s [partnerem připojení ExpressRoute](expressroute-locations.md#partners). Připojení mezi místní sítí a Microsoftem můžete vytvořit [třemi způsoby](expressroute-introduction.md) 
-* Pokud váš poskytovatel není partnerem připojení ExpressRoute, můžete se pořád připojit ke cloudu Microsoftu prostřednictvím [poskytovatele cloudové výměny](expressroute-locations.md#c1partners).
+## Poskytovatel připojení
 
-## <a name="network-requirements"></a>Síťové požadavky
+* Abyste se připojili ke cloudu Microsoftu, můžete spolupracovat s [partnerem připojení ExpressRoute](expressroute-locations.md#partners). Připojení mezi místní sítí a Microsoftem můžete vytvořit [třemi způsoby](expressroute-introduction.md)
+* Pokud váš poskytovatel není partnerem připojení ExpressRoute, můžete se pořád připojit ke cloudu Microsoftu prostřednictvím [poskytovatele cloudové výměny](expressroute-locations.md#connectivity-through-exchange-providers).
+
+<a id="network-requirements" class="xliff"></a>
+
+## Síťové požadavky
 * **Redundantní připojení:** Neexistuje požadavek na redundanci fyzického připojení mezi vámi a poskytovatelem. Microsoft nevyžaduje navázání redundantních relací protokolu BGP mezi směrovači Microsoftu a směrovači partnerského vztahu, ani když máte jen [jedno fyzické připojení ke cloudové výměně](expressroute-faqs.md#onep2plink).
 * **Směrování:** V závislosti na způsobu připojení ke cloudu Microsoftu potřebujete vy nebo váš poskytovatel nastavit a spravovat relace BGP pro [domény směrování](expressroute-circuit-peerings.md). Někteří poskytovatelé ethernetového připojení nebo poskytovatelé cloudové výměny můžou nabízet správu protokolu BGP jako službu s přidanou hodnotou.
 * **NAT:** Microsoft prostřednictvím partnerského vztahu Microsoftu přijímá jenom veřejné IP adresy. Pokud v místní síti používáte soukromé IP adresy, je nutné, abyste vy nebo váš poskytovatel překládali soukromé IP adresy na veřejné IP adresy [pomocí překladu síťových adres (NAT)](expressroute-nat.md).
 * **QoS:** Skype pro firmy má různé služby (třeba hlasové, textové nebo videoslužby), které vyžadují diferencovaný přístup. Vy a váš poskytovatel byste měli postupovat podle [požadavků QoS](expressroute-qos.md).
 * **Zabezpečení sítě:** Při připojení ke cloudu Microsoftu pomocí ExpressRoute byste měli zvážit [zabezpečení sítě](../best-practices-network-security.md).
 
-## <a name="office-365"></a>Office 365
+<a id="office-365" class="xliff"></a>
+
+## Office 365
 Pokud chcete povolit Office 365 v ExpressRoute, přečtěte si následující dokumenty, kde najdete další informace o požadavcích Office 365.
 
 * [Přehled ExpressRoute pro Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
@@ -53,12 +64,17 @@ Pokud chcete povolit Office 365 v ExpressRoute, přečtěte si následující do
 * [Integrace Office 365 s místními prostředími](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Školicí videa ExpressRoute v Office 365 pro pokročilé](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-Pokud chcete povolit CRM Online v ExpressRoute, přečtěte si následující dokumenty, kde najdete další informace o CRM Online.
+<a id="dynamics-365" class="xliff"></a>
 
-* [Adresy URL](https://support.microsoft.com/kb/2655102) a [rozsahy IP adres](https://support.microsoft.com/kb/2728473) pro CRM Online
+## Dynamics 365
+Pokud chcete povolit Dynamics 365 v ExpressRoute, přečtěte si následující dokumenty, kde najdete další informace o Dynamics 365.
 
-## <a name="next-steps"></a>Další kroky
+* [Dokument white paper pro Dynamics 365 a ExpressRoute](http://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
+* [Adresy URL](https://support.microsoft.com/kb/2655102) a [rozsahy IP adres](https://support.microsoft.com/kb/2728473) pro Dynamics 365
+
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 * Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 * Vyhledejte poskytovatele připojení ExpressRoute. Viz [Partneři ExpressRoute a umístění partnerského vztahu](expressroute-locations.md).
 * Přečtěte si požadavky pro [směrování](expressroute-routing.md), [překlad adres (NAT)](expressroute-nat.md) a [technologii QoS](expressroute-qos.md).

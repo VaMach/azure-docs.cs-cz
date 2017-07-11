@@ -1,0 +1,1 @@
+[Skupina prostředků](../articles/azure-resource-manager/resource-group-overview.md#terminology) je logický kontejner, ve kterém se nasazují a spravují prostředky Azure, jako například webové aplikace, databáze a účty úložiště.

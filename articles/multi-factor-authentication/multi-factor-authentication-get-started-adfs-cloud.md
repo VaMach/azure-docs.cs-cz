@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/08/2017
 
 ---
 
-# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS
+<a id="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs" class="xliff"></a>
+
+# Zabezpečení cloudových prostředků s Azure Multi-Factor Authentication a AD FS
 Pokud je vaše organizace federovaná pomocí služby Azure Active Directory, k zabezpečení prostředků, které využívá Azure AD, použijte ověřování Azure Multi-Factor Authentication nebo Active Directory Federation Services (AD FS). Následující postupy použijte k zabezpečení prostředků Azure Active Directory s ověřováním Azure Multi-Factor Authentication nebo Active Directory Federation Services.
 
-## <a name="secure-azure-ad-resources-using-ad-fs"></a>Zabezpečení prostředků Azure AD pomocí služby AD FS
+<a id="secure-azure-ad-resources-using-ad-fs" class="xliff"></a>
+
+## Zabezpečení prostředků Azure AD pomocí služby AD FS
 K zabezpečení cloudových prostředků nastavte pravidlo deklarace identity tak, aby služba Active Directory Federation Services vyslala deklaraci identity multipleauthn, když uživatel úspěšně provede dvoustupňové ověření. Tato deklarace identity se předá Azure AD. Postupujte takto:
 
 
@@ -47,12 +53,16 @@ K zabezpečení cloudových prostředků nastavte pravidlo deklarace identity ta
     ![	Průvodce přidáním pravidla – deklarace identity transformace](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
 9. Klikněte na **Dokončit**. Uzavřete konzolu pro správu služby AD FS.
 
-## <a name="trusted-ips-for-federated-users"></a>Důvěryhodné IP adresy pro federované uživatele
+<a id="trusted-ips-for-federated-users" class="xliff"></a>
+
+## Důvěryhodné IP adresy pro federované uživatele
 Důvěryhodné IP adresy umožňují správcům obejít dvoustupňové ověření pro konkrétní IP adres nebo pro federované uživatele, kteří mají požadavky pocházejících z vlastního intranetu. V následujících tématech se věnujeme tomu, jak nakonfigurovat důvěryhodné IP adresy ověřování Azure Multi-Factor Authentication s federovanými uživateli a obejít dvoustupňové ověření, když požadavek pochází z intranetu federovaného uživatele. Toho dosáhnete pomocí konfigurace služby AD FS pro používání průchodu nebo filtru příchozí šablony deklarace identity pomocí typu deklarace identity uvnitř podnikové sítě.
 
 Tento příklad používá Office 365 pro naše trusty přijímající strany.
 
-### <a name="configure-the-ad-fs-claims-rules"></a>Konfigurace pravidel deklarací identity služby AD FS
+<a id="configure-the-ad-fs-claims-rules" class="xliff"></a>
+
+### Konfigurace pravidel deklarací identity služby AD FS
 První věc, kterou je potřeba udělat, je konfigurace deklarací identity služby AD FS. Vytvořte dvě pravidla deklarace identity: jedno pro typ deklarace identity uvnitř podnikové sítě a druhé pro zachování přihlášení uživatelů.
 
 1. Otevřete správu služby AD FS.
@@ -80,7 +90,9 @@ První věc, kterou je potřeba udělat, je konfigurace deklarací identity slu�
 15. Klikněte na tlačítko **OK**.
 16. Zavřete správu služby AD FS.
 
-### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurovat důvěryhodné IP adresy ověřování Azure Multi-Factor Authentication s federovanými uživateli
+<a id="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users" class="xliff"></a>
+
+### Konfigurovat důvěryhodné IP adresy ověřování Azure Multi-Factor Authentication s federovanými uživateli
 Teď, když máme vytvořené deklarace identity, můžeme nakonfigurovat důvěryhodné IP adresy.
 
 1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
@@ -88,15 +100,12 @@ Teď, když máme vytvořené deklarace identity, můžeme nakonfigurovat důvě
 3. V části Adresář vyberte adresář, ve kterém chcete nastavit důvěryhodné IP adresy.
 4. Ve vybraném adresáři klikněte na tlačítko **Konfigurovat**.
 5. V části ověřování multi-factor authentication klikněte na **Spravovat nastavení služby**.
-6. Na stránce Nastavení služby pod důvěryhodnými IP adresami vyberte možnost **Pro žádosti od federovaných uživatelů v mém intranetu přeskočit ověřování Multi-Factor-Authentication.**
+6. Na stránce Nastavení služby pod důvěryhodnými IP adresami vyberte **Pro žádosti od federovaných uživatelů v mém intranetu přeskočit ověřování Multi-Factor-Authentication**.  
+
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Klikněte na **Uložit**.
 8. Po použití aktualizací klikněte na **Zavřít**.
 
 A to je vše! Od tohoto okamžiku musí federovaní uživatelé služeb Office 365 využívat MFA pouze pokud deklarace identity pochází z oblasti mimo podnikového intranetu.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

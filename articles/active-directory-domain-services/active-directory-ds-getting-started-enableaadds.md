@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: Povolení služby Azure Active Directory Domain Services | Dokumentace Microsoftu"
-description: "Začínáme se službou Azure Active Directory Domain Services"
+description: "Povolení služby Azure Active Directory Domain Services pomocí portálu Azure Classic"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e5f1fe51d8931985fa55b2d8c0a3fd25bb93f20f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="enable-azure-active-directory-domain-services"></a>Povolení služby Azure Active Directory Domain Services
-## <a name="task-3-enable-azure-active-directory-domain-services"></a>Úloha 3: Povolení služby Azure Active Directory Domain Services
-V této úloze povolíte službu Azure Active Directory Domain Services (Azure AD DS) pro svůj adresář následujícím způsobem:
+<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+
+# Povolení služby Azure Active Directory Domain Services pomocí portálu Azure Classic
+
+<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+
+## Úloha 3: Povolení služby Azure Active Directory Domain Services
+V této úloze povolíte službu Azure Active Directory Domain Services (Azure AD DS) pro svůj adresář pomocí následujících kroků:
 
 1. Přejděte na [portál Azure Classic](https://manage.windowsazure.com).
 2. V levém podokně vyberte tlačítko **Active Directory**.
@@ -70,20 +76,20 @@ V této úloze povolíte službu Azure Active Directory Domain Services (Azure A
    * Pro službu Azure Active Directory Domain Services použijte vyhrazenou podsíť ve virtuální síti. *Nevybírejte* podsíť brány. Viz téma o [aspektech sítí](active-directory-ds-networking.md).
 
    * Podobně se v rozevíracím seznamu nezobrazí ani virtuální sítě vytvořené pomocí Azure Resource Manageru. Virtuální sítě na bázi Resource Manageru nejsou v současné době službou Azure Active Directory Domain Services podporované.
-9. Službu Azure Active Directory Domain Services povolíte kliknutím na **Uložit** v podokně úloh v dolní části stránky. 
+9. Službu Azure Active Directory Domain Services povolíte kliknutím na **Uložit** v podokně úloh v dolní části stránky.
     * Zatímco probíhá povolování služby Azure Active Directory Domain Services pro váš adresář, na stránce se zobrazuje stav *Čeká na vyřízení*.
 
         ![Povolení okna Domain Services](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Služba Azure Active Directory Domain Services poskytuje vysokou dostupnost vaší spravované domény. Když službu Azure Active Directory Domain Services povolíte, všimněte si, že se postupně zobrazují IP adresy, na kterých je služba Domain Services ve virtuální síti k dispozici. Druhá IP adresa se zobrazí krátce po první adrese, jakmile služba povolí vysokou dostupnost vaší domény. Když je vysoká dostupnost vaší domény nakonfigurovaná a aktivní, měli byste vidět dvě IP adresy v oddílu **doménové služby** na kartě **Konfigurace**.
+        > Služba Azure Active Directory Domain Services poskytuje vysokou dostupnost vaší spravované domény. Když službu Azure Active Directory Domain Services povolíte, postupně se zobrazují IP adresy, na kterých je služba Domain Services ve virtuální síti k dispozici. Druhá IP adresa se zobrazí krátce po první adrese, jakmile služba povolí vysokou dostupnost vaší domény. Když je vysoká dostupnost vaší domény nakonfigurovaná a aktivní, měli byste vidět dvě IP adresy v oddílu **doménové služby** na kartě **Konfigurace**.
         >
         >
     * Přibližně po 20 až 30 minutách se první IP adresa, na které je k dispozici služba Domain Services ve virtuální síti, zobrazí v poli **IP adresa** na stránce **Konfigurace**.
 
         ![Okno Domain Services se zobrazenou první zřízenou IP adresou](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * Když je vysoká dostupnost vaší domény funkční, zobrazí se na stránce dvě IP adresy. Na těchto dvou IP adresách je k dispozici vaše spravovaná doména ve vybrané virtuální síti. 
-    
+    * Když je vysoká dostupnost vaší domény funkční, zobrazí se na stránce dvě IP adresy. Na těchto dvou IP adresách je k dispozici vaše spravovaná doména ve vybrané virtuální síti.
+
 10. Poznamenejte si obě tyto IP adresy, abyste mohli aktualizovat nastavení DNS pro svou virtuální síť. Tento postup umožňuje virtuálním počítačům ve virtuální síti připojit se k doméně kvůli operacím, jako je například připojení k doméně.
 
     ![Okno služby Domain Service se zobrazením obou zřízených IP adres](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -93,6 +99,8 @@ V této úloze povolíte službu Azure Active Directory Domain Services (Azure A
 >
 >
 
-## <a name="next-steps"></a>Další kroky
-Úloha 4: [Aktualizace nastavení DNS pro virtuální síť Azure](active-directory-ds-getting-started-dns.md)
+<a id="next-step" class="xliff"></a>
+
+## Další krok
+[Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure](active-directory-ds-getting-started-update-dns.md)
 
