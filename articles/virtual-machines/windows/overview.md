@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
-ms.lasthandoff: 04/27/2017
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/31/2017
 
 ---
-# <a name="overview-of-windows-virtual-machines-in-azure"></a>Přehled virtuálních počítačů s Windows v Azure
+<a id="overview-of-windows-virtual-machines-in-azure" class="xliff"></a>
+
+# Přehled virtuálních počítačů s Windows v Azure
 Azure Virtual Machines (VM) je jedním z několika typů [škálovatelných výpočetních prostředků na vyžádání](../../app-service-web/choose-web-site-cloud-service-vm.md), které Azure nabízí. Obvykle zvolíte virtuální počítač, když potřebujete větší kontrolu nad výpočetním prostředí, než nabízí jiné možnosti. Tento článek obsahuje informace o tom, co byste měli zvážit před vytvořením virtuálního počítače, jak ho vytvořit a jak ho spravovat.
 
 Virtuální počítač Azure vám nabídne flexibilitu virtualizace bez nutnosti zakoupení a údržby fyzického hardwaru, na kterém běží. Nevyhnete se však údržbě virtuálního počítače prováděním úloh, jako jsou konfigurace, aplikování oprav chyb a instalace softwaru, který na něm běží.
@@ -35,7 +38,9 @@ Virtuální počítače Azure lze použít různými způsoby. Tady je několik 
 
 Počet virtuálních počítačů, které vaše aplikace používá, lze vertikálně nebo horizontálně navýšit pro splnění vašich požadavků.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Co je třeba zvážit před vytvořením virtuálního počítače?
+<a id="what-do-i-need-to-think-about-before-creating-a-vm" class="xliff"></a>
+
+## Co je třeba zvážit před vytvořením virtuálního počítače?
 Při sestavování infrastruktury aplikace v Azure vždy existuje velké množství [aspektů návrhu](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Než začnete, je důležité zvážit následující aspekty virtuálního počítače:
 
 * Názvy prostředků vaší aplikace
@@ -46,12 +51,16 @@ Při sestavování infrastruktury aplikace v Azure vždy existuje velké množst
 * Konfigurace virtuálního počítače po jeho spuštění
 * Související prostředky, které virtuální počítač potřebuje
 
-### <a name="naming"></a>Pojmenování
+<a id="naming" class="xliff"></a>
+
+### Pojmenování
 Virtuální počítač má přiřazený [název](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a název počítače má nakonfigurovaný jako součást operačního systému. Název virtuálního může být až 15 znaků dlouhý.
 
-Pokud k vytvoření disku operačního systému použijete Azure, název počítače a název virtuálního počítače budou stejné. Pokud [nahrajete a použijete vlastní image](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), která obsahuje dříve nakonfigurovaný operační systém, a použijete ji k vytvoření virtuálního počítače, mohou se tyto názvy lišit. Když nahráváte vlastní soubor s imagí, doporučujeme použít stejný název počítače v operačním systému jako název virtuálního počítače.
+Pokud k vytvoření disku operačního systému použijete Azure, název počítače a název virtuálního počítače budou stejné. Pokud [nahrajete a použijete vlastní image](upload-generalized-managed.md), která obsahuje dříve nakonfigurovaný operační systém, a použijete ji k vytvoření virtuálního počítače, mohou se tyto názvy lišit. Když nahráváte vlastní soubor s imagí, doporučujeme použít stejný název počítače v operačním systému jako název virtuálního počítače.
 
-### <a name="locations"></a>Umístění
+<a id="locations" class="xliff"></a>
+
+### Umístění
 Všechny prostředky vytvořené v Azure jsou distribuované mezi několik [geografických oblastí](https://azure.microsoft.com/regions/) po celém světě. Při vytváření virtuálního počítače se oblast obvykle nazývá **umístění**. U virtuálního počítače umístění určuje, kde jsou uloženy virtuální pevné disky.
 
 Tato tabulka ukazuje několik způsobů, jak můžete získat seznam dostupných umístění.
@@ -62,15 +71,21 @@ Tato tabulka ukazuje několik způsobů, jak můžete získat seznam dostupných
 | Azure PowerShell |Použijte příkaz [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | REST API |Použijte operaci [Vypsat umístění](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
-### <a name="vm-size"></a>Velikost virtuálního počítače
+<a id="vm-size" class="xliff"></a>
+
+### Velikost virtuálního počítače
 [Velikost](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) virtuálního počítače, který použijete, se určuje podle úlohy, kterou chcete spustit. Velikost, kterou vyberete, pak určuje další faktory, jako například výpočetní výkon, paměť a kapacitu úložiště. Azure nabízí širokou škálu velikostí, které podporují mnoho typů použití.
 
 Azure účtuje [hodinovou cenu](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) na základě velikosti virtuálního počítače a na jeho operačním systému. V případě neúplných hodin Azure účtuje jenom využité minuty. Služba Storage je oceněna a účtována samostatně.
 
-### <a name="vm-limits"></a>Omezení virtuálního počítače
+<a id="vm-limits" class="xliff"></a>
+
+### Omezení virtuálního počítače
 Vaše předplatné má nastavené výchozí [kvóty](../../azure-subscription-service-limits.md), které mohou ovlivnit nasazení velkého počtu virtuálních počítačů pro váš projekt. Aktuální limit jednoho předplatného je 20 virtuálních počítačů na oblast. Limity lze navýšit tak, že vyplníte lístek podpory s žádostí o navýšení.
 
-### <a name="operating-system-disks-and-images"></a>Disky a image operačních systémů
+<a id="operating-system-disks-and-images" class="xliff"></a>
+
+### Disky a image operačních systémů
 Virtuální počítače používají [virtuální pevné disky (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), na které ukládají svůj operační systém (OS) a data. Virtuální pevné disky se používají i pro image, ze kterých si můžete nainstalovat operační systém. 
 
 Azure poskytuje mnoho [imagí na webu Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) s různými verzemi a typy operačních systémů Windows Server, které můžete použít. Image pořízené na webu Marketplace jsou identifikované vydavatelem image, nabídkou, skladovou jednotkou (SKU) a verzí (verze je obvykle uvedena jako poslední). 
@@ -83,9 +98,11 @@ Tato tabulka ukazuje několik způsobů, jak můžete najít informace o imagi.
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "umístění"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "umístění" -Publisher "název_vydavatele"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "umístění" -Publisher "název_vydavatele" -Offer "název_nabídky" |
 | Rozhraní REST API |[Vypsat vydavatele imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Vypsat nabídky imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Vypsat skladové jednotky (SKU) imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-Můžete se rozhodnout [nahrát a použít vlastní image](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pokud tak učiníte, název vydavatele, nabídka a skladová jednotka (SKU) se nepoužijí.
+Můžete se rozhodnout [nahrát a použít vlastní image](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Pokud tak učiníte, název vydavatele, nabídka a skladová jednotka (SKU) se nepoužijí.
 
-### <a name="extensions"></a>Rozšíření
+<a id="extensions" class="xliff"></a>
+
+### Rozšíření
 [Rozšíření](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) virtuálního počítače poskytují vašemu virtuálnímu počítači další schopnosti prostřednictvím konfigurace po nasazení a automatizovaných úloh.
 
 Pomocí rozšíření můžete provádět tyto běžné úlohy:
@@ -94,7 +111,9 @@ Pomocí rozšíření můžete provádět tyto běžné úlohy:
 * **Nasazení a správa konfigurací** – [Rozšíření Konfigurace požadovaného stavu prostředí PowerShell](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pomáhá nastavit konfiguraci požadovaného stavu na virtuálním počítači za účelem správy konfigurací a prostředí.
 * **Shromažďování diagnostických dat** – [Rozšíření Azure Diagnostics](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pomáhá konfigurovat virtuální počítač pro shromažďování diagnostických dat, která lze použít k monitorování stavu aplikace.
 
-### <a name="related-resources"></a>Související prostředky
+<a id="related-resources" class="xliff"></a>
+
+### Související prostředky
 Prostředky v této tabulce používá virtuální počítač a je nutné, aby existovaly nebo byly vytvořeny při vytváření virtuálního počítače.
 
 | Prostředek | Požaduje se | Popis |
@@ -106,7 +125,9 @@ Prostředky v této tabulce používá virtuální počítač a je nutné, aby e
 | [Síťové rozhraní](../../virtual-network/virtual-network-network-interface.md) |Ano |Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti. |
 | [Datové disky](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Ne |Virtuální počítač může zahrnovat datové disky pro rozšíření možností úložiště. |
 
-## <a name="how-do-i-create-my-first-vm"></a>Jak vytvořím svůj první virtuální počítač?
+<a id="how-do-i-create-my-first-vm" class="xliff"></a>
+
+## Jak vytvořím svůj první virtuální počítač?
 Virtuální počítač můžete vytvořit několika způsoby. Způsob, který zvolíte, závisí na prostředí, ve kterém se nacházíte. 
 
 Tato tabulka obsahuje informace, které vám pomůžou začít vytvářet virtuální počítač.
@@ -121,31 +142,43 @@ Tato tabulka obsahuje informace, které vám pomůžou začít vytvářet virtu�
 
 Věříte, že se to nikdy nestane, ale občas dojde k nějaké chybě. Pokud taková situace nastane u vás, podívejte se na informace v tématu [Řešení potíží v nasazení Resource Manager s vytvářením virtuálního počítače s Windows v Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>Jak můžu spravovat vytvořený virtuální počítač?
+<a id="how-do-i-manage-the-vm-that-i-created" class="xliff"></a>
+
+## Jak můžu spravovat vytvořený virtuální počítač?
 Virtuální počítače můžete spravovat pomocí portálu (přes prohlížeč), nástrojů příkazového řádku s podporou pro skriptování, nebo přímo prostřednictvím rozhraní API. Mezi obvyklé úlohy správy, které můžete provádět, patří získávání informací o virtuálním počítači, připojování k virtuálnímu počítači, správa dostupnosti a provádění zálohování.
 
-### <a name="get-information-about-a-vm"></a>Získání informací o virtuálním počítači
+<a id="get-information-about-a-vm" class="xliff"></a>
+
+### Získání informací o virtuálním počítači
 Tato tabulka uvádí některé způsoby, jakými můžete získat informace o virtuálním počítači.
 
 | Metoda | Popis |
 | --- | --- |
 | portál Azure |V nabídce centra klikněte na **Virtual Machines** a ze seznamu vyberte virtuální počítač. V okně příslušného virtuálního počítače máte přístup k souhrnným informacím, hodnotám nastavení a metrikám monitorování. |
-| Azure PowerShell |Informace o použití prostředí PowerShell ke správě virtuálních počítačů najdete v tématu [Správa virtuálních počítačů Azure pomocí Resource Manageru a prostředí PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure PowerShell |Informace o použití PowerShellu ke správě virtuálních počítačů najdete v tématu popisujícím [vytvoření a správu virtuálních počítačů Windows pomocí modulu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | REST API |Pro získání informací o virtuálním počítači použijte operaci [Získat informace o virtuálním počítači](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get). |
 | Klientské sady SDK |Informace o použití jazyka C# ke správě virtuálních počítačů najdete v tématu [Správa virtuálních počítačů Azure pomocí Resource Manageru a jazyka C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
-### <a name="log-on-to-the-vm"></a>Přihlášení k virtuálnímu počítači
+<a id="log-on-to-the-vm" class="xliff"></a>
+
+### Přihlášení k virtuálnímu počítači
 Pomocí tlačítka [Připojit](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) na webu Azure Portal spouštíte relaci Vzdálené plochy (protokol RDP). Při pokusu o použití vzdáleného připojení se občas může něco pokazit. Pokud taková situace nastane u vás, podívejte se na informace nápovědy v tématu [Řešení potíží s připojením ke vzdálené ploše virtuálního počítače Azure s Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="manage-availability"></a>Správa dostupnosti
+<a id="manage-availability" class="xliff"></a>
+
+### Správa dostupnosti
 Je důležité, abyste porozuměli tomu, jak pro svoji aplikaci [zajistit vysokou dostupnost](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tato konfigurace zahrnuje vytvoření více virtuálních počítačů pro zajištění, že je alespoň jeden spuštěný.
 
 Aby se na vaše nasazení vztahovala záruka 99,95% dostupnosti virtuálního počítače podle smlouvy SLA, je nutné nasadit alespoň dva virtuální počítače, které vaši úlohu spouští v rámci [skupiny dostupnosti](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tato konfigurace zajišťuje distribuci vašich virtuálních počítačů mezi více domén selhání a jejich nasazení na hostitele s různými časovými obdobími údržby. Úplná smlouva [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) vysvětluje garantovanou dostupnost Azure jako celku.
 
-### <a name="back-up-the-vm"></a>Zálohování virtuálního počítače
+<a id="back-up-the-vm" class="xliff"></a>
+
+### Zálohování virtuálního počítače
 [Trezor služby Recovery Services](../../backup/backup-introduction-to-azure-backup.md) slouží k ochraně dat a assetů ve službě Backup a službách Azure Site Recovery. Pomocí trezoru služby Recovery Services můžete [nasadit a spravovat zálohy virtuálních počítačů nasazených Resource Managerem pomocí prostředí PowerShell](../../backup/backup-azure-vms-automation.md). 
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 * Pokud máte v úmyslu pracovat s virtuálními počítači s Linuxem, podívejte se na téma [Azure a Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Další informace o pokynech ohledně nastavení infrastruktury najdete v tématu [Průvodce ukázkovou infrastrukturou Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Je třeba dodržovat [Osvědčené postupy pro spuštění virtuálního počítače s Windows v Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

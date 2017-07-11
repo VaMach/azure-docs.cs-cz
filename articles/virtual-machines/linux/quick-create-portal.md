@@ -15,21 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
-# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal
+<a id="create-a-linux-virtual-machine-with-the-azure-portal" class="xliff"></a>
+
+# Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal
 
 Virtuální počítače Azure je možné vytvářet na webu Azure Portal. Tato metoda poskytuje uživatelské rozhraní v prohlížeči, pomocí kterého můžete vytvářet a konfigurovat virtuální počítače a všechny související prostředky. Tento Rychlý start prochází jednotlivé kroky k vytvoření virtuálního počítače a instalaci webového serveru na virtuálním počítači.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="create-ssh-key-pair"></a>Vytvoření páru klíčů SSH
+<a id="create-ssh-key-pair" class="xliff"></a>
+
+## Vytvoření páru klíčů SSH
 
 K dokončení tohoto rychlého startu potřebujete pár klíčů SSH. Pokud máte existující pár klíčů SSH, můžete tento krok přeskočit.
 
@@ -39,11 +44,15 @@ Z prostředí Bash spusťte tento příkaz a postupujte podle pokynů na obrazov
 ssh-keygen -t rsa -b 2048
 ```
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
+<a id="log-in-to-azure" class="xliff"></a>
+
+## Přihlaste se k Azure. 
 
 Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
+<a id="create-virtual-machine" class="xliff"></a>
+
+## Vytvoření virtuálního počítače
 
 1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
@@ -64,7 +73,9 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 7. Virtuální počítač se připne na řídicí panel webu Azure Portal. Po dokončení nasazení se automaticky otevře okno souhrnu virtuálního počítače.
 
 
-## <a name="connect-to-virtual-machine"></a>Připojení k virtuálnímu počítači
+<a id="connect-to-virtual-machine" class="xliff"></a>
+
+## Připojení k virtuálnímu počítači
 
 Vytvořte připojení SSH k virtuálnímu počítači.
 
@@ -78,7 +89,9 @@ Vytvořte připojení SSH k virtuálnímu počítači.
 ssh azureuser@40.112.21.50
 ```
 
-## <a name="install-nginx"></a>Instalace serveru NGINX
+<a id="install-nginx" class="xliff"></a>
+
+## Instalace serveru NGINX
 
 Pomocí následujícího skriptu bash provedete aktualizaci zdrojů balíčku a nainstalujete nejnovější balíček NGINX. 
 
@@ -95,7 +108,9 @@ sudo apt-get -y install nginx
 Až budete hotovi, ukončete relaci SSH a vraťte se do vlastností virtuálního počítače na webu Azure Portal.
 
 
-## <a name="open-port-80-for-web-traffic"></a>Otevření portu 80 pro webový provoz 
+<a id="open-port-80-for-web-traffic" class="xliff"></a>
+
+## Otevření portu 80 pro webový provoz 
 
 Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. Když se virtuální počítač vytvoří na webu Azure Portal, pro připojení SSH se vytvoří příchozí pravidlo na portu 22. Protože je tento virtuální počítač hostitelem webového serveru, je potřeba vytvořit pravidlo NSG pro port 80.
 
@@ -107,17 +122,23 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 6. Klikněte na **OK**.
 
 
-## <a name="view-the-ngix-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
+<a id="view-the-nginx-welcome-page" class="xliff"></a>
+
+## Zobrazení úvodní stránky serveru NGINX
 
 Když je teď NGINX nainstalovaný a port 80 k virtuálnímu počítači otevřený, webový server je přístupný z internetu. Otevřete webový prohlížeč a zadejte veřejnou IP adresu virtuálního počítače. Veřejnou IP adresu najdete v okně virtuálního počítače na webu Azure Portal.
 
 ![Výchozí web NGINX](./media/quick-create-cli/nginx.png) 
 
-## <a name="delete-virtual-machine"></a>Odstranění virtuálního počítače
+<a id="clean-up-resources" class="xliff"></a>
+
+## Vyčištění prostředků
 
 Pokud už je nepotřebujete, odstraňte skupinu prostředků, virtuální počítač a všechny související prostředky. Provedete to tak, že v okně virtuálního počítače vyberete skupinu prostředků a kliknete na **Odstranit**.
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 
 V tomto Rychlém startu jste nasadili jednoduchý virtuální počítač a pravidlo skupiny zabezpečení sítě a nainstalovali jste webový server. Další informace o virtuálních počítačích Azure najdete v kurzu pro virtuální počítače s Linuxem.
 

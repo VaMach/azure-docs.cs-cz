@@ -12,40 +12,52 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 06/23/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 85460ea37d251b53074de9d832610d253700f2c1
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
-# <a name="partner-integration-in-azure-security-center"></a>Integrace partnerských řešení ve službě Azure Security Center
+<a id="partner-integration-in-azure-security-center" class="xliff"></a>
+
+# Integrace partnerských řešení ve službě Azure Security Center
 Tento dokument popisuje, jak Azure Security Center umožňuje integrací s partnery zvýšit celkové zabezpečení, poskytnout v Azure integrované prostředí a současně využít výhod služby Azure Marketplace pro certifikaci partnerů a účtování.
 
-## <a name="why-deploy-partners-solutions-from-security-center"></a>Proč nasazovat partnerská řešení ze služby Security Center?
+>[!NOTE] 
+>Od začátku června 2017 bude Security Center používat ke shromažďování a ukládání dat agenta Microsoft Monitoring Agent. Další informace najdete v článku o [migraci platformy pro Azure Security Center](security-center-platform-migration.md). Informace v tomto článku představují funkce služby Security Center po přechodu na agenta Microsoft Monitoring Agent.
+>
+
+<a id="why-deploy-partners-solutions-from-security-center" class="xliff"></a>
+
+## Proč nasazovat partnerská řešení ze služby Security Center?
 
 Existují čtyři hlavní důvody využití integrace partnerských řešení ve službě Security Center:
 
 - **Snadné nasazení**: Nasazení partnerských řešení podle doporučení služby Security Center je mnohem jednodušší. Proces nasazení lze plně automatizovat pomocí výchozí konfigurace a síťové topologie, případně mohou zákazníci zvolit poloautomatický postup s větší flexibilitou a možnostmi přizpůsobení konfigurace.
 - **Integrované detekce**: Události zabezpečení z partnerských řešení se automaticky shromažďují, agregují a zobrazují v rámci výstrah a incidentů služby Security Center. Tyto události jsou sloučeny také s detekcemi z jiných zdrojů a poskytují pokročilé možnosti detekce hrozeb.
 - **Sjednocená správa a monitorování stavu**: Integrované události týkající se stavu umožňují zákazníkům monitorování všech partnerských řešení na jeden pohled. Je dostupná základní správa se snadným přístupem k pokročilé konfiguraci s použitím partnerských řešení.
-- **Export do SIEM**: Zákazníci teď můžou exportovat všechny výstrahy služby Security Center a partnerského řešení ve formátu CEF do místních systémů SIEM s použitím služby Microsoft Azure Log Integration (Preview).
+- **Export do SIEM:** Zákazníci teď můžou exportovat všechny výstrahy služby Security Center a partnerského řešení ve formátu CEF do místních systémů SIEM s použitím služby Microsoft Azure Log Integration (Preview).
 
 
-## <a name="what-partners-are-integrated-with-security-center"></a>Kteří partneři se integrují se službou Security Center?
-Security Center se v současnosti integruje s řešeními následujících partnerů:
+<a id="what-partners-are-integrated-with-security-center" class="xliff"></a>
 
-- Ochrana koncových bodů ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
-- Firewall webových aplikací ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [WAF služby Application Gateway](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+## Kteří partneři se integrují se službou Security Center?
+Security Center se v současnosti integruje s řešeními:
+
+- Ochrana koncových bodů ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [Microsoft Antimalware for Azure](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
+- Firewall webových aplikací ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [WAF služby Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
 - Firewall nové generace ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) a [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
-- Posouzení ohrožení zabezpečení ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) – Preview)  
+- Posouzení ohrožení zabezpečení ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
 
 Postupem času bude Security Center rozšiřovat počet partnerů v těchto kategoriích a přidávat nové kategorie. 
 
-## <a name="how-to-deploy-a-partner-solution"></a>Jak nasadit partnerské řešení?
+<a id="how-to-deploy-a-partner-solution" class="xliff"></a>
+
+## Jak nasadit partnerské řešení?
 
 V závislosti na konfiguraci prostředí Azure a nadefinovaných zásadách zabezpečení může Security Center doporučit nasazení partnerského řešení. Doporučení vás provede procesem výběru a instalace partnerského řešení. Celkové prostředí nasazení se v tomto okamžiku může lišit podle typu řešení a partnera. Další informace najdete prostřednictvím následujících odkazů:
 
@@ -54,14 +66,21 @@ V závislosti na konfiguraci prostředí Azure a nadefinovaných zásadách zabe
 - [Instalace Endpoint Protection](security-center-install-endpoint-protection.md)
 - [Není nainstalováno posouzení ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md)
 
-## <a name="how-to-manage-partner-solutions"></a>Jak spravovat partnerská řešení?
+<a id="how-to-manage-partner-solutions" class="xliff"></a>
+
+## Jak spravovat partnerská řešení?
 
 Jakmile je partnerské řešení nasazeno, můžete zobrazit informace o stavu řešení a provádět základní úlohy správy z dlaždice Partnerská řešení na hlavním řídicím panelu Security Center. Další informace o správě partnerských řešení v Security Center najdete v článku [Monitorování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md).
 
 ![Integrace partnerských řešení](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
+> [!NOTE]
+> Podpora pro Symantec Endpoint Protection je omezena na zjišťování, ale nejsou k dispozici žádné výstrahy týkající se stavu.
+>
 
-## <a name="see-also"></a>Viz také
+<a id="see-also" class="xliff"></a>
+
+## Viz také
 V tomto dokumentu jste se naučili integrovat partnerská řešení do služby Azure Security Center. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md)

@@ -13,30 +13,31 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 05/22/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 8f370918b86c5519f370b0042866d2cc089655d4
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: fa8e845fc4c3036c1ee92db3dceec63a1dc09d03
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurace připojení brány VPN typu VNet-to-VNet pomocí PowerShellu
+<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell" class="xliff"></a>
+
+# Konfigurace připojení brány VPN typu VNet-to-VNet pomocí PowerShellu
 
 Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Postupy v tomto článku se týkají modelu nasazení Resource Manager a používají PowerShell. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Resource Manager – Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Classic – Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Propojení různých modelů nasazení – Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Propojení různých modelů nasazení – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
-
-![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 Propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě s místním serverem. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE. Pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerské vztahy virtuálních sítí nepoužívají bránu VPN. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
 
@@ -44,33 +45,43 @@ Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery
 
 ![Informace o připojeních](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Proč propojovat virtuální sítě?
+<a id="why-connect-virtual-networks" class="xliff"></a>
+
+### Proč propojovat virtuální sítě?
 
 Virtuální sítě může být vhodné propojit z následujících důvodů:
 
 * **Geografická redundance napříč oblastmi a geografická přítomnost**
-  
+
   * Můžete nastavit vlastní geografickou replikaci nebo synchronizaci se zabezpečeným připojením bez procházení koncovými body připojenými k internetu.
   * Pomocí Azure Traffic Manageru a služby Load Balancer je možné vytvářet úlohy s vysokou dostupností s geografickou redundancí nad několika oblastmi Azure. Jedním z důležitých příkladů je nastavení technologie SQL Always On se skupinami dostupnosti nad několika oblastmi Azure.
 * **Regionální vícevrstvé aplikace s izolací nebo administrativní hranicí**
-  
+
   * V rámci stejné oblasti můžete vytvářet vícevrstvé aplikace s několika virtuálními sítěmi propojenými z důvodu izolace nebo požadavků na správu.
 
 Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku.
 
-## <a name="which-set-of-steps-should-i-use"></a>Kterou posloupnost kroků provést?
+<a id="which-set-of-steps-should-i-use" class="xliff"></a>
+
+## Kterou posloupnost kroků provést?
+
 V tomto článku uvidíte dvě různé sady kroků. Jedna sada kroků pro [virtuální sítě spadající do stejného předplatného](#samesub) a druhá sada kroků pro [virtuální sítě v různých předplatných](#difsub). Hlavní rozdíl mezi oběma postupy spočívá v tom, jestli je možné vytvářet a konfigurovat všechny prostředky virtuální sítě a brány v téže relaci prostředí PowerShell.
 
-Kroky v tomto článku používají proměnné, které jsou deklarované na začátku každé části. Pokud již pracujete s existujícími virtuálními sítěmi, upravte proměnné tak, aby odrážely nastavení vašeho prostředí. 
+Kroky v tomto článku používají proměnné, které jsou deklarované na začátku každé části. Pokud již pracujete s existujícími virtuálními sítěmi, upravte proměnné tak, aby odrážely nastavení vašeho prostředí. Pokud chcete překlad IP adres pro virtuální sítě, přečtěte si téma [Překlad IP adres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="samesub"></a>Postup při propojování virtuálních sítí patřících ke stejnému předplatnému
+
 ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### <a name="before-you-begin"></a>Než začnete
+<a id="before-you-begin" class="xliff"></a>
+
+### Než začnete
+
 Než začnete, bude třeba nainstalovat nejnovější verzi rutin prostředí PowerShell pro Azure Resource Manager. Další informace o instalaci rutin PowerShellu najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview). 
 
 ### <a name="Step1"></a>Krok 1: Plánování rozsahů IP adres
-V následujících krocích vytvoříme dvě virtuální sítě spolu s příslušnými podsítěmi a konfiguracemi brány. Poté vytvoříme propojení VPN mezi oběma virtuálními sítěmi. Je důležité určit rozsahy IP adres pro konfiguraci vaší sítě. Mějte na paměti, že je třeba zajistit, aby se žádné rozsahy virtuálních sítí ani místní síťové rozsahy žádným způsobem nepřekrývaly.
+
+V následujících krocích vytvoříme dvě virtuální sítě spolu s příslušnými podsítěmi a konfiguracemi brány. Poté vytvoříme propojení VPN mezi oběma virtuálními sítěmi. Je důležité určit rozsahy IP adres pro konfiguraci vaší sítě. Mějte na paměti, že je třeba zajistit, aby se žádné rozsahy virtuálních sítí ani místní síťové rozsahy žádným způsobem nepřekrývaly. V těchto příkladech nezahrnujeme server DNS. Pokud chcete překlad IP adres pro virtuální sítě, přečtěte si téma [Překlad IP adres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 V příkladech používáme následující hodnoty:
 
@@ -83,7 +94,6 @@ V příkladech používáme následující hodnoty:
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
-* Server DNS: 8.8.8.8
 * Název brány: VNet1GW
 * Veřejná IP adresa: VNet1GWIP
 * Typ sítě VPN: RouteBased
@@ -100,17 +110,16 @@ V příkladech používáme následující hodnoty:
 * GatewaySubnet: 10.42.255.0/27
 * Skupina prostředků: TestRG4
 * Umístění: Západní USA
-* Server DNS: 8.8.8.8
 * Název brány: VNet4GW
 * Veřejná IP adresa: VNet4GWIP
 * Typ sítě VPN: RouteBased
 * Připojení: VNet4toVNet1
 * Typ připojení: VNet2VNet
 
+
 ### <a name="Step2"></a>Krok 2: Vytvoření a konfigurace virtuální sítě TestVNet1
-1. Deklarujte proměnné.
-   
-    Začneme deklarací proměnných. V tomto příkladu jsou proměnné deklarovány s použitím hodnot pro tento ukázkový postup. Ve většině případů byste měli hodnoty nahradit vlastními. Tyto hodnoty proměnných ale můžete použít, pokud procházíte kroky, abyste se seznámili s tímto typem konfigurace. Upravte proměnné podle potřeby a pak je zkopírujte a vložte do konzoly PowerShell.
+
+1. Deklarujte proměnné. V tomto příkladu jsou proměnné deklarovány s použitím hodnot pro tento ukázkový postup. Ve většině případů byste měli hodnoty nahradit vlastními. Tyto hodnoty proměnných ale můžete použít, pokud procházíte kroky, abyste se seznámili s tímto typem konfigurace. Upravte proměnné podle potřeby a pak je zkopírujte a vložte do konzoly PowerShell.
 
   ```powershell
   $Sub1 = "Replace_With_Your_Subcription_Name"
@@ -125,43 +134,38 @@ V příkladech používáme následující hodnoty:
   $FESubPrefix1 = "10.11.0.0/24"
   $BESubPrefix1 = "10.12.0.0/24"
   $GWSubPrefix1 = "10.12.255.0/27"
-  $DNS1 = "8.8.8.8"
   $GWName1 = "VNet1GW"
   $GWIPName1 = "VNet1GWIP"
   $GWIPconfName1 = "gwipconf1"
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
-2. Připojte se ke svému předplatnému.
-   
-    Přejděte do režimu PowerShellu, aby bylo možné používat rutiny Resource Manageru. Otevřete konzolu prostředí PowerShell a připojte se ke svému účtu. Připojení vám usnadní následující ukázka:
+
+2. Připojte se ke svému účtu. Připojení vám usnadní následující ukázka:
 
   ```powershell
   Login-AzureRmAccount
   ```
-   
-    Zkontrolujte předplatná pro příslušný účet.
- 
+
+  Zkontrolujte předplatná pro příslušný účet.
+
   ```powershell
   Get-AzureRmSubscription
-  ``` 
-   
-    Určete předplatné, které chcete použít.
+  ```
+
+  Určete předplatné, které chcete použít.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub1
   ```
-
 3. Vytvořte novou skupinu prostředků.
 
   ```powershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-4. Vytvořte konfigurace podsítí pro virtuální síť TestVNet1.
-   
-    Tato ukázka vytvoří virtuální síť s názvem TestVNet1 a tři podsítě: jednu s názvem GatewaySubnet, jednu s názvem FrontEnd a jednu s názvem BackEnd. Při nahrazování hodnot je důležité vždy přiřadit podsíti brány konkrétní název GatewaySubnet. Pokud použijete jiný název, vytvoření brány se nezdaří. 
-   
-    Následující příklad používá proměnné, které jste nastavili dříve. V příkladu používá podsíť brány možnost /27. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost alespoň /28 nebo /27. Tím vznikne dostatečný prostor pro adresy, který umožní nastavení případných dalších konfigurací v budoucnu.
+4. Vytvořte konfigurace podsítí pro virtuální síť TestVNet1. Tato ukázka vytvoří virtuální síť s názvem TestVNet1 a tři podsítě: jednu s názvem GatewaySubnet, jednu s názvem FrontEnd a jednu s názvem BackEnd. Při nahrazování hodnot je důležité vždy přiřadit podsíti brány konkrétní název GatewaySubnet. Pokud použijete jiný název, vytvoření brány se nezdaří.
+
+  Následující příklad používá proměnné, které jste nastavili dříve. V příkladu používá podsíť brány možnost /27. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost alespoň /28 nebo /27. Tím vznikne dostatečný prostor pro adresy, který umožní nastavení případných dalších konfigurací v budoucnu.
 
   ```powershell
   $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -174,17 +178,13 @@ V příkladech používáme následující hodnoty:
   New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
-6. Vyžádejte si veřejnou IP adresu.
-   
-  Vyžádejte si veřejnou IP adresu, která bude přidělena bráně, kterou vytvoříte pro příslušnou virtuální síť. Všimněte si, že metoda AllocationMethod je dynamická. Není možné určit IP adresu, kterou chcete používat. Přiděluje se pro bránu dynamicky. 
-   
+6. Vyžádejte si veřejnou IP adresu, která bude přidělena bráně, kterou vytvoříte pro příslušnou virtuální síť. Všimněte si, že metoda AllocationMethod je dynamická. Není možné určit IP adresu, kterou chcete používat. Přiděluje se pro bránu dynamicky. 
+
   ```powershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
-7. Vytvořte konfiguraci brány.
-   
-    Konfigurace brány definuje podsíť a veřejnou IP adresu, která se bude používat. Podle následující ukázky vytvořte vlastní konfiguraci brány.
+7. Vytvořte konfiguraci brány. Konfigurace brány definuje podsíť a veřejnou IP adresu, která se bude používat. Podle následující ukázky vytvořte vlastní konfiguraci brány.
 
   ```powershell
   $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
@@ -192,22 +192,21 @@ V příkladech používáme následující hodnoty:
   $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
-8. Vytvořte bránu pro virtuální síť TestVNet1.
-   
-    V tomto kroku vytvoříte bránu virtuální sítě pro virtuální síť TestVNet1. Konfigurace propojení VNet-to-VNet vyžadují typ sítě VPN RouteBased. Vytvoření brány může obvykle trvat 45 minut nebo déle, a to v závislosti na vybrané skladové jednotce (SKU) brány.
+8. Vytvořte bránu pro virtuální síť TestVNet1. V tomto kroku vytvoříte bránu virtuální sítě pro virtuální síť TestVNet1. Konfigurace propojení VNet-to-VNet vyžadují typ sítě VPN RouteBased. Vytvoření brány může obvykle trvat 45 minut nebo déle, a to v závislosti na vybrané skladové jednotce (SKU) brány.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-### <a name="step-3---create-and-configure-testvnet4"></a>Krok 3: Vytvoření a konfigurace virtuální sítě TestVNet4
+<a id="step-3---create-and-configure-testvnet4" class="xliff"></a>
+
+### Krok 3: Vytvoření a konfigurace virtuální sítě TestVNet4
+
 Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet4. Postupujte podle následujících kroků a podle potřeby nahrazujte hodnoty vlastními. Tento krok lze provést v rámci stejné relace prostředí PowerShell, protože se jedná o stejné předplatné.
 
-1. Deklarujte proměnné.
-   
-    Nezapomeňte nahradit hodnoty těmi, které chcete použít pro svou konfiguraci.
+1. Deklarujte proměnné. Nezapomeňte nahradit hodnoty těmi, které chcete použít pro svou konfiguraci.
 
   ```powershell
   $RG4 = "TestRG4"
@@ -221,14 +220,11 @@ Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet
   $FESubPrefix4 = "10.41.0.0/24"
   $BESubPrefix4 = "10.42.0.0/24"
   $GWSubPrefix4 = "10.42.255.0/27"
-  $DNS4 = "8.8.8.8"
   $GWName4 = "VNet4GW"
   $GWIPName4 = "VNet4GWIP"
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-   
-    Než budete pokračovat, zkontrolujte, že jste stále připojeni k předplatnému 1.
 2. Vytvořte novou skupinu prostředků.
 
   ```powershell
@@ -249,7 +245,7 @@ Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet
   ```
 5. Vyžádejte si veřejnou IP adresu.
 
-  ```powershell  
+  ```powershell
   $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
@@ -265,53 +261,52 @@ Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-### <a name="step-4---connect-the-gateways"></a>Krok 4: Propojení bran
-1. Získejte obě brány virtuální sítě.
-   
-    Jelikož obě brány v tomto příkladu patří do stejného předplatného, je možné tento krok provést v téže relaci prostředí PowerShell.
-   
+<a id="step-4---create-the-connections" class="xliff"></a>
+
+### Krok 4: Vytvoření připojení
+
+1. Získejte obě brány virtuální sítě. Pokud jsou obě brány ve stejném předplatném, jako je tomu v příkladu, můžete tento krok dokončit ve stejné relaci PowerShellu.
+
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
-2. Vytvořte připojení virtuální sítě TestVNet1 k virtuální síti TestVNet4.
-   
-    V tomto kroku vytvoříte připojení z virtuální sítě TestVNet1 do virtuální sítě TestVNet4. Zobrazí se sdílený klíč uváděný v příkladech. Pro sdílený klíč můžete použít vlastní hodnoty. Důležité je, že se sdílený klíč pro obě připojení musí shodovat. Vytvoření připojení může nějakou dobu trvat.
-   
+2. Vytvořte připojení virtuální sítě TestVNet1 k virtuální síti TestVNet4. V tomto kroku vytvoříte připojení z virtuální sítě TestVNet1 do virtuální sítě TestVNet4. Zobrazí se sdílený klíč uváděný v příkladech. Pro sdílený klíč můžete použít vlastní hodnoty. Důležité je, že se sdílený klíč pro obě připojení musí shodovat. Vytvoření připojení může nějakou dobu trvat.
+
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-3. Vytvořte připojení virtuální sítě TestVNet4 k virtuální síti TestVNet1.
-   
-    Tento krok je podobný předchozímu, vytváříte však připojení z virtuální sítě TestVNet4 do virtuální sítě TestVNet1. Ověřte, že se sdílené klíče shodují.
+3. Vytvořte připojení virtuální sítě TestVNet4 k virtuální síti TestVNet1. Tento krok je podobný předchozímu, vytváříte však připojení z virtuální sítě TestVNet4 do virtuální sítě TestVNet1. Ověřte, že se sdílené klíče shodují. Připojení se vytvoří během několika minut.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-   
-    Připojení by se mělo vytvořit během několika minut.
 4. Ověřte své propojení. Viz část [Ověření připojení](#verify).
 
 ## <a name="difsub"></a>Postup při propojování virtuálních sítí patřících k různým předplatným
+
 ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě TestVNet1 a TestVNet5 patří do různých předplatných. Tento postup přidá nové propojení VNet-to-VNet pro připojení virtuální sítě TestVNet1 k virtuální síti TestVNet5. 
+V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě TestVNet1 a TestVNet5 patří do různých předplatných. Rozdíl mezi těmito kroky a předchozí sadou spočívá v tom, že část kroků konfigurace je třeba provést v samostatné relaci PowerShellu v kontextu druhého předplatného. To je zvláště podstatné, když druhé předplatné patří jiné organizaci.
 
-Rozdíl spočívá v tom, že část kroků konfigurace je třeba provést v samostatné relaci prostředí PowerShell v kontextu druhého předplatného. To je zvláště podstatné, když druhé předplatné patří jiné organizaci. 
+<a id="step-5---create-and-configure-testvnet1" class="xliff"></a>
 
-Následující pokyny jsou pokračováním kroků uvedených nahoře. Je třeba vytvořit a konfigurovat virtuální síť TestVNet1 a bránu VPN Gateway pro virtuální síť TestVNet1 provedením [kroku 1](#Step1) a [kroku 2](#Step2). Po dokončení kroků 1 a 2 pokračujte krokem 5 a vytvořte síť TestVNet5.
+### Krok 5: Vytvoření a konfigurace virtuální sítě TestVNet1
 
-### <a name="step-5---verify-the-additional-ip-address-ranges"></a>Krok 5: Ověření dalších rozsahů IP adres
-Je důležité zajistit, aby se prostor IP adres nové virtuální sítě TestVNet5 nepřekrýval se žádným z rozsahů virtuálních sítí ani rozsahů bran místních sítí. 
+Je třeba vytvořit a konfigurovat virtuální síť TestVNet1 a bránu VPN Gateway pro virtuální síť TestVNet1 provedením [kroku 1](#Step1) a [kroku 2](#Step2) z předchozí části. Pro tuto konfiguraci není nutné vytvářet virtuální síť TestVNet4 z předchozí části, ale pokud ji vytvoříte, nebude to s těmito kroky v konfliktu. Po dokončení kroků 1 a 2 pokračujte krokem 6 a vytvořte síť TestVNet5. 
 
-V tomto příkladu můžou virtuální sítě různým organizacím. Pro tento postup použijte následující hodnoty pro virtuální síť TestVNet5:
+<a id="step-6---verify-the-ip-address-ranges" class="xliff"></a>
+
+### Krok 6: Ověření rozsahů IP adres
+
+Je důležité zajistit, aby se prostor IP adres nové virtuální sítě TestVNet5 nepřekrýval se žádným z rozsahů virtuálních sítí ani rozsahů bran místních sítí. V tomto příkladu můžou virtuální sítě různým organizacím. Pro tento postup použijte následující hodnoty pro virtuální síť TestVNet5:
 
 **Hodnoty pro virtuální síť TestVNet5:**
 
@@ -322,23 +317,19 @@ V tomto příkladu můžou virtuální sítě různým organizacím. Pro tento p
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
-* Server DNS: 8.8.8.8
 * Název brány: VNet5GW
 * Veřejná IP adresa: VNet5GWIP
 * Typ sítě VPN: RouteBased
 * Připojení: VNet5toVNet1
 * Typ připojení: VNet2VNet
 
-**Další hodnoty pro virtuální síť TestVNet1:**
+<a id="step-7---create-and-configure-testvnet5" class="xliff"></a>
 
-* Připojení: VNet1toVNet5
+### Krok 7: Vytvoření a konfigurace virtuální sítě TestVNet5
 
-### <a name="step-6---create-and-configure-testvnet5"></a>Krok 6: Vytvoření a konfigurace virtuální sítě TestVNet5
 Tento krok je třeba provést v rámci nového předplatného. Tuto část může provést správce v organizaci, která je vlastníkem druhého předplatného.
 
-1. Deklarujte proměnné.
-   
-    Nezapomeňte nahradit hodnoty těmi, které chcete použít pro svou konfiguraci.
+1. Deklarujte proměnné. Nezapomeňte nahradit hodnoty těmi, které chcete použít pro svou konfiguraci.
 
   ```powershell
   $Sub5 = "Replace_With_the_New_Subcription_Name"
@@ -353,27 +344,24 @@ Tento krok je třeba provést v rámci nového předplatného. Tuto část můž
   $FESubPrefix5 = "10.51.0.0/24"
   $BESubPrefix5 = "10.52.0.0/24"
   $GWSubPrefix5 = "10.52.255.0/27"
-  $DNS5 = "8.8.8.8"
   $GWName5 = "VNet5GW"
   $GWIPName5 = "VNet5GWIP"
   $GWIPconfName5 = "gwipconf5"
   $Connection51 = "VNet5toVNet1"
   ```
-2. Připojte se k předplatnému 5.
-   
-    Otevřete konzolu prostředí PowerShell a připojte se ke svému účtu. Připojení vám usnadní následující ukázka:
+2. Připojte se k předplatnému 5. Otevřete konzolu prostředí PowerShell a připojte se ke svému účtu. Připojení vám usnadní následující ukázka:
 
   ```powershell
   Login-AzureRmAccount
   ```
-   
-    Zkontrolujte předplatná pro příslušný účet.
-   
+
+  Zkontrolujte předplatná pro příslušný účet.
+
   ```powershell
   Get-AzureRmSubscription
   ```
-   
-    Určete předplatné, které chcete použít.
+
+  Určete předplatné, které chcete použít.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub5
@@ -413,28 +401,29 @@ Tento krok je třeba provést v rámci nového předplatného. Tuto část můž
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
-  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
+  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-### <a name="step-7---connecting-the-gateways"></a>Krok 7: Propojení bran
+<a id="step-8---create-the-connections" class="xliff"></a>
+
+### Krok 8: Vytvoření připojení
+
 Jelikož brány v tomto příkladu patří do různých předplatných, rozdělíme tento krok do dvou relací prostředí PowerShell označených [Předplatné 1] a [Předplatné 5].
 
-1. **[Předplatné 1]** Získejte bránu virtuální sítě pro předplatné 1.
-   
-    Ujistěte se, že jste přihlášeni a připojeni k předplatnému 1.
+1. **[Předplatné 1]** Získejte bránu virtuální sítě pro předplatné 1. Před spuštěním následujícího příkladu se přihlaste a připojte k předplatnému 1:
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
-   
-    Zkopírujte výstup následujících prvků a pošlete je správci předplatného 5 prostřednictvím e-mailu nebo jiným způsobem.
+
+  Zkopírujte výstup následujících prvků a pošlete je správci předplatného 5 prostřednictvím e-mailu nebo jiným způsobem.
 
   ```powershell
   $vnet1gw.Name
   $vnet1gw.Id
   ```
-   
-    Tyto dva prvky budou mít hodnoty podobné výstupu v následujícím příkladu:
+
+  Tyto dva prvky budou mít hodnoty podobné výstupu v následujícím příkladu:
 
   ```
   PS D:\> $vnet1gw.Name
@@ -442,22 +431,20 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[Předplatné 5]** Získejte bránu virtuální sítě pro předplatné 5.
-   
-    Ujistěte se, že jste přihlášeni a připojeni k předplatnému 5.
+2. **[Předplatné 5]** Získejte bránu virtuální sítě pro předplatné 5. Před spuštěním následujícího příkladu se přihlaste a připojte k předplatnému 5:
 
   ```powershell
   $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
-   
-    Zkopírujte výstup následujících prvků a pošlete jej správci předplatného 1 prostřednictvím e-mailu nebo jiným způsobem.
+
+  Zkopírujte výstup následujících prvků a pošlete jej správci předplatného 1 prostřednictvím e-mailu nebo jiným způsobem.
 
   ```powershell
   $vnet5gw.Name
   $vnet5gw.Id
   ```
-   
-    Tyto dva prvky budou mít hodnoty podobné výstupu v následujícím příkladu:
+
+  Tyto dva prvky budou mít hodnoty podobné výstupu v následujícím příkladu:
 
   ```
   PS C:\> $vnet5gw.Name
@@ -465,11 +452,9 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
   PS C:\> $vnet5gw.Id
   /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
-3. **[Předplatné 1]** Vytvořte připojení virtuální sítě TestVNet1 k virtuální síti TestVNet5.
-   
-    V tomto kroku vytvoříte propojení z virtuální sítě TestVNet1 do sítě TestVNet5. Rozdíl zde spočívá v tom, že hodnotu $vnet5gw nelze získat přímo, protože patří do jiného předplatného. Je třeba vytvořit nový objekt prostředí PowerShell s hodnotami zjištěnými z předplatného 1 v předchozích krocích. Postupujte podle následujícího příkladu. Nahraďte název, ID a sdílený klíč vlastními hodnotami. Důležité je, že se sdílený klíč pro obě připojení musí shodovat. Vytvoření připojení může nějakou dobu trvat.
-   
-    Ujistěte se, že jste připojeni k předplatnému 1.
+3. **[Předplatné 1]** Vytvořte připojení virtuální sítě TestVNet1 k virtuální síti TestVNet5. V tomto kroku vytvoříte propojení z virtuální sítě TestVNet1 do sítě TestVNet5. Rozdíl zde spočívá v tom, že hodnotu $vnet5gw nelze získat přímo, protože patří do jiného předplatného. Je třeba vytvořit nový objekt prostředí PowerShell s hodnotami zjištěnými z předplatného 1 v předchozích krocích. Postupujte podle následujícího příkladu. Nahraďte název, ID a sdílený klíč vlastními hodnotami. Důležité je, že se sdílený klíč pro obě připojení musí shodovat. Vytvoření připojení může nějakou dobu trvat.
+
+  Před spuštěním následujícího příkladu se připojte k předplatnému 1:
 
   ```powershell
   $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -478,11 +463,9 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
   $Connection15 = "VNet1toVNet5"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. **[Předplatné 5]** Vytvořte připojení virtuální sítě TestVNet5 k virtuální síti TestVNet1.
-   
-    Tento krok je podobný předchozímu, vytváříte však připojení z virtuální sítě TestVNet5 do virtuální sítě TestVNet1. Stejný postup vytváření objektu prostředí PowerShell na základě hodnot zjištěných z předplatného 1 se používá i zde. V tomto kroku ověřte, že se sdílené klíče shodují.
-   
-    Ujistěte se, že jste připojeni k předplatnému 5.
+4. **[Předplatné 5]** Vytvořte připojení virtuální sítě TestVNet5 k virtuální síti TestVNet1. Tento krok je podobný předchozímu, vytváříte však připojení z virtuální sítě TestVNet5 do virtuální sítě TestVNet1. Stejný postup vytváření objektu prostředí PowerShell na základě hodnot zjištěných z předplatného 1 se používá i zde. V tomto kroku ověřte, že se sdílené klíče shodují.
+
+  Před spuštěním následujícího příkladu se připojte k předplatnému 5:
 
   ```powershell
   $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -492,16 +475,18 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
   ```
 
 ## <a name="verify"></a>Ověření připojení
+
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="faq"></a>Nejčastější dotazy týkající se propojení VNet-to-VNet
+
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 
 * Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v [dokumentaci ke službě Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-* Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md). 
-
-
+* Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md).

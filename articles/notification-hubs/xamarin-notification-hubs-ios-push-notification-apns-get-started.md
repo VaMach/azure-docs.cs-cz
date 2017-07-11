@@ -15,30 +15,38 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 426294e0dc3e877565bd57e899fdc79a1bd31c21
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>Nabízená oznámení iOS s centry oznámení pro aplikace Xamarin
+<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
+
+# Nabízená oznámení iOS s centry oznámení pro aplikace Xamarin
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Přehled
+<a id="overview" class="xliff"></a>
+
+## Přehled
 > [!IMPORTANT]
 > K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 
 V tomto kurzu zjistíte, jak používat Azure Notification Hubs k odesílání nabízených oznámení do aplikace systému iOS.
-Vytvoříte prázdnou aplikaci Xamarin.iOS, která přijímá nabízená oznámení pomocí [služby nabízených oznámení Apple (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). Jakmile budete hotovi, budete moci používat vaše centra oznámení k vysílání nabízených oznámení pro všechna zařízení používající vaši aplikaci. Dokončený kód je k dispozici ve vzorku [Aplikace NotificationHubs][GitHub].
+Vytvoříte prázdnou aplikaci Xamarin.iOS, která přijímá nabízená oznámení pomocí [služby nabízených oznámení Apple (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). Jakmile budete hotovi, budete moci používat vaše centra oznámení k vysílání nabízených oznámení pro všechna zařízení používající vaši aplikaci. Dokončený kód je k dispozici v ukázce [aplikace NotificationHubs][GitHub].
 
 Tento kurz představuje scénář jednoduchého vysílání zprávy oznámení pomocí centra oznámení.
 
-## <a name="prerequisites"></a>Požadavky
+<a id="prerequisites" class="xliff"></a>
+
+## Požadavky
 V tomto kurzu budete potřebovat následující:
 
-* [Xcode 6.0][Instalaci Xcode]
+* [Xcode 6.0][Install Xcode]
 * Zařízení kompatibilní s iOS 7.0 (nebo novější verze)
 * Členství v programu pro vývojáře iOS.
 * [Xamarin Studio]
@@ -52,7 +60,9 @@ Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notificati
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## <a name="configure-your-notification-hub"></a>Konfigurace centra oznámení
+<a id="configure-your-notification-hub" class="xliff"></a>
+
+## Konfigurace centra oznámení
 Tato části vás provede vytvořením nového centra oznámení a konfigurací ověřování s použitím služby APNS a pomoci vytvořeného nabízeného certifikátu **.p12**. Pokud chcete použít centrum oznámení, které jste již vytvořili, můžete přeskočit na krok 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -72,11 +82,15 @@ Tato části vás provede vytvořením nového centra oznámení a konfigurací 
 
 Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. Zároveň máte připojovací řetězce, pomocí kterých můžete svou aplikaci zaregistrovat pro odesílání nabízených oznámení.
 
-## <a name="connect-your-app-to-the-notification-hub"></a>Připojte aplikaci k centru oznámení
-#### <a name="create-a-new-project"></a>Vytvoření nového projektu
+<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
+
+## Připojte aplikaci k centru oznámení
+<a id="create-a-new-project" class="xliff"></a>
+
+#### Vytvoření nového projektu
 1. V Xamarin Studiu vytvořte nový projekt iOS a vyberte šablonu **Unifikované API** > **Jediné zobrazení aplikace**.
    
-       ![Xamarin Studio - Select Application Type][31]
+     ![Xamarin Studio – výběr typu aplikace][31]
 2. Přidejte odkaz na komponentu zasílání zpráv Azure. V zobrazení řešení klikněte pravým tlačítkem na složku **Komponenty** pro váš projekt a vyberte **Získat další komponenty**. Vyhledejte komponentu **Zasílání zpráv Azure** a přidejte komponentu do projektu.
 3. Do souboru **AppDelegate.cs** přidejte následující pomocí příkazu:
    
@@ -175,7 +189,9 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. 
    > 
 10. Spusťte aplikaci v zařízení.
 
-## <a name="sending-push-notifications"></a>Odeslání nabízených oznámení
+<a id="sending-push-notifications" class="xliff"></a>
+
+## Odeslání nabízených oznámení
 Nabízená oznámení můžete otestovat ve vaší aplikaci odesláním oznámení na [Azure Portal] prostřednictvím schopnosti **Testovací odeslání** v sadě nástrojů **Poradce při potížích** přímo na stránce centra oznámení, jak je znázorněno na obrazovce níže.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-test-send.png)
@@ -192,7 +208,9 @@ V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testován
 
 * **Java/PHP**: příklad odesílání nabízených oznámení pomocí rozhraní REST API najdete v části „Jak používat Notification Hubs z Javy/PHP“ ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-#### <a name="optional-send-push-notifications-from-a-net-console-app"></a>(Volitelné) Odesílání nabízených oznámení z konzoly aplikace .NET
+<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
+
+#### (Volitelné) Odesílání nabízených oznámení z konzoly aplikace .NET
 V této části odešleme nabízená oznámení pomocí konzolové aplikace .NET Pro účely tohoto příkladu přepněme do vývojového prostředí systému Windows, které obsahuje nainstalované Visual Studio.
 
 1. Ve Visual Studiu vytvořte novou konzolovou aplikaci Visual C#:
@@ -227,7 +245,9 @@ V této části odešleme nabízená oznámení pomocí konzolové aplikace .NET
 
 Můžete najít všechny možné datové části v Apple [Průvodci programováním místních a nabízených oznámení].
 
-#### <a name="optional-send-notifications-from-a-mobile-service"></a>(Volitelné) Odesílání oznámení z mobilní služby
+<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
+
+#### (Volitelné) Odesílání oznámení z mobilní služby
 V této části vám odešleme nabízená oznámení pomocí mobilních služeb prostřednictvím skriptu uzlu.
 
 Při odesílání oznámení pomocí mobilních služeb využijte téma [Začínáme používat Mobile Services] a pak:
@@ -260,7 +280,9 @@ Při odesílání oznámení pomocí mobilních služeb využijte téma [Začín
         );
 6. Klikněte na tlačítko **Spustit jednou** na dolním panelu. Měli byste obdržet upozornění na vašem zařízení.
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zařízení iOS. Chcete-li se zaměřit na konkrétní uživatele, využijte kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Pokud chcete segmentovat uživatele podle zájmových skupin, můžete si přečíst kurz [Používání centra oznámení k odesílání novinek]. Další informace o tom, jak používat centra oznámení, naleznete v tématu [Průvodce centry oznámení] a v tématu [Centra oznámení s postupy pro iOS].
 
 <!-- Images. -->
@@ -278,16 +300,16 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 
 <!-- URLs. -->
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Odeslání stránky aplikace]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Moje aplikace]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK pro Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Začínáme používat Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
 [portál Azure Classic]: https://manage.windowsazure.com/
 [Průvodce centry oznámení]: http://msdn.microsoft.com/library/jj927170.aspx
 [Centra oznámení s postupy pro iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Instalaci Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portál zřizování iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]: /manage/services/notification-hubs/notify-users-aspnet
 [Používání centra oznámení k odesílání novinek]: /manage/services/notification-hubs/breaking-news-dotnet
@@ -295,14 +317,9 @@ V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zař�
 [Průvodci programováním místních a nabízených oznámení]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
-[Komponenta Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
