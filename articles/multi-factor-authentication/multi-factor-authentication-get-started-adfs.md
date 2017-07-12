@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
+ms.translationtype: HT
 ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: 28aede545c738137ff04257214e4a3f42792d85c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Začínáme s ověřováním Azure Multi-Factor Authentication a službami Active Directory Federation Services
+<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
+
+# Začínáme s ověřováním Azure Multi-Factor Authentication a službami Active Directory Federation Services
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Pokud má vaše organizace federované místní služby Active Directory s Azure Active Directory využívající službu AD FS, jsou k dispozici následující 2 možnosti používání ověřování Azure Multi-Factor Authentication.
@@ -44,7 +45,9 @@ Upozornění s hesly aplikací pro federované uživatele:
 * U hesel aplikací ztratíte schopnost ověřování přihlašování v místě.
 * Zakázání/odstranění účtu může pro synchronizaci adresáře trvat až tři hodiny, přičemž dojde ke zpoždění zakázání/odstranění hesla aplikace v cloudové identitě.
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 Informace o nastavení ověřování Azure Multi-Factor Authentication nebo Azure Multi-Factor Authentication Serveru se službou AD FS najdete v následujících článcích:
 
 * [Zabezpečené cloudové prostředky používající ověřování Azure Multi-Factor Authentication a AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
