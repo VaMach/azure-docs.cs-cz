@@ -1,13 +1,8 @@
-**Standardní nespravované disky virtuálních počítačů: omezení na jeden disk**
+**Standard unmanaged virtual machine disks: per disk limits**
 
-| Úroveň virtuálního počítače | Virtuální počítač na úrovni Basic | Virtuální počítač na úrovni Standard |
+| VM Tier | Basic Tier VM | Standard Tier VM |
 | --- | --- | --- |
-| Velikost disku |1023 GB |1023 GB |
-| Maximálně 8 kB IOPS na trvalý disk |300 |500 |
-| Maximální počet disků provádějících maximální IOPS |66 |40 |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+| Disk size |4095 GB |4095 GB |
+| Max 8 KB IOPS per persistent disk |300 |500 |
+| Max number of disks performing max IOPS |66 |40 |
 
