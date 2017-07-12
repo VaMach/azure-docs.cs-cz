@@ -19,7 +19,9 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Dokumentace k platformě Service Fabric
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Dokumentace k platformě Service Fabric
 
 Naučte se používat Service Fabric k balení, nasazování a správě škálovatelných a spolehlivých mikroslužeb. Kurzy, reference k rozhraní API a ukázky kódu ukazují, jak použít tuto middlewarovou platformu k vytváření a správě aplikací s rozsahem cloudu.
 
