@@ -2,16 +2,16 @@
 
 
 
-Pro účely porovnávání výpočetního síly (výkonu procesoru) jednotlivých SKU v Azure jsme vytvořili koncept výpočetní jednotky Azure – ACU. To vám umožní snadno zjistit, jaká jednotka SKU nejlépe vyhoví vašim požadavkům na výkon.  Jednotka ACU je aktuálně stanovená tak, že malý virtuální počítač (Standard_A1) má 100 ACU a ostatní jednotky SKU jsou pak ohodnoceny podle relativního výsledku standardního srovnávacího testu. 
+We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
 
 > [!IMPORTANT]
-> ACU je jenom informativní údaj.  Výsledek v případě konkrétních úloh může být odlišný. 
+> The ACU is only a guideline.  The results for your workload may vary. 
 > 
 > 
 
 <br>
 
-| Rodina SKU | ACU na jádro |
+| SKU Family | ACU/Core |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |
@@ -29,5 +29,8 @@ Pro účely porovnávání výpočetního síly (výkonu procesoru) jednotlivýc
 | [GS1-GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290 - 300* |
 | [L4s-L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* |
+| [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180** |
 
-Hodnoty ACU s hvězdičkou označují použití technologie Intel® Turbo, která může zvýšit frekvenci procesoru podle aktuální potřeby.  Množství nárůst se může lišit v závislosti na velikosti virtuálního počítače, úlohy a dalších úlohách spuštěných na stejném hostiteli.
+ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
+
+**Hyper-threaded. 
