@@ -16,14 +16,15 @@ ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 70e0cb62ff9da5486e956a59a110e12093e90f5d
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="what-is-azure-sql-data-warehouse"></a>Co je Azure SQL Data Warehouse?
+# Co je Azure SQL Data Warehouse?
+<a id="what-is-azure-sql-data-warehouse" class="xliff"></a>
 Azure SQL Data Warehouse je cloudová, škálovatelná, relační databáze, která dokáže zpracovávat ohromné objemy dat, postavená na architektuře MPP (Massively Parallel Processing). 
 
 SQL Data Warehouse:
@@ -37,7 +38,8 @@ SQL Data Warehouse:
 
 Tento článek popisuje klíčové funkce SQL Data Warehouse.
 
-## <a name="massively-parallel-processing-architecture"></a>Architektura MPP (Massively parallel processing)
+## Architektura MPP (Massively parallel processing)
+<a id="massively-parallel-processing-architecture" class="xliff"></a>
 Řešení SQL Data Warehouse je distribuovaný databázový systém, postavený na architektuře MPP (Massively Parallel Processing). SQL Data Warehouse rovnoměrně rozprostírá vaše data napříč mnoha úložnými a procesorovými jednotkami typu SN (shared-nothing). Data se ukládají ve vrstvě místně redundantního úložiště úrovně Premium, nad kterou provádí dotazy dynamicky propojené výpočetní uzly. SQL Data Warehouse používá ke spuštěnému načítání a složitým dotazům přístup „rozděl a panuj“. Požadavky jsou přijímány řídicím uzlem, optimalizovány pro distribuci a potom předány do výpočetních uzlů, aby mohly pracovat paralelně.
 
 Díky oddělenému úložišti a výpočetním prostředkům může SQL Data Warehouse:
@@ -59,7 +61,8 @@ Následující diagram ukazuje architekturu podrobněji.
 
 **Služba pro přesun dat:** Služba pro přesun dat (DMS) zajišťuje přesun dat mezi uzly. Služba DMS dává výpočetním uzlům přístup k datům, který potřebují pro spojování a agregaci. DMS není jednou ze služeb Azure. Jde o službu systému Windows, která běží na všech uzlech souběžně se službou SQL Database. DMS je proces na pozadí, se kterým nelze přímo interagovat. Můžete se však podívat na plány dotazů, abyste zjistili, kdy probíhají operace DMS, protože při paralelním spuštění jednotlivých dotazů je vždycky nutný přesun dat.
 
-## <a name="optimized-for-data-warehouse-workloads"></a>Optimalizováno pro úlohy datového skladu
+## Optimalizováno pro úlohy datového skladu
+<a id="optimized-for-data-warehouse-workloads" class="xliff"></a>
 Přístup MPP se opírá o několik optimalizací výkonu specifických pro datové sklady, včetně těchto:
 
 * Optimalizátor distribuovaných dotazů a soubor komplexních statistik napříč všemi daty. Pomocí informací o velikosti a distribuci dat dokáže služba optimalizovat dotazy tím, že posoudí náklady na konkrétní operace distribuovaných dotazů.
@@ -67,7 +70,8 @@ Přístup MPP se opírá o několik optimalizací výkonu specifických pro dato
 * Clusterované indexy **columnstore** ve výchozím nastavení. Díky použití úložiště založeného na sloupcích dosahuje služba SQL Data Warehouse průměrně 5x větší zvýšení komprese oproti tradičním úložištím orientovaným na řádky a 10x nebo i vícekrát vyšší výkon dotazů. Analytické dotazy, které potřebují prohledat velký počet řádků, fungují lépe s indexy columnstore.
 
 
-## <a name="predictable-and-scalable-performance-with-data-warehouse-units"></a>Předvídatelný a škálovatelný výkon s jednotkami datového skladu
+## Předvídatelný a škálovatelný výkon s jednotkami datového skladu
+<a id="predictable-and-scalable-performance-with-data-warehouse-units" class="xliff"></a>
 Služba SQL Data Warehouse je postavena na podobných technologiích jako SQL Database – to znamená, že uživatelé můžou očekávat konzistentní a předvídatelný výkon pro analytické dotazy. Uživatelé by měli očekávat lineární škálování výkonu v závislosti na přidávání nebo odebírání výpočetních uzlů. Přidělování prostředků pro SQL Data Warehouse se měří v jednotkách datového skladu (Dwu). Dwu jsou jednotky základních prostředků jako jsou například procesor, paměť nebo IOPS, které jsou přidělené k vaší službě SQL Data Warehouse. Zvýšení výkonu jednotek DWU navyšuje prostředky a výkon. Jednotky DWU přináší především tyto výhody:
 
 * Můžete škálovat datový sklad, aniž byste museli řešit použitý hardware a software.
@@ -84,7 +88,8 @@ Jednotky datového skladu poskytují měřítko tří metrik, které vysoce kore
 
 **Funkce CTAS (Create Table As Select):** Funkce CTAS měří schopnost kopírování tabulky. To zahrnuje čtení dat z úložiště, jejich distribuci napříč uzly zařízení a zpětný zápis do úložiště. Tato operace je náročná na prostředky procesoru, vstup/výstup a síťové prostředky.
 
-## <a name="built-on-sql-server"></a>Vytvořené na serveru SQL Server
+## Vytvořené na serveru SQL Server
+<a id="built-on-sql-server" class="xliff"></a>
 Služba SQL Data Warehouse je založená na relačním databázovém stroji SQL Serveru a zahrnuje celou řadu funkcí, které od podnikového datového skladu očekáváte. Pokud znáte T-SQL, přechod na SQL Data Warehouse je jednoduchou záležitostí. Ať už máte pokročilé, nebo jen základní znalosti, příklady v dokumentaci vám pomůžou začít. Celkově platí, že způsob konstrukce prvků jazyka služby SQL Data Warehouse se dá chápat takto:
 
 * SQL Data Warehouse používá syntaxi T-SQL pro mnoho operací. Také podporuje širokou škálu tradičních SQL konstruktorů, jako jsou uložené procedury, uživatelem definované funkce, vytváření oddílů tabulky, indexy a kolace.
@@ -93,10 +98,12 @@ Služba SQL Data Warehouse je založená na relačním databázovém stroji SQL 
 
 Díky shodnému jazyku Transact-SQL a shodným funkcím systému SQL Server, služby SQL Data Warehouse, služby SQL Database a řešení Analytics Platform System můžete vyvinout řešení, které vyhovuje vašim datovým potřebám. Na základě požadavků na výkon, zabezpečení a škálování se můžete rozhodnout, kam svoje data uložíte, a potom data podle potřeby přenášet mezi různými systémy.
 
-## <a name="data-protection"></a>Ochrana dat
+## Ochrana dat
+<a id="data-protection" class="xliff"></a>
 SQL Data Warehouse ukládá všechna data v úložišti Azure úrovně Premium pomocí místně redundantního úložiště. V místním datovém centru se udržuje několik synchronních kopií dat, aby se zajistila transparentní ochrana dat před místním selháním. Kromě toho SQL Data Warehouse v pravidelných intervalech automaticky zálohuje aktivní (nepozastavené) databáze pomocí snímků služby Azure Storage. Další informace o zálohování a obnovení najdete v článku [Přehled zálohování a obnovení][Backup and restore overview].
 
-## <a name="integrated-with-microsoft-tools"></a>Integrováno s nástroji společnosti Microsoft
+## Integrováno s nástroji společnosti Microsoft
+<a id="integrated-with-microsoft-tools" class="xliff"></a>
 SDL Data Warehouse také integruje mnoho nástrojů, které znají uživatelé z používání systému SQL Server. Mezi tyto nástroje patří:
 
 **Tradiční nástroje systému SQL Server:** Služba SQL Data Warehouse je plně integrovaná se Službou Analysis Services serveru SQL, SSIS a Reporting Services.
@@ -105,17 +112,20 @@ SDL Data Warehouse také integruje mnoho nástrojů, které znají uživatelé z
 
 **Nástroje třetích stran:** Mnoho poskytovatelů nástrojů třetích stran disponuje certifikovanou integrací svých nástrojů se službou SQL Data Warehouse. Úplný seznam najdete v tématu [Partneři řešení SQL Data Warehouse][SQL Data Warehouse solution partners].
 
-## <a name="hybrid-data-sources-scenarios"></a>Scénáře hybridních zdrojů dat
+## Scénáře hybridních zdrojů dat
+<a id="hybrid-data-sources-scenarios" class="xliff"></a>
 PolyBase vám umožňuje využít data z různých zdrojů pomocí stejných příkazů T-SQL, které dobře znáte. PolyBase umožňuje dotazovat nerelační data uložená v Úložišti objektů blob v Azure, jako by šlo o běžnou tabulku. Použijte PolyBase k dotazům na nerelační data a importu nerelačních dat do služby SQL Data Warehouse.
 
 * PolyBase používá k přístupu k nerelačním datům externí tabulky. Definice tabulek jsou uložené ve službě SQL Data Warehouse a můžete k nim přistupovat pomocí SQL a nástrojů stejně, jako byste přistupovali k normálním relačním datům.
 * PolyBase nedělá při integraci žádné rozdíly. Zpřístupňuje stejné prvky a funkce všem zdrojům, které podporuje. PolyBase čte data v mnoha různých formátech, včetně souborů s oddělovači a souborů ORC.
 * PolyBase lze použít pro přístup k úložišti objektů blob, které se také používá jako úložiště clusteru HDInsight. To umožňuje přístup ke stejným datům pomocí relačních a nerelačních nástrojů.
 
-## <a name="sla"></a>SLA
+## SLA
+<a id="sla" class="xliff"></a>
 SQL Data Warehouse nabízí smlouvu o úrovni služeb (SLA) na úrovni produktu jako součást smlouvy SLA pro Microsoft Online Services. Další informace najdete na stránkách [SLA pro SQL Data Warehouse][SLA for SQL Data Warehouse]. Informace o smlouvách SLA ke všem dalším produktům najdete na stránce Azure věnované [smlouvám o úrovni služeb], případně si je můžete stáhnout na stránce o [multilicencích][Volume Licensing]. 
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychle [vytvořit datový sklad SQL Data Warehouse][create a SQL Data Warehouse] a [načíst ukázková data][load sample data]. Pokud s Azure začínáte, může vám být užitečný [Glosář Azure][Azure glossary], kde najdete potřebnou terminologii. Můžete se také podívat na některé z těchto dalších zdrojů ke službě SQL Data Warehouse.  
 
 * [Úspěšné zákaznické implementace]
@@ -144,7 +154,7 @@ Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychl
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Úspěšné zákaznické implementace]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
+[Úspěšné zákaznické implementace]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blogy]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogy zákaznického poradního týmu]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Žádosti o funkce]: https://feedback.azure.com/forums/307516-sql-data-warehouse
