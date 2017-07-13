@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/24/2017
+ms.date: 07/12/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
@@ -20,15 +20,16 @@ ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
 ms.contentlocale: cs-cz
 ms.lasthandoff: 05/04/2017
 
-
 ---
-# <a name="azure-active-directory-faq"></a>Nejčastější dotazy ke službě Azure Active Directory
+# Nejčastější dotazy ke službě Azure Active Directory
+<a id="azure-active-directory-faq" class="xliff"></a>
 Azure Active Directory (Azure AD) je komplexní řešení Identity jako služby (IDaaS), které pokrývá všechny prvky identity, řízení přístupu a zabezpečení.
 
 Další informace najdete v tématu [Co je Azure Active Directory?](active-directory-whatis.md).
 
 
-## <a name="access-azure-and-azure-active-directory"></a>Přístup ke službě Azure a Azure Active Directory
+## Přístup ke službě Azure a Azure Active Directory
+<a id="access-azure-and-azure-active-directory" class="xliff"></a>
 **Otázka: Proč se při pokusu o přístup ke službě Azure AD na portálu Azure Classic zobrazí zpráva „Žádné předplatné nenalezeno“ (https://manage.windowsazure.com)?**
 
 **Odpověď:** Pro přístup k portálu Azure Classic potřebuje každý uživatel oprávnění s předplatným Azure. Pokud máte placené předplatné Azure AD nebo Office 365, přejděte na [http://aka.ms/accessAAD](http://aka.ms/accessAAD), kde najdete jednorázovou aktivaci. Jinak si budete muset vytvořit bezplatný [účet Azure](https://azure.microsoft.com/pricing/free-trial/) nebo placené předplatné.
@@ -69,7 +70,8 @@ Kromě toho placené služby AD Azure, jako je Enterprise Mobility + Security, d
 
 - - -
 
-## <a name="get-started-with-hybrid-azure-ad"></a>Začínáme s hybridní službou Azure AD
+## Začínáme s hybridní službou Azure AD
+<a id="get-started-with-hybrid-azure-ad" class="xliff"></a>
 
 
 **Otázka: Jak opustím tenanta, když jsem přidán jako spolupracovník?**
@@ -106,7 +108,8 @@ Další informace najdete v tématu [Úvod do přístupového panelu](active-dir
 Další informace najdete v tématu [Sledování infrastruktury místních identit a synchronizačních služeb v cloudu](active-directory-aadconnect-health.md).  
 
 - - -
-## <a name="password-management"></a>Správa hesel
+## Správa hesel
+<a id="password-management" class="xliff"></a>
 **Otázka: Je možné použít zpětný zápis hesla služby Azure AD bez synchronizace hesla? (Je možné v takovém scénáři použít samoobslužné resetování hesla služby Azure AD se zpětným zápisem a neukládat hesla v cloudu?)**
 
 **Odpověď:** Pokud chcete aktivovat zpětný zápis, není třeba synchronizovat hesla služby Active Directory do služby Azure AD. Ve federovaném prostředí se jednotné přihlašování služby Azure AD spoléhá při ověřování uživatele na místní adresář. Tento scénář nevyžaduje, aby se ve službě Azure AD sledovalo místní heslo.
@@ -139,7 +142,8 @@ Pro účty Azure AD můžou správci resetovat hesla pomocí jedné z následuj�
 
 
 - - -
-## <a name="security"></a>Zabezpečení
+## Zabezpečení
+<a id="security" class="xliff"></a>
 **Otázka: Uzamknou se účty po určitém počtu neúspěšných pokusů o přihlášení, nebo se používá složitější strategie?**</br>
 Používáme složitější strategii pro uzamčení účtů.  Je založená na adrese IP požadavku a zadaných heslech. Doba trvání uzamčení se taky zvyšuje podle pravděpodobnosti, že se jedná o útoku.  
 
@@ -149,7 +153,8 @@ To se vztahuje na hesla, která jsou častá globálně, například všechny va
 **Otázka: Budou všechny žádosti o přihlášení z podezřelých zdrojů (botnety, koncový bod tor) blokované v případě tenanta B2C, nebo to vyžaduje tenanta edice Basic nebo Premium?**</br>
 Máme bránu, která filtruje požadavky a nabízí určitou ochranu před botnety a která se používá pro všechny tenanty B2C.
 
-## <a name="application-access"></a>Přístup k aplikaci
+## Přístup k aplikaci
+<a id="application-access" class="xliff"></a>
 **Otázka: Kde najdu seznam aplikací, které jsou předem integrovány se službou Azure AD a jejími funkcemi?**
 
 **Odpověď:** Azure AD má více než 2 600 předem integrovaných aplikací od společnosti Microsoft, poskytovatelů služeb aplikací a partnerů. Všechny předem integrované aplikace podporují jednotné přihlašování. Jednotné přihlašování umožňuje používat k přístupu do aplikací firemní přihlašovací údaje. Některé aplikace také podporují automatické zřizování a jeho rušení.
