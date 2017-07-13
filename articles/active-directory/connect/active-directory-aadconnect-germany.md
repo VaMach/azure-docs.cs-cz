@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
@@ -21,10 +21,11 @@ ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/04/2017
 
-
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect v Microsoft Cloudu Německo – verze Public Preview
-## <a name="introduction"></a>Úvod
+# Azure AD Connect v Microsoft Cloudu Německo – verze Public Preview
+<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
+## Úvod
+<a id="introduction" class="xliff"></a>
 Azure AD Connect poskytuje synchronizaci mezi vaší místní službou Active Directory a službou Azure Active Directory.
 V současné době je nutné, aby mnoho scénářů v [Microsoft Cloudu Německo](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) prováděl operátor. Při používání Microsoft Cloudu Německo je třeba brát v úvahu následující:
 
@@ -38,10 +39,12 @@ V současné době je nutné, aby mnoho scénářů v [Microsoft Cloudu Německo
   * Azure AD Connect Health
   * Automatické aktualizace
  
-## <a name="download"></a>Ke stažení
+## Ke stažení
+<a id="download" class="xliff"></a>
 Službu Azure AD Connect lze stáhnout z okna Azure AD Connect v rámci portálu.  Pomocí pokynů níže vyhledejte okno Azure AD Connect.
 
-### <a name="the-azure-ad-connect-blade"></a>Okno Azure AD Connect
+### Okno Azure AD Connect
+<a id="the-azure-ad-connect-blade" class="xliff"></a>
 Po přihlášení na webu Azure Portal postupujte následovně:
 
 1. Přejděte do Procházet.
@@ -60,10 +63,12 @@ Následující tabulka popisuje funkce zobrazené v okně.
 | POSLEDNÍ SYNCHRONIZACE |Čas dokončení poslední úspěšné synchronizace. |
 | FEDEROVANÉ DOMÉNY |Zobrazuje počet aktuálně nakonfigurovaných federovaných domén. |
 
-## <a name="installation"></a>Instalace
+## Instalace
+<a id="installation" class="xliff"></a>
 Chcete-li nainstalovat službu Azure AD Connect, můžete využít dokumentaci, kterou najdete [tady](active-directory-aadconnect.md#install-azure-ad-connect).
 
-## <a name="advanced-features-and-additional-information"></a>Pokročilé funkce a další informace
+## Pokročilé funkce a další informace
+<a id="advanced-features-and-additional-information" class="xliff"></a>
 Hledáte-li další informace a doprovodné materiály k vlastním nastavením nebo pokročilým konfiguracím, začněte s tématem [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).  Tato stránka poskytuje informace a odkazy na další doprovodné materiály.
 
 
