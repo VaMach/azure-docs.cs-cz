@@ -12,16 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/11/2017
+ms.date: 05/30/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 1d208f931af4704528309780b45e170627f1753c
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: db851023c8620bec6583184326029d1a3e99ad88
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="how-to-use-azure-redis-cache"></a>Použití Azure Redis Cache
+# Použití Azure Redis Cache
+<a id="how-to-use-azure-redis-cache" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -37,7 +39,7 @@ Microsoft Azure Redis Cache je dostupná na následujících úrovních:
 
 * **Basic** – jeden uzel. Více velikostí až do 53 GB.
 * **Standard** – dva uzly Primární/Replika. Více velikostí až do 53 GB. 99,9% SLA.
-* **Premium** – dva uzly Primární/Replika s až 10 horizontálními oddíly. Více velikosti od 6 GB do 530 GB (potřebujete-li více, kontaktujte nás). Všechny funkce úrovně Standard a navíc podpora [clusteru Redis](cache-how-to-premium-clustering.md), [trvalosti Redis](cache-how-to-premium-persistence.md) a [služby Azure Virtual Network](cache-how-to-premium-vnet.md). 99,9% SLA.
+* **Premium** – dva uzly Primární/Replika s až 10 horizontálními oddíly. Více velikostí od 6 GB do 530 GB. Všechny funkce úrovně Standard a navíc podpora [clusteru Redis](cache-how-to-premium-clustering.md), [trvalosti Redis](cache-how-to-premium-persistence.md) a [služby Azure Virtual Network](cache-how-to-premium-vnet.md). 99,9% SLA.
 
 Každá úroveň se liší z hlediska funkcí a cen. Informace o cenách najdete na stránce [Podrobnosti o cenách Azure Redis Cache][Cache Pricing Details].
 
@@ -45,7 +47,8 @@ Tento průvodce vám ukáže, jak použít klienta [StackExchange.Redis][StackEx
 
 <a name="getting-started-cache-service"></a>
 
-## <a name="get-started-with-azure-redis-cache"></a>Začínáme s Azure Redis Cache
+## Začínáme s Azure Redis Cache
+<a id="get-started-with-azure-redis-cache" class="xliff"></a>
 Začít s Azure Redis Cache je jednoduché. Abyste mohli začít, zřídíte a nakonfigurujete mezipaměť. Dále nakonfigurujete klienty mezipaměti pro přístup do mezipaměti. Po nakonfigurování klientů mezipaměti s nimi můžete začít pracovat.
 
 * [Vytvoření mezipaměti][Create the cache]
@@ -53,24 +56,28 @@ Začít s Azure Redis Cache je jednoduché. Abyste mohli začít, zřídíte a n
 
 <a name="create-cache"></a>
 
-## <a name="create-a-cache"></a>Vytvoření mezipaměti
+## Vytvoření mezipaměti
+<a id="create-a-cache" class="xliff"></a>
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### <a name="to-access-your-cache-after-its-created"></a>Přístup do vaší mezipaměti po jejím vytvoření
+### Přístup do vaší mezipaměti po jejím vytvoření
+<a id="to-access-your-cache-after-its-created" class="xliff"></a>
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Další informace o konfiguraci mezipaměti najdete v tématu [Konfigurace Azure Redis Cache](cache-configure.md).
 
 <a name="NuGet"></a>
 
-## <a name="configure-the-cache-clients"></a>Konfigurace klientů mezipaměti
+## Konfigurace klientů mezipaměti
+<a id="configure-the-cache-clients" class="xliff"></a>
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Po konfiguraci klientského projektu pro používání mezipaměti můžete pro práci s mezipamětí použít techniky popsané v následujících sekcích.
 
 <a name="working-with-caches"></a>
 
-## <a name="working-with-caches"></a>Práce s mezipamětí
+## Práce s mezipamětí
+<a id="working-with-caches" class="xliff"></a>
 Kroky v tomto oddílu popisují, jak provádět běžné úkoly s mezipamětí.
 
 * [Připojení k mezipaměti][Connect to the cache]
@@ -79,7 +86,8 @@ Kroky v tomto oddílu popisují, jak provádět běžné úkoly s mezipamětí.
 
 <a name="connect-to-cache"></a>
 
-## <a name="connect-to-the-cache"></a>Připojení k mezipaměti
+## Připojení k mezipaměti
+<a id="connect-to-the-cache" class="xliff"></a>
 Chcete-li pracovat s mezipamětí prostřednictvím kódu programu, potřebujete odkaz na mezipaměť. Přidejte následující řádek na začátek souboru, ve kterém chcete použít klienta StackExchange.Redis pro přístup do Azure Redis Cache.
 
     using StackExchange.Redis;
@@ -147,7 +155,8 @@ Nyní, když už víte, jak se připojit k instanci služby Azure Redis Cache a 
 
 <a name="add-object"></a>
 
-## <a name="add-and-retrieve-objects-from-the-cache"></a>Přidání objektů do mezipaměti a jejich načtení
+## Přidání objektů do mezipaměti a jejich načtení
+<a id="add-and-retrieve-objects-from-the-cache" class="xliff"></a>
 Položky lze ukládat a načítat z mezipaměti pomocí metod `StringSet``StringGet`
 
     // If key1 exists, it is overwritten.
@@ -173,7 +182,8 @@ Chcete-li zadat vypršení platnosti položky v mezipaměti, použijte parametr 
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## <a name="work-with-net-objects-in-the-cache"></a>Práce s objekty .NET v mezipaměti
+## Práce s objekty .NET v mezipaměti
+<a id="work-with-net-objects-in-the-cache" class="xliff"></a>
 Azure Redis Cache může do mezipaměti ukládat objekty .NET i primitivní datové typy. Objekty .NET je však nutné před uložením do mezipaměti serializovat. Serializaci objektů .NET má na starosti vývojář aplikace, kterému je tak poskytnuta flexibilita při výběru serializátoru.
 
 Jeden způsob, jak serializovat objekty, je použít metody serializace `JsonConvert` v balíčku [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) a serializovat a deserializovat tak objekty do a z formátu JSON. Následující příklad ukazuje získání a nastavení pomocí instance objektu `Employee`
@@ -198,7 +208,8 @@ Jeden způsob, jak serializovat objekty, je použít metody serializace `JsonCon
 
 <a name="next-steps"></a>
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 Nyní, když jste se naučili základy, pokračujte následujícími odkazy a zjistěte více o Azure Redis Cache.
 
 * Prohlédněte si poskytovatele ASP.NET pro Azure Redis Cache.

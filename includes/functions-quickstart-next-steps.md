@@ -5,3 +5,4 @@ Zjistěte, jak vytvořit funkce s jinými druhy aktivačních událostí nebo ja
 + [Vytvoření funkce aktivované službou Azure Queue Storage](../articles/azure-functions/functions-create-storage-queue-triggered-function.md) 
 + [Vytvoření funkce aktivované webhookem GitHubu](../articles/azure-functions/functions-create-github-webhook-triggered-function.md) 
 + [Přidání zpráv do fronty Azure Storage pomocí funkcí](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md) 
++ [Ukládání nestrukturovaných dat v databázi Azure Cosmos pomocí funkcí](../articles/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)

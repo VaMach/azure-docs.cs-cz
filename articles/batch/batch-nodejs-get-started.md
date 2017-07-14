@@ -12,14 +12,15 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 23e833b9eb926c81fd8c02cd96d43da8cffcaa43
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 
-# <a name="get-started-with-batch-sdk-for-nodejs"></a>Začínáme se sadou SDK služby Batch pro Node.js
+# Začínáme se sadou SDK služby Batch pro Node.js
+<a id="get-started-with-batch-sdk-for-nodejs" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -30,15 +31,18 @@ ms.lasthandoff: 05/04/2017
 
 Naučíte se základy vytvoření klienta služby Batch v Node.js pomocí sady [SDK služby Azure Batch pro Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Pro pochopení scénáře pro aplikaci služby Batch si ho projdeme krok za krokem a pak aplikaci nastavíme pomocí klienta Node.js.  
 
-## <a name="prerequisites"></a>Požadavky
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 Tento článek předpokládá, že máte praktické znalosti Node.js a umíte do jisté míry pracovat s Linuxem. Předpokládá se také, že máte nastavený účet Azure s přístupovými právy k vytvoření služeb Batch a Storage.
 
 Doporučujeme, abyste si přečetli článek [Technický přehled služby Azure Batch](batch-technical-overview.md), než budete postupovat podle kroků popsaných v tomto článku.
 
-## <a name="the-tutorial-scenario"></a>Scénář tohoto kurzu
+## Scénář tohoto kurzu
+<a id="the-tutorial-scenario" class="xliff"></a>
 Podívejme se na scénář pracovního postupu služby Batch. Máme jednoduchý skript napsaný v Pythonu, který z kontejneru služby Azure Blob Storage stáhne všechny soubory CSV a převede je do formátu JSON. Pokud chceme paralelně zpracovávat více kontejnerů účtu úložiště, můžeme skript nasadit jako úlohu služby Azure Batch.
 
-## <a name="azure-batch-architecture"></a>Architektura služby Azure Batch
+## Architektura služby Azure Batch
+<a id="azure-batch-architecture" class="xliff"></a>
 Následující diagram znázorňuje možnost škálování skriptu Pythonu pomocí služby Azure Batch a klienta Node.js.
 
 ![Scénář služby Azure Batch](./media/batch-nodejs-get-started/BatchScenario.png)
@@ -56,11 +60,13 @@ Klient Node.js nasadí dávkovou úlohu s přípravným úkolem (podrobně si ho
 >
 >
 
-## <a name="build-the-application"></a>Sestavení aplikace
+## Sestavení aplikace
+<a id="build-the-application" class="xliff"></a>
 
 Nyní si krok za krokem projdeme vytvoření klienta Node.js:
 
-### <a name="step-1-install-azure-batch-sdk"></a>Krok 1: Nainstalování sady SDK služby Azure Batch
+### Krok 1: Nainstalování sady SDK služby Azure Batch
+<a id="step-1-install-azure-batch-sdk" class="xliff"></a>
 
 Sadu SDK služby Azure Batch pro Node.js můžete nainstalovat pomocí příkazu npm install.
 
@@ -73,7 +79,8 @@ Tento příkaz nainstaluje nejnovější verzi sady azure-batch node SDK.
 >
 >
 
-### <a name="step-2-create-an-azure-batch-account"></a>Krok 2: Vytvoření účtu Azure Batch
+### Krok 2: Vytvoření účtu Azure Batch
+<a id="step-2-create-an-azure-batch-account" class="xliff"></a>
 
 Můžete ho vytvořit na webu [Azure Portal](batch-account-create-portal.md) nebo z příkazového řádku ([PowerShell](batch-powershell-cmdlets-get-started.md)  / [Azure CLI](https://docs.microsoft.com/cli/azure/overview)).
 
@@ -93,7 +100,8 @@ Každý účet Batch má odpovídající přístupové klíče. Tyto klíče jso
 
 Zkopírujte a uložte klíč, který použijete v dalších krocích.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>Krok 3: Vytvoření klienta služby Azure Batch
+### Krok 3: Vytvoření klienta služby Azure Batch
+<a id="step-3-create-an-azure-batch-service-client" class="xliff"></a>
 Následující fragment kódu nejprve importuje modul Node.js azure-batch a pak vytvoří klienta služby Batch. Nejprve musíte vytvořit objekt SharedKeyCredentials s klíčem účtu Batch, který jste zkopírovali v předchozím kroku.
 
 ```nodejs
@@ -127,7 +135,8 @@ Podívejte se na snímek obrazovky:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Krok 4: Vytvoření fondu služby Azure Batch
+### Krok 4: Vytvoření fondu služby Azure Batch
+<a id="step-4-create-an-azure-batch-pool" class="xliff"></a>
 Fond služby Azure Batch se skládá z několika virtuálních počítačů (označovaných také jako uzly služby Batch). Služba Azure Batch do uzlů nasazuje úkoly a spravuje je. Pro váš fond můžete definovat následující parametry konfigurace.
 
 * Typ image virtuálních počítačů
@@ -262,7 +271,8 @@ Následuje ukázka objektu výsledků vráceného funkcí pool.get.
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Krok 4: Odeslání úlohy služby Azure Batch
+### Krok 4: Odeslání úlohy služby Azure Batch
+<a id="step-4-submit-an-azure-batch-job" class="xliff"></a>
 Úloha služby Azure Batch je logická skupina podobných úkolů. V našem scénáři se jedná o úlohu „Zpracování formátu CSV do formátu JSON“. Každý z těchto úkolů může zpracovávat soubory CSV v jednotlivých kontejnerech služby Azure Storage.
 
 Tyto úkoly budou spouštěné paralelně, nasazené v několika uzlech a orchestrované službou Azure Batch.
@@ -272,7 +282,8 @@ Tyto úkoly budou spouštěné paralelně, nasazené v několika uzlech a orches
 >
 >
 
-#### <a name="preparation-task"></a>Přípravný úkol
+#### Přípravný úkol
+<a id="preparation-task" class="xliff"></a>
 
 Vytvořené uzly virtuálních počítačů jsou prázdné uzly s Ubuntu. Často musíte pro splnění požadavků nainstalovat řadu programů.
 Pro uzly s Linuxem obvykle můžete mít skript prostředí, který požadavky nainstaluje před spuštěním vlastních úkolů. Může se ale jednat o jakýkoli programovatelný spustitelný soubor.
@@ -281,7 +292,7 @@ Pro uzly s Linuxem obvykle můžete mít skript prostředí, který požadavky n
 Skript můžete nahrát do účtu služby Azure Storage a vygenerovat identifikátor URI SAS pro přístup ke skriptu. Tento proces je také možné automatizovat pomocí sady SDK služby Azure Storage pro Node.js.
 
 > [!Tip]
-> Přípravný úkol pro úlohu se spustí pouze na uzlech virtuálních počítačů, na kterých je potřeba spustit konkrétní úkol. Pokud chcete, aby se požadavky nainstalovaly na všech uzlech bez ohledu na to, jaké úkoly se na nich spouští, můžete během přidávání fondu použít vlastnost [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add). Pro srovnání můžete použít následující definici přípravného úkolu.
+> Přípravný úkol pro úlohu se spustí pouze na uzlech virtuálních počítačů, na kterých je potřeba spustit konkrétní úkol. Pokud chcete, aby se požadované programy nainstalovaly na všech uzlech bez ohledu na to, jaké úkoly se na nich spouští, můžete během přidávání fondu použít vlastnost [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add). Pro srovnání můžete použít následující definici přípravného úkolu.
 >
 >
 
@@ -319,7 +330,8 @@ Pokud ke spuštění vašich úkolů není potřeba instalovat žádné požadav
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Krok 5: Odeslání úkolů služby Azure Batch pro úlohu
+### Krok 5: Odeslání úkolů služby Azure Batch pro úlohu
+<a id="step-5-submit-azure-batch-tasks-for-a-job" class="xliff"></a>
 
 Nyní, když máme vytvořenou úlohu pro zpracování formátu CSV, vytvoříme pro tuto úlohu úkoly. Za předpokladu, že máme čtyři kontejnery, musíme vytvořit čtyři úkoly, jeden pro každý kontejner.
 
@@ -359,7 +371,8 @@ Kód do fondu přidá několik úkolů. Každý z úkolů se provede na uzlu ve 
 
 Na portálu jsou podrobná zobrazení stavů úkolů a úloh. Můžete také použít funkce list a get v sadě SDK Azure pro Node.js. Podrobnosti jsou uvedeny v [dokumentaci](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 - Přečtěte si článek [Přehled funkcí Azure Batch](batch-api-basics.md), který doporučujeme všem novým uživatelům služby.
 - Pokud chcete prozkoumat rozhraní API služby Batch, přečtěte si článek [Reference k Batch Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/).

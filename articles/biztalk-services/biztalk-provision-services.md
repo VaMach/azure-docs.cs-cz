@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="create-biztalk-services-using-the-azure-portal"></a>Vytvoření služby BizTalk Services pomocí webu Azure Portal
+# Vytvoření služby BizTalk Services pomocí webu Azure Portal
+<a id="create-biztalk-services-using-the-azure-portal" class="xliff"></a>
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 
 > [!TIP]
 > Abyste se mohli přihlásit na webu Azure Portal, potřebujete účet Azure a předplatné Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podívejte se na stránku [bezplatné zkušební verze Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
-> 
-> 
 
-## <a name="create-a-biztalk-service"></a>Vytvoření služby BizTalk
+
+## Vytvoření služby BizTalk
+<a id="create-a-biztalk-service" class="xliff"></a>
 V závislosti na edici, kterou si zvolíte, nemusí být dostupná všechna nastavení služby BizTalk.
 
-1. Přihlaste se na web [Azure Portal ](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Přihlaste se na web [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Ve spodním navigačním podokně vyberte **NOVÁ**:  
    ![Výběr tlačítka Nová][NEWButton]
 3. Vyberte možnosti **APP SERVICES** > **BIZTALK SERVICE** (Služba BizTalk) > **CUSTOM CREATE** (Vytvořit vlastní):  
@@ -57,18 +63,16 @@ V závislosti na edici, kterou si zvolíte, nemusí být dostupná všechna nast
     </tr>
     <tr>
     <td><strong>Domain URL (Adresa URL domény)</strong></td>
-    <td><strong>Volitelné</strong>. Výchozí adresa URL domény je <em>název_vaší_služby_BizTalk</em>.biztalk.windows.net. Můžete ale zadat i vlastní doménu. Pokud máte třeba doménu <em>contoso</em>, můžete zadat: <br/><br/>
+    <td><strong>Volitelné</strong>. Výchozí adresa URL domény je <em>název_vasi_sluzby_BizTalk</em>.biztalk.windows.net. Můžete ale zadat i vlastní doménu. Pokud máte třeba doménu <em>contoso</em>, můžete zadat: <br/><br/>
     <em>moje_firma</em>.contoso.com<br/>
     <em>moje_firma_moje_aplikace</em>.contoso.com<br/>
     <em>moje_aplikace</em>.contoso.com<br/>
-    <em>název_vaší_služby_BizTalk</em>.contoso.com<br/>
+    <em>nazev_vasi_sluzby_BizTalk</em>.contoso.com<br/>
     </td>
     </tr>
     </table>
-   Vyberte šipku DALŠÍ.
-5. Zadejte nastavení úložiště a databáze:
-   
-    <table border="1">
+Vyberte šipku DALŠÍ.
+5. Zadejte nastavení úložiště a databáze:  <table border="1">
     <tr>
     <td><strong>Monitoring/Archiving storage account (Účet úložiště pro monitorování/archivaci)</strong></td>
     <td>Vyberte stávající účet úložiště nebo vytvořte nový. <br/><br/>Pokud vytvoříte nový účet úložiště, zadejte položku <strong>Název účtu úložiště</strong>.</td>
@@ -78,21 +82,19 @@ V závislosti na edici, kterou si zvolíte, nemusí být dostupná všechna nast
     <td>Pokud použijete existující službu Azure SQL Database, nesmí ji používat žádná jiná služba BizTalk. Potřebujete přihlašovací jméno a heslo zadané při vytváření serveru služby Azure SQL Database.<br/><br/><strong>TIP</strong> Databázi sledování a účet úložiště pro monitorování/archivaci vytvořte ve stejné oblasti jako službu BizTalk.</td>
     </tr>
     </table>
-   Vyberte šipku DALŠÍ.
-6. Zadejte nastavení databáze:
-   
-    <table border="1">
+Vyberte šipku DALŠÍ.
+6. Zadejte nastavení databáze:  <table border="1">
     <tr>
     <td><strong>Název</strong></td>
     <td>Tato možnost je dostupná, jenom pokud jste na předchozí obrazovce vybrali možnost <strong>Create a new SQL Database instance</strong> (Vytvořit novou instanci služby SQL Database).
     <br/><br/>
-    Zadejte název služby SQL Database, kterou má vaše služba BizTalk používat.</td>
+Zadejte název služby SQL Database, kterou má vaše služba BizTalk používat.</td>
     </tr>
     <tr>
     <td><strong>Server</strong></td>
     <td>Tato možnost je dostupná, jenom pokud jste na předchozí obrazovce vybrali možnost <strong>Create a new SQL Database instance</strong> (Vytvořit novou instanci služby SQL Database).
     <br/><br/>
-    Vyberte existující server služby SQL Database nebo vytvořte nový.</td>
+Vyberte existující server služby SQL Database nebo vytvořte nový.</td>
     </tr>
     <tr>
     <td><strong>Server login name (Jméno pro přihlášení na server)</strong></td>
@@ -115,28 +117,29 @@ Po dokončení průvodce je služba Azure BizTalk vytvořená a připravená na 
 
 V závislosti na stavu služby BizTalk se může stát, že se některé operace nebudou dát provést. Seznam těchto operací najdete v článku [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md).
 
-## <a name="post-provisioning-steps"></a>Kroky pro zřízení
+## Kroky pro zřízení
+<a id="post-provisioning-steps" class="xliff"></a>
 * [Instalace certifikátu na místním počítači](#InstallCert)
 * [Přidání certifikátu pro produkční prostředí](#AddCert)
 * [Získání oboru názvů řízení přístupu](#ACS)
 
-#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Instalace certifikátu na místním počítači
+#### <a name="InstallCert"></a>Instalace certifikátu na místním počítači
 V rámci zřizování služby BizTalk se vytvoří certifikát podepsaný svým držitelem a přidruží se k vašemu předplatnému služby BizTalk. Tento certifikát si musíte stáhnout a nainstalovat ho na počítačích, ze kterých buď nasazujete aplikace služby BizTalk, nebo odesíláte zprávy do koncového bodu služby BizTalk.
 
-1. Přihlaste se na web [Azure Portal ](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Přihlaste se na web [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. V levém navigačním podokně vyberte **BIZTALK SERVICES** a potom vyberte své předplatné služby BizTalk.
 3. Vyberte kartu **Dashboard** (Řídicí panel).
 4. Vyberte **Download SSL Certificate** (Stáhnout certifikát SSL):  
    ![Úprava certifikátu SSL][QuickGlance]
 5. Dvakrát klikněte na certifikát a pomocí průvodce ho nainstalujte. Ujistěte se, že certifikát instalujete do úložiště **Trusted Root Certificate Authorities** (Důvěryhodné kořenové certifikační autority).
 
-#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Přidání certifikátu pro produkční prostředí
+#### <a name="AddCert"></a>Přidání certifikátu pro produkční prostředí
 Certifikát podepsaný svým držitelem, který se automaticky vytvoří při vytváření služby BizTalk Services, je určený jenom k použití ve vývojovém prostředí. V produkčních scénářích ho nahraďte certifikátem pro produkční prostředí.
 
 1. Na kartě **Dashboard** (Řídicí panel) vyberte **Update SSL Certificate** (Aktualizovat certifikát SSL).
 2. Přejděte na svůj soukromý certifikát SSL (*název_certifikátu*.pfx), který obsahuje název vaší služby BizTalk, zadejte heslo a potom klikněte na symbol zaškrtnutí.
 
-#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>Získání oboru názvů řízení přístupu
+#### <a name="ACS"></a>Získání oboru názvů řízení přístupu
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. V levém navigačním podokně vyberte **BIZTALK SERVICES** a potom vyberte svoji službu BizTalk.
 3. Na hlavním panelu vyberte **Informace o připojení**:  
@@ -159,19 +162,20 @@ Identita služby Access Control Service je sada přihlašovacích údajů, kter�
 
 V článku [Správa oboru názvů služby ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) najdete některé pokyny a doporučení.
 
-## <a name="requirements-explained"></a>Vysvětlení požadavků
+## Vysvětlení požadavků
+<a id="requirements-explained" class="xliff"></a>
 Tyto požadavky se netýkají edice Free.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><strong>Co potřebujete</strong></td>
-        <td><strong>Proč to potřebujete</strong></td>
+        <td><strong>Co potřebujete?</strong></td>
+        <td><strong>Proč to potřebujete?</strong></td>
 </tr>
 <tr>
 <td>Předplatné Azure</td>
 <td>Předplatné určuje, kdo se může přihlásit na web Azure Portal. Držitel účtu vytvoří předplatné na stránce <a HREF="https://account.windowsazure.com/Subscriptions">předplatných Azure</a>.
 <br/><br/>
-Účet Azure může obsahovat víc předplatných a může ho spravovat každý, kdo k tomu má oprávnění. Třeba váš držitel účtu Azure vytvoří předplatné s názvem <em>Predplatne_služby_BizTalk</em> a dá k tomuto předplatnému přístup správcům služby BizTalk z vaší společnosti (třeba ContosoBTSAdmins@live.com)). V tomto scénáři budou mít správci služby BizTalk po přihlášení na web Azure Portal úplná práva správce ke všem hostovaným službám v daném předplatném, včetně služby Azure BizTalk Services. Správci služby BizTalk nejsou držiteli účtu Azure, takže nemají přístup k informacím o fakturaci.
+Účet Azure může obsahovat víc předplatných a může ho spravovat každý, kdo k tomu má oprávnění. Váš držitel účtu Azure například vytvoří předplatné s názvem <em>Predplatne_sluzby_BizTalk</em> a dá k tomuto předplatnému přístup správcům služby BizTalk z vaší společnosti (třeba ContosoBTSAdmins@live.com). V tomto scénáři budou mít správci služby BizTalk po přihlášení na web Azure Portal úplná práva správce ke všem hostovaným službám v daném předplatném, včetně služby Azure BizTalk Services. Správci služby BizTalk nejsou držiteli účtu Azure, takže nemají přístup k informacím o fakturaci.
 <br/><br/>Další informace najdete v článku 
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Správa předplatných a účtů úložiště na webu Azure Portal</a>.
 </td>
@@ -232,7 +236,7 @@ Při vytváření služby Azure BizTalk se vytvoří také adresa URL HTTPS, kte
 <br/>
 
 <ul>
-<li><strong>Použití rozšířeného klíče</strong>: Služba Azure BizTalk Services vyžaduje minimálně ověření serveru.</li>
+<li><strong>Rozšířené použití klíče</strong>: Služba Azure BizTalk Services vyžaduje minimálně ověření serveru.</li>
 <li><strong>Běžný název</strong>: Zadejte plně kvalifikovaný název domény (FQDN) adresy URL služby Azure BizTalk. Projděte si část <a HREF="#BizTalk">Vytvoření služby BizTalk</a> v tomto článku.</li>
 </ul>
 <br/>
@@ -243,7 +247,8 @@ Po vytvoření služby BizTalk můžete přidat nový nebo jiný certifikát.
 
 
 
-## <a name="hybrid-connections"></a>Hybridní připojení
+## Hybridní připojení
+<a id="hybrid-connections" class="xliff"></a>
 Při vytváření služby BizTalk Azure je dostupná karta **Hybridní připojení**:
 
 ![Karta Hybridní připojení][HybridConnectionTab]
@@ -252,10 +257,12 @@ Hybridní připojení slouží k připojení webu Azure nebo mobilní služby Az
 
  Další informace, třeba o vytváření a správě hybridních připojení, najdete v článku [Hybridní připojení](integration-hybrid-connection-overview.md).
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 Služba BizTalk je teď vytvořená a vy se můžete seznámit s různými kartami: [BizTalk Services: Karty Řídicí panel, Sledování a Škálování](biztalk-dashboard-monitor-scale-tabs.md). Služba BizTalk je připravená pro vaše aplikace. Pokud chcete začít vytvářet aplikace, přejděte na článek [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Viz také
+## Viz také
+<a id="see-also" class="xliff"></a>
 * [BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Zálohování a obnovení](biztalk-backup-restore.md)<br/>
@@ -271,9 +278,4 @@ Služba BizTalk je teď vytvořená a vy se můžete seznámit s různými karta
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

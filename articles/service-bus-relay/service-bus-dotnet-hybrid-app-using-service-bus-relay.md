@@ -12,17 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/16/2017
+ms.date: 06/14/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 366922a083b9d18ef50e04eb8b459d2725315e1e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybridní místní/cloudová aplikace .NET využívající Azure WCF Relay
-## <a name="introduction"></a>Úvod
+# Hybridní místní/cloudová aplikace .NET využívající Azure WCF Relay
+<a id="net-on-premisescloud-hybrid-application-using-azure-wcf-relay" class="xliff"></a>
+## Úvod
+<a id="introduction" class="xliff"></a>
+
 Tento článek popisuje, jak vytvořit hybridní cloudovou aplikaci pomocí Microsoft Azure a Visual Studia. Tento kurz předpokládá, že nemáte žádné předchozí zkušenosti s používáním Azure. Za méně než 30 minut budete mít aplikaci, která používá několik různých prostředků Azure a běží v cloudu.
 
 Co se dozvíte:
@@ -32,51 +36,59 @@ Co se dozvíte:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Jak Azure Relay pomáhá s hybridními řešeními
+## Jak Azure Relay pomáhá s hybridními řešeními
+<a id="how-azure-relay-helps-with-hybrid-solutions" class="xliff"></a>
+
 Podniková řešení se obvykle skládají z kombinace vlastního kódu napsaného pro řešení nových a jedinečných podnikových řešení a stávajících funkcí poskytovaných řešeními a systémy, které již existují.
 
 Architekti řešení začínají používat cloud, protože jim to umožňuje snadněji zvládat nároky na škálování a snížit provozní náklady. Přitom zjišťují, že existující prostředky služeb, které by chtěli využívat jako stavební prvky pro svá řešení, jsou za firemním firewallem a cloudové řešení k nim nemá snadný přístup. Spousta interních služeb není postavená nebo hostovaná tak, aby se dala snadno vystavit na rozhraní firemní sítě.
 
 [Azure Relay](https://azure.microsoft.com/services/service-bus/) je navržené pro situace, kdy je potřeba vzít existující webové služby WCF (Windows Communication Foundation) a bezpečně je zpřístupnit pro řešení, která jsou mimo firemní zónu, a to bez nutnosti provádět nežádoucí změny infrastruktury podnikové sítě. Takové přenosové služby se stále hostují uvnitř existujícího prostředí, ale delegují čekání na příchozí spojení a požadavky na přenosovou službu hostovanou v cloudu. Azure Relay taky takové služby chrání před neoprávněným přístupem pomocí ověření [Sdíleným přístupovým podpisem](../service-bus-messaging/service-bus-sas.md) (SAS).
 
-## <a name="solution-scenario"></a>Scénář řešení
+## Scénář řešení
+<a id="solution-scenario" class="xliff"></a>
 V tomto kurzu vytvoříte webovou stránku ASP.NET, která vám umožní zobrazit seznam produktů na stránce inventáře produktů.
 
 ![][0]
 
 Kurz předpokládá, že máte produktové informace dostupné v existujícím místním systému, a používá Azure Relay k získání přístupu do takového systému. To se simuluje jako webová služba, která spustí jednoduchou konzolovou aplikaci a využívá sadu produktů uloženou v paměti. Taky si vyzkoušíte spuštění této konzolové aplikace na svém vlastním počítači a nasazení webové role do Azure. Uvidíte tak, jak webová role běžící v datovém centru Azure skutečně zavolá do vašeho počítače, i když se váš počítač skoro určitě nachází za nejméně jedním firewallem a vrstvou překládání adres (NAT).
 
-Toto je snímek obrazovky úvodní stránky hotové webové aplikace.
+## Nastavení vývojového prostředí
+<a id="set-up-the-development-environment" class="xliff"></a>
 
-![][1]
-
-## <a name="set-up-the-development-environment"></a>Nastavení vývojového prostředí
 Než začnete s vývojem aplikací pro Azure, stáhněte si nástroje a nastavte si vývojové prostředí:
 
 1. Nainstalujte sadu Azure SDK pro .NET ze [stránky pro stažení SDK](https://azure.microsoft.com/downloads/).
-2. Ve sloupci **.NET** klikněte na verzi sady [Visual Studio](http://www.visualstudio.com), kterou používáte. Kroky v tomto kurzu ukazují postup ve Visual Studiu 2015.
+2. Ve sloupci **.NET** klikněte na verzi sady [Visual Studio](http://www.visualstudio.com), kterou používáte. Kroky v tomto kurzu používají sadu Visual Studio 2015, ale také pracují se sadou Visual Studio 2017.
 3. Když se zobrazí dialog pro spuštění nebo uložení instalačního programu, klikněte na **Spustit**.
 4. V **Instalačním programu webové platformy** klikněte na **Instalovat** a pokračujte v instalaci.
 5. Po dokončení instalace budete mít všechno, co je potřeba k vývoji aplikace. Sada SDK obsahuje nástroje, které vám umožní snadno vyvíjet aplikace pro Azure ve Visual Studiu.
 
-## <a name="create-a-namespace"></a>Vytvoření oboru názvů
+## Vytvoření oboru názvů
+<a id="create-a-namespace" class="xliff"></a>
+
 Pokud chcete začít používat přenosové funkce v Azure, musíte nejdříve vytvořit obor názvů služby. Obor názvů poskytuje kontejner oboru pro adresování prostředků Azure v rámci vaší aplikace. Pokud chcete vytvořit obor názvů Relay, postupujte podle [těchto pokynů](relay-create-namespace-portal.md).
 
-## <a name="create-an-on-premises-server"></a>Vytvoření lokálního serveru
+## Vytvoření lokálního serveru
+<a id="create-an-on-premises-server" class="xliff"></a>
+
 Nejdřív vytvoříte lokální (testovací) systém katalogu produktů. Bude vcelku jednoduchý a nahradí skutečný lokální systém katalogu produktů, i s kompletní rovinou služeb, kterou chceme integrovat.
 
 Tento projekt je konzolová aplikace z Visual Studia a pomocí [balíčku NuGet pro Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) zahrnuje konfiguračních nastavení a knihovny Service Bus.
 
-### <a name="create-the-project"></a>Vytvoření projektu
+### Vytvoření projektu
+<a id="create-the-project" class="xliff"></a>
+
 1. Spusťte Visual Studio s právy správce. Pokud tak chcete učinit, klikněte pravým tlačítkem na ikonu programu Visual Studio a potom klikněte na **Spustit jako správce**.
 2. Ve Visual Studiu v nabídce **Soubor** klikněte na **Nový** a pak na **Projekt**.
-3. V **Nainstalovaných šablonách** v části **Visual C#** klikněte na **Konzolová aplikace**. Do pole **Název** zadejte název **ProductsServer**:
+3. V **Nainstalovaných šablonách** v části **Visual C#** klikněte na **Konzolová aplikace (.NET Framework)**. Do pole **Název** zadejte název **ProductsServer**:
 
    ![][11]
 4. Kliknutím na tlačítko **OK** vytvořte projekt **ProductsServer**.
 5. Pokud jste už nainstalovali správce balíčků NuGet pro Visual Studio, přejděte na další krok. Pokud ne, přejděte na [NuGet][NuGet] a klikněte na [Nainstalovat NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Podle pokynů nainstalujte správce balíčků NuGet, a pak znovu spusťte Visual Studio.
 6. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **ProductsServer**, pak klikněte na **Správa balíčků NuGet**.
-7. Klikněte na kartu **Procházet** a potom najděte `Microsoft Azure Service Bus`. Klikněte na **Instalovat** a přijměte podmínky použití.
+7. Klikněte na kartu **Procházet** a potom najděte `Microsoft Azure Service Bus`. Vyberte balíček **WindowsAzure.ServiceBus**.
+8. Klikněte na **Instalovat** a přijměte podmínky použití.
 
    ![][13]
 
@@ -207,32 +219,37 @@ Tento projekt je konzolová aplikace z Visual Studia a pomocí [balíčku NuGet 
     ```
 14. Stiskněte **Ctrl+Shift+B** nebo v nabídce **Sestavení** klikněte na **Sestavit řešení** a tím sestavte aplikaci a potvrďte přesnost své dosavadní práce.
 
-## <a name="create-an-aspnet-application"></a>Vytvoření aplikace ASP.NET
+## Vytvoření aplikace ASP.NET
+<a id="create-an-aspnet-application" class="xliff"></a>
+
 V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data načtená z vaší produktové služby.
 
-### <a name="create-the-project"></a>Vytvoření projektu
+### Vytvoření projektu
+<a id="create-the-project" class="xliff"></a>
+
 1. Zkontrolkujte, že je Visual Studio spuštěné s právy správce.
 2. Ve Visual Studiu v nabídce **Soubor** klikněte na **Nový** a pak na **Projekt**.
-3. V **Nainstalovaných šablonách** v části **Visual C#** klikněte na **Webová aplikace ASP.NET**. Jako název projektu zadejte **ProductsPortal**. Pak klikněte na **OK**.
+3. V **Nainstalovaných šablonách** v části **Visual C#**, klikněte na **Webová aplikace ASP.NET (.NET Framework)**. Jako název projektu zadejte **ProductsPortal**. Pak klikněte na **OK**.
 
    ![][15]
-4. V seznamu **Vyberte šablonu** klikněte na **MVC**.
-5. Označte zatržítko **Hostitel v cloudu**.
+
+4. V seznamu **Šablony ASP.NET** v dialogovém okně **Nová webová aplikace ASP.NET** klikněte na **MVC**.
 
    ![][16]
-6. Klikněte na tlačítko **Změna ověřování**. V dialogovém okně **Změna ověřování** klikněte na možnost **Bez ověřování** a poté klikněte na tlačítko **OK**. V tomto kurzu nasazujete aplikaci, která nepotřebuje přihlášení uživatele.
+
+6. Klikněte na tlačítko **Změna ověřování**. V dialogovém okně **Změnit ověřování** zkontrolujte, že je vybraná možnost **Bez ověřování**, a potom klikněte na **OK**. V tomto kurzu nasazujete aplikace, která nepotřebuje přihlášení uživatele.
 
     ![][18]
-7. Ujistěte se, zda je v části **Microsoft Azure** v dialogovém okně **Nový projekt ASP.NET** zaškrtnuta položka **Hostovat v cloudu** a zda je v rozevíracím seznamu vybrána položka **App Service**.
 
-   ![][19]
-8. Klikněte na tlačítko **OK**.
-9. Teď musíte nakonfigurovat prostředky Azure pro novou webovou aplikaci. Udělejte všechny kroky v části [Vytvoření webové aplikace](../app-service-web/app-service-web-get-started-dotnet.md) a [Vytvoření prostředků Azure](../app-service-web/app-service-web-get-started-dotnet.md). Potom se vraťte do tohoto kurzu a pokračujte dalším krokem.
+7. Vraťte se do dialogového okna **Nová webová aplikace ASP.NET** a kliknutím na **OK** vytvořte aplikaci MVC.
+8. Teď musíte nakonfigurovat prostředky Azure pro novou webovou aplikaci. Postupujte podle pokynů v [části Publikování v Azure v tomto článku](../app-service-web/app-service-web-get-started-dotnet.md). Potom se vraťte do tohoto kurzu a pokračujte dalším krokem.
 10. V Průzkumníkovi řešení klikněte pravým tlačítkem na **Modely**, pak levým na **Přidat** a pak na **Třída**. Do pole **Název** zadejte název **Product.cs**: Pak klikněte na **Přidat**.
 
     ![][17]
 
-### <a name="modify-the-web-application"></a>Úprava webové aplikace
+### Úprava webové aplikace
+<a id="modify-the-web-application" class="xliff"></a>
+
 1. V souboru Product.cs ve Visual Studiu nahraďte existující definici oboru názvů následujícím kódem.
 
    ```csharp
@@ -274,8 +291,8 @@ V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data na
 6. Odstraňte odkazy **Home**, **About** a **Contact**. V následujícím příkladu odstraňte zvýrazněný kód.
 
     ![][41]
-7. V Průzkumníku řešení rozbalte složku Views\Home, pak poklikejte na soubor **Index.cshtml** a ten se otevře v editoru Visual Studia.
-   Celý obsah souboru nahraďte následujícím kódem.
+
+7. V Průzkumníku řešení rozbalte složku Views\Home, pak poklikejte na soubor **Index.cshtml** a ten se otevře v editoru Visual Studia. Celý obsah souboru nahraďte následujícím kódem.
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -312,25 +329,30 @@ V této části sestavíte jednoduchou aplikaci ASP.NET, která zobrazí data na
    ```
 8. Pokud chcete zkontrolovat přesnost svojí dosavadní práce, můžete stisknout **Ctrl+Shift+B** a tím projekt sestavit.
 
-### <a name="run-the-app-locally"></a>Místní spuštění aplikace
+### Místní spuštění aplikace
+<a id="run-the-app-locally" class="xliff"></a>
+
 Spusťte aplikace pro kontrolu, že funguje.
 
 1. Zkontrolujte, že aktivní projekt je **ProductsPortal**. V Průzkumníku řešení klikněte pravým tlačítkem na název projektu a klikněte na možnost **Nastavit jako spouštěný projekt**.
-2. Ve Visual Studiu stiskněte F5.
+2. V sadě Visual Studio stiskněte **F5**.
 3. Měla by se objevit vaše aplikace, jak běží v prohlížeči.
 
    ![][21]
 
-## <a name="put-the-pieces-together"></a>Složení částí do jednoho celku
+## Složení částí do jednoho celku
+<a id="put-the-pieces-together" class="xliff"></a>
+
 Dalším krokem je spojit lokální produktový server s aplikací ASP.NET.
 
 1. Pokud v aplikaci Visual Studio není otevřený projekt **ProductsPortal**, který jste vytvořili v části [Vytvoření aplikace ASP.NET](#create-an-aspnet-application), znovu ho otevřete.
 2. Podobně jako v části Vytvoření lokálního serveru přidejte do referencí projektu balíček NuGet. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **ProductsPortal**, pak klikněte na **Správa balíčků NuGet**.
-3. Vyhledejte „Service Bus“ a vyberte položku **Microsoft Azure Service Bus**. Potom zavřete dialogové okno, tím dokončíte instalaci.
+3. Vyhledejte „Service Bus“ a vyberte položku **WindowsAzure.ServiceBus**. Potom zavřete dialogové okno, tím dokončíte instalaci.
 4. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **ProductsPortal**, pak klikněte na **Přidat** a pak na **Existující položka**.
 5. Přejděte na soubor **ProductsContract.cs** v konzolovém projektu **ProductsServer**. Kliknutím zvýrazněte ProductsContract.cs. Klikněte na šipku dolů vedle tlačítka **Přidat**, pak klikněte na **Přidat jako odkaz**.
 
    ![][24]
+
 6. Teď ve Visual Studiu otevřete soubor **HomeController.cs** a nahraďte definici oboru názvů následujícím kódem. Nezapomeňte místo *yourServiceNamespace* zadat název vašeho oboru názvů služby a místo *yourKey* váš SAS klíč. To klientovi umožní zavolat lokální službu a vrátit výsledek volání.
 
    ```csharp
@@ -378,14 +400,18 @@ Dalším krokem je spojit lokální produktový server s aplikací ASP.NET.
 10. Na levé straně klikněte na **Spouštěný projekt**. Na pravé straně klikněte na **Více projektů po spuštění**. Zkontrolujte, že se objeví **ProductsServer** a **ProductsPortal** v tomto pořadí, a že je pro obojí nastavená akce **Start**.
 
       ![][25]
+
 11. Pořád ještě v dialogovém okně **Vlastnosti** na levé straně klikněte na **Závislosti projektu**.
-12. V seznamu **Projekty** klikněte na **ProductsServer**. Zkontrolujte, že **ProductsPortal** **není** vybraný.
+12. V seznamu **Projekty** klikněte na **ProductsServer**. Zkontrolujte, že **ProductsPortal** není vybraný.
 13. V seznamu **Projekty** klikněte na **ProductsPortal**. Zkontrolujte, že je **ProductsServer** vybraný.
 
     ![][26]
+
 14. Kliknutím na **OK** zavřete se dialogové okno **Stránky vlastností**.
 
-## <a name="run-the-project-locally"></a>Spusťte projekt lokálně.
+## Spusťte projekt lokálně.
+<a id="run-the-project-locally" class="xliff"></a>
+
 Aplikaci můžete lokálně spustit a otestovat ve Visual Studiu stisknutím klávesy **F5**. Nejdřív by se měl spustit lokální server (**ProductsServer**), potom by se v okně prohlížeče měla spustit aplikace **ProductsPortal**. Tentokrát uvidíte, že inventář produktů zobrazí seznam dat načtených z lokálního systému služby.
 
 ![][10]
@@ -394,30 +420,41 @@ Na stránce **ProductsPortal** stiskněte **Obnovit**. Pokaždé, když obnovít
 
 Před dalším krokem zavřete obě aplikace.
 
-## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Nasazení projektu ProductsPortal do webové aplikace Azure
-Dalším krokem je převod frontendu **ProductsPortal** do webové aplikace Azure. Nejdříve nasaďte projekt **ProductsPortal** a potom proveďte všechny kroky v části [Nasazení webového projektu do Azure](../app-service-web/app-service-web-get-started-dotnet.md). Po dokončení nasazení se vraťte do tohoto kurzu a pokračujte dalším krokem.
+## Nasazení projektu ProductsPortal do webové aplikace Azure
+<a id="deploy-the-productsportal-project-to-an-azure-web-app" class="xliff"></a>
 
-> [!NOTE]
-> V okně prohlížeče se při automatickém spuštění webového projektu **ProductsPortal** po nasazení může objevit chybová zpráva. To je v pořádku a děje se to, protože aplikace **ProductsServer** ještě neběží.
+Dalším krokem je nové publikování frontendu **ProductsPortal** webové aplikace Azure. Udělejte toto:
+
+1. V Průzkumníku řešení klikněte pravým tlačítkem myši na projekt **ProductsPortal** a klikněte na **Publikovat**. Potom klikněte na **Publikovat** na stránce **Publikovat**.
+
+  > [!NOTE]
+  > V okně prohlížeče se při automatickém spuštění webového projektu **ProductsPortal** po nasazení může objevit chybová zpráva. To je v pořádku a děje se to, protože aplikace **ProductsServer** ještě neběží.
 >
 >
 
-Zkopírujte adresu URL nasazené aplikace protože ji budete potřebovat v dalším kroku. Tuto adresu URL můžete taky získat z okna Aktivita služby Azure App Service ve Visual Studiu:
+2. Zkopírujte adresu URL nasazené aplikace protože ji budete potřebovat v dalším kroku. Tuto adresu URL můžete taky získat z okna Aktivita služby Azure App Service ve Visual Studiu:
 
-![][9]
+  ![][9]
 
-### <a name="set-productsportal-as-web-app"></a>Nastavení ProductsPortal jako webové aplikace
+3. Zavřením okna prohlížeče zastavte spuštěnou aplikaci.
+
+### Nastavení ProductsPortal jako webové aplikace
+<a id="set-productsportal-as-web-app" class="xliff"></a>
+
 Než spustíte aplikaci v cloudu, musíte zkontrolovat, že se **ProductsPortal** spustí z Visual Studia jak webová aplikace.
 
-1. Ve Visual Studiu klikněte pravým tlačítkem na projekt **ProjectsPortal** a potom klikněte na **Vlastnosti**.
+1. V sadě Visual Studio klikněte pravým tlačítkem myši na projekt **ProductsPortal** a potom klikněte na **Vlastnosti**.
 2. V levém sloupci klikněte na **Web**.
 3. V části **Spustit akci** klikněte na tlačítko **Otevřít adresu URL** a do textového pole zadejte URL webové aplikace nasazené předtím, například `http://productsportal1234567890.azurewebsites.net/`.
 
     ![][27]
+
 4. Ve Visual Studiu zvolte v nabídce **Soubor** možnost **Uložit vše**.
 5. Ve Visual Studiu zvolte v nabídce Sestavení možnost **Znovu sestavit řešení**.
 
-## <a name="run-the-application"></a>Spuštění aplikace
+## Spuštění aplikace
+<a id="run-the-application" class="xliff"></a>
+
 1. Stisknutím klávesy F5 aplikaci sestavíte a spustíte. Nejdřív by se měl spustit lokální server (konzolová aplikace **ProductsServer**), potom by se v okně prohlížeče měla spustit aplikace **ProductsPortal**, jak je vidět na tomto snímku obrazovky. Znovu si všimněte, že inventář produktů zobrazí seznam dat načtených z lokálního systému služby a tato data zobrazí ve webové aplikaci. Zkontrolujte adresu URL a ujistěte se, že **ProductsPortal** běží v cloudu jako webová aplikace Azure.
 
    ![][1]
@@ -432,7 +469,9 @@ Než spustíte aplikaci v cloudu, musíte zkontrolovat, že se **ProductsPortal*
 
     ![][38]
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
+
 Pokud se o Azure Relay chcete dozvědět víc, pročtěte si následující zdroje:  
 
 * [Co je Azure Relay?](relay-what-is-it.md)  
@@ -448,7 +487,6 @@ Pokud se o Azure Relay chcete dozvědět víc, pročtěte si následující zdro
 [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
 [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.png
 [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
-[19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
 [9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
 [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App3.png
 

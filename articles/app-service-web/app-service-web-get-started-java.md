@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření první webové aplikace v Javě v Azure během pěti minut | Dokumentace Microsoftu"
-description: "Přečtěte si, jak snadné je spouštět webové aplikace ve službě App Service, na příkladu nasazení jednoduché aplikace v Javě."
+title: "Vytvoření první webové Java aplikace ve službě Azure"
+description: "Nasazením základní Java aplikace se naučíte, jak spouštět webové aplikace ve službě App Service."
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -12,63 +12,62 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 6/7/2017
 ms.author: cephalin;robmcm
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a805d92fbe1043b9143140bdbfb8626362aa8bb5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>Vytvoření první webové aplikace v Javě v Azure během pěti minut
+# Vytvoření první webové Java aplikace ve službě Azure
+<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
 
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
+Funkce [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) služby [Azure App Service](../app-service/app-service-value-prop-what-is.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů. Tento kurz Rychlý start ukazuje, jak nasadit webovou Java aplikaci do služby App Service pomocí [integrovaného vývojového prostředí Eclipse pro vývojáře na platformě Java EE](http://www.eclipse.org/).
 
-Tento Rychlý start vám pomůže nasadit první webovou aplikaci v Javě do služby [Azure App Service](../app-service/app-service-value-prop-what-is.md) během pár minut. Až budete s tímto kurzem hotovi, budete mít jednoduchou webovou aplikaci založenou na Javě spuštěnou v cloudu.
+![Hello Azure! Ukázková webová aplikace](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-![Přechod do webové aplikace](./media/app-service-web-get-started-java/browse-web-app-1.png)
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 
-## <a name="before-you-begin"></a>Než začnete
+K provedení kroků v tomto kurzu Rychlý start je potřeba nainstalovat:
 
-Tento kurz ukazuje, jak pomocí integrovaného vývojového prostředí Eclipse pro vývojáře v jazyce Java EE sestavit webovou aplikaci v Javě a nasadit ji do Azure. Pokud ještě Eclipse nemáte nainstalované, můžete si ho zdarma stáhnout z webu http://www.eclipse.org/.
+* Bezplatné [integrované vývojové prostředí Eclipse pro vývojáře na platformě Java EE](http://www.eclipse.org/downloads/). Tento kurz Rychlý start používá Eclipse Neon.
+* [Sadu nástrojů Azure pro Eclipse](/azure/azure-toolkit-for-eclipse-installation).
 
-Pro zjednodušení procesu publikování webových aplikací v Javě do Azure se bude v postupech v tomto kurzu používat sada [Azure Toolkit pro Eclipse](/azure/azure-toolkit-for-eclipse). Pokyny k instalaci této sady nástrojů najdete v tématu [Instalace sady Azure Toolkit pro Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
->
-> K dokončení kroků v tomto kurzu můžete použít také [IntelliJ IDEA](https://www.jetbrains.com/idea/) od JetBrains. Několik kroků se u tohoto vývojového prostředí může mírně lišit, ačkoli existuje také sada [Azure Toolkit pro IntelliJ](/azure/azure-toolkit-for-intellij), kterou můžete použít ke zjednodušení procesu publikování pro toto integrované vývojové prostředí.
->
+## Vytvoření dynamického webového projektu v Eclipse
+<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
 
-K dokončení kroků v tomto kurzu budete také potřebovat předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatný účet Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="create-a-dynamic-web-project-in-eclipse"></a>Vytvoření dynamického webového projektu v Eclipse
-
-V Eclipse vyberte nabídku **File** (Soubor), pak **New** (Nový) a **Dynamic Web Project** (Dynamický webový projekt).
+V prostředí Eclipse vyberte **File** (Soubor) > **New** (Nový) > **Dynamic Web Project** (Dynamický webový projekt).
 
 V dialogovém okně **New Dynamic Web Project** (Nový dynamický webový projekt) pojmenujte projekt **MyFirstJavaOnAzureWebApp** a vyberte **Finish** (Dokončit).
    
-![Dialogové okno Dynamic Web Project (Dynamický webový projekt)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
+![Dialogové okno New Dynamic Web Project (Nový dynamický webový projekt)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-> [!NOTE]
->
-> Pokud máte nainstalované místní běhové prostředí, jako je [Apache Tomcat](https://tomcat.apache.org/), můžete ho zadat do pole **Target runtime** (Cílové běhové prostředí).
->
+### Přidání stránky JSP
+<a id="add-a-jsp-page" class="xliff"></a>
 
-Po vytvoření dynamického webového projektu přidejte novou stránku JSP tak, že v zobrazení Project Explorer (Průzkumník projektů) rozbalíte svůj projekt, kliknete pravým tlačítkem myši na složku **WebContent**, kliknete na **New** (Nový) a pak kliknete na **JSP File** (Soubor JSP).
+Pokud se nezobrazí Project Explorer (Prohlížeč projektu), obnovte zobrazení.
 
-![Nabídka New JSP File (Nový soubor JSP)](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
+![Pracovní prostor Java EE pro Eclipse](./media/app-service-web-get-started-java/pe.png)
 
-Až se zobrazí dialogové okno New JSP File (Nový soubor JSP), pojmenujte soubor **index.jsp**, jako nadřazenou složku ponechte **MyFirstJavaOnAzureWebApp/WebContent** a pak klikněte na **Next** (Další).
+V prohlížeči Project Explorer rozbalte projekt **MyFirstJavaOnAzureWebApp**.
+Klikněte pravým tlačítkem na **WebContent** (Webový obsah) a potom vyberte **New** (Nový) > **JSP File** (Soubor JSP).
 
-![Dialogové okno New JSP File (Nový soubor JSP)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+![Nabídka pro nový soubor JSP v prohlížeči Project Explorer](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-Na druhé stránce dialogového okna New JSP File (Nový soubor JSP) pojmenujte soubor **index.jsp**, jako nadřazenou složku ponechte **MyFirstJavaOnAzureWebApp/WebContent** a pak klikněte na **Finish** (Dokončit).
+V dialogovém okně **New JSP File** (Nový soubor JSP):
 
-![Dialogové okno New JSP File (Nový soubor JSP)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-2.png)
+* Soubor pojmenujte **index.jsp**.
+* Vyberte **Finish** (Dokončit).
 
-Když se v Eclipse otevře vaše nová stránka, nahraďte stávající část `<body></body>` následujícím kódem:
+  ![Dialogové okno New JSP File (Nový soubor JSP)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+
+V souboru index.jsp nahraďte element `<body></body>` následujícím kódem:
 
 ```jsp
 <body>
@@ -76,162 +75,141 @@ Když se v Eclipse otevře vaše nová stránka, nahraďte stávající část `
 </body>
 ```
 
-Uložte provedené změny stránky.
+Uložte změny.
 
-## <a name="publish-your-web-app-to-azure"></a>Publikování webové aplikace do Azure
+## Publikování webové aplikace do služby Azure
+<a id="publish-the-web-app-to-azure" class="xliff"></a>
 
-K nasazení vaší webové aplikace do Azure využijete několik funkcí, které poskytuje sada Azure Toolkit pro Eclipse.
+V prohlížeči Project Explorer klikněte pravým tlačítkem na projekt a potom vyberte **Azure** > **Publish as Azure Web App** (Publikovat jako webovou aplikaci Azure).
 
-Pokud chcete zahájit proces publikování, použijte některou z následujících metod:
+![Místní nabídka Publish as Azure Web App (Publikovat jako webovou aplikaci Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-* Klikněte pravým tlačítkem myši na svůj projekt v zobrazení **Project Explorer** (Průzkumník projektů) v Eclipse, klikněte na **Azure** a pak klikněte na **Publikovat jako webovou aplikaci Azure**.
+V dialogovém okně **Azure Sign In** (Přihlášení k Azure) ponechejte možnost **Interactive** (Interaktivní) a pak vyberte **Sign in** (Přihlásit).
 
-   ![Místní nabídka Publikovat jako webovou aplikaci Azure](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
+Postupujte podle pokynů k přihlášení.
 
-* Klikněte na ikonu **Publish** (Publikovat) na panelu nástrojů Eclipse a pak klikněte na **Publikovat jako webovou aplikaci Azure**.
+### Dialogové okno Deploy Web App (Nasazení webové aplikace)
+<a id="deploy-web-app-dialog-box" class="xliff"></a>
 
-   ![Rozevírací nabídka Publikovat jako webovou aplikaci Azure](./media/app-service-web-get-started-java/publish-as-azure-web-app-drop-down-menu.png)
+Jakmile budete přihlášeni ke svému účtu Azure, zobrazí se dialogové okno **Deploy Web App** (Nasazení webové aplikace).
 
-Pokud jste se ještě nepřihlásili ke svému účtu Azure, budete vyzváni k přihlášení. Chcete-li tak učinit, proveďte následující kroky:
+Vyberte **Create** (Vytvořit).
 
-1. Existují dvě různé možnosti přihlášení k účtu Azure – pro účely tohoto kurzu zvolte **Interactive** (Interaktivní).
+![Dialogové okno Deploy Web App (Nasazení webové aplikace)](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-   ![Dialogové okno Azure Sign In (Přihlášení do Azure)](./media/app-service-web-get-started-java/azure-signin-dialog-box.png)
+### Dialogové okno Create App Service (Vytvoření služby App Service)
+<a id="create-app-service-dialog-box" class="xliff"></a>
 
-1. Zadejte své přihlašovací údaje Azure a pak klikněte na **Přihlásit**.
+Dialogové okno **Create App Service** (Vytvoření služby App Service) se zobrazí s výchozími hodnotami. Číslo **170602185241** zobrazené na následujícím obrázku se bude ve vašem dialogovém okně lišit.
 
-   ![Dialogové okno Přihlášení do Azure](./media/app-service-web-get-started-java/azure-login-dialog-box.png)
+![Dialogové okno Create App Service (Vytvoření služby App Service)](./media/app-service-web-get-started-java/cas1.png)
 
-1. Zvolte svá předplatná Azure a pak klikněte na **Vybrat**.
+V dialogovém okně **Create App Service** (Vytvoření služby App Service):
 
-   ![Dialogové okno Přihlášení do Azure](./media/app-service-web-get-started-java/select-azure-subscriptions-dialog-box.png)
+* Ponechejte vygenerovaný název webové aplikace. Tento název musí být v rámci služby Azure jedinečný. Název je součástí adresy URL webové aplikace. Příklad: Pokud je název webové aplikace **MyJavaWebApp**, bude adresa URL *myjavawebapp.azurewebsites.net*.
+* Ponechejte výchozí webový kontejner.
+* Vyberte předplatné služby Azure.
+* Na kartě **App service plan** (Plán služby App Service):
 
-> [!NOTE]
->
-> Podrobné pokyny k typům přihlášení **Interactive** (Interaktivní) a **Automated** (Automatizované) najdete v článku [Pokyny k přihlášení do Azure pro sadu Azure Toolkit pro Eclipse](https://go.microsoft.com/fwlink/?linkid=846174).
->
+  * **Create new** (Vytvořit nový): Ponechejte výchozí hodnotu, kterou je název plánu služby App Service.
+  * **Location** (Umístění): Vyberte **West Europe** (Západní Evropa) nebo umístění ve vaší blízkosti.
+  * **Pricing tier** (Cenová úroveň): Vyberte možnost Free. Informace o funkcích najdete na stránce [App Service – ceny](https://azure.microsoft.com/pricing/details/app-service/).
 
-Jakmile budete přihlášeni ke svému účtu Azure, zobrazí se dialogové okno **Nasadit webovou aplikaci**. Pokud publikujete webovou aplikaci do Azure poprvé, neměli byste v seznamu vidět žádné služby App Services. Pokud je to váš případ, nebo pokud chcete vytvořit novou službu App Service, jako další krok vytvoříte službu App Service. Chcete-li to provést, klikněte na **Vytvořit**.
+   ![Dialogové okno Create App Service (Vytvoření služby App Service)](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
-![Dialogové okno Nasadit webovou aplikaci](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Až se zobrazí dialogové okno **Vytvořit službu App Service**, budete muset zadat tyto počáteční údaje:
+### Karta Resource group (Skupina prostředků)
+<a id="resource-group-tab" class="xliff"></a>
 
-* Jedinečný název pro vaši webovou aplikaci, který se použije jako adresa DNS vaší webové aplikace, například pro **MyJavaWebApp** to bude *myjavawebapp.azurewebsites.net*.
+Vyberte kartu **Resource group** (Skupina prostředků). Ponechte výchozí vygenerovanou hodnotu pro skupinu prostředků.
 
-* Jaký webový kontejner bude vaše webová aplikace používat, například **Newest Tomcat 8.5** (Nejnovější Tomcat 8.5).
+![Karta Resource group (Skupina prostředků)](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
-* Vaše předplatné Azure.
+[!INCLUDE [resource-group](../../includes/resource-group.md)]
 
-   ![Dialogové okno Vytvořit službu App Service](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+Vyberte **Create** (Vytvořit).
 
-Pokud nemáte žádné existující plány služby App Service, nebo pokud chcete vytvořit nový plán služby, budete muset zadat následující informace:
+<!--
+### The JDK tab
 
-* Jedinečný název pro nový plán služby – tento název se zobrazí při budoucím publikování webových aplikací pomocí sady Azure Toolkit a bude uveden na webu [Azure Portal](https://portal.azure.com), když budete spravovat svůj účet.
+Select the **JDK** tab. Keep the default, and then select **Create**.
 
-* Zeměpisné umístění, ve kterém se plán služby vytvoří.
+![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+-->
 
-* Cenová úroveň pro plán služby.
+Sada nástrojů Azure vytvoří webovou aplikaci a zobrazí dialogové okno s ukazatelem průběhu.
 
-   ![Vytvoření plánu služby App Service](./media/app-service-web-get-started-java/create-app-service-plan.png)
+![Dialogové okno Create App Service Progress (Průběh vytváření plánu služby App Service)](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-Dále klikněte na kartu **Skupina prostředků**. Pokud nemáte žádné existující skupiny prostředků, nebo pokud chcete vytvořit novou, budete muset zadat jedinečný název nové skupiny prostředků, jinak zvolte existující skupinu prostředků z rozevírací nabídky.
+### Dialogové okno Deploy Web App (Nasazení webové aplikace)
+<a id="deploy-web-app-dialog-box" class="xliff"></a>
 
-![Vytvoření plánu služby App Service](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
+V dialogovém okně **Deploy Web App** (Nasazení webové aplikace) vyberte **Deploy to root** (Nasadit do kořene). Pokud máte službu App Service na adrese *wingtiptoys.azurewebsites.net* a nezvolíte nasazení do kořene, nasadí se vaše webová aplikace **MyFirstJavaOnAzureWebApp** do *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
-Nakonec klikněte na kartu **JDK**. Uvidíte několik možností, které vývojářům umožňují zadat sady JDK (Java Development Kit) jiných výrobců nebo vlastní, ale pro účely tohoto kurzu vyberte **Výchozí** a pak klikněte na **Vytvořit**.
+![Dialogové okno Deploy Web App (Nasazení webové aplikace)](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-![Vytvoření plánu služby App Service](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+Dialogové okno zobrazuje vybrané hodnoty pro Azure, JDK a webový kontejner.
 
-Sada Azure Toolkit začne vytvářet novou službu App Service a zobrazí dialogové okno s průběhem zpracování.
+Výběrem možnosti **Deploy** (Nasadit) publikujte webovou aplikaci do služby Azure.
 
-![Indikátor průběhu vytváření služby App Service](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
+Po dokončení publikování vyberte odkaz **Publikováno** v dialogovém okně **Protokol aktivit v Azure**.
 
-Jakmile bude nová služba App Service vytvořena, jako poslední možnost je třeba vybrat, jestli se má webová aplikace nasadit do kořenového adresáře nového webu. Například pokud máte službu App Service na adrese *wingtiptoys.azurewebsites.net* a nezvolíte nasazení do kořenového adresáře, nasadí se vaše webová aplikace **MyFirstJavaOnAzureWebApp** do *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+![Dialogové okno Protokol aktivit v Azure](./media/app-service-web-get-started-java/aal.png)
 
-![Nasazení webové aplikace do kořenového adresáře](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
+Blahopřejeme! Úspěšně jste nasadili svou webovou aplikaci do služby Azure. 
 
-Po dokončení všech předchozích kroků klikněte na **Nasadit** a publikujte svou webovou aplikaci do Azure.
+![Hello Azure! Ukázková webová aplikace](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-![Nasazení webové aplikace do Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
+## Aktualizace webové aplikace
+<a id="update-the-web-app" class="xliff"></a>
 
-Blahopřejeme! Úspěšně jste nasadili svou webovou aplikaci do Azure! Nyní můžete zobrazit náhled vaší webové aplikace na webu Azure:
-
-![Přechod do webové aplikace](./media/app-service-web-get-started-java/browse-web-app-1.png)
-
-## <a name="updating-your-web-app"></a>Aktualizace webové aplikace
-
-Jakmile webovou aplikaci úspěšně nasadíte do Azure, je její aktualizace mnohem jednodušší; následující kroky vás provedou procesem publikování změn do webové aplikace.
-
-Nejprve změňte ukázkový kód JSP z předchozí části tak, aby se název nahrazoval aktuálním datem:
+Změňte zprávu v ukázkovém kódu JSP na jinou.
 
 ```jsp
-<%@ page
-    language="java"
-    contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    import="java.text.SimpleDateFormat"
-    import="java.util.Date" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<% SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd"); %>
-<title><% out.println(date.format(new Date())); %></title>
-</head>
 <body>
-<h1><% out.println("Hello Azure!"); %></h1>
+<h1><% out.println("Hello again Azure!"); %></h1>
 </body>
-</html>
 ```
 
-Po uložení změn klikněte pravým tlačítkem myši na svůj projekt v zobrazení **Project Explorer** (Průzkumník projektů) v Eclipse, klikněte na **Azure** a pak klikněte na **Publikovat jako webovou aplikaci Azure**.
+Uložte změny.
 
-![Publikování aktualizované webové aplikace](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
+V prohlížeči Project Explorer klikněte pravým tlačítkem na projekt a potom vyberte **Azure** > **Publish as Azure Web App** (Publikovat jako webovou aplikaci Azure).
 
-Až se zobrazí dialogové okno **Nasadit webovou aplikaci**, objeví se v něm služba App Service z předchozí části. K aktualizaci webové aplikace stačí zvýraznit službu App Service a kliknutím na **Nasadit** publikovat změny.
-
-![Nasazení webové aplikace do Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
+Zobrazí se dialogové okno **Deploy Web App** (Nasazení webové aplikace), ve kterém se zobrazí aplikační služba, kterou jste předtím vytvořili. 
 
 > [!NOTE]
+> Při každém publikování vyberte **Deploy to root** (Nasadit do kořene).
 >
-> Pokud nasazujete webovou aplikaci do kořenového adresáře služby App Service, budete muset znovu zaškrtnout políčko **Nasadit do kořenového adresáře** při každém publikování změn.
->
 
-Po publikování změn si všimněte, že se název stránky v prohlížeči změnil na dnešní datum.
+Vyberte webovou aplikaci a pak vyberte **Deploy** (Nasadit). Tím změny publikujete.
 
-![Přechod do webové aplikace](./media/app-service-web-get-started-java/browse-web-app-2.png)
+Když se zobrazí odkaz **Publikováno**, vyberte ho. Tím přejdete do webové aplikace a budete moct vidět změny.
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+## Správa webové aplikace
+<a id="manage-the-web-app" class="xliff"></a>
 
-Pokud chcete odstranit webovou aplikaci, použijte **Azure Explorer**, který je součástí sady nástrojů Azure. Pokud zobrazení **Azure Explorer** ještě v Eclipse nevidíte, zobrazte ho pomocí následujících kroků:
+Pokud chcete zobrazit webovou aplikaci, kterou jste vytvořili, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
-1. Klikněte na **Window** (Okno), **Show View** (Zobrazit zobrazení) a pak klikněte na **Other** (Ostatní).
+V levé nabídce vyberte **Skupiny prostředků**.
 
-   ![Nabídka Show View (Zobrazit zobrazení)](./media/app-service-web-get-started-java/show-azure-explorer-view-1.png)
+![Navigace na skupiny prostředků na portálu](media/app-service-web-get-started-java/rg.png)
 
-2. Až se objeví dialogové okno **Show View** (Zobrazit zobrazení), vyberte **Azure Explorer** a klikněte na **OK**.
+Vyberte skupinu prostředků. Stránka zobrazuje prostředky, které jste vytvořili v tomto kurzu Rychlý start.
 
-   ![Dialogové okno Show View (Zobrazit zobrazení)](./media/app-service-web-get-started-java/show-azure-explorer-view-2.png)
+![Skupina prostředků myResourceGroup](media/app-service-web-get-started-java/rg2.png)
 
-Pokud chcete odstranit webovou aplikaci ze zobrazení Azure Explorer, je potřeba rozbalit uzel **Webové aplikace**, kliknout pravým tlačítkem myši na webovou aplikaci a vybrat **Odstranit**.
+Vyberte webovou aplikaci (**webapp-170602193915** na předchozím obrázku).
 
-![Odstranění webové aplikace](./media/app-service-web-get-started-java/delete-web-app-context-menu.png)
+Zobrazí se stránka **Přehled**. Tato stránka poskytuje přehled toho, jak si aplikace vede. Tady můžete provádět základní úkoly správy, jako je procházení, zastavení, spuštění, restartování a odstranění. Záložky na levé straně okna obsahují další možnosti konfigurace, které můžete otevřít. 
 
-Po zobrazení výzvy k odstranění webové aplikace klikněte na **OK**.
+![Stránka služby App Service na webu Azure Portal](media/app-service-web-get-started-java/web-app-blade.png)
 
-## <a name="next-steps"></a>Další kroky
+[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-Další informace o sadách Azure Toolkit pro integrovaná vývojová prostředí pro Javu najdete na následujících odkazech:
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
-* [Sada Azure Toolkit pro Eclipse (Tento článek)](../azure-toolkit-for-eclipse.md)
-  * [Novinky v sadě Azure Toolkit pro Eclipse](../azure-toolkit-for-eclipse-whats-new.md)
-  * [Instalace sady Azure Toolkit pro Eclipse](../azure-toolkit-for-eclipse-installation.md)
-  * [Pokyny k přihlášení pro sadu Azure Toolkit pro Eclipse](https://go.microsoft.com/fwlink/?linkid=846174)
-* [Sada Azure Toolkit pro IntelliJ](../azure-toolkit-for-intellij.md)
-  * [Novinky v sadě Azure Toolkit pro IntelliJ](../azure-toolkit-for-intellij-whats-new.md)
-  * [Instalace sady Azure Toolkit pro IntelliJ](../azure-toolkit-for-intellij-installation.md)
-  * [Pokyny k přihlášení pro sadu Azure Toolkit pro IntelliJ](https://go.microsoft.com/fwlink/?linkid=846179)
-
-Další informace o používání Javy v Azure najdete na webu [Středisko pro vývojáře Java](https://azure.microsoft.com/develop/java/) a [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/) (Nástroje Java pro Visual Studio Team Services).
+> [!div class="nextstepaction"]
+> [Mapování vlastní domény](app-service-web-tutorial-custom-domain.md)
 

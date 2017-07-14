@@ -1,6 +1,6 @@
 ---
-title: "Úvod k Apache Kafka ve službě HDInsight | Dokumentace Microsoftu"
-description: "Informace o Apache Kafka ve službě HDInsight. Co to je, co to dělá a kde najít příklady a informace pro začátek."
+title: "Úvod k systému Apache Kafka ve službě HDInsight – Azure | Dokumentace Microsoftu"
+description: "Přečtěte si o systému Apache Kafka ve službě HDInsight: co to je, co to dělá a kde najít příklady a informace pro začátek."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/17/2017
 
 ---
-# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Představení Apache Kafka ve službě HDInsight (Preview)
+# Představení Apache Kafka ve službě HDInsight (Preview)
+<a id="introducing-apache-kafka-on-hdinsight-preview" class="xliff"></a>
 
 [Apache Kafka](https://kafka.apache.org) je open source distribuovaná streamovací platforma, kterou lze použít k vytváření aplikací a kanálů pro streamování dat v reálném čase. Kafka také poskytuje funkci pro zprostředkování zpráv podobnou frontě zpráv, ve které můžete publikovat pojmenované datové proudy a přihlásit se k jejich odběru. Kafka ve službě HDInsight představuje spravovanou, vysoce škálovatelnou a vysoce dostupnou službu v cloudu Microsoft Azure.
 
-## <a name="why-use-kafka-on-hdinsight"></a>Proč používat Kafka ve službě HDInsight?
+## Proč používat Kafka ve službě HDInsight?
+<a id="why-use-kafka-on-hdinsight" class="xliff"></a>
 
 Kafka poskytuje následující funkce:
 
@@ -40,7 +42,14 @@ Kafka poskytuje následující funkce:
 
 * Odolnost proti chybám: Oddíly je možné replikovat mezi uzly a zajistit tak odolnost proti chybám.
 
-## <a name="use-cases"></a>Případy použití
+* Integrace se službou Azure Managed Disks: Spravované disky přináší virtuálním počítačům v clusteru HDInsight lepší škálování a vyšší propustnost.
+
+    Správa disků je v systému Kafka v HDInsight ve výchozím nastavení zapnutá a počet disků v jednotlivých uzlech můžete nastavit při vytváření prostředí HDInsight. Další informace o spravovaných discích najdete v tématu [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
+    Informace o konfiguraci spravovaných disků v systému Kafka v HDInsight najdete v tématu [Zvýšení škálovatelnosti systému Kafka v prostředí HDInsight](hdinsight-apache-kafka-scalability.md).
+
+## Případy použití
+<a id="use-cases" class="xliff"></a>
 
 * **Zasílání zpráv:** Protože Kafka podporuje vzorec zasílání zpráv na principu publikování a odběru, často se používá jako zprostředkovatel zpráv.
 
@@ -50,7 +59,8 @@ Kafka poskytuje následující funkce:
 
 * **Transformace:** Pomocí zpracování datových proudů můžete kombinovat data z více vstupních témat a rozšiřovat je do jednoho nebo několika výstupních témat.
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 Následující odkazy popisují používání Apache Kafka ve službě HDInsight:
 

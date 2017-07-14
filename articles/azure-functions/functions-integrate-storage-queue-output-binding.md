@@ -15,27 +15,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e2501b0eb218d3c8a62dd4959b08ff85ec565eb
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
-# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Přidání zpráv do fronty Azure Storage pomocí funkcí
+# Přidání zpráv do fronty Azure Storage pomocí funkcí
+<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
 
 Ve službě Azure Functions poskytují vstupní a výstupní vazby deklarativní způsob připojení k datům externí služby z funkce. V tomto tématu zjistíte, jak aktualizovat existující funkci přidáním výstupní vazby, která odesílá zprávy do Azure Queue Storage.  
 
 ![Zobrazte si zprávy v protokolech.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-K dokončení všech kroků v tomto tématu by vám mělo stačit méně než 5 minut.
-
-## <a name="prerequisites"></a>Požadavky 
+## Požadavky
+<a id="prerequisites" class="xliff"></a> 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
-Taky bude potřeba stáhnout a nainstalovat [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Nainstalujte [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
@@ -43,11 +43,11 @@ Taky bude potřeba stáhnout a nainstalovat [Microsoft Azure Storage Explorer](h
  
 1. Rozbalte aplikaci Function App i funkci.
 
-2. Klikněte na **Integrace** a **+ Nový výstup**, potom klikněte na **Azure Queue Storage** a nakonec na **Vybrat**.
+2. Vyberte možnost **Integrace** a **+ Nový výstup**, pak vyberte **Azure Queue Storage** a **Vybrat**.
     
     ![Přidejte výstupní vazbu Queue Storage do funkce na webu Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Použijte nastavení uvedené v tabulce a potom klikněte na **Uložit**: 
+3. Použijte nastavení uvedené v tabulce a potom vyberte **Uložit**: 
 
     ![Přidejte výstupní vazbu Queue Storage do funkce na webu Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -59,9 +59,10 @@ Taky bude potřeba stáhnout a nainstalovat [Microsoft Azure Storage Explorer](h
 
 Teď máte definovanou výstupní vazbu a je potřeba aktualizovat kód tak, aby tuto vazbu využíval k přidávání zpráv do fronty.  
 
-## <a name="update-the-function-code"></a>Aktualizace kódu funkce
+## Aktualizace kódu funkce
+<a id="update-the-function-code" class="xliff"></a>
 
-1. Kliknutím na určitou funkci zobrazíte kód této funkce v editoru. 
+1. Vybráním určité funkce zobrazíte kód této funkce v editoru. 
 
 2. V případě funkce v jazyce C# následujícím způsobem aktualizujte definici funkce, aby obsahovala parametr vazby úložiště **outQueueItem**. V případě funkce v jazyce JavaScript tento krok přeskočte.
 
@@ -84,13 +85,14 @@ Teď máte definovanou výstupní vazbu a je potřeba aktualizovat kód tak, aby
     outQueueItem.Add("Name passed to the function: " + name);     
     ```
 
-4. Uložte změny kliknutím na **Uložit**.
+4. Změny uložíte tak, že vyberete **Uložit**.
 
 Hodnota předaná aktivační události HTTP je součástí zprávy přidané do fronty.
  
-## <a name="test-the-function"></a>Testování funkce 
+## Testování funkce
+<a id="test-the-function" class="xliff"></a> 
 
-1. Po uložení změn kódu klikněte na **Spustit**. 
+1. Po uložení změn kódu vyberte **Spustit**. 
 
     ![Přidejte výstupní vazbu Queue Storage do funkce na webu Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
@@ -98,32 +100,35 @@ Hodnota předaná aktivační události HTTP je součástí zprávy přidané do
 
 Teď se můžete připojit ke svému účtu úložiště a zkontrolovat novou frontu i zprávy, které jste do ní přidali. 
 
-## <a name="connect-to-the-queue"></a>Připojení k frontě
+## Připojení k frontě
+<a id="connect-to-the-queue" class="xliff"></a>
 
-Pokud jste už nainstalovali Průzkumníka úložiště a připojili ho ke svému účtu úložiště, přeskočte první tři kroky.    
+Pokud jste už nainstalovali Storage Explorer a připojili ho ke svému účtu úložiště, přeskočte první tři kroky.    
 
-1. Ve své funkci klikněte na **Integrace** a na novou výstupní vazbu **Azure Queue Storage** a potom rozbalte položku **Dokumentace**. Zkopírujte nastavení **Název účtu** i **Klíč účtu**. Tyto přihlašovací údaje použijte k připojení k účtu úložiště.
+1. Ve své funkci vyberte možnost **Integrace** a novou výstupní vazbu **Azure Queue Storage** a potom rozbalte položku **Dokumentace**. Zkopírujte nastavení **Název účtu** i **Klíč účtu**. Tyto přihlašovací údaje použijte k připojení k účtu úložiště.
  
     ![Získejte přihlašovací údaje účtu úložiště.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-2. Spusťte nástroj [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vlevo klikněte na ikonu připojení, zvolte **Použít název a klíč účtu úložiště** a klikněte na **Další**.
+2. Spusťte [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vlevo vyberte ikonu připojení, zvolte **Použít název a klíč účtu úložiště** a vyberte **Další**.
 
     ![Spusťte nástroj Průzkumník účtu úložiště.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Zadejte **Název účtu** a **Klíč účtu** z kroku 1, klikněte na **Další** a potom klikněte na **Připojit**. 
+3. Do příslušných polí vložte **Název účtu** a **Klíč účtu** z kroku 1 a pak vyberte **Další** a **Připojit**. 
   
-    ![Zadejte přihlašovací údaje úložiště a připojte se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    ![Vložte přihlašovací údaje úložiště a připojte se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 4. Rozbalte připojený účet úložiště, klikněte pravým tlačítkem na **Fronty** a zkontrolujte, jestli existuje fronta s názvem **myqueue-items**. Fronta už by taky měla obsahovat zprávu.  
  
     ![Vytvořte frontu úložiště.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+## Vyčištění prostředků
+<a id="clean-up-resources" class="xliff"></a>
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 Přidali jste k existující funkci výstupní vazbu. 
 

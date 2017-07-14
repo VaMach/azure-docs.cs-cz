@@ -5,57 +5,63 @@ documentationcenter: na
 services: application-gateway
 author: georgewallace
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 1f273f3b55d719e37b9cdb6cefda30c3566e7226
-ms.lasthandoff: 11/18/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="url-path-based-routing-overview"></a>Přehled směrování na základě cest URL
+# Přehled směrování na základě cest URL
+<a id="url-path-based-routing-overview" class="xliff"></a>
 
-Směrování na základě cesty URL umožňuje směrovat provoz do fondů back-endového serveru na základě cest URL požadavku. Jedním ze scénářů je směrování požadavků na různé typy obsahu do různých fondů back-endové serveru.
+Směrování na základě cesty URL umožňuje směrovat provoz do fondů back-end serveru na základě cest URL požadavku. 
+
+Jedním ze scénářů je směrování požadavků na různé typy obsahu do různých fondů back-endové serveru.
+
 V následujícím příkladu služba Application Gateway obsluhuje provoz pro contoso.com ze tří fondů back-endového serveru, například: VideoFondServeru, ObrazkyFondServeru a VychoziFondServeru.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Požadavky na http://contoso.com/video* jsou směrovány na VideoFondServeru a požadavky na http://contoso.com/images* jsou směrovány na ObrazkyFondServeru. Pokud nevyhovuje žádný vzor cesty, vybere se VychoziFondServeru.
     
-## <a name="urlpathmap-configuration-element"></a>Konfigurační prvek UrlPathMap
+## Konfigurační prvek UrlPathMap
+<a id="urlpathmap-configuration-element" class="xliff"></a>
 
-Prvek UrlPathMap slouží k zadání vzorů cest pro mapování fondů back-endového serveru. Následující ukázka kódu je fragment prvku UrlPathMap ze souboru šablony.
+Prvek UrlPathMap slouží k určení vzorů cest pro mapování fondů back-end serveru. Následující ukázka kódu je fragment prvku UrlPathMap ze souboru šablony.
 
 ```json
 "urlPathMaps": [{
-    "name": "<urlPathMapName>",
-    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/urlPathMaps/<urlPathMapName>",
+    "name": "{urlpathMapName}",
+    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/urlPathMaps/{urlpathMapName}",
     "properties": {
         "defaultBackendAddressPool": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
+            "id": "/subscriptions/    {subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName1}"
         },
         "defaultBackendHttpSettings": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
+            "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsList/{settingname1}"
         },
         "pathRules": [{
-            "name": "<pathRuleName>",
+            "name": "{pathRuleName}",
             "properties": {
                 "paths": [
-                    "<pathPattern>"
+                    "{pathPattern}"
                 ],
                 "backendAddressPool": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
+                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName2}"
                 },
                 "backendHttpsettings": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
+                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpsettingsList/{settingName2}"
                 }
             }
         }]
@@ -68,7 +74,8 @@ Prvek UrlPathMap slouží k zadání vzorů cest pro mapování fondů back-endo
 
 Více informací najdete v dokumentu [Šablona Resource Manageru používající směrování na základě adresy URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing).
 
-## <a name="pathbasedrouting-rule"></a>Pravidlo PathBasedRouting
+## Pravidlo PathBasedRouting
+<a id="pathbasedrouting-rule" class="xliff"></a>
 
 Pravidlo RequestRoutingRule typu PathBasedRouting slouží k vytvoření vazby mezi naslouchacím procesem a UrlPathMap. Všechny požadavky přijaté tímto naslouchacím procesem jsou směrovány na základě zásad zadaných v UrlPathMap.
 Fragment pravidla PathBasedRouting:
@@ -77,15 +84,15 @@ Fragment pravidla PathBasedRouting:
 "requestRoutingRules": [
     {
 
-"name": "<ruleName>",
-"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
+"name": "{ruleName}",
+"id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/requestRoutingRules/{ruleName}",
 "properties": {
     "ruleType": "PathBasedRouting",
     "httpListener": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/httpListeners/<listenerName>"
+        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/httpListeners/<listenerName>"
     },
     "urlPathMap": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>"
+        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/ urlPathMaps/{urlpathMapName}"
     },
 
 }
@@ -93,8 +100,8 @@ Fragment pravidla PathBasedRouting:
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 Po získání informací o směrování obsahu na základě adresy URL přejděte k tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-portal.md) a vytvořte službu Application Gateway s pravidly směrování adres URL.
-
 

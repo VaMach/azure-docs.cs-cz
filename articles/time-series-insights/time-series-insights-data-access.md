@@ -16,14 +16,15 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/20/2017
 
 ---
 
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Udělení přístupu k datům prostředí Time Series Insights pomocí webu Azure Portal
+# Udělení přístupu k datům prostředí Time Series Insights pomocí webu Azure Portal
+<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
 
 V prostředích Time Series Insights jsou dva nezávislé typy zásad přístupu:
 
@@ -36,11 +37,12 @@ Zásady přístupu ke správě udělují oprávnění související s konfigurac
 *    vytvoření nebo odstranění prostředí, zdrojů událostí nebo referenčních datových sad a
 *    správa zásad přístupu k datům.
 
-Zásady přístupu k datům udělují oprávnění k vydávání dotazů na data, zpracování referenčních dat v rámci prostředí a přístupu k uloženým sdíleným dotazům a perspektivám přidruženým k danému prostředí.
+Zásady přístupu k datům udělují oprávnění k vydávání dotazů na data, zpracování referenčních dat v rámci prostředí a sdílení uložených dotazů a perspektiv přidruženým k danému prostředí.
 
 Tyto dva typy zásad umožňují jasné oddělení přístupu ke správě prostředí od přístupu k datům v prostředí. Například je možné nastavit prostředí tak, aby vlastník nebo tvůrce prostředí neměl přístup k datům. Stejně tak je možné neudělit přístup ke konfiguraci prostředí uživatelům a službám s oprávněním číst data z prostředí.
 
-## <a name="grant-data-access"></a>Udělení přístupu k datům
+## Udělení přístupu k datům
+<a id="grant-data-access" class="xliff"></a>
 Následující postup ukazuje, jak udělit přístup k datům objektu zabezpečení uživatele:
 
 1.    Přihlaste se k webu [Azure Portal](https://portal.azure.com).
@@ -70,7 +72,8 @@ Následující postup ukazuje, jak udělit přístup k datům objektu zabezpeče
 
   ![Správa zdroje Time Series Insights – výsledky](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 * [Vytvoření zdroje událostí](time-series-insights-add-event-source.md)
 * [Odesílání událostí](time-series-insights-send-events.md) do zdroje událostí

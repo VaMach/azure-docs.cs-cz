@@ -16,14 +16,16 @@ ms.topic: hero-article
 ms.date: 02/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d39678bb7e7d2263b6b2f8d36da1bd86dcfff271
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: fd923fa711aa0af72e8d81d84fd0adb2e003596a
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Zálohování virtuálních počítačů Azure do trezorů služby Recovery Services
+# Zálohování virtuálních počítačů Azure do trezorů služby Recovery Services
+<a id="back-up-azure-virtual-machines-to-recovery-services-vaults" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Ochrana virtuálních počítačů v trezoru služby Recovery Services](backup-azure-vms-first-look-arm.md)
 > * [Ochrana virtuálních počítačů v úložišti Backup Vault](backup-azure-vms-first-look.md)
@@ -40,7 +42,9 @@ Tento kurz vás provede kroky pro vytvoření trezoru Recovery Services a záloh
 * Virtuální počítače jsou šifrované službou Azure Disk Encryption klíči BEK a KEK
 * Zálohování konzistentní vzhledem k aplikacím virtuálních počítačů s Windows pomocí služby Stínová kopie svazku (VSS) a virtuálních počítačů s Linuxem pomocí vlastních předsnímkových a posnímkových skriptů
 
-Další informace o ochraně virtuálních počítačů služby Storage úrovně Premium najdete v článku [Zálohování a obnovení virtuálních počítačů služby Storage úrovně Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Další informace o podpoře pro virtuální počítače se spravovanými disky najdete v tématu věnovaném [zálohování a obnovení virtuálních počítačů na spravovaných discích](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Další informace o rozhraní s předsnímkovými a posnímkovými skripty pro zálohování virtuálních počítačů s Linuxem najdete v tématu [Zálohování konzistentní vzhledem k aplikacím virtuálních počítačů s Linuxem pomocí předzálohovacích a pozálohovacích skriptů] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Další informace o ochraně virtuálních počítačů služby Storage úrovně Premium najdete v článku [Zálohování a obnovení virtuálních počítačů služby Storage úrovně Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Další informace o podpoře pro virtuální počítače se spravovanými disky najdete v tématu věnovaném [zálohování a obnovení virtuálních počítačů na spravovaných discích](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Další informace o rozhraní s předsnímkovými a posnímkovými skripty pro zálohování virtuálních počítačů s Linuxem najdete v tématu Zálohování virtuálních počítačů s Linuxem konzistentní s aplikacemi pomocí předsnímkových a posnímkových skriptů (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Další informace o tom, co je a co není možné zálohovat, najdete [tady](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
 > Tento kurz předpokládá, že už máte virtuální počítač ve svém předplatném Azure a že jste zavedli opatření, která umožní službě zálohování přístup k virtuálnímu počítači.
@@ -51,7 +55,8 @@ Další informace o ochraně virtuálních počítačů služby Storage úrovně
 
 V závislosti na počtu virtuálních počítačů, které chcete ochránit, můžete začít z několika různých počátečních bodů. Pokud chcete v rámci jedné operace zálohovat více virtuálních počítačů, přejděte do trezoru služby Recovery Services a [spusťte úlohu zálohování z řídicího panelu trezoru](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Pokud chcete zálohovat jeden virtuální počítač, můžete úlohu zálohování spustit z okna správy virtuálního počítače.
 
-## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Konfigurace úlohy zálohování z okna správy virtuálního počítače
+## Konfigurace úlohy zálohování z okna správy virtuálního počítače
+<a id="configure-the-backup-job-from-the-vm-management-blade" class="xliff"></a>
 
 Následující kroky použijte ke konfiguraci úlohy zálohování z okna správy virtuálního počítače na webu Azure Portal. Na virtuální počítače na portálu Classic se tyto kroky nevztahují.
 
@@ -119,14 +124,16 @@ Následující kroky použijte ke konfiguraci úlohy zálohování z okna správ
 
   Oznámení nasazení vás budou informovat o aktivaci úlohy zálohování a možnosti sledovat průběh úlohy na stránce Úlohy zálohování.
 
-## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>Konfigurace úlohy zálohování z trezoru služby Recovery Services
+## Konfigurace úlohy zálohování z trezoru služby Recovery Services
+<a id="configure-the-backup-job-from-the-recovery-services-vault" class="xliff"></a>
 Pokud chcete konfigurovat úlohu zálohování, dokončete následující kroky.  
 
 1. Vytvoření trezoru služby Recovery Services pro virtuální počítač.
 2. Použití webu Azure Portal k výběru scénáře, nastavení zásady zálohování a určení položek, které mají být chráněné.
 3. Spuštění prvotního zálohování.
 
-## <a name="create-a-recovery-services-vault-for-a-vm"></a>Vytvoření trezoru Recovery Services pro virtuální počítač
+## Vytvoření trezoru Recovery Services pro virtuální počítač
+<a id="create-a-recovery-services-vault-for-a-vm" class="xliff"></a>
 Trezor záloh Služeb zotavení je entita, která ukládá všechny vytvořené zálohy a body obnovení. Trezor Služeb zotavení obsahuje také zásadu zálohování, která se používá pro chráněné virtuální počítače.
 
 > [!NOTE]
@@ -180,7 +187,8 @@ Chcete-li vytvořit trezor Služeb zotavení:
 
 Teď, když jste vytvořili trezor, se naučte, jak nastavit replikaci úložiště.
 
-### <a name="set-storage-replication"></a>Nastavení replikace úložiště
+### Nastavení replikace úložiště
+<a id="set-storage-replication" class="xliff"></a>
 Možnost replikace úložiště umožňuje výběr mezi geograficky redundantním úložištěm a místně redundantním úložištěm. Ve výchozím nastavení má váš trezor nastavené geograficky redundantní úložiště. Pokud je trezor služby Recovery Services vaší primární zálohou, ponechte možnost replikace úložiště nastavenou na geograficky redundantní úložiště. Pokud chcete levnější možnost, která není tak trvanlivá, vyberte místně redundantní úložiště. Další informace o možnostech [geograficky redundantního](../storage/storage-redundancy.md#geo-redundant-storage) a [místně redundantního](../storage/storage-redundancy.md#locally-redundant-storage) úložiště naleznete v tématu [Přehled replikace Azure Storage](../storage/storage-redundancy.md).
 
 Chcete-li upravit nastavení replikace úložiště:
@@ -205,7 +213,8 @@ Chcete-li upravit nastavení replikace úložiště:
     Ve výchozím nastavení má váš trezor nastavené geograficky redundantní úložiště. Pokud používáte Azure jako primární koncový bod úložiště záloh, pokračujte v používání **geograficky redundantního** úložiště. Pokud Azure nepoužíváte jako primární koncový bod úložiště záloh, vyberte **Místně redundantní** – snížíte tím náklady na úložiště Azure. Další informace o možnostech [geograficky redundantního](../storage/storage-redundancy.md#geo-redundant-storage) a [místně redundantního](../storage/storage-redundancy.md#locally-redundant-storage) úložiště najdete v tomto [přehledu redundance úložiště](../storage/storage-redundancy.md).
 
 
-## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Výběr cíle zálohování, nastavení zásad a určení položek k ochraně
+## Výběr cíle zálohování, nastavení zásad a určení položek k ochraně
+<a id="select-a-backup-goal-set-policy-and-define-items-to-protect" class="xliff"></a>
 Před registrací virtuálních počítačů k trezoru spusťte proces vyhledávání, abyste se ujistili, že byly identifikované všechny nové virtuální počítače přidané k předplatnému. Proces se dotáže Azure na seznam virtuálních počítačů v rámci předplatného společně s dalšími informacemi, jako například název cloudové služby a oblast. Na webu Azure Portal výraz scénář vyjadřuje, co chcete vložit do trezoru Recovery Services. Zásada je plán, jak často a kdy jsou pořizovány body obnovení. Zásada také obsahuje rozsah uchování bodů obnovení.
 
 1. Pokud již máte otevřený trezor Recovery Services, pokračujte ke kroku 2. Jinak v nabídce centra klikněte na **Další služby**, v seznamu prostředků zadejte **Recovery Services** a klikněte na **Trezory služby Recovery Services**.
@@ -253,7 +262,8 @@ Před registrací virtuálních počítačů k trezoru spusťte proces vyhledáv
 
 Po úspěšném povolení zálohování se vaše zásada zálohování spustí podle plánu. Přesto pokračujte a spusťte první úlohu zálohování.
 
-## <a name="initial-backup"></a>Prvotní zálohování
+## Prvotní zálohování
+<a id="initial-backup" class="xliff"></a>
 Nasazení zásady zálohování na virtuální počítač neznamená, že jsou data zálohovaná. Ve výchozím nastavení je prvním plánovaným zálohováním (definovaným v zásadě zálohování) prvotní zálohování. Než proběhne prvotní zálohování, bude Stav poslední zálohy v okně **Úlohy zálohování** ukazovat **Upozornění (nedokončené prvotní zálohování)**.
 
 ![Zálohování čeká na zpracování](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
@@ -317,7 +327,8 @@ Spuštění úlohy prvotního zálohování:
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalace agenta virtuálního počítače na virtuální počítač
+## Instalace agenta virtuálního počítače na virtuální počítač
+<a id="install-the-vm-agent-on-the-virtual-machine" class="xliff"></a>
 Tyto informace jsou poskytnuté pro případ potřeby. Pro fungování rozšíření Backup musí být na virtuálním počítači Azure nainstalovaný agent virtuálního počítače Azure. Pokud byl váš virtuální počítač vytvořen z galerie Azure, je na něm agent virtuálního počítače již nainstalován. Virtuální počítače migrované z místních datových center nebudou mít agenta virtuálního počítače nainstalovaného. V takovém případě je potřeba agenta virtuálního počítače nainstalovat. Pokud máte problémy se zálohováním virtuálního počítače Azure, zkontrolujte, zda je agent virtuálního počítače na virtuálním počítači správně nainstalovaný (viz následující tabulka). Pokud vytváříte vlastní virtuální počítač, před jeho zřízením [se ujistěte, že je zaškrtávací políčko **Nainstalovat agenta virtuálního počítače** zaškrtnuté](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Další informace o [Agentu virtuálního počítače](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) a [jak ho nainstalovat](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -330,17 +341,21 @@ Následující tabulka poskytuje další informace o agentu virtuálního počí
 | Aktualizace agenta virtuálního počítače |Aktualizace agenta virtuálního počítače je stejně jednoduchá, jako přeinstalace [binárních souborů agenta virtuálního počítače](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. |Postupujte podle pokynů v tématu [Aktualizace agenta virtuálního počítače s Linuxem](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Ujistěte se, že během aktualizace agenta virtuálního počítače neběží žádná operace zálohování. |
 | Ověření instalace agenta virtuálního počítače |<li>Ve virtuálním počítači Azure přejděte do složky *C:\WindowsAzure\Packages*. <li>Měl by být přítomný soubor WaAppAgent.exe.<li> Pravým tlačítkem myši klikněte na soubor, přejděte na **Vlastnosti** a poté vyberte kartu **Podrobnosti**. Pole Verze produktu by mělo být 2.6.1198.718 nebo vyšší. |Není dostupné. |
 
-### <a name="backup-extension"></a>Rozšíření zálohování
+### Rozšíření zálohování
+<a id="backup-extension" class="xliff"></a>
 Když je agent virtuálního počítače nainstalovaný na virtuálním počítači, služba Azure Backup nainstaluje do agenta virtuálního počítače rozšíření zálohování. Služba Azure Backup bezproblémově upgraduje a opravuje rozšíření zálohování bez dalšího zásahu uživatele.
 
 Služba Backup nainstaluje rozšíření zálohování i v případě, že virtuální počítač není spuštěný. Spuštěný virtuální počítač poskytuje největší šanci získání bodu obnovení, který je konzistentní v rámci aplikace. Služba Azure Backup nicméně bude pokračovat v zálohování virtuálního počítače, i když je vypnutý a rozšíření nebylo možné nainstalovat. Tento typ zálohování se označuje jako Virtuální počítač v režimu offline a bod obnovení je *konzistentní pro případ chyby*.
 
-## <a name="troubleshooting-information"></a>Informace o řešení potíží
+## Informace o řešení potíží
+<a id="troubleshooting-information" class="xliff"></a>
 Pokud máte problémy s plněním některých úkolů v tomto článku, obraťte se na [Pokyny při řešení potíží](backup-azure-vms-troubleshoot.md).
 
-## <a name="pricing"></a>Ceny
+## Ceny
+<a id="pricing" class="xliff"></a>
 Náklady na zálohování virtuálních počítačů Azure závisí na počtu chráněných instancí. Definici chráněné instance najdete v tématu [Co je chráněná instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Příklad výpočtu nákladů na zálohování virtuálního počítače najdete v tématu [Jak se počítají chráněné instance](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Informace o [cenách služby Backup](https://azure.microsoft.com/pricing/details/backup/) najdete na stránce Ceny služby Azure Backup.
 
-## <a name="questions"></a>Máte dotazy?
+## Máte dotazy?
+<a id="questions" class="xliff"></a>
 Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [odešlete nám svůj názor](http://aka.ms/azurebackup_feedback).
 

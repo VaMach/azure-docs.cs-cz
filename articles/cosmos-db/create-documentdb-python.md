@@ -1,14 +1,14 @@
 ---
 title: "Databáze Azure Cosmos: Sestavení aplikace v jazyce Python s rozhraním API DocumentDB | Dokumentace Microsoftu"
 description: "Představuje ukázku kódu Python, který můžete použít k připojení a dotazování do rozhraní API DocumentDB služby Azure Cosmos DB."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,20 +16,22 @@ ms.topic: hero-article
 ms.date: 05/13/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6e64614c6ca746d91be535b64e520033c9e7d053
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 08d467ea27484e7d1d07d6c21b2e04b6525fbcd8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Databáze Azure Cosmos: Sestavení aplikace s rozhraním API DocumentDB pomocí kódu Python a webu Azure Portal
+# Databáze Azure Cosmos: Sestavení aplikace s rozhraním API DocumentDB pomocí kódu Python a webu Azure Portal
+<a id="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal" class="xliff"></a>
 
-Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
+Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB. 
 
-Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, databáze dokumentů a kolekce pomocí webu Azure Portal. Potom sestavíte a spustíte aplikaci konzoly založenou na [rozhraní API Python DocumentDB](../documentdb/documentdb-sdk-python.md).
+Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, databáze dokumentů a kolekce pomocí webu Azure Portal. Potom sestavíte a spustíte aplikaci konzoly založenou na [rozhraní API Python DocumentDB](documentdb-sdk-python.md).
 
-## <a name="prerequisites"></a>Požadavky
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 
 * Než budete moct tuto ukázku spustit, je potřeba splnit následující požadavky:
     * [Visual Studio 2015](http://www.visualstudio.com/) nebo vyšší.
@@ -38,15 +40,18 @@ Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Vytvoření účtu databáze
+## Vytvoření účtu databáze
+<a id="create-a-database-account" class="xliff"></a>
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Přidání kolekce
+## Přidání kolekce
+<a id="add-a-collection" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
+## Klonování ukázkové aplikace
+<a id="clone-the-sample-application" class="xliff"></a>
 
 Teď naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Uvidíte, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
@@ -57,9 +62,10 @@ Teď naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme př
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
     ```  
-## <a name="review-the-code"></a>Kontrola kódu
+## Kontrola kódu
+<a id="review-the-code" class="xliff"></a>
 
-Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor DocumentDBRepository.cs a zjistíte, že tyto řádky kódu vytvářejí prostředky databáze Azure Cosmos. 
+Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor DocumentDBGetStarted.py a zjistíte, že tyto řádky kódu vytvářejí prostředky Azure Cosmos DB. 
 
 
 * Inicializuje se DocumentClient.
@@ -120,9 +126,10 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     print(results)
     ```
 
-## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
+## Aktualizace připojovacího řetězce
+<a id="update-your-connection-string" class="xliff"></a>
 
-Teď se vraťte zpátky na web Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
 1. Na webu [Azure Portal](http://portal.azure.com/) klikněte v účtu databáze Azure Cosmos v levém navigačním panelu na možnost **Klíče** a potom klikněte na **Klíče pro čtení i zápis**. V dalším kroku zkopírujete pomocí tlačítek kopírování na pravé straně obrazovky identifikátor URI a primární klíč do souboru `DocumentDBGetStarted.py`.
 
@@ -138,7 +145,8 @@ Teď se vraťte zpátky na web Azure Portal, kde najdete informace o připojova
 
     `config.MASTERKEY : "FILLME"`
     
-## <a name="run-the-app"></a>Spuštění aplikace
+## Spuštění aplikace
+<a id="run-the-app" class="xliff"></a>
 1. V sadě Visual Studio klikněte pravým tlačítkem na projekt v **Průzkumníku řešení**,vyberte aktuální prostředí Python a potom klikněte pravým tlačítkem myši.
 
 2. Vyberte Možnost Instalovat balíček Pythonu a potom zadejte **pydocumentdb**.
@@ -147,23 +155,26 @@ Teď se vraťte zpátky na web Azure Portal, kde najdete informace o připojova
 
 Teď se můžete vrátit do Průzkumníku dat a zobrazit dotaz nebo provést úpravy a pracovat s těmito novými daty. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
+## Ověření podmínek SLA na portálu Azure Portal
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+## Vyčištění prostředků
+<a id="clean-up-resources" class="xliff"></a>
 
-Pokud nebudete tuto aplikaci dál používat, odstraňte z webu Azure Portal všechny prostředky vytvořené v tomto rychlém startu pomocí následujícího postupu:
+Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu:
 
-1. V levé nabídce na webu Azure Portal klikněte na **Skupiny prostředků** a potom klikněte na název vytvořeného prostředku. 
-2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte název prostředku, který chcete odstranit, a potom klikněte na **Odstranit**.
+1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
+2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 V tomto rychlém startu jsme se seznámili s postupem vytvoření účtu databáze Azure Cosmos, vytvoření kolekce pomocí Průzkumníka dat a spuštění aplikace. Teď můžete do účtu databáze Cosmos importovat další data. 
 
 > [!div class="nextstepaction"]
-> [Import dat do databáze Azure Cosmos pro rozhraní API DocumentDB](../documentdb/documentdb-import-data.md)
+> [Import dat do databáze Azure Cosmos pro rozhraní API DocumentDB](import-data.md)
 
 
 

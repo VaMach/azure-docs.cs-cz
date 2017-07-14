@@ -1,5 +1,5 @@
 ---
-title: "Dotazy na data z HDFS kompatibilního úložiště Azure | Dokumentace Microsoftu"
+title: "Dotazy na data z úložiště Azure kompatibilního se systémem HDFS – Azure HDInsight| Dokumentace Microsoftu"
 description: "Zjistěte, jak zadávat dotazy na data ze služby Azure Storage a Azure Data Lake Store pro ukládání výsledků analýzy."
 keywords: blob storage, hdfs, structured data, unstructured data, data lake store, Hadoop input, Hadoop output, hadoop storage, hdfs input, hdfs output, hdfs storage, wasb azure
 services: hdinsight,storage
@@ -15,25 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 06/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bc7707f3bbb6639699826550f39876d0096d6c03
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>Použití HDFS kompatibilního úložiště se systémem Hadoop ve službě HDInsight
+# Použití úložiště Azure s clustery Azure HDInsight
+<a id="use-azure-storage-with-azure-hdinsight-clusters" class="xliff"></a>
 
 Pokud chcete analyzovat data v clusteru HDInsight, můžete je ukládat ve službě Azure Storage, Azure Data Lake Store nebo v obou. Obě možnosti ukládání umožňují bezpečné odstranění clusterů HDInsight, které se používají pro výpočty, aniž by se ztratila uživatelská data.
 
-Hadoop podporuje hodnoty výchozího systému souborů. Výchozí systém souborů znamená výchozí schéma a autoritu. Lze ho také použít k vyřešení relativní cesty. Během procesu vytváření clusteru HDInsight můžete jako výchozí systém souborů zadat kontejner objektů blob ve službě Azure Storage. U služby HDInsight 3.5 můžete jako výchozí systém souborů vybrat službu Azure Storage nebo Azure Data Lake Store.
+Hadoop podporuje hodnoty výchozího systému souborů. Výchozí systém souborů znamená výchozí schéma a autoritu. Lze ho také použít k vyřešení relativní cesty. Během procesu vytváření clusteru HDInsight můžete jako výchozí systém souborů zadat kontejner objektů blob ve službě Azure Storage. U služby HDInsight 3.5 můžete s několika výjimkami jako výchozí systém souborů vybrat službu Azure Storage nebo Azure Data Lake Store. Informace o podpoře v případě, že použijete službu Data Lake Store jako výchozí i propojené úložiště, najdete v tématu [Dostupnost pro cluster HDInsight](#availabilities-for-hdinsight-clusters]).
 
-V tomto článku zjistíte, jak tyto dvě možnosti úložiště fungují s clustery HDInsight. Informace o vytvoření clusteru HDInsight najdete v tématu [Začínáme se službou HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-
-## <a name="using-azure-storage-with-hdinsight-clusters"></a>Použití služby Azure Storage s clustery HDInsight
+V tomto článku se dozvíte, jak služba Azure Storage pracuje s clustery HDInsight. Informace o tom, jak služba Data Lake Store pracuje s clustery HDInsight, najdete v tématu [Použití služby Azure Data Lake Store s clustery Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md). Další informace o vytvoření clusteru HDInsight najdete v tématu [Vytváření clusterů Hadoop ve službě HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Azure Storage je robustní řešení úložiště pro obecné účely, které se jednoduše integruje se službou HDInsight. HDInsight může jako výchozí systém souborů pro cluster používat kontejner objektů blob ve službě Azure Storage. Prostřednictvím rozhraní systému souborů Hadoop DFS (HDFS) může celá sada komponent ve službě HDInsight pracovat přímo se strukturovanými nebo nestrukturovanými daty uloženými jako objekty blob.
 
@@ -47,8 +46,13 @@ Azure Storage je robustní řešení úložiště pro obecné účely, které se
 > | Účet služby Blob Storage | Hot | Ne |
 > | &nbsp; | Cool | Ne |
 
-### <a name="hdinsight-storage-architecture"></a>Architektura úložiště HDInsight
-Následující diagram představuje abstraktní zobrazení architektury úložiště HDInsight:
+Nedoporučujeme používat výchozí kontejner objektů blob pro ukládání firemních dat. Ideální postup je výchozí kontejner objektů blob po každém použití odstranit a snížit tak náklady na úložiště. Mějte na paměti, že výchozí kontejner obsahuje protokoly aplikace a systémový protokol. Než odstraníte kontejner, nezapomeňte tyto protokoly načíst.
+
+Sdílení jednoho kontejneru objektů blob pro několik clusterů se nepodporuje.
+
+## Architektura úložiště HDInsight
+<a id="hdinsight-storage-architecture" class="xliff"></a>
+Následující diagram představuje abstraktní zobrazení architektury úložiště HDInsight, které používá službu Azure Storage:
 
 ![Clustery Hadoop používají rozhraní API HDFS pro přístup a ukládání strukturovaných i nestrukturovaných dat do služby Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architektura HDInsight Storage")
 
@@ -56,7 +60,7 @@ Služba HDInsight poskytuje přístup do systému souborů DFS, který je místn
 
     hdfs://<namenodehost>/<path>
 
-Služba HDInsight navíc poskytuje možnost přístupu k datům uloženým ve službě Azure Storage. Syntaxe je:
+Služba HDInsight navíc umožňuje přístup k datům uloženým ve službě Azure Storage. Syntaxe je:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -78,7 +82,7 @@ Více úloh WebHCat, včetně Hive, MapReduce, streamování Hadoop a Pig, můž
 
 Objekty blob lze použít pro strukturovaná i nestrukturovaná data. Kontejnery objektů blob ukládají data jako páry klíč/hodnota a neexistuje žádná hierarchie adresářů. V názvu klíče se dá použít lomítko (/), aby název klíče připomínal  cestu k souboru. Klíč k objektu blob může být například *input/log1.txt*. Žádný skutečný *vstupní* adresář neexistuje, ale vzhledem k lomítku v názvu klíče tento název připomíná zobrazení cesty k souboru.
 
-### <a id="benefits"></a>Výhody služby Azure Storage
+## <a id="benefits"></a>Výhody služby Azure Storage
 Předpokládaná výkonová náročnost společně umístěných výpočetních clusterů a prostředků úložiště je zmírněna tím, že výpočetní clustery jsou vytvořeny blízko prostředků účtu úložiště uvnitř oblasti Azure, kde vysokorychlostní síť umožňuje velmi efektivní přístup výpočetních uzlů k datům ve službě Azure Storage.
 
 S ukládáním dat ve službě Azure Storage namísto HDFS je spojeno několik výhod:
@@ -96,14 +100,16 @@ Některé úlohy a balíčky MapReduce můžou vytvořit mezilehlé výsledky, k
 > 
 > 
 
-### <a name="create-blob-containers"></a>Vytvoření kontejnerů objektů Blob
+## Vytvoření kontejnerů objektů Blob
+<a id="create-blob-containers" class="xliff"></a>
 K použití objektů blob je třeba nejprve vytvořit [Účet služby Azure Storage][azure-storage-create]. V rámci tohoto procesu zadáte oblast Azure, ve které se účet úložiště vytvoří. Účet úložiště a clusteru musí být uloženy ve stejné oblasti. Databáze serveru SQL metaúložiště Hive a databáze serveru SQL metaúložiště Oozie musí být také umístěny ve stejné oblasti.
 
 Bez ohledu na svoje umístění patří každý objekt blob, který vytvoříte, do kontejneru v účtu úložiště Azure. Tento kontejner může být existující objekt blob, který se vytvořil mimo HDInsight, nebo to může být kontejner, který se vytvořil pro cluster služby HDInsight.
 
 Výchozí kontejner objektu blob ukládá konkrétní informace, jako je historie úlohy a protokoly. Výchozí kontejner objektu Blob nesdílejte s více clustery služby HDInsight. Může dojít k poškození historie úlohy. Doporučujeme použít jiný kontejner pro každý cluster a umístit sdílená data na propojený účet úložiště, zadaný v nasazení všech příslušných clusterů, nikoli na výchozí účet úložiště. Další informace o konfiguraci propojených účtů úložiště najdete v tématu [Tvorba clusterů HDInsight][hdinsight-creation]. Nicméně, po odstranění původního clusteru HDInsight můžete znovu použít výchozí kontejner úložiště. Pro clustery HBase můžete zachovat schéma a data tabulky HBase vytvořením nového clusteru HBase pomocí výchozího kontejneru objektů blob, který je používán odstraněným clusterem HBase.
 
-#### <a name="using-the-azure-portal"></a>Použití webu Azure Portal
+### Použití webu Azure Portal
+<a id="use-the-azure-portal" class="xliff"></a>
 Při vytváření clusteru HDInsight z portálu máte možnost (jak je vidět níže) zadat podrobnosti účtu úložiště. Můžete také určit, jestli chcete ke clusteru přidružit další účet úložiště, a pokud ano, zvolit jako další úložiště službu Data Lake Store nebo další Azure Storage Blob.
 
 ![Zdroj dat pro vytvoření hadoopu HDInsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
@@ -111,29 +117,9 @@ Při vytváření clusteru HDInsight z portálu máte možnost (jak je vidět n�
 > [!WARNING]
 > Použití dalšího účtu úložiště v jiném umístění, než je cluster HDInsight, není podporováno.
 
-#### <a name="using-azure-cli"></a>Použití Azure CLI
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-Pokud máte [nainstalováno a nakonfigurováno rozhraní příkazového řádku Azure CLI](../cli-install-nodejs.md), následující příkaz lze použít k účtu úložiště a kontejneru.
-
-    azure storage account create <storageaccountname> --type LRS
-
-> [!NOTE]
-> Parametr `--type` určuje, jak bude účet úložiště replikován. Další informace najdete v tématu [Replikace Azure Storage](../storage/storage-redundancy.md). Nepoužívejte ZRS, protože nepodporuje objekt blob, soubor,  tabulku nebo frontu stránky.
-> 
-> 
-
-Budete vyzváni k zadání geografické oblasti, ve které se vytvoří účet úložiště. Účet úložiště byste měli vytvořit ve stejné oblasti, kterou chcete použít k vytvoření clusteru služby HDInsight.
-
-Po vytvoření účtu úložiště použijte následující příkaz k načtení klíčů účtu úložiště:
-
-    azure storage account keys list <storageaccountname>
-
-Když chcete vytvořit kontejner, použijte následující příkaz:
-
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-#### <a name="using-azure-powershell"></a>Použití Azure Powershell
+### Použití Azure Powershell
+<a id="use-azure-powershell" class="xliff"></a>
 Pokud jste [nainstalovali a nakonfigurovali Azure PowerShell][powershell-install], můžete použít následující z příkazového řádku Azure PowerShell k vytvoření účtu úložiště a kontejneru:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -159,7 +145,32 @@ Pokud jste [nainstalovali a nakonfigurovali Azure PowerShell][powershell-install
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-azure-storage"></a>Adresování souborů ve službě Azure Storage
+### Použití Azure CLI
+<a id="use-azure-cli" class="xliff"></a>
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
+Pokud máte [nainstalováno a nakonfigurováno rozhraní příkazového řádku Azure CLI](../cli-install-nodejs.md), následující příkaz lze použít k účtu úložiště a kontejneru.
+
+    azure storage account create <storageaccountname> --type LRS
+
+> [!NOTE]
+> Parametr `--type` určuje, jak bude účet úložiště replikován. Další informace najdete v tématu [Replikace Azure Storage](../storage/storage-redundancy.md). Nepoužívejte ZRS, protože nepodporuje objekt blob, soubor,  tabulku nebo frontu stránky.
+> 
+> 
+
+Budete vyzváni k zadání geografické oblasti, ve které se vytvoří účet úložiště. Účet úložiště byste měli vytvořit ve stejné oblasti, kterou chcete použít k vytvoření clusteru služby HDInsight.
+
+Po vytvoření účtu úložiště použijte následující příkaz k načtení klíčů účtu úložiště:
+
+    azure storage account keys list <storageaccountname>
+
+Když chcete vytvořit kontejner, použijte následující příkaz:
+
+    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+## Adresování souborů ve službě Azure Storage
+<a id="address-files-in-azure-storage" class="xliff"></a>
 Schéma identifikátoru URI pro přístup k souborům ve službě Azure Storage ze služby HDInsight je:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -189,28 +200,11 @@ Pokud nebyl zadán &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&g
 > 
 > 
 
-### <a name="access-blobs-using-azure-cli"></a>Přístup k objektům blob pomocí Azure CLI
-Pomocí následujícího příkazu můžete zobrazit seznam příkazů týkajících se objektu blob:
+## Přístup k objektům blob
+<a id="access-blobs" class="xliff"></a> 
 
-    azure storage blob
 
-**Příklad použití Azure CLI pro nahrání souboru**
-
-    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Příklad použití Azure CLI pro stažení souboru**
-
-    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Příklad použití Azure CLI pro odstranění souboru**
-
-    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Příklad použití Azure CLI pro vytvoření seznamu souborů**
-
-    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-### <a name="access-blobs-using-azure-powershell"></a>Přístup k objektům blob pomocí Azure PowerShell
+### <a name="access-blobs-using-azure-powershell"></a> Použití Azure Powershellu
 > [!NOTE]
 > Příkazy v této části jsou ukázkami základních příkladů použití prostředí PowerShell pro přístup k datům, uloženým v objektech blob. Obsáhlejší a plnohodnotný příklad, přizpůsobený pro práci s HDInsight, najdete v části [Nástroje HDInsight](https://github.com/Blackmist/hdinsight-tools).
 > 
@@ -222,10 +216,12 @@ Pomocí následujícího příkazu můžete zobrazit seznam rutin týkajících 
 
 ![Seznam rutin prostředí PowerShell týkajících se objektu blob.][img-hdi-powershell-blobcommands]
 
-#### <a name="upload-files"></a>Nahrání souborů
+#### Nahrání souborů
+<a id="upload-files" class="xliff"></a>
 Viz [Nahrání dat do služby HDInsight][hdinsight-upload-data].
 
-#### <a name="download-files"></a>Stažení souborů
+#### Stažení souborů
+<a id="download-files" class="xliff"></a>
 Následující skript stáhne objekt blob bloku do aktuální složky. Před spuštěním skriptu změňte adresář na složku, ke které máte oprávnění k zápisu.
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -262,13 +258,17 @@ Při poskytnutí názvu skupiny prostředků a názvu clusteru můžete použít
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-#### <a name="delete-files"></a>Odstranění souborů
+
+#### Odstranění souborů
+<a id="delete-files" class="xliff"></a>
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
-#### <a name="list-files"></a>Zobrazení souborů
+#### Zobrazení souborů
+<a id="list-files" class="xliff"></a>
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-#### <a name="run-hive-queries-using-an-undefined-storage-account"></a>Spuštění dotazů Hive pomocí nedefinovaného účtu úložiště
+#### Spuštění dotazů Hive pomocí nedefinovaného účtu úložiště
+<a id="run-hive-queries-using-an-undefined-storage-account" class="xliff"></a>
 Tento příklad ukazuje, jak zobrazit obsah složky z účtu úložiště, které není definováno během procesu vytváření.
 $clusterName = „<HDInsightClusterName>“
 
@@ -284,80 +284,39 @@ $clusterName = „<HDInsightClusterName>“
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
+### Použití Azure CLI
+<a id="use-azure-cli" class="xliff"></a>
+Pomocí následujícího příkazu můžete zobrazit seznam příkazů týkajících se objektu blob:
 
-### <a name="using-additional-storage-accounts"></a>Použití dalších účtů úložiště
+    azure storage blob
+
+**Příklad použití Azure CLI pro nahrání souboru**
+
+    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Příklad použití Azure CLI pro stažení souboru**
+
+    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Příklad použití Azure CLI pro odstranění souboru**
+
+    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Příklad použití Azure CLI pro vytvoření seznamu souborů**
+
+    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+## Použití dalších účtů úložiště
+<a id="use-additional-storage-accounts" class="xliff"></a>
 
 Při vytváření clusteru HDInsight zadáváte účet služby Azure Storage, který k němu chcete přidružit. Kromě tohoto účtu úložiště můžete během procesu vytváření nebo až po vytvoření clusteru přidat další účty úložiště ze stejného předplatného Azure nebo různých předplatných Azure. Pokyny pro přidání dalších účtů úložiště najdete v tématu [Vytváření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]
 > Použití dalšího účtu úložiště v jiném umístění, než je cluster HDInsight, není podporováno.
 
-## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Použití služby Azure Data Lake Store s clustery HDInsight
-
-Clustery HDInsight můžou službu Azure Data Lake Store využívat dvěma způsoby:
-
-* Azure Data Lake Store jako výchozí úložiště, nebo
-* Azure Data Lake Store jako další úložiště, přičemž Azure Storage Blob je výchozí úložiště.
-
-> [!NOTE]
-> Ke službě Azure Data Lake Store se vždy přistupuje prostřednictvím zabezpečeného kanálu, takže se nepoužívá název schématu systému souborů `adls`. Vždy používáte `adl`.
-> 
-> 
-
-### <a name="using-azure-data-lake-store-as-default-storage"></a>Použití služby Azure Data Lake Store jako výchozího úložiště
-
-Když je služba HDInsight nasazená se službou Azure Data Lake Store jako výchozím úložištěm, soubory související s clusterem se ukládají do úložiště Azure Data Lake v tomto umístění:
-
-    adl://mydatalakestore/<cluster_root_path>/
-
-kde `<cluster_root_path>` je název složky, kterou vytvoříte ve službě Azure Data Lake Store. Pokud pro každý cluster zadáte kořenovou cestu, můžete stejný účet Azure Data Lake Store použít pro více než jeden cluster. Takže máte nastavení, kde:
-
-* Cluster1 může používat cestu `adl://mydatalakestore/cluster1storage`.
-* Cluster2 může používat cestu `adl://mydatalakestore/cluster2storage`.
-
-Všimněte si, že oba clustery používají stejný účet Data Lake Store **mydatalakestore**. Každý cluster má přístup k vlastnímu kořenovému systému souborů ve službě Data Lake Store. Prostředí nasazení na webu Azure Portal vás zvláště vyzývá, abyste pro kořenovou cestu používali název složky ve formátu například **/clustery/\<název_clusteru>**.
-
-#### <a name="accessing-files-from-the-cluster"></a>Přístup k souborům z clusteru
-
-Existuje několik způsobů, jak můžete přistupovat k souborům ve službě Azure Data Lake Store z clusteru HDInsight.
-
-* **Pomocí plně kvalifikovaného názvu**. S tímto přístupem zadáváte úplnou cestu k souboru, ke kterému chcete získat přístup.
-
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/<file_path>
-
-* **Pomocí zkráceného formátu cesty**. S tímto přístupem nahradíte část cesty až ke kořenu clusteru za adl:///. Takže ve výše uvedeném příkladu můžete nahradit `adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/` za `adl:///`.
-
-        adl:///<file path>
-
-* **Pomocí relativní cesty**. S tímto přístupem zadáváte pouze relativní cestu k souboru, ke kterému chcete získat přístup. Například pokud je úplná cesta k souboru následující:
-
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/example/data/sample.log
-
-    Ke stejnému souboru sample.log můžete přistupovat pomocí této relativní cesty:
-
-        /example/data/sample.log
-
-### <a name="using-azure-data-lake-store-as-additional-storage"></a>Použití služby Azure Data Lake Store jako dalšího úložiště
-
-Službu Data Lake Store můžete také použít jako další úložiště. Výchozím úložištěm clusteru v takových případech může být účet Azure Data Lake Store nebo Azure Storage Blob. Pokud spouštíte úlohy HDInsight s daty uloženými ve službě Azure Data Lake Store jako dalším úložišti, musíte použít plně kvalifikovanou cestu k souborům. Například:
-
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
-
-Všimněte si, že teď v adrese URL není **cluster_root_path**. Je to proto, že služba Data Lake Store v tomto případě není výchozím úložištěm, takže stačí zadat pouze cestu k souborům.
-
-
-### <a name="creating-hdinsight-clusters-with-access-to-data-lake-store"></a>Vytváření clusterů HDInsight s přístupem ke službě Data Lake Store
-
-Na následujících odkazech najdete podrobné pokyny k vytvoření clusterů HDInsight s přístupem ke službě Data Lake Store.
-
-* [Pomocí portálu](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Pomocí PowerShellu (se službou Data Lake Store jako výchozím úložištěm)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Pomocí PowerShellu (se službou Data Lake Store jako dalším úložištěm)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
-* [Pomocí šablon Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-
-
-## <a name="next-steps"></a>Další kroky
-V tomto článku jste zjistili, jak používat HDFS kompatibilní službu Azure Storage a Azure Data Lake Store se službou HDInsight. To umožňuje vytvářet škálovatelná a dlouhodobá řešení pro získávání archivovaných dat a používat službu HDInsight k odemčení informací uvnitř uložených strukturovaných a nestrukturovaných dat.
+## Další kroky
+<a id="next-steps" class="xliff"></a>
+V tomto článku jste zjistili, jak používat HDFS kompatibilní úložiště Azure se službou HDInsight. To umožňuje vytvářet škálovatelná a dlouhodobá řešení pro získávání archivovaných dat a používat službu HDInsight k odemčení informací uvnitř uložených strukturovaných a nestrukturovaných dat.
 
 Další informace naleznete v tématu:
 
