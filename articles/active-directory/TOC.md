@@ -199,10 +199,6 @@
 
 ### [Rizikové události](active-directory-reporting-risk-events.md)
 
-### [Uchování](active-directory-reporting-retention.md)
-
-### [Latence](active-directory-reporting-latencies-azure-portal.md)
-
 ### [Nejčastější dotazy](active-directory-reporting-faq.md)
 
 ### Úlohy
@@ -212,7 +208,15 @@
 #### [Vyhledávání sestav aktivit](active-directory-reporting-migration.md)
 
 #### [Použití sady Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
-  
+
+### Referenční informace
+
+#### [Uchování](active-directory-reporting-retention.md)
+
+#### [Latence](active-directory-reporting-latencies-azure-portal.md)
+
+#### [Kódy chyb aktivit přihlašování](active-directory-reporting-activity-sign-ins-errors.md)
+
 ### Řešení potíží
 
 #### [Chybějící data auditu](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -416,6 +420,8 @@
 ##### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
 
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
+##### [Microsoft Teams](application-proxy-teams.md)
 
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
 
