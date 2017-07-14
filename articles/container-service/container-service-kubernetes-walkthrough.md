@@ -18,10 +18,10 @@ ms.date: 05/31/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9f776493557c93e9344cdecb6c3db49bc60ac2e1
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 25043f6bf5e5ab3def8563bd2c096b79706bfec1
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 

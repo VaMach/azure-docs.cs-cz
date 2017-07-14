@@ -336,5 +336,5 @@ function queryDatabase()
 ## Další kroky
 <a id="next-steps" class="xliff"></a>
 > [!div class="nextstepaction"]
-> [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
+> [Migrace databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
 

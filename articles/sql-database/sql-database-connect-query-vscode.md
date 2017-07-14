@@ -10,34 +10,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 06/20/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: bc43936310c48f4dad54c829c7511cf2ad5f83af
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/21/2017
 
 
 ---
-# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Použití nástroje Visual Studio Code k připojení a dotazování dat
+# Azure SQL Database: Použití nástroje Visual Studio Code k připojení a dotazování dat
+<a id="azure-sql-database-use-visual-studio-code-to-connect-and-query-data" class="xliff"></a>
 
 [Visual Studio Code](https://code.visualstudio.com/docs) je grafický editor kódu pro Linux, macOS a Windows, který podporuje rozšíření, včetně [rozšíření mssql](https://aka.ms/mssql-marketplace) pro dotazování Microsoft SQL Serveru, Azure SQL Database a SQL Data Warehousu. Tento rychlý start ukazuje použití Visual Studio Code k připojení k Azure SQL Database a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi.
+
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 
 Tento rychlý start používá jako výchozí bod prostředky vytvořené v některém z těchto rychlých startů:
 
 - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
 - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
+- [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
 
 Než začnete, ujistěte se, že máte nainstalovanou nejnovější verzi nástroje [Visual Studio Code](https://code.visualstudio.com/Download) a načtené [rozšíření mssql](https://aka.ms/mssql-marketplace). Pokyny k instalaci rozšíření mssql najdete v tématu popisujícím [instalaci nástroje VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) a [mssql pro Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code"></a>Konfigurace VS Code 
+## Konfigurace VS Code
+<a id="configure-vs-code" class="xliff"></a> 
 
-### <a name="mac-os"></a>**Mac OS**
+### **Mac OS**
+<a id="mac-os" class="xliff"></a>
 Pro macOS musíte nainstalovat OpenSSL, což je předpoklad pro DotNet Core, který rozšíření mssql používá. Otevřete terminál a zadejte následující příkazy, abyste nainstalovali **brew** a **OpenSSL**. 
 
 ```bash
@@ -49,27 +57,31 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### **Linux (Ubuntu)**
+<a id="linux-ubuntu" class="xliff"></a>
 
 Není potřeba žádná zvláštní konfigurace.
 
-### <a name="windows"></a>**Windows**
+### **Windows**
+<a id="windows" class="xliff"></a>
 
 Není potřeba žádná zvláštní konfigurace.
 
-## <a name="get-connection-information"></a>Získání informací o připojení
+## Získání informací o připojení
+<a id="get-connection-information" class="xliff"></a>
 
 Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
 3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.
 
-   ![informace o připojení](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informace o připojení](./media/sql-database-get-started-portal/server-name.png) 
 
-4. Pokud jste zapomněli přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby obnovili heslo. 
+4. Pokud jste zapomněli přihlašovací informace pro váš server Azure SQL Database, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby resetovali heslo. 
 
-## <a name="set-language-mode-to-sql"></a>Nastavení jazykového režimu na SQL
+## Nastavení jazykového režimu na SQL
+<a id="set-language-mode-to-sql" class="xliff"></a>
 
 Nastavte v nástroji Visual Studio Code jazykový režim na **SQL**, abyste povolili příkazy mssql a technologii IntelliSense jazyka T-SQL.
 
@@ -80,7 +92,8 @@ Nastavte v nástroji Visual Studio Code jazykový režim na **SQL**, abyste povo
 
    ![Režim jazyka SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Připojení k vaší databázi na logickému serveru SQL Database
+## Připojení k databázi
+<a id="connect-to-your-database" class="xliff"></a>
 
 Pomocí nástroje Visual Studio Code navažte připojení k serveru služby Azure SQL Database.
 
@@ -96,17 +109,15 @@ Pomocí nástroje Visual Studio Code navažte připojení k serveru služby Azur
 
 4. Postupujte podle výzev a zadejte vlastnosti připojení pro nový profil připojení. Po zadání všech hodnot pokračujte stisknutím klávesy **ENTER**. 
 
-   Následující tabulka popisuje vlastnosti profilu připojení.
-
-   | Nastavení | Popis |
-   |-----|-----|
-   | **Název serveru** | Zadejte plně kvalifikovaný název serveru, například **mynewserver20170313.database.windows.net**. |
-   | **Název databáze** | Zadejte název databáze, například **mySampleDatabase**. |
-   | **Ověřování** | Vyberte Přihlášení SQL. |
-   | **Uživatelské jméno** | Zadejte účet správce serveru. |
-   | **Heslo (Přihlášení SQL)** | Zadejte heslo pro účet správce serveru. | 
-   | **Uložit heslo?** | Vyberte **Ano** nebo **Ne**. |
-   | **[Volitelné] Zadejte název pro tento profil.** | Zadejte název profilu připojení, například **mySampleDatabase**. 
+   | Nastavení       | Navrhovaná hodnota | Popis |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Název serveru | Plně kvalifikovaný název serveru | Název musí vypadat přibližně takto: **mynewserver20170313.database.windows.net**. |
+   | **Název databáze** | mySampleDatabase | Název databáze, ke které se chcete připojit. |
+   | **Ověřování** | Přihlášení k SQL serveru| Ověřování SQL je jediný typ ověřování, který jsme v tomto kurzu nakonfigurovali. |
+   | **Uživatelské jméno** | Účet správce serveru | Jedná se o účet, který jste zadali při vytváření serveru. |
+   | **Heslo (Přihlášení SQL)** | Heslo pro účet správce serveru | Jedná se o heslo, které jste zadali při vytváření serveru. |
+   | **Uložit heslo?** | Ano nebo Ne | Pokud nechcete pokaždé zadávat heslo, vyberte Ano. |
+   | **Zadejte název pro tento profil.** | Název profilu, jako například **mySampleDatabase** | Pokud uložíte název profilu, zrychlíte připojování k dalším přihlašovacím profilům. | 
 
 5. Stisknutím klávesy **ESC** zavřete zprávu informující o vytvoření a připojení profilu.
 
@@ -114,7 +125,8 @@ Pomocí nástroje Visual Studio Code navažte připojení k serveru služby Azur
 
    ![Stav připojení](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
-## <a name="query-data"></a>Dotazování dat
+## Dotazování dat
+<a id="query-data" class="xliff"></a>
 
 Použijte následující kód k zadání dotazu na Top 20 produktů podle kategorie pomocí příkazu jazyka Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
@@ -131,7 +143,8 @@ Použijte následující kód k zadání dotazu na Top 20 produktů podle katego
 
     ![Dotaz](./media/sql-database-connect-query-vscode/query.png)
 
-## <a name="insert-data"></a>Vložení dat
+## Vložení dat
+<a id="insert-data" class="xliff"></a>
 
 Použijte následující kód k vložení nového produktu do tabulky SalesLT.Product pomocí příkazu jazyka Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
@@ -159,7 +172,8 @@ Použijte následující kód k vložení nového produktu do tabulky SalesLT.Pr
 
 2. Stisknutím kombinace kláves **CTRL + SHIFT + E** vložte nový řádek do tabulky Product.
 
-## <a name="update-data"></a>Aktualizace dat
+## Aktualizace dat
+<a id="update-data" class="xliff"></a>
 
 Použijte následující kód k aktualizaci nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
@@ -173,7 +187,8 @@ Použijte následující kód k aktualizaci nového produktu, který jste přida
 
 2. Stisknutím kombinace kláves **CTRL + SHIFT + E** aktualizujte zadaný řádek v tabulce Product.
 
-## <a name="delete-data"></a>Odstranění dat
+## Odstranění dat
+<a id="delete-data" class="xliff"></a>
 
 Použijte následující kód k odstranění nového produktu, který jste přidali dříve, pomocí příkazu jazyka Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
@@ -186,13 +201,9 @@ Použijte následující kód k odstranění nového produktu, který jste přid
 
 2. Stisknutím kombinace kláves **CTRL + SHIFT + E** odstraňte zadaný řádek v tabulce Product.
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 - Informace o připojení a dotazování pomocí aplikace SQL Server Management Studio najdete v tématu [Připojení a dotazování pomocí SSMS](sql-database-connect-query-ssms.md).
-- Informace o připojení a dotazování pomocí .NET najdete v tématu [Připojení a dotazování pomocí .NET](sql-database-connect-query-dotnet.md).
-- Informace o připojení a dotazování pomocí PHP najdete v tématu [Připojení a dotazování pomocí PHP](sql-database-connect-query-php.md).
-- Informace o připojení a dotazování pomocí Node.js najdete v tématu [Připojení a dotazování pomocí Node.js](sql-database-connect-query-nodejs.md).
-- Informace o připojení a dotazování pomocí Javy najdete v tématu [Připojení a dotazování pomocí Javy](sql-database-connect-query-java.md).
-- Informace o připojení a dotazování pomocí Pythonu najdete v tématu [Připojení a dotazování pomocí Pythonu](sql-database-connect-query-python.md).
-- Informace o připojení a dotazování pomocí Ruby najdete v tématu [Připojení a dotazování pomocí Ruby](sql-database-connect-query-ruby.md).
+- Článek z časopisu MSDN o použití editoru Visual Studio Code najdete v blogovém příspěvku [Vytvoření databáze IDE s rozšířením MSSQL](https://msdn.microsoft.com/magazine/mt809115).
 
