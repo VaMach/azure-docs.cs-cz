@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Správa Azure Data Lake Analytics pomocí sady Azure SDK pro Node.js
+# Správa Azure Data Lake Analytics pomocí sady Azure SDK pro Node.js
+<a id="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs" class="xliff"></a>
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Sada Azure SDK pro Node.js se dá použít k správě úloh, katalogů a účtů Azure Data Lake Analytics. Pokud chcete zobrazit téma správy s použitím jiných nástrojů, klikněte na výběr karty výše.
@@ -32,17 +35,20 @@ Aktuálně podporuje:
 * **Verze rozhraní REST API pro Katalog: 2015-10-01-preview**
 * **Verze rozhraní REST API pro Úlohu: 2016-03-20 preview**
 
-## <a name="features"></a>Funkce
+## Funkce
+<a id="features" class="xliff"></a>
 * Správa účtů: vytvoření, získání, seznam, aktualizace a odstranění.
-* Správa úloh: odeslání, získání, seznam, zrušení.
-* Správa katalogů: získání, seznam, vytvoření (tajné údaje), aktualizace (tajné údaje), odstranění (tajné údaje).
+* Správa úloh: odeslání, získání, seznam a zrušení.
+* Správa katalogů: získání a seznam.
 
-## <a name="how-to-install"></a>Postup instalace
+## Postup instalace
+<a id="how-to-install" class="xliff"></a>
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-## <a name="authenticate-using-azure-active-directory"></a>Ověření pomocí služby Azure Active Directory
+## Ověření pomocí služby Azure Active Directory
+<a id="authenticate-using-azure-active-directory" class="xliff"></a>
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -51,7 +57,8 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## <a name="create-the-data-lake-analytics-client"></a>Vytvoření klienta Data Lake Analytics
+## Vytvoření klienta Data Lake Analytics
+<a id="create-the-data-lake-analytics-client" class="xliff"></a>
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -59,7 +66,8 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-## <a name="create-a-data-lake-analytics-account"></a>Vytvoření účtu Data Lake Analytics
+## Vytvoření účtu Data Lake Analytics
+<a id="create-a-data-lake-analytics-account" class="xliff"></a>
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -108,7 +116,8 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## <a name="get-a-list-of-jobs"></a>Získání seznamu úloh
+## Získání seznamu úloh
+<a id="get-a-list-of-jobs" class="xliff"></a>
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -121,7 +130,8 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Získání seznamu databází v katalogu Data Lake Analytics
+## Získání seznamu databází v katalogu Data Lake Analytics
+<a id="get-a-list-of-databases-in-the-data-lake-analytics-catalog" class="xliff"></a>
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -134,13 +144,9 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## <a name="see-also"></a>Viz také
+## Viz také
+<a id="see-also" class="xliff"></a>
 * [Microsoft Azure SDK pro Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Microsoft Azure SDK pro Node.js – správa Data Lake Storu](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

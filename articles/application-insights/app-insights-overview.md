@@ -3,7 +3,7 @@ title: Co je Azure Application Insights? | Dokumentace Microsoftu
 description: "Správa výkonu aplikací a monitorování využití živých webových aplikací.  Rozpoznávání, třídění a diagnostika problémů a náhled na to, jak ostatní využívají vaše aplikace."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
@@ -11,23 +11,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4c47041bb729a3ee1f3fb4c7baf7f988db226677
-ms.lasthandoff: 04/12/2017
-
+ms.date: 05/14/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: e1915f9333033a98d4d3a75cf404d285045c75ce
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/19/2017
 
 ---
-# <a name="what-is-application-insights"></a>Co je Application Insights?
+# Co je Application Insights?
+<a id="what-is-application-insights" class="xliff"></a>
 Application Insights je rozšiřitelná služba pro správu výkonu aplikací (APM). Je určena webovým vývojářům na více platformách. Slouží k monitorování živé webové aplikace. Automaticky zjišťuje anomálie ve výkonu. Obsahuje výkonné analytické nástroje pro diagnostiku problémů a pomáhá porozumět, jak vlastně uživatelé vaši aplikaci používají.  Je navržená tak, aby pomáhala průběžně vylepšovat výkon a možnosti využití. Funguje u aplikací na široké škále platforem, jako jsou .NET, Node.js a J2EE, a to hostovaných lokálně i v cloudu. Integruje se s vaším procesem DevOps a má spojovací body s celou řadou dalších vývojářských nástrojů.
 
 ![Vytvořte statistický graf uživatelských aktivit nebo se na konkrétní události podívejte podrobněji.](./media/app-insights-overview/00-sample.png)
 
 [Prohlédněte si úvod animace](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-## <a name="how-does-application-insights-work"></a>Jak Application Insights funguje?
+## Jak Application Insights funguje?
+<a id="how-does-application-insights-work" class="xliff"></a>
 Do aplikace nainstalujete malý instrumentační balíček a vytvoříte prostředek Application Insights na webu Microsoft Azure Portal. Instrumentace monitoruje vaši aplikaci a odesílá telemetrická data na portál. (Aplikace se dá spustit kdekoli, nemusí být hostovaná v Azure.)
 
 Instrumentovat můžete nejenom aplikaci webové služby, ale také libovolné komponenty na pozadí a JavaScript na samotných webových stránkách. 
@@ -40,10 +42,12 @@ Kromě toho můžete využít telemetrii z hostitelských prostředí, jako jsou
 Všechny tyto telemetrické datové proudy jsou integrované na webu Azure Portal, kde můžete nezpracovaná data využít výkonné analytické a vyhledávací nástroje.
 
 
-### <a name="whats-the-overhead"></a>Jaká je s tím spojená režie?
+### Jaká je s tím spojená režie?
+<a id="whats-the-overhead" class="xliff"></a>
 Dopad na výkon vaší aplikace je velmi malý. Sledovací volání neblokují, spojují se do dávek a odesílají v samostatném vlákně.
 
-## <a name="what-does-application-insights-monitor"></a>Co Application Insights monitoruje?
+## Co Application Insights monitoruje?
+<a id="what-does-application-insights-monitor" class="xliff"></a>
 
 Služba Application Insights je zaměřená na vývojový tým. Pomáhá pochopit, jaký je výkon vaší aplikace a jak se využívá. Monitoruje tyto parametry:
 
@@ -58,48 +62,57 @@ Služba Application Insights je zaměřená na vývojový tým. Pomáhá pochopi
 * **Protokoly trasování diagnostiky** z vaší aplikace – umožňují zjistit korelaci mezi požadavky a událostmi trasování.
 * **Vlastní události a metriky**, které napíšete sami v kódu klienta nebo serveru, ke sledování obchodních událostí, jako například jsou třeba prodané položky nebo vyhrané hry.
 
-## <a name="where-do-i-see-my-telemetry"></a>Kde se zobrazuje telemetrie?
+## Kde se zobrazuje telemetrie?
+<a id="where-do-i-see-my-telemetry" class="xliff"></a>
 
 Data se dají prozkoumávat mnoha způsoby. Podívejte se na tyto články:
 
 |  |  |
 | --- | --- |
+| [**Inteligentní zjišťování a ruční výstrahy**](app-insights-proactive-diagnostics.md)<br/>Automatické výstrahy se přizpůsobí běžným vzorům telemetrie vaší aplikace a aktivují se, když se stane něco neobvyklého. Můžete také [nastavit výstrahy](app-insights-alerts.md) pro konkrétní úrovně vlastních nebo standardních metrik. |![Ukázka výstrah](./media/app-insights-overview/alerts-tn.png) |
 | [**Mapa aplikace**](app-insights-app-map.md)<br/>Komponenty vaší aplikace, včetně klíčových metrik a výstrah. |![Mapa aplikace](./media/app-insights-overview/appmap-tn.png)  |
+| [**Profiler**](app-insights-profiler.md)<br/>Zkontrolujte profily spouštění u vzorků požadavků. |![Profiler](./media/app-insights-overview/profiler.png) |
+| [**Analýza využití**](app-insights-usage-overview.md)<br/>Analyzujte segmentaci a udržení uživatelů.|![Nástroj Udržení](./media/app-insights-overview/retention.png) |
 | [**Diagnostické vyhledávání dat instancí**](app-insights-diagnostic-search.md)<br/>Události vyhledávání a filtrování, jako jsou třeba požadavky, výjimky, volání závislosti, trasování protokolů a zobrazení stránek.  |![Telemetrie vyhledávání](./media/app-insights-overview/search-tn.png) |
 | [**Průzkumník metrik pro agregovaná data**](app-insights-metrics-explorer.md)<br/>Prozkoumání, filtrování a segmentace agregovaných dat, jako jsou třeba frekvence požadavků, selhání a výjimek, doby odezvy a časy načtení stránek. |![Metriky](./media/app-insights-overview/metrics-tn.png) |
 | [**Řídicí panely**](app-insights-dashboards.md#dashboards)<br/>Propojení dat z různých zdrojů a jejich sdílení s ostatními. Ideální pro aplikace s více komponentami a pro nepřetržité zobrazení v týmové místnosti. |![Ukázka řídicího panelu](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](app-insights-live-stream.md)<br/>Při nasazování nového sestavení sledujte tyto ukazatele výkonu téměř v reálném čase, abyste se ujistili, že všechno funguje podle očekávání. |![Ukázka živé metriky](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analýzy**](app-insights-analytics.md)<br/>Tento výkonný dotazovací jazyk umožňuje odpovědět na složité dotazy týkající se využití a výkonu vaší aplikace. |![Ukázka analýzy](./media/app-insights-overview/analytics-tn.png) |
-| [**Automatické a ruční výstrahy**](app-insights-alerts.md)<br/>Automatické výstrahy se přizpůsobí běžným vzorům telemetrie vaší aplikace a aktivují se, když se stane něco neobvyklého. Výstrahy se také dají nastavit pro konkrétní úrovně vlastních nebo standardních metrik. |![Ukázka výstrah](./media/app-insights-overview/alerts-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>Viz údaje o výkonu v kódu. Ke kódu je možné přejít z trasování zásobníku.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Ladicí program snímků**](app-insights-snapshot-debugger.md)<br/>Laďte vzorky snímků z operací za provozu s hodnotami parametrů.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integrujte metriky využití s ostatními funkcemi business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Napište kód pro spouštění dotazů nad daty metrik a nezpracovanými daty.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Průběžný export**](app-insights-export-telemetry.md)<br/>Nezpracovaná data se dají hromadně exportovat do úložiště, jakmile dorazí. |![Export](./media/app-insights-overview/export-tn.png) |
 
-## <a name="how-do-i-use-application-insights"></a>Jak se Application Insights dá využít?
+## Jak se Application Insights dá využít?
+<a id="how-do-i-use-application-insights" class="xliff"></a>
 
-### <a name="monitor"></a>Monitorování
+### Monitorování
+<a id="monitor" class="xliff"></a>
 Nainstalujte Application Insights ve vaší aplikaci, nastavte [webové testy dostupnosti](app-insights-monitor-web-app-availability.md) a:
 
 * Vytvořte [řídicí panel](app-insights-dashboards.md) pro vaši týmovou místnost a sledujte zatížení, rychlost odezvy a výkon vašich závislostí, načtení stránek a volání AJAX.
 * Zjistěte, které požadavky jsou nejpomalejší a u kterých nejčastěji dochází k selhání.
 * Při nasazování nové verze sledujte [živý datový proud](app-insights-live-stream.md), abyste se o případném snížená výkonu dozvěděli okamžitě.
 
-### <a name="detect-diagnose"></a>Detekce a diagnostika
+### Detekce a diagnostika
+<a id="detect-diagnose" class="xliff"></a>
 Když dostanete výstrahu nebo zjistíte problém:
 
 * Posuďte, kolika uživatelů se top týká.
 * Dejte selhání do souvislosti s výjimkami, voláními závislosti a trasováními.
-* Prozkoumejte výpisy zásobníku a protokoly trasování.
+* Prozkoumejte profiler, snímky, výpisy zásobníků a protokoly trasování.
 
-### <a name="build-measure-learn"></a>Vytváření, měření a učení
-Změřte efektivitu každé nové funkce, kterou nasadíte.
+### Vytváření, měření a učení
+<a id="build-measure-learn" class="xliff"></a>
+[Změřte efektivitu](app-insights-usage-overview.md) každé nové funkce, kterou nasadíte.
 
 * Naplánujte měření toho, jak nové obchodní nebo UIX funkce využívají zákazníci.
 * Napište do svého kódu vlastní telemetrii.
 * Další vývojový cyklus založte na faktických důkazech z vaší telemetrie.
 
-## <a name="get-started"></a>Začínáme
+## Začínáme
+<a id="get-started" class="xliff"></a>
 Application Insights je jedna z mnoha služeb hostovaných v Microsoft Azure. Odesílá se do ní telemetrie pro účely analýzy a prezentace. Proto ještě než se pustíte do práce, budete potřebovat předplatné [Microsoft Azure](http://azure.com). Registrace je zdarma. Pokud zvolíte základní [cenový plán](https://azure.microsoft.com/pricing/details/application-insights/) služby Application Insights, nebudou se vám účtovat žádné poplatky, dokud se vaše aplikace nezačne významněji využívat. Pokud vaše organizace už předplatné má, je možné do něj přidat účet Microsoft.
 
 Existuje několik způsobů, jak začít. Použijte ten, který vám nejvíce vyhovuje. K ostatním se můžete vrátit později.
@@ -114,10 +127,11 @@ Existuje několik způsobů, jak začít. Použijte ten, který vám nejvíce vy
   * [Node.js](app-insights-nodejs.md)
   * [Jiné platformy](app-insights-platforms.md)
 * **[Instrumentace webových stránek](app-insights-javascript.md)** pro zobrazení stránek, AJAX a další telemetrii na straně klienta.
-* **[Testy dostupnosti](app-insights-monitor-web-app-availability.md)** – Příkazem ping z našich serverů pravidelně testujte váš web.
+* **[Testy dostupnosti](app-insights-monitor-web-app-availability.md)**  – Příkazem ping z našich serverů pravidelně testujte váš web.
 
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 Začínáme při spuštění:
 
 * [Server IIS](app-insights-monitor-performance-live-website-now.md)
@@ -129,7 +143,8 @@ Začínáme při vývoji:
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
-## <a name="support-and-feedback"></a>Podpora a zpětná vazba
+## Podpora a zpětná vazba
+<a id="support-and-feedback" class="xliff"></a>
 * Otázky a problémy:
   * [Řešení potíží][qna]
   * [Fórum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
@@ -139,7 +154,8 @@ Začínáme při vývoji:
 * Blog:
   * [Blog Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
 
-## <a name="videos"></a>Videa
+## Videa
+<a id="videos" class="xliff"></a>
 
 [![Animovaný úvod](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 

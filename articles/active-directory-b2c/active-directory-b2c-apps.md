@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 762af7e09342f1bb51352e6c3d104bd4d8944e65
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Typy aplikací
+# Azure Active Directory B2C: Typy aplikací
+<a id="azure-active-directory-b2c-types-of-applications" class="xliff"></a>
 Azure Active Directory (Azure AD) B2C podporuje ověřování pro celou řadu architektur moderních aplikací. Všechny jsou založeny na standardních oborových protokolech [OAuth 2.0](active-directory-b2c-reference-protocols.md) nebo [OpenID Connect](active-directory-b2c-reference-protocols.md). Tento dokument stručně popisuje typy aplikací, které můžete sestavit, nezávisle na jazyce nebo platformě, kterým dáváte přednost. Také pomáhá pochopit scénáře vysoké úrovně před tím, než [začnete sestavovat aplikace](active-directory-b2c-overview.md#get-started).
 
-## <a name="the-basics"></a>Základy
+## Základy
+<a id="the-basics" class="xliff"></a>
 Každá aplikace používající Azure AD B2C musí být zaregistrovaná v [adresáři B2C](active-directory-b2c-get-started.md) přes [web Azure Portal](https://portal.azure.com/). Proces registrace aplikace shromáždí a přiřadí vaší aplikaci několik hodnot:
 
 * **ID aplikace**, které jednoznačně identifikuje vaši aplikaci.
@@ -51,7 +55,8 @@ Interakce každé aplikace s koncovým bodem v2.0 probíhá podle podobného vzo
 <!-- TODO: Need a page for libraries to link to -->
 Tento postup se může mírně lišit v závislosti na typu aplikace, kterou sestavujete. Opensourcové knihovny za vás mohou řešit detaily.
 
-## <a name="web-apps"></a>Webové aplikace
+## Webové aplikace
+<a id="web-apps" class="xliff"></a>
 U webových aplikací (včetně .NET, PHP, Javy, Ruby, Pythonu a Node.js) hostovaných na serveru a přístupných prostřednictvím prohlížeče Azure AD B2C podporuje [OpenID Connect](active-directory-b2c-reference-protocols.md) pro všechny činnosti koncového uživatele. To zahrnuje přihlášení, registraci a správu profilů. V implementaci OpenID Connect v Azure AD B2C zahajuje webová aplikace tyto činnosti koncového uživatele zasláním požadavků na ověření do Azure AD. Výsledkem požadavku je `id_token`. Tento token zabezpečení představuje identitu uživatele. Poskytuje také informace o uživateli ve formě deklarací identity:
 
 ```
@@ -81,7 +86,8 @@ Kromě usnadnění snadného přihlášení může webová aplikace vyžadovat p
 
 <!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
-## <a name="web-apis"></a>Webová rozhraní API
+## Webová rozhraní API
+<a id="web-apis" class="xliff"></a>
 Azure AD B2C můžete použít k zabezpečení webových služeb, jako jsou vaše RESTful webová rozhraní API. Webové rozhraní API může využívat OAuth 2.0 k zabezpečení dat ověřováním příchozích žádostí HTTP pomocí tokenů. Volající webového rozhraní API připojí token v hlavičce autorizace požadavku HTTP:
 
 ```
@@ -107,7 +113,8 @@ Pro další informace o kódech autorizace a obnovovacích tokenech a návod, ja
 
 Chcete-li zjistit, jak zabezpečit webové rozhraní API pomocí Azure AD B2C, podívejte se na kurzy o webovém rozhraní API v [oddílu Začínáme](active-directory-b2c-overview.md#get-started).
 
-## <a name="mobile-and-native-apps"></a>Mobilní a nativní aplikace
+## Mobilní a nativní aplikace
+<a id="mobile-and-native-apps" class="xliff"></a>
 Aplikace nainstalované na zařízeních, jako například mobilní aplikace a aplikace počítače, často potřebují přístup k back-endovým službám nebo webovým rozhraním API jménem uživatele. Do nativních aplikací můžete přidat vlastní činnosti správy identity a bezpečně volat back-endové služby pomocí Azure AD B2C a [toku kódu autorizace OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
 V tomto toku aplikace spouští [zásady](active-directory-b2c-reference-policies.md) a přijímá `authorization_code` z Azure AD poté, co uživatel vykoná zásadu. `authorization_code` představuje oprávnění aplikace volat back-endové služby jménem aktuálně přihlášeného uživatele. Aplikace pak může na pozadí vyměnit `authorization_code` za `id_token` a `refresh_token`.  Aplikace může použít `id_token` k prokázání identity back-endovému webovému rozhraní API v požadavcích HTTP. Může také použít `refresh_token` k získání nového `id_token` po vypršení platnosti toho starého.
@@ -119,21 +126,19 @@ V tomto toku aplikace spouští [zásady](active-directory-b2c-reference-policie
 
 ![Obrázek plaveckých drah nativní aplikace](./media/active-directory-b2c-apps/native.png)
 
-## <a name="current-limitations"></a>Aktuální omezení
-Azure AD B2C momentálně nepodporuje následující typy aplikací, ale nachází se na roadmapě. Další omezení a limity týkající se Azure AD B2C jsou popsány v tématu [Omezení a limity](active-directory-b2c-limitations.md).
+## Aktuální omezení
+<a id="current-limitations" class="xliff"></a>
+Azure AD B2C momentálně nepodporuje následující typy aplikací, ale nachází se na roadmapě. 
 
-### <a name="daemonsserver-side-apps"></a>Démoni nebo serverové aplikace
+### Démoni nebo serverové aplikace
+<a id="daemonsserver-side-apps" class="xliff"></a>
 Aplikace, které obsahují dlouho běžící procesy nebo které pracují bez přítomnosti uživatele také potřebují způsob, jak přistupovat k zabezpečeným prostředkům, jako jsou webová rozhraní API. Tyto aplikace se mohou prokázat a získat tokeny pomocí identity aplikace (místo uživatelovy delegované identity) a pomocí toku přihlašovacích údajů klienta OAuth 2.0. 
 
 Azure AD B2C v současné době nepodporuje tento tok. Tyto aplikace mohou získat tokeny pouze poté, co došlo k interaktivnímu uživatelskému toku.
 
-### <a name="web-api-chains-on-behalf-of-flow"></a>Řetězení webových rozhraní API (tok on-behalf-of)
+### Řetězení webových rozhraní API (tok on-behalf-of)
+<a id="web-api-chains-on-behalf-of-flow" class="xliff"></a>
 Mnoho architektur zahrnuje webové rozhraní API, které potřebuje volat podřízené webové rozhraní API, přičemž obě jsou zabezpečené pomocí Azure AD B2C. Tento scénář je častý u nativních klientů s back-endem v podobě webového rozhraní API. To poté zavolá online službu Microsoftu, jako je například Azure AD Graph API.
 
 Tento scénář zřetězených webových rozhraní API může být podporován pomocí udělení přihlašovacích údajů nosiče OAuth 2.0 JWT, označovaného také jako tok on-behalf-of.  Nicméně tok on-behalf-of není v současné době v Azure AD B2C implementován.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

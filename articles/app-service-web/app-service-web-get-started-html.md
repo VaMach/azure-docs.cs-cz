@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření webové aplikace ve statickém HTML v Azure během pěti minut | Dokumentace Microsoftu"
-description: "Nasazením ukázkové aplikace zjistíte, jak snadné je spustit webové aplikace ve službě App Service."
+title: "Vytvoření webové aplikace ve statickém HTML ve službě Azure | Dokumentace Microsoftu"
+description: "Nasazením ukázkové aplikace ve statickém HTML se naučíte, jak spouštět webové aplikace ve službě Azure App Service."
 services: app-service\web
 documentationcenter: 
 author: rick-anderson
@@ -12,61 +12,118 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/08/2017
+ms.date: 05/26/2017
 ms.author: riande
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 895906e1ab4bc50093ed3b18f043c3dd515ca054
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: c13108ec70f5613be711c622ab68a7fdfc467300
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/21/2017
 
 ---
-# <a name="create-a-static-html-web-app-in-azure-in-five-minutes"></a>Vytvoření webové aplikace ve statickém HTML v Azure během pěti minut
+# Vytvoření webové aplikace ve statickém HTML ve službě Azure
+<a id="create-a-static-html-web-app-in-azure" class="xliff"></a>
 
-Tento rychlý start vás provede postupem nasazení základní lokality HTML + CSS do Azure. Aplikaci spustíte s použitím [plánu služby Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) a vytvoříte v něm novou webovou aplikaci pomocí rozhraní [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli). Aplikaci nasadíte do Azure pomocí systému Git. Pokud máte splněné všechny požadavky, zabere vám tento kurz zhruba pět minut.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  Tento kurz Rychlý start vás provede postupem nasazení základního webu v HTML se styly CSS do služby Azure Web Apps. Vytvoříte webovou aplikaci pomocí rozhraní příkazového řádku [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu nasadíte ukázkový obsah v HTML do webové aplikace.
 
-![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![Domovská stránka ukázkové aplikace](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-## <a name="prerequisites"></a>Požadavky
+Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
 
-Před vytvořením této ukázky si stáhněte a nainstalujte následující komponenty:
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 
-- [Git](https://git-scm.com/)
-- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [Nainstalovat Git](https://git-scm.com/)
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-## <a name="download-the-sample"></a>Stažení ukázky
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-V okně terminálu naklonujte úložiště ukázkové aplikace do místního počítače:
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+## Stažení ukázky
+<a id="download-the-sample" class="xliff"></a>
+
+V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-## <a name="view-the-html"></a>Zobrazení kódu HTML
+Toto okno terminálu budete používat ke spuštění všech příkazů v tomto kurzu Rychlý start.
+
+## Zobrazení kódu HTML
+<a id="view-the-html" class="xliff"></a>
 
 Přejděte do adresáře, který obsahuje ukázkový kód HTML. Otevřete v prohlížeči soubor *index.html*.
 
-![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
+![Domovská stránka ukázkové aplikace](media/app-service-web-get-started-html/hello-world-in-browser.png)
 
-[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
-[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
-[!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-Vytvořte [webovou aplikaci](app-service-web-overview.md) v plánu služby App Service `quickStartPlan`. Tato webová aplikace poskytuje prostor pro hostování vašeho kódu a adresu URL, na které si můžete nasazenou aplikaci zobrazit.
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-[!INCLUDE [app-service-web-quickstart2](../../includes/app-service-web-quickstart2.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-Stránka běží jako webová aplikace Azure App Service:
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![Prázdná stránka webové aplikace](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
-## <a name="update-and-redeploy-the-app"></a>Aktualizace a opětovné nasazení aplikace
+Nyní jste v Azure vytvořili novou prázdnou webovou aplikaci.
 
-Otevřete soubor *index.html*. Změňte kód. Můžete třeba změnit `Hello world!` na `Hello Azure!`.
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+
+```bash
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
+Total 13 (delta 2), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'cc39b1e4cb'.
+remote: Generating deployment script.
+remote: Generating deployment script for Web Site
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling Basic Web Site deployment.
+remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+remote: Deleting file: 'hostingstart.html'
+remote: Copying file: '.gitignore'
+remote: Copying file: 'LICENSE'
+remote: Copying file: 'README.md'
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
+
+## Přechod do aplikace
+<a id="browse-to-the-app" class="xliff"></a>
+
+V prohlížeči přejděte na adresu URL webové aplikace Azure:
+
+```
+http://<app_name>.azurewebsites.net
+```
+
+Stránka je spuštěná jako webová aplikace služby Azure App Service.
+
+![Domovská stránka ukázkové aplikace](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+**Blahopřejeme!** Nasadili jste svoji první aplikaci v HTML do služby App Service.
+
+## Aktualizace a opětovné nasazení aplikace
+<a id="update-and-redeploy-the-app" class="xliff"></a>
+
+V textovém editoru otevřete soubor *index.html* a změňte kód. Můžete například změnit nadpis H1 z „Azure App Service - Sample Static HTML Site“ na „Azure App Service“.
 
 Potvrďte změny v Gitu a potom odešlete změny kódu do Azure.
 
@@ -77,12 +134,28 @@ git push azure master
 
 Po dokončení nasazení aktualizujte prohlížeč, aby se změny projevily.
 
-[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
+![Domovská stránka aktualizované ukázkové aplikace](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
+## Správa vaší nové webové aplikace Azure
+<a id="manage-your-new-azure-web-app" class="xliff"></a>
+
+Pokud chcete spravovat webovou aplikaci, kterou jste vytvořili, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+
+V levé nabídce klikněte na **App Services** a pak klikněte na název vaší webové aplikace Azure.
+
+![Navigace portálem k webové aplikaci Azure](./media/app-service-web-get-started-html/portal1.png)
+
+Zobrazí se stránka s přehledem vaší webové aplikace. Tady můžete provádět základní úlohy správy, jako je procházení, zastavení, spuštění, restartování a odstranění. 
+
+![Okno App Service na webu Azure Portal](./media/app-service-web-get-started-html/portal2.png)
+
+Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplikace. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
-- Prozkoumejte [ukázkové skripty rozhraní CLI Web Apps](app-service-cli-samples.md).
-- Zjistěte, jak provést [mapování vlastního názvu domény](app-service-web-tutorial-custom-domain.md), třeba contoso.com, do [aplikace služby App Service](app-service-web-tutorial-custom-domain.md).
+> [!div class="nextstepaction"]
+> [Mapování vlastní domény](app-service-web-tutorial-custom-domain.md)
+

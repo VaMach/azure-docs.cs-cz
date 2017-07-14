@@ -1,9 +1,9 @@
 1. Na portálu přejděte na virtuální síť, pro kterou chcete vytvořit bránu virtuální sítě.
 2. V okně vaší virtuální sítě v části **Nastavení** klikněte na **Podsítě** a rozbalte okno Podsítě.
-3. V horní části okna **Podsítě** klikněte na **+Podsíť brány**. Tím otevřete okno **Přidat podsíť**. 
-   
-    ![Přidání podsítě brány](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addgwsubnet.png "Přidání podsítě brány")
+3. V horní části okna **Podsítě** klikněte na **+Podsíť brány**. Tím otevřete okno **Přidat podsíť**.
+
+  ![Přidání podsítě brány](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "Přidání podsítě brány")
 4. **Název** podsítě se automaticky vyplní hodnotou GatewaySubnet. To je požadovaná hodnota, aby služba Azure podsíť rozpoznala jako podsíť brány. Upravte automaticky vyplněné hodnoty **Rozsah adres** tak, aby odpovídaly požadavkům vaší konfigurace.
 
-    ![Přidání podsítě](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnet.png "Přidání podsítě")
+  ![Přidání podsítě brány](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "Přidání podsítě brány")
 5. Vytvořte podsíť kliknutím na tlačítko **OK** v dolní části okna.

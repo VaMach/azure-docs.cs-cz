@@ -16,18 +16,19 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: fd5e1083c65068c7f6b019838586b1bc7e37aa9f
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Průvodce předkonfigurovaným řešením propojené továrny
+# Průvodce předkonfigurovaným řešením propojené továrny
+<a id="connected-factory-preconfigured-solution-walkthrough" class="xliff"></a>
 
 [Předkonfigurované řešení][lnk-preconfigured-solutions] sady IoT Suite pro propojenou továrnu je implementace komplexního průmyslového řešení, které:
 
-* Se připojuje k simulovaným průmyslovým zařízením se servery OPC UA na simulovaných výrobních linkách i ke skutečným zařízením serveru OPC UA.
+* Se připojuje k simulovaným průmyslovým zařízením se servery OPC UA na simulovaných výrobních linkách i ke skutečným zařízením serveru OPC UA. Další informace o OPC UA najdete v části [Nejčastější dotazy][lnk-faq].
 * Ukazuje klíčové ukazatele výkonu a celkovou efektivitu těchto zařízení a výrobních linek.
 * Ukazuje možnosti použití cloudové aplikace k interakci se serverovými systémy OPC UA.
 * Umožňuje připojení vlastních zařízení serveru OPC UA.
@@ -42,13 +43,15 @@ Tento článek vás provede některými z klíčových prvků řešení propojen
 * Naplánujte, jak řešení přizpůsobit podle konkrétních požadavků.
 * Navrhněte vlastní řešení IoT, které používá služby Azure.
 
-## <a name="logical-architecture"></a>Logická architektura
+## Logická architektura
+<a id="logical-architecture" class="xliff"></a>
 
 Následující diagram popisuje logické součásti tohoto předkonfigurovaného řešení:
 
 ![Logická architektura propojené továrny][connected-factory-logical]
 
-## <a name="simulation"></a>Simulace
+## Simulace
+<a id="simulation" class="xliff"></a>
 
 Simulované stanice a systémy řízení výroby tvoří výrobní linku továrny. Simulovaná zařízení a modul vydavatele OPC jsou založeny na [standardu OPC UA .NET][lnk-OPC-UA-NET-Standard] vydaném nadací OPC Foundation.
 
@@ -56,23 +59,27 @@ Proxy server OPC a vydavatel OPC jsou implementovány jako moduly založené na 
 
 Všechny simulované komponenty jsou spuštěné v kontejnerech Dockeru hostovaných na virtuálních počítačích Azure s Linuxem. Simulace je ve výchozím nastavení nakonfigurovaná tak, aby bylo spuštěno 8 simulovaných výrobních linek.
 
-## <a name="simulated-production-line"></a>Simulovaná výrobní linka
+## Simulovaná výrobní linka
+<a id="simulated-production-line" class="xliff"></a>
 
 Výrobní linka vyrábí součásti. Skládá se z různých stanic: montážní stanice, testovací stanice a balicí stanice.
 
 Simulace zpracovává a aktualizuje data vystavená prostřednictvím uzlů OPC UA. Všechny stanice simulované výrobní linky jsou orchestrované systémem řízení výroby (MES) prostřednictvím OPC UA.
 
-## <a name="simulated-manufacturing-execution-system"></a>Simulovaný systém řízení výroby
+## Simulovaný systém řízení výroby
+<a id="simulated-manufacturing-execution-system" class="xliff"></a>
 
 Systém řízení výroby monitoruje všechny stanice na výrobní lince prostřednictvím OPC UA a zjišťuje tak změny stavu stanic. Voláním metod OPC UA řídí stanice a předává produkt z jedné stanice do další, dokud se proces nedokončí.
 
-## <a name="gateway-opc-publisher-module"></a>Modul vydavatele brány OPC
+## Modul vydavatele brány OPC
+<a id="gateway-opc-publisher-module" class="xliff"></a>
 
 Modul vydavatele OPC se připojuje ke staničním serverům OPC UA a přihlašuje se k odběru uzlů OPC, které se zřídí. Modul převádí data z uzlu do formátu JSON, šifruje je a odesílá je do služby IoT Hub jako zprávy publikování a odběru OPC UA.
 
 Modul vydavatele OPC vyžaduje pouze výchozí port HTTPS (443) a může fungovat se stávající podnikovou infrastrukturou.
 
-## <a name="gateway-opc-proxy-module"></a>Modul proxy serveru brány OPC
+## Modul proxy serveru brány OPC
+<a id="gateway-opc-proxy-module" class="xliff"></a>
 
 Modul proxy serveru brány OPC UA tuneluje binární příkazy OPC UA a řídicí zprávy a vyžaduje pouze výchozí port HTTPS (443). Může fungovat s existující podnikovou infrastrukturou, včetně webových proxy serverů.
 
@@ -80,7 +87,8 @@ Pomocí metod zařízení ve službě IoT Hub přenáší do balíčků zabalen�
 
 Samotný binární protokol OPC UA předávaný přes proxy server používá ověřování a šifrování pomocí UA.
 
-## <a name="azure-time-series-insights"></a>Azure Time Series Insights
+## Azure Time Series Insights
+<a id="azure-time-series-insights" class="xliff"></a>
 
 Modul vydavatele brány OPC se přihlašuje k odběru uzlů serveru OPC UA, aby mohl zjišťovat změny hodnot dat. Pokud se v některém z uzlů zjistí změna dat, modul odešle zprávy do služby Azure IoT Hub.
 
@@ -104,20 +112,24 @@ Kromě toho se časové řady pro celkovou efektivitu zařízení a klíčové u
 
 Zobrazení časových řad dat uzlu přichází přímo z TSI a používá agregaci časového rozsahu.
 
-## <a name="iot-hub"></a>IoT Hub
+## IoT Hub
+<a id="iot-hub" class="xliff"></a>
 Služba [IoT Hub][lnk-IoT Hub] přijímá data odesílaná z modulu vydavatele OPC do cloudu a zpřístupňuje je službě Azure TSI. 
 
 Služba IoT Hub v tomto řešení také:
 - Udržuje registr identit, ve kterém jsou uložena ID všech modulů vydavatele OPC a všech modulů proxy serveru OPC.
 - Pro obousměrnou komunikaci modulu proxy serveru OPC používá přenosový kanál.
 
-## <a name="azure-storage"></a>Azure Storage
+## Azure Storage
+<a id="azure-storage" class="xliff"></a>
 Řešení používá jako diskové úložiště pro virtuální počítač a k ukládání dat nasazení službu Azure Blob Storage.
 
-## <a name="web-app"></a>Webová aplikace
+## Webová aplikace
+<a id="web-app" class="xliff"></a>
 Webová aplikace nasazená jako součást předkonfigurovaného řešení se skládá z integrovaného klienta OPC UA, zpracování upozornění a vizualizace telemetrie.
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 Další informace o sadě IoT Suite najdete v následujících článcích:
 
@@ -130,5 +142,6 @@ Další informace o sadě IoT Suite najdete v následujících článcích:
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
-[lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
+[lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

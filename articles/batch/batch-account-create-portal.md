@@ -12,18 +12,19 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="create-a-batch-account-with-the-azure-portal"></a>Vytvoření účtu Batch pomocí webu Azure Portal
+# Vytvoření účtu Batch pomocí webu Azure Portal
+<a id="create-a-batch-account-with-the-azure-portal" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](batch-account-create-portal.md)
@@ -37,11 +38,13 @@ Informace o scénářích a účtech Batch najdete v [přehledu funkcí](batch-a
 
 
 
-## <a name="create-a-batch-account"></a>Vytvoření účtu Batch
+## Vytvoření účtu Batch
+<a id="create-a-batch-account" class="xliff"></a>
 
 Prostřednictvím portálu můžete vytvořit účet Batch v jednom ze dvou *režimu přidělování fondů*: v režimu **služby Batch** nebo v novějším režimu **předplatného uživatele**, který vyžaduje další konfiguraci. Informace o těchto dvou režimech najdete v [přehledu funkcí](batch-api-basics.md#account). Funkce režimu předplatného uživatele najdete také v [příspěvku na blogu](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/).
 
-## <a name="batch-service-mode"></a>Režim služby Batch
+## Režim služby Batch
+<a id="batch-service-mode" class="xliff"></a>
 
 
 
@@ -69,9 +72,11 @@ Prostřednictvím portálu můžete vytvořit účet Batch v jednom ze dvou *re�
 
    Na portálu se zobrazí zpráva o tom, že nasazování probíhá. Po dokončení se v části **Oznámení** zobrazí zpráva **Nasazení se podařila**.
 
-## <a name="user-subscription-mode"></a>Režim předplatného uživatele
+## Režim předplatného uživatele
+<a id="user-subscription-mode" class="xliff"></a>
 
-### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Povolení přístupu k předplatnému pro Azure Batch (jednorázová operace)
+### Povolení přístupu k předplatnému pro Azure Batch (jednorázová operace)
+<a id="allow-azure-batch-to-access-the-subscription-one-time-operation" class="xliff"></a>
 Při vytváření prvního účtu Batch v režimu předplatného uživatele proveďte následující kroky, abyste předplatné zaregistrovali ve službě Batch. (Pokud jste tento postup již provedli, přejděte k další části.)
 
 1. Přihlaste se na web [Azure Portal][azure_portal].
@@ -82,18 +87,25 @@ Při vytváření prvního účtu Batch v režimu předplatného uživatele prov
 
     ![Řízení přístupu pro předplatné][subscription_access]
 
-4. V okně **Přidat oprávnění** vyberte roli **Přispěvatel** a vyhledejte **MicrosoftAzureBatch** (bez mezer). Vyberte **MicrosoftAzureBatch**a klikněte na **Uložit**.
+4. V okně **Přidejte oprávnění** vyberte roli **Přispěvatel** a vyhledejte rozhraní API služby Batch. Hledejte každý z těchto řetězců, dokud nenajdete rozhraní API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Novější tenanti služby Azure AD mohou používat tento název.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** je ID rozhraní API služby Batch. 
+
+5. Jakmile najdete rozhraní API služby Batch, vyberte ho a klikněte na **Uložit**.
 
     ![Přidání oprávnění pro službu Batch][add_permission]
 
-### <a name="create-a-key-vault"></a>Vytvořte trezor klíčů
+### Vytvořte trezor klíčů
+<a id="create-a-key-vault" class="xliff"></a>
 V režimu předplatného uživatele je vyžadován trezor klíčů Azure, který patří do stejné skupiny prostředků jako účet Batch, který se má vytvořit. Ověřte, že se skupina prostředků nachází v oblasti, kde je služba Batch [k dispozici](https://azure.microsoft.com/regions/services/) a která podporuje vaše předplatné.
 
 1. Na webu [Azure Portal][azure_portal] klikněte na **Nový** > **Zabezpečení + identita** > **Trezor klíčů**.
 
 2. V okně **Vytvořit trezor klíčů** zadejte název pro trezor klíčů a vytvořte skupinu prostředků v oblasti, kterou chcete použít pro účet Batch. Pro zbývající nastavení ponechejte výchozí hodnoty a pak klikněte na **Vytvořit**.
 
-### <a name="create-a-batch-account"></a>Vytvoření účtu Batch
+### Vytvoření účtu Batch
+<a id="create-a-batch-account" class="xliff"></a>
 
 1. Na webu [Azure Portal][azure_portal] klikněte na **Nový** > **Compute** > **Služba Batch**.
 
@@ -122,7 +134,8 @@ V režimu předplatného uživatele je vyžadován trezor klíčů Azure, který
 
 
 
-## <a name="view-batch-account-properties"></a>Zobrazení vlastností účtu Batch
+## Zobrazení vlastností účtu Batch
+<a id="view-batch-account-properties" class="xliff"></a>
 Po vytvoření účtu můžete otevřít **okno účtu Batch** pro přístup k jeho nastavením a vlastnostem. Všechna nastavení a vlastnosti účtu jsou přístupná pomocí levé nabídky okna účtu Batch.
 
 ![Okno účtu Batch na webu Azure Portal][account_blade]
@@ -141,7 +154,8 @@ Po vytvoření účtu můžete otevřít **okno účtu Batch** pro přístup k j
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
-## <a name="linked-azure-storage-account"></a>Propojený účet Azure Storage
+## Propojený účet Azure Storage
+<a id="linked-azure-storage-account" class="xliff"></a>
 
 Volitelně můžete s účtem Batch propojit účet úložiště Azure pro obecné účely. Funkce [balíčků aplikací](batch-application-packages.md) služby Batch využívá úložiště objektů blob v Azure, stejně jako knihovna [.NET Batch File Conventions](batch-task-output.md). Tyto volitelné funkce vám pomohou při nasazení aplikací spouštěných vašimi úkoly Batch a při zachování jimi vytvářených dat.
 
@@ -161,7 +175,8 @@ Doporučujeme vytvořit nový účet úložiště pro výhradní použití vaš�
 
 ![Obnovování klíčů účtu úložiště][4]
 
-## <a name="batch-service-quotas-and-limits"></a>Kvóty a omezení služby Batch
+## Kvóty a omezení služby Batch
+<a id="batch-service-quotas-and-limits" class="xliff"></a>
 Pamatujte, že podobně jako pro předplatné a další služby Azure, i pro účty Batch platí určité [kvóty a omezení](batch-quota-limit.md). Aktuální kvóty účtu Batch se zobrazují na portálu ve **vlastnostech** účtu.
 
 ![Kvóty účtu Batch na webu Azure Portal][quotas]
@@ -170,14 +185,16 @@ Pamatujte, že podobně jako pro předplatné a další služby Azure, i pro ú�
 
 Mnohé z těchto kvót je také možné zvýšit jednoduchým požadavkem na bezplatnou podporu, odeslaným pomocí webu Azure Portal. Podrobnosti o vyžádání zvýšení kvóty viz [Kvóty a omezení pro službu Azure Batch](batch-quota-limit.md).
 
-## <a name="other-batch-account-management-options"></a>Další možnosti správy účtu Batch
+## Další možnosti správy účtu Batch
+<a id="other-batch-account-management-options" class="xliff"></a>
 Kromě webu Azure Portal můžete účty Batch vytvářet a spravovat následujícími způsoby:
 
 * [Rutiny PowerShellu pro účty Batch](batch-powershell-cmdlets-get-started.md)
 * [Azure CLI](batch-cli-get-started.md)
 * [Knihovna Batch Management .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 * Další informace o koncepcích a funkcích služby Batch najdete v článku [Přehled funkcí Batch](batch-api-basics.md). Článek popisuje primární prostředky služby Batch, například fondy, výpočetní uzly a úlohy a nabízí přehled funkcí služby, které umožňují spouštění velkých výpočetních úloh.
 * Seznamte se se základy vývoje aplikací s podporou služby Batch pomocí [klientské knihovny Batch .NET](batch-dotnet-get-started.md) nebo [Pythonu](batch-python-tutorial.md). Tyto úvodní články vás provedou funkční aplikací, která používá službu Batch ke spouštění úlohy na několika výpočetních uzlech, a představí vám použití služby Azure Storage k přípravě a načítání souborů úloh.
 

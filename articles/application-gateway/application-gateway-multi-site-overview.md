@@ -1,26 +1,29 @@
 ---
-title: "Hostování více webů ve službě Application Gateway | Dokumentace Microsoftu"
+title: "Hostování více webů ve službě Azure Application Gateway | Dokumentace Microsoftu"
 description: "Tato stránka poskytuje přehled podpory služby Application Gateway pro více webů."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
-editor: amsriva
+editor: 
 ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: 68e88483e3dc7c22968d701d9b79364bb55fb896
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 722ab9e8a13ee28342bb30f6810fa503b1aa29f2
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="application-gateway-multiple-site-hosting"></a>Hostování více webů ve službě Application Gateway
+# Hostování více webů ve službě Application Gateway
+<a id="application-gateway-multiple-site-hosting" class="xliff"></a>
 
 Hostování více webů umožňuje konfigurovat více než jednu webovou aplikaci ve stejné instanci služby Application Gateway. Tato funkce umožňuje nakonfigurovat efektivnější topologii vašich nasazení tím, že přidáte až 20 webů do jedné služby Application Gateway. Každou stránku lze přesměrovat na vlastní back-endový fond. V následujícím příkladu služba Application Gateway obsluhuje provoz pro contoso.com a fabrikam.com ze dvou fondů back-endového serveru s názvy FondServeruContoso a FondServeruFabrikam.
 
@@ -30,7 +33,8 @@ Požadavky na http://contoso.com jsou směrovány na FondServeruContoso a požad
 
 Podobně lze ve stejném nasazení služby Application Gateway hostovat dvě poddomény stejné nadřazené domény. Příklady použití poddomén mohou zahrnovat http://blog.contoso.com a http://app.contoso.com hostované v jednom nasazení služby Application Gateway.
 
-## <a name="host-headers-and-server-name-indication-sni"></a>Hlavičky hostitele a Identifikace názvu serveru (SNI)
+## Hlavičky hostitele a Identifikace názvu serveru (SNI)
+<a id="host-headers-and-server-name-indication-sni" class="xliff"></a>
 
 Existují tři běžné mechanismy pro povolení hostování více webů ve stejné infrastruktuře.
 
@@ -40,7 +44,8 @@ Existují tři běžné mechanismy pro povolení hostování více webů ve stej
 
 V současné době získá služba Application Gateway jednu veřejnou IP adresu, na které naslouchá provozu. Proto v současné době podpora více aplikací, z nichž každá má vlastní IP adresu, není podporována. Služba Application Gateway podporuje hostování více aplikací, z nichž každá naslouchá na jiném portu, ale tento scénář by vyžadoval, aby aplikace přijímaly provoz na nestandardních portech, a tato konfigurace často není požadována. Služba Application Gateway se při hostování více než jednoho webu na stejné veřejné IP adrese a portu spoléhá na hlavičky hostitele HTTP 1.1. Weby hostované ve službě Application Gateway mohou také podporovat přesměrování zpracování SSL pomocí rozšíření protokolu TLS Identifikace názvu serveru (SNI). Tento scénář znamená, že klientský prohlížeč a back-endová webová farma musí podporovat HTTP/1.1 a rozšíření protokolu TLS, jak je definováno v dokumentu RFC 6066.
 
-## <a name="listener-configuration-element"></a>Konfigurační prvek naslouchacího procesu
+## Konfigurační prvek naslouchacího procesu
+<a id="listener-configuration-element" class="xliff"></a>
 
 Existující konfigurační prvek HTTPListener je vylepšený pro podporu názvu hostitele a prvků Identifikace názvu serveru. Ty slouží k tomu, aby služba Application Gateway mohla směrovat provoz na příslušný back-endový fond. Následující ukázka kódu je fragment prvku HttpListeners ze souboru šablony.
 
@@ -82,7 +87,8 @@ Existující konfigurační prvek HTTPListener je vylepšený pro podporu názvu
 
 Na stránce [Šablona Resource Manageru používající hostování více webů](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) najdete kompletní nasazení založené na šabloně.
 
-## <a name="routing-rule"></a>Pravidlo směrování
+## Pravidlo směrování
+<a id="routing-rule" class="xliff"></a>
 
 V pravidle směrování není požadována žádná změna. Stále byste měli volit pravidlo směrování „Základní“ k provázání příslušných naslouchacích procesů webů s odpovídajícími back-endovými fondy adres.
 
@@ -123,13 +129,9 @@ V pravidle směrování není požadována žádná změna. Stále byste měli v
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 Po získání informací o hostování více webů přejděte k tématu [Vytvoření služby Application Gateway používající hostování více webů](application-gateway-create-multisite-azureresourcemanager-powershell.md) a vytvořte službu Application Gateway se schopností podporovat více než jednu webovou aplikaci.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -12,22 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 06/15/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="azure-service-bus"></a>Azure Service Bus
+# Azure Service Bus
+<a id="azure-service-bus" class="xliff"></a>
+
 Ať už aplikace nebo služba běží v cloudu nebo lokálně, často potřebuje komunikovat s jinými aplikacemi nebo službami. Microsoft Azure nabízí službu Service Bus, která právě toto výrazně usnadňuje. V tom to článku se podíváme na tuto technologii a na to, proč byste ji mohli chtít používat.
 
-## <a name="service-bus-fundamentals"></a>Základy služby Service Bus
+## Základy služby Service Bus
+<a id="service-bus-fundamentals" class="xliff"></a>
+
 Různé situace potřebují různé styly komunikace. Někdy je pro aplikace nejlepším řešením zprávy odesílat a přijímat přes jednoduchou frontu. V jiných situacích běžná fronta nestačí a je lepší použít frontu s publikováním a odběrem. V některých případech stačí jen navázat spojení mezi aplikacemi a fronty nejsou vůbec potřeba. Service Bus poskytuje všechny tři možnosti a umožňuje vašim aplikacím pracovat několika různými způsoby.
 
-Service Bus je víceklientská cloudová služba – to znamená, že ji může sdílet několik uživatelů. Každý uživatel, jako třeba vývojář aplikací, vytvoří *obor názvů*, a pak definuje komunikační mechanizmy, které potřebuje v daném oboru názvů. Obrázek 1 ukazuje, jak to vypadá.
+Service Bus je víceklientská cloudová služba – to znamená, že ji může sdílet několik uživatelů. Každý uživatel, jako třeba vývojář aplikací, vytvoří *obor názvů*, a pak definuje komunikační mechanizmy, které potřebuje v daném oboru názvů. Na obrázku 1 je znázorněno, jak tato architektura vypadá.
 
 ![][1]
 
@@ -41,11 +46,13 @@ V oboru názvů můžete použít jednu nebo víc instancí tří různých komu
 
 Když vytvoříte frontu, téma nebo předávání, musíte je pojmenovat. Kombinace tohoto názvu a vašeho oboru názvů vytváří jedinečný identifikátor objektu. Aplikace můžou tento název poskytnout službě Service Bus, a pak pomocí této fronty, tématu nebo předávání mezi sebou komunikovat. 
 
-Pokud aplikace Windows chtějí tyto objekty používat ve scénáři přenosu, můžou využít WCF (Windows Communication Foundation). Pro fronty a témata můžou aplikace Windows použít API pro přenos zpráv, které definuje služba Service Bus. Pro snadnější použití těchto objektů z aplikací pro jinou platformu než Windows uvolnil Microsoft sady SDK pro Javu, Node.js a další jazyky. Přístup k frontám a tématům se může získat i pomocí [REST API](/rest/api/servicebus/) přes HTTP(s). 
+Pokud aplikace Windows chtějí tyto objekty používat ve scénáři přenosu, můžou využít WCF (Windows Communication Foundation). Tato služba se označuje jako [přenos WCF](../service-bus-relay/relay-what-is-it.md). Pro fronty a témata můžou aplikace Windows použít API pro přenos zpráv, které definuje služba Service Bus. Pro snadnější použití těchto objektů z aplikací pro jinou platformu než Windows uvolnil Microsoft sady SDK pro Javu, Node.js a další jazyky. Přístup k frontám a tématům se může získat i pomocí [REST API](/rest/api/servicebus/) přes HTTP(s). 
 
 Je důležité pochopit, že i když služba Service Bus samotná běží v cloudu (to znamená v datových centrech Microsoftu pro Azure), aplikace, které ji využívají, můžou běžet kdekoli. Service Bus můžete použít třeba k připojení aplikací běžících v Azure nebo aplikací běžících ve vašem vlastním datovém centru. Můžete ji použít i k připojení aplikace běžící v Azure nebo jiné cloudové službě k lokální službě nebo k mobilním zařízením,jako jsou tablety a telefony. Dokonce s ní můžete připojit domácí spotřebiče, senzory a jiná zařízení k centrální aplikaci nebo k jiným zařízením. Service Bus je komunikační mechanizmus v cloudu, který je přístupný prakticky odkudkoli. To, jakým způsobem ho budete využívat, záleží jen na tom, co vaše aplikace potřebují dělat.
 
-## <a name="queues"></a>Fronty
+## Fronty
+<a id="queues" class="xliff"></a>
+
 Řekněme, že jste se rozhodli spojit dvě aplikace pomocí fronty Service Bus. Na obrázku 2 je taková situace.
 
 ![][2]
@@ -54,21 +61,23 @@ Je důležité pochopit, že i když služba Service Bus samotná běží v clou
 
 Tento proces je prostý: Odesílatel odešle zprávu do fronty Service Bus a příjemce si ji z fronty vyzvedne později. Je možné, aby fronta měla pouze jednoho příjemce, jak je znázorněno na obrázku 2. Ze stejné fronty může také číst více aplikací. V druhém případě přečte každou zprávu pouze jeden příjemce. Pro službu přetypování byste měli raději použít téma.
 
-Každá zpráva má dvě části: skupinu vlastností ve formě dvojice klíč+hodnota a tělo zprávy. Tělo zprávy může mít formát binární, textový nebo i XML. Jejich použití závisí na tom, co se vaše aplikace snaží udělat. Například jedna aplikace odešle zprávu o nedávném prodeji, která může obsahovat třeba tyto údaje: *Seller="Ava"* a *Amount=10000*. Tělo zprávy může obsahovat naskenovaný snímek podepsané smlouvy o prodeji nebo nemusí obsahovat nic a může zůstat prázdné.
+Každá zpráva má dvě části: skupinu vlastností ve formě dvojice klíč+hodnota a tělo zprávy. Tělo zprávy může mít formát binární, textový nebo i XML. Jejich použití závisí na tom, co se vaše aplikace snaží udělat. Například jedna aplikace odešle zprávu o nedávném prodeji, která může obsahovat třeba tyto údaje: **Seller="Ava"** a **Amount=10000**. Tělo zprávy může obsahovat naskenovaný snímek podepsané smlouvy o prodeji nebo nemusí obsahovat nic a může zůstat prázdné.
 
-Příjemce může zprávu načíst z fronty Service Bus dvěma různými způsoby. První možnost se jmenuje *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)* (přijmout a odstranit) – odebere zprávu z fronty a okamžitě ji odstraní. Tento způsob je velice jednoduchý, ale pokud příjemce spadne, než se mu podaří zprávu zpracovat, zprávu ztratí. A protože se už odstranila z fronty, nemůže ji získat ani žádný jiný příjemce. 
+Příjemce může zprávu načíst z fronty Service Bus dvěma různými způsoby. První možnost se jmenuje *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)* (přijmout a odstranit) – odebere zprávu z fronty a okamžitě ji odstraní. Tento způsob je velmi jednoduchý, ale pokud příjemce spadne, než se mu podaří zprávu zpracovat, zprávu ztratí. A protože se už odstranila z fronty, nemůže ji získat ani žádný jiný příjemce. 
 
 Druhá možnost se jmenuje *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)* (uzamknout pro zpracování) a jejím smyslem je vyřešit právě tento problém. Stejně jako v případě **ReceiveAndDelete** se při čtení **PeekLock** zpráva odebere z fronty. Jenže se při tom neodstraní úplně. Místo toho se zpráva jen uzamkne, aby nebyla vidět pro ostatní příjemce, a pak čeká na jednu ze tří událostí:
 
 * Pokud příjemce zprávu úspěšně zpracuje, zavolá [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) a fronta zprávu odstraní. 
 * Pokud se příjemce rozhodne, že nedokáže zprávu úspěšně zpracovat, zavolá [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). Fronta pak zruší zámek zprávy a ta je pak znovu dostupná pro ostatní příjemce.
-* Pokud příjemce v nastaveném časovém limitu nepošle ani jedno z těchto volání (ve výchozím nastavení je to 60 sekund), fronta předpokládá, že příjemce selhal. V takovém případě se fronta chová jako kdyby příjemce zavolal **Abandon** a zpřístupní zprávu dalším příjemcům.
+* Pokud příjemce v nastaveném časovém limitu nezavolá ani jednu z těchto metod (ve výchozím nastavení je to 60 sekund), fronta předpokládá, že příjemce selhal. V takovém případě se fronta chová jako kdyby příjemce zavolal **Abandon** a zpřístupní zprávu dalším příjemcům.
 
 Všimněte si, co se tu může stát: Stejná zpráva se může dodat dvakrát, třeba i dvěma různým příjemcům. Aplikace, které používají fronty Service Bus, na tuto možnost musí být připravené. Pro usnadnění detekce duplicitních zpráv má každá zpráva jedinečnou vlastnost [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId), která ve výchozím nastavení zůstává pro danou zprávu vždy stejná bez ohledu na to, kolikrát se přečte z fronty. 
 
 Fronty jsou užitečné v mnoha situacích. Umožňují aplikacím komunikovat, i když nejsou spuštěné ve stejnou dobu – to se hodí především pro dávkové a mobilní aplikace. Fronta s několika příjemci taky poskytuje automatické vyvažování zátěže, protože odeslané zprávy se rozdělují mezi jednotlivé příjemce.
 
-## <a name="topics"></a>Témata
+## Témata
+<a id="topics" class="xliff"></a>
+
 Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepší řešení. Někdy je lepší použít témata Service Bus. Na obrázku 3 je taková situace.
 
 ![][3]
@@ -83,8 +92,10 @@ Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepš
 
 Stejně jako v případě front můžou odběratelé tématu načítat zprávy buď způsobem [ReceiveAndDelete, nebo PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k více odběratelům předplatných. Tomuto přístupu se obvykle říká *publikování a odběr* (nebo *pub/sub*)a je vhodný v každé situaci, kde se o stejné zprávy zajímá několik aplikací. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
 
-## <a name="relays"></a>Předávání
-Fronty i témata nabízejí jednosměrnou asynchronní komunikaci přes zprostředkovatele. Zprávy proudí jen jedním směrem a mezi odesílateli a příjemci není žádné přímé spojení. Co když to ale není to, co chcete? Řekněme, že aplikace potřebují odesílat i přijímat zprávy nebo že mezi nimi třeba chcete vytvořit přímé spojení a nepotřebujete zprostředkovatele pro ukládání zpráv. Pro takovou situaci Service Bus nabízí možnost *přenosu*, jak je vidět na obrázku 4.
+## Předávání
+<a id="relays" class="xliff"></a>
+
+Fronty i témata nabízejí jednosměrnou asynchronní komunikaci přes zprostředkovatele. Zprávy proudí jen jedním směrem a mezi odesílateli a příjemci není žádné přímé spojení. Co když ale toto připojení nechcete? Řekněme, že aplikace potřebují odesílat i přijímat zprávy nebo že mezi nimi třeba chcete vytvořit přímé spojení a nepotřebujete zprostředkovatele pro ukládání zpráv. Pro takovou situaci Service Bus nabízí možnost *přenosu*, jak je vidět na obrázku 4.
 
 ![][4]
 
@@ -102,10 +113,14 @@ A na rozdíl od front a témat taky aplikace nevytvářejí explicitně předáv
 
 Předávací služby jsou správným řešením v situaci, když potřebujete přímou komunikaci mezi aplikacemi. Řekněme třeba, že systém pro rezervaci letenek běží na lokálním datovém centru, ke kterému musí mít přístup prodejní místa, mobilní zařízení a další počítače. Aplikace, které běží na všech těchto systémech, by mohly ke komunikaci použít předávací služby Service Bus v cloudu, a bylo by jedno, kde běží.
 
-## <a name="summary"></a>Souhrn
-Propojení aplikací vždy patřilo k budování kompletních řešení a množství situací, ve kterých spolu aplikace a služby musí komunikovat, se s rostoucím počtem zařízení připojených k internetu bude dál zvyšovat. Service Bus používá fronty, témata a předávání k tomu, aby tuto základní funkci aplikacím a službám umožnil, usnadnil a více zpřístupnil.
+## Souhrn
+<a id="summary" class="xliff"></a>
 
-## <a name="next-steps"></a>Další kroky
+Propojení aplikací vždy patřilo k budování kompletních řešení a množství situací, ve kterých spolu aplikace a služby musí komunikovat, se s rostoucím počtem zařízení připojených k internetu bude dál zvyšovat. Služba Service Bus poskytuje cloudové technologie pro zajištění komunikace prostřednictvím front, témat a předávání, aby tuto základní funkci aplikacím a službám umožnil, usnadnil a více zpřístupnil.
+
+## Další kroky
+<a id="next-steps" class="xliff"></a>
+
 Dozvěděli jste se základní informace službě Azure Service Bus, další informace se dozvíte na následujících odkazech.
 
 * Jak používat [fronty Service Bus](service-bus-dotnet-get-started-with-queues.md)

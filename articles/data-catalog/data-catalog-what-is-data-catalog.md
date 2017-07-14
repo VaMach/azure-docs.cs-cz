@@ -1,6 +1,6 @@
 ---
 title: "Úvod do služby Azure Data Catalog | Dokumentace Microsoftu"
-description: "Tento článek obsahuje přehled služby Microsoft Azure Data Catalog, včetně jejích funkcí a potíží, které je navržena řešit. Data Catalog poskytuje možnosti, které umožní každému uživateli – od analytiků přes vědce zabývající se zpracováním dat po vývojáře – zaregistrovat, zjišťovat, pochopit a využívat zdroje dat."
+description: "Tento článek obsahuje přehled služby Microsoft Azure Data Catalog, a to včetně jejích funkcí a potíží, na které se zaměřuje. Data Catalog umožňuje všem uživatelům registrovat, objevovat, pochopit a využívat zdroje dat."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -16,53 +16,56 @@ ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: fb8f43f5bb5725da30e67cdf5d7b066fe40ed003
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c0cf2805de958c979def3f21eda59ec97fb91d33
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
-# <a name="what-is-azure-data-catalog"></a>Co je Azure Data Catalog?
-Azure Data Catalog je plně spravovaná cloudová služba, která umožňuje uživatelům zjišťovat zdroje dat, které potřebují a pochopit zdroje dat, které naleznou. Zároveň pomáhá organizacím získat větší hodnotu z jejich stávajících investic. Data Catalog poskytuje možnosti, které umožní každému uživateli – od analytiků přes vědce zabývající se zpracováním dat po vývojáře – zjišťovat, pochopit a využívat zdroje dat. Data Catalog dat obsahuje crowdsourcingový model metadat a poznámek a umožňuje všem uživatelům přispět svými znalostmi k vybudování komunity a kultury dat.
+# Co je Azure Data Catalog?
+<a id="what-is-azure-data-catalog" class="xliff"></a>
+Azure Data Catalog je plně spravovaná cloudová služba, jejíž uživatelé mohou objevovat zdroje dat, které potřebují, a nalezené zdroje dat pochopit. Zároveň Data Catalog pomáhá organizacím vytěžit více z jejich stávajících investic. 
 
-## <a name="discovery-challenges-for-data-consumers"></a>Problémy zjišťování pro spotřebitele dat
-Tradičně je zjišťování zdrojů podnikových dat organický proces založený na kmenových znalostech. To představuje mnoho výzev pro společnosti, které chtějí získat maximální hodnotu ze svých prostředků informací.
+Pomocí katalogu Data Catalog může každý uživatel (analytik, odborník přes data nebo vývojář) zdroje dat objevovat, pochopit a využívat. Data Catalog obsahuje crowdsourcingový model metadat a poznámek. Je jediným ústředním místem, kam všichni uživatelé v rámci organizace mohou přispět svými znalostmi a vybudovat datovou komunitu a kulturu.
 
-* Uživatelé neví, že zdroje dat existují, pokud s nimi nepřicházejí do styku jako součástí jiného procesu; k dispozici není žádné centrální umístění, kde jsou zdroje dat registrovány.
-* Pokud uživatel nezná umístění zdroje dat, nemůže se k těmto datům připojit pomocí klientské aplikace; možnosti spotřeby dat vyžadují, aby uživatelé znali připojovací řetězec nebo cestu.
-* Pokud uživatel nezná umístění dokumentace zdroje dat, nemůže rozumět zamýšlenému použití dat; zdroje dat a dokumentace se nacházejí na různých místech a používají se v různých prostředích.
-* Jestliže má uživatel dotazy týkající se informačního prostředku, musí vyhledat odborníka nebo tým odpovědný za příslušná data a zapojit tyto odborníky offline; neexistuje žádné explicitní spojení mezi daty a zaměstnanci s odbornými perspektivami na jejich použití.
-* Pokud uživatel nerozumí procesu pro vyžádání přístupu ke zdroji dat, zjištění zdroje dat a jeho dokumentace mu stále ještě neumožní přístup k datům, která požaduje.
+## Problémy zjišťování pro spotřebitele dat
+<a id="discovery-challenges-for-data-consumers" class="xliff"></a>
+Tradičně je zjišťování zdrojů podnikových dat organický proces založený na kmenových znalostech. Pro společnosti, které chtějí získat maximální hodnotu ze svých informačních prostředků, to představuje mnoho výzev:
 
-## <a name="discovery-challenges-for-data-producers"></a>Problémy zjišťování pro producenty dat
-Zatímco spotřebitelé dat se potýkají s těmito výzvami, uživatelé odpovědní za vytváření a správu informačních prostředků se potýkají s vlastními výzvami.
+* Uživatelé si nemusí uvědomovat, že zdroje dat existují, pokud s nimi nepřicházejí do styku při jiném procesu. Žádné centrální umístění, kde jsou zdroje dat registrovány, neexistuje.
+* Pokud uživatel nezná umístění zdroje dat, nemůže se k těmto datům pomocí klientské aplikace připojit. Možnosti využití dat vyžadují, aby uživatelé znali připojovací řetězec nebo cestu.
+* Pokud uživatel nezná umístění dokumentace zdroje dat, nemůže zamýšlenému použití dat rozumět. Zdroje dat a dokumentace se mohou nacházet na různých místech a používat se v různých prostředích.
+* Pokud mají uživatelé dotazy týkající se informačního prostředku, musí vyhledat odborníka nebo tým odpovědný za příslušná data a zapojit tyto odborníky offline. Žádné explicitní spojení mezi daty a zaměstnanci s odborným pohledem na jejich použití neexistuje.
+* Pokud uživatelé nerozumí procesu pro vyžádání přístupu ke zdroji dat, zjištění zdroje dat a jeho dokumentace jim stejně nepomůže k těmto datům získat přístup.
 
-* Zadávání poznámek ke zdrojům dat s popisnými metadaty je často ztracené úsilí; klientské aplikace obvykle ignorují popisy uložené ve zdroji dat.
-* Vytváření dokumentace pro zdroje dat je často zbytečná námaha; udržování dokumentace synchronizované se zdrojem dat je neustávající odpovědnost a uživatelé nemají důvěru v dokumentaci, neboť je často považována za zastaralou.
-* Omezení přístupu ke zdroji dat a zajištění, aby spotřebitelé dat věděli, jak požádat o přístup, je neustávající výzva.
+## Problémy zjišťování pro producenty dat
+<a id="discovery-challenges-for-data-producers" class="xliff"></a>
+Přestože se spotřebitelé dat potýkají s těmito dříve popsanými výzvami, uživatelé odpovědní za vytváření a správu informačních prostředků se potýkají s vlastními výzvami:
 
-Vytváření a správa dokumentace pro zdroj dat je složité a časově náročné. O to větší je výzva ohledně snadného zpřístupnění této dokumentace pro každého uživatele, který používá příslušný zdroj dat.
+* Zadávání poznámek ke zdrojům dat s popisnými metadaty je často ztráta času. Klientské aplikace obvykle popisy uložené ve zdroji dat ignorují.
+* Vytváření dokumentace pro zdroje dat je také často ztráta času. Synchronizování dokumentace se zdrojem dat je neustávající odpovědnost a uživatelé nemusí dokumentaci důvěřovat, protože je často považována za zastaralou.
+* Vytváření a správa dokumentace pro zdroje dat je složitá a časově náročná. O to větší je výzva tuto dokumentaci učinit snadno dostupnou pro každého uživatele, který příslušný zdroj dat používá.
+* Omezení přístupu ke zdrojům dat a zajištění, aby spotřebitelé dat věděli, jak požádat o přístup, je neustávající výzva.
 
-Když se tyto výzvy zkombinují , představují významnou překážkou pro společnosti, které chtějí podněcovat a podporovat používání a pochopení podnikových dat.
+Když se tyto výzvy zkombinují, představují významnou překážkou pro společnosti, které chtějí podněcovat a podporovat používání a pochopení podnikových dat.
 
-## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog může pomoci
-Katalog Data Catalog je určen k řešení těchto problémů a umožňuje podnikům získat větší hodnotu ze stávajících prostředků. Data Catalog pomáhá tím, že činí zdroje dat snadno zjistitelné a srozumitelné pro uživatele, kteří potřebují data, která spravují.
+## Azure Data Catalog může pomoci
+<a id="azure-data-catalog-can-help" class="xliff"></a>
+Data Catalog je určen k řešení těchto problémů a pomáhá podnikům získat větší hodnotu ze stávajících prostředků. Data Catalog činí zdroje dat snadno objevitelné a srozumitelné pro uživatele, kteří tato data spravují.
 
-Data Catalog poskytuje službu na principu cloudu, do níž lze zaregistrovat zdroj dat. Data zůstávají uložena ve stávajícím umístění, ale do katalogu Data Catalog je přidána kopie metadat spolu s odkazem na umístění zdroje dat. Tato metadata jsou také indexována, aby byl každý zdroj dat snadno zjistitelný prostřednictvím vyhledávání a aby byla srozumitelná uživatelům, kteří je zjistili.
+Data Catalog poskytuje službu na principu cloudu, do níž lze zaregistrovat zdroj dat. Data zůstávají uložena ve stávajícím umístění, ale do katalogu Data Catalog se přidá kopie metadat spolu s odkazem na umístění zdroje dat. Tato metadata jsou také indexována, aby byl každý zdroj dat snadno objevitelný prostřednictvím vyhledávání a aby byl srozumitelný uživatelům, kteří ho objevili.
 
-Po zaregistrování zdroje dat mohou být jeho metadata rozšířena uživatelem, který provedl registraci, nebo jinými uživateli v podniku. Každý uživatel může opatřit poznámkami zdroj dat tím, že přidá popisy, značky nebo další metadata, například dokumentaci a procesy pro žádosti o přístup ke zdroji dat. Tato popisná metadata doplňují strukturální metadata (například názvy sloupců a typy dat) zaregistrované ze zdroje dat.
+Po zaregistrování zdroje dat mohou být jeho metadata rozšířena uživatelem, který ho zaregistroval, nebo jinými uživateli v podniku. Každý uživatel může opatřit poznámkami zdroj dat tím, že přidá popisy, značky nebo další metadata, například dokumentaci a procesy pro žádosti o přístup ke zdroji dat. Tato popisná metadata doplňují strukturální metadata (například názvy sloupců a typy dat) zaregistrovaná ze zdroje dat.
 
-Primárním účelem registrace zdrojů dat je zjišťování a porozumění zdrojům, a jejich používání. Pokud podnikoví uživatelé potřebují pro svoji činnost data (což by mohly být aplikace business intelligence, vývoj aplikací, vědecké zpracování dat nebo jiný úkol, ve kterém jsou vyžadována správná data), mohou používat zkušenosti se zjišťováním v katalogu Data Catalog k rychlému vyhledání dat, která odpovídají jejich potřebám, pochopení dat k vyhodnocení jejich vhodnosti pro daný účel a spotřebě těchto dat tím, že zdroj dat otevřou v upřednostňovaném nástroji. Současně umožňuje Data Catalog uživatelům přispívat do katalogu označováním, dokumentováním a zadáváním poznámek ke zdrojům dat, které jsou již zaregistrovány, a registrováním nových zdrojů dat, které lze poté zjistit, pochopit a spotřebovat komunitou uživatelů katalogu.
+Primárním účelem registrace zdrojů dat je zjišťování a porozumění zdrojům, a jejich používání. Podnikoví uživatelé mohou potřebovat data pro business intelligence, vývoj aplikací, datové vědy nebo jiný úkol, ve kterém jsou vyžadována správná data. Mohou využít zkušenosti s objevováním v katalogu Data Catalog, aby rychle našli data, která odpovídají jejich potřebám, pochopili je, vyhodnotili jejich vhodnost pro daný účel a využili je otevřením zdroje dat v upřednostňovaném nástroji. 
+
+Současně mohou uživatelé přispívat do katalogu označováním, dokumentováním a zadáváním poznámek ke zdrojům dat, které jsou již zaregistrovány. Mohou také registrovat nové zdroje dat, které lze poté objevit, pochopit a využít komunitou uživatelů katalogu.
 
 ![Možnosti katalogu Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## <a name="get-started-with-data-catalog"></a>Začínáme s katalogem Data Catalog
-Chcete-li začít s katalogem Data Catalog ještě dnes, navštivte stránky [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-
-Příručka Začínáme je k dispozici [zde](data-catalog-get-started.md).
-
-## <a name="learn-more-about-data-catalog"></a>Další informace o katalogu Data Catalog
+## Další informace o katalogu Data Catalog
+<a id="learn-more-about-data-catalog" class="xliff"></a>
 Další informace o možnostech katalogu Data Catalog naleznete v tématu:
 
 * [Postup registrace zdrojů dat](data-catalog-how-to-register.md)
@@ -74,4 +77,10 @@ Další informace o možnostech katalogu Data Catalog naleznete v tématu:
 * [Jak spravovat datové prostředky](data-catalog-how-to-manage.md)
 * [Jak nastavit obchodní glosář](data-catalog-how-to-business-glossary.md)
 * [Nejčastější dotazy](data-catalog-frequently-asked-questions.md)
+
+## Další kroky
+<a id="next-steps" class="xliff"></a>
+Pokud chcete začít s katalogem Data Catalog, přejděte na:
+* [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
+* [Začínáme s Azure Data Catalogem](data-catalog-get-started.md)
 
