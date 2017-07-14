@@ -229,14 +229,6 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Návody
   items:
-    - name: Databáze a servery
-      items:
-        - name: Elastické fondy – Portál
-          href: sql-database-elastic-pool-manage-portal.md
-        - name: Elastické fondy – PowerShell
-          href: sql-database-elastic-pool-manage-powershell.md
-        - name: Elastické fondy – T-SQL
-          href: sql-database-elastic-pool-manage-tsql.md
     - name: Zabezpečení
       items:
         - name: Konfigurace ověřování Azure AD
