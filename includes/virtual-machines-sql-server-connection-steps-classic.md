@@ -1,23 +1,25 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determine the DNS name of the virtual machine
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+### Určení názvu DNS virtuálního počítače
+<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+Pokud se chcete připojit k databázovému stroji SQL Serveru z jiného počítače, musíte znát název DNS (Domain Name System) virtuálního počítače. (Je to název, který internet používá k identifikaci virtuálního počítače. Můžete použít IP adres, ale IP adresa se může změnit, když Azure přesune prostředky kvůli redundanci nebo údržbě. Název DNS bude stabilní, protože je možné ho přesměrovat na novou IP adresu.)  
 
-1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
-2. Select your SQL VM.
-3. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
+1. Na webu Azure Portal (nebo z předchozího kroku) vyberte **Virtuální počítače (Classic)**.
+2. Vyberte virtuální počítač SQL.
+3. V okně **Virtuální počítač** zkopírujte **název DNS** pro tento virtuální počítač.
    
-    ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+    ![Název DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
-1. On a computer connected to the internet, open SQL Server Management Studio.
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.
+### Připojení k databázovému stroji z jiného počítače
+<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+1. Na počítači připojeném k internetu otevřete SQL Server Management Studio.
+2. V dialogovém okně **Připojit k serveru** nebo **Connect to Database Engine** (Připojit k databázovému stroji) do pole **Název serveru** zadejte název DNS virtuálního počítače (zjištěný v předchozím úkolu) a číslo portu veřejného koncového bodu ve formátu*název_DNS,číslo_portu*, například **mysqlvm.cloudapp.net,57500**.
    
-    ![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+    ![Připojení pomocí SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.
+    Pokud si nepamatujete číslo portu veřejného koncového bodu, který jste vytvořili, najdete ho v okně **Virtuální počítač** v části **Koncové body**.
    
-    ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. In the **Authentication** box, select **SQL Server Authentication**.
-4. In the **Login** box, type the name of a login that you created in an earlier task.
-5. In the **Password** box, type the password of the login that you create in an earlier task.
-6. Click **Connect**.
+    ![Veřejný port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+3. V poli **Ověřování** vyberte **Ověřování serveru SQL Server**.
+4. Do pole **Přihlášení** zadejte název přihlášení, které jste vytvořili v předchozím úkolu.
+5. Do pole **Heslo** zadejte heslo přihlášení, které jste vytvořili v předchozím úkolu.
+6. Klikněte na **Připojit**.
 
