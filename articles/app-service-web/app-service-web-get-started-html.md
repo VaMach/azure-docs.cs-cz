@@ -29,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 
 ![Domovská stránka ukázkové aplikace](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
+Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalovány všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
 
 ## Požadavky
 <a id="prerequisites" class="xliff"></a>

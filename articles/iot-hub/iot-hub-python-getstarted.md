@@ -14,14 +14,15 @@ ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d0ccbcfa5fc8006590951707f7162f7864110f38
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Připojení simulovaného zařízení ke službě IoT Hub pomocí Pythonu
+# Připojení simulovaného zařízení ke službě IoT Hub pomocí Pythonu
+<a id="connect-your-simulated-device-to-your-iot-hub-using-python" class="xliff"></a>
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Na konci tohoto kurzu budete mít dvě aplikace v Pythonu:
@@ -41,6 +42,10 @@ Pro absolvování tohoto kurzu potřebujete:
 * [Node.js 4.0 nebo novější][lnk-node-download]. Ujistěte se, že používáte 32bitovou, nebo 64bitovou instalaci podle požadavků vašeho nastavení. To je nutné k instalaci [nástroje IoT Hub Explorer][lnk-iot-hub-explorer].
 * Aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit [bezplatný účet][lnk-free-trial].
 
+> [!NOTE]
+> Balíčky *pip* pro `azure-iothub-service-client` a `azure-iothub-device-client` jsou v současné době dostupné jenom pro operační systém Windows. Informace o operačních systémech Linux a Mac OS najdete v částech věnovaných těmto operačním systémům v příspěvku, v němž se autor věnuje [přípravě vývojových prostředí pro Python][lnk-python-devbox].
+> 
+
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 Nyní jste vytvořili svůj IoT Hub. Ve zbývající části tohoto kurzu použijte název hostitele a připojovací řetězec služby IoT Hub.
@@ -49,7 +54,8 @@ Nyní jste vytvořili svůj IoT Hub. Ve zbývající části tohoto kurzu použi
 > Službu IoT Hub můžete také snadno vytvořit v příkazovém řádku, a to pomocí Azure CLI založeném na Pythonu nebo Node.js. Rychlé kroky, podle kterých to můžete udělat, najdete v článku [Vytvoření služby IoT Hub pomocí Azure CLI 2.0][lnk-azure-cli-hub]. 
 > 
 
-## <a name="create-a-device-identity"></a>Vytvoření identity zařízení
+## Vytvoření identity zařízení
+<a id="create-a-device-identity" class="xliff"></a>
 Tato část uvádí kroky k vytvoření konzolové aplikace v Pythonu, která v registru identit ve službě IoT Hub vytvoří identitu zařízení. Zařízení lze připojit ke službě IoT Hub, pouze pokud má záznam v registru zařízení. Další informace najdete v části **Registr identit** v [Příručce pro vývojáře pro službu IoT Hub][lnk-devguide-identity]. Tato konzolová aplikace po spuštění vygeneruje jedinečné ID zařízení a klíč, s jehož pomocí se zařízení může identifikovat při posílání zpráv typu zařízení-cloud do služby IoT Hub. 
 
 1. Otevřete příkazový řádek a nainstalujte **sadu SDK služby Azure IoT Hub pro Python**. Po dokončení instalace sady SDK zavřete příkazový řádek.
@@ -134,7 +140,8 @@ Tato část uvádí kroky k vytvoření konzolové aplikace v Pythonu, která v 
 > 
 
 
-## <a name="create-a-simulated-device-app"></a>Vytvoření aplikace simulovaného zařízení
+## Vytvoření aplikace simulovaného zařízení
+<a id="create-a-simulated-device-app" class="xliff"></a>
 V této části vytvoříte konzolovou aplikaci v Pythonu, která simuluje zařízení a odesílá zprávy typu zařízení-cloud do služby IoT Hub.
 
 1. Otevřete nový příkazový řádek a nainstalujte sadu SDK pro zařízení Azure IoT Hub pro Python následujícím způsobem. Po dokončení instalace zavřete příkazový řádek.
@@ -251,7 +258,8 @@ V této části vytvoříte konzolovou aplikaci v Pythonu, která simuluje zař�
 > 
 > 
 
-## <a name="receive-messages-from-your-simulated-device"></a>Příjem zpráv ze simulovaného zařízení
+## Příjem zpráv ze simulovaného zařízení
+<a id="receive-messages-from-your-simulated-device" class="xliff"></a>
 Pokud chcete přijímat telemetrické zprávy z vašeho zařízení, musíte použít koncový bod kompatibilní se službou [Event Hubs][lnk-event-hubs-overview] a vystavený službou IoT Hub, který čte zprávy typu zařízení-cloud. V kurzu [Začínáme se službou Event Hubs][lnk-eventhubs-tutorial] najdete informace o zpracování zpráv ze služby Event Hubs pro koncové body kompatibilní s centrem událostí služby IoT Hub. Služba Event Hubs zatím nepodporuje telemetrii v Pythonu, takže ke čtení zpráv typu zařízení-cloud ze služby IoT Hub můžete vytvořit konzolovou aplikaci založenou na službě Event Hubs buď v [Node.js](iot-hub-node-node-getstarted.md#D2C_node), nebo v prostředí [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp). V tomto kurzu se dozvíte, jak můžete číst tyto zprávy pomocí [nástroje IoT Hub Explorer][lnk-iot-hub-explorer].
 
 1. Otevřete příkazový řádek a nainstalujte nástroj IoT Hub Explorer. 
@@ -277,7 +285,8 @@ Pokud chcete přijímat telemetrické zprávy z vašeho zařízení, musíte pou
 
     ![Zprávy typu zařízení-cloud v Pythonu][2]
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 V tomto kurzu jste nakonfigurovali novou službu IoT Hub na webu Azure Portal a potom jste vytvořili identitu zařízení v registru identit ve službě IoT Hub. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby IoT Hub. S pomocí nástroje IoT Hub Explorer jste sledovali zprávy přijímané službou IoT Hub. 
 
 Pokud chcete podrobněji prozkoumat použití sady SDK pro Python pro službu Azure IoT Hub, přejděte do [tohoto úložiště GitHub][lnk-python-github]. Pokud si chcete projít možnosti zasílání zpráv v sadě SDK služby Azure IoT Hub pro Python, můžete si stáhnout a spustit ukázkový soubor [iothub_messaging_sample.py][lnk-messaging-sample]. Pro simulaci na straně zařízení pomocí sady SDK pro zařízení Azure IoT Hub pro Python si můžete stáhnout a spustit ukázkový soubor [iothub_client_sample.py][lnk-client-sample].
@@ -286,9 +295,10 @@ Chcete-li pokračovat v seznamování se službou IoT Hub a prozkoumat další s
 
 * [Připojení zařízení][lnk-connect-device]
 * [Začínáme se správou zařízení][lnk-device-management]
-* [Začínáme se službou Azure IoT Edge][lnk-gateway-SDK]
+* [Začínáme se službou Azure IoT Edge][lnk-iot-edge]
 
 Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial].
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-python-getstarted/createdevice.png
@@ -311,6 +321,7 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-python-devbox]: https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md
 
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
@@ -318,6 +329,6 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
