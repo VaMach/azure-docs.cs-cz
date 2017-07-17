@@ -1,5 +1,4 @@
 ---
-
 title: "Sestavy aktivit auditu na portálu Azure Active Directory | Dokumentace Microsoftu"
 description: "Seznámení se sestavami aktivit auditu na portálu Azure Active Directory"
 services: active-directory
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: cs-cz
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # Sestavy aktivit auditu na portálu Azure Active Directory
