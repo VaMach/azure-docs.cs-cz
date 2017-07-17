@@ -1,5 +1,4 @@
 ---
-
 title: "Jak používat balíček obsahu Azure Active Directory Power BI Content Pack | Dokumentace Microsoftu"
 description: "Naučte se používat balíček obsahu Azure Active Directory Power BI Content Pack."
 services: active-directory
@@ -11,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
 ms.contentlocale: cs-cz
 ms.lasthandoff: 06/22/2017
-
 
 ---
 # Jak používat balíček obsahu Azure Active Directory Power BI Content Pack
