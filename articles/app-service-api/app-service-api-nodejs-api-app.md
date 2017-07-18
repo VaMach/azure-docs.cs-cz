@@ -20,16 +20,13 @@ ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
 ms.contentlocale: cs-cz
 ms.lasthandoff: 06/28/2017
 
-
 ---
-# Sestavení rozhraní Node.js RESTful API a jeho nasazení do aplikace API v Azure
-<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Sestavení rozhraní Node.js RESTful API a jeho nasazení do aplikace API v Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 V rámci tohoto rychlého startu se dozvíte, jak vytvořit [expresní](http://expressjs.com/) rozhraní Node.js REST API z definice [Swaggeru](http://swagger.io/) a nasadit ho jako [aplikaci API](app-service-api-apps-why-best-platform.md) do Azure. Můžete vytvořit aplikaci pomocí nástrojů příkazového řádku, nakonfigurovat prostředky pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a nasadit aplikaci pomocí Gitu.  Po dokončení budete mít funkční ukázkové rozhraní REST API, které běží na Azure.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 * [Git](https://git-scm.com/)
 * [Node.js a NPM](https://nodejs.org/)
@@ -40,8 +37,7 @@ V rámci tohoto rychlého startu se dozvíte, jak vytvořit [expresní](http://e
 
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Příprava prostředí
-<a id="prepare-your-environment" class="xliff"></a>
+## <a name="prepare-your-environment"></a>Příprava prostředí
 
 1. V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázku do místního počítače.
 
@@ -62,8 +58,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
     npm install -g generator-swaggerize
     ```
 
-## Generování kódu Node.js
-<a id="generate-nodejs-code" class="xliff"></a> 
+## <a name="generate-nodejs-code"></a>Generování kódu Node.js 
 
 V této části kurzu modelujeme pracovní postup vývoje rozhraní API, při kterém nejprve vytvoříte metadata Swagger a pak pomocí nich automaticky vygenerujete (scaffold) serverový kód pro rozhraní API. 
 
@@ -85,8 +80,7 @@ Změňte adresář na *spouštěcí* složku a potom spusťte `yo swaggerize`. S
    ? Your email: frank@fabrikam.net
    ```
    
-## Přizpůsobení kódu projektu
-<a id="customize-the-project-code" class="xliff"></a>
+## <a name="customize-the-project-code"></a>Přizpůsobení kódu projektu
 
 1. Zkopírujte složku *lib* do složky *ContactList*, kterou vytvořil příkaz `yo swaggerize`, a potom změňte adresář na *ContactList*.
 
@@ -144,6 +138,9 @@ Změňte adresář na *spouštěcí* složku a potom spusťte `yo swaggerize`. S
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -168,8 +165,7 @@ Změňte adresář na *spouštěcí* složku a potom spusťte `yo swaggerize`. S
 
     Tento kód provede několik malých změn, aby bylo možné pracovat se službou Azure App Service, a publikuje interaktivní webové rozhraní pro vaše rozhraní API.
 
-### Místní otestování rozhraní API
-<a id="test-the-api-locally" class="xliff"></a>
+### <a name="test-the-api-locally"></a>Místní otestování rozhraní API
 
 1. Spusťte aplikaci Node.js.
     ```bash
@@ -233,8 +229,7 @@ V této části pomocí Azure CLI 2.0 vytvoříte prostředky, které budou host
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-## Nasazení rozhraní API pomocí Gitu
-<a id="deploy-the-api-with-git" class="xliff"></a>
+## <a name="deploy-the-api-with-git"></a>Nasazení rozhraní API pomocí Gitu
 
 Nasaďte kód do aplikace API vynuceným doručením (push) potvrzených změn z místního úložiště Git do služby Azure App Service.
 
@@ -261,8 +256,7 @@ Nasaďte kód do aplikace API vynuceným doručením (push) potvrzených změn z
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-## Otestování rozhraní API v Azure
-<a id="test-the-api--in-azure" class="xliff"></a>
+## <a name="test-the-api--in-azure"></a>Otestování rozhraní API v Azure
 
 1. V prohlížeči otevřete http://app_name.azurewebsites.net/contacts. Uvidíte, že se vrátil stejný JSON, jako když jste poslali žádost místně dříve v tomto kurzu.
 
@@ -290,8 +284,7 @@ Nasaďte kód do aplikace API vynuceným doručením (push) potvrzených změn z
 
     Teď můžete nasadit aktualizace ukázkového rozhraní API do Azure jednoduše tak, že vynuceně doručíte (push) potvrzené změny do úložiště Azure Git.
 
-## Vyčištění
-<a id="clean-up" class="xliff"></a>
+## <a name="clean-up"></a>Vyčištění
 
 Pokud chcete vyčistit prostředky vytvořené v rámci tohoto rychlého startu, spusťte následující příkaz rozhraní příkazového řádku Azure:
 
@@ -299,8 +292,7 @@ Pokud chcete vyčistit prostředky vytvořené v rámci tohoto rychlého startu,
 az group delete --name myResourceGroup
 ```
 
-## Další krok
-<a id="next-step" class="xliff"></a> 
+## <a name="next-step"></a>Další krok 
 > [!div class="nextstepaction"]
 > [Využití aplikace API z JavaScriptu pomocí CORS](app-service-api-cors-consume-javascript.md)
 
