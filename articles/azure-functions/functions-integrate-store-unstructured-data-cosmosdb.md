@@ -14,32 +14,29 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/08/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 785bd144805a472ae457f9a3323d512b5cbf055d
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-# Ukládání nestrukturovaných dat pomocí Azure Functions a databáze Cosmos DB
-<a id="store-unstructured-data-using-azure-functions-and-cosmos-db" class="xliff"></a>
+# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Ukládání nestrukturovaných dat pomocí Azure Functions a databáze Cosmos DB
 
 Databáze Azure Cosmos DB nabízí skvělou možnost pro ukládání nestrukturovaných dat a dat JSON. Spolu s Azure Functions urychluje a zjednodušuje ukládání dat – ve srovnání s ukládáním dat v relační databáze budete potřebovat méně kódování.
 
 V tomto kurzu se dozvíte, jak pomocí portálu Azure Portal vytvořit funkci Azure, která bude ukládat nestrukturovaná data do dokumentu databáze Cosmos DB. 
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## Vytvoření funkce
-<a id="create-a-function" class="xliff"></a>
+## <a name="create-a-function"></a>Vytvoření funkce
 
 Vytvořte nový obecný webhook jazyka C#, který pojmenujete `MyTaskList`.
 
@@ -48,8 +45,7 @@ Vytvořte nový obecný webhook jazyka C#, který pojmenujete `MyTaskList`.
 
 ![Přidejte novou aplikaci Function App pomocí obecného webhooku v jazyce C#.](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
-## Přidání výstupní vazby
-<a id="add-an-output-binding" class="xliff"></a>
+## <a name="add-an-output-binding"></a>Přidání výstupní vazby
 
 Funkce Azure může mít jednu aktivační událost a libovolný počet vstupních nebo výstupních vazeb. V tomto příkladu použijeme jako aktivační událost Požadavek HTTP a jako výstupní vazbu dokument databáze Cosmos DB.
 
@@ -90,8 +86,7 @@ Musíte také nakonfigurovat připojení k databázi Cosmos DB.
 1. Klikněte na tlačítko *OK*. Možná budete muset počkat několik minut, než Azure vytvoří potřebné prostředky.
 1. Klikněte na tlačítko *Uložit*.
 
-## Aktualizace kódu funkce
-<a id="update-the-function-code" class="xliff"></a>
+## <a name="update-the-function-code"></a>Aktualizace kódu funkce
 
 Kód šablony funkce nahraďte následujícím:
 
@@ -132,8 +127,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 
 Tento vzorový kód přečte řetězce dotazu na požadavek HTTP a přiřadí je jako členy objektu `taskDocument`. Objekt `taskDocument` automaticky uloží data do databáze Cosmos DB a databázi dokonce vytvoří při prvním použití.
 
-## Testování funkce a databáze
-<a id="test-the-function-and-database" class="xliff"></a>
+## <a name="test-the-function-and-database"></a>Testování funkce a databáze
 
 1. Na kartě funkce klikněte vpravo na portále na dokaz *Test* a zadejte následující řetězce dotazu na HTTP:
 
@@ -159,17 +153,13 @@ Zkontrolujte, jestli se do databáze Cosmos DB uložil záznam.
 
 Pokud se data nachází v dokumentu, podařilo se vám vytvořit funkci Azure, která ukládá nestrukturovaná data do databáze Cosmos DB.
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
-
-Další informace o službě Azure Functions najdete v těchto tématech:
-
-[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
+## <a name="next-steps"></a>Další kroky
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
+Další informace o vazbách na databázi Cosmos DB najdete v tématu [Vazby Cosmos DB ve službě Azure Functions](functions-bindings-documentdb.md).
 

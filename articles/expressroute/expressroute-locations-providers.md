@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/04/2017
 ms.author: kaanan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7fbdecd6fcaa784c5cdeebe46bf1991bfe730017
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 48c7a83515ec43f63fb7ff4e6b2d6b4edf93f7b4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="expressroute-partners-and-peering-locations" class="xliff"></a>
-
-# Partneři ExpressRoute a umístění partnerského vztahu
+# <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
 
 > [!div class="op_single_selector"]
 > * [Umístění podle poskytovatele](expressroute-locations.md)
@@ -39,9 +37,7 @@ Služba ExpressRoute je podporovaná ve všech umístěních a oblastech Azure. 
 
 Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopolitické oblasti, budete mít přístup ke službám Azure napříč všemi oblastmi v rámci geopolitické oblasti. 
 
-<a id="azure-regions-to-expressroute-locations-within-a-geopolitical-region" class="xliff"></a>
-
-### Mapování oblastí Azure na umístění ExpressRoute v rámci geopolitické oblasti
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Mapování oblastí Azure na umístění ExpressRoute v rámci geopolitické oblasti
 Následující tabulka obsahuje mapování oblastí Azure na umístění ExpressRoute v rámci geopolitické oblasti.
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
@@ -55,9 +51,7 @@ Následující tabulka obsahuje mapování oblastí Azure na umístění Express
 | **Indie** |Indie – západ, Indie – střed, Indie – jih |Čennaj, Bombaj |
 | **Jižní Korea** |Korea – střed, Korea – jih |Busan, Soul |
 
-<a id="regions-and-geopolitical-boundaries-for-national-clouds" class="xliff"></a>
-
-### Oblasti a geopolitické hranice pro národní cloudy
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Oblasti a geopolitické hranice pro národní cloudy
 Následující tabulka obsahuje informace o oblastech a geopolitických hranicích pro národní cloudy.
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
@@ -73,9 +67,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 Následující tabulka uvádí umístění připojení a poskytovatele služby pro každé umístění. Seznam poskytovatelů služeb a umístění, ve kterých působí, najdete v článku [Umístění podle poskytovatelů služeb](expressroute-locations.md#locations). 
 
 
-<a id="production-azure" class="xliff"></a>
-
-### Produkční prostředí Azure
+### <a name="production-azure"></a>Produkční prostředí Azure
 | **Umístění** | **Poskytovatelé služeb** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions – Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo Group |
@@ -96,7 +88,7 @@ Následující tabulka uvádí umístění připojení a poskytovatele služby p
 | **Bombaj** |Airtel+, Tata Communications |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Next Generation Data |
-| **Ósaka** |Equinix, Internet Initiative Japan Inc. – IIJ, NTT Communications, NTT SmartConnect+, Softbank |
+| **Ósaka** |Equinix, Internet Initiative Japan Inc. – IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paříž** |Colt, Interxion, Equinix, Orange+ |
 | **Québec** | Megaport |
 | **San Antonio** |Megaport |
@@ -112,13 +104,9 @@ Následující tabulka uvádí umístění připojení a poskytovatele služby p
 
  **+** označuje brzké uvedení.
 
-<a id="national-cloud-environments" class="xliff"></a>
+### <a name="national-cloud-environments"></a>Prostředí národních cloudů
 
-### Prostředí národních cloudů
-
-<a id="us-government-cloud" class="xliff"></a>
-
-### Cloud vlády USA
+### <a name="us-government-cloud"></a>Cloud vlády USA
 | **Umístění** | **Poskytovatelé služeb** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -128,9 +116,7 @@ Následující tabulka uvádí umístění připojení a poskytovatele služby p
 | **Seattle** | Equinix |
 | **Washington, D.C.** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-<a id="china" class="xliff"></a>
-
-### Čína
+### <a name="china"></a>Čína
 | **Umístění** | **Poskytovatelé služeb** |
 | --- | --- |
 | **Peking** |China Telecom |
@@ -138,9 +124,7 @@ Následující tabulka uvádí umístění připojení a poskytovatele služby p
 
 Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsazure.cn/home/features/expressroute/).
 
-<a id="germany" class="xliff"></a>
-
-### Německo
+### <a name="germany"></a>Německo
 | **Umístění** | **Poskytovatelé služeb** |
 | --- | --- |
 | **Berlín** |Colt+, e-shelter, Megaport+ |
@@ -167,7 +151,7 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 | **Umístění** | **Výměna** | **Poskytovatelé připojení** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet |
-| **Chicago** | Equinix | Windstream |
+| **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | Nianet, QSC AG |
 | **Hongkong** | Equinix | Macroview Telecom |
@@ -181,13 +165,11 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 | **Singapur** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **Slough** | Equinix | HSO|
 | **Sydney** | Megaport | Macquarie Telecom Group|
-| **Tokio** | Equinix | ARTERIA Networks Corporation |
+| **Tokio** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
 | **Toronto** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers, Thinktel, Zirro|
 | **Washington, D.C.** |Equinix | Altice Business, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
 
-<a id="expressroute-system-integrators" class="xliff"></a>
-
-## Systémoví integrátoři ExpressRoute
+## <a name="expressroute-system-integrators"></a>Systémoví integrátoři ExpressRoute
 Povolení soukromého připojení podle vlastních potřeb může být náročné, v závislosti na rozsahu vaší sítě. Můžete spolupracovat s kterýmkoli systémovým integrátorem uvedeným v následující tabulce, aby vám pomohl s připojením k ExpressRoute.
 
 | **Kontinent** | **Systémoví integrátoři** |
@@ -197,9 +179,7 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 | **Evropa** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **Severní Amerika** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Jižní Amerika** |Avanade Inc. |
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 * Zkontrolujte, že jsou splněné všechny požadavky. Viz [Požadavky služby ExpressRoute](expressroute-prerequisites.md).
 

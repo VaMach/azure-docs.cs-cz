@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
-ms.lasthandoff: 12/07/2016
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -28,7 +29,7 @@ Vaše stávající služba Mobile Service je v bezpečí a bude i nadále podpor
 * Jednodušší, snazší a nákladově efektivní nabídka pro aplikace, které obsahují jak webové, tak mobilní klienty
 * Nové hostitelské funkce včetně webových úloh, vlastní záznamy CNAME, lepší monitorování
 * Předpřipravená integrace s nástrojem Traffic Manager
-* Připojení k lokálním prostředkům a sítím VPN pomocí virtuální sítě a hybridních připojení
+* Možnosti připojení k místním prostředkům a sítím VPN pomocí virtuální sítě a Hybrid Connections
 * Monitorování, výstrahy a řešení potíží pro aplikace pomocí nástrojů NewRelic a AppInsights
 * Širší spektrum využívaných výpočetních prostředků a cenových úrovní
 * Integrované automatické škálování, vyrovnávání zatížení a monitorování výkonu
@@ -46,7 +47,7 @@ V *Azure App Service* běží back-end kód *mobilní aplikace* ve stejném kont
 * (Pro Node.js) Využití jakékoli knihovny čistého JavaScriptu ekosystému Node, včetně běžných knihoven MVC
 
 ## <a name="access-on-premises-data-using-vnet"></a>Přístup k lokálním datům přes virtuální síť
-Již dnes můžete pomocí Mobile Services používat hybridní připojení a připojovat se s nimi k lokálním prostředkům. Existují však situace, kdy je lepší použít řešení se sítí VPN. S *Azure App Services* můžete pro back-end mobilní aplikace použít Azure VNet.
+Již dnes můžete pomocí služby Mobile Services používat Hybrid Connections pro připojení k místním prostředkům. Existují však situace, kdy je lepší použít řešení se sítí VPN. S *Azure App Services* můžete pro back-end mobilní aplikace použít Azure VNet.
 
 ## <a name="use-your-favorite-backend-language"></a>Využití oblíbeného jazyka pro back-end
 Služba *Azure App Service* nabízí širší a bohatší podporu platforem ASP.NET a Node.js, včetně přístupu k nejnovějším modulům runtime.

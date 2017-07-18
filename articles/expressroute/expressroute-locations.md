@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/03/2017
 ms.author: kaanan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 6286e059da7df95303bca00b5910632302bd19b7
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 8fdf343f2d70dce4f9457277affcfd6e5dae3b78
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="expressroute-partners-and-peering-locations" class="xliff"></a>
-
-# Partneři ExpressRoute a umístění partnerského vztahu
+# <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
 
 > [!div class="op_single_selector"]
 > * [Umístění podle poskytovatele](expressroute-locations.md)
@@ -40,9 +38,7 @@ Služba ExpressRoute je podporovaná ve všech umístěních a oblastech Azure. 
 
 Pokud jste připojení k aspoň jednomu umístění ExpressRoute v rámci geopolitické oblasti, budete mít přístup ke službám Azure napříč všemi oblastmi v rámci geopolitické oblasti.
 
-<a id="azure-regions-to-expressroute-locations-within-a-geopolitical-region" class="xliff"></a>
-
-### Mapování oblastí Azure na umístění ExpressRoute v rámci geopolitické oblasti.
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Mapování oblastí Azure na umístění ExpressRoute v rámci geopolitické oblasti.
 Následující tabulka obsahuje mapování oblastí Azure na umístění ExpressRoute v rámci geopolitické oblasti.
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
@@ -56,9 +52,7 @@ Následující tabulka obsahuje mapování oblastí Azure na umístění Express
 | **Indie** |Indie – západ, Indie – střed, Indie – jih |Čennaj, Bombaj |
 | **Jižní Korea** |Korea – střed, Korea – jih |Busan, Soul |
 
-<a id="regions-and-geopolitical-boundaries-for-national-clouds" class="xliff"></a>
-
-### Oblasti a geopolitické hranice pro národní cloudy
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Oblasti a geopolitické hranice pro národní cloudy
 Následující tabulka obsahuje informace o oblastech a geopolitických hranicích pro národní cloudy.
 
 | **Geopolitická oblast** | **Oblasti Azure** | **Umístění ExpressRoute** |
@@ -74,9 +68,7 @@ Připojení přes geopolitické oblasti není pomocí standardní SKU pro Expres
 Následující tabulka uvádí umístění podle poskytovatele služby. Pokud chcete zobrazit dostupné poskytovatele podle umístění, přečtěte si téma [Poskytovatelé služeb podle umístění](expressroute-locations-providers.md#locations).
 
 
-<a id="production-azure" class="xliff"></a>
-
-### Produkční prostředí Azure
+### <a name="production-azure"></a>Produkční prostředí Azure
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365 a Dynamics 365** | **Umístění** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Podporuje se |Podporuje se |Melbourne, Sydney |
@@ -111,7 +103,7 @@ Následující tabulka uvádí umístění podle poskytovatele služby. Pokud ch
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Podporuje se |Podporuje se |Newport(Wales) |
 | **NEXTDC** |Podporuje se |Podporuje se |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Podporuje se |Podporuje se |Londýn, Los Angeles, Ósaka, Singapur, Tokio, Washington DC |
-| **NTT SmartConnect** |Připravuje se |Připravuje se |Ósaka |
+| **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Podporuje se |Podporuje se |Ósaka |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Podporuje se |Podporuje se |Amsterdam, Hongkong, Londýn, Paříž+, Silicon Valley, Singapur, Sydney, Washington DC |
 | **PCCW Global Limited** |Podporuje se |Podporuje se |Hongkong |
 | **Sejong Telecom** |Podporuje se |Podporuje se |Soul |
@@ -132,13 +124,9 @@ Následující tabulka uvádí umístění podle poskytovatele služby. Pokud ch
 
  **+** označuje brzké uvedení.
 
-<a id="national-cloud-environment" class="xliff"></a>
+### <a name="national-cloud-environment"></a>Prostředí národního cloudu
 
-### Prostředí národního cloudu
-
-<a id="us-government-cloud" class="xliff"></a>
-
-### Cloud vlády USA
+### <a name="us-government-cloud"></a>Cloud vlády USA
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365** | **Umístění** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Podporuje se |Podporuje se |Chicago, Washington DC |
@@ -147,18 +135,14 @@ Následující tabulka uvádí umístění podle poskytovatele služby. Pokud ch
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se | Podporuje se | Chicago, Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Podporuje se |Podporuje se |Chicago, Dallas, New York, Washington DC |
 
-<a id="china" class="xliff"></a>
-
-### Čína
+### <a name="china"></a>Čína
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365** | **Umístění** |
 | --- | --- | --- | --- |
 | **China Telecom** |Podporuje se |Nepodporuje se |Peking, Šanghaj |
 
 Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsazure.cn/home/features/expressroute/).
 
-<a id="germany" class="xliff"></a>
-
-### Německo
+### <a name="germany"></a>Německo
 | **Poskytovatel služeb** | **Microsoft Azure** | **Office 365** | **Umístění** |
 | --- | --- | --- | --- |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Podporuje se |Nepodporuje se |Berlín+, Frankfurt |
@@ -167,9 +151,7 @@ Další informace najdete v tématu [ExpressRoute v Číně](http://www.windowsa
 | **Interxion** |Podporuje se |Nepodporuje se |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Podporuje se  | Nepodporuje se | Berlín |
 
-<a id="connectivity-through-exchange-providers" class="xliff"></a>
-
-## Možnosti připojení prostřednictvím poskytovatelů Exchange
+## <a name="connectivity-through-exchange-providers"></a>Možnosti připojení prostřednictvím poskytovatelů Exchange
 
 Pokud poskytovatel připojení není v předchozích částech uvedený, můžete přesto vytvořit připojení.
 
@@ -187,9 +169,7 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 * Abyste se připojili k Microsoftu, objednejte si okruh ExpressRoute s výměnou jako poskytovatel připojení.
   * Při nastavení připojení postupujte podle kroků v tématu [Vytvoření okruhu ExpressRoute](expressroute-howto-circuit-classic.md).
 
-<a id="connectivity-through-additional-service-providers" class="xliff"></a>
-
-## Možnosti připojení prostřednictvím dalších poskytovatelů služeb
+## <a name="connectivity-through-additional-service-providers"></a>Možnosti připojení prostřednictvím dalších poskytovatelů služeb
 
 | **Poskytovatel připojení** | **Výměna** | **Umístění** |
 | --- | --- | --- |
@@ -199,6 +179,7 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokio |
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | Londýn |
+| **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokio |
 | **[C3ntro Telecom](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | Dallas |
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | Dallas, Silicon Valley, Washington DC | 
@@ -226,22 +207,18 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **Zain** |Equinix |Londýn|
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Equinix | Toronto, Montreal |
+| **[Zirro](https://zirro.com/services/)**| Equinix | Montreal, Toronto |
 
-<a id="connectivity-through-datacenter-providers" class="xliff"></a>
-
-## Možnosti připojení prostřednictvím poskytovatelů datacenter
+## <a name="connectivity-through-datacenter-providers"></a>Možnosti připojení prostřednictvím poskytovatelů datacenter
 | **Poskytovatel** | **Výměna** |
 | --- | --- |
-| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport |
+| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport |
 | **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
 | **[Datová centra RagingWire](http://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | Konzola |
 | **[Datacentra T5](http://t5datacenters.com/network-cloud-connect/)** | Konzola |
 
-<a id="connectivity-through-national-research-and-education-networks-nren" class="xliff"></a>
-
-## Možnosti připojení prostřednictvím sítí národního výzkumu a vzdělávání (NREN)
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Možnosti připojení prostřednictvím sítí národního výzkumu a vzdělávání (NREN)
 
 | **Poskytovatel**|
 | --- |
@@ -257,9 +234,7 @@ Pokud poskytovatel připojení není v předchozích částech uvedený, můžet
 
 * Pokud zde není uveden váš poskytovatel připojení, zkontrolujte, jestli není připojen k některému z partnerů ExpressRoute uvedených výše.
 
-<a id="expressroute-system-integrators" class="xliff"></a>
-
-## Systémoví integrátoři ExpressRoute
+## <a name="expressroute-system-integrators"></a>Systémoví integrátoři ExpressRoute
 Povolení soukromého připojení podle vlastních potřeb může být náročné, v závislosti na rozsahu vaší sítě. Můžete spolupracovat s kterýmkoli systémovým integrátorem uvedeným v následující tabulce, aby vám pomohl s připojením k ExpressRoute.
 
 | **Systémový integrátor** | **Kontinent** |
@@ -284,9 +259,7 @@ Povolení soukromého připojení podle vlastních potřeb může být náročn�
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrálie |
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 * Zkontrolujte, že jsou splněné všechny požadavky. Viz [Požadavky služby ExpressRoute](expressroute-prerequisites.md).
 

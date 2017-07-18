@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření indexu Azure Search pomocí sady .NET SDK | Dokumentace Microsoftu"
+title: "Vytvoření indexu (.NET API – Azure Search) | Dokumentace Microsoftu"
 description: "Vytvořte index v kódu pomocí sady Azure Search .NET SDK."
 services: search
 documentationcenter: 
@@ -15,17 +15,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0531b5c3b63a3fa54bb331f3d8d09c8119e789ea
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2f2160f9b4383f9220c81a7233612a767e296109
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-<a id="create-an-azure-search-index-using-the-net-sdk" class="xliff"></a>
-
-# Vytvoření indexu Azure Search pomocí sady .NET SDK
+# <a name="create-an-azure-search-index-using-the-net-sdk"></a>Vytvoření indexu Azure Search pomocí sady .NET SDK
 > [!div class="op_single_selector"]
 > * [Přehled](search-what-is-an-index.md)
 > * [Azure Portal](search-create-index-portal.md)
@@ -43,9 +40,7 @@ Předtím, než podle těchto pokynů vytvoříte index, byste už měli mít [v
 >
 >
 
-<a id="identify-your-azure-search-services-admin-api-key" class="xliff"></a>
-
-## Identifikace klíče rozhraní API správce služby Azure Search
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identifikace klíče rozhraní API správce služby Azure Search
 Teď, když máte zřízenou službu Azure Search, jste skoro připraveni vydávat žádosti na koncový bod služby pomocí sady .NET SDK. Nejprve budete muset získat jeden z klíčů správce (api-key) vytvořených pro vyhledávací službu, kterou jste zřídili. .NET SDK bude tento klíč api-key odesílat v každém požadavku na vaši službu. Platný klíč vytváří na základě žádosti vztah důvěryhodnosti mezi aplikací, která žádost odeslala, a službou, která ji zpracovává.
 
 1. Pokud chcete najít klíče api-key svojí služby, přihlaste se k webu [Azure Portal](https://portal.azure.com/).
@@ -61,9 +56,7 @@ Pro účely vytvoření indexu můžete použít primární nebo sekundární kl
 
 <a name="CreateSearchServiceClient"></a>
 
-<a id="create-an-instance-of-the-searchserviceclient-class" class="xliff"></a>
-
-## Vytvoření instance třídy SearchServiceClient
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Vytvoření instance třídy SearchServiceClient
 Chcete-li začít používat sadu Azure Search .NET SDK, budete muset vytvořit instanci třídy `SearchServiceClient`. Tato třída obsahuje několik konstruktorů. Ten, který chcete, přijímá jako parametry název vaší vyhledávací služby a objekt `SearchCredentials`. `SearchCredentials` zabalí váš klíč api-key.
 
 Následující kód vytvoří novou instanci `SearchServiceClient` pomocí hodnot pro název vyhledávací služby a klíč api-key, které jsou uložené v konfiguračním souboru aplikace (v případě [ukázkové aplikace](http://aka.ms/search-dotnet-howto) `appsettings.json`):
@@ -88,9 +81,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 <a name="DefineIndex"></a>
 
-<a id="define-your-azure-search-index" class="xliff"></a>
-
-## Definování indexu Azure Search
+## <a name="define-your-azure-search-index"></a>Definování indexu Azure Search
 Jediné volání metody `Indexes.Create` vytvoří váš index. Tato metoda přebírá jako parametr objekt `Index`, který definuje index Azure Search. Je nutné vytvořit objekt `Index` a provést jeho inicializaci následujícím způsobem:
 
 1. Nastavte vlastnost `Name` objektu `Index` na název indexu.
@@ -180,9 +171,7 @@ var definition = new Index()
 };
 ```
 
-<a id="create-the-index" class="xliff"></a>
-
-## Vytvoření indexu
+## <a name="create-the-index"></a>Vytvoření indexu
 Nyní, když jste inicializovali objekt `Index`, můžete vytvořit index jednoduchým voláním metody `Indexes.Create` pro objekt `SearchServiceClient`:
 
 ```csharp
@@ -202,9 +191,7 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Po vytvoření indexu Azure Search budete připravení [nahrát do indexu obsah](search-what-is-data-import.md), abyste mohli začít prohledávat data.
 
 

@@ -1,216 +1,104 @@
 ---
-title: "Připojení ke službě Azure SQL Database pomocí jazyka PHP | Dokumentace Microsoftu"
-description: "Obsahuje ukázku kódu PHP, který můžete použít k připojení a dotazování Azure SQL Database."
+title: "Použití PHP k dotazování služby Azure SQL Database | Dokumentace Microsoftu"
+description: "Toto téma vám ukáže, jak pomocí PHP vytvořit program, který se připojí ke službě Azure SQL Database a bude ji dotazovat s použitím příkazů jazyka Transact-SQL."
 services: sql-database
 documentationcenter: 
-author: meet-bhagdev
+author: CarlRabeler
 manager: jhubbard
 editor: 
-ms.assetid: 4e71db4a-a22f-4f1c-83e5-4a34a036ecf3
+ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: hero-article
-ms.date: 05/24/2017
-ms.author: meetb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 5b90c9b49448c6bc225f9d6ba7227782b81fc5ed
+ms.date: 07/10/2017
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 01418c00f94edcb810b23e828273a7e749925177
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# Azure SQL Database: Použití jazyka PHP k připojení a dotazování dat
-<a id="azure-sql-database-use-php-to-connect-and-query-data" class="xliff"></a>
+# <a name="use-php-to-query-an-azure-sql-database"></a>Použití PHP k dotazování databáze SQL Azure
 
-Tento Rychlý start ukazuje použití jazyka [PHP](http://php.net/manual/en/intro-whatis.php) pro připojení k databázi SQL Azure a následné použití příkazů jazyka Transact-SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem Mac OS, Ubuntu Linux a Windows.
+Tento rychlý úvodní kurz ukazuje použití [PHP](http://php.net/manual/en/intro-whatis.php) k vytvoření programu pro připojení k databázi SQL Azure a použití příkazů jazyka Transact-SQL k dotazování dat.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
-Tento rychlý start používá jako výchozí bod prostředky vytvořené v některém z těchto rychlých startů:
+Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte následující:
 
-- [Vytvoření databáze – portál](sql-database-get-started-portal.md)
-- [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
-- [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
+- Databázi SQL Azure. Tento rychlý start používá prostředky vytvořené v některém z těchto rychlých startů: 
 
-## Instalace jazyka PHP a databázového komunikačního softwaru
-<a id="install-php-and-database-communications-software" class="xliff"></a>
+   - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
+   - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
+   - [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
 
-Kroky v této části předpokládají, že máte zkušenosti s vývojem pomocí jazyka PHP a teprve začínáte pracovat se službou Azure SQL Database. Pokud s vývojem pomocí jazyka PHP začínáte, přejděte na web [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Sestavení aplikace s použitím SQL Serveru), vyberte **PHP** a pak váš operační systém.
+- [Pravidlo brány firewall na úrovni serveru](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pro veřejnou IP adresu počítače, který používáte pro tento rychlý úvodní kurz.
 
-### **Mac OS**
-<a id="mac-os" class="xliff"></a>
-Otevřete terminál a zadejte následující příkazy, abyste nainstalovali **brew**, **ovladač Microsoft ODBC pro Mac** a **ovladače Microsoft PHP pro SQL Server**. 
+- Máte nainstalovaný jazyk PHP a související software pro váš operační systém.
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
-brew update
-brew install msodbcsql 
-#for silent install ACCEPT_EULA=y brew install msodbcsql 
-pecl install sqlsrv-4.1.7preview
-pecl install pdo_sqlsrv-4.1.7preview
-```
+    - **MacOS:** Nainstalujte Homebrew a PHP, nainstalujte ovladač ODBC a nástroj SQLCMD a potom nainstalujte ovladač PHP pro SQL Server. Viz [kroky 1.2, 1.3 a 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu:** Nainstalujte PHP a další požadované balíčky a potom nainstalujte ovladač PHP pro SQL Server. Viz [kroky 1.2 a 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+    - **Windows:** Nainstalujte nejnovější verzi PHP pro službu IIS Express, nejnovější verzi ovladačů Microsoft pro SQL Server ve službě IIS Express, Chocolatey, ovladač ODBC a nástroj SQLCMD. Viz [kroky 1.2 a 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).    
 
-### **Linux (Ubuntu)**
-<a id="linux-ubuntu" class="xliff"></a>
-Zadejte následující příkazy, abyste nainstalovali **ovladač Microsoft ODBC pro Linux** a **ovladače Microsoft PHP pro SQL Server**.
-
-```bash
-sudo su
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
-exit
-sudo apt-get update
-sudo apt-get install msodbcsql mssql-tools unixodbc-dev gcc g++ php-dev
-sudo pecl install sqlsrv pdo_sqlsrv
-sudo echo "extension= pdo_sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-```
-
-### **Windows**
-<a id="windows" class="xliff"></a>
-- Instalace jazyka PHP 7.1.1 (x64) [z instalačního programu webové platformy](https://www.microsoft.com/web/downloads/platform.aspx?lang=) 
-- Nainstalujte [ovladač Microsoft ODBC 13.1](https://www.microsoft.com/download/details.aspx?id=53339). 
-- Stáhněte bezpečné knihovny DLL bez vlákna pro [ovladač Microsoft PHP pro SQL Server](https://pecl.php.net/package/sqlsrv/4.1.6.1/windows) a umístěte binární soubory do složky PHP\v7.x\ext.
-- Potom upravte soubor php.ini (C:\Program Files\PHP\v7.1\php.ini) tak, že přidáte odkaz na knihovnu DLL. Například:
-      
-      extension=php_sqlsrv.dll
-      extension=php_pdo_sqlsrv.dll
-
-V tuto chvíli byste měli mít knihovny DLL zaregistrované u PHP.
-
-## Získání informací o připojení
-<a id="get-connection-information" class="xliff"></a>
+## <a name="sql-server-connection-information"></a>Informace o připojení k SQL serveru
 
 Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na obrázku níže. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.  
+3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.  
 
    ![název-serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Pokud zapomenete přihlašovací informace pro server, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby resetovali heslo.     
     
-## Výběr dat
-<a id="select-data" class="xliff"></a>
-Použijte následující kód k zadání dotazu na nejlepších 20 produktů podle kategorie pomocí funkce [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) s využitím příkazu [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) jazyka Transact-SQL. Funkce sqlsrv_query slouží k načítání sady výsledků dotazu z databáze SQL. Tato funkce přijme dotaz a vrátí sadu výsledků, u které můžete provést iteraci pomocí funkce [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Parametry serveru, databáze, uživatelského jména a hesla nahraďte hodnotami, které jste zadali při vytváření databáze pomocí ukázkových dat AdventureWorksLT. 
+## <a name="insert-code-to-query-sql-database"></a>Vložení kódu pro dotazování databáze SQL
 
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-     FROM [SalesLT].[ProductCategory] pc
-     JOIN [SalesLT].[Product] p
-     ON pc.productcategoryid = p.productcategoryid";
-$getResults= sqlsrv_query($conn, $tsql);
-echo ("Reading data from table" . PHP_EOL);
-if ($getResults == FALSE)
-    echo (sqlsrv_errors());
-while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+1. V oblíbeném textovém editoru vytvořte nový soubor **sqltest.php**.  
+
+2. Nahraďte jeho obsah následujícím kódem a přidejte odpovídající hodnoty pro váš server, databázi, uživatele a heslo.
+
+   ```PHP
+   <?php
+   $serverName = "your_server.database.windows.net";
+   $connectionOptions = array(
+       "Database" => "your_database",
+       "Uid" => "your_username",
+       "PWD" => "your_password"
+   );
+   //Establishes the connection
+   $conn = sqlsrv_connect($serverName, $connectionOptions);
+   $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+           FROM [SalesLT].[ProductCategory] pc
+           JOIN [SalesLT].[Product] p
+        ON pc.productcategoryid = p.productcategoryid";
+   $getResults= sqlsrv_query($conn, $tsql);
+   echo ("Reading data from table" . PHP_EOL);
+   if ($getResults == FALSE)
+       echo (sqlsrv_errors());
+   while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-}
-sqlsrv_free_stmt($getResults);
-?>
-```
+   }
+   sqlsrv_free_stmt($getResults);
+   ?>
+   ```
 
+## <a name="run-the-code"></a>Spuštění kódu
 
-## Vložení dat
-<a id="insert-data" class="xliff"></a>
-Použijte následující kód k vložení nového produktu do tabulky SalesLT.Product pomocí funkce [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) a příkazu jazyka Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Parametry serveru, databáze, uživatelského jména a hesla nahraďte hodnotami, které jste zadali při vytváření databáze pomocí ukázkových dat AdventureWorksLT. 
+1. V příkazovém řádku spusťte následující příkazy:
 
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
-$params = array("BrandNewProduct", "200989", "Blue", 75, 80, "7/1/2016");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) inserted" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-?>
-```
+   ```php
+   php sqltest.php
+   ```
 
-## Aktualizace dat
-<a id="update-data" class="xliff"></a>
-Použijte následující kód k aktualizaci dat v databázi Azure SQL pomocí funkce [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) a příkazu jazyka Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Parametry serveru, databáze, uživatelského jména a hesla nahraďte hodnotami, které jste zadali při vytváření databáze pomocí ukázkových dat AdventureWorksLT.
+2. Ověřte, že se vrátilo prvních 20 řádků, a potom zavřete okno aplikace.
 
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "UPDATE SalesLT.Product SET ListPrice =? WHERE Name = ?";
-$params = array(50,"BrandNewProduct");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) updated" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-?>
-```
-
-## Odstranění dat
-<a id="delete-data" class="xliff"></a>
-Použijte následující kód k odstranění nového produktu, který jste přidali dříve, pomocí funkce [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) a příkazu jazyka Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Parametry serveru, databáze, uživatelského jména a hesla nahraďte hodnotami, které jste zadali při vytváření databáze pomocí ukázkových dat AdventureWorksLT.
-
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "DELETE FROM SalesLT.Product WHERE Name = ?";
-$params = array("BrandNewProduct");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) deleted" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-```
-
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 - [Návrh první databáze SQL Azure](sql-database-design-first-database.md)
 - [Ovladače Microsoft PHP pro SQL Server](https://github.com/Microsoft/msphpsql/)
-- [Hlášení problémů / kladení dotazů](https://github.com/Microsoft/msphpsql/issues)
-
+- [Hlášení problémů nebo kladení dotazů](https://github.com/Microsoft/msphpsql/issues)
 

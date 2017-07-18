@@ -1,6 +1,4 @@
-<a id="number-of-fault-domains-per-region" class="xliff"></a>
-
-### Počet domén selhání podle oblastí
+### <a name="number-of-fault-domains-per-region"></a>Počet domén selhání podle oblastí
 
 | Oblast              | Maximální počet domén selhání  |
 |---------------------|-------------------------|
@@ -20,12 +18,15 @@
 | Spojené království – jih            | 2                       |
 | Spojené království – západ             | 2                       |
 |                     |                         |
-| Východní Asie           | 3                       |
+| Východní Asie           | 2                       |
 | Jihovýchodní Asie     | 2                       |
 | Japonsko – východ          | 2                       |
 | Japonsko – západ          | 2                       |
 | Indie – jih         | 2                       |
 | Střed Indie       | 2                       |
+| Indie – západ          | 2                       |
+| Korea – střed       | 2                       |
+| Korea – jih         | 2                       |
 |                     |                         |
 | Austrálie – východ      | 2                       |
 | Austrálie – jihovýchod | 2                       |

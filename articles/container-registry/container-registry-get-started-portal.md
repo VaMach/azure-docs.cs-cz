@@ -17,19 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e74c5428f0e31d9d3cf06b85aa8cefde868e9d67
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/12/2017
 
 ---
 
 # <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Vytvoření soukromého registru kontejnerů Dockeru pomocí webu Azure Portal
-Pomocí webu Azure Portal můžete vytvořit registr kontejnerů a spravovat jeho nastavení. Vytvořit a spravovat registry kontejnerů můžete také pomocí [příkazů Azure CLI 2.0 ](container-registry-get-started-azure-cli.md) nebo programově pomocí rozhraní [REST API služby Container Registry](https://go.microsoft.com/fwlink/p/?linkid=834376).
+Pomocí webu Azure Portal můžete vytvořit registr kontejnerů a spravovat jeho nastavení. Vytvořit a spravovat registry kontejnerů můžete také pomocí [příkazů Azure CLI 2.0](container-registry-get-started-azure-cli.md), [Azure PowerShellu](container-registry-get-started-powershell.md) nebo programově pomocí rozhraní [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) služby Container Registry.
 
 Související informace a koncepty najdete v tématu [s přehledem](container-registry-intro.md).
-
-
 
 ## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
 1. Na webu [Azure Portal](https://portal.azure.com) klikněte na **+ Nový**.

@@ -1,5 +1,5 @@
 ---
-title: "Živé streamování pomocí místních kodérů na portálu Azure Portal | Dokumentace Microsoftu"
+title: "Živé streamování pomocí místních kodérů na webu Azure Portal | Dokumentace Microsoftu"
 description: "Tento kurz vás provede kroky pro vytvoření Kanálu, který je nakonfigurován pro průchozí doručování."
 services: media-services
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/10/2017
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Jak provést živé streamování pomocí místních kodérů na portálu Azure
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Provádění živého streamování pomocí místních kodérů na webu Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -41,9 +43,9 @@ Důrazně doporučujeme přečtení následujících článků:
 
 * [Podpora RTMP ve službě Azure Media Services a kodéry služby Live Encoding](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Přehled živého streamování pomocí služby Azure Media Services](media-services-manage-channels-overview.md)
-* [Živé streamování s místními kodéry, které vytvářejí datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md)
+* [Živé streamování pomocí místních kodérů, které vytvářejí datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"> </a>Běžný scénář živého streamování
+## <a id="scenario"> </a>Běžný scénář živého streamování
 Následující kroky popisují úlohy, které jsou běžně součástí procesu vytváření aplikací pro živé streamování, které používají kanály, nakonfigurované pro průchozí doručování. Tento kurz ukazuje, jak vytvořit a spravovat průchozí kanál a živé události.
 
 >[!NOTE]
@@ -69,7 +71,7 @@ Následující kroky popisují úlohy, které jsou běžně součástí procesu 
 9. Odstraňte událost nebo program (volitelně můžete odstranit i asset).     
 
 > [!IMPORTANT]
-> Zkontrolujte [Živé streamování s místními kodéry, které vytváří datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md) Další informace o konceptech a důležité informace, týkající se živého streamování s místními kodéry a průchozími kanály.
+> Informace o konceptech a důležité informace, týkající se živého streamování pomocí místních kodérů a průchozích kanálů, najdete v tématu [Živé streamování pomocí místních kodérů, které vytvářejí datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md).
 > 
 > 
 
@@ -100,7 +102,7 @@ Pokud chcete archivovaný obsah zachovat, ale nechcete ho zpřístupňovat pro s
 ### <a name="to-use-the-portal-to-create-a-channel"></a>Použití portálu k vytvoření kanálu
 Tento oddíl ukazuje, jak vytvořit průchozí kanál pomocí možnosti **Rychle vytvořit**.
 
-Další podrobnosti o průchozích kanálech v [Živé streamování s místními kodéry, které vytvářejí proudy s více přenosovými rychlostmi.](media-services-live-streaming-with-onprem-encoders.md).
+Další podrobnosti o průchozích kanálech najdete v tématu [Živé streamování pomocí místních kodérů, které vytvářejí datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Na webu [Azure Portal](https://portal.azure.com/) zvolte účet Azure Media Services.
 2. V okně **Nastavení** klikněte na **Živé streamování**. 
@@ -134,7 +136,7 @@ Pokud chcete sledovat událost, klikněte na tlačítko **Sledovat** na webu Azu
 Při zastavení se živá událost automaticky převede na obsah na vyžádání.
 
 ## <a name="clean-up"></a>Vyčištění
-Další podrobnosti o průchozích kanálech v [Živé streamování s místními kodéry, které vytvářejí proudy s více přenosovými rychlostmi.](media-services-live-streaming-with-onprem-encoders.md).
+Další podrobnosti o průchozích kanálech najdete v tématu [Živé streamování pomocí místních kodérů, které vytvářejí datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md).
 
 * Kanál se dá zastavit jenom v případě, že byly zastaveny všechny jeho události nebo programy.  Zastavený kanál zastaví narůstání poplatků. Když bude potřeba kanál znovu spustit, bude mít stejnou ingestovanou adresu URL, takže nebude nutné kodér znovu konfigurovat.
 * Kanál se dá odstranit jenom v případě, že byly odstraněny všechny jeho živé události.
@@ -153,10 +155,5 @@ Prohlédněte si mapy kurzů k Media Services.
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

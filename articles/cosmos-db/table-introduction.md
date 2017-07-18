@@ -15,15 +15,14 @@ ms.topic: get-started-article
 ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# Úvod do Azure Cosmos DB: API tabulka
-<a id="introduction-to-azure-cosmos-db-table-api" class="xliff"></a>
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Úvod do Azure Cosmos DB: API tabulka
 
 [Azure Cosmos DB](introduction.md) je databázová služba Microsoftu s více modely pro klíčové aplikace použitelná v celosvětovém měřítku. Azure Cosmos DB poskytuje [globální distribuci na klíč](distribute-data-globally.md), [elastické škálování propustnosti a úložiště](partition-data.md) po celém světě, latence v řádu milisekund na 99. percentilu, [pět jasně definovaných úrovní konzistence](consistency-levels.md) a zaručenou vysokou dostupnost. To vše je podloženo [nejlepšími smlouvami SLA v oboru](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automaticky indexuje data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), aniž by vyžadovala zapojení správy schémat a indexů. Zahrnuje více modelů a podporuje modely dokumentů, klíčových hodnot, grafů a sloupcových dat. 
 
@@ -33,8 +32,7 @@ Azure Cosmos DB poskytuje rozhraní Table API (náhled) pro aplikace, které pot
 
 Azure Table Storage můžete dále používat pro tabulky s vysokými požadavky na úložiště a nižšími nároky na propustnost. Azure Cosmos DB představí podporu tabulek s optimalizovaným úložištěm v některé z budoucích aktualizací a stávající a nové účty Azure Table Storage se upgradují na Azure Cosmos DB.
 
-## Rozhraní API tabulky Premium a Standard
-<a id="premium-and-standard-table-apis" class="xliff"></a>
+## <a name="premium-and-standard-table-apis"></a>Rozhraní API tabulky Premium a Standard
 Pokud aktuálně používáte Azure Table Storage, získáte přechodem na „tabulky Premium“ Azure Cosmos DB následující výhody:
 
 |  | Azure Table Storage | Azure Cosmos DB: Table Storage (Preview) |
@@ -44,17 +42,15 @@ Pokud aktuálně používáte Azure Table Storage, získáte přechodem na „ta
 | Globální distribuce | Jedna oblast s jednou volitelnou čitelnou sekundární oblastí čtení pro vysokou dostupnost Nemůžete zahájit převzetí služeb při selhání. | [Globální distribuce na klíč](distribute-data-globally.md) od jedné po 30 a více oblastí, podpora pro [automatické a ruční převzetí služeb při selhání](regional-failover.md) kdykoli a kdekoli v celém světě |
 | Indexování | PartitionKey a RowKey používají pouze primární index. Žádné sekundární indexy | Automatické a úplné indexování u všech vlastností, žádná správa indexů |
 | Dotaz | Při provádění dotazu se používá index pro primární klíč, jinak dochází k prohledávání. | Dotazy mohou ke zrychlení použít výhod automatického indexování vlastností. Modul databáze Azure Cosmos DB je schopný zajistit podporu agregací, geoprostorového indexování a řazení. |
-| Konzistence | Silná v rámci primární oblasti, případně v sekundární oblasti | [pět jasně definovaných úrovní konzistence](consistency-levels.md) pro využití dostupnosti, latence, propustnosti a konzistence na základě potřeb vašich aplikací |
+| Konzistence | Silná v rámci primární oblasti, případně v sekundární oblasti | [Pět jasně definovaných úrovní konzistence](consistency-levels.md) pro využití dostupnosti, latence, propustnosti a konzistence na základě potřeb vašich aplikací |
 | Ceny | Optimalizované úložiště  | Optimalizovaná propustnost |
 | Smlouvy SLA | Dostupnost 99,9 % | 99,99% dostupnost v rámci jedné oblasti a možnost přidávat pro vyšší dostupnost další oblasti [Nejlepší komplexní smlouvy SLA v oboru](https://azure.microsoft.com/support/legal/sla/cosmos-db/) týkající se obecné dostupnosti |
 
-## Jak začít
-<a id="how-to-get-started" class="xliff"></a>
+## <a name="how-to-get-started"></a>Jak začít
 
 Vytvořte si na portálu [Azure Portal](https://portal.azure.com) účet Azure Cosmos DB a začněte ho používat pomocí [Rychlého startu pro rozhraní API tabulky pomocí rozhraní .NET](create-table-dotnet.md). 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Tady jsou odkazy na informace, které vám pomůžou začít:
 * Začněte s [rozhraním API tabulek Azure Cosmos DB](create-table-dotnet.md) pomocí stávající .NET Table SDK.
