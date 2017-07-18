@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: cs-cz
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 07/10/2017
 
 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/24/2017
 > 
 > 
 
-V tomto kurzu se dozvíte, jak pomocí nástroje [Data Platform Studio od společnosti Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) přesunout data z lokálního SQL Serveru do Azure SQL Data Warehouse. Data Platform Studio použije nejvhodnější opravy pro kompatibilitu a další optimalizace, takže je to nejrychlejší způsob, jak začít pracovat se službou SQL Data Warehouse.
+V tomto kurzu se dozvíte, jak pomocí nástroje [Data Platform Studio od společnosti Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) přesunout data z místního SQL Serveru do služby Azure SQL Data Warehouse. Data Platform Studio použije nejvhodnější opravy pro kompatibilitu a další optimalizace, takže je to nejrychlejší způsob, jak začít pracovat se službou SQL Data Warehouse.
 
 > [!NOTE]
 > [Redgate](http://www.red-gate.com) je dlouhodobý partner Microsoftu, který poskytuje různé nástroje pro SQL Server. Tato funkce byla v nástroji Data Platform Studio zpřístupněna bezplatně pro komerční i nekomerční použití.
@@ -44,9 +44,9 @@ V tomto kurzu se dozvíte, jak pomocí nástroje [Data Platform Studio od spole�
 ### <a name="create-or-identify-resources"></a>Vytvoření nebo určení prostředků
 Před zahájením tohoto kurzu musíte mít tyto prostředky:
 
-* **Lokální databáze SQL Serveru:** Data, která chcete importovat do SQL Data Warehouse, musí pocházet z lokálního SQL Serveru (verze 2008 R2 nebo vyšší). Data Platform Studio nemůže importovat data přímo z Azure SQL Database nebo z textových souborů.
+* **Místní databáze SQL Serveru:** Data, která chcete importovat do služby SQL Data Warehouse, musí pocházet z místního SQL Serveru (verze 2008 R2 nebo vyšší). Data Platform Studio nemůže importovat data přímo z Azure SQL Database nebo z textových souborů.
 * **Účet Azure Storage:** Data Platform Studio připraví data v Azure Blob Storage před jejich načtením do SQL Data Warehouse. Účet úložiště musí používat model nasazení typu Správce prostředků (výchozí), ne model nasazení Classic. Pokud účet úložiště ještě nemáte, podívejte se, jak si ho vytvořit. 
-* **SQL Data Warehouse:** V tomto kurzu se provádí přesun dat z lokálního SQL Serveru SQL do SQL Data Warehouse, takže musíte mít online datový sklad. Pokud ještě datový sklad nemáte, přečtěte si, jak si vytvořit Azure SQL Data Warehouse.
+* **SQL Data Warehouse:** V tomto kurzu se provádí přesun dat z místního SQL Serveru do služby SQL Data Warehouse, takže musíte mít online datový sklad. Pokud ještě datový sklad nemáte, přečtěte si, jak si vytvořit Azure SQL Data Warehouse.
 
 > [!NOTE]
 > Pokud jsou účet úložiště a datový sklad vytvořeny ve stejné oblasti, zlepší se tím výkon.
@@ -67,7 +67,7 @@ Z hlavní obrazovky DPS vyberte odkaz pro import do Azure SQL Data Warehouse –
 ![][1]
 
 ## <a name="step-3-install-the-data-platform-studio-gateway"></a>Krok 3: Instalace brány pro Data Platform Studio
-Pro připojení k lokální databázi SQL Serveru musíte nainstalovat bránu DPS. Brána je klientský agent, který poskytuje přístup k lokálnímu prostředí, extrahuje data a nahrává je na váš účet úložiště. Vaše data nikdy neprocházejí přes servery společnosti Redgate. Instalace brány:
+Pro připojení k místní databázi SQL Serveru musíte nainstalovat bránu DPS. Brána je klientský agent, který poskytuje přístup k místnímu prostředí, extrahuje data a nahrává je na váš účet úložiště. Vaše data nikdy neprocházejí přes servery společnosti Redgate. Instalace brány:
 
 1. Klikněte na odkaz **Vytvořit bránu**.
 2. Stáhněte a nainstalujte si bránu pomocí poskytnutého instalačního programu.
@@ -113,7 +113,7 @@ DPS si ověří, že chcete data importovat. Jednoduše klikněte na tlačítko 
 
 ![][6]
 
-DPS zobrazuje vizualizaci průběhu extrahování a nahrávání dat z lokálního serveru SQL Server a importu do SQL Data Warehouse.
+DPS zobrazuje vizualizaci průběhu extrahování a nahrávání dat z místního SQL Serveru a importu do služby SQL Data Warehouse.
 
 ![][7]
 

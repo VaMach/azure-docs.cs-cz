@@ -16,30 +16,27 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-# Vytvoření funkce aktivované webhookem GitHubu
-<a id="create-a-function-triggered-by-a-github-webhook" class="xliff"></a>
+# <a name="create-a-function-triggered-by-a-github-webhook"></a>Vytvoření funkce aktivované webhookem GitHubu
 
 Naučte se vytvořit funkci, která se aktivuje požadavkem webhooku HTTP s datovou částí specifickou pro GitHub.
 
 ![Funkce aktivovaná webhookem GitHubu na webu Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 + Účet GitHubu s alespoň jedním projektem.
 + Předplatné Azure. Pokud ho nemáte, než začnete, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## Vytvoření aplikace Azure Function App
-<a id="create-an-azure-function-app" class="xliff"></a>
+## <a name="create-an-azure-function-app"></a>Vytvoření aplikace Azure Function App
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -49,8 +46,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 <a name="create-function"></a>
 
-## Vytvoření funkce aktivované webhookem GitHubu
-<a id="create-a-github-webhook-triggered-function" class="xliff"></a>
+## <a name="create-a-github-webhook-triggered-function"></a>Vytvoření funkce aktivované webhookem GitHubu
 
 1. Rozbalte aplikaci Function App a klikněte na tlačítko **+** vedle položky **Funkce**. Pokud jde o první funkci ve vaší aplikaci Function App, vyberte možnost **Vlastní funkce**. Zobrazí se kompletní sada šablon funkcí.
 
@@ -66,8 +62,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 Dále vytvoříte webhook ve vašem úložišti GitHub.
 
-## Konfigurace webhooku
-<a id="configure-the-webhook" class="xliff"></a>
+## <a name="configure-the-webhook"></a>Konfigurace webhooku
 
 1. V GitHubu přejděte do úložiště, které vlastníte. Můžete také použít libovolné úložiště, které máte rozvětvené. Pokud potřebujete úložiště rozvětvit, použijte stránku <https://github.com/Azure-Samples/functions-quickstart>.
 
@@ -89,8 +84,7 @@ Dále vytvoříte webhook ve vašem úložišti GitHub.
 
 Teď je webhook nakonfigurován tak, aby aktivoval vaši funkci v případě, že dojde k přidání nového komentáře k problému.
 
-## Testování funkce
-<a id="test-the-function" class="xliff"></a>
+## <a name="test-the-function"></a>Testování funkce
 
 1. Ve vašem úložišti GitHub otevřete kartu **Issues** (Problémy) v novém okně prohlížeče.
 
@@ -104,13 +98,15 @@ Teď je webhook nakonfigurován tak, aby aktivoval vaši funkci v případě, ž
 
      ![Zobrazte si text komentáře v protokolech.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
-Vytvořili jste funkci, která se spustí při přijetí požadavku z webhooku Githubu. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Další informace o aktivačních webhoocích najdete v tématu [Vazby protokolu HTTP služby Azure Functions a vazby webhooku](functions-bindings-http-webhook.md).
+Vytvořili jste funkci, která se spustí při přijetí požadavku z webhooku Githubu.
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Další informace o aktivačních událostech webhooků najdete v tématu [Vazby protokolu HTTP služby Azure Functions a vazby webhooku](functions-bindings-http-webhook.md).
+

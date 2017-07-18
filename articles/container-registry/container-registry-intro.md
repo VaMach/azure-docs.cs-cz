@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f9dff5384838521c309a2d2a5ebb5376c90159fb
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Úvod k registrům kontejnerů pro Private Docker
@@ -52,6 +52,8 @@ Vývojáři mohou nahrávat do registru kontejnerů také jako součást pracovn
 * **Registr** – Vytvořte jeden nebo více registrů kontejnerů ve svém předplatném Azure. Každý registr je zajišťován standardním [účtem úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Využijte místní úložiště imagí kontejnerů v síťové blízkosti vytvořením registru ve stejném umístění Azure, jako jsou vaše nasazení. Plně kvalifikovaný název registru má formát `myregistry.azurecr.io`.
 
   [Přístup k registru kontejnerů řídíte](container-registry-authentication.md) pomocí [instančního objektu](../active-directory/active-directory-application-objects.md) zajištěného službou Azure Active Directory nebo poskytnutého účtu správce. Spusťte standardní příkaz `docker login` k ověření pomocí registru.
+
+* **Spravovaný registr** – Vrstva, která nabízí další možnosti pro registry ve třech skladových položkách (SKU) – Basic, Standard a Premium. Image těchto SKU se ukládají v účtech služby Storage spravovaných službou Azure Container Registry, což zvyšuje spolehlivost a umožňuje nové funkce. Nové možnosti zahrnují integraci webhooků, ověřování úložiště pomocí Azure Active Directory a podporu funkce odstraňování. Uživatelé mají možnost výběru mezi spravovanými registry a vytvořením registru, jehož vytvoření zajišťuje vlastní účet služby Storage.
 
 * **Úložiště** – Registr obsahuje jedno nebo několik úložišť, což jsou skupiny imagí kontejnerů. Azure Container Registry podporuje víceúrovňové obory názvů úložiště. Tato funkce umožňuje seskupovat kolekce imagí souvisejících s konkrétní aplikací nebo kolekcí aplikací pro konkrétní vývojové nebo provozní týmy. Například:
 

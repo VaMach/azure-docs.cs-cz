@@ -12,28 +12,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/21/2017
+ms.date: 07/09/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: b4d5ab66db64a50d1b87edd4bf445e49004e67b4
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
-<a id="update-management-solution-in-oms" class="xliff"></a>
-
-# Aktualizace řešení pro správu v OMS
+# <a name="update-management-solution-in-oms"></a>Aktualizace řešení pro správu v OMS
 
 ![Symbol správy aktualizací](./media/oms-solution-update-management/update-management-symbol.png)
 
-Řešení pro správu aktualizací v OMS umožňuje spravovat aktualizace pro počítače s Windows a Linuxem.  Stav dostupných aktualizací na všech počítačích agenta můžete rychle vyhodnotit a zahájit proces instalace požadovaných aktualizací pro servery.
+Řešení Update Management v OMS umožňuje spravovat aktualizace zabezpečení operačního systému pro počítače s Windows nebo Linuxem nasazené v Azure, místních prostředích nebo u jiných poskytovatelů cloudu.  Můžete rychle vyhodnotit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro servery.
 
 
-<a id="solution-overview" class="xliff"></a>
-
-## Přehled řešení
+## <a name="solution-overview"></a>Přehled řešení
 Počítače spravované pomocí OMS používají k provádění vyhodnocení a nasazení aktualizací následující:
 
 * Agenta OMS pro Windows nebo Linux
@@ -41,16 +37,12 @@ Počítače spravované pomocí OMS používají k provádění vyhodnocení a n
 * Funkci Hybrid Runbook Worker služby Automation
 * Microsoft Update nebo Windows Server Update Services pro počítače s Windows
 
-Následující diagramy ukazují konceptuální zobrazení chování a toku dat s tím, jak toto řešení vyhodnocuje a aplikuje aktualizace na všechny připojené počítače s Windows Serverem a Linuxem v pracovním prostoru.    
+Následující diagramy ukazují konceptuální zobrazení chování a toku dat s tím, jak toto řešení vyhodnocuje a aplikuje aktualizace zabezpečení na všechny připojené počítače s Windows Serverem a Linuxem v pracovním prostoru.    
 
-<a id="windows-server" class="xliff"></a>
-
-#### Windows Server
+#### <a name="windows-server"></a>Windows Server
 ![Proces správy aktualizací pro Windows Server](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
 
-<a id="linux" class="xliff"></a>
-
-#### Linux
+#### <a name="linux"></a>Linux
 ![Proces správy aktualizací pro Linux](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
 Jakmile počítač provede kontrolu kompatibility aktualizací, agent OMS hromadně předá tyto informace do OMS. Na počítačích s Windows se kontrola kompatibility ve výchozím nastavení provádí každých 12 hodin.  Mimo plán kontrol se kontrola kompatibility aktualizací také spustí během 15 minut v případě restartování agenta Microsoft Monitoring Agent (MMA), před instalací aktualizací a po instalaci aktualizací.  U počítače s Linuxem se kontrola aktualizací ve výchozím nastavení provádí každé 3 hodiny a také během 15 minut v případě restartování agenta MMA.  
@@ -61,9 +53,7 @@ Na počítače, které vyžadují aktualizace softwaru, můžete tyto aktualizac
 
 V den a čas, který zadáte v nasazení aktualizací, spustí cílové počítače paralelně nasazení.  Nejprve se provede kontrola pro ověření, že se aktualizace stále vyžadují, a pak se aktualizace nainstalují.  U klientských počítačů služby WSUS je důležité si uvědomit, že pokud nejsou aktualizace schválené ve službě WSUS, nasazení aktualizací se nezdaří.  Výsledky použitých aktualizací se předají ke zpracování do OMS a vytvoří se souhrny, které najdete na řídicích panelech nebo pomocí vyhledání událostí.     
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 * Řešení podporuje vyhodnocování aktualizací pro systém Windows Server 2008 nebo novější a nasazení aktualizací pro systém Windows Server 2008 R2 SP1 nebo novější.  Možnosti instalace Server Core a Nano Server nejsou podporované.
 
     > [!NOTE]
@@ -90,14 +80,10 @@ V den a čas, který zadáte v nasazení aktualizací, spustí cílové počíta
 
 Další informace o tom, jak nainstalovat agenta OMS pro Linux, a odkaz na stažení nejnovější verze najdete na stránce [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent Operations Management Suite pro Linux).  Informace o tom, jak nainstalovat agenta OMS pro Windows, najdete v tématu popisujícím [agenta Operations Management Suite pro Windows](../log-analytics/log-analytics-windows-agents.md).  
 
-<a id="solution-components" class="xliff"></a>
-
-## Součásti řešení
+## <a name="solution-components"></a>Součásti řešení
 Toto řešení se skládá z následujících prostředků, které se přidají do vašeho účtu Automation, a přímo připojených agentů nebo skupiny pro správu připojené k Operations Manageru.
 
-<a id="management-packs" class="xliff"></a>
-
-### Sady Management Pack
+### <a name="management-packs"></a>Sady Management Pack
 Pokud je vaše skupina pro správu System Center Operations Manageru připojená k pracovnímu prostoru OMS, do Operations Manageru se nainstalují následující sady Management Pack.  Tyto sady Management Pack se po přidání tohoto řešení nainstalují také na přímo připojené počítače s Windows. U těchto sad Management Pack není nutné nic konfigurovat ani spravovat.
 
 * Aktualizace Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
@@ -106,16 +92,12 @@ Pokud je vaše skupina pro správu System Center Operations Manageru připojená
 
 Další informace o způsobu, jakým se aktualizují sady pro správu řešení, najdete v tématu [Připojení Operations Manageru ke službě Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-<a id="hybrid-worker-groups" class="xliff"></a>
-
-### Skupiny Hybrid Worker
+### <a name="hybrid-worker-groups"></a>Skupiny Hybrid Worker
 Jakmile povolíte toto řešení, každý počítač s Windows přímo připojený k pracovnímu prostoru OMS se automaticky nakonfiguruje jako Hybrid Runbook Worker, aby podporoval runbooky, které jsou zahrnuté v tomto řešení.  Pro každý počítač s Windows spravovaný tímto řešením bude uveden v účtu Automation v okně Skupiny Hybrid Runbook Worker a bude splňovat zásadu vytváření názvů *Název_hostitele FQDN_GUID*.  Tyto skupiny nemůžete vybrat jako cíl runbooků ve vašem účtu, jinak se runbooky nezdaří. Tyto skupiny jsou určeny pouze pro podporu tohoto řešení pro správu.   
 
 Počítače s Windows ale můžete přidat do skupiny Hybrid Runbook Worker ve vašem účtu Automation pro podporu runbooků Automation, pokud používáte stejný účet pro toto řešení i pro členství ve skupině Hybrid Runbook Worker.  Tuto funkci jsme do funkce Hybrid Runbook Worker přidali ve verzi 7.2.12024.0.  
 
-<a id="configuration" class="xliff"></a>
-
-## Konfigurace
+## <a name="configuration"></a>Konfigurace
 Pomocí následujících kroků přidejte řešení pro správu aktualizací do pracovního prostoru OMS a potvrďte, že se agenti hlásí. Agenti Windows, kteří jsou již připojeni k vašemu pracovnímu prostoru, se přidají automaticky bez dodatečné konfigurace.
 
 Řešení můžete nasadit pomocí následujících metod:
@@ -125,9 +107,7 @@ Pomocí následujících kroků přidejte řešení pro správu aktualizací do 
 
 Pokud již máte propojený účet Automation s pracovním prostorem OMS ve stejné skupině prostředků a oblasti, po výběru nabídky Automation and Control se ověří vaše konfigurace a řešení se nainstaluje a nakonfiguruje pouze v těchto dvou službách.  Výběr řešení pro správu aktualizací z Azure Marketplace se bude chovat stejně.  Pokud některou z těchto služeb nemáte ve svém předplatném nasazenou, postupujte podle kroků v okně **Vytvoření nového řešení** a potvrďte, že chcete nainstalovat další předem vybraná doporučená řešení.  Volitelně můžete přidat řešení pro správu aktualizací do svého pracovního prostoru OMS z galerie řešení pomocí postupu popsaného v části [Přidání řešení OMS](../log-analytics/log-analytics-add-solutions.md).  
 
-<a id="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms" class="xliff"></a>
-
-### Ověření připojení agentů OMS a skupiny pro správu Operations Manageru k OMS
+### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Ověření připojení agentů OMS a skupiny pro správu Operations Manageru k OMS
 
 Pokud chcete ověřit, že přímo připojení agenti OMS pro Linux a Windows komunikují s OMS, po několika minutách můžete spustit následující prohledávání protokolů:
 
@@ -152,12 +132,8 @@ Stav nově přidaných agentů systému Linux bude po provedení vyhodnocení **
 
 Pokud chcete ověřit, že skupina pro správu Operations Manageru komunikuje s OMS, přečtěte si téma [Ověření integrace Operations Manageru s OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
-<a id="data-collection" class="xliff"></a>
-
-## Shromažďování dat
-<a id="supported-agents" class="xliff"></a>
-
-### Podporovaní agenti
+## <a name="data-collection"></a>Shromažďování dat
+### <a name="supported-agents"></a>Podporovaní agenti
 Následující tabulka popisuje připojené zdroje, které toto řešení podporuje.
 
 | Připojený zdroj | Podporuje se | Popis |
@@ -167,32 +143,24 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 | Skupina pro správu Operations Manageru |Ano |Řešení shromažďuje informace o aktualizacích systému z agentů v připojené skupině pro správu.<br>Přímé připojení z agenta Operations Manageru ke službě Log Analytics není potřeba. Data se přesměrovávají ze skupiny pro správu do úložiště OMS. |
 | Účet služby Azure Storage |Ne |Úložiště Azure neobsahuje informace o aktualizacích systému. |
 
-<a id="collection-frequency" class="xliff"></a>
-
-### Četnost shromažďování dat
+### <a name="collection-frequency"></a>Četnost shromažďování dat
 Pro každý spravovaný počítač s Windows se kontrola provádí dvakrát denně. Každých 15 minut se volá rozhraní Windows API pro zadání dotazu na čas poslední aktualizace, podle kterého zjistí, jestli se změnil stav, a pokud ano, zahájí se kontrola kompatibility.  Pro každý spravovaný počítač s Linuxem se kontrola provádí každé tři hodiny.
 
 Může trvat 30 minut až 6 hodin, než se na řídicím panelu zobrazí aktualizovaná data ze spravovaných počítačů.   
 
-<a id="using-the-solution" class="xliff"></a>
-
-## Použití řešení
+## <a name="using-the-solution"></a>Použití řešení
 Když přidáte řešení pro správu aktualizací do pracovního prostoru OMS, na řídicí panel OMS se přidá dlaždice **Správa aktualizací**. Na této dlaždici se zobrazuje počet a grafické vyjádření počtu počítačů ve vašem prostředí a jejich kompatibilita s aktualizacemi.<br><br>
 ![Dlaždice Souhrn Správy aktualizací](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
-<a id="viewing-update-assessments" class="xliff"></a>
-
-## Zobrazení posouzení aktualizací
+## <a name="viewing-update-assessments"></a>Zobrazení posouzení aktualizací
 Klikněte na dlaždici **Správa aktualizací**. Otevře se řídicí panel **Správa aktualizací**.<br><br> ![Řídicí panel Souhrn Správy aktualizací](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
 Tento řídicí panel poskytuje podrobný přehled stavu aktualizací rozdělený podle typu operačního systému a klasifikace aktualizace – důležitá aktualizace, aktualizace zabezpečení, nebo jiná (například aktualizace definic). Po výběru dlaždice **Nasazení aktualizací** budete přesměrováni na stránku Nasazení aktualizací, kde můžete zobrazit plány, aktuálně spuštěná nasazení a dokončená nasazení nebo můžete naplánovat nové nasazení.  
 
 Kliknutím na konkrétní dlaždici můžete spustit prohledávání protokolů, které vrátí všechny záznamy, nebo pokud chcete spustit dotaz určité kategorie s předdefinovanými kritérii, vyberte některý ze seznamu ve sloupci **Běžné dotazy na aktualizace**.    
 
-<a id="installing-updates" class="xliff"></a>
-
-## Instalace aktualizací
+## <a name="installing-updates"></a>Instalace aktualizací
 Po posouzení aktualizací pro všechny počítače s Linuxem a Windows ve vašem prostředí můžete nechat nainstalovat požadované aktualizace vytvořením *nasazení aktualizací*.  Nasazení aktualizací je plánovaná instalace požadovaných aktualizací pro jeden nebo více počítačů.  Kromě počítače nebo skupiny počítačů, které mají být součástí rozsahu nasazení, zadáte datum a čas nasazení.  Další informace o skupinách počítačů najdete v tématu [Skupiny počítačů v Log Analytics](../log-analytics/log-analytics-computer-groups.md).  Když do svého nasazení aktualizací zahrnete skupiny počítačů, členství ve skupině se vyhodnotí pouze jednou při vytvoření plánu.  Další změny ve skupině se neprojeví.  Můžete to obejít tak, že naplánované nasazení aktualizací odstraníte a znovu vytvoříte.
 
 > [!NOTE]
@@ -200,9 +168,7 @@ Po posouzení aktualizací pro všechny počítače s Linuxem a Windows ve vaše
 
 Pro virtuální počítače vytvořené z imagí Red Hat Enterprise Linux (RHEL) na vyžádání dostupných v Azure Marketplace jsou registrované pro přístup k infrastruktuře [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) nasazené v Azure.  Všechny ostatní distribuce Azure musí být aktualizované z online úložiště souborů distribuce podle podporované metody.  
 
-<a id="viewing-update-deployments" class="xliff"></a>
-
-### Zobrazení nasazení aktualizace
+### <a name="viewing-update-deployments"></a>Zobrazení nasazení aktualizace
 Klikněte na dlaždici **Aktualizovat nasazení** zobrazíte seznam existujících nasazení aktualizace.  Jsou seskupené podle stavu – **Naplánované**, **Spuštěné** a **Dokončeno**.<br><br> ![Stránka Plán nasazení aktualizace](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
 Následující tabulka popisuje vlastnosti zobrazené u každého nasazení aktualizace.
@@ -228,9 +194,7 @@ Vyberte dokončené nasazení aktualizací a podívejte se na obrazovku s podrob
 | Aktualizace pro Windows |Uvádí seznam aktualizací pro Windows zahrnutých v nasazení aktualizací a stav instalace jednotlivých aktualizací.  Výběrem aktualizace spustíte prohledávání protokolů, které vrátí všechny záznamy aktualizací pro danou konkrétní aktualizaci, nebo můžete kliknutím na stav spustit prohledávání protokolů, které vrátí všechny záznamy aktualizací pro dané nasazení. |
 | Aktualizace pro Linux |Uvádí seznam aktualizací pro Linux zahrnutých v nasazení aktualizací a stav instalace jednotlivých aktualizací.  Výběrem aktualizace spustíte prohledávání protokolů, které vrátí všechny záznamy aktualizací pro danou konkrétní aktualizaci, nebo můžete kliknutím na stav spustit prohledávání protokolů, které vrátí všechny záznamy aktualizací pro dané nasazení. |
 
-<a id="creating-an-update-deployment" class="xliff"></a>
-
-### Vytvoření nasazení aktualizace
+### <a name="creating-an-update-deployment"></a>Vytvoření nasazení aktualizace
 Vytvořte nové nasazení aktualizace kliknutím na tlačítko **Přidat** v horní části obrazovky. Otevře se stránka **Nasazení nové aktualizace**.  Je nutné zadat hodnoty pro vlastnosti v následující tabulce.
 
 | Vlastnost | Popis |
@@ -244,21 +208,15 @@ Vytvořte nové nasazení aktualizace kliknutím na tlačítko **Přidat** v hor
 
 <br><br> ![Stránka Nasazení nové aktualizace](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-<a id="time-range" class="xliff"></a>
-
-### Časové rozmezí
+### <a name="time-range"></a>Časové rozmezí
 Ve výchozím nastavení je rozsah dat analyzovaný v řešení Správa aktualizací ze všech připojených skupin pro správu generovaných během posledního dne.
 
 Pokud chcete rozsah dat změnit, vyberte v horní části řídicího panelu **Podle data**. Můžete vybírat záznamy vytvořené nebo aktualizované během posledních 7 dní, 1 dne nebo 6 hodin. Nebo můžete vybrat **Vlastní** a zadat vlastní rozsah dat.
 
-<a id="log-analytics-records" class="xliff"></a>
-
-## Záznamy služby Log Analytics
+## <a name="log-analytics-records"></a>Záznamy služby Log Analytics
 Řešená Správa aktualizací vytváří v úložišti OMS dva typy záznamů.
 
-<a id="update-records" class="xliff"></a>
-
-### Záznamy typu Aktualizace
+### <a name="update-records"></a>Záznamy typu Aktualizace
 Záznam typu **Aktualizace** se vytvoří pro každou aktualizaci, která je nainstalovaná nebo která je potřeba v každém počítači. Vlastnosti záznamů tohoto typu uvádí následující tabulka.
 
 | Vlastnost | Popis |
@@ -299,9 +257,7 @@ V zobrazení **Seznam** klikněte na odkaz **Zobrazení** vedle KBID. Otevře se
 
 ![Zobrazení seznamu hledání v protokolu s aktualizacemi typu záznamů Dlaždice](./media/oms-solution-update-management/update-la-view-list.png)
 
-<a id="updatesummary-records" class="xliff"></a>
-
-### Záznamy UpdateSummary
+### <a name="updatesummary-records"></a>Záznamy UpdateSummary
 Pro každý počítač s agentem Windows se vytvoří záznam typu **UpdateSummary** . Tento záznam se aktualizuje pokaždé, se provádí vyhledávání aktualizací v počítači. Vlastnosti záznamů typu **UpdateSummary** uvádí následující tabulka.
 
 | Vlastnost | Popis |
@@ -324,9 +280,7 @@ Pro každý počítač s agentem Windows se vytvoří záznam typu **UpdateSumma
 | WindowsUpdateSetting |Nastavení způsobu, jakým bude počítač instalovat důležité aktualizace<br>Možné hodnoty:<br>- Zakázáno<br>- Upozornění před instalací<br>- Plánovaná instalace |
 | WSUSServer |Adresa URL serveru WSUS, pokud je počítač nakonfigurovaný na jeho používání |
 
-<a id="sample-log-searches" class="xliff"></a>
-
-## Ukázky hledání v protokolech
+## <a name="sample-log-searches"></a>Ukázky hledání v protokolech
 V následující tabulce jsou uvedeny ukázky hledání v protokolech pro záznamy aktualizace shromážděné tímto řešením.
 
 | Dotaz | Popis |
@@ -353,22 +307,16 @@ V následující tabulce jsou uvedeny ukázky hledání v protokolech pro zázna
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Počítače aktualizované při této hromadné postupné aktualizaci (nahraďte hodnotu názvem vašeho nasazení aktualizací) | 
 | Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Seznam všech počítačů s Ubuntu s jakoukoli dostupnou aktualizací | 
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Řešení potíží
+## <a name="troubleshooting"></a>Řešení potíží
 
 Tato část obsahuje informace, které vám pomohou s řešením potíží s řešením pro správu aktualizací.  
 
-<a id="how-do-i-troubleshoot-update-deployments" class="xliff"></a>
-
-### Jak mám řešit problémy s nasazeními aktualizací?
+### <a name="how-do-i-troubleshoot-update-deployments"></a>Jak mám řešit problémy s nasazeními aktualizací?
 V okně Úlohy vašeho účtu Automation, který je propojený s pracovním prostorem OMS podporujícím toto řešení, můžete zobrazit výsledky runbooku odpovědného za nasazení aktualizací zahrnutých v naplánovaném nasazení aktualizací.  Runbook **Patch-MicrosoftOMSComputer** je podřízený runbook, jehož cílem je konkrétní spravovaný počítač, a kontrolou podrobného datového proudu získáte podrobné informace k příslušnému nasazení.  Na výstupu se zobrazí, které požadované aktualizace se dají použít, stav stahování, stav instalace a další podrobnosti.<br><br> ![Stav úlohy nasazení aktualizací](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Další informace najdete v tématu [Výstup a zprávy runbooku Automation](../automation/automation-runbook-output-and-messages.md).   
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * K zobrazení podrobných údajů o aktualizaci použijte Hledání v protokolu služby [Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * [Vytvářejte vlastní řídicí panely](../log-analytics/log-analytics-dashboards.md) zobrazující shodu aktualizace pro vaše spravované počítače.
 * [Vytvářejte výstrahy](../log-analytics/log-analytics-alerts.md) při zjištění, že v počítačích chybí důležité aktualizace nebo že má počítač zakázané automatické aktualizace.  

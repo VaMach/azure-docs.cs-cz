@@ -13,21 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Úvod do Azure Machine Learning v cloudu
-## <a name="what-is-machine-learning"></a>Co je strojové učení?
-Strojové učení zahrnuje vědecké metody práce s daty, díky kterým se počítače z existujících dat učí předpovídat budoucí chování, výsledky a trendy.  
+# <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Úvod do služby Machine Learning v cloudu Azure
 
-Díky těmto předpovědím neboli predikcím ze strojového učení mohou být aplikace a zařízení efektivnější. Při online nakupování je díky strojovému učení možné na základě již pořízeného zboží doporučit produkty, které by se vám mohly líbit. Po protažení platební karty čtečkou porovnává strojově učený proces danou transakci s databází, a pomáhá tak odhalovat podvody. A takový robotický vysavač na základě strojového učení zjišťuje, jestli už v místnosti dostatečně uklidil.
+## <a name="what-is-machine-learning"></a>Co je strojové učení?
+Strojové učení je technika datové vědy, která umožňuje počítačům s využitím existujících dat předvídat budoucí chování, výsledky a trendy. Pomocí strojového učení se počítače můžou učit, aniž by byly explicitně naprogramované.
+
+Díky předpovědím neboli predikcím ze strojového učení můžou být aplikace a zařízení chytřejší. Při online nakupování je díky strojovému učení možné na základě již pořízeného zboží doporučit produkty, které by se vám mohly líbit. Po protažení platební karty čtečkou porovnává strojově učený proces danou transakci s databází, a pomáhá tak odhalovat podvody. A takový robotický vysavač na základě strojového učení zjišťuje, jestli už v místnosti dostatečně uklidil.
 
 Stručný přehled získáte třeba zhlédnutím série videí [Datová věda pro začátečníky](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Datová věda pro začátečníky vám bez nesrozumitelných výrazů a složité matematiky představí strojové učení a krok za krokem vás provede jednoduchým prediktivním modelem.
 

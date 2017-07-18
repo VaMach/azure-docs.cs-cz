@@ -6,29 +6,26 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 663041285f7b64a8f38ace91bcb3673f46c1218a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# Rychlý start: Samoobslužné resetování hesla Azure AD
-<a id="quick-start-azure-ad-self-service-password-reset" class="xliff"></a>
+# <a name="quick-start-azure-ad-self-service-password-reset"></a>Rychlý start: Samoobslužné resetování hesla Azure AD
 
-## Rychlé nasazené samoobslužného resetování hesla
-<a id="rapidly-deploy-self-service-password-reset" class="xliff"></a>
+## <a name="rapidly-deploy-self-service-password-reset"></a>Rychlé nasazené samoobslužného resetování hesla
 
 Samoobslužné resetování hesla nabízí správcům IT jednoduchý způsob, jak umožnit uživatelům resetovat nebo odemknout svá hesla nebo účty. Tento systém zahrnuje vytváření podrobných sestav, pomocí kterých můžete sledovat, kdy uživatelé systém používají, spolu s oznámeními, která upozorňují na zneužití.
 
@@ -48,15 +45,15 @@ Tento průvodce předpokládá, že již máte funkčního tenanta Azure AD ve z
         * **Mobilní telefon** umožňuje uživateli obdržet hovor nebo zprávu s kódem na nastavené číslo mobilního telefonu.
         * **Telefon do kanceláře** zavolá uživateli na nastavené telefonní číslo do kanceláře a sdělí mu kód.
         * **Bezpečnostní otázky** vyžadují, abyste zvolili:
-            * „Počet otázek požadovaných k registraci“ je minimum pro úspěšnou registraci. To znamená, že uživatel může odpovědět na více otázek a vytvořit tak fond, ze kterého se otázky budou načítat. Tuto možnost můžete nastavit na 3 až 5 a tato hodnota musí být vyšší nebo rovna počtu otázek požadovaných k resetování.
-            * „Počet otázek požadovaných k resetování“ můžete nastavit na 3 až 5 otázek, které je třeba správně zodpovědět, než bude umožněno resetování nebo odemknutí hesla uživatele.
+            * Počet otázek požadovaných k registraci – Minimum pro úspěšnou registraci. To znamená, že uživatel může odpovědět na více otázek a vytvořit tak fond, ze kterého se otázky budou načítat. Tuto možnost můžete nastavit na 3 až 5 a tato hodnota musí být vyšší nebo rovna počtu otázek požadovaných k resetování.
                 * Vlastní otázky můžete přidat kliknutím na tlačítko Vlastní při výběru bezpečnostních otázek.
+            * Počet otázek požadovaných k resetování – Můžete nastavit na 3 až 5 otázek, které je třeba správně zodpovědět, než bude umožněno resetování nebo odemknutí hesla uživatele.
 
 4. DOPORUČENÉ: **Přizpůsobení** umožňuje změnit odkaz „Kontaktujte správce“, aby odkazoval na stránku nebo e-mailovou adresu, kterou zadáte.
 
 5. VOLITELNÉ: Obrazovka **Registrace** poskytuje správcům tyto možnosti:
     * Při přihlášení vyžadovat registraci uživatelů
-    * Počet dní před vyzváním uživatelů k potvrzení ověřovacích údajů
+    * Počet dní před vyzváním uživatelů k potvrzení ověřovacích informací
 
 6. VOLITELNÉ: Obrazovka **Oznámení** poskytuje správcům tyto možnosti:
     * Upozornit uživatele na resetování hesla
@@ -67,22 +64,19 @@ Tento průvodce předpokládá, že již máte funkčního tenanta Azure AD ve z
 > [!NOTE]
 > Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty typu správce Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem [článku o zásadách hesel](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
-## Konfigurace synchronizace s existujícím zdrojem identit
-<a id="configure-synchronization-to-existing-identity-source" class="xliff"></a>
+## <a name="configure-synchronization-to-existing-identity-source"></a>Konfigurace synchronizace s existujícím zdrojem identit
 
-Pokud chcete povolit místní synchronizaci identit s Azure AD, je nutné na serveru ve vaší organizaci nainstalovat a nakonfigurovat službu [Azure AD Connect](./connect/active-directory-aadconnect.md). Tato aplikace se stará o synchronizaci uživatelů a identit mezi vaším existujícím zdrojem identit a vaší doménou Azure AD.
+Pokud chcete povolit místní synchronizaci identit s Azure AD, je nutné na serveru ve vaší organizaci nainstalovat a nakonfigurovat službu [Azure AD Connect](./connect/active-directory-aadconnect.md). Tato aplikace se stará o synchronizaci uživatelů a skupin mezi vaším existujícím zdrojem identit a vaším tenantem Azure AD.
 
 * [Upgrade z nástroje DirSync nebo z Azure AD Sync na Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Začínáme se službou Azure AD Connect s použitím expresního nastavení](./connect/active-directory-aadconnect-get-started-express.md)
 * [Nakonfigurujte zpětný zápis hesel](active-directory-passwords-writeback.md#configuring-password-writeback), aby se hesla z Azure AD zapsala zpátky do místního adresáře.
 
-## Zakázání samoobslužného resetování hesla
-<a id="disabling-self-service-password-reset" class="xliff"></a>
+## <a name="disabling-self-service-password-reset"></a>Zakázání samoobslužného resetování hesla
 
-Zakázání samoobslužného resetování hesla je snadné – stačí otevřít vašeho tenanta Azure AD, přejít na **Resetování hesla**, **Vlastnosti** a v části **Samoobslužné resetování hesla je povoleno** zvolit **Nikdo**.
+Zakázání samoobslužného resetování hesla je snadné – stačí otevřít vašeho tenanta Azure AD, přejít na **Resetování hesla > Vlastnosti** a v části **Samoobslužné resetování hesla povoleno** zvolit **Nikdo**.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
 
 * [**Správa licencí**](active-directory-passwords-licensing.md) – Konfigurujte licencování Azure AD.

@@ -1,6 +1,6 @@
 ---
 title: "Začínáme se službou Azure IoT Hub (Java) | Dokumentace Microsoftu"
-description: "Postup odesílání zpráv typu zařízení-cloud ze zařízení do služby Azure IoT Hub pomocí sad SDK Azure IoT pro Javu. Vytvoříte aplikaci simulovaného zařízení pro odesílání zpráv, aplikaci služby pro registraci zařízení v registru identit a aplikaci služby pro čtení zpráv typu zařízení-cloud ze služby IoT Hub."
+description: "Zjistěte, jak odesílat zprávy typu zařízení-cloud do služby Azure IoT Hub pomocí sad IoT SDK pro Javu. Vytvořte simulované zařízení a aplikace služeb pro registraci vašeho zařízení, odesílání zpráv a čtení zpráv ze služby IoT Hub."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,17 +15,14 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7b44762ffea876d628886192376b6275bbc0b83b
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 7d95ba163712c8a3610839029fe3453bd5c308a8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="connect-your-simulated-device-to-your-iot-hub-using-java" class="xliff"></a>
-
-# Připojení simulovaného zařízení k IoT Hubu pomocí Javy
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>Připojení simulovaného zařízení k IoT Hubu pomocí Javy
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Na konci tohoto kurzu budete mít tři konzolové aplikace Java:
@@ -51,9 +48,7 @@ Na závěr si poznamenejte hodnotu **Primární klíč**. Potom klikněte na **K
 
 Nyní jste vytvořili svůj IoT Hub. Máte název hostitele služby IoT Hub, připojovací řetězec služby IoT Hub, primární klíč služby IoT Hub a název a koncový bod kompatibilní s centrem událostí, které potřebujete k dokončení tohoto kurzu.
 
-<a id="create-a-device-identity" class="xliff"></a>
-
-## Vytvoření identity zařízení
+## <a name="create-a-device-identity"></a>Vytvoření identity zařízení
 V této části vytvoříte konzolovou aplikaci Java, která v registru identit ve službě IoT Hub vytvoří identitu zařízení. Zařízení lze připojit ke službě IoT Hub, pouze pokud má záznam v registru identit. Další informace najdete v části **Registr identit** v [Příručce pro vývojáře pro službu IoT Hub][lnk-devguide-identity]. Tato konzolová aplikace po spuštění vygeneruje jedinečné ID zařízení a klíč, s jehož pomocí se zařízení může identifikovat při posílání zpráv typu zařízení-cloud do služby IoT Hub. 
 
 1. Vytvořte prázdnou složku s názvem iot-java-get-started. Ve složce iot-java-get-started vytvořte pomocí následujícího příkazu v příkazovém řádku projekt Maven s názvem **create-device-identity**. Všimněte si, že se jedná o jeden dlouhý příkaz:
@@ -168,9 +163,7 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
 > [!NOTE]
 > V registru identit služby IoT Hub se uchovávají pouze identity zařízení za účelem bezpečného přístupu ke službě IoT Hub. Ukládají se tady ID zařízení a jejich klíče, které slouží jako zabezpečené přihlašovací údaje, a příznak povoleno/zakázáno, s jehož pomocí můžete zakázat přístup k jednotlivým zařízením. Pokud aplikace potřebuje pro zařízení ukládat další metadata, měla by používat úložiště pro konkrétní aplikaci. Další informace najdete v [Příručce pro vývojáře pro službu IoT Hub][lnk-devguide-identity].
 
-<a id="receive-device-to-cloud-messages" class="xliff"></a>
-
-## Příjem zpráv typu zařízení-cloud
+## <a name="receive-device-to-cloud-messages"></a>Příjem zpráv typu zařízení-cloud
 
 V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu zařízení-cloud ze služby IoT Hub. Služba IoT Hub zpřístupní koncový bod kompatibilní se službou [Event Hub][lnk-event-hubs-overview], který vám umožní číst zprávy typu zařízení-cloud. Z důvodu zjednodušení vytvoří tento kurz jednoduchou čtečku, která není vhodná pro vysoce výkonná nasazení. Způsoby zpracování zpráv typu zařízení-cloud v různých škálách najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial]. Kurz [Začínáme se službou Event Hubs][lnk-eventhubs-tutorial] vám poskytne další informace o zpracování zpráv ze služby Event Hubs a vztahuje se na koncové body kompatibilní s centrem událostí služby IoT Hub.
 
@@ -309,9 +302,7 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
     mvn clean package -DskipTests
     ```
 
-<a id="create-a-simulated-device-app" class="xliff"></a>
-
-## Vytvoření aplikace simulovaného zařízení
+## <a name="create-a-simulated-device-app"></a>Vytvoření aplikace simulovaného zařízení
 
 V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízení odesílající zprávy typu zařízení-cloud do služby IoT Hub.
 
@@ -472,9 +463,7 @@ V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízen�
 > [!NOTE]
 > Za účelem zjednodušení tento kurz neimplementuje žádné zásady opakování. V produkčním kódu byte měli implementovat zásady opakování (například exponenciální opakování), jak je navrženo v článku [Řešení přechodných chyb][lnk-transient-faults] na webu MSDN.
 
-<a id="run-the-apps" class="xliff"></a>
-
-## Spouštění aplikací
+## <a name="run-the-apps"></a>Spouštění aplikací
 
 Nyní jste připraveni aplikaci spustit.
 
@@ -498,9 +487,7 @@ Nyní jste připraveni aplikaci spustit.
 
     ![Dlaždice Použití webu Azure Portal se zobrazením počtu zpráv odeslaných do služby IoT Hub][43]
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 V tomto kurzu jste nakonfigurovali novou službu IoT Hub na webu Azure Portal a potom jste vytvořili identitu zařízení v registru identit ve službě IoT Hub. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby IoT Hub. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou IoT Hub.
 

@@ -10,31 +10,25 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 06/19/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="create-an-azure-database-for-postgresql-in-the-azure-portal" class="xliff"></a>
-
-# Vytvoření Azure Database for PostgreSQL na portálu Azure Portal
+# <a name="create-an-azure-database-for-postgresql-in-the-azure-portal"></a>Vytvoření Azure Database for PostgreSQL na portálu Azure Portal
 
 Azure Database for PostgreSQL je spravovaná služba, která umožňuje spouštět, spravovat a škálovat vysoce dostupné databáze PostgreSQL v cloudu. V tomto rychlém startu se dozvíte, jak vytvořit server Azure Database for PostgreSQL pomocí portálu Azure Portal.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
-
-## Přihlášení k portálu Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 
 Přihlaste se k [portálu Azure](https://portal.azure.com).
 
-<a id="create-an-azure-database-for-postgresql" class="xliff"></a>
-
-## Vytvoření Azure Database for PostgreSQL
+## <a name="create-an-azure-database-for-postgresql"></a>Vytvoření Azure Database for PostgreSQL
 
 Server Azure Database for PostgreSQL se vytvoří s definovanou sadou [výpočetních prostředků a prostředků úložiště](./concepts-compute-unit-and-storage.md). Server se vytvoří v rámci [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md).
 
@@ -67,9 +61,7 @@ Server Azure Database for PostgreSQL vytvoříte pomocí tohoto postupu:
    
   Ve výchozím nastavení se databáze **postgres** vytvoří v rámci vašeho serveru. Databáze [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) je výchozí databáze určená pro uživatele, nástroje a aplikace třetích stran. 
 
-<a id="configure-a-server-level-firewall-rule" class="xliff"></a>
-
-## Konfigurace pravidla brány firewall na úrovni serveru
+## <a name="configure-a-server-level-firewall-rule"></a>Konfigurace pravidla brány firewall na úrovni serveru
 
 Služba Azure Database for PostgreSQL vytváří bránu firewall na úrovni serveru. Tato brána firewall brání externím aplikacím a nástrojům v připojení k serveru a kterékoli databázi na serveru, pokud není vytvořené pravidlo brány firewall k otevření brány firewall pro konkrétní IP adresy. 
 
@@ -88,9 +80,7 @@ Služba Azure Database for PostgreSQL vytváří bránu firewall na úrovni serv
   > Server Azure PostgreSQL komunikuje přes port 5432. Pokud se pokoušíte připojit z podnikové sítě, nemusí být odchozí provoz přes port 5432 bránou firewall vaší sítě povolený. Pokud je to tak, nebudete se moct připojit k serveru Azure SQL Database, dokud vaše IT oddělení neotevře port 5432.
   >
 
-<a id="get-the-connection-information" class="xliff"></a>
-
-## Získání informací o připojení
+## <a name="get-the-connection-information"></a>Získání informací o připojení
 
 Při vytvoření našeho serveru Azure Database for PostgreSQL se vytvoří i výchozí databáze **postgres**. Pokud se chcete připojit k databázovému serveru, budete muset zadat informace o hostiteli a přihlašovací údaje pro přístup.
 
@@ -103,9 +93,7 @@ Při vytvoření našeho serveru Azure Database for PostgreSQL se vytvoří i v�
 
  ![Azure Database for PostgreSQL – přihlašovací jméno správce serveru](./media/quickstart-create-database-portal/6-server-name.png)
 
-<a id="connect-to-postgresql-database-using-psql-in-cloud-shell" class="xliff"></a>
-
-## Připojení k databázi PostgreSQL pomocí psql ve službě Cloud Shell
+## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Připojení k databázi PostgreSQL pomocí psql ve službě Cloud Shell
 
 Teď pro připojení k serveru Azure Database for PostgreSQL použijeme nástroj příkazového řádku psql. 
 1. Pomocí ikony terminálu v horním navigačním podokně spusťte službu Azure Cloud Shell.
@@ -116,12 +104,12 @@ Teď pro připojení k serveru Azure Database for PostgreSQL použijeme nástroj
 
    ![Azure Database for PostgreSQL – příkazový řádek Bash služby Azure Shell](./media/quickstart-create-database-portal/8-bash.png)
 
-3. V příkazovém řádku služby Cloud Shell se pomocí příkazů psql připojte k serveru Azure Database for PostgreSQL. Následující formát se používá pro připojení k serveru Azure Database for PostgreSQL s nástrojem [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
+3. V příkazovém řádku služby Cloud Shell se zadáním příkazového řádku psql připojte k serveru Azure Database for PostgreSQL. Následující formát se používá pro připojení k serveru Azure Database for PostgreSQL s nástrojem [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Například tento příkaz provádí připojení k výchozí databázi s názvem **postgres** na vašem serveru PostgreSQL **mypgserver-20170401.postgres.database.azure.com** pomocí přihlašovacích údajů k přístupu. Po zobrazení výzvy zadejte heslo správce serveru.
+   Třeba tento příkaz provádí pomocí přihlašovacích údajů pro přístup připojení k výchozí databázi s názvem **postgres** na serveru PostgreSQL **mypgserver-20170401.postgres.database.azure.com**. Při připojování vždy používejte port **5432**. Po zobrazení výzvy zadejte heslo správce serveru. Mezi přepínači uvozenými znaky -- používejte v příkazu mezery, ale nepoužívejte mezery mezi symboly rovná se a hodnotami parametrů.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
@@ -136,9 +124,7 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-<a id="connect-to-postgresql-database-using-pgadmin" class="xliff"></a>
-
-## Připojení k databázi PostgreSQL pomocí aplikace pgAdmin
+## <a name="connect-to-postgresql-database-using-pgadmin"></a>Připojení k databázi PostgreSQL pomocí aplikace pgAdmin
 
 Připojení k serveru Azure PostgreSQL pomocí grafického uživatelského rozhraní aplikace _pgAdmin_
 1.  Na klientském počítači spusťte aplikaci _pgAdmin_. _pgAdmin_ můžete nainstalovat ze stránky http://www.pgadmin.org/.
@@ -168,9 +154,7 @@ Připojení k serveru Azure PostgreSQL pomocí grafického uživatelského rozhr
  ![Nástroj pgAdmin – Vytvořit – databáze](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Vyčištění prostředků
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 Všechny prostředky, které jste v rychlém startu vytvořili, můžete vyčistit odstraněním [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md).
 
 > [!TIP]
@@ -184,9 +168,7 @@ Pokud byste chtěli odstranit nově vytvořený server:
 2.  Na stránce Přehled klikněte na tlačítko Odstranit v horním podokně ![Azure Database for PostgreSQL – odstranění serveru](./media/quickstart-create-database-portal/12-delete.png).
 3.  Potvrďte název serveru, který chcete odstranit, a zobrazte jeho databáze, které tím ovlivníte. Do textového pole zadejte **mypgserver-20170401** a pak klikněte na Odstranit.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
 > [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
 

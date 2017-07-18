@@ -1,5 +1,5 @@
 ---
-title: " Vytvoření účtu Azure Media Services pomocí webu Azure Portal | Dokumentace Microsoftus"
+title: "Vytvoření účtu Azure Media Services pomocí webu Azure Portal | Dokumentace Microsoftu"
 description: "Tento kurz vás provede kroky pro vytvoření účtu služby Azure Media Services pomocí webu Azure Portal."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 07/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
-ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Vytvoření účtu Azure Media Services pomocí webu Azure Portal
@@ -40,13 +41,10 @@ Přístup ke službě Media Services vyžaduje dva přidružené účty:
 
 * Účet Media Services. Váš účet umožňuje přístup k sadě cloudových služeb Media Services, které jsou dostupné v Azure. Účet Media Services neukládá samotný mediální obsah. Místo toho na vašem účtu ukládají metadata o mediálním obsahu a úlohách zpracování médií v účtu. Při vytváření účtu vybíráte dostupnou oblast služby Media Services. Oblast, kterou vyberete, je datové centrum, které ukládá záznamy metadat vašeho účtu.
   
-    Dostupné oblasti služby Media Services (AMS) zahrnují následující: Severní Evropa, Západní Evropa, Západ USA, Východ USA, Jihovýchodní Asie, Východní Asie, Japonsko – západ, Japonsko – východ. Služba Media Services nepoužívá skupiny vztahů.
-  
-    AMS je nyní dostupná také v následujících datových centrech: Brazílie – jih, Indie – západ, Indie – jih a Indie – střed. V současnosti můžete web Azure Portal používat k vytvoření účtů Media Service a k provádění různých úloh popsaných tady. Funkce Live Encoding ale v těchto datových center není povolená. Kromě toho nejsou v těchto datových centrech dostupné všechny typy jednotek rezervovaných pro kódování.
-  
-  * Brazílie – jih: Dostupné jsou jenom jednotky rezervované pro kódování typu Standard a Basic.
-  * Indie – západ, Indie – jih: 
 * Účet úložiště Azure. Účty úložiště pro mediální soubory musí být umístěné ve stejné zeměpisné oblasti jako účet Media Services. Při vytváření účtu Media Services můžete zvolit buď stávající účet úložiště ve stejné oblasti, nebo můžete vytvořit nový účet úložiště ve stejné oblasti. Pokud odstraníte účet Media Services, objekty blob v souvisejícím účtu úložiště odstraněny nebudou.
+
+> [!NOTE]
+> Informace o dostupnosti funkcí služby Azure Media Services v různých oblastech najdete v tématu popisujícím [dostupnost funkcí AMS v datových centrech](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters).
 
 ## <a name="create-an-ams-account"></a>Vytvoření účtu AMS
 Postup v této části ukazuje, jak vytvořit účet AMS.
@@ -74,35 +72,21 @@ Postup v této části ukazuje, jak vytvořit účet AMS.
     >[!NOTE]
     >Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
    
-    ![Nastavení Media Services](./media/media-services-create-account/media-services-settings.png)
-   
-    Ke správě vašeho účtu AMS (například nahrávání videí, kódování assetů, sledovat průběhu úloh) použijte okno **Nastavení**.
+## <a name="to-manage-your-ams-account"></a>Správa účtu AMS
 
-## <a name="manage-keys"></a>Správa klíčů
-Název účtu a primární klíč budete potřebovat pro přístup k účtu Media Services prostřednictvím programového kódu.
+Pokud chcete spravovat svůj účet AMS (například připojit se prostřednictvím kódu programu k rozhraní API pro AMS, nahrát videa, kódovat prostředky, konfigurovat ochranu obsahu nebo monitorovat průběh úloh), vyberte **Nastavení** na levé straně portálu. V **Nastavení** přejděte do některého z dostupných oken (například: **Přístup k rozhraní API**, **Prostředky**, **Úlohy** nebo **Ochrana obsahu**).
 
-1. Na webu Azure Portal vyberte svůj účet. 
-   
-    Okno **Nastavení** se zobrazí na pravé straně. 
-2. V okně **Nastavení** vyberte **Klíče**. 
-   
-    Zobrazí se okno **Správa klíčů**, které ukazuje název účtu a primární a sekundární klíče. 
-3. Stisknutím tlačítka kopírování zkopírujete hodnoty.
-   
-    ![Klíče služby Media Services](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Další kroky
+
 Soubory teď můžete nahrát do účtu AMS. Další informace najdete v tématu [Nahrání souborů](media-services-portal-upload-files.md).
+
+Pokud plánujete přistupovat k rozhraní API pro AMS prostřednictvím kódu programu, přečtěte si téma [Přístup k rozhraní API pro službu Azure Media Services pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

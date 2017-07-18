@@ -15,24 +15,22 @@ ms.topic: hero-article
 ms.date: 05/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 3c7bbb1342d381b2940a9e1ceb56d905fbc33a74
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-# Vytvoření webové aplikace v PHP v Azure
-<a id="create-a-php-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-php-web-app-in-azure"></a>Vytvoření webové aplikace v PHP v Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  V tomto kurzu Rychlý start se dozvíte, jak nasadit aplikaci PHP pomocí služby Azure Web Apps. Vytvoříte webovou aplikaci pomocí rozhraní příkazového řádku [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu nasadíte ukázkový kód PHP do webové aplikace.
 
 Ukázková aplikace spuštěná ve službě Azure (media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalovány všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
+Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
@@ -45,8 +43,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Stažení ukázky
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>Stažení ukázky
 
 V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače.
 
@@ -62,8 +59,7 @@ Přejděte do adresáře, který obsahuje vzorový kód.
 cd php-docs-hello-world
 ```
 
-## Místní spuštění aplikace
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Místní spuštění aplikace
 
 Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí příkazu `php` spustíte integrovaný webový server PHP.
 
@@ -73,7 +69,7 @@ php -S localhost:8080
 
 Otevřete webový prohlížeč a přejděte na ukázkovou aplikaci na adrese http://localhost:8080.
 
-Na stránce se zobrazí zpráva **Hello World** z ukázkové aplikace.
+Na stránce se zobrazí zpráva **Hello World!** z ukázkové aplikace.
 
 ![Ukázková aplikace spuštěná místně](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
@@ -122,8 +118,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## Přechod do aplikace
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>Přechod do aplikace
 
 V prohlížeči zadejte adresu nasazené aplikace.
 
@@ -137,8 +132,7 @@ Vzorový kód PHP je spuštěný ve webové aplikaci služby Azure App Service.
 
 **Blahopřejeme!** Nasadili jste svoji první aplikaci v PHP do služby App Service.
 
-## Aktualizace a opětovné nasazení kódu
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+## <a name="update-and-redeploy-the-code"></a>Aktualizace a opětovné nasazení kódu
 
 Pomocí místního textového editoru otevřete soubor `index.php`, který je součástí PHP aplikace, a proveďte malou změnu textu v řetězci vedle `echo`:
 
@@ -157,8 +151,7 @@ Po dokončení nasazení se vraťte do okna prohlížeče, které se otevřelo v
 
 ![Aktualizovaná ukázková aplikace spuštěná ve službě Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-## Správa vaší nové webové aplikace Azure
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>Správa vaší nové webové aplikace Azure
 
 Pokud chcete spravovat webovou aplikaci, kterou jste vytvořili, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
@@ -174,8 +167,7 @@ Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplika
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
 > [PHP s databází MySQL](app-service-web-tutorial-php-mysql.md)

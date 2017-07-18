@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbcd35529c5d2360f5b0c9de4d3c9c4a08a0cc8f
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 83a6543a8fd95139fdcb6c031979382b4736a4ad
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Začínáme se Storage Explorerem (Preview)
@@ -113,7 +112,7 @@ Pro testování konceptu služby Azure Stack je potřeba vyexportovat kořenový
     Podrobnosti k jednotlivým polím:
 
     * **Environment name** (Název prostředí): Toto pole může uživatel přizpůsobit.
-    * **Authority** (Autorita): Hodnotou by měla být adresa https://login.windows.net. Pro Azure China použijte https://login.chinacloudapi.cn.
+    * **Authority** (Autorita): Hodnotou by měla být adresa https://login.microsoftonline.com. Pro Azure China použijte https://login.chinacloudapi.cn.
     * **Sign in resource id** (ID prostředku přihlášení): Hodnotu načtěte spuštěním jednoho z následujících skriptů PowerShellu:
 
         Pokud jste správce cloudu:
