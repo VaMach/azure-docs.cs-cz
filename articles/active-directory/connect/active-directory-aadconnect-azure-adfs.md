@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -23,9 +23,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="deploying-active-directory-federation-services-in-azure" class="xliff"></a>
-
-# Nasazení služby AD FS (Active Directory Federation Service) v Azure
+# <a name="deploying-active-directory-federation-services-in-azure"></a>Nasazení služby AD FS (Active Directory Federation Service) v Azure
 Služby AD FS nabízí zjednodušené možnosti zabezpečené federace identit a jednotného přihlašování na webu (SSO). Federace pomocí Azure AD nebo O365 uživatelům umožňuje ověřování pomocí místních přihlašovacích údajů a přístup ke všem prostředkům v cloudu. V důsledku toho je důležité mít vysoce dostupnou infrastrukturu služby AD FS, která zajistí přístup k místním prostředkům i k prostředkům v cloudu. Nasazení služby AD FS v Azure může zajistit požadovanou vysokou dostupnost při minimálním úsilí.
 Níže uvádíme některé z řady výhod, které nasazení služby AD FS v Azure přináší:
 
@@ -34,9 +32,7 @@ Níže uvádíme některé z řady výhod, které nasazení služby AD FS v Azur
 * **Redundance mezi geografickými lokalitami** – s geografickou redundancí Azure se můžete spolehnout na vysokou dostupnost infrastruktury po celém světě.
 * **Snadná správa** – velmi zjednodušené možnosti správy na portálu Azure nabízejí snadnou a bezproblémovou správu infrastruktury. 
 
-<a id="design-principles" class="xliff"></a>
-
-## Principy návrhu
+## <a name="design-principles"></a>Principy návrhu
 ![Návrh nasazení](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
 Výše uvedený diagram zobrazuje doporučenou základní topologii, podle které můžete začít nasazovat infrastrukturu služby AD FS v Azure. Principy, na kterých stojí různé součásti topologie, jsou uvedeny níže:
@@ -49,14 +45,10 @@ Výše uvedený diagram zobrazuje doporučenou základní topologii, podle kter�
 * **Účty úložiště**: Je doporučeno mít dva účty úložiště. Pokud máte jen jeden účet úložiště, může se takový účet stát jediným bodem selhání a může způsobit nedostupnost nasazení v nepravděpodobném scénáři, kdy se účet úložiště ocitne mimo provoz. Když budete mít dva účty úložiště, můžete ke každé chybové linii přidružit jeden účet úložiště.
 * **Oddělení sítí**: Proxy servery webových aplikací musí být nasazené v samostatné síti DMZ. Jednu virtuální síť můžete rozdělit do dvou podsítí a potom můžete proxy servery webových aplikací nasadit v izolované podsíti. Nastavení skupiny zabezpečení sítě můžete jednoduše nakonfigurovat pro každou podsíť a potom mezi nimi povolte jenom požadovanou komunikaci. Další podrobnosti jsou popsány v níže uvedeném scénáři nasazení.
 
-<a id="steps-to-deploy-ad-fs-in-azure" class="xliff"></a>
-
-## Postup nasazení služby AD FS v Azure
+## <a name="steps-to-deploy-ad-fs-in-azure"></a>Postup nasazení služby AD FS v Azure
 Kroky uvedené v této části popisují postup nasazení níže znázorněné infrastruktury služby AD FS v Azure.
 
-<a id="1-deploying-the-network" class="xliff"></a>
-
-### 1. Nasazení sítě
+### <a name="1-deploying-the-network"></a>1. Nasazení sítě
 Jak je uvedeno výše, můžete buď vytvořit dvě podsítě v jedné virtuální síti, nebo můžete vytvořit dvě zcela odlišné virtuální sítě (VNet). Tento článek se zaměří na nasazení jedné virtuální sítě a její rozdělení na dvě podsítě. Tento způsob je snazší, protože dvě samostatné virtuální sítě by pro komunikaci vyžadovaly bránu VNnet To VNet.
 
 **1.1 Vytvoření virtuální sítě**
@@ -108,16 +100,12 @@ Abychom mohli nasadit řadič domény (DC) v Azure, budeme potřebovat připojen
 Doporučujeme použít ExpressRoute. ExpressRoute vám umožňuje vytvářet privátní připojení mezi datovými centry Azure a infrastrukturou, která se nachází ve vašem umístění nebo v prostředí ve společném umístění. Připojení ExpressRoute se nepřenášejí prostřednictvím veřejného internetu. Nabízejí větší spolehlivost, vyšší rychlost, nižší latenci a vyšší zabezpečení než typická připojení přes internet.
 Přestože doporučujeme používat ExpressRoute, můžete si zvolit jakoukoli metodu připojení, která vaší organizaci vyhovuje. Další informace o ExpressRoute a různých možnostech připojení pomocí ExpressRoute najdete v článku [Technický přehled ExpressRoute](https://aka.ms/Azure/ExpressRoute).
 
-<a id="2-create-storage-accounts" class="xliff"></a>
-
-### 2. Vytvoření účtů úložiště
+### <a name="2-create-storage-accounts"></a>2. Vytvoření účtů úložiště
 Abyste udrželi vysokou dostupnost a vyhnuli se závislost na jednom účtu úložiště, můžete si vytvořit dva účty úložiště. Rozdělte počítače v každé skupině dostupnosti do dvou skupin a potom každé skupině přiřaďte samostatný účet úložiště.
 
 ![Vytvoření účtů úložiště](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-<a id="3-create-availability-sets" class="xliff"></a>
-
-### 3. Vytvoření skupin dostupnosti
+### <a name="3-create-availability-sets"></a>3. Vytvoření skupin dostupnosti
 Pro každou roli (řadič domény/AD FS a WAP) vytvořte skupiny dostupnosti tak, aby každá obsahovala minimálně dva počítače. Tím dosáhnete vyšší dostupnost pro každou roli. Při vytváření skupin dostupnosti je nezbytné rozhodnout o následujícím:
 
 * **Domény selhání**: Virtuální počítače ve stejné doméně selhání sdílejí stejný zdroj napájení a fyzický síťový přepínač. Jako minimum doporučujeme dvě domény selhání. Výchozí hodnota je tři a pro potřeby tohoto nasazení to tak můžete nechat.
@@ -132,9 +120,7 @@ Vytvoření následujících skupin dostupnosti
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-<a id="4-deploy-virtual-machines" class="xliff"></a>
-
-### 4. Nasazení virtuálních počítačů
+### <a name="4-deploy-virtual-machines"></a>4. Nasazení virtuálních počítačů
 Dalším krokem je nasazení virtuálních počítačů, které budou hostiteli různých rolí ve vaší infrastruktuře. Jako minimum doporučujeme dva počítače v každé skupině dostupnosti. Vytvořte čtyři virtuální počítače pro základní nasazení.
 
 | Počítač | Role | Podsíť | Skupina dostupnosti | Účet úložiště | IP adresa |
@@ -150,9 +136,7 @@ Po dokončení nasazení by mělo podokno virtuálního počítače vypadat nás
 
 ![Nasazené virtuální počítače](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-<a id="5-configuring-the-domain-controller--ad-fs-servers" class="xliff"></a>
-
-### 5. Konfigurace řadiče domény a serverů služby AD FS
+### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Konfigurace řadiče domény a serverů služby AD FS
  Abyste mohli ověřit jakékoli příchozí žádosti, musí služba AD FS kontaktovat řadič domény. Pokud chcete ušetřit nákladné spojení z Azure do řadiče místní domény kvůli ověřování, doporučujeme v Azure nasadit repliku řadiče domény. Abyste dosáhli vysoké dostupnosti, doporučujeme vytvořit skupinu dostupnosti s alespoň dvěma řadiči domény.
 
 | Řadič domény | Role | Účet úložiště |
@@ -163,9 +147,7 @@ Po dokončení nasazení by mělo podokno virtuálního počítače vypadat nás
 * Povýšení dvou serverů na repliky řadičů domény s DNS
 * Nakonfigurujte servery služby AD FS tím, že pomocí správce serveru nainstalujete roli služby AD FS.
 
-<a id="6-deploying-internal-load-balancer-ilb" class="xliff"></a>
-
-### 6. Nasazení interního nástroje pro vyrovnávání zatížení (ILB)
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Nasazení interního nástroje pro vyrovnávání zatížení (ILB)
 **6.1. Vytvoření interního nástroje pro vyrovnávání zatížení**
 
 Pokud chcete nasadit interní nástroj pro vyrovnávání zatížení, vyberte na portálu Azure možnost Nástroje pro vyrovnávání zatížení a klikněte na Přidat (+).
@@ -226,9 +208,7 @@ Kvůli efektivnímu vyrovnání provozu je nutné nakonfigurovat nástroj pro vy
 Přejděte na server DNS a vytvořte záznam CNAME pro interní nástroj pro vyrovnávání zatížení. Záznam CNAME musí pro službu FS obsahovat IP adresu, která odkazuje na IP adresu interního nástroje pro vyrovnávání zatížení. Pokud má interní nástroj pro vyrovnávání zatížení vyhrazenou IP adresu 10.3.0.8 a služba FS je nainstalovaná na webu fs.contoso.com, potom pro fs.contoso.com vytvořte záznam CNAME, který odkazuje na adresu 10.3.0.8.
 Tím zajistíte, že se veškerá komunikace (která se týká fs.contoso.com) dostane do interního nástroje pro vyrovnávání zatížení a bude odpovídajícím způsobem směrovaná.
 
-<a id="7-configuring-the-web-application-proxy-server" class="xliff"></a>
-
-### 7. Konfigurace proxy serverů webových aplikací
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Konfigurace proxy serverů webových aplikací
 **7.1. Konfigurace proxy serverů webových aplikací, aby se mohly spojit se servery služby AD FS**
 
 Aby se proxy servery webových aplikací mohly spojit se servery služby AD FS za interním nástrojem pro vyrovnávání zatížení, vytvořte pro nástroj záznam %systemroot%\system32\drivers\etc\hosts. Všimněte si, že rozlišující název (DN) musí být názvem služby FS, například fs.contoso.com. A IP adresa musí odpovídat IP adrese interního nástroje pro vyrovnávání zatížení (10.3.0.8 – jako v příkladu).
@@ -238,9 +218,7 @@ Aby se proxy servery webových aplikací mohly spojit se servery služby AD FS z
 Jakmile si budete jistí, že se proxy servery webových aplikací můžou spojit se servery služby AD FS za interním nástrojem pro vyrovnávání zatížení, můžete v dalším kroku nainstalovat proxy servery webových aplikací. Proxy servery webových aplikací nesmí být připojené k doméně. Výběrem role vzdáleného přístupu nainstalujte role proxy webových aplikací na dva proxy servery webových aplikací. Správce serveru vás provede až do konce instalace WAP.
 Další informace o nasazování WAPu najdete v článku [Instalace a konfigurace proxy serveru webových aplikací](https://technet.microsoft.com/library/dn383662.aspx).
 
-<a id="8--deploying-the-internet-facing-public-load-balancer" class="xliff"></a>
-
-### 8.  Nasazení internetového (veřejného) nástroje pro vyrovnávání zatížení
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Nasazení internetového (veřejného) nástroje pro vyrovnávání zatížení
 **8.1.  Vytvoření internetového (veřejného) nástroje pro vyrovnávání zatížení**
 
 Na portálu Azure vyberte Nástroje pro vyrovnávání zatížení a potom klikněte na Přidat. Na panelu Vytvoření nástroje pro vyrovnávání zatížení zadejte následující informace:
@@ -285,9 +263,7 @@ Postupujte stejným způsobem jako v interním nástroji pro vyrovnávání zat�
 
 ![Konfigurace pravidel vyrovnávání pro internetový nástroj pro vyrovnávání zatížení](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-<a id="9-securing-the-network" class="xliff"></a>
-
-### 9. Zabezpečení sítě
+### <a name="9-securing-the-network"></a>9. Zabezpečení sítě
 **9.1. Zabezpečení interní podsítě**
 
 Celkově budete k efektivnímu zabezpečení interní podsítě (v pořadí, jak je uvedeno níže) potřebovat následující pravidla:
@@ -317,9 +293,7 @@ Celkově budete k efektivnímu zabezpečení interní podsítě (v pořadí, jak
 > 
 > 
 
-<a id="10-test-the-ad-fs-sign-in" class="xliff"></a>
-
-### 10. Test přihlášení ke službě AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Test přihlášení ke službě AD FS
 Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpInitiatedSignon.aspx. Abyste to mohli provést, musíte ve vlastnostech služby AD FS povolit IdpInitiatedSignOn. Pomocí níže uvedených pokynů ověřte nastavení služby AD FS.
 
 1. Pomocí PowerShellu spusťte níže uvedenou rutinu na serveru služby AD FS a povolte požadovanou možnost.
@@ -333,9 +307,7 @@ Po úspěšném přihlášení zobrazí zprávu o úspěchu, jak je uvedeno ní�
 
 ![Úspěch testu](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-<a id="template-for-deploying-ad-fs-in-azure" class="xliff"></a>
-
-## Šablona pro nasazení AD FS v Azure
+## <a name="template-for-deploying-ad-fs-in-azure"></a>Šablona pro nasazení AD FS v Azure
 Šablona nasadí nastavení pro šest počítačů, po dvou pro každý řadič domény, službu AD FS a protokol WAP.
 
 [Šablona pro nasazení AD FS v Azure](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
@@ -370,9 +342,7 @@ Při nasazování této šablony můžete použít stávající virtuální sí�
 | AdminUserName |Jméno místního správce virtuálních počítačů |
 | AdminPassword |Heslo k účtu místního správce virtuálních počítačů |
 
-<a id="additional-resources" class="xliff"></a>
-
-## Další zdroje
+## <a name="additional-resources"></a>Další zdroje
 * [Skupiny dostupnosti](https://aka.ms/Azure/Availability) 
 * [Nástroj pro vyrovnávání zatížení Azure](https://aka.ms/Azure/ILB)
 * [Interní nástroj pro vyrovnávání zatížení.](https://aka.ms/Azure/ILB/Internal)
@@ -381,9 +351,7 @@ Při nasazování této šablony můžete použít stávající virtuální sí�
 * [Virtuální sítě Azure](https://aka.ms/Azure/VNet)
 * [Služba AD FS a odkazy na proxy webové aplikace](http://aka.ms/ADFSLinks) 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurace a správa služby AD FS pomocí služby Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
