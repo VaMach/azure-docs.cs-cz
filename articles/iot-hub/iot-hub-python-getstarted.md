@@ -77,6 +77,8 @@ Tato část uvádí kroky k vytvoření konzolové aplikace v Pythonu, která v 
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Přidejte následující funkci, která vypíše některé informace o zařízení.
 
     ```python

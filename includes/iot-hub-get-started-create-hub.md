@@ -10,6 +10,8 @@ Vytvoření služby IoT Hub pro aplikaci simulovaného zařízení, která se ke
     ![Okno centra IoT][2]
    
    1. Do pole **Název** zadejte název centra IoT. Pokud je **název** platný a dostupný, zobrazí se v poli **Název** zelená značka zaškrtnutí.
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   
    1. Vyberte [cenovou a škálovací úroveň][lnk-pricing]. Tento kurz nevyžaduje konkrétní úroveň. V kurzu použijte bezplatnou úroveň F1.
    1. V části **Skupina prostředků** vytvořte skupinu prostředků nebo vyberte existující skupinu. Další informace najdete v článku [Použití skupin prostředků ke správě prostředků Azure][lnk-resource-groups].
    1. V nabídce **Umístění** vyberte umístění pro hostování vašeho centra IoT. V tomto kurzu zvolte nejbližší umístění.
