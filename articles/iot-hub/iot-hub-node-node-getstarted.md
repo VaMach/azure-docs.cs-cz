@@ -94,6 +94,8 @@ V této části vytvoříte konzolovou aplikaci Node.js, která v registru ident
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Soubor **CreateDeviceIdentity.js** uložte a zavřete.
 8. Aplikaci **createdeviceidentity** spustíte tak, že v příkazovém řádku ve složce createdeviceidentity spustíte následující příkaz:
    
