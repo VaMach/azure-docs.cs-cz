@@ -3,7 +3,7 @@ title: "Začínáme s Azure App Service Mobile Apps pro aplikace na platformě X
 description: "V tomto kurzu začnete používat Mobile Apps pro vývoj na platformě Xamarin.iOS."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.contentlocale: cs-cz
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinios-app"></a>Vytvoření aplikace Xamarin.iOS
@@ -38,8 +38,8 @@ Pro absolvování tohoto kurzu musí být splněné následující požadavky:
 
 > [!NOTE]
 > Chcete-li začít se službou Azure App Service dříve, než se zaregistrujete k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/mobile/). V App Service můžete hned vytvořit krátkodobou úvodní mobilní aplikaci – nepožaduje se žádná platební karta ani to s sebou nenese žádné závazky.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Vytvoření back-endu mobilní aplikace Azure
 Podle těchto pokynů vytvořte back-end mobilní aplikace:
@@ -56,24 +56,24 @@ Podle následujících kroků nakonfigurujte serverový projekt tak, aby použí
 ## <a name="download-and-run-the-xamarinios-app"></a>Stáhnutí a spuštění aplikace Xamarin.iOS
 1. Otevřete v okně prohlížeče [Azure Portal].
 2. V okně nastavení mobilní aplikace klikněte na **Začínáme** > **Xamarin.iOS**. V kroku 3 klikněte na možnost **Vytvořit novou aplikaci**, pokud ještě nebyla vybrána.  Pak klikněte na tlačítko **Stáhnout**.
-   
+
       Stáhne se klientská aplikace, která se připojí k mobilnímu back-endu. Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
 3. Extrahujte projekt, který jste stáhli, a otevřete jej v nástroji Xamarin Studio (nebo v nástroji Visual Studio).
-   
+
     ![][9]
-   
+
     ![][8]
 4. Stiskněte klávesu F5, aby se projekt sestavil a aplikace se spustila v emulátoru iPhonu.
 5. Zadejte do aplikace smysluplný text, například *Naučit se Xamarin*, a klikněte na tlačítko **+**.
-   
+
     ![][10]
-   
+
     Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce se vrátí back-endu mobilní aplikace a v seznamu se zobrazí data.
 
 > [!NOTE]
 > Na kód, který přistupuje k back-endu mobilní aplikace pro dotazování a vkládání dat, se můžete podívat v souboru C# QSTodoService.cs.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Další kroky
 * [Přidání offline synchronizace do aplikace](app-service-mobile-xamarin-ios-get-started-offline-data.md)
