@@ -12,32 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 669ed9465e4ce4539b8aa642b4dc0eca6bad128a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# Vlastní instalace služby Azure AD Connect
-<a id="custom-installation-of-azure-ad-connect" class="xliff"></a>
+# <a name="custom-installation-of-azure-ad-connect"></a>Vlastní instalace služby Azure AD Connect
 **Vlastní nastavení** Azure AD Connect se používá, pokud chcete využít další možnosti instalace. Používá se, pokud máte víc doménových struktur, nebo pokud chcete nakonfigurovat volitelné funkce, které nejsou zahrnuty v rychlé instalaci. Používá se ve všech případech, kde možnost [**rychlá instalace**](active-directory-aadconnect-get-started-express.md) nevyhovuje nasazení nebo topologii.
 
 Před zahájením instalace Azure AD Connect nezapomeňte [stáhnout Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) a provést požadovanou přípravu popsanou v tématu [Azure AD Connect: Hardware a nezbytné předpoklady](active-directory-aadconnect-prerequisites.md). Taky se ujistěte, jestli máte požadované účty, které jsou popsané v tématu [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md).
 
 Pokud vlastní nastavení neodpovídá vaší topologii, například když chcete upgradovat DirSync, seznamte se s dalšími scénáři v [související dokumentaci](#related-documentation).
 
-## Instalace Azure AD Connect s vlastním nastavením
-<a id="custom-settings-installation-of-azure-ad-connect" class="xliff"></a>
-### Expresní nastavení
-<a id="express-settings" class="xliff"></a>
+## <a name="custom-settings-installation-of-azure-ad-connect"></a>Instalace Azure AD Connect s vlastním nastavením
+### <a name="express-settings"></a>Expresní nastavení
 Na této stránce kliknutím na **Přizpůsobit** spustíte instalaci s vlastním nastavením.
 
-### Instalace požadovaných součástí
-<a id="install-required-components" class="xliff"></a>
+### <a name="install-required-components"></a>Instalace požadovaných součástí
 Při instalaci služeb synchronizace můžete nechat volitelnou konfiguraci nezaškrtnutou a Azure AD Connect nastaví všechno automaticky. Nastaví instanci SQL Server 2012 Express LocalDB, vytvoří příslušné skupiny a přiřadí oprávnění. Pokud chcete změnit výchozí nastavení, následující tabulka vás seznámí s volitelnými možnostmi konfigurace, které jsou dostupné.
 
 ![Požadované součásti](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
@@ -48,8 +43,7 @@ Při instalaci služeb synchronizace můžete nechat volitelnou konfiguraci neza
 | Použít existující účet služby |Ve výchozím nastavení použije Azure AD Connect virtuální účet služby, který můžou služby synchronizace používat. Pokud používáte vzdálený server SQL nebo používáte proxy server vyžadující ověření, potřebujete mít **účet spravované služby** nebo účet služby v dané doméně a znát heslo. V těchto případech zadejte účet, který chcete použít. Ujistěte se, jestli uživatel, který provádí instalaci, je SA v SQL, aby bylo možné vytvořit přihlašovací jméno pro účet služby. Viz téma [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). |
 | Zadat vlastní skupiny pro synchronizaci |Ve výchozím nastavení vytvoří Azure AD Connect při instalaci služeb synchronizace čtyři skupiny, které jsou místní pro server. Jde o tyto skupiny: skupina Administrators, skupina Operators, skupina Browse a skupina Password Reset. Tady můžete zadat vlastní skupiny. Skupiny musí být místní na serveru a nemůžou být umístěny v doméně. |
 
-### Přihlášení uživatele
-<a id="user-sign-in" class="xliff"></a>
+### <a name="user-sign-in"></a>Přihlášení uživatele
 Po instalaci požadovaných součástí budete vyzváni, abyste vybrali metodu jednotného přihlašování uživatelů. Následující tabulka obsahuje stručný popis dostupných možností. Úplný popis metod přihlášení najdete v tématu [Přihlášení uživatele](active-directory-aadconnect-user-signin.md).
 
 ![Přihlášení uživatele](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
@@ -64,8 +58,7 @@ Po instalaci požadovaných součástí budete vyzváni, abyste vybrali metodu j
 |Možnost přihlašování|Tato možnost je dostupná pro zákazníky používající synchronizaci hesla a poskytuje jednotné přihlašovací prostředí pro uživatele stolních počítačů v podnikové síti.  </br>Další informace najdete v tématu [Jednotné přihlašování](active-directory-aadconnect-sso.md). </br>Poznámka: Pro zákazníky služby AD FS není tato možnost dostupná, protože AD FS už nabízí stejnou úroveň jednotného přihlašování.
 
 
-### Připojení k Azure AD
-<a id="connect-to-azure-ad" class="xliff"></a>
+### <a name="connect-to-azure-ad"></a>Připojení k Azure AD
 Na obrazovce Připojení k Azure AD zadejte účet a heslo globálního správce. Pokud jste na předchozí stránce vybrali **Federace se službou AD FS**, nepřihlašujte se pomocí účtu v doméně, kterou plánujete povolit pro federaci. Je vhodné použít účet ve výchozí doméně **onmicrosoft.com**, která je součástí adresáře Azure AD.
 
 Tento účet slouží jenom k vytvoření účtu služby v Azure AD, a po dokončení průvodce se už nepoužívá.  
@@ -78,11 +71,9 @@ Pokud má účet globálního správce povolené ověřování MFA, bude nutné 
 
 Pokud se zobrazí chyba a máte problémy s připojením, přečtěte si téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## Stránky v části Synchronizace
-<a id="pages-under-the-section-sync" class="xliff"></a>
+## <a name="pages-under-the-section-sync"></a>Stránky v části Synchronizace
 
-### Připojení adresářů
-<a id="connect-your-directories" class="xliff"></a>
+### <a name="connect-your-directories"></a>Připojení adresářů
 Azure AD Connect pro připojení ke službě Active Directory Domain Services potřebuje název doménové struktury a přihlašovací údaje účtu s dostatečnými oprávněními.
 
 ![Připojení adresáře](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
@@ -97,8 +88,7 @@ Po vytvoření názvu doménové struktury a kliknutí na **Přidat adresář** 
 ![Připojení adresáře](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
 
 
-### Konfigurace přihlášení k Azure AD
-<a id="azure-ad-sign-in-configuration" class="xliff"></a>
+### <a name="azure-ad-sign-in-configuration"></a>Konfigurace přihlášení k Azure AD
 Tato stránka vám umožní zkontrolovat domény hlavního názvu uživatele (UPN), které se nacházejí v místní službě AD DS a které byly ověřeny v Azure AD. Tato stránka vám také umožní konfigurovat atribut userPrincipalName, který chcete použít.
 
 ![Neověřené domény](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
@@ -114,8 +104,7 @@ Zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**.
 >
 >
 
-### Filtrování domén a organizačních jednotek
-<a id="domain-and-ou-filtering" class="xliff"></a>
+### <a name="domain-and-ou-filtering"></a>Filtrování domén a organizačních jednotek
 Ve výchozím nastavení se synchronizují všechny domény a organizační jednotky. Pokud některé domény nebo organizační jednotky nechcete synchronizovat do Azure AD, můžete zrušit výběr těchto domén a organizačních jednotek.  
 ![Filtrování organizačních jednotek domén](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
 Tato stránka průvodce konfiguruje filtrování podle domén a organizačních jednotek. Pokud plánujete změny, před jejich provedením si přečtěte témata [filtrování podel domén](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) a [filtrování podle organizačních jednotek](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Některé organizační jednotky jsou zásadní pro funkčnost a měly by být vybrány.
@@ -128,11 +117,9 @@ Je také možné, že některé domény nejsou dostupné kvůli omezení brány 
 ![Nedostupné domény](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
 Pokud se zobrazí toto upozornění, ujistěte se, jestli jsou tyto domény skutečně nedostupné a jestli je upozornění očekávané.
 
-### Jednoznačná identifikace uživatelů
-<a id="uniquely-identifying-your-users" class="xliff"></a>
+### <a name="uniquely-identifying-your-users"></a>Jednoznačná identifikace uživatelů
 
-#### Vyberte způsob, jakým se mají uživatelé identifikovat v místních adresářích
-<a id="select-how-users-should-be-identified-in-your-on-premises-directories" class="xliff"></a>
+#### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Vyberte způsob, jakým se mají uživatelé identifikovat v místních adresářích
 Funkce párování napříč doménovými strukturami vám umožňuje definovat, jak jsou uživatelé z vašich doménových struktur AD DS reprezentováni v Azure AD. Uživatel buď může být reprezentován jenom jednou v rámci všech doménových struktur, nebo může mít kombinaci povolených a zakázaných účtů. Uživatel také může být v některých doménových strukturách reprezentován jako kontakt.
 
 ![Jedinečná](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -145,8 +132,7 @@ Funkce párování napříč doménovými strukturami vám umožňuje definovat,
 | Atributy sAMAccountName a MailNickName |Tato možnost spojuje atributy, u kterých se dá očekávat, že obsahují přihlašovací ID uživatele. |
 | Konkrétní atribut |Tato možnost umožňuje vybrat vlastní atribut. **Omezení:** Je nutné vybrat atribut, který se už nachází v úložišti metaverse. Pokud vyberete vlastní atribut (který není v úložišti metaverse), průvodce se nedá dokončit. |
 
-#### Vyberte, jak se mají uživatelé identifikovat s Azure AD – zdrojové ukotvení
-<a id="select-how-users-should-be-identified-with-azure-ad---source-anchor" class="xliff"></a>
+#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Vyberte, jak se mají uživatelé identifikovat s Azure AD – zdrojové ukotvení
 Atribut sourceAnchor je atribut, který se za dobu existence objektu uživatele nemění. Jedná se o primární klíč propojující místního uživatele s uživatelem v Azure AD.
 
 | Nastavení | Popis |
@@ -156,8 +142,7 @@ Atribut sourceAnchor je atribut, který se za dobu existence objektu uživatele 
 
 Protože atribut nejde změnit, je nutné naplánovat a použít dobrý atribut. Jednou z vhodných možností je objectGUID. Tento atribut se změní jenom tehdy, pokud se uživatelský účet přesune mezi doménovými strukturami nebo doménami. V prostředí více doménových struktur, kde přesouváte účty mezi doménovými strukturami, je nutné použít jiný atribut, například atribut s employeeID. Vyhněte se atributům, které se mění, když uživatel uzavře manželství nebo se změní jeho přiřazení. Nelze použít atributy se symbolem @-sign, takže se nedá použít e-mail ani atribut userPrincipalName. V atributu se taky rozlišují velká a malá písmena, proto při přesunutí objektu mezi doménovými strukturami dejte pozor, abyste správně zachovali velká a malá písmena. Binární atributy se zakódují do formátu Base64, ale ostatní typy atributů zůstávají v nekódovaném stavu. Při federacích a v některých rozhraních Azure AD se tento atribut taky nazývá immutableID. Další informace o zdrojovém ukotvení najdete v [konceptech návrhu](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
-### Filtrování synchronizace podle skupin
-<a id="sync-filtering-based-on-groups" class="xliff"></a>
+### <a name="sync-filtering-based-on-groups"></a>Filtrování synchronizace podle skupin
 Funkce filtrování podle skupin umožňuje synchronizovat pouze malou podmnožinu objektů pro pilotní nasazení. Pokud chcete tuto funkci použít, vytvořte pro tento účel skupinu v místní službě Active Directory. Jako přímé členy přidejte uživatele a skupiny, které chcete synchronizovat do Azure AD. Později můžete přidáváním uživatelů do této skupiny a jejich odebíráním spravovat seznam objektů, které mají být dostupné v Azure AD. Každý objekt, který chcete synchronizovat, musí být přímým členem skupiny. Přímými členy musí být uživatelé, skupiny, kontakty a počítače/zařízení. Členství ve vnořené skupině se nepřeloží. Když jako člena přidáte skupinu, přidá se jenom samotná skupina, a ne její členové.
 
 ![Filtrování synchronizace](./media/active-directory-aadconnect-get-started-custom/filter2.png)
@@ -169,8 +154,7 @@ Funkce filtrování podle skupin umožňuje synchronizovat pouze malou podmnoži
 
 V plnohodnotném produkčním nasazení bude obtížné spravovat jenom jednu skupinu se všemi objekty k synchronizaci. Místo toho je vhodné použít jednu z metod v [konfiguraci filtrování](active-directory-aadconnectsync-configure-filtering.md).
 
-### Volitelné funkce
-<a id="optional-features" class="xliff"></a>
+### <a name="optional-features"></a>Volitelné funkce
 Na této obrazovce můžete vybrat volitelné funkce pro konkrétní scénáře.
 
 ![Volitelné funkce](./media/active-directory-aadconnect-get-started-custom/optional.png)
@@ -191,8 +175,7 @@ Na této obrazovce můžete vybrat volitelné funkce pro konkrétní scénáře.
 | Zpětný zápis zařízení |Umožňuje zpětný zápis objektů zařízení ve službě Azure AD do místní služby Active Directory pro potřeby podmíněného přístupu. Další informace najdete v tématu [Povolení zpětného zápisu zařízení v Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
 | Synchronizace atributů rozšíření adresáře |Když povolíte synchronizaci atributů rozšíření adresáře, určené atributy se synchronizují do Azure AD. Další informace najdete v tématu [Rozšíření adresáře](active-directory-aadconnectsync-feature-directory-extensions.md). |
 
-### Filtrování aplikací a atributů Azure AD
-<a id="azure-ad-app-and-attribute-filtering" class="xliff"></a>
+### <a name="azure-ad-app-and-attribute-filtering"></a>Filtrování aplikací a atributů Azure AD
 Pokud chcete omezit atributy, které se budou synchronizovat do Azure AD, začněte výběrem služeb, které používáte. Pokud na této stránce provedete změny konfigurace, je nutné znovu spustit průvodce instalací a explicitně vybrat novou službu.
 
 ![Volitelné funkce – aplikace](./media/active-directory-aadconnect-get-started-custom/azureadapps2.png)
@@ -206,23 +189,20 @@ Na základě služeb vybraných v předchozím kroku tato stránka zobrazuje vš
 >
 >
 
-### Synchronizace atributů rozšíření adresáře
-<a id="directory-extension-attribute-sync" class="xliff"></a>
+### <a name="directory-extension-attribute-sync"></a>Synchronizace atributů rozšíření adresáře
 Schéma v Azure AD můžete rozšířit vlastními atributy, které přidala vaše organizace, nebo dalšími atributy ve službě Active Directory. Pokud chcete tuto funkci použít, vyberte možnost **Synchronizace atributů rozšíření adresáře** na stránce **Volitelné funkce**. Na této stránce můžete vybrat víc atributů k synchronizaci.
 
 ![Rozšíření adresáře](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
 Další informace najdete v tématu [Rozšíření adresáře](active-directory-aadconnectsync-feature-directory-extensions.md).
 
-### Povolení jednotného přihlašování (SSO)
-<a id="enabling-single-sign-on-sso" class="xliff"></a>
+### <a name="enabling-single-sign-on-sso"></a>Povolení jednotného přihlašování (SSO)
 Konfigurace jednotného přihlašování pro použití se synchronizací hesel a s předávacím ověřováním je jednoduchý proces, který stačí pro každou doménovou strukturu synchronizovanou se službou AD provést pouze jednou. Konfigurace zahrnuje tyto dva kroky:
 
-1.    Vytvořte potřebný účet počítače v místní službě Active Directory.
-2.    Nakonfigurujte zónu intranetu klientského počítače pro podporu jednotného přihlašování.
+1.  Vytvořte potřebný účet počítače v místní službě Active Directory.
+2.  Nakonfigurujte zónu intranetu klientského počítače pro podporu jednotného přihlašování.
 
-#### Vytvoření účtu počítače ve službě Active Directory
-<a id="create-the-computer-account-in-active-directory" class="xliff"></a>
+#### <a name="create-the-computer-account-in-active-directory"></a>Vytvoření účtu počítače ve službě Active Directory
 Pro každou doménovou strukturu přidanou v nástroji AAD Connect musíte zadat přihlašovací údaje správce domény, aby v ní bylo možné vytvořit účet počítače. Přihlašovací údaje slouží jenom k vytvoření účtu a neukládají se. Nepoužívají se ani pro žádné jiné operace. Jednoduše přidejte přihlašovací údaje v Průvodci nástrojem AAD Connect na stránce **Povolit jednotné přihlašování**, jak znázorňuje následující obrázek:
 
 ![Povolit jednotné přihlašování](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
@@ -230,48 +210,43 @@ Pro každou doménovou strukturu přidanou v nástroji AAD Connect musíte zadat
 >[!NOTE]
 >Pokud pro konkrétní doménovou strukturu nechcete použít jednotné přihlašování, můžete ji přeskočit.
 
-#### Konfigurace zóny intranetu pro klientské počítače
-<a id="configure-the-intranet-zone-for-client-machines" class="xliff"></a>
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurace zóny intranetu pro klientské počítače
 Pokud chcete zajistit, aby se klient v zóně intranetu přihlásil automaticky, ujistěte se, že součástí zóny intranetu jsou dvě adresy URL. Tím se zajistí, že počítač připojený k doméně při připojení k podnikové síti automaticky odešle službě Azure AD lístek Kerberos.
 Na počítači, který obsahuje Nástroje pro správu zásad skupiny:
 
-1.    Spusťte Nástroje pro správu zásad skupiny.
-2.    Upravte zásady skupiny, které se použijí na všechny uživatele. Například Výchozí zásady domény.
-3.    Přejděte do **Konfigurace uživatele\Šablony pro správu\Komponenty Windows\Internet Explorer\Ovládací panely – Internet\Stránka zabezpečení** a vyberte **Seznam zařazení serverů do zón**, jak je znázorněné na následujícím obrázku.
-4.    Povolte zásady a do dialogového okna zadejte tyto dvě položky.
+1.  Spusťte Nástroje pro správu zásad skupiny.
+2.  Upravte zásady skupiny, které se použijí na všechny uživatele. Například Výchozí zásady domény.
+3.  Přejděte do **Konfigurace uživatele\Šablony pro správu\Komponenty Windows\Internet Explorer\Ovládací panely – Internet\Stránka zabezpečení** a vyberte **Seznam zařazení serverů do zón**, jak je znázorněné na následujícím obrázku.
+4.  Povolte zásady a do dialogového okna zadejte tyto dvě položky.
 
-        Hodnota: `https://autologon.microsoftazuread-sso.com`  
+        Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Hodnota: `https://aadg.windows.net.nsatc.net`  
+        Value: `https://aadg.windows.net.nsatc.net`  
         Data: 1
 
-5.    Mělo by to vypadat nějak takto:  
+5.  Mělo by to vypadat nějak takto:  
 ![Zóny intranetu](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    Dvakrát klikněte na **OK**.
+6.  Dvakrát klikněte na **OK**.
 
-## Konfigurace federace se službou AD FS
-<a id="configuring-federation-with-ad-fs" class="xliff"></a>
+## <a name="configuring-federation-with-ad-fs"></a>Konfigurace federace se službou AD FS
 Konfigurace služby AD FS se službou Azure AD Connect je jednoduchá a dá se provést několika kliknutími. Před konfigurací jsou vyžadovány následující položky.
 
 * Windows Server 2012 R2 pro federační server s povolenou vzdálenou správou
 * Windows Server 2012 R2 pro proxy server webové aplikace s povolenou vzdálenou správou
 * Certifikát protokolu SSL pro název služby FS (Federation Service), který chcete použít (například sts.contoso.com)
 
-### Předpoklady konfigurace služby AD FS
-<a id="ad-fs-configuration-pre-requisites" class="xliff"></a>
+### <a name="ad-fs-configuration-pre-requisites"></a>Předpoklady konfigurace služby AD FS
 Chcete-li konfigurovat farmu služby AD FS pomocí služby Azure AD Connect, ujistěte se, že je na vzdálených serverech povolená služba WinRM. Kromě toho si projděte požadavek na porty uvedený v oddílu [Tabulka 3 – Azure AD Connect a federační servery/protokol WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
-### Vytvoření nové farmy služby AD FS nebo použití existující farmy služby AD FS
-<a id="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm" class="xliff"></a>
+### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Vytvoření nové farmy služby AD FS nebo použití existující farmy služby AD FS
 Můžete použít existující farmu služby AD FS nebo můžete vytvořit novou farmu služby AD FS. Pokud se rozhodnete vytvořit novou, je nutné zadat certifikát protokolu SSL. Pokud je certifikát protokolu SSL chráněný heslem, budete vyzváni k zadání hesla.
 
 ![Farma služby AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 Pokud se rozhodnete použít existující farmu služby AD FS, přejdete přímo na obrazovku konfigurace vztahu důvěryhodnosti mezi službou AD FS a Azure AD.
 
-### Zadání serverů služby AD FS
-<a id="specify-the-ad-fs-servers" class="xliff"></a>
+### <a name="specify-the-ad-fs-servers"></a>Zadání serverů služby AD FS
 Zadejte servery, na které chcete nainstalovat službu AD FS. Podle potřeb plánování kapacity můžete přidat jeden nebo víc serverů. Před provedením této konfigurace připojte všechny servery k službě Active Directory. Společnost Microsoft doporučuje instalaci jednoho serveru služby AD FS pro zkušební a pilotní nasazení. Po počáteční konfiguraci znovu spusťte Azure AD Connect a podle potřeb škálování přidejte a nasaďte další servery.
 
 > [!NOTE]
@@ -281,8 +256,7 @@ Zadejte servery, na které chcete nainstalovat službu AD FS. Podle potřeb plá
 
 ![Servery služby AD FS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
-### Zadání proxy serverů webových aplikací
-<a id="specify-the-web-application-proxy-servers" class="xliff"></a>
+### <a name="specify-the-web-application-proxy-servers"></a>Zadání proxy serverů webových aplikací
 Zadejte servery, které chcete použít jako proxy servery webových aplikací. Proxy server webových aplikací je nasazen do (extranetového) DMZ a podporuje požadavky na ověření z extranetu. Podle potřeb plánování kapacity můžete přidat jeden nebo víc serverů. Společnost Microsoft doporučuje instalaci jednoho proxy serveru webové aplikace pro zkušební a pilotní nasazení. Po počáteční konfiguraci znovu spusťte Azure AD Connect a podle potřeb škálování přidejte a nasaďte další servery. Doporučujeme použít stejný počet proxy serverů k uspokojení ověřování z intranetu.
 
 > [!NOTE]
@@ -297,8 +271,7 @@ Zobrazí se výzva k zadání přihlašovacích údajů, aby server webových ap
 
 ![Proxy server](./media/active-directory-aadconnect-get-started-custom/adfs4.png)
 
-### Zadání účtu služby AD FS
-<a id="specify-the-service-account-for-the-ad-fs-service" class="xliff"></a>
+### <a name="specify-the-service-account-for-the-ad-fs-service"></a>Zadání účtu služby AD FS
 Služba AD FS vyžaduje účet doménové služby, aby mohla ověřovat uživatele a hledat informace o uživatelích ve službě Active Directory. Podporuje dva typy účtů služeb:
 
 * **Skupinový účet spravované služby** – Zaveden ve službě Active Directory Domain Services se systémem Windows Server 2012. Tento typ účtu poskytuje službám (např. službě AD FS) jeden účet bez nutnosti pravidelně aktualizovat heslo účtu. Tuto možnost použijte, pokud se řadiče domény systému Windows Server 2012 už nacházejí v doméně, do které patří server služby AD FS.
@@ -308,14 +281,12 @@ Pokud jste vybrali skupinový účet spravované služby a tato funkce se ve slu
 
 ![Účet služby AD FS](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
-### Výběr domény služby Azure AD, kterou chcete federovat
-<a id="select-the-azure-ad-domain-that-you-wish-to-federate" class="xliff"></a>
+### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Výběr domény služby Azure AD, kterou chcete federovat
 Tato konfigurace slouží k nastavení federačního vztahu mezi službami AD FS a Azure AD. Službu AD FS nakonfiguruje tak, aby vydávala tokeny zabezpečení službě Azure AD, a službu Azure AD nakonfiguruje tak, aby důvěřovala tokenům od této konkrétní instance služby AD FS. Tato stránka při počáteční instalaci umožňuje nakonfigurovat jen jednu doménu. Později můžete znovu spustit Azure AD Connect a nakonfigurovat další domény.
 
 ![Doména služby Azure AD](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
-### Výběr domény Azure AD vybrané k federaci
-<a id="verify-the-azure-ad-domain-selected-for-federation" class="xliff"></a>
+### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Výběr domény Azure AD vybrané k federaci
 Při výběru domény k federaci služba Azure AD Connect poskytuje informace nezbytné k ověření neověřené domény. Téma [Přidání a ověření domény](../active-directory-add-domain.md) vás seznámí s tím, jak tyto informace používat.
 
 ![Doména služby Azure AD](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
@@ -325,8 +296,7 @@ Při výběru domény k federaci služba Azure AD Connect poskytuje informace ne
 >
 >
 
-## Konfigurace a ověření stránek
-<a id="configure-and-verify-pages" class="xliff"></a>
+## <a name="configure-and-verify-pages"></a>Konfigurace a ověření stránek
 Na této stránce probíhá konfigurace.
 
 > [!NOTE]
@@ -336,8 +306,7 @@ Na této stránce probíhá konfigurace.
 
 ![Připraveno ke konfiguraci](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
-### Pracovní režim
-<a id="staging-mode" class="xliff"></a>
+### <a name="staging-mode"></a>Pracovní režim
 Nový synchronizační server se dá nastavit souběžně s pracovním režimem. Je podporován pouze jeden synchronizační server exportující do jednoho adresáře v cloudu. Pokud se ale chcete přesunout z jiného serveru, například ze serveru se spuštěným nástrojem DirSync, můžete povolit službu Azure AD Connect v pracovním režimu. Pokud je povolena, synchronizační modul importuje a synchronizuje data běžným způsobem, ale neexportuje nic do služby Azure AD ani AD. V pracovním režimu jsou zakázány funkce synchronizace hesla a zpětného zápisu hesla.
 
 ![Pracovní režim](./media/active-directory-aadconnect-get-started-custom/stagingmode.png)
@@ -346,8 +315,7 @@ V pracovním režimu je možné provést požadované změny synchronizačního 
 
 Další informace najdete v tématu [Pracovní režim](active-directory-aadconnectsync-operations.md#staging-mode).
 
-### Ověření konfigurace federace
-<a id="verify-your-federation-configuration" class="xliff"></a>
+### <a name="verify-your-federation-configuration"></a>Ověření konfigurace federace
 Když kliknete na tlačítko Ověřit, služba Azure AD Connect ověří nastavení DNS za vás.
 
 ![Dokončit](./media/active-directory-aadconnect-get-started-custom/completed.png)
@@ -360,8 +328,7 @@ Kromě toho proveďte následující postup ověření:
 * Ověřte, že se můžete přihlásit ze zařízení z extranetu. Na domácím počítači nebo na mobilním zařízení se připojte k https://myapps.microsoft.com a zadejte přihlašovací údaje.
 * Ověřte přihlášení plně funkčního klienta. Připojte se k https://testconnectivity.microsoft.com, vyberte kartu **Office 365** a vyberte možnost **Test jednotného přihlašování Office 365**.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Po dokončení instalace se odhlaste a znovu přihlaste do Windows. Teprve pak použijte Synchronization Service Manager nebo Synchronization Rule Editor.
 
 Nyní, když máte nainstalovanou službu Azure AD Connect, můžete si [ověřit instalaci a přiřadit licence](active-directory-aadconnect-whats-next.md).

@@ -13,44 +13,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 929a4dec638da9488dd0b43fd123ed0cce77bcf3
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 7d8825da888092988bf39c5a5789a957179b2cff
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
-# Nasazení clusteru Kubernetes pro kontejnery Windows
-<a id="deploy-kubernetes-cluster-for-windows-containers" class="xliff"></a>
+# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Nasazení clusteru Kubernetes pro kontejnery Windows
 
 Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tato příručka podrobně popisuje použití rozhraní příkazového řádku Azure k nasazení clusteru [Kubernetes](https://kubernetes.io/docs/home/) ve službě [Azure Container Service](container-service-intro.md). Po nasazení clusteru se k němu připojíte pomocí nástroje pro příkazový řádek Kubernetes `kubectl` a nasadíte svůj první kontejner Windows.
 
-Tento kurz vyžaduje Azure CLI verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít rozhraní příkazového řádku Azure ve verzi 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Podpora pro kontejnery Windows v Kubernetes ve službě Azure Container Service je ve verzi Preview. 
 >
 
-## Přihlaste se k Azure.
-<a id="log-in-to-azure" class="xliff"></a> 
-
-Přihlaste se k předplatnému Azure pomocí příkazu [az login](/cli/azure/#login) a postupujte podle pokynů na obrazovce.
-
-```azurecli-interactive 
-az login
-```
-
-## Vytvoření skupiny prostředků
-<a id="create-a-resource-group" class="xliff"></a>
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logická skupina, ve které se nasazují a spravují prostředky Azure. 
 
@@ -60,8 +48,7 @@ Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umí
 az group create --name myResourceGroup --location eastus
 ```
 
-## Vytvoření clusteru Kubernetes
-<a id="create-kubernetes-cluster" class="xliff"></a>
+## <a name="create-kubernetes-cluster"></a>Vytvoření clusteru Kubernetes
 Vytvořte cluster Kubernetes ve službě Azure Container Service pomocí příkazu [az acs create](/cli/azure/acs#create). 
 
 Následující příklad vytvoří cluster s názvem *myK8sCluster* s jedním hlavním linuxovým uzlem a dvěma agentskými uzly Windows. Tento příklad vytvoří klíče SSH potřebné pro připojení k hlavnímu serveru Linux. Tento příklad používá na uzlech Windows uživatelské jméno správce *azureuser* a heslo *myPassword12*. Aktualizujte tyto hodnoty na nějaké vhodné pro vaše prostředí. 
@@ -80,8 +67,7 @@ az acs create --orchestrator-type=kubernetes \
 
 Po několika minutách se příkaz dokončí a zobrazí vám informace o nasazení.
 
-## Instalace kubectl
-<a id="install-kubectl" class="xliff"></a>
+## <a name="install-kubectl"></a>Instalace kubectl
 
 Pokud se chcete připojit ke clusteru Kubernetes z klientského počítače, použijte klienta příkazového řádku Kubernetes [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/). 
 
@@ -94,8 +80,7 @@ az acs kubernetes install-cli
 ```
 
 
-## Připojení přes kubectl
-<a id="connect-with-kubectl" class="xliff"></a>
+## <a name="connect-with-kubectl"></a>Připojení přes kubectl
 
 Abyste nakonfigurovali `kubectl` pro připojení ke svému clusteru Kubernetes, spusťte příkaz [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Následující příklad stáhne konfiguraci clusteru pro cluster Kubernetes.
 
@@ -119,8 +104,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ```
 
-## Nasazení kontejneru Windows služby IIS
-<a id="deploy-a-windows-iis-container" class="xliff"></a>
+## <a name="deploy-a-windows-iis-container"></a>Nasazení kontejneru Windows služby IIS
 
 Kontejner Dockeru můžete spustit v *podu* Kubernetes, který obsahuje jeden nebo více kontejnerů. 
 
@@ -176,8 +160,7 @@ NAME     READY        STATUS        RESTARTS    AGE
 iis      1/1          Running       0           32s
 ```
 
-## Zobrazení úvodní stránky služby IIS
-<a id="view-the-iis-welcome-page" class="xliff"></a>
+## <a name="view-the-iis-welcome-page"></a>Zobrazení úvodní stránky služby IIS
 
 Pokud chcete zpřístupnit pod celému světu prostřednictvím veřejné IP adresy, zadejte následující příkaz:
 
@@ -206,8 +189,7 @@ Pokud si chcete zobrazit úvodní stránku ISS na externí IP adrese, můžete p
 ![Obrázek přechodu na službu IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
 
-## Odstranění clusteru
-<a id="delete-cluster" class="xliff"></a>
+## <a name="delete-cluster"></a>Odstranění clusteru
 Pokud už cluster nepotřebujete, můžete k odebrání skupiny prostředků, služby kontejneru a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive 
@@ -215,8 +197,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 V tomto rychlém úvodním kurzu jste nasadili cluster Kubernetes, připojili se přes `kubectl` a nasadili pod s kontejnerem ISS. Další informace o Azure Container Service získáte v kurzu o Kubernetes.
 
