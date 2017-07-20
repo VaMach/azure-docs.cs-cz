@@ -3,7 +3,7 @@ title: "Začínáme s Azure Mobile Apps u aplikací na platformě Xamarin.Androi
 description: "V tomto kurzu začnete používat Azure Mobile Apps pro vývoj na platformě Xamarin.Android."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.contentlocale: cs-cz
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Vytvoření aplikace Xamarin.Android
@@ -41,8 +41,8 @@ Pro absolvování tohoto kurzu musí být splněné následující požadavky:
 
 > [!NOTE]
 > Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/mobile/).  Ve službě App Service si můžete ihned vytvořit krátkodobou úvodní mobilní aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Vytvoření back-endu mobilní aplikace Azure
 Podle těchto pokynů vytvořte back-end mobilní aplikace.
@@ -56,19 +56,19 @@ Nyní máte zřízen back-end mobilní aplikace Azure, který je možné použí
 
 ## <a name="download-and-run-the-xamarinandroid-app"></a>Stáhnutí a spuštění aplikace Xamarin.Android
 1. V části **Stáhnout a spustit projekt Xamarin.Android** klikněte na tlačítko **Stáhnout**.
-   
+
       Uložte komprimovaný soubor projektu do místního počítače a poznamenejte si, kam jste jej uložili.
 2. Stiskněte klávesu **F5**, aby se projekt sestavil a spustil aplikaci.
 3. V aplikaci zadejte smysluplný text, například *Dokončit kurz*, a klikněte na tlačítko **Přidat**.
-   
+
     ![][10]
-   
+
     Data z požadavku se vloží do tabulky TodoItem. Položky uložené v tabulce budou vráceny back-endu mobilní aplikace a v seznamu se objeví data.
-   
+
    > [!NOTE]
    > Na kód, který přistupuje k back-endu mobilní aplikace pro dotazování a vkládání dat, se můžete podívat v souboru C# ToDoActivity.cs.
-   > 
-   > 
+   >
+   >
 
 ## <a name="next-steps"></a>Další kroky
 * [Přidání offline synchronizace do aplikace](app-service-mobile-xamarin-android-get-started-offline-data.md)
