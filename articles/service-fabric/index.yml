@@ -1,0 +1,137 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentace k Azure Service Fabric
+metadata:
+  title: >-
+    Dokumentace ke službě Azure Service Fabric – kurzy, reference k rozhraní API
+    | Dokumentace Microsoftu
+  meta.description: >-
+    Learn how to use Service Fabric middleware platform to package and deploy
+    microservices for cloud-scale applications. Tutorials, API references, and
+    code samples.
+  services: service-fabric
+  author: carolz
+  manager: carolz
+  layout: LandingPage
+  ms.assetid: null
+  ms.service: service-fabric
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: carolz
+abstract:
+  description: >-
+    Azure Service Fabric je platforma distribuovaných systémů usnadňující
+    balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb a
+    kontejnerů. Vývojáři a správci se můžou vyhnout problémům se složitou
+    infrastrukturou a místo toho se soustředit na implementaci zásadních a
+    náročných úloh, které jsou škálovatelné, spolehlivé a spravovatelné. Naučte
+    se používat službu Azure Service Fabric prostřednictvím našich šablon Rychlý
+    start, kurzů a ukázek.
+  aside:
+    image:
+      alt: null
+      height: 140
+      src: >-
+        https://sec.ch9.ms/ch9/cf61/aa41e58e-ec9f-4f7b-982d-40daaaeacf61/IntroAzureServiceFabric_960.jpg
+      width: 250
+    title: 'Seznámení se Service Fabric (3:53)'
+    href: 'https://azure.microsoft.com/en-us/resources/videos/azure-service-fabric/'
+    width: 250
+sections:
+  - title: Zprovoznění během 5 minut
+    items:
+      - type: paragraph
+        text: 'Podívejte se, jak nasadit první aplikaci Service Fabric do cloudu:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: >-
+                https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg
+            text: .NET
+            href: >-
+              https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-dotnet
+  - title: Podrobné kurzy
+    items:
+      - type: paragraph
+        text: >-
+          Jak nasadit, spravovat a monitorovat zabezpečené webové aplikace v
+          Azure
+      - type: list
+        style: ordered
+        items:
+          - html: >-
+              <a href="service-fabric-tutorial-create-dotnet-app">Nasazení
+              aplikace .NET</a>
+          - html: >-
+              <a href="service-fabric-tutorial-create-cluster-azure-ps">Migrace
+              stávající aplikace .NET metodou „lift and shift“</a>
+  - title: Bezplatné školicí video od PluralSightu
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Vývoj v .NET
+            href: >-
+              https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+            image:
+              src: >-
+                https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
+              href: >-
+                https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+          - title: Cloudové vzory a architektura
+            href: >-
+              https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+            image:
+              src: >-
+                https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
+              href: >-
+                https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+  - title: Ukázky
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Ukázky skriptu
+            html: >-
+              <p><a href="service-fabric-powershell-samples">Azure
+              PowerShell</a></p>
+          - title: .NET
+            html: >-
+              <p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-getting-started/">Začínáme</a></p><p><a
+              href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Hlasování</a></p><p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-web-reference-app/">Webový
+              odkaz</a></p><p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-watchdog-service/">Sledovací
+              zařízení</a></p>
+          - title: Java
+            html: >-
+              <p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-java-getting-started/">Začínáme</a></p>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Příkazový řádek
+            html: >-
+              <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a
+              href="/powershell/module/azurerm.servicefabric">PowerShell
+              (Azure)</a></p><p><a
+              href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+          - title: Jazyky
+            html: >-
+              <p><a href="/java/api/overview/azure/servicefabric">Rozhraní API
+              Java</a></p><p><a
+              href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+          - title: REST
+            html: >-
+              <p><a href="/rest/api/servicefabric">Reference k rozhraní REST
+              API</a></p>

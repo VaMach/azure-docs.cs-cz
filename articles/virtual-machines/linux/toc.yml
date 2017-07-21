@@ -373,6 +373,8 @@
               href: classic/hpcpack-cluster-namd.md
         - name: SAP v Azure
           href: ../workloads/sap/get-started.md
+        - name: Oracle v Azure
+          href: ../workloads/oracle/oracle-considerations.md
     - name: Docker na virtuálních počítačích
       items:
         - name: >-
