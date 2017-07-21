@@ -13,6 +13,3 @@
 ### [Začínáme s aplikací](microsoft-authenticator-app-how-to.md)
 ### [Přihlášení pomocí telefonu](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Nejčastější dotazy](microsoft-authenticator-app-faq.md)
-
-# Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
