@@ -29,6 +29,7 @@
 ### [Průvodce kopírováním služby Data Factory](data-factory-azure-copy-wizard.md)
 #### [Načtení 1 TB za 15 minut](data-factory-load-sql-data-warehouse.md)
 ### [Průvodce laděním a výkonem](data-factory-copy-activity-performance.md)
+### [Odolnost proti chybám](data-factory-copy-activity-fault-tolerance.md)
 ### [Aspekty zabezpečení](data-factory-data-movement-security-considerations.md)
 ### Konektory
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
