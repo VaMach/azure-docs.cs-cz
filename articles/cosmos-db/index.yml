@@ -4,7 +4,10 @@ title: Dokumentace k databázi Azure Cosmos
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Dokumentace k databázi Azure Cosmos – kurzy, reference k rozhraní API'
-  description: 'Naučte se pomocí databáze Azure Cosmos vytvářet globálně distribuované databáze s více modely. V kurzech se dozvíte, jak sestavit a dotazovat databáze dokumentů, klíčů a hodnot nebo grafů.'
+  description: >-
+    Naučte se pomocí databáze Azure Cosmos vytvářet globálně distribuované
+    databáze s více modely. V kurzech se dozvíte, jak sestavit a dotazovat
+    databáze dokumentů, klíčů a hodnot nebo grafů.
   services: cosmos-db
   author: carolz
   manager: carolz
@@ -15,85 +18,148 @@ metadata:
   ms.date: 04/28/2017
   ms.author: carolz
 abstract:
-  description: 'Databáze Azure Cosmos je globálně distribuovaná databázová služba navržená pro umožnění elastického a nezávislého škálování propustnosti a úložiště napříč jakýmkoli počtem zeměpisných oblastí s komplexní smlouvou SLA.  Pomocí databáze Cosmos můžete vyvíjet databáze dokumentů, klíčů a hodnot nebo grafů s použitím oblíbených rozhraní API a programovacích modelů. Naučte se používat databázi Cosmos prostřednictvím našich šablon Rychlý start, kurzů a ukázek.'
+  description: >-
+    Databáze Azure Cosmos je globálně distribuovaná databázová služba navržená
+    pro umožnění elastického a nezávislého škálování propustnosti a úložiště
+    napříč jakýmkoli počtem zeměpisných oblastí s komplexní smlouvou SLA. 
+    Pomocí databáze Cosmos můžete vyvíjet databáze dokumentů, klíčů a hodnot
+    nebo grafů s použitím oblíbených rozhraní API a programovacích modelů.
+    Naučte se používat databázi Cosmos prostřednictvím našich šablon Rychlý
+    start, kurzů a ukázek.
 sections:
-- title: Zprovoznění během 5 minut
-  items:
-  - type: paragraph
-    text: 'Zjistěte, jak pomocí služby Azure Cosmos DB vytvořit globálně distribuovanou databázi s použitím jednoho z rozhraní API s více modely:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/logo_net.svg
-      - image:
-          src: media/index/logo_java.svg
-      - image:
-          src: media/index/logo_nodejs.svg
-      - image:
-          src: media/index/logo_python.svg
-      - image:
-          src: media/index/logo_gremlin.svg
-    rows:
-      - title: Rozhraní DocumentDB API
-        values:
-        - href: /azure/cosmos-db/create-documentdb-dotnet
-        - href: /azure/cosmos-db/create-documentdb-java
-        - href: /azure/cosmos-db/create-documentdb-nodejs
-        - href: /azure/cosmos-db/create-documentdb-python
-        - href:
-      - title: Rozhraní MongoDB API
-        values:
-          - href: /azure/cosmos-db/create-mongodb-dotnet
-          - href: /azure/cosmos-db/create-mongodb-java
-          - href: /azure/cosmos-db/create-mongodb-nodejs
-          - href: 
-          - href: 
-      - title: Graph API
-        values:
-          - href: /azure/cosmos-db/create-graph-dotnet
-          - href: /azure/cosmos-db/create-graph-java
-          - href: /azure/cosmos-db/create-graph-nodejs
-          - href:
-          - href: /azure/cosmos-db/create-graph-gremlin-console
-      - title: Rozhraní Table API
-        values:
-          - href: /azure/cosmos-db/create-table-dotnet
-          - href:
-          - href:
-          - href:
-          - href:
-- title: Podrobné kurzy
-  items:
-  - type: paragraph
-    text: 'Informace o vývoji aplikací pomocí služby Azure Cosmos DB&#58;'
-  - type: list
-    style: ordered
+  - title: Zprovoznění během 5 minut
     items:
-    - html: 'Vývoj aplikace pomocí služby Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a>'
-    - html: 'Import dat do služby Cosmos DB&#58; <a href="documentdb-import-data">DocumentDB</a> | <a href="documentdb-mongodb-migrate">MongoDB</a>'
-    - html: 'Dotazování dat pomocí služby Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>'
-    - html: 'Globální replikace databáze pomocí služby Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>'
-    - html: <a href="local-emulator">Lokální vývoj aplikace pomocí emulátoru</a>
-- title: Ukázky
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: >-
+          Zjistěte, jak pomocí služby Azure Cosmos DB vytvořit globálně
+          distribuovanou databázi s použitím jednoho z rozhraní API s více
+          modely:
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_net.svg
+          - image:
+              src: media/index/logo_java.svg
+          - image:
+              src: media/index/logo_nodejs.svg
+          - image:
+              src: media/index/logo_python.svg
+          - image:
+              src: media/index/logo_gremlin.svg
+        rows:
+          - title: Rozhraní DocumentDB API
+            values:
+              - href: /azure/cosmos-db/create-documentdb-dotnet
+              - href: /azure/cosmos-db/create-documentdb-java
+              - href: /azure/cosmos-db/create-documentdb-nodejs
+              - href: /azure/cosmos-db/create-documentdb-python
+              - href: null
+          - title: Rozhraní MongoDB API
+            values:
+              - href: /azure/cosmos-db/create-mongodb-dotnet
+              - href: /azure/cosmos-db/create-mongodb-java
+              - href: /azure/cosmos-db/create-mongodb-nodejs
+              - href: null
+              - href: null
+          - title: Graph API
+            values:
+              - href: /azure/cosmos-db/create-graph-dotnet
+              - href: /azure/cosmos-db/create-graph-java
+              - href: /azure/cosmos-db/create-graph-nodejs
+              - href: null
+              - href: /azure/cosmos-db/create-graph-gremlin-console
+          - title: Rozhraní Table API
+            values:
+              - href: /azure/cosmos-db/create-table-dotnet
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+  - title: Podrobné kurzy
     items:
-    - html: <a href="/azure/cosmos-db/cli-samples">Azure CLI</a>
-    - html: <a href="/azure/cosmos-db/powershell-samples">Azure PowerShell</a>
-- title: Referenční informace
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Informace o vývoji aplikací pomocí služby Azure Cosmos DB&#58;'
+      - type: list
+        style: ordered
+        items:
+          - html: >-
+              Vývoj aplikace pomocí služby Cosmos DB&#58; <a
+              href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a>
+              | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a>
+              | <a
+              href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> |
+              <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a>
+          - html: >-
+              Import dat do služby Cosmos DB&#58; <a
+              href="documentdb-import-data">DocumentDB</a> | <a
+              href="documentdb-mongodb-migrate">MongoDB</a>
+          - html: >-
+              Dotazování dat pomocí služby Cosmos DB&#58; <a
+              href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> |
+              <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a
+              href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a
+              href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
+          - html: >-
+              Globální replikace databáze pomocí služby Cosmos DB&#58; <a
+              href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a>
+              | <a
+              href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a>
+              | <a
+              href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a>
+              | <a
+              href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
+          - html: >-
+              <a href="local-emulator">Lokální vývoj aplikace pomocí
+              emulátoru</a>
+  - title: Ukázky
     items:
-    - title: Rozhraní DocumentDB API
-      html: '<p><a href="/rest/api/documentdb/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/documentdbresourceprovider/">Poskytovatel prostředků REST</a></p><p><a href="documentdb-sql-query-reference">SQL</a></p>'
-    - title: Rozhraní MongoDB API
-      html: '<p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>'
-    - title: Rozhraní Table API
-      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p>
-    - title: Rozhraní Gremlin API
-      html: '<p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>'
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/cosmos-db/cli-samples">Azure CLI</a>
+          - html: <a href="/azure/cosmos-db/powershell-samples">Azure PowerShell</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Rozhraní DocumentDB API
+            html: >-
+              <p><a href="/rest/api/documentdb/">REST</a></p><p><a
+              href="https://aka.ms/acdbnetref">.NET</a></p><p><a
+              href="documentdb-sdk-dotnet-changefeed">Kanál změn
+              .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET
+              Core</a></p><p><a
+              href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a
+              href="https://aka.ms/acdbjavaref">Java</a></p><p><a
+              href="https://aka.ms/acdbpythonref">Python</a></p><p><a
+              href="/rest/api/documentdbresourceprovider/">Poskytovatel
+              prostředků REST</a></p><p><a
+              href="documentdb-sql-query-reference">SQL</a></p>
+          - title: Rozhraní MongoDB API
+            html: >-
+              <p><a
+              href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire
+              Protocol</a></p><p><a
+              href="https://mongodb.github.io/node-mongodb-native/
+              ">Node.js</a></p><p><a
+              href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a
+              href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a
+              href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a
+              href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
+          - title: Rozhraní Table API
+            html: >-
+              <p><a
+              href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a
+              href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p>
+          - title: Rozhraní Gremlin API
+            html: >-
+              <p><a
+              href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a
+              href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a
+              href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a
+              href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a
+              href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>

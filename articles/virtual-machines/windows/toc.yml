@@ -85,8 +85,6 @@
           href: preserving-maintenance.md
         - name: Restartování údržby
           href: impactful-maintenance.md
-        - name: Plán
-          href: planned-maintenance-schedule.md
     - name: Velikost virtuálních počítačů
       href: sizes.md
       items:
@@ -415,6 +413,8 @@
               href: troubleshoot-recovery-disks.md
             - name: portál Azure
               href: troubleshoot-recovery-disks-portal.md
+        - name: Použití PerfInsights k řešení potíží s výkonem
+          href: how-to-use-perfInsights.md
 - name: Referenční informace
   items:
     - name: Azure CLI

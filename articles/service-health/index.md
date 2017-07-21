@@ -13,16 +13,15 @@ ms.topic: landing-page
 ms.date: 07/07/2017
 ms.author: bernardm
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: d95507be7af7eb69cbab4e11a2aa6af1a9775b0c
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 1452c1dd56829d162d464c4a359fa8c86ce74a6b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Dokumentace ke službě Azure Service Health
-<a id="azure-service-health-documentation" class="xliff"></a>
+# <a name="azure-service-health-documentation"></a>Dokumentace ke službě Azure Service Health
 
-Service Health pomáhá při diagnostice a získání podpory v případě, že potíže s Azure ovlivňují vaše prostředky. Informuje o aktuálním a dřívějším stavu prostředků a pomáhá zmírnit problémy. Poskytuje technickou podporu, když potřebujete pomoc s problémy se službami Azure.
+Azure Service Health poskytuje individuální pokyny a podporu v případě, že se vás týkají problémy se službami Azure, a pomůže vás připravit na chystanou plánovanou údržbu. Azure Service Health upozorní vás i vaše týmy prostřednictvím cílených a flexibilních upozornění.
 <ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/service-health/service-health-overview">

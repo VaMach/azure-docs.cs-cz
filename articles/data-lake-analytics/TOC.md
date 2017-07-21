@@ -6,6 +6,7 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
+## [Průvodce programovatelností U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Postup
 
@@ -28,12 +29,14 @@
 ### [Rozšíření U-SQL R](data-lake-analytics-u-sql-r-extensions.md)
 ### [Kognitivní rozšíření U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Analýza webových protokolů](data-lake-analytics-analyze-weblogs.md)
+### [U-SQL pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 
 ## Ladění programů U-SQL
 ### [Monitorování úloh a odstraňování potíží](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [Ladění kódu C# v U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Použití prohlížeče úloh a zobrazení úloh](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Použití zobrazení provádění vrcholů](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+### [Místní spuštění a místní ladění ve VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

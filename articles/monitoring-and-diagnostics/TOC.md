@@ -22,7 +22,7 @@
 ### [Konfigurace upozornění na portálu Azure Portal](insights-alerts-portal.md)
 ### [Konfigurace upozornění pomocí rozhraní příkazového řádku](insights-alerts-command-line-interface.md)
 ### [Konfigurace upozornění přes PowerShell](insights-alerts-powershell.md)
-### [Upozornění na metriku s voláním webhooku](insights-webhooks-alerts.md)
+### [Nastavení výstrahy metrik pro volání webhooku](insights-webhooks-alerts.md)
 ### [Vytvoření upozornění na metriku pomocí šablony Resource Manageru](monitoring-enable-alerts-using-template.md)
 ## Použití automatického škálování
 ### [Osvědčené postupy](insights-autoscale-best-practices.md)
@@ -74,3 +74,4 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ukázky pro PowerShell](insights-powershell-samples.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Šablony Rychlý start](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

@@ -25,6 +25,7 @@
 # Postup
 
 ## [Migrace uživatelských dat ze služby Azure RemoteApp](remoteapp-migrate.md)
+## [Migrace do MyCloudIT](remoteapp-migrate-mycloudit.md)
 ## [Migrace na Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Vytvoření kolekce služby RemoteApp
 ### [Kterou kolekci potřebujete?](remoteapp-collections.md)
