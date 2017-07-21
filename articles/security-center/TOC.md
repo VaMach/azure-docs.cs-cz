@@ -19,6 +19,7 @@
 
 ## Prevence
 ### [Nastavení zásad zabezpečení](security-center-policies.md)
+### [Přístup právě včas](security-center-just-in-time.md)
 ### [Implementace doporučení pro zabezpečení](security-center-recommendations.md)
 
 ### [Doporučení pro aplikace](security-center-application-recommendations.md)
