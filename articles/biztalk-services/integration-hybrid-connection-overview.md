@@ -14,16 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 9367d6f57e694c8a438781004ef29a09de77aaa8
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="hybrid-connections-overview"></a>Přehled hybridních připojení
+# Přehled hybridních připojení
+<a id="hybrid-connections-overview" class="xliff"></a>
+
+> [!IMPORTANT]
+> Hybridní připojení BizTalk jsou vyřazena z provozu a nahrazena hybridními připojeními App Service. Další informace, včetně informací o tom, jak spravovat existující hybridní připojení BizTalk, najdete v tématu [Hybridní připojení Azure App Service](../app-service/app-service-hybrid-connections.md).
+
 Článek obsahuje úvod do hybridních připojení a uvádí podporované konfigurace a požadované porty TCP.
 
-## <a name="what-is-a-hybrid-connection"></a>Co je hybridní připojení
+## Co je hybridní připojení
+<a id="what-is-a-hybrid-connection" class="xliff"></a>
 Hybridní připojení patří mezi funkce služby Azure BizTalk Services. Hybridní připojení poskytují snadný a pohodlný způsob připojení funkce Web Apps služby Azure App Service (dříve Websites) a funkce Mobile Apps služby Azure App Service (dříve Mobile Services) k místním prostředkům za vaší bránou firewall.
 
 ![Hybridní připojení][HCImage]
@@ -48,7 +56,8 @@ Hybridní připojení také poskytují podnikovým správcům kontrolu a přehle
 * Pomocí nastavení zásad skupiny můžou správci povolit hybridní připojení v síti a také určit prostředky, ke kterým můžou získat přístup hybridní aplikace.
 * Protokoly událostí a auditu v podnikové síti poskytují přehled o jednotlivých prostředcích, ke kterým se získává přístup pomocí hybridních připojení.
 
-## <a name="example-scenarios"></a>Ukázkové scénáře
+## Ukázkové scénáře
+<a id="example-scenarios" class="xliff"></a>
 Hybridní připojení podporují následující kombinace rozhraní a aplikací:
 
 * Přístup k systému SQL Server přes rozhraní .NET
@@ -65,7 +74,8 @@ Pokud používáte hybridní připojení pro přístup k místnímu SQL Serveru,
 * V současné době se nepodporuje nastavení `ApplicationIntent=ReadOnly`.
 * Může být potřeba nastavit ověřování SQL, které poskytuje metodu ověřování mezi koncovými účastníky podporovanou aplikací Azure a místním serverem SQL.
 
-## <a name="security-and-ports"></a>Zabezpečení a porty
+## Zabezpečení a porty
+<a id="security-and-ports" class="xliff"></a>
 Hybridní připojení používají k zabezpečení připojení z aplikací Azure a Místního správce hybridního připojení k funkci Hybridní připojení autorizaci pomocí sdíleného přístupového podpisu (SAS). Pro aplikaci a Místního správce hybridního připojení se vytvoří oddělené klíče připojení. Tyto klíče připojení se dají nezávisle převracet a odvolávat.
 
 Hybridní připojení poskytují hladkou a zabezpečenou distribuci klíčů do aplikací a Místního správce hybridního připojení.
@@ -74,7 +84,8 @@ Další informace najdete v článku [Vytváření a správa hybridních připoj
 
 *Autorizace aplikací probíhá odděleně od hybridního připojení*. Dá se použít libovolná vhodná autorizační metoda. Metoda autorizace závisí na metodách autorizace mezi koncovými účastníky podporovaných v cloudu Azure a místních komponentách. Vaše aplikace Azure může třeba získávat přístup k místnímu SQL Serveru. V tomto scénáři může být podporovaná metoda autorizace SQL mezi koncovými účastníky.
 
-#### <a name="tcp-ports"></a>Porty TCP
+#### Porty TCP
+<a id="tcp-ports" class="xliff"></a>
 Hybridní připojení vyžadují jenom odchozí připojení TCP nebo HTTP z vaší privátní sítě. Nemusíte otevírat žádné porty brány firewall ani měnit konfiguraci hraniční sítě, abyste povolili příchozí připojení do sítě.
 
 Hybridní připojení používají tyto porty TCP:
@@ -85,12 +96,14 @@ Hybridní připojení používají tyto porty TCP:
 | 5671 |Pokud se k přenosům dat používá port 9352, port 5671 slouží jako řídicí kanál. <br/><br/>Povolte odchozí připojení k tomuto portu. |
 | 80, 443 |Tyto porty se používají při některých žádostech o data zasílaných do Azure. Kromě toho platí, že pokud porty 9352 a 5671 nejsou použitelné, *potom* se pro přenos dat a jako řídicí kanál použijí záložní porty 80 a 443.<br/><br/>Povolte odchozí připojení k těmto portům. <br/><br/>**Poznámka:** Tyto porty nedoporučujeme používat jako záložní porty pro jiné porty TCP. Jako protokol pro datové kanály se místo nativního protokolu TCP používá HTTP/WebSocket. To může způsobit snížení výkonu. |
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 [Vytváření a správa hybridních připojení](integration-hybrid-connection-create-manage.md)<br/>
 [Připojení Azure Web Apps k místnímu prostředku](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
 [Připojení k místnímu SQL Serveru z webové aplikace Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 
-## <a name="see-also"></a>Viz také
+## Viz také
+<a id="see-also" class="xliff"></a>
 [Rozhraní API REST pro správu služby BizTalk Services v Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
 [BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md)<br/>
 [Vytvoření služby BizTalk pomocí webu Azure Portal](biztalk-provision-services.md)<br/>
@@ -100,9 +113,4 @@ Hybridní připojení používají tyto porty TCP:
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

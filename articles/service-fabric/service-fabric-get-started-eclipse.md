@@ -12,20 +12,25 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 06/29/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f0f6d6399d53ae2ef81454e4d686e6cc59151c2
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/30/2017
 
 
 ---
 
-# <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Modul plug-in Service Fabric pro vývoj aplikací v Eclipse Javě
+<a id="service-fabric-plug-in-for-eclipse-java-application-development" class="xliff"></a>
+
+# Modul plug-in Service Fabric pro vývoj aplikací v Eclipse Javě
 Eclipse je jedním z nejčastěji používaných integrovaných vývojových prostředí (IDE) pro vývojáře v jazyce Java. V tomto článku probereme možnosti nastavení vývojového prostředí Eclipse pro práci s Azure Service Fabric. Naučíte se nainstalovat modul plug-in Service Fabric, vytvořit aplikaci Service Fabric a nasadit ji na místní nebo vzdálený cluster Service Fabric v Eclipse Neonu.
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Instalace a aktualizace modulu plug-in Service Fabric v prostředí Eclipse Neon
+<a id="install-or-update-the-service-fabric-plug-in-in-eclipse-neon" class="xliff"></a>
+
+## Instalace a aktualizace modulu plug-in Service Fabric v prostředí Eclipse Neon
 Modul plug-in Service Fabric můžete nainstalovat do Eclipse. Tento modul plug-in může zjednodušit proces vytváření a nasazování služeb v Javě.
 
 1.  Zkontrolujte, že máte nainstalovanou nejnovější verzi Eclipse Neonu a nejnovější verzi Buildshipu (1.0.17 nebo novější):
@@ -34,18 +39,21 @@ Modul plug-in Service Fabric můžete nainstalovat do Eclipse. Tento modul plug-
     -   Pokud chcete zkontrolovat a nainstalovat aktualizace pro Eclipse Neon, přejděte k části **Help** > **Check for Updates** (Nápověda => Vyhledat aktualizace).
 
 2.  Pokud chcete nainstalovat modul plug-in Service Fabric v Eclipse Neonu, přejděte k části **Help** > **Install New Software** (Nápověda => Instalovat nový software).
-  1.    Do textového pole **Work with** (Pracovat s) zadejte **http://dl.windowsazure.com/eclipse/servicefabric**.
-  2.    Klikněte na tlačítko **Přidat**.
-    ![Modul plug-in Service Fabric pro Eclipse Neon][sf-eclipse-plugin-install]
+  1.    V poli **Work with** (Pracovat s) zadejte **http://dl.microsoft.com/eclipse**.
+  2.    Klikněte na **Přidat**.
+
+         ![Modul plug-in Service Fabric pro Eclipse Neon][sf-eclipse-plugin-install]
   3.    Vyberte modul plug-in Service Fabric a potom klikněte na **Další**.
   4.    Dokončete instalaci a přijměte licenční podmínky pro software společnosti Microsoft.
 
 Pokud už máte modul plug-in Service Fabric nainstalovaný, ověřte, že používáte nejnovější verzi. Pokud chcete vyhledat dostupné aktualizace, přejděte k části **Help** > **Installation Details** (Nápověda => Podrobnosti o instalaci). V seznamu nainstalovaných modulů plug-in vyberte Service Fabric a potom klikněte na **Aktualizovat**. Nainstalují se dostupné aktualizace.
 
 > [!NOTE]
-> Pokud je instalace nebo aktualizace modulu plug-in Service Fabric pomalá, může být důvodem nastavení Eclipse. Eclipse shromažďuje metadata o všech změnách, aby aktualizoval weby, které jsou registrované pro vaši instanci Eclipse. Pokud chcete proces vyhledávání a instalace aktualizace modulu plug-in Service Fabric urychlit, přejděte k části **Available Software Sites** (Dostupné softwarové servery). Zrušte zaškrtnutí políček pro všechny weby kromě políčka odkazujícího na umístění modulu plug-in Service Fabric (http://dl.windowsazure.com/eclipse/servicefabric).
+> Pokud je instalace nebo aktualizace modulu plug-in Service Fabric pomalá, může být důvodem nastavení Eclipse. Eclipse shromažďuje metadata o všech změnách, aby aktualizoval weby, které jsou registrované pro vaši instanci Eclipse. Pokud chcete proces vyhledávání a instalace aktualizace modulu plug-in Service Fabric urychlit, přejděte k části **Available Software Sites** (Dostupné softwarové servery). Zrušte zaškrtnutí políček pro všechny weby kromě políčka odkazujícího na umístění modulu plug-in Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
-## <a name="create-a-service-fabric-application-in-eclipse"></a>Vytvoření aplikace Service Fabric pomocí Eclipse
+<a id="create-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Vytvoření aplikace Service Fabric pomocí Eclipse
 
 1.  V Eclipse Neonu přejděte na **File** > **New** > **Other** (Soubor => Nový => Ostatní). Vyberte **Service Fabric Project** (Projekt Service Fabric) a potom klikněte na **Next** (Další).
 
@@ -71,7 +79,9 @@ Pokud už máte modul plug-in Service Fabric nainstalovaný, ověřte, že použ
 
     ![Nový projekt Service Fabric – stránka 6][create-application/p6]
 
-## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Vytvoření a nasazení aplikace Service Fabric v Eclipse
+<a id="build-and-deploy-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Vytvoření a nasazení aplikace Service Fabric v Eclipse
 
 1.  Klikněte na novou aplikaci Service Fabric pravým tlačítkem a potom vyberte **Service Fabric**.
 
@@ -103,7 +113,9 @@ Existuje alternativní způsob nasazení aplikace Service Fabric pomocí konfigu
 
 Vaše aplikace se během chvilky sestaví a nasadí. Stav nasazení můžete sledovat v Service Fabric Exploreru.  
 
-## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Přidání služby Service Fabric do aplikace Service Fabric
+<a id="add-a-service-fabric-service-to-your-service-fabric-application" class="xliff"></a>
+
+## Přidání služby Service Fabric do aplikace Service Fabric
 
 Přidat službu Service Fabric do stávající aplikace Service Fabric je možné pomocí následujících kroků:
 
@@ -124,7 +136,17 @@ Přidat službu Service Fabric do stávající aplikace Service Fabric je možn�
 
     ![Přidat službu Service Fabric – stránka 4][add-service/p4]
 
-## <a name="upgrade-your-service-fabric-java-application"></a>Upgrade aplikace Service Fabric v Javě
+<a id="edit-manifest-versions-of-your-service-fabric-java-application" class="xliff"></a>
+
+## Úprava verzí manifestu aplikace Service Fabric v jazyce Java
+
+Pokud chcete upravit verze manifestu, klikněte pravým tlačítkem na projekt, přejděte na **Service Fabric** a z rozevírací nabídky vyberte **Upravit verze manifestu...**. V průvodci můžete aktualizovat verze manifestu pro manifest aplikace, manifest služby a verze pro balíčky **Code**, **Config** a **Data**.
+
+Pokud zaškrtnete políčko **Automaticky aktualizovat verze aplikací a služeb** a pak aktualizujete verzi, verze manifestu se zaktualizují automaticky. Když například nejprve zaškrtnete toto políčko a pak zaktualizujete verzi pro verzi **Code** z 0.0.0 na 0.0.1 a klikněte na **Dokončit**, verze manifestu služby a verze manifestu aplikace se automaticky aktualizují na 0.0.1.
+
+<a id="upgrade-your-service-fabric-java-application" class="xliff"></a>
+
+## Upgrade aplikace Service Fabric v Javě
 
 Pro scénář upgradu předpokládejme, že jste pomocí modulu plug-in Service Fabric v Eclipse vytvořili projekt **App1**. Pomocí modulu plug-in jste ho nasadili a vytvořili aplikaci s názvem **fabric: / App1Application**. Tato aplikace je typu **App1AppicationType** a verze této aplikace je 1.0. Nyní chcete provést upgrade této aplikace bez přerušení dostupnosti.
 
@@ -142,7 +164,7 @@ Upgrade aplikace trvá několik minut. Průběh upgradu aplikace můžete monito
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

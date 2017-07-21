@@ -56,15 +56,17 @@
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [Posouzení AD](log-analytics-ad-assessment.md)
 ### [Stav replikace AD](log-analytics-ad-replication-status.md)
+### [Stav agenta](../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Správa výstrah](log-analytics-solution-alert-management.md)
+### [Application Insights Connector](log-analytics-app-insights-connector.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
 ### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Kapacita a výkon](log-analytics-capacity.md)
 ### [Sledování změn](log-analytics-change-tracking.md)
 ### [Kontejnery](log-analytics-containers.md)
 ### [Analýzy DNS](log-analytics-dns.md)
-### [IT Service Management Connector v OMS](log-analytics-itsmc-overview.md)
-#### [Připojení Správy služeb IT v OMS](log-analytics-itsmc-connections.md)
+### [IT Service Management Connector](log-analytics-itsmc-overview.md)
+#### [Připojení IT Service Management ](log-analytics-itsmc-connections.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Zprávy B2B Logic Apps
 #### [Řešení zpráv B2B Logic Apps](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -89,6 +91,7 @@
 ### [Rutiny PowerShellu](log-analytics-powershell-workspace-configuration.md)
 ### [Šablony Resource Manageru](log-analytics-template-workspace-configuration.md)
 ### [Rozhraní API pro prohledávání protokolů](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [Rozhraní API pro výstrahy](log-analytics-api-alerts.md)
 
 # Referenční informace
@@ -96,6 +99,7 @@
 ## [REST](/rest/api/loganalytics)
 
 # Zdroje a prostředky
-## [Analýzy ve Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Analýzy ve Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

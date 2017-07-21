@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: cs-cz
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
-# <a name="virtual-networks-and-windows-virtual-machines-in-azure"></a>Virtuální sítě a virtuální počítače s Windows v prostředí Azure 
+# Virtuální sítě a virtuální počítače s Windows v prostředí Azure
+<a id="virtual-networks-and-windows-virtual-machines-in-azure" class="xliff"></a> 
 
 Když vytváříte virtuální počítač Azure, musíte vytvořit [virtuální síť](../../virtual-network/virtual-networks-overview.md) (VNet), nebo použít existující VNet. Také musíte rozhodnout, jak budou vaše virtuální počítače v síti VNet dostupné. Je důležité [plánovat před vytvořením prostředků](../../virtual-network/virtual-network-vnet-plan-design-arm.md) a dobře porozumět [omezením síťových prostředků](../../azure-subscription-service-limits.md#networking-limits).
 
@@ -44,7 +45,8 @@ Vedle těchto základních prostředků byste měli zvážit také následujíc�
 - Skupiny zabezpečení sítě
 - Nástroje pro vyrovnávání zatížení 
 
-## <a name="network-interfaces"></a>Síťová rozhraní
+## Síťová rozhraní
+<a id="network-interfaces" class="xliff"></a>
 
 [Síťové rozhraní (NIC)](../../virtual-network/virtual-network-network-interface.md) je propojení mezi virtuálním počítačem a virtuální sítí (VNet). Virtuální počítač musí mít alespoň jedno síťové rozhraní, ale může jich mít víc, v závislosti na své velikosti. Přečtěte si, kolik síťových rozhraní podporují jednotlivé velikosti virtuálních počítačů, v článku [Velikosti virtuálních počítačů v Azure](sizes.md). 
 
@@ -63,7 +65,8 @@ Tato tabulka shrnuje metody, které můžete použít k vytvoření síťového 
 | [Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Pokud chcete použít identifikátor veřejné IP adresy, kterou jste vytvořili dřív, použijte příkaz [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) s parametrem **--public-ip-address**. |
 | [Šablona](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Jako vodítko při nasazování síťového rozhraní pomocí šablony použijte článek věnovaný [síťovému rozhraní ve virtuální síti s veřejnou IP adresou](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet). |
 
-## <a name="ip-addresses"></a>IP adresy 
+## IP adresy
+<a id="ip-addresses" class="xliff"></a> 
 
 Síťovému rozhraní v Azure můžete přiřadit tyto typy [IP adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md):
 
@@ -87,7 +90,8 @@ Tato tabulka shrnuje metody, které můžete použít k vytvoření IP adresy.
 
 Vytvořenou veřejnou IP adresu můžete přidružit k virtuálnímu počítači tak, že ji přiřadíte síťovému rozhraní.
 
-## <a name="virtual-network-and-subnets"></a>Virtuální sítě a podsítě
+## Virtuální sítě a podsítě
+<a id="virtual-network-and-subnets" class="xliff"></a>
 
 Podsíť je rozsah IP adres ve virtuální síti. Virtuální síť můžete z organizačních a bezpečnostních důvodů rozdělit do několika podsítí. Každé síťové rozhraní ve virtuálním počítači je připojené k jedné podsíti v rámci jedné virtuální sítě. Síťová rozhraní připojená k podsítím (stejným nebo různým) v rámci jedné virtuální sítě můžou navzájem komunikovat bez jakékoli další konfigurace.
 
@@ -97,7 +101,7 @@ Pokud pracujete v organizaci, ve které je za interní sítě zodpovědný někd
 
 Ve výchozím nastavení mezi podsítěmi neexistuje žádná hranice zabezpečení, takže virtuální počítače v každé z těchto podsítí mohou vzájemně komunikovat. Můžete ale nastavit skupiny zabezpečení sítě (NSG), které umožňují řídit tok do a ze sítí a také do a z virtuálních počítačů. 
 
-Tato tabulka shrnuje metody, které můžete použít k vytvoření virtuální sítě a podsítí.    
+Tato tabulka shrnuje metody, které můžete použít k vytvoření virtuální sítě a podsítí. 
 
 | Metoda | Popis |
 | ------ | ----------- |
@@ -106,7 +110,8 @@ Tato tabulka shrnuje metody, které můžete použít k vytvoření virtuální 
 | [Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) | Podsíť a virtuální síť se vytvoří ve stejnou dobu. Pro [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) zadejte parametr **--subnet-name** s názvem podsítě. |
 | [Šablona](../../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Nejjednodušší způsob, jak vytvořit virtuální síť a podsítě, je stáhnout existující šablonu, jako je třeba [virtuální sítě se dvěma podsítěmi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), a upravit ji pro vaše potřeby. |
 
-## <a name="network-security-groups"></a>Skupiny zabezpečení sítě
+## Skupiny zabezpečení sítě
+<a id="network-security-groups" class="xliff"></a>
 
 [Skupina zabezpečení sítě (NSG)](../../virtual-network/virtual-networks-nsg.md) obsahuje seznam pravidel seznamu řízení přístupu (ACL), která povolují nebo zamítají síťový provoz pro podsítě, síťová rozhraní nebo oboje. Skupiny NSG můžou být přidružené buď k podsítím, nebo k jednotlivým síťovým rozhraním připojeným k podsíti. Pokud je skupina zabezpečení sítě přidružená k podsíti, pravidla seznamu ACL platí pro všechny virtuální počítače v této podsíti. Provoz směřující do konkrétního síťového rozhraní se navíc dá omezit tím, že se přímo k tomuto síťovému rozhraní přidruží skupina NSG.
 
@@ -127,7 +132,8 @@ Tato tabulka shrnuje metody, které můžete použít k vytvoření skupiny zabe
 | [Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md) | K úvodnímu vytvoření NSG použijte [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). Pro přidání pravidel k NSG použijte [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create). K přidání NSG do podsítě použijte [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update). |
 | [Šablona](../../virtual-network/virtual-networks-create-nsg-arm-template.md) | Jako vodítko při nasazování skupiny zabezpečení sítě pomocí šablony použijte článek věnovaný [vytvoření skupiny zabezpečení sítě](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create). |
 
-## <a name="load-balancers"></a>Nástroje pro vyrovnávání zatížení
+## Nástroje pro vyrovnávání zatížení
+<a id="load-balancers" class="xliff"></a>
 
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) zajišťuje vysokou dostupnost a výkon sítě pro vaše aplikace. Nástroj pro vyrovnávání zatížení je možné nakonfigurovat tak, aby [vyrovnával příchozí přenosy z Internetu](../../load-balancer/load-balancer-internet-overview.md) k virtuálním počítačům nebo aby [vyrovnával přenosy mezi virtuálními počítači ve virtuální síti](../../load-balancer/load-balancer-internal-overview.md). Nástroj pro vyrovnávání zatížení může také vyrovnávat přenosy mezi místními a virtuálními počítači na různých místech v síti nebo předávat externí přenosy konkrétnímu virtuálnímu počítači.
 
@@ -159,7 +165,8 @@ Tato tabulka shrnuje metody, které můžete použít k vytvoření interního n
 | [Azure CLI](../../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Pro vytvoření úvodní konfigurace nástroje pro vyrovnávání zatížení použijte příkaz [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create). K definování privátní IP adresy použijte [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) s parametrem **--private-ip-address**. K přidání konfigurace fondu back-endových adres použijte [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create). K přidání pravidel NAT použijte [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create). K přidání pravidel nástroje pro vyrovnávání zatížení použijte [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create). K přidání sond použijte [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create).|
 | [Šablona](../../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Jako vodítko při nasazování nástroje pro vyrovnávání zatížení pomocí šablony použijte článek věnovaný [vytvoření dvou virtuálních počítačů v nástroji pro vyrovnávání zatížení a konfiguraci pravidel NAT v tomto prostředí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer). |
 
-## <a name="vms"></a>Virtuální počítače
+## Virtuální počítače
+<a id="vms" class="xliff"></a>
 
 Virtuální počítače je možné vytvořit ve stejné virtuální síti. Ke vzájemnému propojení můžou využít privátní IP adresy. Propojit se můžou v případě, že jsou v různých podsítích, a není přitom potřeba konfigurovat bránu nebo využívat veřejné IP adresy. Pokud chcete umístit virtuální počítač do virtuální sítě, vytvořte virtuální síť a potom jednotlivé virtuální počítače při jejich vytváření přiřazujte do této virtuální sítě a požadované podsítě. Virtuální počítače získají svoje síťové nastavení sítě během nasazení nebo spuštění.  
 
@@ -175,7 +182,8 @@ Tato tabulka shrnuje metody, které můžete použít k vytvoření virtuálníh
 | [Azure PowerShell](../virtual-machines-windows-ps-create.md) | Zahrnuje použití [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) pro přidání síťového rozhraní, které jste vytvořili dřív, do konfigurace virtuálního počítače. |
 | [Šablona](ps-template.md) | Jako vodítko při nasazování virtuálního počítače pomocí šablony použijte článek věnovaný [velmi jednoduchému nasazení virtuálního počítače s Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows). |
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 - Naučte se konfigurovat [trasy definované uživatelem a předávání IP](../../virtual-network/virtual-networks-udr-overview.md). 
 - Naučte se konfigurovat [připojení mezi virtuálními sítěmi](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

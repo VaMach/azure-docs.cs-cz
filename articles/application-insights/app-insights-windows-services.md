@@ -3,7 +3,7 @@ title: "Azure Application Insights pro server Windows a role pracovního procesu
 description: "Ručně přidejte do aplikace ASP.NET sadu SDK Application Insights k analýze využití, dostupnosti a výkonu."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
@@ -11,66 +11,90 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: b18e20ac7742f499cfe4b84a2869077979e354d8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="manually-configure-application-insights-for-aspnet-applications"></a>Ruční konfigurace Application Insights pro aplikace ASP.NET
-[Application Insights](app-insights-overview.md) představují rozšiřitelný nástroj, který vývojářům pomáhá pochopit výkon a využití živých aplikací. Můžete je ručně nakonfigurovat k monitorování serveru Windows, rolí pracovního procesu a dalších aplikací ASP.NET. U webových aplikací je ruční konfigurace alternativou k [automatickému nastavení](app-insights-asp-net.md), které nabízí sada Visual Studio.
+# Ruční konfigurace služby Application Insights pro aplikace .NET
+<a id="manually-configure-application-insights-for-net-applications" class="xliff"></a>
+
+Službu [Application Insights](app-insights-overview.md) můžete nakonfigurovat tak, aby monitorovala celou řadu aplikací nebo aplikačních rolí, komponent a mikroslužeb. Pro webové aplikace a služby nabízí Visual Studio [konfiguraci v jednom kroku](app-insights-asp-net.md). V případě jiných typů aplikací .NET, například u rolí back-end serveru nebo u desktopových aplikací, můžete nakonfigurovat službu Application Insights ručně.
 
 ![Příklady tabulek sledování výkonu](./media/app-insights-windows-services/10-perf.png)
 
-#### <a name="before-you-start"></a>Než začnete
+#### Než začnete
+<a id="before-you-start" class="xliff"></a>
+
 Budete potřebovat:
 
 * Předplatné [Microsoft Azure](http://azure.com). Pokud váš tým nebo společnost má předplatné Azure, vlastník vás do něj může přidat pomocí vašeho [účtu Microsoft](http://live.com).
 * Visual Studio 2013 nebo novější.
 
-## <a name="add"></a>1. Vytvořte prostředek Application Insights
+## <a name="add"></a>1. Volba prostředku služby Application Insights
+
+Prostředkem je místo na webu Azure Portal, kde jsou shromažďována a zobrazena vaše data. Musíte se rozhodnout, jestli chcete vytvořit nový nebo sdílet existující prostředek.
+
+### Součást větší aplikace – použití existujícího prostředku
+<a id="part-of-a-larger-app-use-existing-resource" class="xliff"></a>
+
+Pokud má vaše webová aplikace několik komponent – například front-end webovou aplikaci a jednu nebo více back-end služeb – pak byste měli telemetrická data ze všech komponent odesílat do stejného prostředku. To umožní jejich zobrazení v rámci jedné Mapy aplikace a bude možné trasovat požadavky mezi jednotlivými komponentami.
+
+Pokud už tedy monitorujete jiné komponenty této aplikace, pak použijte stejný prostředek.
+
+Prostředek otevřete na webu [Azure Portal](https://portal.azure.com/). 
+
+### Samostatná aplikace – vytvoření nového prostředku
+<a id="self-contained-app-create-a-new-resource" class="xliff"></a>
+
+Pokud není nová aplikace vázána k ostatním aplikacím, měla by mít svůj vlastní prostředek.
+
 Přihlaste se k webu [Azure Portal](https://portal.azure.com/) a vytvořte nový prostředek Application Insights. Vyberte jako typ aplikace ASP.NET.
 
 ![Klikněte na tlačítko Nový, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
-[Prostředek](app-insights-resources-roles-access-control.md) v Azure je instancí služby. Tento prostředek je místo, kde se analyzuje a prezentuje telemetrie z vaší aplikace.
+Volba typu aplikace nastaví výchozí obsah oken prostředků.
 
-Volba typu aplikace nastaví výchozí obsah oken prostředků a vlastnosti viditelné v [Průzkumníku metrik](app-insights-metrics-explorer.md).
-
-#### <a name="copy-the-instrumentation-key"></a>Zkopírovat klíč instrumentace
-Klíč identifikuje prostředek a nainstalujte ho brzy do sady SDK pro přímá data do prostředku.
+## 2. Zkopírování klíče instrumentace
+<a id="2-copy-the-instrumentation-key" class="xliff"></a>
+Klíč identifikuje prostředek. Brzy ho nainstalujete v sadě SDK, aby bylo možné směrovat data do prostředku.
 
 ![Klikněte na tlačítko Vlastnosti, vyberte klíč a stiskněte klávesy ctrl + C](./media/app-insights-windows-services/02-props-asp.png)
 
-Kroky, které jste právě provedli pro vytvoření nového prostředku, jsou vhodný způsob, jak začít monitorovat všechny aplikace. Teď do prostředku můžete odesílat data.
+## <a name="sdk"></a>3. Instalace balíčku Application Insights v aplikaci
+Instalace a konfigurace balíčku Application Insights se liší podle platformy, se kterou právě pracujete. 
 
-## <a name="sdk"></a>2. Instalace balíčku Application Insights v aplikaci
-Instalace a konfigurace balíčku Application Insights se liší podle platformy, se kterou právě pracujete. Pro aplikace ASP.NET je to snadné.
+1. Ve Visual Studiu klikněte pravým tlačítkem na projekt a zvolte **Spravovat balíčky NuGet**.
+   
+    ![Kliknutí pravým tlačítkem na projekt a výběr možnosti Spravovat balíčky Nuget](./media/app-insights-windows-services/03-nuget.png)
+2. Nainstalujte balíček služby Application Insights pro aplikace Windows Serveru – Microsoft.ApplicationInsights.WindowsServer.
+   
+    ![Vyhledání Application Insights](./media/app-insights-windows-services/04-ai-nuget.png)
+   
+    *Kterou verzi?*
 
-1. V sadě Visual Studio upravte balíčky NuGet projektu webové aplikace.
-   
-    ![Klikněte pravým tlačítkem myši a vyberte možnost Spravovat balíčky Nuget](./media/app-insights-windows-services/03-nuget.png)
-2. Nainstalujte balíček Application Insights pro aplikace serveru Windows.
-   
-    ![Vyhledejte „Application Insights“](./media/app-insights-windows-services/04-ai-nuget.png)
-   
+    Pokud chcete vyzkoušet nejnovější funkce, zaškrtněte políčko u možnosti **Zahrnout předběžné verze**. Informace o tom, jestli potřebujete předběžnou verzi, najdete v příslušné dokumentaci nebo v blozích.
+    
     *Mohu použít jiné balíčky?*
    
-    Ano. Pokud chcete rozhraní API používat pouze k odesílání vlastní telemetrie, zvolte základní rozhraní API (Microsoft.ApplicationInsights). Balíček Windows Serveru automaticky zahrnuje základní rozhraní API spolu s dalšími balíčky, jako jsou například kolekce čítačů výkonu a monitorování závislostí. 
+    Ano. Pokud chcete rozhraní API používat pouze k odesílání vlastních telemetrických dat, zvolte Microsoft.ApplicationInsights. Balíček Windows Serveru zahrnuje rozhraní API spolu s dalšími balíčky, jako jsou například kolekce čítačů výkonu a monitorování závislostí. 
 
-#### <a name="to-upgrade-to-future-package-versions"></a>Postup upgradu na budoucí verze balíčku
+### Postup upgradu na budoucí verze balíčku
+<a id="to-upgrade-to-future-package-versions" class="xliff"></a>
 Čas od času vydáváme nové verze sady SDK.
 
 K upgradu [novou verzi balíčku](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) otevřete znovu Správce balíčků NuGet a filtrujte nainstalované balíčky. Vyberte **Microsoft.ApplicationInsights.WindowsServer** a zvolte **Upgradovat**.
 
 Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložte jeho kopii před upgradem a následně slučte změny do nové verze.
 
-## <a name="3-send-telemetry"></a>3. Odeslání telemetrie
-**Pokud jste nainstalovali pouze balíček základního rozhraní API:**
+## 4. Odeslání telemetrie
+<a id="4-send-telemetry" class="xliff"></a>
+**Pokud jste nainstalovali pouze balíček rozhraní API:**
 
 * Nastavte v kódu klíč instrumentace, například v metodě `main()`: 
   
@@ -94,7 +118,7 @@ V sadě Visual Studio zobrazí počet událostí, které byly odeslány.
 ![Počet událostí v sadě Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
 ## <a name="monitor"></a> Zobrazení telemetrických dat
-Přihlaste se do [portálu Azure](https://portal.azure.com/) a procházejte do zdroje Application Insights.
+Přihlaste se na portál [Azure Portal](https://portal.azure.com/) a vyhledejte prostředek Application Insights.
 
 Vyhledejte data v tabulkách Přehled. Na první pohled uvidíte pouze jeden nebo dva body. Příklad:
 
@@ -102,36 +126,42 @@ Vyhledejte data v tabulkách Přehled. Na první pohled uvidíte pouze jeden neb
 
 Proklikejte se prostřednictvím jakékoli grafu pro zobrazení podrobnějších metrik. [Další informace o metrikách.](app-insights-web-monitor-performance.md)
 
-#### <a name="no-data"></a>Žádná data?
+### Žádná data?
+<a id="no-data" class="xliff"></a>
 * Použijte aplikaci a otevřete různé stránky tak, aby došlo k vygenerování nějaké telemetrie.
 * Otevřete dlaždici [Vyhledávání](app-insights-diagnostic-search.md) a zobrazte jednotlivé události. Někdy trvá událostem trochu déle, než se dostanou skrz kanály metriky.
 * Počkejte několik sekund a klikněte na tlačítko **Aktualizovat**. Grafy se pravidelně samy aktualizují, ale můžete je aktualizovat ručně, pokud čekáte na zobrazení některých dat.
 * Viz [Poradce při potížích](app-insights-troubleshoot-faq.md).
 
-## <a name="publish-your-app"></a>Publikování aplikace
+## Publikování aplikace
+<a id="publish-your-app" class="xliff"></a>
 Nyní nasaďte aplikaci na server nebo do Azure a sledujte shromažďování dat.
 
 ![K publikování aplikace použijte sadu Visual Studio](./media/app-insights-windows-services/15-publish.png)
 
 Při spuštění v režimu ladění prochází telemetrie skrz kanál, takže byste měli vidět zobrazení dat během několika sekund. Při nasazení aplikace v rámci konfigurace verze se data hromadí pomaleji.
 
-#### <a name="no-data-after-you-publish-to-your-server"></a>Žádná data po publikování na serveru?
+### Žádná data po publikování na serveru?
+<a id="no-data-after-you-publish-to-your-server" class="xliff"></a>
 Otevřete v bráně firewall serveru porty pro odchozí provoz. Na [této stránce](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) najdete seznam požadovaných adres. 
 
-#### <a name="trouble-on-your-build-server"></a>Potíže na vašem serveru sestavení?
-Naleznete v tématu [tato položka Poradce při potížích](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+### Potíže na vašem serveru sestavení?
+<a id="trouble-on-your-build-server" class="xliff"></a>
+Podívejte se na [tuto položku Řešení potíží](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
-> Pokud vaše aplikace generuje mnoho telemetrie (a používáte verzi sady SDK technologie ASP.NET 2.0.0-beta3 nebo novější), modul adaptivního vzorkování automaticky sníží objem, který je odesílán na portál odesláním pouze reprezentativní části události. Události, které se vztahují ke stejnému požadavku, však budou vybrány nebo nevybrány jako skupina, takže mohou procházet mezi souvisejícími událostmi. 
+> Pokud vaše aplikace generuje mnoho telemetrických dat, sníží modul adaptivního vzorkování automaticky objem dat odesílaných na portál tím, že budou odesílány pouze reprezentativní vzorky událostí. Události, které se vztahují ke stejnému požadavku, však budou vybrány nebo nevybrány jako skupina, takže mohou procházet mezi souvisejícími událostmi. 
 > [Další informace o vzorkování](app-insights-sampling.md).
 > 
 > 
 
-## <a name="video"></a>Video
+## Video
+<a id="video" class="xliff"></a>
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 * [Přidejte více telemetrie](app-insights-asp-net-more.md) a získejte komplexní náhled na svoji aplikaci.
 
 

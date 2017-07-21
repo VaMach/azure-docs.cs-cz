@@ -65,8 +65,9 @@
 ## [REST](/rest/api/notificationhubs)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Ceny](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=notification-hubs)

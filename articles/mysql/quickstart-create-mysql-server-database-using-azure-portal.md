@@ -5,123 +5,159 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: mysql
-ms.devlang: na
+editor: jasonwhowell
+ms.service: mysql-database
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/14/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25bfd2c6c25ddb8747dec58fdc68f904f81127fa
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: dba50b369fb87d5f6d5118038c75392bd719cc10
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="create-an-azure-database-for-mysql-server-using-azure-portal"></a>Vytvoření serveru Azure Database for MySQL pomocí portálu Azure Portal
+<a id="create-an-azure-database-for-mysql-server-using-azure-portal" class="xliff"></a>
 
-Tento článek vás provede vytvořením ukázkového serveru Azure Database for MySQL v pěti minutách pomocí portálu Azure Portal. 
+# Vytvoření serveru Azure Database for MySQL pomocí portálu Azure Portal
+Tento článek vás provede vytvořením serveru Azure Database for MySQL v pěti minutách pomocí webu Azure Portal. 
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+<a id="log-in-to-azure" class="xliff"></a>
+
+## Přihlaste se k Azure.
 Otevřete svůj webový prohlížeč a přejděte na [portál Microsoft Azure Portal](https://portal.azure.com/). Zadejte přihlašovací údaje pro přihlášení k portálu. Výchozím zobrazením je váš řídicí panel služby.
 
-![Azure Portal – přihlašovací údaje a řídicí panel](./media/quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
+<a id="create-azure-database-for-mysql-server" class="xliff"></a>
 
-## <a name="create-azure-database-for-mysql-server"></a>Vytvoření serveru Azure Database for MySQL
+## Vytvoření serveru Azure Database for MySQL
+1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
-1. Přejděte na **Databáze** > **MySQL**. Pokud server Azure Database for MySQL nemůžete najít v kategorii **Databáze**, klikněte na **Zobrazit vše** pro zobrazení všech dostupných databázových služeb. Pokud chcete službu najít rychle, můžete do vyhledávacího pole zadat **MySQL**.
+2. Na stránce **Nový** vyberte **Databáze** a na stránce **Databáze** vyberte **Azure Database for MySQL**. Službu můžete najít také zadáním **MySQL** do vyhledávacího pole na stránce Nový.
 ![Azure Portal – nový – databáze - MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
-2. Klikněte na ikonu **MySQL** a pak klikněte na **Vytvořit**.
-V našem příkladu vyplňte na stránce Azure Database for MySQL následující informace:
+3. Vyplňte formulář podrobností nového serveru pomocí následujících informací, jak je vidět na předchozím obrázku:
 
-| **Pole formuláře** | **Popis pole** |
-|----------------|-----------------------|
-| *Název serveru* | mysqlserver4demo (název serveru je globálně jedinečný) |
-| *Předplatné* | MySQLaaS (vyberte z rozevíracího seznamu) |
-| *Skupina prostředků* | myresource (vytvořte skupinu prostředků nebo použijte stávající) |
-| *Přihlašovací jméno správce serveru* | myadmin (název účtu správce instalace) |
-| *Heslo* | nastavte heslo účtu správce |
-| *Potvrdit heslo* | potvrďte heslo účtu správce |
-| *Umístění* | Severní Evropa (vyberte mezi možnostmi **Severní Evropa** a **Západní USA**) |
-| *Verze* | 5.6 (zvolte verzi serveru MySQL) |
-| *Konfigurovat výkon* | Basic (zvolte **Úroveň výkonu**, **Výpočetní jednotky**, **Úložiště** a potom klikněte na **OK**) |
+| **Nastavení** | **Navrhovaná hodnota** | **Popis pole** |
+|---|---|---|
+| *Název serveru* | myserver4demo  | Název serveru musí být globálně jedinečný. |
+| *Předplatné* | mysubscription | Vyberte vaše předplatné z rozevíracího seznamu. |
+| *Skupina prostředků* | myresourcegroup | Vytvořte skupinu prostředků nebo použijte existující. |
+| *Přihlašovací jméno správce serveru* | myadmin | Zadejte název účtu, který bude správcem stroje MySQL. |
+| *Heslo* |  | Nastavte silné heslo účtu správce. |
+| *Potvrdit heslo* |  | Potvrďte heslo účtu správce. |
+| *Umístění* |  | Vyberte dostupnou oblast. |
+| *Verze* | 5.7 | Zvolte nejnovější verzi. |
+| *Cenová úroveň* | Basic, 50 výpočetních jednotek, 50 GB úložiště  | Zvolte **Cenovou úroveň**, **Výpočetní jednotky**, **Úložiště (GB)** a potom klikněte na **OK**. |
+| *Připnout na řídicí panel* | Zaškrtnout | Doporučuje se toto zaškrtávací políčko zaškrtnout, abyste později server snadno našli. |
 
-![Azure Portal – vytvoření databáze MySQL poskytnutím požadované vstupu formuláře](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
+   Klikněte na **Cenová úroveň** a určete cenovou úroveň a úroveň výkonu pro novou databázi. Pro tento rychlý start vyberte úroveň Basic, 50 výpočetních jednotek a 50 GB zahrnutého úložiště. Pak kliknutím na **OK** cenovou úroveň uložte.
+   
+   ![Azure Portal – vytvoření databáze MySQL poskytnutím požadované vstupu formuláře](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
 
-Po několika minutách bude váš server Azure Database for MySQL zřízený a spuštěný. Pokud chcete monitorovat proces nasazení, můžete kliknout na tlačítko **Oznámení** (ikona zvonku) na panelu nástrojů.
+   Poté klikněte na možnost **Vytvořit**. Po jedné až dvou minutách bude server Azure Database for MySQL spuštěný v cloudu. Pokud chcete monitorovat proces nasazení, klikněte na tlačítko **Oznámení** (ikona zvonku) na panelu nástrojů.
 
-> [!TIP]
-> Doporučujeme umístit služby Azure do stejné oblasti a zvolit umístění, které je k vám co nejblíže. Dále můžete zaškrtnout možnost **Připnout na řídicí panel**, abyste povolili snadné sledování vašich nasazení.
+<a id="configure-the-firewall" class="xliff"></a>
 
-## <a name="configure-the-firewall"></a>Konfigurace brány firewall
-Dříve než se poprvé připojíte z klienta k Azure Database for MySQL, musíte nakonfigurovat bránu firewall a přidat IP adresu veřejné sítě klienta (nebo rozsah IP adres) na seznam povolených adres.
+## Konfigurace brány firewall
+Dříve než se poprvé připojíte k Azure Database for MySQL, nakonfigurujte bránu firewall a přidejte IP adresu veřejné sítě klienta (nebo rozsah IP adres) na seznam povolených adres.
 
-1. Klikněte na nově vytvořený server a pak klikněte na **Nastavení**.
-  ![Azure Portal – MySQL – tlačítko Nastavení](./media/quickstart-create-mysql-server-database-using-azure-portal/4_server-settings.png)
+1. Jakmile se nasazení dokončí, klikněte na **Všechny prostředky** v nabídce vlevo a zadejte název **myserver4demo**. Vyhledáte tak nově vytvořený server. Klikněte na název serveru uvedený ve výsledcích hledání. Otevře se stránka Přehled vašeho serveru a poskytne vám možnosti další konfigurace.
 
-2. V části **OBECNÉ** klikněte na **Nastavení brány firewall**. Pokud chcete přidat IP adresu místního počítače nebo nakonfigurovat rozsah IP adres, můžete kliknout na **Přidat moji IP adresu**. Po vytvoření pravidel nezapomeňte kliknout na **Uložit**.
+2. V okně serveru vyberte **Zabezpečení připojení**.
+
+3. Pokud chcete přidat IP adresu místního počítače nebo nakonfigurovat rozsah IP adres, klikněte na **Přidat moji IP adresu**. Po vytvoření pravidel nezapomeňte kliknout na **Uložit**.
   ![Azure Portal – přidání pravidla brány firewall a uložení](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-## <a name="get-connection-information"></a>Získání informací o připojení
-Na portálu Azure Portal získejte plně kvalifikovaný název domény pro server Azure MySQL. Plně kvalifikovaný název domény použijte pro připojení k vašemu serveru pomocí nástroje příkazového řádku **mysql.exe**.
+<a id="get-connection-information" class="xliff"></a>
 
-1.    Na portálu [Azure Portal](https://portal.azure.com/) klikněte v levé nabídce na **Všechny prostředky** a klikněte na server Azure Database for MySQL.
+## Získání informací o připojení
+Na portálu Azure Portal získejte plně kvalifikovaný název domény pro server Azure MySQL. Plně kvalifikovaný název domény použijte pro připojení k vašemu serveru pomocí nástroje pro příkazový řádek **mysql.exe**.
 
-2.    Klikněte na **Vlastnosti**. Poznamenejte si **NÁZEV SERVERU** a **PŘIHLAŠOVACÍ JMÉNO SPRÁVCE SERVERU**.
-V tomto příkladu je název serveru *mysql4doc.database.windows.net* a přihlašovací jméno správce serveru je *mysqladmin@mysql4doc*.
+1.  Na portálu [Azure Portal](https://portal.azure.com/) klikněte v levé nabídce na **Všechny prostředky** a klikněte na server Azure Database for MySQL.
 
-## <a name="connect-to-the-server-using-mysqlexe-command-line-tool"></a>Připojení k serveru pomocí nástroje příkazového řádku mysqlexe
-V rámci serveru MySQL můžete vytvořit více databází. Neexistuje žádné omezení počtu databází, které je možné vytvořit. Více databází ale sdílí stejné prostředky serveru.  Pokud se k serveru chcete připojit pomocí nástroje příkazového řádku **mysql.exe**, otevřete na portálu **Azure Cloud Shell** a zadejte toto:
+2.  Klikněte na **Vlastnosti**. Poznamenejte si **NÁZEV SERVERU** a **PŘIHLAŠOVACÍ JMÉNO SPRÁVCE SERVERU**.
+V tomto příkladu je název serveru *myserver4demo.mysql.database.azure.com* a přihlašovací jméno správce serveru je *myadmin@myserver4demo*.
 
-1. Připojení k serveru pomocí nástroje příkazového řádku **mysql**:
-```dos
- mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
+<a id="connect-to-the-server-using-mysqlexe-command-line-tool" class="xliff"></a>
+
+## Připojení k serveru pomocí nástroje příkazového řádku mysqlexe
+Použijte [nástroj pro příkazový řádek mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) k navázání připojení k serveru Azure Database for MySQL. Nástroj pro příkazový řádek mysql můžete spustit v prohlížeči pomocí služby Azure Cloud Shell nebo na vlastním počítači pomocí lokálně nainstalovaných nástrojů mysql. Pokud chcete spustit Azure Cloud Shell, klikněte na tlačítko`Try It` na bloku kódu v tomto článku nebo přejděte na web [Azure Portal](https://portal.azure.com) a klikněte na ikonu `>_` na panelu nástrojů vpravo nahoře. 
+
+1. Zadejte příkaz pro připojení:
+```azurecli-interactive
+mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
-2. Zobrazení stavu serveru:
-```dos
- mysql> status
+2. Zobrazte stav serveru a ujistěte se, že je připojení funkční. Po připojení zadejte na příkazovém řádku mysql> `status`.
+```sql
+status
 ```
-  ![Příkazový řádek – příklad příkazového řádku mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
+
+   ![Příkazový řádek – příklad příkazového řádku mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
+
+   > [!TIP]
+   > Další příkazy najdete v [Referenční příručce k MySQL 5.7 – v kapitole 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
+
+3. Vytvořte prázdnou databázi zadáním příkazu `CREATE DATABASE` na příkazovém řádku mysql>.
+
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+
+   V rámci serveru Azure Database for MySQL můžete mít jednu nebo několik databází. Můžete se rozhodnout vytvořit jednu databázi na server pro využití všech prostředků nebo vytvořit několik databází, které budou prostředky sdílet. Neexistuje žádné omezení počtu databází, které je možné vytvořit. Více databází ale sdílí stejné prostředky serveru.  
+
+4. Seznam databází zobrazíte zadáním příkazu `SHOW DATABASES` na příkazovém řádku mysql>.
+
+   ```sql
+   SHOW DATABASES;
+   ```
+
+<a id="connect-to-the-server-using-the-mysql-workbench-gui-tool" class="xliff"></a>
+
+## Připojení k serveru pomocí nástroje grafického uživatelského rozhraní MySQL Workbench
+1.  Na klientském počítači spusťte aplikaci MySQL Workbench. MySQL Workbench můžete stáhnout a nainstalovat [odtud](https://dev.mysql.com/downloads/workbench/).
+
+2.  V dialogovém okně pro **nastavení nového připojení** zadejte na kartě **Parametry** následující informace:
+
+   ![nastavení nového připojení](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
+
+| **Nastavení** | **Navrhovaná hodnota** | **Popis pole** |
+|---|---|---|
+|   *Název připojení* | Ukázkové připojení| Zadejte popisek pro toto připojení. |
+| *Způsob připojení* | Standard (TCP/IP) | Standard (TCP/IP) je dostačující. |
+| *Název hostitele* | myserver4demo.mysql.database.azure.com | Použijte plně kvalifikovaný název vašeho serveru. |
+| *Port* | 3306 | Použijte výchozí port 3306. |
+| *Uživatelské jméno* | myadmin@myserver4demo  | Použijte přihlašovací jméno správce serveru, které jste si poznamenali dříve, následované znakem @ a názvem serveru. |
+| *Heslo* | vaše heslo | Kliknutím na tlačítko Uložit v trezoru... heslo uložte. |
+
+Pokud chcete otestovat, jestli jsou všechny parametry správně nakonfigurované, klikněte na **Test připojení**. Kliknutím na tlačítko OK uložte připojení. 
+
+> [!NOTE]
+> Ve výchozím nastavení se na vašem serveru vynucuje SSL, což vyžaduje další konfiguraci, která zajistí úspěšné připojení. Podívejte se na téma [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md).  Pokud chcete pro tento rychlý start zakázat SSL, přejděte na web Azure Portal, klikněte na stránku Zabezpečení připojení a deaktivujte přepínací tlačítko Vynucení připojení SSL.
+
+<a id="clean-up-resources" class="xliff"></a>
+
+## Vyčištění prostředků
+Všechny prostředky, které jste v rychlém startu vytvořili, můžete vyčistit odstraněním [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md).
 
 > [!TIP]
-> Další příkazy najdete v [Referenční příručce k MySQL 5.6 – v kapitole 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+> Další rychlé starty v této kolekci vycházejí z tohoto rychlého startu. Pokud chcete pokračovat v práci s dalšími rychlými starty, neprovádějte čištění prostředků vytvořených v rámci tohoto rychlého startu. Pokud pokračovat nechcete, pomocí následujících kroků odstraňte všechny prostředky vytvořené tímto rychlým startem na portálu Azure Portal.
 
-## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Připojení k serveru pomocí nástroje grafického uživatelského rozhraní MySQL Workbench
-1.    Na klientském počítači spusťte aplikaci MySQL Workbench. MySQL Workbench můžete stáhnout a nainstalovat [odtud](https://dev.mysql.com/downloads/workbench/).
+1.  Na portálu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak klikněte na **myresourcegroup**.
+2.  Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte **myresourcegroup** a pak klikněte na Odstranit.
 
-2.    V dialogovém okně pro **nastavení nového připojení** zadejte na kartě **Parametry** následující informace:
+Pokud byste chtěli odstranit nově vytvořený server:
+1.  V nabídce na levé straně na portálu Azure Portal klikněte na servery PostgreSQL a vyhledejte právě vytvořený server.
+2.  Na stránce Přehled klikněte na tlačítko Odstranit v horním podokně ![Azure Database for MySQL – odstranění serveru](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png).
+3.  Potvrďte název serveru, který chcete odstranit, a zobrazte jeho databáze, které tím ovlivníte. Do textového pole zadejte **myserver4demo** a pak klikněte na Odstranit.
 
-| **Parametry** | **Popis** |
-|----------------|-----------------|
-|    *Název připojení* | zadejte název pro toto připojení (libovolný) |
-| *Způsob připojení* | zvolte Standardní (TCP/IP) |
-| *Název hostitele* | mycliserver.database.windows.net (NÁZEV SERVERU, který jste si dříve poznamenali) |
-| *Port* | 3306 |
-| *Uživatelské jméno* | myadmin@mycliserver(PŘIHLAŠOVACÍ JMÉNO SPRÁVCE SERVERU, které jste si dříve poznamenali) |
-| *Heslo* | heslo účtu správce můžete uložit do trezoru |
 
-![nastavení nového připojení](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
+<a id="next-steps" class="xliff"></a>
 
-3.    Pokud chcete otestovat, jestli jsou všechny parametry správně nakonfigurované, klikněte na **Test připojení**.
-
-4.    Teď můžete kliknout na právě vytvořené připojení a úspěšně se připojit k serveru.
-
-> Ve výchozím nastavení se na vašem serveru vynucuje SSL, což vyžaduje další konfiguraci, která zajistí úspěšné připojení. Podívejte se na téma [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md).  Pokud chcete SSL pro tento rychlý start zakázat, můžete na portálu přejít na „Zabezpečení připojení“ a zakázat vynucování SSL.
-
-## <a name="clean-up-resources"></a>Vyčištění prostředků
-
-Pokud tyto prostředky nepotřebujete pro další rychlý start nebo kurz, můžete je následujícím způsobem odstranit:
-
-1. Na portálu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak na **myresource**. 
-2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte **myresource** a pak klikněte na **Odstranit**.
-
-## <a name="next-steps"></a>Další kroky
+## Další kroky
 
 > [!div class="nextstepaction"]
 > [Návrh první databáze Azure Database for MySQL](./tutorial-design-database-using-portal.md)

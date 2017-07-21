@@ -12,45 +12,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/27/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abb27292d4b5533fe6f3d66d6921fea8c82f18dd
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Aktualizace nastavení DNS pro virtuální síť Azure
-## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure
+<a id="enable-azure-active-directory-domain-services-preview" class="xliff"></a>
+
+# Povolení služby Azure Active Directory Domain Services (Preview)
+
+<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
+
+## Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure
 V předchozích úlohách konfigurace jste úspěšně povolili službu Azure Active Directory Domain Services pro svůj adresář. Dalším úkolem je zajistit, že se počítače v rámci virtuální sítě mohou k těmto službám připojit a využívat je. V tomto článku provedete aktualizaci nastavení serveru DNS svojí virtuální sítě tak, aby odkazoval na dvě IP adresy, kde je ve virtuální síti dostupná služba Azure Active Directory Domain Services.
 
-> [!NOTE]
-> Jakmile pro svůj adresář povolíte službu Azure Active Directory Domain Services, zapište si IP adresy služby Azure Active Directory Domain Services zobrazené na kartě **Konfigurovat** adresáře.
->
->
+Podle následujících kroků aktualizujte server DNS virtuální sítě, ve které jste povolili službu Azure Active Directory Domain Services:
 
-Podle následujícího postupu aktualizujte server DNS virtuální sítě, ve které jste povolili službu Azure Active Directory Domain Services:
+1. Na kartě **Přehled** je uveden seznam **požadovaných kroků konfigurace**, které je potřeba provést po úplném zřízení spravované domény. Prvním konfiguračním krokem je **aktualizace nastavení serveru DNS pro virtuální síť**.
 
-1. Přejděte na [portál Azure Classic](https://manage.windowsazure.com).
-2. V levém podokně vyberte **Sítě**.  
-    Otevře se okno **Sítě**.
+    ![Domain Services – Karta Přehled po úplném zřízení](./media/getting-started/domain-services-provisioned-overview.png)
 
-    ![Okno Virtuální sítě](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
-3. Na kartě **Virtuální sítě** vyberte virtuální síť, ve které jste povolili službu Azure Active Directory Domain Services, a zobrazte její vlastnosti.
-4. Klikněte na kartu **KONFIGUROVAT**.
+2. Když je doména úplně zřízená, zobrazují se na této dlaždici dvě IP adresy. Každý z těchto IP adres představuje řadič vaší spravované domény.
 
-    ![Okno Virtuální sítě](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
-5. V části **Servery DNS** zadejte obě IP adresy, které byly zobrazeny v části **Domain Services** na kartě **Konfigurace adresáře**.
-6. V podokně úloh v dolní části okna klikněte na **Uložit** a uložte nastavení serveru DNS této virtuální sítě.
+3. Klikněte na tlačítko pro kopírování vedle první IP adresy a zkopírujte ji do schránky. Potom klikněte na tlačítko **Konfigurovat servery DNS**.
 
-   ![Aktualizace nastavení serveru DNS virtuální sítě](./media/active-directory-domain-services-getting-started/update-dns.png)
+4. První IP adresu vložte do textového pole **Přidat server DNS** v okně **Servery DNS**. Posuňte se vodorovně doleva, zkopírujte druhou IP adresu a vložte ji do textového pole **Přidat server DNS**.
+
+    ![Domain Services – Aktualizace DNS](./media/getting-started/domain-services-update-dns.png)
+
+5. Až to budete mít, klikněte na **Uložit**. Provedete tak aktualizaci serverů DNS pro vaši virtuální síť.
 
 > [!NOTE]
-> Po aktualizaci nastavení serveru DNS virtuální sítě může chvíli trvat, než virtuální počítače v síti získají aktualizovanou konfiguraci DNS. Pokud se virtuální počítač nemůže připojit k doméně, můžete na virtuálním počítači vyprázdnit mezipaměť DNS (ipconfig /flushdns). Tento příkaz vynutí obnovení nastavení DNS na virtuálním počítači.
+> Virtuální počítače v síti získají nové nastavení DNS až po restartování. Pokud chcete, aby aktualizované nastavení DNS získaly hned, aktivujte restartování z portálu, pomocí PowerShellu nebo pomocí rozhraní příkazového řádku.
 >
 >
 
-## <a name="next-steps"></a>Další kroky
-Úloha 5: [Povolení synchronizace hesel do služby Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
+<a id="next-step" class="xliff"></a>
+
+## Další krok
+[Úloha 5: Povolení synchronizace hesel do služby Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

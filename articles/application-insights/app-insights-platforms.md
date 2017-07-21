@@ -14,27 +14,33 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b78c574e9edf6ce28e8deb80d264858d480f5861
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
-# <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: jazyky, platformy a integrace
+# Developer Analytics: jazyky, platformy a integrace
+<a id="developer-analytics-languages-platforms-and-integrations" class="xliff"></a>
 Tyto položky jsou implementace [Application Insights](app-insights-overview.md), o kterých jsme se dozvěděli. Zahrnují také některé, které dodávají třetí strany.
 
-## <a name="languages"></a>Jazyky
+## Jazyky – oficiálně podporované týmem služby Application Insights
+<a id="languages---officially-supported-by-application-insights-team" class="xliff"></a>
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Webové stránky JavaScript](app-insights-javascript.md)
-* [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+## Jazyky – podporované komunitou
+<a id="languages---community-supported" class="xliff"></a>
+* [Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
 * [Cokoliv jiného](#projects)
 
-## <a name="platforms-and-frameworks"></a>Platformy a rozhraní
+## Platformy a rozhraní
+<a id="platforms-and-frameworks" class="xliff"></a>
 * [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET – pro aplikace, které jsou již nasazeny](app-insights-monitor-performance-live-website-now.md)
@@ -59,7 +65,8 @@ Tyto položky jsou implementace [Application Insights](app-insights-overview.md)
 * [Aplikace pracovní plochy Windows, služby a pracovní role](app-insights-windows-desktop.md)
 * [Cokoliv jiného](#projects)
 
-## <a name="logging-frameworks"></a>Protokolování rozhraní
+## Protokolování rozhraní
+<a id="logging-frameworks" class="xliff"></a>
 * [Log4Net, NLog nebo System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J nebo Logback](app-insights-java-trace-logs.md)
 * [Sémantické protokolování (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) – integruje se [sémantickým blokem protokolování aplikace](https://msdn.microsoft.com/library/dn440729.aspx)
@@ -68,7 +75,8 @@ Tyto položky jsou implementace [Application Insights](app-insights-overview.md)
 * [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
-## <a name="content-management-systems"></a>Systémy správy obsahu
+## Systémy správy obsahu
+<a id="content-management-systems" class="xliff"></a>
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
@@ -76,7 +84,8 @@ Tyto položky jsou implementace [Application Insights](app-insights-overview.md)
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
-## <a name="export-and-data-analysis"></a>Export a analýza dat
+## Export a analýza dat
+<a id="export-and-data-analysis" class="xliff"></a>
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](app-insights-export-power-bi.md)

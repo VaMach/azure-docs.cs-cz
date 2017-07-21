@@ -11,6 +11,7 @@
 ### [Protokolování a auditování](azure-log-audit.md)
 ### [Izolace ve veřejném cloudu](azure-isolation.md)
 ### [Technické možnosti zabezpečení](azure-security-technical-capabilities.md)
+### [Zásady správného řízení v Azure](governance-in-azure.md)
 
 # Začínáme
 ## [Začínáme se zabezpečením Azure](azure-security-getting-started.md)
@@ -41,6 +42,7 @@
 #### [Začínáme s integrací protokolů Azure](security-azure-log-integration-get-started.md)
 #### [Integrace protokolů auditu služby Azure Active Directory](security-azure-log-integration-ad.md)
 #### [Integrace výstrah služby Security Center](security-azure-log-integration-security-center.md)
+#### [Integrace protokolů se služby Key Vault pomocí Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Nejčastější dotazy](security-azure-log-integration-faq.md)
 
 ## Správa identit
@@ -70,10 +72,11 @@
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
-# Zdroje
-## [Blog věnovaný zabezpečení a dodržování předpisů](http://blogs.msdn.com/b/azuresecurity/)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Program MVP pro zabezpečení Azure](azure-security-mvp.md)
 ## [Poradenství pro zabezpečení](azure-security-cyber-services.md)
+## [Blog věnovaný zabezpečení a dodržování předpisů](http://blogs.msdn.com/b/azuresecurity/)
 ## [Kurzy zabezpečení ve Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Videa o zabezpečení na webu Channel 9](security-channel-nine.md)
 ## [Nástroj pro modelování hrozeb](azure-security-threat-modeling-tool.md)

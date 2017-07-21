@@ -15,17 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: venkatja
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 92e3e64f235e165a6a1772b6e1724789f3ec3049
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/01/2017
 
 ---
-# <a name="send-events-to-a-time-series-insights-environment-via-event-hub"></a>Odesílání událostí do prostředí Time Series Insights prostřednictvím centra událostí
+# Odesílání událostí do prostředí Time Series Insights prostřednictvím centra událostí
+<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
 
-Tento kurz vysvětluje, jak vytvořit a nakonfigurovat centrum událostí a jak spustit ukázkovou aplikaci odesílající události. Pokud máte existující centrum událostí, jehož události jsou již ve formátu JSON, můžete tento kurz přeskočit a zobrazit své prostředí v [průzkumníku Time Series Insights](https://insights.timeseries.azure.com).
+Tento kurz vysvětluje, jak vytvořit a nakonfigurovat centrum událostí a jak spustit ukázkovou aplikaci odesílající události. Pokud máte existující centrum událostí s událostmi ve formátu JSON, přeskočte tento kurz a zobrazte své prostředí v [Time Series Insights](https://insights.timeseries.azure.com).
 
-## <a name="configure-an-event-hub"></a>Konfigurace centra událostí
+## Konfigurace centra událostí
+<a id="configure-an-event-hub" class="xliff"></a>
 1. Pokud chcete vytvořit centrum událostí, postupujte podle pokynů uvedených v [dokumentaci](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) ke službě Event Hubs.
 
 2. Ujistěte se, že vytváříte skupinu příjemců, kterou používá výhradně váš zdroj událostí Time Series Insights.
@@ -35,20 +38,22 @@ Tento kurz vysvětluje, jak vytvořit a nakonfigurovat centrum událostí a jak 
 
   ![Výběr skupiny příjemců centra událostí](media/send-events/consumer-group.png)
 
-3. V centru událostí vytvořte zásadu MySendPolicy, která v následující ukázce slouží k odesílání událostí.
+3. V centru událostí vytvořte zásadu MySendPolicy, která v ukázce csharp slouží k odesílání událostí.
 
   ![Vyberte Zásady sdíleného přístupu a klikněte na tlačítko Přidat.](media/send-events/shared-access-policy.png)  
 
   ![Přidání nové zásady sdíleného přístupu](media/send-events/shared-access-policy-2.png)  
 
-## <a name="create-time-series-insights-event-source"></a>Vytvoření zdroje událostí Time Series Insights
+## Vytvoření zdroje událostí Time Series Insights
+<a id="create-time-series-insights-event-source" class="xliff"></a>
 1. Pokud jste ještě nevytvořili zdroj událostí, postupujte podle pokynů uvedených [tady](time-series-insights-add-event-source.md) a vytvořte ho.
 
-2. Zadejte „deviceTimestamp“ jako název vlastnosti časového razítka – tato vlastnost se používá jako časové razítko v následující ukázce. V názvu vlastnosti časového razítka se rozlišují malá a velká písmena a při odesílání hodnot do centra událostí ve formátu JSON musí mít formát __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. Pokud v události tato vlastnost chybí, použije se čas zařazení události do fronty centra událostí.
+2. Zadejte „deviceTimestamp“ jako název vlastnosti časového razítka – tato vlastnost se v ukázce csharp používá jako časové razítko. V názvu vlastnosti časového razítka se rozlišují malá a velká písmena a při odesílání hodnot do centra událostí ve formátu JSON musí mít formát __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. Pokud v události tato vlastnost chybí, použije se čas zařazení do fronty centra událostí.
 
   ![Vytvoření zdroje událostí](media/send-events/event-source-1.png)
 
-## <a name="run-sample-code-to-push-events"></a>Spuštění ukázkového kódu pro odesílání událostí
+## Vzorový kód pro odesílání událostí
+<a id="sample-code-to-push-events" class="xliff"></a>
 1. Přejděte do zásady centra událostí MySendPolicy a zkopírujte připojovací řetězec s klíčem zásady.
 
   ![Zkopírování připojovacího řetězce zásady MySendPolicy](media/send-events/sample-code-connection-string.png)
@@ -122,51 +127,59 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-## <a name="supported-json-shapes"></a>Podporované tvary JSON
-### <a name="sample-1"></a>Ukázka 1
+## Podporované tvary JSON
+<a id="supported-json-shapes" class="xliff"></a>
+### Ukázka 1
+<a id="sample-1" class="xliff"></a>
 
-#### <a name="input"></a>Vstup
+#### Vstup
+<a id="input" class="xliff"></a>
 
 Jednoduchý objekt JSON.
 
 ```json
 {
-    "deviceId":"device1",
-    "deviceTimestamp":"2016-01-08T01:08:00Z"
+    "id":"device1",
+    "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---1-event"></a>Výstup – 1 událost
+#### Výstup – 1 událost
+<a id="output---1-event" class="xliff"></a>
 
-|deviceId|deviceTimestamp|
+|id|časové razítko|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
-### <a name="sample-2"></a>Ukázka 2
+### Ukázka 2
+<a id="sample-2" class="xliff"></a>
 
-#### <a name="input"></a>Vstup
+#### Vstup
+<a id="input" class="xliff"></a>
 Pole JSON se dvěma objekty JSON. Oba objekty JSON se převedou na událost.
 ```json
 [
     {
-        "deviceId":"device1",
-        "deviceTimestamp":"2016-01-08T01:08:00Z"
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
     },
     {
-        "deviceId":"device2",
-        "deviceTimestamp":"2016-01-17T01:17:00Z"
+        "id":"device2",
+        "timestamp":"2016-01-17T01:17:00Z"
     }
 ]
 ```
-#### <a name="output---2-events"></a>Výstup – 2 události
+#### Výstup – 2 události
+<a id="output---2-events" class="xliff"></a>
 
-|deviceId|deviceTimestamp|
+|id|časové razítko|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+### Ukázka 3
+<a id="sample-3" class="xliff"></a>
 
-### <a name="sample-3"></a>Ukázka 3
-
-#### <a name="input"></a>Vstup
+#### Vstup
+<a id="input" class="xliff"></a>
 
 Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON.
 ```json
@@ -174,50 +187,55 @@ Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON.
     "location":"WestUs",
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z"
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z"
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
 }
 
 ```
-#### <a name="output---2-events"></a>Výstup – 2 události
+#### Výstup – 2 události
+<a id="output---2-events" class="xliff"></a>
 Všimněte si, že vlastnost „location“ (umístění) se kopíruje do obou událostí.
 
-|location|events.deviceId|events.deviceTimestamp|
+|location|events.id|events.timestamp|
 |--------|---------------|----------------------|
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
 
-### <a name="sample-4"></a>Ukázka 4
+### Ukázka 4
+<a id="sample-4" class="xliff"></a>
 
-#### <a name="input"></a>Vstup
+#### Vstup
+<a id="input" class="xliff"></a>
+
+Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON. Tento vstup ukazuje, že globální vlastnosti může reprezentovat komplexní objekt JSON.
 
 ```json
 {
     "location":"WestUs",
-    "manufacturerInfo":{
+    "manufacturer":{
         "name":"manufacturer1",
         "location":"EastUs"
     },
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z",
-            "deviceData":{
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z",
+            "data":{
                 "type":"pressure",
                 "units":"psi",
                 "value":108.09
             }
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z",
-            "deviceData":{
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z",
+            "data":{
                 "type":"vibration",
                 "units":"abs G",
                 "value":217.09
@@ -226,14 +244,16 @@ Všimněte si, že vlastnost „location“ (umístění) se kopíruje do obou u
     ]
 }
 ```
-#### <a name="output---2-events"></a>Výstup – 2 události
+#### Výstup – 2 události
+<a id="output---2-events" class="xliff"></a>
 
-|location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 * Zobrazení prostředí na [portálu Time Series Insights](https://insights.timeseries.azure.com)
 

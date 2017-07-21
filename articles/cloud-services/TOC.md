@@ -21,8 +21,6 @@
 #### [Queue Storage a propojené služby](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table Storage a propojené služby](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Konfigurace balíčků pro nepřetržité sestavování a nasazování
-#### [Visual Studio Team Services a Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS a týmové sestavení](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurace pravidel přenosů pro roli](cloud-services-enable-communication-role-instances.md)
 ### [Zpracování událostí životního cyklu cloudových služeb](cloud-services-role-lifecycle-dotnet.md)
@@ -102,7 +100,11 @@
 ### [Běžné problémy s nasazením](cloud-services-troubleshoot-deployment-problems.md)
 ### [Role se nespustila](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Pokyny k zotavení](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services – nejčastější dotazy](cloud-services-faq.md)
+### Cloud Services – nejčastější dotazy
+#### [Dostupnost aplikací a služeb – nejčastější dotazy](cloud-services-application-and-service-availability-faq.md)
+#### [Konfigurace a správa – nejčastější dotazy](cloud-services-configuration-and-management-faq.md)
+#### [Možnosti připojení a sítě – nejčastější dotazy](cloud-services-connectivity-and-networking-faq.md)
+#### [Nasazení – nejčastější dotazy](cloud-services-deployment-faq.md)
 
 # Referenční informace
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
@@ -110,8 +112,9 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Ceny](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

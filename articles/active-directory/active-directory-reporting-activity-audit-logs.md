@@ -1,5 +1,4 @@
 ---
-
 title: "Sestavy aktivit auditu na portálu Azure Active Directory | Dokumentace Microsoftu"
 description: "Seznámení se sestavami aktivit auditu na portálu Azure Active Directory"
 services: active-directory
@@ -13,17 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Sestavy aktivit auditu na portálu Azure Active Directory 
+# Sestavy aktivit auditu na portálu Azure Active Directory
+<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
 
 Generování sestav v Azure Active Directory (Azure AD) umožňuje získat všechny informace potřebné ke zjištění stavu vašeho prostředí.
 
@@ -38,9 +38,15 @@ Architektura generování sestav v Azure AD se skládá z následujících kompo
 
 V toto tématu najdete přehled aktivit auditu.
  
+## Kdo má přístup k datům?
+<a id="who-can-access-the-data" class="xliff"></a>
+* Uživatelé v roli Správce zabezpečení nebo Čtenář zabezpečení
+* Globální správci
+* Jednotliví uživatelé (bez oprávnění správce) mohou zobrazit své vlastní aktivity.
 
 
-## <a name="audit-logs"></a>Protokoly auditu
+## Protokoly auditu
+<a id="audit-logs" class="xliff"></a>
 
 Protokoly auditu v Azure Active Directory obsahují záznamy aktivit systému pro zajištění dodržování předpisů.  
 Prvním vstupním bodem k veškerým datům auditování je možnost **Protokoly auditu** v oddílu **Aktivita** služby **Azure Active Directory**.
@@ -70,7 +76,8 @@ Kliknutím na položku v zobrazení seznamu k ní zobrazíte všechny dostupné 
 ![Protokoly auditu](./media/active-directory-reporting-activity-audit-logs/22.png "Protokoly auditu")
 
 
-## <a name="filtering-audit-logs"></a>Filtrování protokolů auditu
+## Filtrování protokolů auditu
+<a id="filtering-audit-logs" class="xliff"></a>
 
 Abyste omezili zobrazovaná data na úroveň, která vám vyhovuje, můžete filtrovat data přihlašování s využitím následujících polí:
 
@@ -102,10 +109,11 @@ Filtr **Kategorie** umožňuje vybrat jeden z následujících filtrů:
 - Základní adresář
 - Samoobslužná správa hesel
 - Samoobslužná správa skupin
-- Zřizování účtů
-- Automatická změna hesel
-- pozvaní uživatelé
+- Zřizování účtů – automatická změna hesel
+- Pozvaní uživatelé
 - Služba MIM
+- Identity Protection
+- B2C
 
 Filtr **Typ prostředku aktivity** umožňuje vybrat jeden z následujících filtrů:
 
@@ -124,161 +132,21 @@ Když jako **Typ prostředku aktivity** vyberete **Skupina**, zobrazí se dalš�
 - O365
 
 
-
-
 Filtr **Aktivita** je založený na vybrané kategorii a typu prostředku aktivity. Můžete vybrat konkrétní aktivitu, kterou chcete zobrazit, nebo zvolit všechny. 
 
-| Kategorie aktivity| Typ prostředku aktivity| Aktivita |
-| :-- | :-: | :-- |
-| Základní adresář| Skupina| Odstranění nastavení skupin|
-| Základní adresář| Adresář| Aktualizační doména|
-| Základní adresář| Adresář| Odebrání partnera ze společnosti|
-| Základní adresář| Uživatel| Aktualizace role|
-| Základní adresář| Uživatel| Přidání role ze šablony|
-| Základní adresář| Skupina| Přidání přiřazení role aplikace do skupiny|
-| Základní adresář| Skupina| Zahájení použití skupinové licence pro uživatele|
-| Základní adresář| Aplikace| Přidání instančního objektu|
-| Základní adresář| Zásada| Aktualizace zásad|
-| Základní adresář| Zásada| Přidání zásad k instančnímu objektu|
-| Základní adresář| Zařízení| Přidání registrovaného vlastníka zařízení|
-| Základní adresář| Zařízení| Přidání registrovaných uživatelů zařízení|
-| Základní adresář| Zařízení| Aktualizace konfigurace zařízení|
-| Samoobslužná správa hesel| Uživatel| Resetování hesla (samoobslužné)|
-| Samoobslužná správa hesel| Uživatel| Odemknutí uživatelského účtu (samoobslužné)|
-| Samoobslužná správa hesel| Uživatel| Resetování hesla (správcem)|
-| Samoobslužná správa skupin| Skupina| Odstranění čekající žádosti o připojení ke skupině|
-| Zřizování účtů| Aplikace| Podmíněné zpracování|
-| Automatická změna hesel| Aplikace| Automatická změna hesel|
-| Pozvaní uživatelé| Ostatní| Zpracované hromadné pozvánky|
-| Základní adresář| Adresář| Odebrání ověřené domény|
-| Základní adresář| Adresář| Přidání neověřené domény|
-| Základní adresář| Adresář| Přidání ověřené domény|
-| Základní adresář| Adresář| Nastavení funkce adresáře v tenantovi|
-| Základní adresář| Adresář| Nastavení příznaku Dirsyncenabled|
-| Základní adresář| Adresář| Vytvoření nastavení společnosti|
-| Základní adresář| Adresář| Aktualizace nastavení společnosti|
-| Základní adresář| Adresář| Odstranění nastavení společnosti|
-| Základní adresář| Adresář| Nastavení povoleného umístění dat společnosti|
-| Základní adresář| Adresář| Povolení vícejazykové funkce společnosti|
-| Základní adresář| Uživatel| Aktualizace uživatele|
-| Základní adresář| Uživatel| Odstranění uživatele|
-| Základní adresář| Skupina| Odebrání člena ze skupiny|
-| Základní adresář| Skupina| Nastavení skupinové licence|
-| Základní adresář| Skupina| Vytvoření nastavení skupin|
-| Základní adresář| Aplikace| Aktualizace instančního objektu|
-| Základní adresář| Aplikace| Odstranění aplikace|
-| Základní adresář| Aplikace| Aktualizace aplikace|
-| Základní adresář| Aplikace| Odebrání instančního objektu|
-| Základní adresář| Aplikace| Přidání přihlašovacích údajů instančního objektu|
-| Základní adresář| Aplikace| Odebrání přiřazení role aplikace z instančního objektu|
-| Základní adresář| Aplikace| Odebrání vlastníka z aplikace|
-| Základní adresář| Zařízení| Odebrání registrovaného vlastníka ze zařízení|
-| Samoobslužná správa hesel| Uživatel| Průběh aktivity toku samoobslužného resetování hesel|
-| Zřizování účtů| Aplikace| Správa|
-| Zřizování účtů| Aplikace| Operace adresáře|
-| Služba MIM| Skupina| Odebrání člena|
-| Základní adresář| Zásada| Odstranění zásad|
-| Pozvaní uživatelé| Uživatel| Vytvoření virálního tenanta|
-| Základní adresář| Adresář| Aktualizace externích tajných klíčů|
-| Základní adresář| Adresář| Nastavení vlastností Rights Management|
-| Základní adresář| Adresář| Aktualizace společnosti|
-| Základní adresář| Uživatel| Přidání uživatele|
-| Základní adresář| Uživatel| Převod federovaného uživatele na spravovaného|
-| Základní adresář| Uživatel| Vytvoření hesla aplikace pro uživatele|
-| Základní adresář| Skupina| Přidání člena do skupiny|
-| Základní adresář| Skupina| Přidání skupiny|
-| Základní adresář| Aplikace| Souhlas s aplikací|
-| Základní adresář| Aplikace| Přidání aplikace|
-| Základní adresář| Aplikace| Přidání vlastníka k instančnímu objektu|
-| Základní adresář| Aplikace| Odebrání Oauth2Permissiongrant|
-| Základní adresář| Zásada| Odebrání přihlašovacích údajů pro zásady|
-| Základní adresář| Zařízení| Odstranění konfigurace zařízení|
-| Samoobslužná správa skupin| Skupina| Nastavení vlastností dynamických skupin|
-| Samoobslužná správa skupin| Skupina| Aktualizace zásad správy životního cyklu|
-| Zřizování účtů| Aplikace| Akce synchronizace pravidel|
-| Pozvaní uživatelé| Ostatní| Odeslané hromadné pozvánky|
-| Služba MIM| Skupina| Přidání člena|
-| Základní adresář| Uživatel| Nastavení vlastností licencí|
-| Základní adresář| Uživatel| Obnovení uživatele|
-| Základní adresář| Uživatel| Odebrání člena z role|
-| Základní adresář| Uživatel| Odebrání uživateli přiřazení role aplikace|
-| Základní adresář| Uživatel| Odebrání vymezeného člena z role|
-| Základní adresář| Skupina| Aktualizace skupiny|
-| Základní adresář| Skupina| Přidání vlastníka ke skupině|
-| Základní adresář| Skupina| Ukončení použití skupinové licence pro uživatele|
-| Základní adresář| Skupina| Odebrání přiřazení role aplikace ze skupiny|
-| Základní adresář| Skupina| Nastavení správy skupiny uživatelem|
-| Základní adresář| Aplikace| Přidání Oauth2Permissiongrant|
-| Základní adresář| Aplikace| Přidání přiřazení role aplikace k instančnímu objektu|
-| Základní adresář| Aplikace| Odebrání přihlašovacích údajů instančního objektu|
-| Základní adresář| Zásada| Odebrání zásad z instančního objektu|
-| Základní adresář| Zařízení| Aktualizace zařízení|
-| Základní adresář| Zařízení| Přidání zařízení|
-| Základní adresář| Zařízení| Přidání konfigurace zařízení|
-| Samoobslužná správa hesel| Uživatel| Změna hesla (samoobslužná)|
-| Samoobslužná správa hesel| Uživatel| Registrace uživatele pro samoobslužné resetování hesla|
-| Samoobslužná správa skupin| Skupina| Schválení čekající žádosti o připojení ke skupině|
-| Základní adresář| Adresář| Odebrání neověřené domény|
-| Základní adresář| Adresář| Ověření domény|
-| Základní adresář| Adresář| Nastavení doménového ověřování|
-| Základní adresář| Adresář| Nastavení zásad pro hesla|
-| Základní adresář| Adresář| Přidání partnera ke společnosti|
-| Základní adresář| Adresář| Propagace společnosti u partnera|
-| Základní adresář| Adresář| Nastavení partnerství|
-| Základní adresář| Adresář| Nastavení prahové hodnoty náhodného odstranění|
-| Základní adresář| Adresář| Snížení úrovně partnera|
-| Pozvaní uživatelé| Uživatel| Pozvání externího uživatele|
-| Zřizování účtů| Aplikace| Import|
-| Základní adresář| Aplikace| Odebrání vlastníka z instančního objektu|
-| Základní adresář| Zařízení| Odebrání registrovaných uživatelů ze zařízení|
-| Základní adresář| Adresář| Nastavení informací o společnosti|
-| Základní adresář| Adresář| Nastavení federování v doméně|
-| Základní adresář| Adresář| Vytvoření společnosti|
-| Základní adresář| Adresář| Vyprázdnění vlastností Rights Management|
-| Základní adresář| Adresář| Nastavení funkce Dirsync|
-| Základní adresář| Adresář| Ověření domény s e-mailovým ověřením|
-| Základní adresář| Uživatel| Změna uživatelské licence|
-| Základní adresář| Uživatel| Změna hesla uživatele|
-| Základní adresář| Uživatel| Resetování hesla uživatele|
-| Základní adresář| Uživatel| Přidání přiřazení role aplikace k uživateli|
-| Základní adresář| Uživatel| Přidání člena do role|
-| Základní adresář| Uživatel| Odstranění hesla aplikace pro uživatele|
-| Základní adresář| Uživatel| Aktualizace přihlašovacích údajů uživatele|
-| Základní adresář| Uživatel| Nastavení správce uživatelů|
-| Základní adresář| Uživatel| Přidání vymezeného člena do role|
-| Základní adresář| Skupina| Odstranění skupiny|
-| Základní adresář| Skupina| Odebrání vlastníka ze skupiny|
-| Základní adresář| Skupina| Aktualizace nastavení skupin|
-| Základní adresář| Aplikace| Přidání vlastníka do aplikace|
-| Základní adresář| Aplikace| Odvolání souhlasu|
-| Základní adresář| Zásada| Přidání zásad|
-| Základní adresář| Zařízení| Odstranění zařízení|
-| Samoobslužná správa hesel| Uživatel| Blokování samoobslužného resetování hesla|
-| Samoobslužná správa skupin| Skupina| Žádost o připojení ke skupině|
-| Samoobslužná správa skupin| Skupina| Vytvoření zásad správy životního cyklu|
-| Samoobslužná správa skupin| Skupina| Odmítnutí čekající žádosti o připojení ke skupině|
-| Samoobslužná správa skupin| Skupina| Zrušení čekající žádosti o připojení ke skupině|
-| Samoobslužná správa skupin| Skupina| Obnovení skupiny|
-| Zřizování účtů| Aplikace| Export|
-| Zřizování účtů| Aplikace| Ostatní|
-| Pozvaní uživatelé| Uživatel| Uplatnění pozvání externího uživatele|
-| Pozvaní uživatelé| Uživatel| Vytvoření virálního uživatele|
-| Pozvaní uživatelé| Uživatel| Přiřazení externího uživatele k aplikaci|
+Seznam všech aktivit auditu můžete získat pomocí Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, kde $tenantdomain = název domény. Také se můžete podívat na článek o [událostech sestavy auditování](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
-
-
-## <a name="audit-logs-shortcuts"></a>Zástupci pro protokoly auditu
+## Zástupci pro protokoly auditu
+<a id="audit-logs-shortcuts" class="xliff"></a>
 
 Kromě **Azure Active Directory** poskytuje web Azure Portal dva další vstupní body k datům auditu:
 
 - Uživatelé a skupiny
 - Podnikové aplikace
 
-Úplný seznam aktivit sestavy auditování najdete v [seznamu událostí sestavy auditu](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
-
-### <a name="users-and-groups-audit-logs"></a>Protokoly auditu uživatelů a skupin
+### Protokoly auditu uživatelů a skupin
+<a id="users-and-groups-audit-logs" class="xliff"></a>
 
 S použitím sestav auditu orientovaných na uživatele a skupiny můžete najít odpovědi na otázky tohoto typu:
 
@@ -302,7 +170,8 @@ Pokud chcete jenom zkontrolovat data auditování týkající se uživatelů a s
 
 ![Protokoly auditu](./media/active-directory-reporting-activity-audit-logs/93.png "Protokoly auditu")
 
-### <a name="enterprise-applications-audit-logs"></a>Protokoly auditu podnikových aplikací
+### Protokoly auditu podnikových aplikací
+<a id="enterprise-applications-audit-logs" class="xliff"></a>
 
 S použitím sestav auditu orientovaných na aplikace můžete najít odpovědi na otázky tohoto typu:
 
@@ -321,7 +190,8 @@ Toto zobrazení je možné dál filtrovat až na samotné **skupiny** nebo **už
 ![Protokoly auditu](./media/active-directory-reporting-activity-audit-logs/25.png "Protokoly auditu")
 
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 Přečtěte si článek [Příručka generování sestav v Azure Active Directory](active-directory-reporting-guide.md).
 
 

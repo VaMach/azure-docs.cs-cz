@@ -15,6 +15,7 @@
 ### [Konfigurace nastavení](multi-factor-authentication-whats-next.md)
 ### [Sestavy v MFA](multi-factor-authentication-manage-reports.md)
 ### [Použití stávajících serverů NPS](multi-factor-authentication-nps-extension.md)
+#### [Pokročilá konfigurace pro rozšíření serveru NPS](nps-extension-advanced-configuration.md)
 ### [Vytvoření poskytovatele ověřování](multi-factor-authentication-get-started-auth-provider.md)
 ### Místní Azure MFA
 #### [Instalace uživatelského portálu](multi-factor-authentication-get-started-portal.md)
@@ -48,3 +49,5 @@
 ### [Nejčastější dotazy](multi-factor-authentication-faq.md)
 ### [Zeptejte se](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Chyby rozšíření NPS](multi-factor-authentication-nps-errors.md)
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

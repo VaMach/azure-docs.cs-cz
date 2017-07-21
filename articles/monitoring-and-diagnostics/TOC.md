@@ -22,7 +22,7 @@
 ### [Konfigurace upozornění na portálu Azure Portal](insights-alerts-portal.md)
 ### [Konfigurace upozornění pomocí rozhraní příkazového řádku](insights-alerts-command-line-interface.md)
 ### [Konfigurace upozornění přes PowerShell](insights-alerts-powershell.md)
-### [Upozornění na metriku s voláním webhooku](insights-webhooks-alerts.md)
+### [Nastavení výstrahy metrik pro volání webhooku](insights-webhooks-alerts.md)
 ### [Vytvoření upozornění na metriku pomocí šablony Resource Manageru](monitoring-enable-alerts-using-template.md)
 ## Použití automatického škálování
 ### [Osvědčené postupy](insights-autoscale-best-practices.md)
@@ -39,10 +39,10 @@
 ### [Streamování protokolů aktivit do služby Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operací pomocí Resource Manageru](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Vytvoření výstrah protokolu aktivit s využitím Resource Manageru](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Oznámení služby
+## Použití oznámení služby
 ### [Zobrazení oznámení služby](monitoring-service-notifications.md)
 ### [Konfigurace výstrah pro oznámení služby](monitoring-activity-log-alerts-on-service-notifications.md)
-## Skupiny akcí
+## Použití skupin akcí
 ### [Další informace o schématu webhooků](monitoring-activity-log-alerts-webhook.md)
 ### [Chování výstrah SMS](monitoring-sms-alert-behavior.md)
 ### [Omezení četnosti výstrah](monitoring-alerts-rate-limiting.md)
@@ -70,6 +70,8 @@
 ### [1.3 a novější](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Zdroje a prostředky
-## [Ukázky pro PowerShell](insights-powershell-samples.md)
 ## [Ukázky Azure CLI 1.0](insights-cli-samples.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Ukázky pro PowerShell](insights-powershell-samples.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Šablony Rychlý start](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

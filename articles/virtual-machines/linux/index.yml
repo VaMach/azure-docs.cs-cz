@@ -6,7 +6,7 @@ metadata:
   title: 'Dokumentace k virtuálním počítačům Azure s Linuxem – kurzy, reference k rozhraní API'
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-linux
   ms.tgt_pltfrm: na
@@ -29,7 +29,7 @@ sections:
 - title: Zprovoznění během 5 minut
   items:
   - type: paragraph
-    text: 'Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:'
+    text: 'Podívejte se, jak nasadit webový server NGINX ve virtuálním počítači se systémem Ubuntu:'
   - type: list
     style: icon48
     items: 
@@ -48,44 +48,44 @@ sections:
 - title: Podrobné kurzy
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and scale Linux VMs on Azure
+    text: 'Jak nasadit, spravovat a škálovat virtuální počítače s Linuxem v Azure'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Create and manage VM disks</a></li>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Vytvoření a správa virtuálních počítačů s Linuxem</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Vytvoření a správa disků virtuálního počítače</a></li>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatizace konfigurace virtuálních počítačů</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Vytváření vlastních imagí virtuálních počítačů</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Vytvoření vysoce dostupných virtuálních počítačů</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Vytvoření škálovací sady virtuálních počítačů</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Vyrovnávání zatížení virtuálních počítačů</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Správa virtuálních počítačů a virtuálních sítí</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Zálohování virtuálních počítačů</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorování virtuálních počítačů</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Správa zabezpečení na virtuálních počítačích</a>
+    - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Vytvoření infrastruktury CI/CD pomocí Jenkins, Dockeru a GitHubu</a>'
 - title: Bezplatné školicí video od PluralSightu
   items:
   - type: list
     style: cards
     className: cardsW
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Managing Infrastructure</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Správa infrastruktury</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png
         href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with Virtual Machines</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme se službou Virtual Machines</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png
         href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with IaaS Monitoring</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme s monitorováním IaaS</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png
         href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Ukázky
   items:
   - type: paragraph
-    text: Deploy your first application to Azure.
+    text: Nasazení první aplikace do Azure
   - type: list
     style: unordered
     className: spaced noBullet
@@ -101,6 +101,6 @@ sections:
     - title: Příkazový řádek
       html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
     - title: Jazyky
-      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
     - title: REST
-      html: <p><a href="/rest/api/compute">REST API Reference</a></p>
+      html: <p><a href="/rest/api/compute">Reference k rozhraní REST API</a></p>

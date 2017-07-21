@@ -1,33 +1,37 @@
-- name: Dokumentace ke zpracování řeči Bingu
+- name: Bing Speech Documentation
   href: ../index.md
-- name: Přehled
+- name: Overview
   href: Home.md
-- name: Začínáme
+- name: Get started
   items:
-  - name: "C# (REST API)\_\_"
+  - name: 'C#(REST API)  '
     href: GetStarted/GetStartedREST.md
-  - name: cURL (REST API)
+  - name: cURL(REST API)
     href: GetStarted/GetStarted-cURL.md
-  - name: "JavaScript (Websocket API)\_\_\_"
+  - name: 'JavaScript(Websocket API)   '
  
     href: GetStarted/GetStartedJSWebsockets.md
-  - name: 'C# (Klientská knihovna)'
+  - name: 'C#(Client Library)'
     href: GetStarted/GetStartedCSharpDesktop.md
-  - name: 'C# (Knihovna služby)'
+  - name: 'C#(Service Library)'
     href: GetStarted/GetStartedCSharpServiceLibrary.md
-  - name: "Objective C v iOS (Klientská knihovna)\_\_\_"
+  - name: 'Objective C on iOS(Client Library)   '
     href: GetStarted/Get-Started-ObjectiveC-iOS.md
-  - name: Java v Androidu (Klientská knihovna)
+  - name: Java on Android(Client Library)
     href: GetStarted/GetStartedJavaAndroid.md
-- name: Referenční informace
+- name: Reference
   items: 
-  - name: Referenční informace k rozhraní API pro rozpoznávání řeči
+  - name: Speech recognition API reference
     href: API-Reference-REST/BingVoiceRecognition.md
-  - name: Referenční informace k rozhraní API pro převod textu na řeč
+  - name: Text-to-speech API reference
     href: API-Reference-REST/BingVoiceOutput.md
-  - name: Protokol Websocket
+  - name: Websocket Protocol
     href: API-Reference-REST/websocketprotocol.md
-  - name: Sady SDK a ukázky
+  - name: SDKs & Samples
     items:
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

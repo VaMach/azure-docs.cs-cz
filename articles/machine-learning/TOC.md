@@ -193,6 +193,10 @@
 ### [Kolekce](machine-learning-gallery-collections.md)
 ### [Vlastní moduly](machine-learning-gallery-custom-modules.md)
 
+## Partnerská řešení Cortana Intelligence
+### [Průvodce publikováním Cortana Intelligence](cortana-intelligence-appsource-publishing-guide.md)
+### [Nástroj pro vyhodnocení řešení Cortana Intelligence](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### Rozhraní API
 #### [Detekce anomálií](machine-learning-apps-anomaly-detection-api.md)
@@ -207,6 +211,7 @@
 ##### [Nastavení](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 
 ## [Jazyk neuronových sítí Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/machine-learning/)

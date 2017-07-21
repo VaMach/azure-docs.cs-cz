@@ -1,0 +1,73 @@
+---
+title: "Zvýšení rozsahu platformy Apache Kafka – Azure HDInsight | Dokumentace Microsoftu"
+description: "Zjistěte, jak nakonfigurovat spravované disky pro cluster Apache Kafka v prostředí Azure HDInsight, které zvýší škálovatelnost."
+services: hdinsight
+documentationcenter: 
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.devlang: 
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 06/14/2017
+ms.author: larryfr
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 1b3e0d06c8b25158e421f02b587b4ae4836d80ad
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/13/2017
+
+---
+
+# Konfigurace úložiště a škálovatelnosti pro platformu Apache Kafka v prostředí HDInsight
+<a id="configure-storage-and-scalability-for-apache-kafka-on-hdinsight" class="xliff"></a>
+
+Naučte se konfigurovat spravované disky, které využívá Apache Kafka v prostředí HDInsight.
+
+Platforma Kafka ve službě HDInsight používá místní disky virtuálních počítačů v clusteru HDInsight. Protože je platforma Kafka náročná na V/V prostředky, k zajištění vysoké propustnosti a vyšší kapacity úložiště na každý uzel se využívá služba [Azure Managed Disks](../storage/storage-managed-disks-overview.md). Kdyby platforma Kafka využívala tradiční virtuální pevné disky (VHD), každý uzel by byl omezený na 1 TB. Díky službě Managed Disks můžete používat více disků, se kterými každý uzel v clusteru nabídne kapacitu až 16 TB.
+
+Následující diagram porovnává platformu Kafka ve službě HDInsight před použitím spravovaných disků a s nimi:
+
+![Diagram zobrazující platformu Kafka ve službě HDInsight při použití jednoho virtuálního pevného disku a při použití několika spravovaných disků v každém virtuálním počítači](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+
+## Konfigurace spravovaných disků: portál Azure Portal
+<a id="configure-managed-disks-azure-portal" class="xliff"></a>
+
+1. Postupujte podle kroků v tématu [Vytvoření clusteru HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md), kde se dozvíte, jaký je obecný postup pro vytvoření clusteru pomocí portálu. Proces vytvoření clusteru pomocí portálu nedokončujte.
+
+2. V okně __Velikost clusteru__ pomocí pole __Počet disků v pracovním uzlu__ nakonfigurujte počet disků.
+
+    > [!NOTE]
+    > Typ spravovaného disku může být buď __Standardní__ (HDD), nebo __Prémiový__ (SSD). Prémiové disky se používají u virtuálních počítačů řady DS a GS. Všechny ostatní typy virtuálních počítačů používají standardní disky.
+
+    ![Obrázek okna Velikost clusteru se zvýrazněným počtem disků v pracovním uzlu](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+
+## Konfigurace spravovaných disků: šablony Resource Manageru
+<a id="configure-managed-disks-resource-manager-template" class="xliff"></a>
+
+Pokud chcete nastavit počet disků, které využívají pracovní uzly v clusteru Kafka, použijte následující část šablony:
+
+```json
+"dataDisksGroups": [
+    {
+        "disksPerNode": "[variables('disksPerWorkerNode')]"
+    }
+    ],
+```
+
+Úplnou šablonu s ukázkou konfigurace spravovaných disků najdete na adrese [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
+
+## Další kroky
+<a id="next-steps" class="xliff"></a>
+
+Další informace o práci se systémem Kafka v prostředí HDInsight najdete v následujících dokumentech:
+
+* [Vytvoření repliky Kafka ve službě HDInsight pomocí MirrorMakeru](hdinsight-apache-kafka-mirroring.md)
+* [Použití Apache Stormu se systémem Kafka ve službě HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Použití Apache Sparku se systémem Kafka ve službě HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Připojení k systému Kafka přes virtuální síť Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
+
+* [Příspěvek na blogu HDInsight o spravovaných discích se systémem Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

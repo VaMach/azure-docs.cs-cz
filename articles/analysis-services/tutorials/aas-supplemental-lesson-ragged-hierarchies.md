@@ -1,0 +1,138 @@
+---
+title: "Kurz služby Azure Analysis Services – Doplňková lekce: Nepravidelné hierarchie | Dokumentace Microsoftu"
+description: "Popisuje, jak opravit nepravidelné hierarchie v kurzu služby Azure Analysis Services."
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0f02ff73eb126cc397312e87bde50b3ee2d6ce53
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/03/2017
+
+---
+# Doplňková lekce – Nepravidelné hierarchie
+<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+V této doplňkové lekci vyřešíte běžný problém vyskytující se při přesunu do hierarchií, které obsahují prázdné hodnoty (členy) na různých úrovních. Může se to například týkat organizace, ve které vysoce postavenému manažerovi přímo reportují manažeři a jiní zaměstnanci oddělení. Nebo se může jednat o geografické hierarchie skládající se z položek Země, Oblast, Město, kde některá města nemají nadřazený stát nebo kraj, například Washington D. C. nebo Vatikán. Pokud hierarchie obsahuje prázdné členy, dělí se často do různých nebo nepravidelných úrovni.
+
+![aas-lesson-detail-ragged-hierarchies-table](../tutorials/media/aas-lesson-detail-ragged-hierarchies-table.png)
+
+Tabulkové modely na úrovni kompatibility 1400 mají pro hierarchie další vlastnost – **Skrýt členy**. Nastavení **Výchozí** předpokládá, že se na žádné z úrovní nevyskytují prázdné členy. Nastavení **Skrýt prázdné členy** vyloučí po přidání do kontingenční tabulky nebo sestavy z hierarchie prázdné členy.  
+  
+Odhadovaný čas dokončení této lekce: **20 minut**  
+  
+## Požadavky
+<a id="prerequisites" class="xliff"></a>  
+Toto téma doplňkové lekce je součástí kurzu tabulkového modelování. Než začnete provádět úkoly v této doplňkové lekci, měli byste mít dokončené všechny předchozí lekce nebo mít dokončený ukázkový projekt modelu Adventure Works Internet Sales. 
+
+Pokud jste projekt AW Internet Sales vytvořili v rámci kurzu, neobsahuje model zatím žádná data nebo hierarchie, které by byly nepravidelné. Abyste mohli tuto doplňkovou lekci dokončit, musíte nejdřív problém vytvořit tak, že přidáte nějaké další tabulky, vytvoříte relace, počítané sloupce, míru a novou hierarchii Organization. Tato část zabere přibližně 15 minut. Řešení pak vytvoříte za pár minut.  
+
+## Přidání tabulek a objektů
+<a id="add-tables-and-objects" class="xliff"></a>
+  
+### Postup přidání nových tabulek do modelu
+<a id="to-add-new-tables-to-your-model" class="xliff"></a>
+  
+1.  V Průzkumníku tabulkových modelů rozbalte položku **Zdroje Dat**, potom klikněte pravým tlačítkem myši na vaše připojení > **Importovat nové tabulky**.
+  
+2.  V Navigátoru vyberte **DimEmployee** a **FactResellerSales** a potom klikněte na **OK**.
+
+3.  V Editoru dotazů klikněte na **Importovat**.
+
+4.  Vytvořte následující [relace](../tutorials/aas-lesson-4-create-relationships.md):
+
+    | Tabulka 1           | Sloupec       | Směr filtru   | Tabulka 2     | Sloupec      | Aktivní |
+    |-------------------|--------------|--------------------|-------------|-------------|--------|
+    | FactResellerSales | OrderDateKey | Výchozí            | DimDate     | Datum        | Ano    |
+    | FactResellerSales | DueDate      | Výchozí            | DimDate     | Datum        | Ne     |
+    | FactResellerSales | ShipDateKey  | Výchozí            | DimDate     | Datum        | Ne     |
+    | FactResellerSales | ProductKey   | Výchozí            | DimProduct  | ProductKey  | Ano    |
+    | FactResellerSales | EmployeeKey  | Na obě tabulky | DimEmployee | EmployeeKey | Ano    |
+
+5. V tabulce **DimEmployee** vytvořte následující [počítané sloupce](../tutorials/aas-lesson-5-create-calculated-columns.md): 
+
+    **Cesta** 
+    ```
+    =PATH([EmployeeKey],[ParentEmployeeKey])
+    ```
+
+    **Úplný název** 
+    ```
+    =[FirstName] & " " & [MiddleName] & " " & [LastName]
+    ```
+
+    **Level1** 
+    ```
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,1)) 
+    ```
+
+    **Level2** 
+    ```
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,2)) 
+    ```
+
+    **Level3** 
+    ```
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,3)) 
+    ```
+
+    **Level4** 
+    ```
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,4)) 
+    ```
+
+    **Level5** 
+    ```
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,5)) 
+    ```
+
+6.  V tabulce **DimEmployee** vytvořte [hierarchii](../tutorials/aas-lesson-9-create-hierarchies.md) s názvem **Organization**. Přidejte následující sloupce v daném pořadí: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+
+7.  V tabulce **FactResellerSales** vytvořte následující [míru](../tutorials/aas-lesson-6-create-measures.md):
+
+    ```
+    ResellerTotalSales:=SUM([SalesAmount])
+    ```
+
+8.  Pomocí funkce [Analyzovat v aplikaci Excel](../tutorials/aas-lesson-12-analyze-in-excel.md) otevřete Excel a automaticky vytvořte kontingenční tabulku.
+
+9.  V části **Pole kontingenční tabulky** přidejte hierarchii **Organization** z tabulky **DimEmployee** do **Řádky**a míru **ResellerTotalSales** z tabulky **FactResellerSales** do **Hodnoty**.
+
+    ![aas-lesson-detail-ragged-hierarchies-pivottable](../tutorials/media/aas-lesson-detail-ragged-hierarchies-pivottable.png)
+
+    V kontingenční tabulce můžete vidět, že hierarchie zobrazuje nepravidelné řádky. Je tam množství řádků, které zobrazují prázdné členy.
+
+## Postup opravy nepravidelné hierarchie nastavením vlastnosti Skrýt členy
+<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
+
+1.  V **Průzkumníku tabulkových modelů** rozbalte **Tabulky** > **DimEmployee** > **Hierarchie** > **Organization**.
+
+2.  V části **Vlastnosti** > **Skrýt členy** vyberte **Skrýt prázdné členy**. 
+
+    ![aas-lesson-detail-ragged-hierarchies-hidemembers](../tutorials/media/aas-lesson-detail-ragged-hierarchies-hidemembers.png)
+
+3.  Zpět v aplikaci Excel aktualizujte kontingenční tabulku. 
+
+    ![aas-lesson-detail-ragged-hierarchies-pivottable-refresh](../tutorials/media/aas-lesson-detail-ragged-hierarchies-pivottable-refresh.png)
+
+    Teď to vypadá mnohem líp!
+
+## Viz také
+<a id="see-also" class="xliff"></a>   
+[Lekce 9: Vytvoření hierarchií](../tutorials/aas-lesson-9-create-hierarchies.md)  
+[Doplňková lekce – Dynamické zabezpečení](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
+[Doplňková lekce – Řádky podrobností](../tutorials/aas-supplemental-lesson-detail-rows.md)  

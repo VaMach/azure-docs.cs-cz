@@ -1,7 +1,7 @@
 1. V novém okně se přihlaste k webu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo klikněte na **Nový**, potom na **Databáze** a nakonec na **Databáze Azure Cosmos**.
    
-   ![Snímek obrazovky webu Azure Portal se zvýrazněním položek Další služby a Databáze Azure Cosmos](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Snímek obrazovky webu Azure Portal se zvýrazněním položek Další služby a Databáze Azure Cosmos](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
 3. V okně **Nový účet** zadejte požadovanou konfiguraci účtu databáze Azure Cosmos. 
 
@@ -11,7 +11,7 @@
 
     Vyplňte okno Nový účet a jako vodítko při tom použijte informace na snímku obrazovky. Při vytváření svého účtu budete vybírat jedinečné hodnoty, které tedy nebudou přesně odpovídat snímku obrazovky. 
  
-    ![Snímek okna Nový v databázi Azure Cosmos](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Snímek okna Nový v Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
 
     Nastavení|Navrhovaná hodnota|Popis
     ---|---|---
@@ -24,8 +24,8 @@
 4. Kliknutím na **Vytvořit** vytvořte účet.
 5. Na panelu nástrojů klikněte na **Oznámení** a sledujte proces nasazení.
 
-    ![Oznámení o zahájení nasazení](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
+    ![Oznámení o zahájení nasazení](./media/cosmos-db-create-dbaccount-table/notification.png)
 
 6.  Po dokončení nasazení otevřete nový účet na dlaždici Všechny prostředky. 
 
-    ![Účet DocumentDB na dlaždici Všechny prostředky](./media/documentdb-create-dbaccount/azure-documentdb-all-resources.png)
+    ![Účet DocumentDB na dlaždici Všechny prostředky](./media/cosmos-db-create-dbaccount-table/all-resources.png)

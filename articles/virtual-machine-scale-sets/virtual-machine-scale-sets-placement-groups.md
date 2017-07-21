@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: a226bdfeb1e1e70f31b2728db594042578e5f21f
-ms.openlocfilehash: 7ccb76695a6ca0d9f1ff79f05de6a5c071510a43
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Práce s velkými škálovacími sadami virtuálních počítačů
@@ -37,8 +38,8 @@ Následující požadavky vám pomůžou rozhodnout, jestli vaše aplikace můž
 - Velké škálovací sady vyžadují službu Azure Managed Disks. Škálovací sady vytvořené bez disků služby Managed Disks vyžadují více účtů úložiště (jeden na každých 20 virtuálních počítačů). Velké škálovací sady jsou navržené pro práci výhradně se službou Managed Disks z důvodu snížení režijních nákladů na správu úložiště. Také se díky tomu vyhnete riziku, že narazíte na omezení předplatného pro účty úložiště. Pokud nepoužíváte službu Managed Disks, vaše škálovací sada je omezena na 100 virtuálních počítačů.
 - Škálovací sady vytvořené z imagí Azure Marketplace je možné škálovat až na 1 000 virtuálních počítačů.
 - Škálovací sady vytvořené z vlastních imagí (image virtuálních počítačů, které si vytvoříte a nahrajete sami) je možné škálovat až na 100 virtuálních počítačů.
-- Vyrovnávání zatížení úrovně&4; pomocí nástroje Azure Load Balancer zatím není podporováno pro škálovací sady, které se skládají z více skupin umístění. Pokud potřebujete použít nástroj Azure Load Balancer, ujistěte se, že je škálovací sada nakonfigurována k používání jediné skupiny umístění, což je výchozí nastavení.
-- Vyrovnávání zatížení úrovně&7; pomocí služby Azure Application Gateway je podporováno pro všechny škálovací sady.
+- Vyrovnávání zatížení úrovně 4 pomocí nástroje Azure Load Balancer zatím není podporováno pro škálovací sady, které se skládají z více skupin umístění. Pokud potřebujete použít nástroj Azure Load Balancer, ujistěte se, že je škálovací sada nakonfigurována k používání jediné skupiny umístění, což je výchozí nastavení.
+- Vyrovnávání zatížení úrovně 7 pomocí služby Azure Application Gateway je podporováno pro všechny škálovací sady.
 - Škálovací sada je definována s jednou podsítí – ujistěte se, že má vaše podsíť dostatečně velký adresní prostor pro všechny požadované virtuální počítače. Škálovací sada ve výchozím nastavení provádí nadměrné zřizování (během nasazování nebo při horizontálním navyšováním kapacity vytváří virtuální počítače navíc, které se vám neúčtují) pro zvýšení spolehlivosti nasazení a výkonu. Počítejte s adresním prostorem o 20 % větším, než je počet virtuálních počítačů, na který plánujete škálovat.
 - Pokud plánujete nasazení mnoha virtuálních počítačů, možná bude nutné navýšit vaše omezení základní kvóty pro službu Compute.
 - Domény selhání a upgradovací domény jsou konzistentní pouze v rámci skupiny umístění. Tato architektura nemění celkovou dostupnost škálovací sady, protože virtuální počítače jsou rovnoměrně distribuované mezi rozdílný fyzický hardware. Znamená to ale, že pokud potřebujete zajistit, aby byly dva virtuální počítače na různém hardwaru, nesmíte je zapomenout umístit do různých domén selhání ve stejné skupině umístění. Doména selhání a ID skupiny umístění jsou zobrazené v _zobrazení instance_ virtuálního počítače škálovací sady. Zobrazení instance virtuálního počítače škálovací sady můžete zobrazit v [Průzkumníku prostředků Azure](https://resources.azure.com/).
@@ -83,16 +84,7 @@ Kompletní příklad šablony velké škálovací sady najdete na adrese [https:
 Pokud chcete umožnit škálování existující škálovací sady virtuálních počítačů na více než 100 virtuálních počítačů, je třeba v modelu škálovací sady změnit vlastnost _singlePlacementGroup_ na hodnotu _false_. Změnu této vlastnosti můžete otestovat pomocí [Průzkumníka prostředků Azure](https://resources.azure.com/). Vyhledejte existující škálovací sadu, vyberte _Upravit_ a změňte vlastnost _singlePlacementGroup_. Pokud tuto vlastnost nevidíte, možná používáte k zobrazení škálovací sady starší verzi rozhraní Microsoft.Compute API.
 
 >[!NOTE] 
-U škálovací sady můžete změnit podporu pouze jedné skupiny umístění (výchozí chování) na podporu více skupin umístění, ale převod opačným směrem možný není. Proto se před převodem ujistěte, že rozumíte vlastnostem velkých škálovacích sad. Zejména se ujistěte, že nepotřebujete vyrovnávání zatížení úrovně&4; pomocí nástroje Azure Load Balancer.
+U škálovací sady můžete změnit podporu pouze jedné skupiny umístění (výchozí chování) na podporu více skupin umístění, ale převod opačným směrem možný není. Proto se před převodem ujistěte, že rozumíte vlastnostem velkých škálovacích sad. Zejména se ujistěte, že nepotřebujete vyrovnávání zatížení úrovně 4 pomocí nástroje Azure Load Balancer.
 
-## <a name="additional-notes"></a>Další poznámky
-Podpora velkých škálovacích sad, škálovacích sad s připojenými datovými disky a služby Azure Managed Disks byla přidána do rozhraní Microsoft.Compute API verze [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json). Můžete použít všechny sady SDK a nástroje příkazového řádku vytvořené s použitím této nebo novější verze rozhraní API.
-
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

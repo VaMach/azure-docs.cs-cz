@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Vytvoření oboru názvů služby
-
 Pokud chcete začít používat fronty služby Service Bus v Azure, musíte nejdřív vytvořit obor názvů. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace. 
 
 Vytvoření oboru názvů:
@@ -16,6 +14,7 @@ Vytvoření oboru názvů:
 8. Klikněte na možnost **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
 
 ### <a name="obtain-the-management-credentials"></a>Získání přihlašovacích údajů pro správu
+
 1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
 2. V okně oboru názvů klikněte na **Zásady sdíleného přístupu**.
 3. V okně **Zásady sdíleného přístupu** klikněte na **RootManageSharedAccessKey**.

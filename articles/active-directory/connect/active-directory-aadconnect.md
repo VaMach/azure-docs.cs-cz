@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 209f8869e9ed681285865154bdd4d2d7a0f22456
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrace místních adresářů do služby Azure Active Directory
@@ -47,7 +47,7 @@ Azure Active Directory Connect obsahuje tři hlavní komponenty: synchronizačn�
 
 * Synchronizace – tato komponenta odpovídá za vytváření uživatelů, skupin a dalších objektů. Také zajišťuje, aby se informace o identitě místních uživatelů a skupin shodovaly s cloudem.
 * AD FS – tato volitelná součást Azure AD Connect se dá použít ke konfiguraci hybridního prostředí, které používá místní infrastrukturu AD FS. Tu mohou organizace využít k při řešení komplexních nasazení, jako je například jednotné přihlašování s připojením k doméně, vynucování zásad přihlašování do AD a vícefaktorové ověřování (MFA) pomocí čipové karty nebo řešení jiného výrobce.
-* Monitorování stavu – Azure AD Connect Health může poskytovat robustní monitorování a centrální umístění na portálu Azure, kde je možné zobrazit tuto aktivitu. Další informace najdete v článku [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
+* Monitorování stavu – Azure AD Connect Health může poskytovat robustní monitorování a centrální umístění na portálu Azure Portal, kde je možné zobrazit tuto aktivitu. Další informace najdete v článku [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Instalace služby Azure AD Connect
 Azure AD Connect si můžete stáhnout ze stránek [Stažení softwaru](http://go.microsoft.com/fwlink/?LinkId=615771).
@@ -145,6 +145,7 @@ Pokud váš server služby AD FS není nakonfigurován pro automatické aktualiz
 |Historie verzí | [Historie verzí](active-directory-aadconnect-version-history.md)|
 |Porovnání DirSync, Azure ADSync a Azure AD Connect | [Porovnání nástrojů pro integraci adresářů](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Seznam kompatibility pro Azure AD bez služby AD FS | [Seznam kompatibilit pro federaci Azure AD](active-directory-aadconnect-federation-compatibility.md)|
+|Konfigurace zprostředkovatele identity SAML 2.0|[Použití zprostředkovatele identity (IdP) SAML 2.0 pro jednotné přihlašování](active-directory-aadconnect-federation-saml-idp.md)|
 |Synchronizované atributy | [Synchronizované atributy](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitorování pomocí služby Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Nejčastější dotazy | [Azure AD Connect – nejčastější dotazy](active-directory-aadconnect-faq.md)|

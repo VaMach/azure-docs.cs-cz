@@ -1,14 +1,18 @@
 # [Přehled](media-services-overview.md)
+## [Scénáře a dostupnost](scenarios-and-availability.md)
 ## [Koncepty](media-services-concepts.md)
 
 # Začínáme
 ## [Vytvoření a správa účtu](media-services-portal-create-account.md)
 ## [Vytvoření a nastavení vývojového prostředí](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
-## Připojení prostřednictvím kódu programu
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
+## [Přístup k rozhraní API pomocí ověřování AAD](media-services-use-aad-auth-to-access-ams-api.md)
+### [Správa ověřování AAD pomocí portálu](media-services-portal-get-started-with-aad.md)
+### [Přístup k rozhraní API pomocí .NET](media-services-dotnet-get-started-with-aad.md)
+### [Přístup k rozhraní API pomocí REST](media-services-rest-connect-with-aad.md)
+### [Vytvoření a konfigurace aplikace AAD pomocí rozhraní příkazového řádku](media-services-cli-create-and-configure-aad-app.md)
+### [Vytvoření a konfigurace aplikace AAD pomocí PowerShellu](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Doručování videa na vyžádání
 ### [Azure Portal](media-services-portal-vod-get-started.md)
@@ -129,14 +133,13 @@
 ### [Doručování licencí Widevine do Media Services s využitím služeb partnerů](media-services-licenses-partner-integration.md)
 ### [Použití běžného dynamického šifrování PlayReady nebo Widevine](media-services-protect-with-drm.md)
 ### [Streamování obsahu HLS chráněného technologií Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [Hybridní návrh subsystému DRM](hybrid-design-drm-sybsystem.md)
 ### [Šifrování CENC s více technologiemi DRM a řízením přístupu](media-services-cenc-with-multidrm-access-control.md)
 ### [Doručování licencí Widevine do Media Services s využitím Axinomu](media-services-axinom-integration.md)
 ### [Doručování licencí Widevine do Media Services s využitím castLabs](media-services-castlabs-integration.md)
-
-### Doručování prostředků
-#### Konfigurace zásad doručování prostředků
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Konfigurace zásad doručování prostředků
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Vytvoření klíčů ContentKeys
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -149,6 +152,7 @@
 ### [Analýza médií pomocí portálu](media-services-portal-analyze.md)
 ### [Zpracování pomocí Indexeru 2](media-services-process-content-with-indexer2.md)
 ### [Zpracování pomocí Indexeru](media-services-index-content.md)
+#### [Předvolby úloh](indexer-task-preset.md)
 ### [Zpracování pomocí technologie Hyperlapse](media-services-hyperlapse-content.md)
 ### [Zpracování pomocí detektoru obličejů](media-services-face-and-emotion-detection.md)
 ### [Zpracování pomocí detektoru pohybu](media-services-motion-detection.md)
@@ -214,10 +218,11 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (správa prostředků)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Zdroje a prostředky
-## [Poznámky k verzi](media-services-release-notes.md)
-## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Komunita Azure Media Services](media-services-community.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
+## [Poznámky k verzi](media-services-release-notes.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)

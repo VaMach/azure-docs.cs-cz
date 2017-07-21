@@ -25,6 +25,7 @@
 # Postup
 
 ## [Migrace uživatelských dat ze služby Azure RemoteApp](remoteapp-migrate.md)
+## [Migrace do MyCloudIT](remoteapp-migrate-mycloudit.md)
 ## [Migrace na Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Vytvoření kolekce služby RemoteApp
 ### [Kterou kolekci potřebujete?](remoteapp-collections.md)
@@ -67,7 +68,8 @@
 ### [Řešení potíží s cloudovou kolekcí](remoteapp-cloudtrouble.md)
 
 # Zdroje a prostředky
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=remoteapp)
-## [Ceny](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Ceny](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

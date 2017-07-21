@@ -1,6 +1,6 @@
 K virtuálnímu počítači nasazenému ve vaší virtuální síti se můžete připojit vytvořením Připojení ke vzdálené ploše tohoto virtuálního počítače. Nejlepším způsobem, jak na začátku ověřit, že se k virtuálnímu počítači můžete připojit, je použít k připojení privátní IP adresu místo názvu počítače. Tímto způsobem testujete, jestli se můžete připojit, a ne, jestli je správně nakonfigurovaný překlad IP adres.
 
-1. Vyhledejte privátní IP adresu. Privátní IP adresu virtuálního počítače najdete tak, že si zobrazíte jeho vlastnosti na webu Azure Portal nebo pomocí PowerShellu.
+1. Vyhledejte privátní IP adresu. Privátní IP adresu virtuálního počítače je možné vyhledat více způsoby. Níže uvádíme kroky pro Azure Portal a PowerShell.
 
   - Azure Portal – Vyhledejte virtuální počítač na webu Azure Portal. Zobrazte vlastnosti virtuálního počítače. Ve výpisu uvidíte privátní IP adresu.
 
@@ -23,7 +23,8 @@ K virtuálnímu počítači nasazenému ve vaší virtuální síti se můžete 
 3. Otevřete **Připojení ke vzdálené ploše** tak, že do vyhledávacího pole na hlavním panelu zadáte „RDP“ nebo „Připojení ke vzdálené ploše“ a pak vyberete Připojení ke vzdálené ploše. Připojení ke vzdálené ploše můžete otevřít také v PowerShellu pomocí příkazu mstsc. 
 4. V Připojení ke vzdálené ploše zadejte privátní IP adresu virtuálního počítače. Můžete kliknout na Zobrazit možnosti a upravit další nastavení, pak se připojte.
 
-### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Řešení potíží s připojením ke vzdálené ploše virtuálního počítače
+### Řešení potíží s připojením ke vzdálené ploše virtuálního počítače
+<a id="to-troubleshoot-an-rdp-connection-to-a-vm" class="xliff"></a>
 
 Pokud se vám nedaří připojit k virtuálnímu počítači přes připojení VPN, zkontrolujte následující:
 

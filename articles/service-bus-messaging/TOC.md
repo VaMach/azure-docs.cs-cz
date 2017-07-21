@@ -66,14 +66,15 @@
 ## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 
 # Zdroje a prostředky
-## [Podrobnosti o cenách](service-bus-pricing-billing.md)
-## [Ukázky](service-bus-samples.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Podrobnosti o cenách](service-bus-pricing-billing.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Ukázky](service-bus-samples.md)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=service-bus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

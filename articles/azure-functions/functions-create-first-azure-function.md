@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 01b23996a9cd3a8368a78085dec905d020612b48
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Vytvoření první funkce na webu Azure Portal
@@ -31,11 +31,9 @@ Služba Azure Functions umožňuje spuštění kódu v prostředí bez serveru, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-K dokončení všech kroků v tomto tématu by vám mělo stačit méně než 5 minut.
-
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
-Přihlaste se k [portálu Azure](https://portal.azure.com/).
+Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-function-app"></a>Vytvoření Function App
 
@@ -53,7 +51,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 1. Rozbalte novou aplikaci Function App a potom klikněte na tlačítko  **+**  vedle položky **Funkce**.
 
-2.  Na stránce **Začněte rychle** klikněte na **Webhook + API**, vyberte jazyk funkce a klikněte na **Vytvořit tuto funkci**. 
+2.  Na stránce **Začněte rychle** vyberte **Webhook + API**, vyberte jazyk funkce a klikněte na **Vytvořit tuto funkci**. 
    
     ![Stručný úvod do služby Functions na webu Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -61,11 +59,11 @@ Funkce ve vybraném jazyce se vytvoří pomocí šablony funkce aktivované prot
 
 ## <a name="test-the-function"></a>Testování funkce
 
-1. V nové funkci klikněte na **</> Získat adresu URL funkce** a potom zkopírujte údaj **Adresa URL funkce**. 
+1. V nové funkci klikněte na **</> Získat adresu URL funkce**, vyberte **výchozí (klíč funkce)** a pak na **Kopírovat**. 
 
     ![Kopírování adresy URL funkce z webu Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Vložte adresu URL pro požadavek HTTP do panelu adresy prohlížeče. K této adrese URL připojte řetězec dotazu `&name=<yourname>` a proveďte požadavek. Následuje ukázka odezvy na požadavek GET vrácené funkcí v prohlížeči:
+2. Vložte adresu URL funkce do panelu Adresa vašeho prohlížeče. Připojte k této adrese URL řetězec dotazu `&name=<yourname>` a stisknutím klávesy `Enter` na klávesnici požadavek proveďte. Následuje příklad odpovědi vrácené funkcí v prohlížeči Edge:
 
     ![Odezva funkce v prohlížeči.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

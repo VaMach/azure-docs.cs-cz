@@ -1,14 +1,14 @@
 ---
 title: "Služba Azure Cosmos DB: Sestavení webové aplikace s ověřením přes Xamarin a Facebook | Dokumentace Microsoftu"
 description: "Obsahuje ukázku kódu .NET , který můžete použít pro připojení ke službě Azure Cosmos DB a zadávání dotazů."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80aa96973799584118125829f9479fbd14431ac0
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB. 
 
-Tento rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB, databáze dokumentů a kolekce pomocí portálu Azure Portal. Pak budete moct sestavit a nasadit webovou aplikaci seznamu úkolů založenou na rozhraní [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) a modulu přihlášení ke službě Azure Cosmos DB. Webová aplikace seznamu úkolů implementuje vzorek dat podle uživatele, který umožňuje uživatelům přihlášení pomocí Facebooku a správu vlastních položek úkolů.
+Tento rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB, databáze dokumentů a kolekce pomocí portálu Azure Portal. Pak budete moct sestavit a nasadit webovou aplikaci seznamu úkolů založenou na rozhraní [DocumentDB .NET API](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) a modulu přihlášení ke službě Azure Cosmos DB. Webová aplikace seznamu úkolů implementuje vzorek dat podle uživatele, který umožňuje uživatelům přihlášení pomocí Facebooku a správu vlastních položek úkolů.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -37,11 +37,11 @@ Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Přidání kolekce
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
@@ -114,7 +114,7 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
 ## <a name="review-slas-in-the-azure-portal"></a>Ověření podmínek SLA na portálu Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
@@ -128,5 +128,5 @@ Pokud nebudete tuto aplikace nadále používat, odstraňte na základě násled
 V tomto rychlém startu jste se seznámili s postupem vytvoření účtu služby Azure Cosmos DB, vytvoření kolekce pomocí Průzkumníku dat a sestavení a nasazení aplikace Xamarin. Teď můžete do účtu Cosmos DB importovat další data. 
 
 > [!div class="nextstepaction"]
-> [Importování dat do služby Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importování dat do služby Azure Cosmos DB](import-data.md)
 

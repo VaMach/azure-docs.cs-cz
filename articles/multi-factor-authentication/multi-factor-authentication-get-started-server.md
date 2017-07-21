@@ -6,75 +6,66 @@ keywords: "authentication server,stránka pro aktivaci aplikace azure multi fact
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 06/26/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
-ms.lasthandoff: 03/31/2017
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4235dfd0e17b9892787dd86d807b8f1f6e360675
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/30/2017
 
 ---
 
-# <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Začínáme s Azure Multi-Factor Authentication Serverem
+<a id="getting-started-with-the-azure-multi-factor-authentication-server" class="xliff"></a>
+
+# Začínáme s Azure Multi-Factor Authentication Serverem
 
 <center>![Místní MFA](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
 Teď, když jsme zjistili, jestli se má použít místní Multi-Factor Authentication Server, se můžeme dát do toho. Tato stránka popisuje novou instalaci serveru a jeho nastavení pro spolupráci s místní službou Active Directory. Pokud už máte nainstalovaný server MFA a chcete provést upgrade, přečtěte si téma [Upgrade na nejnovější verzi Azure Multi-Factor Authentication Serveru](multi-factor-authentication-server-upgrade.md). Pokud hledáte informace pouze o instalaci webové služby, přečtěte si téma [Nasazení webové služby mobilní aplikace Azure Multi-Factor Authentication Serveru](multi-factor-authentication-get-started-server-webservice.md).
  
+<a id="plan-your-deployment" class="xliff"></a>
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Stažení Azure Multi-Factor Authentication Serveru
-Azure Multi-Factor Authentication Server můžete stáhnout dvěma způsoby. Oba se provádí přes Azure Portal. Prvním je přímá správa poskytovatele služby Multi-Factor Auth. Druhý probíhá přes nastavení služby. Druhá možnost vyžaduje poskytovatele služby Multi-Factor Auth nebo licenci Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite.
+## Plánování nasazení
 
-> [!Important]
-> Tyto dvě možnosti mohou vypadat podobně, ale je důležité vědět, kterou z nich použít. Pokud mají vaši uživatelé licence, které jsou součástí MFA (Azure MFA, Azure AD Premium nebo Enterprise Mobility + Security), nevytvářejte kvůli stažení serveru poskytovatele služby Multi-Factor Auth. Místo toho využijte možnost 2 a stáhněte server ze stránky nastavení služby. 
+Před stažením Azure Multi-Factor Authentication Serveru se zamyslete nad tím, jaké jsou vaše požadavky na zatížení a vysokou dostupnost. Tyto informace použijte k rozhodnutí, jak a kde provést nasazení. 
 
-### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Možnost 1: Stažení Azure Multi-Factor Authentication Serveru z portálu Azure Classic
+Dobrým vodítkem pro velikost potřebné paměti je počet uživatelů, u kterých očekáváte pravidelné ověřování. 
 
-Tuto možnost použijte, pokud již máte poskytovatele služby Multi-Factor Auth, protože za MFA platíte podle počtu povolených uživatelů nebo ověřování. 
+| Uživatelé | Paměť RAM |
+| ----- | --- |
+| 1-10,000 | 4 GB |
+| 10,001-50,000 | 8 GB |
+| 50,001-100,000 | 12 GB |
+| 100,000-200,001 | 16 GB |
+| 200,001+ | 32 GB |
 
-1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Na stránce služby Active Directory klikněte na **Multi-Factor Auth Providers** (Poskytovatelé služby Multi-Factor Authentication).
-    ![Multi-Factor Auth Providers (Poskytovatelé služby Multi-Factor Authentication)](./media/multi-factor-authentication-get-started-server/authproviders.png)
-4. V dolní části klikněte na **Spravovat**. Otevře se nová stránka.
-5. Klikněte na **Soubory ke stažení**.
-6. Klikněte na odkaz **Stáhnout** nad částí **Vytvoření přihlašovacích údajů pro aktivaci**.
-   ![Stáhnout](./media/multi-factor-authentication-get-started-server/download4.png)
-7. Uložte stažený soubor.
+Potřebujete nastavit několik serverů pro zajištění vysoké dostupnosti nebo vyrovnávání zatížení? Existuje řada způsobů, jak tuto konfiguraci s Azure MFA Serverem nastavit. Z prvního nainstalovaného Azure MFA Serveru se stane hlavní server. Všechny další servery jsou podřízené a automaticky synchronizují uživatele a konfiguraci s hlavním serverem. Potom můžete nakonfigurovat jeden primární server a využívat ostatní jako zálohu, nebo můžete nastavit vyrovnávání zatížení mezi všemi servery. 
 
-### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Možnost 2: Stažení Azure Multi-Factor Authentication Serveru z nastavení služby
+Když hlavní Azure MFA Server přejde do offline režimu, podřízené servery mohou nadále zpracovávat žádosti o dvoustupňové ověření. Nemůžete ale přidávat nové uživatele a stávající uživatelé nemohou aktualizovat svoje nastavení, dokud se hlavní server nevrátí do online režimu nebo dokud nedojde ke zvýšení úrovně podřízeného severu. 
 
-Tuto možnost použijte, pokud máte licence Enterprise Mobility Suite, Azure AD Premium nebo Enterprise Cloud Suite. 
+<a id="prepare-your-environment" class="xliff"></a>
 
-1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Dvakrát klikněte na svoji instanci služby Azure AD.
-4. Nahoře klikněte na **Konfigurovat**.
-5. Přejděte dolů do části **vícefaktorové ověřování** a vyberte **Spravovat nastavení služby**.
-6. Dole na stránce s nastavením služby klikněte na **Přejít na portál**. Otevře se nová stránka.
-   ![Stáhnout](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-7. Klikněte na **Soubory ke stažení**.
-8. Klikněte na odkaz **Stáhnout** nad částí **Vytvoření přihlašovacích údajů pro aktivaci**.
-    ![Stáhnout](./media/multi-factor-authentication-get-started-server/download4.png)
-9. Uložte stažený soubor.
+## Příprava prostředí
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Instalace a konfigurace Azure Multi-Factor Authentication Serveru
-Teď, když jste server stáhli, ho můžete nainstalovat a nastavit.  Ujistěte se, že server, na kterém ho chcete nainstalovat, splňuje tyto podmínky:
+Ujistěte se, že server, který používáte pro Azure Multi-Factor Authentication, splňuje následující požadavky:
 
 | Požadavky pro Azure Multi-Factor Authentication Server | Popis |
 |:--- |:--- |
 | Hardware |<li>200 MB volného místa na pevném disku</li><li>Procesor kompatibilní s x32 nebo x64</li><li>1 GB RAM nebo víc</li> |
 | Software |<li>Windows Server 2008 nebo novější, pokud je hostitelem OS serveru</li><li>Windows 7 nebo novější, pokud je hostitelem OS klienta</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 nebo novější, pokud instalujete uživatelský portál nebo sadu SDK webové služby</li> |
 
-### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Požadavky na firewall pro Azure Multi-Factor Authentication Server
-- - -
+<a id="azure-multi-factor-authentication-server-firewall-requirements" class="xliff"></a>
+
+### Požadavky na firewall pro Azure Multi-Factor Authentication Server
 Každý server MFA musí být schopný komunikovat na odchozím portu 443 s těmito adresami:
 
 * https://pfd.phonefactor.net
@@ -97,7 +88,51 @@ Pokud nepoužíváte funkci Potvrzení události a vaši uživatelé nepoužíva
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-### <a name="to-install-and-configure-the-azure-multi-factor-authentication-server"></a>Instalace a konfigurace serveru Azure Multi-Factor Authentication
+<a id="download-the-azure-multi-factor-authentication-server" class="xliff"></a>
+
+## Stažení Azure Multi-Factor Authentication Serveru
+Azure Multi-Factor Authentication Server můžete stáhnout dvěma způsoby. Oba se provádí přes Azure Portal. Prvním je přímá správa poskytovatele služby Multi-Factor Auth. Druhý probíhá přes nastavení služby. Druhá možnost vyžaduje poskytovatele služby Multi-Factor Auth nebo licenci Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite.
+
+> [!Important]
+> Tyto dvě možnosti mohou vypadat podobně, ale je důležité vědět, kterou z nich použít. Pokud mají vaši uživatelé licence, které jsou součástí MFA (Azure MFA, Azure AD Premium nebo Enterprise Mobility + Security), nevytvářejte kvůli stažení serveru poskytovatele služby Multi-Factor Auth. Místo toho využijte možnost 2 a stáhněte server ze stránky nastavení služby. 
+
+<a id="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal" class="xliff"></a>
+
+### Možnost 1: Stažení Azure Multi-Factor Authentication Serveru z portálu Azure Classic
+
+Tuto možnost použijte, pokud již máte poskytovatele služby Multi-Factor Auth, protože za MFA platíte podle počtu povolených uživatelů nebo ověřování. 
+
+1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
+2. Vlevo vyberte možnost **Active Directory**.
+3. Na stránce služby Active Directory klikněte na **Multi-Factor Auth Providers** (Poskytovatelé služby Multi-Factor Authentication).![Multi-Factor Auth Providers (Poskytovatelé služby Multi-Factor Authentication)](./media/multi-factor-authentication-get-started-server/authproviders.png)
+4. V dolní části klikněte na **Spravovat**. Otevře se nová stránka.
+5. Klikněte na **Soubory ke stažení**.
+6. Klikněte na odkaz **Stáhnout**.
+   ![Stáhnout](./media/multi-factor-authentication-get-started-server/download4.png)
+7. Uložte stažený soubor.
+
+<a id="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings" class="xliff"></a>
+
+### Možnost 2: Stažení Azure Multi-Factor Authentication Serveru z nastavení služby
+
+Tuto možnost použijte, pokud máte licence Enterprise Mobility Suite, Azure AD Premium nebo Enterprise Cloud Suite. 
+
+1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
+2. Vlevo vyberte možnost **Active Directory**.
+3. Dvakrát klikněte na svoji instanci služby Azure AD.
+4. Nahoře klikněte na **Konfigurovat**.
+5. Přejděte dolů do části **vícefaktorové ověřování** a vyberte **Spravovat nastavení služby**.
+6. Dole na stránce s nastavením služby klikněte na **Přejít na portál**. Otevře se nová stránka.
+   ![Stáhnout](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+7. Klikněte na **Soubory ke stažení**.
+8. Klikněte na odkaz **Stáhnout**.
+    ![Stáhnout](./media/multi-factor-authentication-get-started-server/download4.png)
+9. Uložte stažený soubor.
+
+<a id="install-and-configure-the-azure-multi-factor-authentication-server" class="xliff"></a>
+
+## Instalace a konfigurace Azure Multi-Factor Authentication Serveru
+Teď, když jste server stáhli, ho můžete nainstalovat a nastavit.  Ujistěte se, že server, na kterém ho chcete nainstalovat, splňuje požadavky uvedené v části věnované plánování. 
 
 Tyto kroky ukazovaly expresní instalaci pomocí průvodce konfigurací. Pokud se průvodce nezobrazí nebo jej chcete spustit znovu, můžete jej vybrat z nabídky **Nástroje** na serveru.
 
@@ -108,25 +143,30 @@ Tyto kroky ukazovaly expresní instalaci pomocí průvodce konfigurací. Pokud s
     ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Zpátky na stránce, odkud jste server stáhli, klikněte na tlačítko **Vytvoření přihlašovacích údajů pro aktivaci**. Tyto údaje zkopírujte do příslušných polí v Azure MFA Serveru a klikněte na **Aktivovat**.
 
-## <a name="import-users-from-active-directory"></a>Import uživatelů ze služby Active Directory
+<a id="import-users-from-active-directory" class="xliff"></a>
+
+## Import uživatelů ze služby Active Directory
 Server nainstalovaný a nakonfigurovaný a teď můžete do Azure MFA Serveru snadno importovat uživatele.
 
 1. V Azure MFA Serveru klikněte vlevo na **Uživatelé**.
 2. Dole vyberte **Importovat ze služby Active Directory**.
 3. Teď můžete hledat jednotlivé uživatele nebo v adresáři AD vyhledat organizační jednotky, ve kterých jsou uživatelé.  V tomto případě vyhledáme OJ uživatele.
 4. Vpravo označte všechny uživatele a klikněte na **Importovat**.  Mělo by se zobrazit vyskakovací okno s informací, že akce proběhla úspěšně.  Zavřete okno importu.
+   ![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
 
-![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
+<a id="send-users-an-email" class="xliff"></a>
 
-## <a name="send-users-an-email"></a>Zaslání e-mailu uživatelům
+## Zaslání e-mailu uživatelům
 Teď, když jste naimportovali uživatele do MFA Serveru, odešlete jim e-mail s informací, že byli zaregistrování k dvoustupňovému ověřování.
 
-Jaký e-mail odešlete byste měli určit podle toho, jak jste pro uživatele nakonfigurovali dvoustupňové ověřování. Například pokud se vám podařilo naimportovat telefonní čísla z adresáře společnosti, e-mail by měl obsahovat výchozí telefonní čísla, aby uživatelé věděli, co mají očekávat. Pokud jste telefonní čísla nenaimportovali nebo pokud budou uživatelé používat mobilní aplikace, odešlete jim e-mail, který je nasměruje k dokončení registrace účtu. Do e-mailu přidejte hypertextový odkaz na portál Azure Multi-Factor Authentication User Portal.
+Jaký e-mail odešlete byste měli určit podle toho, jak jste pro uživatele nakonfigurovali dvoustupňové ověřování. Například pokud se vám podařilo naimportovat telefonní čísla z adresáře společnosti, e-mail by měl obsahovat výchozí telefonní čísla, aby uživatelé věděli, co mají očekávat. Pokud jste telefonní čísla nenaimportovali nebo pokud budou uživatelé používat mobilní aplikaci, odešlete jim e-mail, který je nasměruje k dokončení registrace účtu. Do e-mailu přidejte hypertextový odkaz na portál Azure Multi-Factor Authentication User Portal.
 
 Obsah e-mailu se liší také podle metody ověřování nastavené pro konkrétního uživatele (telefonní hovor, zpráva SMS nebo mobilní aplikace).  Pokud například uživatel musí při ověřování zadat PIN, v e-mailu se dozví, jaký počáteční PIN je pro něj nastavený.  Uživatelé musí při prvním ověření svůj PIN změnit.
 
 
-### <a name="configure-email-and-email-templates"></a>Konfigurace e-mailu a šablon e-mailu
+<a id="configure-email-and-email-templates" class="xliff"></a>
+
+### Konfigurace e-mailu a šablon e-mailu
 Kliknutím vlevo na ikonu e-mailu můžete změnit nastavení odesílání těchto e-mailů. Na této stránce můžete zadat informace o vašem poštovním serveru SMTP a odesílat e-maily zaškrtnutím políčka **Odesílat uživatelům e-maily**.
 
 ![Nastavení e-mailu](./media/multi-factor-authentication-get-started-server/email1.png)
@@ -135,7 +175,9 @@ Na kartě Obsah e-mailu uvidíte šablony e-mailů, ze kterých si můžete vybr
 
 ![Šablony e-mailů](./media/multi-factor-authentication-get-started-server/email2.png)
 
-## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Jak Azure Multi-Factor Authentication Server nakládá s uživatelskými daty
+<a id="how-the-azure-multi-factor-authentication-server-handles-user-data" class="xliff"></a>
+
+## Jak Azure Multi-Factor Authentication Server nakládá s uživatelskými daty
 Když Multi-Factor Authentication (MFA) Server používáte lokálně, uživatelská data se ukládají na lokálních serverech. V cloudu se neukládají žádná trvalá data. Když uživatel provádí dvoustupňové ověření, MFA Server odešle data do cloudové služby Azure MFA, a tam se provede ověření. Když se tyto požadavky na ověření pošlou do cloudové služby, odešlou se v žádosti a následující pole a protokoly, aby byly dostupné pro sestavy o používání/ověřování zákazníka. Některá tato pole jsou volitelná a můžou se v Multi-Factor Authentication Serveru zapnout nebo vypnout. Komunikace z MFA Serveru do cloudové služby MFA probíhá přes SSL/TLS na odchozím portu 443. Tato pole jsou:
 
 * Jedinečné ID - uživatelské jméno nebo interní ID serveru MFA
@@ -151,7 +193,9 @@ Když Multi-Factor Authentication (MFA) Server používáte lokálně, uživatel
 
 Vedle těchto polí se s ověřovacími údaji uloží taky výsledek ověření (úspěch/zamítnuto) a případně důvod zamítnutí, které jsou dostupné v sestavách o ověřování/používání.
 
-## <a name="next-steps"></a>Další kroky
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
 
 - Nastavení a konfigurace portálu [User Portal](multi-factor-authentication-get-started-portal.md) pro uživatelskou samoobsluhu.
 

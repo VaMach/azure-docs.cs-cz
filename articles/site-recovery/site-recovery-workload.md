@@ -15,26 +15,29 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Jaké úlohy je možné chránit pomocí Azure Site Recovery?
+# Jaké úlohy je možné chránit pomocí Azure Site Recovery?
+<a id="what-workloads-can-you-protect-with-azure-site-recovery" class="xliff"></a>
 Tento článek popisuje úlohy a aplikace, které můžete replikovat se službou Azure Site Recovery.
 
 Jakékoli dotazy nebo připomínky můžete publikovat na konci tohoto článku nebo na [fóru služby Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="overview"></a>Přehled
+## Přehled
+<a id="overview" class="xliff"></a>
 Organizace potřebují strategii pro provozní kontinuitu a zotavení po havárii (BCDR), která určuje strategii uchování úloh a dat zabezpečených a dostupných během plánovaných a neplánovaných výpadků a jakým způsobem se co nejdříve obnoví normální pracovní podmínky.
 
 Site Recovery je služba Azure, která přispívá ke strategii BCDR. S využitím služby Site Recovery můžete nasadit replikaci s ohledem na aplikace do cloudu nebo do sekundární sítě. Ať již máte aplikace na bázi Windows nebo Linuxu a ať běží na fyzických serverech nebo na virtuálních počítačích VMware či Hyper-V, můžete pomocí Site Recovery orchestrovat replikaci, testovat zotavení po havárii, přebírat služby při selhání a vracet je po obnovení.
 
 Site Recovery se integruje s aplikacemi Microsoftu, mezi které patří SharePoint, Exchange, Dynamics, SQL Server a Active Directory. Microsoft také úzce spolupracuje s předními dodavateli včetně Oracle, SAP, IBM a Red Hat. Řešení replikace můžete přizpůsobit na bázi jednotlivých aplikací.
 
-## <a name="why-use-site-recovery-for-application-replication"></a>Proč pro replikaci aplikací používat Site Recovery?
+## Proč pro replikaci aplikací používat Site Recovery?
+<a id="why-use-site-recovery-for-application-replication" class="xliff"></a>
 Site Recovery pro ochranu a obnovení na úrovni aplikací přináší následující:
 
 * Nerozlišování aplikací a poskytování replikace pro jakoukoli úlohu spuštěnou na podporovaném počítači
@@ -45,7 +48,8 @@ Site Recovery pro ochranu a obnovení na úrovni aplikací přináší následuj
 * Pokročilá správa sítě v Site Recovery a Azure pro zjednodušení požadavků na aplikační síť, včetně možnosti rezervovat IP adresy, konfigurovat vyrovnávání zatížení a integrace Azure Traffic Manager pro přepínání sítě s cílem dosáhnout nízké úrovně RTO
 * Bohatá automatizační knihovna obsahující předpřipravené skripty specifické pro aplikace, které je možné stáhnout a integrovat do plánů obnovení
 
-## <a name="workload-summary"></a>Souhrn úloh
+## Souhrn úloh
+<a id="workload-summary" class="xliff"></a>
 Site Recovery dokáže replikovat jakoukoli aplikaci spuštěnou na podporovaném počítači. Kromě toho jsme ve spolupráci s produktovými týmy provedli dodatečné testování specifické pro aplikace.
 
 | **Úloha** | **Replikace virtuálních počítačů Hyper-V do sekundární lokality** | **Replikace virtuálních počítačů Hyper-V do Azure** | **Replikace virtuálních počítačů VMware do sekundární lokality** | **Replikace virtuálních počítačů VMware do Azure** |
@@ -55,7 +59,7 @@ Site Recovery dokáže replikovat jakoukoli aplikaci spuštěnou na podporované
 | System Center Operations Manager |Ano |Ano |Ano |Ano |
 | SharePoint |Ano |Ano |Ano |Ano |
 | SAP<br/><br/>Replikace webu SAP do Azure k neclusterovému použití |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |
-| Exchange (ne DAG) |Ano |Již brzy |Ano |Ano |
+| Exchange (ne DAG) |Ano |Ano |Ano |Ano |
 | Vzdálená plocha/VDI |Ano |Ano |Ano |– |
 | Linux (operační systém a aplikace) |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |Ano (testováno Microsoftem) |
 | Dynamics AX |Ano |Ano |Ano |Ano |
@@ -64,14 +68,16 @@ Site Recovery dokáže replikovat jakoukoli aplikaci spuštěnou na podporované
 | Souborový server systému Windows |Ano |Ano |Ano |Ano |
 | Citrix XenApp a XenDesktop |– |Ano |Není k dispozici |Ano |
 
-## <a name="replicate-active-directory-and-dns"></a>Replikace služby Active Directory a DNS
+## Replikace služby Active Directory a DNS
+<a id="replicate-active-directory-and-dns" class="xliff"></a>
 Pro většinu firemních aplikací má zásadní význam infrastruktura Active Directory a DNS. Během zotavování po havárii budete muset před obnovením aplikací a úloh ochránit a obnovit tyto součástí infrastruktury.
 
 Pomocí Site Recovery můžete pro Active Directory a DNS vytvořit úplný automatizovaný plán zotavení po havárii. Pokud chcete například při selhání SharePointu a SAP převzít tyto služby z primární lokality do sekundární, můžete nastavit plán obnovení, který nejprve převezme Active Directory, a potom další plán specifický pro aplikace, na jehož základě se budou při selhání přebírat služby aplikací závislých na Active Directory.
 
 [Zde jsou další informace](site-recovery-active-directory.md) o ochraně Active Directory a DNS.
 
-## <a name="protect-sql-server"></a>Ochrana SQL Serveru
+## Ochrana SQL Serveru
+<a id="protect-sql-server" class="xliff"></a>
 SQL Server poskytuje základnu pro datové služby využívané mnoha firemními aplikacemi v lokálním datovém centru.  Site Recovery lze používat společně s technologiemi SQL Server HA/DR k ochraně vícevrstvých firemních aplikací, které používají SQL Server. Site Recovery poskytuje následující:
 
 * Jednoduché a nákladově efektivní řešení zotavení po havárii pro SQL Server; možnost replikovat různé verze a edice samostatných serverů a clusterů SQL Server do Azure nebo do sekundární lokality  
@@ -82,7 +88,8 @@ SQL Server poskytuje základnu pro datové služby využívané mnoha firemními
 
 [Zde jsou další informace](site-recovery-sql.md) o ochraně SQL Serveru.
 
-## <a name="protect-sharepoint"></a>Ochrana SharePointu
+## Ochrana SharePointu
+<a id="protect-sharepoint" class="xliff"></a>
 Azure Site Recovery pomáhá chránit nasazení SharePointu následujícím způsobem:
 
 * Eliminuje nutnost zajistit infrastrukturu (což by s sebou neslo náklady) pro záložní farmu k zotavení po havárii. Pomocí Site Recovery můžete replikovat celou farmu (webová, aplikační a databázová vrstva) do Azure nebo do sekundární lokality.
@@ -92,7 +99,8 @@ Azure Site Recovery pomáhá chránit nasazení SharePointu následujícím způ
 
 [Zde jsou další informace](site-recovery-sharepoint.md) o ochraně SharePointu.
 
-## <a name="protect-dynamics-ax"></a>Ochrana Dynamics AX
+## Ochrana Dynamics AX
+<a id="protect-dynamics-ax" class="xliff"></a>
 Azure Site Recovery zvyšuje ochranu vašeho řešení Dynamics AX ERP tímto způsobem:
 
 * Orchestrace replikace celého prostředí Dynamics AX (webová a AOS vrstva, databázové vrstvy, SharePoint) do Azure nebo do sekundární lokality
@@ -101,7 +109,8 @@ Azure Site Recovery zvyšuje ochranu vašeho řešení Dynamics AX ERP tímto zp
 
 [Zde jsou další informace](site-recovery-dynamicsax.md) o ochraně Dynamic AX.
 
-## <a name="protect-rds"></a>Ochrana Vzdálené plochy
+## Ochrana Vzdálené plochy
+<a id="protect-rds" class="xliff"></a>
 Služba Vzdálená plocha (RDS) umožňuje nasazení infrastruktury virtuálních klientských počítačů (VDI), tedy stolních počítačů a aplikací na bázi relací, což umožňuje uživatelům pracovat odkudkoli. S Azure Site Recovery můžete:
 
 * Replikovat spravované nebo nespravované virtuální desktopy ve fondu do sekundární lokality a vzdálené aplikace a relace do sekundární lokality nebo Azure
@@ -115,7 +124,8 @@ Služba Vzdálená plocha (RDS) umožňuje nasazení infrastruktury virtuálníc
 
 [Zde jsou další informace](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) o ochraně Vzdálené plochy.
 
-## <a name="protect-exchange"></a>Ochrana Exchange
+## Ochrana Exchange
+<a id="protect-exchange" class="xliff"></a>
 Site Recovery pomáhá chránit Exchange následujícím způsobem:
 
 * Pro malá nasazení Exchange, jako jsou například jednotlivé nebo samostatné servery, může Site Recovery provádět replikaci a přebírat služby při selhání do Azure nebo do sekundární lokality.
@@ -124,7 +134,8 @@ Site Recovery pomáhá chránit Exchange následujícím způsobem:
 
 [Zde jsou další informace](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) o ochraně Exchange.
 
-## <a name="protect-sap"></a>Ochrana nasazení SAP
+## Ochrana nasazení SAP
+<a id="protect-sap" class="xliff"></a>
 Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způsobem:
 
 * Aktivace ochrany u celého nasazení SAP nastavením replikace různých vrstev nasazení do Azure nebo do sekundární lokality
@@ -133,30 +144,33 @@ Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způs
 
 [Zde jsou další informace](http://aka.ms/asr-sap) o ochraně nasazení SAP.
 
-## <a name="protect-iis"></a>Ochrana IIS
+## Ochrana IIS
+<a id="protect-iis" class="xliff"></a>
 Pomocí Site Recovery můžete své nasazení IIS chránit následujícím způsobem:
 
 Azure Site Recovery poskytuje zotavení po havárii replikací kritických komponent ve vašem prostředí do studené vzdálené lokality nebo do veřejného cloudu, jako je například Microsoft Azure. Vzhledem k tomu, že virtuální počítač s webovým serverem a databází se replikují do lokality pro obnovení, neexistuje žádný požadavek na zálohování konfiguračních souborů nebo certifikátů samostatně. Mapování aplikací a vazby závislé na proměnných prostředí, které se změní po převzetí služeb při selhání, lze aktualizovat pomocí skriptů integrovaných do plánů obnovení po havárii. Virtuální počítače se aktivují v lokalitě pro obnovení pouze v případě převzetí služeb při selhání. A nejen to, Azure Site Recovery vám také pomůže provádět orchestraci převzetí služeb při selhání od začátku do konce tím, že poskytuje následující možnosti:
 
--    Určování pořadí ukončování a spouštění virtuálních počítačů v různých vrstvách.
--    Přidávání skriptů k umožnění aktualizací závislostí a vazeb aplikací na virtuálních počítačích po jejich spuštění. Skripty lze také použít k aktualizaci serveru DNS, aby odkazoval na lokalitu pro obnovení.
--    Přidělení IP adres virtuálním počítačům před převzetím služeb při selhání pomocí mapování primární a obnovovací sítě, a tím používání skriptů, které nevyžadují aktualizaci po převzetí služeb při selhání.
--    Možnost převzetí služeb při selhání jedním kliknutím pro více webových aplikací na webových serverech, čímž se zmenšuje rozsah nedorozumění v případě havárie.
--    Možnost testovat plány obnovení v izolovaném prostředí kvůli nacvičení zotavení po havárii.
+-   Určování pořadí ukončování a spouštění virtuálních počítačů v různých vrstvách.
+-   Přidávání skriptů k umožnění aktualizací závislostí a vazeb aplikací na virtuálních počítačích po jejich spuštění. Skripty lze také použít k aktualizaci serveru DNS, aby odkazoval na lokalitu pro obnovení.
+-   Přidělení IP adres virtuálním počítačům před převzetím služeb při selhání pomocí mapování primární a obnovovací sítě, a tím používání skriptů, které nevyžadují aktualizaci po převzetí služeb při selhání.
+-   Možnost převzetí služeb při selhání jedním kliknutím pro více webových aplikací na webových serverech, čímž se zmenšuje rozsah nedorozumění v případě havárie.
+-   Možnost testovat plány obnovení v izolovaném prostředí kvůli nacvičení zotavení po havárii.
 
 [Zde jsou další informace](https://aka.ms/asr-iis) o ochraně webové farmy IIS.
 
-## <a name="protect-citrix-xenapp-and-xendesktop"></a>Ochrana pro Citrix XenApp a XenDesktop
+## Ochrana pro Citrix XenApp a XenDesktop
+<a id="protect-citrix-xenapp-and-xendesktop" class="xliff"></a>
 K ochraně nasazení Citrix XenApp a XenDesktop použijte Site Recovery následujícím způsobem:
 
 * Povolte ochranu nasazení Citrix XenApp a XenDesktop replikací různých vrstev nasazení (včetně serveru AD DNS, databázového serveru SQL, Citrix Delivery Controlleru, serveru StoreFront, XenApp Masteru (VDA) a Citrix XenApp License Serveru) do Azure.
 * Zjednodušte migraci do cloudu tak, že použijete Site Recovery k migraci nasazení Citrix XenApp a XenDesktop do Azure.
 * Usnadněte testování pro Citrix XenApp/XenDesktop tak, že vytvoříte na vyžádání kopii produkčního prostředí pro testování a ladění.
 * Toto řešení jde použít jenom pro virtuální plochy operačního systému Windows Server, a ne virtuální plochy klienta, protože virtuální plochy klienta se ještě pro licencování v Azure nepodporují. 
-[Další informace](https://azure.microsoft.com/en-us/pricing/licensing-faq/) týkající se licencování pro plochy klienta nebo serveru v Azure
+[Další informace](https://azure.microsoft.com/pricing/licensing-faq/) týkající se licencování pro plochy klienta nebo serveru v Azure
 
-[Další informace](https://aka.ms/citrix-xenapp-xendesktop-with-asr) o ochraně nasazení Citrix XenApp a XenDesktop
+[Další informace](site-recovery-citrix-xenapp-and-xendesktop.md) o ochraně nasazení Citrix XenApp a XenDesktop Můžete si také projít [dokument whitepaper od Citrixu](https://aka.ms/citrix-xenapp-xendesktop-with-asr), kde najdete podrobnosti o tomtéž. 
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 [Kontrola požadavků](site-recovery-prereq.md) 
 

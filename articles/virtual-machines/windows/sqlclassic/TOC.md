@@ -41,10 +41,11 @@
 ## [Ovladače SQL Serveru](https://msdn.microsoft.com/library/mt654049.aspx)
 ## [REST](/rest/api/)
 
-# Zdroje
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
-## [Nástroje SQL Serveru](https://msdn.microsoft.com/library/mt238365.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+## [Nástroje SQL Serveru](https://msdn.microsoft.com/library/mt238365.aspx)
+## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 

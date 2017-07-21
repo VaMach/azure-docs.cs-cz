@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: cs-cz
+ms.lasthandoff: 05/17/2017
 
 ---
 
-# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Vytvořte svůj první pracovní postup aplikace logiky pro automatizaci procesů mezi cloudovými aplikacemi a cloudovými službami
+# Vytvořte svůj první pracovní postup aplikace logiky pro automatizaci procesů mezi cloudovými aplikacemi a cloudovými službami
+<a id="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services" class="xliff"></a>
 
 Bez psaní jakéhokoli kódu můžete snáze a rychleji automatizovat firemní procesy díky vytváření a spouštění pracovních postupů v [Azure Logic Apps](logic-apps-what-are-logic-apps.md). Tento první příklad ukazuje, jak vytvořit základní aplikaci logiky, která podle informačního kanálu RSS kontroluje nový obsah na webu. Jakmile se v informačním kanálu webu objeví nové položky, aplikace logiky odešle e-mailu z účtu v Outlooku nebo Gmailu.
 
@@ -39,9 +41,10 @@ Tento příklad také vyžaduje následující položky:
     > [!TIP]
     > Pokud máte osobní [účet Microsoft](https://account.microsoft.com/account), máte účet Outlook.com. Pokud máte pracovní nebo školní účet Azure, máte účet **Office 365 Outlook**.
 
-* Odkaz na informační kanál RSS nějakého webu. Tento příklad používá kanál RSS pro [web MSDN Channel 9](https://channel9.msdn.com/): `https://s.ch9.ms/Feeds/RSS`
+* Odkaz na informační kanál RSS nějakého webu. V tomto příkladu se používá [informační kanál RSS pro hlavní zprávy z webu CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-## <a name="add-a-trigger-that-starts-your-workflow"></a>Přidání triggeru, který spustí váš pracovní postup
+## Přidání triggeru, který spustí váš pracovní postup
+<a id="add-a-trigger-that-starts-your-workflow" class="xliff"></a>
 
 [*Trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) je událost, která spustí pracovní postup vaší aplikace logiky a je první položkou, kterou aplikace logiky potřebuje.
 
@@ -65,7 +68,7 @@ Tento příklad také vyžaduje následující položky:
 
     Otevře se Návrhář aplikace logiky a zobrazí dostupné služby a *triggery*, které můžete v aplikaci logiky použít.
 
-5. Do vyhledávacího pole zadejte `RSS` a vyberte trigger **RSS – když se publikuje položka informačního zdroje**. 
+5. Do vyhledávacího pole zadejte `RSS` a vyberte trigger **RSS – když se publikuje položka informačního zdroje** . 
 
     ![Trigger RSS](media/logic-apps-create-a-logic-app/rss-trigger.png)
 
@@ -74,7 +77,7 @@ Tento příklad také vyžaduje následující položky:
      Můžete také změnit **frekvenci** a **interval**. 
      Tato nastavení určují, jak často má aplikace logiky kontrolovat nové položky a vracet všechny položky nalezené za určité období.
 
-     V našem příkladu budeme přítomnost nových položek na webu MSDN Channel 9 kontrolovat každý den.
+     V našem příkladu budeme hlavní zprávy na webu CNN kontrolovat každý den.
 
      ![Nastavení triggeru s informačním kanálem RSS, frekvencí a intervalem](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
@@ -85,7 +88,8 @@ Tento příklad také vyžaduje následující položky:
    Uložením přejde aplikace logiky do aktivního provozu, ale v současné době pouze kontroluje nové položky v zadaném informačním kanálu RSS. 
    Aby byl tento příklad o něco užitečnější, přidáme akci, kterou aplikace logiky provede po splnění triggeru.
 
-## <a name="add-an-action-that-responds-to-your-trigger"></a>Přidání akce, která reaguje na trigger
+## Přidání akce, která reaguje na trigger
+<a id="add-an-action-that-responds-to-your-trigger" class="xliff"></a>
 
 [*Akce*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) je úloha, kterou provádí pracovní postup vaší aplikace logiky. Když do aplikace logiky přidáte trigger, můžete přidat akci, která bude provádět určitou operaci s daty generovanými triggerem. V našem příkladu přidáme akci, která odešle e-mail, jakmile se v informačním kanálu RSS webu objeví nové položky.
 
@@ -138,7 +142,8 @@ Tento příklad také vyžaduje následující položky:
 
 Gratulujeme, právě jste vytvořili a spustili svoji první základní aplikaci logiky. Také jste se naučili, jak snadno vytvořit pracovní postupy pro automatizaci procesů, jak a integrovat cloudové aplikace a cloudové služby – a všechno bez programování.
 
-## <a name="manage-your-logic-app"></a>Správa aplikací logiky
+## Správa aplikací logiky
+<a id="manage-your-logic-app" class="xliff"></a>
 
 Při správě své aplikace můžete provádět úkoly jako je kontrola stavu, úpravy, zobrazení historie, vypnutí nebo odstranění aplikace logiky.
 
@@ -158,13 +163,15 @@ Při správě své aplikace můžete provádět úkoly jako je kontrola stavu, �
    | Dočasné vypnutí aplikace | Zvolte **Přehled** a pak na panelu příkazů **Zakázat**. | 
    | Odstranění aplikace | Zvolte **Přehled** a pak na panelu příkazů **Odstranit**. Zadejte název aplikace logiky a zvolte **Odstranit**. | 
 
-## <a name="get-help"></a>Podpora
+## Podpora
+<a id="get-help" class="xliff"></a>
 
 Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatelů Azure Logic Apps můžete ve [fóru Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 Pokud chcete pomoci při vylepšování Azure Logic Apps a konektorů, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 *  [Přidání podmínek a spuštění pracovních postupů](../logic-apps/logic-apps-use-logic-app-features.md)
 *     [Šablony pro aplikace logiky](../logic-apps/logic-apps-use-logic-app-templates.md)

@@ -1,16 +1,24 @@
-Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost podle SKU brány. Tato tabulka platí pro model nasazení Resource Manager i pro klasický model. Ceny se liší pro jednotlivé SKU brány. Další informace najdete v tématu [VPN Gateway – ceny](https://azure.microsoft.com/pricing/details/vpn-gateway).
+The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to the Resource Manager and classic deployment models. 
 
-SKU brány UltraPerformance se v této tabulce neuvádí. Informace o SKU UltraPerformance najdete v dokumentaci k [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
-|  | **Propustnost brány sítě VPN (1)** | **Maximální počet tunelových propojení IPsec brány sítě VPN (2)** | **Propustnost brány ExpressRoute** | **Brána sítě VPN a ExpressRoute vedle sebe** |
+Note that the UltraPerformance gateway SKU is not represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+
+|  | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
 | --- | --- | --- | --- | --- |
-| **Základní SKU (3)(5)(6)** |100 Mb/s |10 |500 Mb/s (6) |Ne |
-| **Standardní SKU (4)(5)** |100 Mb/s |10 |1000 Mb/s |Ano |
-| **SKU pro vysoký výkon (4)** |200 Mb/s |30 |2000 Mb/s |Ano |
+| **Basic SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
+| **Standard SKU (4)(5)** |100 Mbps |10 |1000 Mbps |Yes |
+| **High Performance SKU (4)** |200 Mbps |30 |2000 Mbps |Yes |
 
-* (1) Propustnost sítě VPN představuje přibližný odhad na základě měření mezi sítěmi VNet ve stejné oblasti Azure. Není zaručena propustnost pro připojení mezi místními systémy přes internet. Jedná se o maximální možné měření propustnosti.
-* (2) Počet tunelových propojení se týká sítí VPN RouteBased. Sítě VPN PolicyBased můžou podporovat jen jeden tunel VPN typu S2S (Site-to-Site).
-* (3) Protokol BGP není podporován pro základní SKU.
-* (4) Sítě VPN typu PolicyBased nejsou pro tuto SKU podporované. Jsou podporované pouze pro základní SKU.
-* (5) Propojení VPN Gateway S2S aktivní-aktivní nejsou pro toto SKU podporovaná. Aktivní-aktivní je podporované jenom v SKU HighPerformance.
-* (6) Základní SKU je pro použití se službou ExpressRoute zastaralá.
+
+(1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.
+
+(2) The number of tunnels refer to RouteBased VPNs. A PolicyBased VPN can only support one Site-to-Site VPN tunnel.
+
+(3) BGP is not supported for the Basic SKU.
+
+(4) PolicyBased VPNs are not supported for this SKU. They are supported for the Basic SKU only.
+
+(5) Active-active S2S VPN Gateway connections are not supported for this SKU. Active-active is supported on the HighPerformance SKU only.
+
+(6) Basic SKU is deprecated for use with ExpressRoute.

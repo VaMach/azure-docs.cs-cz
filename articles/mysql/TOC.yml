@@ -2,106 +2,131 @@
   href: index.yml
 - name: Přehled
   items:
-  - name: Azure DB for MySQL
-    href: overview.md
+    - name: Azure DB for MySQL
+      href: overview.md
 - name: Šablony Rychlý start
   expanded: true
   items:
-  - name: Vytvoření databáze – portál
-    href: quickstart-create-mysql-server-database-using-azure-portal.md
-  - name: Vytvoření databáze – Azure CLI
-    href: quickstart-create-mysql-server-database-using-azure-cli.md
+    - name: Vytvoření databáze – portál
+      href: quickstart-create-mysql-server-database-using-azure-portal.md
+    - name: Vytvoření databáze – Azure CLI
+      href: quickstart-create-mysql-server-database-using-azure-cli.md
+    - name: Připojení a dotazování
+      items:
+        - name: PHP
+          href: connect-php.md
+        - name: Java
+          href: connect-java.md
+        - name: .Net
+          href: connect-csharp.md
+        - name: Python
+          href: connect-python.md
+        - name: Node.js
+          href: connect-nodejs.md
+        - name: Ruby
+          href: connect-ruby.md
 - name: Kurzy
   items:
-  - name: 1. Návrh databáze
-    items:
-    - name: portál Azure
-      href: tutorial-design-database-using-portal.md
-    - name: Azure CLI
-      href: tutorial-design-database-using-cli.md
-  - name: 2. Vytvoření webové aplikace
-    items:
-    - name: WordPress – portál
-      href: ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
-    - name: PHP – Azure CLI
-      href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+    - name: 1. Návrh databáze
+      items:
+        - name: portál Azure
+          href: tutorial-design-database-using-portal.md
+        - name: Azure CLI
+          href: tutorial-design-database-using-cli.md
+    - name: 2. Vytvoření webové aplikace
+      items:
+        - name: WordPress – portál
+          href: >-
+            ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
+        - name: PHP – Azure CLI
+          href: >-
+            ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Ukázky
   items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
+    - name: Azure CLI
+      href: sample-scripts-azure-cli.md
 - name: Koncepty
   items:
-  - name: Databáze a servery
-    items:
-    - name: Servery
-      href: concepts-servers.md
-    - name: Podporované verze
-      href: concepts-supported-versions.md
-  - name: Zdroje a prostředky
-    items:
-    - name: Cenové úrovně
-      href: concepts-service-tiers.md
-    - name: Výpočetní jednotky
-      href: concepts-compute-unit-and-storage.md
-    - name: Omezení
-      href: concepts-limits.md
-  - name: Přístup k datům a zabezpečení
-    items:
-    - name: Pravidla brány firewall
-      href: concepts-firewall-rules.md
-    - name: Konfigurace SSL
-      href: concepts-ssl-connection-security.md
-  - name: Vývoj
-    items:
-    - name: Knihovny připojení
-      href: concepts-connection-libraries.md
-    - name: Vývoj aplikací
-      href: concepts-database-application-development.md
-  - name: Migrace databáze
-    items:
-    - name: Výpis a obnovení
-      href: concepts-migrate-dump-restore.md
-    - name: Import a export
-      href: concepts-migrate-import-export.md
+    - name: Databáze a servery
+      items:
+        - name: Servery
+          href: concepts-servers.md
+        - name: Podporované verze
+          href: concepts-supported-versions.md
+    - name: Zdroje a prostředky
+      items:
+        - name: Cenové úrovně
+          href: concepts-service-tiers.md
+        - name: Výpočetní jednotky
+          href: concepts-compute-unit-and-storage.md
+        - name: Omezení
+          href: concepts-limits.md
+    - name: Přístup k datům a zabezpečení
+      items:
+        - name: Pravidla brány firewall
+          href: concepts-firewall-rules.md
+        - name: Konfigurace SSL
+          href: concepts-ssl-connection-security.md
+    - name: Vývoj
+      items:
+        - name: Knihovny připojení
+          href: concepts-connection-libraries.md
+        - name: Vývoj aplikací
+          href: concepts-database-application-development.md
+    - name: Migrace databáze
+      items:
+        - name: Výpis a obnovení
+          href: concepts-migrate-dump-restore.md
+        - name: Import a export
+          href: concepts-migrate-import-export.md
 - name: Návody
   items:
-  - name: Správa serveru
-    items:
-    - name: portál Azure
-      href: howto-create-manage-server-portal.md
-  - name: Pravidla brány firewall
-    items:
-    - name: portál Azure
-      href: howto-manage-firewall-using-portal.md
-    - name: Azure CLI
-      href: howto-manage-firewall-using-cli.md
-  - name: Obnovení serveru
-    items:
-    - name: portál Azure
-      href: howto-restore-server-portal.md
-  - name: Připojení aplikací
-    items:
-    - name: Připojovací řetězce
-      href: howto-connection-string.md
-    - name: Konfigurace SSL
-      href: howto-configure-ssl.md
-    - name: Webová aplikace
-      href: howto-connect-webapp.md
+    - name: Správa serveru
+      items:
+        - name: portál Azure
+          href: howto-create-manage-server-portal.md
+    - name: Pravidla brány firewall
+      items:
+        - name: portál Azure
+          href: howto-manage-firewall-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-firewall-using-cli.md
+    - name: Obnovení serveru
+      items:
+        - name: portál Azure
+          href: howto-restore-server-portal.md
+    - name: Připojení aplikací
+      items:
+        - name: Připojovací řetězce
+          href: howto-connection-string.md
+        - name: Konfigurace SSL
+          href: howto-configure-ssl.md
+        - name: Webové aplikace
+          href: howto-connect-webapp.md
+    - name: Konfigurace parametrů serveru
+      items:
+        - name: portál Azure
+          href: howto-server-parameters.md
 - name: Referenční informace
   items:
-  - name: Azure CLI
-    href: /cli/azure/mysql
+    - name: Azure CLI
+      href: /cli/azure/mysql
 - name: Zdroje a prostředky
   items:
-  - name: Ceny
-    href: https://azure.microsoft.com/pricing/details/mysql/
-  - name: Fórum MSDN
-    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
-  - name: Žádost o funkci
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
-  - name: Dostupnost v oblastech
-    href: https://azure.microsoft.com/regions/services/
-  - name: Možnosti podpory
-    href: https://azure.microsoft.com/support/options/
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/mysql/'
+    - name: Fórum MSDN
+      href: >-
+        https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
+    - name: Videa
+      href: videos.md
+    - name: Žádost o funkci
+      href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'
+    - name: Dostupnost v oblastech
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Možnosti podpory
+      href: 'https://azure.microsoft.com/support/options/'

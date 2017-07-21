@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.date: 06/19/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -104,12 +104,12 @@ Teď pro připojení k serveru Azure Database for PostgreSQL použijeme nástroj
 
    ![Azure Database for PostgreSQL – příkazový řádek Bash služby Azure Shell](./media/quickstart-create-database-portal/8-bash.png)
 
-3. V příkazovém řádku služby Cloud Shell se pomocí příkazů psql připojte k serveru Azure Database for PostgreSQL. Následující formát se používá pro připojení k serveru Azure Database for PostgreSQL s nástrojem [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
+3. V příkazovém řádku služby Cloud Shell se zadáním příkazového řádku psql připojte k serveru Azure Database for PostgreSQL. Následující formát se používá pro připojení k serveru Azure Database for PostgreSQL s nástrojem [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Například tento příkaz provádí připojení k výchozí databázi s názvem **postgres** na vašem serveru PostgreSQL **mypgserver-20170401.postgres.database.azure.com** pomocí přihlašovacích údajů k přístupu. Po zobrazení výzvy zadejte heslo správce serveru.
+   Třeba tento příkaz provádí pomocí přihlašovacích údajů pro přístup připojení k výchozí databázi s názvem **postgres** na serveru PostgreSQL **mypgserver-20170401.postgres.database.azure.com**. Při připojování vždy používejte port **5432**. Po zobrazení výzvy zadejte heslo správce serveru. Mezi přepínači uvozenými znaky -- používejte v příkazu mezery, ale nepoužívejte mezery mezi symboly rovná se a hodnotami parametrů.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
@@ -169,6 +169,6 @@ Pokud byste chtěli odstranit nově vytvořený server:
 3.  Potvrďte název serveru, který chcete odstranit, a zobrazte jeho databáze, které tím ovlivníte. Do textového pole zadejte **mypgserver-20170401** a pak klikněte na Odstranit.
 
 ## <a name="next-steps"></a>Další kroky
-- Migrace vaší databáze pomocí [exportu a importu](./howto-migrate-using-export-and-import.md) nebo [výpisu a obnovení](./howto-migrate-using-dump-and-restore.md).
-- Pokud chcete vytvořit server Azure Database for PostgreSQL pomocí rozhraní příkazového řádku Azure, přečtěte si téma [Vytvoření serveru PostgreSQL – rozhraní příkazového řádku](./quickstart-create-server-database-azure-cli.md).
-- Technický přehled najdete v tématu [O službě Azure Database for PostgreSQL](./overview.md).
+> [!div class="nextstepaction"]
+> [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
+

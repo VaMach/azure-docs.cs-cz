@@ -14,21 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: de04bf367f9f9f92756202cf6c1571f811a0f1f7
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: dc2c8f58e0a2faf1b00f4903148328a5141a8637
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-rest-apis"></a>Začínáme s Azure Data Lake Store pomocí rozhraní REST API
+# Začínáme s Azure Data Lake Store pomocí rozhraní REST API
+<a id="get-started-with-azure-data-lake-store-using-rest-apis" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Azure Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -42,15 +43,18 @@ V tomto článku se naučíte používat rozhraní REST API WebHDFS a rozhraní 
 > 
 > 
 
-## <a name="prerequisites"></a>Požadavky
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Vytvoření aplikace Azure Active Directory**. Aplikaci Azure AD použijete k ověření aplikace Data Lake Store ve službě Azure AD. Existují různé přístupy k ověřování ve službě Azure AD, jsou to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověření ve službě Data Lake Store pomocí služby Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+* **Vytvoření aplikace Azure Active Directory**. Aplikaci Azure AD použijete k ověření aplikace Data Lake Store ve službě Azure AD. Existují různé přístupy k ověřování ve službě Azure AD, jsou to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md) nebo [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md).
 * [cURL](http://curl.haxx.se/). Tento článek používá cURL k předvedení toho, jak provádět volání rozhraní REST API vůči účtu Data Lake Store.
 
-## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Jak můžu ověřovat pomocí služby Azure Active Directory?
+## Jak můžu ověřovat pomocí služby Azure Active Directory?
+<a id="how-do-i-authenticate-using-azure-active-directory" class="xliff"></a>
 Ověřování pomocí služby Azure Active Directory můžete provádět dvěma přístupy.
 
-### <a name="end-user-authentication-interactive"></a>Ověření koncového uživatele (interaktivní)
+### Ověření koncového uživatele (interaktivní)
+<a id="end-user-authentication-interactive" class="xliff"></a>
 V tomto scénáři aplikace vyzve uživatele k přihlášení a všechny operace se provádějí v kontextu uživatele. V případě interaktivního ověřování proveďte následující postup.
 
 1. Prostřednictvím aplikace přesměrujte uživatele na tuto adresu URL:
@@ -91,7 +95,8 @@ V tomto scénáři aplikace vyzve uživatele k přihlášení a všechny operace
 
 Další informace o interaktivním ověřování uživatelů najdete v tématu [Tok poskytování autorizačních kódů](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="service-to-service-authentication-non-interactive"></a>Ověřování služba-služba (neinteraktivní)
+### Ověřování služba-služba (neinteraktivní)
+<a id="service-to-service-authentication-non-interactive" class="xliff"></a>
 V tomto scénáři aplikace poskytuje svoje vlastní přihlašovací údaje k provedení operací. V tomto případě musíte vydat požadavek POST podobný tomu, který vidíte níže. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -106,7 +111,8 @@ Výstup tohoto požadavku bude obsahovat autorizační token (níže ve výstupu
 
 Tento článek používá **neinteraktivní** přístup. Další informace o neinteraktivním přístupu (volání služba-služba) najdete v tématu [Volání služba-služba pomocí přihlašovacích údajů](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-## <a name="create-a-data-lake-store-account"></a>Vytvoření účtu Data Lake Store
+## Vytvoření účtu Data Lake Store
+<a id="create-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API, které je definované [tady](https://msdn.microsoft.com/library/mt694078.aspx).
 
 Použijte následující příkaz cURL. Položku **\<yourstorename>** nahraďte názvem Data Lake Store.
@@ -123,7 +129,8 @@ Ve výše uvedeném příkazu nahraďte položku \<`REDACTED`\> autorizačním t
     "properties": {}
     }    
 
-## <a name="create-folders-in-a-data-lake-store-account"></a>Vytváření složek v účtu Data Lake Store
+## Vytváření složek v účtu Data Lake Store
+<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API WebHDFS, které je definované [tady](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
 Použijte následující příkaz cURL. Položku **\<yourstorename>** nahraďte názvem Data Lake Store.
@@ -136,7 +143,8 @@ Po úspěšném dokončení operace se zobrazí takováto odpověď:
 
     {"boolean":true}
 
-## <a name="list-folders-in-a-data-lake-store-account"></a>Zobrazení seznamu složek v účtu Data Lake Store
+## Zobrazení seznamu složek v účtu Data Lake Store
+<a id="list-folders-in-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API WebHDFS, které je definované [tady](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
 Použijte následující příkaz cURL. Položku **\<yourstorename>** nahraďte názvem Data Lake Store.
@@ -164,7 +172,8 @@ Po úspěšném dokončení operace se zobrazí takováto odpověď:
     }
     }
 
-## <a name="upload-data-into-a-data-lake-store-account"></a>Nahrání dat do účtu Data Lake Store
+## Nahrání dat do účtu Data Lake Store
+<a id="upload-data-into-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API WebHDFS, které je definované [tady](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
 Použijte následující příkaz cURL. Položku **\<yourstorename>** nahraďte názvem Data Lake Store.
@@ -186,7 +195,8 @@ Výstup je podobný tomuto:
     HTTP/1.1 201 Created
     ...
 
-## <a name="read-data-from-a-data-lake-store-account"></a>Čtení dat z účtu Data Lake Store
+## Čtení dat z účtu Data Lake Store
+<a id="read-data-from-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API WebHDFS, které je definované [tady](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
 Čtení dat z účtu Data Lake Store je proces, který obsahuje dva kroky.
@@ -210,7 +220,8 @@ Zobrazený výstup by měl vypadat přibližně takto:
 
     Hello, Data Lake Store user!
 
-## <a name="rename-a-file-in-a-data-lake-store-account"></a>Přejmenování souboru v účtu Data Lake Store
+## Přejmenování souboru v účtu Data Lake Store
+<a id="rename-a-file-in-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API WebHDFS, které je definované [tady](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
 Pokud chcete přejmenovat soubor, použijte následující příkaz cURL. Položku **\<yourstorename>** nahraďte názvem Data Lake Store.
@@ -224,7 +235,8 @@ Zobrazený výstup by měl vypadat přibližně takto:
 
     {"boolean":true}
 
-## <a name="delete-a-file-from-a-data-lake-store-account"></a>Odstranění souboru z účtu Data Lake Store
+## Odstranění souboru z účtu Data Lake Store
+<a id="delete-a-file-from-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API WebHDFS, které je definované [tady](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
 Pokud chcete odstranit soubor, použijte následující příkaz cURL. Položku **\<yourstorename>** nahraďte názvem Data Lake Store.
@@ -238,7 +250,8 @@ Zobrazený výstup by měl vypadat asi takto:
 
     {"boolean":true}
 
-## <a name="delete-a-data-lake-store-account"></a>Odstranění účtu Data Lake Store
+## Odstranění účtu Data Lake Store
+<a id="delete-a-data-lake-store-account" class="xliff"></a>
 Tato operace je založená na volání rozhraní REST API, které je definované [tady](https://msdn.microsoft.com/library/mt694075.aspx).
 
 Pokud chcete odstranit účet Data Lake Store, použijte následující příkaz cURL. Položku **\<yourstorename>** nahraďte názvem Data Lake Store.
@@ -251,7 +264,8 @@ Zobrazený výstup by měl vypadat asi takto:
     ...
     ...
 
-## <a name="see-also"></a>Viz také
+## Viz také
+<a id="see-also" class="xliff"></a>
 * [Aplikace typu Open Source pro velké objemy dat kompatibilní s Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 

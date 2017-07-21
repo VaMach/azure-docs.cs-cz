@@ -22,7 +22,8 @@
 ## [Izolovaný prostor (sandbox) systému Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Nástroje služby Data Lake s Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Nástroje pro Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [Možnosti úložiště HDInsight](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight využívající Azure Storage](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight využívající Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # Postup
 ## Použití Hadoop pro dávkové dotazy
@@ -74,7 +75,7 @@
 ### [Použití externích balíčků s Jupyterem s využitím akcí skriptů](hdinsight-apache-spark-python-package-installation.md)
 ### [Použití místní aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md)
-### [Vzdálené ladění úloh pomocí IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [Vzdálené ladění úloh pomocí IntelliJ přes VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Správa prostředků](hdinsight-apache-spark-resource-manager.md)
 ### [Sledování a ladění úloh](hdinsight-apache-spark-job-debugging.md)
 ### [Známé problémy](hdinsight-apache-spark-known-issues.md)
@@ -105,14 +106,18 @@
 ### [Konfigurace zásad Hivu](hdinsight-domain-joined-run-hive.md)
 ## Použití Kafky (Preview)
 ### [Replikace dat Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Konfigurace úložiště a škálovatelnosti Kafka](hdinsight-apache-kafka-scalability.md)
+### [Konfigurace vysoké dostupnosti dat](hdinsight-apache-kafka-high-availability.md)
 ### [Použití se službou Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Použití se Sparkem](hdinsight-apache-spark-with-kafka.md)
+### [Použití s Apache Sparkem (strukturované streamování)](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Použití s Apache Sparkem (DStream)](hdinsight-apache-spark-with-kafka.md)
 ### [Použití se Stormem](hdinsight-apache-storm-with-kafka.md)
 ## Vývoj
 ### [Vývoj programů MapReduce se streamováním v C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Vývoj programů MapReduce v Javě](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Vývoj úloh MapReduce ve Scaldingu](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Použití nástrojů služby HDInsight k vytvoření aplikací Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Použití nástrojů služby HDInsight ke vzdálenému ladění aplikací Sparku prostřednictvím SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 ### [Použití prázdných hraničních uzlů](hdinsight-apps-use-edge-node.md)
 ### [Vývoj streamovacích programů v Pythonu](hdinsight-hadoop-streaming-python.md)
 ### [Zpracování a analýza dokumentů JSON](hdinsight-using-json-in-hive.md)
@@ -132,6 +137,7 @@
 ## Rozšíření clusterů
 ### [Přizpůsobení clusterů pomocí Bootstrapu](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Přizpůsobení clusterů pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md)
+### [Připojení HDInsightu k místní síti](connect-on-premises-network.md)
 ### [Vývoj akcí skriptů](hdinsight-hadoop-script-actions-linux.md)
 ### [Instalace a použití Presta](hdinsight-hadoop-install-presto.md)
 ### [Instalace nebo aktualizace Mono](hdinsight-hadoop-install-mono.md)
@@ -141,7 +147,7 @@
 ### [Použití R](hdinsight-hadoop-r-scripts-linux.md)
 ### [Použití Solru](hdinsight-hadoop-solr-install-linux.md)
 ### [Použití služby Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
-### [Použití Zeppelinu](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Použití Zeppelinu](hdinsight-apache-spark-zeppelin-notebook.md)
 ### Vytváření aplikací HDInsight
 #### [Instalace aplikací HDInsight](hdinsight-apps-install-applications.md)
 #### [Instalace vlastních aplikací](hdinsight-apps-install-custom-applications.md)
@@ -180,17 +186,23 @@
 ### [Dostupnost a spolehlivost](hdinsight-high-availability-linux.md)
 ### [Upgrade clusteru HDInsight na novější verzi](hdinsight-upgrade-cluster.md)
 ### [Opravy operačního systému pro cluster HDInsight](hdinsight-os-patching.md)
-## Řešení potíží
-### [Tipy pro Linux](hdinsight-hadoop-linux-information.md)
-### [Analýza protokolů služby HDInsight](hdinsight-debug-jobs.md)
-### [Ladění aplikací pomocí protokolů YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-### [Povolení výpisů paměti haldy](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-### [Oprava chyb z WebHCatu](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
-### [Použití zobrazení Ambari k ladění úloh Tez](hdinsight-debug-ambari-tez-view.md)
-### [Další řešení problémů](hdinsight-hadoop-stack-trace-error-messages.md)
+## [Řešení problémů](hdinsight-troubleshoot-guide.md)
+### [Řešení potíží s HBASE](hdinsight-troubleshoot-hbase.md)
+### [Řešení potíží s HDFS](hdinsight-troubleshoot-hdfs.md)
+### [Řešení potíží s HIVE](hdinsight-troubleshoot-hive.md)
+### [Řešení potíží se Sparkem](hdinsight-troubleshoot-spark.md)
+### [Řešení potíží se STORM](hdinsight-troubleshoot-storm.md)
+### [Řešení potíží s YARN](hdinsight-troubleshoot-yarn.md)
+### Zdroje
+#### [Informace o používání HDInsightu v Linuxu](hdinsight-hadoop-linux-information.md)
+#### [Výkon a paměť Hadoopu](hdinsight-hadoop-stack-trace-error-messages.md)
+#### [Přístup k protokolům aplikací Hadoop YARN v Linuxu](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+#### [Povolení výpisů paměti haldy pro služby Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+#### [Analýza protokolů služby HDInsight](hdinsight-debug-jobs.md)
+#### [Vysvětlení a řešení chyb WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Nastavení Hivu pro opravu chyb typu Nedostatek paměti](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
+#### [Použití zobrazení Ambari k ladění úloh Tez](hdinsight-debug-ambari-tez-view.md)
 #### [Optimalizace dotazů Hive](hdinsight-hadoop-optimize-hive-query.md)
-#### [Ladění výkonu dotazů Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referenční informace
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
@@ -222,6 +234,8 @@
 ### [Monitorování clusterů pomocí rozhraní Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Zdroje a prostředky
-## [Nástroje Windows pro HDInsight](hdinsight-hadoop-windows-tools.md)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Program Microsoft Professional pro velké objemy dat](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Nástroje Windows pro HDInsight](hdinsight-hadoop-windows-tools.md)

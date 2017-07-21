@@ -1,6 +1,6 @@
 ---
 title: "Služba Azure Active Directory Domain Services: Vytvoření nebo výběr virtuální sítě | Dokumentace Microsoftu"
-description: "Začínáme se službou Azure Active Directory Domain Services"
+description: "Povolení služby Azure Active Directory Domain Services pomocí portálu Azure Classic"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cb372232492e8f98ff1543798b92b4b60fc25021
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Vytvoření nebo výběr virtuální sítě pro Azure Active Directory Domain Services
-## <a name="before-you-begin"></a>Než začnete
+<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
+
+# Vytvoření nebo výběr virtuální sítě pro Azure Active Directory Domain Services
+<a id="before-you-begin" class="xliff"></a>
+
+## Než začnete
 Přečtěte si článek [Důležité informace o sítích pro Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
-## <a name="task-2-create-an-azure-virtual-network"></a>Úloha 2: Vytvořte virtuální síť Azure
+<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
+
+## Úloha 2: Vytvořte virtuální síť Azure
 Další úlohou konfigurace je vytvoření virtuální sítě Azure a podsítě v ní. V této podsíti v rámci své virtuální sítě povolíte službu Azure Active Directory Domain Services. Pokud máte existující virtuální síť, kterou chcete použít, můžete tento krok přeskočit.
 
 > [!NOTE]
@@ -45,12 +52,12 @@ Chcete-li vytvořit virtuální síť Azure, ve které chcete povolit Azure Acti
 
     ![Okno Virtuální sítě](./media/active-directory-domain-services-getting-started/virtual-networks.png)
 4. Klikněte na **Síťové služby** a vyberte možnost **Virtuální síť**.
-    
+
     ![Virtuální síť – rychle vytvořit](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 5. Vytvořte virtuální síť kliknutím na **Rychle vytvořit**.
-    
-6. Zadejte **Název** své virtuální sítě a zvažte následující možnosti: 
-    * Pro tuto síť můžete nakonfigurovat **Adresní prostor** nebo **Maximální počet virtuálních počítačů**. 
+
+6. Zadejte **Název** své virtuální sítě a zvažte následující možnosti:
+    * Pro tuto síť můžete nakonfigurovat **Adresní prostor** nebo **Maximální počet virtuálních počítačů**.
     * Prozatím můžete ponechat možnost **Server DNS** nastavenou na hodnotu **Žádný**. Nastavení můžete aktualizovat poté, co povolíte službu Azure Active Directory Domain Services.
 7. Z rozevíracího seznamu **Umístění** vyberte podporovanou oblast Azure.  
     Oblasti Azure, ve kterých je služba Azure Active Directory Domain Services k dispozici, pro ověření najdete v článku [Služby Azure podle oblasti](https://azure.microsoft.com/regions/#services/).
@@ -60,12 +67,15 @@ Chcete-li vytvořit virtuální síť Azure, ve které chcete povolit Azure Acti
 9. Po vytvoření virtuální sítě vyberte název virtuální sítě a pak klikněte na kartu **Konfigurovat**.
 
     ![Vytvoření podsítě](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
-10. V části **adresních prostorů virtuální sítě** klikněte na **přidat podsíť**a pak zadejte podsíť s názvem **AaddsSubnet**. 
+10. V části **adresních prostorů virtuální sítě** klikněte na **přidat podsíť**a pak zadejte podsíť s názvem **AaddsSubnet**.
 
     ![Vytvoření podsítě pro Azure Active Directory Domain Services](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
 11. Kliknutím na **Uložit** vytvořte podsíť.
 
-## <a name="next-steps"></a>Další kroky
-Úloha 3: [Povolení služby Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md)
+
+<a id="next-step" class="xliff"></a>
+
+## Další krok
+[Úloha 3: Povolení služby Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md)
 

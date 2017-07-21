@@ -1,0 +1,250 @@
+---
+title: "Připojení k Azure Database for PostgreSQL pomocí PHP | Dokumentace Microsoftu"
+description: "V tomto rychlém startu najdete vzorový kód PHP, který můžete použít k připojení a dotazování dat ze služby Azure Database for PostgreSQL."
+services: postgresql
+author: jasonwhowell
+ms.author: jasonh
+manager: jhubbard
+editor: jasonwhowell
+ms.service: postgresql-database
+ms.custom: mvc
+ms.devlang: php
+ms.topic: hero-article
+ms.date: 06/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 009cc7941dc5d60153f1ab27adb9b86866b9a3f2
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/30/2017
+
+---
+
+<a id="azure-database-for-postgresql-use-php-to-connect-and-query-data" class="xliff"></a>
+
+# Azure Database for PostgreSQL: Použití PHP k připojení a dotazování dat
+Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí aplikace v [PHP](http://php.net/manual/intro-whatis.php). Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. V tomto článku se předpokládá, že máte zkušenosti s vývojem pomocí PHP, ale teprve začínáte pracovat se službou Azure Database for PostgreSQL.
+
+<a id="prerequisites" class="xliff"></a>
+
+## Požadavky
+Tento rychlý start jako výchozí bod využívá prostředky vytvořené v některém z těchto průvodců:
+- [Vytvoření databáze – portál](quickstart-create-server-database-portal.md)
+- [Vytvoření databáze – rozhraní příkazového řádku Azure](quickstart-create-server-database-azure-cli.md)
+
+<a id="install-php" class="xliff"></a>
+
+## Instalace PHP
+Nainstalujte PHP na vlastní server nebo vytvořte [webovou aplikaci](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) Azure, která zahrnuje PHP.
+
+<a id="windows" class="xliff"></a>
+
+### Windows
+- Stáhněte [verzi PHP 7.1.4 Non-Thread Safe (x64)](http://windows.php.net/download#php-7.1).
+- Nainstalujte PHP a další konfiguraci vyhledejte v [příručce k PHP](http://php.net/manual/install.windows.php).
+- Kód využívá třídu **pgsql** (ext/php_pgsql.dll), která je součástí instalace PHP. 
+- Povolte rozšíření **pgsql** upravením konfiguračního souboru php.ini, který se obvykle nachází v umístění `C:\Program Files\PHP\v7.1\php.ini`. Konfigurační soubor by měl obsahovat řádek s textem `extension=php_pgsql.so`. Pokud se tento text nezobrazuje, přidejte ho a uložte soubor. Pokud se tam text nachází, ale je okomentovaný předponou středníku, odebráním středníku text odkomentujte.
+
+<a id="linux-ubuntu" class="xliff"></a>
+
+### Linux (Ubuntu)
+- Stáhněte [verzi PHP 7.1.4 Non-Thread Safe (x64)](http://php.net/downloads.php). 
+- Nainstalujte PHP a další konfiguraci vyhledejte v [příručce k PHP](http://php.net/manual/install.unix.php).
+- Kód využívá třídu **pgsql** (php_pgsql.so). Nainstalujte ji spuštěním příkazu `sudo apt-get install php-pgsql`.
+- Povolte rozšíření **pgsql** upravením konfiguračního souboru `/etc/php/7.0/mods-available/pgsql.ini`. Konfigurační soubor by měl obsahovat řádek s textem `extension=php_pgsql.so`. Pokud se tento text nezobrazuje, přidejte ho a uložte soubor. Pokud se tam text nachází, ale je okomentovaný předponou středníku, odebráním středníku text odkomentujte.
+
+<a id="macos" class="xliff"></a>
+
+### MacOS
+- Stáhněte [verzi PHP 7.1.4](http://php.net/downloads.php).
+- Nainstalujte PHP a další konfiguraci vyhledejte v [příručce k PHP](http://php.net/manual/install.macosx.php).
+
+<a id="get-connection-information" class="xliff"></a>
+
+## Získání informací o připojení
+Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
+
+1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+2. V nabídce vlevo na webu Azure Portal klikněte na **Všechny prostředky** a vyhledejte vytvořený server, například **mypgserver-20170401**.
+3. Klikněte na název serveru **mypgserver-20170401**.
+4. Vyberte stránku **Přehled** serveru. Poznamenejte si **Název serveru** a **Přihlašovací jméno správce serveru**.
+ ![Azure Database for PostgreSQL – přihlášení správce serveru](./media/connect-php/1-connection-string.png)
+5. Pokud zapomenete přihlašovací údaje pro váš server, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby obnovit heslo.
+
+<a id="connect-and-create-a-table" class="xliff"></a>
+
+## Připojení a vytvoření tabulky
+Pomocí následujícího kódu se připojte a vytvořte tabulku s využitím příkazu **CREATE TABLE** jazyka SQL, po kterém následují příkazy **INSERT INTO** jazyka SQL, které do tabulky přidají řádky.
+
+Kód volá metodu [pg_connect()](http://php.net/manual/en/function.pg-connect.php) pro připojení ke službě Azure Database for PostgreSQL. Potom několikrát volá metodu [pg_query()](http://php.net/manual/en/function.pg-query.php) pro spuštění několika příkazů a pokaždé, když dojde k chybě, volá metodu [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) pro kontrolu podrobností. Potom volá metodu [pg_close()](http://php.net/manual/en/function.pg-close.php) pro ukončení připojení.
+
+Nahraďte parametry `$host`, `$database`, `$user` a `$password` vlastními hodnotami. 
+
+```php
+<?php
+    // Initialize connection variables.
+    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $database = "mypgsqldb";
+    $user = "mylogin@mypgserver-20170401";
+    $password = "<server_admin_password>";
+
+    // Initialize connection object.
+    $connection = pg_connect("host=$host dbname=$database user=$user password=$password") 
+        or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
+    print "Successfully created connection to database.<br/>";
+
+    // Drop previous table of same name if one exists.
+    $query = "DROP TABLE IF EXISTS inventory;";
+    pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+    print "Finished dropping table (if existed).<br/>";
+
+    // Create table.
+    $query = "CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
+    pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+    print "Finished creating table.<br/>";
+
+    // Insert some data into table.
+    $name = '\'banana\'';
+    $quantity = 150;
+    $query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
+    pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+
+    $name = '\'orange\'';
+    $quantity = 154;
+    $query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
+    pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+
+    $name = '\'apple\'';
+    $quantity = 100;
+    $query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
+    pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error()). "<br/>";
+
+    print "Inserted 3 rows of data.<br/>";
+
+    // Closing connection
+    pg_close($connection);
+?>
+```
+
+<a id="read-data" class="xliff"></a>
+
+## Čtení dat
+Pomocí následujícího kódu se připojte a načtěte data s využitím příkazu **SELECT** jazyka SQL. 
+
+ Kód volá metodu [pg_connect()](http://php.net/manual/en/function.pg-connect.php) pro připojení ke službě Azure Database for PostgreSQL. Potom volá metodu [pg_query()](http://php.net/manual/en/function.pg-query.php) pro spuštění příkazu SELECT, výsledky uloží v sadě výsledků dotazu a v případě, že dojde k chybě, volá metodu [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) pro kontrolu podrobností.  Pro účely čtení sady výsledků dotazu se ve smyčce pro každý řádek jednou volá metoda [pg_fetch_row()](http://php.net/manual/en/function.pg-fetch-row.php), a data řádku se načítají v poli `$row`, kde je na každé pozici pole jedna hodnota dat na sloupec.  Pro uvolnění sady výsledků dotazu se volá metoda [pg_free_result()](http://php.net/manual/en/function.pg-free-result.php). Potom volá metodu [pg_close()](http://php.net/manual/en/function.pg-close.php) pro ukončení připojení.
+
+Nahraďte parametry `$host`, `$database`, `$user` a `$password` vlastními hodnotami. 
+
+```php
+<?php
+    // Initialize connection variables.
+    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $database = "mypgsqldb";
+    $user = "mylogin@mypgserver-20170401";
+    $password = "<server_admin_password>";
+    
+    // Initialize connection object.
+    $connection = pg_connect("host=$host dbname=$database user=$user password=$password")
+                or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
+
+    print "Successfully created connection to database. <br/>";
+
+    // Perform some SQL queries over the connection.
+    $query = "SELECT * from inventory";
+    $result_set = pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+    while ($row = pg_fetch_row($result_set))
+    {
+        print "Data row = ($row[0], $row[1], $row[2]). <br/>";
+    }
+
+    // Free result_set
+    pg_free_result($result_set);
+
+    // Closing connection
+    pg_close($connection);
+?>
+```
+
+<a id="update-data" class="xliff"></a>
+
+## Aktualizace dat
+Pomocí následujícího kódu se připojte a aktualizujte data s využitím příkazu **UPDATE** jazyka SQL.
+
+Kód volá metodu [pg_connect()](http://php.net/manual/en/function.pg-connect.php) pro připojení ke službě Azure Database for PostgreSQL. Potom volá metodu [pg_query()](http://php.net/manual/en/function.pg-query.php) pro spuštění příkazu a v případě, že dojde k chybě, volá metodu [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) pro kontrolu podrobností. Potom volá metodu [pg_close()](http://php.net/manual/en/function.pg-close.php) pro ukončení připojení.
+
+Nahraďte parametry `$host`, `$database`, `$user` a `$password` vlastními hodnotami. 
+
+```php
+<?php
+    // Initialize connection variables.
+    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $database = "mypgsqldb";
+    $user = "mylogin@mypgserver-20170401";
+    $password = "<server_admin_password>";
+
+    // Initialize connection object.
+    $connection = pg_connect("host=$host dbname=$database user=$user password=$password")
+                or die("Failed to create connection to database: ". pg_last_error(). ".<br/>");
+
+    print "Successfully created connection to database. <br/>";
+
+    // Modify some data in table.
+    $new_quantity = 200;
+    $name = '\'banana\'';
+    $query = "UPDATE inventory SET quantity = $new_quantity WHERE name = $name;";
+    pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error(). ".<br/>");
+    print "Updated 1 row of data. </br>";
+
+    // Closing connection
+    pg_close($connection);
+?>
+```
+
+
+<a id="delete-data" class="xliff"></a>
+
+## Odstranění dat
+Pomocí následujícího kódu se připojte a načtěte data s využitím příkazu **DELETE** jazyka SQL. 
+
+ Kód volá metodu [pg_connect()](http://php.net/manual/en/function.pg-connect.php) pro připojení ke službě Azure Database for PostgreSQL. Potom volá metodu [pg_query()](http://php.net/manual/en/function.pg-query.php) pro spuštění příkazu a v případě, že dojde k chybě, volá metodu [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) pro kontrolu podrobností. Potom volá metodu [pg_close()](http://php.net/manual/en/function.pg-close.php) pro ukončení připojení.
+
+Nahraďte parametry `$host`, `$database`, `$user` a `$password` vlastními hodnotami. 
+
+```php
+<?php
+    // Initialize connection variables.
+    $host = "mypgserver-20170401.postgres.database.azure.com";
+    $database = "mypgsqldb";
+    $user = "mylogin@mypgserver-20170401";
+    $password = "<server_admin_password>";
+
+    // Initialize connection object.
+    $connection = pg_connect("host=$host dbname=$database user=$user password=$password")
+            or die("Failed to create connection to database: ". pg_last_error(). ". </br>");
+
+    print "Successfully created connection to database. <br/>";
+
+    // Delete some data from table.
+    $name = '\'orange\'';
+    $query = "DELETE FROM inventory WHERE name = $name;";
+    pg_query($connection, $query) 
+        or die("Encountered an error when executing given sql statement: ". pg_last_error(). ". <br/>");
+    print "Deleted 1 row of data. <br/>";
+
+    // Closing connection
+    pg_close($connection);
+?>
+```
+
+<a id="next-steps" class="xliff"></a>
+
+## Další kroky
+> [!div class="nextstepaction"]
+> [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
+

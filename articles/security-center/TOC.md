@@ -5,11 +5,13 @@
 ## Scénáře
 ### [Reakce na incidenty](security-center-incident-response.md)
 ### [Doporučení k vylepšení zabezpečení](security-center-using-recommendations.md)
+## [Migrace platformy](security-center-platform-migration.md)
 
 # Začínáme
 ## [Rychlý start](security-center-get-started.md)
 ## [Plánování a provoz](security-center-planning-and-operations-guide.md)
 ## [Oprávnění](security-center-permissions.md)
+## [Podporované platformy](security-center-os-coverage.md)
 ## [Integrace partnerských řešení](security-center-partner-integration.md)
 ## [Nejčastější dotazy](security-center-faq.md)
 
@@ -17,6 +19,7 @@
 
 ## Prevence
 ### [Nastavení zásad zabezpečení](security-center-policies.md)
+### [Přístup právě včas](security-center-just-in-time.md)
 ### [Implementace doporučení pro zabezpečení](security-center-recommendations.md)
 
 ### [Doporučení pro aplikace](security-center-application-recommendations.md)
@@ -68,7 +71,8 @@
 # Související
 ## [Zabezpečení Azure](/azure/security/)
 
-# Zdroje
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog věnovaný zabezpečení, ochraně osobních údajů a dodržování předpisů v Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Ceny](security-center-pricing.md)
 ## [Přehled služby](https://azure.microsoft.com/services/security-center/)

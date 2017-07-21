@@ -1,6 +1,6 @@
 # Přehled
 ## [Co je Application Insights?](app-insights-overview.md)
-## [Sledování výkonu v cyklu vývoje a provozu](app-insights-detect-triage-diagnose.md)
+## [Přehled monitorování výkonu pro DevOps](app-insights-detect-triage-diagnose.md)
 
 # Začínáme
 ## Monitorování Azure
@@ -43,6 +43,7 @@
 ### Azure
 #### [Profiler](app-insights-profiler.md)
 #### [Diagnostika](app-insights-azure-diagnostics.md)
+#### [Náhledy](app-insights-previews.md)
 
 ### ASP.NET
 #### [Získání další telemetrie](app-insights-asp-net-more.md)
@@ -79,7 +80,6 @@
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metriky](app-insights-metrics-explorer.md)
 #### [Živý datový proud](app-insights-live-stream.md)
-
 #### [Mapa aplikace](app-insights-app-map.md)
 #### [Aplikace HockeyApp](app-insights-hockeyapp-bridge-app.md)
 
@@ -91,8 +91,10 @@
 
 ### Využití
 #### [Přehled](app-insights-usage-overview.md)
-#### [Uchování](app-insights-usage-retention.md)
 #### [Uživatelé, relace, události](app-insights-usage-segmentation.md)
+#### [Trychtýře](usage-funnels.md)
+#### [Uchování](app-insights-usage-retention.md)
+#### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analýza
 
@@ -108,10 +110,13 @@
 ### [Vytvoření prostředků](app-insights-powershell-script-create-resource.md)
 ### [Nastavení výstrah](app-insights-powershell-alerts.md)
 ### [Získání diagnostiky Azure](app-insights-powershell-azure-diagnostics.md)
+### [Automatizace pomocí Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automatizace pomocí Azure Logic App](automate-with-logic-apps.md)
 
 ## Vývoj
 
 ### [Rozhraní API pro vlastní události a metriky](app-insights-api-custom-events-metrics.md)
+### [Sledování vlastních operací v sadě .NET SDK](application-insights-custom-operations-tracking.md)
 ### [Filtrování a předběžné zpracování telemetrie](app-insights-api-filtering-sampling.md)
 ### [Vzorkování](app-insights-sampling.md)
 
@@ -150,7 +155,8 @@
 ### [Kontext](application-insights-data-model-context.md)
 ## [Korelace telemetrie](application-insights-correlation.md)
 
-# Zdroje
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 
 ## [Jazyky a platformy](app-insights-platforms.md)
 

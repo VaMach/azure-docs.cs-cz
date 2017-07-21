@@ -20,6 +20,7 @@
 ### [Monitorování virtuálních počítačů pomocí diagnostického rozšíření virtuálních počítačů verze v2.x](diagnostic-extension-v2.md)
 ### [Vložení vlastních dat](inject-custom-data.md)
 ### [Resetování Linuxových hesel nebo klíčů, opravení SSH a kontrola disků](reset-access.md)
+### [Údržba](planned-maintenance-schedule.md)
 ### [Vytvoření hostitele Docker pomocí rozhraní příkazového řádku](cli-use-docker.md)
 ### [Vytvoření hostitele Docker pomocí portálu](portal-use-docker.md)
 ### [Jak použít Docker se Swarmem](../../virtual-machines-linux-docker-swarm.md)
@@ -78,6 +79,7 @@
 
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

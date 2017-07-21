@@ -1,19 +1,20 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Create a TCP endpoint for the virtual machine
-In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
+### Vytvoření koncového bodu TCP pro virtuální počítač
+<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
+Aby měl virtuální počítač přístup k SQL Serveru z internetu, musí mít koncový bod pro poslech příchozí komunikace TCP. Tento krok konfigurace Azure směruje příchozí provoz portu TCP na port TCP, který je pro virtuální počítač přístupný.
 
 > [!NOTE]
-> If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> Pokud se připojujete v rámci stejné cloudové služby nebo virtuální sítě, nemusíte vytvářet veřejně přístupný koncový bod. V takovém případě můžete pokračovat dalším krokem. Další informace najdete v tématu věnovaném [scénářům připojení](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 > 
 > 
 
-1. On the Azure Portal, select **Virtual machines (classic)**.
-2. Then select you SQL Server virtual machine.
-3. Select **Endpoints**, and then click the **Add** button at the top of the Endpoints blade.
+1. Na webu Azure Portal vyberte **Virtuální počítače (Classic)** .
+2. Potom vyberte virtuální počítač SQL Server.
+3. Vyberte **Koncové body** a potom v horní části okna Koncové body klikněte na tlačítko **Přidat**.
    
-    ![Portal Steps for Endpoint Creation](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
-4. On the **Add Endpoint** blade, provide a **Name** such as SQLEndpoint.
-5. Select **TCP** for the **Protocol**.
-6. For **Public port**, specify a port number such as **57500**.
-7. For **Private port**, specify SQL Server's listening port, which defaults to **1433**.
-8. Click **Ok** to create the endpoint.
+    ![Kroky pro vytvoření koncového bodu na portálu](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
+4. V okně **Přidat koncový bod** zadejte **název**, například SQLEndpoint.
+5. Vyberte **TCP** v poli **Protokol**.
+6. V poli **Veřejný port** zadejte číslo portu, například **57500**.
+7. V poli **Privátní port** zadejte port SQL Serveru pro naslouchání. Výchozí nastavení je **1433**.
+8. Kliknutím na tlačítko **OK** vytvořte koncový bod.
 

@@ -1,5 +1,5 @@
 ---
-title: "Odesílání dat ve službě Azure Search pomocí REST API | Dokumentace Microsoftu"
+title: "Nahrání dat (REST API – Azure Search) | Dokumentace Microsoftu"
 description: "Zjistěte, jak odesílat data do indexu Azure Search pomocí REST API."
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -179,9 +181,4 @@ Další informace o akcích dokumentu a úspěšných/neúspěšných odpovědí
 
 ## <a name="next-steps"></a>Další kroky
 Po naplnění indexu Azure Search budete připraveni začít vydávat dotazy pro vyhledávání dokumentů.  Podrobnosti naleznete v tématu [Dotazování indexu Azure Search](search-query-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -1,16 +1,15 @@
-Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost podle SKU brány. Tato tabulka platí pro model nasazení Resource Manager i pro klasický model. Ceny se liší pro jednotlivé SKU brány. Další informace najdete v tématu [VPN Gateway – ceny](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Azure nabízí následující skladové jednotky (SKU) brány sítě VPN:
 
-SKU brány UltraPerformance se v této tabulce neuvádí. Informace o SKU UltraPerformance najdete v dokumentaci k [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+|**SKU**   | **Tunely<br> S2S/VNet-to-VNet** | **Připojení<br>P2S** | **Agregovaná<br>propustnost** |
+|---       | ---                             | ---                    | ---                         |
+|**VpnGw1**| Max. 30                         | Max. 128               | 500 Mb/s                    |
+|**VpnGw2**| Max. 30                         | Max. 128               | 1 Gb/s                      |
+|**VpnGw3**| Max. 30                         | Max. 128               | 1,25 Gb/s                   |
+|**Basic** | Max. 10                         | Max. 128               | 100 Mb/s                    | 
+|          |                                 |                        |                             | 
 
-|  | **Propustnost brány sítě VPN (1)** | **Maximální počet tunelových propojení IPsec brány sítě VPN (2)** | **Propustnost brány ExpressRoute** | **Brána sítě VPN a ExpressRoute vedle sebe** |
-| --- | --- | --- | --- | --- |
-| **Základní SKU (3)(5)(6)** |100 Mb/s |10 |500 Mb/s (6) |Ne |
-| **Standardní SKU (4)(5)** |100 Mb/s |10 |1000 Mb/s |Ano |
-| **SKU pro vysoký výkon (4)** |200 Mb/s |30 |2000 Mb/s |Ano |
+- Propustnost je založená na měření více tunelů agregovaných prostřednictvím jedné brány. Nejedná se o zaručenou propustnost kvůli provozním podmínkám v internetu a chování aplikace.
 
-* (1) Propustnost sítě VPN představuje přibližný odhad na základě měření mezi sítěmi VNet ve stejné oblasti Azure. Není zaručena propustnost pro připojení mezi místními systémy přes internet. Jedná se o maximální možné měření propustnosti.
-* (2) Počet tunelových propojení se týká sítí VPN RouteBased. Sítě VPN PolicyBased můžou podporovat jen jeden tunel VPN typu S2S (Site-to-Site).
-* (3) Protokol BGP není podporován pro základní SKU.
-* (4) Sítě VPN typu PolicyBased nejsou pro tuto SKU podporované. Jsou podporované pouze pro základní SKU.
-* (5) Propojení VPN Gateway S2S aktivní-aktivní nejsou pro toto SKU podporovaná. Aktivní-aktivní je podporované jenom v SKU HighPerformance.
-* (6) Základní SKU je pro použití se službou ExpressRoute zastaralá.
+- Informace o cenách najdete na stránce [Ceny](https://azure.microsoft.com/pricing/details/vpn-gateway).
+
+- Informace o smlouvě SLA (smlouva o úrovni služeb) můžete najít na stránce [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/).

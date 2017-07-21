@@ -43,6 +43,7 @@
 ### [Instalace a konfigurace nástroje Trend Micro Deep Security jako služby](install-trend.md)
 ### [Konfigurace skupiny dostupnosti](configure-availability.md)
 ### [Změna velikosti virtuálního počítače s Windows vytvořeného v klasickém modelu nasazení](resize-vm.md)
+### [Údržba](planned-maintenance-schedule.md)
 
 ## Spravovat
 ### [Migrace z Classicu na Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -55,7 +56,6 @@
 ## Plánování
 ### [O imagích](about-images.md)
 ### [Velikosti pro virtuální počítače](../../virtual-machines-windows-sizes.md)
-#### [O virtuálních počítačích řady A-series pro náročné výpočty a řady H-series](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Plánovaná údržba pro virtuální počítače Azure](../../virtual-machines-windows-planned-maintenance.md)
 ### [Pokyny pro implementaci služeb infrastruktury Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Odeslání úloh z místního prostředí do Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Konfigurace Oracle Data Guard pro Azure](configure-oracle-data-guard.md)
-####[Konfigurace Oracle GoldenGate pro Azure](configure-oracle-goldengate.md)
-####[Různé důležité informace pro image](oracle-considerations.md)
-####[Seznam imagí virtuálních počítačů Oracle](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -99,6 +95,7 @@
 ## [Rozhraní REST pro Storage](/rest/api/storageservices)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

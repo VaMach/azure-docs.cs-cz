@@ -1,61 +1,54 @@
 ---
 title: "Vytvoření aplikace .NET databáze Azure Cosmos využívající rozhraní Graph API | Dokumentace Microsoftu"
 description: "Obsahuje ukázku kódu .NET, kterou můžete použít pro připojení a dotazování databáze Azure Cosmos."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Databáze Azure Cosmos: Vytvoření aplikace .NET využívající rozhraní Graph API
+# Databáze Azure Cosmos: Vytvoření aplikace .NET využívající rozhraní Graph API
+<a id="azure-cosmos-db-build-a-net-application-using-the-graph-api" class="xliff"></a>
 
 Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
 Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, databáze a grafu (kontejneru) pomocí webu Azure Portal. Potom sestavíte a spustíte aplikaci konzoly založenou na [rozhraní Graph API](graph-sdk-dotnet.md) (verze Preview).  
 
-## <a name="prerequisites"></a>Požadavky
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 
 Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Vytvoření účtu databáze
+## Vytvoření účtu databáze
+<a id="create-a-database-account" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Přidání grafu
+## Přidání grafu
+<a id="add-a-graph" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="add-sample-data"></a>Přidání ukázkových dat
-
-Teď můžete do grafu přidávat data pomocí Průzkumníka dat.
-
-1. V Průzkumníku dat rozbalte položky **sample-database** a **sample-graph**, klikněte na možnost **Graph** (Graf) a potom kliknutím na možnosti **New Vertex** (Nový vrchol) a **New Edge** (Nová hrana) přidejte do grafu požadované položky. V Průzkumníku dat můžete taky škálovat propustnost a přidat do kontejneru uložené procedury, uživatelsky definované funkce a aktivační události.
-
-    ![Přidejte vrcholů a hran do grafu v Průzkumníku dat](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Po přidání položek klikněte na tlačítko **Apply Filter** (Použít filtr) nebo klikněte pravým tlačítkem na **Graph** (Graf) a potom kliknutím na **New Graph Query** (Nový dotaz na graf) zobrazte data ve formě vizuálního grafu. Kliknutím na tlačítko **Style** (Styl) můžete změnit popisky a styl dat a také svoje nastavení. Toto je ukázka grafu v Průzkumníku dat. Popisky, barvy a zobrazená data se dají upravovat.
-
-    ![Průzkumník vizuálních grafů v Průzkumníku dat na webu Azure Portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
-
-## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
+## Klonování ukázkové aplikace
+<a id="clone-the-sample-application" class="xliff"></a>
 
 Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
@@ -69,11 +62,12 @@ Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovac
 
 3. Potom otevřete soubor řešení v sadě Visual Studio. 
 
-## <a name="review-the-code"></a>Kontrola kódu
+## Kontrola kódu
+<a id="review-the-code" class="xliff"></a>
 
 Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor Program.cs a zjistíte, že tyto řádky kódu vytvářejí prostředky databáze Azure Cosmos. 
 
-* Inicializuje se DocumentClient. Ve verzi Preview jsme do klienta DocumentDB přidali rozhraní API s rozšířením grafu. Pracujeme na samostatném klientovi pro grafy, který bude oddělený od klienta a prostředků DocumentDB.
+* Inicializuje se DocumentClient. Ve verzi Preview jsme do klienta Azure Cosmos DB přidali rozhraní API s rozšířením grafu. Pracujeme na samostatném klientovi pro grafy, který bude oddělený od klienta a prostředků Azure Cosmos DB.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -112,9 +106,10 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
 
     ```
 
-## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
+## Aktualizace připojovacího řetězce
+<a id="update-your-connection-string" class="xliff"></a>
 
-Teď se vraťte zpátky na web Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
 1. Na webu [Azure Portal](http://portal.azure.com/) klikněte v účtu databáze Azure Cosmos v levém navigačním panelu na možnost **Klíče** a potom klikněte na **Klíče pro čtení i zápis**. V dalším kroku zkopírujete pomocí tlačítek kopírování na pravé straně obrazovky identifikátor URI a primární klíč do souboru `App.config`.
 
@@ -132,7 +127,8 @@ Teď se vraťte zpátky na web Azure Portal, kde najdete informace o připojova
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s databází Azure Cosmos. 
 
-## <a name="run-the-console-app"></a>Spuštění aplikace konzoly
+## Spuštění aplikace konzoly
+<a id="run-the-console-app" class="xliff"></a>
 
 1. V sadě Visual Studio klikněte v **Průzkumníku řešení** pravým tlačítkem myši na projekt **GraphGetStarted** a potom klikněte na možnost **Spravovat balíčky NuGet**. 
 
@@ -144,7 +140,8 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
    V okně konzoly se zobrazí vrcholy a hrany, které se přidávají do grafu. Po dokončení skriptu dvojím stisknutím klávesy ENTER zavřete okno konzoly. 
 
-## <a name="browse-using-the-data-explorer"></a>Procházení pomocí Průzkumníku dat
+## Procházení pomocí Průzkumníku dat
+<a id="browse-using-the-data-explorer" class="xliff"></a>
 
 Teď se můžete vrátit do Průzkumníku dat na webu Azure Portal, procházet nová data grafu a zadávat na ně dotazy.
 
@@ -152,18 +149,21 @@ Teď se můžete vrátit do Průzkumníku dat na webu Azure Portal, procházet n
 
     V podokně Graphs (Grafy) se zobrazí data vygenerovaná ukázkovou aplikací.
 
-## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
+## Ověření smluv SLA na webu Azure Portal
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+## Vyčištění prostředků
+<a id="clean-up-resources" class="xliff"></a>
 
-Pokud nebudete tuto aplikaci dál používat, odstraňte z webu Azure Portal všechny prostředky vytvořené v tomto rychlém startu pomocí následujícího postupu: 
+Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu: 
 
-1. V levé nabídce na webu Azure Portal klikněte na **Skupiny prostředků** a potom klikněte na název vytvořeného prostředku. 
-2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte název prostředku, který chcete odstranit, a potom klikněte na **Odstranit**.
+1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
+2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-## <a name="next-steps"></a>Další kroky
+## Další kroky
+<a id="next-steps" class="xliff"></a>
 
 V tomto rychlém startu jste se seznámili s postupem vytvoření účtu databáze Azure Cosmos, vytvoření grafu pomocí Průzkumníku dat a spuštění aplikace. Teď můžete pomocí konzoly Gremlin vytvářet složitější dotazy a implementovat účinnou logiku procházení grafů. 
 

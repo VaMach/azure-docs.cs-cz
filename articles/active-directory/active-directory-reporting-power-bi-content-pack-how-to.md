@@ -1,0 +1,159 @@
+---
+title: "Jak používat balíček obsahu Azure Active Directory Power BI Content Pack | Dokumentace Microsoftu"
+description: "Naučte se používat balíček obsahu Azure Active Directory Power BI Content Pack."
+services: active-directory
+author: MarkusVi
+manager: femila
+ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
+ms.service: active-directory
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/15/2017
+ms.author: markvi
+ms.reviewer: dhanyahk
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/22/2017
+
+---
+# Jak používat balíček obsahu Azure Active Directory Power BI Content Pack
+<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
+
+Pro vás jako správce IT je naprosto nezbytné pochopit, jakým způsobem uživatelé přijímají a používají funkce služby Azure Active Directory. Umožní vám to plánovat infrastrukturu IT a komunikaci za účelem zvýšení míry využití a získání maxima z funkcí AAD. Balíček obsahu Power BI pro Azure Active Directory vám umožňuje podrobněji analyzovat data, abyste pochopili, jakým způsobem je můžete používat k získání lepšího přehledu o tom, jak služba Azure Active Directory funguje s různými možnostmi, na které spoléháte.  Integrace rozhraní Azure Active Directory API do Power BI umožňuje snadné stažení předem vytvořených balíčků obsahu a získání přehledu o veškerých aktivitách v rámci služby Azure Active Directory pomocí bohatých funkcí vizualizace, které Power BI nabízí. Můžete si vytvořit vlastní řídicí panel a snadno ho sdílet se všemi uživateli ve vaší organizaci. 
+
+Toto téma obsahuje podrobné pokyny pro instalaci a použití balíčku obsahu ve vašem prostředí.
+
+## Instalace
+<a id="installation" class="xliff"></a>  
+
+**Instalace balíčku obsahu Power BI:**
+
+1. Přihlaste se k [Power BI](https://app.powerbi.com/groups/me/getdata/services) pomocí svého účtu Power BI (jedná se o stejný účet jako pro O365 nebo Azure AD).
+
+2. V dolní části levého navigačního podokna vyberte **Získat data**.
+
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/01.png)
+ 
+3. V okně **Služby** klikněte na **Získat**.
+   
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/02.png)
+
+4.  Vyhledejte **Azure Active Directory**.
+
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/03.png)
+ 
+5.  Po zobrazení výzvy zadejte ID klienta služby Azure AD a pak klikněte na **Další**.
+
+    > [!TIP] 
+    > Rychlý způsob, jak získat ID klienta vašeho klienta Office 365 / Azure AD, je přihlásit se k portálu Azure AD, přejít k adresáři a zkopírovat ID z následující adresy URL: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
+
+6.  Klikněte na **Přihlášení**. 
+ 
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/05.png) 
+
+
+
+7.  Zadejte uživatelské jméno a heslo a pak klikněte na **Přihlášení**.
+ 
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/06.png) 
+
+8.  V dialogovém okně souhlasu aplikace klikněte na **Přijmout**.
+ 
+9.  Jakmile řídicí panel protokolů aktivity služby Azure Active Directory vytvoříte, klikněte na něj.
+ 
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
+
+## Co můžu s tímto balíčkem obsahu dělat?
+<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
+
+Než se začneme zabývat tím, co s tímto balíčkem obsahu můžete dělat, podívejme se na rychlý přehled různých sestav, které balíček obsahu obsahuje. Data sestavy se týkají **posledních 30 dní**.
+
+### Sestavy zahrnuté v této verzi balíčku obsahu protokolů služby Azure Active Directory
+<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
+
+**Sestava využití aplikací a trendů**: Získejte přehled o aplikacích používaných ve vaší organizaci a o tom, které se používají nejvíce a kdy. Tato sestava slouží k získání přehledu o tom, jak se aplikace, kterou jste ve vaší organizaci nedávno zavedli, používá, nebo ke zjištění oblíbených aplikací. Umožní vám vylepšit využití v případě, že vidíte, že se aplikace nepoužívá.
+
+**Přihlášení podle umístění a uživatelů**: Získejte přehled o veškerých přihlášeních provedených pomocí Azure Identity a přehled o identitách uživatelů. Můžete podrobněji analyzovat individuální přihlášení a odpovědět si na otázky jako:
+
+- Odkud se tento uživatel přihlásil?
+- Který uživatel má nejvíce přihlášení a odkud se přihlašuje? 
+- Bylo přihlášení úspěšné?  
+ 
+Podrobnosti můžete rozbalit kliknutím na konkrétní datum nebo umístění.
+
+**Jedineční uživatelé na aplikaci**: Získejte přehled všech jedinečných uživatelů, kteří danou aplikaci využívají. Patří sem pouze uživatelé, kteří se k aplikaci *úspěšně* přihlásili.
+
+**Přihlášení pomocí zařízení**: Získejte přehled o typu operačního systému a prohlížečích používaných uživateli ve vaší organizaci s podrobnými informacemi o uživatelích, včetně:
+
+- Uživatelské jméno
+- IP adresa
+- Umístění 
+- Stav přihlášení 
+
+Tato sestava vám pomůže pochopit různé profily zařízení používané ve vaší organizaci a určit zásady zařízení podle toho, co se používá.
+
+**Trychtýř SSPR**: Získejte představu o tom, jakým způsobem se ve vaší organizaci resetují hesla. Zjistěte, kolik pokusů o resetování hesla bylo provedeno prostřednictvím nástroje SSPR a kolik z nich bylo úspěšných. Podívejte se podrobněji na chyby při resetování hesel pomocí trychtýře SSPR a zjistěte, proč k některým chybám došlo. Tato sestava umožňuje lépe pochopit, jakým způsobem se nástroj SSPR ve vaší organizaci používá. Umožní vám pak správně se rozhodovat.
+
+## Přizpůsobení balíčku obsahu aktivit služby Azure AD
+<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
+
+**Změna vizualizace**: Vizualizaci sestavy můžete změnit kliknutím na **Upravit sestavu** a výběrem požadované vizualizace.
+ 
+![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/09.png) 
+ 
+![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/10.png) 
+
+**Zahrnutí dalších polí**: Pole můžete do sestavy přidat nebo ho z ní odebrat výběrem vizuálu, do kterého chcete pole přidat nebo z kterého ho chcete odebrat. V následujícím příkladu se přidává pole „stav přihlášení“ do zobrazení tabulky. 
+ 
+![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/11.png) 
+
+**Připnutí vizualizací na řídicí panel**: Řídicí panel můžete přizpůsobit, do sestavy můžete zahrnout vlastní vizualizace a sestavu pak připnout na řídicí panel. V následujícím příkladu se přidává nový filtr s názvem „stav přihlášení“ a zahrnuje se do sestavy. Došlo také ke změně vizualizace z pruhového grafu na spojnicový. Tento nový vizuál se dá připnout na řídicí panel.
+
+![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/12.png) 
+
+![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/13.png) 
+ 
+
+ 
+
+
+**Sdílení řídicího panelu**: Jakmile vytvoříte požadovaný obsah, můžete řídicí panel sdílet s uživateli ve vaší organizaci. Mějte prosím na paměti, že jakmile sestavu sdílíte, můžou uživatelé vidět pole, která jste v sestavě vybrali.
+ 
+![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/14.png) 
+
+
+
+## Plánování denní aktualizace sestavy Power BI
+<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
+
+Pokud chcete naplánovat každodenní aktualizaci sestavy Power BI, přejděte na **Datové sady > Nastavení > Naplánovat aktualizaci** a nastavte ji podle příkladu níže.
+ 
+![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
+
+## Aktualizace na novější verzi balíčku obsahu
+<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
+
+Postup aktualizace balíčku obsahu na novější verzi:
+
+- Stáhněte si nový balíček obsahu a nastavte ho podle pokynů uvedených v tomto článku.
+
+- Jakmile ho nastavíte, přejděte na **Zdroj dat > Nastavení > Přihlašovací údaje ke zdroji dat** a znovu zadejte přihlašovací údaje, jak je uvedeno níže.
+
+    ![Balíček obsahu Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/16.png) 
+
+Jakmile bude nová verze balíčku obsahu funkční, můžete v případě potřeby odebrat starou verzi odstraněním podkladových sestav a databází přidružených danému balíčku obsahu.
+
+## Pořád máte problémy?
+<a id="still-having-issues" class="xliff"></a> 
+
+Podívejte se na [průvodce odstraňováním potíží](active-directory-reporting-troubleshoot-content-pack.md). Obecnou nápovědu k Power BI najdete v těchto [článcích nápovědy](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
+ 
+
+
+

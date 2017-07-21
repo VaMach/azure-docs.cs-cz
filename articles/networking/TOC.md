@@ -58,10 +58,11 @@
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
-# Zdroje a prostředky
-## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
+# Zdroje
 ## [Tvorba šablon](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Komunitní šablony](https://azure.microsoft.com/resources/templates/)
+## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
 ## [Ceny](https://azure.microsoft.com/pricing)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

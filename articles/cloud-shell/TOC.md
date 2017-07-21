@@ -14,3 +14,5 @@
 
 # Referenční informace
 ## [Azure CLI 2.0](/cli/azure) 
+# Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)

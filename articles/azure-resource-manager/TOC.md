@@ -1,6 +1,6 @@
 # Přehled
 ## [Co je Resource Manager?](resource-group-overview.md)
-## [Podporované služby](resource-manager-supported-services.md)
+## [Poskytovatelé a typy prostředků](resource-manager-supported-services.md)
 ## [Resource Manager a klasické nasazení](resource-manager-deployment-model.md)
 ## [Zásady správného řízení pro předplatná](resource-manager-subscription-governance.md)
 ## [Spravované aplikace](managed-application-overview.md)
@@ -67,16 +67,21 @@
 
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### [Přiřazení zásad portálu](resource-manager-policy-portal.md)
-### [Přiřazení zásad skruptů](resource-manager-policy-create-assign.md)
-### [Zásady pro značky prostředků](resource-manager-policy-tags.md)
-### [Zásady pro úložiště](resource-manager-policy-storage.md)
-### [Zásady pro virtuální počítače s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Zásady pro virtuální počítače s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Přiřazení zásad pomocí portálu](resource-manager-policy-portal.md)
+### [Přiřazení zásad pomocí skriptů](resource-manager-policy-create-assign.md)
+### Příklady
+#### [Značky](resource-manager-policy-tags.md)
+#### [Zásady vytváření názvů](resource-manager-policy-naming-convention.md)
+#### [Síť](resource-manager-policy-network.md)
+#### [Storage](resource-manager-policy-storage.md)
+#### [Virtuální počítač s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Virtuální počítač s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Použití spravovaných aplikací
-### [Publikace spravovaných aplikací](managed-application-publishing.md)
-### [Konzumace spravovaných aplikací](managed-application-consumption.md)
+### [Publikování aplikace katalogu služeb](managed-application-publishing.md)
+### [Využití aplikace katalogu služeb](managed-application-consumption.md)
+### [Publikování aplikace Marketplace](managed-application-author-marketplace.md)
+### [Využití aplikace Marketplace](managed-application-consume-marketplace.md)
 ### [Vytvoření definic uživatelského rozhraní](managed-application-createuidefinition-overview.md)
 
 ## Auditování
@@ -85,6 +90,11 @@
 
 ## Řešení potíží
 ### [Běžné chyby nasazení](resource-manager-common-deployment-errors.md)
+### [Vysvětlení chyb nasazení](resource-manager-troubleshoot-tips.md)
+### [Chyba RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Chyby nasazení virtuálního počítače
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Referenční informace
 ## [Formát šablon](/azure/templates/)
@@ -118,8 +128,9 @@
 ## [REST](/rest/api/resources/)
 
 # Zdroje a prostředky
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Omezování požadavků](resource-manager-request-limits.md)
 ## [Sledování asynchronních operací](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)

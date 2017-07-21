@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
-* Spusťte Visual Studio a vytvořte novou konzolovou aplikaci.
+
+Nejprve spusťte sadu Visual Studio a vytvořte nový projekt **Konzolová aplikace (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Přidání balíčku NuGet služby Relay
-1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
+
+1. Klikněte pravým tlačítkem na nově vytvořený projekt a potom klikněte na **Spravovat balíčky NuGet**.
 2. Klikněte na kartu **Procházet**, vyhledejte „Microsoft.Azure.Relay“ a vyberte položku **Microsoft Azure Relay**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
 
 ### <a name="write-some-code-to-receive-messages"></a>Napsání kódu pro přijímání zpráv
-1. Nahraďte existující příkazy `using` v horní části souboru Program.cs následujícími příkazy:
+
+1. Nahraďte existující příkazy `using` na začátku souboru Program.cs následujícími příkazy `using`:
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. V podrobnostech o hybridním připojení přidejte konstanty do třídy `Program`. Zástupné symboly v závorkách nahraďte odpovídajícími hodnotami, které jste získali při vytváření hybridního připojení. Nezapomeňte použít plně kvalifikovaný obor názvů:
+2. Do třídy `Program` přidejte konstanty s podrobnostmi o hybridním připojení. Zástupné symboly v závorkách nahraďte hodnotami, které jste získali při vytváření hybridního připojení. Nezapomeňte použít plně kvalifikovaný obor názvů:
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Do třídy `Program` přidejte následující novou metodu s názvem `ProcessMessagesOnConnection`:
+3. Do třídy `ProcessMessagesOnConnection` přidejte následující metodu `Program`:
    
     ```csharp
     // Method is used to initiate connection
@@ -74,7 +77,7 @@
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. Do třídy `Program` přidejte následujícím postupem další novou metodu s názvem `RunAsync`:
+4. Do třídy `Program` přidejte následujícím způsobem další metodu `RunAsync`:
    
     ```csharp
     private static async Task RunAsync()
@@ -119,13 +122,13 @@
         await listener.CloseAsync(cts.Token);
     }
     ```
-5. Ve třídě `Program` přidejte do metody `Main` následující řádek kódu.
+5. Do metody `Main` ve třídě `Program` přidejte následující řádek kódu:
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Soubor Program.cs by měl vypadat takto:
+    Hotový soubor Program.cs by měl vypadat takto:
    
     ```csharp
     namespace Server

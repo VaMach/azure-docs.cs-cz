@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8d84716f82af9a5b8f51c51b36f779c1fb2b4691
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 48314788dbe4618f271f0235f106dbe15ef004b8
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center a Azure Virtual Machines
+# Azure Security Center a Azure Virtual Machines
+<a id="azure-security-center-and-azure-virtual-machines" class="xliff"></a>
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) pomáhá předcházet hrozbám, zjišťovat je a reagovat na ně. Poskytuje integrované bezpečnostní sledování a správu zásad ve vašich předplatných Azure, pomáhá zjišťovat hrozby, kterých byste si jinak nevšimli, a spolupracuje s řadou řešení zabezpečení.
 
 Tento článek ukazuje, jak vám Security Center může pomoci zabezpečit službu Azure Virtual Machines.
 
-## <a name="why-use-security-center"></a>Proč používat Security Center?
+## Proč používat Security Center?
+<a id="why-use-security-center" class="xliff"></a>
 Security Center vám pomůže chránit data virtuálních počítačů v Azure tím, že poskytuje vhled do nastavení zabezpečení vašich virtuálních počítačů. Když Security Center chrání vaše virtuální počítače, jsou k dispozici následující možnosti:
 
 * Nastavení zabezpečení operačního systému s doporučenými konfiguračními pravidly
@@ -42,14 +45,16 @@ Security Center kromě toho, že pomáhá chránit vaše virtuální počítače
 > 
 > 
 
-## <a name="prerequisites"></a>Požadavky
+## Požadavky
+<a id="prerequisites" class="xliff"></a>
 Abyste mohli začít s Azure Security Center, je třeba znát a zvážit následující skutečnosti:
 
 * Musíte mít předplatné Microsoft Azure. V tématu [Ceny Security Center](https://azure.microsoft.com/pricing/details/security-center/) najdete další informace o úrovních Free a Standard služby Security Center.
 * Naplánujte své přijetí Security Center. V tématu [Průvodce plánováním a provozem Azure Security Center](security-center-planning-and-operations-guide.md) najdete další informace o tom, na co si dát pozor při plánování a provozu.
 * Informace týkající se podpory operačních systémů najdete v tématu [Nejčastější dotazy k Azure Security Center](security-center-faq.md). 
 
-## <a name="set-security-policy"></a>Nastavení zásad zabezpečení
+## Nastavení zásad zabezpečení
+<a id="set-security-policy" class="xliff"></a>
 Je nutné povolit shromažďování dat, aby Azure Security Center mohl shromažďovat informace, které potřebuje k poskytování doporučení a výstrah generovaných na základě vámi nakonfigurovaných zásad zabezpečení. Na obrázku níže vidíte, že **Shromažďování dat** bylo **Zapnuto**.
 
 Zásady zabezpečení definují sadu ovládacích prvků doporučenou pro prostředky v rámci daného předplatného nebo skupiny prostředků. Před povolením zásad zabezpečení je nutné mít povolené shromažďování dat. Security Center shromažďuje data z vašich virtuálních počítačů za účelem posouzení jejich stavu, poskytování doporučení zabezpečení a upozorňování na hrozby. V Security Center určíte zásady pro vaše předplatná Azure nebo skupiny prostředků na základě toho, jaké má vaše společnost požadavky na zabezpečení, a podle typu aplikací nebo citlivosti dat v jednotlivých předplatných. 
@@ -61,7 +66,8 @@ Zásady zabezpečení definují sadu ovládacích prvků doporučenou pro prost�
 > 
 > 
 
-## <a name="manage-security-recommendations"></a>Správa doporučení zabezpečení
+## Správa doporučení zabezpečení
+<a id="manage-security-recommendations" class="xliff"></a>
 Security Center analyzuje stav zabezpečení vašich prostředků Azure. Když Security Center identifikuje potenciální ohrožení zabezpečení, vytvoří doporučení. Doporučení vás provedou procesem konfigurace potřebných kontrol.
 
 Po nastavení zásad zabezpečení bude Security Center analyzovat stav zabezpečení vašich prostředků Azure za účelem identifikace potenciálních ohrožení zabezpečení. Doporučení jsou zobrazena ve formátu tabulky, kde každý řádek představuje jedno konkrétní doporučení. Níže uvedená tabulka obsahuje některé příklady doporučení pro virtuální počítače Azure a popis toho, co jednotlivá doporučení dělají, když je použijete. Když vyberete doporučení, zobrazí se informace, které vám ukážou, jak dané doporučení implementovat v Security Center.
@@ -77,35 +83,33 @@ Po nastavení zásad zabezpečení bude Security Center analyzovat stav zabezpe�
 | [Povolení agenta virtuálního počítače](security-center-enable-vm-agent.md) |Umožňuje vám zobrazit, které virtuální počítače vyžadují agenta virtuálního počítače. Agent virtuálního počítače musí být nainstalovaný na virtuálních počítačích, aby mohl poskytovat vyhledávání oprav, vyhledávání směrných plánů a antimalwarové programy. Agent virtuálního počítače je ve výchozím nastavení nainstalován na virtuálních počítačích nasazených z Azure Marketplace. V článku [Agenti a rozšíření virtuálních počítačů – Část 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) najdete informace o tom, jak agenta virtuálního počítače nainstalovat. |
 | [Použití šifrování disku](security-center-apply-disk-encryption.md) |Doporučuje, abyste disky svých virtuálních počítačů zašifrovali pomocí služby Azure Disk Encryption (platí pro virtuální počítače s Windows a Linuxem). Na virtuálním počítači se doporučuje šifrování svazku operačního systému i svazku s daty. |
 | [Není nainstalováno posouzení ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md) |Doporučuje, abyste na vašem virtuálním počítači nainstalovali řešení posouzení ohrožení zabezpečení. |
-| [Náprava ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Umožňuje vám zobrazit ohrožení zabezpečení systému a aplikací zjištěná řešením posouzení ohrožení zabezpečení nainstalovaným na vašem virtuálním počítači. |
+| [Náprava ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Umožňuje vám zobrazit ohrožení zabezpečení systému a aplikací zjištěná řešením posouzení ohrožení zabezpečení nainstalovaným na vašem virtuálním počítači. |
 
 > [!NOTE]
 > Další informace o doporučeních najdete v článku [Správa doporučení zabezpečení](security-center-recommendations.md).
 > 
 > 
 
-## <a name="monitor-security-health"></a>Monitorování stavu zabezpečení
+## Monitorování stavu zabezpečení
+<a id="monitor-security-health" class="xliff"></a>
 Po povolení [zásad zabezpečení](security-center-policies.md) pro prostředky předplatného bude služba Security Center analyzovat zabezpečení vašich prostředků, aby identifikovala potenciální ohrožení zabezpečení.  V okně **Stav zabezpečení prostředků** můžete zobrazit stav zabezpečení svých prostředků spolu s případnými problémy. Když na dlaždici **Stav zabezpečení prostředků** kliknete na **Virtuální počítače**, otevře se okno **Virtuální počítače**, které obsahuje doporučení pro vaše virtuální počítače. 
 
 ![Stav zabezpečení](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
-## <a name="manage-and-respond-to-security-alerts"></a>Správa a reakce na výstrahy zabezpečení
+## Správa a reakce na výstrahy zabezpečení
+<a id="manage-and-respond-to-security-alerts" class="xliff"></a>
 Security Center automaticky shromažďuje, analyzuje a integruje data protokolu z vašich prostředků Azure, sítě a připojených partnerských řešení (jako jsou brány firewall a řešení ochrany koncových bodů), aby se zjistily skutečné hrozby a snížil počet falešných poplachů. Díky využívání různorodých [možností detekce](security-center-detection-capabilities.md) je služba Security Center schopna generovat výstrahy zabezpečení seřazené podle priority a tím vám pomáhá rychle prozkoumat problém a poskytuje doporučení k napravení možných útoků.
 
 ![Výstrahy zabezpečení](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
 Vyberte výstrahu zabezpečení, abyste se dozvěděli další informace o událostech, které výstrahu vygenerovaly a kroky, pokud existují, které je třeba provést k nápravě útoku. Výstrahy zabezpečení jsou seskupené podle [typu](security-center-alerts-type.md) a data.
 
-## <a name="see-also"></a>Viz také
+## Viz také
+<a id="see-also" class="xliff"></a>
 Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Nastavení zásad zabezpečení v Azure Security Center](security-center-policies.md) – Zjistěte, jak konfigurovat zásady zabezpečení pro svá předplatná Azure a skupiny prostředků.
 * [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 * [Nejčastější dotazy k Azure Security Center](security-center-faq.md) – Přečtěte si nejčastější dotazy k používání této služby.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

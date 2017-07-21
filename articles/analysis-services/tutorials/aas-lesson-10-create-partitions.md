@@ -1,0 +1,144 @@
+---
+title: "Kurz služby Azure Analysis Services – Lekce 10: Vytvoření oddílů | Dokumentace Microsoftu"
+description: "Popisuje, jak vytvořit oddíly v projektu Kurz služby Azure Analysis Services."
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/03/2017
+
+---
+<a id="lesson-10-create-partitions" class="xliff"></a>
+
+# Lekce 10: Vytvoření oddílů
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+V této lekci vytvoříte oddíly pro rozdělení tabulky FactInternetSales na menší logické jednotky s možností zpracování (aktualizace) nezávisle na ostatních oddílech. Ve výchozím nastavení má každá tabulka zahrnutá do modelu jeden oddíl, který obsahuje všechny sloupce a řádky tabulky. Pro tabulku FactInternetSales chceme data rozdělit podle roku – jeden oddíl pro každých pět let v tabulce. Jednotlivé oddíly pak bude možné zpracovávat nezávisle na sobě. Další informace najdete v tématu [Oddíly](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular). 
+  
+Odhadovaný čas dokončení této lekce: **15 minut**  
+  
+<a id="prerequisites" class="xliff"></a>
+
+## Požadavky  
+Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 9: Vytvoření hierarchií](../tutorials/aas-lesson-9-create-hierarchies.md).  
+  
+<a id="create-partitions" class="xliff"></a>
+
+## Vytvoření oddílů  
+  
+<a id="to-create-partitions-in-the-factinternetsales-table" class="xliff"></a>
+
+#### Vytvoření oddílů v tabulce FactInternetSales  
+  
+1.  V Průzkumníku tabelárních modelů rozbalte **Tabulky** a potom klikněte pravým tlačítkem na **FactInternetSales** > **Oddíly**.  
+  
+2.  Ve správci oddílů klikněte na **Kopírovat** a potom změňte název na **FactInternetSales2010**.
+  
+    Protože chcete, aby oddíl obsahoval pouze řádky z určitého období (rok 2010), musíte upravit výraz dotazu.
+  
+4.  Kliknutím na **Návrh** otevřete editor dotazů a klikněte na dotaz **FactInternetSales2010**.
+
+5.  V náhledu klikněte na šipku dolů v záhlaví sloupce **OrderDate** a potom klikněte na **Filtry data a času** > **Mezi**.
+
+    ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
+
+6.  V dialogovém okně Filtrovat řádky v části **Zobrazit řádky, kde: OrderDate** ponechte možnost **je po nebo přesně** a do pole kalendářního data zadejte **1. 1. 2010**. Ponechte vybraný operátor **A**, vyberte možnost **je před**, do pole kalendářního data zadejte **1. 1. 2011** a klikněte na **OK**.
+
+    ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
+    
+    Všimněte si, že v editoru dotazů se v části POUŽITÝ POSTUP zobrazí další krok s názvem Filtrované řádky. Tento filtr slouží k výběru dat objednávek pouze z roku 2010.
+
+8.  Klikněte na **Importovat**.
+
+    Ve správci oddílů si všimněte, že výraz dotazu teď obsahuje další klauzuli Filtrované řádky.
+
+    ![aas-lesson10-query](../tutorials/media/aas-lesson10-query.png)
+  
+    Tento příkaz určuje, že by tento oddíl měl zahrnovat pouze data v řádcích, kde hodnota ve sloupci OrderDate spadá do kalendářního roku 2010, jak je uvedeno v klauzuli Filtrované řádky.  
+  
+  
+<a id="to-create-a-partition-for-the-2011-year" class="xliff"></a>
+
+#### Vytvoření oddílu pro rok 2011  
+  
+1.  V seznamu oddílů klikněte na oddíl **FactInternetSales2010**, který jste vytvořili, a potom klikněte na **Kopírovat**.  Změňte název oddílu na **FactInternetSales2011**. 
+
+    Není nutné použít editor dotazů k vytvoření nové klauzule Filtrované řádky. Vzhledem k tomu, že jste vytvořili kopii dotazu pro rok 2010, stačí provést drobnou změnu v dotazu pro rok 2011.
+  
+2.  Aby tento oddíl obsahoval pouze řádky pro rok 2011, ve **výrazu dotazu** nahraďte roky v klauzuli Filtrované řádky za **2011** a **2012**:  
+  
+    ```  
+    let
+        Source = #"SQL/localhost;AdventureWorksDW2014",
+        dbo_FactInternetSales = Source{[Schema="dbo",Item="FactInternetSales"]}[Data],
+        #"Removed Columns" = Table.RemoveColumns(dbo_FactInternetSales,{"OrderDateKey", "DueDateKey", "ShipDateKey"}),
+        #"Filtered Rows" = Table.SelectRows(#"Removed Columns", each [OrderDate] >= #datetime(2011, 1, 1, 0, 0, 0) and [OrderDate] < #datetime(2012, 1, 1, 0, 0, 0))
+    in
+        #"Filtered Rows"
+   
+    ```  
+  
+<a id="to-create-partitions-for-2012-2013-and-2014" class="xliff"></a>
+
+#### Vytvoření oddílů pro roky 2012, 2013 a 2014  
+  
+- Stejným postupem jako v předchozích krocích vytvořte oddíly pro roky 2012, 2013 a 2014 a v klauzuli Filtrované řádky vždy změňte rok tak, aby se zahrnuly pouze řádky pro daný rok. 
+  
+
+<a id="delete-the-factinternetsales-partition" class="xliff"></a>
+
+## Odstranění oddílu FactInternetSales
+Když teď máte oddíly pro každý rok, můžete odstranit oddíl FactInternetSales. Zabráníte tím překrývání při výběru možnosti Zpracovat vše v rámci zpracování oddílů.
+
+<a id="to-delete-the-factinternetsales-partition" class="xliff"></a>
+
+#### Odstranění oddílu FactInternetSales
+-  Klikněte na oddíl FactInternetSales a potom klikněte na **Odstranit**.
+
+
+
+<a id="process-partitions" class="xliff"></a>
+
+## Zpracování oddílů  
+Ve správci oddílů si všimněte, že sloupec **Poslední zpracování** pro každý z nově vytvořených oddílů ukazuje, že oddíly nikdy nebyly zpracovány. Při vytváření oddílů byste měli spustit operaci Zpracování oddílů nebo Zpracování tabulky pro aktualizaci dat v těchto oddílech.  
+  
+<a id="to-process-the-factinternetsales-partitions" class="xliff"></a>
+
+#### Zpracování oddílů FactInternetSales  
+  
+1.  Kliknutím na **OK** zavřete správce oddílů.  
+  
+2.  Klikněte na tabulku **FactInternetSales** a potom na nabídku **Model** > **Zpracovat** > **Zpracovat oddíly**.  
+  
+3.  V dialogovém okně Zpracovat oddíly zkontrolujte, že je **Režim** nastavený na **Zpracovat výchozí**.  
+  
+4.  Ve sloupci **Zpracovat** zaškrtněte políčko pro každý z pěti oddílů, které jste vytvořili, a potom klikněte na **OK**.  
+
+    ![aas-lesson10-process-partitions](../tutorials/media/aas-lesson10-process-partitions.png)
+  
+    Pokud se zobrazí výzva k zadání přihlašovacích údajů k zosobnění, zadejte uživatelské jméno a heslo systému Windows, které jste zadali v lekci 2.  
+  
+    Zobrazí se dialogové okno **Zpracování dat** s podrobnostmi o zpracování pro každý oddíl. Všimněte si, že pro každý oddíl se přenáší jiný počet řádků. Každý oddíl obsahuje pouze řádky pro rok zadaný v klauzuli WHERE příkazu jazyka SQL. Po dokončení zpracování zavřete dialogové okno Zpracování dat.  
+  
+    ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
+  
+<a id="whats-next" class="xliff"></a>
+
+ ## Co dále?
+Přejděte na další lekci: [Lekce 11: Vytvoření rolí](../tutorials/aas-lesson-11-create-roles.md). 
+

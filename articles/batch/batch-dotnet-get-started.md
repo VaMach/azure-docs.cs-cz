@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 91fab2cd7ad2babd567380308698f0608dda4cbf
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -72,13 +73,13 @@ Následující diagram znázorňuje primární operace, které provádí klients
 [**Krok 1.**](#step-1-create-storage-containers) Ve službě Azure Blob Storage vytvořte **kontejnery** .<br/>
 [**Krok 2.**](#step-2-upload-task-application-and-data-files) Odešlete do kontejneru aplikační soubory a vstupní soubory úkolu.<br/>
 [**Krok 3.**](#step-3-create-batch-pool) Vytvořte **fond** Batch.<br/>
- &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Když se uzly připojí k fondu, fond **StartTask** stáhne binární soubory úkolů (TaskApplication).<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Když se uzly připojí k fondu, fond **StartTask** stáhne binární soubory úkolů (TaskApplication).<br/>
 [**Krok 4.**](#step-4-create-batch-job) Vytvořte **úlohu** Batch.<br/>
 [**Krok 5.**](#step-5-add-tasks-to-job) Přidejte do úlohy **úkoly**.<br/>
- &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Úkoly jsou naplánované, aby se spustily na uzlech.<br/>
- &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Každý úkol stáhne svoje vstupní data ze služby Azure Storage a potom zahájí spuštění.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Úkoly jsou naplánované, aby se spustily na uzlech.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Každý úkol stáhne svoje vstupní data ze služby Azure Storage a potom zahájí spuštění.<br/>
 [**Krok 6.**](#step-6-monitor-tasks) Sledujte úkoly.<br/>
- &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Úkoly při dokončení odesílají svoje výstupní data do služby Azure Storage.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Úkoly při dokončení odesílají svoje výstupní data do služby Azure Storage.<br/>
 [**Krok 7.**](#step-7-download-task-output) Stáhněte si výstup úkolu ze služby Storage.
 
 Jak jsme už zmínili, ne každé řešení Batch provede právě tyto kroky a může jich obsahovat i mnohem víc, ale ukázková aplikace *DotNetTutorial* předvádí běžné procesy, které probíhají v řešení Batch.
@@ -296,7 +297,7 @@ Sdílené přístupové podpisy jsou řetězce, které (když jsou součástí a
 
 **Fond** Batch je kolekce výpočetních uzlů (virtuálních počítačů), na kterých služba Batch provádí úkoly z úlohy.
 
-Po nahrání aplikačních a datových souborů do účtu Storage zahájí aplikace *DotNetTutorial* komunikaci se službou Batch pomocí knihovny Batch .NET. Aby to mohla provést, vytvoří se nejdřív [BatchClient][net_batchclient]:
+Po nahrání aplikačních a datových souborů do účtu úložiště pomocí rozhraní Azure Storage API zahájí *DotNetTutorial* volání služby Batch pomocí rozhraní API poskytovaných knihovnou Batch .NET. Kód nejprve vytvoří [BatchClient][net_batchclient]:
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -309,7 +310,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Na účtu Batch potom pomocí volání `CreatePoolIfNotExistsAsync` vytvoří fond výpočetních uzlů. `CreatePoolIfNotExistsAsync` používá k vytvoření fondu ve službě Batch metodu [BatchClient.PoolOperations.CreatePool][net_pool_create].
+Na účtu Batch potom příklad pomocí volání `CreatePoolIfNotExistsAsync` vytvoří fond výpočetních uzlů. `CreatePoolIfNotExistsAsync` používá k vytvoření nového fondu ve službě Batch metodu [BatchClient.PoolOperations.CreatePool][net_pool_create]:
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -323,7 +324,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
-            targetDedicated: 3,                                                         // 3 compute nodes
+            targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
@@ -365,7 +366,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 Když vytváříte fond pomocí [CreatePool][net_pool_create], zadáváte několik parametrů, třeba počet výpočetních uzlů, [velikost uzlů](../cloud-services/cloud-services-sizes-specs.md) a operační systém uzlů. V aplikaci *DotNetTutorial* používáme [CloudServiceConfiguration][net_cloudserviceconfiguration], abychom ve službě [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md) zadali systém Windows Server 2012 R2. Když ale místo toho zadáte [VirtualMachineConfiguration][net_virtualmachineconfiguration], můžete vytvářet fondy uzlů vytvořené z imagí z Marketplace, které obsahují image systémů Windows i Linux – další informace najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
 
 > [!IMPORTANT]
-> Za výpočetní prostředky ve službě Batch vám budou účtované poplatky. Pokud chcete náklady minimalizovat, můžete před spuštěním ukázky snížit `targetDedicated` na hodnotu 1.
+> Za výpočetní prostředky ve službě Batch vám budou účtované poplatky. Pokud chcete náklady minimalizovat, můžete před spuštěním ukázky snížit `targetDedicatedComputeNodes` na hodnotu 1.
 >
 >
 
@@ -374,7 +375,7 @@ Spolu s těmito fyzickými vlastnostmi uzlu můžete určit také vlastnost [Sta
 V této ukázkové aplikaci StartTask zkopíruje soubory, které stáhne ze služby Storage (které je určené vlastností [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) z pracovního adresáře StartTask do sdíleného adresáře, ke kterému mají přístup *všechny* úkoly spuštěné v takovém uzlu. V podstatě zkopíruje soubor `TaskApplication.exe` a jeho závislé položky do sdíleného adresáře v každém uzlu v okamžiku, kdy se uzel připojí k fondu, aby každý úkol spuštěný v uzlu měl k tomuto souboru přístup.
 
 > [!TIP]
-> Funkce **balíčků aplikací** v Azure Batch nabízí další způsob, jak dostat aplikaci na výpočetní uzly v rámci fondu. Podrobnosti najdete v článku [Nasazení aplikací pomocí balíčků aplikací v Azure Batch](batch-application-packages.md).
+> Funkce **balíčků aplikací** v Azure Batch nabízí další způsob, jak dostat aplikaci na výpočetní uzly v rámci fondu. Podrobnosti najdete v tématu [Nasazení aplikací do výpočetních uzlů pomocí balíčků aplikací Batch](batch-application-packages.md).
 >
 >
 
@@ -558,7 +559,7 @@ private static async Task<bool> MonitorTasks(
 
     // All tasks have reached the "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // ExecutionInfo property to ensure that it did not encounter a failure
     // or return a non-zero exit code.
 
     // Update the detail level to populate only the task id and executionInfo
@@ -568,32 +569,25 @@ private static async Task<bool> MonitorTasks(
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the
-        // Batch service
+        // Populate the task's properties with the latest info from the Batch service
         await task.RefreshAsync(detail);
 
-        if (task.ExecutionInformation.SchedulingError != null)
+        if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A scheduling error indicates a problem starting the task on the node.
-            // It is important to note that the task's state can be "Completed," yet
-            // still have encountered a scheduling error.
+            // A task with failure information set indicates there was a problem with the task. It is important to note that
+            // the task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
-            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
-                task.Id,
-                task.ExecutionInformation.SchedulingError.Message);
-        }
-        else if (task.ExecutionInformation.ExitCode != 0)
-        {
-            // A non-zero exit code may indicate that the application executed by
-            // the task encountered an error during execution. As not every
-            // application returns non-zero on failure by default (e.g. robocopy),
-            // your implementation of error checking may differ from this example.
+            Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
+            if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
 
-            allTasksSuccessful = false;
-
-            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
         }
     }
 

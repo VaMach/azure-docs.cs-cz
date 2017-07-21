@@ -1,5 +1,5 @@
 ---
-title: "Dotazování indexu Azure Search pomocí webu Azure Portal | Dokumentace Microsoftu"
+title: "Dotazování indexu (portál – Azure Search) | Dokumentace Microsoftu"
 description: "Vydejte vyhledávací dotaz v Průzkumníku služby Search na webu Azure Portal."
 services: search
 manager: jhubbard
@@ -11,15 +11,16 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 07/10/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Dotazování indexu Azure Search pomocí webu Azure Portal
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Dotazování indexu služby Azure Search pomocí průzkumníka služby Search na webu Azure Portal
 > [!div class="op_single_selector"]
 > * [Přehled](search-query-overview.md)
 > * [Azure Portal](search-explorer.md)
@@ -28,34 +29,43 @@ ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
 > 
 > 
 
-Tento návod vám ukáže, jak dotazovat index Azure Search na webu Azure Portal.
+Tento článek vám ukáže postup dotazování indexu služby Azure Search pomocí **průzkumníka služby Search** na webu Azure Portal. Pomocí průzkumníka služby Search můžete odesílat jednoduché nebo úplné řetězce dotazů Lucene do jakéhokoli existujícího indexu v rámci služby.
 
-Je nutné, abyste před zahájením tohoto postupu [vytvořili index Azure Search](search-what-is-an-index.md) a [naplnili ho daty](search-what-is-data-import.md).
-
-## <a name="i-go-to-your-azure-search-blade"></a>I. Přejděte do okna Azure Search
-1. V nabídce na levé straně [webu Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) klikněte na možnost Všechny prostředky.
+## <a name="open-the-service-dashboard"></a>Otevření řídicího panelu služby
+1. Klikněte na **Všechny prostředky** na panelu odkazů na levé straně webu [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 2. Vyberte službu Azure Search.
 
-## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Vyberte index, který chcete prohledat
-1. Na dlaždici Indexy vyberte index, který chcete prohledat.
+## <a name="select-an-index"></a>Výběr indexu
 
-![](./media/search-explorer/pick-index.png)
+Na dlaždici **Indexy** vyberte index, který chcete prohledat.
 
-## <a name="iii-click-on-the-search-explorer-tile"></a>III. Klikněte na dlaždici Průzkumník služby Search
-![](./media/search-explorer/search-explorer-tile.png)
+   ![](./media/search-explorer/pick-index.png)
 
-## <a name="iii-start-searching"></a>III. Spusťte hledání
-1. Pokud chcete prohledat index Azure Search, pište do pole *Řetězec dotazu* a stiskněte **Hledat**.
+## <a name="open-search-explorer"></a>Otevření průzkumníka služby Search
+
+Kliknutím na dlaždici Průzkumník služby Search otevřete vysouvací panel hledání a podokno výsledků.
+
+   ![](./media/search-explorer/search-explorer-tile.png)
+
+## <a name="start-searching"></a>Spusťte hledání
+
+Pokud používáte průzkumníka služby Search, můžete dotaz formulovat zadáním [parametrů dotazu](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+
+1. V části **Řetězec dotazu** zadejte dotaz a potom stiskněte **Hledat**. 
+
+   Řetězec dotazu se automaticky parsuje do správné adresy URL žádosti za účelem odeslání žádosti HTTP do rozhraní REST API služby Azure Search.   
    
-   * Jestliže používáte Průzkumník služby Search, můžete zadat kterýkoli z [parametrů dotazu](https://msdn.microsoft.com/library/dn798927.aspx).
-2. V části *Výsledky* budou výsledky dotazu uvedené v nezpracovaném formátu JSON, jaký byste obdrželi v textu odpovědi HTTP při vydávání žádostí hledání do rozhraní REST API služby Azure Search.
-3. Řetězec dotazu se automaticky parsuje do správné adresy URL žádosti za účelem odeslání žádosti HTTP do rozhraní REST API služby Azure Search.
+   K vytvoření žádosti můžete použít jakoukoli platnou syntaxi jednoduchého nebo úplného dotazu Lucene. Znak `*` je ekvivalentní prázdnému nebo nespecifikovanému hledání, které vrátí všechny dokumenty bez zvláštního pořadí.
 
-![](./media/search-explorer/search-bar.png)
+2. V části **Výsledky** jsou výsledky dotazu uvedené ve stejném nezpracovaném formátu JSON jako datová část vrácená v textu odpovědi HTTP při vydávání žádostí prostřednictvím kódu programu.
 
+   ![](./media/search-explorer/search-bar.png)
 
+## <a name="next-steps"></a>Další kroky
 
+V následujících zdrojích najdete další informace o syntaxi dotazů a příklady.
 
-<!--HONumber=Nov16_HO2-->
-
-
+ + [Jednoduchá syntaxe dotazů](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ + [Syntaxe dotazů Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ + [Příklady syntaxe dotazů Lucene](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
+ + [Syntaxe výrazů filtru OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 

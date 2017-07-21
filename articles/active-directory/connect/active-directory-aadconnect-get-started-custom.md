@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 5120b3f11549c936daacdfab37190a7193fde89f
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 669ed9465e4ce4539b8aa642b4dc0eca6bad128a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Vlastní instalace služby Azure AD Connect
@@ -138,7 +137,7 @@ Atribut sourceAnchor je atribut, který se za dobu existence objektu uživatele 
 
 | Nastavení | Popis |
 | --- | --- |
-| Nechat správu zdrojového ukotvení na Azure | Tuto možnost vyberte, pokud chcete, aby Azure AD vybral atribut za vás. |
+| Nechat správu zdrojového ukotvení na Azure | Tuto možnost vyberte, pokud chcete, aby Azure AD vybral atribut za vás. Pokud vyberete tuto možnost, průvodce službou Azure AD Connect použije logiku výběru atributu sourceAnchor popsanou v části článku [Azure AD Connect: Koncepty návrhu – použití msDS-ConsistencyGuid jako parametru sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Jakmile se vlastní instalace dokončí, průvodce vás informuje, který atribut byl vybrán jako atribut zdrojového ukotvení. |
 | Konkrétní atribut | Tuto možnost vyberte, pokud chcete jako atribut sourceAnchor zadat existující atribut AD. |
 
 Protože atribut nejde změnit, je nutné naplánovat a použít dobrý atribut. Jednou z vhodných možností je objectGUID. Tento atribut se změní jenom tehdy, pokud se uživatelský účet přesune mezi doménovými strukturami nebo doménami. V prostředí více doménových struktur, kde přesouváte účty mezi doménovými strukturami, je nutné použít jiný atribut, například atribut s employeeID. Vyhněte se atributům, které se mění, když uživatel uzavře manželství nebo se změní jeho přiřazení. Nelze použít atributy se symbolem @-sign, takže se nedá použít e-mail ani atribut userPrincipalName. V atributu se taky rozlišují velká a malá písmena, proto při přesunutí objektu mezi doménovými strukturami dejte pozor, abyste správně zachovali velká a malá písmena. Binární atributy se zakódují do formátu Base64, ale ostatní typy atributů zůstávají v nekódovaném stavu. Při federacích a v některých rozhraních Azure AD se tento atribut taky nazývá immutableID. Další informace o zdrojovém ukotvení najdete v [konceptech návrhu](active-directory-aadconnect-design-concepts.md#sourceanchor).
@@ -200,8 +199,8 @@ Další informace najdete v tématu [Rozšíření adresáře](active-directory-
 ### <a name="enabling-single-sign-on-sso"></a>Povolení jednotného přihlašování (SSO)
 Konfigurace jednotného přihlašování pro použití se synchronizací hesel a s předávacím ověřováním je jednoduchý proces, který stačí pro každou doménovou strukturu synchronizovanou se službou AD provést pouze jednou. Konfigurace zahrnuje tyto dva kroky:
 
-1.    Vytvořte potřebný účet počítače v místní službě Active Directory.
-2.    Nakonfigurujte zónu intranetu klientského počítače pro podporu jednotného přihlašování.
+1.  Vytvořte potřebný účet počítače v místní službě Active Directory.
+2.  Nakonfigurujte zónu intranetu klientského počítače pro podporu jednotného přihlašování.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Vytvoření účtu počítače ve službě Active Directory
 Pro každou doménovou strukturu přidanou v nástroji AAD Connect musíte zadat přihlašovací údaje správce domény, aby v ní bylo možné vytvořit účet počítače. Přihlašovací údaje slouží jenom k vytvoření účtu a neukládají se. Nepoužívají se ani pro žádné jiné operace. Jednoduše přidejte přihlašovací údaje v Průvodci nástrojem AAD Connect na stránce **Povolit jednotné přihlašování**, jak znázorňuje následující obrázek:
@@ -215,20 +214,20 @@ Pro každou doménovou strukturu přidanou v nástroji AAD Connect musíte zadat
 Pokud chcete zajistit, aby se klient v zóně intranetu přihlásil automaticky, ujistěte se, že součástí zóny intranetu jsou dvě adresy URL. Tím se zajistí, že počítač připojený k doméně při připojení k podnikové síti automaticky odešle službě Azure AD lístek Kerberos.
 Na počítači, který obsahuje Nástroje pro správu zásad skupiny:
 
-1.    Spusťte Nástroje pro správu zásad skupiny.
-2.    Upravte zásady skupiny, které se použijí na všechny uživatele. Například Výchozí zásady domény.
-3.    Přejděte do **Konfigurace uživatele\Šablony pro správu\Komponenty Windows\Internet Explorer\Ovládací panely – Internet\Stránka zabezpečení** a vyberte **Seznam zařazení serverů do zón**, jak je znázorněné na následujícím obrázku.
-4.    Povolte zásady a do dialogového okna zadejte tyto dvě položky.
+1.  Spusťte Nástroje pro správu zásad skupiny.
+2.  Upravte zásady skupiny, které se použijí na všechny uživatele. Například Výchozí zásady domény.
+3.  Přejděte do **Konfigurace uživatele\Šablony pro správu\Komponenty Windows\Internet Explorer\Ovládací panely – Internet\Stránka zabezpečení** a vyberte **Seznam zařazení serverů do zón**, jak je znázorněné na následujícím obrázku.
+4.  Povolte zásady a do dialogového okna zadejte tyto dvě položky.
 
-        Hodnota: `https://autologon.microsoftazuread-sso.com`  
+        Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Hodnota: `https://aadg.windows.net.nsatc.net`  
+        Value: `https://aadg.windows.net.nsatc.net`  
         Data: 1
 
-5.    Mělo by to vypadat nějak takto:  
+5.  Mělo by to vypadat nějak takto:  
 ![Zóny intranetu](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    Dvakrát klikněte na **OK**.
+6.  Dvakrát klikněte na **OK**.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurace federace se službou AD FS
 Konfigurace služby AD FS se službou Azure AD Connect je jednoduchá a dá se provést několika kliknutími. Před konfigurací jsou vyžadovány následující položky.

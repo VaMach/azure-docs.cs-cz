@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/23/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -163,6 +164,15 @@ Teď když jste vytvořili trezor, nakonfigurujte pro něj zálohování soubor�
      >
 
 Agent je nyní nainstalovaný a váš počítač je registrovaný k trezoru. Jste připraveni nakonfigurovat a naplánovat zálohování.
+
+## <a name="network-and-connectivity-requirements"></a>Požadavky na síť a připojení
+
+Pokud má váš počítač nebo proxy server omezený přístup k internetu, ujistěte se, že nastavení brány firewall na počítači nebo proxy serveru jsou nakonfigurována tak, aby povolovala následující adresy URL: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
 
 ## <a name="back-up-your-files-and-folders"></a>Zálohování souborů a složek
 Prvotní záloha zahrnuje dvě klíčové úlohy:

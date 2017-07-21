@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 06/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
-ms.lasthandoff: 04/20/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -25,13 +26,13 @@ ms.lasthandoff: 04/20/2017
 Log Analytics je služba v rámci [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md), která monitoruje cloudové a místní prostředí s cílem zachovat jejich dostupnost a výkon.  Shromažďuje data generovaná prostředky ve vašem cloudovém a místním prostředí a také data z dalších nástrojů pro monitorování a poskytuje analýzy napříč zdroji.  Tento článek obsahuje stručný popis toho, co služba Log Analytics poskytuje, přehled toho, jak funguje, a odkazy na podrobnější obsah, abyste ji mohli blíž prozkoumat.
 
 ## <a name="is-log-analytics-for-you"></a>Je pro vás služba Log Analytics vhodná?
-Pokud ještě nemáte pro prostředí Azure nastavené žádné monitorování, měli byste začít s [Azure Monitorem](../monitoring-and-diagnostics/monitoring-overview.md), který shromažďuje a analyzuje data monitorování prostředků Azure.  Log Analytics může shromažďovat data z Azure Monitoru, dát je do souvislosti s ostatními daty a poskytovat další analýzy.
+Pokud ještě nemáte pro prostředí Azure nastavené žádné monitorování, měli byste začít s [Azure Monitorem](../monitoring-and-diagnostics/monitoring-overview.md), který shromažďuje a analyzuje data monitorování prostředků Azure.  Log Analytics může [shromažďovat data z Azure Monitoru](log-analytics-azure-storage.md), dát je do souvislosti s ostatními daty a poskytovat další analýzy.
 
 Pokud chcete monitorovat místní prostředí nebo už využíváte monitorování pomocí služeb, jako je Azure Monitor nebo System Center Operations Manager, může využití služby Log Analytics výrazně zlepšit situaci.  Může do jednoho úložiště shromažďovat data přímo z agentů a také z těchto dalších nástrojů.  Analytické nástroje služby Log Analytics, jako je prohledávání protokolu, zobrazení a řešení, využívají všechna shromážděná data a poskytují centralizovanou analýzu celého prostředí.
 
 
 ## <a name="using-log-analytics"></a>Použití Log Analytics
-K přístupu ke službě Log Analytics můžete využít portál OMS nebo Log Analytics, které se dají otevřít v jakémkoli prohlížeči a které poskytují přístup k nastavení konfigurace a několika nástrojům pro analýzy shromážděných dat a práci s nimi.  Z portálu můžete využívat [prohledávání protokolů](log-analytics-log-searches.md), kde je možné vytvářet dotazy pro analýzy shromážděných dat, [řídicí panely](log-analytics-dashboards.md) které můžete přizpůsobit pomocí grafických zobrazení nejdůležitějších hledání, a [řešení](log-analytics-add-solutions.md) která poskytují další funkce a analytické nástroje.
+K přístupu ke službě Log Analytics můžete využít portál OMS nebo Azure Portal, které se dají otevřít v jakémkoli prohlížeči a které poskytují přístup k nastavení konfigurace a několika nástrojům pro analýzy shromážděných dat a práci s nimi.  Z portálu můžete využívat [prohledávání protokolů](log-analytics-log-searches.md), kde je možné vytvářet dotazy pro analýzy shromážděných dat, [řídicí panely](log-analytics-dashboards.md) které můžete přizpůsobit pomocí grafických zobrazení nejdůležitějších hledání, a [řešení](log-analytics-add-solutions.md) která poskytují další funkce a analytické nástroje.
 
 Následující obrázek je z portálu OMS a ukazuje řídicí panel, který zobrazuje souhrnné informace o [řešeních](#add-functionality-with-management-solutions), která jsou v pracovním prostoru nainstalovaná.  Kliknutím na libovolnou dlaždici můžete přejít k podrobným datům pro příslušné řešení.
 

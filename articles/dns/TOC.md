@@ -62,8 +62,9 @@
 ## [Web Apps](/azure/app-service-web/)
 
 # Zdroje a prostředky
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=dns)
-## [Ceny](https://azure.microsoft.com/pricing/details/dns/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Žádosti o funkce](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
-## [Žádosti o funkce](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
+## [Ceny](https://azure.microsoft.com/pricing/details/dns/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=dns)

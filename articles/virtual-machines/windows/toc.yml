@@ -2,413 +2,454 @@
   href: index.yml
 - name: Přehled
   items:
-  - name: Informace o službě Virtual Machines
-    href: overview.md
+    - name: Informace o službě Virtual Machines
+      href: overview.md
 - name: Šablony Rychlý start
   expanded: true
   items:
-  - name: Vytvoření virtuálního počítače – portál
-    href: quick-create-portal.md
-  - name: Vytvoření virtuálního počítače – PowerShell
-    href: quick-create-powershell.md
-  - name: Vytvoření virtuálního počítače – Azure CLI
-    href: quick-create-cli.md
+    - name: Vytvoření virtuálního počítače – portál
+      href: quick-create-portal.md
+    - name: Vytvoření virtuálního počítače – PowerShell
+      href: quick-create-powershell.md
+    - name: Vytvoření virtuálního počítače – Azure CLI
+      href: quick-create-cli.md
 - name: Kurzy
   items:
-  - name: 1. Vytvoření a správa virtuálního počítače
-    href: tutorial-manage-vm.md
-  - name: 2. Vytvoření a správa disků
-    href: tutorial-manage-data-disk.md
-  - name: 3. Automatizace konfigurace
-    href: tutorial-automate-vm-deployment.md
-  - name: 4. Vytvoření virtuálního počítače
-    href: tutorial-custom-images.md
-  - name: 5. Vysoce dostupné virtuální počítače
-    href: tutorial-availability-sets.md
-  - name: 6. Vytvoření škálovací sady virtuálních počítačů
-    href: tutorial-create-vmss.md
-  - name: 7. Vyrovnávání zatížení virtuálních počítačů
-    href: tutorial-load-balancer.md
-  - name: 8. Správa sítě
-    href: tutorial-virtual-network.md
-  - name: 9. Zálohování virtuálních počítačů
-    href: tutorial-backup-vms.md
-  - name: 10. Monitorování virtuálních počítačů
-    href: tutorial-monitoring.md
-  - name: 11. Správa zabezpečení virtuálního počítače
-    href: tutorial-azure-security.md
-  - name: 12. CI/CD služby Team Services
-    href: tutorial-vsts-iis-cicd.md
+    - name: 1. Vytvoření a správa virtuálního počítače
+      href: tutorial-manage-vm.md
+    - name: 2. Vytvoření a správa disků
+      href: tutorial-manage-data-disk.md
+    - name: 3. Automatizace konfigurace
+      href: tutorial-automate-vm-deployment.md
+    - name: 4. Vytvoření virtuálního počítače
+      href: tutorial-custom-images.md
+    - name: 5. Vysoce dostupné virtuální počítače
+      href: tutorial-availability-sets.md
+    - name: 6. Vytvoření škálovací sady virtuálních počítačů
+      href: tutorial-create-vmss.md
+    - name: 7. Vyrovnávání zatížení virtuálních počítačů
+      href: tutorial-load-balancer.md
+    - name: 8. Správa sítě
+      href: tutorial-virtual-network.md
+    - name: 9. Zálohování virtuálních počítačů
+      href: tutorial-backup-vms.md
+    - name: 10. Monitorování virtuálních počítačů
+      href: tutorial-monitoring.md
+    - name: 11. Správa zabezpečení virtuálního počítače
+      href: tutorial-azure-security.md
+    - name: 12. CI/CD služby Team Services
+      href: tutorial-vsts-iis-cicd.md
 - name: Ukázky
   items:
-  - name: PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Koncepty
   items:
-  - name: Oblasti a dostupnost
-    href: regions-and-availability.md
-  - name: Storage
-    href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Sítě
-    href: network-overview.md
-  - name: Škálovací sady virtuálních počítačů
-    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Služba metadat instance
- 
-    href: ../virtual-machines-instancemetadataservice-overview.md
-  - name: Kontejnery
-    href: containers.md
-  - name: Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    items:
-    - name: Modely nasazení
-      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Šablony pro virtuální počítače
-      href: template-description.md
-  - name: Agent Azure Windows
-    href: agent-user-guide.md
-  - name: Azure Security Center
-    href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Zotavení po havárii
-    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Plánovaná údržba
-    href: planned-maintenance.md
-    items:
-    - name: Údržba pro zachování
-      href: preserving-maintenance.md
-    - name: Restartování údržby
-      href: impactful-maintenance.md
-    - name: Plán
-      href: planned-maintenance-schedule.md
-  - name: Velikost virtuálních počítačů
-    href: sizes.md
-    items:
-    - name: Obecné účely
-      href: sizes-general.md
-    - name: Optimalizované z hlediska výpočetních služeb
-      href: sizes-compute.md
-    - name: Optimalizované z hlediska paměti
-      href: sizes-memory.md
-    - name: Optimalizované z hlediska úložiště
-      href: sizes-storage.md
-    - name: Optimalizované z hlediska GPU
-      href: sizes-gpu.md
-    - name: Vysokovýkonné výpočetní prostředí
-      href: sizes-hpc.md
-      items:
-      - name: Velikosti náročné na výpočetní výkon
-        href: a8-a9-a10-a11-specs.md
-    - name: Výpočetní jednotky Azure (ACU)
-      href: acu.md
-    - name: Výsledky srovnávacích testů Compute
-      href: compute-benchmark-scores.md
-    - name: Osvědčené postupy pro spuštění virtuálního počítače s Windows
-      href: guidance-compute-single-vm.md
-  - name: Aspekty nasazování
-    items:
-    - name: Pokyny pro infrastrukturu
-      href: infrastructure-virtual-machine-guidelines.md
-    - name: Předplatná a účty
-      href: infrastructure-subscription-accounts-guidelines.md
-    - name: Pojmenování
-      href: infrastructure-naming-guidelines.md
-    - name: Skupiny prostředků
-      href: infrastructure-resource-groups-guidelines.md
-    - name: Úložiště
-      href: infrastructure-storage-solutions-guidelines.md
+    - name: Oblasti a dostupnost
+      href: regions-and-availability.md
+    - name: Storage
+      href: >-
+        ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Sítě
-      href: infrastructure-networking-guidelines.md
-    - name: Skupiny dostupnosti
-      href: infrastructure-availability-sets-guidelines.md
-    - name: Příklad infrastruktury
-      href: infrastructure-example.md
+      href: network-overview.md
+    - name: Škálovací sady virtuálních počítačů
+      href: >-
+        ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Služba metadat instance
+      href: ../virtual-machines-instancemetadataservice-overview.md
+    - name: Kontejnery
+      href: containers.md
+    - name: Resource Manager
+      href: >-
+        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Modely nasazení
+          href: >-
+            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Šablony pro virtuální počítače
+          href: template-description.md
+    - name: Agent Azure Windows
+      href: agent-user-guide.md
+    - name: Azure Security Center
+      href: >-
+        ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Zotavení po havárii
+      href: >-
+        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Plánovaná údržba
+      href: planned-maintenance.md
+      items:
+        - name: Údržba pro zachování
+          href: preserving-maintenance.md
+        - name: Restartování údržby
+          href: impactful-maintenance.md
+    - name: Velikost virtuálních počítačů
+      href: sizes.md
+      items:
+        - name: Obecné účely
+          href: sizes-general.md
+        - name: Optimalizované z hlediska výpočetních služeb
+          href: sizes-compute.md
+        - name: Optimalizované z hlediska paměti
+          href: sizes-memory.md
+        - name: Optimalizované z hlediska úložiště
+          href: sizes-storage.md
+        - name: Optimalizované z hlediska GPU
+          href: sizes-gpu.md
+          items:
+            - name: Ovladače GPU
+              href: n-series-driver-setup.md
+        - name: Vysokovýkonné výpočetní prostředí
+          href: sizes-hpc.md
+        - name: Výpočetní jednotky Azure (ACU)
+          href: acu.md
+        - name: Výsledky srovnávacích testů Compute
+          href: compute-benchmark-scores.md
+        - name: Osvědčené postupy pro spuštění virtuálního počítače s Windows
+          href: guidance-compute-single-vm.md
+    - name: Aspekty nasazování
+      items:
+        - name: Pokyny pro infrastrukturu
+          href: infrastructure-virtual-machine-guidelines.md
+        - name: Předplatná a účty
+          href: infrastructure-subscription-accounts-guidelines.md
+        - name: Pojmenování
+          href: infrastructure-naming-guidelines.md
+        - name: Skupiny prostředků
+          href: infrastructure-resource-groups-guidelines.md
+        - name: Úložiště
+          href: infrastructure-storage-solutions-guidelines.md
+        - name: Sítě
+          href: infrastructure-networking-guidelines.md
+        - name: Skupiny dostupnosti
+          href: infrastructure-availability-sets-guidelines.md
+        - name: Příklad infrastruktury
+          href: infrastructure-example.md
 - name: Návody
   items:
-  - name: Vytvoření virtuálních počítačů
-    items:
-    - name: Přehled vytváření virtuálních počítačů
-      href: creation-choices.md
-    - name: Vytvoření virtuálního počítače ze specializovaného virtuálního pevného disku
-      href: create-vm-specialized.md
-    - name: Vytvoření virtuálního počítače pomocí šablony
-      href: ps-template.md
-    - name: 'Vytvoření virtuálního počítače pomocí C#'
-      href: csharp.md
-    - name: 'Vytvoření virtuálního počítače pomocí C# a šablony'
-      href: csharp-template.md
-    - name: Vytvoření virtuálního počítače pomocí Chefu
-      href: chef-automation.md
-    - name: Vytvoření virtuálního počítače s oblíbenými aplikačními architekturami
-      href: app-frameworks.md
-    - name: Přesun virtuálních počítačů mezi předplatnými
-      href: move-vm.md
-  - name: Konfigurace virtuálních počítačů
-    items:
-    - name: Změna velikosti virtuálního počítače
-      href: resize-vm.md
-    - name: Použití značek
-      href: ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Vytvoření virtuálních počítačů
       items:
-      - name: Označení virtuálního počítače
-        href: tag.md
-    - name: Zálohování pomocí služby Recovery Services
-      href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Správa záloh pomocí PowerShellu
-      href: ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Stažení šablony virtuálního počítače
-      href: download-template.md
-    - name: Běžné úlohy PowerShellu
-      href: ps-common-ref.md
-    - name: Běžné úlohy rozhraní příkazového řádku
-      href: cli-manage.md
-    - name: Správa virtuálních počítačů pomocí rozhraní příkazového řádku
-      href: cli-deploy-templates.md
-    - name: 'Správa virtuálních počítačů pomocí jazyka C#'
-      href: csharp-manage.md
-  - name: Připojení přes RDP
-    items:
-    - name: Přihlášení k virtuálnímu počítači
-      href: connect-logon.md
-  - name: Správa imagí virtuálních počítačů
-    items:
-    - name: Vyhledání imagí virtuálních počítačů na Marketplace
-      href: cli-ps-findimage.md
-    - name: Licencování programu Azure Hybrid Use Benefit
-      href: hybrid-use-benefit-licensing.md
-    - name: Použití imagí klienta Windows
-      href: client-images.md
-    - name: Příprava VHD pro nahrání
-      href: prepare-for-upload-vhd-image.md
-    - name: Vytvoření image spravovaného disku
-      href: capture-image-resource.md
-    - name: Vytvoření virtuálního počítače z generalizované image spravovaného disku
-      href: create-vm-generalized-managed.md
-  - name: Správa úložiště virtuálního počítače
-    items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Přehled vytváření virtuálních počítačů
+          href: creation-choices.md
+        - name: >-
+            Vytvoření virtuálního počítače ze specializovaného virtuálního
+            pevného disku
+          href: create-vm-specialized.md
+        - name: Vytvoření virtuálního počítače pomocí šablony
+          href: ps-template.md
+        - name: 'Vytvoření a správa virtuálního počítače pomocí C#'
+          href: csharp.md
+        - name: 'Vytvoření virtuálního počítače pomocí C# a šablony'
+          href: csharp-template.md
+        - name: Vytvoření virtuálního počítače pomocí Chefu
+          href: chef-automation.md
+        - name: Vytvoření a správa virtuálního počítače pomocí Pythonu
+          href: python.md
+        - name: Vytvoření virtuálního počítače pomocí Terraformu
+          items:
+            - name: Instalace a konfigurace
+              href: ../terraform-install-configure.md
+            - name: Vytvoření základní infrastruktury
+              href: ../terraform-create-complete-vm.md
+        - name: >-
+            Vytvoření virtuálního počítače s oblíbenými aplikačními
+            architekturami
+          href: app-frameworks.md
+        - name: Přesun virtuálních počítačů mezi předplatnými
+          href: move-vm.md
+    - name: Konfigurace virtuálních počítačů
       items:
-      - name: Nejčastější dotazy
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Vytvoření spravovaného disku
-      href: create-managed-disk-ps.md
-    - name: Migrace virtuálních počítačů na Managed Disks
-      href: migrate-to-managed-disks.md
+        - name: Změna velikosti virtuálního počítače
+          href: resize-vm.md
+        - name: Použití značek
+          href: >-
+            ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          items:
+            - name: Označení virtuálního počítače
+              href: tag.md
+        - name: Zálohování pomocí služby Recovery Services
+          href: >-
+            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Správa záloh pomocí PowerShellu
+          href: >-
+            ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Stažení šablony virtuálního počítače
+          href: download-template.md
+        - name: Běžné úlohy PowerShellu
+          href: ps-common-ref.md
+        - name: Běžné úlohy rozhraní příkazového řádku
+          href: cli-manage.md
+        - name: Správa virtuálních počítačů pomocí rozhraní příkazového řádku
+          href: cli-deploy-templates.md
+    - name: Připojení přes RDP
       items:
-      - name: Převod z nespravovaných disků na Managed Disks
-        href: convert-unmanaged-to-managed-disks.md
-      - name: Migrace klasického virtuálního počítače na Managed Disks
-        href: migrate-single-classic-to-resource-manager.md
-    - name: Pořízení snímku spravovaného disku
-      href: snapshot-copy-managed-disk.md
-    - name: Připojení datového disku
+        - name: Přihlášení k virtuálnímu počítači
+          href: connect-logon.md
+    - name: Správa imagí virtuálních počítačů
       items:
-      - name: Azure PowerShell
-        href: attach-disk-ps.md
-      - name: portál Azure
-        href: attach-managed-disk-portal.md
-    - name: Odpojení datového disku
-      href: detach-disk.md
-    - name: Rozbalení disku operačního systému
-      href: expand-os-disk.md
-    - name: Rozbalení datového disku
-      href: expand-data-disks.md
-    - name: 'Použití disku D: jako datového disku'
-      href: change-drive-letter.md
-  - name: Sítě virtuálních počítačů
-    href: ps-common-network-ref.md
-    items:
-    - name: Vytvoření virtuálních sítí
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Vytvoření virtuálního počítače s několika síťovými kartami
-      href: multiple-nics.md
-    - name: Vytvoření statické veřejné IP adresy
-      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 'Konfigurace portů, koncových bodů a zabezpečení'
-      href: endpoints-in-resource-manager.md
-    - name: Umožnění přístupu k virtuálnímu počítači
+        - name: Vyhledání imagí virtuálních počítačů na Marketplace
+          href: cli-ps-findimage.md
+        - name: Licencování programu Azure Hybrid Use Benefit
+          href: hybrid-use-benefit-licensing.md
+        - name: Použití imagí klienta Windows
+          href: client-images.md
+        - name: Stažení virtuálního pevného disku
+          href: download-vhd.md
+        - name: Příprava VHD pro nahrání
+          href: prepare-for-upload-vhd-image.md
+        - name: Vytvoření image spravovaného disku
+          href: capture-image-resource.md
+        - name: >-
+            Vytvoření virtuálního počítače z generalizované image spravovaného
+            disku
+          href: create-vm-generalized-managed.md
+        - name: Vytvoření image pomocí Packeru
+          href: build-image-with-packer.md
+    - name: Správa úložiště virtuálního počítače
       items:
-      - name: Azure PowerShell
-        href: nsg-quickstart-powershell.md
-      - name: portál Azure
-        href: nsg-quickstart-portal.md
-    - name: Možnosti překladu názvů DNS
-      href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Vytvoření plně kvalifikovaného názvu domény pomocí portálu
-      href: portal-create-fqdn.md
-  - name: Škálování a dostupnost
-    items:
-    - name: Dostupnost virtuálních počítačů
-      href: manage-availability.md
-    - name: Vytvoření skupiny dostupnosti
-      href: create-availability-set.md
-    - name: Změna skupiny dostupnosti pro virtuální počítač
-      href: change-availability-set.md
-    - name: Přehled nástroje Load Balancer
-      href: load-balance.md
+        - name: Vytvoření spravovaného disku
+          href: create-managed-disk-ps.md
+        - name: Migrace virtuálních počítačů na Managed Disks
+          href: migrate-to-managed-disks.md
+          items:
+            - name: Převod z nespravovaných disků na Managed Disks
+              href: convert-unmanaged-to-managed-disks.md
+            - name: Migrace klasického virtuálního počítače na Managed Disks
+              href: migrate-single-classic-to-resource-manager.md
+        - name: Pořízení snímku spravovaného disku
+          href: snapshot-copy-managed-disk.md
+        - name: Připojení datového disku
+          items:
+            - name: Azure PowerShell
+              href: attach-disk-ps.md
+            - name: portál Azure
+              href: attach-managed-disk-portal.md
+        - name: Odpojení datového disku
+          href: detach-disk.md
+        - name: Rozbalení disku operačního systému
+          href: expand-os-disk.md
+        - name: Rozbalení datového disku
+          href: expand-data-disks.md
+        - name: Použití sdílené složky
+          href: mount-azure-file-storage.md
+        - name: 'Použití disku D: jako datového disku'
+          href: change-drive-letter.md
+    - name: Sítě virtuálních počítačů
+      href: ps-common-network-ref.md
       items:
-      - name: Vytvoření nástroje pro vyrovnávání zatížení
-        href: ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Škálování několika virtuálních počítačů pomocí VMSS
-      href: vmss-powershell-creating.md
-    - name: Vytvoření několika virtuálních počítačů Azure
-      href: multiple-vms.md
-    - name: Vertikální škálování virtuálních počítačů pomocí Azure Automation
-      href: vertical-scaling-automation.md
-    - name: Vytvoření virtuálního počítače s monitorováním a diagnostikou
-      href: extensions-diagnostics-template.md
-    - name: Přehled Azure Automation
-      href: manage-using-azure-automation.md
-  - name: Správa zabezpečení virtuálního počítače
-    items:
-    - name: Resetování hesla
-      href: reset-local-password-without-agent.md
-    - name: Vytvoření pracovní nebo školní identity v Azure AD
-      href: create-aad-work-id.md
-    - name: Správa přístupu
-      href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Šifrování disku
-      href: encrypt-disks.md
-    - name: Použití zásad pro virtuální počítače
-      href: policy.md
-    - name: Nastavení služby Key Vault
-      href: key-vault-setup.md
-    - name: Nastavení WinRM
-      href: winrm.md
-  - name: Použití rozšíření virtuálních počítačů
-    items:
-    - name: Přehled rozšíření virtuálních počítačů
-      href: extensions-features.md
-    - name: Rozšíření vlastních skriptů
-      href: extensions-customscript.md
-    - name: Rozšíření agenta OMS
-      href: extensions-oms.md
-    - name: Rozšíření prostředí PowerShell DSC
-      href: extensions-dsc-overview.md
+        - name: Vytvoření virtuálních sítí
+          href: >-
+            ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Vytvoření virtuálního počítače s několika síťovými kartami
+          href: multiple-nics.md
+        - name: Vytvoření statické veřejné IP adresy
+          href: >-
+            ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: 'Konfigurace portů, koncových bodů a zabezpečení'
+          href: endpoints-in-resource-manager.md
+        - name: Umožnění přístupu k virtuálnímu počítači
+          items:
+            - name: Azure PowerShell
+              href: nsg-quickstart-powershell.md
+            - name: portál Azure
+              href: nsg-quickstart-portal.md
+        - name: Možnosti překladu názvů DNS
+          href: >-
+            ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Vytvoření plně kvalifikovaného názvu domény pomocí portálu
+          href: portal-create-fqdn.md
+    - name: Škálování a dostupnost
       items:
-      - name: Zpracování přihlašovacích údajů rozšíření prostředí PowerShell DSC
-        href: extensions-dsc-credentials.md
-      - name: DSC a VMSS se šablonami
-        href: extensions-dsc-template.md
-    - name: Rozšíření Azure Log Collector
-      href: log-collector-extension.md
-    - name: Rozšíření diagnostiky Azure
-      href: ps-extensions-diagnostics.md
-    - name: Rozšíření v šablonách
-      href: extensions-authoring-templates.md
-    - name: Export rozšíření virtuálních počítačů
-      href: extensions-export-templates.md
-    - name: Ukázky konfigurace
-      href: extensions-configuration-samples.md
-    - name: Poradce při potížích s rozšířeními
-      href: extensions-troubleshoot.md
-  - name: Spouštění aplikací
-    items:
-    - name: SQL Server
-      href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
-    - name: SharePoint
-      href: sharepoint-farm.md
-    - name: Nastavení webové aplikace LOB v hybridním cloudu pro testování
-      href: ps-hybrid-cloud-test-env-lob.md
-    - name: Nastavení simulovaného hybridního cloudového prostředí pro testování
-      href: ps-hybrid-cloud-test-env-sim.md
-    - name: MongoDB
-      href: install-mongodb.md
-    - name: Vysokovýkonné výpočetní prostředí (HPC)
-      href: hpcpack-cluster-options.md
-    - name: MATLAB
-      href: matlab-mdcs-cluster.md
-    - name: SAP v Azure
-      href: ../workloads/sap/get-started.md
-  - name: Migrace virtuálních počítačů
-    items:
-    - name: Migrace AWS a místních virtuálních počítačů do Azure
-      href: on-prem-to-azure.md
+        - name: Dostupnost virtuálních počítačů
+          href: manage-availability.md
+        - name: Vytvoření skupiny dostupnosti
+          href: create-availability-set.md
+        - name: Změna skupiny dostupnosti pro virtuální počítač
+          href: change-availability-set.md
+        - name: Přehled nástroje Load Balancer
+          href: load-balance.md
+          items:
+            - name: Vytvoření nástroje pro vyrovnávání zatížení
+              href: >-
+                ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Škálování několika virtuálních počítačů pomocí VMSS
+          href: vmss-powershell-creating.md
+        - name: Vytvoření několika virtuálních počítačů Azure
+          href: multiple-vms.md
+        - name: Vertikální škálování virtuálních počítačů pomocí Azure Automation
+          href: vertical-scaling-automation.md
+        - name: Vytvoření virtuálního počítače s monitorováním a diagnostikou
+          href: extensions-diagnostics-template.md
+        - name: Přehled Azure Automation
+          href: manage-using-azure-automation.md
+    - name: Správa zabezpečení virtuálního počítače
       items:
-      - name: Migrace z AWS (Amazon Web Services) do Azure
-        href: aws-to-azure.md
-      - name: Nahrání a vytvoření virtuálního počítače z generalizovaného VHD
-        href: upload-generalized-managed.md
-    - name: Migrace z modelu Classic na Azure Resource Manager
-      href: migration-classic-resource-manager-overview.md
+        - name: Resetování hesla
+          href: reset-local-password-without-agent.md
+        - name: Vytvoření pracovní nebo školní identity v Azure AD
+          href: create-aad-work-id.md
+        - name: Správa přístupu
+          href: >-
+            ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Šifrování disku
+          href: encrypt-disks.md
+        - name: Použití zásad pro virtuální počítače
+          href: policy.md
+        - name: Nastavení služby Key Vault
+          href: key-vault-setup.md
+        - name: Nastavení WinRM
+          href: winrm.md
+    - name: Použití rozšíření virtuálních počítačů
       items:
-      - name: Podrobné informace o migraci
-        href: migration-classic-resource-manager-deep-dive.md
-      - name: Plánování migrace
-        href: migration-classic-resource-manager-plan.md
-      - name: Migrace pomocí prostředí PowerShell
-        href: migration-classic-resource-manager-ps.md
-      - name: Běžné chyby při migraci
-        href: migration-classic-resource-manager-errors.md
-      - name: Komunitní nástroje pro migraci
-        href: migration-classic-resource-manager-community-tools.md
-      - name: Nejčastější dotazy
-        href: migration-classic-resource-manager-faq.md
-  - name: Řešení potíží
-    items:
-    - name: Připojení Vzdálené plochy
-      href: troubleshoot-rdp-connection.md
+        - name: Přehled rozšíření virtuálních počítačů
+          href: extensions-features.md
+        - name: Rozšíření vlastních skriptů
+          href: extensions-customscript.md
+        - name: Rozšíření agenta OMS
+          href: extensions-oms.md
+        - name: Rozšíření prostředí PowerShell DSC
+          href: extensions-dsc-overview.md
+          items:
+            - name: >-
+                Zpracování přihlašovacích údajů rozšíření prostředí PowerShell
+                DSC
+              href: extensions-dsc-credentials.md
+            - name: DSC a VMSS se šablonami
+              href: extensions-dsc-template.md
+        - name: Rozšíření Azure Log Collector
+          href: log-collector-extension.md
+        - name: Rozšíření diagnostiky Azure
+          href: ps-extensions-diagnostics.md
+        - name: Rozšíření v šablonách
+          href: extensions-authoring-templates.md
+        - name: Export rozšíření virtuálních počítačů
+          href: extensions-export-templates.md
+        - name: Ukázky konfigurace
+          href: extensions-configuration-samples.md
+        - name: Poradce při potížích s rozšířeními
+          href: extensions-troubleshoot.md
+    - name: Spouštění aplikací
       items:
-      - name: Podrobné kroky
-        href: detailed-troubleshoot-rdp.md
-      - name: Chybové zprávy
-        href: troubleshoot-specific-rdp-errors.md
-    - name: Obnovení hesla protokolu RDP
-      href: reset-rdp.md
-    - name: Diagnostika spouštění
- 
-      href: boot-diagnostics.md
-    - name: Vytvoření virtuálního počítače
-      href: troubleshoot-deployment-new-vm.md
-    - name: Restartování nebo změna velikosti virtuálního počítače
-      href: restart-resize-error-troubleshooting.md
-    - name: Přístup k aplikaci
-      href: troubleshoot-app-connection.md
-    - name: Selhání přidělení
-      href: allocation-failure.md
-    - name: Znovunasazení virtuálního počítače
-      href: redeploy-to-new-node.md
-    - name: Běžné chybové zprávy
-      href: error-messages.md
-    - name: Připojení virtuálního pevného disku pro řešení potíží s virtuálním počítačem
+        - name: SQL Server
+          href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
+        - name: SharePoint
+          href: sharepoint-farm.md
+        - name: Nastavení webové aplikace LOB v hybridním cloudu pro testování
+          href: ps-hybrid-cloud-test-env-lob.md
+        - name: Nastavení simulovaného hybridního cloudového prostředí pro testování
+          href: ps-hybrid-cloud-test-env-sim.md
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: Vysokovýkonné výpočetní prostředí (HPC)
+          href: hpcpack-cluster-options.md
+        - name: MATLAB
+          href: matlab-mdcs-cluster.md
+        - name: SAP v Azure
+          href: ../workloads/sap/get-started.md
+    - name: Migrace virtuálních počítačů
       items:
-      - name: Azure PowerShell
-        href: troubleshoot-recovery-disks.md
-      - name: portál Azure
-        href: troubleshoot-recovery-disks-portal.md
+        - name: Migrace AWS a místních virtuálních počítačů do Azure
+          href: on-prem-to-azure.md
+          items:
+            - name: Migrace z AWS (Amazon Web Services) do Azure
+              href: aws-to-azure.md
+            - name: Nahrání a vytvoření virtuálního počítače z generalizovaného VHD
+              href: upload-generalized-managed.md
+        - name: Migrace z modelu Classic na Azure Resource Manager
+          href: migration-classic-resource-manager-overview.md
+          items:
+            - name: Podrobné informace o migraci
+              href: migration-classic-resource-manager-deep-dive.md
+            - name: Plánování migrace
+              href: migration-classic-resource-manager-plan.md
+            - name: Migrace pomocí prostředí PowerShell
+              href: migration-classic-resource-manager-ps.md
+            - name: Běžné chyby při migraci
+              href: migration-classic-resource-manager-errors.md
+            - name: Komunitní nástroje pro migraci
+              href: migration-classic-resource-manager-community-tools.md
+            - name: Nejčastější dotazy
+              href: migration-classic-resource-manager-faq.md
+    - name: Řešení potíží
+      items:
+        - name: Vysvětlení restartování systému
+          href: understand-vm-reboot.md
+        - name: Připojení Vzdálené plochy
+          href: troubleshoot-rdp-connection.md
+          items:
+            - name: Podrobné kroky
+              href: detailed-troubleshoot-rdp.md
+            - name: Chybové zprávy
+              href: troubleshoot-specific-rdp-errors.md
+        - name: Obnovení hesla protokolu RDP
+          href: reset-rdp.md
+        - name: Resetování síťové karty
+          href: reset-network-interface.md
+        - name: Diagnostika spouštění
+          href: boot-diagnostics.md
+        - name: Vytvoření virtuálního počítače
+          href: troubleshoot-deployment-new-vm.md
+        - name: Problémy při nasazení
+          href: troubleshoot-deploy-vm.md
+        - name: Restartování nebo změna velikosti virtuálního počítače
+          href: restart-resize-error-troubleshooting.md
+        - name: Přístup k aplikaci
+          href: troubleshoot-app-connection.md
+        - name: Problémy s aktivací
+          href: troubleshoot-activation-problems.md
+        - name: Selhání přidělení
+          href: allocation-failure.md
+        - name: Znovunasazení virtuálního počítače
+          href: redeploy-to-new-node.md
+        - name: Běžné chybové zprávy
+          href: error-messages.md
+        - name: >-
+            Připojení virtuálního pevného disku pro řešení potíží s virtuálním
+            počítačem
+          items:
+            - name: Azure PowerShell
+              href: troubleshoot-recovery-disks.md
+            - name: portál Azure
+              href: troubleshoot-recovery-disks-portal.md
+        - name: Použití PerfInsights k řešení potíží s výkonem
+          href: how-to-use-perfInsights.md
 - name: Referenční informace
   items:
-  - name: Azure CLI
-    href: /cli/azure/vm
-  - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.compute
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: Rozhraní REST pro Compute
-    href: /rest/api/compute
-  - name: Rozhraní REST pro Managed Disks
-    href: /rest/api/manageddisks
+    - name: Azure CLI
+      href: /cli/azure/vm
+    - name: PowerShell
+      href: /powershell/azureps-cmdlets-docs
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.compute
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: Rozhraní REST pro Compute
+      href: /rest/api/compute
+    - name: Rozhraní REST pro Managed Disks
+      href: /rest/api/manageddisks
 - name: Zdroje a prostředky
   items:
-  - name: Tvorba šablon
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Komunitní šablony
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Ceny
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Regionální dostupnost
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
-  - name: Videa
-    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
-  - name: Nejčastější dotazy
-    href: faq.md
+    - name: Tvorba šablon
+      href: >-
+        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Komunitní šablony
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Regionální dostupnost
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
+    - name: Videa
+      href: >-
+        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+    - name: Nejčastější dotazy
+      href: faq.md

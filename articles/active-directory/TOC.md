@@ -1,10 +1,9 @@
 # Přehled
 ## [Představení služby Azure Active Directory](active-directory-whatis.md)
-## [Výběr edice](active-directory-editions.md)
 ## [Správa identit Azure](identity-fundamentals.md)
 ## [Vysvětlení řešení identit Azure](understand-azure-identity-solutions.md)
-## [Seznámení s prostředím webu Azure Portal](active-directory-preview-explainer.md)
-
+## [Volba řešení s hybridní identitou](choose-hybrid-identity-solution.md)
+## [Nejčastější dotazy](active-directory-faq.md)
 
 # Začínáme
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
@@ -13,16 +12,24 @@
 ## Správa licencí Azure AD
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Portál Classic](active-directory-licensing-what-is.md)
-## [Získejte Azure pro vaši organizaci](sign-up-organization.md)
-## [Nejčastější dotazy](active-directory-faq.md)
+### [Přiřazení licencí pomocí skupin](active-directory-licensing-whatis-azure-portal.md)
+#### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
+#### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
+#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ## [Získání podpory pro Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Kurzy integrace aplikací SaaS](active-directory-saas-tutorial-list.md)
 
 # Postup
 ## Plánování a návrh
 ### [Pochopení architektury Azure AD](active-directory-architecture.md)
+### [Doporučené zásady zabezpečení a konfigurace](secure-email-introduction.md)
+#### [Doporučené zásady zabezpečeného e-mailu](secure-email-recommended-policies.md)
+##### [Nasazení doporučených zásad zabezpečení e-mailu](secure-email-deploy-recommended-policies.md)
+#### [Přehled služeb Office 365 a EMS](secure-email-ems-office365-service-descriptions.md)
 ### [Nasazení řešení s hybridní identitou](active-directory-hybrid-identity-design-considerations-overview.md)
-
+### [Mapování deklarací v Azure Active Directory](active-directory-claims-mapping.md)
 #### Určení požadavků
 ##### [Identita](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Synchronizace adresářů](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -44,12 +51,22 @@
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Portál Classic](active-directory-create-users.md)
 
+
+### [Přiřazení licencí pomocí skupin](active-directory-licensing-whatis-azure-portal.md)
+#### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
+#### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
+#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
+
 ### [Přidávání uživatelů z jiných adresářů (klasický portál)](active-directory-create-users-external.md)
 ### [Odstranění uživatelů](active-directory-users-delete-user-azure-portal.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
 ### [Správa pracovních informací uživatelů](active-directory-users-work-info-azure-portal.md)
 ### [Sdílení účtů](active-directory-sharing-accounts.md)
+
+
 
 ## [Správa skupin a členů](active-directory-manage-groups.md)
 ### Správa skupin
@@ -59,6 +76,12 @@
 ### [Správa členů skupin](active-directory-groups-members-azure-portal.md)
 ### [Správa vlastníků skupin](active-directory-accessmanagement-managing-group-owners.md)
 ### [Správa členství ve skupinách](active-directory-groups-membership-azure-portal.md)
+### [Přiřazení licencí pomocí skupin](active-directory-licensing-whatis-azure-portal.md)
+#### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
+#### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
+#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
 ### [Povolení vyhrazených skupin](active-directory-accessmanagement-dedicated-groups.md)
 ### [Přidání skupiny k aplikacím SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -69,12 +92,6 @@
 ### Vytváření rozšířených pravidel
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Portál Classic](active-directory-accessmanagement-groups-with-advanced-rules.md)
-### [Licencování na základě skupin](active-directory-licensing-whatis-azure-portal.md)
-#### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifikace a řešení potíží s licencemi pro skupinu](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
-#### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
-#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Vytvoření samoobslužných skupin](active-directory-accessmanagement-self-service-group-management.md)
 ### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
 
@@ -84,38 +101,27 @@
 ### [Ohrožení uživatelé](active-directory-reporting-security-user-at-risk.md)
 ### [Riziková přihlášení](active-directory-reporting-security-risky-sign-ins.md)
 ### [Rizikové události](active-directory-reporting-risk-events.md)
-### [Pojmenovaná umístění](active-directory-named-locations.md)
-### [Migrace sestav](active-directory-reporting-migration.md)
-### [Uchování](active-directory-reporting-retention.md)
-### [Latence](active-directory-reporting-latencies-azure-portal.md)
 ### [Nejčastější dotazy](active-directory-reporting-faq.md)
+### Úlohy
+#### [Konfigurace pojmenovaných umístění](active-directory-named-locations.md)
+#### [Vyhledávání sestav aktivit](active-directory-reporting-migration.md)
+#### [Použití sady Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+### Referenční informace
+#### [Uchování](active-directory-reporting-retention.md)
+#### [Latence](active-directory-reporting-latencies-azure-portal.md)
+#### [Oznámení](active-directory-reporting-notifications.md)
+#### [Kódy chyb aktivit přihlašování](active-directory-reporting-activity-sign-ins-errors.md)
 ### Řešení potíží
 #### [Chybějící data auditu](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Chybějící data v souborech ke stažení](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    [Programový přístup](active-directory-reporting-api-getting-started-azure-portal.md)
+#### [Chyby balíčku obsahu protokolů aktivit Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
+### [Programový přístup](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Referenční informace k auditu](active-directory-reporting-api-audit-reference.md)
 #### [Referenční informace k přihlašování](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Požadavky](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Ukázky auditu](active-directory-reporting-api-audit-samples.md)
 #### [Ukázky přihlašování](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Získání dat](active-directory-reporting-api-with-certificates.md)
-### [Portál Classic](active-directory-view-access-usage-reports.md)
-#### [Sestavy Azure AD](active-directory-reporting-getting-started.md)
-#### [Průvodce vytvářením sestav](active-directory-reporting-guide.md)
-#### [Známé sítě](active-directory-known-networks.md)
-#### [Rozhraní API](active-directory-reporting-api-getting-started.md)
-##### [Požadavky](active-directory-reporting-api-prerequisites.md)
-#### [Události auditu](active-directory-reporting-audit-events.md)
-#### [Latence](active-directory-reporting-latencies.md)
-#### [Oznámení](active-directory-reporting-notifications.md)
-#### Vysvětlení sestav
-##### [Nestandardní přihlašování](active-directory-reporting-irregular-sign-in-activity.md)
-##### [Několik neúspěchů](active-directory-reporting-sign-ins-after-multiple-failures.md)
-##### [Podezřelé IP adresy](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-##### [Několik geografických poloh](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-##### [Potenciální nakažená zařízení](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-##### [Neznámé zdroje](active-directory-reporting-sign-ins-from-unknown-sources.md)
-##### [Neobvyklé přihlašovací aktivity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### [Použití certifikátů](active-directory-reporting-api-with-certificates.md)
 
 ## [Správa hesel](active-directory-passwords-overview.md)
 ### Dokumenty uživatele
@@ -166,6 +172,7 @@
 #### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+
 ### [Vzdálený přístup k aplikací s App Proxy](active-directory-application-proxy-get-started.md)
 #### Začínáme
 ##### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
@@ -190,9 +197,11 @@
 ##### [Nativní klientské aplikace](active-directory-application-proxy-native-client.md)
 ##### [Bezobslužná instalace](active-directory-application-proxy-silent-installation.md)
 ##### [Vlastní domovská stránka](application-proxy-office365-app-launcher.md)
+##### [Převod vložených odkazů](application-proxy-link-translation.md)
 #### Názorné postupy publikování
 ##### [Vzdálená plocha](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Teams](application-proxy-teams.md)
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
 #### Použití portálu Classic
 ##### [Stažení konektorů](application-proxy-enable-classic-portal.md)
@@ -374,9 +383,10 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Zdroje a prostředky
-## [Ceny](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Ceny](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
-## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory)
-## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
