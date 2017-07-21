@@ -7,6 +7,7 @@
 ## [Směrování adres URL](application-gateway-url-route-overview.md)
 ## [Multi-Site](application-gateway-multi-site-overview.md)
 ## [Koncový protokol SSL](application-gateway-backend-ssl.md)
+## [Přesměrování](application-gateway-redirect-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Omezení služby](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Začínáme
@@ -37,6 +38,8 @@
 ## Konfigurace hostování několika webů
 ### [Azure Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+## Konfigurace přesměrování
+### [PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Konfigurace sond stavu
 ### [Azure Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)

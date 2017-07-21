@@ -21,8 +21,6 @@
 #### [Queue Storage a propojené služby](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table Storage a propojené služby](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Konfigurace balíčků pro nepřetržité sestavování a nasazování
-#### [Visual Studio Team Services a Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS a týmové sestavení](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurace pravidel přenosů pro roli](cloud-services-enable-communication-role-instances.md)
 ### [Zpracování událostí životního cyklu cloudových služeb](cloud-services-role-lifecycle-dotnet.md)
