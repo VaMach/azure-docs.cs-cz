@@ -7,7 +7,7 @@ manager: jhubbard
 editor: mimig1
 ms.service: cosmos-db
 ms.topic: hero-article
-ms.date: 06/22/2017
+ms.date: 07/21/2017
 ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
@@ -17,9 +17,7 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: Sestavení aplikace konzoly v jazyce Go s rozhraním API MongoDB na webu Azure Portal
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Sestavení aplikace konzoly v jazyce Go s rozhraním API MongoDB na webu Azure Portal
 
 Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB.
 
@@ -27,24 +25,18 @@ Tento rychlý start popisuje způsob použití stávající aplikace [MongoDB](h
 
 Jinými slovy: aplikace v jazyce Go ví pouze to, že se připojuje k databázi pomocí rozhraní API MongoDB. V aplikaci se transparentně zobrazuje, že data jsou uložena ve službě Azure Cosmos DB.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 - Předplatné Azure. Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free) před tím, než začnete.
 - [Go](https://golang.org/dl/) a základní znalost jazyka [Go](https://golang.org/).
 - Integrované vývojové prostředí – [Gogland](https://www.jetbrains.com/go/) od JetBrains, [Visual Studio Code](https://code.visualstudio.com/) od Microsoftu nebo [Atom](https://atom.io/). V tomto kurzu používáme Gogland.
 
 <a id="create-account"></a>
-<a id="create-a-database-account" class="xliff"></a>
-
-## Vytvoření účtu databáze
+## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Klonování ukázkové aplikace
+## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
 Naklonujte ukázkovou aplikaci a nainstalujte požadované balíčky.
 
@@ -64,9 +56,7 @@ Ovladač [mgo](http://labix.org/mgo) (vyslovuje se jako *mango*) je ovladač [Mo
 
 <a id="connection-string"></a>
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Aktualizace připojovacího řetězce
+## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
 Teď se vraťte zpátky na web Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
@@ -86,15 +76,11 @@ Teď se vraťte zpátky na web Azure Portal, kde najdete informace o připojova
 
 3. Uložte soubor main.go.
 
-<a id="review-the-code" class="xliff"></a>
-
-## Kontrola kódu
+## <a name="review-the-code"></a>Kontrola kódu
 
 Ještě jednou se stručně podívejme na to, co se v souboru main.go děje. 
 
-<a id="connecting-the-go-app-to-azure-cosmos-db" class="xliff"></a>
-
-### Připojení aplikace v jazyce Go ke službě Azure Cosmos DB
+### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Připojení aplikace v jazyce Go ke službě Azure Cosmos DB
 
 Azure Cosmos DB podporuje MongoDB s povoleným protokolem SSH. Pokud se chcete připojit k MongoDB s povoleným protokolem SSH, je potřeba ve třídě [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo) definovat funkci **DialServer** a pomocí funkce [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) provést připojení.
 
@@ -105,8 +91,8 @@ Následující fragment kódu jazyka Go připojí aplikaci v jazyce Go pomocí r
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
-    Database: "golang-coach", // It can be anything
-    Username: "golang-coach", // Username
+    Database: "database", // It can be anything
+    Username: "username", // Username
     Password: "Azure database connect password from Azure Portal", // PASSWORD
     DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
         return tls.Dial("tcp", addr.String(), &tls.Config{})
@@ -137,14 +123,12 @@ Metoda **mgo.Dial()** se používá v případě, že není k dispozici připoje
 Instance objektu **DialWIthInfo{}** slouží k vytvoření objektu relace. Po vytvoření relace můžete je kolekci přistupovat pomocí následujícího fragmentu kódu:
 
 ```go
-collection := session.DB(“golang-couch”).C(“package”)
+collection := session.DB(“database”).C(“package”)
 ```
 
 <a id="create-document"></a>
 
-<a id="create-a-document" class="xliff"></a>
-
-### Vytvoření dokumentu
+### <a name="create-a-document"></a>Vytvoření dokumentu
 
 ```go
 // Model
@@ -173,9 +157,7 @@ if err != nil {
 }
 ```
 
-<a id="query-or-read-a-document" class="xliff"></a>
-
-### Dotazování nebo čtení dokumentu
+### <a name="query-or-read-a-document"></a>Dotazování nebo čtení dokumentu
 
 Azure Cosmos DB podporuje bohaté dotazy na dokumenty JSON uložené v každé z kolekcí. Následující ukázka kódu obsahuje dotaz, který je možné spustit proti dokumentům v kolekci.
 
@@ -192,9 +174,7 @@ fmt.Println("Description:", result.Description)
 ```
 
 
-<a id="update-a-document" class="xliff"></a>
-
-### Aktualizace dokumentu
+### <a name="update-a-document"></a>Aktualizace dokumentu
 
 ```go
 // Update a document
@@ -207,9 +187,7 @@ if err != nil {
 }
 ```
 
-<a id="delete-a-document" class="xliff"></a>
-
-### Odstranění dokumentu
+### <a name="delete-a-document"></a>Odstranění dokumentu
 
 Azure Cosmos DB podporuje odstraňování dokumentů JSON.
 
@@ -223,9 +201,7 @@ if err != nil {
 }
 ```
     
-<a id="run-the-app" class="xliff"></a>
-
-## Spuštění aplikace
+## <a name="run-the-app"></a>Spuštění aplikace
 
 1. V prostředí Gogland ověřte, že cesta GOPATH (najdete ji v části **File** (Soubor), **Settings** (Nastavení), **Go**, **GOPATH**) zahrnuje umístění, ve kterém byl nainstalován balíček gopkg, což je ve výchozím nastavení PROFIL_UŽIVATELE\go. 
 2. Okomentujte řádky pro odstranění dokumentu (řádky 91–96), abyste dokument po spuštění aplikace mohli zobrazit.
@@ -241,9 +217,7 @@ if err != nil {
 
     ![Gogland zobrazující výstup aplikace](./media/create-mongodb-golang/goglang-cosmos-db.png)
     
-<a id="review-your-document-in-data-explorer" class="xliff"></a>
-
-## Kontrola dokumentu v Průzkumníku dat
+## <a name="review-your-document-in-data-explorer"></a>Kontrola dokumentu v Průzkumníku dat
 
 Vraťte se na web Azure Portal a zobrazte dokument v Průzkumníku dat.
 
@@ -253,24 +227,18 @@ Vraťte se na web Azure Portal a zobrazte dokument v Průzkumníku dat.
     
 2. S dokumentem pak můžete přímo pracovat a kliknutím na **Aktualizovat** ho uložit. Můžete také odstranit dokument nebo vytvořit nové dokumenty nebo dotazy.
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Ověření smluv SLA na webu Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Vyčištění prostředků
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu:
 
 1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 V tomto rychlém startu jste se seznámili s postupem vytvoření účtu Azure Cosmos DB a spuštění aplikace v jazyce Go pomocí rozhraní API pro MongoDB. Teď můžete do účtu databáze Cosmos importovat další data. 
 
