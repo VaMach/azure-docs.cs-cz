@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: cs-cz
+ms.lasthandoff: 12/06/2016
 
 ---
 
@@ -215,10 +217,5 @@ V případě FabrikamMail to vypadá přibližně takto:
 (**ClientId** je ID instančního objektu aplikace FabrikamMail (který se právě vytvořil), **PrincipalId** je ID objektu uživatele (který vyjádřil souhlas), **ResourceId** je ID instančního objektu aplikace Exchange, Scope je oprávnění v aplikaci Exchange, se kterým se souhlasilo).
 
 Pokud uživatelům není povoleno vyjadřovat souhlas, zobrazí se jim obrazovka s upozorněním, že je vyžadováno oprávnění.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
