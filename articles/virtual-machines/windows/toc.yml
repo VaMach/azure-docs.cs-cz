@@ -374,6 +374,10 @@
               href: migration-classic-resource-manager-faq.md
     - name: Řešení potíží
       items:
+        - name: >-
+            Možnosti podpory pro přidání virtuálního počítače Azure do stávající
+            skupiny dostupnosti
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Vysvětlení restartování systému
           href: understand-vm-reboot.md
         - name: Připojení Vzdálené plochy
