@@ -26,7 +26,7 @@ ms.lasthandoff: 07/10/2017
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  V tomto kurzu Rychlý start se dozvíte, jak nasadit aplikaci PHP pomocí služby Azure Web Apps. Vytvoříte webovou aplikaci pomocí rozhraní příkazového řádku [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu nasadíte ukázkový kód PHP do webové aplikace.
 
-Ukázková aplikace spuštěná ve službě Azure (media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
 
