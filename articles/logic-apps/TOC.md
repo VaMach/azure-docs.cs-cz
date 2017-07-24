@@ -62,14 +62,14 @@
 
 ## Správa a monitorování
 ### [Správa aplikací logiky s využitím sady Visual Studio](logic-apps-manage-from-vs.md)
-### [Monitorování Logic Apps](logic-apps-monitor-your-logic-apps.md)
 ### [Správa účtů pro integraci](logic-apps-enterprise-integration-accounts.md)
+### [Monitorování stavu aplikací logiky](logic-apps-monitor-your-logic-apps.md)
 ### [Monitorování zpráv B2B](logic-apps-monitor-b2b-message.md)
+#### [Sledování zpráv B2B v OMS](logic-apps-track-b2b-messages-omsportal.md)
+#### [Dotazování OMS na zprávy B2B](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [Schéma sledování AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [Schéma sledování X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Vlastní schémata sledování](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [Sledování zpráv B2B v OMS](logic-apps-track-b2b-messages-omsportal.md)
-#### [Dotazování OMS na zprávy](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ## Příklady, scénáře a názorné postupy
 ### [Přehled](logic-apps-examples-and-scenarios.md)
@@ -81,7 +81,6 @@
 ## Ceny a fakturace
 ### [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Měření využití](logic-apps-pricing.md)
-
 
 # Bez serveru
 ## Přehled

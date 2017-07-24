@@ -404,6 +404,10 @@
           href: migration-classic-resource-manager-faq.md
     - name: Řešení potíží
       items:
+        - name: >-
+            Možnosti podpory pro přidání virtuálního počítače Azure do stávající
+            skupiny dostupnosti
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Resetování hesla virtuálního počítače s Linuxem
           href: virtual-machines-linux-reset-password.md
         - name: Vysvětlení restartování systému

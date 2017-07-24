@@ -290,7 +290,8 @@
 ## Monitorování a diagnóza
 ### [Monitorování a diagnostika aplikací](service-fabric-diagnostics-overview.md)
 ### Generování událostí
-#### [Generování událostí na úrovni infrastruktury](service-fabric-diagnostics-event-generation-infra.md)
+#### [Generování událostí na úrovni platformy](service-fabric-diagnostics-event-generation-infra.md)
+##### [Provozní kanál](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Události Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ##### [Události Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ##### [Metriky výkonu](service-fabric-diagnostics-event-generation-perf.md)

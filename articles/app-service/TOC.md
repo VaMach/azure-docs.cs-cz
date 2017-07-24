@@ -140,6 +140,7 @@
 ## Integrace
 ### [Přístup k místním prostředkům pomocí hybridních připojení](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Odeslání e-mailů v Azure pomocí SendGridu](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Export do PowerApps a Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
 ## Řešení potíží
 ### [Povolení diagnostického protokolování](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
