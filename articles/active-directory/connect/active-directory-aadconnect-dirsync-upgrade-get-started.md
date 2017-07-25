@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -134,7 +136,7 @@ Pokud máte méně než 50 tisíc objektů, ale přesto chcete provést paraleln
 1. Spusťte instalační program služby Azure AD Connect (MSI).
 2. Až se zobrazí obrazovka **Vítá vás Azure AD Connect**, ukončete průvodce instalací kliknutím na křížek v pravém horním rohu okna.
 3. Otevřete příkazový řádek.
-4. Z umístění instalace služby Azure AD Connect (výchozí: C:\Program Files\Microsoft Azure Active Directory Connect) spusťte následující příkaz:  `AzureADConnect.exe /ForceExport`.
+4. Z umístění instalace služby Azure AD Connect (výchozí: C:\Program Files\Microsoft Azure Active Directory Connect) spusťte následující příkaz: `AzureADConnect.exe /ForceExport`.
 5. Klikněte na tlačítko **Exportovat nastavení**. Pokud Azure AD Connect instalujete na samostatný server, budou tato nastavení migrována z vašeho stávajícího nástroje DirSync do nové instalace služby Azure AD Connect.
 
 ![Analýza dokončena](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
@@ -147,7 +149,7 @@ Při instalaci služby Azure AD Connect na nový server bude instalační progra
 1. Spusťte instalační program služby Azure AD Connect (MSI).
 2. Až se zobrazí obrazovka **Vítá vás Azure AD Connect**, ukončete průvodce instalací kliknutím na křížek v pravém horním rohu okna.
 3. Otevřete příkazový řádek.
-4. Z umístění instalace služby Azure AD Connect (výchozí: C:\Program Files\Microsoft Azure Active Directory Connect) spusťte následující příkaz:  `AzureADConnect.exe /migrate`.
+4. Z umístění instalace služby Azure AD Connect (výchozí: C:\Program Files\Microsoft Azure Active Directory Connect) spusťte následující příkaz: `AzureADConnect.exe /migrate`.
    Spustí se průvodce instalací služby Azure AD Connect a nabídne vám následující obrazovku:  
    ![Zadejte svoje přihlašovací údaje služby Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. Vyberte soubor s nastavením exportovaný z instalace nástroje DirSync.
@@ -216,9 +218,4 @@ Zjistěte více o těchto nových funkcích, které byly povoleny v rámci insta
 Zjistěte více o těchto běžných tématech: [plánovač a spouštění synchronizace](active-directory-aadconnectsync-feature-scheduler.md).
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

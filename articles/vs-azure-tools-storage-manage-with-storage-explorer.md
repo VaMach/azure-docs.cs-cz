@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 83a6543a8fd95139fdcb6c031979382b4736a4ad
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Začínáme se Storage Explorerem (Preview)
@@ -68,80 +68,7 @@ Kromě toho můžete pracovat s účty úložiště v globálním i národním A
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Připojení k předplatnému Azure Stack
 
-Pro zajištění vzdáleného přístupu Storage Exploreru k předplatnému služby Azure Stack potřebujete připojení VPN. Další informace o tom, jak nastavit připojení VPN ke službě Azure Stack, najdete v tématu [Připojení ke službě Azure Stack pomocí sítě VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn).
-
-Pro testování konceptu služby Azure Stack je potřeba vyexportovat kořenový certifikát autority Azure Stack. Postupujte následovně:
-
-1. Otevřete `mmc.exe` v MAS-CON01, hostitelském počítači služby Azure Stack nebo místním počítači s připojením VPN ke službě Azure Stack. 
-
-2. V části **Soubor** vyberte **Přidat nebo odebrat modul snap-in** a pak přidejte **certifikáty** pro správu **účtu** **místního počítače**.
-
-    ![Načtení kořenového certifikátu služby Azure Stack pomocí mmc.exe][25]   
-
-3. Vyhledejte **AzureStackCertificationAuthority** ve složce **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. 
-
-4. Klikněte na položku pravým tlačítkem myši, vyberte **Všechny úlohy** > **Exportovat**, postupujte podle pokynů a vyexportujte certifikát s použitím formátu **X.509, kódování Base-64 (.CER)**.  
-
-    Vyexportovaný certifikát se použije v dalším kroku.   
-
-    ![Export kořenového certifikátu autority služby Azure Stack][26]   
-
-5. Ve Storage Exploreru (Preview) v nabídce **Úpravy** přejděte na **Certifikáty SSL** a pak vyberte **Importovat certifikáty**. Pomocí dialogového okna pro výběr souborů najděte a otevřete certifikát, který jste exportovali v předchozím kroku.  
-
-    Po dokončení importu se zobrazí výzva k restartování Storage Exploreru.
-
-    ![Import certifikátu do Storage Exploreru (Preview)][27]
-
-6. Po restartování Storage Exploreru (Preview) vyberte nabídku **Úpravy** a ujistěte se, že je vybraná možnost **Target Azure Stack** (Cíl – Azure Stack). Pokud není, vyberte ji a restartujte Storage Explorer, aby se tato změna projevila. Tato konfigurace je nutná pro kompatibilitu s vaším prostředím Azure Stack.
-
-    ![Kontrola, že položka Target Azure Stack je vybraná][28]
-
-7. V levém podokně vyberte **Spravovat účty**.  
-    Zobrazí se všechny účty Microsoft, ke kterým jste přihlášeni.
-
-8. Pokud se chcete připojit k účtu Azure Stack, vyberte **Přidat účet**.
-
-    ![Přidání účtu Azure Stack][29]
-
-9. V dialogovém okně **Přidat nový účet** v části **Prostředí Azure** vyberte **Create Custom Environment** (Vytvořit vlastní prostředí) a potom klikněte na **Další**.
-
-10. Zadejte všechny požadované informace pro vlastní prostředí Azure Stack a potom klikněte na **Přihlásit se**. 
-
-11. Pokud se chcete přihlásit pomocí účtu Azure Stack, který je přidružený alespoň k jednomu aktivnímu předplatnému Azure Stack, vyplňte dialogové okno **Sign in to a Custom Cloud environment**(Přihlásit se k vlastnímu cloudovému prostředí).  
-
-    Podrobnosti k jednotlivým polím:
-
-    * **Environment name** (Název prostředí): Toto pole může uživatel přizpůsobit.
-    * **Authority** (Autorita): Hodnotou by měla být adresa https://login.microsoftonline.com. Pro Azure China použijte https://login.chinacloudapi.cn.
-    * **Sign in resource id** (ID prostředku přihlášení): Hodnotu načtěte spuštěním jednoho z následujících skriptů PowerShellu:
-
-        Pokud jste správce cloudu:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-        Pokud jste tenant:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-    * **Graph endpoint** (Koncový bod grafu): Hodnotou by měla být adresa https://graph.windows.net. Pro Azure China použijte https://graph.chinacloudapi.cn.
-    * **ARM resource id** (ID prostředku ARM): Použijte stejnou hodnotu jako pro **Sign in resource id**.
-    * **ARM resource endpoint** (Koncový bod prostředku ARM): Toto jsou ukázky koncových bodů prostředků Azure Resource Manageru:
-
-        * Pro správce cloudu: https://adminmanagement.local.azurestack.external   
-        * Pro tenanta: https://management.local.azurestack.external
- 
-    * **Tenant Ids** (ID tenanta): Volitelné. Hodnota je uvedená jenom v případě, že musí být zadaný adresář.
-
-12. Po úspěšném přihlášení pomocí účtu Azure Stack se v levém podokně zobrazí předplatná Azure Stack přidružená k tomuto účtu. Vyberte předplatná Azure Stack, se kterými chcete pracovat, a pak vyberte **Apply** (Použít). (Zaškrtnutím nebo zrušením zaškrtnutí políčka **All subscriptions** (Všechna předplatná) přepínáte výběr všech nebo žádných z uvedených předplatných Azure Stack.)
-
-    ![Výběr předplatných Azure Stack po vyplnění dialogového okna Custom Cloud Environment][30]  
-    V levém podokně se zobrazí všechny účty úložišť přidružené k vybraným předplatným Azure Stack.
-
-    ![Seznam účtů úložiště, včetně účtů předplatného Azure Stack][31]
+Informace o připojení k předplatnému Azure Stack najdete v tématu [Připojení Storage Exploreru k předplatnému Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Práce s místním vývojovým úložištěm
 Storage Explorer (Preview) umožňuje pracovat s místním úložištěm pomocí emulátoru úložiště Azure. Můžete tak psát kód pro místní úložiště a otestovat ho, aniž byste museli mít nasazený účet úložiště v Azure, protože účet úložiště je emulovaných emulátorem úložiště Azure.
