@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Použití řízení přístupu na základě rolí ke správě přístupu k prostředkům předplatného Azure
@@ -41,7 +41,7 @@ Na [portálu Azure](https://portal.azure.com) můžete v hlavním okně sledovat
    
     ![Snímek obrazovky s oknem uživatelé – zděděný a přiřazený přístup](./media/role-based-access-control-configure/view-access.png)
 
-Všimněte si, že některým uživatelům byl přístup **přiřazen**, zatímco jiní jej **zdědili**. Přístup je ke skupině prostředků přiřazen přímo, nebo je zděděn od přiřazení nadřazeného předplatného.
+Všimněte si, že některé role mají obor nastavený na **Tento prostředek**, zatímco jiné mají obor **Zděděný** z jiného oboru. Přístup je ke skupině prostředků přiřazen přímo, nebo je zděděn od přiřazení nadřazeného předplatného.
 
 > [!NOTE]
 > Správci a pomocní správci v klasickém modelu předplatného jsou v novém modelu řízení přístupu na základě role v Azure  považováni za vlastníky.
@@ -60,9 +60,10 @@ Přístup se uděluje z prostředku, skupiny prostředků nebo předplatného, k
 Po úspěšném přiřazení role se přiřazení zobrazí v okně **Uživatelé**.
 
 ## <a name="remove-access"></a>Odebrání přístupu
-1. Používání zaškrtávacích políček v okně Access Control k výběru jednoho či více přiřazení rolí.
+1. Najeďte kurzorem na název přiřazení, které chcete odebrat. Vedle názvu se zobrazí zaškrtávací políčko.
+2. Pomocí těchto zaškrtávacích políček vyberte jedno nebo více přiřazení rolí.
 2. Vyberte **Odebrat**.  
-3. Zobrazí se pole s výzvou k potvrzení akce. Pokud chcete odebrat přiřazení role, vyberte **Ano**.
+3. Výběrem **Ano** odebrání potvrďte.
 
 Zděděná přiřazení nelze odebrat. Pokud chcete odebrat zděděné přiřazení, je třeba to provést v oboru, ve kterém bylo přiřazení role vytvořené. Ve sloupci **Obor** vedle sloupce **Zděděný** je odkaz, pomocí kterého můžete přejít k prostředkům, kde byla role přiřazená. Poté přejděte k prostředku, který je zde uvedený, a odeberte přiřazení role v něm.
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentace webových aplikací za běhu pomocí nástrojů Application Insights
@@ -42,10 +41,10 @@ Tady je rekapitulace toho, co každý způsob přináší:
 | [Podrobnější výjimky](app-insights-asp-net-exceptions.md) | |Ano |
 | [Diagnostika závislostí](app-insights-asp-net-dependencies.md) |Na platformě .NET 4.6+, ale méně podrobná |Ano, úplné podrobnosti: kódy výsledků, text příkazu SQL, příkaz HTTP|
 | [Čítače výkonu systému](app-insights-performance-counters.md) |Ano |Ano |
-| [Rozhraní API pro vlastní telemetrii][api] |Ano | |
-| [Integrace protokolu trasování](app-insights-asp-net-trace-logs.md) |Ano | |
-| [Zobrazení stránky a uživatelská data](app-insights-javascript.md) |Ano | |
-| Bez nutnosti znovu sestavovat kód |Ne | |
+| [Rozhraní API pro vlastní telemetrii][api] |Ano |Ne |
+| [Integrace protokolu trasování](app-insights-asp-net-trace-logs.md) |Ano |Ne |
+| [Zobrazení stránky a uživatelská data](app-insights-javascript.md) |Ano |Ne |
+| Nutnost znovu sestavit kód |Ano | Ne |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorování živé webové aplikace Azure

@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 49f6a49f3f97841e896ff2d497555c42a1ec8e0d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Sestavení rozhraní Node.js RESTful API a jeho nasazení do aplikace API v Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-V rámci tohoto rychlého startu se dozvíte, jak vytvořit [expresní](http://expressjs.com/) rozhraní Node.js REST API z definice [Swaggeru](http://swagger.io/) a nasadit ho jako [aplikaci API](app-service-api-apps-why-best-platform.md) do Azure. Můžete vytvořit aplikaci pomocí nástrojů příkazového řádku, nakonfigurovat prostředky pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a nasadit aplikaci pomocí Gitu.  Po dokončení budete mít funkční ukázkové rozhraní REST API, které běží na Azure.
+V rámci tohoto rychlého startu se dozvíte, jak vytvořit rozhraní REST API napsané v Node.js [Express](http://expressjs.com/) s použitím definice [Swaggeru](http://swagger.io/) a nasadit ho jako [aplikaci API](app-service-api-apps-why-best-platform.md) do Azure. Vytvoříte aplikaci pomocí nástrojů pro příkazový řádek, nakonfigurujete prostředky pomocí [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu aplikaci nasadíte.  Po dokončení budete mít funkční ukázkové rozhraní REST API, které běží na Azure.
 
 ## <a name="prerequisites"></a>Požadavky
 

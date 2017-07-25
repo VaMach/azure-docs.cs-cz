@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: fa8e845fc4c3036c1ee92db3dceec63a1dc09d03
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 4f91921142b9500252c53eee36cb872e324773c5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell" class="xliff"></a>
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurace připojení brány VPN typu VNet-to-VNet pomocí PowerShellu
 
-# Konfigurace připojení brány VPN typu VNet-to-VNet pomocí PowerShellu
+Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
 
-Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Postupy v tomto článku se týkají modelu nasazení Resource Manager a používají PowerShell. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
+Postupy v tomto článku se týkají modelu nasazení Resource Manager a používají PowerShell. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -45,9 +44,7 @@ Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery
 
 ![Informace o připojeních](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
-<a id="why-connect-virtual-networks" class="xliff"></a>
-
-### Proč propojovat virtuální sítě?
+### <a name="why-connect-virtual-networks"></a>Proč propojovat virtuální sítě?
 
 Virtuální sítě může být vhodné propojit z následujících důvodů:
 
@@ -61,9 +58,7 @@ Virtuální sítě může být vhodné propojit z následujících důvodů:
 
 Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku.
 
-<a id="which-set-of-steps-should-i-use" class="xliff"></a>
-
-## Kterou posloupnost kroků provést?
+## <a name="which-set-of-steps-should-i-use"></a>Kterou posloupnost kroků provést?
 
 V tomto článku uvidíte dvě různé sady kroků. Jedna sada kroků pro [virtuální sítě spadající do stejného předplatného](#samesub) a druhá sada kroků pro [virtuální sítě v různých předplatných](#difsub). Hlavní rozdíl mezi oběma postupy spočívá v tom, jestli je možné vytvářet a konfigurovat všechny prostředky virtuální sítě a brány v téže relaci prostředí PowerShell.
 
@@ -73,11 +68,9 @@ Kroky v tomto článku používají proměnné, které jsou deklarované na zač
 
 ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-<a id="before-you-begin" class="xliff"></a>
+### <a name="before-you-begin"></a>Než začnete
 
-### Než začnete
-
-Než začnete, bude třeba nainstalovat nejnovější verzi rutin prostředí PowerShell pro Azure Resource Manager. Další informace o instalaci rutin PowerShellu najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview). 
+Než začnete, bude třeba nainstalovat nejnovější verzi rutin PowerShellu pro Azure Resource Manager, alespoň verzi 4.0 nebo novější. Další informace o instalaci rutin PowerShellu najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/overview).
 
 ### <a name="Step1"></a>Krok 1: Plánování rozsahů IP adres
 
@@ -200,9 +193,7 @@ V příkladech používáme následující hodnoty:
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-<a id="step-3---create-and-configure-testvnet4" class="xliff"></a>
-
-### Krok 3: Vytvoření a konfigurace virtuální sítě TestVNet4
+### <a name="step-3---create-and-configure-testvnet4"></a>Krok 3: Vytvoření a konfigurace virtuální sítě TestVNet4
 
 Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet4. Postupujte podle následujících kroků a podle potřeby nahrazujte hodnoty vlastními. Tento krok lze provést v rámci stejné relace prostředí PowerShell, protože se jedná o stejné předplatné.
 
@@ -264,9 +255,7 @@ Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-<a id="step-4---create-the-connections" class="xliff"></a>
-
-### Krok 4: Vytvoření připojení
+### <a name="step-4---create-the-connections"></a>Krok 4: Vytvoření připojení
 
 1. Získejte obě brány virtuální sítě. Pokud jsou obě brány ve stejném předplatném, jako je tomu v příkladu, můžete tento krok dokončit ve stejné relaci PowerShellu.
 
@@ -294,17 +283,13 @@ Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet
 
 ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě TestVNet1 a TestVNet5 patří do různých předplatných. Rozdíl mezi těmito kroky a předchozí sadou spočívá v tom, že část kroků konfigurace je třeba provést v samostatné relaci PowerShellu v kontextu druhého předplatného. To je zvláště podstatné, když druhé předplatné patří jiné organizaci.
+V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě TestVNet1 a TestVNet5 patří do různých předplatných. Předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. Rozdíl mezi těmito kroky a předchozí sadou spočívá v tom, že část kroků konfigurace je třeba provést v samostatné relaci PowerShellu v kontextu druhého předplatného. To je zvláště podstatné, když druhé předplatné patří jiné organizaci.
 
-<a id="step-5---create-and-configure-testvnet1" class="xliff"></a>
-
-### Krok 5: Vytvoření a konfigurace virtuální sítě TestVNet1
+### <a name="step-5---create-and-configure-testvnet1"></a>Krok 5: Vytvoření a konfigurace virtuální sítě TestVNet1
 
 Je třeba vytvořit a konfigurovat virtuální síť TestVNet1 a bránu VPN Gateway pro virtuální síť TestVNet1 provedením [kroku 1](#Step1) a [kroku 2](#Step2) z předchozí části. Pro tuto konfiguraci není nutné vytvářet virtuální síť TestVNet4 z předchozí části, ale pokud ji vytvoříte, nebude to s těmito kroky v konfliktu. Po dokončení kroků 1 a 2 pokračujte krokem 6 a vytvořte síť TestVNet5. 
 
-<a id="step-6---verify-the-ip-address-ranges" class="xliff"></a>
-
-### Krok 6: Ověření rozsahů IP adres
+### <a name="step-6---verify-the-ip-address-ranges"></a>Krok 6: Ověření rozsahů IP adres
 
 Je důležité zajistit, aby se prostor IP adres nové virtuální sítě TestVNet5 nepřekrýval se žádným z rozsahů virtuálních sítí ani rozsahů bran místních sítí. V tomto příkladu můžou virtuální sítě různým organizacím. Pro tento postup použijte následující hodnoty pro virtuální síť TestVNet5:
 
@@ -323,9 +308,7 @@ Je důležité zajistit, aby se prostor IP adres nové virtuální sítě TestVN
 * Připojení: VNet5toVNet1
 * Typ připojení: VNet2VNet
 
-<a id="step-7---create-and-configure-testvnet5" class="xliff"></a>
-
-### Krok 7: Vytvoření a konfigurace virtuální sítě TestVNet5
+### <a name="step-7---create-and-configure-testvnet5"></a>Krok 7: Vytvoření a konfigurace virtuální sítě TestVNet5
 
 Tento krok je třeba provést v rámci nového předplatného. Tuto část může provést správce v organizaci, která je vlastníkem druhého předplatného.
 
@@ -404,9 +387,7 @@ Tento krok je třeba provést v rámci nového předplatného. Tuto část můž
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-<a id="step-8---create-the-connections" class="xliff"></a>
-
-### Krok 8: Vytvoření připojení
+### <a name="step-8---create-the-connections"></a>Krok 8: Vytvoření připojení
 
 Jelikož brány v tomto příkladu patří do různých předplatných, rozdělíme tento krok do dvou relací prostředí PowerShell označených [Předplatné 1] a [Předplatné 5].
 
@@ -484,9 +465,7 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 * Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v [dokumentaci ke službě Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md).

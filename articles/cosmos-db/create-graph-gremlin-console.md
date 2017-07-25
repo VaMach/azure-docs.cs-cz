@@ -2,7 +2,7 @@
 title: "Kurz ke službě Azure Cosmos DB: Vytváření, zadávání dotazů a procházení v konzole Apache TinkerPops Gremlin | Dokumentace Microsoftu"
 description: "Rychlý start ke službě Azure Cosmos DB vám pomůže s vytvářením vrcholů, okrajů a dotazů pomocí rozhraní Graph API služby Azure Cosmos DB."
 services: cosmos-db
-author: AndrewHoh
+author: dennyglee
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -11,17 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 06/10/2017
-ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/17/2017
 
 ---
-# Služba Azure Cosmos DB: Vytváření, zadávání dotazů a procházení grafu v konzole Gremlin
-<a id="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console" class="xliff"></a>
+# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Služba Azure Cosmos DB: Vytváření, zadávání dotazů a procházení grafu v konzole Gremlin
 
 Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB. 
 
@@ -31,8 +30,7 @@ Tento rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB 
 
 Konzola Gremlin je založena na technologii Groovy nebo Java a běží v systémech Linux, Mac a Windows. Můžete si ji stáhnout z [webu Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip).
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 Abyste si mohli vytvořit účet služby Azure Cosmos DB pro tento rychlý start, musíte mít předplatné Azure.
 
@@ -40,50 +38,52 @@ Abyste si mohli vytvořit účet služby Azure Cosmos DB pro tento rychlý start
 
 Musíte si také nainstalovat [konzolu Gremlin](http://tinkerpop.apache.org/). Použijte verzi 3.2.4 nebo vyšší.
 
-## Vytvoření účtu databáze
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## Přidání grafu
-<a id="add-a-graph" class="xliff"></a>
+## <a name="add-a-graph"></a>Přidání grafu
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Připojení ke službě aplikace
-1. Než začnete používat konzolu Gremlin, vytvořte nebo upravte v adresáři *apache-tinkerpop-gremlin-console-3.2.4/conf* konfigurační soubor *remote-secure.yaml*.
+1. Než začnete používat konzolu Gremlin, vytvořte nebo upravte v adresáři apache-tinkerpop-gremlin-console-3.2.4/conf konfigurační soubor remote-secure.yaml.
 2. Vyplňte parametry *Hostitel*, *Port*, *Uživatelské jméno*, *Heslo*, *Fond připojení* a *Serializátor*:
 
     Nastavení|Navrhovaná hodnota|Popis
     ---|---|---
-    Hostitelé|***.graphs.azure.com|Identifikátor URI služby grafu, který můžete načíst z portálu Azure Portal
-    Port|443|Nastavte na hodnotu 443
-    Uživatelské jméno|*Vaše uživatelské jméno*|Prostředek formuláře `/dbs/<db>/colls/<coll>`.
-    Heslo|*Primární hlavní klíč*|Váš primární hlavní klíč ke službě Azure Cosmos DB
-    Fond připojení|{enableSsl: true}|Nastavení fondu připojení pro protokol SSL
-    Serializátor|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Nastavte na tuto hodnotu
+    hostitelé|[***.graphs.azure.com]|Viz snímek obrazovky níže. Toto je hodnota Gremlin URI na stránce Přehled na webu Azure Portal v hranatých závorkách a s odebraným řetězcem „:443/“ na konci.<br><br>Tuto hodnotu můžete získat také z karty Klíče s použitím hodnoty URI, ve které odeberete „https://“, změníte „documents“ na „graphs“ a odeberete „:443/“ na konci.
+    port|443|Nastavte na hodnotu 443.
+    uživatelské jméno|*Vaše uživatelské jméno*|Prostředek ve formátu `/dbs/<db>/colls/<coll>`, kde `<db>` je název vaší databáze a `<coll>` je název vaší kolekce.
+    heslo|*Váš primární klíč*| Viz druhý snímek obrazovky níže. Toto je váš primární klíč, který můžete získat ze stránky Klíče na webu Azure Portal v poli Primární klíč. Pomocí tlačítka pro kopírování na levé straně pole hodnotu zkopírujte.
+    fond připojení|{enableSsl: true}|Nastavení fondu připojení pro protokol SSL.
+    serializátor|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Nastavte na tuto hodnotu a odstraňte případné konce řádků `\n` vzniklé vložením hodnoty.
 
-3. V terminálu spusťte [konzolu Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/) příkazem *bin/gremlin.bat* nebo *bin/gremlin.sh*.
-4. V terminálu se připojte ke službě aplikace spuštěním příkazu *:remote connect tinkerpop.server conf/remote-secure.yaml*.
+    Pro hodnotu hostitelé zkopírujte hodnotu **Gremlin URI** ze stránky **Přehled**: ![Zobrazení a zkopírování hodnoty Gremlin URI na stránce Přehled na webu Azure Portal](./media/create-graph-gremlin-console/gremlin-uri.png)
+
+    Pro hodnotu heslo zkopírujte **Primární klíč** ze stránky **Klíče**: ![Zobrazení a zkopírování primárního klíče na stránce Klíče na webu Azure Portal](./media/create-graph-gremlin-console/keys.png)
+
+
+3. V terminálu spuštěním příkazu `bin/gremlin.bat` nebo `bin/gremlin.sh` spusťte [konzolu Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+4. V terminálu se spuštěním příkazu `:remote connect tinkerpop.server conf/remote-secure.yaml` připojte k aplikační službě.
 
 Výborně! Nastavení se nám podařilo dokončit a teď můžete spouštět některé příkazy konzoly.
 
-Vyzkoušejme jednoduchý příkaz count(). Zadejte do příkazového řádku konzole následující:
+Vyzkoušejme jednoduchý příkaz count(). Zadejte do příkazového řádku konzoly následující:
 ```
 :> g.V().count()
 ```
 
 > [!TIP]
-> Vidíte část příkazu ***:>***, která předchází textu g.V().count()? 
+> Vidíte část příkazu `:>`, která předchází textu `g.V().count()`? 
 >
 > Tuto část příkazu je potřeba zadat ručně. Při používání konzole Gremlin s Azure Cosmos DB je to důležité.  
 >
-> Vynechání této předpony („:>“) dá konzole pokyn, aby příkaz spustila lokálně – často s grafem v paměti.
-> Použití ***:>*** informuje konzolu, že má spustit vzdálený příkaz – v tomto případě se službou Cosmos DB (buď emulátor místního hostitele, nebo > instance Azure).
+> Vynechání této předpony `:>` dá konzole pokyn, aby příkaz spustila lokálně – často s grafem v paměti.
+> Použití `:>` informuje konzolu, že má spustit vzdálený příkaz – v tomto případě se službou Cosmos DB (buď emulátor místního hostitele, nebo > instance Azure).
 
 
-## Vytváření vrcholů a okrajů
-<a id="create-vertices-and-edges" class="xliff"></a>
+## <a name="create-vertices-and-edges"></a>Vytváření vrcholů a okrajů
 
 Začněme přidáním pěti osob pro nastavení vrcholů: *Tomáš*, *Marie*, *Robin*, *Petr* a *Jan*.
 
@@ -188,8 +188,7 @@ Výstup:
 ==>[id:889c4d3c-549e-4d35-bc21-a3d1bfa11e00,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:40fd641d-546e-412a-abcc-58fe53891aab,outV:3e324073-ccfc-4ae1-8675-d450858ca116]
 ```
 
-## Aktualizace vrcholu
-<a id="update-a-vertex" class="xliff"></a>
+## <a name="update-a-vertex"></a>Aktualizace vrcholu
 
 Aktualizujme vrchol *Tomáš* s novým věkovým údajem *45* let.
 
@@ -203,8 +202,7 @@ Výstup:
 ==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
 ```
 
-## Dotazování grafu
-<a id="query-your-graph" class="xliff"></a>
+## <a name="query-your-graph"></a>Dotazování grafu
 
 Teď spustíme pro graf celou řadu dotazů.
 
@@ -236,8 +234,7 @@ Výstup:
 ==>Thomas
 ```
 
-## Procházení grafu
-<a id="traverse-your-graph" class="xliff"></a>
+## <a name="traverse-your-graph"></a>Procházení grafu
 
 Umožňuje procházet graf tak, aby vrátil všechny přátele uživatele Tomáš.
 
@@ -267,8 +264,7 @@ Výstup:
 ==>[id:a801a0cb-ee85-44ee-a502-271685ef212e,label:person,type:vertex,properties:[firstName:[[id:b9489902-d29a-4673-8c09-c2b3fe7f8b94,value:Ben]],lastName:[[id:e084f933-9a4b-4dbc-8273-f0171265cf1d,value:Miller]]]]
 ```
 
-## Vyřazení vrcholu
-<a id="drop-a-vertex" class="xliff"></a>
+## <a name="drop-a-vertex"></a>Vyřazení vrcholu
 
 Teď odstraníme vrchol z databáze grafu.
 
@@ -278,8 +274,7 @@ Vstup (vyřazení vrcholu Jan):
 :> g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
-## Resetování grafu
-<a id="clear-your-graph" class="xliff"></a>
+## <a name="clear-your-graph"></a>Resetování grafu
 
 Nakonec odstraníme z databáze všechny vrcholy a okraje.
 
@@ -292,21 +287,18 @@ Vstup:
 
 Blahopřejeme! Dokončili jste tento kurz rozhraní Graph API služby Azure Cosmos DB!
 
-## Ověření podmínek SLA na portálu Azure Portal
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>Ověření podmínek SLA na portálu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu:  
 
 1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 V tomto rychlém startu jste se seznámili se způsobem vytvoření účtu služby Azure Cosmos DB, vytvoření grafu pomocí Průzkumníku dat, vytváření vrcholů a okrajů a procházení grafu pomocí konzoly Gremlin. Teď můžete pomocí konzoly Gremlin vytvářet složitější dotazy a implementovat účinnou logiku procházení grafů. 
 

@@ -3,7 +3,7 @@ title: "Vytvoření aplikace Node.js databáze Azure Cosmos využitím rozhraní
 description: "Obsahuje ukázku kódu Node.js, kterou můžete použít pro připojení a dotazování databáze Azure Cosmos."
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,18 +13,16 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b9e8c46ba2f029f8dae2b357f05a806d769d0920
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
-# Databáze Azure Cosmos: Vytvoření aplikace Node.js využitím rozhraní Graph API
-<a id="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api" class="xliff"></a>
+# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Databáze Azure Cosmos: Vytvoření aplikace Node.js využitím rozhraní Graph API
 
 Azure Cosmos DB je globálně distribuovaná databázová služba pro více modelů od Microsoftu. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB. 
 
@@ -34,8 +32,7 @@ Tento článek rychlého zprovoznění popisuje způsob vytvoření účtu služ
 > Modul npm `gremlin-secure` je upravenou verzí modulu `gremlin` s podporou rozhraní SSL a SASL potřebného pro připojení k databázi Azure Cosmos. Zdrojový kód je k dispozici na [GitHubu](https://github.com/CosmosDB/gremlin-javascript).
 >
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 Než budete moct tuto ukázku spustit, je potřeba splnit následující požadavky:
 * [Node.js](https://nodejs.org/en/) verze 0.10.29 nebo novější
@@ -43,18 +40,15 @@ Než budete moct tuto ukázku spustit, je potřeba splnit následující požada
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Vytvoření účtu databáze
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## Přidání grafu
-<a id="add-a-graph" class="xliff"></a>
+## <a name="add-a-graph"></a>Přidání grafu
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## Klonování ukázkové aplikace
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
 Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
@@ -68,8 +62,7 @@ Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovac
 
 3. Otevřete soubor řešení v sadě Visual Studio. 
 
-## Kontrola kódu
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>Kontrola kódu
 
 Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Po otevření souboru `app.js` uvidíte následující řádky kódu. 
 
@@ -100,22 +93,25 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Po otevř
     });
     ```
 
-## Aktualizace připojovacího řetězce
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
-Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
+1. Otevřete soubor config.js. 
 
-1. Na portálu [Azure Portal](http://portal.azure.com/) klikněte v účtu Azure Cosmos DB v levé navigační nabídce na **Klíče** a potom klikněte na **Klíče pro čtení i zápis**. V dalším kroku zkopírujete pomocí tlačítek kopírování vpravo identifikátor URI a primární klíč do souboru `app.js`.
-
-    ![Okno Klíče portálu Azure Portal](./media/create-graph-nodejs/keys.png)
-
-2. Z portálu zkopírujte hodnotu identifikátoru Gremlin URI (pomocí tlačítka kopírování) a nastavte ji jako hodnotu klíče `config.endpoint` v souboru config.js. Koncový bod Gremlin musí být pouze název hostitele bez protokolu / čísla portu, jako je `mygraphdb.graphs.azure.com` (ne `https://mygraphdb.graphs.azure.com` nebo `mygraphdb.graphs.azure.com:433`).
+2. V souboru config.js vyplňte jako klíč config.endpoint hodnotu **Gremlin URI** ze stránky **Přehled** na webu Azure Portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. Zkopírujte z portálu hodnotu primárního klíče a nastavte ji jako hodnotu config.primaryKey v souboru config.js. Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s databází Azure Cosmos. 
+    ![Zobrazení a zkopírování přístupového klíče na webu Azure Portal v okně Klíče](./media/create-graph-nodejs/gremlin-uri.png)
+
+   Pokud je hodnota **Gremlin URI** prázdná, můžete hodnotu vygenerovat na stránce **Klíče** na portálu s použitím hodnoty **URI**, ve které odeberete „https://“ a změníte „documents“ na „graphs“.
+
+   Koncový bod Gremlin musí být pouze název hostitele bez protokolu / čísla portu, jako je `mygraphdb.graphs.azure.com` (ne `https://mygraphdb.graphs.azure.com` nebo `mygraphdb.graphs.azure.com:433`).
+
+3. V souboru config.js vyplňte jako hodnotu config.primaryKey hodnotu **Primární klíč** ze stránky **Klíče** na webu Azure Portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
+
+   ![Okno Klíče portálu Azure Portal](./media/create-graph-nodejs/keys.png)
 
 4. Zadejte název databáze a název grafu (kontejneru) pro hodnoty config.database a config.collection. 
 
@@ -125,16 +121,15 @@ Tady je příklad, jak by dokončený soubor config.js měl vypadat:
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "mygraphdb.graphs.azure.com";
-config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.endpoint = "testgraphacct.graphs.azure.com";
+config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"
 
 module.exports = config;
 ```
 
-## Spuštění aplikace konzoly
-<a id="run-the-console-app" class="xliff"></a>
+## <a name="run-the-console-app"></a>Spuštění aplikace konzoly
 
 1. Otevřete okno terminálu a přejděte (pomocí příkazu `cd`) do instalačního adresáře pro soubor package.json, který je zahrnutý v projektu.  
 
@@ -142,8 +137,7 @@ module.exports = config;
 
 3. Spuštění v terminálu `node app.js`, aby se spustila aplikace uzlu.
 
-## Procházení pomocí Průzkumníku dat
-<a id="browse-with-data-explorer" class="xliff"></a>
+## <a name="browse-with-data-explorer"></a>Procházení pomocí Průzkumníku dat
 
 Teď se můžete vrátit do Průzkumníku dat na webu Azure Portal, kde můžete zobrazit, upravit a pracovat s novými daty grafu a zadávat na ně dotazy.
 
@@ -151,21 +145,18 @@ V Průzkumníku dat se nová databáze zobrazí v podokně **Kolekce**. Rozbal
 
 V podokně **Grafy** se zobrazí data vygenerovaná ukázkovou aplikací.
 
-## Ověření smluv SLA na webu Azure Portal
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## Vyčištění prostředků
-<a id="clean-up-your-resources" class="xliff"></a>
+## <a name="clean-up-your-resources"></a>Vyčištění prostředků
 
 Pokud neplánujete tuto aplikaci dál používat, odstraňte následujícím způsobem všechny prostředky, které jste pomocí tohoto článku vytvořili: 
 
 1. V navigační nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, zadejte název prostředku, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 V tomto článku jste se seznámili s postupem vytvoření účtu databáze Azure Cosmos, vytvoření grafu pomocí Průzkumníku dat a spuštění aplikace. Teď můžete pomocí konzoly Gremlin vytvářet složitější dotazy a implementovat účinnou logiku procházení grafů. 
 

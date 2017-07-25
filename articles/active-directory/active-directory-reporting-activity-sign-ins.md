@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Sestavy aktivit přihlašování na portálu Azure Active Directory
-<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Sestavy aktivit přihlašování na portálu Azure Active Directory
 
 Generování sestav Azure Active Directory (Azure AD) na webu [Azure Portal](https://portal.azure.com) umožňuje získat všechny informace potřebné ke zjištění stavu vašeho prostředí.
 
@@ -38,22 +37,18 @@ Architektuře generování sestav v Azure Active Directory se skládá z těchto
 
 V toto tématu najdete přehled aktivit přihlašování.
 
-## Předpoklad
-<a id="pre-requisite" class="xliff"></a>
+## <a name="pre-requisite"></a>Předpoklad
 
-### Kdo má přístup k datům?
-<a id="who-can-access-the-data" class="xliff"></a>
+### <a name="who-can-access-the-data"></a>Kdo má přístup k datům?
 * Uživatelé v roli Správce zabezpečení nebo Čtenář zabezpečení
 * Globální správci
 * Každý uživatel (bez oprávnění správce) může přistupovat k vlastnímu přihlašování. 
 
-### Jaká licence Azure AD je potřeba pro přístup k přihlašovací aktivitě?
-<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Jaká licence Azure AD je potřeba pro přístup k přihlašovací aktivitě?
 * Klient musí mít přiřazenou licenci Azure AD Premium, aby mohl zobrazit sestavu veškerých aktivit přihlašování.
 
 
-## Aktivity přihlašování
-<a id="signs-in-activities" class="xliff"></a>
+## <a name="signs-in-activities"></a>Aktivity přihlašování
 
 Na základě informací poskytnutých sestavou přihlašování uživatelů najdete odpovědi na otázky tohoto typu:
 
@@ -89,8 +84,7 @@ Kliknutím na položku v zobrazení seznamu k ní zobrazíte všechny dostupné 
 ![Aktivita přihlašování](./media/active-directory-reporting-activity-sign-ins/43.png "Aktivita přihlašování")
 
 
-## Filtrování aktivit přihlašování
-<a id="filtering-sign-in-activities" class="xliff"></a>
+## <a name="filtering-sign-in-activities"></a>Filtrování aktivit přihlašování
 
 Abyste omezili zobrazovaná data na úroveň, která vám vyhovuje, můžete filtrovat data přihlašování s využitím následujících polí:
 
@@ -126,8 +120,7 @@ Filtr pro **stav přihlášení** umožňuje vybrat jeden z následujících fil
 - Selhání
 
 
-## Zkratky pro aktivity přihlašování
-<a id="sign-in-activities-shortcuts" class="xliff"></a>
+## <a name="sign-in-activities-shortcuts"></a>Zkratky pro aktivity přihlašování
 
 Kromě Azure Active Directory poskytuje web Azure Portal dva další vstupní body k datům aktivit přihlašování:
 
@@ -135,8 +128,7 @@ Kromě Azure Active Directory poskytuje web Azure Portal dva další vstupní bo
 - Podnikové aplikace
 
 
-### Aktivity přihlašování uživatelů a skupin
-<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
+### <a name="users-and-groups-sign-ins-activities"></a>Aktivity přihlašování uživatelů a skupin
 
 Na základě informací poskytnutých sestavou přihlašování uživatelů najdete odpovědi na otázky tohoto typu:
 
@@ -172,8 +164,7 @@ Možnost **Přihlášení** poskytuje úplný přehled o všech přihlášeních
 
 
 
-## Použití spravovaných aplikací
-<a id="usage-of-managed-applications" class="xliff"></a>
+## <a name="usage-of-managed-applications"></a>Použití spravovaných aplikací
 
 S použitím zobrazení dat přihlašování zaměřeného na aplikace můžete odpovídat na otázky tohoto typu:
 
@@ -206,8 +197,8 @@ Možnost **Přihlášení** poskytuje úplný přehled o všech událostech při
 
 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
-Přečtěte si článek [Příručka generování sestav v Azure Active Directory](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Další kroky
+
+Pokud se chcete dozvědět více o kódech chyb aktivit přihlašování, přečtěte si téma [Kódy chyb v sestavě aktivit přihlašování na portálu Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
 
 

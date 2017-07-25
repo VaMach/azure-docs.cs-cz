@@ -3,8 +3,8 @@ title: "Vytvoření aplikace Cordova v Azure App Service Mobile Apps | Dokumenta
 description: "V tomto kurzu začnete používat back-endy mobilních aplikací Azure pro vývoj na platformě Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: "cordova, javascript, mobilní, klient"
@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 251e36364d0440890dc30dc5267be9f775d95933
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-apache-cordova-app"></a>Vytvoření aplikace na platformě Apache Cordova
@@ -34,7 +34,7 @@ Dokončení tohoto kurzu se předpokládá ve všech dalších kurzech k použí
 ## <a name="prerequisites"></a>Požadavky
 Pro absolvování tohoto kurzu musí být splněné následující požadavky:
 
-* Počítač s nástrojem [Visual Studio Community 2015] nebo novějším
+* Počítač se sadou [Visual Studio Community 2017] nebo novější
 * [Visual Studio Tools for Apache Cordova]
 * [Aktivní účet Azure](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -74,7 +74,7 @@ Zjistěte, jak používat sady SDK.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Offline data]: app-service-mobile-offline-data-sync.md
 [Ověřování]: app-service-mobile-auth.md

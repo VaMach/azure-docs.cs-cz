@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Sestavy aktivit auditu na portálu Azure Active Directory
-<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Sestavy aktivit auditu na portálu Azure Active Directory 
 
 Generování sestav v Azure Active Directory (Azure AD) umožňuje získat všechny informace potřebné ke zjištění stavu vašeho prostředí.
 
@@ -38,15 +37,13 @@ Architektura generování sestav v Azure AD se skládá z následujících kompo
 
 V toto tématu najdete přehled aktivit auditu.
  
-## Kdo má přístup k datům?
-<a id="who-can-access-the-data" class="xliff"></a>
+## <a name="who-can-access-the-data"></a>Kdo má přístup k datům?
 * Uživatelé v roli Správce zabezpečení nebo Čtenář zabezpečení
 * Globální správci
 * Jednotliví uživatelé (bez oprávnění správce) mohou zobrazit své vlastní aktivity.
 
 
-## Protokoly auditu
-<a id="audit-logs" class="xliff"></a>
+## <a name="audit-logs"></a>Protokoly auditu
 
 Protokoly auditu v Azure Active Directory obsahují záznamy aktivit systému pro zajištění dodržování předpisů.  
 Prvním vstupním bodem k veškerým datům auditování je možnost **Protokoly auditu** v oddílu **Aktivita** služby **Azure Active Directory**.
@@ -76,8 +73,7 @@ Kliknutím na položku v zobrazení seznamu k ní zobrazíte všechny dostupné 
 ![Protokoly auditu](./media/active-directory-reporting-activity-audit-logs/22.png "Protokoly auditu")
 
 
-## Filtrování protokolů auditu
-<a id="filtering-audit-logs" class="xliff"></a>
+## <a name="filtering-audit-logs"></a>Filtrování protokolů auditu
 
 Abyste omezili zobrazovaná data na úroveň, která vám vyhovuje, můžete filtrovat data přihlašování s využitím následujících polí:
 
@@ -134,19 +130,17 @@ Když jako **Typ prostředku aktivity** vyberete **Skupina**, zobrazí se dalš�
 
 Filtr **Aktivita** je založený na vybrané kategorii a typu prostředku aktivity. Můžete vybrat konkrétní aktivitu, kterou chcete zobrazit, nebo zvolit všechny. 
 
-Seznam všech aktivit auditu můžete získat pomocí Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, kde $tenantdomain = název domény. Také se můžete podívat na článek o [událostech sestavy auditování](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+Seznam všech aktivit auditu můžete získat pomocí Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, kde $tenantdomain = název domény. Také se můžete podívat na článek o [událostech sestavy auditování](active-directory-reporting-audit-events.md).
 
 
-## Zástupci pro protokoly auditu
-<a id="audit-logs-shortcuts" class="xliff"></a>
+## <a name="audit-logs-shortcuts"></a>Zástupci pro protokoly auditu
 
 Kromě **Azure Active Directory** poskytuje web Azure Portal dva další vstupní body k datům auditu:
 
 - Uživatelé a skupiny
 - Podnikové aplikace
 
-### Protokoly auditu uživatelů a skupin
-<a id="users-and-groups-audit-logs" class="xliff"></a>
+### <a name="users-and-groups-audit-logs"></a>Protokoly auditu uživatelů a skupin
 
 S použitím sestav auditu orientovaných na uživatele a skupiny můžete najít odpovědi na otázky tohoto typu:
 
@@ -170,8 +164,7 @@ Pokud chcete jenom zkontrolovat data auditování týkající se uživatelů a s
 
 ![Protokoly auditu](./media/active-directory-reporting-activity-audit-logs/93.png "Protokoly auditu")
 
-### Protokoly auditu podnikových aplikací
-<a id="enterprise-applications-audit-logs" class="xliff"></a>
+### <a name="enterprise-applications-audit-logs"></a>Protokoly auditu podnikových aplikací
 
 S použitím sestav auditu orientovaných na aplikace můžete najít odpovědi na otázky tohoto typu:
 
@@ -190,8 +183,8 @@ Toto zobrazení je možné dál filtrovat až na samotné **skupiny** nebo **už
 ![Protokoly auditu](./media/active-directory-reporting-activity-audit-logs/25.png "Protokoly auditu")
 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
-Přečtěte si článek [Příručka generování sestav v Azure Active Directory](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Další kroky
+
+Přehled generování sestav najdete v tématu [Generování sestav v Azure Active Directory](active-directory-reporting-azure-portal.md).
 
 

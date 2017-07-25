@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# Škálovací sady virtuálních počítačů Azure a spravované disky
-<a id="azure-vm-scale-sets-and-managed-disks" class="xliff"></a>
+# <a name="azure-vm-scale-sets-and-managed-disks"></a>Škálovací sady virtuálních počítačů Azure a spravované disky
 
-[Škálovací sady virtuálních počítačů](/azure/virtual-machine-scale-sets/) Azure teď podporují virtuální počítače se spravovanými disky. Použití spravovaných disků se škálovacími sadami má několik výhod:
+[Škálovací sady virtuálních počítačů](/azure/virtual-machine-scale-sets/) Azure podporují virtuální počítače se spravovanými disky. Použití spravovaných disků se škálovacími sadami má několik výhod:
 
 * Pro virtuální počítače škálovacích sad už není potřeba předem vytvářet a spravovat účty úložiště pro ukládání disků operačního systému.
 
@@ -34,8 +32,7 @@ ms.lasthandoff: 06/01/2017
 
 * Při použití spravovaného disku může mít škálovací sada kapacitu až 1 000 virtuálních počítačů, pokud je založená na imagi platformy, nebo 100 virtuálních počítačů, pokud je založená na vlastní imagi.
 
-## Začínáme
-<a id="get-started" class="xliff"></a>
+## <a name="get-started"></a>Začínáme
 
 Jednoduchým způsobem, jak začít pracovat se škálovacími sadami spravovaného disku, je provést nasazení z webu Azure Portal. Další informace najdete v [tomto článku](./virtual-machine-scale-sets-portal-create.md). Dalším jednoduchým způsobem, jak začít, je nasadit škálovací sadu pomocí [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Následující příklad ukazuje, jak vytvořit škálovací sadu založenou na Ubuntu s 10 virtuálními počítači, z nichž každý má 50GB a 100GB datový disk:
 
@@ -46,13 +43,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 Další možností je vyhledat v [úložišti šablon Azure Quickstart na GitHubu](https://github.com/Azure/azure-quickstart-templates) složky, které obsahují `vmss`, a podívat se na předem vytvořené příklady šablon, které nasazují škálovací sady. Ke zjištění, které ze šablon už používají spravované disky, můžete použít [tento seznam](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
-## Verze rozhraní API
-<a id="api-versions" class="xliff"></a>
-
-Škálovací sady se spravovanými disky vyžadují rozhraní API Microsoft Compute ve verzi `2016-04-30-preview` nebo novější. Škálovací sady s nespravovanými disky budou dál fungovat stejně jako doteď, a to i v nových verzích rozhraní API, které mají podporu pro spravované disky. Škálovací sady s nespravovanými disky ale nebudou mít ani v těchto nových verzích rozhraní API výhody spravovaných disků.
-
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Další obecné informace o spravovaných discích najdete v [tomto článku](../storage/storage-managed-disks-overview.md).
 

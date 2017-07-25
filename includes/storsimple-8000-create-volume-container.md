@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 06/22/17-->
 
-#### Vytvoření kontejneru svazků
-<a id="to-create-a-volume-container" class="xliff"></a>
+#### <a name="to-create-a-volume-container"></a>Vytvoření kontejneru svazků
 1. Přejděte do služby Správce zařízení StorSimple a klikněte na **Zařízení**. V tabulkovém výpisu zařízení vyberte a klikněte na zařízení. 
 
     ![Okno Kontejner svazků](./media/storsimple-8000-create-volume-container/createvolumecontainer1.png)
@@ -13,7 +12,7 @@
 3. V okně **Přidat kontejner svazků**:
    
    1. Zařízení se vybere automaticky.
-   2. Zadejte **Název** kontejneru svazků. Název musí mít délku 3 až 32 znaků.
+   2. Zadejte **Název** kontejneru svazků. Název musí mít délku 3 až 32 znaků. Kontejner svazků se po vytvoření už nedá přejmenovat.
    3. Výběrem možnosti **Enable Cloud Storage Encryption** (Povolit šifrování cloudového úložiště) povolte šifrování dat odesílaných ze zařízení do cloudu.
    4. Zadejte a potvrďte **Cloud Storage Encryption Key** (Šifrovací klíč cloudového úložiště), který má délku 8 až 32 znaků. Tento klíč zařízení používá k přístupu k zašifrovaným datům.
    5. Vyberte **Účet úložiště**, který chcete k tomuto kontejneru svazků přidružit. Můžete vybrat existující účet úložiště nebo výchozí účet, který se vygeneruje při vytváření služby. Můžete také pomocí možnosti **Přidat nový** zadat účet úložiště, který není spojený s předplatným této služby.
