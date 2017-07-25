@@ -1,9 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Dokončení minimální instalace zařízení StorSimple
 
-#### Dokončení minimální instalace zařízení StorSimple
-
+   > [!NOTE]
+   > Po dokončení minimální instalace zařízení už nebude možné změnit název zařízení.
+   
 1. V tabulkovém výpisu zařízení v okně **Zařízení** vyberte a klikněte na své zařízení. Zařízení je ve stavu **Připraveno k nastavení**. Otevře se okno **Konfigurace zařízení**.
 
      ![Síťová rozhraní pro minimální instalaci zařízení StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -27,9 +28,6 @@
 1. Klikněte na **OK**. Spustí se konfigurace zařízení. Po dokončení konfigurace zařízení se zobrazí oznámení. Stav zařízení v okně **Zařízení** se změní na **Online**.
 
     ![Síťová rozhraní pro minimální instalaci zařízení StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > Všechna ostatní nastavení zařízení můžete kdykoli upravit v okně **Nastavení zařízení**.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

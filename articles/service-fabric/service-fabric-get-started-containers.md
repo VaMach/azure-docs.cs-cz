@@ -1,30 +1,33 @@
 ---
 title: "Vytvoření aplikace Azure Service Fabric typu kontejner | Dokumentace Microsoftu"
-description: "Vytvoříte svou první aplikaci typu kontejner na Azure Service Fabric.  Sestavíte image Dockeru s vaší aplikací, nahrajete image do registru kontejneru a sestavíte a nasadíte aplikaci Service Fabric typu kontejner."
+description: "Vytvoříte svou první aplikaci typu kontejner pro Windows na platformě Azure Service Fabric.  Sestavíte image Dockeru s aplikací v Pythonu, nahrajete image do registru kontejneru a sestavíte a nasadíte aplikaci Service Fabric typu kontejner."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: vturecek
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/08/2017
+ms.date: 06/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 8c9d6c65666b5ffedf058e0a83d4fc41fff80235
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 
-# <a name="create-your-first-service-fabric-container-app"></a>Vytvoření první aplikace Service Fabric typu kontejner
-Spuštění existující aplikace v kontejneru Windows v clusteru Service Fabric nevyžaduje žádné změny aplikace. Tento Rychlý start vás provede vytvořením image Dockeru obsahující webovou aplikaci, nahráním nové image do služby Azure Container Registry, vytvořením aplikace Service Fabric typu kontejner a nasazením aplikace typu kontejner do clusteru Service Fabric.  Tento článek předpokládá základní znalost Dockeru. Informace o Dockeru najdete v článku [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Přehled Dockeru).
+# <a name="create-your-first-service-fabric-container-application-on-windows"></a>Vytvoření první aplikace Service Fabric typu kontejner v systému Windows
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-get-started-containers.md)
+> * [Linux](service-fabric-get-started-containers-linux.md)
+
+Spuštění existující aplikace v kontejneru Windows v clusteru Service Fabric nevyžaduje žádné změny aplikace. Tento článek vás provede vytvořením image Dockeru obsahující webovou aplikaci Python [Flask](http://flask.pocoo.org/) a jejím nasazením do clusteru Service Fabric.  Kontejnerizovanou aplikaci budete také sdílet prostřednictvím služby [Azure Container Registry](/azure/container-registry/).  Tento článek předpokládá základní znalost Dockeru. Informace o Dockeru najdete v článku [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Přehled Dockeru).
 
 ## <a name="prerequisites"></a>Požadavky
 Vývojový počítač s:
@@ -32,121 +35,134 @@ Vývojový počítač s:
 * [Sada Service Fabric SDK a nástroje](service-fabric-get-started.md).
 *  Docker pro Windows.  [Získejte Docker CE pro Windows (stabilní verze)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Po nainstalování a spuštění Dockeru klikněte pravým tlačítkem myši na ikonu na hlavním panelu a vyberte **Switch to Windows containers** (Přepnout na kontejnery Windows). To se vyžaduje pro spuštění imagí Dockeru založených na Windows.
 
-Cluster Windows se třemi nebo více uzly spuštěnými na Windows Serveru 2016 s kontejnery – [Vytvořte cluster](service-fabric-get-started-azure-cluster.md) nebo [vyzkoušejte Service Fabric zdarma](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
+Cluster Windows se třemi nebo více uzly spuštěnými na Windows Serveru 2016 s kontejnery – [Vytvořte cluster](service-fabric-cluster-creation-via-portal.md) nebo [vyzkoušejte Service Fabric zdarma](https://aka.ms/tryservicefabric). 
 
 Registr ve službě Azure Container Registry – [Vytvořte registr kontejneru](../container-registry/container-registry-get-started-portal.md) ve svém předplatném Azure. 
 
-## <a name="create-a-simple-web-app"></a>Vytvoření jednoduché webové aplikace
-Shromážděte na jednom místě všechny prostředky, které potřebujete nahrát do image Dockeru. Pro účely tohoto Rychlého startu vytvořte na vývojovém počítači webovou aplikaci Hello World.
+## <a name="define-the-docker-container"></a>Definice kontejneru Dockeru
+Sestavte image založenou na [imagi Pythonu](https://hub.docker.com/_/python/), která se nachází na Docker Hubu. 
 
-1. Vytvořte adresář, například *c:\temp\helloworldapp*.
-2. Vytvořte podadresář *c:\temp\helloworldapp\content*.
-3. V adresáři *c:\temp\helloworldapp\content* vytvořte soubor *index.html*.
-4. Upravte soubor *index.html* a přidejte následující řádek:
-    ```
-    <h1>Hello World!</h1>
-    ```
-5. Uložte změny souboru *index.html*.
+Definujte kontejner Dockeru v souboru Dockerfile. Soubor Dockerfile obsahuje pokyny k nastavení prostředí uvnitř kontejneru, načtení aplikace, kterou chcete pustit, a mapování portů. Soubor Dockerfile je vstupem příkazu `docker build`, který vytvoří image. 
 
-## <a name="build-the-docker-image"></a>Sestavení image Dockeru
-Sestavte image založenou na [imagi microsoft/iis](https://hub.docker.com/r/microsoft/iis/), která se nachází na Docker Hubu. Image microsoft/iis je odvozená od základní image operačního systému Windows Server Core a obsahuje Internetovou informační službu (služba IIS).  Spuštění této image v kontejneru automaticky spustí službu IIS a nainstalované weby.
+Vytvořte prázdný adresář a soubor *Dockerfile* (bez přípony souboru). Do souboru *Dockerfile* přidejte následující a uložte změny:
 
-Definujte vaši image Dockeru v souboru Dockerfile. Soubor Dockerfile obsahuje pokyny k sestavení image a nahrání aplikace, kterou chcete spustit. Soubor Dockerfile je vstupem příkazu ```docker build```, který vytvoří image. 
+```
+# Use an official Python runtime as a base image
+FROM python:2.7-windowsservercore
 
-1. V adresáři *c:\temp\helloworldapp* vytvořte soubor *Dockerfile* (bez přípony souboru) a přidejte do něj následující:
+# Set the working directory to /app
+WORKDIR /app
 
-    ```
-    # The `FROM` instruction specifies the base image. You are
-    # extending the `microsoft/iis` image.
-    FROM microsoft/iis
+# Copy the current directory contents into the container at /app
+ADD . /app
 
-    # Create a directory to hold the web app in the container.
-    RUN mkdir C:\site
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
 
-    # Create a new IIS site.
-    RUN powershell -NoProfile -Command \
-        Import-module IISAdministration; \
-        New-IISSite -Name "Site" -PhysicalPath C:\site -BindingInformation "*:8000:"
+# Make port 80 available to the world outside this container
+EXPOSE 80
 
-    # Opens port 8000 on the container.
-    EXPOSE 8000
+# Define environment variable
+ENV NAME World
 
-    # The final instruction copies the web app you created earlier into the container.
-    ADD content/ /site
-    ```
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
 
-    V tomto souboru Dockerfile není žádný příkaz ```ENTRYPOINT```. Žádný nepotřebujete. Při spouštění Windows Serveru se službou IIS je vstupním bodem proces služby IIS, jehož spuštění je nakonfigurováno v základní imagi.
+Další informace najdete v [referenčních informacích k souboru Dockerfile](https://docs.docker.com/engine/reference/builder/).
 
-    Další informace najdete v [referenčních informacích k souboru Dockerfile](https://docs.docker.com/engine/reference/builder/).
+## <a name="create-a-simple-web-application"></a>Vytvoření jednoduché webové aplikace
+Vytvořte webovou aplikaci Flask, která naslouchá na portu 80 a vrací „Hello World!“.  Ve stejném adresáři vytvořte soubor *requirements.txt*.  Přidejte do něj následující a uložte změny:
+```
+Flask
+```
 
-2. Spuštěním příkazu ```docker build``` vytvořte image spouštějící vaši webovou aplikaci. Otevřete okno PowerShellu a přejděte do adresáře *c:\temp\helloworldapp*. Spusťte následující příkaz:
+Vytvořte také soubor *app.py* a přidejte do něj následující:
 
-    ```
-    docker build -t helloworldapp .
-    ```
-    Tento příkaz sestaví novou image podle pokynů ve vašem souboru Dockerfile a pojmenuje ji (označení -t) „helloworldapp“. Sestavení image si z Docker Hubu stáhne základní image a vytvoří novou image, která přidá vaši aplikaci nad základní image.  [Image microsoft/iis](https://hub.docker.com/r/microsoft/iis/) a základní image operačního systému mají 10,5 GB a jejich stažení a extrahování na vývojovém počítači chvíli trvá.  Můžete si zajít na oběd nebo šálek kávy.  Stahování bude trvat kratší dobu, pokud jste na vývojovém počítači již dříve stáhli základní image operačního systému.
+```python
+from flask import Flask
 
-3. Po dokončení příkazu pro sestavení spusťte příkaz `docker images` a zobrazte informace o nové imagi:
+app = Flask(__name__)
 
-    ```
-    docker images
+@app.route("/")
+def hello():
     
-    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
-    helloworldapp              latest              86838648aab6        2 minutes ago       10.1 GB
-    ```
+    return 'Hello World!'
 
-## <a name="verify-the-image-runs-locally"></a>Ověření, že image lze spustit místně
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
+```
+
+## <a name="build-the-image"></a>Sestavení image
+Spuštěním příkazu `docker build` vytvořte image spouštějící vaši webovou aplikaci. Otevřete okno PowerShellu a přejděte do adresáře, který obsahuje soubor Dockerfile. Spusťte následující příkaz:
+
+```
+docker build -t helloworldapp .
+```
+
+Tento příkaz sestaví novou image podle pokynů ve vašem souboru Dockerfile a pojmenuje ji (označení -t) „helloworldapp“. Sestavení image si z Docker Hubu přetáhne základní image a vytvoří novou image, která přidá vaši aplikaci nad základní image.  
+
+Po dokončení příkazu pro sestavení spusťte příkaz `docker images` a zobrazte informace o nové imagi:
+
+```
+$ docker images
+    
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
+```
+
+## <a name="run-the-application-locally"></a>Místní spuštění aplikace
 Než image nahrajete do registru kontejneru, ověřte ji místně.  
 
-1. Spusťte kontejner pomocí příkazu ```docker run```:
+Spusťte aplikaci:
 
-    ```
-    docker run -d -p 8000:8000 --name my-web-site helloworldapp
-    ```
+```
+docker run -d --name my-web-site helloworldapp
+```
 
-    Parametr *name* udává název spuštěného kontejneru (namísto ID kontejneru).
+Parametr *name* udává název spuštěného kontejneru (namísto ID kontejneru).
 
-2. Po spuštění kontejneru vyhledejte jeho IP adresu, abyste se ke spuštěnému kontejneru mohli připojit z prohlížeče:
-    ```
-    docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
-    ```
+Po spuštění kontejneru vyhledejte jeho IP adresu, abyste se ke spuštěnému kontejneru mohli připojit z prohlížeče:
+```
+docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
+```
 
-3. Připojte se ke spuštěnému kontejneru.  Otevřete webový prohlížeč a přejděte na vrácenou IP adresu na portu 8000, například http://172.31.194.61:8000. V prohlížeči by se měl zobrazit nadpis „Hello World!“.
+Připojte se ke spuštěnému kontejneru.  Otevřete webový prohlížeč a přejděte na vrácenou IP adresu, například http://172.31.194.61. V prohlížeči by se měl zobrazit nadpis „Hello World!“.
 
-4. Pokud chcete kontejner zastavit, spusťte:
+Pokud chcete kontejner zastavit, spusťte:
 
-    ```
-    docker stop my-web-site
-    ```
+```
+docker stop my-web-site
+```
 
-5. Odstraňte kontejner z vývojového počítače:
+Odstraňte kontejner z vývojového počítače:
 
-    ```
-    docker rm my-web-site
-    ```
+```
+docker rm my-web-site
+```
 
 ## <a name="push-the-image-to-the-container-registry"></a>Nahrání image do registru kontejneru
 Po ověření, že se kontejner spustí na vývojovém počítači, nahrajte image do vašeho registru ve službě Azure Container Service.
 
-1. Spusťte příkaz ``docker login`` a přihlaste se ke svému registru kontejnerů pomocí [přihlašovacích údajů registru](../container-registry/container-registry-authentication.md).
+Spusťte příkaz ``docker login`` a přihlaste se ke svému registru kontejnerů pomocí [přihlašovacích údajů registru](../container-registry/container-registry-authentication.md).
 
-    Následující příklad předá ID a heslo [instančního objektu](../active-directory/active-directory-application-objects.md) Azure Active Directory. Instanční objekt jste k registru mohli přiřadit například pro účely scénáře automatizace.
+Následující příklad předá ID a heslo [instančního objektu](../active-directory/active-directory-application-objects.md) Azure Active Directory. Instanční objekt jste k registru mohli přiřadit například pro účely scénáře automatizace. Nebo se můžete přihlásit pomocí uživatelského jména a hesla registru.
 
-    ```
-    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
-    ```
+```
+docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```
 
-2. Následující příkaz vytvoří značku, neboli alias, image s plně kvalifikovanou cestou k vašemu registru. Tento příklad umístí image do oboru názvů ```samples```, aby se zabránilo nepořádku v kořenovém adresáři registru.
+Následující příkaz vytvoří značku, neboli alias, image s plně kvalifikovanou cestou k vašemu registru. Tento příklad umístí image do oboru názvů ```samples```, aby se zabránilo nepořádku v kořenovém adresáři registru.
 
-    ```
-    docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
-    ```
+```
+docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
+```
 
-3.  Nahrajte image do registru kontejneru:
+Nahrajte image do registru kontejneru:
 
-    ```
-    docker push myregistry.azurecr.io/samples/helloworldapp
-    ```
+```
+docker push myregistry.azurecr.io/samples/helloworldapp
+```
 
 ## <a name="create-and-package-the-containerized-service-in-visual-studio"></a>Vytvoření a zabalení kontejnerizované služby v sadě Visual Studio
 Sada Service Fabric SDK a nástroje poskytují šablonu služby, která vám pomůže s nasazením kontejneru do clusteru Service Fabric.
@@ -156,19 +172,19 @@ Sada Service Fabric SDK a nástroje poskytují šablonu služby, která vám pom
 3. Ze **seznamu šablon** služeb vyberte **Guest Container**.
 4. Do pole **Název image** zadejte „myregistry.azurecr.io/samples/helloworldapp“, tedy image, kterou jste nahráli do úložiště kontejnerů. 
 5. Zadejte název služby a klikněte na **OK**.
-6. Pokud vaše kontejnerizovaná služba potřebuje koncový bod pro komunikaci, můžete teď přidat protokol, port a typ v části ```Endpoint``` v souboru ServiceManifest.xml. Pro účely tohoto Rychlého startu kontejnerizovaná služba naslouchá na portu 80: 
+6. Pokud vaše kontejnerizovaná služba potřebuje koncový bod pro komunikaci, můžete teď přidat protokol, port a typ v části ```Endpoint``` v souboru ServiceManifest.xml. Pro účely tohoto článku kontejnerizovaná služba naslouchá na portu 80: 
 
     ```xml
-    <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+    <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     ```
     Pokud zadáte ```UriScheme```, koncový bod kontejneru se automaticky zaregistruje ve Službě pojmenování Service Fabric, aby byl zjistitelný. Úplný ukázkový soubor ServiceManifest.xml najdete na konci tohoto článku. 
-7. Nakonfigurujte v kontejneru mapování portů na hostitele určením zásady ```PortBinding``` v části ```ContainerHostPolicies``` souboru APplicationManifest.xml.  Pro účely tohoto Rychlého startu je ```ContainerPort``` nastaven na 8000 (kontejner zpřístupňuje port 8000, jak je zadáno v souboru Dockerfile) a ```EndpointRef``` je „Guest1TypeEndpoint“ (koncový bod definovaný v manifestu služby).  Příchozí požadavky na službu na portu 80 se mapují na port 8000 v kontejneru.  Pokud se váš kontejner potřebuje ověřovat v privátním úložišti, přidejte ```RepositoryCredentials```.  Pro účely tohoto Rychlého startu přidejte název a heslo účtu pro registr kontejneru myregistry.azurecr.io. 
+7. Nakonfigurujte v kontejneru mapování portů na hostitele určením zásady ```PortBinding``` v části ```ContainerHostPolicies``` souboru APplicationManifest.xml.  Pro účely tohoto článku je ```ContainerPort``` nastaven na 8081 (kontejner zpřístupňuje port 80, jak je zadáno v souboru Dockerfile) a ```EndpointRef``` je „Guest1TypeEndpoint“ (koncový bod definovaný v manifestu služby).  Příchozí požadavky na službu na portu 8081 se mapují na port 80 v kontejneru.  Pokud se váš kontejner potřebuje ověřovat v privátním úložišti, přidejte ```RepositoryCredentials```.  Pro účely tohoto článku přidejte název a heslo účtu pro registr kontejneru myregistry.azurecr.io. 
 
     ```xml
     <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
             <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
         </ContainerHostPolicies>
     </Policies>
     ```
@@ -181,16 +197,16 @@ Sada Service Fabric SDK a nástroje poskytují šablonu služby, která vám pom
     
 9. Uložte všechny soubory a sestavte projekt.  
 
-10. Pokud chcete aplikaci zabalit, klikněte pravým tlačítkem myši na **MyFirstContainer** v Průzkumníku řešení a vyberte **Zabalit**. 
+10. Pokud chcete aplikaci zabalit, klikněte pravým tlačítkem na **MyFirstContainer** v Průzkumníku řešení a vyberte **Zabalit**. 
 
-## <a name="deploy-the-container-app"></a>Nasazení aplikace typu kontejner
-1. Pokud chcete aplikaci publikovat, klikněte pravým tlačítkem myši na **MyFirstContainer** v Průzkumníku řešení a vyberte **Publikovat**.
+## <a name="deploy-the-container-application"></a>Nasazení aplikace typu kontejner
+Pokud chcete aplikaci publikovat, klikněte pravým tlačítkem na **MyFirstContainer** v Průzkumníku řešení a vyberte **Publikovat**.
 
-2. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) je webový nástroj pro kontrolu a správu aplikací a uzlů v clusteru Service Fabric. Otevřete prohlížeč, přejděte na adresu http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ a sledujte nasazení aplikace.  Aplikace se nasadí, ale bude v chybovém stavu, dokud se image nestáhne na uzlech clusteru (což v závislosti na velikosti image může nějakou dobu trvat):  ![Chyba][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) je webový nástroj pro kontrolu a správu aplikací a uzlů v clusteru Service Fabric. Otevřete prohlížeč, přejděte na adresu http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ a sledujte nasazení aplikace.  Aplikace se nasadí, ale bude v chybovém stavu, dokud se image nestáhne na uzlech clusteru (což v závislosti na velikosti image může nějakou dobu trvat): ![Chyba][1]
 
-3. Aplikace je připravena, když je ve stavu ```Ready```:  ![Připraveno][2]
+Aplikace je připravena, když je ve stavu ```Ready```: ![Připraveno][2]
 
-4. Otevřete prohlížeč a přejděte na adresu http://containercluster.westus2.cloudapp.azure.com. V prohlížeči by se měl zobrazit nadpis „Hello World!“.
+Otevřete prohlížeč a přejděte na adresu http://containercluster.westus2.cloudapp.azure.com:8081. V prohlížeči by se měl zobrazit nadpis „Hello World!“.
 
 ## <a name="clean-up"></a>Vyčištění
 Za spuštěný cluster se vám stále účtují poplatky, proto zvažte [odstranění clusteru](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clustery](http://tryazureservicefabric.westus.cloudapp.azure.com/) se automaticky odstraní po několika hodinách.
@@ -203,7 +219,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Kompletní příklad manifestů služby a aplikace Service Fabric
-Tady jsou kompletní manifesty aplikace a služby použité v tomto Rychlém startu.
+Tady jsou kompletní manifesty aplikace a služby použité v tomto článku.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -244,7 +260,7 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto Rychlém sta
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -269,7 +285,7 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto Rychlém sta
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
@@ -290,6 +306,7 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto Rychlém sta
 
 ## <a name="next-steps"></a>Další kroky
 * Další informace o spouštění [kontejnerů v Service Fabric](service-fabric-containers-overview.md).
+* Přečtěte si kurz [Nasazení aplikace .NET v kontejneru](service-fabric-host-app-in-a-container.md).
 * Informace o [životním cyklu aplikace](service-fabric-application-lifecycle.md) Service Fabric.
 * Prohlédněte si [ukázky kódu kontejneru Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-containers) na GitHubu.
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 8fa97a00978b4efdcf5956ee6b92547960b1d57a
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: bf028b0e49833385837fa7bdd68f215ed27e0325
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# Konfigurace propojení brány VPN typu VNet-to-VNet pomocí webu Azure Portal
-<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal" class="xliff"></a>
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurace propojení brány VPN typu VNet-to-VNet pomocí webu Azure Portal
 
-Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Postupy v tomto článku se týkají modelu nasazení Resource Manager a webu Azure Portal. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
+Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
+
+Postupy v tomto článku se týkají modelu nasazení Resource Manager a webu Azure Portal pro virtuální sítě, které jsou ve stejném předplatném. Pokud jsou vaše virtuální sítě v různých předplatných, nelze vytvořit připojení na portálu. Můžete použít [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) nebo [rozhraní příkazového řádku](vpn-gateway-howto-vnet-vnet-cli.md). Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -46,8 +46,7 @@ Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery
 
 ![Informace o připojeních](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informace o připojeních")
 
-### Proč propojovat virtuální sítě?
-<a id="why-connect-virtual-networks" class="xliff"></a>
+### <a name="why-connect-virtual-networks"></a>Proč propojovat virtuální sítě?
 
 Virtuální sítě může být vhodné propojit z následujících důvodů:
 
@@ -59,9 +58,10 @@ Virtuální sítě může být vhodné propojit z následujících důvodů:
   
   * V rámci stejné oblasti můžete vytvářet vícevrstvé aplikace s několika virtuálními sítěmi propojenými z důvodu izolace nebo požadavků na správu.
 
-Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku. Všimněte si, že pokud jsou vaše virtuální sítě v různých předplatných, nelze vytvořit připojení na portálu. Můžete použití [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku. Všimněte si, že pokud jsou vaše virtuální sítě v různých předplatných, nelze vytvořit připojení na portálu. Můžete použít [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) nebo [rozhraní příkazového řádku](vpn-gateway-howto-vnet-vnet-cli.md).
 
 ### <a name="values"></a>Příklady nastavení
+
 Používáte-li tyto kroky jako cvičení, můžete použít ukázkové hodnoty nastavení. Pro účely tohoto příkladu použijeme pro jednotlivé virtuální sítě více adresních prostorů. Konfigurace VNet-to-VNet nicméně použití více adresních prostorů nevyžadují.
 
 **Hodnoty pro virtuální síť TestVNet1:**
@@ -113,8 +113,7 @@ Používáte-li tyto kroky jako cvičení, můžete použít ukázkové hodnoty 
 ## <a name="CreatVNet"></a>1. Vytvoření a konfigurace virtuální sítě TestVNet1
 Pokud již máte virtuální síť vytvořenou, ověřte, zda jsou nastavení kompatibilní s vaším návrhem brány VPN. Věnujte zvláštní pozornost všem podsítím, které by se mohly překrývat s jinými sítěmi. Pokud se podsítě překrývají, připojení nebude fungovat správně. Pokud je vaše virtuální síť nakonfigurována se správným nastavením, můžete začít s kroky v oddílu [Určení serveru DNS](#dns).
 
-### Chcete-li vytvořit virtuální síť
-<a id="to-create-a-virtual-network" class="xliff"></a>
+### <a name="to-create-a-virtual-network"></a>Chcete-li vytvořit virtuální síť
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="subnets"></a>2. Přidání dalšího adresního prostoru a vytvoření podsítí
@@ -129,8 +128,7 @@ Pokud vytváříte tuto konfiguraci jako cvičení, při vytváření podsítě 
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### Chcete-li vytvořit podsíť brány
-<a id="to-create-a-gateway-subnet" class="xliff"></a>
+### <a name="to-create-a-gateway-subnet"></a>Chcete-li vytvořit podsíť brány
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="dns"></a>4. Určení serveru DNS (volitelné)
@@ -141,8 +139,7 @@ DNS není pro připojení VNet-to-VNet vyžadováno. Pokud ale chcete umožnit p
 ## <a name="VNetGateway"></a>5. Vytvoření brány virtuální sítě
 V tomto kroku vytvoříte bránu virtuální sítě pro svou virtuální síť. Vytvoření brány může obvykle trvat 45 minut nebo déle, a to v závislosti na vybrané skladové jednotce (SKU) brány. Pokud vytváříte tuto konfiguraci jako cvičení, můžete použít tyto [příklady nastavení](#values).
 
-### Chcete-li vytvořit bránu virtuální sítě
-<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
+### <a name="to-create-a-virtual-network-gateway"></a>Chcete-li vytvořit bránu virtuální sítě
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## <a name="CreateTestVNet4"></a>6. Vytvoření a konfigurace virtuální sítě TestVNet4
@@ -192,7 +189,6 @@ Projděte si Nejčastější dotazy, kde najdete další informace o propojeníc
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v [dokumentaci ke službě Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 

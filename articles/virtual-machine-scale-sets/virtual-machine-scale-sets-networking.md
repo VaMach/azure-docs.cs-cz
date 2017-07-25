@@ -13,24 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/06/2017
+ms.date: 07/17/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 1c9487be5415d05a8699f458259d872591280d3d
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Síťové služby pro škálovací sady virtuálních počítačů Azure
 
 Když nasadíte škálovací sadu virtuálních počítačů Azure prostřednictvím portálu, pro určité vlastnosti sítě se nastaví výchozí hodnoty, jako například příchozí pravidla NAT pro Azure Load Balancer. Tento článek popisuje, jak používat některé pokročilejší síťové funkce, které můžete nakonfigurovat se škálovacími sadami.
 
-Všechny funkce popsané v tomto článku můžete nakonfigurovat pomocí šablon Azure Resource Manageru. Pro vybrané funkce jsou zahrnuté také příklady Azure CLI. Použijte verzi rozhraní příkazového řádku z července 2017 nebo novější. Další příklady rozhraní příkazového řádku a PowerShellu se brzy přidají.
+Všechny funkce popsané v tomto článku můžete nakonfigurovat pomocí šablon Azure Resource Manageru. Pro vybrané funkce jsou zahrnuté také příklady Azure CLI a PowerShellu. Použijte CLI 2.10 a PowerShell 4.2.0 nebo novější.
 
 ## <a name="accelerated-networking"></a>Akcelerované síťové služby
-[Akcelerované síťové služby](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-vm-accelerated-networking) Azure zlepšují výkon sítě tím, že na virtuálním počítači povolují rozhraní SR-IOV (single-root I/O virtualization). Pokud chcete používat akcelerované síťové služby se škálovacími sadami, v nastavení networkInterfaceConfigurations vaší škálovací sady nastavte enableAcceleratedNetworking na hodnotu _true_. Například:
+[Akcelerované síťové služby](../virtual-network/virtual-network-create-vm-accelerated-networking.md) Azure zlepšují výkon sítě tím, že na virtuálním počítači povolují rozhraní SR-IOV (single-root I/O virtualization). Pokud chcete používat akcelerované síťové služby se škálovacími sadami, v nastavení networkInterfaceConfigurations vaší škálovací sady nastavte enableAcceleratedNetworking na hodnotu **true**. Například:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -59,9 +58,9 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ## <a name="configurable-dns-settings"></a>Konfigurovatelná nastavení DNS
 Ve výchozím nastavení škálovací sady přebírají konkrétní nastavení DNS virtuální sítě a podsítě, ve kterých byly vytvořeny. Nastavení DNS pro škálovací sadu ale můžete nakonfigurovat i přímo.
-
+~
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Vytvoření škálovací sady s konfigurovatelnými servery DNS
-Pokud chcete vytvořit škálovací sadu s vlastní konfigurací DNS pomocí CLI 2.0, přidejte do příkazu _vmss create_ argument --dns-servers následovaný mezerami oddělenými IP adresami serverů. Například:
+Pokud chcete vytvořit škálovací sadu s vlastní konfigurací DNS pomocí CLI 2.0, přidejte do příkazu **vmss create** argument **--dns-servers** následovaný mezerami oddělenými IP adresami serverů. Například:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
@@ -73,9 +72,9 @@ Pokud chcete nakonfigurovat vlastní servery DNS v šabloně Azure, přidejte do
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Vytvoření škálovací sady s konfigurovatelnými názvy domén virtuálních počítačů
-Pokud chcete vytvořit škálovací sadu s vlastním názvem DNS pro virtuální počítače pomocí CLI 2.0, přidejte do příkazu _vmss create_ argument _--vm-domain-name_ následovaný řetězcem představujícím název domény.
+Pokud chcete vytvořit škálovací sadu s vlastním názvem DNS pro virtuální počítače pomocí CLI 2.0, přidejte do příkazu **vmss create** argument **--vm-domain-name** následovaný řetězcem představujícím název domény.
 
-Pokud chcete nastavit název domény v šabloně Azure, přidejte do části networkInterfaceConfigurations škálovací sady vlastnost dnsSettings. Například:
+Pokud chcete nastavit název domény v šabloně Azure, přidejte do části **networkInterfaceConfigurations** škálovací sady vlastnost **dnsSettings**. Například:
 
 ```json
 "networkProfile": {
@@ -109,84 +108,7 @@ Pokud chcete nastavit název domény v šabloně Azure, přidejte do části net
 
 Výstup pro každý jednotlivý název DNS virtuálního počítače by měl následující podobu: 
 ```
-<vmname><vmindex>.<specifiedVmssDomainNameLabel>
-```
-
-## <a name="ipv6-preview-for-public-ips-and-load-balancer-pools"></a>Protokol IPv6 ve verzi Preview pro veřejné IP adresy a fondy služby Load Balancer
-Ve službě Azure Load Balancer můžete nakonfigurovat veřejnou IP adresu IPv6 a směrovat připojení do back-endových fondů škálovací sady virtuálních počítačů. Pokud chcete použít protokol IPv6, který je aktuálně ve verzi Preview, vytvořte nejprve prostředek veřejné IPv6 adresy. Například:
-```json
-{
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Network/publicIPAddresses",
-    "name": "[parameters('ipv6PublicIPAddressName')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "publicIPAddressVersion": "IPv6",
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-            "domainNameLabel": "[parameters('dnsNameforIPv6LbIP')]"
-        }
-    }
-}
-```
-Dál podle potřeby nakonfigurujte konfigurace IP front-endu vašeho nástroje pro vyrovnávání zařízení pro protokoly IPv4 a IPv6:
-
-```json
-"frontendIPConfigurations": [
-    {
-        "name": "LoadBalancerFrontEndIPv6",
-        "properties": {
-            "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('ipv6PublicIPAddressName'))]"
-            }
-        }
-    }
-]
-```
-Definujte požadované back-endové fondy:
-```json
-"backendAddressPools": [
-    {
-        "name": "BackendPoolIPv4"
-    },
-    {
-        "name": "BackendPoolIPv6"
-    }
-]
-```
-Definujte případná pravidla nástroje pro vyrovnávání zatížení:
-```json
-{
-    "name": "LBRuleIPv6-46000",
-    "properties": {
-        "frontendIPConfiguration": {
-            "id": "[variables('ipv6FrontEndIPConfigID')]"
-        },
-        "backendAddressPool": {
-            "id": "[variables('ipv6LbBackendPoolID')]"
-        },
-        "protocol": "tcp",
-        "frontendPort": 46000,
-        "backendPort": 60001,
-        "probe": {
-            "id": "[variables('ipv4ipv6lbProbeID')]"
-        }
-    }
-}
-```
-Nakonec přidejte odkaz na fond IPv6 adres do části IPConfigurations síťových vlastností škálovací sady:
-```json
-{
-    "name": "ipv6IPConfig",
-    "properties": {
-        "privateIPAddressVersion": "IPv6",
-        "loadBalancerBackendAddressPools": [
-            {
-                "id": "[variables('ipv6LbBackendPoolID')]"
-            }
-        ]
-    }
-}
+<vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Veřejná IPv4 adresa na virtuální počítač
@@ -195,9 +117,9 @@ Obecně platí, že virtuální počítače Azure ve škálovací sadě nevyžad
 Některé scénáře však vyžadují, aby virtuální počítače ve škálovací sadě měly vlastní veřejné IP adresy. Příkladem jsou hry, kdy konzola potřebuje navázat přímé připojení ke cloudovému virtuálnímu počítači, který provádí zpracování herní fyziky. Dalším příkladem je situace, kdy virtuální počítače mezi sebou potřebují vytvořit externí připojení napříč oblastmi v distribuované databázi.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Vytvoření škálovací sady s veřejnou IP adresou na virtuální počítač
-Pokud chcete pomocí CLI 2.0 vytvořit škálovací sadu, která každému virtuálnímu počítači přiřadí veřejnou IP adresu, přidejte do příkazu _vmss create_ parametr _--public-ip-per-vm_. 
+Pokud chcete pomocí CLI 2.0 vytvořit škálovací sadu, která každému virtuálnímu počítači přiřadí veřejnou IP adresu, přidejte do příkazu **vmss create** parametr **--public-ip-per-vm**. 
 
-Pokud chcete vytvořit škálovací sadu pomocí šablony Azure, ujistěte se, že verze rozhraní API prostředku Microsoft.Compute/virtualMachineScaleSets je alespoň 2017-03-30, a do části ipConfigurations škálovací sady přidejte vlastnost JSON _publicIpAddressConfiguration_. Například:
+Pokud chcete vytvořit škálovací sadu pomocí šablony Azure, ujistěte se, že verze rozhraní API prostředku Microsoft.Compute/virtualMachineScaleSets je alespoň **2017-03-30**, a do části ipConfigurations škálovací sady přidejte vlastnost JSON **publicIpAddressConfiguration**. Například:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -210,11 +132,21 @@ Pokud chcete vytvořit škálovací sadu pomocí šablony Azure, ujistěte se, �
 Ukázková šablona: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Dotazování veřejných IP adres virtuálních počítačů ve škálovací sadě
-Pokud chcete zobrazit seznam veřejných IP adres přiřazených k virtuálním počítačům ve škálovací sadě pomocí CLI 2.0, použijte příkaz _az vmss list-instance-public-ips_.
+Pokud chcete zobrazit seznam veřejných IP adres přiřazených k virtuálním počítačům ve škálovací sadě pomocí CLI 2.0, použijte příkaz **az vmss list-instance-public-ips**.
 
-Dotazovat veřejné IP adresy přiřazené k virtuálním počítačům ve škálovací sadě můžete také pomocí [Azure Resource Exploreru](https://resources.azure.com) nebo rozhraní Azure REST API verze _2017-03-30_ nebo vyšší.
+Pokud chcete zobrazit seznam veřejných IP adres škálovací sady pomocí PowerShellu, použijte příkaz _Get-AzureRmPublicIpAddress_. Například:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+```
 
-Pokud chcete zobrazit veřejné IP adresy pro škálovací sadu pomocí Resource Exploreru, podívejte se do části _publicipaddresses_ v rámci vaší škálovací sady. Například: https://resources.azure.com/subscriptions/_id_vašeho_předplatného_/resourceGroups/_vaše_skupina_prostředků_/providers/Microsoft.Compute/virtualMachineScaleSets/_vaše_škálovací_sada_virtuálních_počítačů_/publicipaddresses
+Veřejné IP adresy můžete dotazovat také přímým odkazováním na ID prostředku konfigurace veřejné IP adresy. Například:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+```
+
+Dotazovat veřejné IP adresy přiřazené k virtuálním počítačům ve škálovací sadě můžete pomocí [Azure Resource Exploreru](https://resources.azure.com) nebo rozhraní Azure REST API verze **2017-03-30** nebo vyšší.
+
+Pokud chcete zobrazit veřejné IP adresy pro škálovací sadu pomocí Resource Exploreru, podívejte se do části **publicipaddresses** v rámci vaší škálovací sady. Například: https://resources.azure.com/subscriptions/_id_vašeho_předplatného_/resourceGroups/_vaše_skupina_prostředků_/providers/Microsoft.Compute/virtualMachineScaleSets/_vaše_škálovací_sada_virtuálních_počítačů_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30

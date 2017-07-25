@@ -9,10 +9,10 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/19/2017
+ms.date: 07/12/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: c065d692d2a4ac369cb13a70d09b30498e6c9106
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/13/2017
 
@@ -38,12 +38,12 @@ Server Azure Database for PostgreSQL vytvoříte pomocí tohoto postupu:
  ![Azure Database for PostgreSQL – vytvoření databáze](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.  Vyplňte formulář podrobností nového serveru pomocí následujících informací, jak je vidět na předchozím obrázku:
-    - Název serveru: **mypgserver-20170401** (název serveru se mapuje na název DNS a proto musí být globálně jedinečný) 
+    - Název serveru: **mypgserver-20170401** (Zvolte globálně jedinečný název serveru, protože tento název se mapuje na název DNS.)
     - Předplatné: Pokud máte více předplatných, vyberte odpovídající předplatné, ve kterém prostředek existuje nebo je účtován.
     - Skupina prostředků: **myresourcegroup**
     - Přihlašovací jméno správce serveru a heslo dle vašeho výběru
-    - Umístění
-    - Verze PostgreSQL
+    - Umístění: Zvolte nejbližší umístění.
+    - Verze PostgreSQL: Zvolte nejnovější verzi.
 
   > [!IMPORTANT]
   > Zde zadané jméno správce serveru a heslo se vyžadují k přihlášení na server a jeho databáze dále v tomto rychlém startu. Tyto informace si zapamatujte nebo poznamenejte pro pozdější použití.

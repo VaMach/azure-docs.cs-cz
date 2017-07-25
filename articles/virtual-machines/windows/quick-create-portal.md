@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -36,9 +36,9 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 
-2. Vyberte **Compute**, pak **Windows Server 2016 Datacenter** a ujistěte se, že je vybraný model nasazení **Resource Manager**. Klikněte na tlačítko **Vytvořit**. 
+2. Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. 
 
 3. Zadejte informace o virtuálním počítači. Uživatelské jméno a heslo, které tady zadáte, se používá k přihlášení k virtuálnímu počítači. Jakmile budete hotovi, klikněte na **OK**.
 
@@ -48,7 +48,7 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
     ![Snímek obrazovky zobrazující velikosti virtuálních počítačů](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. V okně Nastavení v části **Použít spravované disky** vyberte **Ano**, pro zbytek nastavení ponechte výchozí hodnoty a klikněte na **OK**.
+5. V okně Nastavení ponechte výchozí nastavení a klikněte na **OK**.
 
 6. Na stránce Souhrn kliknutím na **Ok** spusťte nasazení virtuálního počítače.
 

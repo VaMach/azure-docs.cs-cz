@@ -12,32 +12,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# Nastavení zásad zabezpečení ve službě Azure Security Center
-<a id="set-security-policies-in-azure-security-center" class="xliff"></a>
+# <a name="set-security-policies-in-azure-security-center"></a>Nastavení zásad zabezpečení ve službě Azure Security Center
 Tento dokument vám pomůže nakonfigurovat zásady zabezpečení v Security Center a provede vás potřebnými kroky.
 
 >[!NOTE] 
 >Od začátku června 2017 bude Security Center používat ke shromažďování a ukládání dat agenta Microsoft Monitoring Agent. Další informace najdete v článku o [migraci platformy pro Azure Security Center](security-center-platform-migration.md). Informace v tomto článku představují funkce služby Security Center po přechodu na agenta Microsoft Monitoring Agent.
 >
 
-## Co jsou zásady zabezpečení?
-<a id="what-are-security-policies" class="xliff"></a>
+## <a name="what-are-security-policies"></a>Co jsou zásady zabezpečení?
 Zásady zabezpečení definují sadu ovládacích prvků doporučenou pro prostředky v rámci daného předplatného. V Security Center určíte zásady pro svoje předplatná Azure na základě toho, jaké má vaše společnost požadavky na zabezpečení, a podle typu aplikací nebo citlivosti dat v každém předplatném.
 
 Například prostředky používané pro vývoj nebo testování mohou mít jiné požadavky na zabezpečení než prostředky, které se používají v aplikacích v produkčním prostředí. Aplikace pracující s regulovanými daty, třeba s osobními údaji, zase mohou vyžadovat vyšší úroveň zabezpečení. Zásady zabezpečení povolené ve službě Azure Security Center mají vliv na doporučení zabezpečení a monitorování a pomohou vám najít potenciální nedostatky zabezpečení a zmírnit hrozby. Pro další informace o určení, která možnost je pro vás vhodná, si přečtěte [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md).
 
-## Nastavení zásad zabezpečení
-<a id="set-security-policies" class="xliff"></a>
+## <a name="set-security-policies"></a>Nastavení zásad zabezpečení
 Zásady zabezpečení můžete nakonfigurovat pro každé předplatné. Pokud chcete určitou zásadu zabezpečení upravit, musíte mít roli vlastníka nebo přispěvatele daného předplatného. Přihlaste se na webu Azure Portal a při konfiguraci zásad zabezpečení ve službě Security Center postupujte podle následujících kroků:
 
 1. Na řídicím panelu Security Center klikněte na dlaždici **Zásady**.
@@ -46,7 +42,7 @@ Zásady zabezpečení můžete nakonfigurovat pro každé předplatné. Pokud ch
     ![Určení zásady](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Pro vybrané předplatné se otevře okno **Zásady zabezpečení**, které obsahuje sadu možností. V tomto okně jsou k dispozici následující možnosti:
 
-   * **Zásady prevence**: Tuto možnost použijte, chcete-li konfigurovat zásady pro konkrétní předplatné nebo skupinu prostředků.  
+   * **Zásady prevence:** Tuto možnost použijte, pokud chcete konfigurovat zásady pro konkrétní předplatné.  
    * **E-mailové oznámení**: Tuto možnost použijte, pokud chcete nakonfigurovat odesílání e-mailového oznámení při prvním výskytu výstrahy během dne a u výstrah s vysokou závažností. Předvolby e-mailu lze konfigurovat pouze pro zásady předplatného. Další informace o postupu při konfigurování e-mailových oznámení najdete v tématu [Zadání podrobností o kontaktu zabezpečení do služby Azure Security Center](security-center-provide-security-contact-details.md).
    * **Cenová úroveň**: Tuto možnost použijte pro upgrade výběru cenové úrovně. Další informace o možnostech cen najdete na [stránce cen služby Security Center](security-center-pricing.md).
 4. Ujistěte se, že je u položky **Shromažďovat data z virtuálních počítačů** vybraná možnost **Zapnuto**. Tato možnost umožňuje automatické shromažďování protokolů u existujících i nových prostředků pomocí agenta Microsoft Monitoring Agent – to je stejný agent, kterého používá Operations Management Suite a služba Log Analytics. Data shromážděná z tohoto agenta se ukládají v existujících pracovních prostorech Log Analytics přidružených k vašemu předplatnému Azure nebo v nových pracovních prostorech s ohledem na geografickou polohu virtuálního počítače.
@@ -78,8 +74,7 @@ Až nakonfigurujete všechny možnosti, klikněte na **OK** v okně **Zásady za
 >
 >
 
-## Viz také
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfigurovat zásady zabezpečení. Pokud se o službě Azure Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md). Zjistěte, jak naplánovat a pochopit aspekty návrhu, abyste mohli přejít na Azure Security Center.

@@ -16,10 +16,6 @@ V dialogovém okně **Vytvořit App Service** použijte nastavení hostování p
 | **[Plán služby App Service](../articles/azure-functions/functions-scale.md)** | Plán Consumption | Při vytváření nového plánu nezapomeňte vybrat **Spotřeba** v části **Velikost**.  |
 | **[Účet úložiště](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Globálně jedinečný název | Použijte existující účet úložiště, nebo vytvořte nový.   |
 
-Kliknutím na **Vytvořit** vytvoříte v Azure aplikaci funkcí s tímto nastavením. 
-
-Po dokončení zřizování klikněte na **Publikovat**. Do nové aplikace funkcí se nasadí kód projektu. 
+Kliknutím na **Vytvořit** vytvoříte v Azure aplikaci funkcí s tímto nastavením. Jakmile bude zřizování dokončeno, poznamenejte si hodnotu **Adresa URL webu**. Je to adresa vaší aplikace funkcí v Azure. 
 
 ![Místní modul runtime Azure](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-Poznamenejte si hodnotu **Adresa URL webu**. Je to adresa vaší aplikace funkcí v Azure. 

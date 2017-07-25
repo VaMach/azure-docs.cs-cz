@@ -13,26 +13,21 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/28/2017
+ms.date: 07/13/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a42138ae234313c7c6cbfcaa8b851ad47f82133b
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: ee4298b91f4e2b215b5faabaad96323f4ef234b8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="get-started-using-r-server-on-hdinsight" class="xliff"></a>
-
-# Začínáme používat R Server ve službě HDInsight
+# <a name="get-started-using-r-server-on-hdinsight"></a>Začínáme používat R Server ve službě HDInsight
 
 HDInsight zahrnuje možnost integrace R Serveru do clusteru HDInsight. Díky této možnosti můžou skripty R používat Spark a MapReduce ke spouštění distribuovaných výpočtů. V tomto dokumentu se naučíte vytvořit R Server v clusteru HDInsight a následně spustit skript R, který ukazuje použití Sparku k distribuovaným výpočtům jazyka R.
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 * **Předplatné Azure:** Než začnete tento kurz, musíte mít předplatné Azure. Další informace najdete v článku [Získání bezplatné zkušební verze Microsoft Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Klient Secure Shell (SSH):** Klient SSH slouží k vzdálenému připojení ke clusteru HDInsight a spouštění příkazů přímo v clusteru. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -42,9 +37,7 @@ HDInsight zahrnuje možnost integrace R Serveru do clusteru HDInsight. Díky té
 > Postupy v tomto dokumentu předpokládají použití hesla.
 
 
-<a id="automated-cluster-creation" class="xliff"></a>
-
-## Automatizované vytváření clusterů
+## <a name="automated-cluster-creation"></a>Automatizované vytváření clusterů
 
 Vytváření HDInsight R Serverů můžete automatizovat pomocí šablon Azure Resource Manageru, sady SDK a také PowerShellu.
 
@@ -54,9 +47,7 @@ Vytváření HDInsight R Serverů můžete automatizovat pomocí šablon Azure R
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
-<a id="create-the-cluster-using-the-azure-portal" class="xliff"></a>
-
-## Vytvoření clusteru pomocí webu Azure Portal
+## <a name="create-the-cluster-using-the-azure-portal"></a>Vytvoření clusteru pomocí webu Azure Portal
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
@@ -162,9 +153,7 @@ Vytváření HDInsight R Serverů můžete automatizovat pomocí šablon Azure R
    >
 
 <a name="connect-to-rstudio-server"></a>
-<a id="connect-to-rstudio-server" class="xliff"></a>
-
-## Připojení k RStudio Serveru
+## <a name="connect-to-rstudio-server"></a>Připojení k RStudio Serveru
 
 Pokud jste se rozhodli do instalace zahrnout komunitní verzi RStudio Serveru, přístup k přihlašovací stránce RStudia můžete získat dvěma způsoby.
 
@@ -182,9 +171,7 @@ Pokud jste se rozhodli do instalace zahrnout komunitní verzi RStudio Serveru, p
    > Bez ohledu na použitou metodu bude při prvním přihlášení potřeba dvojí ověření.  Při prvním ověření zadejte *ID uživatele* a *heslo* správce clusteru. Až se zobrazí druhá výzva, zadejte *ID uživatele* a *heslo* SSH. Při dalším přihlašování už budete potřebovat jenom *ID uživatele* a *heslo* SSH.
 
 <a name="connect-to-edge-node"></a>
-<a id="connect-to-the-r-server-edge-node" class="xliff"></a>
-
-## Připojení k hraničnímu uzlu R Serveru
+## <a name="connect-to-the-r-server-edge-node"></a>Připojení k hraničnímu uzlu R Serveru
 
 Následujícím příkazem se připojte pomocí SSH k hraničnímu uzlu R Serveru v clusteru HDInsight:
 
@@ -208,9 +195,7 @@ Po připojení se dostanete na příkazový řádek, který bude vypadat nějak 
     sername@ed00-myrser:~$
 
 <a name="enable-concurrent-users"></a>
-<a id="enable-multiple-concurrent-users" class="xliff"></a>
-
-## Povolení několika souběžných uživatelů
+## <a name="enable-multiple-concurrent-users"></a>Povolení několika souběžných uživatelů
 
 Několik souběžných uživatelů můžete povolit přidáním dalších uživatelů pro hraniční uzel, na kterém je spuštěna komunitní verze RStudia.
 
@@ -239,16 +224,12 @@ Protože je komunitní verze RStudio Serveru spuštěná na hraničním uzlu clu
 2. Přidání dalších uživatelů Linuxu na hraničním uzlu
 3. Použití komunitní verze RStudia s vytvořeným uživatelem
 
-<a id="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node" class="xliff"></a>
-
-### Krok 1: Přihlášení k hraničnímu uzlu pomocí vytvořeného uživatele SSH
+### <a name="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node"></a>Krok 1: Přihlášení k hraničnímu uzlu pomocí vytvořeného uživatele SSH
 
 Stáhněte si jakýkoli nástroj SSH (například PuTTY) a přihlaste se pomocí existujícího uživatele SSH. Pak postupujte podle pokynů uvedených v tématu [Připojení ke službě HDInsight (Hadoop) pomocí SSH](hdinsight-hadoop-linux-use-ssh-unix.md) a získejte přístup k hraničnímu uzlu. Adresa hraničního uzlu pro R Server v clusteru HDInsight je: *název_clusteru-ed-ssh.azurehdinsight.net*
 
 
-<a id="step-2-add-more-linux-users-in-edge-node" class="xliff"></a>
-
-### Krok 2: Přidání dalších uživatelů Linuxu na hraničním uzlu
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>Krok 2: Přidání dalších uživatelů Linuxu na hraničním uzlu
 
 Pokud chcete přidat uživatele na hraničním uzlu, spusťte následující příkazy:
 
@@ -262,9 +243,7 @@ Měly by se vrátit následující položky:
 Po zobrazení výzvy „Aktuální heslo protokolu Kerberos:“ ji ignorujte stisknutím klávesy **Enter**. Možnost `-m` v příkazu `useradd` označuje, že systém pro uživatele vytvoří domovskou složku, kterou vyžaduje komunitní verze RStudia.
 
 
-<a id="step-3-use-rstudio-community-version-with-the-user-created" class="xliff"></a>
-
-### Krok 3: Použití komunitní verze RStudia s vytvořeným uživatelem
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Krok 3: Použití komunitní verze RStudia s vytvořeným uživatelem
 
 Pomocí vytvořeného uživatele se přihlaste k RStudiu:
 
@@ -355,9 +334,7 @@ Všimněte si také, že nově přidaní uživatelé nemají v systému Linux ko
 
 
 <a name="use-r-console"></a>
-<a id="use-the-r-console" class="xliff"></a>
-
-## Použití konzoly R
+## <a name="use-the-r-console"></a>Použití konzoly R
 
 1. Z relace SSH pomocí následujícího příkazu spusťte konzolu R:  
 
@@ -393,9 +370,7 @@ Všimněte si také, že nově přidaní uživatelé nemají v systému Linux ko
     rxHadoopListFiles("wasbs:///")
 
 
-<a id="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client" class="xliff"></a>
-
-## Použití R Serveru ve službě HDInsight ze vzdálené instance Microsoft R Serveru nebo klienta Microsoft R Client
+## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Použití R Serveru ve službě HDInsight ze vzdálené instance Microsoft R Serveru nebo klienta Microsoft R Client
 
 Můžete nastavit přístup k výpočetnímu kontextu HDInsight Hadoop Spark ze vzdálené instance Microsoft R Serveru nebo klienta Microsoft R Client spuštěné na počítači nebo přenosném počítači. Viz podsekce **Použití Microsoft R Serveru jako klienta Hadoop** v tématu [Vytvoření výpočetního kontextu pro Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md). Abyste to mohli provést, při definování výpočetního kontextu RxSpark na svém přenosném počítači musíte zadat následující možnosti: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches a sshProfileScript. Například:
 
@@ -423,9 +398,7 @@ Můžete nastavit přístup k výpočetnímu kontextu HDInsight Hadoop Spark ze 
     )
 
 
-<a id="use-a-compute-context" class="xliff"></a>
-
-## Použití výpočetního kontextu
+## <a name="use-a-compute-context"></a>Použití výpočetního kontextu
 
 Výpočetní kontext vám umožňuje řídit, jestli se výpočty provádějí místně na hraničním uzlu, nebo jsou distribuovány napříč uzly v clusteru HDInsight.
 
@@ -549,9 +522,7 @@ Výpočetní kontext vám umožňuje řídit, jestli se výpočty provádějí m
    > Distribuovat výpočty napříč uzly clusteru můžete také pomocí MapReduce. Další informace o výpočetním kontextu najdete v tématu [Možnosti výpočetního kontextu pro R Server ve službě HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
 
 
-<a id="distribute-r-code-to-multiple-nodes" class="xliff"></a>
-
-## Distribuování kódu R do více uzlů
+## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuování kódu R do více uzlů
 
 S R Serverem můžete snadno vzít existující kód R a spustit ho napříč několika uzly v clusteru pomocí příkazu `rxExec`. Tato funkce je užitečná při uklízení parametrů nebo provádění simulací. Následující kód je příklad použití příkazu `rxExec`:
 
@@ -576,9 +547,7 @@ Pokud stále používáte kontext Spark nebo MapReduce, tento příkaz vrátí h
     "wn3-myrser"
 
 
-<a id="accessing-data-in-hive-and-parquet" class="xliff"></a>
-
-## Přístup k datům v Hive a Parquet
+## <a name="accessing-data-in-hive-and-parquet"></a>Přístup k datům v Hive a Parquet
 
 Funkce, která je k dispozici v R Serveru 9.1, umožňuje přímý přístup k datům v Hive a Parquet pro použití ve funkcích ScaleR ve výpočetním kontextu Spark. Tyto možnosti jsou dostupné prostřednictvím nových funkcí zdroje dat ScaleR s názvem RxHiveData a RxParquetData. Funkce pomocí Spark SQL načtou data přímo do struktury DataFrame ve Sparku, aby je ScaleR mohl analyzovat.  
 
@@ -618,9 +587,7 @@ Následuje vzorový kód pro použití těchto nových funkcí:
 Další informace o používání těchto nových funkcí najdete v online nápovědě v R Serveru pomocí příkazů `?RxHivedata` a `?RxParquetData`.  
 
 
-<a id="install-additional-r-packages-on-the-edge-node" class="xliff"></a>
-
-## Instalace dalších balíčků R na hraničním uzlu
+## <a name="install-additional-r-packages-on-the-edge-node"></a>Instalace dalších balíčků R na hraničním uzlu
 
 Chcete-li nainstalovat na hraniční uzel další balíčky, můžete přímo v konzole R použít příkaz `install.packages()`, zatímco jste k hraničnímu uzlu připojeni přes SSH. Pokud však potřebujete balíčky R nainstalovat na pracovní uzly clusteru, musíte použít akci skriptu.
 
@@ -667,9 +634,7 @@ Akce skriptů jsou skripty Bash, které se používají k provádění změn kon
 4. Vyberte **Vytvořit** a spusťte skript. Po dokončení skriptu jsou balíčky R k dispozici na všech pracovních uzlech.
 
 
-<a id="using-microsoft-r-server-operationalization" class="xliff"></a>
-
-## Použití operacionalizace Microsoft R Serveru
+## <a name="using-microsoft-r-server-operationalization"></a>Použití operacionalizace Microsoft R Serveru
 
 Po dokončení modelování vašich dat můžete model operacionalizovat za účelem provádění předpovědí. Pokud chcete nakonfigurovat operacionalizaci Microsoft R Serveru, proveďte následující kroky:
 
@@ -677,10 +642,15 @@ Nejprve se přes SSH připojte k hraničnímu uzlu. Například:
 
     ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Jakmile používáte SSH, přejděte do následujícího adresáře a pomocí příkazu sudo dotnet spusťte soubor .dll:
+Jakmile používáte SSH, přejděte do adresáře příslušné verze a pomocí příkazu sudo dotnet spusťte soubor .dll: 
 
-    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
-    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+- Pro Microsoft R Server 9.1:
+
+    cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0 sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+
+- Pro Microsoft R Server 9.0:
+
+    cd /usr/lib64/microsoft-deployr/9.0.1 sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
 Pokud chcete nakonfigurovat operacionalizaci Microsoft R Serveru s použitím jednotné konfigurace, postupujte následovně:
 
@@ -703,9 +673,7 @@ Volitelně můžete provést diagnostické kontroly spuštěním diagnostického
 
 V této fázi je konfigurace operacionalizace dokončena. Nyní se můžete pomocí balíčku mrsdeploy na vašem klientovi RClient připojit k operacionalizaci na hraničním uzlu, a začít používat funkce operacionalizace, například [vzdálené spouštění](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) a [webové služby](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). V závislosti na tom, jestli je váš cluster nastavený ve virtuální síti, může být potřeba nastavit přesměrování portu tunelovým propojením přes přihlášení SSH. Následující části vysvětlují, jak tento tunel nastavit.
 
-<a id="rserver-cluster-on-virtual-network" class="xliff"></a>
-
-### Cluster R Serveru ve virtuální síti
+### <a name="rserver-cluster-on-virtual-network"></a>Cluster R Serveru ve virtuální síti
 
 Ověřte, že je na hraničním uzlu povolený provoz přes port 12800. Tímto způsobem můžete hraniční uzel použít pro připojení k funkci operacionalizace.
 
@@ -721,9 +689,7 @@ Ověřte, že je na hraničním uzlu povolený provoz přes port 12800. Tímto z
 
 Pokud se metoda `remoteLogin()` nemůže připojit k hraničnímu uzlu, ale můžete se k němu připojit přes SSH, budete muset ověřit, jestli je správně nastavené pravidlo pro povolení provozu na portu 12800. Pokud bude tento problém přetrvávat, můžete jako alternativní řešení použít nastavení přesměrování portu tunelovým propojením přes SSH. Pokyny najdete v následující části.
 
-<a id="rserver-cluster-not-set-up-on-virtual-network" class="xliff"></a>
-
-### Cluster R Serveru nastavený mimo virtuální síť
+### <a name="rserver-cluster-not-set-up-on-virtual-network"></a>Cluster R Serveru nastavený mimo virtuální síť
 
 Pokud váš cluster není nastavený ve virtuální síti nebo máte potíže s připojením přes virtuální síť, můžete použít přesměrování portu tunelovým propojením přes SSH:
 
@@ -745,13 +711,9 @@ Jakmile máte aktivní relaci SSH, provoz z portu 12800 vašeho počítače se p
     )
 
 
-<a id="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes" class="xliff"></a>
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Škálování výpočetních uzlů operacionalizace Microsoft R Serveru na pracovní uzly HDInsight
 
-## Škálování výpočetních uzlů operacionalizace Microsoft R Serveru na pracovní uzly HDInsight
-
-<a id="decommission-the-worker-nodes" class="xliff"></a>
-
-### Vyřazení pracovních uzlů z provozu
+### <a name="decommission-the-worker-nodes"></a>Vyřazení pracovních uzlů z provozu
 
 Microsoft R Server v současné době není spravován přes YARN. Pokud se pracovní uzly nevyřadí z provozu, správce prostředků YARN nebude fungovat podle očekávání, protože nebude vědět o prostředcích, které si server zabírá. Abyste této situaci zabránili, doporučujeme před horizontálním navýšením kapacity výpočetních uzlů vyřadit z provozu pracovní uzly.
 
@@ -770,9 +732,7 @@ Postup vyřazení pracovních uzlů z provozu:
 * Zrušte výběr pracovních uzlů a vyberte hlavní uzly.
 * Vyberte **Actions** (Akce) > **Selected Hosts** (Vybraní hostitelé) > **Hosts** (Hostitelé) > **Restart All Components** (Restartovat všechny komponenty).
 
-<a id="configure-compute-nodes-on-each-decommissioned-worker-nodes" class="xliff"></a>
-
-### Konfigurace výpočetních uzlů na všech vyřazených pracovních uzlech
+### <a name="configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Konfigurace výpočetních uzlů na všech vyřazených pracovních uzlech
 
 1. Přihlaste se přes SSH do každého vyřazeného pracovního uzlu.
 2. Spusťte nástroj pro správu pomocí příkazu `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`.
@@ -780,9 +740,7 @@ Postup vyřazení pracovních uzlů z provozu:
 4. Zadáním „c“ vyberte možnost „C. Compute node“ (Výpočetní uzel). Tím se na pracovním uzlu nakonfiguruje výpočetní uzel.
 5. Ukončete nástroj pro správu.
 
-<a id="add-compute-nodes-details-on-web-node" class="xliff"></a>
-
-### Přidání podrobností o výpočetních uzlech do webového uzlu
+### <a name="add-compute-nodes-details-on-web-node"></a>Přidání podrobností o výpočetních uzlech do webového uzlu
 
 Jakmile budou všechny vyřazené pracovní uzly nakonfigurované tak, aby na nich běžely výpočetní uzly, přejděte zpět do hraničního uzlu a přidejte IP adresy vyřazených pracovních uzlů do konfigurace webového uzlu Microsoft R Serveru:
 
@@ -793,16 +751,12 @@ Jakmile budou všechny vyřazené pracovní uzly nakonfigurované tak, aby na ni
     ![příkazový řádek vyřazení pracovních uzlů z provozu](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Řešení potíží
+## <a name="troubleshoot"></a>Řešení potíží
 
 Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Nyní byste měli chápat, jak vytvořit nový cluster HDInsight obsahující R Server, a rozumět základům používání konzoly R z relace SSH. Následující témata popisují další způsoby správy a práce s R Serverem ve službě HDInsight:
 

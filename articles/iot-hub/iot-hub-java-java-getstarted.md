@@ -16,19 +16,19 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 7d95ba163712c8a3610839029fe3453bd5c308a8
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>Připojení simulovaného zařízení k IoT Hubu pomocí Javy
+# <a name="connect-your-device-to-your-iot-hub-using-java"></a>Připojení zařízení ke službě IoT Hub pomocí Javy
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Na konci tohoto kurzu budete mít tři konzolové aplikace Java:
 
-* **create-device-identity** vytváří identitu zařízení a přiřazený bezpečnostní klíč k připojení simulované aplikace zařízení.
-* **read-d2c-messages** zobrazuje telemetrická data odesílaná simulovanou aplikací zařízení.
+* **create-device-identity** vytváří identitu zařízení a přidružený klíč zabezpečení k připojení aplikace pro zařízení.
+* **read-d2c-messages** zobrazuje telemetrická data odesílaná aplikací pro zařízení.
 * **simulated-device** propojuje službu IoT Hub s dříve vytvořenou identitou zařízení a každou druhou sekundu zasílá telemetrickou zprávu pomocí protokolu MQTT.
 
 > [!NOTE]
@@ -93,6 +93,7 @@ V této části vytvoříte konzolovou aplikaci Java, která v registru identit 
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
     ```
+[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
 8. Upravte podpis metody **Main** tak, aby zahrnoval následující výjimky:
 
@@ -302,9 +303,12 @@ V této části vytvoříte konzolovou aplikaci Java, která čte zprávy typu z
     mvn clean package -DskipTests
     ```
 
+<<<<<<< HEAD
+## <a name="create-a-device-app"></a>Vytvoření aplikace pro zařízení
+=======
 ## <a name="create-a-simulated-device-app"></a>Vytvoření aplikace simulovaného zařízení
 
-V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízení odesílající zprávy typu zařízení-cloud do služby IoT Hub.
+>>>>>>> master V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízení odesílající zprávy typu zařízení-cloud do služby IoT Hub.
 
 1. Ve složce iot-java-get-started, kterou jste vytvořili v části *Vytvoření identity zařízení*, vytvořte pomocí následujícího příkazu v příkazovém řádku projekt Maven s názvem **simulated-device**. Všimněte si, že se jedná o jeden dlouhý příkaz:
 
@@ -374,11 +378,19 @@ V této části vytvoříte konzolovou aplikaci Java, která simuluje zařízen�
       }
     }
     ```
+<<<<<<< HEAD
+9. Za účelem zobrazení stavu potvrzení, které služba IoT Hub vrací po zpracování zprávy z aplikace pro zařízení, přidejte do třídy **App** následující vnořenou třídu **EventCallback**. Tato metoda také po zpracování zprávy upozorní hlavní vlákno v aplikaci:
+   
+    ```
+    private static class EventCallback implements IotHubEventCallback
+    {
+=======
 
-9. Za účelem zobrazení stavu potvrzení, které služba IoT Hub vrací po zpracování zprávy ze simulované aplikace zařízení, přidejte do třídy **Aplikace** následující vnořenou třídu **EventCallback**. Tato metoda také po zpracování zprávy upozorní hlavní vlákno v aplikaci:
+9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
 
     ```java
     private static class EventCallback implements IotHubEventCallback {
+>>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -488,8 +500,11 @@ Nyní jste připraveni aplikaci spustit.
     ![Dlaždice Použití webu Azure Portal se zobrazením počtu zpráv odeslaných do služby IoT Hub][43]
 
 ## <a name="next-steps"></a>Další kroky
+<<<<<<< HEAD V tomto kurzu jste nakonfigurovali novou službu IoT Hub na webu Azure Portal a potom jste vytvořili identitu zařízení v registru identit služby IoT Hub. Pomocí identity zařízení jste aplikaci pro zařízení povolili odesílání zpráv typu zařízení-cloud do služby IoT Hub. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou IoT Hub. 
+=======
 
 V tomto kurzu jste nakonfigurovali novou službu IoT Hub na webu Azure Portal a potom jste vytvořili identitu zařízení v registru identit ve službě IoT Hub. Pomocí identity zařízení jste aplikaci simulovaného zařízení povolili odesílání zpráv typu zařízení-cloud do služby IoT Hub. Také jste vytvořili aplikaci, která zobrazuje zprávy přijaté službou IoT Hub.
+>>>>>>> master
 
 Chcete-li pokračovat v seznamování se službou IoT Hub a prozkoumat další scénáře IoT, podívejte se na tato témata:
 

@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/2017-->
+<!--author=alkohli last changed: 07/19/2017-->
 
 #### <a name="to-create-a-volume"></a>Vytvoření svazku
 1. V tabulkovém výpisu zařízení v okně **Zařízení** vyberte vaše zařízení. Klikněte na **+ Přidat svazek**.
@@ -11,7 +11,7 @@
 
    2. Z rozevíracího seznamu vyberte kontejner svazků, do kterého potřebujete přidat svazek. 
 
-   3.  Zadejte **Název** svazku.
+   3.  Zadejte **Název** svazku. Svazek se po vytvoření už nedá přejmenovat.
 
    4. V rozevíracím seznamu vyberte **Typ** svazku. Pro úlohy, které vyžadují místní záruky, nízkou latenci a vyšší výkon, vyberte typ svazku **Místně vázaný**. Pro ostatní typy dat vyberte typ svazku **Vrstvený**. Pokud tento svazek používáte k archivaci dat, zaškrtněte políčko **Použít tento svazek pro archivní data s méně častým přístupem**.
       

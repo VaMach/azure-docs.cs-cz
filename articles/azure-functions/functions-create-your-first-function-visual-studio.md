@@ -16,17 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: rachelap, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d539dd51834e935f9c5f7a6be42011ffe9e0870
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="create-your-first-function-using-visual-studio"></a>Vytvoření první funkce pomocí sady Visual Studio 
+# <a name="create-your-first-function-using-visual-studio"></a>Vytvoření první funkce pomocí sady Visual Studio
 
-Služba Azure Functions umožňuje spuštění kódu v prostředí bez serveru, aniž byste nejdřív museli vytvořit virtuální počítač nebo publikovat webovou aplikaci. 
+Služba Azure Functions umožňuje spuštění kódu v prostředí bez serveru, aniž byste nejdřív museli vytvořit virtuální počítač nebo publikovat webovou aplikaci.
+
+> [!IMPORTANT]
+> K dokončení kroků v tomto tématu se používá verze Preview sady Visual Studio. Než budete pokračovat, zkontrolujte, že máte nainstalovanou sadu [Visual Studio 2017 verze Preview 15.3](https://www.visualstudio.com/vs/preview/).
 
 V tomto tématu zjistíte, jak pomocí Azure Functions Tools for Visual Studio 2017 místně vytvořit a otestovat funkci Hello World. Kód funkce potom budete publikovat do Azure.
 
@@ -37,7 +39,7 @@ V tomto tématu zjistíte, jak pomocí Azure Functions Tools for Visual Studio 2
 Pro absolvování tohoto kurzu nainstalujte:
 
 * [Visual Studio 2017 Preview verze 15.3](https://www.visualstudio.com/vs/preview/), včetně sady funkcí **Vývoj pro Azure**.
-    
+
     ![Instalace sady Visual Studio 2017 se sadou funkcí Vývoj pro Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

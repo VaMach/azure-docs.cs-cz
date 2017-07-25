@@ -1,6 +1,6 @@
 ---
-title: "Začínáme s platformou Service Fabric a Azure CLI 2.0"
-description: "Jak používat modul příkazů Service Fabric v Azure CLI verze 2.0, včetně připojení ke clusteru a správy aplikací"
+title: "Začínáme s platformou Azure Service Fabric a Azure CLI 2.0"
+description: "Zjistěte, jak používat modul příkazů Azure Service Fabric v Azure CLI verze 2.0. Zjistěte, jak se připojit ke clusteru a jak spravovat aplikace."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,80 +8,70 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: c5cc6e54acf27456185eeb48858c4d981aa46b4b
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: ee3302b984ca2f5509755dc17b0a5fd06ace0afe
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="service-fabric-and-azure-cli-20" class="xliff"></a>
+# <a name="azure-service-fabric-and-azure-cli-20"></a>Azure Service Fabric a Azure CLI 2.0
 
-# Service Fabric a Azure CLI 2.0
+Rozhraní příkazového řádku Azure (Azure CLI) verze 2.0 obsahuje příkazy, které vám pomůžou se správou clusterů Azure Service Fabric. Zjistěte, jak začít s Azure CLI a platformou Service Fabric.
 
-Nové Azure CLI 2.0 teď zahrnuje příkazy pro správu clusterů Service Fabric. Tato dokumentace obsahuje kroky pro začátek s Azure CLI.
+## <a name="install-azure-cli-20"></a>Instalace Azure CLI 2.0
 
-<a id="install-azure-cli-20" class="xliff"></a>
+K interakci s clustery Service Fabric a jejich správě můžete použít příkazy Azure CLI 2.0. Pokud chcete získat nejnovější verzi Azure CLI, postupujte podle [procesu standardní instalace Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-## Instalace Azure CLI 2.0
+Další informace najdete v [přehledu Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Azure CLI teď zahrnuje příkazy pro interakci s clustery Service Fabric a jejich správu. Pokud chcete získat nejnovější Azure CLI, můžete postupovat podle [standardního procesu instalace](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+## <a name="azure-cli-syntax"></a>Syntaxe Azure CLI
 
-Další informace najdete v [dokumentaci k Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview).
+V Azure CLI mají všechny příkazy Service Fabric předponu `az sf`. Obecné informace o příkazech, které můžete použít, získáte pomocí příkazu `az sf -h`. Nápovědu ke konkrétnímu příkazu získáte pomocí příkazu `az sf <command> -h`.
 
-<a id="cli-syntax" class="xliff"></a>
-
-## Syntaxe rozhraní příkazového řádku
-
-Všechny příkazy Azure Service Fabric mají v Azure CLI předponu `az sf`. Další informace o dostupných příkazech a obecné informace získáte spuštěním příkazu `az sf -h`. Nebo můžete získat podrobnou nápovědu k jednotlivým příkazům spuštěním příkazu `az sf <command> -h`.
-
-Příkazy Azure Service Fabric v rozhraní příkazového řádku používají formát pojmenování:
+Příkazy Service Fabric v Azure CLI používají tento vzorec pojmenování:
 
 ```azurecli
 az sf <object> <action>
 ```
 
-V tomto případě je objekt `<object>` cílem pro akci `<action>`.
+Objekt `<object>` je cílem pro akci `<action>`.
 
-<a id="selecting-a-cluster" class="xliff"></a>
+## <a name="select-a-cluster"></a>Výběr clusteru
 
-## Výběr clusteru
-
-Před provedením jakékoli operace musíte vybrat cluster, ke kterému se připojíte. Podívejte se například na následující fragment kódu pro připojení k nezabezpečenému clusteru.
+Před provedením jakékoli operace musíte vybrat cluster, ke kterému se připojíte. Příklad najdete v následujícím kódu. Kód se připojí k nezabezpečenému clusteru.
 
 > [!WARNING]
-> Nepoužívejte nezabezpečené clustery Service Fabric pro produkční prostředí.
+> Nepoužívejte nezabezpečené clustery Service Fabric v produkčním prostředí.
 
 ```azurecli
 az sf cluster select --endpoint http://testcluster.com:19080
 ```
 
-Koncový bod clusteru musí mít předponu `http` nebo `https` a musí zahrnovat port pro bránu HTTP. Tento port a adresa jsou stejné jako adresa URL nástroje Service Fabric Explorer.
+Koncový bod clusteru musí mít předponu `http` nebo `https`. Musí zahrnovat port pro bránu HTTP. Tento port a adresa jsou stejné jako adresa URL nástroje Service Fabric Explorer.
 
-Pro clustery zabezpečené pomocí certifikátu jsou podporované buď nezabezpečené soubory `pem`, nebo soubory `crt` a `key`.
+Pro clustery zabezpečené pomocí certifikátu můžete použít buď nešifrované soubory .pem, nebo soubory .crt a .key. Například:
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Další informace najdete v [podrobném dokumentu týkajícím se připojení k zabezpečeným clusterům](service-fabric-connect-to-secure-cluster.md).
+Další informace najdete v tématu [Připojení k zabezpečenému clusteru Azure Service Fabric](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> Příkaz select neprovede žádné požadavky před vrácením. Pokud chcete ověřit správné zadání clusteru, spusťte příkaz jako `az sf cluster health` a zkontrolujte, že příkaz nevrací žádné chyby.
+> Příkaz `select` před navrácením nereaguje na žádné požadavky. Pokud chcete ověřit správné zadání clusteru, použijte příkaz jako `az sf cluster health`. Ověřte, že příkaz nevrací žádné chyby.
 
-<a id="performing-basic-operations" class="xliff"></a>
+## <a name="basic-operations"></a>Základní operace
 
-## Provádění základních operací
+Informace o připojení ke clusteru se uchovávají napříč více relacemi Azure CLI. Po výběru clusteru Service Fabric na něm můžete spouštět jakékoli příkazy Service Fabric.
 
-Informace o připojení ke clusteru se uchovávají napříč různými relacemi Azure CLI. Jakmile je vybraný cluster Service Fabric, můžete spouštět jakékoli příkazy Service Fabric.
-
-Pokud například chcete získat stav clusteru Service Fabric, spusťte následující příkaz
+Pokud například chcete získat stav clusteru Service Fabric, použijte následující příkaz:
 
 ```azurecli
 az sf cluster health
 ```
 
-Za předpokladu, že je v konfiguraci Azure CLI nastavený výstup ve formátu JSON, bude výsledkem příkazu následující výstup:
+Výsledkem příkazu bude následující výstup (za předpokladu, že je v konfiguraci Azure CLI nastavený výstup ve formátu JSON):
 
 ```json
 {
@@ -106,51 +96,41 @@ Za předpokladu, že je v konfiguraci Azure CLI nastavený výstup ve formátu J
 }
 ```
 
-<a id="tips-and-faq" class="xliff"></a>
+## <a name="tips-and-troubleshooting"></a>Tipy a řešení potíží
 
-## Tipy a nejčastější dotazy
+Následující informace můžou být užitečné, pokud při používání příkazů Service Fabric v Azure CLI narazíte na problémy.
 
-Následující informace můžou být užitečné v případě, že narazíte na problémy s příkazy Service Fabric v Azure CLI.
+### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Převod certifikátu z formátu PFX na PEM
 
-<a id="converting-a-certificate-from-pfx-to-pem" class="xliff"></a>
-
-### Převod certifikátu z formátu PFX na PEM
-
-Azure CLI podporuje certifikáty na straně klienta v podobě souborů PEM (s příponou `.pem`). Pokud používáte soubory PFX ve Windows, je nutné převést tyto certifikáty do formátu PEM. K převodu souboru PFX na soubor PEM použijte následující příkaz:
+Azure CLI podporuje certifikáty na straně klienta v podobě souborů PEM (s příponou .pem). Pokud používáte soubory PFX ze systému Windows, musíte tyto certifikáty převést na formát PEM. K převodu souboru PFX na soubor PEM použijte následující příkaz:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Podrobnosti najdete v [dokumentaci k OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html).
+Další informace najdete v [dokumentace k OpenSSL](https://www.openssl.org/docs/).
 
-<a id="connection-issues" class="xliff"></a>
+### <a name="connection-issues"></a>Problémy s připojením
 
-### Problémy s připojením
+Některé operace můžou generovat následující zprávu:
 
-Při provádění operací můžete narazit na následující chybu:
+`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
-> `Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+Ověřte, že zadaný koncový bod clusteru je dostupný a naslouchá. Ověřte také, že je na daném hostiteli a portu dostupné uživatelské rozhraní Service Fabric Explorer. Pokud chcete aktualizovat koncový bod, použijte příkaz `az sf cluster select`.
 
-V takovém případě znovu zkontrolujte, že zadaný koncový bod clusteru je dostupný a naslouchá. Také ověřte, že je na daném hostiteli a portu dostupné uživatelské rozhraní Service Fabric Explorer. Pomocí příkazu `az sf cluster select` aktualizujte koncový bod.
+### <a name="detailed-logs"></a>Podrobné protokoly
 
-<a id="getting-detailed-logs" class="xliff"></a>
+Podrobné protokoly jsou často užitečné při ladění nebo hlášení problému. Azure CLI nabízí globální příznak `--debug`, kterým se zvyšuje úroveň podrobností souborů protokolů.
 
-### Získání podrobných protokolů
+### <a name="command-help-and-syntax"></a>Nápověda k příkazům a jejich syntaxe
 
-Při ladění nebo hlášení chyb je užitečné zahrnout podrobné protokoly. Azure CLI zahrnuje globální příznak `--debug`, kterým se zvyšuje úroveň podrobností protokolů.
-
-<a id="command-help-and-syntax" class="xliff"></a>
-
-### Nápověda k příkazům a jejich syntaxe
-
-Příkazy Service Fabric se řídí stejnou konvencí jako Azure CLI. Zadáním příznaku `-h` získáte nápovědu ke konkrétnímu příkazu nebo skupině příkazů. Například:
+Příkazy Service Fabric se řídí stejnými konvencemi jako Azure CLI. Pokud chcete získat nápovědu ke konkrétnímu příkazu nebo skupině příkazů, použijte příznak `-h`:
 
 ```azurecli
 az sf application -h
 ```
 
-nebo
+Tady je další příklad:
 
 ```azurecli
 az sf application create -h
