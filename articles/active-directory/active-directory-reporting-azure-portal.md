@@ -1,7 +1,6 @@
 ---
-
 title: "Generování sestav v Azure Active Directory | Dokumentace Microsoftu"
-description: "Obsahuje seznam různých dostupných sestav pro Azure Active Directory."
+description: "Poskytuje obecný přehled generování sestav v Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,190 +12,110 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-reporting"></a>Generování sestav v Azure Active Directory
 
+Pomocí generování sestav v Azure Active Directory můžete získat přehled o stavu vašeho prostředí.  
+Poskytnutá data vám umožní:
 
-*Tato dokumentace je součástí [Příručky generování sestav v Azure Active Directory](active-directory-reporting-guide.md).*
+- Určit, jak uživatelé využívají vaše aplikace a služby.
+- Rozpoznat potenciální rizika ovlivňující stav vašeho prostředí.
+- Řešit problémy, které brání uživatelům v práci.  
 
-Generování sestav v Azure Active Directory (Azure AD) umožňuje získat všechny informace potřebné ke zjištění stavu vašeho prostředí.
+Architektura generování sestav se spoléhá na dva hlavní pilíře:
 
-Existují dvě hlavní oblasti vytváření sestav:
+- Sestavy zabezpečení
+- Sestavy aktivit
 
-* **Aktivity přihlašování** – informace o použití spravovaných aplikací a aktivitách přihlašování uživatelů
-* **Protokoly auditu** – informace aktivit systému o správě uživatelů a skupin, spravovaných aplikacích a aktivitách adresářů
+![Vytváření sestav](./media/active-directory-reporting-azure-portal/01.png)
 
-V závislosti na rozsahu hledaných dat můžete k těmto sestavám přistupovat po kliknutí buď na možnost **Uživatelé a skupiny**, nebo na možnost **Podnikové aplikace** v seznamu služeb na webu [Azure Portal](https://portal.azure.com).
 
-## <a name="sign-in-activities"></a>Aktivity přihlašování
-### <a name="user-sign-in-activities"></a>Aktivity přihlašování uživatelů
-Na základě informací poskytnutých sestavou přihlašování uživatelů najdete odpovědi na otázky tohoto typu:
 
-* Jaký je vzorec přihlašování uživatele?
-* Kolik uživatelů se přihlásilo za týden?
-* Jaký je stav těchto přihlášení?
+## <a name="security-reports"></a>Sestavy zabezpečení
 
-Vaším vstupním bodem pro tato data je graf přihlašování uživatelů v oddílu **Přehled** v části **Uživatelé a skupiny**.
+Sestavy zabezpečení v Azure Active Directory pomáhají chránit identity vaší organizace.  
+V Azure Active Directory existují dva typy sestav zabezpečení:
 
- ![Vytváření sestav](./media/active-directory-reporting-azure-portal/05.png "Vytváření sestav")
+- **Uživatelé označení příznakem rizika** – Ze [sestavy zabezpečení uživatelů označených příznakem rizika](active-directory-reporting-security-user-at-risk.md) získáte přehled o uživatelských účtech, u kterých mohlo dojít k ohrožení zabezpečení.
 
-V grafu přihlašování uživatelů jsou znázorněny týdenní agregace přihlášení všech uživatelů za dané časové období. Výchozí časové období je 30 dnů.
+- **Riziková přihlášení** – Se [sestavou zabezpečení rizikových přihlášení](active-directory-reporting-security-risky-sign-ins.md) získáte indikátor pokusů o přihlášení, které mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. 
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/02.png "Vytváření sestav")
+**Jaká licence Azure AD je potřeba pro přístup k sestavě zabezpečení?**  
+Sestavy uživatelů označených příznakem rizika a rizikových přihlášení nabízí všechny edice Azure Active Directory.  
+Úroveň podrobností sestav se však mezi jednotlivými edicemi liší: 
 
-Když v grafu přihlašování kliknete na konkrétní den, zobrazí se podrobný seznam aktivit přihlašování.
+- **Edice Azure Active Directory Free a Basic** již nabízí seznam uživatelů označených příznakem rizika a rizikových přihlášení. 
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/03.png "Vytváření sestav")
+- Edice **Azure Active Directory Premium 1** tento model rozšiřuje tím, že umožňuje také prozkoumávat některé ze základních rizikových událostí, které byly v každé sestavě rozpoznány. 
 
-Každý řádek v seznamu aktivit přihlašování obsahuje podrobné informace o vybraném přihlášení. Příklad:
+- Edice **Azure Active Directory Premium 2** poskytuje nejpodrobnější informace o základních rizikových událostech a umožňuje také konfigurovat zásady zabezpečení, které automaticky reagují na nakonfigurované úrovně rizika.
 
-* Kdo se přihlásil?
-* Jaký byl související hlavní název uživatele (UPN)?
-* Která aplikace byla cílem přihlášení?
-* Jaká je IP adresa přihlášení?
-* Jaký byl stav přihlášení?
 
-### <a name="usage-of-managed-applications"></a>Použití spravovaných aplikací
-S použitím zobrazení dat přihlašování zaměřeného na aplikace můžete odpovídat na otázky tohoto typu:
+## <a name="activity-reports"></a>Sestavy aktivit
 
-* Kdo používá mé aplikace?
-* Které jsou 3 nejpoužívanější aplikace v organizaci?
-* Nedávno jsem zpřístupnil aplikaci. Jak to s ní vypadá?
+V Azure Active Directory existují dva typy sestav aktivit:
 
-Vaším vstupním bodem k těmto datům jsou 3 nejpoužívanější aplikace v organizaci v rámci sestavy za posledních 30 dnů v oddílu **Přehled** v části **Podnikové aplikace**.
+- **Protokoly auditu** – [Sestava aktivit protokolů auditu](active-directory-reporting-activity-audit-logs.md) poskytuje přístup k historii každé úlohy provedené ve vašem tenantovi.
 
- ![Vytváření sestav](./media/active-directory-reporting-azure-portal/06.png "Vytváření sestav")
+- **Přihlášení** – Se [sestavou aktivit přihlašování](active-directory-reporting-activity-sign-ins.md) můžete určit, kdo provedl úlohy hlášené sestavou protokolů auditu.
 
-Graf využívání aplikací s týdenními agregacemi přihlašování pro 3 nejpoužívanější aplikace v daném časovém období. Výchozí časové období je 30 dnů.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/78.png "Vytváření sestav")
 
-Pokud chcete, můžete se zaměřit na konkrétní aplikaci.
+**Sestava protokolů auditu** poskytuje záznamy systémových aktivit pro zajištění dodržování předpisů.
+Poskytnutá data umožňují mimo jiné řešit běžné scénáře tohoto typu:
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Vytváření sestav")
+- Někdo v tenantovi získal přístup ke správcovské skupině. Kdo jim dal přístup? 
 
-Když v grafu využívání aplikací kliknete na konkrétní den, zobrazí se podrobný seznam aktivit přihlašování.
+- Chcete znát seznam uživatelů, kteří se přihlašují ke konkrétní aplikaci, protože jste aplikaci nedávno zprovoznili a chcete vědět, jestli funguje v pořádku.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Vytváření sestav")
+- Chcete vědět, ke kolika resetováním hesla ve vašem tenantovi dochází.
 
-Možnost **Přihlášení** poskytuje úplný přehled o všech událostech přihlašování pro vaše aplikace.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/85.png "Vytváření sestav")
+**Jaká licence Azure AD je potřeba pro přístup k sestavě protokolů auditu?**  
+Sestava protokolů auditu je dostupná pro funkce, ke kterým máte licence. Pokud máte licenci ke konkrétní funkci, máte u ní také přístup k informacím protokolu auditu.
 
-Pomocí voliče sloupců můžete vybrat datová pole, která chcete zobrazit.
+Další podrobnosti najdete v části **Porovnání všeobecně dostupných funkcí v edicích Free, Basic a Premium** v tématu [Funkce a možnosti v Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/column_chooser.png "Vytváření sestav")
 
-### <a name="filtering-sign-ins"></a>Filtrování přihlášení
-Přihlášení můžete filtrovat pomocí následujících polí a omezit tak množství zobrazených dat:
 
-* Datum a čas 
-* Název objektu zabezpečení User
-* Název aplikace
-* Název klienta
-* Stav přihlášení
+**Sestava aktivit přihlašování** umožňuje najít odpovědi na otázky tohoto typu:
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/293.png "Vytváření sestav")
+- Jaký je vzorec přihlašování uživatele?
+- Kolik uživatelů se přihlásilo za týden?
+- Jaký je stav těchto přihlášení?
 
-Jinou metodou filtrování záznamů aktivit přihlašování je vyhledání konkrétních položek.
-Metoda hledání umožňuje omezit obor přihlášení na konkrétní **uživatele**, **skupiny** nebo **aplikace**.
 
-![Vytváření sestav](./media/active-directory-reporting-azure-portal/84.png "Vytváření sestav")
+**Jaká licence Azure AD je potřeba pro přístup k sestavě aktivit přihlašování?**  
+Pro přístup k sestavě aktivit přihlašování musí mít váš tenant přiřazenou licenci Azure AD Premium.
 
-## <a name="audit-logs"></a>Protokoly auditu
-Protokoly auditování v Azure Active Directory obsahují záznamy aktivit systému kvůli dodržování předpisů.
 
-Na webu Azure Portal jsou k dispozici tři hlavní kategorie aktivit souvisejících s auditováním:
+## <a name="programmatic-access"></a>Programový přístup
 
-* Uživatelé a skupiny   
-* Aplikace
-* Adresář   
+Kromě uživatelského rozhraní nabízí generování sestav v Azure Active Directory také [programový přístup](active-directory-reporting-api-getting-started-azure-portal.md) k datům sestav. Data z těchto sestav můžou být velmi užitečná pro vaše aplikace, jako jsou systémy SIEM nebo nástroje pro auditování a business intelligence. Rozhraní API pro generování sestav v Azure AD poskytují programový přístup k těmto datům prostřednictvím sady rozhraní API založených na REST. Tato rozhraní API můžete volat z nejrůznějších programovacích jazyků a nástrojů. 
 
-Úplný seznam aktivit sestavy auditování najdete v [seznamu událostí sestavy auditu](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
-Vaším vstupním bodem k veškerým datům auditování je možnost **Protokoly auditu** v oddílu **Aktivita** v **Azure Active Directory**.
-
-![Auditování](./media/active-directory-reporting-azure-portal/61.png "Auditování")
-
-Protokolu auditu nabízí zobrazení seznamu s účastníky (kdo), aktivitami (co) a cíli.
-
-![Auditování](./media/active-directory-reporting-azure-portal/345.png "Auditování")
-
-Kliknutím na položku v zobrazení seznamu zobrazíte další podrobnosti.
-
-![Auditování](./media/active-directory-reporting-azure-portal/873.png "Auditování")
-
-### <a name="users-and-groups-audit-logs"></a>Protokoly auditu uživatelů a skupin
-S použitím sestav auditu orientovaných na uživatele a skupiny můžete najít odpovědi na otázky tohoto typu:
-
-* Jaké typy aktualizací uživatelé použili?
-* Kolik uživatelů bylo změněno?
-* Kolik hesel bylo změněno?
-* Co provedl správce v adresáři?
-* Které skupiny byly přidány?
-* Došlo u některých skupin ke změnám členství?
-* Došlo ke změnám vlastníků skupiny?
-* Jaké licence byly přiřazeny skupině nebo uživateli?
-
-Pokud chcete jen zkontrolovat data auditování týkající se uživatelů a skupin, najdete filtrované zobrazení v sekci **Protokoly auditu** v oddílu **Aktivity** v části **Uživatelé a skupiny**.
-
-![Auditování](./media/active-directory-reporting-azure-portal/93.png "Auditování")
-
-### <a name="application-audit-logs"></a>Protokoly auditu aplikací
-S použitím sestav auditu orientovaných na aplikace můžete najít odpovědi na otázky tohoto typu:
-
-* Které aplikace byly přidány nebo aktualizovány?
-* Které aplikace byly odebrány?
-* Změnil se instanční objekt pro aplikaci?
-* Změnily se názvy aplikací?
-* Kdo udělil souhlas pro aplikaci?
-
-Pokud chcete jen zkontrolovat data auditování týkající se aplikací, najdete filtrované zobrazení v sekci **Protokoly auditu** v oddílu **Aktivity** v části **Podnikové aplikace**.
-
-![Auditování](./media/active-directory-reporting-azure-portal/134.png "Auditování")
-
-### <a name="filtering-audit-logs"></a>Filtrování protokolů auditu
-Přihlášení můžete filtrovat pomocí následujících polí a omezit tak množství zobrazených dat:
-
-* Datum a čas
-* Název objektu zabezpečení Actor
-* Typ aktivity
-* Aktivita
-
-![Auditování](./media/active-directory-reporting-azure-portal/356.png "Auditování")
-
-Obsah seznamu **Typ aktivity** závisí na tom, kudy do tohoto okna vstoupíte.  
-Pokud je vstupním bodem služba Azure Active Directory, bude tento seznam obsahovat všechny možné typy aktivit:
-
-* Aplikace 
-* Skupina 
-* Uživatel
-* Zařízení
-* Adresář
-* Zásada
-* Ostatní
-
-![Auditování](./media/active-directory-reporting-azure-portal/825.png "Auditování")
-
-Obor aktivit uvedených v seznamu je nastaven podle typu aktivity.
-Pokud jste například jako **Typ aktivity** vybrali **Skupina**, bude seznam **Aktivita** obsahovat pouze aktivit související se skupinami.   
-
-![Auditování](./media/active-directory-reporting-azure-portal/654.png "Auditování")
-
-Jinou metodou filtrování záznamů protokolu auditu je vyhledání konkrétních položek.
-
-![Auditování](./media/active-directory-reporting-azure-portal/237.png "Auditování")
 
 ## <a name="next-steps"></a>Další kroky
-Přečtěte si článek [Příručka generování sestav v Azure Active Directory](active-directory-reporting-guide.md).
+
+Pokud se chcete dozvědět více o různých typech sestav v Azure Active Directory, přečtěte si:
+
+- [Sestava uživatelů s příznakem rizika](active-directory-reporting-security-user-at-risk.md)
+- [Sestava rizikových přihlášení](active-directory-reporting-security-risky-sign-ins.md)
+- [Sestava protokolů auditu](active-directory-reporting-activity-audit-logs.md)
+- [Sestava protokolů přihlášení](active-directory-reporting-activity-sign-ins.md)
+
+Pokud se chcete dozvědět více o přístupu k datům sestav pomocí rozhraní API pro generování sestav, přečtěte si: 
+
+- [Začínáme s rozhraním API pro generování sestav v Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
+<!--Image references-->
+[1]: ./media/active-directory-reporting-azure-portal/ic195031.png
