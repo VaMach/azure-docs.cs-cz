@@ -5,7 +5,7 @@
     ![Vytvoření cloudového zařízení StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. V okně **Vytvořit cloudové zařízení** zadejte následující podrobnosti.
    
-    ![Vytvoření cloudového zařízení StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2.png)
+    ![Vytvoření cloudového zařízení StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Název** – Jedinečný název cloudového zařízení.
    2. **Model** – Zvolte model cloudového zařízení. Zařízení 8010 nabízí službu Storage úrovně Standard s 30 TB úložiště, zatímco zařízení 8020 má službu Storage úrovně Premium s 64 TB úložiště. Pokud chcete nasadit scénáře načítání souborů ze záloh na úrovni položek, zadejte 8010. Pokud chcete nasadit vysoce výkonné úlohy s nízkou latencí nebo pro použití jako sekundární zařízení pro zotavení po havárii, vyberte 8020.
