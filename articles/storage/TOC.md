@@ -135,9 +135,7 @@
 #### [Povolení a zobrazení metrik](storage-enable-and-view-metrics.md)
 #### [Monitorování, diagnostika a řešení potíží](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Kurz odstraňování potíží](storage-e2e-troubleshooting.md)
-### Řešení chyb při odstraňování z disku
-#### [V nasazení podle modelu Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [V klasickém nasazení](storage-cannot-delete-storage-account-container-vhd.md)
+### [Řešení chyb při odstraňování disků](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Řešení problémů s úložištěm souborů](storage-troubleshoot-file-connection-problems.md)
 ## Přenos dat
 ### [Přesouvání dat do a ze Storage](storage-moving-data.md)
@@ -208,7 +206,7 @@
 ### [Kurz odstraňování potíží](storage-e2e-troubleshooting-classic-portal.md)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Klientské nástroje pro Azure Storage](storage-explorers.md)
 ## [Fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Ceny](https://azure.microsoft.com/pricing/details/storage/blobs/)

@@ -59,8 +59,9 @@
 ### [Řešení potíží](azure-diagnostics-troubleshooting.md)
 
 # Referenční informace
-## [Seznam podporovaných metrik](monitoring-supported-metrics.md)
 ## [Zdroje dat monitorování](monitoring-data-sources.md)
+## [Seznam podporovaných metrik](monitoring-supported-metrics.md)
+## [Schéma událostí protokolu aktivit](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # Zdroje a prostředky
 ## [Ukázky Azure CLI 1.0](insights-cli-samples.md)
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Ukázky pro PowerShell](insights-powershell-samples.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Šablony Rychlý start](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

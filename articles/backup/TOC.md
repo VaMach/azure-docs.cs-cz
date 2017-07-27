@@ -17,7 +17,7 @@
 ### Zálohování virtuálních počítačů
 #### [Zálohování virtuálních počítačů Azure do trezoru služby Recovery Services](backup-azure-arm-vms.md)
 #### [Zálohování šifrovaných virtuálních počítačů](backup-azure-vms-encryption.md)
-#### [Zálohování virtuálních počítačů Azure do úložiště záloh](backup-azure-vms.md)
+#### [Zálohování virtuálních počítačů Azure](backup-azure-vms.md)
 ### Správa a monitorování virtuálních počítačů
 #### [Správa záloh virtuálních počítačů Azure na webu Azure Portal](backup-azure-manage-vms.md)
 #### [Monitorování výstrah pro zálohy virtuálních počítačů Azure na webu Azure Portal](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Příprava úloh DPM na webu Azure Portal](backup-azure-dpm-introduction.md)
 ### [Příprava úloh DPM na portálu Azure Classic](backup-azure-dpm-introduction-classic.md)
 ### [Použití nástroje System Center DPM k zálohování serveru Exchange](backup-azure-backup-exchange-server.md)
-### [Obnovení dat v úložišti záloh na alternativní server DPM](backup-azure-alternate-dpm-server.md)
+### [Obnovení dat na alternativní server DPM](backup-azure-alternate-dpm-server.md)
 ### [Použití DPM k zálohování úloh SQL Serveru](backup-azure-backup-sql.md)
 ### [Použití DPM k zálohování sharepointové farmy](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Koncepty
 ## [Přehled trezorů služby Recovery Services](backup-azure-recovery-services-vault-overview.md)
 ## [Upgrade úložiště záloh do trezoru služby Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Odstranění trezoru služby Azure Backup](backup-azure-delete-vault.md)
+## [Odstranění trezoru služby Recovery Services](backup-azure-delete-vault.md)
 ## [Řízení přístupu na základě rolí](backup-rbac-rs-vault.md)
 ## [Zabezpečení pro hybridní zálohy](backup-azure-security-feature.md)
 ## [Konfigurace sestav Azure Backup](backup-azure-configure-reports.md)
 ## [Datový model pro sestavy Azure Backup](backup-azure-reports-data-model.md)
+## [Datový model Log Analytics pro Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Konfigurace zálohování offline](backup-azure-backup-import-export.md)
 ## [Náhrada páskové knihovny](backup-azure-backup-cloud-as-tape.md)
 ## [Aplikačně konzistentní zálohování virtuálních počítačů s Linuxem](backup-azure-linux-app-consistent.md)

@@ -1,5 +1,6 @@
 # [Přehled](azure-security.md)
 ## [Zabezpečení sítě](security-network-overview.md)
+## [Zabezpečení databází](azure-database-security-overview.md)
 ## [Zabezpečení úložiště](security-storage-overview.md)
 ## [Zabezpečení služby Compute](security-virtual-machines-overview.md)
 ## [Monitorování a správa zabezpečení](security-management-and-monitoring-overview.md)
@@ -12,6 +13,7 @@
 ### [Izolace ve veřejném cloudu](azure-isolation.md)
 ### [Technické možnosti zabezpečení](azure-security-technical-capabilities.md)
 ### [Zásady správného řízení v Azure](governance-in-azure.md)
+### [Šifrování dat v klidovém stavu](azure-security-encryption-atrest.md)
 
 # Začínáme
 ## [Začínáme se zabezpečením Azure](azure-security-getting-started.md)
@@ -51,6 +53,7 @@
 ## Služby PaaS
 ### [Zabezpečení nasazení PaaS](security-paas-deployments.md)
 #### [Zabezpečení webových a mobilních aplikací PaaS pomocí SQL](security-paas-applications-using-sql.md)
+#### [Osvědčené postupy SQL Database](azure-database-security-best-practices.md)
 #### [Zabezpečení webových a mobilních aplikací PaaS pomocí App Services](security-paas-applications-using-app-services.md)
 
 ## Internet věcí
@@ -73,7 +76,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Program MVP pro zabezpečení Azure](azure-security-mvp.md)
 ## [Poradenství pro zabezpečení](azure-security-cyber-services.md)
 ## [Blog věnovaný zabezpečení a dodržování předpisů](http://blogs.msdn.com/b/azuresecurity/)

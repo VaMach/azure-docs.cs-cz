@@ -40,6 +40,7 @@
 ## [Ochrana záznamů a zón DNS](dns-protect-zones-recordsets.md)
 ## [Automatizace operací DNS se sadou .NET SDK](dns-sdk.md)
 
+## [Integrace Azure DNS s prostředky Azure](dns-custom-domain.md)
 ## Řešení potíží
 ### [Průvodce řešením problémů](dns-troubleshoot.md)
 
@@ -62,7 +63,7 @@
 ## [Web Apps](/azure/app-service-web/)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Žádosti o funkce](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
