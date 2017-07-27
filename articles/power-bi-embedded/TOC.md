@@ -33,7 +33,7 @@
 
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Vložená ukázka JavaScriptu](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [Úložiště Git JavaScriptu](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Úložiště Git Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)

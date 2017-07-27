@@ -89,7 +89,7 @@
 
 # Zdroje a prostředky
 ## [Fórum Azure AD B2C pro názory](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Nejčastější dotazy](active-directory-b2c-faqs.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-b2c)

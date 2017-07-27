@@ -25,7 +25,7 @@
 ## [REST](/rest/api/scheduler)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Ceny](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=scheduler)

@@ -2,122 +2,124 @@
   href: index.yml
 - name: Přehled
   items:
-  - name: Azure DB for PostgreSQL
-    href: overview.md
+    - name: Azure DB for PostgreSQL
+      href: overview.md
 - name: Šablony Rychlý start
   expanded: true
   items:
-  - name: Vytvoření databáze – portál
-    href: quickstart-create-server-database-portal.md
-  - name: Vytvoření databáze – Azure CLI
-    href: quickstart-create-server-database-azure-cli.md
-  - name: Připojení a dotazování
-    items: 
-    - name: Python
-      href: connect-python.md
-    - name: Node.js
-      href: connect-nodejs.md
-    - name: Java
-      href: connect-java.md
-    - name: Ruby
-      href: connect-ruby.md
-    - name: PHP
-      href: connect-php.md
-    - name: .NET
-      href: connect-csharp.md
-    - name: Přejít
-      href: connect-go.md
+    - name: Vytvoření databáze – portál
+      href: quickstart-create-server-database-portal.md
+    - name: Vytvoření databáze – Azure CLI
+      href: quickstart-create-server-database-azure-cli.md
+    - name: Připojení a dotazování
+      items:
+        - name: Python
+          href: connect-python.md
+        - name: Node.js
+          href: connect-nodejs.md
+        - name: Java
+          href: connect-java.md
+        - name: Ruby
+          href: connect-ruby.md
+        - name: PHP
+          href: connect-php.md
+        - name: .NET
+          href: connect-csharp.md
+        - name: Přejít
+          href: connect-go.md
 - name: Kurzy
   items:
-  - name: 1. Návrh databáze
-    items:
-    - name: portál Azure
-      href: tutorial-design-database-using-azure-portal.md
-    - name: Azure CLI
-      href: tutorial-design-database-using-azure-cli.md
-  - name: 2. Návrh webové aplikace – Python
-    href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+    - name: 1. Návrh databáze
+      items:
+        - name: portál Azure
+          href: tutorial-design-database-using-azure-portal.md
+        - name: Azure CLI
+          href: tutorial-design-database-using-azure-cli.md
+    - name: 2. Návrh webové aplikace – Python
+      href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
 - name: Ukázky
   items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
+    - name: Azure CLI
+      href: sample-scripts-azure-cli.md
 - name: Koncepty
   items:
-  - name: Databáze a servery
-    items:
-    - name: Servery
-      href: concepts-servers.md
-    - name: Podporované verze
-      href: concepts-supported-versions.md
-    - name: Rozšíření PostgreSQL
-      href: concepts-extensions.md
-    - name: Protokoly serveru
-      href: concepts-server-logs.md
-  - name: Zdroje a prostředky
-    items:
-    - name: Cenové úrovně
-      href: concepts-service-tiers.md
-    - name: Výpočetní jednotky
-      href: concepts-compute-unit-and-storage.md
-    - name: Omezení
-      href: concepts-limits.md
-  - name: Přístup k datům a zabezpečení
-    items:
-    - name: Pravidla brány firewall
-      href: concepts-firewall-rules.md
-    - name: Konfigurace SSL
-      href: concepts-ssl-connection-security.md
-  - name: Vývoj
-    items:
-    - name: Knihovny připojení
-      href: concepts-connection-libraries.md
+    - name: Databáze a servery
+      items:
+        - name: Servery
+          href: concepts-servers.md
+        - name: Podporované verze
+          href: concepts-supported-versions.md
+        - name: Rozšíření PostgreSQL
+          href: concepts-extensions.md
+        - name: Protokoly serveru
+          href: concepts-server-logs.md
+    - name: Zdroje a prostředky
+      items:
+        - name: Cenové úrovně
+          href: concepts-service-tiers.md
+        - name: Výpočetní jednotky
+          href: concepts-compute-unit-and-storage.md
+        - name: Omezení
+          href: concepts-limits.md
+    - name: Přístup k datům a zabezpečení
+      items:
+        - name: Pravidla brány firewall
+          href: concepts-firewall-rules.md
+        - name: Konfigurace SSL
+          href: concepts-ssl-connection-security.md
+    - name: Vývoj
+      items:
+        - name: Knihovny připojení
+          href: concepts-connection-libraries.md
 - name: Návody
   items:
-  - name: Pravidla brány firewall
-    items:
-    - name: portál Azure
-      href: howto-manage-firewall-using-portal.md
-    - name: Azure CLI
-      href: howto-manage-firewall-using-cli.md
-  - name: Obnovení serveru
-    items:
-    - name: portál Azure
-      href: howto-restore-server-portal.md
-    - name: Azure CLI
-      href: howto-restore-server-cli.md
-  - name: Migrace databáze
-    items:
-    - name: Výpis a obnovení
-      href: howto-migrate-using-dump-and-restore.md
-    - name: Import a export
-      href: howto-migrate-using-export-and-import.md
-  - name: Přizpůsobení parametrů konfigurace serveru
-    items:
-    - name: Azure CLI
-      href: howto-configure-server-parameters-using-cli.md
-  - name: Protokoly serveru
-    items:
-    - name: Azure CLI
-      href: howto-configure-server-logs-using-cli.md
+    - name: Pravidla brány firewall
+      items:
+        - name: portál Azure
+          href: howto-manage-firewall-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-firewall-using-cli.md
+    - name: Obnovení serveru
+      items:
+        - name: portál Azure
+          href: howto-restore-server-portal.md
+        - name: Azure CLI
+          href: howto-restore-server-cli.md
+    - name: Migrace databáze
+      items:
+        - name: Výpis a obnovení
+          href: howto-migrate-using-dump-and-restore.md
+        - name: Import a export
+          href: howto-migrate-using-export-and-import.md
+    - name: Přizpůsobení parametrů konfigurace serveru
+      items:
+        - name: Azure CLI
+          href: howto-configure-server-parameters-using-cli.md
+    - name: Protokoly serveru
+      items:
+        - name: Azure CLI
+          href: howto-configure-server-logs-using-cli.md
 - name: Referenční informace
   items:
-  - name: Azure CLI
-    href: /cli/azure/postgres
-- name: Zdroje a prostředky
+    - name: Azure CLI
+      href: /cli/azure/postgres
+    - name: REST API
+      href: /rest/api/postgres
+- name: Zdroje
   items:
-  - name: Plány Azure do budoucna
-    href: https://azure.microsoft.com/roadmap/
-  - name: Ceny
-    href: https://azure.microsoft.com/pricing/details/postgresql/
-  - name: Fórum MSDN
-    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
-  - name: Videa
-    href: videos.md    
-  - name: Fórum pro názory
-    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
-  - name: Dostupnost v oblastech
-    href: https://azure.microsoft.com/regions/services/
-  - name: Možnosti podpory
-    href: https://azure.microsoft.com/support/options/
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/postgresql/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
+    - name: Videa
+      href: videos.md
+    - name: Fórum pro názory
+      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
+    - name: Dostupnost v oblastech
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Možnosti podpory
+      href: 'https://azure.microsoft.com/support/options/'

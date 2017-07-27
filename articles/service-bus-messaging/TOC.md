@@ -66,7 +66,7 @@
 ## [Syntaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Fóra na webu MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Podrobnosti o cenách](service-bus-pricing-billing.md)

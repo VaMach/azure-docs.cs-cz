@@ -16,7 +16,8 @@
 ### [2. Nasazení aplikace .NET pomocí Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Ukázky
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure CLI](samples-cli.md)
 # Koncepty
 ## [Principy mikroslužeb](service-fabric-overview-microservices.md)
 ## [Celkový přehled](service-fabric-content-roadmap.md)

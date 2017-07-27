@@ -52,7 +52,7 @@
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 ## Ceny 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)

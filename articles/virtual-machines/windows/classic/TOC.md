@@ -81,7 +81,8 @@
 ### [Přístup k aplikaci](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Potíže s vytvářením nového virtuálního počítače v modelu nasazení Classic](troubleshoot-deployment-new-vm.md)
 ### [Potíže s restartováním nebo změnou velikosti stávajícího virtuálního počítače v modelu nasazení Classic](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Resetování hesla protokolu RDP](reset-rdp.md)
+### [Resetování hesla protokolu RDP](reset-rdp.md)
+### [Připojení virtuálního pevného disku pro řešení potíží s virtuálním počítačem](troubleshoot-recovery-disks-portal.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/azure/overview)
@@ -95,7 +96,7 @@
 ## [Rozhraní REST pro Storage](/rest/api/storageservices)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

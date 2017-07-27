@@ -112,7 +112,7 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Ceny](https://azure.microsoft.com/pricing/details/cloud-services/)

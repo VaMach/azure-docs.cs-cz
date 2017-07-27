@@ -19,12 +19,15 @@
 ## Vytvoření a změny okruhu
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure CLI](howto-circuit-cli.md)
 ## Vytvoření a změny konfigurace partnerského vztahu
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure CLI](howto-routing-cli.md)
 ## Propojení virtuální sítě k okruhu ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure CLI](howto-linkvnet-cli.md)
 ## Konfigurace brány virtuální sítě pro ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -60,7 +63,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Případové studie](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Blog o sítích](https://azure.microsoft.com/blog/topics/networking/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/expressroute/)

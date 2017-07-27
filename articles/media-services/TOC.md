@@ -222,7 +222,7 @@
 
 # Zdroje a prostředky
 ## [Komunita Azure Media Services](media-services-community.md)
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Poznámky k verzi](media-services-release-notes.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)
