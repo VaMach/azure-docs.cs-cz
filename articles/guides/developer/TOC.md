@@ -12,7 +12,7 @@
 ## [Bez serveru](../../azure-functions/functions-create-first-azure-function.md)
 ## Mikroslužby
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Container Service](../../container-service/container-service-deployment.md) 
+### [Container Service](../../container-service/dcos-swarm/container-service-deployment.md) 
 
 # Kurzy
 ## Vytvoření a nasazení webové aplikace

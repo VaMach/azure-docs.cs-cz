@@ -56,7 +56,7 @@
 ## [Kvóty](event-hubs-quotas.md)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Ukázky kódu](event-hubs-samples.md)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/event-hubs/)

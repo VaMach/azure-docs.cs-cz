@@ -67,7 +67,7 @@
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=application-gateway)

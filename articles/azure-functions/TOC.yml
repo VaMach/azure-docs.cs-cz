@@ -94,8 +94,7 @@
         - name: Vytvoření definice OpenAPI 2.0
           href: functions-api-definition-getting-started.md
         - name: Export do PowerApps a Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Referenční informace
   items:
     - name: Vazby
@@ -131,7 +130,7 @@
 - name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Regionální dostupnost
@@ -145,5 +144,4 @@
     - name: Úložiště GitHub – Azure Functions
       href: 'https://github.com/Azure/Azure-Functions/'
     - name: Aktualizace služeb
-      href: >-
-        https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='

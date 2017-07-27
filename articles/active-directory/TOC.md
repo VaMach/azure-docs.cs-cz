@@ -384,7 +384,7 @@
 
 # Zdroje a prostředky
 ## [Fórum Azure pro názory](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory)

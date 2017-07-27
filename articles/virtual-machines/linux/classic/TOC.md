@@ -66,6 +66,7 @@
 ## Řešení potíží
 ### [Nasazení virtuálních počítačů](troubleshoot-deployment-new-vm.md)
 ### [Restartování nebo změna velikosti virtuálního počítače](restart-resize-error-troubleshooting.md)
+### [Připojení virtuálního pevného disku pro řešení potíží s virtuálním počítačem](troubleshoot-recovery-disks-portal.md)
 
 # Referenční informace
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -1,149 +1,77 @@
 # Přehled
-
 ## [Co je Azure Batch?](batch-technical-overview.md)
-
 ## [Přehled funkcí](batch-api-basics.md)
-
 ## [Rozhraní API a nástroje](batch-apis-tools.md)
-
 ## [Kvóty a omezení](batch-quota-limit.md)
-
 # Začínáme
-
 ## [Vytvoření účtu služby Batch](batch-account-create-portal.md)
-
 ## [Výukový kurz k Batch .NET](batch-dotnet-get-started.md)
-
 ## [Kurz k Batch Pythonu](batch-python-tutorial.md)
-
 ## [Kurz k Batch Node.js](batch-nodejs-get-started.md)
-
 # Postup
-
 ## Vývoj
-
 ### [Balíčky aplikací](batch-application-packages.md)
-
 ### [Automatické škálování výpočetních uzlů](batch-automatic-scaling.md)
-
 ### Ověřování Azure AD
-
 #### [Azure AD se službou Batch](batch-aad-auth.md)
-
 #### [Azure AD se službou Batch Management](batch-aad-auth-management.md)
-
 ### [Souběžné úlohy uzlu](batch-parallel-node-tasks.md)
-
 ### [Efektivní seznamové dotazy](batch-efficient-list-queries.md)
-
 ### [Příprava úlohy a dokončovací úkoly](batch-job-prep-release.md)
-
 ### [Výpočetní uzly s Linuxem](batch-linux-nodes.md)
-
 ### [Virtuální počítače s nízkou prioritou](batch-low-pri-vms.md)
-
 ### [Správa účtů služby Batch pomocí rozhraní Batch Management .NET](batch-management-dotnet.md)
-
 ### [Trvalý výstup úloh a funkcí](batch-task-output.md)
-
 #### [Trvalý výstup pomocí rozhraní API služby Batch](batch-task-output-files.md)
-
 #### [Trvalý výstup pomocí knihovny File Conventions](batch-task-output-file-conventions.md)
-
 ### [Spouštění úloh MPI ve službě Batch](batch-mpi.md)
-
 ### [Závislosti úkolů](batch-task-dependencies.md)
-
 ### [Uživatelské účty pro spouštění úloh](batch-user-accounts.md)
-
 ### [Šablony projektů sady Visual Studio pro Batch](batch-visual-studio-templates.md)
-
 ## Spravovat
-
 ### [Rutiny PowerShellu pro účty Batch](batch-powershell-cmdlets-get-started.md)
-
 ### [Azure CLI](batch-cli-get-started.md)
-
-#### [Vytvoření účtu služby Batch](./scripts/batch-cli-sample-create-account.md)
-
 #### [Spuštění dávkových úloh bez kódu](batch-cli-templates.md)
-
+#### [Vytvoření účtu služby Batch](./scripts/batch-cli-sample-create-account.md)
 #### [Přidání aplikace](./scripts/batch-cli-sample-add-application.md)
-
 #### [Správa fondů](./scripts/batch-cli-sample-manage-pool.md)
-
 #### [Spuštění úlohy a úkolů](./scripts/batch-cli-sample-run-job.md)
 
-
 # Referenční informace
-
 ## [PowerShell](/powershell/module/azurerm.batch)
-
 ## [Azure CLI](/cli/azure/batch)
-
 ## [.NET](/dotnet/api/microsoft.azure.batch)
-
 ## [Java](/java/api/com.microsoft.azure.batch)
-
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
-
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
-
 ## [REST](/rest/api/batchservice)
-
 ## [Diagnostické protokoly služby Batch](batch-diagnostics.md)
-
 ## [Dávková analýza](batch-analytics.md)
-
 ### [Událost vytvoření fondu](batch-pool-create-event.md)
-
 ### [Událost zahájení odstranění fondu](batch-pool-delete-start-event.md)
-
 ### [Událost dokončení odstranění fondu](batch-pool-delete-complete-event.md)
-
 ### [Událost zahájení změny velikosti fondu](batch-pool-resize-start-event.md)
-
 ### [Událost dokončení změny velikosti fondu](batch-pool-resize-complete-event.md)
-
 ### [Událost zahájení úlohy](batch-task-start-event.md)
-
 ### [Událost dokončení úlohy](batch-task-complete-event.md)
-
 ### [Událost selhání úlohy](batch-task-fail-event.md)
-
 ## [Proměnné prostředí výpočetních uzlů Azure Batch](batch-compute-node-environment-variables.md)
 
-
 # Související
-
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-
 ## [Zpracování dat pomocí služeb Batch a Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-
 ## [Řešení pro Batch a prostředí HPC v cloudu Azure](batch-hpc-solutions.md)
 
-
 # Zdroje a prostředky
-
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
-
 ## [Prostředky Big Compute](big-compute-resources.md)
-
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
-
 ## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-
 ## [Ceny](https://azure.microsoft.com/pricing/details/batch/)
-
 ## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
-
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-
 
 

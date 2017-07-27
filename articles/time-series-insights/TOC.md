@@ -28,5 +28,5 @@
 ## [Azure Stream Analytics](/azure/stream-analytics/)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Ceny](https://azure.microsoft.com/pricing/details/time-series-insights/)

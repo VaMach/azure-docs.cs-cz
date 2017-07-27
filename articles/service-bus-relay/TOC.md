@@ -27,7 +27,7 @@
 ## [Nastavení portu](relay-port-settings.md)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Ukázky](https://github.com/azure/azure-relay/tree/master/samples)

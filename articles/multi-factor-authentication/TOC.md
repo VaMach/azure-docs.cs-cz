@@ -50,4 +50,4 @@
 ### [Zeptejte se](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Chyby rozšíření NPS](multi-factor-authentication-nps-errors.md)
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
