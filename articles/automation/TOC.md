@@ -60,6 +60,7 @@
 ### [Integrace správy zdrojového kódu pomocí GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integrace správy zdrojového kódu pomocí VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
+### [Nasazení šablony Azure Resource Manageru v powershellového runbooku Azure Automation](automation-deploy-template-runbook.md)
 ## Řešení
 ### [Sledování změn](../log-analytics/log-analytics-change-tracking.md)
 ### [Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)
@@ -82,7 +83,7 @@
 # Zdroje a prostředky
 ## [Úvodní video ke službě Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 ## [Školení pro Azure Automation](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Ceny](https://azure.microsoft.com/pricing/details/automation/)  

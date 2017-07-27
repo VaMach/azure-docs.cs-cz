@@ -13,7 +13,12 @@
 
 # Začínáme
 ## [Začínáme s Hadoopem](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Začínáme se Sparkem](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Začínáme se Spark
+### [Vytvoření clusteru Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Spouštění dotazů v clusteru Spark](hdinsight-apache-spark-load-data-run-query.md)
+### [Analýza dat pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
+### [Správa prostředků clusteru](hdinsight-apache-spark-resource-manager.md)
+### [Ladění sparkových úloh](hdinsight-apache-spark-job-debugging.md)
 ## [Začínáme s R Serverem](hdinsight-hadoop-r-server-get-started.md)
 ## [Začínáme s HBase a NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Začínáme se Stormem](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR a SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Použití Sparku pro zpracování v paměti
 ### [Pomocí Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
 ### [Vytvoření samostatné aplikace](hdinsight-apache-spark-create-standalone-application.md)
 ### [Vytváření aplikací pomocí Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Vytváření aplikací pomocí IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [Použití místní aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Vzdálené ladění úloh pomocí IntelliJ přes VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Správa prostředků](hdinsight-apache-spark-resource-manager.md)
-### [Sledování a ladění úloh](hdinsight-apache-spark-job-debugging.md)
 ### [Známé problémy](hdinsight-apache-spark-known-issues.md)
 ## Použití HBase
 ### [Použití Phoenixu a SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -234,7 +236,7 @@
 ### [Monitorování clusterů pomocí rozhraní Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Zdroje a prostředky
-## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Program Microsoft Professional pro velké objemy dat](https://academy.microsoft.com/en-us/professional-program/big-data/)

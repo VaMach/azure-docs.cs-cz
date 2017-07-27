@@ -39,6 +39,8 @@
       href: tutorial-azure-security.md
     - name: 12. Nasazení Jenkinse
       href: tutorial-jenkins-github-docker-cicd.md
+    - name: 13. Nastavení CI/CD s Team Services
+      href: tutorial-build-deploy-jenkins.md
 - name: Ukázky
   items:
     - name: Azure CLI
@@ -62,23 +64,18 @@
     - name: Kontejnery
       href: containers.md
     - name: Resource Manager
-      href: >-
-        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       items:
         - name: Modely nasazení
-          href: >-
-            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Šablony pro virtuální počítače
-          href: >-
-            ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Azure Linux Agent
       href: agent-user-guide.md
     - name: Azure Security Center
-      href: >-
-        ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Zotavení po havárii
-      href: >-
-        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Plánovaná údržba
       href: planned-maintenance.md
       items:
@@ -177,8 +174,7 @@
         - name: Změna velikosti virtuálního počítače
           href: change-vm-size.md
         - name: Použití značek
-          href: >-
-            ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
           items:
             - name: Označení virtuálního počítače
               href: tag.md
@@ -187,11 +183,8 @@
         - name: Aktualizace agenta Azure Linux
           href: update-agent.md
         - name: Zálohování pomocí služby Recovery Services
-          href: >-
-            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: >-
-            Připojení virtuálního počítače s RedHatem ke službě Azure Active
-            Directory Domain Services
+          href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Připojení virtuálního počítače s RedHatem ke službě Azure Active Directory Domain Services
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
     - name: Připojení přes SSH
       items:
@@ -202,9 +195,7 @@
               href: create-ssh-keys-detailed.md
         - name: Použití klíčů SSH s Windows pro virtuální počítače s Linuxem
           href: ssh-from-windows.md
-        - name: >-
-            Použití Vzdálené plochy pro připojení k virtuálnímu počítači s
-            Linuxem
+        - name: Použití Vzdálené plochy pro připojení k virtuálnímu počítači s Linuxem
           href: use-remote-desktop.md
     - name: Správa imagí virtuálních počítačů
       items:
@@ -237,12 +228,10 @@
     - name: Správa úložiště virtuálního počítače
       items:
         - name: Azure Managed Disks
-          href: >-
-            ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
           items:
             - name: Nejčastější dotazy
-              href: >-
-                ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Kopírování souborů do virtuálního počítače s Linuxem
           href: copy-files-to-linux-vm-using-scp.md
         - name: Převod virtuálního počítače na Managed Disks
@@ -268,8 +257,7 @@
     - name: Sítě virtuálních počítačů
       items:
         - name: Vytvoření virtuálních sítí
-          href: >-
-            ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Nasazení virtuálního počítače do existující virtuální sítě
           items:
             - name: Azure CLI
@@ -279,8 +267,7 @@
         - name: Vytvoření virtuálního počítače s několika síťovými kartami
           href: multiple-nics.md
         - name: Vytvoření statické veřejné IP adresy
-          href: >-
-            ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 'Konfigurace portů, koncových bodů a zabezpečení'
           href: endpoints-in-resource-manager.md
         - name: Umožnění přístupu k virtuálnímu počítači
@@ -294,18 +281,15 @@
         - name: Vytvoření plně kvalifikovaného názvu domény
           href: portal-create-fqdn.md
         - name: Vytvoření tras definovaných uživatelem
-          href: >-
-            ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Škálování a dostupnost
       items:
         - name: Dostupnost virtuálních počítačů
           href: manage-availability.md
         - name: Vytvoření nástroje pro vyrovnávání zatížení
-          href: >-
-            ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Vytvoření několika virtuálních počítačů pomocí škálovacích sad
-          href: >-
-            ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Vertikální škálování virtuálních počítačů pomocí Azure Automation
           href: vertical-scaling-automation.md
         - name: Monitorování virtuálních počítačů
@@ -343,8 +327,7 @@
             - name: Nasazení první aplikace
               href: cloudfoundry-deploy-your-first-app.md
         - name: Přehled virtuálních počítačů pro vědecké zkoumání dat
-          href: >-
-            ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: MongoDB
           href: install-mongodb.md
         - name: MySQL
@@ -358,8 +341,7 @@
         - name: Nasazení clusteru Deis se třemi uzly
           href: deis-cluster.md
         - name: Nasazení aplikace Node.js
-          href: >-
-            ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Webová aplikace Django
           href: python-django-web-app.md
         - name: Poznámkový blok Jupyter
@@ -377,9 +359,7 @@
           href: ../workloads/oracle/oracle-considerations.md
     - name: Docker na virtuálních počítačích
       items:
-        - name: >-
-            Vytvoření hostitelů Docker pomocí rozšíření virtuálního počítače
-            Azure Docker
+        - name: Vytvoření hostitelů Docker pomocí rozšíření virtuálního počítače Azure Docker
           href: dockerextension.md
         - name: Použití Docker Machine s Azure
           href: docker-machine.md
@@ -398,15 +378,12 @@
         - name: Běžné chyby při migraci
           href: migration-classic-resource-manager-errors.md
         - name: Komunitní nástroje pro migraci
-          href: >-
-            ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Nejčastější dotazy
           href: migration-classic-resource-manager-faq.md
     - name: Řešení potíží
       items:
-        - name: >-
-            Možnosti podpory pro přidání virtuálního počítače Azure do stávající
-            skupiny dostupnosti
+        - name: Možnosti podpory pro přidání virtuálního počítače Azure do stávající skupiny dostupnosti
           href: ../virtual-machines-availability-set-supportability.md
         - name: Resetování hesla virtuálního počítače s Linuxem
           href: virtual-machines-linux-reset-password.md
@@ -458,8 +435,7 @@
 - name: Zdroje a prostředky
   items:
     - name: Tvorba šablon
-      href: >-
-        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Komunitní šablony
@@ -471,7 +447,6 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Videa
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Nejčastější dotazy
       href: faq.md
