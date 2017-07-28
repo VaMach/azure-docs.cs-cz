@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
-
-# Aktualizace ověřování účtu Automation o účty Spustit jako 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aktualizace ověřování účtu Automation o účty Spustit jako 
 Existující účet Automation můžete aktualizovat z portálu nebo pomocí PowerShellu, pokud jste postupovali takto:
 
 * Vytvořili jste účet Automation, ale odmítli jste vytvoření účtu Spustit jako.
@@ -32,9 +30,7 @@ Existující účet Automation můžete aktualizovat z portálu nebo pomocí Pow
 * Už máte účet Automation pro správu klasických prostředků a chcete ho aktualizovat, abyste mohli použít účet Spustit jako pro Classic a nemuseli vytvářet nový účet a migrovat na něj runbooky a prostředky.   
 * Rozhodli jste se vytvořit účet Spustit jako a účet Spustit jako pro Classic pomocí certifikátu, který vydala vaše podniková certifikační autorita.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 * Tento skript je možné spustit jenom v systémech Windows 10 a Windows Server 2016 s nainstalovanými moduly Azure Resource Manageru verze 3.0.0 nebo novější. V předchozích verzích Windows není podporován.
 * Azure PowerShell 1.0 nebo novější. Informace o vydání PowerShellu 1.0 najdete v článku [Postup instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs).
@@ -46,9 +42,7 @@ Abyste získali hodnoty pro parametry *SubscriptionID*, *ResourceGroup* a *Autom
 2. V okně **Všechna nastavení** v části **Nastavení účtu** vyberte **Vlastnosti**. 
 3. Hodnoty v okně **Vlastnosti** si poznamenejte.<br><br> ![Podokno vlastností účtu Automation](media/automation-create-runas-account/automation-account-properties.png)  
 
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
-
-### Požadovaná oprávnění k aktualizaci účtu Automation
+### <a name="required-permissions-to-update-your-automation-account"></a>Požadovaná oprávnění k aktualizaci účtu Automation
 Pokud chcete aktualizovat účet Automation, musíte mít následující specifická oprávnění vyžadovaná k dokončení tohoto tématu.   
  
 * Váš uživatelský účet AD musí být přidán do role se stejnými oprávněními jako role přispěvatele pro prostředky Microsoft.Automation, jak je uvedeno v článku [Řízení přístupu na základě role ve službě Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
@@ -56,9 +50,7 @@ Pokud chcete aktualizovat účet Automation, musíte mít následující specifi
 
 Pokud před přidáním do role globálního správce nebo spolusprávce nejste členem instance Active Directory příslušného předplatného, budete do služby Active Directory přidaní jako host. V takové situaci se zobrazí upozornění Nemáte oprávnění k vytvoření... v okně **Přidání účtu Automation**. Uživatele, kteří byli nejdřív přidaní do role globálního správce nebo spolusprávce, je možné z instance Active Directory předplatného odebrat a potom je znovu přidat – tak se z nich ve službě Active Directory stanou úplní uživatelé. Takovou situaci můžete ověřit v podokně **Azure Active Directory** na webu Azure Portal. Vyberte **Uživatelé a skupiny**, potom **Všichni uživatelé** a po výběru konkrétního uživatele vyberte **Profil**. Hodnota atributu **Typ uživatele** v profilu uživatele by neměla být **Host**.
 
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
-
-## Vytvoření účtu Spustit jako z portálu
+## <a name="create-run-as-account-from-the-portal"></a>Vytvoření účtu Spustit jako z portálu
 V této části provedete následující kroky a aktualizujete účet Azure Automation z webu Azure Portal.  Účty Spustit jako a Spustit jako pro Azure Classic vytváříte samostatně. Pokud nepotřebujete spravovat prostředky na portálu Azure Classic, stačí vytvořit jenom účet Spustit jako pro Azure.  
 
 Tento proces vytvoří ve vašem účtu Automation následující položky.
@@ -79,9 +71,7 @@ Tento proces vytvoří ve vašem účtu Automation následující položky.
 3. Podle toho, který účet požadujete, vyberte buď **Účet Spustit jako pro Azure**, nebo **Účet Spustit jako pro Azure Classic**.  Po výběru se zobrazí okno **Přidat účet Spustit jako pro Azure** nebo **Přidat účet Spustit jako pro Azure Classic**. Jakmile zkontrolujete souhrnné informace, klikněte na **Vytvořit** a pokračujte ve vytváření účtu Spustit jako.  
 4. Zatímco Azure vytváří účet Spustit jako, zobrazuje se banner s informací o vytváření účtu a průběh vytváření můžete sledovat prostřednictvím možnosti nabídky **Oznámení**.  Dokončení tohoto procesu může trvat několik minut.  
 
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
-
-## Vytvoření účtu Spustit jako pomocí skriptu PowerShellu
+## <a name="create-run-as-account-using-powershell-script"></a>Vytvoření účtu Spustit jako pomocí skriptu PowerShellu
 Tento skript PowerShellu zahrnuje podporu následujících konfigurací:
 
 * Vytvoření účtu Spustit v Azure jako pomocí certifikátu podepsaného svým držitelem
@@ -166,7 +156,7 @@ V závislosti na možnosti konfigurace, kterou vyberete, skript vytvoří násle
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -307,8 +297,6 @@ Po úspěšném spuštění skriptu je třeba počítat s následujícím:
 * Pokud jste vytvořili účet Spustit jako pro Classic s využitím podnikového veřejného certifikátu (soubor .cer), použijte tento certifikát. Postupujte podle kroků pro [odeslání certifikátu rozhraní API pro správu na portál Azure Classic](../azure-api-management-certs.md) a potom použijte [ukázkový kód pro ověření pomocí prostředků nasazení Azure Classic](automation-verify-runas-authentication.md#classic-run-as-authentication) k ověření konfigurace přihlašovacích údajů pomocí prostředků nasazení Classic. 
 * Pokud jste *nevytvořili* účet Spustit jako pro Classic, použijte k ověření pomocí prostředků Resource Manageru a ke kontrole konfigurace přihlašovacích údajů [ukázkový kód pro ověření s využitím prostředků správy služeb](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o objektech služby najdete v článku [Objekty aplikací a hlavní objekty služeb](../active-directory/active-directory-application-objects.md).
 * Další informace o certifikátech a službách Azure najdete v článku [Přehled certifikátů pro Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
