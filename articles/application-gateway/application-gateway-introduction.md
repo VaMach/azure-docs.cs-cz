@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Přehled služby Application Gateway
@@ -103,4 +103,6 @@ Nejčastější dotazy k službě Application Gateway najdete v tématu [Nejčas
 Po získání informací o službě Application Gateway můžete [vytvořit službu Application Gateway](application-gateway-create-gateway-portal.md) nebo [vytvořit přesměrování zpracování SSL ve službě Application Gateway](application-gateway-ssl-arm.md) pro vyrovnávání zatížení připojení HTTPS.
 
 Další informace o vytvoření služby Application Gateway používající směrování obsahu na základě adresy URL najdete v tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-arm-ps.md).
+
+Další informace o některých dalších klíčových síťových funkcích Azure najdete v tématu [Sítě Azure]((../networking/networking-overview.md).
 

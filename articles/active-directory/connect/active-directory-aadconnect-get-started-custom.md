@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 669ed9465e4ce4539b8aa642b4dc0eca6bad128a
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Vlastní instalace služby Azure AD Connect
@@ -127,10 +127,10 @@ Funkce párování napříč doménovými strukturami vám umožňuje definovat,
 | Nastavení | Popis |
 | --- | --- |
 | [Uživatelé jsou reprezentováni jen jednou v rámci všech doménových struktur](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Všichni uživatelé jsou vytvořeni jako jednotlivé objekty v Azure AD. Tyto objekty nejsou v úložišti metaverse spojené. |
-| [Atribut Mail](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Tato možnost spojí uživatele a kontakty, pokud má atribut mail v různých doménových strukturách stejnou hodnotu. Tuto možnost použijte, pokud byly kontakty vytvořeny pomocí GALSync. |
+| [Atribut Mail](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Tato možnost spojí uživatele a kontakty, pokud má atribut mail v různých doménových strukturách stejnou hodnotu. Tuto možnost použijte, pokud byly kontakty vytvořeny pomocí GALSync. Pokud je tato možnost zvolená, uživatelské objekty s nevyplněným atributem Mail nebudou synchronizovány do Azure AD. |
 | Atributy [ObjectSID a msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Tato možnost spojí povoleného uživatele v doménové struktuře účtu se zakázaným uživatelem v doménové struktuře prostředku. V systému Exchange se tato konfigurace označuje jako propojená poštovní schránka. Tato možnost se taky dá použít, pokud používáte pouze Lync a Exchange není v doménové struktuře prostředku dostupný. |
 | Atributy sAMAccountName a MailNickName |Tato možnost spojuje atributy, u kterých se dá očekávat, že obsahují přihlašovací ID uživatele. |
-| Konkrétní atribut |Tato možnost umožňuje vybrat vlastní atribut. **Omezení:** Je nutné vybrat atribut, který se už nachází v úložišti metaverse. Pokud vyberete vlastní atribut (který není v úložišti metaverse), průvodce se nedá dokončit. |
+| Konkrétní atribut |Tato možnost umožňuje vybrat vlastní atribut. Pokud je tato možnost zvolená, uživatelské objekty s nevyplněným (vybraným) atributem Mail nebudou synchronizovány do Azure AD. **Omezení:** Je nutné vybrat atribut, který se už nachází v úložišti metaverse. Pokud vyberete vlastní atribut (který není v úložišti metaverse), průvodce se nedá dokončit. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Vyberte, jak se mají uživatelé identifikovat s Azure AD – zdrojové ukotvení
 Atribut sourceAnchor je atribut, který se za dobu existence objektu uživatele nemění. Jedná se o primární klíč propojující místního uživatele s uživatelem v Azure AD.

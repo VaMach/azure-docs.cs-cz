@@ -15,25 +15,21 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 754c381cb242e0bdf7c56bd2a763d46acc80fbda
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
-
-# Vytvoření webové aplikace v Pythonu v Azure
+# <a name="create-a-python-web-app-in-azure"></a>Vytvoření webové aplikace v Pythonu v Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  Tento kurz Rychlý start vás provede vývojem a nasazením aplikace v Pythonu do Azure Web Apps. Vytvoříte webovou aplikaci pomocí rozhraní příkazového řádku [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu nasadíte do této webové aplikace ukázkový kód v Pythonu.
 
 ![Ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 Pro absolvování tohoto kurzu potřebujete:
 
@@ -46,9 +42,7 @@ Pro absolvování tohoto kurzu potřebujete:
 
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Stažení ukázky
+## <a name="download-the-sample"></a>Stažení ukázky
 
 V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače.
 
@@ -58,15 +52,19 @@ git clone https://github.com/Azure-Samples/python-docs-hello-world
 
 Toto okno terminálu budete používat ke spuštění všech příkazů v tomto kurzu Rychlý start.
 
-Přejděte do adresáře, který obsahuje ukázkový kód.
+Přejděte do adresáře, který obsahuje vzorový kód.
 
 ```bash
 cd Python-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Místní spuštění aplikace
 
-## Místní spuštění aplikace
+Nainstalujte požadovaný balíček pomocí `pip`.
+
+```bash
+pip install -r requirements.txt
+```
 
 Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí příkazu `Python` spustíte integrovaný webový server Python.
 
@@ -96,9 +94,7 @@ V okně terminálu ukončete webový server stisknutím **Ctrl + C**.
 
 Nyní jste v Azure vytvořili novou prázdnou webovou aplikaci.
 
-<a id="configure-to-use-python" class="xliff"></a>
-
-## Konfigurace pro použití Pythonu
+## <a name="configure-to-use-python"></a>Konfigurace pro použití Pythonu
 
 Pomocí příkazu [az webapp config set](/cli/azure/webapp/config#set) nakonfigurujte webovou aplikaci tak, aby používala Python verze `3.4`.
 
@@ -155,9 +151,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Přechod do aplikace
+## <a name="browse-to-the-app"></a>Přechod do aplikace
 
 V prohlížeči zadejte adresu nasazené aplikace.
 
@@ -171,9 +165,7 @@ Ukázkový kód Pythonu je spuštěný ve webové aplikaci služby Azure App Ser
 
 **Blahopřejeme!** Nasadili jste svoji první aplikaci v Pythonu do služby App Service.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## Aktualizace a opětovné nasazení kódu
+## <a name="update-and-redeploy-the-code"></a>Aktualizace a opětovné nasazení kódu
 
 Pomocí místního textového editoru otevřete soubor `main.py` v rámci aplikace v Pythonu a proveďte malou změnu textu vedle příkazu `return`:
 
@@ -190,11 +182,9 @@ git push azure master
 
 Po dokončení nasazení se vraťte do okna prohlížeče, které se otevřelo v kroku [Přechod do aplikace](#browse-to-the-app), a aktualizujte zobrazení stránky.
 
-![Aktualizovaná ukázková aplikace spuštěná v Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
+![Aktualizovaná ukázková aplikace spuštěná ve službě Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Správa vaší nové webové aplikace Azure
+## <a name="manage-your-new-azure-web-app"></a>Správa vaší nové webové aplikace Azure
 
 Pokud chcete spravovat webovou aplikaci, kterou jste vytvořili, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
@@ -210,9 +200,7 @@ Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplika
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
 > [Python sh PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)

@@ -15,23 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: c24f7770e4d0721f9c584b80df9eb857442dfa0b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# Informace o službě VPN Gateway
-<a id="about-vpn-gateway" class="xliff"></a>
+# <a name="about-vpn-gateway"></a>Informace o službě VPN Gateway
 
 Služba VPN Gateway je typem brány virtuální sítě, která odesílá šifrovaný síťový provoz přes veřejné spojení do místního umístění. Brány VPN můžete použít také k posílání šifrovaného provozu mezi virtuálními sítěmi Azure po síti Microsoftu. Pokud chcete posílat šifrovaný síťový provoz mezi virtuální sítí Azure a místní sítí, musíte pro virtuální síť vytvořit bránu VPN.
 
 Každá virtuální síť může mít pouze jednu bránu VPN. Můžete ale vytvořit více připojení ke stejné bráně VPN. Příkladem je konfigurace připojení typu Multi-Site. Když vytvoříte několik připojení ke stejné bráně VPN, všechny tunely VPN, včetně sítí VPN typu Point-to-Site, sdílejí šířku pásma, která je pro tuto bránu dostupná.
 
-### Co je brána virtuální sítě?
-<a id="what-is-a-virtual-network-gateway" class="xliff"></a>
+### <a name="what-is-a-virtual-network-gateway"></a>Co je brána virtuální sítě?
 
 Bránu virtuální sítě tvoří dva nebo více virtuálních počítačů nasazených v konkrétní podsíti, která se nazývá GatewaySubnet. Virtuální počítače, které se nachází v podsíti GatewaySubnet, se vytvoří při vytvoření brány virtuální sítě. Virtuální počítače brány virtuální sítě jsou nakonfigurovány tak, aby obsahovaly tabulky směrování a služby brány, které jsou pro bránu specifické. Virtuální počítače, které jsou součástí brány virtuální sítě, není možné konfigurovat přímo a do podsítě GatewaySubnet byste nikdy neměli nasazovat další prostředky.
 
@@ -41,23 +38,19 @@ Při vytvoření brány virtuální sítě pomocí brány typu VPN se vytvoří 
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## Konfigurace služby VPN Gateway
-<a id="configuring-a-vpn-gateway" class="xliff"></a>
+## <a name="configuring-a-vpn-gateway"></a>Konfigurace služby VPN Gateway
 
 Připojení brány VPN se spoléhá na několik prostředků nakonfigurovaných se specifickými nastaveními. Většinu prostředků lze nakonfigurovat jednotlivě, nicméně v některých případech je třeba je konfigurovat v určitém pořadí.
 
-### Nastavení
-<a id="settings" class="xliff"></a>
+### <a name="settings"></a>Nastavení
 
 Nastavení, která jste pro jednotlivé zdroje zvolili, jsou pro vytvoření úspěšného připojení zásadní. Informace o jednotlivých prostředcích a nastaveních služby VPN Gateway najdete v tématu [Informace o nastavení služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Najdete tu informace, které vám pomohou pochopit typy bran, typy sítí VPN, typy připojení, podsítě brány, místní síťové brány a různá další nastavení prostředků, o kterých možná uvažujete.
 
-### Nástroje pro nasazení
-<a id="deployment-tools" class="xliff"></a>
+### <a name="deployment-tools"></a>Nástroje pro nasazení
 
 Prostředky můžete začít vytvářet a konfigurovat pomocí konfiguračního nástroje, jako je například Azure Portal. Později se můžete rozhodnout používat ke konfiguraci dalších prostředků nebo úpravám stávajících prostředků jiný nástroj, třeba PowerShell. V současné době nelze konfigurovat všechny prostředky a nastavení prostředků pomocí webu Azure Portal. Pokyny v článcích pro každou topologii připojení určují, kdy je zapotřebí specifický konfigurační nástroj. 
 
-### Model nasazení
-<a id="deployment-model" class="xliff"></a>
+### <a name="deployment-model"></a>Model nasazení
 
 Kroky při konfiguraci brány VPN se budou lišit v závislosti na modelu nasazení, který jste použili k vytvoření virtuální sítě. Například pokud jste virtuální síť vytvořili pomocí modelu nasazení Classic, budete při vytváření a konfiguraci brány VPN postupovat podle pokynů pro model nasazení Classic. Další informace o modelech nasazení najdete v tématu [Pochopení modelů nasazení Resource Manager a Classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -71,8 +64,7 @@ Je důležité vědět, že pro připojení brány VPN jsou dostupné různé ko
 
 Diagramy a popisy vám pomohou s výběrem topologie připojení, která bude odpovídat vašim požadavkům. Diagramy popisují základní topologie, ale je možné vytvořit komplexnější konfigurace s použitím diagramů jako vodítek.
 
-## Site-to-Site a Multi-Site (tunel VPN IPsec/IKE)
-<a id="site-to-site-and-multi-site-ipsecike-vpn-tunnel" class="xliff"></a>
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-to-Site a Multi-Site (tunel VPN IPsec/IKE)
 
 ### <a name="S2S"></a>Site-to-Site
 
@@ -86,8 +78,7 @@ Tento typ připojení je variací připojení Site-to-Site. Z brány virtuální
 
 ![Příklad propojení Multi-Site pomocí Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
-### Modely nasazení a metody pro Site-to-Site a Multi-Site
-<a id="deployment-models-and-methods-for-site-to-site-and-multi-site" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Modely nasazení a metody pro Site-to-Site a Multi-Site
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
@@ -97,8 +88,7 @@ Připojení brány VPN typu Point-to-Site (P2S) umožňuje vytvořit zabezpečen
 
 ![Příklad propojení Point-to-Site pomocí Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
-### Modely nasazení a metody pro Point-to-Site
-<a id="deployment-models-and-methods-for-point-to-site" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-point-to-site"></a>Modely nasazení a metody pro Point-to-Site
 
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -114,18 +104,15 @@ Virtuální sítě, které propojujete, můžou být:
 
 ![Příklad propojení VNet-to-VNet pomocí Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
-### Připojení mezi různými modely nasazení
-<a id="connections-between-deployment-models" class="xliff"></a>
+### <a name="connections-between-deployment-models"></a>Připojení mezi různými modely nasazení
 
 Azure v současné době nabízí dva modely nasazení: Classic a Resource Manager. Pokud již Azure nějakou dobu používáte, pravděpodobně vaše virtuální počítače a role instancí Azure fungují ve virtuální síti Classic. Vaše novější virtuální počítače a role instancí však mohou používat virtuální síť vytvořenou v nástroji Resource Manager. Můžete vytvořit připojení mezi virtuálními sítěmi umožňující prostředkům v jedné virtuální síti přímo komunikovat s prostředky v jiné.
 
-### Partnerské vztahy virtuálních sítí
-<a id="vnet-peering" class="xliff"></a>
+### <a name="vnet-peering"></a>Partnerské vztahy virtuálních sítí
 
 Pokud virtuální síť splňuje určité požadavky, je možné k vytvoření připojení využít metodu VNet peering. VNet peering nepoužívá bránu virtuální sítě. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
 
-### Modely nasazení a metody pro VNet-to-VNet
-<a id="deployment-models-and-methods-for-vnet-to-vnet" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Modely nasazení a metody pro VNet-to-VNet
 
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -145,26 +132,23 @@ Můžete nakonfigurovat síť VPN typu Site-to-Site jako zabezpečenou cestu př
 
 ![Příklad současné existence ExpressRoute a VPN Gateway](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### Modely nasazení a metody pro S2S a ExpressRoute
-<a id="deployment-models-and-methods-for-s2s-and-expressroute" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Modely nasazení a metody pro S2S a ExpressRoute
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
-## Ceny
-<a id="pricing" class="xliff"></a>
+## <a name="pricing"></a>Ceny
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 
 Další informace o skladových jednotkách (SKU) brány pro službu VPN Gateway najdete v tématu [Skladové jednotky (SKU) brány](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-## Nejčastější dotazy
-<a id="faq" class="xliff"></a>
+## <a name="faq"></a>Nejčastější dotazy
 
 Nejčastější dotazy týkající se služby VPN Gateway najdete v tématu [Nejčastější dotazy ke službě VPN Gateway](vpn-gateway-vpn-faq.md).
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 - Plánování konfigurace brány VPN. Viz [Plánování a návrh pro VPN Gateway](vpn-gateway-plan-design.md).
 - Další informace najdete v tématu věnovaném [nejčastějším dotazům k VPN Gateway](vpn-gateway-vpn-faq.md).
 - Přečtěte si téma [Předplatné a omezení služeb](../azure-subscription-service-limits.md#networking-limits).
+- Informace o některých dalších klíčových [možnostech sítě](../networking/networking-overview.md) v Azure.

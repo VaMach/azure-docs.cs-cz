@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analýza využití dat v Log Analytics
@@ -110,13 +110,15 @@ Graf *Objem dat v průběhu času* ukazuje celkový objem odeslaných dat a poč
 
 Graf *Objem dat podle řešení* ukazuje objem dat, který odesílají jednotlivá řešení, a řešení odesílající nejvíce dat. Graf v horní části ukazuje celkový objem dat odesílaných jednotlivými řešeními v průběhu času. Pomocí těchto informací můžete určit, jestli řešení v průběhu času odesílá více dat, zhruba stejné množství dat nebo méně dat. Seznam řešení ukazuje prvních 10 řešení odesílajících nejvíce dat. 
 
+Tyto dva grafy zobrazují veškerá data. Některá data jsou fakturovatelná, ostatní jsou zdarma. Pokud se chcete zaměřit pouze na data, která jsou fakturovatelná, změňte dotaz na vyhledávací stránce tak, aby zahrnoval `IsBillable=true`.  
+
 ![Grafy objemu dat](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 Podívejte se na graf *Objem dat v průběhu času*. Pokud chcete zobrazit datové typy a řešení odesílající nejvíce dat z konkrétního počítače, klikněte na název počítače. Klikněte na název prvního počítače v seznamu.
 
 Na následujícím snímku obrazovky odesílá z počítače nejvíce dat datový typ *Správa protokolů / Výkon*. 
-![objem dat pro počítač](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
+![objem dat pro počítač](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
 Potom se vraťte na řídicí panel *Využití* a podívejte se na graf *Objem dat podle řešení*. Pokud chcete zobrazit počítače odesílající nejvíce dat pro řešení, klikněte na název řešení v seznamu. Klikněte na název prvního řešení v seznamu. 
 
@@ -124,16 +126,31 @@ Na následujícím snímku obrazovky je potvrzení, že počítač *acmetomcat* 
 
 ![objem dat pro řešení](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+V případě potřeby proveďte další analýzy k identifikaci velkých objemů v rámci řešení nebo datového typu. Ukázky dotazů:
+
++ Řešení **zabezpečení**
+  - `Type=SecurityEvent | measure count() by EventID`
++ Řešení **pro správu protokolů**
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
++ Datový typ **Perf**
+  - `Type=Perf | measure count() by CounterPath`
+  - `Type=Perf | measure count() by CounterName`
++ Datový typ **Event**
+  - `Type=Event | measure count() by EventID`
+  - `Type=Event | measure count() by EventLog, EventLevelName`
++ Datový typ **Syslog**
+  - `Type=Syslog | measure count() by Facility, SeverityLevel`
+  - `Type=Syslog | measure count() by ProcessName`
 
 Pomocí následujících kroků snižte objem shromažďovaných protokolů:
 
 | Zdroj velkého objemu dat | Postup snížení objemu dat |
 | -------------------------- | ------------------------- |
-| Události zabezpečení            | Vyberte [běžné nebo minimální události zabezpečení](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Změňte zásady auditu zabezpečení. Například vypněte události [auditu architektury Filtering Platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx). |
+| Události zabezpečení            | Vyberte [běžné nebo minimální události zabezpečení](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Změňte zásady auditu zabezpečení tak, aby se shromažďovaly jenom potřebné události. Zaměřte se hlavně na potřebu shromažďovat události pro <br> - [audit platformy Filtering Platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registru](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [audit systému souborů](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [audit objektu jádra](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [audit manipulace s popisovačem](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [audit vyměnitelného úložiště](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
 | Čítače výkonu       | Změňte [konfiguraci čítačů výkonu](log-analytics-data-sources-performance-counters.md) tak, aby se: <br> – Snížila četnost shromažďování dat <br> – Snížil počet čítačů výkonu |
 | Protokoly událostí                 | Změňte [konfiguraci protokolů událostí](log-analytics-data-sources-windows-events.md) tak, aby se: <br> – Snížil počet shromažďovaných protokolů událostí <br> – Shromažďovaly pouze požadované úrovně událostí Například zrušte shromažďování událostí úrovně *Informace*. |
 | Syslog                     | Změňte [konfiguraci syslogu](log-analytics-data-sources-syslog.md) tak, aby se: <br> – Snížil počet zařízení, ze kterých se shromažďují data <br> – Shromažďovaly pouze požadované úrovně událostí Například zrušte shromažďování událostí úrovně *Informace* a *Ladění*. |
-| Data řešení z počítačů, které řešení nepotřebují | Použijte [cílení na řešení](../operations-management-suite/operations-management-suite-solution-targeting.md) a shromažďujte data pouze z požadované skupiny počítačů.
+| Data řešení z počítačů, které řešení nepotřebují | Použijte [cílení na řešení](../operations-management-suite/operations-management-suite-solution-targeting.md) a shromažďujte data pouze z požadované skupiny počítačů. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Kontrola, jestli existuje více uzlů, než se čekalo
 Pokud jste na cenové úrovni *za uzel (OMS)*, pak se vám bude účtovat v závislosti na počtu používaných uzlů a řešení. V části *nabídek* řídicího panelu využití můžete zobrazit, kolik uzlů každé nabídky se používá.
@@ -148,4 +165,9 @@ Použijte [cílení na řešení](../operations-management-suite/operations-mana
 ## <a name="next-steps"></a>Další kroky
 * V tématu [Prohledávání protokolů v Log Analytics](log-analytics-log-searches.md) zjistíte, jak používat jazyk vyhledávání. Pomocí vyhledávacích dotazů můžete na datech o využití provádět další analýzy.
 * Pokud chcete být upozorňováni při splnění kritéria vyhledávání, postupujte podle kroků popsaných v tématu týkajícím se [vytvoření pravidla upozornění](log-analytics-alerts-creating.md#create-an-alert-rule).
+* Použijte [cílení na řešení](../operations-management-suite/operations-management-suite-solution-targeting.md) a shromažďujte data jenom z požadované skupiny počítačů.
+* Vyberte [běžné nebo minimální události zabezpečení](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/).
+* Změňte [konfiguraci čítačů výkonu](log-analytics-data-sources-performance-counters.md).
+* Změňte [konfiguraci protokolů událostí](log-analytics-data-sources-windows-events.md).
+* Změňte [konfiguraci syslogu](log-analytics-data-sources-syslog.md).
 
