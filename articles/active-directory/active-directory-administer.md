@@ -4,7 +4,6 @@ description: "Vysvětluje, co je to klient služby Azure AD a jak spravovat slu�
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/07/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Správa adresáře služby Azure AD
@@ -55,7 +56,7 @@ Pokud jste se například původně registrovali k předplatnému služby Micros
 Další informace o integraci místního adresáře se službou Azure AD najdete v článku o [integraci adresáře](active-directory-aadconnect.md).
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Přidružení adresáře služby Azure AD k novému předplatnému služby Azure
-Nové předplatné služby Azure můžete přidružit ke stejnému adresáři, který používáte k ověřování přihlášení k existujícímu předplatnému služby Office 365 nebo Microsoft Intune. Přihlaste se k portálu pro správu Azure pomocí svého pracovního nebo školního účtu. Portál pro správu zobrazí zprávu, že se u tohoto účtu nepodařilo najít žádné předplatné. Klikněte na **Zaregistrovat se k Azure** a váš adresář bude možné spravovat v rámci portálu. Další informace naleznete v tématu [Správa adresáře pro předplatné služeb Office 365 ve službě Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+Nové předplatné služby Azure můžete přidružit ke stejnému adresáři, který používáte k ověřování přihlášení k existujícímu předplatnému služby Office 365 nebo Microsoft Intune. Přihlaste se k webu Azure Portal pomocí svého pracovního nebo školního účtu. Portál zobrazí zprávu, že se u tohoto účtu nepodařilo najít žádné předplatné. Klikněte na **Zaregistrovat se k Azure** a váš adresář bude možné spravovat v rámci portálu. Další informace naleznete v tématu [Správa adresáře pro předplatné služeb Office 365 ve službě Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 Video, které odpovídá na běžné otázky ohledně používání služby Azure AD, najdete v tématu [Azure Active Directory – běžné otázky ohledně registrace, přihlašování a používání](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
@@ -76,7 +77,7 @@ Za používání služby Azure AD se neplatí. Adresář je volným prostředkem
 Pokud chcete změnit zobrazovaný název vašeho adresáře, klikněte na adresář v portálu a pak klikněte na **Konfigurovat**. Můžete přidat nový adresář nebo odstranit adresář, který už nepotřebujete. Blíže se tomu budeme věnovat později v tomto tématu. Pokud chcete své předplatné přidružit k jinému adresáři, klikněte na **Nastavení** v levé navigaci a v dolní části stránky **Předplatné** klikněte na **Upravit adresář**. Můžete také vytvořit vlastní doménu pomocí názvu DNS, který jste si zaregistrovali, namísto výchozí domény *. onmicrosoft.com, která může být vhodnější při použití ve službě typu SharePoint Online.
 
 ## <a name="how-can-i-manage-directory-data"></a>Jak spravovat data adresáře
-Jako správce jednoho nebo více předplatných cloudové služby Microsoftu můžete ke správě dat adresářů svých organizací použít Portál pro správu Azure, Portál účtu Microsoft Intune nebo Centrum pro správu Office 365. Taky si můžete stáhnout a spustit rutiny [Modul Microsoft Azure Active Directory pro Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), které vám pomohou spravovat data uložená ve službě Azure AD.
+Jako správce jednoho nebo více předplatných cloudové služby Microsoftu můžete ke správě dat adresářů svých organizací použít [Centrum pro správu Azure AD](https://aad.portal.azure.com), Portál účtu Microsoft Intune nebo Centrum pro správu Office 365. Taky si můžete stáhnout a spustit rutiny [Modul Microsoft Azure Active Directory pro Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), které vám pomohou spravovat data uložená ve službě Azure AD.
 
 Pomocí kteréhokoli z těchto portálů (nebo rutin) můžete:
 
@@ -84,7 +85,7 @@ Pomocí kteréhokoli z těchto portálů (nebo rutin) můžete:
 * spravovat související cloudové služby, které si vaše organizace předplatila
 * nastavit místní integraci s vaší adresářovou službou
 
-Portál pro správu Azure, Centrum pro správu Office 365, Portál účtu Microsoft Intune i rutiny služby Azure AD čtou a zapisují v rámci jediné sdílené instance služby Azure AD, která je přidružená k adresáři vaší organizace. Znázorňuje to následující obrázek. Portály (nebo rutiny) tímto způsobem fungují jako front-endové rozhraní, které získává a/nebo upravuje data vašeho adresáře.
+[Centrum pro správu Azure AD](https://aad.portal.azure.com), Centrum pro správu Office 365, Portál účtu Microsoft Intune i rutiny služby Azure AD čtou a zapisují v rámci jediné sdílené instance služby Azure AD, která je přidružená k adresáři vaší organizace. Znázorňuje to následující obrázek. Portály (nebo rutiny) tímto způsobem fungují jako front-end rozhraní, které získává nebo upravuje data vašeho adresáře.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Pokud změníte data vaší organizace prostřednictvím jednoho z těchto port�
 Pokud třeba v Centru pro správu Office 365 zablokujete určitému uživateli přihlašování, nebude se daný uživatel moci přihlásit k žádné službě, kterou má vaše organizace předplacenou. Pokud se na dotyčného uživatele podíváte v kontextu Portálu účtu Microsoft Intune, uvidíte, že je zablokovaný.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Jak přidat a spravovat více adresářů?
-Adresář služby Azure AD můžete přidat v Portálu pro správu Azure. Vyberte **Active Directory** na levé straně a klikněte na **Přidat**.
+Adresář Azure AD můžete přidat na [portálu Azure AD Classic](https://manage.windowsazure.com). V podokně **Přehled** vyberte na levé straně rozšíření **Active Directory** a klikněte na **Nový**.
 
 Každý adresář můžete spravovat jako plně nezávislý prostředek: každý adresář je rovnocenný, plně vybavený a logicky nezávislý na ostatních adresářích, které spravujete. Mezi adresáři neexistují žádné vztahy typu nadřazenost/podřazenost.  Tato nezávislost mezi adresáři zahrnuje nezávislost prostředků, nezávislost správy a nezávislost synchronizace.
 
@@ -116,7 +117,7 @@ Všimněte si také, že na rozdíl od jiných prostředků služby Azure nejsou
 Adresář služby Azure AD může prostřednictvím portálu odstranit globální správce. Při odstranění adresáře se odstraní také všechny prostředky, které adresář obsahoval. Před odstraněním adresáře se proto ujistěte, že ho opravdu nepotřebujete.
 
 > [!NOTE]
-> Pokud je uživatel přihlášený prostřednictvím pracovního nebo školního účtu, nemůže se pokusit o odstranění vlastního domovského adresáře. Pokud je uživatel například přihlášený jako joe@contoso.onmicrosoft.com,, nemůže odstranit adresář, který má jako výchozí doménu contoso.onmicrosoft.com.
+> Pokud je uživatel přihlášený prostřednictvím pracovního nebo školního účtu, nemůže se pokusit o odstranění vlastního domovského adresáře. Pokud je uživatel například přihlášený jako joe@contoso.onmicrosoft.com, nemůže odstranit adresář, který má jako výchozí doménu contoso.onmicrosoft.com.
 > 
 > 
 
@@ -130,7 +131,7 @@ Kontrolují se následující podmínky:
 * K adresáři nesmí být přidruženo žádné předplatné online služby Microsoft, jako jsou Microsoft Azure, Office 365 nebo Azure AD Premium. Například pokud byl váš výchozí adresář vytvořený v Azure, nemůžete ho odstranit, pokud stále slouží k ověřování přihlášení k předplatnému služby Azure. Podobně nelze odstranit adresář, pokud k němu má přidružené předplatné jiný uživatel. Pokud předplatné chcete přidružit k jinému adresáři, přihlaste se k Portálu pro správu Azure a klikněte v levé navigaci na **Nastavení**. Poté v dolní části stránky **Předplatné** klikněte na **Upravit adresář**. Další informace o předplatných služby Azure najdete v článku o tom,  [jakým způsobem se předplatné služby Azure přidruží ke službě Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Pokud je uživatel přihlášený prostřednictvím pracovního nebo školního účtu, nemůže se pokusit o odstranění vlastního domovského adresáře. Pokud je uživatel například přihlášený jako joe@contoso.onmicrosoft.com,, nemůže odstranit adresář, který má jako výchozí doménu contoso.onmicrosoft.com.
+> Pokud je uživatel přihlášený prostřednictvím pracovního nebo školního účtu, nemůže se pokusit o odstranění vlastního domovského adresáře. Pokud je uživatel například přihlášený jako joe@contoso.onmicrosoft.com, nemůže odstranit adresář, který má jako výchozí doménu contoso.onmicrosoft.com.
 > 
 > 
 

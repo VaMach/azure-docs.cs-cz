@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a6d3a6f6e3457c84c5a7dc7d3601ef9495c060fe
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Připojení sdílené složky Azure a přístup k ní v systému Windows
 [Azure File Storage](storage-dotnet-how-to-use-files.md) je snadno použitelný cloudový systém souborů od Microsoftu. Sdílené složky Azure je možné připojit v systémech Windows a Windows Server. Tento článek ukazuje tři různé způsoby připojení sdílené složky Azure v systému Windows: pomocí uživatelského rozhraní Průzkumníka souborů, přes PowerShell a přes příkazový řádek. 
 
-Aby bylo možné připojit sdílenou složku Azure mimo oblast, ve které je hostovaná, například v místním prostředí nebo jiné oblasti Azure, operační systém musí podporovat protokol SMB 3.x. Následující tabulka uvádí verze protokolu SMB v posledních vydaných verzí systému Windows:
+Aby bylo možné připojit sdílenou složku Azure mimo oblast, ve které je hostovaná, například v místním prostředí nebo jiné oblasti Azure, operační systém musí podporovat protokol SMB 3.0. 
 
-| Verze systému Windows | Verze protokolu SMB | Podporuje připojení z virtuálního počítače Azure | Podporuje připojení z místního prostředí | Minimální doporučená aktualizace KB |
-|----|----|----|----|----|
-| Windows 10 verze 1703 | SMB 3.1.1 | Ano | Ano | |
-| Windows Server 2016 | SMB 3.1.1 | Ano | Ano | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 verze 1607 | SMB 3.1.1 | Ano | Ano | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 verze 1511 | SMB 3.1.1 | Ano | Ano | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 verze 1507 | SMB 3.1.1 | Ano | Ano | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Ano | Ano | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Ano | Ano | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Ano | Ano | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Ano | Ne | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Ano | Ne | [KB4012215](https://support.microsoft.com/help/4012215) |
+V závislosti na verzi operačního systému je možné sdílenou složku Azure připojit na počítači se systémem Windows v místním prostředí nebo na virtuálním počítači Azure. Ilustruje to následující tabulka. 
+
+| Verze systému Windows        | Verze protokolu SMB |Možnost připojit na virtuálním počítači Azure|Možnost připojit v místním prostředí|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Ano                 | Ne                  |
+| Windows Server 2008 R2 | SMB 2.1     | Ano                 | Ne                  |
+| Windows 8              | SMB 3.0     | Ano                 | Ano                 |
+| Windows Server 2012    | SMB 3.0     | Ano                 | Ano                 |
+| Windows Server 2012 R2 | SMB 3.0     | Ano                 | Ano                 |
+| Windows 10             | SMB 3.0     | Ano                 | Ano                 |
 
 > [!Note]  
-> Vždy doporučujeme získat nejnovější aktualizaci KB pro vaši verzi systému Windows. Smyslem minimální doporučené aktualizace KB je poskytnout nejnovější balíček obsahující opravy protokolu SMB pro správce IT, kteří odmítají aktualizace.
+> Vždy doporučujeme získat nejnovější aktualizaci KB pro vaši verzi systému Windows.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Požadavky pro připojení sdílené složky Azure v systému Windows 
 * **Název účtu úložiště:** Pro připojení sdílené složky Azure budete potřebovat název účtu úložiště.
@@ -144,3 +142,4 @@ Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
 ### <a name="reference"></a>Referenční informace
 * [Klientská knihovna Storage pro .NET – referenční informace](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [REST API služby File – referenční informace](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+

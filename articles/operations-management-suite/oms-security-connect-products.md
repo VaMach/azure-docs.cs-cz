@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: cs-cz
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Připojení produktů zabezpečení k Operations Management Suite (OMS) 
@@ -90,11 +90,13 @@ Na počítači agenta se události musí odesílat z démona syslog na místní 
     ```
 6. Zadejte následující příkaz a zkontrolujte výsledek, aby bylo jasné, že v protokolu agenta OMS nejsou žádné chyby:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Kontrola shromážděných událostí zabezpečení
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Po dokončení konfigurace se události zabezpečení začnou ingestovat řešením Zabezpečení OMS. Pokud chcete tyto události vizualizovat, otevřete Hledání v protokolu, do vyhledávacího pole zadejte příkaz *Type=CommonSecurityLog* a stiskněte klávesu ENTER. Následující příklad ukazuje výsledek tohoto příkazu. Všimněte si, že v tomto případě Zabezpečení OMS už ingestovalo protokoly zabezpečení od více dodavatelů:
    
