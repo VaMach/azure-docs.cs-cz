@@ -1,6 +1,6 @@
 Pokud chcete přidat značku k prostředku během nasazení, přidejte k nasazovanému prostředku element `tags`. Zadejte název a hodnotu značky.
 
-### <a name="apply-literal-value-to-tag-name"></a>Použití literálové hodnoty na název značky
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Použití literálové hodnoty na název značky
 Následující příklad ukazuje účet úložiště se dvěma značkami (`Dept` a `Environment`) nastavenými na literálové hodnoty:
 
 ```json
@@ -27,7 +27,7 @@ Následující příklad ukazuje účet úložiště se dvěma značkami (`Dept`
 }
 ```
 
-### <a name="apply-object-to-tag-element"></a>Použití objektu na element značky
+### <a name="apply-an-object-to-the-tag-element"></a>Použití objektu na element značky
 Můžete definovat parametr objektu, ve kterém je uloženo několik značek, a použít tento objekt na element značky. Každá vlastnost v objektu se stane samostatnou značkou pro prostředek. V následujícím příkladu je na element značky použitý parametr `tagValues`.
 
 ```json
@@ -60,7 +60,7 @@ Můžete definovat parametr objektu, ve kterém je uloženo několik značek, a 
 }
 ```
 
-### <a name="apply-json-string-to-tag-name"></a>Použití řetězce JSON na název značky
+### <a name="apply-a-json-string-to-the-tag-name"></a>Použití řetězce JSON na název značky
 
 Pokud chcete uložit mnoho hodnot v jedné značce, použijte řetězec JSON, který představuje hodnoty. Celý řetězec JSON je uložený jako jedna značka, která nesmí překročit 256 znaků. V následujícím příkladu je jedna značka `CostCenter`, která obsahuje několik hodnot z řetězce JSON:  
 
@@ -86,7 +86,3 @@ Pokud chcete uložit mnoho hodnot v jedné značce, použijte řetězec JSON, kt
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-

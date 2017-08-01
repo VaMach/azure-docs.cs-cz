@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 3f1f8d74eb2f562991b351cae87c372897644cf8
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c05a3a24ea8cc663edb8232dc31d664be77a9597
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Začínáme s Azure Mobile Engagementem pro aplikace Silverlight pro Windows Phone
@@ -26,6 +26,9 @@ ms.lasthandoff: 03/01/2017
 
 V tomto tématu si ukážeme, jak používat Azure Mobile Engagement, jak porozumět používání aplikace a jak odesílat nabízená oznámení segmentovaným uživatelům aplikace Silverlight pro Windows Phone.
 Tento kurz představuje scénář jednoduchého vysílání přes Mobile Engagement. Vytvoříte prázdnou aplikaci Silverlight pro Windows Phone, která bude shromažďovat základní data a přijímat nabízená oznámení pomocí Microsoft Služby nabízených oznámení (MPNS).
+
+> [!NOTE]
+> Projekty pro Windows Phone 8.1 a starší verze nejsou podporovány v sadě Visual Studio 2017.  Další informace najdete v tématu [Cílení na platformy a kompatibilita v sadě Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
 > Pokud cílíte na platformu Windows Phone 8.1 (ne Silverlight), přejděte na [kurz pro univerzální aplikace pro Windows](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -42,10 +45,10 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro aplikaci pro Windows Phone
+## <a id="setup-azme"></a>Nastavení Mobile Engagementu pro aplikaci pro Windows Phone
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, čili minimální sadu požadovanou pro shromažďování dat a odesílání nabízených oznámení. Kompletní dokumentaci k integraci najdete v článku [Integrace sady Mobile Engagement Windows Phone SDK](mobile-engagement-windows-phone-sdk-overview.md)
 
 Pomocí Visual Studia si vytvoříme základní aplikaci, na které si tuto integraci předvedeme.
@@ -92,7 +95,7 @@ Nyní jste vytvořili novou aplikaci Silverlight pro Windows Phone, do které bu
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Povolení sledování v reálném čase
+## <a id="monitor"></a>Povolení sledování v reálném čase
 Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, musíte odeslat alespoň jednu obrazovku (aktivitu) na back-end Mobile Engagementu.
 
 1. V MainPage.xaml.cs přidejte příkaz `using`:
@@ -109,10 +112,10 @@ Pokud chcete začít odesílat data a zajistit, že uživatelé jsou aktivní, m
    
     b. Nahraďte kód `phone:PhoneApplicationPage` v názvu značky XML kódem `engagement:EngagementPage`.
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 Mobile Engagement vám umožňuje v rámci kampaní oslovit uživatele a komunikovat s nimi prostřednictvím nabízených oznámení a zpráv v aplikacích. Tento modul se na portálu Mobile Engagement nazývá REACH.
 V následujících sekcích nastavíte aplikaci, aby tato nabízená oznámení a zprávy přijímala.
 
@@ -142,7 +145,7 @@ Přidejte nové schopnosti do souboru `WMAppManifest.xml`:
 
 Nyní je vše připraveno. A teď ověříme, zda jste základní integraci provedli správně.
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Odeslání oznámení do vaší aplikace
+## <a id="send"></a>Odeslání oznámení do vaší aplikace
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Nyní by se ve vašem zařízení mělo zobrazit oznámení, které se zobrazí v aplikaci, pokud je aplikace otevřená, v opačném případě se následujícím způsobem zobrazí s informační zprávou: 

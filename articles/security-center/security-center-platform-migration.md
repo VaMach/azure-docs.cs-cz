@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d49f7986e09a90c5c4c49c0d3963d0cd8514713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="azure-security-center-platform-migration" class="xliff"></a>
-
-# Migrace platformy pro Azure Security Center
+# <a name="azure-security-center-platform-migration"></a>Migrace platformy pro Azure Security Center
 
 Od začátku června 2017 Azure Security Center postupně zavádí důležité změny ve způsobu, jakým se shromažďují a ukládají data zabezpečení.  Tyto změny odemykají nové možnosti, jako je snadné prohledávání dat zabezpečení, a jsou lépe sladěné s dalšími službami pro správu a monitorování Azure.
 
@@ -32,17 +29,13 @@ Od začátku června 2017 Azure Security Center postupně zavádí důležité z
 > Migrace platformy by neměla mít vliv na vaše produkční prostředky a nevyžaduje žádnou akci z vaší strany.
 
 
-<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
-
-## Co se děje během této migrace platformy?
+## <a name="whats-happening-during-this-platform-migration"></a>Co se děje během této migrace platformy?
 
 Dříve služba Security Center využívala ke shromažďování dat zabezpečení z virtuálních počítačů agenta Azure Monitoring Agent. Tato data zahrnují informace o konfiguracích zabezpečení, které slouží k identifikaci ohrožení zabezpečení, a události zabezpečení, které slouží k rozpoznání hrozeb. Tato data se ukládala ve vašich účtech Storage v Azure.
 
 Výhledově bude Security Center používat agenta Microsoft Monitoring Agent – to je stejný agent, kterého používá Operations Management Suite a služba Log Analytics. Data shromážděná z tohoto agenta se ukládají v existujících [pracovním prostoru](../log-analytics/log-analytics-manage-access.md) *Log Analytics* přidruženém k vašemu předplatnému Azure nebo v nových pracovních prostorech s ohledem na geografickou polohu virtuálního počítače.
 
-<a id="agent" class="xliff"></a>
-
-## Agent
+## <a name="agent"></a>Agent
 
 V rámci přechodu se agent Microsoft Monitoring Agent (pro [Windows](../log-analytics/log-analytics-windows-agents.md) nebo [Linux](../log-analytics/log-analytics-linux-agents.md)) nainstaluje na všech virtuálních počítačích Azure, ze kterých se aktuálně shromažďují data.  Pokud je na virtuálním počítači agent Microsoft Monitoring Agent již nainstalovaný, Security Center bude využívat stávajícího nainstalovaného agenta.
 
@@ -56,9 +49,7 @@ Microsoft Monitoring Agent pro Windows vyžaduje použití portu TCP 443. Dalš�
 > [!NOTE] 
 > Protože agenta Microsoft Monitoring Agent můžou využívat další služby pro správu a monitorování Azure, po vypnutí shromažďování dat ve službě Security Center se agent neodinstaluje automaticky. V případě potřeby však můžete agenta odinstalovat ručně.
 
-<a id="workspace" class="xliff"></a>
-
-## Pracovní prostor
+## <a name="workspace"></a>Pracovní prostor
 
 Jak je popsáno výše, data shromážděná z agenta Microsoft Monitoring Agent (jménem služby Security Center) se ukládají v existujících pracovních prostorech Log Analytics přidružených k vašemu předplatnému Azure nebo v nových pracovních prostorech s ohledem na geografickou polohu virtuálního počítače.
 
@@ -72,16 +63,12 @@ U pracovních prostorů vytvořených službou Security Center se data uchováva
 > [!NOTE]
 > Data shromážděná dříve službou Security Center zůstanou ve vašich účtech Storage. Po dokončení migrace můžete tyto účty Storage odstranit.
 
-<a id="oms-security-solution" class="xliff"></a>
-
-### Řešení OMS Security 
+### <a name="oms-security-solution"></a>Řešení OMS Security 
 
 Pro zákazníky, kteří řešení OMS Security nemají nainstalované, ho Microsoft nainstaluje v jejich pracovním prostoru, ale bude cílit pouze na virtuální počítače Azure. Nesnažte se toto řešení odinstalovat, protože pokud to provedete z konzoly pro správu OMS, neexistuje žádná možnost automatické nápravy.
 
 
-<a id="other-updates" class="xliff"></a>
-
-## Další aktualizace
+## <a name="other-updates"></a>Další aktualizace
 
 Ve spojení s migrací platformy postupně zavádíme některé další menší aktualizace:
 
@@ -90,5 +77,6 @@ Ve spojení s migrací platformy postupně zavádíme některé další menší 
 - [Ceny](https://azure.microsoft.com/pricing/details/security-center/) se budou účtovat poměrně po hodinách (dříve to bylo po dnech) a díky tomu někteří zákazníci ušetří.
 - Shromažďování dat bude vyžadováno a automaticky povoleno pro zákazníky na cenové úrovni Standard.
 - Azure Security Center začne zjišťovat antimalwarová řešení, která nebyla nasazena prostřednictvím rozšíření Azure. Jako první bude k dispozici zjišťování nástrojů Symantec Endpoint Protection a Defender pro Windows 2016.
+- Zásady a oznámení prevence je možné konfigurovat pouze na úrovni *předplatného*, ale ceny je stále možné nastavit na úrovni *skupiny prostředků*.
 
 

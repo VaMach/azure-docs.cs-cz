@@ -1,10 +1,10 @@
-Version 3.0 of the AzureRm.Resources module included significant changes in how you work with tags. Before proceeding, check your version:
+Verze 3.0 modulu AzureRm.Resources zavedla podstatné změny při práci se značkami. Než budete pokračovat, zkontrolujte svoji verzi:
 
 ```powershell
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-If your results show version 3.0 or later, the examples in this topic work with your environment. If you do not have version 3.0 or later, [update your version](/powershell/azureps-cmdlets-docs/) by using PowerShell Gallery or Web Platform Installer before proceeding with this topic.
+Pokud výsledky ukazují verzi 3.0 nebo novější, příklady v tomto tématu budou s vaším prostředím fungovat. Pokud nemáte verzi 3.0 nebo novější, než budete v tomto tématu pokračovat, [aktualizujte verzi](/powershell/azureps-cmdlets-docs/) pomocí Galerie prostředí PowerShell nebo Instalace webové platformy.
 
 ```powershell
 Version
@@ -12,13 +12,13 @@ Version
 3.5.0
 ```
 
-To see the existing tags for a **resource group**, use:
+Pokud chcete zobrazit existující značky pro *skupinu prostředků*, použijte:
 
 ```powershell
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
-Which returns the following format:
+Výstup tohoto skriptu bude v následujícím formátu:
 
 ```powershell
 Name                           Value
@@ -27,39 +27,39 @@ Dept                           IT
 Environment                    Test
 ```
 
-To see the existing tags for a **resource with a specified resource ID**, use:
+Pokud chcete zobrazit existující značky pro *prostředek s konkrétním ID prostředku*, použijte:
 
 ```powershell
 (Get-AzureRmResource -ResourceId {resource-id}).Tags
 ```
 
-Or, to see the existing tags for a **resource with a specified name, and resource group**, use:
+Nebo, pokud chcete zobrazit existující značky pro *prostředek se zadaným názvem a skupinou prostředků*, použijte:
 
 ```powershell
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-To get **resource groups with a specific tag**, use:
+Pokud chcete získat *skupiny prostředků s konkrétní značkou*, použijte:
 
 ```powershell
 (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
 ```
 
-To get **resources with a specific tag**, use:
+Pokud chcete získat *prostředky s konkrétní značkou*, použijte:
 
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
 
-Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags. 
+Pokaždé, když použijete značky na prostředek nebo skupinu prostředků, přepíšete pro daný prostředek nebo skupinu prostředků existující značky. Proto je nutné použít jiný přístup na základě toho, jestli prostředek nebo skupina prostředků má existující značky. 
 
-To add tags to a **resource group without existing tags**, use:
+Pokud chcete přidat značky ke *skupině prostředků bez existujících značek*, použijte:
 
 ```powershell
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-To add tags to a **resource group with existing tags**, retrieve the existing tags, add the new tag, and reapply the tags:
+Pokud chcete přidat značky ke *skupině prostředků s existujícími značkami*, načtěte existující značky, přidejte novou značku a znovu tyto značky použijte:
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
@@ -67,13 +67,13 @@ $tags += @{Status="Approved"}
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
-To add tags to a **resource without existing tags**, use:
+Pokud chcete přidat značky k *prostředku bez existujících značek*, použijte:
 
 ```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName examplegroup
 ```
 
-To add tags to a **resource with existing tags**.
+Pokud chcete přidat značky k *prostředku s existujícími značkami*, použijte:
 
 ```powershell
 $tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
@@ -81,7 +81,7 @@ $tags += @{Status="Approved"}
 Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
 ```
 
-To apply all tags from a resource group to its resources, and **not retain existing tags on the resources**, use the following script:
+Pokud chcete použít všechny značky ze skupiny prostředků na prostředky a *nezachovat existující značky u prostředků*, použijte tento skript:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -91,7 +91,7 @@ foreach ($g in $groups)
 }
 ```
 
-To apply all tags from a resource group to its resources, and **retain existing tags on resources that are not duplicates**, use the following script:
+Pokud chcete použít všechny značky ze skupiny prostředků na prostředky a *zachovat existující značky u prostředků, které nejsou duplikáty*, použijte tento skript:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -113,7 +113,7 @@ foreach ($g in $groups)
 }
 ```
 
-To remove all tags, pass an empty hash table.
+Pokud chcete odebrat všechny značky, předejte prázdnou zatřiďovací tabulku:
 
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup

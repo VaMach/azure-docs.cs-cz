@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/25/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: d68b641ac934c3930366be3dbf89a86e9611c7b7
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Správa adresáře služby Azure AD
@@ -40,7 +40,7 @@ Služba Azure AD poskytuje základní možnosti správy adresáře a identity pr
 * Microsoft Dynamics CRM Online
 * Microsoft Intune
 
-Adresář služby Azure AD získáte při registraci libovolné z těchto cloudových služeb Microsoftu. Podle potřeby můžete vytvářet další adresáře. Například můžete první adresář používat jako produkční a vytvořit další adresář pro testování nebo přípravu.
+Adresář Azure AD získáte při registraci libovolné z těchto cloudových služeb Microsoftu. Podle potřeby můžete vytvářet další adresáře. Například můžete první adresář používat jako produkční a vytvořit další adresář pro testování nebo přípravu.
 
 > [!NOTE]
 > Doporučujeme, abyste pro registraci k dalším cloudovým službám Microsoftu používali účet správce přidružený k vaší organizaci, který jste použili při registraci k první službě.
@@ -65,7 +65,7 @@ Pokud ještě nemáte předplatné cloudové služby Microsoftu, registrujte se 
 
 * [Microsoft Azure](https://account.windowsazure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
-* [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
+* [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### <a name="manage-an-azure-provisioned-default-directory"></a>Správa výchozího adresáře poskytnutého službou Azure
 Když se nyní zaregistrujete ke službě Azure, vytvoří se automaticky adresář a přidruží se k němu vaše předplatné. Pokud jste se ale ke službě Azure registrovali před říjnem roku 2013, adresář se automaticky nevytvořil. V takovém případě pro váš účet služba Azure pravděpodobně vytvořila výchozí adresář. Vaše předplatné bylo následně k tomuto výchozímu adresáři přidruženo.

@@ -1,24 +1,24 @@
-1. To view the tags for a resource or resource group, select the **Tags** icon. 
+1. Pokud chcete zobrazit značky pro prostředek nebo skupinu prostředků, vyberte ikonu **Značky**. 
    
-     ![Select tags on resource and resource group blades](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. You see the existing tags for the resource. If you have not previously applied tags, the list is empty. 
+     ![Výběr značek v okně prostředku a skupiny prostředků](./media/resource-manager-tag-resources/select-tag-icon.png)
+2. Zobrazí se existující značky pro daný prostředek. Pokud jste značky ještě nepoužili, seznam je prázdný. 
 
-     ![Show existing tags on resource and resource group blades](./media/resource-manager-tag-resources/existing-tags.png)
-3. To add a tag, type a name and value, or select an existing one from the dropdown menu. Select **Save**.
+     ![Zobrazení existujících značek v okně prostředku a skupiny prostředků](./media/resource-manager-tag-resources/existing-tags.png)
+3. Pokud chcete přidat značku, zadejte název a hodnotu, nebo vyberte existující z rozevírací nabídky. Vyberte **Uložit**.
 
-     ![Add new tag](./media/resource-manager-tag-resources/tag-resources.png)
-3. To view all the resources with a tag value, select **>** (More services), and enter the word **Tags** into the filter text box. Select **Tags** from the available options.
+     ![Přidání nové značky](./media/resource-manager-tag-resources/tag-resources.png)
+3. Pokud chcete zobrazit všechny prostředky, které mají hodnotu značky, vyberte **>** (**Další služby**) a do textového pole filtru zadejte slovo **Značky**. Vyberte **Značky** z dostupných možností.
    
-     ![Find tags via the Browse hub](./media/resource-manager-tag-resources/browse-tags.png)
-4. You see a summary of the tags in your subscriptions.
+     ![Hledání značek pomocí Centra procházení](./media/resource-manager-tag-resources/browse-tags.png)
+4. Zobrazí se souhrn značek v rámci vašich předplatných.
    
-     ![Show all tags](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Select any of the tags to display the resources and resource groups with that tag.
+     ![Zobrazení všech značek](./media/resource-manager-tag-resources/tag-taxonomy.png)
+5. Vyberte libovolnou ze značek, aby se zobrazily prostředky a skupiny prostředků s touto značkou.
    
-     ![Show tagged resources](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Select **Pin blade to dashboard** for quick access.
+     ![Zobrazení prostředků se značkou](./media/resource-manager-tag-resources/show-tagged-resources.png)
+6. Pro rychlý přístup vyberte **Připnout okno na řídicí panel**.
    
-     ![Pin tags to the Dashboard](./media/resource-manager-tag-resources/pin-tag.png)
-7. You can select the pinned tag from the dashboard to see the resources with that tag.
+     ![Připnutí značek na řídicí panel](./media/resource-manager-tag-resources/pin-tag.png)
+7. Abyste zobrazili prostředky s určitou značkou, můžete vybrat připnutou značku z řídicího panelu.
 
-     ![Pin tags to the Dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Připnutí značek na řídicí panel](./media/resource-manager-tag-resources/show-pinned-tag.png)

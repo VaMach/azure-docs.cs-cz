@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Začínáme sestavovat řešení pomocí klientské knihovny služby Batch pro .NET
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Jak jsme uvedli výše, je nutné, abyste ve službě Azure Storage aktuálně zadali přihlašovací údaje účtu úložiště, který je pro **obecné účely**. Aplikace Batch používají úložiště objektů blob v rámci účtu úložiště pro **obecné účely**. Nezadávejte přihlašovací údaje k účtu služby Storage, který jste vytvořili výběrem účtu typu *Blob Storage*.
+> Jak je uvedeno výše, aktuálně musíte ve službě Azure Storage zadat přihlašovací údaje účtu úložiště, který je pro **obecné účely**. Vaše aplikace Batch používají úložiště objektů blob v rámci účtu úložiště pro **obecné účely**. Nezadávejte přihlašovací údaje k účtu služby Storage, který jste vytvořili výběrem účtu typu *Blob Storage*.
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Když vytváříte fond pomocí [CreatePool][net_pool_create], zadáváte několik parametrů, třeba počet výpočetních uzlů, [velikost uzlů](../cloud-services/cloud-services-sizes-specs.md) a operační systém uzlů. V aplikaci *DotNetTutorial* používáme [CloudServiceConfiguration][net_cloudserviceconfiguration], abychom ve službě [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md) zadali systém Windows Server 2012 R2. Když ale místo toho zadáte [VirtualMachineConfiguration][net_virtualmachineconfiguration], můžete vytvářet fondy uzlů vytvořené z imagí z Marketplace, které obsahují image systémů Windows i Linux – další informace najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
+Když vytváříte fond pomocí [CreatePool][net_pool_create], zadáváte několik parametrů, třeba počet výpočetních uzlů, [velikost uzlů](../cloud-services/cloud-services-sizes-specs.md) a operační systém uzlů. V aplikaci *DotNetTutorial* používáme [CloudServiceConfiguration][net_cloudserviceconfiguration], abychom ve službě [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md) zadali systém Windows Server 2012 R2. 
+
+Zadáním [VirtualMachineConfiguration][net_virtualmachineconfiguration] pro váš fond můžete také vytvořit fondy výpočetních uzlů, které jsou virtuálními počítači Azure. Fond výpočetních uzlů virtuálních počítačů můžete vytvořit z [image systému Linux](batch-linux-nodes.md) nebo Windows. Zdrojem vašich imagí virtuálních počítačů může být:
+
+- Web [Azure Virtual Machines Marketplace][vm_marketplace] poskytující image systému Windows i Linux, které jsou připravené k použití. 
+- Vlastní image, kterou připravíte a poskytnete. Další informace o vlastních imagích najdete v tématu [Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > Za výpočetní prostředky ve službě Batch vám budou účtované poplatky. Pokud chcete náklady minimalizovat, můžete před spuštěním ukázky snížit `targetDedicatedComputeNodes` na hodnotu 1.
@@ -788,6 +792,7 @@ Teď, když jste se seznámili se základním pracovním postupem řešení Batc
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Vytvoření kontejnerů ve službě Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Odeslání aplikačních a vstupních (datových) souborů úkolů do kontejnerů"

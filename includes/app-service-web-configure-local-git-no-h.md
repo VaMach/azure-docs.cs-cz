@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 `<username>` je [uživatel nasazení](#configure-a-deployment-user), kterého jste vytvořili v předchozím kroku.
 
-Uložte si zobrazený identifikátor URI. Použijete ho v dalším kroku. 
+Zkopírujte zobrazený identifikátor URI. Použijete ho v dalším kroku.

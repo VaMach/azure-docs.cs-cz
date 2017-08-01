@@ -1,44 +1,42 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>Přidání zásady zálohování StorSimple
 
-#### To add a StorSimple backup policy
+1. Přejděte ke svému zařízení StorSimple a klikněte na **Zásady zálohování**.
 
-1. Go to your StorSimple device and click **Backup policy**.
-
-2. In the **Backup policy** blade, click **+ Add policy** from the command bar.
+2. V okně **Zásady zálohování** klikněte na panelu příkazů na **Přidat zásadu**.
    
-    ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Přidání zásady zálohování](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
 
-3. In the **Create backup policy** blade, do the following steps:
+3. V okně **Vytvořit zásadu zálohování** proveďte následující kroky:
    
-   1. **Select device** is automatically populated based on the device you selected.
+   1. Pole **Vybrat zařízení** se automaticky vyplní podle zařízení, které jste vybrali.
    
-   2. Specify a backup **Policy name** that contains between 3 and 150 characters.
+   2. Zadejte **Název zásady** zálohování, který obsahuje 3 až 150 znaků. Po vytvoření už zásadu není možné přejmenovat.
        
-   3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
+   3. Pokud chcete k této zásadě zálohování přiřadit svazky, vyberte **Přidat svazky** a potom v tabulkovém výpisu svazků zaškrtnutím políček přiřaďte této zásadě zálohování jeden nebo několik svazků.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Přidání zásady zálohování](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
 
-   4. To define a schedule for this backup policy, click **First schedule** and then modify the following parameters:
+   4. Pokud chcete pro tuto zásadu zálohování nadefinovat plán, klikněte na **První plán** a potom upravte následující parametry:
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Přidání zásady zálohování](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
-       1. For **Snapshot type**, select **Cloud** or **Local**.
+       1. Jako **Typ snímku** vyberte **Cloud** nebo **Místní**.
 
-       2. Indicate the frequency of backups (specify a number and then choose **Days** or **Weeks** from the drop-down list.
+       2. Určete frekvenci záloh (zadejte počet a vyberte z rozevíracího seznamu buď **Dny**, nebo **Týdny**).
 
-       3. Enter a retention schedule.
+       3. Zadejte plán uchovávání.
 
-       4. Enter a time and date for the backup policy to begin.
+       4. Zadejte čas a datum zahájení platnosti zásady zálohování.
 
-       5. Click **OK** to define the schedule.
+       5. Kliknutím na **OK** nadefinujte plán.
 
-   5. Click **Create** to create a backup policy.
+   5. Kliknutím na **Vytvořit** vytvořte zásadu zálohování.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Přidání zásady zálohování](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
-   6. You are notified when the backup policy is created. The newly added policy is displayed in the tabular view on the **Backup Policy** blade.
+   6. Po vytvoření zásady zálohování se zobrazí oznámení. Nově přidaná zásada se zobrazí v tabulkovém zobrazení v okně **Zásady zálohování**.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Přidání zásady zálohování](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
 

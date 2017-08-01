@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure pomocí služby Site Recovery na webu Azure Portal
@@ -164,6 +164,11 @@ Nainstalujte zprostředkovatele Azure Site Recovery na server VMM a zaregistrujt
 
      ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Přijměte nebo změňte umístění certifikátu SSL, který je automaticky generován pro šifrování dat. Tento certifikát se používá, pokud povolíte šifrování dat pro cloud chráněný platformou Azure na portálu Azure Site Recovery. Uchovávejte tento certifikát v bezpečí. Při spuštění předání služeb při selhání do Azure ho budete potřebovat k dešifrování, pokud je povolené šifrování dat.
+
+    > [!NOTE]
+    > K šifrování neaktivních uložených dat doporučujeme používat funkci šifrování, kterou poskytuje Azure, namísto používání možnosti šifrování dat, kterou poskytuje Azure Site Recovery. Funkci šifrování, kterou poskytuje Azure, je možné zapnout pro účet úložiště a pomáhá dosahovat lepšího výkonu, protože o šifrování a dešifrování se stará úložiště Azure.
+    > [Další informace o šifrování služby Storage z Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. Do pole **Název serveru** zadejte popisný název, který bude identifikovat server VMM v trezoru. V konfiguraci clusteru zadejte název role clusteru VMM.
 9. Pokud chcete synchronizovat metadata pro všechny cloudy na serveru VMM v trezoru, zaškrtněte políčko **Synchronizovat metadata cloudu**. Tuto akci stačí na každém serveru provést pouze jednou. Pokud nechcete provádět synchronizaci se všemi cloudy, můžete toto políčko nechat nezaškrtnuté a synchronizovat každý cloud jednotlivě ve vlastnostech cloudu v konzole VMM. Kliknutím na **Zaregistrovat** proces dokončete.
 
@@ -425,6 +430,12 @@ Kde:
 * **/Credentials**: Povinný parametr, který určuje, kde je umístěný soubor registračního klíče.  
 * **/FriendlyName**: Povinný parametr pro název serveru hostitele technologie Hyper-V, který se zobrazí na portálu Azure Site Recovery.
 * * **/EncryptionEnabled**: Volitelný parametr, který je možné použít při replikaci virtuálních počítačů Hyper-V v cloudech VMM do Azure. Zadejte, jestli chcete virtuální počítače v Azure šifrovat (šifrování neaktivních dat). Zkontrolujte, jestli má název souboru příponu **.pfx**. Šifrování je ve výchozím nastavení vypnuté.
+
+    > [!NOTE]
+    > K šifrování neaktivních uložených dat doporučujeme používat funkci šifrování, kterou poskytuje Azure, namísto používání možnosti šifrování (možnost EncryptionEnabled), kterou poskytuje Azure Site Recovery. Funkci šifrování, kterou poskytuje Azure, je možné zapnout pro účet úložiště a pomáhá dosahovat lepšího výkonu, protože o šifrování a dešifrování se stará Azure  
+    > Storage.
+    > [Další informace o šifrování služby Storage v Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: Volitelný parametr, který určuje adresu proxy serveru.
 * **/proxyport**: Volitelný parametr, který určuje port proxy serveru.
 * **/proxyUsername** Volitelný parametr, který určuje uživatelské jméno proxy (pokud proxy server vyžaduje ověření).
