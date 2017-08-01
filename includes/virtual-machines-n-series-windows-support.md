@@ -1,22 +1,19 @@
-## Supported operating systems and drivers
-<a id="supported-operating-systems-and-drivers" class="xliff"></a>
+## <a name="supported-operating-systems-and-drivers"></a>Podporované operační systémy a ovladače
 
-### NV instances - NVIDIA GRID drivers
-<a id="nv-instances---nvidia-grid-drivers" class="xliff"></a>
+### <a name="nv-instances---nvidia-grid-drivers"></a>Instance NV – ovladače NVIDIA GRID
 
-| OS | Driver |
+| Operační systém | Ovladač |
 | -------- |------------- |
-| Windows Server 2016 | [369.95](https://go.microsoft.com/fwlink/?linkid=836843) (.zip) |
-| Windows Server 2012 R2 | [369.95](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)  |
+| Windows Server 2016 | [370.12](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [370.12](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
 
-### NC instances - NVIDIA Tesla drivers
-<a id="nc-instances---nvidia-tesla-drivers" class="xliff"></a>
+### <a name="nc-instances---nvidia-tesla-drivers"></a>Instance NC – ovladače NVIDIA Tesla
 
-| OS | Driver |
+| Operační systém | Ovladač |
 | -------- |------------- |
 | Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe) |
 | Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
 
 > [!NOTE]
-> Tesla driver download links are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
+> Odkazy na stažení ovladače Tesla jsou aktuální k datu publikování. Nejnovější ovladače najdete na webu [NVIDIA](http://www.nvidia.com/).
 >

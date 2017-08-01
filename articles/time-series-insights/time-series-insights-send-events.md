@@ -1,34 +1,32 @@
 ---
 title: "Odesílání událostí do prostředí Azure Time Series Insights | Dokumentace Microsoftu"
-description: "Tento kurz se zaměřuje na odesílání událostí do prostředí Time Series Insights."
+description: "Tento kurz nabízí postup pro odesílání událostí do prostředí Time Series Insights."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-# Odesílání událostí do prostředí Time Series Insights prostřednictvím centra událostí
-<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Odesílání událostí do prostředí Time Series Insights pomocí centra událostí
 
 Tento kurz vysvětluje, jak vytvořit a nakonfigurovat centrum událostí a jak spustit ukázkovou aplikaci odesílající události. Pokud máte existující centrum událostí s událostmi ve formátu JSON, přeskočte tento kurz a zobrazte své prostředí v [Time Series Insights](https://insights.timeseries.azure.com).
 
-## Konfigurace centra událostí
-<a id="configure-an-event-hub" class="xliff"></a>
+## <a name="configure-an-event-hub"></a>Konfigurace centra událostí
 1. Pokud chcete vytvořit centrum událostí, postupujte podle pokynů uvedených v [dokumentaci](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) ke službě Event Hubs.
 
 2. Ujistěte se, že vytváříte skupinu příjemců, kterou používá výhradně váš zdroj událostí Time Series Insights.
@@ -44,16 +42,14 @@ Tento kurz vysvětluje, jak vytvořit a nakonfigurovat centrum událostí a jak 
 
   ![Přidání nové zásady sdíleného přístupu](media/send-events/shared-access-policy-2.png)  
 
-## Vytvoření zdroje událostí Time Series Insights
-<a id="create-time-series-insights-event-source" class="xliff"></a>
-1. Pokud jste ještě nevytvořili zdroj událostí, postupujte podle pokynů uvedených [tady](time-series-insights-add-event-source.md) a vytvořte ho.
+## <a name="create-time-series-insights-event-source"></a>Vytvoření zdroje událostí Time Series Insights
+1. Pokud jste ještě nevytvořili zdroj událostí, postupujte podle [těchto pokynů](time-series-insights-add-event-source.md) a vytvořte ho.
 
 2. Zadejte „deviceTimestamp“ jako název vlastnosti časového razítka – tato vlastnost se v ukázce csharp používá jako časové razítko. V názvu vlastnosti časového razítka se rozlišují malá a velká písmena a při odesílání hodnot do centra událostí ve formátu JSON musí mít formát __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. Pokud v události tato vlastnost chybí, použije se čas zařazení do fronty centra událostí.
 
   ![Vytvoření zdroje událostí](media/send-events/event-source-1.png)
 
-## Vzorový kód pro odesílání událostí
-<a id="sample-code-to-push-events" class="xliff"></a>
+## <a name="sample-code-to-push-events"></a>Vzorový kód pro odesílání událostí
 1. Přejděte do zásady centra událostí MySendPolicy a zkopírujte připojovací řetězec s klíčem zásady.
 
   ![Zkopírování připojovacího řetězce zásady MySendPolicy](media/send-events/sample-code-connection-string.png)
@@ -127,13 +123,10 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-## Podporované tvary JSON
-<a id="supported-json-shapes" class="xliff"></a>
-### Ukázka 1
-<a id="sample-1" class="xliff"></a>
+## <a name="supported-json-shapes"></a>Podporované tvary JSON
+### <a name="sample-1"></a>Ukázka 1
 
-#### Vstup
-<a id="input" class="xliff"></a>
+#### <a name="input"></a>Vstup
 
 Jednoduchý objekt JSON.
 
@@ -143,18 +136,15 @@ Jednoduchý objekt JSON.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### Výstup – 1 událost
-<a id="output---1-event" class="xliff"></a>
+#### <a name="output---1-event"></a>Výstup – 1 událost
 
 |id|časové razítko|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
-### Ukázka 2
-<a id="sample-2" class="xliff"></a>
+### <a name="sample-2"></a>Ukázka 2
 
-#### Vstup
-<a id="input" class="xliff"></a>
+#### <a name="input"></a>Vstup
 Pole JSON se dvěma objekty JSON. Oba objekty JSON se převedou na událost.
 ```json
 [
@@ -168,18 +158,15 @@ Pole JSON se dvěma objekty JSON. Oba objekty JSON se převedou na událost.
     }
 ]
 ```
-#### Výstup – 2 události
-<a id="output---2-events" class="xliff"></a>
+#### <a name="output---2-events"></a>Výstup – 2 události
 
 |id|časové razítko|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-### Ukázka 3
-<a id="sample-3" class="xliff"></a>
+### <a name="sample-3"></a>Ukázka 3
 
-#### Vstup
-<a id="input" class="xliff"></a>
+#### <a name="input"></a>Vstup
 
 Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON.
 ```json
@@ -198,8 +185,7 @@ Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON.
 }
 
 ```
-#### Výstup – 2 události
-<a id="output---2-events" class="xliff"></a>
+#### <a name="output---2-events"></a>Výstup – 2 události
 Všimněte si, že vlastnost „location“ (umístění) se kopíruje do obou událostí.
 
 |location|events.id|events.timestamp|
@@ -207,11 +193,9 @@ Všimněte si, že vlastnost „location“ (umístění) se kopíruje do obou u
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
 
-### Ukázka 4
-<a id="sample-4" class="xliff"></a>
+### <a name="sample-4"></a>Ukázka 4
 
-#### Vstup
-<a id="input" class="xliff"></a>
+#### <a name="input"></a>Vstup
 
 Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON. Tento vstup ukazuje, že globální vlastnosti může reprezentovat komplexní objekt JSON.
 
@@ -244,16 +228,14 @@ Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON. Tento vst
     ]
 }
 ```
-#### Výstup – 2 události
-<a id="output---2-events" class="xliff"></a>
+#### <a name="output---2-events"></a>Výstup – 2 události
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 * Zobrazení prostředí na [portálu Time Series Insights](https://insights.timeseries.azure.com)
 

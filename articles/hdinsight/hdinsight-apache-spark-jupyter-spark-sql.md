@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 0625984bf10588fe50a2632285f565eb79b66ab7
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Vytvoření clusteru Apache Spark ve službě Azure HDInsight
 
-V tomto článku se dozvíte, jak vytvořit cluster Apache Spark ve službě Azure HDInsight.
+V tomto článku se dozvíte, jak vytvořit cluster Apache Spark ve službě Azure HDInsight. Informace o Apache Spark ve službě HDInsight najdete v tématu [Přehled: Apache Spark v Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Diagram rychlého startu popisující postup vytvoření clusteru Apache Spark ve službě Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Rychlý start k použití Apache Spark ve službě HDInsight. Popsané postupy: vytvoření clusteru, spuštění interaktivního dotazu Spark")
 
@@ -115,10 +115,17 @@ Pokud používáte poznámkový blok Jupyter nakonfigurovaný pro váš cluster 
 
 7. Po dokončení spuštění aplikace můžete poznámkový blok vypnout a uvolnit tak prostředky clusteru. To provedete kliknutím na položku **Zavřít a zastavit** z nabídky **Soubor** v poznámkovém bloku.
 
-## <a name="next-step"></a>Další krok
+8. Pokud se chystáte další kroky dokončit později, nezapomeňte odstranit cluster HDInsight, který jste vytvořili v rámci tohoto článku. 
 
-V tomto článku jste zjistili, jak vytvořit cluster HDInsight Spark a spustit základní dotaz Spark SQL. Teď si můžete přečíst o [Načtení dat do HDInsight Spark a spuštění interaktivního dotazu](hdinsight-apache-spark-load-data-run-query.md).
+    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Pokud se chystáte další kroky dokončit později, nezapomeňte cluster HDInsight odstranit. 
+## <a name="next-step"></a>Další krok 
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+V tomto článku jste zjistili, jak vytvořit cluster HDInsight Spark a spustit základní dotaz Spark SQL. Přejděte k dalšímu článku a zjistěte, jak pomocí clusteru HDInsight Spark spouštět interaktivní dotazy na ukázková data.
+
+> [!div class="nextstepaction"]
+>[Spouštění interaktivních dotazů v clusteru HDInsight Spark.](hdinsight-apache-spark-load-data-run-query.md)
+
+
+
+

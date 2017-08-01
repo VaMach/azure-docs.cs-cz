@@ -1,23 +1,19 @@
-<a id="extended-iot-scenarios-use-other-azure-services-and-tools" class="xliff"></a>
+## <a name="extended-iot-scenarios"></a>Rozšířené scénáře IoT
 
-## Extended IoT scenarios: Use other Azure services and tools
+Použijete další nástroje a služby Azure. Jakmile budete mít připojené zařízení ke službě IoT Hub, můžete prozkoumat další scénáře, ve kterých se používají další nástroje a služby Azure:
 
-When you have connected your device to IoT Hub, you can explore additional scenarios that use other Azure tools and services:
-
-| Scenario                                                   | Azure service or tool              |
+| Scénář                                                   | Nástroj nebo služba Azure              |
 |----------------------------------------------------------- |------------------------------------|
-| [Manage IoT Hub messages][Mg_IoT_Hub_Msg]                  | iothub-explorer tool               |
-| [Manage your IoT device][Mg_IoT_Dv]                        | iothub-explorer tool               |
-| [Save IoT Hub messages to Azure storage][Sv_IoT_Msg_Stor]  | Azure table storage                |
-| [Visualize sensor data][Vis_Data]                          | Microsoft Power BI, Azure Web Apps |
-| [Forecast weather with sensor data][Weather_Forecast]      | Azure Machine Learning             |
-| [Automatic anomaly detection and reaction][Anomaly_Detect] | Azure Logic Apps                   |
+| [Správa zpráv IoT Hub][Mg_IoT_Hub_Msg]                  | Nástroj iothub-explorer               |
+| [Správa zařízení IoT][Mg_IoT_Dv]                        | Nástroj iothub-explorer               |
+| [Uložení zpráv IoT Hub do úložiště Azure][Sv_IoT_Msg_Stor]  | Azure Table Storage                |
+| [Vizualizace dat ze snímačů][Vis_Data]                          | Microsoft Power BI, Azure Web Apps |
+| [Předpověď počasí s využitím dat ze snímačů][Weather_Forecast]      | Azure Machine Learning             |
+| [Automatická detekce anomálií a reakce na ně][Anomaly_Detect] | Azure Logic Apps                   |
 
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
-## Next steps
-
-When you have completed these tutorials, you can further explore the capabilities of IoT Hub in the [Developer guide][lnk-dev-guide]. You can find additional tutorials in the [How To][lnk-how-to] section.
+Po dokončení těchto kurzů můžete podrobněji prozkoumat možnosti služby IoT Hub v [příručce pro vývojáře][lnk-dev-guide]. Další kurzy najdete v části [Postupy][lnk-how-to].
 
 
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md

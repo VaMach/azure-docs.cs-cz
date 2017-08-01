@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Vytvoření, spuštění nebo odstranění služby Application Gateway pomocí Azure Resource Manageru
@@ -171,10 +170,10 @@ V tomto příkladu jsou pro směrování síťového provozu na základě cesty 
 
 ### <a name="step-3"></a>Krok 3
 
-Nakonfigurujte nastavení služby Application Gateway **poolsetting01** pro síťový provoz s vyrovnáváním zatížení ve fondu back-end. Každý fond back-end může mít vlastní nastavení fondu back-end.  Nastavení back-endu HTTP jsou využívána pravidly pro směrování provozu do správných členů fondu back-end. Nastavení back-endu HTTP určují protokol a port používaný při odesílání provozu do členů fondu back-end. Podle nastavení HTTP back-endu se určují i relace založené na souborech cookie.  Pokud je tato funkce povolena, spřažení relace založené na souborech cookie odesílá provoz do stejného back-endu jako předchozí požadavky pro jednotlivé pakety.
+Nakonfigurujte nastavení služby Application Gateway **poolsetting** pro síťový provoz s vyrovnáváním zatížení ve fondu back-end. Každý fond back-end může mít vlastní nastavení fondu back-end.  Nastavení back-endu HTTP jsou využívána pravidly pro směrování provozu do správných členů fondu back-end. Nastavení back-endu HTTP určují protokol a port používaný při odesílání provozu do členů fondu back-end. Podle nastavení HTTP back-endu se určují i relace založené na souborech cookie.  Pokud je tato funkce povolena, spřažení relace založené na souborech cookie odesílá provoz do stejného back-endu jako předchozí požadavky pro jednotlivé pakety.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Krok 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Vytvořte pravidlo směrování pro nástroj pro vyrovnávání zatížení s názvem **rule01**, které konfiguruje chování nástroje pro vyrovnávání zatížení. Nastavení fondu back-end, naslouchací proces a fond back-end vytvořený v předchozích krocích společně tvoří pravidlo. Na základě definovaných kritérií se provoz směruje do příslušného back-endu.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Krok 8

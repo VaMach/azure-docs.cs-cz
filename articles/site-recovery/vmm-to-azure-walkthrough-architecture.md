@@ -1,6 +1,6 @@
 ---
-title: "Kontrola architektury pro replikaci Hyper-V (bez nástroje System Center VMM) do Azure s využitím služby Azure Site Recovery | Dokumentace Microsoftu"
-description: "Tento článek obsahuje přehled komponent a architektury používané při replikaci místních virtuálních počítačů Hyper-V (bez nástroje VMM) do Azure s využitím služby Azure Site Recovery."
+title: "Kontrola architektury pro replikaci Hyper-V (s nástrojem System Center VMM) do Azure s využitím služby Azure Site Recovery | Dokumentace Microsoftu"
+description: "Tento článek obsahuje přehled komponent a architektury používané při replikaci místních virtuálních počítačů Hyper-V v cloudech VMM do Azure s využitím služby Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,21 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
 ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/26/2017
 
 ---
 
 
-# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Krok 1: Kontrola architektury pro replikaci Hyper-V do Azure
+# <a name="step-1-review-the-architecture"></a>Krok 1: Kontrola architektury
 
 
-Tento článek popisuje komponenty a procesy používané při replikaci místních virtuálních počítačů Hyper-V (které nejsou spravované nástrojem System Center VMM) do Azure s využitím služby [Azure Site Recovery](site-recovery-overview.md).
+Tento článek popisuje komponenty a procesy používané při replikaci místních virtuálních počítačů Hyper-V v cloudech System Center Virtual Machine Manager (VMM) do Azure s využitím služby [Azure Site Recovery](site-recovery-overview.md).
 
 Jakékoli dotazy můžete publikovat na konci tohoto článku nebo na [fóru Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -34,26 +34,29 @@ Jakékoli dotazy můžete publikovat na konci tohoto článku nebo na [fóru Azu
 
 ## <a name="architectural-components"></a>Komponenty architektury
 
-Při replikaci virtuálních počítačů Hyper-V do Azure bez nástroje VMM se využívá řada komponent.
+Při replikaci virtuálních počítačů Hyper-V v cloudech VMM do Azure se využívá řada komponent.
 
-**Komponenta** | **Umístění** | **Podrobnosti**
+**Komponenta** | **Požadavek** | **Podrobnosti**
 --- | --- | ---
 **Azure** | Pro Azure potřebujete účet Microsoft Azure, účet úložiště Azure a síť Azure. | Replikovaná data jsou uložena v účtu úložiště a virtuální počítače Azure se z replikovaných dat vytvoří, jakmile dojde k převzetí místních služeb při selhání.<br/><br/> Virtuální počítače Azure se připojí k virtuální síti Azure po svém vytvoření.
-**Hyper-V** | Hostitelé a clustery Hyper-V se shromažďují do lokalit Hyper-V. Na každém hostiteli Hyper-V se nainstaluje zprostředkovatel Azure Site Recovery a agent Recovery Services. | Zprostředkovatel orchestruje replikaci pomocí služby Site Recovery přes internet. Agent Recovery Services se stará o replikaci dat.<br/><br/> Komunikace z poskytovatele i agenta je zabezpečená a šifrovaná. Šifrují se rovněž replikovaná data v úložišti Azure.
-**Virtuální počítače Hyper-V** | Na hostitelském serveru Hyper-V potřebujete jeden nebo několik spuštěných virtuálních počítačů. | Na virtuálních počítačích není výslovně potřeba nic instalovat.
+**Server VMM** | Server VMM obsahuje jeden nebo více cloudů s hostiteli Hyper-V. | Na serveru VMM nainstalujete zprostředkovatele služby Site Recovery pro orchestraci replikace pomocí služby Site Recovery, a tento server zaregistrujete v trezoru služby Site Recovery.
+**Hostitel Hyper-V** | Jeden nebo několik hostitelů/clusterů Hyper-V spravovaných nástrojem VMM. |  Na každého hostitele nebo člena clusteru nainstalujete agenta Recovery Services.
+**Virtuální počítače Hyper-V** | Jeden nebo několik virtuálních počítačů spuštěných na hostitelském serveru Hyper-V. | Na virtuálních počítačích není výslovně potřeba nic instalovat.
+**Sítě** |Logické sítě a sítě virtuálních počítačů nastavené na serveru VMM. Síť virtuálních počítačů musí být propojena na logickou síť, která je přidružena ke cloudu. | Sítě virtuálních počítačů se mapují na virtuální sítě Azure, aby se zajistilo, že se virtuální počítače Azure po vytvoření po převzetí služeb při selhání nacházejí v síti.
 
 Další informace o požadavcích pro nasazení a pro jednotlivé komponenty najdete v [matici podpory](site-recovery-support-matrix-to-azure.md).
 
-**Obrázek 1: Replikace z lokality Hyper-V do Azure**
 
-![Komponenty](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
+**Obrázek 1: Replikace virtuálních počítačů na hostitelích Hyper-V v cloudech VMM do Azure**
+
+![Komponenty](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>Proces replikace
 
 **Obrázek 2: Replikace a proces obnovení pro replikaci Hyper-V do Azure**
 
-![pracovní postup](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
+![pracovní postup](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Povolení ochrany
 
@@ -61,7 +64,8 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
 2. Úloha zkontroluje, zda počítač splňuje požadavky, a potom vyvolá metodu [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), která nastaví replikaci s nastavením, které jste nakonfigurovali.
 3. Úloha spustí počáteční replikaci vyvoláním metody [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), která zahájí úplnou replikaci virtuálního počítače a odešle virtuální disky virtuálního počítače do Azure.
 4. Úlohu můžete sledovat na kartě **Úlohy**.
- 
+        ![Seznam úloh](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Podrobnosti povolení ochrany](media/vmm-to-azure-walkthrough-architecture/image2.png)
+
 ### <a name="replicate-the-initial-data"></a>Replikace počátečních dat
 
 1. Při aktivaci počáteční replikace se pořídí [snímek virtuálního počítače Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
@@ -74,6 +78,7 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
 ### <a name="finalize-protection"></a>Dokončení ochrany
 
 1. Po dokončení počáteční replikace nakonfiguruje úloha **Dokončení ochrany na virtuálním počítači** síťová a další postreplikační nastavení tak, aby byl virtuální počítač chráněn.
+    ![Úloha dokončení ochrany](media/vmm-to-azure-walkthrough-architecture/image3.png)
 2. Pokud replikujete do Azure, možná bude nutné upravit nastavení pro virtuální počítač tak, aby byl připraven k převzetí služeb při selhání. V tomto bodě můžete spustit test převzetí služeb při selhání a zkontrolovat, zda vše funguje podle očekávání.
 
 ### <a name="replicate-the-delta"></a>Replikace rozdílů
@@ -88,7 +93,7 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
 2.  Resynchronizace minimalizuje množství odesílaných dat tím, že počítá kontrolní součty zdrojových a cílových virtuálních počítačů a odesílá pouze rozdílová data. Resynchronizace využívá algoritmus vytváření bloků s pevnou velikostí, kdy jsou zdrojové a cílové soubory rozdělené do pevných bloků. Pro každý blok se vytvoří kontrolní součet a následným porovnáním kontrolních součtů se určí, které bloky ze zdroje je potřeba použít na cíl.
 3. Po dokončení resynchronizace by měla pokračovat normální rozdílová replikace. Ve výchozím nastavení je automatické spuštění resynchronizace naplánováno na mimopracovní dobu, ale můžete ji u virtuálního počítače spustit i ručně. Například můžete pokračovat v resynchronizaci, pokud dojde k výpadku sítě nebo jinému výpadku. Pokud to chcete provést, vyberte virtuální počítač na portálu a klikněte na **Resynchronizovat**.
 
-    ![Ruční resynchronizace](./media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Ruční resynchronizace](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
 
 ### <a name="retry-logic"></a>Logika opakování
@@ -115,5 +120,5 @@ Pokud dojde k chybě replikace, je předdefinován opakovaný pokus. Tuto logiku
 
 ## <a name="next-steps"></a>Další kroky
 
-Přejděte na [Krok 2: Kontrola požadavků pro nasazení](hyper-v-site-walkthrough-prerequisites.md)
+Přejděte na [Krok 2: Kontrola požadavků pro nasazení](vmm-to-azure-walkthrough-prerequisites.md)
 

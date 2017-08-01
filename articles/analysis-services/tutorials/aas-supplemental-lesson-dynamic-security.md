@@ -15,16 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-<a id="supplemental-lesson---dynamic-security" class="xliff"></a>
-
-# Doplňková lekce – Dynamické zabezpečení
+# <a name="supplemental-lesson---dynamic-security"></a>Doplňková lekce – Dynamické zabezpečení
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,19 +36,13 @@ K implementaci dynamického zabezpečení použijete dvě funkce DAX: [funkci US
   
 Odhadovaný čas dokončení této lekce: **30 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma doplňkové lekce je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této doplňkové lekci byste měli mít dokončeny všechny předchozí lekce.  
   
-<a id="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project" class="xliff"></a>
-
-## Přidání tabulky DimSalesTerritory do projektu s tabelárním modelem AW Internet Sales  
+## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>Přidání tabulky DimSalesTerritory do projektu s tabelárním modelem AW Internet Sales  
 Pokud chcete implementovat dynamické zabezpečení pro tento scénář Adventure Works, musíte do modelu přidat další dvě tabulky. Jako první přidáte tabulku DimSalesTerritory (jako prodejní oblast) ze stejné databáze AdventureWorksDW. Potom na tabulku SalesTerritory použijete filtr řádků definující konkrétní data, která může přihlášený uživatel procházet.  
   
-<a id="to-add-the-dimsalesterritory-table" class="xliff"></a>
-
-#### Přidání tabulky DimSalesTerritory  
+#### <a name="to-add-the-dimsalesterritory-table"></a>Přidání tabulky DimSalesTerritory  
   
 1.  V části Průzkumník tabelárních modelů > **Zdroje Dat** klikněte pravým tlačítkem na vaše připojení a potom klikněte na **Importovat nové tabulky**.  
 
@@ -66,14 +58,10 @@ Pokud chcete implementovat dynamické zabezpečení pro tento scénář Adventur
   
 9. Jakmile bude tabulka úspěšně importována, klikněte na **Zavřít**.  
 
-<a id="add-a-table-with-user-name-data" class="xliff"></a>
-
-## Přidání tabulky s daty o uživatelských jménech  
+## <a name="add-a-table-with-user-name-data"></a>Přidání tabulky s daty o uživatelských jménech  
 Tabulka DimEmployee v ukázkové databázi AdventureWorksDW obsahuje uživatele z domény AdventureWorks. Tato uživatelská jména ve vašem prostředí neexistují. Musíte v modelu vytvořit tabulku, která bude obsahovat malý vzorek skutečných uživatelů (alespoň tři) z vaší organizace. Potom můžete tyto uživatele přidat jako členy do nové role. Pro ukázková uživatelská jména nepotřebujete hesla, potřebujete ale skutečná uživatelská jména systému Windows z vaší vlastní domény.  
   
-<a id="to-add-an-employeesecurity-table" class="xliff"></a>
-
-#### Přidání tabulky EmployeeSecurity  
+#### <a name="to-add-an-employeesecurity-table"></a>Přidání tabulky EmployeeSecurity  
   
 1.  Otevřete aplikaci Microsoft Excel a vytvořte list.  
   
@@ -106,14 +94,10 @@ Tabulka DimEmployee v ukázkové databázi AdventureWorksDW obsahuje uživatele 
   
     Vytvoří se nová tabulka EmployeeSecurity s daty o zaměstnancích zkopírovanými z listu SampleEmployee.  
   
-<a id="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table" class="xliff"></a>
-
-## Vytvoření relací mezi tabulkami FactInternetSales, DimGeography a DimSalesTerritory  
+## <a name="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table"></a>Vytvoření relací mezi tabulkami FactInternetSales, DimGeography a DimSalesTerritory  
 Tabulky FactInternetSales, DimGeography a DimSalesTerritory všechny obsahují společný sloupec SalesTerritoryId. Sloupec SalesTerritoryId v tabulce DimSalesTerritory obsahuje hodnoty s jiným ID pro každou prodejní oblast.  
   
-<a id="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table" class="xliff"></a>
-
-#### Vytvoření relací mezi tabulkami FactInternetSales, DimGeography a DimSalesTerritory  
+#### <a name="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table"></a>Vytvoření relací mezi tabulkami FactInternetSales, DimGeography a DimSalesTerritory  
   
 1.  V zobrazení diagramu v tabulce **DimGeography** klikněte a přidržte sloupec **SalesTerritoryId**, přesuňte kurzor na sloupec **SalesTerritoryId** v tabulce **DimSalesTerritory** a uvolněte tlačítko.  
   
@@ -121,28 +105,20 @@ Tabulky FactInternetSales, DimGeography a DimSalesTerritory všechny obsahují s
   
     Všimněte si, že vlastnost Aktivní pro tuto relaci má hodnotu False, což znamená, že je relace neaktivní. Tabulka FactInternetSales už má jinou aktivní relaci.  
   
-<a id="hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>
-
-## Skrytí tabulky EmployeeSecurity před klientskými aplikacemi  
+## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Skrytí tabulky EmployeeSecurity před klientskými aplikacemi  
 V tomto úkolu skryjete tabulku EmployeeSecurity a tím zabráníte jejímu zobrazování v seznamu polí klientských aplikací. Nezapomeňte, že skrytím tabulku nezabezpečíte. Uživatelé pořád můžou dotazovat data v tabulce EmployeeSecurity, pokud ví jak. Pro zabezpečení dat v tabulce EmployeeSecurity a zabránění uživatelům v jejich dotazování použijete v jednom z dalších úkolů filtr.  
   
-<a id="to-hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>
-
-#### Skrytí tabulky EmployeeSecurity před klientskými aplikacemi  
+#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>Skrytí tabulky EmployeeSecurity před klientskými aplikacemi  
   
 -   V návrháři modelů klikněte pravým tlačítkem v zobrazení diagramu na záhlaví tabulky **Employee** a potom klikněte na **Skrýt před klientskými nástroji**.  
   
-<a id="create-a-sales-employees-by-territory-user-role" class="xliff"></a>
-
-## Vytvoření role uživatele Zaměstnanci prodeje podle oblasti  
+## <a name="create-a-sales-employees-by-territory-user-role"></a>Vytvoření role uživatele Zaměstnanci prodeje podle oblasti  
 V tomto úkolu vytvoříte roli uživatele. Tato role zahrnuje filtr řádků definující, které řádky tabulky DimSalesTerritory jsou viditelné pro uživatele. Filtr se pak použije ve směru relace 1:N na všechny další tabulky související s tabulkou DimSalesTerritory. Použijete také filtr, který zabezpečí celou tabulku EmployeeSecurity před dotazy uživatelů, kteří jsou členy této role.  
   
 > [!NOTE]  
 > Role Zaměstnanci prodeje podle oblasti, kterou vytvoříte v této lekci, omezuje možnost uživatelů procházet (nebo dotazovat) data pouze na prodejní data pro prodejní oblast, ke které patří. Pokud do role Zaměstnanci prodeje podle oblasti přidáte uživatele, který je zároveň členem role vytvořené v [lekci 11: Vytvoření rolí](../tutorials/aas-lesson-11-create-roles.md), získáte kombinaci oprávnění. Pokud je uživatel členem více rolí, pak jsou oprávnění a filtry řádků definované pro každou roli kumulativní. To znamená, že uživatel má větší oprávnění daná kombinací rolí.  
   
-<a id="to-create-a-sales-employees-by-territory-user-role" class="xliff"></a>
-
-#### Vytvoření role uživatele Zaměstnanci prodeje podle oblasti  
+#### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Vytvoření role uživatele Zaměstnanci prodeje podle oblasti  
   
 1.  V SSDT klikněte na nabídku **Model** a potom na **Role**.  
   
@@ -185,14 +161,10 @@ V tomto úkolu vytvoříte roli uživatele. Tato role zahrnuje filtr řádků de
   
 10. Ve Správci rolí klikněte na **Ok**.  
   
-<a id="test-the-sales-employees-by-territory-user-role" class="xliff"></a>
-
-## Test role uživatele Zaměstnanci prodeje podle oblasti  
+## <a name="test-the-sales-employees-by-territory-user-role"></a>Test role uživatele Zaměstnanci prodeje podle oblasti  
 V tomto úkolu pomocí funkce Analýza v aplikaci Excel v SSDT otestujete efektivnost role uživatele Zaměstnanci prodeje podle oblasti. Zadáte jedno z uživatelských jmen, která jste přidali do tabulky EmployeeSecurity a jako člena této role. Toto uživatelské jméno se pak použije jako efektivní uživatelské jméno ve vytvořeném propojení mezi aplikací Excel a modelem.  
   
-<a id="to-test-the-sales-employees-by-territory-user-role" class="xliff"></a>
-
-#### Test role uživatele Zaměstnanci prodeje podle oblasti  
+#### <a name="to-test-the-sales-employees-by-territory-user-role"></a>Test role uživatele Zaměstnanci prodeje podle oblasti  
   
 1.  V SSDT klikněte na nabídku **Model** a potom na **Analyzovat v aplikaci Excel**.  
   
@@ -214,9 +186,7 @@ V tomto úkolu pomocí funkce Analýza v aplikaci Excel v SSDT otestujete efekti
   
     Tento uživatel nemůže procházet ani dotazovat žádná data o internetovém prodeji pro jiné oblasti, než do kterých patří. Důvodem tohoto omezení je, že filtr řádků definovaný pro tabulku DimSalesTerritory v roli uživatele Zaměstnanci prodeje podle oblasti chrání veškerá data související s jinými prodejními oblastmi.  
   
-<a id="see-also" class="xliff"></a>
-
-## Viz také  
+## <a name="see-also"></a>Viz také  
 [Funkce USERNAME (DAX)](https://msdn.microsoft.com/library/hh230954.aspx)  
 [Funkce LOOKUPVALUE (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [Funkce CUSTOMDATA (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)  

@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Návod pro předkonfigurované řešení prediktivní údržby
 
-## <a name="introduction"></a>Úvod
-
-Předkonfigurované řešení prediktivní údržby sady IoT Suite je uceleným řešením pro podnikový scénář, které se pokouší předvídat bod, ve kterém pravděpodobně nastane chyba. Toto předkonfigurované řešení můžete aktivně využívat pro různé činnosti, jako je třeba optimalizace údržby. Řešení kombinuje klíčové služby sady Azure IoT Suite, jako je služba IoT Hub, Stream Analytics a pracovní prostor [Azure Machine Learning][lnk-machine-learning]. Tento pracovní prostor obsahuje model založený na veřejné ukázkové sadě dat, který předpovídá zbývající dobu životnosti (RUL) leteckého motoru. Řešení nabízí úplnou implementaci daného obchodního scénáře IoT jako výchozího bodu pro plánování a implementaci řešení, které vyhovuje vašim konkrétním obchodním požadavkům.
+Předkonfigurované řešení prediktivní údržby je uceleným řešením pro podnikový scénář, které se pokouší předvídat bod, ve kterém pravděpodobně nastane chyba. Toto předkonfigurované řešení můžete aktivně využívat pro různé činnosti, jako je třeba optimalizace údržby. Řešení kombinuje klíčové služby sady Azure IoT Suite, jako je služba IoT Hub, Stream Analytics a pracovní prostor [Azure Machine Learning][lnk-machine-learning]. Tento pracovní prostor obsahuje model založený na veřejné ukázkové sadě dat, který předpovídá zbývající dobu životnosti (RUL) leteckého motoru. Řešení nabízí úplnou implementaci daného obchodního scénáře IoT jako výchozího bodu pro plánování a implementaci řešení, které vyhovuje vašim konkrétním obchodním požadavkům.
 
 ## <a name="logical-architecture"></a>Logická architektura
 
@@ -34,7 +32,7 @@ Následující diagram popisuje logické součásti tohoto předkonfigurovaného
 
 ![][img-architecture]
 
-Modré položky jsou služby Azure, které jsou zřízené v oblasti vybrané při zřizování daného předkonfigurovaného řešení. Seznam oblastí, do kterých můžete nasadit předkonfigurované řešení, najdete na [stránce zřizování][lnk-azureiotsuite].
+Modré položky jsou služby Azure zřízené v oblasti, kam jste nasadili předkonfigurované řešení. Seznam oblastí, do kterých můžete nasadit předkonfigurované řešení, najdete na [stránce zřizování][lnk-azureiotsuite].
 
 Zelená položka je simulované zařízení, které představuje letecký motor. Další informace o těchto simulovaných zařízeních najdete v následující části.
 
@@ -58,13 +56,17 @@ Simulovaná zařízení mohou v řešení zpracovávat následující příkazy 
 Služba IoT Hub zajišťuje potvrzení příkazu zařízení.
 
 ## <a name="azure-stream-analytics-job"></a>Úlohy služby Azure Stream Analytics
-**Úloha: Telemetrie** funguje v příchozím datovém proudu telemetrických dat ze zařízení pomocí dvou příkazů. První vybere všechny telemetrická ze zařízení a odešle tato data do úložiště objektu blob, kde jsou vizualizována ve webové aplikaci. Druhý příkaz vypočítá průměrné hodnoty čidel v rámci dvouminutového posuvného okna a odešle je prostřednictvím centra událostí do **procesoru událostí**.
+
+**Úloha: Telemetrie** funguje v příchozím datovém proudu telemetrických dat ze zařízení pomocí dvou příkazů:
+
+* První vybere veškerá telemetrická data ze zařízení a odešle je do úložiště objektů blob. Odtud se data vizualizují ve webové aplikaci.
+* Druhý vypočítá průměrné hodnoty snímačů v rámci dvouminutového posuvného okna a odešle je prostřednictvím centra událostí do **procesoru událostí**.
 
 ## <a name="event-processor"></a>Procesor událostí
 **Hostitel procesoru událostí** běží ve webové úloze Azure. **Procesor událostí** přebírá průměrné hodnoty snímačů za dokončený cyklus. Potom tyto hodnoty předá do rozhraní API, které zpřístupní trénovaný model pro výpočet zbývající doby životnosti motoru. Rozhraní API je zveřejněné pracovním prostorem Machine Learning zřízeným jako součást řešení.
 
 ## <a name="machine-learning"></a>Machine Learning
-Součást Machine Learning používá model odvozený z dat shromážděných z reálných leteckých motorů. Do pracovního prostoru Machine Learning se můžete dostat z dlaždice na stránce zřízeného řešení na webu [azureiotsuite.com][lnk-azureiotsuite] v případě, že je řešení ve stavu **Připraveno**.
+Součást Machine Learning používá model odvozený z dat shromážděných z reálných leteckých motorů. Do pracovního prostoru Machine Learning se můžete dostat z dlaždice na stránce zřízeného řešení na webu [azureiotsuite.com][lnk-azureiotsuite]. Tato dlaždice je k dispozici v případě, že je řešení ve stavu **Připraveno**.
 
 
 ## <a name="next-steps"></a>Další kroky

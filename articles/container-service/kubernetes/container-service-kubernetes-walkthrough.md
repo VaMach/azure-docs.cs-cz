@@ -1,0 +1,228 @@
+---
+title: "Rychlý start – Azure Kubernetes cluster pro Linux | Dokumentace Microsoftu"
+description: "Rychle se naučíte, jak pomocí rozhraní příkazového řádku Azure vytvářet cluster Kubernetes pro linuxové kontejnery ve službě Azure Container Service."
+services: container-service
+documentationcenter: 
+author: neilpeterson
+manager: timlt
+editor: 
+tags: acs, azure-container-service, kubernetes
+keywords: 
+ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/25/2017
+ms.author: nepeters
+ms.custom: H1Hack27Feb2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 51c70dcacfba82255532f3222ecb391a43eccbb4
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/25/2017
+
+---
+
+# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Nasazení clusteru Kubernetes pro linuxové kontejnery
+
+V tomto rychlém startu se nasadí cluster Kubernetes pomocí Azure CLI. Následně se na tomto clusteru spustí vícekontejnerová aplikace skládající se z front-end webu a instance Redis. Po dokončení bude aplikace přístupná přes internet.
+
+![Obrázek přechodu na aplikaci Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+
+V tomto rychlém startu se předpokládá základní znalost konceptů Kubernetes. Podrobné informace o Kubernetes najdete v [dokumentaci ke Kubernetes]( https://kubernetes.io/docs/home/).
+
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít rozhraní příkazového řádku Azure ve verzi 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logická skupina, ve které se nasazují a spravují prostředky Azure. 
+
+Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
+
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
+```
+
+Výstup:
+
+```json
+{
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
+## <a name="create-kubernetes-cluster"></a>Vytvoření clusteru Kubernetes
+
+Vytvořte cluster Kubernetes ve službě Azure Container Service pomocí příkazu [az acs create](/cli/azure/acs#create). Následující příklad vytvoří cluster s názvem *myK8sCluster* s jedním hlavním linuxovým uzlem a třemi agentskými linuxovými uzly.
+
+```azurecli-interactive 
+az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
+```
+
+Po několika minutách se příkaz dokončí a vrátí informace o clusteru ve formátu JSON. 
+
+## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
+
+Ke správě clusteru Kubernetes použijte klienta příkazového řádku Kubernetes [kubectl](https://kubernetes.io/docs/user-guide/kubectl/). 
+
+Pokud používáte Azure Cloud Shell, kubectl je už nainstalován. Pokud ho chcete nainstalovat místně, můžete použít příkaz [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+
+Abyste nakonfigurovali kubectl pro připojení ke svému clusteru Kubernetes, spusťte příkaz [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
+
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+```
+
+Pokud chcete ověřit připojení ke clusteru, použijte příkaz [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get), který vrátí seznam uzlů clusteru.
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Výstup:
+
+```bash
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-14ad53a1-0    Ready                      10m       v1.6.6
+k8s-agent-14ad53a1-1    Ready                      10m       v1.6.6
+k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
+k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
+```
+
+## <a name="run-the-application"></a>Spuštění aplikace
+
+Soubor manifestu Kubernetes definuje požadovaný stav clusteru, včetně například toho, jaké image kontejnerů mají být spuštěné. V tomto příkladu manifest slouží k vytvoření všech objektů potřebných ke spuštění aplikace Azure Vote. 
+
+Vytvořte soubor `azure-vote.yaml` a zkopírujte do něj následující kód YAML.
+
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      containers:
+      - name: azure-vote-back
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-back
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: azure-vote-back
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-front
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front
+    spec:
+      containers:
+      - name: azure-vote-front
+        image: microsoft/azure-vote-front:redis-v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS
+          value: "azure-vote-back"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+```
+
+Pomocí příkazu [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) spusťte aplikaci.
+
+```azurecli-interactive
+kubectl create -f azure-vote.yaml
+```
+
+Výstup:
+
+```bash
+deployment "azure-vote-back" created
+service "azure-vote-back" created
+deployment "azure-vote-front" created
+service "azure-vote-front" created
+```
+
+## <a name="test-the-application"></a>Testování aplikace
+
+Při spuštění aplikace se vytvoří [služba Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/), která zveřejní front-end aplikace na internetu. Dokončení tohoto procesu může trvat několik minut. 
+
+Pomocí příkazu [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) s argumentem `--watch` můžete sledovat průběh.
+
+```azurecli-interactive
+kubectl get service azure-vote-front --watch
+```
+
+Zpočátku se **EXTERNAL-IP** (Externí IP adresa) pro službu *azure-vote-front* bude zobrazovat ve stavu *probíhá*. Jakmile se adresa EXTERNAL-IP změní ze stavu *probíhá* na *IP adresu*, pomocí klávesové zkratky `CTRL-C` zastavte sledovací proces kubectl. 
+  
+```bash
+azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
+```
+
+Teď můžete přejít na externí IP adresu a zobrazit aplikaci Azure Vote.
+
+![Obrázek přechodu na aplikaci Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)  
+
+## <a name="delete-cluster"></a>Odstranění clusteru
+Pokud už cluster nepotřebujete, můžete k odebrání skupiny prostředků, služby kontejneru a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete).
+
+```azurecli-interactive 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+## <a name="get-the-code"></a>Získání kódu
+
+V tomto rychlém startu se k vytvoření nasazení Kubernetes použily předem vytvořené image kontejnerů. Související kód aplikace, soubor Dockerfile a soubor manifestu Kubernetes jsou k dispozici na GitHubu.
+
+[Aplikace Azure Vote s využitím Redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+
+## <a name="next-steps"></a>Další kroky
+
+V tomto rychlém startu jste nasadili cluster Kubernetes a do něj jste nasadili vícekontejnerovou aplikaci. 
+
+Další informace o službě Azure Container Service a podrobné vysvětlení kompletního příkladu od kódu až po nasazení najdete v kurzu clusteru Kubernetes.
+
+> [!div class="nextstepaction"]
+> [Správa clusteru ACS Kubernetes](./container-service-tutorial-kubernetes-prepare-app.md)

@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: d9d4dcf16954b0cd831e017ecb305d30e3b36dc7
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-# Začínáme s předkonfigurovaným řešením propojené továrny
-<a id="get-started-with-the-connected-factory-preconfigured-solution" class="xliff"></a>
+# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Začínáme s předkonfigurovaným řešením propojené továrny
 
-## Úvod
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>Úvod
 
 [Předkonfigurovaná řešení][lnk-preconfigured-solutions] pro sadu Azure IoT Suite kombinují více služeb Azure IoT, aby mohla poskytovat komplexní řešení implementující běžné obchodní scénáře IoT. Předkonfigurované řešení *propojené továrny* se připojuje k průmyslovým zařízením a monitoruje je. Řešení můžete použít k analýze proudu dat z vašich zařízení a ke zvýšení produktivity a ziskovosti provozu.
 
@@ -42,8 +39,7 @@ K dokončení tohoto kurzu potřebujete mít aktivní předplatné služby Azure
 > 
 > 
 
-## Zřízení řešení
-<a id="provision-the-solution" class="xliff"></a>
+## <a name="provision-the-solution"></a>Zřízení řešení
 
 1. Pomocí svých přihlašovacích údajů k účtu Azure se přihlaste na webu azureiotsuite.com a kliknutím na **+** vytvořte řešení.
 2. Na dlaždici **Propojená továrna** klikněte na **Vybrat**.
@@ -51,8 +47,7 @@ K dokončení tohoto kurzu potřebujete mít aktivní předplatné služby Azure
 4. Vyberte **Předplatné** a **Oblast**, které chcete při zřizování řešení použít.
 5. Kliknutím na tlačítko **Vytvořit řešení** zahájíte proces zřizování. Tento proces obvykle trvá několik minut.
 
-### Zatímco čekáte na dokončení procesu zřizování
-<a id="while-you-wait-for-the-provisioning-process-to-complete" class="xliff"></a>
+### <a name="while-you-wait-for-the-provisioning-process-to-complete"></a>Zatímco čekáte na dokončení procesu zřizování
 
 1. Klikněte na dlaždici s řešením, u kterého je uveden stav **Zřizování**.
 2. **Stavy zřizování** umožňují sledovat, jak se služby Azure nasazují na váš účet Azure.
@@ -64,8 +59,7 @@ K dokončení tohoto kurzu potřebujete mít aktivní předplatné služby Azure
 
 Hledali jste informace, které se týkají vašeho řešení a nejsou zde uvedeny? Sdělte nám návrhy na funkce na webu [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-## Přehled scénáře
-<a id="scenario-overview" class="xliff"></a>
+## <a name="scenario-overview"></a>Přehled scénáře
 
 Když nasadíte předkonfigurované řešení propojené továrny, bude předem naplněné prostředky, které vám umožní projít běžným scénářem z oblasti průmyslu. V tomto scénáři několik továren propojených s řešením hlásí hodnoty dat potřebné k výpočtu celkové efektivity zařízení (OEE) a klíčových ukazatelů výkonu (KPI). V následujících částech se dozvíte, jak:
 
@@ -75,8 +69,7 @@ Když nasadíte předkonfigurované řešení propojené továrny, bude předem 
 
 Klíčovou vlastností tohoto scénáře je, že všechny tyto akce můžete provádět vzdáleně z řídicího panelu řešení. Nemusíte mít fyzický přístup k zařízením.
 
-## Zobrazení řídicího panelu řešení
-<a id="view-the-solution-dashboard" class="xliff"></a>
+## <a name="view-the-solution-dashboard"></a>Zobrazení řídicího panelu řešení
 
 Přes řídicí panel řešení můžete spravovat nasazené řešení. Je to hierarchická reprezentace globální konfigurace továrny. Můžete například zobrazit celkovou efektivitu zařízení a klíčové ukazatele výkonu nebo publikovat nové uzly pro výstrahy akcí a telemetrie.
 
@@ -84,7 +77,7 @@ Přes řídicí panel řešení můžete spravovat nasazené řešení. Je to hi
 
     ![Spuštění předkonfigurovaného řešení][img-launch-solution]
 
-1. Ve výchozím nastavení se na portálu řešení zobrazuje *řídicí panel*. Pomocí nabídky na levé straně stránky můžete přecházet do jiných oblastí portálu.
+1. Ve výchozím nastavení se na portálu řešení zobrazuje *řídicí panel*. K přecházení do jiných oblastí portálu použijte nabídku na levé straně stránky.
 
     ![Řídicí panel předkonfigurovaného řešení propojené továrny][cf-img-menu]
 
@@ -96,8 +89,7 @@ Přes řídicí panel řešení můžete spravovat nasazené řešení. Je to hi
 * Panel **Celková efektivita zařízení**, na kterém se zobrazují hodnoty celkové efektivity zařízení pro celý podnik, nebo továrnu/výrobní linku/stanici, kterou si právě prohlížíte. Tato hodnota se shromažďuje od zobrazení stanice až po úroveň podniku. Hodnotu celkové efektivity zařízení a elementy, ze kterých se skládá, můžete dále analyzovat.
 * Panel **Klíčové ukazatele výkonu**, na kterém se zobrazuje počet vyrobených jednotek a spotřeba energie pro celý podnik, nebo továrnu/výrobní linku/stanici, kterou si právě prohlížíte. Tyto hodnoty se shromažďují od zobrazení stanice až po úroveň podniku.
 
-## Zobrazení továren
-<a id="view-factories" class="xliff"></a>
+## <a name="view-factories"></a>Zobrazení továren
 
 Panel *Továrny* uvádí zeměpisné umístění všech továren v řešení, jejich stav a aktuální konfiguraci výroby. Ze seznamu umístění můžete přejít na další úrovně v hierarchii řešení. Řádky tohoto seznamu jsou hypertextové odkazy na podrobnosti o výrobních linkách v příslušném umístění. Je tedy možné procházet úrovněmi podrobností o výrobní lince, a to až na úroveň zobrazení stanice. Na seznam můžete také použít filtr.
 
@@ -115,25 +107,23 @@ Panel *Továrny* uvádí zeměpisné umístění všech továren v řešení, je
 
 6. Chcete-li zobrazit podrobnosti o konkrétním uzlu stanice, klikněte na odpovídající řádek v seznamu. Tato akce otevře místní panel s vizualizacemi služby Time Series Insights. Po kliknutí na tyto grafy můžete provádět hlubší analýzu v prostředí průzkumníka Time Series Insights.
 
-## Zobrazení mapy
-<a id="view-map" class="xliff"></a>
+## <a name="view-map"></a>Zobrazení mapy
 
-Pokud má vaše předplatné přístup k rozhraní API pro Mapy Bing, na mapě *Továrny* se zobrazí zeměpisné umístění a stav všech továren v řešení. Kliknutím na umístění zobrazená na mapě můžete přejít k podrobnostem o umístění.
+Pokud má vaše předplatné přístup k rozhraní API pro Mapy Bing, na mapě *Továrny* se zobrazí zeměpisné umístění a stav všech továren v řešení. Pokud chcete zobrazit podrobnosti o umístění, klikněte na umístění zobrazená na mapě.
 
 ![Mapa v předkonfigurovaném řešení propojené továrny][cf-img-map]
 
-## Zobrazení výstrah
-<a id="view-alerts" class="xliff"></a>
+## <a name="view-alerts"></a>Zobrazení výstrah
 
-Panel **Výstrahy** zobrazuje výstrahy, které se generují v případě, že ohlášená hodnota nebo vypočítaná hodnota celkové efektivity zařízení nebo klíčového ukazatele výkonu překročí jejich nakonfigurovanou mezní hodnotu. Tento panel zobrazuje výstrahy na všech úrovních hierarchie, od úrovně zobrazení stanice po globální zobrazení. Výstrahy obsahují popis výstrahy, datum, čas, umístění a počet výskytů. Informace o datech, která způsobila výstrahu, můžete získat pomocí dat služby Time Series Insights. Data služby Time Series Insights jsou vizualizována u výstrah, u kterých je to možné. Pokud jste správce, můžete na výstrahy reagovat výchozími akcemi, jako například:
+Panel **Výstrahy** zobrazuje výstrahy generované v případě, že ohlášená hodnota nebo vypočítaná hodnota celkové efektivity zařízení nebo klíčového ukazatele výkonu překročí jejich nakonfigurovanou mezní hodnotu. Tento panel zobrazuje výstrahy na všech úrovních hierarchie, od úrovně zobrazení stanice po globální zobrazení. Výstrahy obsahují popis výstrahy, datum, čas, umístění a počet výskytů. Informace o datech, která způsobila výstrahu, můžete získat pomocí dat služby Time Series Insights. Data služby Time Series Insights jsou vizualizována u výstrah, u kterých je to možné. Pokud jste správce, můžete na výstrahy reagovat výchozími akcemi, jako například:
 
 * Zavřít výstrahu.
 * Potvrdit výstrahu.
 
 Volitelně můžete provést složitější akce. Například pro uzel OPC UA pro kontrolu tlaku na montážní stanici můžete:
 
-* Načíst v novém okně prohlížeče webovou stránku s dalšími informacemi.
-* Zavolat na zařízení metodu OPC UA pro zmírnění příčiny výstrahy.
+* Zobrazit v novém okně prohlížeče webovou stránku s podpůrnými informacemi.
+* Zmírnit příčinu výstrahy zavoláním metody OPC UA na zařízení.
 * Potlačit dostupnost výchozích akcí.
 
     ![Výstrahy v předkonfigurovaném řešení propojené továrny][cf-img-alerts]
@@ -149,8 +139,7 @@ Volitelně můžete provést složitější akce. Například pro uzel OPC UA pr
 
 4. Pro řešení výstrahy máte k dispozici několik akcí na panelu výstrah. Vyberte možnost, která je pro vás vhodná, a klikněte na tlačítko Provést akci.
 
-## Zobrazení celkové efektivity zařízení
-<a id="view-overall-equipment-efficiency" class="xliff"></a>
+## <a name="view-overall-equipment-efficiency"></a>Zobrazení celkové efektivity zařízení
 
 Celková efektivita zařízení hodnotí efektivitu výrobního procesu pomocí klíčových provozních parametrů souvisejících s výrobou. Celková efektivita zařízení (OEE) je v oboru standardním měřítkem a počítá se vynásobením míry dostupnosti, míry výkonu a míry kvality: OEE = dostupnost × výkon × kvalita.
 
@@ -158,7 +147,7 @@ Celková efektivita zařízení hodnotí efektivitu výrobního procesu pomocí 
 
 1. Pokud chcete zobrazit celkovou efektivitu zařízení na libovolné úrovni hierarchie, přejděte do konkrétního zobrazení, které potřebujete. Na panelu se zobrazí celková efektivita zařízení pro dané zobrazení spolu se všemi elementy, které společně tvoří procento celkové efektivity zařízení.
 
-2. Pokud chcete hlouběji analyzovat celkovou efektivitu zařízení na libovolné úrovni hierarchie, klikněte na procento celkové efektivity zařízení, procento dostupnosti, procento výkonu nebo procento kvality. Otevře se místní panel s vizualizacemi ze služby Time Series Insights, které zobrazují data za poslední hodinu, posledních 24 hodin a posledních 7 dnů.
+2. Pokud chcete hlouběji analyzovat celkovou efektivitu zařízení na libovolné úrovni hierarchie, klikněte na procento celkové efektivity zařízení, dostupnosti, výkonu nebo kvality. Otevře se místní panel s vizualizacemi ze služby Time Series Insights, které zobrazují data za poslední hodinu, posledních 24 hodin a posledních 7 dnů.
 
     ![Vizualizace TSI v předkonfigurovaném řešení propojené továrny][cf-img-tsi-visualization]
 
@@ -166,8 +155,7 @@ Celková efektivita zařízení hodnotí efektivitu výrobního procesu pomocí 
 
     ![Průzkumník TSI v předkonfigurovaném řešení propojené továrny][cf-img-tsi-explorer]
 
-## Zobrazení klíčových ukazatelů výkonu
-<a id="view-key-performance-indicators" class="xliff"></a>
+## <a name="view-key-performance-indicators"></a>Zobrazení klíčových ukazatelů výkonu
 
 Řešení poskytuje dva klíčové ukazatele výkonu – *jednotky za hodinu* a *spotřebovaná energie v kWh*.
 
@@ -175,20 +163,17 @@ Celková efektivita zařízení hodnotí efektivitu výrobního procesu pomocí 
 
 1. Pokud chcete zobrazit jednotky za hodinu nebo spotřebovanou energii na libovolné úrovni hierarchie, přejděte do konkrétního zobrazení, které potřebujete. Na panelu se zobrazí jednotky za hodinu a spotřebovaná energie.
 
-2. Pokud chcete hlouběji analyzovat jednotky za hodinu nebo spotřebovanou energii na libovolné úrovni hierarchie, klikněte na měřidlo vytvořených jednotek nebo spotřebované energie na panelu **Klíčové ukazatele výkonu**. Otevře se místní panel s vizualizacemi ze služby Time Series Insights a můžete si prohlédnout data za poslední hodinu, posledních 24 hodin a posledních 7 dnů.
+2. Pokud chcete hlouběji analyzovat jednotky za hodinu nebo spotřebovanou energii na libovolné úrovni hierarchie, klikněte na měřidlo na panelu **Klíčové ukazatele výkonu**. Otevře se místní panel s vizualizacemi ze služby Time Series Insights a můžete si prohlédnout data za poslední hodinu, posledních 24 hodin a posledních 7 dnů.
 
-## Revize scénáře
-<a id="scenario-review" class="xliff"></a>
+## <a name="scenario-review"></a>Revize scénáře
 
 V tomto scénáři jste na řídicím panelu monitorovali hodnoty celkové efektivity zařízení a klíčových ukazatelů výkonu vašich továren. Pak jste použili službu Time Series Insights k poskytnutí dalších informací, pomocí kterých jste zjistili další podrobnosti o telemetrických datech a celková efektivita zařízení a klíčové ukazatele výkonu vám pomohly se zjišťováním anomálií. Také jste použili panel výstrah k zobrazení problémů s vašimi továrnami a pomocí dostupných akcí jste vyřešili výstrahu.
 
-## Další funkce
-<a id="other-features" class="xliff"></a>
+## <a name="other-features"></a>Další funkce
 
-Následující části popisují některé další funkce předkonfigurovaného řešení propojené továrny, které nebyly popsány v předchozím scénáři.
+Následující části popisují některé další funkce řešení propojené továrny, které nebyly popsány v předchozím scénáři.
 
-## Použití filtrů
-<a id="apply-filters" class="xliff"></a>
+## <a name="apply-filters"></a>Použití filtrů
 
 1. Kliknutím na **dvojitou šipku** na panelu umístění továren nebo na panelu výstrah zobrazte seznam dostupných filtrů.
 
@@ -196,7 +181,7 @@ Následující části popisují některé další funkce předkonfigurovaného 
 
     ![Filtry v předkonfigurovaném řešení propojené továrny][cf-img-alert-filter]
 
-3. Vyberte požadovaný filtr; v případě potřeby je také možné zadat do polí filtru libovolný text.
+3. Zvolte požadovaný filtr. Do polí filtru je možné zadat také libovolný text.
 
 4. Filtr se pak použije. Stav filtru je zobrazen také na řídicím panelu v podobě trychtýře v tabulkách továren a výstrah.
 
@@ -207,8 +192,7 @@ Následující části popisují některé další funkce předkonfigurovaného 
 
 5. Pokud chcete filtr vymazat, klikněte na trychtýř a na místním panelu filtru klikněte na filtr. V tabulkách továren a výstrah se zobrazí text **Vše**.
 
-## Procházení serveru OPC UA
-<a id="browse-an-opc-ua-server" class="xliff"></a>
+## <a name="browse-an-opc-ua-server"></a>Procházení serveru OPC UA
 
 Při nasazení předkonfigurovaného řešení automaticky zřídíte simulované servery OPC UA, které můžete procházet přes prohlížeč řešení. Tyto servery jsou *simulované servery OPC UA*. Simulované servery umožňují snadno experimentovat s předkonfigurovaným řešením, aniž by bylo nutné nasazovat skutečné fyzické servery. Pokud chcete k řešení připojit skutečný server OPC UA, přečtěte si kurz [Připojení zařízení OPC UA k předkonfigurovanému řešení propojené továrny][lnk-connect-cf].
 
@@ -222,16 +206,15 @@ Při nasazení předkonfigurovaného řešení automaticky zřídíte simulovan�
 
 3. Klikněte na **Připojit**, zobrazí se dialogové okno zabezpečení. Pro tuto simulaci můžete bez obav kliknout na **Pokračovat**.
 
-4. Kliknutím na některý z uzlů ve stromové struktuře serveru uzel rozbalíte. Vedle uzlů, které publikují telemetrii, je značka.
+4. Pokud chcete rozbalit některý z uzlů ve stromu serveru, klikněte na něj. Vedle uzlů, které publikují telemetrii, je značka.
 
     ![Stromová struktura serveru v předkonfigurovaném řešení propojené továrny][cf-img-server-tree]
 
 5. Pokud chcete s uzlem provést operaci čtení, zápisu, publikování nebo volání, klikněte na něj pravým tlačítkem myši. Akce, které máte k dispozici, závisí na vašich oprávněních a atributech uzlu. Možnost čtení otevře místní panel se zobrazenou hodnotou konkrétního uzlu. Možnost zápisu otevře místní panel, na kterém můžete zadat novou hodnotu. Možnost volání zobrazí uzel, kde můžete zadat parametry volání.
 
-## Publikování uzlu
-<a id="publish-a-node" class="xliff"></a>
+## <a name="publish-a-node"></a>Publikování uzlu
 
-Při procházení *simulovaného serveru OPC UA* máte také možnost publikovat nové uzly. V řešení můžete analyzovat telemetrii z těchto uzlů. *Simulované servery OPC UA* umožňují snadno experimentovat s předkonfigurovaným řešením, aniž by bylo nutné nasazovat skutečná fyzická zařízení.
+Při procházení *simulovaného serveru OPC UA* máte také možnost publikovat nové uzly. V řešení můžete analyzovat telemetrii z těchto uzlů. Tyto *simulované servery OPC UA* umožňují snadno experimentovat s předkonfigurovaným řešením bez nasazování skutečných fyzických zařízení.
 
 1. Ve stromové struktuře prohlížeče serveru OPC UA přejděte k uzlu, který chcete publikovat.
 
@@ -245,10 +228,9 @@ Při procházení *simulovaného serveru OPC UA* máte také možnost publikovat
 
     ![Úspěšné publikování v předkonfigurovaném řešení propojené továrny][cf-img-publish-success]
 
-## Příkazy a ovládání
-<a id="command-and-control" class="xliff"></a>
+## <a name="command-and-control"></a>Příkazy a ovládání
 
-Propojená továrna umožňuje ovládat a odesílat příkazy do průmyslových zařízení přímo z cloudu. Tuto funkci můžete použít při reakci na výstrahy vygenerované zařízením. Například můžete z cloudu odeslat příkaz do zařízení. Dostupné příkazy najdete v uzlu **StationCommands** ve stromové struktuře serveru OPC UA. V tomto scénáři otevíráte ventil pro uvolnění tlaku na montážní stanici výrobní linky v Mnichově. Abyste mohli používat funkce příkazů a ovládání, musíte mít roli **Správce** pro toto nasazení předkonfigurovaného řešení.
+Propojená továrna umožňuje ovládat a odesílat příkazy do průmyslových zařízení přímo z cloudu. Tuto funkci můžete použít při reakci na výstrahy vygenerované zařízením. Například můžete z cloudu odeslat příkaz do zařízení. Dostupné příkazy najdete v uzlu **StationCommands** ve stromové struktuře serveru OPC UA. V tomto scénáři otevřete ventil pro uvolnění tlaku na montážní stanici výrobní linky v Mnichově. Abyste mohli používat funkce příkazů a ovládání, musíte mít roli **Správce** pro toto nasazení předkonfigurovaného řešení.
 
 1. Ve stromové struktuře prohlížeče serveru OPC UA přejděte do uzlu **StationCommands**.
 
@@ -271,8 +253,7 @@ Propojená továrna umožňuje ovládat a odesílat příkazy do průmyslových 
     ![Úspěšné volání v předkonfigurovaném řešení propojené továrny][cf-img-call-success]
 
 
-## Informace pro pokročilé uživatele
-<a id="behind-the-scenes" class="xliff"></a>
+## <a name="behind-the-scenes"></a>Informace pro pokročilé uživatele
 
 Když nasadíte předkonfigurované řešení, proces nasazení vytvoří ve vybraném předplatném Azure několik prostředků. Tyto prostředky můžete zobrazit na webu [Azure Portal][lnk-portal]. Proces nasazení vytváří **skupinu prostředků**. Její název bude vycházet z názvu, který jste vybrali pro předkonfigurované řešení:
 
@@ -287,8 +268,7 @@ Jakmile budete hotovi, můžete předkonfigurované řešení z vašeho předpla
 > [!NOTE]
 > Abyste zajistili, že jste odstranili opravdu všechno spojené s předkonfigurovaným řešením, odstraňte řešení na webu [azureiotsuite.com][lnk-azureiotsuite]. Skupinu prostředků na portálu neodstraňujte.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Když jste teď nasadili fungující předkonfigurované řešení, můžete pokračovat v seznamování se sadou IoT Suite přečtením následujících článků:
 

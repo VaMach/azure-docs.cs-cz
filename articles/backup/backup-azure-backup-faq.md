@@ -1,7 +1,7 @@
 
 ---
 title: "Nejčastější dotazy k Azure Backup | Dokumentace Microsoftu"
-description: "Odpovědi na běžné dotazy týkající se trezoru služby Recovery Services, co může zálohovat, jak to funguje, šifrování a omezení."
+description: "Odpovědi na běžné dotazy týkající se funkcí služby Azure Backup, včetně trezorů služby Recovery Services, co může zálohovat, jak to funguje, šifrování a omezení. "
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/10/2017
-ms.author: markgal;giridham;arunak;trinadhk;
+ms.date: 7/21/2017
+ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 865d8faef47e333e30c5d4084a93a52efc5eb2ad
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Dotazy týkající se služby Azure Backup
@@ -61,6 +61,13 @@ Podrobný seznam dotazů je uveden v tématu [Nejčastější dotazy k zálohov�
 
 ## <a name="azure-vm-backup"></a>Zálohování virtuálních počítačů Azure
 Podrobný seznam dotazů je uveden v tématu [Nejčastější dotazy k zálohování virtuálních počítačů Azure](backup-azure-vm-backup-faq.md).
+
+## <a name="back-up-vmware-servers"></a>Zálohování serverů VMware
+
+### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Je možné zálohovat servery VMware vCenter do Azure?
+
+Ano. Pomocí Azure Backup Serveru můžete do Azure zálohovat servery VMware vCenter a ESXi. Informace o podporovaných verzích VMware najdete v článku [Systém ochrany Azure Backup Serveru](backup-mabs-protection-matrix.md). Podrobné pokyny najdete v tématu [Použití Azure Backup Serveru k zálohování serveru VMware](backup-azure-backup-server-vmware.md).
+
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server a System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Mohu použít server Azure Backup k vytvoření zálohy úplného obnovení (BMR) pro fyzický server? <br/>

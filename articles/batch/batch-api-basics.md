@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 93f80018d71368c800abd3dceb42b2ab51e60659
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch
@@ -47,7 +46,7 @@ Následující obecný pracovní postup je typický pro téměř všechny aplika
 V následujících částech se dozvíte o těchto a o dalších prostředcích služby Batch, které umožňují váš distribuovaný výpočetní scénář.
 
 > [!NOTE]
-> K používání služby Batch potřebujete [účet Batch](#account). Kromě toho téměř všechna řešení používají pro ukládání a načítání souborů účet [Azure Storage][azure_storage]. Služba Batch aktuálně podporuje pouze účty úložiště s typem **Obecné účely**, jak je popsáno v kroku č. 5 článku [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v dokumentu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
+> K používání služby Batch potřebujete [účet Batch](#account). Většina řešení Batch také používá pro ukládání a načítání souborů účet [Azure Storage][azure_storage]. Služba Batch aktuálně podporuje jenom účty úložiště pro **obecné účely**, jak popisuje krok 5 části [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v tématu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -74,35 +73,51 @@ Některé z následujících prostředků – účty, výpočetní uzly, fondy, 
 
 Účet Batch můžete vytvořit prostřednictvím webu [Azure Portal](batch-account-create-portal.md) nebo prostřednictvím programu, například s použitím [knihovny Batch Management .NET](batch-management-dotnet.md). Při vytváření účtu můžete přidružit účet úložiště Azure.
 
-Služba Batch podporuje dvě konfigurace účtu. Při vytváření účtu Batch musíte vybrat odpovídající konfiguraci. Rozdíl mezi těmito dvěma konfiguracemi účtu spočívá v tom, jak se pro jednotlivé účty přidělují [fondy](#pool) služby Batch. Můžete buď přidělit fond výpočetních uzlů v předplatném spravovaném službou Azure Batch, nebo je můžete přidělit ve svém vlastním předplatném. Vlastnost *režimu přidělení fondu* pro účet určuje, která konfigurace se používá. 
+### <a name="pool-allocation-mode"></a>Režim přidělování fondů
 
-Při rozhodování o tom, kterou konfiguraci účtu použít, zvažte, který z nich nejlépe odpovídá vaší situaci:
+Při vytváření účtu Batch můžete zadat způsob přidělování [fondů](#pool) výpočetních uzlů. Můžete zvolit buď přidělování fondů výpočetních uzlů v předplatném spravovaném službou Azure Batch, nebo je můžete přidělovat ve svém vlastním předplatném. Vlastnost *režimu přidělování fondů* pro účet určuje, kde se fondy přidělují. 
 
-* **Služba Batch:** Služba Batch je výchozí konfigurace účtu. U účtu vytvořeného s touto konfigurací se fondy Batch přidělují na pozadí v předplatných, které spravuje Azure. U konfigurace účtu Služba Batch je nutné pamatovat si tyto klíčové body:
+Při rozhodování o tom, který režim přidělování fondů použít, zvažte, který z nich nejlépe odpovídá vašemu scénáři:
 
-    - Konfigurace účtu Služba Batch podporuje fondy virtuálních počítačů i cloudových služeb.
-    - Konfigurace účtu Služba Batch podporuje přístup k rozhraním API Batch buď s použitím ověřování pomocí sdíleného klíče, nebo s použitím [ověřování Azure Active Directory](batch-aad-auth.md). 
-    - V konfiguraci účtu Služba Batch můžete ve fondech použít buď vyhrazené výpočetní uzly, nebo výpočetní uzly s nízkou prioritou.
-    - Konfiguraci účtu Služba Batch nepoužívejte, pokud máte v plánu vytvořit fondy virtuálních počítačů Azure z vlastních imagí virtuálních počítačů nebo pokud plánujete využití virtuální sítě. Místo toho vytvořte účet s konfigurací Předplatné uživatele.
-    - Fondy virtuálních počítačů zřízené v rámci účtu s konfigurací účtu předplatného Služba Batch musí být vytvořené z imagí [Azure Virtual Machines Marketplace][vm_marketplace].
+* **Služba Batch:** Služba Batch je výchozím režimem přidělování fondů, při kterém se fondy přidělují na pozadí v předplatných spravovaných Azure. U režimu přidělování fondů Služba Batch je nutné pamatovat si tyto klíčové body:
 
-* **Předplatné uživatele:** U konfigurace účtu Předplatné uživatele se fondy Batch přidělují v předplatném Azure, ve kterém je tento účet vytvořený. U konfigurace účtu Předplatné uživatele je nutné pamatovat si tyto klíčové body:
+    - Režim přidělování fondů Služba Batch podporuje fondy virtuálních počítačů i cloudových služeb.
+    - Režim přidělování fondů Služba Batch podporuje ověřování pomocí sdíleného klíče i [ověřování pomocí služby Azure Active Directory](batch-aad-auth.md) (Azure AD). 
+    - Ve fondech přidělovaných s režimem přidělování fondů službou Batch můžete použít buď vyhrazené výpočetní uzly, nebo výpočetní uzly s nízkou prioritou.
+    - Režim přidělování fondů Služba Batch nepoužívejte, pokud máte v plánu vytvořit fondy virtuálních počítačů Azure z vlastních imagí virtuálních počítačů nebo pokud plánujete využití virtuální sítě. Místo toho vytvořte účet s režimem přidělování fondů Předplatné uživatele.
+    - Fondy virtuálních počítačů zřízené v rámci účtu vytvořeného s režimem přidělování fondů Služba Batch musí být vytvořené z imagí z webu [Azure Virtual Machines Marketplace][vm_marketplace].
+
+* **Předplatné uživatele:** U režimu přidělování fondů Předplatné uživatele se fondy Batch přidělují v předplatném Azure, ve kterém je tento účet vytvořený. U režimu přidělování fondů Předplatné uživatele je nutné pamatovat si tyto klíčové body:
      
-    - Konfigurace účtu Předplatné uživatele podporuje jenom fondy virtuálních počítačů. Nepodporuje fondy cloudových služeb.
-    - Pokud chcete vytvořit fondy virtuálních počítačů z vlastních imagí virtuálních počítačů nebo pro fondy virtuálních počítačů použít virtuální síť, musíte použít konfiguraci účtu Předplatné.  
-    - K ověření požadavků na službu Batch musíte použít [ověřování Azure Active Directory](batch-aad-auth.md). 
-    - Konfigurace účtu Předplatné uživatele vyžaduje, abyste pro účet Batch nastavili Azure Key Vault. 
-    - V účtu vytvořeném s konfigurací Předplatné uživatele smíte ve fondech použít jenom vyhrazené výpočetní uzly. Uzly s nízkou prioritou se nepodporují.
-    - Fondy virtuálních počítačů zřízené v rámci účtu s konfigurací účtu předplatného Předplatné uživatele musí být vytvořené z imagí [Azure Virtual Machines Marketplace][vm_marketplace] nebo z vlastních imagí, které poskytnete.
+    - Režim přidělování fondů Předplatné uživatele podporuje jenom fondy virtuálních počítačů. Nepodporuje fondy cloudových služeb.
+    - Pokud chcete vytvořit fondy virtuálních počítačů z vlastních imagí virtuálních počítačů nebo pro fondy virtuálních počítačů použít virtuální síť, musíte použít režim přidělování fondů Předplatné uživatele.  
+    - U fondů přidělených v předplatném uživatele musíte použít [ověřování pomocí služby Azure Active Directory](batch-aad-auth.md). 
+    - Pokud je režim přidělování fondů nastavený na Předplatné uživatele, musíte pro svůj účet Batch nastavit trezor klíčů Azure. 
+    - V účtu vytvořeném s režimem přidělování fondů Předplatné uživatele můžete ve fondech použít jenom vyhrazené výpočetní uzly. Uzly s nízkou prioritou se nepodporují.
+    - Fondy virtuálních počítačů zřízené v rámci účtu s režimem přidělování fondů Předplatné uživatele musí být vytvořené z imagí z webu [Azure Virtual Machines Marketplace][vm_marketplace] nebo z vlastních imagí, které poskytnete.
 
-> [!IMPORTANT]
-> Služba Batch aktuálně podporuje jenom účty úložiště pro obecné účely, jak popisuje krok 5 části [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v tématu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md). Úkoly služby Batch (včetně standardních úkolů, spouštěcích úkolů, úkolů přípravy úloh a úkolů uvolnění úloh) musí určovat soubory prostředků, které jsou umístěné jenom v účtech úložiště pro obecné účely.
->
->
+Následující tabulka porovnává režimy přidělování fondů Služba Batch a Předplatné uživatele.
+
+| **Režim přidělování fondů:**                 | **Služba Batch**                                                                                       | **Předplatné uživatele**                                                              |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| **Fondy se přidělují v:**               | Předplatné spravované Azure                                                                           | Předplatné uživatele, ve kterém je vytvořený účet Batch                        |
+| **Podporované konfigurace:**             | <ul><li>Konfigurace cloudové služby</li><li>Konfigurace virtuálního počítače (Linux a Windows)</li></ul> | <ul><li>Konfigurace virtuálního počítače (Linux a Windows)</li></ul>                |
+| **Podporované image virtuálních počítačů:**                  | <ul><li>Image z webu Azure Marketplace</li></ul>                                                              | <ul><li>Image z webu Azure Marketplace</li><li>Vlastní image</li></ul>                   |
+| **Podporované typy výpočetních uzlů:**         | <ul><li>Vyhrazené uzly</li><li>Uzly s nízkou prioritou</li></ul>                                            | <ul><li>Vyhrazené uzly</li></ul>                                                  |
+| **Podporované metody ověřování:**             | <ul><li>Sdílený klíč</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Vyžaduje se služba Azure Key Vault:**             | Ne                                                                                                      | Ano                                                                                |
+| **Kvóta pro jádra:**                           | Určuje se podle kvóty pro jádra služby Batch                                                                          | Určuje se podle kvóty pro jádra předplatného                                              |
+| **Podpora virtuální sítě Azure:** | Fondy vytvořené s konfigurací cloudové služby                                                      | Fondy vytvořené s konfigurací virtuálního počítače                               |
+| **Podporovaný model nasazení virtuální sítě:**      | Virtuální sítě vytvořené pomocí modelu nasazení Classic                                                             | Virtuální sítě vytvořené pomocí modelu nasazení Classic nebo Azure Resource Manager |
+## <a name="azure-storage-account"></a>Účet služby Azure Storage
+
+Většina řešení Batch pro ukládání souborů prostředků a výstupních souborů používá službu Azure Storage.  
+
+Služba Batch aktuálně podporuje jenom účty úložiště pro obecné účely, jak popisuje krok 5 části [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v tématu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md). Úkoly služby Batch (včetně standardních úkolů, spouštěcích úkolů, úkolů přípravy úloh a úkolů uvolnění úloh) musí určovat soubory prostředků, které jsou umístěné jenom v účtech úložiště pro obecné účely.
 
 
 ## <a name="compute-node"></a>Výpočetní uzel
-Výpočetní uzel je virtuální počítač Azure nebo virtuální počítač cloudové služby, který je vyhrazený pro zpracování části úloh vaší aplikace. Velikost uzlu určuje počet jader procesoru, kapacita paměti a velikost místního systému souborů, který je přidělen k uzlu. Fondy uzlů Windows nebo Linux můžete vytvořit pomocí imagí Azure Cloud Services nebo Virtual Machines Marketplace. Další informace o těchto možnostech najdete v následující části [Fond](#pool).
+Výpočetní uzel je virtuální počítač Azure nebo virtuální počítač cloudové služby, který je vyhrazený pro zpracování části úloh vaší aplikace. Velikost uzlu určuje počet jader procesoru, kapacita paměti a velikost místního systému souborů, který je přidělen k uzlu. Fondy uzlů Windows nebo Linux můžete vytvořit pomocí služby Azure Cloud Services, imagí z webu [Azure Virtual Machines Marketplace][vm_marketplace] nebo vlastních imagí, které připravíte. Další informace o těchto možnostech najdete v následující části [Fond](#pool).
 
 Uzly mohou spustit libovolný spustitelný soubor nebo skript, který je podporován prostředím operačního systému uzlu. To zahrnuje soubory s příponami \*.exe, \*cmd, \*.bat a skripty PowerShellu pro Windows a binární soubory, shell a Python skripty pro Linux.
 
@@ -134,9 +149,11 @@ Při vytváření fondu můžete zadat následující atributy. Některá nastav
 Každé z těchto nastavení je podrobněji popsané v následujících částech.
 
 > [!IMPORTANT]
-> Účty služby Batch vytvořené s konfigurací Služba Batch mají výchozí kvótu, která omezuje počet jader účtu Batch. Počet jader odpovídá počtu výpočetních uzlů. Výchozí kvóty a pokyny pro [navýšení kvóty](batch-quota-limit.md#increase-a-quota) najdete v článku [Kvóty a omezení služby Azure Batch](batch-quota-limit.md). Pokud váš fond nedosahuje cílového počtu uzlů, může být důvodem právě kvóta jader.
+> Účty Batch vytvořené s režimem přidělování fondů Služba Batch mají výchozí kvótu, která omezuje počet jader v účtu Batch. Počet jader odpovídá počtu výpočetních uzlů. Výchozí kvóty a pokyny pro [navýšení kvóty](batch-quota-limit.md#increase-a-quota) najdete v článku [Kvóty a omezení služby Azure Batch](batch-quota-limit.md). Pokud váš fond nedosahuje cílového počtu uzlů, může být důvodem právě kvóta jader.
 >
->Účty Batch vytvořené s konfigurací Předplatné uživatele nedodržují kvóty služby Batch. Místo toho sdílejí kvótu jader pro zadané předplatné. Další informace najdete v tématu [Omezení virtuálních počítačů](../azure-subscription-service-limits.md#virtual-machines-limits) v tématu [Limity, kvóty a omezení předplatného a služeb Azure](../azure-subscription-service-limits.md).
+>Účty Batch vytvořené s režimem přidělování fondů Předplatné uživatele nedodržují kvóty služby Batch. Místo toho sdílejí kvótu jader pro zadané předplatné. Další informace najdete v tématu [Omezení virtuálních počítačů](../azure-subscription-service-limits.md#virtual-machines-limits) v tématu [Limity, kvóty a omezení předplatného a služeb Azure](../azure-subscription-service-limits.md).
+>
+>
 
 ### <a name="compute-node-operating-system-and-version"></a>Operační systém a verze výpočetního uzlu
 
@@ -158,7 +175,12 @@ Informace o nastavení režimu přidělení fondu při vytváření účtu Batch
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Vlastní image pro fondy virtuálních počítačů
 
-Pokud chcete pro fondy virtuálních počítačů použít vlastní image, vytvořte účet Batch s konfigurací Předplatné uživatele. S touto konfigurací se fondy Batch přidělují do předplatného, ve které je tento účet umístěný. Informace o nastavení režimu přidělení fondu při vytváření účtu Batch najdete v části [Účet](#account).
+Pokud chcete ke zřízení fondů virtuálních počítačů použít vlastní image, vytvořte účet Batch s režimem přidělování fondů Předplatné uživatele. S tímto režimem se fondy Batch přidělují do předplatného, ve které je tento účet umístěný. Informace o nastavení režimu přidělení fondu při vytváření účtu Batch najdete v části [Účet](#account).
+
+Pokud chcete použít vlastní image, budete ji muset připravit tím, že ji zobecníte. Informace o přípravě vlastních imagí Linuxu z virtuálních počítačů Azure najdete v tématu [Zachycení virtuálního počítače Azure s Linuxem pro použití jako šablony](../virtual-machines/linux/capture-image-nodejs.md). Informace o přípravě vlastních imagí Windows z virtuálních počítačů Azure najdete v tématu [Vytváření vlastních imagí virtuálních počítačů pomocí Azure PowerShellu](../virtual-machines/windows/tutorial-custom-images.md). Při přípravě vaší image mějte na paměti následující:
+
+- Zajistěte, aby image základního operačního systému, kterou použijete ke zřizování fondů Batch, neobsahovala žádná předinstalovaná rozšíření Azure, jako je například rozšíření vlastních skriptů. Pokud image obsahuje nějaké předinstalované rozšíření, v Azure může docházet k problémům při nasazování virtuálního počítače.
+- Zajistěte, aby poskytnutá image základního operačního systému používala výchozí dočasnou jednotku, protože ji očekává agent uzlu Batch.
 
 Pokud chcete vytvořit fond virtuálních počítačů s využitím vlastní image, budete potřebovat jeden nebo několik standardních účtů Azure Storage pro uložení vlastních imagí virtuálního pevného disku. Vlastní image se ukládají jako objekty blob. Pokud chcete při vytváření fondu zadat odkazy na vlastní image, zadejte pro vlastnost [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) vlastnosti [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) URI objektů blob VHD vlastní image.
 
@@ -166,7 +188,7 @@ Ověřte, že vaše účty úložiště splňují následující kritéria:
 
 - Účty úložiště, které obsahují objekty blob VHD vlastní image musí být ve stejném předplatném jako účet Batch (předplatné uživatele).
 - Zadané úložiště účty musí být ve stejné oblasti jako účet Batch.
-- V současnosti jsou podporované jenom standardní účty úložiště. Azure Storage úrovně Premium se bude podporovat v budoucnu.
+- V současnosti jsou podporované jenom účty úložiště úrovně Standard pro obecné účely. Azure Storage úrovně Premium se bude podporovat v budoucnu.
 - Můžete zadat jeden účet úložiště s několika vlastními objekty blob VHD, nebo několik účtů úložiště, z nichž každý má jeden objekt blob. K zajištění lepšího výkonu doporučujeme použít několik účtů úložiště.
 - Jeden jedinečný objekt blob VHD vlastní image může podporovat až 40 instancí virtuálního počítače s Linuxem nebo 20 instancí virtuálního počítače s Windows. Pokud chcete vytvořit fondy s větším počtem virtuálních počítačů, budete muset vytvořit kopie objektu blob VHD. Například fond s 200 virtuálními počítači s Windows potřebuje 10 jedinečných objektů blob VHD zadaných pro vlastnost **osDisk**.
 
@@ -418,26 +440,46 @@ Na druhém konci spektra, pokud je nejvyšší prioritou okamžité spuštění 
 
 V případě zpracovávání proměnlivého, ale stálého zatížení se obvykle používá kombinovaný přístup. Můžete mít fond, do nějž je odesíláno více úloh a který může podle zatížení úlohami měnit počet uzlů nahoru nebo dolů (viz [Škálování výpočetních prostředků](#scaling-compute-resources) v následující části). Toto přizpůsobování kapacity můžete provádět reaktivně, na základě aktuálního zatížení, nebo proaktivně, pokud lze zatížení předpovídat.
 
-## <a name="pool-network-configuration"></a>Konfigurace sítě fondu
+## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfigurace virtuální sítě a brány firewall 
 
-Při vytváření fondu výpočetních uzlů v Azure Batch můžete zadat ID podsítě [virtuální sítě](../virtual-network/virtual-networks-overview.md) Azure, ve které se mají výpočetní uzly fondu vytvářet.
+Při zřizování fondů výpočetních uzlů ve službě Azure Batch můžete k fondu přidružit podsíť [virtuální sítě](../virtual-network/virtual-networks-overview.md) Azure. Další informace o vytváření virtuálních sítí s podsítěmi najdete v tématu [Vytvoření virtuální sítě Azure s podsítěmi](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
-* Virtuální síť musí být:
+ * Virtuální síť přidružená k fondu musí být:
 
    * Ve stejné **oblasti** Azure jako účet Azure Batch.
    * Ve stejném **předplatném** jako účet Azure Batch.
 
 * Typ podporované virtuální sítě závisí na přidělování fondů pro účet Batch:
-    - Pokud byl účet Batch vytvořený s vlastností **poolAllocationMode** nastavenou na hodnotu BatchService, zadanou virtuální sítí musí být klasická virtuální síť.
-    - Pokud byl účet Batch vytvořený s vlastností **poolAllocationMode** nastavenou na hodnotu UserSubscription, zadanou virtuální sítí může být klasická virtuální síť nebo virtuální síť Azure Resource Manageru. Aby bylo možné používat virtuální síť, musí být fondy vytvořené s konfigurací virtuálního počítače. Fondy vytvořené s konfigurací cloudové služby se nepodporují.
 
-* Pokud byl účet Batch vytvořený s vlastností **poolAllocationMode** nastavenou na hodnotu BatchService, je pro přístup k virtuální síti nutné zadat oprávnění pro instanční objekt Batch. Instanční objekt Batch, který má název MicrosoftAzureBatch nebo MicrosoftAzureBatch, musí mít pro zadanou virtuální síť roli [Řízení přístupu na základě role Přispěvatel klasických virtuálních počítačů](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor). Pokud příslušná role RBAC není dostupná, služba Batch vrátí 400 (Chybný požadavek).
+    - Pokud je režim přidělování fondů pro váš účet Batch nastaven na Služba Batch, můžete virtuální síť přiřadit pouze k fondům vytvořeným s **konfigurací cloudové služby**. Kromě toho musí být zadaná virtuální síť vytvořena pomocí modelu nasazení Classic. Virtuální sítě vytvořené pomocí modelu nasazení Azure Resource Manager se nepodporují.
+ 
+    - Pokud je režim přidělování fondů pro váš účet Batch nastaven na Předplatné uživatele, můžete virtuální síť přiřadit pouze k fondům vytvořeným s **konfigurací virtuálního počítače**. Fondy vytvořené s **konfigurací cloudové služby** se nepodporují. Přidružená virtuální síť může být vytvořena pomocí modelu nasazení Azure Resource Manager nebo modelu nasazení Classic.
+
+    Tabulku se souhrnem podpory virtuálních sítí podle režimu přidělování fondů najdete v části [Režim přidělování fondů](#pool-allocation-mode).
+
+* Pokud je režim přidělování fondů pro váš účet Batch nastaven na Služba Batch, je pro přístup k virtuální síti nutné zadat oprávnění pro instanční objekt služby Batch. Virtuální síť musí instančnímu objektu služby Batch přiřadit roli [Řízení přístupu na základě role (RBAC) Přispěvatel klasických virtuálních počítačů](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor). Pokud příslušná role RBAC není dostupná, služba Batch vrátí 400 (Chybný požadavek). Přidání role na webu Azure Portal:
+
+    1. Vyberte **Virtuální síť** a potom **Řízení přístupu (IAM)** > **Role** > **Přispěvatel virtuálních počítačů** > **Přidat**.
+    2. V okně **Přidat oprávnění** vyberte roli **Přispěvatel virtuálních počítačů**.
+    3. V okně **Přidat oprávnění** vyhledejte rozhraní API služby Batch. Postupně hledejte každý z těchto řetězců, dokud rozhraní API nenajdete:
+        1. **MicrosoftAzureBatch**.
+        2. **Microsoft Azure Batch**. Novější tenanti služby Azure AD mohou používat tento název.
+        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** je ID rozhraní API služby Batch. 
+    3. Vyberte instanční objekt rozhraní API služby Batch. 
+    4. Klikněte na **Uložit**.
+
+        ![Přiřazení role Přispěvatel virtuálních počítačů instančnímu objektu služby Batch](./media/batch-api-basics/iam-add-role.png)
+
 
 * Zadaná podsíť musí mít dostatek volných **IP adres** k obsluze celkového počtu cílových uzlů, to znamená součtu hodnot vlastností fondu `targetDedicatedNodes` a `targetLowPriorityNodes`. Pokud podsíť nemá dostatek volných IP adres, služba Batch částečně přidělí výpočetní uzly ve fondu a vrátí chybu změny velikosti.
 
 * Určená podsíť musí umožňovat komunikaci ze služby Batch, aby mohla plánovat úlohy ve výpočetních uzlech. Pokud je komunikace s výpočetními uzly zakázána **skupinou zabezpečení sítě (NSG)** přidruženou k virtuální síti, nastaví služba Batch stav výpočetních uzlů na **nepoužitelné**.
 
-* Pokud zadaná virtuální síť nemá žádné přidružené skupiny zabezpečení sítě (NSG), musí být pro několik vyhrazených systémových portů povolena příchozí komunikace. Pro fondy vytvořené s konfigurací virtuálního počítače povolte porty 29876 a 29877 také port 22 pro Linux a port 3389 pro Windows. Pro fondy vytvořené s konfigurací cloudové služby povolte porty 10100, 20100 a 30100. Dál povolte příchozí připojení služby Azure Storage na portu 443.
+* Pokud má zadaná virtuální síť přidružené **skupiny zabezpečení sítě (NSG)** a/nebo **bránu firewall**, musí být pro několik vyhrazených systémových portů povolena příchozí komunikace:
+
+- Pro fondy vytvořené s konfigurací virtuálního počítače povolte porty 29876 a 29877 také port 22 pro Linux a port 3389 pro Windows. 
+- Pro fondy vytvořené s konfigurací cloudové služby povolte porty 10100, 20100 a 30100. 
+- Povolte odchozí připojení ke službě Azure Storage na portu 443. Také se ujistěte, že všechny vlastní servery DNS obsluhující virtuální síť dokáží přeložit váš koncový bod služby Azure Storage. Konkrétně musí být možné přeložit adresu URL ve formátu `<account>.table.core.windows.net`.
 
     Následující tabulka popisuje příchozí porty, které je nutné povolit pro fondy vytvořené s konfigurací virtuálního počítače:
 
@@ -451,29 +493,6 @@ Při vytváření fondu výpočetních uzlů v Azure Batch můžete zadat ID pod
     |    Odchozí porty    |    Cíl    |    Přidala služba Batch skupiny NSG?    |    Vyžaduje se pro využitelnost virtuálních počítačů?    |    Akce ze strany uživatele    |
     |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
     |    443    |    Azure Storage    |    Ne    |    Ano    |    Pokud jste přidali nějaké NSG, ujistěte se, že tento port je otevřený pro odchozí provoz.    |
-
-
-Další nastavení pro virtuální síť se liší v závislosti na režimu přidělování fondů pro účet Batch.
-
-### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Virtuální sítě pro fondy zřízené v rámci služby Batch
-
-V režim přidělování služby Batch je možné přiřadit virtuální síť pouze k fondům **konfigurace služby Cloud Services**. Kromě toho musí být určená virtuální síť **klasickou** virtuální sítí. Virtuální sítě vytvořené pomocí modelu nasazení Azure Resource Manager se nepodporují.
-
-
-
-* Instanční objekt *MicrosoftAzureBatch* musí mít pro zadanou virtuální síť roli řízení přístupu na základě rolí [Přispěvatel virtuálních počítačů modelu Classic](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor). Na webu Azure Portal:
-
-  * Vyberte **Virtuální síť** a pak **Řízení přístupu (IAM)** > **Role** > **Přispěvatel virtuálních počítačů modelu Classic** > **Přidat**.
-  * Do pole **Vyhledávání** zadejte MicrosoftAzureBatch.
-  * Zaškrtněte políčko **MicrosoftAzureBatch**.
-  * Klikněte na tlačítko **Vybrat**.
-
-
-
-### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>Virtuální sítě pro fondy zřízené v rámci předplatného uživatele
-
-V režimu přidělování podle předplatného uživatele jsou podporovány pouze fondy **konfigurace virtuálního počítače** a virtuální síť lze přiřadit pouze k nim. Kromě toho musí být určená virtuální síť založena na **Resource Manageru**. Virtuální sítě vytvořené pomocí klasického modelu nasazení se nepodporují.
-
 
 
 ## <a name="scaling-compute-resources"></a>Škálování výpočetních prostředků

@@ -12,10 +12,10 @@ ms.devlang: go
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ffe09758d0bf5dd4a6e599b1a606d9ae5fce4bf9
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -38,6 +38,7 @@ Nainstalujte na svém počítači jazyk [Go](https://golang.org/doc/install) a o
 5. Nastavte proměnnou prostředí GOPATH tak, aby odkazovala na adresář se zdrojovým kódem. `set GOPATH=%USERPROFILE%\go`.
 6. Nainstalujte ovladač [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) spuštěním příkazu`go get github.com/go-sql-driver/mysql`.
 
+   Stručně řečeno, nainstalujte jazyk Go a potom na příkazovém řádku spusťte následující příkazy:
    ```cmd
    mkdir  %USERPROFILE%\go\src\mysqlgo
    cd %USERPROFILE%\go\src\mysqlgo
@@ -53,6 +54,7 @@ Nainstalujte na svém počítači jazyk [Go](https://golang.org/doc/install) a o
 5. Nastavte proměnnou prostředí GOPATH tak, aby odkazovala na platný zdrojový adresář, jako je například aktuální složka go ve vašem domovském adresáři. Spuštěním příkazu `export GOPATH=~/go` v prostředí Bash přidejte adresář go jako hodnotu proměnné GOPATH pro aktuální relaci prostředí.
 6. Nainstalujte ovladač [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) spuštěním příkazu`go get github.com/go-sql-driver/mysql`.
 
+   Stručně řečeno, spusťte tyto příkazy Bash:
    ```bash
    sudo apt-get install golang-go
    mkdir -p ~/go/src/mysqlgo/
@@ -69,13 +71,13 @@ Nainstalujte na svém počítači jazyk [Go](https://golang.org/doc/install) a o
 5. Nastavte proměnnou prostředí GOPATH tak, aby odkazovala na platný zdrojový adresář, jako je například aktuální složka go ve vašem domovském adresáři. Spuštěním příkazu `export GOPATH=~/go` v prostředí Bash přidejte adresář go jako hodnotu proměnné GOPATH pro aktuální relaci prostředí.
 6. Nainstalujte ovladač [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) spuštěním příkazu`go get github.com/go-sql-driver/mysql`.
 
+   Stručně řečeno, nainstalujte jazyk Go a potom spusťte tyto příkazy Bash:
    ```bash
    mkdir -p ~/go/src/mysqlgo/
    cd ~/go/src/mysqlgo/
    export GOPATH=~/go/
    go get github.com/go-sql-driver/mysql
    ```
-
 
 ## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for MySQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
@@ -89,10 +91,12 @@ Získejte informace o připojení potřebné pro připojení ke službě Azure D
    
 
 ## <a name="build-and-run-go-code"></a>Sestavení a spuštění kódu jazyka Go 
-1. Kód jazyka Go z dalších částí vložte do textových souborů a tyto soubory uložte do složky vašeho projektu s příponou *.go, například `%USERPROFILE%\go\src\mysqlgo\createtable.go` (cesta ve Windows) nebo `~/go/src/mysqlgo/createtable.go` (cesta v Linuxu).
-2. Spusťte příkazový řádek nebo prostředí Bash. Změňte adresář na složku vašeho projektu. Například ve Windows pomocí příkazu `cd %USERPROFILE%\go\src\mysqlgo\`. V Linuxu pomocí příkazu `cd ~/go/src/mysqlgo/`.
-3. Spusťte kód zadáním příkazu `go run createtable.go`, který aplikaci zkompiluje a spustí.
-4. Alternativně, pokud z kódu chcete sestavit nativní aplikaci, spusťte příkaz `go build createtable.go` a pak aplikaci spusťte pomocí souboru `createtable.exe`.
+1. K psaní kódu jazyka Go můžete použít jednoduchý textový editor, jako je Poznámkový blok v systému Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) nebo [Nano](https://www.nano-editor.org/) v systému Ubuntu nebo TextEdit v systému macOS. Pokud dáváte přednost bohatšímu integrovanému vývojovému prostředí (IDE), vyzkoušejte [Gogland](https://www.jetbrains.com/go/) od JetBrains, [Visual Studio Code](https://code.visualstudio.com/) od Microsoftu nebo [Atom](https://atom.io/).
+2. Kód jazyka Go z dalších částí vložte do textových souborů a tyto soubory uložte do složky vašeho projektu s příponou \*.go, například `%USERPROFILE%\go\src\mysqlgo\createtable.go` (cesta ve Windows) nebo `~/go/src/mysqlgo/createtable.go` (cesta v Linuxu).
+3. V kódu vyhledejte konstanty `HOST`, `DATABASE`, `USER` a `PASSWORD` a příklady hodnot nahraďte vlastními hodnotami. 
+4. Spusťte příkazový řádek nebo prostředí Bash. Změňte adresář na složku vašeho projektu. Například ve Windows pomocí příkazu `cd %USERPROFILE%\go\src\mysqlgo\`. V Linuxu pomocí příkazu `cd ~/go/src/mysqlgo/`.  Některá ze zmíněných integrovaných vývojových prostředí (IDE) nabízejí možnosti ladění a modulu runtime, které nevyžadují příkazy prostředí.
+5. Spusťte kód zadáním příkazu `go run createtable.go`, který aplikaci zkompiluje a spustí. 
+6. Alternativně, pokud z kódu chcete sestavit nativní aplikaci, spusťte příkaz `go build createtable.go` a pak aplikaci spusťte pomocí souboru `createtable.exe`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Připojení, vytvoření tabulky a vložení dat
 Pomocí následujícího kódu se připojte k serveru, vytvořte tabulku a nahrajte data s využitím příkazu **INSERT** jazyka SQL. 

@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Přehled sady Azure IoT Suite
@@ -55,7 +54,13 @@ Informace o tom, jak vypadá architektura typického řešení IoT, najdete v t�
 
 ## <a name="preconfigured-solutions"></a>Předkonfigurovaná řešení
 
-IoT Suite zahrnuje předkonfigurovaná řešení, která vám umožňují rychle začít s běžnými scénáři IoT, jako je *Vzdálené monitorování* *Prediktivní údržba* a *Propojená továrna*. Tato řešení můžete nasadit ve svém předplatném Azure a následně spustit kompletní scénář IoT od začátku do konce.
+IoT Suite zahrnuje předkonfigurovaná řešení, která vám umožní rychle začít s běžnými scénáři IoT, jako jsou:
+
+* Vzdálené monitorování
+* Prediktivní údržba
+* Propojená továrna
+
+Tato řešení můžete nasadit ve svém předplatném Azure a následně spustit kompletní scénář IoT od začátku do konce.
 
 ## <a name="next-steps"></a>Další kroky
 

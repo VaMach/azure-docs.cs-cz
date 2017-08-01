@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Správa prostředků služby Batch pomocí Azure CLI
@@ -78,7 +77,7 @@ Pro účely tohoto článku vám ukážeme, jak se k Azure přihlásit interakti
 az login
 ```
 
-Příkaz `az login` vrátí token, který budete používat k ověření, jak je vidět zde. Postupem podle zobrazených pokynů otevřete webovou stránku a odešlete token do služby Azure:
+Příkaz `az login` vrátí token, který můžete použít k ověření, jak je vidět zde. Postupem podle zobrazených pokynů otevřete webovou stránku a odešlete token do služby Azure:
 
 ![Přihlášení k Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ Máte dvě možnosti ověření proti účtu Batch:
     ```
 
 Příklady uvedené v části [Ukázkové skripty prostředí](#sample-shell-scripts) ukazují, jak se k účtu Batch přihlásit v rozhraní příkazového řádku Azure CLI jak pomocí služby Azure AD, tak i pomocí sdíleného klíče.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Použití šablon rozhraní příkazového řádku služby Batch a přenos souborů (Preview)
+
+Pomocí Azure CLI můžete spouštět kompletní úlohy Batch bez psaní kódu. Soubory šablon služby Batch podporují vytváření fondů, úloh a úkolů pomocí Azure CLI. Pomocí Azure CLI můžete také nahrávat vstupní soubory úloh do účtu Azure Storage přidruženého k účtu Batch a stahovat z něj výstupní soubory úloh. Další informace najdete v tématu [Použití šablon rozhraní příkazového řádku služby Batch a přenos souborů (Preview)](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Ukázkové skripty prostředí
 
@@ -187,7 +190,7 @@ Následující tipy mohou pomoci při řešení potíží s rozhraním příkazo
 
 * Další informace o rozhraní příkazového řádku Azure CLI najdete v [dokumentaci k rozhraní příkazového řádku Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 * Další informace o prostředcích služby Batch najdete v článku [Přehled služby Azure Batch pro vývojáře](batch-api-basics.md).
-* V článku [Nasazení aplikací do výpočetních uzlů pomocí balíčků aplikací Batch](batch-application-packages.md) se dozvíte, jak tuto funkci použít ke správě a nasazení aplikací, které spouštíte na výpočetních uzlech Batch.
+* Další informace o použití šablon služby Batch k vytvoření fondů, úloh a úkolů bez psaní kódu najdete v tématu [Použití šablon rozhraní příkazového řádku služby Batch a přenos souborů (Preview)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

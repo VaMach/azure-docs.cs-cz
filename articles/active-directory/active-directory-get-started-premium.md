@@ -1,6 +1,6 @@
 ---
 title: "Začínáme se službou Azure Active Directory Premium"
-description: "Téma, které vysvětluje, jak si registrovat edici Azure Active Directory Premium prostřednictvím multilicenčního webu."
+description: "Vysvětluje, jak si registrovat edici Azure Active Directory Premium prostřednictvím webu multilicenčních programů."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 12/07/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Začínáme se službou Azure Active Directory Premium
+Tento článek ukazuje, jak začít pracovat se službou Azure Active Directory Premium, kterou jste zakoupili prostřednictvím multilicenčního programu. Pokud ještě nejste obeznámeni s různými edicemi služby Azure Active Directory, přečtěte si téma [Edice služby Azure Active Directory](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek. 
+
 Active Directory Premium si můžete registrovat několika způsoby: 
 
 **Azure nebo Office 365** – jako předplatitel služby Azure nebo Office 365 si můžete koupit Active Directory Premium online. Podrobný postup naleznete v tématu [Jak zakoupit Azure Active Directory Premium – stávající zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) nebo [Jak zakoupit Azure Active Directory Premium – noví zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
@@ -29,8 +34,6 @@ Active Directory Premium si můžete registrovat několika způsoby:
 **Enterprise Mobility + Security** – Enterprise Mobility + Security (dříve Enterprise Mobility Suite) je pro organizace nákladově efektivní způsob používání následujících služeb společně v rámci jednoho licenčního plánu: Active Directory Premium, Azure Rights Management, Microsoft Intune. Další informace naleznete na webu [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Pokud chcete získat bezplatnou 30denní zkušební verzi, klikněte [sem](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 **Multilicenční služby společnosti Microsoft** – Azure Active Directory Premium je k dispozici prostřednictvím programu [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 nebo více licencí) nebo [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licencí).
-
-Toto téma ukazuje, jak začít pracovat s edicí Azure Active Directory Premium, kterou jste zakoupili prostřednictvím multilicenčního programu. Pokud ještě nejste obeznámeni s různými edicemi služby Azure Active Directory, přečtěte si téma [Edice služby Azure Active Directory](active-directory-editions.md).  
 
 > [!NOTE]
 > Edice Premium a Basic služby Azure Active Directory jsou zákazníkům v Číně dostupné prostřednictvím celosvětové instance služby Azure Active Directory. Edice Premium a Basic služby Azure Active Directory nejsou aktuálně podporované ve službě Microsoft Azure provozované v Číně společností 21Vianet. Další informace si vyžádejte na [fóru služby Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,9 +35,9 @@ Azure Automation je aplikace SaaS (software jako služba), která poskytuje šk�
 
 Runbooky, které spouštíte v Azure, běží v sandboxech Automation, které jsou hostované ve virtuálních počítačích Azure typu platforma jako služba (PaaS).  Sandboxy Automation poskytují izolaci tenantů pro všechny aspekty spuštění runbooků – moduly, úložiště, paměť, síťové komunikace, datové proudy úlohy atd. Tato role je spravovaná službou, není dostupná z vašeho účtu Azure nebo Azure Automation a nemůžete ji řídit.         
 
-K automatizaci nasazení a správy prostředků v místním datovém centru nebo jiných cloudových službách můžete po vytvoření účtu Automation určit jeden nebo několik počítačů, na kterých poběží role [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md).  Každý proces HRW vyžaduje agenta MMA (Microsoft Management Agent) s připojením k pracovnímu prostoru Log Analytics a účet Automation.  Log Analytics se používá ke spuštění instalace, údržbě agenta MMA a monitorování procesu HRW.  Doručování runbooků a instrukce k jejich spuštění provádí Azure Automation.
+K automatizaci nasazení a správy prostředků v místním datovém centru nebo jiných cloudových službách můžete po vytvoření účtu Automation určit jeden nebo několik počítačů, na kterých poběží role [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md).  Každý proces HRW vyžaduje agenta Microsoft Management Agent s připojením k pracovnímu prostoru Log Analytics a účet Automation.  Log Analytics se používá ke spuštění instalace, údržbě agenta Microsoft Management Agent a monitorování procesu HRW.  Doručování runbooků a instrukce k jejich spuštění provádí Azure Automation.
 
-Můžete nasadit několik HRW k zajištění vysoké dostupnosti pro runbooky, vyrovnávání zatížení runboiokových úloh a v některých případech je můžete vyhradit pro konkrétní úlohy nebo prostředí.  HRW komunikuje se službou Automation přes odchozí port TCP 443.  Když je runbook spuštěný v procesu HRW v rámci vašeho datového centra a chcete ho využít k provádění úloh správy pro jiné počítače nebo služby v tomto datovém centru, je možné, že runbook bude potřebovat přístup i k dalším portům.  Pokud zásady zabezpečení IT neumožňují, aby se počítače ve vaší síti připojovaly k internetu, přečtěte si článek o [bráně OMS](../log-analytics/log-analytics-oms-gateway.md), která pro HRW funguje jako proxy pro shromažďování stavu úloh a příjem konfiguračních informací z vašeho účtu Automation.
+Můžete nasadit několik HRW k zajištění vysoké dostupnosti pro runbooky, vyrovnávání zatížení runboiokových úloh a v některých případech je můžete vyhradit pro konkrétní úlohy nebo prostředí.  Microsoft Monitoring Agent v procesu HRW navazuje komunikaci se službou Automation přes port TCP 443 a nemá žádné požadavky na bránu firewall pro příchozí provoz.  Když je runbook spuštěný v procesu HRW v rámci prostředí a chcete ho využít k provádění úloh správy pro jiné počítače nebo služby v tomto prostředí, je možné, že runbook bude potřebovat přístup i k dalším portům.  Pokud zásady zabezpečení IT neumožňují, aby se počítače ve vaší síti připojovaly k internetu, přečtěte si článek o [bráně OMS](../log-analytics/log-analytics-oms-gateway.md), která pro HRW funguje jako proxy pro shromažďování stavu úloh a příjem konfiguračních informací z vašeho účtu Automation.
 
 Runbooky, které běží v HRW, se spouští v kontextu místního systémového účtu v počítači, který je doporučeným kontextem zabezpečení při provádění akcí správy v místním počítači s Windows. Pokud chcete, aby runbook spouštěl úlohy s využitím prostředků mimo místní počítač, je možné, že budete muset definovat zabezpečené assety přihlašovacích údajů v účtu Automation, ke kterému máte z runbooku přístup, a používat je k ověřování pro externí zdroj. Assety [Přihlašovací údaje](automation-credentials.md), [Certifikát](automation-certificates.md) a [Propojení](automation-connections.md) ve vašem runbooku můžete používat s rutinami, které umožňují specifikovat přihlašovací údaje, abyste je mohli ověřit.
 

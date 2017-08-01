@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bae2e9825bf158bb015ec0affa56f15ce5baa201
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Úvod do služby Azure File Storage
-Azure File Storage nabízí sdílené složky souborů sítě v cloudu s využitím standardních průmyslových protokolů [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) a [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Sdílené složky Azure můžou současně připojit klienti, jako jsou například místní nasazení systémů Windows, macOS nebo Linux nebo služba Azure Virtual Machines. Účet úložiště pro obecné účely poskytuje přístup ke službě Azure File Storage a dalším službám, jako jsou například objekty blob, disky virtuálních počítačů Azure a fronty v rámci jednoho účtu.
+Azure File Storage nabízí sdílené složky souborů sítě v cloudu s využitím standardních průmyslových protokolů [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) a [Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Sdílené složky Azure můžou současně připojit klienti, jako jsou například místní nasazení systémů Windows, macOS nebo Linux nebo služba Azure Virtual Machines. Účet úložiště pro obecné účely poskytuje přístup ke službě Azure File Storage a dalším službám, jako jsou například objekty blob, disky virtuálních počítačů Azure a fronty v rámci jednoho účtu.
 
 
 

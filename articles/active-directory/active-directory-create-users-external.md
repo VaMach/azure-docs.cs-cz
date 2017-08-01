@@ -12,28 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory
-<a id="add-users-from-other-directories-or-partner-companies-in-azure-active-directory" class="xliff"></a>
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-users-create-external-azure-portal.md )
-> * [Portál Azure Classic](active-directory-create-users-external.md)
->
->
+# <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory
 
-Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve službě Azure Active Directory nebo uživatele z partnerských společností. Informace o přidávání nových uživatelů v organizaci a přidávání uživatelů, kteří mají účty Microsoft, najdete v článku [Přidání nových uživatelů do službě Azure Active Directory](active-directory-create-users.md). Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
+Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve službě Azure Active Directory nebo uživatele z partnerských společností. Informace o přidávání nových uživatelů v organizaci a přidávání uživatelů, kteří mají účty Microsoft, najdete v článku [Přidání nových uživatelů do službě Azure Active Directory](active-directory-create-users.md). 
 
-## Přidání uživatele
-<a id="add-a-user" class="xliff"></a>
+> [!IMPORTANT]
+> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek. Informace o přidání uživatelů typu host pro spolupráci B2B v centru pro správu Azure AD najdete v tématu [Co je spolupráce Azure AD s B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
+
+Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, ale příslušné role jim můžete kdykoli přiřadit.
+
+## <a name="add-a-user"></a>Přidání uživatele
 1. Přihlaste se k portálu [Azure Classic](https://manage.windowsazure.com) prostřednictvím účtu, který má k adresáři oprávnění globálního správce.
 2. Vyberte **Active Directory** a otevřete svůj adresář.
 3. Vyberte kartu **Uživatelé** a na panelu příkazů vyberte **Přidat uživatele**.
@@ -53,14 +52,12 @@ Tento článek vysvětluje, jak přidat uživatele z dalších adresářů ve sl
 
 Pokud chcete měnit informace u uživatele, jehož identita je synchronizována s místní službou Active Directory, nemůžete k tomu použít portál Azure Classic. Ke změně informací o uživateli použijte nástroje pro správu vaší místní služby Active Directory.
 
-## Přidání externích uživatelů
-<a id="add-external-users" class="xliff"></a>
+## <a name="add-external-users"></a>Přidání externích uživatelů
 Můžete taky přidat uživatele z jiného adresáře služby Azure AD, do kterého patříte, nebo z partnerských společností tím, že nahrajete soubor .csv. Pokud chcete přidat externího uživatele, vyberte v poli **Typ uživatele** možnost **Uživatel z jiného adresáře služby Microsoft Azure AD** nebo **Uživatelé z partnerských společností**.
 
 Uživatelé těchto typů pocházejí z jiných adresářů a přidají se jako **externí uživatelé**. Externí uživatelé mohou spolupracovat s ostatními uživateli v adresáři, aniž by bylo nutné přidávat nové účty a přihlašovací údaje. Externí uživatelé jsou při přihlašování ověřováni pomocí svých domovských adresářů. Toto ověření platí i pro všechny další adresáře, do kterých byli přidáni.
 
-## Správa a omezení externích uživatelů
-<a id="external-user-management-and-limitations" class="xliff"></a>
+## <a name="external-user-management-and-limitations"></a>Správa a omezení externích uživatelů
 Když do svého adresáře přidáte uživatele z jiného adresáře, bude tento uživatel ve vašem adresáři externím uživatelem. Zobrazované jméno a uživatelské jméno, které se pro externího uživatele ve vašem adresáři použije, se zkopíruje z jeho domovského adresáře. Od této chvíle jsou vlastnosti externího uživatelského účtu zcela nezávislé. Změna vlastnosti uživatele v jeho domovském adresáři se do účtu externího uživatele ve vašem adresáři nepřenese.
 
 Jediné propojení, které mezi těmito dvěma účty existuje, spočívá v tom, že se uživatel vždy ověřuje prostřednictvím svého domovského adresáře nebo účtu Microsoft. To je důvod, proč u externího uživatele nevidíte možnost povolení vícefaktorového ověřování nebo resetování hesla. V současné době se při přihlášení uživatele vyhodnocují pouze zásady ověřování jeho domovského adresáře nebo účtu Microsoft.
@@ -72,15 +69,13 @@ Jediné propojení, které mezi těmito dvěma účty existuje, spočívá v tom
 
 Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstraněn ze svého domovského adresáře nebo zruší svůj účet Microsoft. Tento uživatel ale nebude mít přístup k prostředkům ve vašem adresáři, protože se nemůže ověřit prostřednictvím domovského adresáře nebo účtu Microsoft.
 
-### Služby, které aktuálně podporují přístup externích uživatelů služby Azure AD
-<a id="services-that-currently-support-access-by-azure-ad-external-users" class="xliff"></a>
+### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Služby, které aktuálně podporují přístup externích uživatelů služby Azure AD
 * **Portál Azure Classic**: Umožňuje externímu uživateli, který je správcem více adresářů, spravovat každý z těchto adresářů.
 * **SharePoint Online**: Pokud je povoleno externí sdílení, umožňuje externímu uživateli přístup k autorizovaným prostředkům služby SharePoint Online.
 * **Dynamics CRM**: Pokud je uživatel licencován prostřednictvím rozhraní PowerShell, umožňuje externímu uživateli přístup k autorizovaným prostředkům služby Dynamics CRM.
 * **Dynamics AX**: Pokud je uživatel licencován prostřednictvím rozhraní PowerShell, umožňuje externímu uživateli přístup k autorizovaným prostředkům služby Dynamics AX. Omezení pro [externí uživatele služby Azure AD](#known-limitations-of-azure-ad-external-users) platí pro externí uživatele v aplikaci Dynamics AX také.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 * [Přidání nových uživatelů do služby Azure Active Directory](active-directory-create-users.md)
 * [Správa služby Azure AD](active-directory-administer.md)
 * [Správa hesel ve službě Azure AD](active-directory-manage-passwords.md)

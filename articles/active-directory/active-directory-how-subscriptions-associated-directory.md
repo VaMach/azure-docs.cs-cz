@@ -12,18 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 7a82dcddcd051c88c2a6a515ed2353961307182a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 02/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Jak je předplatné Azure propojeno se službou Azure Active Directory
 V tomto článku najdete informace o přihlašování do služby Microsoft Azure a souvisejících problémech, jako je například vztah mezi předplatným služby Azure a službou Azure Active Directory (Azure AD).
+
+> [!IMPORTANT]
+> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek.
 
 ## <a name="accounts-that-you-can-use-to-sign-in"></a>Účty, které můžete použít pro přihlášení
 Začněme s účty, které můžete použít pro přihlášení Existují dva typy: účet Microsoft (dříve označovaný jako Microsoft Live ID) a pracovní nebo školní účet, což je účet uložený ve službě Azure AD.
@@ -120,8 +124,7 @@ Abyste mohli na portálu Azure Classic spravovat oba adresáře, postupujte nás
 ## <a name="next-steps"></a>Další kroky
 * Další informace o tom, jak změnit správce pro předplatné služby Azure naleznete v tématu [Postup přidání nebo změna role správce služby Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Další informace o tom, jak se přístup k prostředkům řídí ve službě Microsoft Azure, najdete v části [Principy přístupu k prostředkům ve službě Azure](active-directory-understanding-resource-access.md)
-* Další informace o tom, jak přiřadit role ve službě Azure AD, najdete v tématu [Přiřazení rolí správce ve službě Azure Active Directory](active-directory-assign-admin-roles.md)
-* [Registrace organizace ke službě Azure](sign-up-organization.md)
+* Další informace o tom, jak přiřadit role ve službě Azure AD, najdete v tématu [Přiřazení rolí správce ve službě Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
