@@ -22,18 +22,14 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="azure-security-center-planning-and-operations-guide" class="xliff"></a>
-
-# Průvodce plánováním a provozem služby Azure Security Center
+# <a name="azure-security-center-planning-and-operations-guide"></a>Průvodce plánováním a provozem služby Azure Security Center
 Tento průvodce je určený odborníkům na informační technologie (IT), IT architektům, analytikům zabezpečení informací a správcům cloudů, jejichž společnosti hodlají začít používat Azure Security Center.
 
 >[!NOTE] 
 >Od začátku června 2017 bude Security Center používat ke shromažďování a ukládání dat agenta Microsoft Monitoring Agent. Další informace najdete v článku o [migraci platformy pro Azure Security Center](security-center-platform-migration.md). Informace v tomto článku představují funkce služby Security Center po přechodu na agenta Microsoft Monitoring Agent.
 >
 
-<a id="planning-guide" class="xliff"></a>
-
-## Průvodce plánováním
+## <a name="planning-guide"></a>Průvodce plánováním
 Tato příručka pojednává o krocích a úkolech, které můžete provést, abyste přizpůsobili použití služby Security Center požadavkům na zabezpečení a modelu správy cloudu ve vaší organizaci. Pokud chcete využívat všech výhod služby Security Center, je důležité pochopit, jak různí jednotlivci nebo týmy ve vaší organizaci používají tuto službu k tomu, aby vyhověli požadavkům na zabezpečený vývoj a provoz, sledování, řízení a reakce na incidenty. Při plánování použití služby Security Center je potřeba zvážit tyto klíčové oblasti:
 
 * Role zabezpečení a řízení přístupu
@@ -48,9 +44,7 @@ V další části se dozvíte, jak každou z těchto oblastí naplánovat a jak 
 > V tématu [Azure Security Center – nejčastější dotazy](security-center-faq.md) najdete seznam běžných dotazů, které vám můžou pomoct i ve fázi návrhu a plánování.
 > 
 
-<a id="security-roles-and-access-controls" class="xliff"></a>
-
-## Role zabezpečení a řízení přístupu
+## <a name="security-roles-and-access-controls"></a>Role zabezpečení a řízení přístupu
 V závislosti na velikosti a struktuře vaší organizace můžou službu Security Center používat různí jednotlivci a týmy a provádět v ní různé úkony týkající se zabezpečení. Následující diagram ukazuje příklad zahrnující fiktivní osoby a jejich příslušné role a povinnosti v oblasti zabezpečení:
 
 ![Role](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
@@ -129,9 +123,7 @@ Při plánování řízení přístupu pomocí RBAC pro Security Center je potř
 > 
 > 
 
-<a id="security-policies-and-recommendations" class="xliff"></a>
-
-## Zásady a doporučení zabezpečení
+## <a name="security-policies-and-recommendations"></a>Zásady a doporučení zabezpečení
 Zásady zabezpečení definují sadu ovládacích prvků doporučenou pro prostředky v rámci daného předplatného. V Security Center určíte zásady na základě toho, jaké má vaše společnost požadavky na zabezpečení, a podle typu aplikací nebo citlivosti dat.
 
 Zásady povolené na úrovni předplatného se automaticky šíří do všech skupin prostředků v rámci tohoto předplatného, jak ukazuje následující diagram:
@@ -143,21 +135,15 @@ Zásady povolené na úrovni předplatného se automaticky šíří do všech sk
 > 
 > 
 
-<a id="security-recommendations" class="xliff"></a>
-
-### Doporučení zabezpečení
+### <a name="security-recommendations"></a>Doporučení zabezpečení
 Než začnete konfigurovat zásady zabezpečení, prostudujte si všechna [doporučení zabezpečení](security-center-recommendations.md) a zkontrolujte, jestli jsou dané zásady vhodné pro vaše předplatné a skupiny prostředků. Je také důležité pochopit, jaká akce by se měla provést pro řešení [Doporučení zabezpečení](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations) a kdo z organizace bude zodpovědný za monitorování nových doporučení a provádění potřebných kroků.
 
 Security Center vám doporučí, abyste ve svém předplatném Azure uvedli podrobnosti o kontaktu zabezpečení. Prostřednictvím tohoto kontaktu se na vás společnost Microsoft obrátí, pokud středisko Microsoft Security Response Center (MSRC) zjistí, že k datům zákazníka nezákonně nebo neoprávněně přistupovala třetí strana. Další informace o povolení tohoto doporučení najdete v článku [Zadání podrobností o kontaktu zabezpečení do Azure Security Center](security-center-provide-security-contact-details.md).
 
-<a id="data-collection-and-storage" class="xliff"></a>
-
-## Shromažďování dat a úložiště
+## <a name="data-collection-and-storage"></a>Shromažďování dat a úložiště
 Azure Security Center používá agenta Microsoft Monitoring Agent – to je stejný agent, kterého používá Operations Management Suite a služba Log Analytics – ke shromažďování dat zabezpečení z virtuálních počítačů. Data shromážděná z tohoto agenta se budou ukládat v pracovních prostorech Log Analytics.
 
-<a id="agent" class="xliff"></a>
-
-### Agent
+### <a name="agent"></a>Agent
 
 Po povolení shromažďování dat v zásadách zabezpečení se agent Microsoft Monitoring Agent (pro [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) nebo [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) nainstaluje na všech podporovaných a nově vytvořených virtuálních počítačích Azure.  Pokud je na virtuálním počítači agent Microsoft Monitoring Agent již nainstalovaný, Azure Security Center bude využívat stávajícího nainstalovaného agenta. Proces agenta je navržen tak, aby nenarušoval běžný chod a měl zcela minimální dopad na výkon virtuálního počítače.
 
@@ -169,9 +155,7 @@ Pokud někdy budete chtít shromažďování dat vypnout, můžete to udělat v 
 > V tématu [Azure Security Center – nejčastější dotazy](security-center-faq.md) najdete seznam podporovaných virtuálních počítačů.
 > 
 
-<a id="workspace" class="xliff"></a>
-
-### Pracovní prostor
+### <a name="workspace"></a>Pracovní prostor
 
 Data shromážděná z agenta Microsoft Monitoring Agent (jménem služby Azure Security Center) budou uložena v existujících pracovních prostorech Log Analytics přidružených k vašemu předplatnému Azure nebo v nových pracovních prostorech s ohledem na zeměpisné umístění virtuálního počítače. 
 
@@ -186,9 +170,7 @@ U pracovních prostorů vytvořených službou Azure Security Center se data uch
 > Microsoft se pevně zavazuje, že soukromí a bezpečnost těchto dat bude chránit. Společnost Microsoft dodržuje přísné pokyny pro dodržování předpisů a zabezpečení – od psaní kódu po provoz služeb. Další informace o zpracování dat a ochraně osobních údajů najdete v článku [Zabezpečení dat ve službě Azure Security Center](security-center-data-security.md).
 > 
 
-<a id="ongoing-security-monitoring" class="xliff"></a>
-
-## Průběžné sledování zabezpečení
+## <a name="ongoing-security-monitoring"></a>Průběžné sledování zabezpečení
 Po počáteční konfiguraci a uplatnění doporučení služby Security Center je dalším krokem zvážení provozních procesů Security Center.
 
 Na portálu Azure můžete ke službě Security Center získat přístup tak, že kliknete na **Procházet** a do pole **Filtrovat** zadáte **Security Center**. Zobrazení, která uživatel získá, podléhají těmto použitým filtrům. Následující příklad ukazuje prostředí s mnoha problémy, které je potřeba řešit:
@@ -209,9 +191,7 @@ Až vyřešíte všechna doporučení, v části **Prevention** (Prevence) by m�
 > 
 > 
 
-<a id="monitoring-for-new-or-changed-resources" class="xliff"></a>
-
-### Sledování nových nebo změněných prostředků
+### <a name="monitoring-for-new-or-changed-resources"></a>Sledování nových nebo změněných prostředků
 Většina prostředí Azure je dynamická a pravidelně v nich probíhá přidávání a odebírání prostředků, konfigurace a další změny. Security Center pomáhá zajistit přehled o stavu zabezpečení těchto nových prostředků.
 
 Když do prostředí Azure přidáte nové prostředky (virtuální počítače, databáze SQL), Security Center tyto prostředky automaticky zjistí a začne sledovat jejich zabezpečení. To zahrnuje také webové role a role pracovního procesu PaaS. Pokud je v [zásadě zabezpečení](security-center-policies.md) povolené shromažďování dat, pro vaše virtuální počítače se automaticky povolí další funkce sledování.
@@ -231,9 +211,7 @@ Taky je dobré pravidelně sledovat stav stávajících prostředků, abyste zji
 2. Panel **Recommendations** (Doporučení) umožňuje kontrolovat doporučení služby Security Center. Při průběžném monitorování můžete zjistit, že se vám doporučení nezobrazují každý den, což je normální, protože jste všechna doporučení zjistili při počátečním nastavování služby Security Center. Z toho důvodu se vám v této části nemusí každý den zobrazovat nové informace, takže ji musíte otevírat, jenom když je to nutné.
 3. Část **Detekce** se může měnit velmi často i velmi zřídka. Vždy zkontrolujte výstrahy zabezpečení a proveďte akce na základě doporučení služby Security Center.
 
-<a id="incident-response" class="xliff"></a>
-
-## Reakce na incidenty
+## <a name="incident-response"></a>Reakce na incidenty
 Security Center vyhledává nové hrozby a upozorňuje vás na ně. Organizace by měly výstrahy zabezpečení aktivně sledovat a provádět potřebné kroky, aby útok podrobněji prošetřily nebo napravily. Další informace o tom, jak detekce hrozeb služby Security Center pracuje, najdete v článku [Funkce detekce ve službě Azure Security Center](security-center-detection-capabilities.md).
 
 Cílem tohoto článku není pomoct vám s vytvořením vlastního plánu reakcí na incidenty, postup uvedený v dokumentu Microsoft Azure Security Response in the Cloud (Reakce zabezpečení Microsoft Azure v cloudu) ale použijeme jako základ pro fáze reakcí na incidenty. Jednotlivé fáze jsou uvedeny v následujícím diagramu:
@@ -265,9 +243,7 @@ Ve videu [How to Leverage the Azure Security Center & Microsoft Operations Manag
 > 
 > 
 
-<a id="see-also" class="xliff"></a>
-
-## Viz také
+## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak naplánovat přechod na službu Security Center. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md)

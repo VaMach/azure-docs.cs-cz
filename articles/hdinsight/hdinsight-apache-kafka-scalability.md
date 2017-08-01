@@ -22,8 +22,7 @@ ms.lasthandoff: 07/13/2017
 
 ---
 
-# Konfigurace úložiště a škálovatelnosti pro platformu Apache Kafka v prostředí HDInsight
-<a id="configure-storage-and-scalability-for-apache-kafka-on-hdinsight" class="xliff"></a>
+# <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Konfigurace úložiště a škálovatelnosti pro platformu Apache Kafka v prostředí HDInsight
 
 Naučte se konfigurovat spravované disky, které využívá Apache Kafka v prostředí HDInsight.
 
@@ -33,8 +32,7 @@ Následující diagram porovnává platformu Kafka ve službě HDInsight před p
 
 ![Diagram zobrazující platformu Kafka ve službě HDInsight při použití jednoho virtuálního pevného disku a při použití několika spravovaných disků v každém virtuálním počítači](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## Konfigurace spravovaných disků: portál Azure Portal
-<a id="configure-managed-disks-azure-portal" class="xliff"></a>
+## <a name="configure-managed-disks-azure-portal"></a>Konfigurace spravovaných disků: portál Azure Portal
 
 1. Postupujte podle kroků v tématu [Vytvoření clusteru HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md), kde se dozvíte, jaký je obecný postup pro vytvoření clusteru pomocí portálu. Proces vytvoření clusteru pomocí portálu nedokončujte.
 
@@ -45,8 +43,7 @@ Následující diagram porovnává platformu Kafka ve službě HDInsight před p
 
     ![Obrázek okna Velikost clusteru se zvýrazněným počtem disků v pracovním uzlu](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
-## Konfigurace spravovaných disků: šablony Resource Manageru
-<a id="configure-managed-disks-resource-manager-template" class="xliff"></a>
+## <a name="configure-managed-disks-resource-manager-template"></a>Konfigurace spravovaných disků: šablony Resource Manageru
 
 Pokud chcete nastavit počet disků, které využívají pracovní uzly v clusteru Kafka, použijte následující část šablony:
 
@@ -60,8 +57,7 @@ Pokud chcete nastavit počet disků, které využívají pracovní uzly v cluste
 
 Úplnou šablonu s ukázkou konfigurace spravovaných disků najdete na adrese [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Další informace o práci se systémem Kafka v prostředí HDInsight najdete v následujících dokumentech:
 

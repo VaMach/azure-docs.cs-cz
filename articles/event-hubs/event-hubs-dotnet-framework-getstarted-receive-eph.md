@@ -22,11 +22,9 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-# Příjem událostí z Azure Event Hubs pomocí rozhraní .NET Framework
-<a id="receive-events-from-azure-event-hubs-using-the-net-framework" class="xliff"></a>
+# <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Příjem událostí z Azure Event Hubs pomocí rozhraní .NET Framework
 
-## Úvod
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>Úvod
 
 Event Hubs je služba, která zpracovává velké objemy dat událostí (telemetrie) z připojených zařízení a aplikací. Data, která shromáždíte pomocí služby Event Hubs, můžete uložit pomocí úložného clusteru nebo transformovat pomocí zprostředkovatele datové analýzy v reálném čase. Schopnost shromažďovat a zpracovávat velké množství událostí je klíčovou komponentou moderních aplikačních architektur, například internetu věcí (Internet of Things – IoT).
 
@@ -34,21 +32,18 @@ Tento kurz ukazuje, jak psát aplikace konzoly rozhraní .NET Framework, která 
 
 [Event Processor Host][EventProcessorHost] je třída rozhraní .NET, která zjednodušuje přijímání událostí z center událostí tím, že spravuje trvalé kontrolní body a paralelní příjmy z těchto center událostí. Pomocí třídy [Event Processor Host][Event Processor Host] můžete události rozdělit mezi několik příjemců, i když jsou hostované v různých uzlech. Tento příklad ukazuje způsob použití třídy [Event Processor Host][EventProcessorHost] pro jednoho příjemce. Ukázka metody [Horizontální navýšení kapacity zpracování událostí][Scale out Event Processing with Event Hubs] znázorňuje způsob použití třídy [Event Processor Host][EventProcessorHost] v případě několika příjemců.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 Pro absolvování tohoto kurzu musí být splněné následující požadavky:
 
 * [Microsoft Visual Studio 2015 nebo vyšší](http://visualstudio.com). Pro snímky obrazovky v tomto kurzu se používá Visual Studio 2017.
 * Aktivní účet Azure. Pokud účet nemáte, můžete si ho bezplatně vytvořit během několika minut. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/free/).
 
-## Vytvoření oboru názvů Event Hubs a centra událostí
-<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Vytvoření oboru názvů Event Hubs a centra událostí
 
 Prvním krokem je použití webu [Azure Portal](https://portal.azure.com) k vytvoření oboru názvů typu Event Hubs a získání přihlašovacích údajů pro správu, které vaše aplikace potřebuje ke komunikaci s centrem událostí. Pokud chcete vytvořit obor názvů a centrum událostí, postupujte podle pokynů v [tomto článku](event-hubs-create.md) a pak pokračujte podle následujících pokynů v tomto kurzu.
 
-## Vytvoření účtu služby Azure Storage
-<a id="create-an-azure-storage-account" class="xliff"></a>
+## <a name="create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage
 
 Pokud chcete používat třídu [Event Processor Host][EventProcessorHost], musíte mít [Účet služby Azure Storage][Azure Storage account]:
 
@@ -64,8 +59,7 @@ Pokud chcete používat třídu [Event Processor Host][EventProcessorHost], mus�
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-## Vytvoření konzolové aplikace Příjemce
-<a id="create-a-receiver-console-application" class="xliff"></a>
+## <a name="create-a-receiver-console-application"></a>Vytvoření konzolové aplikace Příjemce
 
 1. Pomocí šablony projektu **Konzolová aplikace** vytvořte v sadě Visual Studio nový projekt desktopové aplikace Visual C#. Projekt nazvěte **Receiver** (Příjemce).
    
@@ -171,8 +165,7 @@ Blahopřejeme! Obdrželi jste nyní zprávy z centra událostí pomocí třídy 
 > 
 > 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Sestavili jste funkční aplikaci, která vytvoří centrum událostí a odesílá i přijímá data. Nyní se můžete dozvědět víc návštěvou následujících odkazů:
 

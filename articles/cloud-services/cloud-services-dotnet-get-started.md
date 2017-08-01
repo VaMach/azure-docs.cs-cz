@@ -22,29 +22,24 @@ ms.lasthandoff: 05/18/2017
 
 
 ---
-# Začínáme s cloudovými službami Azure Cloud Services a technologií ASP.NET
-<a id="get-started-with-azure-cloud-services-and-aspnet" class="xliff"></a>
+# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Začínáme s cloudovými službami Azure Cloud Services a technologií ASP.NET
 
-## Přehled
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Přehled
 Tento kurz ukazuje, jak lze vytvářet vícevrstvé aplikace .NET s front-endem ASP.NET MVC a jak je nasadit do [cloudové služby Azure](cloud-services-choose-me.md). Aplikace používá [službu Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279),  [službu objektů blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) a [službu front Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). [Projekt sady Visual Studio můžete stáhnout](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) z galerie kódů MSDN.
 
 V kurzu se dozvíte, jak sestavit a spustit aplikaci místně, jak ji nasadit do Azure a spustit v cloudu a jak ji sestavit od nuly. Pokud chcete, můžete začít tím, že ji sestavíte od nuly, potom ji otestujete a nakonec provedete kroky nasazení.
 
-## Aplikace Contoso Ads
-<a id="contoso-ads-application" class="xliff"></a>
+## <a name="contoso-ads-application"></a>Aplikace Contoso Ads
 Aplikace slouží jako vývěsní tabule pro inzerci. Uživatelé vytvářejí reklamu tak, že zadají text a odešlou obrázek. Před sebou vidí seznam reklam s obrázky miniatur a plnou velikost obrázku s podrobnostmi si mohou zobrazit výběrem požadované reklamy.
 
 ![Seznam reklam](./media/cloud-services-dotnet-get-started/list.png)
 
 Aplikace používá [způsob práce zaměřený na fronty](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby vyvážila práci při vytváření miniatur (která je náročná na prostředky procesoru) vůči back-endovému procesu.
 
-## Alternativní architektura: weby a webové úlohy
-<a id="alternative-architecture-websites-and-webjobs" class="xliff"></a>
+## <a name="alternative-architecture-websites-and-webjobs"></a>Alternativní architektura: weby a webové úlohy
 Tento kurz ukazuje, jak spustit front-end i back-end v cloudové službě Azure. Alternativou je spuštění front-endu na [webu Azure](/services/web-sites/) a použití funkce [webových úloh](http://go.microsoft.com/fwlink/?LinkId=390226) (momentálně ve verzi Preview) pro back-end. Kurz, který používá webové úlohy, najdete v článku [Začínáme se sadou SDK pro webové úlohy Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Informace o tom, jak zvolit služby, které budou nejlépe vyhovovat vašemu scénáři, najdete v článku o [porovnání webů Azure, služeb Cloud Services a virtuálních počítačů](../app-service-web/choose-web-site-cloud-service-vm.md).
 
-## Co se dozvíte
-<a id="what-youll-learn" class="xliff"></a>
+## <a name="what-youll-learn"></a>Co se dozvíte
 * Postup zprovoznění počítače pro vývoj na platformě Azure nainstalováním sady Azure SDK.
 * Vytvoření projektu cloudových služeb sady Visual Studio s webovou rolí a rolí pracovního procesu technologie ASP.NET MVC.
 * Postup místního testování projektu cloudových služeb pomocí emulátoru úložiště Azure.
@@ -52,8 +47,7 @@ Tento kurz ukazuje, jak spustit front-end i back-end v cloudové službě Azure.
 * Odeslání souborů a jejich uložení do služby objektů blob Azure.
 * Používání služby front Azure pro komunikaci mezi vrstvami.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 Kurz předpokládá, že rozumíte [základnímu konceptu cloudových služeb Azure](cloud-services-choose-me.md), například terminologii *webových rolí* a *rolí pracovních procesů*.  Předpokládá také, že víte, jak pracovat s technologií [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) a s projekty [webových formulářů](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) ve Visual Studiu. Ukázková aplikace používá MVC, ale většina kurzu platí i pro webové formuláře.
 
 Aplikaci můžete spustit místně bez předplatného Azure, ale k nasazení aplikace do cloudu budete předplatné potřebovat. Pokud nemáte účet, můžete si [aktivovat výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) nebo [si zaregistrovat bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -66,8 +60,7 @@ Pokyny kurzu pracují s jedním z následujících produktů:
 
 Pokud je nemáte, Visual Studio se vám může nainstalovat automaticky při instalaci sady Azure SDK.
 
-## Architektura aplikace
-<a id="application-architecture" class="xliff"></a>
+## <a name="application-architecture"></a>Architektura aplikace
 Aplikace ukládá reklamy do databáze SQL a k vytváření tabulky a přístupu k datům používá Entity Framework Code First. U každé reklamy databáze ukládá dvě adresy URL. Jednu pro obrázek v plné velikosti a druhou pro miniaturu.
 
 ![Tabulka reklam](./media/cloud-services-dotnet-get-started/adtable.png)
@@ -78,8 +71,7 @@ Když uživatel odešle obrázek, front-end spuštěný ve webové roli obrázek
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
-## Stažení a spuštění dokončeného řešení
-<a id="download-and-run-the-completed-solution" class="xliff"></a>
+## <a name="download-and-run-the-completed-solution"></a>Stažení a spuštění dokončeného řešení
 1. Stáhněte a rozbalte [dokončené řešení](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
 2. Spusťte Visual Studio.
 3. V nabídce **Soubor** zvolte **Otevřít projekt**, přejděte do místa, kam jste řešení stáhli, a potom otevřete soubor řešení.
@@ -112,8 +104,7 @@ Aplikace běží výhradně na místním počítači bez připojení ke cloudu. 
 
 V následující části budete konfigurovat řešení tak, aby při spuštění v cloudu používalo cloudové prostředky Azure pro fronty a objekty blob a také databázi aplikace. Pokud chcete aplikaci i nadále spouštět místně, ale používat cloudové úložiště a databázové prostředky, tak můžete. Stačí nastavit připojovací řetězce a my vám ukážeme, jak na to.
 
-## Nasazení aplikace v Azure
-<a id="deploy-the-application-to-azure" class="xliff"></a>
+## <a name="deploy-the-application-to-azure"></a>Nasazení aplikace v Azure
 Pokud chcete aplikaci spustit v cloudu, proveďte následující kroky:
 
 * Vytvoření cloudové služby Azure
@@ -123,8 +114,7 @@ Pokud chcete aplikaci spustit v cloudu, proveďte následující kroky:
 * Nakonfigurujte řešení, aby při spuštění v Azure používalo účet úložiště Azure.
 * Nasaďte projekt do cloudové služby Azure.
 
-### Vytvoření cloudové služby Azure
-<a id="create-an-azure-cloud-service" class="xliff"></a>
+### <a name="create-an-azure-cloud-service"></a>Vytvoření cloudové služby Azure
 Cloudová služba Azure je prostředí, ve kterém bude aplikace spuštěna.
 
 1. Otevřete v prohlížeči portál [Azure Portal](https://portal.azure.com).
@@ -144,8 +134,7 @@ Cloudová služba Azure je prostředí, ve kterém bude aplikace spuštěna.
 
     ![Nová cloudová služba](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### Vytvoření databáze SQL Azure
-<a id="create-an-azure-sql-database" class="xliff"></a>
+### <a name="create-an-azure-sql-database"></a>Vytvoření databáze SQL Azure
 Když aplikace běží v cloudu, používá cloudovou databázi.
 
 1. Na portálu [Azure Portal](https://portal.azure.com) klikněte na **Nový > Databáze > Databáze SQL**.
@@ -170,8 +159,7 @@ Když aplikace běží v cloudu, používá cloudovou databázi.
     ![Nový server služby SQL Database](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Klikněte na možnost **Vytvořit**.
 
-### Vytvoření účtu úložiště Azure
-<a id="create-an-azure-storage-account" class="xliff"></a>
+### <a name="create-an-azure-storage-account"></a>Vytvoření účtu úložiště Azure
 Účet úložiště Azure poskytuje prostředky pro ukládání dat front a objektů blob v cloudu.
 
 V reálné aplikaci byste obvykle vytvořili samostatné účty pro data aplikací a pro data protokolování a samostatné účty pro testovací data a pro produkční data. V tomto kurzu budete používat jenom jeden účet.
@@ -198,8 +186,7 @@ V reálné aplikaci byste obvykle vytvořili samostatné účty pro data aplikac
 
     Na obrázku vidíte vytvoření účtu úložiště s adresou URL `csvccontosoads.core.windows.net`.
 
-### Konfigurace řešení, aby při spuštění v Azure používalo databázi SQL Azure
-<a id="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure" class="xliff"></a>
+### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurace řešení, aby při spuštění v Azure používalo databázi SQL Azure
 Webový projekt a projekt role pracovního procesu mají každý svůj vlastní připojovací řetězec k databázi a každý musí při spuštění aplikace v Azure odkazovat na databázi SQL Azure.
 
 Pro webovou roli a nastavení prostředí cloudové služby pro roli pracovního procesu budete používat [transformaci Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations).
@@ -240,8 +227,7 @@ Pro webovou roli a nastavení prostředí cloudové služby pro roli pracovního
      ![Připojovací řetězec databáze pro roli pracovního procesu](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 11. Uložte provedené změny.  
 
-### Konfigurace řešení, aby při spuštění v Azure používalo účet úložiště Azure
-<a id="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure" class="xliff"></a>
+### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Konfigurace řešení, aby při spuštění v Azure používalo účet úložiště Azure
 Připojovací řetězce k účtu úložiště Azure pro projekt webové role i projekt role pracovního procesu jsou uložené v nastavení prostředí v projektu cloudové služby. Každý projekt má samostatnou sadu nastavení, která se použije při spuštění aplikace místně a při spuštění v cloudu. Nastavení cloudového prostředí budete aktualizovat pro webový projekt i pro projekt role pracovního procesu.
 
 1. V **Průzkumníku řešení** v části **Role** v projektu **ContosoAdsCloudService** klikněte pravým tlačítkem na **ContosoAdsWeb** a potom na **Vlastnosti**.
@@ -295,8 +281,7 @@ A soubor *ServiceConfiguration.Cloud.cscfg* obsahuje hodnoty, které jste pro ta
 
 Nastavení `<Instances>` určuje počet virtuálních počítačů, na kterých Azure spustí kód role pracovního procesu. Část [Další kroky](#next-steps) obsahuje odkazy na další informace o škálování cloudové služby.
 
-### Nasazení projektu do Azure
-<a id="deploy-the-project-to-azure" class="xliff"></a>
+### <a name="deploy-the-project-to-azure"></a>Nasazení projektu do Azure
 1. V **Průzkumníku řešení** klikněte pravým tlačítkem na cloudový projekt **ContosoAdsCloudService** a potom vyberte **Publikovat**.
 
    ![Publikování nabídky](./media/cloud-services-dotnet-get-started/pubmenu.png)
@@ -326,8 +311,7 @@ Nastavení `<Instances>` určuje počet virtuálních počítačů, na kterých 
 >
 >
 
-## Vytvoření aplikace od začátku
-<a id="create-the-application-from-scratch" class="xliff"></a>
+## <a name="create-the-application-from-scratch"></a>Vytvoření aplikace od začátku
 Pokud jste [dokončenou aplikaci](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) ještě nestáhli, udělejte to teď. Soubory ze staženého projektu budete kopírovat do nového projektu.
 
 Vytvoření aplikace Contoso Ads zahrnuje následující kroky:
@@ -340,8 +324,7 @@ Vytvoření aplikace Contoso Ads zahrnuje následující kroky:
 
 Po vytvoření řešení zkontrolujete kód, který je pro projekty cloudových služeb a objekty blob a fronty Azure jedinečný.
 
-### Vytvoření řešení cloudové služby Visual Studio
-<a id="create-a-cloud-service-visual-studio-solution" class="xliff"></a>
+### <a name="create-a-cloud-service-visual-studio-solution"></a>Vytvoření řešení cloudové služby Visual Studio
 1. Ve Visual Studiu zvolte v nabídce **Soubor** možnost **Nový projekt**.
 2. V levém podokně dialogového okna **Nový projekt** rozbalte položku **Visual C#**, vyberte šablonu **Cloud** a potom klikněte na šablonu **Cloudová služba Azure**.
 3. Pojmenujte projekt a řešení ContosoAdsCloudService a potom klikněte na tlačítko **OK**.
@@ -363,8 +346,7 @@ Po vytvoření řešení zkontrolujete kód, který je pro projekty cloudových 
 
     Na kontext Entity Framework a datový model je třeba odkazovat z projektů webové role i role pracovního procesu. Jako alternativu můžete třídy související s EF definovat v projektu webové role a odkazovat na takový projekt z projektu role pracovního procesu. V tomto alternativním přístupu bude projekt role pracovního procesu obsahovat odkaz na webová sestavení, která nepotřebuje.
 
-### Aktualizace a přidání balíčků NuGet
-<a id="update-and-add-nuget-packages" class="xliff"></a>
+### <a name="update-and-add-nuget-packages"></a>Aktualizace a přidání balíčků NuGet
 1. Otevřete dialogové okno **Správa balíčků NuGet** řešení.
 2. V horní části okna vyberte **Aktualizace**.
 3. Najděte balíček *WindowsAzure.Storage* a pokud je v seznamu, vyberte ho a vyberte webový projekt a projekt pracovního procesu, ve kterých ho chcete aktualizovat, a potom klikněte na **Aktualizace**.
@@ -374,8 +356,7 @@ Po vytvoření řešení zkontrolujete kód, který je pro projekty cloudových 
 5. Najděte balíček NuGet *EntityFramework* a nainstalujte ho do všech tří projektů.
 6. Najděte balíček NuGet *Microsoft.WindowsAzure.ConfigurationManager* a nainstalujte ho do projektu role pracovního procesu.
 
-### Nastavení odkazů na projekty
-<a id="set-project-references" class="xliff"></a>
+### <a name="set-project-references"></a>Nastavení odkazů na projekty
 1. V projektu ContosoAdsWeb nastavte odkaz na projekt ContosoAdsCommon. Klikněte pravým tlačítkem na projekt ContosoAdsWeb a potom klikněte na **Odkazy** - **Přidat odkazy**. V dialogovém okně **Správce odkazů** vyberte v levém podokně **Řešení – projekty**, vyberte **ContosoAdsCommon** a potom klikněte na tlačítko **OK**.
 2. V projektu ContosoAdsWorker nastavte odkaz na projekt ContosAdsCommon.
 
@@ -384,8 +365,7 @@ Po vytvoření řešení zkontrolujete kód, který je pro projekty cloudových 
 
     Back-end toto sestavení používá k převodu obrázků na miniatury.
 
-### Konfigurace připojovacích řetězců
-<a id="configure-connection-strings" class="xliff"></a>
+### <a name="configure-connection-strings"></a>Konfigurace připojovacích řetězců
 V této části budete konfigurovat službu Azure Storage a připojovací řetězce SQL pro místní testování. Pokyny pro nasazení (uvedené už dříve) vysvětlují, jak nastavit připojovací řetězce pro situaci, kdy aplikace běží v cloudu.
 
 1. V projektu ContosoAdsWeb otevřete aplikační soubor Web.config a vložte následující prvek `connectionStrings` za prvek `configSections`.
@@ -419,8 +399,7 @@ V této části budete konfigurovat službu Azure Storage a připojovací řet�
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
        ```
 
-### Přidání souborů s kódy
-<a id="add-code-files" class="xliff"></a>
+### <a name="add-code-files"></a>Přidání souborů s kódy
 V této části zkopírujete soubory s kódy ze staženého řešení do nového řešení. Následující části vám ukáží a vysvětlí klíčová místa tohoto kódu.
 
 Pokud chcete přidat soubory do projektu nebo složky, klikněte pravým tlačítkem na projekt nebo složku a potom klikněte na **Přidat** - **Existující položka**. Vyberte požadované soubory a potom klikněte na tlačítko **Přidat**. Pokud se zobrazí dotaz, jestli chcete nahradit existující soubory, klikněte na **Ano**.
@@ -443,8 +422,7 @@ Následující části popisují kód týkající se práce s prostředím Azure
 * [Začínáme s EF 6 a MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Úvod do asynchronního programování na platformě .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-### ContosoAdsCommon – Ad.cs
-<a id="contosoadscommon---adcs" class="xliff"></a>
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon – Ad.cs
 Soubor Ad.cs definuje výčet kategorií reklam a třídu entity objektů POCO pro informace o reklamách.
 
 ```csharp
@@ -488,8 +466,7 @@ public class Ad
 }
 ```
 
-### ContosoAdsCommon – ContosoAdsContext.cs
-<a id="contosoadscommon---contosoadscontextcs" class="xliff"></a>
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon – ContosoAdsContext.cs
 Třída ContosoAdsContext určuje použití třídy reklamy v kolekci DbSet, kterou Entity Framework uloží do databáze SQL.
 
 ```csharp
@@ -508,8 +485,7 @@ public class ContosoAdsContext : DbContext
 
 Třída má dva konstruktory. První z nich používán webovým projektem a určuje název připojovacího řetězce, který je uložený v souboru Web.config. Druhý konstruktor vám umožňuje předat samotný připojovací řetězec používaný projektem role pracovního projektu, protože nemá soubor Web.config. Už dříve jste viděli, kam se tento připojovací řetězec uložil, a později uvidíte, jak kód získává připojovací řetězec při vytvoření instance třídy DbContext.
 
-### ContosoAdsWeb – Global.asax.cs
-<a id="contosoadsweb---globalasaxcs" class="xliff"></a>
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb – Global.asax.cs
 Kód, který se volá z metody `Application_Start`, vytvoří kontejner objektů blob s *obrázky* a frontu *obrázků*, pokud ještě neexistují. To zajišťuje, že při každém spuštění pomocí nového účtu úložiště nebo při spuštění pomocí emulátoru úložiště v novém počítači budou požadovaný kontejner objektů blob a fronta vytvořeny automaticky.
 
 Kód získá přístup k účtu úložiště pomocí připojovacího řetězec úložiště ze souboru *.cscfg*.
@@ -542,12 +518,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### ContosoAdsWeb – \_Layout.cshtml
-<a id="contosoadsweb---layoutcshtml" class="xliff"></a>
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
 Soubor *_Layout.cshtml* nastaví název aplikace v záhlaví a zápatí a vytvoří položku nabídky „Reklamy“.
 
-### ContosoAdsWeb – Views\Home\Index.cshtml
-<a id="contosoadsweb---viewshomeindexcshtml" class="xliff"></a>
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb – Views\Home\Index.cshtml
 Soubor *Views\Home\Index.cshtml* zobrazuje na domovské stránce odkazy na kategorie. Odkazy předají celočíselnou hodnotu výčtu `Category` v proměnné řetězce dotazu na indexovou stránku reklam.
 
 ```razor
@@ -557,8 +531,7 @@ Soubor *Views\Home\Index.cshtml* zobrazuje na domovské stránce odkazy na kateg
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-### ContosoAdsWeb – AdController.cs
-<a id="contosoadsweb---adcontrollercs" class="xliff"></a>
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb – AdController.cs
 V souboru *AdController.cs* volá konstruktor metodu `InitializeStorage`, aby vytvořil objekty knihovny klienta služby Azure Storage, které poskytují rozhraní API pro práci s objekty blob a frontami.
 
 Potom kód získá odkaz na kontejner objektů blob s *obrázky*, jak už jste viděli v souboru *Global.asax.cs*. Během toho nastaví výchozí [zásady opakování](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling), které jsou vhodné pro webovou aplikaci. Výchozí zásady opakování exponenciálního omezení rychlosti můžou způsobit, že webová aplikace přestane při opakovaných pokusech reagovat na dobu delší než jednu minutu. Důvodem může být přechodná chyba. Zde určené zásady opakování čekají po každém pokusu tři sekundy a celkem provádějí tři pokusy.
@@ -655,8 +628,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-### ContosoAdsWeb – Views\Ad\Index.cshtml a Details.cshtml
-<a id="contosoadsweb---viewsadindexcshtml-and-detailscshtml" class="xliff"></a>
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb – Views\Ad\Index.cshtml a Details.cshtml
 Soubor *Index.cshtml* zobrazí miniatury s dalšími daty reklam.
 
 ```razor
@@ -669,8 +641,7 @@ Soubor *Details.cshtml* zobrazí obrázek v plné velikosti.
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-### ContosoAdsWeb – Views\Ad\Create.cshtml a Edit.cshtml
-<a id="contosoadsweb---viewsadcreatecshtml-and-editcshtml" class="xliff"></a>
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb – Views\Ad\Create.cshtml a Edit.cshtml
 Soubory *Create.cshtml* a *Edit.cshtml* určují kódování formuláře, které kontroleru umožňuje získání objektu `HttpPostedFileBase`.
 
 ```razor
@@ -683,8 +654,7 @@ Prvek `<input>` sděluje prohlížeči, aby zobrazil dialogové okno pro výběr
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-### ContosoAdsWorker – WorkerRole.cs – metoda OnStart 
-<a id="contosoadsworker---workerrolecs---onstart-method" class="xliff"></a>
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker – WorkerRole.cs – metoda OnStart 
 Prostředí role pracovního procesu Azure volá metodu `OnStart` ve třídě `WorkerRole`, když se spouští role pracovního procesu, a volá metodu `Run`, když se metoda `OnStart` dokončí.
 
 Metoda `OnStart` získá připojovací řetězec databáze ze souboru *.cscfg* a předá ho do třídy DbContext v Entity Framework. Poskytovatel SQLClienta se používá ve výchozím nastavení, takže ho není nutné zadávat.
@@ -696,8 +666,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Potom metoda získá odkaz na účet úložiště a vytvoří kontejner objektů blob a frontu (pokud ještě neexistují). Kód pro tuto akci je podobný kódu, který jste už viděli v metodě webové role `Application_Start`.
 
-### ContosoAdsWorker – WorkerRole.cs – metoda Run
-<a id="contosoadsworker---workerrolecs---run-method" class="xliff"></a>
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker – WorkerRole.cs – metoda Run
 Metoda `Run` se volá, když metoda `OnStart` dokončí svoji inicializaci. Metoda spustí nekonečnou smyčku, která sleduje nové zprávy fronty a po jejich příchodu je zpracuje.
 
 ```csharp
@@ -773,32 +742,27 @@ Tento kód čte databázi, aby získal adresu URL obrázku, převede obrázek na
 >
 >
 
-## Řešení potíží
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>Řešení potíží
 Pokud by vám při procházení kurzem něco nefungovalo, následuje přehled běžných chyb a jejich řešení.
 
-### ServiceRuntime.RoleEnvironmentException
-<a id="serviceruntimeroleenvironmentexception" class="xliff"></a>
+### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
 Azure poskytne objekt `RoleEnvironment` při spuštění aplikace v Azure nebo při spuštění místně pomocí emulátoru služby Výpočty v Azure.  Pokud se tato chyba objeví, když aplikaci spouštíte místně, zkontrolujte, jestli jste projekt ContosoAdsCloudService nastavili jako spouštěný projekt. Toto nastaví projekt tak, aby běžel pomocí emulátoru služby Výpočty v Azure.
 
 Jedna z věcí, ke kterým aplikace používá RoleEnvironment Azure, je získání hodnot připojovacích řetězců, které jsou uložené v souborech *.cscfg*, takže další možnou příčinou této výjimky je chybějící připojovací řetězec. Zkontrolujte, jestli jste v projektu ContosoAdsWeb vytvořili nastavení StorageConnectionString pro cloudovou i místní konfiguraci a jestli jste vytvořili oba připojovací řetězce pro obě konfigurace i v projektu ContosoAdsWorker. Pokud budete StorageConnectionString hledat pomocí možnosti **Najít všechny** v celém řešení, mělo by se zobrazit devětkrát v šesti souborech.
 
-### Nejde přepsat na port xxx. Nový port s nižší než minimální povolenou hodnotou 8080 pro protokol http
-<a id="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http" class="xliff"></a>
+### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>Nejde přepsat na port xxx. Nový port s nižší než minimální povolenou hodnotou 8080 pro protokol http
 Změňte číslo portu, který používáte pro webový projekt. Klikněte pravým tlačítkem na projekt ContosoAdsWeb a potom klikněte na **Vlastnosti**. Klikněte na kartu **Web** a potom v nastavení **Adresa URL projektu** změňte číslo portu.
 
 Další alternativní řešení problému najdete v následující části.
 
-### Další chyby při místním spuštění
-<a id="other-errors-when-running-locally" class="xliff"></a>
+### <a name="other-errors-when-running-locally"></a>Další chyby při místním spuštění
 Nové projekty cloudových služeb ve výchozím nastavení používají expresní emulátor služby Výpočty v Azure k simulaci prostředí Azure. Jedná se o odlehčenou verzi úplného emulátoru služby Výpočty a za určitých podmínek bude úplný emulátor fungovat, když expresní verze nepracuje.  
 
 Pokud chcete změnit projekt, který používá úplný emulátor, klikněte pravým tlačítkem na projekt ContosoAdsCloudService a potom na **Vlastnosti**. V okně **Vlastnosti** klikněte na kartu **Web** a potom na přepínač **Použít úplný emulátor**.
 
 Pokud chcete aplikaci spustit s úplným emulátorem, otevřete Visual Studio s oprávněními správce.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Aplikace Contoso Ads je kvůli úvodnímu kurzu záměrně jednoduchá. Například neimplementuje [vkládání závislostí](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) nebo [úložiště a jednotky pracovních vzorů](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), nepodporuje [používání rozhraní k protokolování](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), nepoužívá [migrace Code First EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) ke správě změn datových modelů nebo [odolnost připojení EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) ke správě přechodných síťových chyb a tak dále.
 
 Níže uvádíme několik ukázkových aplikací cloudových služeb, které předvádějí realističtější postupy kódování (jsou řazené od méně složitých po složitější):

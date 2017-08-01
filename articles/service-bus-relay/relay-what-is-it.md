@@ -22,9 +22,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="what-is-azure-relay" class="xliff"></a>
-
-# Co je Azure Relay?
+# <a name="what-is-azure-relay"></a>Co je Azure Relay?
 
 Služba Azure Relay hybridním aplikacím usnadňuje práci tím, že vám umožní bezpečně vystavit veřejnému cloudu služby, které se nacházejí v podnikové síti, a to bez nutnosti otevřít připojení brány firewall nebo provést výraznější změny v infrastruktuře podnikové sítě. Služba Relay podporuje různé přenosové protokoly a standardy webových služeb.
 
@@ -50,27 +48,19 @@ Hybridní připojení i přenosy WCF umožňují zabezpečené připojení k pro
 | **Otevřený protokol založený na standardech** | |x |
 | **Několik programovacích modelů protokolu RPC** | |x |
 
-<a id="hybrid-connections" class="xliff"></a>
-
-## Hybridní připojení
+## <a name="hybrid-connections"></a>Hybridní připojení
 
 Schopnost zabezpečených [hybridních připojení služby Azure Relay](relay-hybrid-connections-protocol.md) s podporou otevřených protokolů je důsledkem vývoje stávajících funkcí služby Relay. Hybridní připojení můžete nasadit na jakékoli platformě a v libovolném jazyku se základní podporou protokolu WebSocket, konkrétně rozhraní WebSocket API v běžných webových prohlížečích. Hybridní připojení jsou založená na protokolech HTTP a WebSocket.
 
-<a id="wcf-relays" class="xliff"></a>
-
-## Přenosy WCF
+## <a name="wcf-relays"></a>Přenosy WCF
 
 Služba WCF Relay funguje s celým rozhraním .NET Framework (NETFX) i s technologií WCF. Propojení místní služby se službou Relay vytvoříte pomocí skupiny „předávacích“ vazeb WCF. Na pozadí se děje to, že předávací vazby mapují do nových elementů přenosové vazby určené k vytvoření komponentů kanálu WCF, které se integrují se službou Service Bus v cloudu.
 
-<a id="service-history" class="xliff"></a>
-
-## Historie služby
+## <a name="service-history"></a>Historie služby
 
 Hybridní připojení nahrazuje starší funkci služby BizTalk Services s podobným názvem, která byla postavená na službě Azure Service Bus WCF Relay. Nová schopnost Hybrid Connections doplňuje stávající funkci WCF Relay a tyto dvě schopnosti služby v dohledné budoucnosti budou ve službě Azure Relay existovat vedle sebe. Sdílejí sice společnou bránu, jinak se ale jedná o rozdílné implementace.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky:
+## <a name="next-steps"></a>Další kroky:
 
 * [Přenos – nejčastější dotazy](relay-faq.md)
 * [Vytvoření oboru názvů](relay-create-namespace-portal.md)

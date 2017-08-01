@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-are-logic-apps" class="xliff"></a>
-
-# Co jsou Logic Apps?
+# <a name="what-are-logic-apps"></a>Co jsou Logic Apps?
 Logic Apps umožňují zjednodušení a implementaci škálovatelných integrací a pracovních postupů v cloudu. Nabízejí vizuálního návrháře pro modelování a automatizaci procesů jako řadu kroků, které nazýváme pracovním postupem.  Existuje mnoho cloudových i místních [konektorů](../connectors/apis-list.md), které můžete rychle integrovat do všech služeb a protokolů.  Aplikace logiky začíná triggerem (například „Když je přidán účet do aplikace Dynamics CRM“) a po jeho spuštění může začít mnoho kombinací akcí, převodů a podmíněné logiky.
 
 Mezi výhody používání Logic Apps patří:  
@@ -48,9 +46,7 @@ Jak už bylo zmíněno, pomocí Logic Apps můžete automatizovat podnikové pro
 
 Podobné scénáře je možné konfigurovat ve všech vizuálních návrhářích bez nutnosti napsat jediný řádek kódu. Začněte [vytvářet své aplikace logiky hned teď][create].  Jakmile ji napíšete, můžete aplikaci logiky [rychle nasadit a překonfigurovat](../logic-apps/logic-apps-create-deploy-template.md) pro různá prostředí a oblasti.
 
-<a id="why-logic-apps" class="xliff"></a>
-
-## Proč Logic Apps?
+## <a name="why-logic-apps"></a>Proč Logic Apps?
 Logic Apps přinášejí do prostoru podnikových integrací rychlost a škálovatelnost.  Snadné používání návrháře, řada dostupných triggerů a akcí a výkonné nástroje pro správu výrazně zjednodušují centralizaci rozhraní API.  Firmy se vydávají směrem k digitalizaci a Logic Apps jim na této cestě umožňují propojit starší systémy s těmi nejmodernějšími.
 
 Navíc můžete pomocí [účtu Enterprise Integration][biztalk] škálovat své integrační scénáře s využitím [zasílání zpráv XML][xml], [správy obchodních partnerů][tpm] a dalších funkcí.
@@ -61,9 +57,7 @@ Navíc můžete pomocí [účtu Enterprise Integration][biztalk] škálovat své
 * **Integrovaná rozšiřitelnost** – Nevidíte konektor, který potřebujete? Logic Apps jsou navrženy pro práci s vaším vlastním rozhraním API a kódem. Můžete snadno vytvořit vlastní aplikace API, které použijte jako vlastní konektor, nebo můžete volat [Azure Functions](https://functions.azure.com) a spustit fragmenty kódu na vyžádání. 
 * **Skutečně efektivní integrace** – Začněte lehce a řiďte svůj růst podle toho, jak se vyvíjí vaše potřeby. Služba Logic Apps dokáže snadno využít síly BizTalku. BizTalk je špičkové integrační řešení od Microsoftu, které umožňuje profesionálům v oblasti integrace vytvářet řešení, která potřebují. Další informace o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
 
-<a id="logic-app-concepts" class="xliff"></a>
-
-## Koncepty Logic Apps
+## <a name="logic-app-concepts"></a>Koncepty Logic Apps
 Následující pojmy představují některé z klíčových součástí, které dohromady utváří prostředí Logic Apps. 
 
 * **Pracovní postup** – Logic Apps nabízí grafický způsob modelování firemních procesů jako posloupnosti kroků, tedy jako pracovní postup.
@@ -72,9 +66,7 @@ Následující pojmy představují některé z klíčových součástí, které 
 * **Akce** – Každému kroku, který je proveden po triggeru v pracovním postupu, se říká akce. Každá akce je obvykle namapovaná na operaci ve spravovaném konektoru nebo ve vlastních aplikacích API.
 * **Enterprise Integration Pack** – Služba Logic Apps zahrnuje možnosti z BizTalku a nabízí tak pokročilejší scénáře integrace. BizTalk je špičková platforma pro integraci od Microsoftu. Konektory Enterprise Integration Pack umožňují snadno zahrnout ověřování, transformaci a další funkce do pracovních postupů Logic App.
 
-<a id="getting-started" class="xliff"></a>
-
-## Začínáme
+## <a name="getting-started"></a>Začínáme
 * Pokud chcete začít s Logic Apps, postupujte podle kurzu [vytvoření aplikace logiky][create].  
 * [Zobrazení běžných příkladů a scénářů](../logic-apps/logic-apps-examples-and-scenarios.md).
 * [S Logic Apps můžete automatizovat firemní procesy](http://channel9.msdn.com/Events/Build/2016/T694). 

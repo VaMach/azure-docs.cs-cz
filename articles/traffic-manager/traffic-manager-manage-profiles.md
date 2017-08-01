@@ -22,18 +22,15 @@ ms.lasthandoff: 06/01/2017
 
 ---
 
-# Správa profilu Azure Traffic Manageru
-<a id="manage-an-azure-traffic-manager-profile" class="xliff"></a>
+# <a name="manage-an-azure-traffic-manager-profile"></a>Správa profilu Azure Traffic Manageru
 
 Profily Traffic Manageru využívají metody směrování provozu k řízení provozu do vašich cloudových služeb nebo na koncové body webů. Tento článek vysvětluje, jak tyto profily vytvořit a spravovat.
 
-## Vytvoření profilu Traffic Manageru
-<a id="create-a-traffic-manager-profile" class="xliff"></a>
+## <a name="create-a-traffic-manager-profile"></a>Vytvoření profilu Traffic Manageru
 
 Profil Traffic Manageru můžete vytvořit pomocí webu Azure Portal. Po vytvoření profilu můžete nakonfigurovat koncové body, monitorování a další nastavení na webu Azure Portal. Traffic Manager podporuje až 200 koncových bodů na jeden profil. Většina scénářů použití však vyžaduje jen několik koncových bodů.
 
-### Vytvoření profilu Traffic Manageru
-<a id="to-create-a-traffic-manager-profile" class="xliff"></a>
+### <a name="to-create-a-traffic-manager-profile"></a>Vytvoření profilu Traffic Manageru
 
 1. V prohlížeči se přihlaste k webu [Azure Portal](http://portal.azure.com). Pokud ještě účet nemáte, můžete si zaregistrovat [zkušební verzi na měsíc zdarma](https://azure.microsoft.com/free/). 
 2. V nabídce **Centrum** klikněte na **Nový** >  **Sítě** > **Zobrazit vše** a pak na profil **Traffic Manager**, otevřete okno **Vytvořit profil Traffic** Manageru, kde klikněte na **Vytvořit**.
@@ -46,13 +43,11 @@ Profil Traffic Manageru můžete vytvořit pomocí webu Azure Portal. Po vytvoř
     6. Klikněte na možnost **Vytvořit**.
     7. Po dokončení globálního nasazení profilu Traffic Manageru bude uveden jako jeden z prostředků v příslušné skupině prostředků.
 
-## Zakázání, povolení nebo odstranění profilu
-<a id="disable-enable-or-delete-a-profile" class="xliff"></a>
+## <a name="disable-enable-or-delete-a-profile"></a>Zakázání, povolení nebo odstranění profilu
 
 Existující profil můžete zakázat, aby Traffic Manager neodkazoval požadavky uživatelů na nakonfigurované koncové body. Pokud profil Traffic Manageru zakážete, zůstane zachován beze změny včetně informací, které obsahuje, a je možné ho upravovat v rámci rozhraní Traffic Manageru.  Odkazování se obnoví, až profil znovu povolíte. Když vytvoříte profil Traffic Manageru na portálu Azure Portal, je automaticky povolen. Pokud se rozhodnete, že profil již nebude potřebný, můžete ho odstranit.
 
-### Zakázání profilu
-<a id="to-disable-a-profile" class="xliff"></a>
+### <a name="to-disable-a-profile"></a>Zakázání profilu
 
 1. Pokud používáte vlastní název domény, změňte si na internetovém serveru DNS záznam CNAME tak, aby už neodkazoval na váš profil Traffic Manageru.
 2. Nasměrování provozu do koncových bodů prostřednictvím nastavení profilu Traffic Manageru se zastaví.
@@ -60,8 +55,7 @@ Existující profil můžete zakázat, aby Traffic Manager neodkazoval požadavk
 2. Na panelu hledání na portálu vyhledejte název **profilu služby Traffic Manager**, který chcete upravit, a pak na tento profil služby Traffic Manager klikněte v zobrazených výsledcích.
 3. V okně **Profil Traffic Manageru** klikněte na **Přehled**. v okně Přehled klikněte na Zakázat a pak potvrzením **zakažte** profil Traffic Manageru.
 
-### Povolení profilu
-<a id="to-enable-a-profile" class="xliff"></a>
+### <a name="to-enable-a-profile"></a>Povolení profilu
 
 1. V prohlížeči se přihlaste k webu [Azure Portal](http://portal.azure.com).
 2. Na panelu hledání na portálu vyhledejte název **profilu služby Traffic Manager**, který chcete upravit, a pak na tento profil služby Traffic Manager klikněte v zobrazených výsledcích.
@@ -69,15 +63,13 @@ Existující profil můžete zakázat, aby Traffic Manager neodkazoval požadavk
 5. Pokud používáte vlastní název domény, vytvořte si na internetovém serveru DNS záznam prostředku DNS, který bude odkazovat na název domény ve vašem profilu Traffic Manageru.
 6. Provoz se směruje do příslušných koncových bodů.
 
-### Odstranění profilu
-<a id="to-delete-a-profile" class="xliff"></a>
+### <a name="to-delete-a-profile"></a>Odstranění profilu
 
 1. Ověřte, že záznam prostředku DNS na vašem serveru DNS pro internet již nepoužívá záznam prostředku CNAME, který odkazuje na název domény pro váš profil Traffic Manageru.
 2. Na panelu hledání na portálu vyhledejte název **profilu služby Traffic Manager**, který chcete upravit, a pak na tento profil služby Traffic Manager klikněte v zobrazených výsledcích.
 3. V okně **Profil Traffic Manageru** klikněte na **Přehled**, v okně Přehled klikněte na **Odstranit** a potvrďte odstranění profilu Traffic Manageru.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 * [Přidání koncového bodu](traffic-manager-endpoints.md)
 * [Konfigurace metody prioritního směrování](traffic-manager-configure-priority-routing-method.md)

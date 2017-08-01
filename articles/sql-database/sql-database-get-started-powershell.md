@@ -24,8 +24,7 @@ ms.lasthandoff: 06/23/2017
 
 ---
 
-# Vytvoření izolované databáze SQL Azure pomocí PowerShellu
-<a id="create-a-single-azure-sql-database-using-powershell" class="xliff"></a>
+# <a name="create-a-single-azure-sql-database-using-powershell"></a>Vytvoření izolované databáze SQL Azure pomocí PowerShellu
 
 PowerShell slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tento průvodce podrobně uvádí, jak pomocí PowerShellu nasadit databázi SQL Azure ve [skupině prostředků Azure](../azure-resource-manager/resource-group-overview.md) na [logický server Azure SQL Database](sql-database-features.md).
 
@@ -33,8 +32,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 Tento kurz vyžaduje modul Azure PowerShell verze 4.0 nebo novější. Verzi zjistíte spuštěním příkazu ` Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-## Přihlaste se k Azure.
-<a id="log-in-to-azure" class="xliff"></a>
+## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
 Přihlaste se k předplatnému Azure pomocí příkazu [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) a postupujte podle pokynů na obrazovce.
 
@@ -42,8 +40,7 @@ Přihlaste se k předplatnému Azure pomocí příkazu [Add-AzureRmAccount](/pow
 Add-AzureRmAccount
 ```
 
-## Vytvoření proměnných
-<a id="create-variables" class="xliff"></a>
+## <a name="create-variables"></a>Vytvoření proměnných
 
 V tomto rychlém startu definujte proměnné, které se použijí ve skriptech.
 
@@ -64,16 +61,14 @@ $endip = "0.0.0.0"
 $databasename = "mySampleDatabase"
 ```
 
-## Vytvoření skupiny prostředků
-<a id="create-a-resource-group" class="xliff"></a>
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Vytvořte [skupinu prostředků Azure](../azure-resource-manager/resource-group-overview.md) pomocí příkazu [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky jako skupina. Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup` v umístění `westeurope`.
 
 ```powershell
 New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
-## Vytvoření logického serveru
-<a id="create-a-logical-server" class="xliff"></a>
+## <a name="create-a-logical-server"></a>Vytvoření logického serveru
 
 Vytvořte [logický server Azure SQL Database](sql-database-features.md) pomocí příkazu [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Logický server obsahuje soubor databází spravovaných jako skupina. Následující příklad vytvoří ve skupině prostředků náhodně pojmenovaný server s přihlašovacím jménem správce `ServerAdmin` a heslem `ChangeYourAdminPassword1`. Podle potřeby tyto předdefinované hodnoty nahraďte.
 
@@ -84,8 +79,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-## Konfigurace pravidla brány firewall serveru
-<a id="configure-a-server-firewall-rule" class="xliff"></a>
+## <a name="configure-a-server-firewall-rule"></a>Konfigurace pravidla brány firewall serveru
 
 Vytvořte [pravidlo brány firewall na úrovni serveru služby Azure SQL Database](sql-database-firewall-configure.md) pomocí příkazu [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule). Pravidlo brány firewall na úrovni serveru umožňuje externí aplikaci, jako je SQL Server Management Studio nebo nástroj SQLCMD, připojení k databázi SQL přes bránu firewall služby SQL Database. V následujícím příkladu je brána firewall otevřená pouze pro ostatní prostředky Azure. Pokud chcete povolit externí připojení, změňte IP adresu na příslušnou adresu pro vaše prostředí. Chcete-li otevřít všechny IP adresy, použijte jako počáteční IP adresu 0.0.0.0 a jako koncovou adresu 255.255.255.255.
 
@@ -99,8 +93,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL Database komunikuje přes port 1433. Pokud se pokoušíte připojit z podnikové sítě, nemusí být odchozí provoz přes port 1433 bránou firewall vaší sítě povolený. Pokud je to tak, nebudete se moct připojit k serveru Azure SQL Database, dokud vaše IT oddělení neotevře port 1433.
 >
 
-## Vytvoření databáze s ukázkovými daty na serveru
-<a id="create-a-database-in-the-server-with-sample-data" class="xliff"></a>
+## <a name="create-a-database-in-the-server-with-sample-data"></a>Vytvoření databáze s ukázkovými daty na serveru
 
 Vytvořte na serveru databázi s [úrovní výkonu S0](sql-database-service-tiers.md) pomocí příkazu [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). Následující příklad vytvoří databázi s názvem `mySampleDatabase` a načte do této databáze ukázková data AdventureWorksLT. Nahraďte podle potřeby tyto předdefinované hodnoty (další rychlé starty v této kolekci jsou postavené na tomto rychlém startu).
 
@@ -112,8 +105,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -RequestedServiceObjectiveName "S0"
 ```
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Další rychlé starty v této kolekci jsou postavené na tomto rychlém startu. 
 
@@ -125,8 +117,7 @@ Další rychlé starty v této kolekci jsou postavené na tomto rychlém startu.
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Teď, když máte databázi, můžete se k ní připojit a provádět dotazování pomocí vašich oblíbených nástrojů. Další informace získáte výběrem vašeho nástroje níže:
 

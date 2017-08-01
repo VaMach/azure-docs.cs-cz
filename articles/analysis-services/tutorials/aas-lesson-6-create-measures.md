@@ -22,8 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lekce 6: Vytvoření měr
-<a id="lesson-6-create-measures" class="xliff"></a>
+# <a name="lesson-6-create-measures"></a>Lekce 6: Vytvoření měr
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -37,15 +36,12 @@ V této lekci vytvoříte míry zadáním vzorce DAX do řádku vzorců a také 
   
 Odhadovaný čas dokončení této lekce: **30 minut**  
   
-## Požadavky
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabulkového modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 5: Vytvoření počítaných sloupců](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
-## Vytvoření měr
-<a id="create-measures" class="xliff"></a>  
+## <a name="create-measures"></a>Vytvoření měr  
   
-#### Postup vytvoření míry DaysCurrentQuarterToDate v tabulce DimDate
-<a id="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table" class="xliff"></a>  
+#### <a name="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table"></a>Postup vytvoření míry DaysCurrentQuarterToDate v tabulce DimDate  
   
 1.  V návrháři modelů klikněte na tabulku **DimDate**.  
   
@@ -64,8 +60,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
     Na rozdíl od počítaných sloupců u vzorců měr můžete zadat název míry následovaný dvojtečkou a výrazem vzorce.
 
   
-#### Postup vytvoření míry DaysInCurrentQuarter v tabulce DimDate
-<a id="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table" class="xliff"></a>  
+#### <a name="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table"></a>Postup vytvoření míry DaysInCurrentQuarter v tabulce DimDate  
   
 1.  Tabulku **DimDate** mějte v návrháři modelů stále aktivní, v mřížce měr klikněte na prázdnou buňku pod vámi vytvořenou mírou.  
   
@@ -77,8 +72,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
   
     V případě, že vytváříte porovnávací poměr mezi jedním neúplným obdobím a předchozím obdobím. Vzorec musí vypočítat poměrnou část období, která uplynula, a porovnat ji se stejnou poměrnou částí v předchozím období. V tomto případě je poměrná část uplynulého času v aktuálním období vyjádřena jako [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter].  
   
-#### Postup vytvoření míry InternetDistinctCountSalesOrder v tabulce FactInternetSales
-<a id="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table" class="xliff"></a>  
+#### <a name="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table"></a>Postup vytvoření míry InternetDistinctCountSalesOrder v tabulce FactInternetSales  
   
 1.  Klikněte na tabulku **FactInternetSales**.   
   
@@ -93,8 +87,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
 4.  V mřížce měr klikněte na novou míru a potom v okně **Vlastnosti** v části **Název míry** přejmenujte míru na **InternetDistinctCountSalesOrder**. 
  
   
-#### Postup vytvoření dalších měr v tabulce FactInternetSales
-<a id="to-create-additional-measures-in-the-factinternetsales-table" class="xliff"></a>  
+#### <a name="to-create-additional-measures-in-the-factinternetsales-table"></a>Postup vytvoření dalších měr v tabulce FactInternetSales  
   
 1.  Pomocí funkce AutoSum vytvořte a pojmenujte následující míry:  
 
@@ -137,8 +130,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
   
 Míry vytvořené pro tabulku FactInternetSales slouží k analýze kritických finančních dat, jako jsou například prodeje, náklady a zisková marže pro položky definované uživatelem vybraným filtrem.  
   
-## Co dále?
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>Co dále?
 [Lekce 7: Vytvoření klíčových ukazatelů výkonu](../tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 
   

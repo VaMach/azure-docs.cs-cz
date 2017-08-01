@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 59d8b23291adb1e680e70898f5bb82bb699be19d
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 30c7cd1ba455d7b1bc93d76e7ee79455bb52aae9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/12/2017
 
 ---
-# Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní .NET API
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-net-api" class="xliff"></a>
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí rozhraní .NET API
 > [!div class="op_single_selector"]
 > * [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
@@ -44,15 +43,13 @@ Kanál může obsahovat víc než jednu aktivitu. A dvě aktivity můžete zře
 > 
 > Datový kanál v tomto kurzu kopíruje data ze zdrojového úložiště dat do cílového úložiště dat. Kurz předvádějící způsoby transformace dat pomocí Azure Data Factory najdete v tématu popisujícím [kurz vytvoření kanálu, který umožňuje transformovat data pomocí clusteru Hadoop](data-factory-build-your-first-pipeline.md).
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 * Projděte si [Přehled a požadavky kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), kde najdete informace o kurzu, a proveďte **nutné** kroky.
 * Visual Studio 2012 nebo 2013 nebo 2015
 * Stáhněte sadu [Azure .NET SDK](http://azure.microsoft.com/downloads/) a nainstalujte ji.
 * Azure Powershell Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](../powershell-install-configure.md) si na počítač nainstalujte prostředí Azure PowerShell. K vytvoření aplikace v Azure Active Directory použijete Azure PowerShell.
 
-### Vytvoření aplikace v Azure Active Directory
-<a id="create-an-application-in-azure-active-directory" class="xliff"></a>
+### <a name="create-an-application-in-azure-active-directory"></a>Vytvoření aplikace v Azure Active Directory
 Vytvořte aplikaci Azure Active Directory, vytvořte pro ni instanční objekt a přiřaďte ho roli **Přispěvatel Data Factory**.
 
 1. Spusťte **PowerShell**.
@@ -119,8 +116,7 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
 * ID aplikace
 * Heslo (zadané v prvním příkazu)
 
-## Názorný postup
-<a id="walkthrough" class="xliff"></a>
+## <a name="walkthrough"></a>Názorný postup
 1. Pomocí sady Visual Studio 2012/2013/2015 vytvořte konzolovou aplikaci C# .NET.
    1. Spusťte **Visual Studio** 2012/2013/2015.
    2. Klikněte na **Soubor**, přejděte na **Nový** a klikněte na **Projekt**.
@@ -519,8 +515,7 @@ Z těchto kroků byste měli mít tyto čtyři hodnoty:
    * Kanál: **PipelineBlobSample**
 20. Ověřte, že se v tabulce **emp** vytvořily dva záznamy zaměstnanců v zadané databázi Azure SQL.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Úplnou dokumentaci k rozhraní .NET API pro datovou továrnu najdete v [referencích k rozhraní .NET API služby Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 
 V tomto kurzu jste v operaci kopírování použili úložiště objektů blob jako zdrojové úložiště dat a databázi Azure SQL jako cílové úložiště dat. Následující tabulka obsahuje seznam úložišť dat podporovaných jako zdroje a cíle aktivitou kopírování: 

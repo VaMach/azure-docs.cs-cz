@@ -23,13 +23,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-# Vytvoření zdroje událostí pro prostředí Time Series Insights pomocí portálu Ibiza
-<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Vytvoření zdroje událostí pro prostředí Time Series Insights pomocí portálu Ibiza
 
 Zdroj událostí Time Series Insights je odvozený od zprostředkovatele událostí, jako je například služba Azure Event Hubs. Time Series Insights se připojuje přímo ke zdrojům událostí a ingestuje datový proud, aniž by uživatelé museli psát jediný řádek kódu. V současné době Time Series Insights podporuje Azure Event Hubs a Azure IoT Hubs. Další zdroje událostí budou přidány později.
 
-## Postup přidání zdroje událostí do prostředí
-<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
+## <a name="steps-to-add-an-event-source-to-your-environment"></a>Postup přidání zdroje událostí do prostředí
 
 1.  Přihlaste se k [portálu Ibiza](https://portal.azure.com).
 2.  V nabídce na levé straně portálu Ibiza klikněte na Všechny prostředky.
@@ -53,8 +51,7 @@ Zdroj událostí Time Series Insights je odvozený od zprostředkovatele událos
 
 Po vytvoření zdroje událostí začne Time Series Insights automaticky streamovat data do vašeho prostředí.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 * [Odesílání událostí](time-series-insights-send-events.md) do zdroje událostí
 * Zobrazení prostředí na [portálu Time Series Insights](https://insights.timeseries.azure.com)

@@ -22,13 +22,11 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-# Azure Service Bus
-<a id="azure-service-bus" class="xliff"></a>
+# <a name="azure-service-bus"></a>Azure Service Bus
 
 Ať už aplikace nebo služba běží v cloudu nebo lokálně, často potřebuje komunikovat s jinými aplikacemi nebo službami. Microsoft Azure nabízí službu Service Bus, která právě toto výrazně usnadňuje. V tom to článku se podíváme na tuto technologii a na to, proč byste ji mohli chtít používat.
 
-## Základy služby Service Bus
-<a id="service-bus-fundamentals" class="xliff"></a>
+## <a name="service-bus-fundamentals"></a>Základy služby Service Bus
 
 Různé situace potřebují různé styly komunikace. Někdy je pro aplikace nejlepším řešením zprávy odesílat a přijímat přes jednoduchou frontu. V jiných situacích běžná fronta nestačí a je lepší použít frontu s publikováním a odběrem. V některých případech stačí jen navázat spojení mezi aplikacemi a fronty nejsou vůbec potřeba. Service Bus poskytuje všechny tři možnosti a umožňuje vašim aplikacím pracovat několika různými způsoby.
 
@@ -50,8 +48,7 @@ Pokud aplikace Windows chtějí tyto objekty používat ve scénáři přenosu, 
 
 Je důležité pochopit, že i když služba Service Bus samotná běží v cloudu (to znamená v datových centrech Microsoftu pro Azure), aplikace, které ji využívají, můžou běžet kdekoli. Service Bus můžete použít třeba k připojení aplikací běžících v Azure nebo aplikací běžících ve vašem vlastním datovém centru. Můžete ji použít i k připojení aplikace běžící v Azure nebo jiné cloudové službě k lokální službě nebo k mobilním zařízením,jako jsou tablety a telefony. Dokonce s ní můžete připojit domácí spotřebiče, senzory a jiná zařízení k centrální aplikaci nebo k jiným zařízením. Service Bus je komunikační mechanizmus v cloudu, který je přístupný prakticky odkudkoli. To, jakým způsobem ho budete využívat, záleží jen na tom, co vaše aplikace potřebují dělat.
 
-## Fronty
-<a id="queues" class="xliff"></a>
+## <a name="queues"></a>Fronty
 
 Řekněme, že jste se rozhodli spojit dvě aplikace pomocí fronty Service Bus. Na obrázku 2 je taková situace.
 
@@ -75,8 +72,7 @@ Všimněte si, co se tu může stát: Stejná zpráva se může dodat dvakrát, 
 
 Fronty jsou užitečné v mnoha situacích. Umožňují aplikacím komunikovat, i když nejsou spuštěné ve stejnou dobu – to se hodí především pro dávkové a mobilní aplikace. Fronta s několika příjemci taky poskytuje automatické vyvažování zátěže, protože odeslané zprávy se rozdělují mezi jednotlivé příjemce.
 
-## Témata
-<a id="topics" class="xliff"></a>
+## <a name="topics"></a>Témata
 
 Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepší řešení. Někdy je lepší použít témata Service Bus. Na obrázku 3 je taková situace.
 
@@ -92,8 +88,7 @@ Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepš
 
 Stejně jako v případě front můžou odběratelé tématu načítat zprávy buď způsobem [ReceiveAndDelete, nebo PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k více odběratelům předplatných. Tomuto přístupu se obvykle říká *publikování a odběr* (nebo *pub/sub*)a je vhodný v každé situaci, kde se o stejné zprávy zajímá několik aplikací. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
 
-## Předávání
-<a id="relays" class="xliff"></a>
+## <a name="relays"></a>Předávání
 
 Fronty i témata nabízejí jednosměrnou asynchronní komunikaci přes zprostředkovatele. Zprávy proudí jen jedním směrem a mezi odesílateli a příjemci není žádné přímé spojení. Co když ale toto připojení nechcete? Řekněme, že aplikace potřebují odesílat i přijímat zprávy nebo že mezi nimi třeba chcete vytvořit přímé spojení a nepotřebujete zprostředkovatele pro ukládání zpráv. Pro takovou situaci Service Bus nabízí možnost *přenosu*, jak je vidět na obrázku 4.
 
@@ -113,13 +108,11 @@ A na rozdíl od front a témat taky aplikace nevytvářejí explicitně předáv
 
 Předávací služby jsou správným řešením v situaci, když potřebujete přímou komunikaci mezi aplikacemi. Řekněme třeba, že systém pro rezervaci letenek běží na lokálním datovém centru, ke kterému musí mít přístup prodejní místa, mobilní zařízení a další počítače. Aplikace, které běží na všech těchto systémech, by mohly ke komunikaci použít předávací služby Service Bus v cloudu, a bylo by jedno, kde běží.
 
-## Souhrn
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>Souhrn
 
 Propojení aplikací vždy patřilo k budování kompletních řešení a množství situací, ve kterých spolu aplikace a služby musí komunikovat, se s rostoucím počtem zařízení připojených k internetu bude dál zvyšovat. Služba Service Bus poskytuje cloudové technologie pro zajištění komunikace prostřednictvím front, témat a předávání, aby tuto základní funkci aplikacím a službám umožnil, usnadnil a více zpřístupnil.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Dozvěděli jste se základní informace službě Azure Service Bus, další informace se dozvíte na následujících odkazech.
 

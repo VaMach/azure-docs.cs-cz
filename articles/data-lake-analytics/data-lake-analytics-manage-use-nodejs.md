@@ -22,8 +22,7 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-# Správa Azure Data Lake Analytics pomocí sady Azure SDK pro Node.js
-<a id="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs" class="xliff"></a>
+# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Správa Azure Data Lake Analytics pomocí sady Azure SDK pro Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Sada Azure SDK pro Node.js se dá použít k správě úloh, katalogů a účtů Azure Data Lake Analytics. Pokud chcete zobrazit téma správy s použitím jiných nástrojů, klikněte na výběr karty výše.
@@ -35,20 +34,17 @@ Aktuálně podporuje:
 * **Verze rozhraní REST API pro Katalog: 2015-10-01-preview**
 * **Verze rozhraní REST API pro Úlohu: 2016-03-20 preview**
 
-## Funkce
-<a id="features" class="xliff"></a>
+## <a name="features"></a>Funkce
 * Správa účtů: vytvoření, získání, seznam, aktualizace a odstranění.
 * Správa úloh: odeslání, získání, seznam a zrušení.
 * Správa katalogů: získání a seznam.
 
-## Postup instalace
-<a id="how-to-install" class="xliff"></a>
+## <a name="how-to-install"></a>Postup instalace
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-## Ověření pomocí služby Azure Active Directory
-<a id="authenticate-using-azure-active-directory" class="xliff"></a>
+## <a name="authenticate-using-azure-active-directory"></a>Ověření pomocí služby Azure Active Directory
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -57,8 +53,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## Vytvoření klienta Data Lake Analytics
-<a id="create-the-data-lake-analytics-client" class="xliff"></a>
+## <a name="create-the-data-lake-analytics-client"></a>Vytvoření klienta Data Lake Analytics
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -66,8 +61,7 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-## Vytvoření účtu Data Lake Analytics
-<a id="create-a-data-lake-analytics-account" class="xliff"></a>
+## <a name="create-a-data-lake-analytics-account"></a>Vytvoření účtu Data Lake Analytics
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -116,8 +110,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## Získání seznamu úloh
-<a id="get-a-list-of-jobs" class="xliff"></a>
+## <a name="get-a-list-of-jobs"></a>Získání seznamu úloh
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -130,8 +123,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-## Získání seznamu databází v katalogu Data Lake Analytics
-<a id="get-a-list-of-databases-in-the-data-lake-analytics-catalog" class="xliff"></a>
+## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Získání seznamu databází v katalogu Data Lake Analytics
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -144,8 +136,7 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## Viz také
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Viz také
 * [Microsoft Azure SDK pro Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Microsoft Azure SDK pro Node.js – správa Data Lake Storu](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 

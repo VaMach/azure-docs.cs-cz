@@ -25,8 +25,7 @@ ms.lasthandoff: 05/12/2017
 
 
 ---
-# Připojení ke službě Azure HDInsight a spouštění dotazů Hive pomocí nástrojů Data Lake pro Visual Studio
-<a id="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio" class="xliff"></a>
+# <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>Připojení ke službě Azure HDInsight a spouštění dotazů Hive pomocí nástrojů Data Lake pro Visual Studio
 
 Naučte se používat nástroje Data Lake pro Visual Studio pro připojení ke clusterům Hadoop ve službě [Azure HDInsight](hdinsight-hadoop-introduction.md) a odesílání dotazů Hive. Další informace o používání služby HDInsight najdete v tématech [Úvod do služby HDInsight](hdinsight-hadoop-introduction.md) a [Začínáme se službou HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). Další informace o připojování ke clusteru Storm najdete v tématu [Vývoj topologií C# Storm pomocí sady HDInsight Tools pro Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
@@ -47,15 +46,13 @@ Pro dokončení tohoto kurzu a používání nástrojů Data Lake Tools v sadě 
     > 
     > 
 
-## Instalace nástrojů Data Lake Tools pro Visual Studio
-<a id="install-data-lake-tools-for-visual-studio" class="xliff"></a>
+## <a name="install-data-lake-tools-for-visual-studio"></a>Instalace nástrojů Data Lake Tools pro Visual Studio
 
 Data Lake Tools se pro sadu Visual Studio 2017 instalují ve výchozím nastavení. U starších verzí je můžete nainstalovat pomocí [Instalačního programu webové platformy](https://www.microsoft.com/web/downloads/). Je nutné zvolit ten, který se shoduje s vaší verzí sady Visual Studio. Pokud nemáte nainstalované Visual Studio, můžete nainstalovat poslední verzi nástroje Visual Studio Community a Azure SDK pomocí [Instalace webové platformy](https://www.microsoft.com/web/downloads/):
 
 ![Instalace webové platformy pro Data Lake Tools pro Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png "Instalace nástrojů Data Lake pro Visual Studio pomocí instalace webové platformy")
 
-## Připojení k předplatným služby Azure
-<a id="connect-to-azure-subscriptions" class="xliff"></a>
+## <a name="connect-to-azure-subscriptions"></a>Připojení k předplatným služby Azure
 Data Lake Tools pro Visual Studio umožňují připojení ke clusterům HDInsight, provádění některých operací základní správy a spouštění dotazů Hive.
 
 > [!NOTE]
@@ -89,8 +86,7 @@ Po připojení k předplatnému Azure budete moci provádět následující akce
 
 * V nabídce **Nástroje** klikněte na tlačítko **HDInsight** a pak klikněte na tlačítko **Fórum MSDN** a pokládejte otázky, nebo klikněte na položku **Odeslat zpětnou vazbu**.
 
-## Procházejte propojené prostředky
-<a id="navigate-the-linked-resources" class="xliff"></a>
+## <a name="navigate-the-linked-resources"></a>Procházejte propojené prostředky
 V Průzkumníkovi serveru můžete zobrazit výchozí účet úložiště a všechny propojené účty úložiště. Pokud rozbalíte výchozí účet úložiště, uvidíte kontejnery na účtu úložiště. Jsou označeny jako výchozí účet úložiště a výchozí kontejner. Pro zobrazení obsahu můžete také kliknout pravým tlačítkem myši na kontejnery.
 
 ![Seznam propojených prostředků v Průzkumníku serveru pro Data Lake pro Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.linked.resources.png "Seznam propojených prostředků")
@@ -99,16 +95,14 @@ Po otevření kontejneru můžete k nahrání, odstranění a stažení objektů
 
 ![Operace s objekty blob v Průzkumníku serveru pro Data Lake Tools pro Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "Nahrání, odstranění a stažení objektů blob")
 
-## Spuštění dotazu Hive
-<a id="run-a-hive-query" class="xliff"></a>
+## <a name="run-a-hive-query"></a>Spuštění dotazu Hive
 [Apache Hive](http://hive.apache.org) je infrastruktura datového skladu postavená na Hadoop pro poskytování souhrnů dat, dotazů a analýz. Data Lake Tools pro Visual Studio podporují spouštění dotazů Hive ze sady Visual Studio. Další informace o Hivu najdete v tématu [Použití Hivu se službou HDInsight](hdinsight-use-hive.md).
 
 Otestování skriptu Hive proti clusteru služby HDInsight je časově náročné. Může to trvat několik minut nebo déle. Data Lake Tools pro Visual Studio dokáží ověřovat skript Hive místně bez připojení k živému clusteru.
 
 Data Lake Tools pro Visual Studio také umožňují uživatelům zobrazit, co se nachází uvnitř úlohy Hive díky shromažďování a zpřístupnění protokolů YARN určitých úloh Hive.
 
-### Zobrazení **hivesampletable**
-<a id="view-the-hivesampletable" class="xliff"></a>
+### <a name="view-the-hivesampletable"></a>Zobrazení **hivesampletable**
 Všechny clustery HDInsight se vzorovou tabulkou Hive se nazývají *hivesampletable*. Tuto tabulku použijeme, abychom vám zobrazit postup, jak zobrazit seznam tabulek Hive, zobrazit schémata tabulek a zobrazit seznam řádků v tabulce Hive.
 
 **Postup zobrazení seznamu tabulek Hive a zobrazení schématu tabulek Hive**
@@ -122,8 +116,7 @@ Všechny clustery HDInsight se vzorovou tabulkou Hive se nazývají *hivesamplet
    
    ![Data Lake Tools: dotaz schématu HDinsight Hive sady Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Výsledky dotazu Hive")
 
-### Vytváření tabulek Hive
-<a id="create-hive-tables" class="xliff"></a>
+### <a name="create-hive-tables"></a>Vytváření tabulek Hive
 Grafické uživatelské rozhraní můžete použít k vytvoření tabulky Hive nebo dotazů Hive. Informace o použití dotazů Hive naleznete v tématu [Spouštění dotazů Hive](#run.queries).
 
 **Vytvoření tabulky Hive**
@@ -176,8 +169,7 @@ Existují dva způsoby, jak vytvářet a spouštět dotazy Hive:
 3. V části **Průzkumník řešení** dvakrát klikněte na možnost **Script.hql** a otevřete ji.
 4. Pro ověření skriptu Hive můžete kliknout na tlačítko **Ověření skriptu** nebo kliknout pravým tlačítkem na skript v editoru Hive a pak kliknout na tlačítko **Ověření skriptu** z kontextové nabídky.
 
-### Zobrazení úloh Hive
-<a id="view-hive-jobs" class="xliff"></a>
+### <a name="view-hive-jobs"></a>Zobrazení úloh Hive
 Můžete zobrazit dotazy úlohy, výstup úlohy, protokoly úlohy a protokoly Yarn pro úlohy Hive. Další informace najdete v předchozím snímku obrazovky.
 
 Nejnovější verze nástrojů vám umožní vidět, co je uvnitř vaší úlohy Hive, díky shromažďování a zpřístupnění protokolů YARN. Protokol YARN vám může pomoci prozkoumat problémy s výkonem. Další informace o tom, jak služba HDInsight shromažďuje protokoly YARN, najdete v tématu [Programový přístup k protokolům aplikací v prostředí HDInsight](hdinsight-hadoop-access-yarn-app-logs.md).
@@ -190,8 +182,7 @@ Nejnovější verze nástrojů vám umožní vidět, co je uvnitř vaší úlohy
    
     ![Data Lake Tools: zobrazení úloh Hive v HDInsight Visual Studio Tools](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Zobrazení úloh Hive")
 
-### Rychlejší cesta ke spouštění Hive prostřednictvím HiveServer2
-<a id="faster-path-hive-execution-via-hiveserver2" class="xliff"></a>
+### <a name="faster-path-hive-execution-via-hiveserver2"></a>Rychlejší cesta ke spouštění Hive prostřednictvím HiveServer2
 > [!NOTE]
 > Tato funkce funguje pouze na verzi clusteru HDInsight 3.2 a novější.
 > 
@@ -220,8 +211,7 @@ I když má zpracování dotazů prostřednictvím HiveServer2 mnoho výkonnostn
 | Zobrazení historie úlohy |Pokud je dotaz proveden prostřednictvím HiveServer2, nezachová se jeho historie úloh (protokol úloh, výstup úloh). Aplikaci lze zobrazit v uživatelském rozhraní YARN s omezenými informacemi. |Pokud je dotaz proveden prostřednictvím WebHCat, jeho historie úloh (protokol úlohy, výstup úlohy) je zachována a lze ji zobrazit pomocí aplikace Visual Studio/HDInsight SDK/PowerShell. |
 | Zavření okna |Spouštění prostřednictvím HiveServer2 je „synchronní“ způsob, takže je nutné zachovat otevřená okna. Pokud okna zavřete, spouštění dotazu se zruší. |Odesílání prostřednictvím WebHCat je „asynchronní“ způsob, aby bylo možné odeslat dotaz prostřednictvím WebHCat a zavřít aplikaci Visual Studio. Kdykoliv se můžete vrátit a zobrazit výsledky. |
 
-### Graf výkonu úlohy Tez Hive
-<a id="tez-hive-job-performance-graph" class="xliff"></a>
+### <a name="tez-hive-job-performance-graph"></a>Graf výkonu úlohy Tez Hive
 Data Lake Tools podporují zobrazení grafů výkonu pro úlohy Hive spuštěné prostřednictvím modulu Tez. Informace o povolení Tez najdete v tématu [Používání Hive ve službě HDInsight](hdinsight-use-hive.md). Po odeslání úlohy Hive v sadě Visual Studio zobrazí Visual Studio po dokončení úlohy graf.  Možná budete muset kliknout na tlačítko **Aktualizovat** a získat nejnovější stav úlohy.
 
 > [!NOTE]
@@ -233,24 +223,20 @@ Data Lake Tools podporují zobrazení grafů výkonu pro úlohy Hive spuštěné
 
 Abychom vám pomohli lépe pochopit dotaz Hive, nástroje v této verzi přidávají zobrazení Operátoru Hive. Stačí dvakrát kliknout na vrcholy grafu úlohy a zobrazí se všechny operátory uvnitř vrcholu. Můžete také najet na konkrétní operátor a zobrazit další podrobnosti tohoto operátoru.
 
-### Zobrazení spouštění úlohy pro Hive na úlohách Tez
-<a id="task-execution-view-for-hive-on-tez-jobs" class="xliff"></a>
+### <a name="task-execution-view-for-hive-on-tez-jobs"></a>Zobrazení spouštění úlohy pro Hive na úlohách Tez
 Zobrazení spouštění úlohy pro Hive na úlohách Tez lze použít k získání strukturovaných a vizualizovaných informací pro úlohy Hive a získání dalších podrobností úlohy. Pokud dojde k problémům s výkonem, můžete zobrazení použít k získání dalších podrobností. Například způsobu, jakým úloha pracuje a podrobných informací o jednotlivých úlohách (čtení a zápis dat, plánovaný/počáteční/koncový čas atd.) tak, abyste mohli vyladit úlohu konfigurace nebo architekturu systému na základě vizualizovaných informací.
 
 ![Zobrazení spouštění úlohy v nástrojích Data Lake pro Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Zobrazení spuštění úlohy")
 
-## Spouštění skriptů Pig
-<a id="run-pig-scripts" class="xliff"></a>
+## <a name="run-pig-scripts"></a>Spouštění skriptů Pig
 Data Lake Tools pro Visual Studio podporují vytváření a odesílání skriptů Pig do clusterů HDInsight. Uživatelé mohou vytvořit projekt Pig ze šablony a pak odeslat skript do clusteru HDInsight.
 
-## Názory a známé problémy
-<a id="feedbacks--known-issues" class="xliff"></a>
+## <a name="feedbacks--known-issues"></a>Názory a známé problémy
 * Aktuálně jsou výsledky HiveServer2 zobrazeny čistě textovým způsobem, což není ideální. Pracujeme na řešení.
 * Pokud výsledky začínají s hodnotami NULL, momentálně se nezobrazí. Tento problém jsme opravili a pokud budete tímto problémem blokováni, neváhejte nám zaslat e-mail nebo se obrátit na tým podpory.
 * Skript HQL vytvořených pomocí Visual Studia je zakódován v závislosti na nastavení pro místní oblast uživatele. Nemusí se správně spustit, pokud uživatel nahraje skript do clusteru jako binární.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 V tomto článku jste se dozvěděli, jak se připojit ke clusterům HDInsight ze sady Visual Studio, používat balíček Data Lake (HDInsight) Tools a spustit dotaz Hive. Další informace naleznete v tématu:
 
 * [Použití Hadoop Hive ve službě HDInsight](hdinsight-use-hive.md)

@@ -22,14 +22,10 @@ ms.lasthandoff: 06/08/2017
 
 
 ---
-<a id="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server" class="xliff"></a>
-
-# Upgrade agenta PhoneFactor na Azure Multi-Factor Authentication Server
+# <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Upgrade agenta PhoneFactor na Azure Multi-Factor Authentication Server
 Pokud chcete upgradovat agenta PhoneFactor verze 5.x nebo starší na Azure Multi-Factor Authentication Server, odinstalujte nejprve agenta PhoneFactor a připojené součásti. Pak lze instalovat Multi-Factor Authentication Server a jeho připojené součásti.
 
-<a id="uninstall-the-phonefactor-agent" class="xliff"></a>
-
-## Odinstalace agenta PhoneFactor
+## <a name="uninstall-the-phonefactor-agent"></a>Odinstalace agenta PhoneFactor
 
 1. Nejprve zálohujte datový soubor PhoneFactor. Výchozí umístění instalace je C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -50,9 +46,7 @@ Pokud chcete upgradovat agenta PhoneFactor verze 5.x nebo starší na Azure Mult
 
 5. Odinstalujte službu agent PhoneFactor prostřednictvím programů a funkcí systému Windows.
 
-<a id="install-the-multi-factor-authentication-server" class="xliff"></a>
-
-## Instalace Multi-Factor Authentication Serveru
+## <a name="install-the-multi-factor-authentication-server"></a>Instalace Multi-Factor Authentication Serveru
 
 Cesta instalace se převzala z registru z předchozí instalace agenta PhoneFactor, takže by instalace měla proběhnout do stejného umístění (například C:\Program Files\PhoneFactor). Nové instalace mají různé výchozí instalační cesty (například C:\Program Files\Multi-Factor Authentication Server). Datový soubor zanechaný předchozí agentem PhoneFactor musí být upgradován během instalace, takže nastavení uživatelů by mělo být po instalaci nového serveru Multi-Factor Authentication stále přítomno.
 
@@ -82,9 +76,7 @@ Cesta instalace se převzala z registru z předchozí instalace agenta PhoneFact
 
   5. Přejděte do umístění instalace webové služby mobilní aplikace (například C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) a upravte soubor web.config. Zkopírujte hodnoty v oddílech appSettings a applicationSettings z původního souboru web.config, který se zálohoval před upgradem, do nového souboru web.config. Pokud byl při instalaci sady Web Service SDK zachován výchozí název virtuálního adresáře, změňte adresu URL v části applicationSettings tak, aby odkazovala na správné místo. Pokud byly v předchozím soubor web.config změněny ostatní výchozí hodnoty, tyto změny budou stejně použity na nový soubor web.config.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 - [Instalace uživatelského portálu](multi-factor-authentication-get-started-portal.md) pro Azure Multi-Factor Authentication Server
 

@@ -24,9 +24,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-a-windows-virtual-machine-with-the-azure-cli" class="xliff"></a>
-
-# Vytvoření virtuálního počítače s Windows pomocí Azure CLI
+# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Vytvoření virtuálního počítače s Windows pomocí Azure CLI
 
 Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tento průvodce podrobně popisuje nasazení virtuálního počítače s Windows Serverem 2016 pomocí Azure CLI. Po dokončení nasazení se připojíme k serveru a nainstalujeme službu IIS.
 
@@ -38,9 +36,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít rozhraní příkazového řádku Azure ve verzi 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Vytvoření skupiny prostředků
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
 
@@ -50,9 +46,7 @@ Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umí
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Vytvoření virtuálního počítače
+## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
 
 Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). 
 
@@ -81,9 +75,7 @@ Po vytvoření virtuálního počítače se v Azure CLI zobrazí podobné inform
 }
 ```
 
-<a id="open-port-80-for-web-traffic" class="xliff"></a>
-
-## Otevření portu 80 pro webový provoz 
+## <a name="open-port-80-for-web-traffic"></a>Otevření portu 80 pro webový provoz 
 
 Ve výchozím nastavení jsou na virtuální počítače s Windows, které jsou nasazené v Azure, povolená pouze připojení RDP. Pokud bude tento virtuální počítač webovým serverem, budete muset otevřít port 80 z internetu. Požadovaný port otevřete pomocí příkazu [az vm open-port](/cli/azure/vm#open-port).  
  
@@ -92,9 +84,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
 
-<a id="connect-to-virtual-machine" class="xliff"></a>
-
-## Připojení k virtuálnímu počítači
+## <a name="connect-to-virtual-machine"></a>Připojení k virtuálnímu počítači
 
 Pomocí následujícího příkazu vytvořte s virtuálním počítačem relaci vzdálené plochy. IP adresu nahraďte veřejnou IP adresou vašeho virtuálního počítače. Po zobrazení výzvy zadejte přihlašovací údaje, které jste použili při vytváření virtuálního počítače.
 
@@ -102,9 +92,7 @@ Pomocí následujícího příkazu vytvořte s virtuálním počítačem relaci 
 mstsc /v:<Public IP Address>
 ```
 
-<a id="install-iis-using-powershell" class="xliff"></a>
-
-## Instalace služby IIS pomocí PowerShellu
+## <a name="install-iis-using-powershell"></a>Instalace služby IIS pomocí PowerShellu
 
 Když jste přihlášeni k virtuálnímu počítači Azure, můžete k instalaci služby IIS a k aktivaci pravidla místní brány firewall pro povolení webového provozu použít jeden řádek PowerShellu. Otevřete příkazový řádek PowerShellu a spusťte následující příkaz:
 
@@ -112,17 +100,13 @@ Když jste přihlášeni k virtuálnímu počítači Azure, můžete k instalaci
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-<a id="view-the-iis-welcome-page" class="xliff"></a>
-
-## Zobrazení úvodní stránky služby IIS
+## <a name="view-the-iis-welcome-page"></a>Zobrazení úvodní stránky služby IIS
 
 S nainstalovanou službou IIS na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku služby IIS. Nezapomeňte pro návštěvu výchozí stránky použít veřejnou IP adresu popsanou výše. 
 
 ![Výchozí web služby IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Vyčištění prostředků
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, virtuálního počítače a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete).
 
@@ -130,9 +114,7 @@ Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, virtuá
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 V tomto Rychlém startu jste nasadili jednoduchý virtuální počítač a pravidlo skupiny zabezpečení sítě a nainstalovali jste webový server. Další informace o virtuálních počítačích Azure najdete v kurzu pro virtuální počítače s Windows.
 

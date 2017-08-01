@@ -22,8 +22,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-# První pohled: Zálohování virtuálních počítačů Azure
-<a id="first-look-backing-up-azure-virtual-machines" class="xliff"></a>
+# <a name="first-look-backing-up-azure-virtual-machines"></a>První pohled: Zálohování virtuálních počítačů Azure
 > [!div class="op_single_selector"]
 > * [Ochrana virtuálních počítačů v trezoru služby Recovery Services](backup-azure-vms-first-look-arm.md)
 > * [Ochrana virtuálních počítačů Azure s trezorem zálohování](backup-azure-vms-first-look.md)
@@ -45,8 +44,7 @@ Pro úspěšné dokončení následujícího kurzu musí být splněny tyto pož
 >
 >
 
-## Vytvoření trezoru záloh
-<a id="create-a-backup-vault" class="xliff"></a>
+## <a name="create-a-backup-vault"></a>Vytvoření trezoru záloh
 Trezor záloh je entita, která ukládá všechny vytvořené zálohy a body obnovení. Trezor záloh obsahuje také zásady zálohování, které se aplikují na zálohované virtuální počítače.
 
 > [!IMPORTANT]
@@ -56,8 +54,7 @@ Trezor záloh je entita, která ukládá všechny vytvořené zálohy a body obn
 >- Nebudete mít přístup k datům záloh na portálu Classic. Pro přístup k datům záloh v trezorech služby Recovery Services místo toho použijte Azure Portal.
 >
 
-## Vyhledání a registrace virtuálních počítačů Azure
-<a id="discover-and-register-azure-virtual-machines" class="xliff"></a>
+## <a name="discover-and-register-azure-virtual-machines"></a>Vyhledání a registrace virtuálních počítačů Azure
 Před zaregistrováním virtuálního počítače k trezoru spusťte proces vyhledávání pro identifikaci nových virtuálních počítačů. Ten vrátí seznam virtuálních počítačů v rámci předplatného společně s dalšími informacemi, jako například název cloudové služby a oblast.
 
 1. Přihlaste se k [portálu Azure Classic](http://manage.windowsazure.com/).
@@ -104,14 +101,12 @@ Před zaregistrováním virtuálního počítače k trezoru spusťte proces vyhl
 
     ![Stav registrace 2](./media/backup-azure-vms/register-status02.png)
 
-## Instalace agenta virtuálního počítače na virtuální počítač
-<a id="install-the-vm-agent-on-the-virtual-machine" class="xliff"></a>
+## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalace agenta virtuálního počítače na virtuální počítač
 Pro fungování rozšíření Backup musí být na virtuálním počítači Azure nainstalovaný agent virtuálního počítače Azure. Pokud byl váš virtuální počítač vytvořen z galerie Azure, je na něm agent virtuálního počítače již nainstalován. Můžete přeskočit k [ochraně virtuálních počítačů](backup-azure-vms-first-look.md#create-the-backup-policy).
 
 Pokud byl virtuální počítač přenesen z místního datového centra, pravděpodobně na něm není agent virtuálního počítače nainstalovaný. Před pokračováním k ochraně virtuálního počítače je potřeba na něj nainstalovat agenta virtuálního počítače. Podrobné pokyny k instalaci agenta virtuálního počítače naleznete v [oddílu Agent virtuálního počítače v článku Zálohování virtuálních počítačů](backup-azure-vms-prepare.md#vm-agent).
 
-## Vytvoření zásady zálohování
-<a id="create-the-backup-policy" class="xliff"></a>
+## <a name="create-the-backup-policy"></a>Vytvoření zásady zálohování
 Předtím, než aktivujete úlohu prvotního zálohování, nastavte plán pořizování snímků zálohy. Plán pořizování snímků záloh a doba jejich uchování se nazývá zásada zálohování. Informace o zachování jsou založené na trojgeneračním schématu rotace záloh.
 
 1. Na portálu Azure Classic přejděte v **Recovery Services** do trezoru záloh a klikněte na **Registrované položky**.
@@ -148,8 +143,7 @@ Předtím, než aktivujete úlohu prvotního zálohování, nastavte plán poři
 
     Nyní, když jste vytvořili zásadu, přejděte k dalšímu kroku a spusťte prvotní zálohování.
 
-## Prvotní zálohování
-<a id="initial-backup" class="xliff"></a>
+## <a name="initial-backup"></a>Prvotní zálohování
 Jakmile je virtuální počítač chráněný zásadou, můžete si tento vztah prohlédnout na kartě **Chráněné položky**. Před provedením prvotního zálohování bude **Stav ochrany** ukazovat **Chráněno – (čekání na prvotní zálohování)**. Ve výchozím nastavení je první plánovanou zálohou *prvotní záloha*.
 
 ![Zálohování čeká na zpracování](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -173,15 +167,13 @@ Chcete-li nyní spustit prvotní zálohování:
    >
    >
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Když jste teď úspěšně zálohovali virtuální počítač, je několik dalších kroků, které by vás mohly zajímat. Nejlogičtějším krokem je seznámení se s obnovováním dat na virtuálním počítači. Nicméně existují úlohy správy, které vám pomohou pochopit, jak zabezpečit dat a minimalizovat náklady.
 
 * [Správa a monitorování virtuálních počítačů](backup-azure-manage-vms.md)
 * [Obnovení virtuálních počítačů](backup-azure-restore-vms.md)
 * [Pokyny při řešení potíží](backup-azure-vms-troubleshoot.md)
 
-## Máte dotazy?
-<a id="questions" class="xliff"></a>
+## <a name="questions"></a>Máte dotazy?
 Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [odešlete nám svůj názor](http://aka.ms/azurebackup_feedback).
 

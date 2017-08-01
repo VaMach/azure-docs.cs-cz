@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-10-create-partitions" class="xliff"></a>
-
-# Lekce 10: Vytvoření oddílů
+# <a name="lesson-10-create-partitions"></a>Lekce 10: Vytvoření oddílů
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ V této lekci vytvoříte oddíly pro rozdělení tabulky FactInternetSales na m
   
 Odhadovaný čas dokončení této lekce: **15 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 9: Vytvoření hierarchií](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
-<a id="create-partitions" class="xliff"></a>
-
-## Vytvoření oddílů  
+## <a name="create-partitions"></a>Vytvoření oddílů  
   
-<a id="to-create-partitions-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Vytvoření oddílů v tabulce FactInternetSales  
+#### <a name="to-create-partitions-in-the-factinternetsales-table"></a>Vytvoření oddílů v tabulce FactInternetSales  
   
 1.  V Průzkumníku tabelárních modelů rozbalte **Tabulky** a potom klikněte pravým tlačítkem na **FactInternetSales** > **Oddíly**.  
   
@@ -72,9 +64,7 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
     Tento příkaz určuje, že by tento oddíl měl zahrnovat pouze data v řádcích, kde hodnota ve sloupci OrderDate spadá do kalendářního roku 2010, jak je uvedeno v klauzuli Filtrované řádky.  
   
   
-<a id="to-create-a-partition-for-the-2011-year" class="xliff"></a>
-
-#### Vytvoření oddílu pro rok 2011  
+#### <a name="to-create-a-partition-for-the-2011-year"></a>Vytvoření oddílu pro rok 2011  
   
 1.  V seznamu oddílů klikněte na oddíl **FactInternetSales2010**, který jste vytvořili, a potom klikněte na **Kopírovat**.  Změňte název oddílu na **FactInternetSales2011**. 
 
@@ -93,33 +83,23 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
    
     ```  
   
-<a id="to-create-partitions-for-2012-2013-and-2014" class="xliff"></a>
-
-#### Vytvoření oddílů pro roky 2012, 2013 a 2014  
+#### <a name="to-create-partitions-for-2012-2013-and-2014"></a>Vytvoření oddílů pro roky 2012, 2013 a 2014  
   
 - Stejným postupem jako v předchozích krocích vytvořte oddíly pro roky 2012, 2013 a 2014 a v klauzuli Filtrované řádky vždy změňte rok tak, aby se zahrnuly pouze řádky pro daný rok. 
   
 
-<a id="delete-the-factinternetsales-partition" class="xliff"></a>
-
-## Odstranění oddílu FactInternetSales
+## <a name="delete-the-factinternetsales-partition"></a>Odstranění oddílu FactInternetSales
 Když teď máte oddíly pro každý rok, můžete odstranit oddíl FactInternetSales. Zabráníte tím překrývání při výběru možnosti Zpracovat vše v rámci zpracování oddílů.
 
-<a id="to-delete-the-factinternetsales-partition" class="xliff"></a>
-
-#### Odstranění oddílu FactInternetSales
+#### <a name="to-delete-the-factinternetsales-partition"></a>Odstranění oddílu FactInternetSales
 -  Klikněte na oddíl FactInternetSales a potom klikněte na **Odstranit**.
 
 
 
-<a id="process-partitions" class="xliff"></a>
-
-## Zpracování oddílů  
+## <a name="process-partitions"></a>Zpracování oddílů  
 Ve správci oddílů si všimněte, že sloupec **Poslední zpracování** pro každý z nově vytvořených oddílů ukazuje, že oddíly nikdy nebyly zpracovány. Při vytváření oddílů byste měli spustit operaci Zpracování oddílů nebo Zpracování tabulky pro aktualizaci dat v těchto oddílech.  
   
-<a id="to-process-the-factinternetsales-partitions" class="xliff"></a>
-
-#### Zpracování oddílů FactInternetSales  
+#### <a name="to-process-the-factinternetsales-partitions"></a>Zpracování oddílů FactInternetSales  
   
 1.  Kliknutím na **OK** zavřete správce oddílů.  
   
@@ -137,8 +117,6 @@ Ve správci oddílů si všimněte, že sloupec **Poslední zpracování** pro k
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
-<a id="whats-next" class="xliff"></a>
-
- ## Co dále?
+ ## <a name="whats-next"></a>Co dále?
 Přejděte na další lekci: [Lekce 11: Vytvoření rolí](../tutorials/aas-lesson-11-create-roles.md). 
 

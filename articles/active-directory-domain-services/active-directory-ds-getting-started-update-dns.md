@@ -22,12 +22,8 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-# Aktualizace nastavení DNS pro virtuální síť Azure
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-## Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure
+# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Aktualizace nastavení DNS pro virtuální síť Azure
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure
 V předchozích úlohách konfigurace jste úspěšně povolili službu Azure Active Directory Domain Services pro svůj adresář. Dalším úkolem je zajistit, že se počítače v rámci virtuální sítě mohou k těmto službám připojit a využívat je. V tomto článku provedete aktualizaci nastavení serveru DNS svojí virtuální sítě tak, aby odkazoval na dvě IP adresy, kde je ve virtuální síti dostupná služba Azure Active Directory Domain Services.
 
 > [!NOTE]
@@ -56,8 +52,6 @@ Podle následujících kroků aktualizujte server DNS virtuální sítě, ve kte
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Úloha 5: [Povolení synchronizace hesel do služby Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

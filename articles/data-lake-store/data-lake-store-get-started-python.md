@@ -23,9 +23,7 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="get-started-with-azure-data-lake-store-using-python" class="xliff"></a>
-
-# Začínáme s Azure Data Lake Store pomocí jazyka Python
+# <a name="get-started-with-azure-data-lake-store-using-python"></a>Začínáme s Azure Data Lake Store pomocí jazyka Python
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](data-lake-store-get-started-portal.md)
@@ -41,9 +39,7 @@ ms.lasthandoff: 07/01/2017
 
 Naučte se používat sadu SDK pro Python pro Azure Data Lake Store k provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů atd. Další informace týkající se Data Lake najdete v tématu [Azure Data Lake Store](data-lake-store-overview.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 * **Python**. Python si můžete stáhnout [tady](https://www.python.org/downloads/). Tento článek používá Python verze 3.5.2.
 
@@ -51,9 +47,7 @@ Naučte se používat sadu SDK pro Python pro Azure Data Lake Store k prováděn
 
 * **Vytvoření aplikace Azure Active Directory**. Aplikaci Azure AD použijete k ověření aplikace Data Lake Store ve službě Azure AD. Existují různé přístupy k ověřování ve službě Azure AD, jsou to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md) nebo [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md).
 
-<a id="install-the-modules" class="xliff"></a>
-
-## Instalace modulů
+## <a name="install-the-modules"></a>Instalace modulů
 
 Abyste mohli pracovat se službou Data Lake Store pomocí Pythonu, je nutné nainstalovat tři moduly.
 
@@ -69,9 +63,7 @@ pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
 ```
 
-<a id="create-a-new-python-application" class="xliff"></a>
-
-## Vytvoření nové aplikace v Pythonu
+## <a name="create-a-new-python-application"></a>Vytvoření nové aplikace v Pythonu
 
 1. Pomocí integrovaného vývojového prostředí (IDE) podle vašeho výběru vytvořte novou aplikaci v Pythonu, například **mysample.py**.
 
@@ -104,9 +96,7 @@ pip install azure-datalake-store
 
 3. Uložte změny v souboru mysample.py.
 
-<a id="authentication" class="xliff"></a>
-
-## Ověřování
+## <a name="authentication"></a>Ověřování
 
 V této části popíšeme různé způsoby, jak provádět ověření pomocí Azure AD. Dostupné jsou následující možnosti:
 
@@ -116,9 +106,7 @@ V této části popíšeme různé způsoby, jak provádět ověření pomocí A
 
 Tyto možnosti ověřování je nutné použít jak pro správu účtů, tak i pro moduly správy systému souborů.
 
-<a id="end-user-authentication-for-account-management" class="xliff"></a>
-
-### Ověřování koncového uživatele pro správu účtu
+### <a name="end-user-authentication-for-account-management"></a>Ověřování koncového uživatele pro správu účtu
 
 Tento kód použijte k ověření ve službě Azure AD pro operace správy účtu (vytvoření/odstranění účtu Data Lake Store atd.). Je třeba zadat uživatelské jméno a heslo uživatele Azure AD. Upozorňujeme, že daný uživatel by neměl mít zapnuté vícefaktorové ověřování.
 
@@ -127,9 +115,7 @@ Tento kód použijte k ověření ve službě Azure AD pro operace správy účt
 
     credentials = UserPassCredentials(user, password)
 
-<a id="end-user-authentication-for-filesystem-operations" class="xliff"></a>
-
-### Ověřování koncového uživatele pro operace se systémem souborů
+### <a name="end-user-authentication-for-filesystem-operations"></a>Ověřování koncového uživatele pro operace se systémem souborů
 
 Tento kód použijte k ověření pomocí Azure AD pro operace se systémem souborů (vytvoření složky, nahrání souboru atd.). Tento kód použijte se stávající aplikací **nativního klienta** Azure AD. Uživatel, pro kterého zadáváte přihlašovací údaje Azure AD, by neměl mít zapnuté vícefaktorové ověřování.
 
@@ -140,25 +126,19 @@ Tento kód použijte k ověření pomocí Azure AD pro operace se systémem soub
 
     token = lib.auth(tenant_id, user, password, client_id)
 
-<a id="service-to-service-authentication-with-client-secret-for-account-management" class="xliff"></a>
-
-### Ověřování služba-služba s tajným klíčem klienta pro správu účtu
+### <a name="service-to-service-authentication-with-client-secret-for-account-management"></a>Ověřování služba-služba s tajným klíčem klienta pro správu účtu
 
 Tento kód použijte k ověření ve službě Azure AD pro operace správy účtu (vytvoření/odstranění účtu Data Lake Store atd.). Následující fragment kódu lze použít k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající aplikací Azure AD Webová aplikace.
 
     credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
 
-<a id="service-to-service-authentication-with-client-secret-for-filesystem-operations" class="xliff"></a>
-
-### Ověřování služba-služba s tajným klíčem klienta pro operace se systémem souborů
+### <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Ověřování služba-služba s tajným klíčem klienta pro operace se systémem souborů
 
 Tento kód použijte k ověření pomocí Azure AD pro operace se systémem souborů (vytvoření složky, nahrání souboru atd.). Následující fragment kódu lze použít k neinteraktivnímu ověřování vaší aplikace pomocí tajného klíče klienta pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající aplikací Azure AD Webová aplikace.
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
-<a id="multi-factor-authentication-for-account-management" class="xliff"></a>
-
-### Vícefaktorové ověřování pro správu účtu
+### <a name="multi-factor-authentication-for-account-management"></a>Vícefaktorové ověřování pro správu účtu
 
 Tento kód použijte k ověření ve službě Azure AD pro operace správy účtu (vytvoření/odstranění účtu Data Lake Store atd.). Následující fragment kódu můžete použít k ověřování vaší aplikace pomocí vícefaktorového ověřování. Použijte tento fragment kódu se stávající aplikací Azure AD Webová aplikace.
 
@@ -175,17 +155,13 @@ Tento kód použijte k ověření ve službě Azure AD pro operace správy účt
     mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
     credentials = AADTokenCredentials(mgmt_token, client_id)
 
-<a id="multi-factor-authentication-for-filesystem-management" class="xliff"></a>
-
-### Vícefaktorové ověřování pro správu systému souborů
+### <a name="multi-factor-authentication-for-filesystem-management"></a>Vícefaktorové ověřování pro správu systému souborů
 
 Tento kód použijte k ověření pomocí Azure AD pro operace se systémem souborů (vytvoření složky, nahrání souboru atd.). Následující fragment kódu můžete použít k ověřování vaší aplikace pomocí vícefaktorového ověřování. Použijte tento fragment kódu se stávající aplikací Azure AD Webová aplikace.
 
     token = lib.auth(tenant_id='FILL-IN-HERE')
 
-<a id="create-an-azure-resource-group" class="xliff"></a>
-
-## Vytvoření skupiny prostředků Azure
+## <a name="create-an-azure-resource-group"></a>Vytvoření skupiny prostředků Azure
 
 Pomocí následujícího fragmentu kódu vytvořte skupinu prostředků Azure:
 
@@ -208,9 +184,7 @@ Pomocí následujícího fragmentu kódu vytvořte skupinu prostředků Azure:
         )
     )
 
-<a id="create-clients-and-data-lake-store-account" class="xliff"></a>
-
-## Vytvoření klientů a účtu Data Lake Store
+## <a name="create-clients-and-data-lake-store-account"></a>Vytvoření klientů a účtu Data Lake Store
 
 Následující fragment kódu nejprve vytvoří klienta účtu Data Lake Store. Objekt klienta použije k vytvoření účtu Data Lake Store. Nakonec vytvoří objekt klienta systému souborů.
 
@@ -233,9 +207,7 @@ Následující fragment kódu nejprve vytvoří klienta účtu Data Lake Store. 
     ## Create a filesystem client object
     adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
 
-<a id="list-the-data-lake-store-accounts" class="xliff"></a>
-
-## Výpis účtů Data Lake Store
+## <a name="list-the-data-lake-store-accounts"></a>Výpis účtů Data Lake Store
 
     ## List the existing Data Lake Store accounts
     result_list_response = adlsAcctClient.account.list()
@@ -243,39 +215,29 @@ Následující fragment kódu nejprve vytvoří klienta účtu Data Lake Store. 
     for items in result_list:
         print(items)
 
-<a id="create-a-directory" class="xliff"></a>
-
-## Vytvoření adresáře
+## <a name="create-a-directory"></a>Vytvoření adresáře
 
     ## Create a directory
     adlsFileSystemClient.mkdir('/mysampledirectory')
 
-<a id="upload-a-file" class="xliff"></a>
-
-## Nahrání souboru
+## <a name="upload-a-file"></a>Nahrání souboru
 
 
     ## Upload a file
     multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
 
-<a id="download-a-file" class="xliff"></a>
-
-## Stažení souboru
+## <a name="download-a-file"></a>Stažení souboru
 
     ## Download a file
     multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
-<a id="delete-a-directory" class="xliff"></a>
-
-## Odstranění adresáře
+## <a name="delete-a-directory"></a>Odstranění adresáře
 
     ## Delete a directory
     adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
-<a id="see-also" class="xliff"></a>
-
-## Viz také
+## <a name="see-also"></a>Viz také
 
 - [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 - [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

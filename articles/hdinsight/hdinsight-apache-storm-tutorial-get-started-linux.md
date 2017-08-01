@@ -23,8 +23,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 07/08/2017
 
 ---
-#Začínáme s Apache Storm v HDInsight pomocí příkladů topologie Storm Starter
-<a id="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples" class="xliff"></a>
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Začínáme s Apache Storm v HDInsight pomocí příkladů topologie Storm Starter
 
 Naučte se používat systém Apache Storm v HDInsight pomocí příkladů topologie Storm Starter.
 
@@ -33,8 +32,7 @@ Apache Storm je škálovatelný výpočetní systém v reálném čase odolný p
 > [!IMPORTANT]
 > HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,8 +40,7 @@ Apache Storm je škálovatelný výpočetní systém v reálném čase odolný p
 
 * **Znalost SSH a SCP**. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Vytvoření clusteru Storm
-<a id="create-a-storm-cluster" class="xliff"></a>
+## <a name="create-a-storm-cluster"></a>Vytvoření clusteru Storm
 
 Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
@@ -89,8 +86,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
     > [!NOTE]
     > Vytvoření clusteru trvá přibližně 20 minut.
 
-## Spuštění ukázky topologie Storm Starter v HDInsight
-<a id="run-a-storm-starter-sample-on-hdinsight" class="xliff"></a>
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Spuštění ukázky topologie Storm Starter v HDInsight
 
 1. Připojte se ke clusteru HDInsight pomocí protokolu SSH:
 
@@ -116,8 +112,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
 Pokud si chcete prohlédnout zdrojové kódy příkladů topologie Storm Starter, najdete je na [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Tento odkaz je pro Storm 1.0.x, který je součástí služby HDInsight 3.5. Pro ostatní verze Stormu použijte tlačítko __Větev__ v horní části stránky a vyberte jinou verzi Stormu.
 
-## Monitorování topologie
-<a id="monitor-the-topology" class="xliff"></a>
+## <a name="monitor-the-topology"></a>Monitorování topologie
 
 Uživatelské rozhraní Storm poskytuje webové rozhraní pro práci se spuštěnými topologiemi a je součástí clusteru HDInsight.
 
@@ -187,13 +182,11 @@ Ke sledování topologie pomocí uživatelského rozhraní Storm použijte násl
 
     V tomto příkladu se slovo **seven** vyskytlo 1493957krát. Tolikrát bylo toto slovo zjištěno od spuštění této topologie.
 
-## Zastavení topologie
-<a id="stop-the-topology" class="xliff"></a>
+## <a name="stop-the-topology"></a>Zastavení topologie
 
 Vraťte se na stránku **Souhrn topologie**, kde naleznete topologii počtu slov a pak vyberte tlačítko **Zastavit** z oddílu **Topologie akce**. Po zobrazení výzvy zadejte hodnotu 10 jako počet sekund, po které se má počkat před zastavením topologie. Po uplynutí časového limitu se topologie už při návštěvě oddílu **Uživatelské rozhraní Storm** řídicího panelu nezobrazí.
 
-## Odstranění clusteru
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>Odstranění clusteru
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

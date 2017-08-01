@@ -1,5 +1,4 @@
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 V předchozích krocích jste vytvořili prostředky Azure ve skupině prostředků. Pokud předpokládáte, že už tyto prostředky nebudete potřebovat, můžete je odstranit tak, že odstraníte skupinu prostředků.
  

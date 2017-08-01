@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
-
-# Začínáme vytvářet interní nástroj pro vyrovnávání zatížení (Classic) pro cloudové služby
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Začínáme vytvářet interní nástroj pro vyrovnávání zatížení (Classic) pro cloudové služby
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -34,9 +32,7 @@ ms.lasthandoff: 06/28/2017
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření prostředků a práci s nimi: [Resource Manager a klasický model](../azure-resource-manager/resource-manager-deployment-model.md).  Tento článek se věnuje použití klasického modelu nasazení. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Zjistěte, jak [provést tento postup pomocí modelu Resource Manageru](load-balancer-get-started-ilb-arm-ps.md).
 
-<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
-
-## Konfigurace interního nástroje pro vyrovnávání zatížení pro cloudové služby
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Konfigurace interního nástroje pro vyrovnávání zatížení pro cloudové služby
 
 Interní nástroj pro vyrovnávání zatížení je podporován pro virtuální počítače i cloudové služby. Koncový bod interního nástroje pro vyrovnávání zatížení vytvořený v cloudové službě, která je mimo regionální virtuální síť, bude dostupný pouze v rámci této cloudové služby.
 
@@ -45,9 +41,7 @@ Konfigurace interního nástroje pro vyrovnávání zatížení musí být nasta
 > [!IMPORTANT]
 > Předpokladem pro spuštění níže uvedených kroků je již vytvořená virtuální síť pro nasazení v cloudu. K vytvoření interního vyrovnávání zatížení budete potřebovat název této virtuální sítě a název podsítě.
 
-<a id="step-1" class="xliff"></a>
-
-### Krok 1
+### <a name="step-1"></a>Krok 1
 
 V sadě Visual Studio otevřete konfigurační soubor služby (.cscfg) svého nasazení v cloudu a přidejte následující část, která vytvoří interní vyrovnávání zatížení pod poslední položkou `</Role>` pro konfiguraci sítě.
 
@@ -75,9 +69,7 @@ Přidejme hodnoty pro soubor s konfigurací sítě, abychom ukázali, jak bude v
 
 Další informace o schématu nástroje pro vyrovnávání zatížení najdete v tématu [Přidání nástroje pro vyrovnávání zatížení](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-<a id="step-2" class="xliff"></a>
-
-### Krok 2
+### <a name="step-2"></a>Krok 2
 
 Změňte definiční soubor služby (.csdef) tak, aby přidal koncové body do interního vyrovnávání zatížení. V okamžiku vytvoření instance role definiční soubor služby přidá příslušné instance rolí do interního vyrovnávání zatížení.
 
@@ -101,9 +93,7 @@ Použijme stejné hodnoty z výše uvedeného příkladu a přidejme tyto hodnot
 
 Vyrovnávání zatížení síťového provozu bude probíhat pomocí nástroje pro vyrovnávání zatížení testLB, který používá port 80 pro příchozí požadavky a odesílá provoz do instancí rolí pracovního procesu rovněž na portu 80.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 [Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení pomocí spřažení se zdrojovou IP adresou](load-balancer-distribution-mode.md)
 

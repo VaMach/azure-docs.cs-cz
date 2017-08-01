@@ -23,28 +23,24 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-# Začínáme s SQL Data Warehouse
-<a id="get-started-with-sql-data-warehouse" class="xliff"></a>
+# <a name="get-started-with-sql-data-warehouse"></a>Začínáme s SQL Data Warehouse
 
 V tomto kurzu se dozvíte, jak zřídit službu Azure SQL Data Warehouse a nahrát do ní data. Také se seznámíte se základními informacemi o škálování, pozastavení a ladění. Po dokončení kurzu budete připraveni na dotazování a prozkoumávání svého datového skladu.
 
 **Odhadovaný čas dokončení:** Toto je ucelený kurz s ukázkovým kódem, který po splnění požadavků zabere přibližně 30 minut. 
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 Kurz předpokládá znalost základních konceptů služby SQL Data Warehouse. Pokud potřebujete úvodní informace, přečtěte si téma [Co je SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) 
 
-### Přihlášení k Microsoft Azure
-<a id="sign-up-for-microsoft-azure" class="xliff"></a>
+### <a name="sign-up-for-microsoft-azure"></a>Přihlášení k Microsoft Azure
 Pokud ještě nemáte účet Microsoft Azure, musíte si jeden zaregistrovat, abyste mohli tuto službu používat. Pokud již máte účet, tento krok přeskočte. 
 
 1. Přejděte na stránky účtu [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/).
 2. Vytvořte si bezplatný účet Azure, nebo si účet zakupte.
 3. Postupujte podle zobrazených pokynů.
 
-### Instalace odpovídajících ovladačů a nástrojů klienta SQL
-<a id="install-appropriate-sql-client-drivers-and-tools" class="xliff"></a>
+### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Instalace odpovídajících ovladačů a nástrojů klienta SQL
 
 Většina nástrojů klienta SQL se může připojit ke službě SQL Data Warehouse pomocí JDBC, ODBC nebo ADO.NET. Z důvodu velkého počtu funkcí T-SQL, které SQL Data Warehouse podporuje, nejsou některé klientské aplikace s SQL Data Warehouse plně kompatibilní.
 
@@ -54,8 +50,7 @@ Pokud používáte operační systém Windows, doporučujeme použít buď sadu 
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Vytvoření SQL Data Warehouse
-<a id="create-a-sql-data-warehouse" class="xliff"></a>
+## <a name="create-a-sql-data-warehouse"></a>Vytvoření SQL Data Warehouse
 
 SQL Data Warehouse je zvláštním typem databáze, která je navržena pro výkonné paralelní zpracování. Databáze je distribuovaná mezi více uzlů a dotazy zpracovává paralelně. SQL Data Warehouse má řídicí uzel, který orchestruje aktivitu všech uzlů. V samotných uzlech slouží ke správě dat služba SQL Database.  
 
@@ -63,8 +58,7 @@ SQL Data Warehouse je zvláštním typem databáze, která je navržena pro výk
 > Vytvoření služby SQL Data Warehouse může znamenat, že se vám začne fakturovat nová služba.  Další informace najdete v tématu [SQL Data Warehouse – ceny](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
-### Vytvoření datového skladu
-<a id="create-a-data-warehouse" class="xliff"></a>
+### <a name="create-a-data-warehouse"></a>Vytvoření datového skladu
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na **Nový** > **Databáze** > **SQL Data Warehouse**.
@@ -95,14 +89,12 @@ SQL Data Warehouse je zvláštním typem databáze, která je navržena pro výk
 
 5. Opřete se a počkejte, než se datový sklad nasadí! Je běžné, že tento proces trvá několik minut. Portál vás upozorní, jakmile bude váš datový sklad připraven k použití. 
 
-## Připojení k SQL Data Warehouse
-<a id="connect-to-sql-data-warehouse" class="xliff"></a>
+## <a name="connect-to-sql-data-warehouse"></a>Připojení k SQL Data Warehouse
 
 Tento kurz pro připojení k datovému skladu používá aplikaci SQL Server Management Studio (SSMS). Ke službě SQL Data Warehouse se můžete připojit prostřednictvím těchto podporovaných konektorů: ADO.NET, JDBC, ODBC a PHP. Mějte na paměti, že funkce nástrojů, které nejsou podporované Microsoftem, můžou být omezené.
 
 
-### Získání informací o připojení
-<a id="get-connection-information" class="xliff"></a>
+### <a name="get-connection-information"></a>Získání informací o připojení
 
 Chcete-li se připojit ke svému datovému skladu, je nutné se připojit přes logický SQL Server, který jste vytvořili v části [Požadavky].
 
@@ -127,13 +119,11 @@ Můžete mít také účet správce Azure Active Directory. Podrobnosti zde nepo
 Dále se budeme věnovat vytváření dalších přihlašovacích údajů a uživatelů.
 
 
-## Vytvoření uživatele databáze
-<a id="create-a-database-user" class="xliff"></a>
+## <a name="create-a-database-user"></a>Vytvoření uživatele databáze
 
 V tomto kroku vytvoříte uživatelský účet pro přístup k datovému skladu. Také vám ukážeme, jak dát takovému uživateli možnost spouštět dotazy s velkým množstvím paměťových a procesorových prostředků.
 
-### Poznámky k třídám prostředků pro přidělování prostředků dotazům
-<a id="notes-about-resource-classes-for-allocating-resources-to-queries" class="xliff"></a>
+### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Poznámky k třídám prostředků pro přidělování prostředků dotazům
 
 - Z důvodu zabezpečení vašich dat nepoužívejte účet správce serveru ke spouštění dotazů na produkčních databázích. Ze všech uživatelů má nejvíce oprávnění a jeho použití k provádění operací na uživatelských datech tato data ohrožuje. Navíc vzhledem k tomu, že je správce serveru určen k provádění operací správy, spouští operace pouze s malým množstvím přidělených paměťových a procesorových prostředků. 
 
@@ -141,8 +131,7 @@ V tomto kroku vytvoříte uživatelský účet pro přístup k datovému skladu.
 
 - Z důvodu optimální komprese dat uživatel může potřebovat načítání s velkým nebo velmi velkým přidělením prostředků. Další informace o třídách prostředků najdete [zde](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
-### Vytvoření účtu, který může řídit databázi
-<a id="create-an-account-that-can-control-a-database" class="xliff"></a>
+### <a name="create-an-account-that-can-control-a-database"></a>Vytvoření účtu, který může řídit databázi
 
 Vzhledem k tomu, že jste aktuálně přihlášeni jako správce serveru, máte oprávnění vytvářet účty a uživatele.
 
@@ -174,8 +163,7 @@ Vzhledem k tomu, že jste aktuálně přihlášeni jako správce serveru, máte 
     > Pokud název databáze obsahuje pomlčky, uzavřete ho do hranatých závorek. 
     >
 
-### Udělení středního přidělení prostředků uživateli
-<a id="give-the-user-medium-resource-allocations" class="xliff"></a>
+### <a name="give-the-user-medium-resource-allocations"></a>Udělení středního přidělení prostředků uživateli
 
 1. Spuštěním tohoto příkazu T-SQL udělejte z uživatele člena střední třídy prostředků, která má název mediumrc. 
 
@@ -191,8 +179,7 @@ Vzhledem k tomu, že jste aktuálně přihlášeni jako správce serveru, máte 
     ![Přihlášení pomocí nových přihlašovacích údajů](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## Načtení dat z Azure Blob Storage
-<a id="load-data-from-azure-blob-storage" class="xliff"></a>
+## <a name="load-data-from-azure-blob-storage"></a>Načtení dat z Azure Blob Storage
 
 Nyní jste připraveni k načtení dat do datového skladu. Tento krok ukazuje, jak načíst data taxislužby města New York z veřejného úložiště objektů blob v Azure. 
 
@@ -201,8 +188,7 @@ Nyní jste připraveni k načtení dat do datového skladu. Tento krok ukazuje, 
 - Informace o přesunu dat do Azure Blob Storage nebo jejich načtení přímo ze zdroje do služby SQL Data Warehouse najdete pro budoucí použití v části s [přehledem načítání](sql-data-warehouse-overview-load.md).
 
 
-### Definování externích dat
-<a id="define-external-data" class="xliff"></a>
+### <a name="define-external-data"></a>Definování externích dat
 
 1. Vytvořte hlavní klíč. Pro každou databázi je nutné vytvořit hlavní klíč pouze jednou. 
 
@@ -433,8 +419,7 @@ Nyní jste připraveni k načtení dat do datového skladu. Tento krok ukazuje, 
     ;
 ```
 
-### Import dat z Azure Blob Storage
-<a id="import-the-data-from-azure-blob-storage" class="xliff"></a>
+### <a name="import-the-data-from-azure-blob-storage"></a>Import dat z Azure Blob Storage
 
 SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). Tento příkaz vytvoří novou tabulku na základě výsledků příkazu SELECT. Nová tabulka obsahuje stejné sloupce a datové typy jako výsledky příkazu SELECT.  Jde o elegantní způsob importu dat z Azure Blob Storage do SQL Data Warehouse.
 
@@ -556,13 +541,11 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     ![Zobrazení načtených data](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Vylepšení výkonu dotazů
-<a id="improve-query-performance" class="xliff"></a>
+## <a name="improve-query-performance"></a>Vylepšení výkonu dotazů
 
 Existuje několik způsobů, jak vylepšit výkon dotazů a dosáhnout vysokého výkonu, ke kterému byla služba SQL Data Warehouse navržena.  
 
-### Vliv škálování na výkon dotazů
-<a id="see-the-effect-of-scaling-on-query-performance" class="xliff"></a> 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Vliv škálování na výkon dotazů 
 
 Jedním ze způsobů, jak vylepšit výkon dotazů, je škálování prostředků změnou úrovně služeb pro DWU vašeho datového skladu. Každá úroveň služeb je nákladnější, kdykoli však můžete škálovat směrem dolů nebo pozastavit prostředky. 
 
@@ -602,8 +585,7 @@ Nejprve vertikálně snížíme kapacitu na 100 DWU, abychom získali představu
 > Služba SQL Data Warehouse je postavena na architektuře MPP (Massively Parallel Processing). Proto dotazy, které prohledávají nebo provádějí analytické funkce nad miliony řádků, můžou naplno využít výkon služby Azure SQL Data Warehouse.
 >
 
-### Vliv statistik na výkon dotazů
-<a id="see-the-effect-of-statistics-on-query-performance" class="xliff"></a>
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Vliv statistik na výkon dotazů
 
 1. Spusťte dotaz, který spojuje tabulku Date s tabulkou Trip.
 
@@ -655,8 +637,7 @@ Nejprve vertikálně snížíme kapacitu na 100 DWU, abychom získali představu
 
 3. Znovu spusťte dotaz z části Požadavky a sledujte rozdíly ve výkonu. I když rozdíly ve výkonu dotazů nebudou tak drastické jako při vertikálním navýšení kapacity, měli byste zaznamenat zrychlení. 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Teď jste připravení na dotazování a prozkoumávání. Vyzkoušejte si naše osvědčené postupy a tipy.
 
@@ -664,8 +645,7 @@ Pokud jste už pro dnešek se zkoumáním hotovi, nezapomeňte svoji instanci po
 
 ![Pozastavení](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Užitečné informace k přečtení
-<a id="useful-readings" class="xliff"></a>
+## <a name="useful-readings"></a>Užitečné informace k přečtení
 
 [Souběžnost a správa úloh][]
 

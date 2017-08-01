@@ -22,15 +22,13 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/20/2017
 
 ---
-# Vytvoření první webové Java aplikace ve službě Azure
-<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
+# <a name="create-your-first-java-web-app-in-azure"></a>Vytvoření první webové Java aplikace ve službě Azure
 
 Funkce [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) služby [Azure App Service](../app-service/app-service-value-prop-what-is.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů. Tento kurz Rychlý start ukazuje, jak nasadit webovou Java aplikaci do služby App Service pomocí [integrovaného vývojového prostředí Eclipse pro vývojáře na platformě Java EE](http://www.eclipse.org/).
 
 ![Hello Azure! Ukázková webová aplikace](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 K provedení kroků v tomto kurzu Rychlý start je potřeba nainstalovat:
 
@@ -39,8 +37,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba nainstalovat:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Vytvoření dynamického webového projektu v Eclipse
-<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
+## <a name="create-a-dynamic-web-project-in-eclipse"></a>Vytvoření dynamického webového projektu v Eclipse
 
 V prostředí Eclipse vyberte **File** (Soubor) > **New** (Nový) > **Dynamic Web Project** (Dynamický webový projekt).
 
@@ -48,8 +45,7 @@ V dialogovém okně **New Dynamic Web Project** (Nový dynamický webový projek
    
 ![Dialogové okno New Dynamic Web Project (Nový dynamický webový projekt)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-### Přidání stránky JSP
-<a id="add-a-jsp-page" class="xliff"></a>
+### <a name="add-a-jsp-page"></a>Přidání stránky JSP
 
 Pokud se nezobrazí Project Explorer (Prohlížeč projektu), obnovte zobrazení.
 
@@ -77,8 +73,7 @@ V souboru index.jsp nahraďte element `<body></body>` následujícím kódem:
 
 Uložte změny.
 
-## Publikování webové aplikace do služby Azure
-<a id="publish-the-web-app-to-azure" class="xliff"></a>
+## <a name="publish-the-web-app-to-azure"></a>Publikování webové aplikace do služby Azure
 
 V prohlížeči Project Explorer klikněte pravým tlačítkem na projekt a potom vyberte **Azure** > **Publish as Azure Web App** (Publikovat jako webovou aplikaci Azure).
 
@@ -88,8 +83,7 @@ V dialogovém okně **Azure Sign In** (Přihlášení k Azure) ponechejte možno
 
 Postupujte podle pokynů k přihlášení.
 
-### Dialogové okno Deploy Web App (Nasazení webové aplikace)
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
+### <a name="deploy-web-app-dialog-box"></a>Dialogové okno Deploy Web App (Nasazení webové aplikace)
 
 Jakmile budete přihlášeni ke svému účtu Azure, zobrazí se dialogové okno **Deploy Web App** (Nasazení webové aplikace).
 
@@ -97,8 +91,7 @@ Vyberte **Create** (Vytvořit).
 
 ![Dialogové okno Deploy Web App (Nasazení webové aplikace)](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-### Dialogové okno Create App Service (Vytvoření služby App Service)
-<a id="create-app-service-dialog-box" class="xliff"></a>
+### <a name="create-app-service-dialog-box"></a>Dialogové okno Create App Service (Vytvoření služby App Service)
 
 Dialogové okno **Create App Service** (Vytvoření služby App Service) se zobrazí s výchozími hodnotami. Číslo **170602185241** zobrazené na následujícím obrázku se bude ve vašem dialogovém okně lišit.
 
@@ -119,8 +112,7 @@ V dialogovém okně **Create App Service** (Vytvoření služby App Service):
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-### Karta Resource group (Skupina prostředků)
-<a id="resource-group-tab" class="xliff"></a>
+### <a name="resource-group-tab"></a>Karta Resource group (Skupina prostředků)
 
 Vyberte kartu **Resource group** (Skupina prostředků). Ponechte výchozí vygenerovanou hodnotu pro skupinu prostředků.
 
@@ -142,8 +134,7 @@ Sada nástrojů Azure vytvoří webovou aplikaci a zobrazí dialogové okno s uk
 
 ![Dialogové okno Create App Service Progress (Průběh vytváření plánu služby App Service)](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-### Dialogové okno Deploy Web App (Nasazení webové aplikace)
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
+### <a name="deploy-web-app-dialog-box"></a>Dialogové okno Deploy Web App (Nasazení webové aplikace)
 
 V dialogovém okně **Deploy Web App** (Nasazení webové aplikace) vyberte **Deploy to root** (Nasadit do kořene). Pokud máte službu App Service na adrese *wingtiptoys.azurewebsites.net* a nezvolíte nasazení do kořene, nasadí se vaše webová aplikace **MyFirstJavaOnAzureWebApp** do *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
@@ -161,8 +152,7 @@ Blahopřejeme! Úspěšně jste nasadili svou webovou aplikaci do služby Azure.
 
 ![Hello Azure! Ukázková webová aplikace](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## Aktualizace webové aplikace
-<a id="update-the-web-app" class="xliff"></a>
+## <a name="update-the-web-app"></a>Aktualizace webové aplikace
 
 Změňte zprávu v ukázkovém kódu JSP na jinou.
 
@@ -186,8 +176,7 @@ Vyberte webovou aplikaci a pak vyberte **Deploy** (Nasadit). Tím změny publiku
 
 Když se zobrazí odkaz **Publikováno**, vyberte ho. Tím přejdete do webové aplikace a budete moct vidět změny.
 
-## Správa webové aplikace
-<a id="manage-the-web-app" class="xliff"></a>
+## <a name="manage-the-web-app"></a>Správa webové aplikace
 
 Pokud chcete zobrazit webovou aplikaci, kterou jste vytvořili, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
@@ -207,8 +196,7 @@ Zobrazí se stránka **Přehled**. Tato stránka poskytuje přehled toho, jak si
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
 > [Mapování vlastní domény](app-service-web-tutorial-custom-domain.md)

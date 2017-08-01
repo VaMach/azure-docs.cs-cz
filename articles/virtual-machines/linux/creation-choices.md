@@ -23,8 +23,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# Různé způsoby vytváření virtuálních počítačů s Linuxem
-<a id="different-ways-to-create-a-linux-vm" class="xliff"></a>
+# <a name="different-ways-to-create-a-linux-vm"></a>Různé způsoby vytváření virtuálních počítačů s Linuxem
 V Azure máte flexibilitu vytvoření virtuálního počítače s Linuxem pomocí nástrojů a pracovních postupů, které vám vyhovují. Tento článek shrnuje tyto rozdíly a příklady vytvoření virtuálních počítačů s Linuxem, včetně Azure CLI 2.0. Můžete si také prohlédnout možnosti vytvoření včetně [Azure CLI 1.0](creation-choices-nodejs.md).
 
 Rozhraní [Azure CLI 2.0](/cli/azure/install-az-cli2) je dostupné napříč platformami jako balíček npm, balíček distribuce nebo kontejner Docker. Nainstalujte sestavení nejvhodnější pro vaše prostředí a přihlaste se k účtu Azure pomocí příkazu [az login](/cli/azure/#login).
@@ -61,19 +60,16 @@ Rozhraní [Azure CLI 2.0](/cli/azure/install-az-cli2) je dostupné napříč pla
 * [Vytvoření vysoce dostupné aplikace s vyrovnáváním zatížení na více virtuálních počítačích s Linuxem](tutorial-load-balancer.md)
 
 
-## portál Azure
-<a id="azure-portal" class="xliff"></a>
+## <a name="azure-portal"></a>portál Azure
 [Azure Portal](https://portal.azure.com) umožňuje rychle vytvořit virtuální počítač, protože není nutné nic instalovat na váš systém. Vytvoření virtuálního počítače pomocí portálu Azure Portal:
 
 * [Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal](quick-create-portal.md) 
 
 
-## Operační systém a volba image
-<a id="operating-system-and-image-choices" class="xliff"></a>
+## <a name="operating-system-and-image-choices"></a>Operační systém a volba image
 Při vytváření virtuálního počítače zvolíte image podle operačního systému, který chcete používat. Azure a příslušní partneři nabízí celou řadu imagí, přičemž některé už obsahují předinstalované aplikace a nástroje. Nebo nahrajte některou z vlastních imagí (viz [následující oddíl](#use-your-own-image)).
 
-### Image dostupné v Azure
-<a id="azure-images" class="xliff"></a>
+### <a name="azure-images"></a>Image dostupné v Azure
 Pomocí příkazů [az vm image](/cli/azure/vm/image) zobrazíte dostupné image podle vydavatele, distribuce nebo sestavení.
 
 Seznam dostupných vydavatelů:
@@ -114,8 +110,7 @@ Příkaz [az vm create](/cli/azure/vm#create) má aliasy, které můžete použ�
 | SLES |SLES |SLES |12-SP1 |nejnovější |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |nejnovější |
 
-### Použití vlastní image
-<a id="use-your-own-image" class="xliff"></a>
+### <a name="use-your-own-image"></a>Použití vlastní image
 Pokud budete potřebovat image se zvláštními úpravami, můžete zachytit stávající virtuální počítač a použít image založenou na tomto virtuálním počítači. Můžete také nahrát místně vytvořenou image. Další informace o podporovaných distribucích a o tom, jak používat vlastní image, najdete v následujících článcích:
 
 * [Distribuce schválené pro Azure](endorsed-distros.md)
@@ -130,8 +125,7 @@ Pokud budete potřebovat image se zvláštními úpravami, můžete zachytit st�
     az vm image create --resource-group myResourceGroup --source myVM --name myImage
     ```
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 * Vytvořte virtuální počítač s Linuxem pomocí [rozhraní příkazového řádku](quick-create-cli.md), z [portálu](quick-create-portal.md) nebo pomocí [šablony Azure Resource Manageru](../windows/cli-deploy-templates.md).
 * Po vytvoření virtuálního počítače s Linuxem [si přečtěte o discích a úložišti Azure](tutorial-manage-disks.md).
 * Rychlý postup k [resetování hesla nebo klíčů SSH a správě uživatelů](using-vmaccess-extension.md).

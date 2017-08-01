@@ -19,12 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-# Azure Database for PostgreSQL: Použití jazyka Java k připojení a dotazování dat
-<a id="azure-database-for-postgresql-use-java-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití jazyka Java k připojení a dotazování dat
 Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí aplikace jazyka Java. Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. Kroky v tomto článku předpokládají, že máte zkušenosti s vývojem pomocí jazyka Java a teprve začínáte pracovat se službou Azure Database for PostgreSQL.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 Tento rychlý start využívá jako výchozí bod prostředky vytvořené v některém z těchto průvodců:
 - [Vytvoření databáze – portál](quickstart-create-server-database-portal.md)
 - [Vytvoření databáze – rozhraní příkazového řádku Azure](quickstart-create-server-database-azure-cli.md)
@@ -33,8 +31,7 @@ Budete také muset:
 - Stáhnout [ovladač JDBC pro PostgreSQL](https://jdbc.postgresql.org/download.html) odpovídající verzi jazyka Java a sadě Java Development Kit
 - Zahrnout soubor .jar JDBC pro PostgreSQL (například postgresql-42.1.1.jar) do cesty pro třídu aplikace Další informace najdete v [podrobnostech cesty pro třídu](https://jdbc.postgresql.org/documentation/head/classpath.html).
 
-## Získání informací o připojení
-<a id="get-connection-information" class="xliff"></a>
+## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
@@ -44,8 +41,7 @@ Získejte informace o připojení potřebné pro připojení ke službě Azure D
  ![Azure Database for PostgreSQL – přihlašovací jméno správce serveru](./media/connect-java/1-connection-string.png)
 5. Pokud zapomenete přihlašovací údaje k serveru, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby resetovat heslo.
 
-## Připojení, vytvoření tabulky a vložení dat
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
+## <a name="connect-create-table-and-insert-data"></a>Připojení, vytvoření tabulky a vložení dat
 Pomocí následujícího kódu se připojte a načtěte data s využitím funkce s příkazem **INSERT** jazyka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) a [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) slouží k připojení, odpojení a vytvoření tabulky. Objekt [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) slouží k sestavení příkazů INSERT a metody setString() a setInt() k vázání hodnot parametrů. Metoda [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) spouští příkaz pro každou sadu parametrů. 
 
 Nahraďte parametry host (hostitel), database (databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření vlastního serveru a databáze.
@@ -145,8 +141,7 @@ public class CreateTableInsertRows {
 }
 ```
 
-## Čtení dat
-<a id="read-data" class="xliff"></a>
+## <a name="read-data"></a>Čtení dat
 Pomocí následujícího kódu načtěte data s využitím příkazu **SELECT** jazyka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) a [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) slouží k připojení, vytvoření a spuštění příkazu SELECT. Výsledky se zpracovávají pomocí objektu [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
 
 Nahraďte parametry host (hostitel), database (databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření vlastního serveru a databáze.
@@ -233,8 +228,7 @@ public class ReadTable {
 
 ```
 
-## Aktualizace dat
-<a id="update-data" class="xliff"></a>
+## <a name="update-data"></a>Aktualizace dat
 Pomocí následujícího kódu změňte data s využitím příkazu **UPDATE** jazyka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) a [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) slouží k připojení, přípravě a spuštění příkazu UPDATE. 
 
 Nahraďte parametry host (hostitel), database (databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření vlastního serveru a databáze.
@@ -314,8 +308,7 @@ public class UpdateTable {
     }
 }
 ```
-## Odstranění dat
-<a id="delete-data" class="xliff"></a>
+## <a name="delete-data"></a>Odstranění dat
 Pomocí následujícího kódu odstraňte data s využitím příkazu **DELETE** jazyka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) a [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) slouží k připojení, přípravě a spuštění příkazu DELETE. 
 
 Nahraďte parametry host (hostitel), database (databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření vlastního serveru a databáze.
@@ -395,8 +388,7 @@ public class DeleteTable {
 }
 ```
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
-> [Migrace databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
+> [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
 

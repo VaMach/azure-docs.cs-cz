@@ -22,21 +22,15 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-operations-management-suite-oms" class="xliff"></a>
-
-# Co je Operations Management Suite (OMS)?
+# <a name="what-is-operations-management-suite-oms"></a>Co je Operations Management Suite (OMS)?
 Tento článek obsahuje úvod k sadě Operations Management Suite (OMS), včetně stručného přehledu výhod, které poskytuje, řešení správy a služeb, které zahrnuje, a nabídek, které zahrnují různé služby a řešení.  Zahrnuje také odkazy na podrobnou dokumentaci k nasazení jednotlivých služeb a řešení.
 
-<a id="from-on-premises-to-the-cloud" class="xliff"></a>
-
-## Z místního prostředí do cloudu
+## <a name="from-on-premises-to-the-cloud"></a>Z místního prostředí do cloudu
 Microsoft už dlouho poskytuje produkty pro správu podnikových prostředí.  V roce 2007 se několik produktů pro správu konsolidovalo do sady System Center.  Patřil sem Configuration Manager, který poskytuje funkce, jako je inventarizace a distribuce softwaru, Operations Manager, který poskytuje monitorování systémů a aplikací, Orchestrator, který zahrnuje runbooky pro automatizaci ručních procesů, a Data Protection Manager pro zálohování a obnovení důležitých dat.
 
 Vzhledem k tomu, jak se do cloudu přesouvá stále víc výpočetních prostředků, získaly produkty System Center víc cloudových funkcí, jako třeba Operations Manager a Orchestrator spravují prostředky v Azure.  V podstatě ale byly navržené jako místní řešení a vyžadují značné investice při nasazování a údržbě místního prostředí pro správu.  Pro zajištění kompletního využití cloudu a podpory budoucích aplikací bylo potřeba ke správě přistoupit novým způsobem.
 
-<a id="introducing-operations-management-suite" class="xliff"></a>
-
-## Představujeme Operations Management Suite
+## <a name="introducing-operations-management-suite"></a>Představujeme Operations Management Suite
 Operations Management Suite (používá se také zkratka OMS) je kolekce služeb pro správu, které byly od prvopočátku navržené pro cloud.  Namísto nasazení a správy místních prostředků jsou komponenty OMS výhradně hostované v Azure.  Konfigurace je minimální a během několika minut můžete začít pracovat.  
 
 - **Minimální náklady a složitost nasazení.**  Protože jsou veškerá data a komponenty pro OMS uložené v Azure, můžete téměř okamžitě začít pracovat bez složitých místních komponent a investice do nich.
@@ -46,21 +40,15 @@ Operations Management Suite (používá se také zkratka OMS) je kolekce služeb
 - **Globální znalosti.**  Řešení pro správu v OMS mají nepřetržitý přístup k nejnovějším informacím.  Řešení Zabezpečení a audit může například provádět analýzu hrozeb s využitím nejnovějších hrozeb zjišťovaných po celém světě.
 - **Přístup odkudkoli.**  Přistupujte ke svému prostředí pro správu odkudkoli, kde máte prohlížeč.  Nainstalujte si aplikaci OMS na smartphone, abyste měli rychlý přístup k datům monitorování.
 
-<a id="is-it-just-for-the-cloud" class="xliff"></a>
-
-### Je pouze pro cloud?
+### <a name="is-it-just-for-the-cloud"></a>Je pouze pro cloud?
 To, že služby OMS běží v cloudu, neznamená, že nemohou efektivně spravovat místní prostředí.  Umístěte agenta na libovolný počítač s Windows nebo Linuxem v datovém centru, který bude odesílat data do Log Analytics, kde se mohou analyzovat spolu s dalšími daty shromážděnými z cloudu nebo místních služeb.  Použijte Azure Backup a Azure Site Recovery pro využití cloudu k zálohování a zajištění vysoké dostupnosti místních prostředků.  
 Runbooky v cloudu nemohou běžně přistupovat k místním prostředkům, ale můžete nainstalovat agenta na jeden nebo více počítačů, které budou hostovat runbooky v datovém centru.  Když spustíte runbook, stačí určit, jestli ho chcete spustit v cloudu, nebo na místním pracovním procesu.
 
-<a id="hybrid-management-with-system-center" class="xliff"></a>
-
-## Hybridní správa s nástrojem System Center
+## <a name="hybrid-management-with-system-center"></a>Hybridní správa s nástrojem System Center
 Pokud máte existující instalaci nástroje System Center, můžete integrovat tyto komponenty se službami OMS a poskytnout tak hybridního řešení pro místní i cloudové prostředí s využitím relativních výhod každého produktu.  Pokud chcete analyzovat spravované agenty v cloudu, připojte existující skupinu správy Operations Manageru k Log Analytics.  Použijte existující proces zálohování s Data Protection Managerem k zálohování dat do cloudu.  
 
 
-<a id="oms-services" class="xliff"></a>
-
-## Služby OMS
+## <a name="oms-services"></a>Služby OMS
 Základní funkce OMS poskytuje sada služeb, které běží v Azure.  Každá služba poskytuje specifickou funkci správy a kombinováním služeb je možné dosahovat různých scénářů správy.
 
 || Služba | Popis |
@@ -70,25 +58,19 @@ Základní funkce OMS poskytuje sada služeb, které běží v Azure.  Každá s
 | ![Azure Backup](media/operations-management-suite-overview/icon-backup.png) | Zálohování | Zálohování a obnovení důležitých dat |
 | ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | Poskytnutí vysoké dostupnosti pro důležitá data |
 
-<a id="log-analytics" class="xliff"></a>
-
-### Log Analytics
+### <a name="log-analytics"></a>Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) poskytuje služby monitorování pro OMS získáváním dat ze spravovaných prostředků do centrálního úložiště.  Tato data mohou zahrnovat události, výkonnostní data nebo vlastní data poskytovaná prostřednictvím rozhraní API. Po získání jsou data dostupná pro výstrahy, analýzu a export.  Tato metoda vám umožňuje konsolidovat data z různých zdrojů, takže můžete kombinovat data ze služeb Azure s existujícím místním prostředím.  Také jasně odděluje získávání dat od akcí provedených na těchto datech, takže všechny akce jsou dostupné pro všechny druhy dat.  
 
 ![Přehled služby Log Analytics](media/operations-management-suite-overview/overview-log-analytics.png)
 
-<a id="collecting-data" class="xliff"></a>
-
-#### Shromažďování dat
+#### <a name="collecting-data"></a>Shromažďování dat
 Existuje široká škála způsobů, kterými můžete dostat data do úložiště, aby je mohla služba Log Analytics analyzovat.
 
 - **Virtuální počítače a počítače s Windows nebo Linuxem.**  Nainstalujte Microsoft Monitoring Agent na virtuální počítače nebo počítače s [Windows](../log-analytics/log-analytics-windows-agents.md) nebo [Linuxem](../log-analytics/log-analytics-linux-agents.md), ze kterých chcete shromažďovat data.  Agent automaticky stáhne konfiguraci z Log Analytics, která definuje události a výkonnostní data, která se mají shromažďovat.  S využitím webu Azure Portal můžete snadno nainstalovat agenta na virtuální počítače spuštěné v Azure.  Pokud máte existující prostředí Operations Manageru, můžete připojit skupinu správy k Log Analytics a automaticky zahájit shromažďování dat ze všech existujících agentů.
 - **Služby Azure.**  Log Analytics shromažďuje telemetrie z [Diagnostiky Azure a monitorování Azure](../log-analytics/log-analytics-azure-storage.md) do úložiště, takže můžete monitorovat prostředky Azure.
 - **Rozhraní API kolekce dat.**  Log Analytics má rozhraní [REST API pro naplňování dat z libovolného klienta](../log-analytics/log-analytics-data-collector-api.md).  To vám umožní shromažďovat data z aplikací třetích stran nebo implementovat vlastní scénáře správy.  Běžnou metodou je použít runbook v Azure Automation ke shromáždění dat a potom použít rozhraní API kolekce dat k jejich zapsání do úložiště.
 
-<a id="reporting-and-analyzing-data" class="xliff"></a>
-
-#### Vytváření sestav a analýza dat
+#### <a name="reporting-and-analyzing-data"></a>Vytváření sestav a analýza dat
 Log Analytics zahrnuje účinný dotazovací jazyk k extrakci dat uložených v úložišti.  Protože jsou data ze všech zdrojů uložená jako záznamy, můžete analyzovat data z více zdrojů v jediném dotazu.
   
 Mimo ad hoc analýzy navíc Log Analytics poskytuje několik způsobů vytváření sestav a analýzy dat z dotazu.
@@ -97,9 +79,7 @@ Mimo ad hoc analýzy navíc Log Analytics poskytuje několik způsobů vytváře
 - **Export.**  Máte možnost exportovat výsledky libovolného dotazu, aby je bylo možné analyzovat mimo Log Analytics.  Můžete dokonce naplánovat pravidelný export do služby [Power BI](../log-analytics/log-analytics-powerbi.md), která poskytuje značné možnosti vizualizace a analýzy.
 - **Rozhraní API pro prohledávání protokolů.**  Log Analytics má rozhraní [REST API pro shromažďování dat z libovolného klienta](../log-analytics/log-analytics-log-search-api.md).  To vám umožňuje programově zpracovávat data shromážděná v úložišti nebo k nim přistupovat z jiného monitorovacího nástroje.
 
-<a id="alerting" class="xliff"></a>
-
-#### Zobrazení výstrah
+#### <a name="alerting"></a>Zobrazení výstrah
 Log Analytics vám může [proaktivně zobrazovat výstrahy](../log-analytics/log-analytics-alerts.md) nebo provádět nápravné akce, když zjistí problém.  Stejně jako všechny ostatní analýzy v Log Analytics se to provádí na základě prohledávání protokolu.  Toto prohledávání se spouští podle pravidelného plánu, a pokud výsledky splňují určitá kritéria, vytvoří se výstraha.
 
 ![Výstrahy Log Analytics](media/operations-management-suite-overview/overview-alerts.png)
@@ -110,20 +90,14 @@ Kromě vytváření záznamů o výstrahách v úložišti Log Analytics mohou v
 - **Runbook.**  Výstraha v Log Analytics může spustit runbook v Azure Automation.  To se obvykle provádí při pokusu o napravení zjištěného problému.  Runbook může být spuštěný v cloudu pro případ problému v Azure nebo v jiném cloudu, nebo může být spuštěný v lokálním agentu pro případ problému s fyzickým nebo virtuálním počítačem.
 - **Webhook.**  Výstraha může spustit webhook a předat mu data z výsledků prohledávání protokolu.  To umožňuje integraci s externími službami, jako jsou alternativní systémy pro výstrahy, nebo může dojít k pokusu o nápravnou akci pro externí web.
 
-<a id="azure-automation" class="xliff"></a>
-
-### Azure Automation
+### <a name="azure-automation"></a>Azure Automation
 [Azure Automation](http://azure.microsoft.com/documentation/services/automation) poskytuje automatizaci procesů a správu konfigurace pro OMS.  Automatizuje ruční procesy a pomáhá vynucovat konfigurace pro fyzické a virtuální počítače.  
 
-<a id="process-automation" class="xliff"></a>
-
-#### Automatizace procesů
+#### <a name="process-automation"></a>Automatizace procesů
 Azure Automation automatizuje ruční procesy s využitím [runbooků](../automation/automation-runbook-types.md), které jsou založené na skriptu PowerShellu nebo pracovním postupu PowerShellu.  Také zahrnuje prostředky podporující runbooky, jako jsou proměnné, které jde sdílet mezi více runbooky, a přihlašovací údaje a připojení, která vám umožňují ukládat šifrované informace, které mohou vyžadovat runbooky k ověření.
 Runbooky nabízejí automatizaci procesů pro ostatní služby v sadě.  Vzhledem k tomu, že ke všem ostatním službám lze přistupovat pomocí PowerShellu nebo prostřednictvím rozhraní REST API, můžete vytvářet runbooky pro provádění takových funkcí, jako je shromažďování dat o správě v Log Analytics nebo inicializace zálohování s Azure Backup.
 
-<a id="accessing-resources" class="xliff"></a>
-
-##### Přístup k prostředkům
+##### <a name="accessing-resources"></a>Přístup k prostředkům
 Vzhledem k tomu, že jsou runbooky založené na PowerShellu, můžou spravovat všechny prostředky, ke kterým jde přistupovat pomocí rutin PowerShellu.  Když [načtete modul](../automation/automation-integration-modules.md) do účtu Automation, zpřístupní se všem runbookům v tomto účtu. 
  
 Když jsou runbooky spuštěné v cloudu, můžou přistupovat ke všem prostředkům přístupným z cloudu.  To můžou být prostředky v předplatném Azure, v jiném cloudu, jako je AWS (Amazon Web Services), nebo ve službě přístupné prostřednictvím rozhraní REST API.  Runbooky v cloudu nejsou spuštěné pod žádnými přihlašovacími údaji, ale mohou k ověření u prostředků, ke kterým přistupují, využívat prostředky služby Automation, jako jsou přihlašovací údaje, připojení a certifikáty.
@@ -132,9 +106,7 @@ K prostředkům ve vašem datovém centru pravděpodobně nejde přistupovat z r
 
 ![Runbooky Azure Automation](media/operations-management-suite-overview/overview-runbooks.png)
 
-<a id="starting-a-runbook" class="xliff"></a>
-
-##### Spuštění runbooku
+##### <a name="starting-a-runbook"></a>Spuštění runbooku
 Runbooky je možné [spustit několika způsoby](../automation/automation-starting-a-runbook.md), takže je jde zahrnout do široké škály scénářů správy.  
 
 - **Azure Portal.**  Stejně jako ostatní služby Azure může být služba Azure Automation spravovaná z webu Azure Portal.  Kromě spouštění runbooků můžete navíc importovat nebo vytvářet své vlastní.
@@ -143,21 +115,15 @@ Runbooky je možné [spustit několika způsoby](../automation/automation-starti
 - **Webhook.**  Webhook jde vytvořit pro každý runbook, který povoluje spuštění z externích aplikací nebo webů.
 - **Výstraha Log Analytics.**  Výstraha v Log Analytics může automaticky spustit runbook, aby se pokusil o napravení problému identifikovaného výstrahou.
 
-<a id="configuration-management" class="xliff"></a>
-
-#### Správa konfigurace
+#### <a name="configuration-management"></a>Správa konfigurace
 [Konfigurace požadovaného stavu PowerShell (DSC)](../automation/automation-dsc-overview.md) je platforma správy ve Windows PowerShellu, která umožňuje nasadit a vynutit konfiguraci fyzických a virtuálních počítačů.  Azure Automation spravuje konfigurace DSC a poskytuje v cloudu server na vyžádání, ke kterému mohou přistupovat agenti a získávat požadované konfigurace.
 
 ![Azure Automation DSC](media/operations-management-suite-overview/overview-dsc.png)
 
-<a id="azure-backup-and-azure-site-recovery" class="xliff"></a>
-
-### Azure Backup a Azure Site Recovery
+### <a name="azure-backup-and-azure-site-recovery"></a>Azure Backup a Azure Site Recovery
 Azure Backup a Azure Site Recovery přispívají ke kontinuitě podnikových procesů a zotavení po havárii.  Mají funkce, které vám pomohou zajistit, že aplikace zůstanou dostupné i během výpadků a vrátí se k běžnému provozu, jakmile jsou systémy znovu online.  Obě služby pomáhají splnit cíle plánovaných bodů obnovení (RPO) a plánované doby obnovení (RTO) definované pro vaši organizaci. RPO definuje limit přijatelné doby, po kterou nejsou během výpadku dostupná data, a RTO omezuje přijatelnou dobu, po kterou není během výpadku dostupná služba nebo aplikace.
 
-<a id="azure-backup" class="xliff"></a>
-
-#### Azure Backup
+#### <a name="azure-backup"></a>Azure Backup
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) poskytuje služby zálohování a obnovení dat pro OMS.  Chrání data vaší aplikace a dlouhá léta je uchovává bez nutnosti velkých investic a s minimálními provozními náklady.  Kromě úloh aplikací, jako jsou například SQL Server a SharePoint, umožňuje zálohovat i data z fyzických a virtuálních serverů Windows.  Službu může využít i System Center Data Protection Manager (DPM) k replikaci chráněných dat do Azure pro zajištění redundance a dlouhodobého uložení.
 
 Chráněná data ve službě Azure Backup se ukládají do trezoru záloh umístěného v konkrétní geografické oblasti. Data se replikují v rámci stejné oblasti a v závislosti na typu trezoru se můžou replikovat také do jiné oblasti pro zajištění vyšší odolnosti.
@@ -170,9 +136,7 @@ Azure Backup obsahuje tři základní scénáře.
 
 
 
-<a id="azure-site-recovery" class="xliff"></a>
-
-#### Azure Site Recovery
+#### <a name="azure-site-recovery"></a>Azure Site Recovery
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) poskytuje kontinuitu podnikových procesů tím, že orchestruje replikaci místních virtuálních a fyzických počítačů do Azure nebo do sekundární lokality. Pokud není vaše primární lokalita dostupná, proběhne převzetí služeb při selhání sekundárním umístěním, aby mohli uživatelé pokračovat v práci, a po obnovení funkce systémů proběhne navrácení služeb. 
 
 Azure Site Recovery nabízí vysokou dostupnost pro servery a aplikace.  Přispívá ke strategii kontinuity podnikových procesů a zotavení po havárii (BCDR) tím, že orchestruje replikaci, převzetí služeb při selhání a obnovení místních virtuálních počítačů Hyper-V a VMware a fyzických serverů s Windows nebo Linuxem. Počítače můžete replikovat do sekundárního datového centra nebo rozšířit své datové centrum jejich replikací do Azure. Site Recovery také poskytuje možnosti jednoduchého převzetí služeb při selhání úloh a jejich obnovení. Integruje se s mechanismy zotavení po havárii, jako je SQL Server AlwaysOn, a poskytuje plány obnovení pro snadné převzetí služeb při selhání úloh vrstvených napříč více počítači.
@@ -186,9 +150,7 @@ Azure Site Recovery obsahuje tři základní scénáře replikace.
 
 Site Recovery ukládá metadata do trezorů umístěných v konkrétní oblasti Azure. V samotné službě Site Recovery se replikovaná data neukládají.
 
-<a id="management-solutions" class="xliff"></a>
-
-## Řešení pro správu
+## <a name="management-solutions"></a>Řešení pro správu
 [Řešení pro správu](operations-management-suite-solutions.md) jsou předpřipravené sady logik, které implementují konkrétní scénáře správy s využitím jedné nebo více služeb OMS.  Jsou dostupná různá řešení od Microsoftu a partnerů, která můžete snadno přidat do předplatného Azure ke zvýšení hodnoty investice do OMS.  Jako partner můžete vytvořit vlastní řešení pro podporu aplikací a služeb a poskytnout je uživatelům prostřednictvím Azure Marketplace nebo šablon rychlého startu.
 
 Dobrým příkladem řešení využívajícího více služeb k poskytnutí dalších funkcí je [řešení správy aktualizací](oms-solution-update-management.md).  Toto řešení používá agenta Log Analytics pro Windows a Linux ke shromažďování informací o požadovaných aktualizacích u jednotlivých agentů.  Zapíše tato data do úložiště Log Analytics, kde je můžete analyzovat pomocí obsaženého řídicího panelu.  Při vytvoření nasazení se runbooky v Azure Automation použijí k instalaci požadovaných aktualizací.  Celý tento proces spravujete na portálu a nemusíte se starat o žádné podrobnosti.
@@ -205,9 +167,7 @@ Microsoft a partneři pravidelně přidávají do OMS další řešení, což v�
 ![Galerie řešení](media/operations-management-suite-overview/solution-gallery.png)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
 * Další informace o [Azure Automation](../automation/automation-intro.md).
 * Další informace o [Azure Backup](http://azure.microsoft.com/documentation/services/backup).

@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="azure-analysis-services---adventure-works-tutorial" class="xliff"></a>
-
-# Azure Analysis Services – Kurz Adventure Works
+# <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – Kurz Adventure Works
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,9 +30,7 @@ V tomto kurzu najdete lekce zabývající se vytvořením a nasazením tabelárn
 
 Pokud se službou Analysis Services a tabelárním modelováním teprve začínáte, absolvováním tohoto kurzu se nejrychleji naučíte vytvořit a nasadit základní tabelární model. Jakmile splníte všechny požadavky, dokončení kurzu by vám mělo trvat přibližně 2 až 3 hodiny.  
   
-<a id="what-you-learn" class="xliff"></a>
-
-## Co se naučíte   
+## <a name="what-you-learn"></a>Co se naučíte   
   
 -   Vytvořit v SSDT nový projekt s tabelárním modelem na **úrovni kompatibility 1400**.
   
@@ -52,9 +48,7 @@ Pokud se službou Analysis Services a tabelárním modelováním teprve začín�
   
 -   Nasadit tabelární model na server **Azure Analysis Services** nebo místní server se službou SQL Server 2017 Analysis Services.  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Pro absolvování tohoto kurzu potřebujete:  
   
 -   Instanci služby Azure Analysis Services nebo SQL Server 2017 Analysis Services, do které se model nasadí. Zaregistrujte si bezplatnou [zkušební verzi Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) a [vytvořte server](../analysis-services-create-server.md). Nebo si zaregistrujte a stáhněte verzi [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
@@ -69,9 +63,7 @@ Pro absolvování tohoto kurzu potřebujete:
 
 -   Klientskou aplikaci, jako je [Power BI Desktop](https://powerbi.microsoft.com/desktop/) nebo Excel. 
 
-<a id="scenario" class="xliff"></a>
-
-## Scénář  
+## <a name="scenario"></a>Scénář  
 Tento kurz je založený na fiktivní společnosti Adventure Works Cycles. Adventure Works je velká mezinárodní výrobní společnost, která vyrábí kovová a kompozitní jízdní kola a distribuuje je na komerční trhy v Severní Americe, Evropě a Asii. Společnost zaměstnává 500 pracovníků. Kromě toho Adventure Works zaměstnává několik regionálních prodejních týmů na všech základních trzích. Vaším projektem je vytvoření tabelárního modelu pro uživatele prodeje a marketingu, pomocí kterého budou moci analyzovat data o prodejích na internetu v databázi AdventureWorksDW.  
   
 Pro absolvování tohoto kurzu musíte dokončit různé lekce. Každá lekce zahrnuje úkoly. Dokončení všech úkolů v daném pořadí je nezbytné pro dokončení lekce. Některé lekce obsahují několik úkolů, jejichž výsledek je podobný, ale způsob jejich dokončení se mírně liší. Tato metoda ukazuje, že k dokončení úkolu často vede víc cest, a vybízí vás k využití dovedností, které jste se naučili v předchozích lekcích a úkolech.  
@@ -81,9 +73,7 @@ Pro absolvování tohoto kurzu musíte dokončit různé lekce. Každá lekce za
 Tento kurz nezahrnuje lekce týkající se správy serveru na webu Azure Portal, správy serveru nebo databáze pomocí aplikace SSMS ani procházení dat modelu pomocí klientské aplikace. 
 
 
-<a id="lessons" class="xliff"></a>
-
-## Lekce  
+## <a name="lessons"></a>Lekce  
 Tento kurz se skládá z následujících lekcí:  
   
 |Lekce|Odhadovaný čas dokončení|  
@@ -102,9 +92,7 @@ Tento kurz se skládá z následujících lekcí:
 |[Lekce 12: Analýza v aplikaci Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minut| 
 |[Lekce 13: Nasazení](../tutorials/aas-lesson-13-deploy.md)|5 minut|  
   
-<a id="supplemental-lessons" class="xliff"></a>
-
-## Doplňkové lekce  
+## <a name="supplemental-lessons"></a>Doplňkové lekce  
 Tyto lekce nejsou vyžadovány pro absolvování kurzu, ale můžete díky nim lépe porozumět pokročilým funkcím pro vytváření tabelárních modelů.  
   
 |Lekce|Odhadovaný čas dokončení|  
@@ -114,9 +102,7 @@ Tyto lekce nejsou vyžadovány pro absolvování kurzu, ale můžete díky nim l
 |[Nepravidelné hierarchie](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minut| 
 
   
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky  
+## <a name="next-steps"></a>Další kroky  
 Pokud chcete začít, přejděte k [lekci 1: Vytvoření nového projektu s tabelárním modelem](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   

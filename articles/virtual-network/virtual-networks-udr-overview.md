@@ -23,8 +23,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# Uživatelem definované trasy a předávání IP
-<a id="user-defined-routes-and-ip-forwarding" class="xliff"></a>
+# <a name="user-defined-routes-and-ip-forwarding"></a>Uživatelem definované trasy a předávání IP
 
 Když přidáte virtuální počítače do virtuální sítě v Azure, uvidíte, že tyto virtuální počítače automaticky umí vzájemně komunikovat prostřednictvím sítě. Není nutné určit bránu, ani když jsou virtuální počítače v různých podsítích. Totéž platí pro komunikaci z virtuálních počítačů do veřejného internetu, a dokonce i do vaší místní sítě, pokud je dostupné hybridní připojení z Azure do vlastního datacentra.
 
@@ -52,8 +51,7 @@ Následující obrázek znázorňuje příklad tras definovaných uživatelem a 
 > 
 > 
 
-## Prostředek trasy
-<a id="route-resource" class="xliff"></a>
+## <a name="route-resource"></a>Prostředek trasy
 Pakety se přes síť TCP/IP směrují na základě směrovací tabulky definované v každém uzlu fyzické sítě. Směrovací tabulka je kolekce jednotlivých tras, podle které se na základě cílové IP adresy rozhoduje, kam se pakety předají. Trasa se skládá z těchto položek:
 
 | Vlastnost | Popis | Omezení | Požadavky |
@@ -70,16 +68,14 @@ V prostředí Azure PowerShell mají některé hodnoty „NextHopType“ odlišn
 * Internet je Internet
 * Žádný je žádný
 
-### Systémové trasy
-<a id="system-routes" class="xliff"></a>
+### <a name="system-routes"></a>Systémové trasy
 Každá podsíť vytvořená ve virtuální síti se automaticky přidruží k směrovací tabulce, která obsahuje následující pravidla systémových tras:
 
 * **Pravidlo místní virtuální sítě:** Toto pravidlo se automaticky vytvoří pro každou podsíť ve virtuální síti. Určuje, že mezi virtuálními počítači ve virtuální síti je přímé propojení a není tu žádný zprostředkující další segment.
 * **Místní pravidlo:** Toto pravidlo se používá na veškerý provoz, jehož cílem je místní rozsah adres, a jako cíl dalšího segmentu používá bránu sítě VPN.
 * **Internetové pravidlo:** Toto pravidlo zpracovává veškerý provoz, jehož cílem je veřejný internet (předpona adresy 0.0.0.0/0) a jako další segment pro veškerý provoz směřující do internetu používá internetovou bránu infrastruktury.
 
-### Trasy definované uživatelem
-<a id="user-defined-routes" class="xliff"></a>
+### <a name="user-defined-routes"></a>Trasy definované uživatelem
 U většiny prostředí budete potřebovat jenom systémové trasy, které jsou už v Azure definované. V určitých případech ale může být nutné vytvořit směrovací tabulku a přidat jednu nebo víc tras. Může jít například o tyto situace:
 
 * Vynucené tunelování do internetu prostřednictvím místní sítě.
@@ -100,8 +96,7 @@ Pokud se chcete naučit vytvářet trasy definované uživatelem, informace najd
 > 
 > 
 
-### Trasy protokolu BGP
-<a id="bgp-routes" class="xliff"></a>
+### <a name="bgp-routes"></a>Trasy protokolu BGP
 Pokud máte spojení ExpressRoute mezi místní sítí a Azure, můžete povolit, aby protokol BGP šířil trasy z místní sítě do Azure. Tyto trasy protokolu BGP se v jednotlivých podsítích Azure používají stejným způsobem jako systémové trasy a trasy definované uživatelem. Další informace najdete v tématu [Úvod do služby ExpressRoute](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
@@ -109,14 +104,12 @@ Pokud máte spojení ExpressRoute mezi místní sítí a Azure, můžete povolit
 > 
 > 
 
-## Předávání IP
-<a id="ip-forwarding" class="xliff"></a>
+## <a name="ip-forwarding"></a>Předávání IP
 Jak se uvádí výše, jedním z hlavních důvodů k vytváření tras definovaných uživatelem je přesměrování provozu do virtuálního zařízení. Virtuální zařízení není nic jiného než virtuální počítač, na kterém běží aplikace sloužící k určitému zpracování síťového provozu, jako je například brána firewall nebo zařízení NAT.
 
 Tento virtuální počítač virtuálního zařízení musí být schopný přijímat příchozí provoz, který mu není adresovaný. Pokud chcete virtuálnímu počítači povolit přijímání dat adresovaných jiným cílům, je nutné, abyste mu povolili předávání IP. Toto je nastavení Azure, nikoli nastavení hostovaného operačního systému.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 * Naučte se [vytvářet trasy v modelu nasazení Resource Manager](virtual-network-create-udr-arm-template.md) a přidružovat je k podsítím. 
 * Naučte se [vytvářet trasy v modelu nasazení Classic](virtual-network-create-udr-classic-ps.md) a přidružovat je k podsítím.
 

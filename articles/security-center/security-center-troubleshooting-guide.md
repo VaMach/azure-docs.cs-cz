@@ -22,16 +22,14 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-# Průvodce odstraňováním potíží pro službu Azure Security Center
-<a id="azure-security-center-troubleshooting-guide" class="xliff"></a>
+# <a name="azure-security-center-troubleshooting-guide"></a>Průvodce odstraňováním potíží pro službu Azure Security Center
 Tento průvodce je určený odborníkům na informační technologie (IT), analytikům zabezpečení informací a správcům cloudů, jejichž společnosti používají službu Azure Security Center a potřebují odstraňovat potíže týkající se služby Security Center.
 
 >[!NOTE] 
 >Od začátku června 2017 bude Security Center používat ke shromažďování a ukládání dat agenta Microsoft Monitoring Agent. Další informace najdete v článku o [migraci platformy pro Azure Security Center](security-center-platform-migration.md). Informace v tomto článku představují funkce služby Security Center po přechodu na agenta Microsoft Monitoring Agent.
 >
 
-## Průvodce odstraňováním potíží
-<a id="troubleshooting-guide" class="xliff"></a>
+## <a name="troubleshooting-guide"></a>Průvodce odstraňováním potíží
 Tento průvodce vysvětluje, jak odstraňovat potíže související se službou Security Center. U většiny postupů odstraňování potíží prováděných v rámci služby Security Center je třeba nejprve si prohlédnout záznamy [protokolu auditu](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) pro komponentu, u které se potíže vyskytly. Na základě protokolů auditu můžete zjistit:
 
 * Které operace proběhly
@@ -42,8 +40,7 @@ Tento průvodce vysvětluje, jak odstraňovat potíže související se službou
 
 Protokol auditu obsahuje všechny operace zápisu (PUT, POST, DELETE) prováděné s vašimi prostředky, ale neobsahuje operace čtení (GET).
 
-## Microsoft Monitoring Agent
-<a id="microsoft-monitoring-agent" class="xliff"></a>
+## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
 Security Center používá agenta Microsoft Monitoring Agent – to je stejný agent, kterého používá Operations Management Suite a služba Log Analytics – ke shromažďování dat zabezpečení z virtuálních počítačů Azure. Po povolení shromažďování dat a řádné instalaci agenta v cílovém počítači by se měl provádět tento proces:
 
 * HealthService.exe
@@ -57,8 +54,7 @@ Pokud chcete zjistit, kterou verzi agenta máte, otevřete **Správce úloh**, n
 ![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
    
 
-## Scénáře instalace služby Microsoft Monitoring Agent
-<a id="microsoft-monitoring-agent-installation-scenarios" class="xliff"></a>
+## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Scénáře instalace služby Microsoft Monitoring Agent
 Existují dva scénáře instalace služby Microsoft Monitoring Agent na počítač, které mohou přinést různé výsledky. Podporované scénáře:
 
 * **Agent nainstalovaný automaticky službou Security Center**: V tomto scénáři se budete moci podívat na výstrahy v obou umístěních – ve službě Security Center i v Hledání v protokolu. E-mailová oznámení budete dostávat na e-mailovou adresu, kterou jste si nakonfigurovali v zásadách zabezpečení pro předplatné, do něhož prostředek patří.
@@ -69,8 +65,7 @@ Existují dva scénáře instalace služby Microsoft Monitoring Agent na počít
 > Pokud se chcete vyhnout chování uvedenému v druhém scénáři, stáhněte si nejnovější verzi agenta.
 > 
 
-## Odstraňování potíží se síťovými požadavky na agenta monitorování
-<a id="troubleshooting-monitoring-agent-network-requirements" class="xliff"></a>
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Odstraňování potíží se síťovými požadavky na agenta monitorování
 Agenti, kteří se připojují ke službě Security Center a registrují se v ní, musí mít přístup k síťovým prostředkům, včetně čísel portů a doménových adres URL.
 
 - U proxy serverů musíte zajistit konfiguraci příslušných prostředků proxy serveru v nastavení agenta. Přečtěte si tento článek, ve kterém se dozvíte další informace o [tom, jak změnit nastavení proxy](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
@@ -88,8 +83,7 @@ V následující tabulce najdete přehled prostředků potřebných pro komunika
 Pokud narazíte na problémy s registrací agenta, přečtěte si článek [Řešení potíží s registrací v Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 
-## Řešení potíží s tím, že ochrana koncových bodů nefunguje správně
-<a id="troubleshooting-endpoint-protection-not-working-properly" class="xliff"></a>
+## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Řešení potíží s tím, že ochrana koncových bodů nefunguje správně
 
 Agent hosta je nadřazený proces pro všechno, co dělá rozšíření [Microsoft Antimalware](../security/azure-security-antimalware.md). Pokud proces agenta hosta selže, může se stát, že selže i Microsoft Antimalware, který je spuštěný jako jeho podřízený proces.  V podobných situacích se doporučuje ověřit následující možnosti:
 
@@ -103,19 +97,16 @@ Agent hosta je nadřazený proces pro všechno, co dělá rozšíření [Microso
 
 Ve výchozím nastavení je uživatelské rozhraní rozšíření Microsoft Antimalware zablokované. Další informace o tom, jak ho v případě potřeby povolit, najdete v tématu věnovaném [povolení uživatelského rozhraní rozšíření Microsoft Antimalware ve virtuálních počítačích s Azure Resource Managerem po nasazení](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/).
 
-## Odstraňování potíží s načtením řídicího panelu
-<a id="troubleshooting-problems-loading-the-dashboard" class="xliff"></a>
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Odstraňování potíží s načtením řídicího panelu
 
 Pokud dochází k problémům s načtením řídicího panelu služby Security Center, ujistěte se, že uživatel, který předplatné ke službě Security Center registruje (tj. uživatel, který s tímto předplatným otevřel službu Security Center) a uživatel, který chce zapnout shromažďování dat, mají u daného předplatného roli *Vlastník* nebo *Přispěvatel*. Od této chvíle budou moci i uživatelé, kteří u předplatného mají roli *Čtenář*, zobrazovat řídicí panel, upozornění, doporučení a zásady.
 
-## Kontaktování oddělení podpory společnosti Microsoft
-<a id="contacting-microsoft-support" class="xliff"></a>
+## <a name="contacting-microsoft-support"></a>Kontaktování oddělení podpory společnosti Microsoft
 Některé potíže lze identifikovat podle pokynů v tomto článku, některé další jsou také dokumentovány ve veřejném [fóru](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) služby Security Center. Pokud však potřebujete odstraňovat potíže mimo tento rámec, můžete vytvořit novou žádost o podporu prostřednictvím webu **Azure Portal**, jak je znázorněno níže: 
 
 ![Podpora společnosti Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## Viz také
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak ve službě Azure Security Center konfigurovat zásady zabezpečení. Pokud se o službě Azure Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md) – Zjistěte, jak naplánovat a pochopit aspekty návrhu, abyste mohli přejít na Azure Security Center.

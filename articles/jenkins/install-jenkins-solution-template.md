@@ -23,9 +23,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
-
-# Vytvoření prvního hlavního serveru Jenkinse na virtuálním počítači s Linuxem (Ubuntu) v Azure
+# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Vytvoření prvního hlavního serveru Jenkinse na virtuálním počítači s Linuxem (Ubuntu) v Azure
 
 Tento rychlý start ukazuje, jak nainstalovat nejnovější stabilní verzi Jenkinse na virtuálním počítači s Linuxem (Ubuntu 14.04 LTS) společně s nástroji a moduly plug-in nakonfigurovanými pro práci s Azure. Mezi tyto nástroje patří:
 <ul>
@@ -46,9 +44,7 @@ V tomto kurzu se naučíte:
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
-
-## Vytvoření virtuálního počítače v Azure nasazením šablony řešení pro Jenkinse
+## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Vytvoření virtuálního počítače v Azure nasazením šablony řešení pro Jenkinse
 
 Pomocí šablon Azure pro rychlý start můžete v Azure rychle a spolehlivě nasazovat komplexní technologie.  Azure Resource Manager umožňuje zřizovat aplikace pomocí [deklarativní šablony](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). S jednou šablonou můžete nasadit několik služeb společně s jejich závislostmi. Stejnou šablonu můžete použít k opakovanému nasazení aplikace během každé fáze životního cyklu této aplikace.
 
@@ -85,17 +81,13 @@ Jakmile úspěšně proběhne ověření, klikněte na **OK** a stáhněte šabl
 
 Pak vyberte **Koupit** a zřiďte všechny prostředky.
 
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
-
-## Nastavení přesměrování portu SSH
+## <a name="setup-ssh-port-forwarding"></a>Nastavení přesměrování portu SSH
 
 Instance Jenkinse ve výchozím nastavení používá protokol HTTP a naslouchá na portu 8080. Uživatelé by se neměli ověřovat prostřednictvím nezabezpečených protokolů.
     
 Nastavte přesměrování portu, abyste zobrazili uživatelské rozhraní Jenkinse na místním počítači.
 
-<a id="if-you-are-using-windows" class="xliff"></a>
-
-### Pokud používáte Windows:
+### <a name="if-you-are-using-windows"></a>Pokud používáte Windows:
 
 Nainstalujte PuTTY a pokud používáte k zabezpečení Jenkinse heslo, spusťte tento příkaz:
 ```
@@ -110,9 +102,7 @@ Pokud používáte SSH, spusťte tento příkaz:
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
-
-### Pokud používáte Linux nebo Mac:
+### <a name="if-you-are-using-linux-or-mac"></a>Pokud používáte Linux nebo Mac:
 
 Pokud používáte k zabezpečení hlavního serveru Jenkinse heslo, spusťte tento příkaz:
 ```
@@ -125,9 +115,7 @@ Pokud používáte SSH, spusťte tento příkaz:
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="connect-to-jenkins" class="xliff"></a>
-
-## Připojení k Jenkinsu
+## <a name="connect-to-jenkins"></a>Připojení k Jenkinsu
 Po spuštění tunelu přejděte na místním počítači na adresu http://localhost:8080/.
 
 Poprvé odemkněte řídicí panel Jenkinse pomocí počátečního hesla správce.
@@ -146,9 +134,7 @@ Vaše instance Jenkinse je teď připravena k použití! Přístup k zobrazení 
 
 ![Jenkins je připraven!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 V tomto kurzu jste:
 

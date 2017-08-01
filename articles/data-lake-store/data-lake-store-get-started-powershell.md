@@ -22,9 +22,7 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-store-using-azure-powershell" class="xliff"></a>
-
-# Začínáme s Azure Data Lake Store pomocí Azure PowerShell
+# <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Začínáme s Azure Data Lake Store pomocí Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -39,22 +37,16 @@ ms.lasthandoff: 07/01/2017
 
 Naučte se používat Azure PowerShell k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake Store najdete v tématu [Přehled Data Lake Store](data-lake-store-overview.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 nebo vyšší**. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
 
-<a id="authentication" class="xliff"></a>
-
-## Authentication
+## <a name="authentication"></a>Authentication
 Tento článek používá jednodušší přístup k ověřování ve službě Data Lake Store, kdy jste vyzváni k zadání svých pověření pro účet Azure. Úroveň přístupu k účtu služby Data Lake Store a systému souborů se pak řídí úrovní přístupu přihlášeného uživatele. Existují však i jiné přístupy k ověřování ve službě Data Lake Store. Je to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md) nebo [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md).
 
-<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
-
-## Vytvoření účtu Azure Data Lake Store
+## <a name="create-an-azure-data-lake-store-account"></a>Vytvoření účtu Azure Data Lake Store
 1. Otevřete na ploše nové okno Windows PowerShellu, zadejte následující fragment kódu a přihlaste se tak k účtu Azure. Nastavte předplatné a zaregistrujte poskytovatele Data Lake Store. Po zobrazení výzvy k přihlášení se nezapomeňte přihlásit jako jeden ze správců / vlastník předplatného:
 
         # Log in to your Azure account
@@ -86,9 +78,7 @@ Tento článek používá jednodušší přístup k ověřování ve službě Da
 
     Výstup této položky musí být **True** (pravda).
 
-<a id="create-directory-structures-in-your-azure-data-lake-store" class="xliff"></a>
-
-## Vytváření struktur adresářů v Azure Data Lake Store
+## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Vytváření struktur adresářů v Azure Data Lake Store
 V rámci účtu Azure Data Lake Store můžete vytvářet adresáře, které slouží ke správě a ukládání dat.
 
 1. Zadejte kořenový adresář.
@@ -105,9 +95,7 @@ V rámci účtu Azure Data Lake Store můžete vytvářet adresáře, které slo
 
     ![Ověření adresáře](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Ověření adresáře")
 
-<a id="upload-data-to-your-azure-data-lake-store" class="xliff"></a>
-
-## Nahrání dat do Azure Data Lake Store
+## <a name="upload-data-to-your-azure-data-lake-store"></a>Nahrání dat do Azure Data Lake Store
 Data můžete do Data Lake Store nahrát přímo na úrovni kořenového adresáře nebo do adresáře, který jste v rámci účtu vytvořili. Níže zobrazené fragmenty kódu ukazují, jak nahrát ukázková data do adresáře (**mynewdirectory**), který jste vytvořili v předchozí části.
 
 Pokud hledáte ukázková data, která byste mohli nahrát, můžete použít složku **Ambulance Data** z [úložiště Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Stáhněte si tento soubor a uložte ho do místního adresáře v počítači, například C:\sampledata\.
@@ -115,9 +103,7 @@ Pokud hledáte ukázková data, která byste mohli nahrát, můžete použít sl
     Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
-<a id="rename-download-and-delete-data-from-your-data-lake-store" class="xliff"></a>
-
-## Přejmenování, stažení a odstranění dat z Data Lake Store
+## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Přejmenování, stažení a odstranění dat z Data Lake Store
 Pokud chcete přejmenovat soubor, použijte tento příkaz:
 
     Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
@@ -134,18 +120,14 @@ Po zobrazení výzvy zadejte **Y**, a položku tak odstraňte. Pokud chcete odst
 
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
-<a id="delete-your-azure-data-lake-store-account" class="xliff"></a>
-
-## Odstranění účtu Azure Data Lake Store
+## <a name="delete-your-azure-data-lake-store-account"></a>Odstranění účtu Azure Data Lake Store
 Následujícím příkazem odstraňte účet Data Lake Store.
 
     Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
 Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
-<a id="performance-guidance-while-using-powershell" class="xliff"></a>
-
-## Průvodce výkonem při použití prostředí PowerShell
+## <a name="performance-guidance-while-using-powershell"></a>Průvodce výkonem při použití prostředí PowerShell
 
 V následující tabulce jsou nejdůležitější nastavení, která můžete ladit pro získání nejlepšího výkonu při práci se službou Data Lake Store pomocí prostředí PowerShell:
 
@@ -160,9 +142,7 @@ Tento příkaz stáhne soubory z Azure Data Lake Store na místní jednotku a po
 
     Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
-<a id="how-do-i-determine-the-value-to-set-for-these-parameters" class="xliff"></a>
-
-### Jak určím hodnotu, kterou mám těmto parametrům nastavit?
+### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Jak určím hodnotu, kterou mám těmto parametrům nastavit?
 
 Tady je několik rad, kterými se můžete řídit.
 
@@ -199,9 +179,7 @@ Tady je několik rad, kterými se můžete řídit.
 
     Takže hodnota **ConcurrentFileCount** je **2.4**, což můžeme zaokrouhlit na **2**.
 
-<a id="further-tuning" class="xliff"></a>
-
-### Další ladění
+### <a name="further-tuning"></a>Další ladění
 
 Možná budete vyžadovat další ladění, protože existuje velká škála velikostí souborů, se kterými můžete pracovat. Předchozí výpočty dobře fungují v případě, že se velikost všech nebo většiny souborů pohybuje okolo 10 GB. Pokud ale bude existovat mnoho různých velikostí souborů a mnoho jich bude menších, mohli byste hodnotu PerFileThreadCount snížit. Díky snížení hodnoty PerFileThreadCount můžeme zvýšit hodnotu ConcurrentFileCount. Takže pokud předpokládáme, že většina našich souborů je menších a pohybuje se okolo 5 GB, můžeme znovu provést výpočet:
 
@@ -211,9 +189,7 @@ Hodnota **ConcurrentFileCount** nyní tedy bude 96/20, což je 4,8 a po zaokrouh
 
 Tato nastavení můžete dále ladit zvýšením nebo snížením hodnoty **PerFileThreadCount** v závislosti na rozložení velikostí souborů.
 
-<a id="limitation" class="xliff"></a>
-
-### Omezení
+### <a name="limitation"></a>Omezení
 
 * **Počet souborů je menší než hodnota ConcurrentFileCount**: Pokud je počet souborů, které nahráváte, menší než hodnota **ConcurrentFileCount**, kterou jste vypočítali, měli byste snížit hodnotu **ConcurrentFileCount** tak, aby se rovnala počtu souborů. Zbývající vlákna můžete použít ke zvýšení hodnoty **PerFileThreadCount**.
 
@@ -223,9 +199,7 @@ Tato nastavení můžete dále ladit zvýšením nebo snížením hodnoty **PerF
 
 * **Chyby omezování**: Pokud je souběžnost příliš vysoká, může docházet k chybám omezování. Pokud dochází k chybám omezování, měli byste buď snížit souběžnost, nebo nás kontaktovat.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

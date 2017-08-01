@@ -22,15 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-site-recovery" class="xliff"></a>
-
-# Co je Site Recovery?
+# <a name="what-is-site-recovery"></a>Co je Site Recovery?
 
 Vítá vás služba Azure Site Recovery! Tento článek přináší stručný přehled služby.
 
-<a id="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services" class="xliff"></a>
-
-## Kontinuita podnikových procesů a zotavení po havárii (BCDR) pomocí služby Azure Recovery Services
+## <a name="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services"></a>Kontinuita podnikových procesů a zotavení po havárii (BCDR) pomocí služby Azure Recovery Services
 
 Jako organizace potřebujete vyřešit, jak zajistíte bezpečnost vašich dat a provoz aplikací a úloh v případě plánovaných a neplánovaných výpadků.
 
@@ -45,9 +41,7 @@ Site Recovery může spravovat replikaci pro:
 - Místní virtuální počítače a fyzické servery replikované do Azure nebo sekundární lokality.
 
 
-<a id="what-does-site-recovery-provide" class="xliff"></a>
-
-## Co Site Recovery poskytuje?
+## <a name="what-does-site-recovery-provide"></a>Co Site Recovery poskytuje?
 
 **Funkce** | **Podrobnosti**
 --- | ---
@@ -66,9 +60,7 @@ Site Recovery může spravovat replikaci pro:
 **Správa síťových nastavení** | Site Recovery se integruje s Azure a poskytuje jednoduchou správu aplikační sítě, včetně rezervace IP adres, konfigurace nástrojů pro vyrovnávání zatížení a integrace služby Azure Traffic Manager pro efektivní přepínání sítí.
 
 
-<a id="what-can-i-replicate" class="xliff"></a>
-
-## Co mohu replikovat?
+## <a name="what-can-i-replicate"></a>Co mohu replikovat?
 
 **Podporuje se** | **Podrobnosti**
 --- | ---
@@ -79,17 +71,13 @@ Site Recovery může spravovat replikaci pro:
 **Jaké úlohy můžu replikovat?** | Můžete replikovat jakoukoli úlohu běžící v podporovaném počítači replikace. Kromě toho tým Site Recovery [pro řadu aplikací](site-recovery-workload.md#workload-summary) provedl testování specifické pro aplikace.
 
 
-<a id="azure-portal-considerations" class="xliff"></a>
-
-## Důležité informace o webu Azure Portal
+## <a name="azure-portal-considerations"></a>Důležité informace o webu Azure Portal
 
 * Site Recovery je možné nasadit na webu [Azure Portal](https://portal.azure.com).
 * Na portálu Azure Classic můžete spravovat Site Recovery s klasickým modelem správy služeb.
 - Portál Classic by se měl používat jenom k údržbě stávajících nasazení Site Recovery. Na portálu Classic nelze vytvářet nové trezory.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o [podpoře úloh](site-recovery-workload.md)
 * Můžete začít s [replikací virtuálních počítačů Azure mezi oblastmi](site-recovery-azure-to-azure.md), [replikací VMware do Azure](vmware-walkthrough-overview.md) nebo [replikací Hyper-V do Azure](hyper-v-site-walkthrough-overview.md).
 

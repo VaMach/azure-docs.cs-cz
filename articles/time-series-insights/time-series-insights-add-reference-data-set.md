@@ -23,13 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-# Vytvoření referenční sady dat pro prostředí Time Series Insights pomocí portálu Ibiza
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Vytvoření referenční sady dat pro prostředí Time Series Insights pomocí portálu Ibiza
 
 Referenční sada dat je kolekce položek rozšířená o události ze zdroje událostí. Modul příchozího přenosu dat Time Series Insights se připojí k události ze zdroje událostí s položkou v referenční sadě dat. Tato rozšířená událost je pak k dispozici pro dotaz. Toto připojení je založené na klíčích definovaných v referenční sadě dat.
 
-## Postup přidání referenční sady dat do prostředí
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Postup přidání referenční sady dat do prostředí
 
 1. Přihlaste se k [portálu Ibiza](https://portal.azure.com).
 2. V nabídce na levé straně portálu Ibiza klikněte na Všechny prostředky.
@@ -48,8 +46,7 @@ Referenční sada dat je kolekce položek rozšířená o události ze zdroje ud
 
 7. Klikněte na Vytvořit.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 * [Spravujte referenční data](time-series-insights-manage-reference-data-csharp.md) prostřednictvím kódu programu.
 * Úplnou referenční dokumentaci k rozhraní API najdete v dokumentu [Rozhraní API referenčních dat](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

@@ -16,28 +16,25 @@ f1_keywords:
 - sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 0a59bc29581b870d8aee07ed4e77df2be576361a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
-# Informace o účtech Azure Storage
-<a id="about-azure-storage-accounts" class="xliff"></a>
+# <a name="about-azure-storage-accounts"></a>Informace o účtech Azure Storage
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## Přehled
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Přehled
 Účet úložiště Azure Storage poskytuje jedinečný obor názvů pro ukládání datových objektů Azure Storage a přístup k nim. Všechny objekty v rámci účtu úložiště se fakturují společně jako skupina. Ve výchozím nastavení jsou data ve vašem účtu dostupná pouze pro vás, vlastníka účtu.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
-## Fakturace účtu úložiště
-<a id="storage-account-billing" class="xliff"></a>
+## <a name="storage-account-billing"></a>Fakturace účtu úložiště
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -45,8 +42,7 @@ ms.lasthandoff: 06/20/2017
 > 
 > 
 
-## Koncové body účtu úložiště
-<a id="storage-account-endpoints" class="xliff"></a>
+## <a name="storage-account-endpoints"></a>Koncové body účtu úložiště
 Každý objekt, který uložíte v úložišti Azure Storage, má jedinečnou adresu URL. Název účtu úložiště tvoří subdoménu dané adresy. Kombinace názvu domény a subdomény, která je pro každou službu specifická, tvoří *koncový bod* vašeho účtu úložiště.
 
 Pokud je například název účtu úložiště *můj_účet_úložiště*, pak jsou výchozí koncové body pro váš účet úložiště tyto:
@@ -65,8 +61,7 @@ Adresa URL pro přístup k objektu v účtu úložiště je sestavena připojen�
 
 Můžete také nakonfigurovat vlastní název domény, který budete chtít se svým účtem úložiště používat. Pro účty úložiště Classic najdete informace v tématu věnovaném [konfiguraci vlastního názvu doménu pro koncový bod služby Blob Storage](storage-custom-domain-name.md). Pro účty úložiště Resource Manager ještě tato funkce nebyla přidána na portál [Azure Portal](https://portal.azure.com), můžete ji ale konfigurovat pomocí PowerShellu. Další informace najdete v tématu věnovaném rutině [Set AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
 
-## vytvořit účet úložiště
-<a id="create-a-storage-account" class="xliff"></a>
+## <a name="create-a-storage-account"></a>vytvořit účet úložiště
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. V nabídce centra vyberte **Nový** -> **Úložiště** -> **Účet úložiště**.
 3. Zadejte název účtu úložiště. Podrobnosti o tom, jak se bude název vašeho účtu úložiště používat k adresování vašich objektů v úložišti Azure Storage, najdete v tématu [Koncové body účtu úložiště](#storage-account-endpoints).
@@ -94,10 +89,8 @@ Můžete také nakonfigurovat vlastní název domény, který budete chtít se s
 9. Vyberte zeměpisné umístění účtu úložiště. V článku [Oblasti Azure](https://azure.microsoft.com/regions/#services) najdete další informace o tom, které služby jsou dostupné v daných oblastech.
 10. Vytvořte účet úložiště kliknutím na **Vytvořit**.
 
-## Správa účtu úložiště
-<a id="manage-your-storage-account" class="xliff"></a>
-### Změna konfigurace účtu
-<a id="change-your-account-configuration" class="xliff"></a>
+## <a name="manage-your-storage-account"></a>Správa účtu úložiště
+### <a name="change-your-account-configuration"></a>Změna konfigurace účtu
 Po vytvoření účtu úložiště můžete upravit jeho konfiguraci, například můžete změnit možnost replikace používanou pro účet nebo změnit úroveň přístupu pro účet úložiště Blob Storage. Na portálu [Azure Portal](https://portal.azure.com) přejděte na svůj účet úložiště, vyhledejte a klikněte na **Všechna nastavení** v části **NASTAVENÍ**. Tady pak můžete zobrazit nebo změnit konfiguraci účtu.
 
 > [!NOTE]
@@ -109,8 +102,7 @@ Změnou možnosti replikace se vám také změní cena za předplatné. Další 
 
 Pro účty úložiště Blob Storage se vám může nejenom změní cena za předplatné, ale můžou se vám také naúčtovat poplatky za změnu úrovně přístupu. Další podrobnosti najdete v části [Účty Blob Storage – ceny a fakturace](storage-blob-storage-tiers.md#pricing-and-billing).
 
-### Správa přístupových klíčů k úložišti
-<a id="manage-your-storage-access-keys" class="xliff"></a>
+### <a name="manage-your-storage-access-keys"></a>Správa přístupových klíčů k úložišti
 Při vytváření účtu úložiště vygeneruje Azure dva 512bitové přístupové klíče k úložišti, které se používají pro ověřování přístupu k účtu úložiště. Poskytnutím dvou přístupových klíčů k úložišti vám Azure umožňuje znovu vygenerovat klíče bez přerušení poskytování vaší služby úložiště nebo přístupu k této službě.
 
 > [!NOTE]
@@ -118,12 +110,10 @@ Při vytváření účtu úložiště vygeneruje Azure dva 512bitové přístupo
 > 
 > 
 <a id="view-and-copy-storage-access-keys"/></a>
-#### Zobrazení a zkopírování přístupových klíčů k úložišti
-<a id="view-and-copy-storage-access-keys" class="xliff"></a>
+#### <a name="view-and-copy-storage-access-keys"></a>Zobrazení a zkopírování přístupových klíčů k úložišti
 Na portálu [Azure Portal](https://portal.azure.com) přejděte na svůj účet úložiště, klikněte na **Všechna nastavení** a potom klikněte na **Přístupové klíče**. Tady si pak můžete zobrazit, zkopírovat a znovu vygenerovat přístupové klíče ke svému účtu. Okno **Přístupové klíče** také obsahuje předem nakonfigurované připojovací řetězce s využitím primárního a sekundárního klíče, které můžete zkopírovat a používat ve svých aplikacích.
 
-#### Opětovné vygenerování přístupových klíčů k úložišti
-<a id="regenerate-storage-access-keys" class="xliff"></a>
+#### <a name="regenerate-storage-access-keys"></a>Opětovné vygenerování přístupových klíčů k úložišti
 Doporučujeme přístupové klíče k účtu úložiště pravidelně měnit, aby byla připojení k úložišti stále zabezpečená. Dva přístupové klíče se přiřazují proto, abyste mohli pro připojení k účtu úložiště používat jeden přístupový klíč, zatímco si znovu vygenerujete druhý přístupový klíč.
 
 > [!WARNING]
@@ -144,8 +134,7 @@ Tady je proces pro výměnu přístupových klíčů k úložišti:
 3. Aktualizujte připojovací řetězce v kódu tak, aby odkazovaly na nový primární přístupový klíč.
 4. Stejným způsobem pak opětovně vygenerujte sekundární přístupový klíč.
 
-## Odstranění účtu úložiště
-<a id="delete-a-storage-account" class="xliff"></a>
+## <a name="delete-a-storage-account"></a>Odstranění účtu úložiště
 Pokud chcete odebrat účet úložiště, který už nepoužíváte, přejděte na účet úložiště na portálu [Azure Portal](https://portal.azure.com) a klikněte na **Odstranit**. Odstraněním účtu úložiště se odstraní celý účet, včetně všech dat v účtu.
 
 > [!WARNING]
@@ -167,8 +156,7 @@ Pokud účet úložiště používá model nasazení Classic, můžete disk virt
 
 Další informace najdete v [dokumentaci ke službě Azure Virtual Machine](http://azure.microsoft.com/documentation/services/virtual-machines/). 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) je bezplatná samostatná aplikace od Microsoftu, která umožňuje vizuálně pracovat s daty Azure Storage ve Windows, macOS a Linuxu.
 * [Azure Blob Storage: úrovně Cool a Hot](storage-blob-storage-tiers.md)
 * [Účet replikace Azure Storage](storage-redundancy.md)

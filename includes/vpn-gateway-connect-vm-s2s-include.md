@@ -23,8 +23,7 @@ K virtuálnímu počítači nasazenému ve vaší virtuální síti se můžete 
 3. Otevřete **Připojení ke vzdálené ploše** tak, že do vyhledávacího pole na hlavním panelu zadáte „RDP“ nebo „Připojení ke vzdálené ploše“ a pak vyberete Připojení ke vzdálené ploše. Připojení ke vzdálené ploše můžete otevřít také v PowerShellu pomocí příkazu mstsc. 
 4. V Připojení ke vzdálené ploše zadejte privátní IP adresu virtuálního počítače. Můžete kliknout na Zobrazit možnosti a upravit další nastavení, pak se připojte.
 
-### Řešení potíží s připojením ke vzdálené ploše virtuálního počítače
-<a id="to-troubleshoot-an-rdp-connection-to-a-vm" class="xliff"></a>
+### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Řešení potíží s připojením ke vzdálené ploše virtuálního počítače
 
 Pokud se vám nedaří připojit k virtuálnímu počítači přes připojení VPN, zkontrolujte následující:
 

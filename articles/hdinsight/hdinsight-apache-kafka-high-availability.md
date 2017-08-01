@@ -21,15 +21,11 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/28/2017
 
 ---
-<a id="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# Vysoká dostupnost dat s využitím Apache Kafka (Preview) ve službě HDInsight
+# <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>Vysoká dostupnost dat s využitím Apache Kafka (Preview) ve službě HDInsight
 
 Zjistěte, jak nakonfigurovat repliky oddílů pro témata Kafka a využít výhod konfigurace použitého hardwarového racku. Tato konfigurace zajišťuje dostupnost dat uložených v Apache Kafka ve službě HDInsight.
 
-<a id="fault-and-update-domains-with-kafka" class="xliff"></a>
-
-## Domény selhání a aktualizační domény s využitím Kafka
+## <a name="fault-and-update-domains-with-kafka"></a>Domény selhání a aktualizační domény s využitím Kafka
 
 Doména selhání je logické seskupení základního hardwaru v datovém centru Azure. Všechny domény selhání sdílí společný zdroje napájení a síťový přepínač. Virtuální počítače a spravované disky, které implementují uzly v clusteru služby HDInsight, jsou distribuované napříč těmito doménami selhání. Tato architektura omezuje potenciální dopad selhání fyzického hardwaru.
 
@@ -38,9 +34,7 @@ Každá oblast Azure má určitý počet domén selhání. Seznam domén a poče
 > [!IMPORTANT]
 > Kafka nemá o doménách selhání žádné informace. Když vytvoříte téma v Kafka, může uložit všechny repliky oddílů ve stejné doméně selhání. K vyřešení tohoto problému poskytujeme [nástroj pro obnovení rovnováhy oddílů Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
 
-<a id="when-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Kdy obnovit rovnováhu replik oddílů
+## <a name="when-to-rebalance-partition-replicas"></a>Kdy obnovit rovnováhu replik oddílů
 
 K zajištění nejvyšší dostupnost dat Kafka byste měli obnovit rovnováhu replik oddílů pro vaše téma v těchto situacích:
 
@@ -48,9 +42,7 @@ K zajištění nejvyšší dostupnost dat Kafka byste měli obnovit rovnováhu r
 
 * Při vertikálním navýšení kapacity clusteru
 
-<a id="replication-factor" class="xliff"></a>
-
-## Faktor replikace
+## <a name="replication-factor"></a>Faktor replikace
 
 > [!IMPORTANT]
 > Doporučujeme použít oblast Azure, která obsahuje tři domény selhání, a použít faktor replikace 3.
@@ -59,17 +51,13 @@ Pokud musíte použít oblast, která obsahuje jenom dvě domény selhání, pou
 
 Příklad vytvoření tématu a nastavení faktoru replikace najdete v dokumentu [Začínáme s Kafka ve službě HDInsight](hdinsight-apache-kafka-get-started.md).
 
-<a id="how-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Jak obnovit rovnováhu replik oddílů
+## <a name="how-to-rebalance-partition-replicas"></a>Jak obnovit rovnováhu replik oddílů
 
 K obnovení rovnováhy vybraných témat použijte [nástroj pro obnovení rovnováhy oddílů Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Tento nástroj se musí spustit z relace SSH na hlavní uzel clusteru Kafka.
 
 Další informace o připojení ke službě HDInsight pomocí SSH najdete v dokumentu [Použití SSH s HDInsightem](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 * [Škálovatelnost Kafka ve službě HDInsight](hdinsight-apache-kafka-scalability.md)
 * [Zrcadlení s využitím Kafka ve službě HDInsight](hdinsight-apache-kafka-mirroring.md)

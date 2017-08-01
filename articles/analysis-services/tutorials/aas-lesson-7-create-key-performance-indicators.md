@@ -22,8 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lekce 7: Vytvoření klíčových ukazatelů výkonu
-<a id="lesson-7-create-key-performance-indicators" class="xliff"></a>
+# <a name="lesson-7-create-key-performance-indicators"></a>Lekce 7: Vytvoření klíčových ukazatelů výkonu
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -31,15 +30,12 @@ V této lekci vytvoříte klíčové ukazatele výkonu (KPI). Klíčové ukazate
   
 Odhadovaný čas dokončení této lekce: **15 minut**  
   
-## Požadavky
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabulkového modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 6: Vytvoření měr](../tutorials/aas-lesson-6-create-measures.md).   
   
-## Vytvoření klíčových ukazatelů výkonu
-<a id="create-key-performance-indicators" class="xliff"></a>  
+## <a name="create-key-performance-indicators"></a>Vytvoření klíčových ukazatelů výkonu  
   
-#### Vytvoření klíčového ukazatele výkonu InternetCurrentQuarterSalesPerformance
-<a id="to-create-an-internetcurrentquartersalesperformance-kpi" class="xliff"></a>  
+#### <a name="to-create-an-internetcurrentquartersalesperformance-kpi"></a>Vytvoření klíčového ukazatele výkonu InternetCurrentQuarterSalesPerformance  
   
 1.  V návrháři modelů klikněte na tabulku **FactInternetSales**.  
   
@@ -70,8 +66,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
   
     V mřížce měr si všimněte ikony vedle míry **InternetCurrentQuarterSalesPerformance**. Tato ikona označuje, že tato míra slouží jako základní hodnota klíčového ukazatele výkonu.  
   
-#### Vytvoření klíčového ukazatele výkonu InternetCurrentQuarterMarginPerformance
-<a id="to-create-an-internetcurrentquartermarginperformance-kpi" class="xliff"></a>  
+#### <a name="to-create-an-internetcurrentquartermarginperformance-kpi"></a>Vytvoření klíčového ukazatele výkonu InternetCurrentQuarterMarginPerformance  
   
 1.  V mřížce měr tabulky **FactInternetSales** klikněte na prázdnou buňku.  
   
@@ -89,8 +84,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
   
 6.  V části **Vybrat styl ikony** vyberte typ ikony – kosočtverec (červený), trojúhelník (žlutý), kolečko (zelený) – a pak klikněte na **OK**.  
   
-## Co dále?
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>Co dále?
 [Lekce 8: Vytvoření perspektiv](../tutorials/aas-lesson-8-create-perspectives.md)
   
   

@@ -22,22 +22,19 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-# Začínáme s Azure Data Lake Analytics s využitím Azure PowerShellu
-<a id="get-started-with-azure-data-lake-analytics-using-azure-powershell" class="xliff"></a>
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Začínáme s Azure Data Lake Analytics s využitím Azure PowerShellu
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Naučíte se, jak pomocí Azure PowerShellu vytvořit účty Azure Data Lake Analytics a následně odeslat a spustit úlohy U-SQL. Další informace o Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 Před zahájením tohoto kurzu musíte mít následující informace:
 
 * **Účet služby Azure Data Lake Analytics**. Zobrazit téma [Začínáme s Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **Pracovní stanice s prostředím Azure PowerShell**. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
 
-## Přihlaste se k Azure.
-<a id="log-in-to-azure" class="xliff"></a>
+## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
 Tento kurz předpokládá, že jste už s používáním Azure Powershellu obeznámení. Konkrétně musíte vědět, jak se k Azure přihlásit. Pokud potřebujete pomoc, přejděte na téma [Začínáme s Azure PowerShellem](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps).
 
@@ -64,8 +61,7 @@ SubscriptionName      : ContosoSubscription
 CurrentStorageAccount :
 ```
 
-## Příprava pro tento kurz
-<a id="preparing-for-the-tutorial" class="xliff"></a>
+## <a name="preparing-for-the-tutorial"></a>Příprava pro tento kurz
 
 Fragment kódu PowerShellu v tomto kurzu používá následující proměnné k ukládání příslušných informací:
 
@@ -76,15 +72,13 @@ $adla = "<DataLakeAnalyticsAccountName>"
 $location = "East US 2"
 ```
 
-## Získání informací o účtu Data Lake Analytics
-<a id="get-information-about-a-data-lake-analytics-account" class="xliff"></a>
+## <a name="get-information-about-a-data-lake-analytics-account"></a>Získání informací o účtu Data Lake Analytics
 
 ```
 Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
 ```
 
-## Odeslání úlohy U-SQL
-<a id="submit-a-u-sql-job" class="xliff"></a>
+## <a name="submit-a-u-sql-job"></a>Odeslání úlohy U-SQL
 
 Vytvořte proměnnou Powershellu, aby uchovala skript U-SQL.
 
@@ -137,8 +131,7 @@ Stáhněte výstupní soubor.
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## Viz také
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Viz také
 * Pokud chcete použít jiné podporované nástroje a zobrazit stejný kurz, klikněte na selektory karet v horní části stránky.
 * Pokud se chcete naučit jazyk U-SQL, informace najdete v tématu [Začínáme s jazykem U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Informace týkající se úloh správy najdete v tématu [Správa služby Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-manage-use-portal.md).

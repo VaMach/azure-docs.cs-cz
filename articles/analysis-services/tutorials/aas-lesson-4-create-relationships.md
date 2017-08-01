@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-4-create-relationships" class="xliff"></a>
-
-# Lekce 4: Vytvoření relací
+# <a name="lesson-4-create-relationships"></a>Lekce 4: Vytvoření relací
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,19 +30,13 @@ V této lekci ověříte relace, které se automaticky vytvořily při importu d
   
 Odhadovaný čas dokončení této lekce: **10 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 3: Označení jako tabulky kalendářních dat](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
-<a id="review-existing-relationships-and-add-new-relationships" class="xliff"></a>
-
-## Kontrola existujících relací a přidání nových relací  
+## <a name="review-existing-relationships-and-add-new-relationships"></a>Kontrola existujících relací a přidání nových relací  
 Při importu dat pomocí funkce Získání dat jste z databáze AdventureWorksDW2014 získali sedm tabulek. Obecně platí, že při importu dat z relačního zdroje se společně s daty automaticky importují i existující relace. Přesto byste však před tím, než budete pokračovat ve vytváření modelu, měli ověřit správné vytvoření těchto relací mezi tabulkami. Pro účely tohoto kurzu přidáte tři nové relace.  
   
-<a id="to-review-existing-relationships" class="xliff"></a>
-
-#### Kontrola existujících relací  
+#### <a name="to-review-existing-relationships"></a>Kontrola existujících relací  
   
 1.  Klikněte na nabídku **Model** > **Zobrazení modelu** > **Zobrazení diagramu**.  
 
@@ -73,9 +65,7 @@ Při importu dat pomocí funkce Získání dat jste z databáze AdventureWorksDW
   
     Pokud jakákoli z těchto relací chybí, ověřte, že váš model obsahuje následující tabulky: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory a FactInternetSales. Pokud se tabulky ze stejného připojení ke zdroji dat importují v různou dobu, případné relace mezi těmito tabulkami se nevytvoří a musí být vytvořeny ručně.  
 
-<a id="take-a-closer-look" class="xliff"></a>
-
-### Bližší prozkoumání
+### <a name="take-a-closer-look"></a>Bližší prozkoumání
 V zobrazení diagramu si všimněte šipky, hvězdičky a čísla na čárách znázorňujících relace mezi tabulkami.
 
 ![aas-lesson4-line](../tutorials/media/aas-lesson4-line.png)
@@ -88,9 +78,7 @@ Tyto funkce jsou určené pro pokročilé modelování dat a jsou nad rámec toh
 
 V některých případech můžete potřebovat vytvořit mezi tabulkami ve vašem modelu další relace pro podporu určité obchodní logiky. Pro účely tohoto kurzu potřebujete vytvořit další tři relace mezi tabulkami FactInternetSales a DimDate.  
   
-<a id="to-add-new-relationships-between-tables" class="xliff"></a>
-
-#### Přidání nových relací mezi tabulkami  
+#### <a name="to-add-new-relationships-between-tables"></a>Přidání nových relací mezi tabulkami  
   
 1.  V návrháři modelů v tabulce **FactInternetSales** klikněte a přidržte sloupec **OrderDate**, přesuňte kurzor na sloupec **Date** v tabulce **DimDate** a uvolněte tlačítko.  
 
@@ -109,9 +97,7 @@ V některých případech můžete potřebovat vytvořit mezi tabulkami ve vaše
     
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
-<a id="whats-next" class="xliff"></a>
-
-## Co dále?
+## <a name="whats-next"></a>Co dále?
 [Lekce 5: Vytvoření počítaných sloupců](../tutorials/aas-lesson-5-create-calculated-columns.md)
   
   

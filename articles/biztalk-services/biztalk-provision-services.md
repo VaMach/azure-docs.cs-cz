@@ -22,8 +22,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# Vytvoření služby BizTalk Services pomocí webu Azure Portal
-<a id="create-biztalk-services-using-the-azure-portal" class="xliff"></a>
+# <a name="create-biztalk-services-using-the-azure-portal"></a>Vytvoření služby BizTalk Services pomocí webu Azure Portal
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -32,8 +31,7 @@ ms.lasthandoff: 05/31/2017
 > Abyste se mohli přihlásit na webu Azure Portal, potřebujete účet Azure a předplatné Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podívejte se na stránku [bezplatné zkušební verze Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-## Vytvoření služby BizTalk
-<a id="create-a-biztalk-service" class="xliff"></a>
+## <a name="create-a-biztalk-service"></a>Vytvoření služby BizTalk
 V závislosti na edici, kterou si zvolíte, nemusí být dostupná všechna nastavení služby BizTalk.
 
 1. Přihlaste se na web [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -117,8 +115,7 @@ Po dokončení průvodce je služba Azure BizTalk vytvořená a připravená na 
 
 V závislosti na stavu služby BizTalk se může stát, že se některé operace nebudou dát provést. Seznam těchto operací najdete v článku [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md).
 
-## Kroky pro zřízení
-<a id="post-provisioning-steps" class="xliff"></a>
+## <a name="post-provisioning-steps"></a>Kroky pro zřízení
 * [Instalace certifikátu na místním počítači](#InstallCert)
 * [Přidání certifikátu pro produkční prostředí](#AddCert)
 * [Získání oboru názvů řízení přístupu](#ACS)
@@ -162,8 +159,7 @@ Identita služby Access Control Service je sada přihlašovacích údajů, kter�
 
 V článku [Správa oboru názvů služby ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) najdete některé pokyny a doporučení.
 
-## Vysvětlení požadavků
-<a id="requirements-explained" class="xliff"></a>
+## <a name="requirements-explained"></a>Vysvětlení požadavků
 Tyto požadavky se netýkají edice Free.
 
 <table border="1">
@@ -247,8 +243,7 @@ Po vytvoření služby BizTalk můžete přidat nový nebo jiný certifikát.
 
 
 
-## Hybridní připojení
-<a id="hybrid-connections" class="xliff"></a>
+## <a name="hybrid-connections"></a>Hybridní připojení
 Při vytváření služby BizTalk Azure je dostupná karta **Hybridní připojení**:
 
 ![Karta Hybridní připojení][HybridConnectionTab]
@@ -257,12 +252,10 @@ Hybridní připojení slouží k připojení webu Azure nebo mobilní služby Az
 
  Další informace, třeba o vytváření a správě hybridních připojení, najdete v článku [Hybridní připojení](integration-hybrid-connection-overview.md).
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Služba BizTalk je teď vytvořená a vy se můžete seznámit s různými kartami: [BizTalk Services: Karty Řídicí panel, Sledování a Škálování](biztalk-dashboard-monitor-scale-tabs.md). Služba BizTalk je připravená pro vaše aplikace. Pokud chcete začít vytvářet aplikace, přejděte na článek [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## Viz také
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Viz také
 * [BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Tabulka stavů](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Zálohování a obnovení](biztalk-backup-restore.md)<br/>

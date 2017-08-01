@@ -22,13 +22,9 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Povolení služby Azure Active Directory Domain Services pomocí portálu Azure Classic
 
-# Povolení služby Azure Active Directory Domain Services pomocí portálu Azure Classic
-
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
-
-## Úloha 3: Povolení služby Azure Active Directory Domain Services
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>Úloha 3: Povolení služby Azure Active Directory Domain Services
 V této úloze povolíte službu Azure Active Directory Domain Services (Azure AD DS) pro svůj adresář pomocí následujících kroků:
 
 1. Přejděte na [portál Azure Classic](https://manage.windowsazure.com).
@@ -99,8 +95,6 @@ V této úloze povolíte službu Azure Active Directory Domain Services (Azure A
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Další krok
+## <a name="next-step"></a>Další krok
 [Úloha 4: Aktualizace nastavení DNS pro virtuální síť Azure](active-directory-ds-getting-started-update-dns.md)
 

@@ -22,8 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lekce 8: Vytvoření perspektiv
-<a id="lesson-8-create-perspectives" class="xliff"></a>
+# <a name="lesson-8-create-perspectives"></a>Lekce 8: Vytvoření perspektiv
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,15 +34,12 @@ Cílem této lekce je popsat, jakým způsobem můžete vytvořit perspektivu a 
   
 Odhadovaný čas dokončení této lekce: **5 minut**  
   
-## Požadavky
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabulkového modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 7: Vytvoření klíčových ukazatelů výkonu](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
-## Vytvoření perspektiv
-<a id="create-perspectives" class="xliff"></a>  
+## <a name="create-perspectives"></a>Vytvoření perspektiv  
   
-#### Postup vytvoření perspektivy Internet Sales
-<a id="to-create-an-internet-sales-perspective" class="xliff"></a>  
+#### <a name="to-create-an-internet-sales-perspective"></a>Postup vytvoření perspektivy Internet Sales  
   
 1.  Klikněte na nabídku **Model** > **Perspektivy** > **Vytvořit a spravovat**.  
   
@@ -57,8 +53,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
   
     V další lekci použijete funkci Analyzovat v aplikaci Excel k otestování této perspektivy. Seznam polí kontingenční tabulky Excelu obsahuje všechny tabulky kromě tabulky DimCustomer.  
 
-## Co dále?
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>Co dále?
 [Lekce 9: Vytvoření hierarchií](../tutorials/aas-lesson-9-create-hierarchies.md)
   
   

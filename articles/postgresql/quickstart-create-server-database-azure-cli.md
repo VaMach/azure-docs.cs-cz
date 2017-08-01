@@ -17,9 +17,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-an-azure-database-for-postgresql-using-the-azure-cli" class="xliff"></a>
-
-# Vytvoření Azure Database for PostgreSQL pomocí rozhraní CLI Azure
+# <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Vytvoření Azure Database for PostgreSQL pomocí rozhraní CLI Azure
 Azure Database for PostgreSQL je spravovaná služba, která umožňuje spouštět, spravovat a škálovat vysoce dostupné databáze PostgreSQL v cloudu. Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. V tomto rychlém startu se dozvíte, jak vytvořit server Azure Database for PostgreSQL ve [skupině prostředků Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pomocí rozhraní CLI Azure.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
@@ -33,18 +31,14 @@ Pokud máte více předplatných, vyberte odpovídající předplatné, ve kter�
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Vytvoření skupiny prostředků
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Vytvořte [skupinu prostředků Azure](../azure-resource-manager/resource-group-overview.md) pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky jako skupina. Následující příklad vytvoří skupinu prostředků s názvem `myresourcegroup` v umístění `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
-<a id="create-an-azure-database-for-postgresql-server" class="xliff"></a>
-
-## Vytvoření serveru Azure Database for PostgreSQL
+## <a name="create-an-azure-database-for-postgresql-server"></a>Vytvoření serveru Azure Database for PostgreSQL
 
 Vytvořte [server Azure Database for PostgreSQL](overview.md) pomocí příkazu [az postgres server create](/cli/azure/postgres/server#create). Server obsahuje soubor databází spravovaných jako skupina. 
 
@@ -59,9 +53,7 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 Ve výchozím nastavení se databáze **postgres** vytvoří v rámci vašeho serveru. Databáze [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) je výchozí databáze určená pro uživatele, nástroje a aplikace třetích stran. 
 
 
-<a id="configure-a-server-level-firewall-rule" class="xliff"></a>
-
-## Konfigurace pravidla brány firewall na úrovni serveru
+## <a name="configure-a-server-level-firewall-rule"></a>Konfigurace pravidla brány firewall na úrovni serveru
 
 Pomocí příkazu [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) vytvořte pravidlo brány firewall na úrovni serveru Azure PostgreSQL. Pravidlo brány firewall na úrovni serveru umožňuje externí aplikaci, jako je třeba [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) nebo [PgAdmin](https://www.pgadmin.org/), aby se k vašemu serveru připojila prostřednictvím brány firewall služby Azure PostgreSQL. 
 
@@ -73,9 +65,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 > [!NOTE]
 > Server Azure PostgreSQL komunikuje přes port 5432. Pokud se připojujete z podnikové sítě, nemusí být odchozí provoz přes port 5432 bránou firewall vaší sítě povolený. Pořádejte oddělení IT, aby otevřeli port 5432 pro připojení k vašemu serveru Azure SQL Database.
 
-<a id="get-the-connection-information" class="xliff"></a>
-
-## Získání informací o připojení
+## <a name="get-the-connection-information"></a>Získání informací o připojení
 
 Pokud se chcete připojit k serveru, budete muset zadat informace o hostiteli a přihlašovací údaje pro přístup.
 ```azurecli-interactive
@@ -107,9 +97,7 @@ Výsledek je ve formátu JSON. Poznamenejte si položky **administratorLogin** a
 }
 ```
 
-<a id="connect-to-postgresql-database-using-psql" class="xliff"></a>
-
-## Připojení k databázi PostgreSQL pomocí nástroje psql
+## <a name="connect-to-postgresql-database-using-psql"></a>Připojení k databázi PostgreSQL pomocí nástroje psql
 
 Pokud má klientský počítač nainstalovaný systém PostgreSQL, můžete se připojit k serveru Azure PostgreSQL pomocí místní instance nástroje [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html). Teď se pomocí nástroje příkazového řádku psql připojíme k serveru Azure PostgreSQL.
 
@@ -134,9 +122,7 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-<a id="connect-to-postgresql-database-using-pgadmin" class="xliff"></a>
-
-## Připojení k databázi PostgreSQL pomocí aplikace pgAdmin
+## <a name="connect-to-postgresql-database-using-pgadmin"></a>Připojení k databázi PostgreSQL pomocí aplikace pgAdmin
 
 Připojení k serveru Azure PostgreSQL pomocí grafického uživatelského rozhraní aplikace _pgAdmin_
 1.  Na klientském počítači spusťte aplikaci _pgAdmin_. _pgAdmin_ můžete nainstalovat ze stránky http://www.pgadmin.org/.
@@ -160,9 +146,7 @@ Připojení k serveru Azure PostgreSQL pomocí grafického uživatelského rozhr
  ![Nástroj pgAdmin – Vytvořit – databáze](./media/quickstart-create-server-database-azure-cli/3-pgadmin-database.png)
 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Vyčištění prostředků
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Všechny prostředky, které jste v rychlém startu vytvořili, můžete vyčistit odstraněním [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md).
 
@@ -178,9 +162,7 @@ Pokud chcete jenom odstranit nově vytvořený server, můžete spustit příkaz
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
 > [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
 

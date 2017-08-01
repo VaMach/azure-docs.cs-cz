@@ -22,15 +22,13 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# BizTalk Services: Tabulka edic
-<a id="biztalk-services-editions-chart" class="xliff"></a>
+# <a name="biztalk-services-editions-chart"></a>BizTalk Services: Tabulka edic
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
 Služba Azure BizTalk Services je dostupná v několika edicích. Tento článek vám pomůže zjistit, která edice je vhodná pro vaši situaci a obchodní potřeby.
 
-## Porovnání edic
-<a id="compare-the-editions" class="xliff"></a>
+## <a name="compare-the-editions"></a>Porovnání edic
 **Free (Preview)**
 
 Dokáže vytvořit a spravovat hybridní připojení. Hybridní připojení je snadný způsob, jak připojit web Azure k místnímu systému, jako je třeba SQL Server.
@@ -51,8 +49,7 @@ Obsahuje všechny funkce edice Basic a k tomu rozšířené funkce hybridních p
 
 Obsahuje všechny funkce edice Standard a k tomu rozšířené funkce hybridních připojení, mosty EAI, smlouvy EDI a připojení sady BizTalk Adapter Pack. Kromě toho zahrnuje archivaci, vysokou dostupnost a možnost škálování se smlouvou o úrovni služeb (SLA).
 
-## Tabulka edic
-<a id="editions-chart" class="xliff"></a>
+## <a name="editions-chart"></a>Tabulka edic
 Rozdíly jsou uvedené v následující tabulce.
 
 <table border="1">
@@ -213,14 +210,11 @@ Zahrnuje neodvolatelnost příjmu a stahování sledovaných zpráv</td>
 > 
 > 
 
-## Nejčastější dotazy
-<a id="faqs" class="xliff"></a>
-#### Co je to jednotka BizTalk?
-<a id="what-is-a-biztalk-unit" class="xliff"></a>
+## <a name="faqs"></a>Nejčastější dotazy
+#### <a name="what-is-a-biztalk-unit"></a>Co je to jednotka BizTalk?
 „Jednotka“ je nejnižší úroveň nasazení služby Azure BizTalk Services. Každá edice se dodává s jednotkou, která má různou výpočetní kapacitu a paměť. Třeba jednotka Basic má vyšší výpočetní kapacitu než jednotka Developer, jednotka Standard má vyšší výpočetní kapacitu než jednotka Basic a tak dál. Horizontální snížení kapacity služeb BizTalk probíhá po jednotkách.
 
-#### Jaký je rozdíl mezi službou BizTalk Services a virtuálním počítačem Azure BizTalk?
-<a id="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm" class="xliff"></a>
+#### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Jaký je rozdíl mezi službou BizTalk Services a virtuálním počítačem Azure BizTalk?
 Služba BizTalk Services nabízí opravdovou architekturu modelu Platforma jako služba (PaaS) pro sestavování integračních řešení v cloudu. Model PaaS umožňuje soustředit se na aplikační logiku a nechat veškerou správu infrastruktury na Microsoftu:
 
 * Nemusíte spravovat ani opravovat virtuální počítače.
@@ -231,38 +225,30 @@ BizTalk Server na virtuálních počítačích Azure nabízí architekturu podle
 
 Pokud chcete sestavit nová integrační řešení, která sníží pracnost správy infrastruktury, použijte službu BizTalk Services. Pokud hledáte způsob, jak rychle provést migraci stávajících řešení BizTalk, nebo hledáte prostředí na vyžádání pro vývoj a testování aplikací BizTalk Serveru, použijte BizTalk Server na virtuálním počítači Azure.
 
-#### Jaký je rozdíl mezi službou BizTalk Adapter Service a hybridními připojeními?
-<a id="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections" class="xliff"></a>
+#### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Jaký je rozdíl mezi službou BizTalk Adapter Service a hybridními připojeními?
 Službu BizTalk Adapter Service používá služba Azure BizTalk Service. Služba BizTalk Adapter Service se pomocí sady BizTalk Adapter Pack připojuje k místnímu obchodnímu systému (LOB). Hybridní připojení poskytuje snadný a pohodlný způsob, jak připojit aplikace Azure, jako je funkce Web Apps ve službách Azure App Service a Azure Mobile Services, k místnímu prostředku.
 
-#### Co znamená „Přenos dat hybridním připojením (v GB) na jednotku“? Je to údaj za minutu, hodinu, den, týden, nebo měsíc? Co se stane po dosažení limitu?
-<a id="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached" class="xliff"></a>
+#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>Co znamená „Přenos dat hybridním připojením (v GB) na jednotku“? Je to údaj za minutu, hodinu, den, týden, nebo měsíc? Co se stane po dosažení limitu?
 Cena za jednotku hybridního připojení závisí na edici služby BizTalk Services. Jednoduše řečeno, cena závisí na tom, kolik dat přenášíte. Třeba přenesení 10 GB dat denně stojí méně než přenos 100 GB denně. Konkrétní náklady zjistíte pomocí [cenové kalkulačky](https://azure.microsoft.com/pricing/calculator/?scenario=full) služby BizTalk Services. Limity se většinou vynucují denně. Pokud limit překročíte, další přenosy stojí 1 USD za GB.
 
-#### Když vytvořím ve službě BizTalk Services smlouvu, proč vzroste počet mostů o dva, a ne o jeden?
-<a id="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one" class="xliff"></a>
+#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one"></a>Když vytvořím ve službě BizTalk Services smlouvu, proč vzroste počet mostů o dva, a ne o jeden?
 Každá smlouva se skládá ze dvou různých mostů: z komunikačního mostu na straně odesílání a z komunikačního mostu na straně příjmu.
 
-#### Co se stane, když dosáhnu maximální kvóty počtu mostů nebo smluv?
-<a id="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements" class="xliff"></a>
+#### <a name="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements"></a>Co se stane, když dosáhnu maximální kvóty počtu mostů nebo smluv?
 Nebudete moct nasazovat žádné nové mosty ani vytvářet nové smlouvy. Pokud budete chtít nasadit další, budete muset vertikálně navýšit kapacitu na víc jednotek služby BizTalk nebo provést upgrade na vyšší edici.
 
-#### Jak provedu migraci z jedné vrstvy služby BizTalk Services na jinou?
-<a id="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another" class="xliff"></a>
+#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Jak provedu migraci z jedné vrstvy služby BizTalk Services na jinou?
 Edice Free neumožňuje migraci ani vertikální navýšení kapacity na jinou vrstvu a nedá se zálohovat a obnovit v jiné vrstvě. Pokud potřebujete jinou vrstvu, vytvořte novou službu BizTalk pomocí nové vrstvy. Všechny artefakty vytvořené pomocí edice Free, včetně hybridních připojení, bude potřeba v nové službě BizTalk znovu vytvořit. 
 
 U ostatních edic můžete k migraci artefaktů z jedné vrstvy do druhé použít funkci zálohování a obnovení. Můžete třeba zálohovat artefakty na vrstvě Standard a potom je obnovit na vrstvě |Premium. Článek [Služba BizTalk Services: Zálohování a obnovení](biztalk-backup-restore.md) popisuje podporované cesty migrace a uvádí, jaké artefakty se dají zálohovat. Upozorňujeme, že hybridní připojení se nezálohují. Po zálohování a obnovení na nové vrstvě musíte hybridní připojení znovu vytvořit.  
 
-#### Je součástí služby i služba BizTalk Adapter Service? Jak tento software získám?
-<a id="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software" class="xliff"></a>
+#### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Je součástí služby i služba BizTalk Adapter Service? Jak tento software získám?
 Ano, součástí [stažení](http://www.microsoft.com/download/details.aspx?id=39087) sady SDK Azure BizTalk Services je také služba BizTalk Adapter Service se sadou BizTalk Adapter Pack.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Pokud chcete vytvořit službu BizTalk Services na webu Azure Portal, přejděte na článek [BizTalk Services: Zřízení pomocí webu Azure Portal](biztalk-provision-services.md). Pokud chcete začít vytvářet aplikace, přejděte na článek [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## Další zdroje
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>Další zdroje
 * [BizTalk Services: Zřízení pomocí webu Azure Portal](biztalk-provision-services.md)<br/>
 * [BizTalk Services: Tabulka stavů zřízení](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Karty Řídicí panel, Sledování a Škálování](biztalk-dashboard-monitor-scale-tabs.md)<br/>

@@ -22,22 +22,19 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-# Sestavení a nasazení aplikace API Java v Azure App Service
-<a id="build-and-deploy-a-java-api-app-in-azure-app-service" class="xliff"></a>
+# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Sestavení a nasazení aplikace API Java v Azure App Service
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 V tomto kurzu se dozvíte, jak vytvořit aplikaci Java a jak ji pomocí [Git] nasadit v Azure App Service API Apps. Pokyny v tomto kurzu platí pro všechny operační systémy, které podporují Javu. Kód v tomto kurzu je sestaven pomocí [Maven]. Projekt [Jax-RS] vytvoří službu RESTful a vygeneruje se na základě specifikace metadat [Swagger] v [editoru Swagger].
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 1. [Sada pro vývojáře Java 8] \(nebo novější)
 2. Nástroj [Maven] nainstalovaný na počítači pro vývoj
 3. Nástroj [Git] nainstalovaný na počítači pro vývoj
 4. Placená nebo [bezplatná zkušební verze] předplatného [Microsoft Azure]
 5. Testovací aplikace HTTP, například [Postman]
 
-## Automatické generování (scaffold) rozhraní API pomocí editoru Swagger.IO
-<a id="scaffold-the-api-using-swaggerio" class="xliff"></a>
+## <a name="scaffold-the-api-using-swaggerio"></a>Automatické generování (scaffold) rozhraní API pomocí editoru Swagger.IO
 Pomocí online editoru swagger.io můžete zadat kód YAML nebo JSON pro Swagger představující strukturu rozhraní API. Jakmile budete mít hotový návrh svrchní oblasti rozhraní API, můžete kód exportovat do různých platforem a rozhraní. V další části se automaticky vygenerovaný kód upraví tak, aby zahrnoval imitované funkce. 
 
 Tato ukázka začíná textem ve formátu JSON pro Swagger. Tento text vložíte do editoru swagger.io, ve kterém pak vygenerujete kód s využitím JAX-RS pro přístup ke koncovému bodu rozhraní REST API. Potom automaticky generovaný kód upravíte tak, aby vracel imitovaná data simulující sestavení REST API vytvořené na mechanismu trvalosti dat.  
@@ -151,8 +148,7 @@ Tato ukázka začíná textem ve formátu JSON pro Swagger. Tento text vložíte
    
     Po vygenerování kódu se stáhne soubor ZIP. Tento soubor obsahuje kód automaticky vytvořený (scaffold) generátorem kódu Swagger a všechny přidružené skripty sestavení. Rozbalte celou knihovnu do adresáře na pracovní stanici vývoje. 
 
-## Úprava kódu k přidání implementace rozhraní API
-<a id="edit-the-code-to-add-api-implementation" class="xliff"></a>
+## <a name="edit-the-code-to-add-api-implementation"></a>Úprava kódu k přidání implementace rozhraní API
 V této části nahradíte implementaci kódu na straně serveru generovaného ve Swaggeru vlastním kódem. Nový kód vrátí entity kontaktů volajícímu klientovi jako objekt ArrayList. 
 
 1. Otevřete soubor modelu *Contact.java*, který najdete ve složce *src/gen/java/io/swagger/model*, v editoru [Visual Studio Code] nebo vašem oblíbeném textovém editoru. 
@@ -243,8 +239,7 @@ V této části nahradíte implementaci kódu na straně serveru generovaného v
           copy target\ROOT.war deploy\webapps
           cd deploy
 
-## Publikování výstupu v Azure App Service
-<a id="publish-the-output-to-azure-app-service" class="xliff"></a>
+## <a name="publish-the-output-to-azure-app-service"></a>Publikování výstupu v Azure App Service
 V této části se dozvíte, jak vytvořit novou aplikaci API pomocí portálu Azure Portal, jak tuto aplikaci API připravit na hostování aplikací Java a jak nasadit nově vytvořený soubor WAR v Azure App Service, abyste mohli novou aplikaci API spustit. 
 
 1. Kliknutím na položku nabídky **Nový -> Web + mobilní zařízení -> Aplikace API**, zadáním podrobností o aplikaci a kliknutím na **Vytvořit** vytvořte na portálu [Azure Portal] novou aplikaci API.
@@ -275,16 +270,14 @@ V této části se dozvíte, jak vytvořit novou aplikaci API pomocí portálu A
    
     ![Použití živého REST API kontaktů Java v Azure][postman-calling-azure-contacts]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 V tomto článku jste úspěšně použili soubor dat JSON pro Swagger a automaticky generovaný kód Java získaný v editoru Swagger.io. Jednoduchými změnami kódu a procesem nasazení v Gitu jste získali funkční aplikaci API napsanou v jazyce Java. V dalším kurzu se dozvíte, jak [využívat aplikace API z klientů JavaScript pomocí CORS][App Service API CORS]. Další kurzy v této sérii vás seznámí s postupem implementace ověřování a autorizace.
 
 Pokud chcete pracovat s tímto příkladem, zjistěte si další informace o [Sada SDK úložiště pro jazyk Java], abyste objekty blob JSON mohli nastavit jako trvalé. Nebo můžete pomocí [Sada SDK Document DB Java] ukládat kontaktní údaje v Azure DocumentDB. 
 
 <a name="see-also"></a>
 
-## Viz také
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Viz také
 Další informace o používání Javy v Azure najdete na webu [Středisko pro vývojáře Java].
 
 <!-- URL List -->

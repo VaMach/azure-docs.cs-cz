@@ -22,8 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-# Doplňková lekce – Řádky podrobností
-<a id="supplemental-lesson---detail-rows" class="xliff"></a>
+# <a name="supplemental-lesson---detail-rows"></a>Doplňková lekce – Řádky podrobností
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -31,12 +30,10 @@ V této doplňkové lekci použijete Editor DAX k definici vlastního výrazu ř
   
 Odhadovaný čas dokončení této lekce: **10 minut**  
   
-## Požadavky
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma doplňkové lekce je součástí kurzu tabulkového modelování. Než začnete provádět úkoly v této doplňkové lekci, měli byste mít dokončené všechny předchozí lekce nebo mít dokončený ukázkový projekt modelu Adventure Works Internet Sales.  
   
-## Co je potřeba vyřešit?
-<a id="what-do-we-need-to-solve" class="xliff"></a>
+## <a name="what-do-we-need-to-solve"></a>Co je potřeba vyřešit?
 Než přidáme výraz řádků podrobností, podívejme se na podrobnosti naší míry InternetTotalSales.
 
 1.  V sadě SSDT klikněte na nabídku **Model** > **Analyzovat v aplikaci Excel**, otevřete Excel a vytvořte prázdnou kontingenční tabulku.
@@ -51,11 +48,9 @@ Než přidáme výraz řádků podrobností, podívejme se na podrobnosti naší
   
 Rádi bychom viděli tabulku obsahující sloupce a řádky dat přispívající k agregovanému výsledku naší míry InternetTotalSales. Za tímto účelem můžeme přidat výraz řádků podrobností jako vlastnost míry.
 
-## Přidání výrazu řádků podrobností
-<a id="add-a-detail-rows-expression" class="xliff"></a>
+## <a name="add-a-detail-rows-expression"></a>Přidání výrazu řádků podrobností
 
-#### Vytvoření výrazu řádků podrobností
-<a id="to-create-a-detail-rows-expression" class="xliff"></a> 
+#### <a name="to-create-a-detail-rows-expression"></a>Vytvoření výrazu řádků podrobností 
   
 1. V sadě SSDT klikněte v mřížce měr tabulky FactInternetSales na míru **InternetTotalSales**. 
 
@@ -87,8 +82,7 @@ Rádi bychom viděli tabulku obsahující sloupce a řádky dat přispívající
 5. Znovu nasaďte model.
 
   
-## Viz také
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>Viz také  
 [Funkce SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
 [Doplňková lekce – Dynamické zabezpečení](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Doplňková lekce – Nepravidelné hierarchie](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

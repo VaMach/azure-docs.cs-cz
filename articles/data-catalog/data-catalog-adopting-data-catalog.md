@@ -23,12 +23,10 @@ ms.lasthandoff: 06/21/2017
 
 
 ---
-# Metody a procesy pro zavádění služby Azure Data Catalog
-<a id="approach-and-process-for-adopting-azure-data-catalog" class="xliff"></a>
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metody a procesy pro zavádění služby Azure Data Catalog
 Tento článek vám pomůže přijmout službu **Azure Data Catalog** ve vaší organizaci. Chcete-li úspěšně přijmout službu **Azure Data Catalog**, budete se muset zaměřit na tři klíčové položky: definovat svou vizi, identifikovat klíčové případy obchodního použití v rámci vaší organizace a zvolit pilotní projekt.
 
-## Úvod do služby Azure Data Catalog.
-<a id="introducing-the-azure-data-catalog" class="xliff"></a>
+## <a name="introducing-the-azure-data-catalog"></a>Úvod do služby Azure Data Catalog.
 Očekávání uživatelů, jak by měli být schopni najít odborné informace o datových prostředcích, se v rámci světa práce změnila. Dnes, s rozšířeným používáním nástrojů sociálních médiích na pracovišti, jako je například Yammer, uživatelé očekávají, že rychle získají pomoc a rady ohledně široké škály témat. **Azure Data Catalog** pomáhá podnikům a týmům konsolidovat informace o podnikových datových prostředcích v centrálním úložišti. Spotřebitelé dat mohou tyto datové prostředky objevit a získat znalosti, kterými přispěli odborníci na danou oblast.
 
 Tento článek představuje přístup k zahájení používání služby **Azure Data Catalog**. Článek popisuje typické plánu přijmutí služby Data Catalog pro fiktivní společnost nazývanou Adventure Works.
@@ -37,8 +35,7 @@ Tento článek představuje přístup k zahájení používání služby **Azure
 
 **Azure Data Catalog** je plně spravovaná služba ve službě Azure a katalog celopodnikových informací (metadata), který umožňuje samoobslužné zjišťování zdrojů dat. Pomocí katalogu Data Catalog zaregistrujete, zjišťujete, opatříte poznámkami a připojíte se k datovým prostředkům. Katalog Data Catalog je určen ke správě různorodých prostředků informací, aby je bylo možné snadno najít, porozumět jim a připojit se k nim. Tím se zkracuje doba získávání informací z dostupných dat a zvyšuje hodnota organizací. Další informace naleznete v tématu [Microsoft Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/).
 
-## Plán přijetí služby Azure Data Catalog
-<a id="azure-data-catalog-adoption-plan" class="xliff"></a>
+## <a name="azure-data-catalog-adoption-plan"></a>Plán přijetí služby Azure Data Catalog
 Plán přijetí služby **Azure Data Catalog** popisuje, jak se výhody používání služby sdělují zúčastněným stranám a uživatelům a jaký druh školení uživatelům poskytujete. Jedním z klíčových faktorů úspěchu přijetí katalogu Data Catalog je, jak efektivně komunikujete hodnotu této služby uživatelům a zúčastněným stranám. Primární cílovou skupinou v plánu počátečního přijetí jsou uživatelé služby. Bez ohledu na to, kolik podpory získáte od zúčastněných stran, pokud uživatelé nebo zákazníci vaši nabídku služby Data Catalog nezačlení do svého využití, přijetí nebude úspěšné. Proto tento článek předpokládá, že máte podporu zúčastněných stran a soustředí se na vytváření plánu pro uživatelské přijetí služby Data Catalog.
 Plán efektivního přijetí úspěšně angažuje uživatele do toho, co je možné s katalogem Data Catalog dosáhnout a poskytne jim informace a pokyny k dosažení příslušných cílů. Uživatelé musí porozumět hodnotě, kterou katalog Data Catalog poskytuje, aby jim pomohl úspěšně vykonávat svou práci. Když uživatelé uvidí, jak jim může služba Data Catalog pomoci dosáhnout více výsledků s daty, jasně pochopí hodnotu jejího přijetí. Změna je tvrdá, takže efektivní plánu musí vzít v úvahu problémy změny.
 
@@ -51,8 +48,7 @@ Plán přijetí vám umožňuje komunikovat, co je důležité pro uživatele, a
 
 Zde jsou tipy k definování plánu přijetí služby **Azure Data Catalog**.
 
-## Definování vize projektu katalogu Data Catalog
-<a id="define-your-data-catalog-project-vision" class="xliff"></a>
+## <a name="define-your-data-catalog-project-vision"></a>Definování vize projektu katalogu Data Catalog
 Prvním krokem k definování plánu přijetí služby **Azure Data Catalog** je napsat zamýšlený popis toho, co chcete dosáhnout. Doporučujeme zachovat poměrně rozsáhlé, ale dostatečně stručné vize projektu, aby definovala konkrétní krátkodobé i dlouhodobé cíle.
 
 Zde uvádíme tipy, které vám mohou pomoct definovat vizi:
@@ -68,8 +64,7 @@ Zde je příklad sdělení vize pro plán přijetí katalogu Data Catalog fiktiv
 
 Jakmile máte zřetelné sdělení vize, měli byste identifikovat vhodný pilotní projekt pro službu Data Catalog. Obecně platí, že pro službu Data Catalog bude existovat několik scénářů, takže v další části najdete několik užitečných tipů k identifikaci relevantních případů použití.
 
-## Identifikování případů obchodního použití služby Data Catalog
-<a id="identify-data-catalog-business-use-cases" class="xliff"></a>
+## <a name="identify-data-catalog-business-use-cases"></a>Identifikování případů obchodního použití služby Data Catalog
 K identifikaci případů použití, které jsou relevantní pro katalog Data Catalog, se spojte s odborníky z různých organizačních jednotek, s nimiž identifikujete příslušné případy použití a obchodní problémy k vyřešení. Zkontrolujte stávající problémy, které mají uživatelé s identifikací a pochopením datových prostředků. Například dozvědí se týmy další informace o datových zdrojích až po dotázání se několika uživatelů v organizaci, který mají příslušné zdroje dat?
 
 Nejlepší je vybrat případy použití, které představují snadno dostupný výsledek: případy, které jsou důležité a mají vysokou pravděpodobnost úspěchu, pokud budou vyřešení pomocí katalogu Data Catalog.
@@ -83,8 +78,7 @@ Zde jsou některé tipy k identifikaci případů použití:
 
 Zde jsou některé případy použití příklad týkající se katalogu Data Catalog:
 
-### Příklad případů použití
-<a id="example-use-cases" class="xliff"></a>
+### <a name="example-use-cases"></a>Příklad případů použití
 * **Registrace centrálních zdrojů dat vysoké hodnoty** – oddělení IT spravuje zdroje dat používané v rámci celé organizace. IT může začít s katalogem Data Catalog pomocí registrace a zadávání poznámek k běžným zdrojům dat organizace.
 * **Registrace zdrojů dat na základě týmů** – různé týmy mají užitečné zdroje obchodních dat. Se službou **Azure Data Catalog** začněte tak, že identifikujete a zaregistrujete klíčové zdroje dat používané mnoha různými týmy a do poznámek služby **Azure Data Catalog** zachytíte kmenové znalosti týmu.
 * **Samoobslužné služby business intelligence** – týmy tráví spoustu času kombinováním dat z více zdrojů. Zaregistrujte a opatřete poznámkami zdroje dat v centrálním umístění, čímž eliminujete ruční proces zjišťování zdrojů dat.
@@ -93,18 +87,15 @@ Další informace o scénářích katalogu Data Catalog najdete v dokumentu [Bě
 
 Po identifikování některých případů použití pro katalog Data Catalog by se měly objevit běžné scénáře. Další oddíl popisuje, jak identifikovat první pilotní projekt založený na případu použití.
 
-## Volba pilotního projektu katalogu Data Catalog
-<a id="choose-a-data-catalog-pilot-project" class="xliff"></a>
+## <a name="choose-a-data-catalog-pilot-project"></a>Volba pilotního projektu katalogu Data Catalog
 Klíčovým faktorem úspěchu je zjednodušení a začít malým projektem. Dobře definovaný pilotní projekt s omezeným rozsahem vám pomůže pokračovat v projektu, aniž zabřednete do projektu, který je příliš složitý nebo který má příliš mnoho účastníků. Je však také důležité zahrnout směs uživatelů, od inovátorů po skeptiky. Uživatelé, kteří si osvojí řešení, vám pomohou vylepšit budoucí komunikaci a plán žhavých novinek. Skeptici vám pomohou identifikovat a vyřešit problémy se zaseknutím. Jakmile se ze skeptiků stanou vítězové, můžete použít jejich zpětnou vazbu k identifikaci faktorů úspěchu.
 
 Pilotní plán by měl postupně zavádět obchodní cíle, které chcete dosáhnout pomocí služby Data Catalog. Po poučení se z počátečního pilotního projektu můžete rozšířit uživatelskou základnu. Počáteční uzavřený pilotní projekt je dobrý k zavedení měřitelného úspěchu, ale konečným cílem je organický nebo virální růst. S organickým růstem katalogu Data Catalog mají uživatelé pod kontrolou své vlastní využití dat a mohou ovlivnit a vyzvat jiné uživatele k přijetí a přispívání do katalogu.
 
-### Zaměření se na správný tým
-<a id="target-the-right-team" class="xliff"></a>
+### <a name="target-the-right-team"></a>Zaměření se na správný tým
 Když zvolíte pilotní projekt, vyberte tým s nejvíce přitažlivými scénáři, které řeší stávající podnikový problém. Například obchodní analytička Jana vytváří sestavy z databáze serveru SQL Server. Problém je, že o zdroji dat se dozvěděla až po rozhovoru s několika kolegy. Nakonec po plýtvání časem při hledání, jaký zdroj dat použít, se dozvěděla o sešitu aplikace Excel, který obsahuje popis každého zdroje dat. I když sešit aplikace Excel adekvátně popisuje tabulky, které Jana potřebuje, našla by tyto zdroje dat rychle, pokud by byly zaregistrovány a opatřeny poznámkami ve službě **Azure Data Catalog**.
 
-### Identifikace hrdinů dat
-<a id="identify-data-heroes" class="xliff"></a>
+### <a name="identify-data-heroes"></a>Identifikace hrdinů dat
 První pilotní projekt by měl zahrnovat několik jednotlivců, kteří produkují data a využívají data, takže tým bude mít vyrovnané zastoupení.
 
 **Producenti dat** jsou osoby s odbornými znalostmi o zdrojích dat. Například David v jiném týmu hodně pracuje klíčovými zdroji dat společnosti Adventure Works. Před adopcí služby **Azure Data Catalog** vytvořil David sešit aplikace Excel k zaznamenání informací o zdrojích dat společnosti Adventure Works.
@@ -116,16 +107,14 @@ Jeden z obchodních problémů, který řeší služba **Azure Data Catalog**, j
 * Další informace o registraci zdrojů dat naleznete v tématu [Registrování zdrojů dat](data-catalog-get-started.md).
 * Další informace o zjišťování zdrojů dat naleznete v tématu [Prohledávání zdrojů dat](data-catalog-get-started.md).
 
-### Začněte v malém rozsahu a zaměřeně
-<a id="start-small-and-focused" class="xliff"></a>
+### <a name="start-small-and-focused"></a>Začněte v malém rozsahu a zaměřeně
 U většiny podnikových pilotních projektů byste měli katalog zaplnit zdroji dat vysoké hodnoty, aby obchodní uživatelé mohli rychle vidět hodnotu katalogu Data Catalog. IT je vhodné oddělení na zahájení identifikace běžných zdrojů dat, které byly zajímavé pro váš pilotní tým. Pro podporované zdroje dat, jako SQL Server, doporučujeme používat nástroj registrace zdroje dat služby **Azure Data Catalog**. Pomocí nástroje registrace zdroje dat můžete zaregistrovat širokou škálu zdrojů dat včetně databází SQL Server a Oracle a sestav služby SQL Server Reporting Services. Úplný seznam aktuálních zdrojů dat naleznete v části [Podporované zdroje dat služby Azure Data Catalog](data-catalog-dsr.md).
 
 Jakmile identifikujete a zaregistrujete klíčové zdroje dat, je možné také importovat popisy zdrojů dat uložené v jiných umístěních. Rozhraní API služby Data Catalog umožňuje vývojářům načíst popisy a poznámky z jiného umístění, jako například sešit aplikace Excel, které David vytvořil a udržuje.
 
 Další část popisuje příklad projektu ze společnosti Adventure Works.
 
-### Příklad projektu
-<a id="an-example-project" class="xliff"></a>
+### <a name="an-example-project"></a>Příklad projektu
 V tomto příkladu obchodní analytička Nancy vytváří sestavy pro svůj tým pomocí dat z databáze serveru SQL Server. Problém je, že o zdroji dat se dozvěděla až po rozhovoru s několika kolegy. Tyto zdroje dat by bývala nalezla rychleji, pokud by byly zaregistrovány a opatřeny poznámkami v centrálním umístění, jako je například **Azure Data Catalog**.
 
 Pro ilustraci, jak snadno může Nancy a její tým najít hodnotná data, použijete nástroj pro registraci zdroje dat k vyplnění katalogu informacemi (metadata) o zdrojích dat. Tímto způsobem jsou informace o databázi k dispozici týmu a podniku a nikoli pouze několika jednotlivcům. Jakmile se zdroje dat zaregistrují ve službě Data Catalog, Nancy a její tým je mohou snadno použít. Výsledkem je komplexnější a relevantní katalog dat pro její tým i celý podnik. Čím více týmů přijme katalog Data Catalog, tím snadnější bude vyhledání a používání zdrojů obchodních dat, což vytvoří datově orientovanější kulturu, která s vašimi daty dosáhne lepších výsledků.
@@ -141,8 +130,7 @@ Jako součást pilotního projektu používá Nancyin tým také zdroje dat pops
 
 Jakmile se realizuje pilotní projekt, je čas ke spuštění plánu přijetí katalogu Data Catalog.
 
-### Spuštění
-<a id="execute" class="xliff"></a>
+### <a name="execute"></a>Spuštění
 V tomto okamžiku jste našli případy použití pro katalog Data Catalog a identifikovali jste svůj první projekt. Kromě toho jste zaregistrovali klíčové zdroje dat společnosti Adventure Works a přidali informace z existujícího sešitu aplikace Excel pomocí nástroje, který sestavilo oddělení IT. Nyní je čas pracovat s pilotním týmem na spuštění procesu přijetí katalogu Data Catalog.
 
 Zde jsou některé tipy, jak začít:
@@ -155,28 +143,24 @@ Zde jsou některé tipy, jak začít:
 
 Než pilotní tým přejde na používání katalogu Data Catalog, naplánujte zahajovací schůzku a prodiskutujte očekávání pro pilotní projekt a poskytněte počáteční školení.
 
-### Nastavte očekávání
-<a id="set-expectations" class="xliff"></a>
+### <a name="set-expectations"></a>Nastavte očekávání
 Nastavení výjimek a cílů pomáhá podnikovým uživatelům zaměřit se na konkrétní výsledky. Pokud chcete udržet dynamiku projektu, přiřazujte pravidelné úkoly (například denně nebo týdně podle rozsahu a doby trvání pilotního projektu). Jednou z nejcennějších možností katalogu Data Catalog jsou crowdsourcingové datové prostředky, takže firemní uživatelé mohou mít prospěch ze znalostí podnikových dat. Skvělé přiřazení úkolu je pro každého člena pilotního týmu zaregistrovat nebo opatřit poznámkami alespoň jeden zdroj dat, který použili. Viz [Registrace zdroje dat](data-catalog-get-started.md) a [Postup přidání poznámek ke zdrojům dat](data-catalog-get-started.md).
 
 V pravidelných intervalech se setkávejte s týmem, abyste posoudili některé poznámky. Dobré poznámky o zdrojích dat jsou jádrem úspěšného přijetí katalogu Data Catalog, protože poskytují smysluplný přehled zdrojů dat v centrálním umístění. Bez dobrých poznámek zůstanou znalosti o zdrojích dat roztroušené po celém podniku. Viz [Postup přidání poznámek ke zdrojům dat](data-catalog-get-started.md).
 
 A rozhodující zkouškou projektu je, zda uživatelé dokáží vyhledat a porozumět zdrojům dat, které potřebují používat. Pilotní uživatelé by měli pravidelně zkoušet katalog, aby bylo zajištěno, že zdroje dat, které používají pro každodenní práci, jsou relevantní. Pokud požadovaný zdroj dat chybí nebo není správně opatřen poznámkami, má tato skutečnost sloužit jako připomenutí k zaregistrování dalších zdrojů dat nebo poskytnutí dalších poznámek. Tento návyk přidá nejen hodnotu úsilí pilotního projektu, ale zároveň vytvoří efektivní návyky, které se po dokončení pilotního projektu přenesou do dalších týmů.
 
-### Poskytněte školení
-<a id="provide-training" class="xliff"></a>
+### <a name="provide-training"></a>Poskytněte školení
 Školení by mělo pomoct uživatelům začít a mělo by být přizpůsobeno specifickým cílům a úrovni zkušeností členů pilotního týmu. Chcete-li začít se školením, můžete postupovat podle kroků v článku [Začínáme s Azure Data Catalog](data-catalog-get-started.md). Navíc si můžete stáhnout [prezentaci školení pilotního projektu Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). Tato prezentace v aplikaci PowerPoint vám pomůže začít členům pilotního týmu představovat Data Catalog.
 
-## Závěr
-<a id="conclusion" class="xliff"></a>
+## <a name="conclusion"></a>Závěr
 Když pilotní tým funguje poměrně bezproblémově a vy jste dosáhli svých počátečních cílů, měli byste rozšířit přijetí katalogu Data Catalog do více týmů. Použijte a zpřesněte zkušenosti z pilotního projektu, abyste rozšířili Data Catalog po celé organizaci.
 
 První uživatelé, kteří se účastnili pilotního projektu, mohou být užiteční při rozšiřování povědomí o výhodách přijetí katalogu Data Catalog. Mohou s ostatními týmy sdílet zkušenosti, jak katalog pomohl jejich týmům vyřešit obchodní problémy, snadněji zjistit zdroje dat a sdílet uplatnitelné informace o zdrojích dat, které používají. Například inovátoři z pilotního týmu společnosti Adventure Works mohou ostatním ukázat, jak je snadné nalézt informace o datových prostředcích společnosti Adventure Works, které se dříve těžko hledaly a chápaly.
 
 Tento článek byl o seznámení se službou **Azure Data Catalog** ve vaší organizaci. Věříme, že jste byli schopni spustit pilotní projekt katalogu Data Catalog a rozšířit katalog po celé organizaci.
 
-## Další informace o Azure Data Catalog
-<a id="more-information-about-azure-data-catalog" class="xliff"></a>
+## <a name="more-information-about-azure-data-catalog"></a>Další informace o Azure Data Catalog
 * [Produktová stránka Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
 * [Dokumentace k Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Běžné scénáře služby Azure Data Catalog](data-catalog-common-scenarios.md)

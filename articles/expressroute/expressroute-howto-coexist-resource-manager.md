@@ -23,8 +23,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-# Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute
-<a id="configure-expressroute-and-site-to-site-coexisting-connections" class="xliff"></a>
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell – Classic](expressroute-howto-coexist-classic.md)
@@ -38,18 +37,15 @@ Konfigurace ExpressRoute a současně existujících připojení VPN typu Site-t
 > 
 > 
 
-## Omezení
-<a id="limits-and-limitations" class="xliff"></a>
+## <a name="limits-and-limitations"></a>Omezení
 * **Směrování provozu není podporováno.** Nemůžete provádět směrování (přes Azure) mezi místní sítí připojenou prostřednictvím sítě VPN typu site-to-site a místní sítí připojenou přes ExpressRoute.
 * **Základní brána SKU není podporována.** Pro [bránu ExpressRoute](expressroute-about-virtual-network-gateways.md) a [bránu VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) je nutné použít jinou než základní bránu SKU.
 * **Podporována je pouze brána VPN na základě tras.** Je nutné použít službu [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) na základě tras.
 * **Pro vaši bránu VPN by měla být nakonfigurována statická trasa.** Pokud je vaše místní síť připojená k ExpressRoute a síti VPN typu site-to-site, musíte mít v místní síti konfigurovanou statickou trasu, abyste mohli směrovat připojení VPN typu site-to-site do veřejného internetu.
 * **Nejprve je potřeba nakonfigurovat bránu ExpressRoute a připojit ji k okruhu.** Bránu ExpressRoute musíte vytvořit a připojit k okruhu předtím, než přidáte bránu VPN typu Site-to-Site.
 
-## Návrhy konfigurace
-<a id="configuration-designs" class="xliff"></a>
-### Konfigurace VPN typu site-to-site jako cesty převzetí služeb při selhání pro ExpressRoute
-<a id="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute" class="xliff"></a>
+## <a name="configuration-designs"></a>Návrhy konfigurace
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurace VPN typu site-to-site jako cesty převzetí služeb při selhání pro ExpressRoute
 Můžete nakonfigurovat připojení VPN typu site-to-site jako záložní pro ExpressRoute. To platí jenom pro virtuální sítě, které jsou propojené s cestou soukromého partnerského vztahu Azure. Neexistuje žádné řešení převzetí služeb při selhání založené na VPN pro služby, které jsou přístupné prostřednictvím veřejného partnerského vztahu Azure nebo partnerského vztahu Microsoftu. Okruh ExpressRoute je vždy primárním propojením. Data prochází cestou VPN typu Site-to-Site jenom v případě, že okruh ExpressRoute selže.
 
 > [!NOTE]
@@ -59,8 +55,7 @@ Můžete nakonfigurovat připojení VPN typu site-to-site jako záložní pro Ex
 
 ![Současná existence](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-### Konfigurace VPN typu site-to-site pro připojení webů, které nejsou připojené prostřednictvím ExpressRoute
-<a id="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute" class="xliff"></a>
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurace VPN typu site-to-site pro připojení webů, které nejsou připojené prostřednictvím ExpressRoute
 Svoji síť můžete nakonfigurovat tak, že některé weby jsou připojené přímo k Azure prostřednictvím VPN typu site-to-site a některé weby přes ExpressRoute. 
 
 ![Současná existence](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
@@ -70,8 +65,7 @@ Svoji síť můžete nakonfigurovat tak, že některé weby jsou připojené př
 > 
 > 
 
-## Výběr kroků k použití
-<a id="selecting-the-steps-to-use" class="xliff"></a>
+## <a name="selecting-the-steps-to-use"></a>Výběr kroků k použití
 Existují dvě různé sady postupů, ze kterých si můžete vybrat. Postup konfigurace, který vyberete, závisí na tom, jestli máte existující virtuální síť, ke které se chcete připojit, nebo chcete vytvořit novou virtuální síť.
 
 * Nemám virtuální síť a potřebuji ji vytvořit.
@@ -217,8 +211,7 @@ Pokud podsíť brány je /27 nebo větší a virtuální síť je připojená p�
   ```
 5. V tuto chvíli máte virtuální síť, která nemá žádné brány. Abyste vytvořili nové brány a dokončili připojení, můžete pokračovat [krokem 4 – Vytvoření brány ExpressRoute](#gw), který se nachází v předchozí sadě kroků.
 
-## Přidání konfigurace point-to-site k bráně VPN
-<a id="to-add-point-to-site-configuration-to-the-vpn-gateway" class="xliff"></a>
+## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Přidání konfigurace point-to-site k bráně VPN
 Podle následujících pokynů můžete k bráně VPN v nastavení koexistence přidat konfiguraci point-to-site.
 
 1. Přidejte fond adres klienta VPN.
@@ -239,7 +232,6 @@ Podle následujících pokynů můžete k bráně VPN v nastavení koexistence p
 
 Další informace o VPN typu point-to-site najdete v tématu [Konfigurace připojení typu point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Další informace o ExpressRoute najdete v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md).
 

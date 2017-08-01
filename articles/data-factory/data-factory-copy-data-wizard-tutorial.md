@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6a83d5e5939744137e11a441048ade407c63ee86
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 5922c050cc09236ba5fdec885a70d11da20135cd
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
-# Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard" class="xliff"></a>
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
 > [!div class="op_single_selector"]
 > * [Přehled a požadavky](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Průvodce kopírováním](data-factory-copy-data-wizard-tutorial.md)
@@ -40,12 +39,10 @@ V tomto kurzu se dozvíte, jak používat **Průvodce kopírováním** ke zkop�
 
 Tento návod ukazuje, jak vytvořit objekt pro vytváření dat Azure, spustit Průvodce kopírováním a projít posloupností kroků poskytnutí podrobností o vašem scénáři příjmu/pohybu dat. Po dokončení kroků v průvodci se automaticky vytvoří kanál s aktivitou kopírování pro kopírování dat z úložiště Azure Blob Storage do Azure SQL Database. Další informace o aktivitě kopírování najdete v tématu [Aktivity pohybu dat](data-factory-data-movement-activities.md).
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 Než se pustíte do tohoto kurzu, dokončete požadované kroky uvedené v článku [Přehled kurzu](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## Vytvoření objektu pro vytváření dat
-<a id="create-data-factory" class="xliff"></a>
+## <a name="create-data-factory"></a>Vytvoření objektu pro vytváření dat
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
@@ -74,8 +71,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
    
    ![Domovská stránka objektu pro vytváření dat](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Spuštění průvodce kopírováním
-<a id="launch-copy-wizard" class="xliff"></a>
+## <a name="launch-copy-wizard"></a>Spuštění průvodce kopírováním
 1. V okně Data Factory klikněte na **Kopírovat data [PREVIEW]**. Spustí se **Průvodce kopírováním**. 
    
    > [!NOTE]
@@ -137,8 +133,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
     
     ![Nástroj pro kopírování – nastavení výkonu](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## Spuštění aplikace pro monitorování a správu
-<a id="launch-monitor-and-manage-application" class="xliff"></a>
+## <a name="launch-monitor-and-manage-application"></a>Spuštění aplikace pro monitorování a správu
 1. Na stránce **Nasazení** klikněte na následující odkaz: `Click here to monitor copy pipeline`.
    
    ![Nástroj pro kopírování – nasazení bylo úspěšné](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -154,8 +149,7 @@ V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat 
 
     Další informace o používání této aplikace najdete v článku [Monitorování a správa kanálu pomocí monitorovací aplikace](data-factory-monitor-manage-app.md).
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste v operaci kopírování použili úložiště objektů blob jako zdrojové úložiště dat a databázi Azure SQL jako cílové úložiště dat. Následující tabulka obsahuje seznam úložišť dat podporovaných jako zdroje a cíle aktivitou kopírování: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]

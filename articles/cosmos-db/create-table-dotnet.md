@@ -23,32 +23,27 @@ ms.lasthandoff: 06/23/2017
 
 
 ---
-# Azure Cosmos DB: Vytvoření aplikace .NET pomocí rozhraní API tabulky
-<a id="azure-cosmos-db-build-a-net-application-using-the-table-api" class="xliff"></a>
+# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: Vytvoření aplikace .NET pomocí rozhraní API tabulky
 
 Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB. 
 
 Tento rychlý start ukazuje, jak vytvořit databázový účet Azure Cosmos DB a tabulku pod tímto účtem pomocí portálu Azure Portal. Potom napíšete kód pro vložení, aktualizování a odstranění entit a pomocí balíčku od NuGetu [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (Preview) spustíte některé dotazy. Tato knihovna má nejen stejné podpisy tříd a metod jako veřejná sada [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ale také možnost připojení k účtům Azure Cosmos DB pomocí [rozhraní API tabulky](table-introduction.md) (Preview). 
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Vytvoření účtu databáze
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
-## Přidání tabulky
-<a id="add-a-table" class="xliff"></a>
+## <a name="add-a-table"></a>Přidání tabulky
 
 [!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
-## Přidání ukázkových dat
-<a id="add-sample-data" class="xliff"></a>
+## <a name="add-sample-data"></a>Přidání ukázkových dat
 
 Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat (Preview).
 
@@ -61,8 +56,7 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat (Previe
   
     Teď můžete přidat další entity do tabulky, upravit si entity nebo zadat dotazy na data v Průzkumníku dat. V Průzkumníku dat také můžete škálovat propustnost a přidat do tabulky uložené procedury, uživatelsky definované funkce a aktivační události.
 
-## Klonování ukázkové aplikace
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
 Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
@@ -76,8 +70,7 @@ Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a
 
 3. Potom otevřete soubor řešení v sadě Visual Studio. 
 
-## Kontrola kódu
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>Kontrola kódu
 
 Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor Program.cs a zjistíte, že tyto řádky kódu vytvářejí prostředky databáze Azure Cosmos. 
 
@@ -108,8 +101,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
                 };
     ```
 
-## Aktualizace připojovacího řetězce
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
 Nyní aktualizujeme informace připojovacího řetězce, aby vaše aplikace mohla komunikovat s databází Azure Cosmos. 
 
@@ -128,8 +120,7 @@ Nyní aktualizujeme informace připojovacího řetězce, aby vaše aplikace mohl
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
-## Spuštění webové aplikace
-<a id="run-the-web-app" class="xliff"></a>
+## <a name="run-the-web-app"></a>Spuštění webové aplikace
 
 1. V sadě Visual Studio klikněte v **Průzkumníku řešení** pravým tlačítkem myši na projekt **PremiumTableGetStarted** a potom klikněte na možnost **Spravovat balíčky NuGet**. 
 
@@ -151,21 +142,18 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
     ![Nové entity v Průzkumníku dat](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
 
-## Ověření smluv SLA na webu Azure Portal
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu: 
 
 1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 V tomto rychlém startu jste se seznámili s postupem vytvoření databázového účtu Azure Cosmos DB, vytvoření tabulky pomocí Průzkumníka dat a spuštění aplikace.  Teď můžete zadávat dotazy na svá data pomocí rozhraní API tabulky.  
 

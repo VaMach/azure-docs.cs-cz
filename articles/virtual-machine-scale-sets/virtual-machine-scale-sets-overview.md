@@ -24,8 +24,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-# Co jsou škálovací sady virtuálních počítačů v Azure?
-<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co jsou škálovací sady virtuálních počítačů v Azure?
 Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. Protože jsou všechny virtuální počítače ve škálovací sadě nakonfigurované stejně, podporují tyto sady skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Je proto snadné vytvářet rozsáhlé služby zaměřené na vysoký výpočetní výkon, velké objemy dat a kontejnerizované úlohy.
 
 U aplikací, které vyžadují horizontální navyšování a snižování výpočetní kapacity, se škálovací operace implicitně vyvažují napříč doménami selhání a aktualizačními doménami. Další úvod ke škálovacím sadám najdete v [oznámení na blogu Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -35,8 +34,7 @@ Více se o škálovacích sadách dozvíte také v těchto videích:
 * [Mark Russinovich hovoří o škálovacích sadách Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Guy Bowerman provádí škálovacími sadami virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-## Vytváření a správa škálovacích sad
-<a id="creating-and-managing-scale-sets" class="xliff"></a>
+## <a name="creating-and-managing-scale-sets"></a>Vytváření a správa škálovacích sad
 Škálovací sadu můžete vytvořit na webu [Azure Portal](https://portal.azure.com) – vyberte položku **Nový** a zadejte text **škálovací** na vyhledávacím panelu. Ve výsledcích se objeví **Škálovací sada virtuálních počítačů**. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. Máte také možnost nastavit základní pravidla automatického škálování v závislosti na využití procesoru.
 
 Škálovací sady můžete definovat a nasazovat pomocí šablon JSON a [rozhraní REST API](https://msdn.microsoft.com/library/mt589023.aspx), podobně jako jednotlivé virtuální počítače v Azure Resource Manageru. Proto můžete použít všechny standardní metody nasazení v Azure Resource Manageru. Další informace o šablonách najdete v tématu o [vytváření šablon Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md).
@@ -45,8 +43,7 @@ Sadu ukázkových šablon škálovacích sad virtuálních počítačů můžete
 
 V příkladech šablon pro rychlý začátek odkazuje tlačítko Nasazení do Azure v souboru readme k jednotlivým šablonám na funkce nasazení na portálu. Pokud chcete nasadit škálovací sadu, klikněte na toto tlačítko a potom na portálu vyplňte požadované parametry. 
 
-## Horizontální navyšování a snižování kapacity škálovací sady
-<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
+## <a name="scaling-a-scale-set-out-and-in"></a>Horizontální navyšování a snižování kapacity škálovací sady
 Kapacitu škálovací sady můžete změnit na webu Azure Portal kliknutím na **Škálování** v části **Nastavení**. 
 
 Pokud chcete změnit kapacitu škálovací sady z příkazového řádku, použijte v [Azure CLI](https://github.com/Azure/azure-cli) příkaz **scale**. Například pokud chcete nastavit kapacitu škálovací sady na 10 virtuálních počítačů, zadejte příkaz:
@@ -67,8 +64,7 @@ Pokud chcete zvýšit nebo snížit počet virtuálních počítačů ve škálo
 
 Pokud šablonu Azure Resource Manageru znovu nasazujete s cílem změnit kapacitu, stačí definovat mnohem menší šablonu, která bude obsahovat pouze paket vlastnosti **SKU** s aktualizovanou kapacitou. [Tady je příklad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## Automatické škálování
-<a id="autoscale" class="xliff"></a>
+## <a name="autoscale"></a>Automatické škálování
 
 Škálovací sadu můžete při vytváření na webu Azure Portal volitelně nakonfigurovat s nastavením automatického škálování. Umožníte tak navyšování nebo snižování počtu virtuálních počítačů v závislosti na průměrném využití procesoru. 
 
@@ -89,16 +85,14 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 Seznam platných metrik, na základě kterých je možné škálovat, najdete v tématu [Podporované metriky ve službě Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) v části Microsoft.Compute/virtualMachineScaleSets. K dispozici jsou také pokročilejší možnosti automatického škálování, včetně automatického škálování na základě plánu nebo integrace se systémy pro výstrahy pomocí webhooků.
 
-## Monitorování škálovací sady
-<a id="monitoring-your-scale-set" class="xliff"></a>
+## <a name="monitoring-your-scale-set"></a>Monitorování škálovací sady
 Na webu [Azure Portal](https://portal.azure.com) můžete najít seznam škálovacích sad a jejich vlastností. Portál také podporuje operace správy. Operace správy můžete provádět se škálovacími sadami nebo s jednotlivými virtuálními počítači v rámci škálovací sady. Na portálu najdete také přizpůsobitelný graf využití prostředků. 
 
 Pokud potřebujete zobrazit nebo upravit základní definici JSON prostředku Azure, můžete použít také [Průzkumníka prostředků Azure](https://resources.azure.com). Škálovací sady jsou prostředky v poskytovateli prostředků Azure Microsoft.Compute. Na tomto webu je můžete zobrazit rozbalením následujících odkazů:
 
 **Subscriptions (Předplatná)** > **vaše předplatné** > **resourceGroups (skupiny prostředků)** > **providers (poskytovatelé)** > **Microsoft.Compute** > **virtualMachineScaleSets (škálovací sady virtuálních počítačů)** > **vaše škálovací sada** > atd.
 
-## Scénáře použití škálovacích sad
-<a id="scale-set-scenarios" class="xliff"></a>
+## <a name="scale-set-scenarios"></a>Scénáře použití škálovacích sad
 Tato část uvádí některé typické scénáře použití škálovacích sad. Tyto scénáře využívají některé služby Azure vyšších úrovní (třeba Batch, Service Fabric nebo Container Service).
 
 * **Použití RDP nebo SSH k připojení k instancím škálovací sady:** Škálovací sada se vytvoří ve virtuální síti a jednotlivým virtuálním počítačům ve škálovací sadě se ve výchozím nastavení nebudou přidělovat veřejné IP adresy. Díky této zásadě se vyhnete nákladům a administrativní režii spojeným s přidělováním samostatných veřejných IP adres všem uzlům ve výpočetní síti. Pokud potřebujete přímá externí připojení k virtuálním počítačům škálovací sady, můžete nakonfigurovat, aby škálování sada automaticky přiřazovala novým virtuálním počítačům veřejné IP adresy. Případně se k virtuálním počítačům můžete připojit z jiných prostředků ve virtuální síti, kterým je možné přidělit veřejné IP adresy, jako jsou nástroje pro vyrovnávání zatížení nebo samostatné virtuální počítače. 
@@ -128,15 +122,13 @@ Tato část uvádí některé typické scénáře použití škálovacích sad. 
   
    V [tomto příkladu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) takového přístupu nasadí [Azure Container Service](https://azure.microsoft.com/services/container-service/) cluster na základě škálovacích sad pomocí orchestrátoru kontejneru.
 
-## Pokyny týkající se výkonu a škálování u škálovacích sad
-<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
+## <a name="scale-set-performance-and-scale-guidance"></a>Pokyny týkající se výkonu a škálování u škálovacích sad
 * Škálovací sada podporuje až 1 000 virtuálních počítačů. Pokud vytváříte a nahráváte vlastní image virtuálních počítačů, platí omezení na 100 virtuálních počítačů. Důležité informace o používání velkých škálovacích sad najdete v tématu [Práce s velkými škálovacími sadami virtuálních počítačů](virtual-machine-scale-sets-placement-groups.md).
 * K používání škálovacích sad není potřeba předem vytvářet účty úložiště Azure. Škálovací sady podporují službu Azure Managed Disks, díky které nemusíte mít starosti o výkon, pokud jde o počet disků v účtu úložiště. Další informace najdete v tématu [Škálovací sady virtuálních počítačů Azure a spravované disky](virtual-machine-scale-sets-managed-disks.md).
 * Zvažte použití služby Azure Storage úrovně Premium namísto úrovně Standard pro rychlejší a předvídatelnější zřizování virtuálních počítačů a vylepšení výkonu vstupně-výstupních operací.
 * Počet virtuálních počítačů, které můžete vytvořit, je omezen kvótou pro počet jader v oblasti, ve které nasazení provádíte. Možná budete muset požádat zákaznickou podporu o navýšení vaší kvóty pro výpočetní prostředky, i když už dnes máte vysoký limit pro jádra, který platí pro cloudové služby Azure. Dotaz na kvótu spustíte pomocí následujícího příkazu Azure CLI: `azure vm list-usage`. Nebo pomocí následujícího příkazu PowerShellu: `Get-AzureRmVMUsage`.
 
-## Nejčastější dotazy ke škálovacím sadám
-<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
+## <a name="frequently-asked-questions-for-scale-sets"></a>Nejčastější dotazy ke škálovacím sadám
 **Otázka:** Kolik virtuálních počítačů může obsahovat škálovací sada?
 
 **Odpověď:** Škálovací sada může obsahovat 0 až 1 000 virtuálních počítačů založených na imagích platformy nebo 0 až 100 virtuálních počítačů založených na vlastních imagích. 

@@ -23,15 +23,13 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/07/2017
 
 ---
-# Vytvoření funkce v Azure aktivované časovačem
-<a id="create-a-function-in-azure-that-is-triggered-by-a-timer" class="xliff"></a>
+# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Vytvoření funkce v Azure aktivované časovačem
 
 Zjistěte, jak ve službě Azure Functions vytvořit funkci, která se spouští na základě vámi definovaného plánu.
 
 ![Vytvoření aplikace Function App na webu Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 K provedení kroků v tomto kurzu je potřeba:
 
@@ -39,8 +37,7 @@ K provedení kroků v tomto kurzu je potřeba:
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## Vytvoření aplikace Azure Function App
-<a id="create-an-azure-function-app" class="xliff"></a>
+## <a name="create-an-azure-function-app"></a>Vytvoření aplikace Azure Function App
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -50,8 +47,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 <a name="create-function"></a>
 
-## Vytvoření funkce aktivované časovačem
-<a id="create-a-timer-triggered-function" class="xliff"></a>
+## <a name="create-a-timer-triggered-function"></a>Vytvoření funkce aktivované časovačem
 
 1. Rozbalte aplikaci Function App a klikněte na tlačítko **+** vedle položky **Funkce**. Pokud jde o první funkci ve vaší aplikaci Function App, vyberte možnost **Vlastní funkce**. Zobrazí se kompletní sada šablon funkcí.
 
@@ -74,8 +70,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 Teď můžete změnit plán funkce tak, aby se funkce spouštěla méně často, třeba jednou za hodinu. 
 
-## Aktualizace plánu časovače
-<a id="update-the-timer-schedule" class="xliff"></a>
+## <a name="update-the-timer-schedule"></a>Aktualizace plánu časovače
 
 1. Rozbalte funkci a klikněte na **Integrace**. Tady se určují vstupní a výstupní vazby funkce a nastavuje plán. 
 
@@ -85,13 +80,11 @@ Teď můžete změnit plán funkce tak, aby se funkce spouštěla méně často,
 
 Teď máte funkci, která se spouští jednou za hodinu. 
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Vytvořili jste funkci, která se spouští na základě plánu.
 

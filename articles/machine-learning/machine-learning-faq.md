@@ -23,18 +23,14 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support" class="xliff"></a>
-
-# Nejčastější dotazy ke službě Azure Machine Learning: fakturace, možnosti, omezení a podpora
+# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Nejčastější dotazy ke službě Azure Machine Learning: fakturace, možnosti, omezení a podpora
 Zde jsou některé nejčastější dotazy (a příslušné odpovědi) týkající se cloudové služby Azure Machine Learning, která slouží k vývoji prediktivních modelů a zprovozňování řešení prostřednictvím webových služeb. Najdete tu dotazy ke způsobu používání této služby, včetně modelu fakturace, možností, omezení a podpory.
 
 **Máte dotaz, který tady nemůžete najít?**
 
 Azure Machine Learning má fórum na webu MSDN, kde se členové komunity odborníků přes data můžou ptát na věci související se službou Azure Machine Learning. Toto fórum monitoruje tým služby Azure Machine Learning. Přejděte na [fórum služby Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) a vyhledejte odpovědi nebo zadejte novou vlastní otázku.
 
-<a id="general-questions" class="xliff"></a>
-
-## Obecné otázky
+## <a name="general-questions"></a>Obecné otázky
 **Co je Azure Machine Learning?**
 
 Azure Machine Learning je plně spravovaná služba, kterou můžete využít k vytváření, testování, provozování a správě řešení prediktivní analýzy v cloudu. Vystačíte si jen s prohlížečem, přes který se můžete přihlásit, nahrát data a okamžitě začít experimentovat se strojovým učením. Prediktivní modelování podporující přetahování myší, rozsáhlá paleta modulů a knihovna šablon, se kterými je možné hned začít, značně usnadňují a urychlují běžné úkoly strojového učení. Další informace najdete v tématu [Přehled služby Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Úvod ke strojovému učení, ve kterém se vysvětluje klíčová terminologie a koncepty, najdete v [úvodu ke službě Azure Machine Learning](machine-learning-what-is-machine-learning.md).
@@ -59,9 +55,7 @@ Webové služby vytvořené pomocí modelu nasazení Classic a Webové služby v
 
 Klasické webové služby jsou uvedené také na kartě **Webové služby** v [Machine Learning Studiu](http://studio.azureml.net).
 
-<a id="azure-machine-learning-questions" class="xliff"></a>
-
-## Dotazy ke službě Azure Machine Learning
+## <a name="azure-machine-learning-questions"></a>Dotazy ke službě Azure Machine Learning
 **Co jsou webové služby Azure Machine Learning?**
 
 Webové služby Machine Learning poskytují rozhraní mezi aplikací a modelem Machine Learning pro vyhodnocování pracovních postupů. Pomocí služby Azure Machine Learning může externí aplikace komunikovat v reálném čase s modelem Machine Learning pro vyhodnocování pracovních postupů. Volání webové služby Machine Learning vrací do externí aplikace predikované výsledky. Webovou službu můžete volat předáním klíče rozhraní API, který se vytvořil při nasazení této webové služby. Webová služba Machine Learning je založená na architektuře REST, která je u programátorských projektů na webu oblíbenou volbou.
@@ -83,12 +77,8 @@ Můžete také použít ukázkový sešit v Microsoft Excelu, který se pro vás
 
 Nejnovější aktualizace najdete v tématu [Novinky ve službě Azure Machine Learning](machine-learning-whats-new.md).
 
-<a id="machine-learning-studio-questions" class="xliff"></a>
-
-## Otázky k nástroji Machine Learning Studio
-<a id="import-and-export-data-for-machine-learning" class="xliff"></a>
-
-### Import a export dat pro Machine Learning
+## <a name="machine-learning-studio-questions"></a>Otázky k nástroji Machine Learning Studio
+### <a name="import-and-export-data-for-machine-learning"></a>Import a export dat pro Machine Learning
 **Jaké zdroje dat Machine Learning podporuje?**
 
 Data můžete do experimentu Machine Learning Studio stáhnout třemi způsoby:
@@ -132,9 +122,7 @@ Pokud máte malé množství dat a chcete je zveřejnit přes adresu URL protoko
 
 Informace o funkci obrazového vstupu najdete v referenci [Import obrázků][image-reader].
 
-<a id="modules" class="xliff"></a>
-
-### Moduly
+### <a name="modules"></a>Moduly
 **V Azure Machine Learning Studiu není algoritmus, zdroj dat, formát dat nebo operace transformace dat, kterou hledám. Jaké mám možnosti?**
 
 Můžete navštívit [fórum pro zpětnou vazbu uživatelů](http://go.microsoft.com/fwlink/?LinkId=404231), kde najdete žádosti o funkce, které sledujeme. Pokud už existuje žádost o funkci, kterou sami hledáte, přidejte k ní svůj hlas. Pokud funkce, kterou hledáte, neexistuje, vytvořte novou žádost. Na tomto fóru můžete také sledovat stav své žádosti. Tento seznam pečlivě sledujeme a často aktualizujeme stav dostupnosti funkce. Navíc díky integrované podpoře R a Pythonu můžete podle potřeby vytvářet vlastní transformace.
@@ -151,9 +139,7 @@ Ne, jazyk PMML (Predictive Model Markup Language) se nepodporuje. K definování
 
 V jednom experimentu můžete paralelně spustit až čtyři moduly.
 
-<a id="data-processing" class="xliff"></a>
-
-### Zpracování dat
+### <a name="data-processing"></a>Zpracování dat
 **Je k možné v rámci experimentu využívat interaktivní vizualizaci dat (kromě vizualizací R)?**
 
 Kliknutím na výstup modulu můžete vizualizovat data a získat statistiky.
@@ -162,9 +148,7 @@ Kliknutím na výstup modulu můžete vizualizovat data a získat statistiky.
 
 Protože do prohlížeče je možné odesílat velké objemy dat, je velikost dat omezená, aby se Machine Learning Studio nezpomalovalo. Pokud chcete vizualizovat všechna data nebo výsledky, je vhodnější data stáhnout a použít Excel nebo jiný nástroj.
 
-<a id="algorithms" class="xliff"></a>
-
-### Algoritmy
+### <a name="algorithms"></a>Algoritmy
 **Jaké stávající algoritmy podporuje Machine Learning Studio?**
 
 Machine Learning Studio poskytuje nejmodernější algoritmy, například škálovatelné vylepšené rozhodovací stromy, systémy bayesovského rozhodování, hluboké neuronové sítě a rozhodovací džungle vyvinuté v Microsoft Research. Dostupné jsou i škálovatelné open-sourcové balíčky pro strojové učení, třeba Vowpal Wabbit. Machine Learning Studio podporuje algoritmy strojového učení pro binární klasifikaci a klasifikaci s více třídami, regresi a clustering. Podívejte se na úplný seznam [modulů služby Machine Learning][machine-learning-modules].
@@ -197,9 +181,7 @@ Ne.
 
 V současnosti k vytvoření nových vlastních modulů můžete využít jenom R.
 
-<a id="r-module" class="xliff"></a>
-
-### Modul R
+### <a name="r-module"></a>Modul R
 **Jaké balíčky R jsou k dispozici v nástroji Machine Learning Studio?**
 
 K dnešnímu dni Machine Learning Studio podporuje přes 400 balíčků CRAN R. Všechny zahrnuté balíčky jsou uvedené v [aktuálním seznamu](http://az754797.vo.msecnd.net/docs/RPackages.xlsx). Pokud chcete zjistit, jak tento seznam získat sami, přečtěte si také téma o [rozšíření experimentů pomocí R](machine-learning-extend-your-experiment-with-r.md). Pokud požadovaný balíček není v seznamu, uveďte název balíčku na [fóru pro zpětnou vazbu uživatelů](http://go.microsoft.com/fwlink/?LinkId=404231).
@@ -212,9 +194,7 @@ Ano, další informace najdete v tématu o [vytváření vlastních modulů R ve
 
 Ne, ve studiu není žádné prostředí REPL (Read-Eval-Print-Loop) pro R.
 
-<a id="python-module" class="xliff"></a>
-
-### Modul Python
+### <a name="python-module"></a>Modul Python
 **Je možné vytvořit vlastní modul Python?**
 
 V této chvíli ne, ale stejného výsledku je možné dosáhnout použitím jednoho nebo více modulů [Execute Python Script][python].
@@ -223,19 +203,13 @@ V této chvíli ne, ale stejného výsledku je možné dosáhnout použitím jed
 
 V nástroji Machine Learning Studio můžete použít Jupyter Notebooks. Další informace najdete v tématu [Úvod do aplikace Jupyter Notebooks v Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
-<a id="web-service" class="xliff"></a>
-
-## Webová služba
-<a id="retrain" class="xliff"></a>
-
-### Přeučování
+## <a name="web-service"></a>Webová služba
+### <a name="retrain"></a>Přeučování
 **Jak je možné programově přeučit modely Azure Machine Learning?**
 
 Použijte rozhraní API pro přeučení. Další informace najdete v tématu o [programovém přeučení modelů Machine Learning](machine-learning-retrain-models-programmatically.md). V [ukázce přeučování v Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/) je k dispozici i ukázkový kód.
 
-<a id="create" class="xliff"></a>
-
-### Vytvořit
+### <a name="create"></a>Vytvořit
 **Je možné model nasadit lokálně nebo do aplikace, která nemá připojení k internetu?**
 
 Ne.
@@ -244,9 +218,7 @@ Ne.
 
 Přečtěte si téma [Limity předplatného Azure](../azure-subscription-service-limits.md).
 
-<a id="use" class="xliff"></a>
-
-### Použití
+### <a name="use"></a>Použití
 **Kdy je žádoucí spustit prediktivní model jako službu Batch Execution a kdy jako službu Request Response?**
 
 Služba Request Response (RRS) je vysoce škálovatelná webová služba s nízkou latencí, pomocí které se poskytuje rozhraní pro bezstavové modely vytvořené a nasazené z prostředí experimentů. Služba Batch Execution (BES) je služba pro asynchronní vyhodnocování dávek datových záznamů. Vstup pro BES je podobný datové vstupu, který využívá RRS. Hlavním rozdílem je to, že BES čte blok záznamů z několika různých zdrojů, jako je třeba Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (dotaz Hive) a zdroje HTTP. Další informace najdete v tématu o [využívání webové služby Azure Machine Learning](machine-learning-consume-web-services.md).
@@ -274,9 +246,7 @@ Ne, webové služby je možné vytvářet i přímo pomocí Jupyter Notebooks a 
 
 Seznam chybových kódů a jejich popisy najdete v tématu o [chybových kódech modulů Machine Learning](https://msdn.microsoft.com/library/azure/dn905910.aspx).
 
-<a id="scalability" class="xliff"></a>
-
-## Škálovatelnost
+## <a name="scalability"></a>Škálovatelnost
 **Jaká je škálovatelnost webové služby?**
 
 V tuto chvíli je výchozí koncový bod zřizován s 20 souběžnými požadavky RRS na jeden koncový bod. Jak je popsáno v tématu [Škálování webové služby](machine-learning-scaling-webservice.md), kapacitu je možné rozšířit na 200 souběžných požadavků na jeden koncový bod a každou webovou službu jde škálovat na 10 000 koncových bodů. Pro BES každý koncový bod může zpracovat 40 požadavků najednou, požadavky nad těchto 40 požadavků se zařazují do fronty. Požadavky ve frontě se budou spouštět automaticky podle toho, jak se fronta vyprazdňuje.
@@ -314,9 +284,7 @@ Pro datové sady větší než několik GB nahrajte data do úložiště Azure n
 
 Ne.  
 
-<a id="security-and-availability" class="xliff"></a>
-
-## Zabezpečení a dostupnost
+## <a name="security-and-availability"></a>Zabezpečení a dostupnost
 **Kdo má ve výchozím nastavení přístup ke koncovému bodu HTTP pro webovou službu? Jak omezím přístup ke koncovému bodu?**
 
 Po nasazení webové služby je pro tuto službu vytvořen koncový bod. Výchozí koncový bod je možné volat pomocí klíče rozhraní API. Další koncové body s vlastními klíči je možné přidat na portálu Azure Classic nebo programově pomocí rozhraní API pro správu webových služeb. Pro volání do webové služby se vyžadují přístupové klíče. Další informace najdete v tématu o [využívání webové služby Azure Machine Learning](machine-learning-consume-web-services.md).
@@ -333,9 +301,7 @@ Machine Learning Studio při provádění pracovního postupu využívá k uklá
 
 Pokud jste změnili přístupové klíče účtu úložiště, znovu je v pracovním prostoru synchronizujte přes portál Azure Classic.  
 
-<a id="support-and-training" class="xliff"></a>
-
-## Podpora a školení
+## <a name="support-and-training"></a>Podpora a školení
 **Kde získám školení pro Azure Machine Learning?**
 
 V [centru dokumentace Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) najdete videokurzy a návody. Tyto podrobné návody představují jednotlivé služby a popisují životní cyklus vycházející z datové vědy a sestávající z importu dat, jejich čištění, vytváření prediktivních modelů a jejich nasazování do provozu pomocí Azure Machine Learningu.
@@ -350,9 +316,7 @@ Pokud potřebujete technickou podporu pro Azure Machine Learning, přejděte k [
 
 Azure Machine Learning má i fórum komunity na webu MSDN, kde se můžete ptát na věci související se službou Azure Machine Learning. Toto fórum monitoruje tým služby Azure Machine Learning. Navštivte [fórum Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
-<a id="billing-questions" class="xliff"></a>
-
-## Dotazy k fakturaci
+## <a name="billing-questions"></a>Dotazy k fakturaci
 **Jak se Machine Learning fakturuje?**
 
 Azure Machine Learning má dvě komponenty: Machine Learning Studio a webové služby Machine Learning.
@@ -416,9 +380,7 @@ Ano. Podrobnosti najdete v tématu [Machine Learning – ceny](https://azure.mic
 
 Služba Machine Learning je víceklientská. Skutečné výpočetní prostředky, které se používají na back-endu, se liší a jsou optimalizované z hlediska výkonu a předvídatelnosti.
 
-<a id="management-of-new-resource-manager-based-web-services" class="xliff"></a>
-
-### Správa nových webových služeb (využívajících Resource Manager)
+### <a name="management-of-new-resource-manager-based-web-services"></a>Správa nových webových služeb (využívajících Resource Manager)
 **Co se stane, když odstraním plán?**
 
 Plán vám odebereme z předplatného a služby naúčtujeme podle průběžného využití.
@@ -454,9 +416,7 @@ Množství se zahrnuje na základě průběžné sazby a proces zahrnutí může
 
 Instanci vám odebereme z předplatného a služby účtujeme podle průběžného využití.
 
-<a id="sign-up-for-new-resource-manager-based-web-services-plans" class="xliff"></a>
-
-### Registrace k novým plánům Web Service (které využívající Resource Manager)
+### <a name="sign-up-for-new-resource-manager-based-web-services-plans"></a>Registrace k novým plánům Web Service (které využívající Resource Manager)
 **Jak se mám k plánu zaregistrovat?**
 
 Fakturační plán lze vytvořit dvěma způsoby.
@@ -485,9 +445,7 @@ Nové fakturační plány jsou dostupné ve třech produkčních oblastech, kde 
 
 Ano. Ceny plánů se podle oblasti liší. Pokud webovou službu nasadíte do jiné oblasti, je potřeba k ní přiřadit plán určený právě pro tuto oblast. Další informace najdete v tématu [Dostupné produkty v jednotlivých oblastech]( https://azure.microsoft.com/regions/services/).
 
-<a id="new-web-services-overages" class="xliff"></a>
-
-### Nové webové služby: nadlimitní využití
+### <a name="new-web-services-overages"></a>Nové webové služby: nadlimitní využití
 **Jak můžu ověřit, jestli webové služby nevyužívám nadlimitně?**
 
 Využití všech plánů najdete na stránce Plány na portálu Azure Machine Learning Web Services. Přihlaste se k portálu a v nabídce klikněte na možnost **Plány**.
@@ -508,16 +466,12 @@ Podívejme se na příklad z nadlimitního využití plánu Standard S1. 1 000�
 
 Podívejme se na příklad nadlimitního využití úrovně Standard S1. Předpokládejme, že odešlete 100 úloh za den, z nichž se každá skládá z 500 řádků trvajících 0,72 sekundy. Měsíční náklady za nadlimitní využití potom dosáhnou výše (100 úloh za den = 3 100 úloh za měsíc * 0,50 USD / 1 000 transakcí API) 1,55 USD za transakce API produkčního prostředí a (500 řádků * 0,72 s * 3 100 úloh * 2 USD / hod) 620 USD za výpočetní čas API produkčního prostředí, takže celkem 621,55 USD.
 
-<a id="azure-machine-learning-classic-web-services" class="xliff"></a>
-
-### Klasické webové služby Azure Machine Learning
+### <a name="azure-machine-learning-classic-web-services"></a>Klasické webové služby Azure Machine Learning
 **Je dál možné využívat průběžné platby (Pay As You Go)?**
 
 Ano, klasické webové služby jsou ve službě Azure Machine Learning stále dostupné.  
 
-<a id="azure-machine-learning-free-and-standard-tier" class="xliff"></a>
-
-### Azure Machine Learning – úrovně Free a Standard
+### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning – úrovně Free a Standard
 **Co je ve službě Azure Machine Learning součástí úrovně Free?**
 
 Úroveň Free služby Azure Machine Learning slouží vás má detailně uvést do nástroje Azure Machine Learning Studio. K registraci stačí jen účet Microsoft. Úroveň Free zahrnuje bezplatný přístup do jednoho pracovního prostoru Azure Machine Learning Studio ke každému [účtu Microsoft](https://www.microsoft.com/account/default.aspx). Na této úrovni můžete využít až 10 GB úložiště a z modelů vytvářet rozhraní API přípravného prostředí. Úlohy úrovně Free nejsou předmětem smlouvy SLA a jsou určeny jenom pro vývoj a osobní užití. 
@@ -584,9 +538,7 @@ Postup přesunutí experimentu z úrovně Free do úrovně Standard:
    Společně s experimentem se do pracovního prostoru Standard zkopírují i všechny přiřazené datové sady, natrénované modely atd.
 5. V pracovním prostoru Standard bude potřeba experiment znovu spustit a webovou službu znovu publikovat.
 
-<a id="studio-workspace" class="xliff"></a>
-
-### Pracovní prostor Studia
+### <a name="studio-workspace"></a>Pracovní prostor Studia
 **Fakturují se jednotlivé pracovní prostory zvlášť?**
 
 Poplatky za pracovní prostory se rozepisují do jednotlivých měřených kategorií na jedné faktuře.
@@ -595,9 +547,7 @@ Poplatky za pracovní prostory se rozepisují do jednotlivých měřených kateg
 
 Služba Machine Learning je víceklientská. Skutečné výpočetní prostředky, které se používají na back-endu, se liší a jsou optimalizované z hlediska výkonu a předvídatelnosti.
 
-<a id="guest-access" class="xliff"></a>
-
-### Přístup hosta
+### <a name="guest-access"></a>Přístup hosta
 **Co je přístup hosta ke službě Azure Machine Learning Studio?**
 
 Přístup hosta je omezený zkušební přístup. Umožňuje vytvářet a spouštět experimenty v Azure Machine Learning Studiu zdarma a bez ověřování. Relace hosta jsou dočasné (nejdou ukládat) a omezené na 8 hodin. Mezi další omezení patří chybějící podpora jazyků R a Python, chybějící rozhraní API přípravného prostředí a omezená velikost datové sady a úložiště. Naproti tomu uživatelé, kteří se přihlásí pomocí účtu Microsoft, získají v Machine Learning Studiu plný přístup k úrovni Free, která je popsaná výše a která zahrnuje stálý pracovní prostor a pokročilejší možnosti. Je na vás, jak službu Machine Learning bezplatně vyzkoušíte. Na webu [https://studio.azureml.net](https://studio.azureml.net) klikněte na **Začínáme** a vyberte **přístup hosta** nebo se přihlaste pomocí účtu Microsoft.

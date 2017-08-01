@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-5-create-calculated-columns" class="xliff"></a>
-
-# Lekce 5: Vytvoření počítaných sloupců
+# <a name="lesson-5-create-calculated-columns"></a>Lekce 5: Vytvoření počítaných sloupců
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,18 +34,12 @@ V této lekci také poprvé použijete jazyk DAX (Data Analysis Expressions). DA
   
 Odhadovaný čas dokončení této lekce: **15 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 4: Vytvoření relací](../tutorials/aas-lesson-4-create-relationships.md). 
   
-<a id="create-calculated-columns" class="xliff"></a>
-
-## Vytvoření počítaných sloupců  
+## <a name="create-calculated-columns"></a>Vytvoření počítaných sloupců  
   
-<a id="create-a-monthcalendar-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### Vytvoření počítaného sloupce MonthCalendar v tabulce DimDate  
+#### <a name="create-a-monthcalendar-calculated-column-in-the-dimdate-table"></a>Vytvoření počítaného sloupce MonthCalendar v tabulce DimDate  
   
 1.  Klikněte na nabídku **Model** > **Zobrazení modelu** > **Zobrazení dat**.  
   
@@ -73,9 +65,7 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
   
 Počítaný sloupec MonthCalendar umožňuje řazení podle názvu měsíce.  
   
-<a id="create-a-dayofweek-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### Vytvoření počítaného sloupce DayOfWeek v tabulce DimDate  
+#### <a name="create-a-dayofweek-calculated-column-in-the-dimdate-table"></a>Vytvoření počítaného sloupce DayOfWeek v tabulce DimDate  
   
 1.  Když je tabulka **DimDate** stále aktivní, klikněte na nabídku **Sloupec** a potom na **Přidat sloupec**.  
   
@@ -96,9 +86,7 @@ Počítaný sloupec MonthCalendar umožňuje řazení podle názvu měsíce.
   
 Počítaný sloupec DayOfWeek umožňuje řazení podle dne v týdnu.  
   
-<a id="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### Vytvoření počítaného sloupce ProductSubcategoryName v tabulce DimProduct  
+#### <a name="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table"></a>Vytvoření počítaného sloupce ProductSubcategoryName v tabulce DimProduct  
   
   
 1.  V tabulce **DimProduct** přejděte úplně vpravo. Všimněte si, že sloupec úplně vpravo má název **Přidat sloupec** (kurzívou), a klikněte na záhlaví sloupce.  
@@ -113,9 +101,7 @@ Počítaný sloupec DayOfWeek umožňuje řazení podle dne v týdnu.
   
 Počítaný sloupec ProductSubcategoryName slouží k vytvoření hierarchie v tabulce DimProduct, která zahrnuje data ze sloupce EnglishProductSubcategoryName v tabulce DimProductSubcategory. Hierarchie nemůžou zahrnovat víc než jednu tabulku. Hierarchie vytvoříte později v lekci 9.  
   
-<a id="create-a-productcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### Vytvoření počítaného sloupce ProductCategoryName v tabulce DimProduct  
+#### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a>Vytvoření počítaného sloupce ProductCategoryName v tabulce DimProduct  
   
 1.  Když je tabulka **DimProduct** stále aktivní, klikněte na nabídku **Sloupec** a potom na **Přidat sloupec**.  
   
@@ -129,9 +115,7 @@ Počítaný sloupec ProductSubcategoryName slouží k vytvoření hierarchie v t
   
 Počítaný sloupec ProductCategoryName slouží k vytvoření hierarchie v tabulce DimProduct, která zahrnuje data ze sloupce EnglishProductCategoryName v tabulce DimProductCategory. Hierarchie nemůžou zahrnovat víc než jednu tabulku.  
   
-<a id="create-a-margin-calculated-column-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Vytvoření počítaného sloupce Margin v tabulce FactInternetSales  
+#### <a name="create-a-margin-calculated-column-in-the-factinternetsales-table"></a>Vytvoření počítaného sloupce Margin v tabulce FactInternetSales  
   
 1.  V návrháři modelů vyberte tabulku **FactInternetSales**.  
   
@@ -149,9 +133,7 @@ Počítaný sloupec ProductCategoryName slouží k vytvoření hierarchie v tabu
       
     Počítaný sloupec Margin slouží k analýze ziskových marží u jednotlivých prodejů.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Co dále?
+## <a name="whats-next"></a>Co dále?
 [Lekce 6: Vytvoření měřítek](../tutorials/aas-lesson-6-create-measures.md)
   
   

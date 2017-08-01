@@ -23,15 +23,13 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/26/2017
 
 ---
-# Přidání zpráv do fronty Azure Storage pomocí funkcí
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Přidání zpráv do fronty Azure Storage pomocí funkcí
 
 Ve službě Azure Functions poskytují vstupní a výstupní vazby deklarativní způsob připojení k datům externí služby z funkce. V tomto tématu zjistíte, jak aktualizovat existující funkci přidáním výstupní vazby, která odesílá zprávy do Azure Queue Storage.  
 
 ![Zobrazte si zprávy v protokolech.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a> 
+## <a name="prerequisites"></a>Požadavky 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -59,8 +57,7 @@ Ve službě Azure Functions poskytují vstupní a výstupní vazby deklarativní
 
 Teď máte definovanou výstupní vazbu a je potřeba aktualizovat kód tak, aby tuto vazbu využíval k přidávání zpráv do fronty.  
 
-## Aktualizace kódu funkce
-<a id="update-the-function-code" class="xliff"></a>
+## <a name="update-the-function-code"></a>Aktualizace kódu funkce
 
 1. Vybráním určité funkce zobrazíte kód této funkce v editoru. 
 
@@ -89,8 +86,7 @@ Teď máte definovanou výstupní vazbu a je potřeba aktualizovat kód tak, aby
 
 Hodnota předaná aktivační události HTTP je součástí zprávy přidané do fronty.
  
-## Testování funkce
-<a id="test-the-function" class="xliff"></a> 
+## <a name="test-the-function"></a>Testování funkce 
 
 1. Po uložení změn kódu vyberte **Spustit**. 
 
@@ -100,8 +96,7 @@ Hodnota předaná aktivační události HTTP je součástí zprávy přidané do
 
 Teď se můžete připojit ke svému účtu úložiště a zkontrolovat novou frontu i zprávy, které jste do ní přidali. 
 
-## Připojení k frontě
-<a id="connect-to-the-queue" class="xliff"></a>
+## <a name="connect-to-the-queue"></a>Připojení k frontě
 
 Pokud jste už nainstalovali Storage Explorer a připojili ho ke svému účtu úložiště, přeskočte první tři kroky.    
 
@@ -122,13 +117,11 @@ Pokud jste už nainstalovali Storage Explorer a připojili ho ke svému účtu �
     ![Vytvořte frontu úložiště.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Přidali jste k existující funkci výstupní vazbu. 
 

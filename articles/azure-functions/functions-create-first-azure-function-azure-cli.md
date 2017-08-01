@@ -20,15 +20,13 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-# Vytvoření první funkce pomocí Azure CLI
-<a id="create-your-first-function-using-the-azure-cli" class="xliff"></a>
+# <a name="create-your-first-function-using-the-azure-cli"></a>Vytvoření první funkce pomocí Azure CLI
 
 Tento rychlý start vám ukáže, jak používat Azure Functions k vytvoření první funkce. Pomocí Azure CLI vytvoříte aplikaci Function App, což je infrastruktura bez serveru, která je hostitelem funkce. Samotný kód funkce se nasadí z ukázkového úložiště Githubu.    
 
 Následující kroky můžete provést v počítačích se systémem Mac, Windows nebo Linux. 
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a> 
+## <a name="prerequisites"></a>Požadavky 
 
 Před spuštěním této ukázky musíte mít následující:
 
@@ -42,8 +40,7 @@ Před spuštěním této ukázky musíte mít následující:
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
-## Vytvoření skupiny prostředků
-<a id="create-a-resource-group" class="xliff"></a>
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure, jako například aplikace Function App, databáze a účty úložiště.
 
@@ -52,8 +49,7 @@ Následující příklad vytvoří skupinu prostředků s názvem `myResourceGro
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-## Vytvoření účtu služby Azure Storage
-<a id="create-an-azure-storage-account" class="xliff"></a>
+## <a name="create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage
 
 Aplikace Functions používá účet Azure Storage k zachování stavu a dalších informací o vašich funkcích. Ve skupině prostředků, kterou jste vytvořili vytvořte účet úložiště pomocí příkazu [az storage account create](/cli/azure/storage/account#create).
 
@@ -83,8 +79,7 @@ Po vytvoření účtu úložiště se v rozhraní Azure CLI zobrazí podobné in
 }
 ```
 
-## Vytvoření Function App
-<a id="create-a-function-app" class="xliff"></a>
+## <a name="create-a-function-app"></a>Vytvoření Function App
 
 K hostování provádění funkcí musíte mít aplikaci Function App. Function App poskytuje prostředí pro provádění kódu funkce bez serveru. Umožňuje seskupit funkce jako logickou jednotku pro snadnější správu, nasazování a sdílení prostředků. Aplikaci Function App vytvoříte pomocí příkazu [az functionapp create](/cli/azure/functionapp#create). 
 
@@ -117,8 +112,7 @@ Po vytvoření aplikace Function App se v Azure CLI zobrazí podobné informace 
 
 Teď, když máte aplikaci Function App, můžete nasadit samotný kód funkce z ukázkového úložiště GitHub.
 
-## Nasazení kódu funkce
-<a id="deploy-your-function-code" class="xliff"></a>  
+## <a name="deploy-your-function-code"></a>Nasazení kódu funkce  
 
 Existuje několik způsobů vytvoření kódu funkce v nové aplikaci Function App. V tomto tématu se připojíte k ukázkovému úložišti v GitHubu. Tak jako předtím nahraďte v následujícím kódu zástupný symbol `<app_name>` názvem aplikace Function App, který jste vytvořili. 
 
@@ -142,8 +136,7 @@ Po nastavení zdroje nasazení zobrazí Azure CLI informace podobně jako v nás
 }
 ```
 
-## Testování funkce
-<a id="test-the-function" class="xliff"></a>
+## <a name="test-the-function"></a>Testování funkce
 
 Na počítačích se systémem Mac nebo Linux otestujete nasazenou funkci pomocí cURL nebo v systému Windows pomocí skriptu Bash. Proveďte následující příkaz cURL, který nahradí zástupný symbol `<app_name>` názvem vaší aplikace Function App. Připojte řetězec dotazu `&name=<yourname>` k adrese URL.
 
@@ -159,8 +152,7 @@ Pokud nemáte cURL k dispozici v příkazovém řádku, zadejte stejnou adresu U
    
 ![Odpověď funkce se zobrazí v prohlížeči.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)  
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Další rychlé starty v této kolekci jsou postavené na tomto rychlém startu. Pokud chcete pokračovat v práci s dalšími rychlými starty nebo kurzy, nevyčišťujte prostředky vytvořené v rámci tohoto rychlého startu. Pokud pokračovat nechcete, pomocí následujícího příkazu odstraňte všechny prostředky vytvořené tímto rychlým startem:
 
@@ -169,8 +161,7 @@ az group delete --name myResourceGroup
 ```
 Po zobrazení výzvy zadejte `y`.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
