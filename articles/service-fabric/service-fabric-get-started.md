@@ -22,8 +22,7 @@ ms.lasthandoff: 06/21/2017
 
 
 ---
-# Příprava vývojového prostředí
-<a id="prepare-your-development-environment" class="xliff"></a>
+# <a name="prepare-your-development-environment"></a>Příprava vývojového prostředí
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -33,10 +32,8 @@ ms.lasthandoff: 06/21/2017
 
  Pokud chcete sestavovat a spouštět [aplikace Azure Service Fabric][1] na vývojovém počítači, musíte nainstalovat modul runtime, sadu SDK a nástroje. Musíte taky povolit spouštění skriptů prostředí Windows PowerShell, které jsou součástí sady SDK.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
-### Podporované verze operačních systémů
-<a id="supported-operating-system-versions" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
+### <a name="supported-operating-system-versions"></a>Podporované verze operačních systémů
 Pro vývoj jsou podporovány tyto verze operačních systémů:
 
 * Windows 7
@@ -50,23 +47,19 @@ Pro vývoj jsou podporovány tyto verze operačních systémů:
 > 
 > 
 
-## Instalace sady SDK a nástrojů
-<a id="install-the-sdk-and-tools" class="xliff"></a>
-### Použití sady Visual Studio 2017
-<a id="to-use-visual-studio-2017" class="xliff"></a>
+## <a name="install-the-sdk-and-tools"></a>Instalace sady SDK a nástrojů
+### <a name="to-use-visual-studio-2017"></a>Použití sady Visual Studio 2017
 Nástroje Service Fabric jsou součástí úlohy Azure Development and Management v sadě Visual Studio 2017. Povolte tuto úlohu jako součást instalace sady Visual Studio.
 Kromě toho budete muset sadu Microsoft Azure Service Fabric SDK nainstalovat pomocí instalačního programu webové platformy.
 
 * [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
 
-### Použití sady Visual Studio 2015 (vyžaduje Visual Studio 2015 Update 2 nebo novější)
-<a id="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later" class="xliff"></a>
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Použití sady Visual Studio 2015 (vyžaduje Visual Studio 2015 Update 2 nebo novější)
 Pro sadu Visual Studio 2015 jsou nainstalované nástroje Service Fabric společně se sadou SDK, pomocí Instalace webové platformy:
 
 * [Instalace sady Microsoft Azure Service Fabric SDK a nástrojů][full-bundle-vs2015]
 
-### Jenom instalace sady SDK
-<a id="sdk-installation-only" class="xliff"></a>
+### <a name="sdk-installation-only"></a>Jenom instalace sady SDK
 Pokud potřebujete jenom sadu SDK, můžete nainstalovat tento balíček:
 * [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
 
@@ -84,16 +77,14 @@ Aktuální verze Preview jsou:
 
 Seznam podporovaných verzí najdete v tématu [Podpora pro Service Fabric](service-fabric-support.md)
 
-## Povolení spouštění skriptů prostředí PowerShell
-<a id="enable-powershell-script-execution" class="xliff"></a>
+## <a name="enable-powershell-script-execution"></a>Povolení spouštění skriptů prostředí PowerShell
 Platforma Service Fabric používá skripty prostředí Windows PowerShell k vytvoření místního vývojového clusteru a k nasazení aplikací ze sady Visual Studio. Systém Windows ve výchozím nastavení spouštění těchto skriptů blokuje. Pokud je chcete povolit, musíte upravit zásady spouštění prostředí PowerShell. Otevřete prostředí PowerShell jako správce a zadejte tento příkaz:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Teď, když jste dokončili nastavení vývojového prostředí, můžete začít sestavovat a spouštět aplikace.
 
 * [Vytvořte první aplikaci Service Fabric v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

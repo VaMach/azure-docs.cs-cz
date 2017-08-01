@@ -21,8 +21,7 @@ ms.lasthandoff: 05/26/2017
 
 
 ---
-# Sledování dostupnosti a odezvy libovolných webů
-<a id="monitor-availability-and-responsiveness-of-any-web-site" class="xliff"></a>
+# <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Sledování dostupnosti a odezvy libovolných webů
 Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit testy ke sledování dostupnosti a odezvy. [Azure Application Insights](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
 
 Testy dostupnosti můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS, který je přístupný z veřejného internetu. Na testovaný web není třeba nic přidávat. Dokonce se ani nemusí jednat o váš web – můžete například testovat službu REST API, na které jste závislí.
@@ -67,8 +66,7 @@ Otevřete okno Dostupnost a přidejte test.
 
     Můžete nastavit [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán, když je vydána výstraha. (Všimněte si, že v současné době parametry dotazu neprocházejí jako vlastnosti.)
 
-### Testování více adres URL
-<a id="test-more-urls" class="xliff"></a>
+### <a name="test-more-urls"></a>Testování více adres URL
 Přidat další testy Vedle testování domovské stránky si můžete ověřit spuštění databáze taky tím, že provedete test adresy URL pro hledání.
 
 
@@ -115,8 +113,7 @@ Výsledek testu dostupnosti umožňuje:
 
 *Žádné související položky?* Pokud máte pro aplikaci na straně serveru nastavenou službu Application Insights, může být důvodem to, že právě probíhá [vzorkování](app-insights-sampling.md). 
 
-## Vícekrokové webové testy
-<a id="multi-step-web-tests" class="xliff"></a>
+## <a name="multi-step-web-tests"></a>Vícekrokové webové testy
 Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Například pokud sledujete prodejní web, můžete otestovat, zda správně funguje přidávání položek do nákupního košíku.
 
 > [!NOTE] 
@@ -129,8 +126,7 @@ Pro vytvoření vícekrokového testu uložte scénář pomocí sady Visual Stud
 > V testech nelze použít programové funkce nebo smyčky. Test musí být zcela obsažený ve skriptu .webtest. Můžete však použít standardní moduly plug-in.
 >
 
-#### 1. Záznam scénáře
-<a id="1-record-a-scenario" class="xliff"></a>
+#### <a name="1-record-a-scenario"></a>1. Záznam scénáře
 Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
 
 1. Vytvořte projekt testu výkonnosti webu.
@@ -159,8 +155,7 @@ Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
 
     ![V sadě Visual Studio otevřete soubor .webtest a klikněte na tlačítko Spustit.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-#### 2. Nahrajte test webu do služby Application Insights
-<a id="2-upload-the-web-test-to-application-insights" class="xliff"></a>
+#### <a name="2-upload-the-web-test-to-application-insights"></a>2. Nahrajte test webu do služby Application Insights
 1. Na portálu služby Application Insights vytvořte webový test.
 
     ![V okně webového testu zvolte možnost Přidat.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
@@ -170,15 +165,13 @@ Slouží k zaznamenání relace webové aplikace Visual Studio Enterprise.
 
     Nastavte umístění testu, četnost a parametry výstrah stejným způsobem jako u testů pomocí příkazu ping.
 
-#### 3. Zobrazení výsledků
-<a id="3-see-the-results" class="xliff"></a>
+#### <a name="3-see-the-results"></a>3. Zobrazení výsledků
 
 Prohlédněte si výsledky testu a všechny chyby stejným způsobem jako u testů s jednou adresou URL.
 
 Kromě toho si můžete výsledky testů stáhnout a zobrazit je v sadě Visual Studio.
 
-#### Příliš mnoho selhání?
-<a id="too-many-failures" class="xliff"></a>
+#### <a name="too-many-failures"></a>Příliš mnoho selhání?
 
 * Běžným důvodem selhání je, že test běží příliš dlouho. Nesmí se spouštět déle než dvě minuty.
 
@@ -186,8 +179,7 @@ Kromě toho si můžete výsledky testů stáhnout a zobrazit je v sadě Visual 
 
 * Webový test musí být zcela obsažen ve skriptu .webtest: programové funkce nelze v testu použít.
 
-### Doba zapojení a náhodná čísla do vícekrokového testu
-<a id="plugging-time-and-random-numbers-into-your-multi-step-test" class="xliff"></a>
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Doba zapojení a náhodná čísla do vícekrokového testu
 Předpokládejme, že testujete nástroj, který získá data závislá na čase, například akcie z externího kanálu. Při záznamu webového testu je nutné použít konkrétní časy, ale nastavit je jako parametry testu, čas spuštění a čas ukončení.
 
 ![Webový test s parametry.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -210,22 +202,18 @@ Zásuvné moduly webového testu nabízejí způsob parametrizace časů.
 
 Teď nahrajte svůj test na portál. Při každém spuštění testu se budou používat dynamické hodnoty.
 
-## Vyřešení přihlášení
-<a id="dealing-with-sign-in" class="xliff"></a>
+## <a name="dealing-with-sign-in"></a>Vyřešení přihlášení
 Pokud se uživatelé přihlásí do aplikace, máte několik možností pro simulaci přihlášení, takže můžete otestovat stránky následující po přihlášení. Použitý přístup závisí na typu zabezpečení poskytovaném aplikací.
 
 Ve všech případech musíte v aplikaci vytvořit účet jenom pro účely testování. Pokud je to možné, omezte oprávnění tohoto testovacího účtu, aby webové testy nemohly žádným způsobem ovlivnit skutečné uživatele.
 
-### Jednoduché uživatelské jméno a heslo
-<a id="simple-username-and-password" class="xliff"></a>
+### <a name="simple-username-and-password"></a>Jednoduché uživatelské jméno a heslo
 Webový test zaznamenejte obvyklým způsobem. Nejprve odstraňte soubory cookie.
 
-### Ověřování SAML
-<a id="saml-authentication" class="xliff"></a>
+### <a name="saml-authentication"></a>Ověřování SAML
 Použijte zásuvný modul SAML, který je pro webové testy dostupný.
 
-### Tajný klíč klienta
-<a id="client-secret" class="xliff"></a>
+### <a name="client-secret"></a>Tajný klíč klienta
 Pokud vaše aplikace obsahuje trasu přihlášení, která zahrnuje tajný klíč klienta, použijte ji. Azure Active Directory (AAD) je příkladem služby, která poskytuje přihlašování pomocí tajného klíče klienta. Ve službě AAD je tajným klíčem klienta klíč aplikace.
 
 Tady je ukázkový webový test webové aplikace v Azure pomocí klíče aplikace:
@@ -238,8 +226,7 @@ Tady je ukázkový webový test webové aplikace v Azure pomocí klíče aplikac
 
 Ujistěte se, jestli je webový test skutečným klientem – to znamená, že má vlastní aplikaci ve službě AAD – a použijte jeho clientId + appkey. Testovaná služba má také vlastní aplikaci ve službě AAD: identifikátor URI appID této aplikace se ve webovém testu projevuje v poli „prostředek“.
 
-### Otevřené ověřování
-<a id="open-authentication" class="xliff"></a>
+### <a name="open-authentication"></a>Otevřené ověřování
 Příkladem otevřeného ověřování je přihlašování pomocí účtu Microsoft nebo Google. Velký počet aplikací, které používají OAuth, nabízí alternativní tajný klíč klienta, takže prvním cílem bude prozkoumání této možnosti.
 
 Pokud váš test vyžaduje přihlášení pomocí OAuth, bude obecný postup následující:
@@ -252,8 +239,7 @@ Pokud váš test vyžaduje přihlášení pomocí OAuth, bude obecný postup ná
   (Sada Visual Studio se pokusí o parametrizaci testu, ale nebude tokeny parametrizovat správně.)
 
 
-## Testy výkonnosti
-<a id="performance-tests" class="xliff"></a>
+## <a name="performance-tests"></a>Testy výkonnosti
 Na svém webu můžete spustit zátěžový test. Podobně jako v testu dostupnosti můžete z našich bodů po celém světě odeslat buď jednoduché požadavky, nebo vícekrokové požadavky. Na rozdíl od testu dostupnosti se odesílá mnoho požadavků, které simulují několik souběžných uživatelů.
 
 V okně Přehled otevřete **Nastavení**, **Testy výkonnosti**. Při vytváření testu budete vyzváni k připojení k účtu Visual Studio Team Services nebo k jeho vytvoření.
@@ -267,8 +253,7 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 > Pokud chcete sledovat účinky testu výkonnosti, použijte [Live Stream](app-insights-live-stream.md) a [Profiler](app-insights-profiler.md).
 >
 
-## Automation
-<a id="automation" class="xliff"></a>
+## <a name="automation"></a>Automation
 * [Automatické nastavení testu dostupnosti pomocí skriptů PowerShell](app-insights-powershell.md#add-an-availability-test).
 * Nastavení [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán při vydání výstrahy.
 

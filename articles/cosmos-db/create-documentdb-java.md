@@ -23,17 +23,13 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
-
-# Databáze Azure Cosmos: Sestavení aplikace s rozhraním API DocumentDB pomocí kódu Java a webu Azure Portal
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Databáze Azure Cosmos: Sestavení aplikace s rozhraním API DocumentDB pomocí kódu Java a webu Azure Portal
 
 Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru Azure Cosmos DB. 
 
 Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, databáze dokumentů a kolekce pomocí webu Azure Portal. Potom sestavíte a spustíte aplikaci konzoly založenou na [rozhraní API Java DocumentDB](documentdb-sdk-java.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 * Než budete moct tuto ukázku spustit, je potřeba splnit následující požadavky:
    * JDK 1.7+ (pokud nemáte JDK, spusťte `apt-get install default-jdk`)
@@ -41,21 +37,15 @@ Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Vytvoření účtu databáze
+## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="add-a-collection" class="xliff"></a>
-
-## Přidání kolekce
+## <a name="add-a-collection"></a>Přidání kolekce
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Klonování ukázkové aplikace
+## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
 Teď naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Uvidíte, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
@@ -67,9 +57,7 @@ Teď naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme př
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-<a id="review-the-code" class="xliff"></a>
-
-## Kontrola kódu
+## <a name="review-the-code"></a>Kontrola kódu
 
 Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor `Program.java` a najděte tyto řádky kódu, které vytvářejí prostředky databáze Azure Cosmos. 
 
@@ -138,9 +126,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     }
     ```    
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Aktualizace připojovacího řetězce
+## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
 Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
@@ -156,9 +142,7 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 4. Potom zkopírujte hodnotu PRIMÁRNÍHO KLÍČE z portálu a nahraďte druhý parametr FILL ME (VYPLNIT) hodnotu klíče v konstruktoru DocumentClient v souboru Program.java. Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s databází Azure Cosmos. 
     
-<a id="run-the-app" class="xliff"></a>
-
-## Spuštění aplikace
+## <a name="run-the-app"></a>Spuštění aplikace
 
 1. Spusťte v terminálu `mvn package`, aby se nainstalovaly požadované balíčky Java.
 
@@ -166,24 +150,18 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 Teď se můžete vrátit do Průzkumníku dat a zobrazit dotaz nebo provést úpravy a pracovat s těmito novými daty. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Ověření podmínek SLA na portálu Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Ověření podmínek SLA na portálu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Vyčištění prostředků
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu:
 
 1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 V tomto rychlém startu jsme se seznámili s postupem vytvoření účtu databáze Azure Cosmos, vytvoření kolekce pomocí Průzkumníka dat a spuštění aplikace. Teď můžete do účtu databáze Cosmos importovat další data. 
 

@@ -20,16 +20,14 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 05/19/2017
 
 ---
-# Co je Application Insights?
-<a id="what-is-application-insights" class="xliff"></a>
+# <a name="what-is-application-insights"></a>Co je Application Insights?
 Application Insights je rozšiřitelná služba pro správu výkonu aplikací (APM). Je určena webovým vývojářům na více platformách. Slouží k monitorování živé webové aplikace. Automaticky zjišťuje anomálie ve výkonu. Obsahuje výkonné analytické nástroje pro diagnostiku problémů a pomáhá porozumět, jak vlastně uživatelé vaši aplikaci používají.  Je navržená tak, aby pomáhala průběžně vylepšovat výkon a možnosti využití. Funguje u aplikací na široké škále platforem, jako jsou .NET, Node.js a J2EE, a to hostovaných lokálně i v cloudu. Integruje se s vaším procesem DevOps a má spojovací body s celou řadou dalších vývojářských nástrojů.
 
 ![Vytvořte statistický graf uživatelských aktivit nebo se na konkrétní události podívejte podrobněji.](./media/app-insights-overview/00-sample.png)
 
 [Prohlédněte si úvod animace](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-## Jak Application Insights funguje?
-<a id="how-does-application-insights-work" class="xliff"></a>
+## <a name="how-does-application-insights-work"></a>Jak Application Insights funguje?
 Do aplikace nainstalujete malý instrumentační balíček a vytvoříte prostředek Application Insights na webu Microsoft Azure Portal. Instrumentace monitoruje vaši aplikaci a odesílá telemetrická data na portál. (Aplikace se dá spustit kdekoli, nemusí být hostovaná v Azure.)
 
 Instrumentovat můžete nejenom aplikaci webové služby, ale také libovolné komponenty na pozadí a JavaScript na samotných webových stránkách. 
@@ -42,12 +40,10 @@ Kromě toho můžete využít telemetrii z hostitelských prostředí, jako jsou
 Všechny tyto telemetrické datové proudy jsou integrované na webu Azure Portal, kde můžete nezpracovaná data využít výkonné analytické a vyhledávací nástroje.
 
 
-### Jaká je s tím spojená režie?
-<a id="whats-the-overhead" class="xliff"></a>
+### <a name="whats-the-overhead"></a>Jaká je s tím spojená režie?
 Dopad na výkon vaší aplikace je velmi malý. Sledovací volání neblokují, spojují se do dávek a odesílají v samostatném vlákně.
 
-## Co Application Insights monitoruje?
-<a id="what-does-application-insights-monitor" class="xliff"></a>
+## <a name="what-does-application-insights-monitor"></a>Co Application Insights monitoruje?
 
 Služba Application Insights je zaměřená na vývojový tým. Pomáhá pochopit, jaký je výkon vaší aplikace a jak se využívá. Monitoruje tyto parametry:
 
@@ -62,8 +58,7 @@ Služba Application Insights je zaměřená na vývojový tým. Pomáhá pochopi
 * **Protokoly trasování diagnostiky** z vaší aplikace – umožňují zjistit korelaci mezi požadavky a událostmi trasování.
 * **Vlastní události a metriky**, které napíšete sami v kódu klienta nebo serveru, ke sledování obchodních událostí, jako například jsou třeba prodané položky nebo vyhrané hry.
 
-## Kde se zobrazuje telemetrie?
-<a id="where-do-i-see-my-telemetry" class="xliff"></a>
+## <a name="where-do-i-see-my-telemetry"></a>Kde se zobrazuje telemetrie?
 
 Data se dají prozkoumávat mnoha způsoby. Podívejte se na tyto články:
 
@@ -84,35 +79,30 @@ Data se dají prozkoumávat mnoha způsoby. Podívejte se na tyto články:
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Napište kód pro spouštění dotazů nad daty metrik a nezpracovanými daty.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Průběžný export**](app-insights-export-telemetry.md)<br/>Nezpracovaná data se dají hromadně exportovat do úložiště, jakmile dorazí. |![Export](./media/app-insights-overview/export-tn.png) |
 
-## Jak se Application Insights dá využít?
-<a id="how-do-i-use-application-insights" class="xliff"></a>
+## <a name="how-do-i-use-application-insights"></a>Jak se Application Insights dá využít?
 
-### Monitorování
-<a id="monitor" class="xliff"></a>
+### <a name="monitor"></a>Monitorování
 Nainstalujte Application Insights ve vaší aplikaci, nastavte [webové testy dostupnosti](app-insights-monitor-web-app-availability.md) a:
 
 * Vytvořte [řídicí panel](app-insights-dashboards.md) pro vaši týmovou místnost a sledujte zatížení, rychlost odezvy a výkon vašich závislostí, načtení stránek a volání AJAX.
 * Zjistěte, které požadavky jsou nejpomalejší a u kterých nejčastěji dochází k selhání.
 * Při nasazování nové verze sledujte [živý datový proud](app-insights-live-stream.md), abyste se o případném snížená výkonu dozvěděli okamžitě.
 
-### Detekce a diagnostika
-<a id="detect-diagnose" class="xliff"></a>
+### <a name="detect-diagnose"></a>Detekce a diagnostika
 Když dostanete výstrahu nebo zjistíte problém:
 
 * Posuďte, kolika uživatelů se top týká.
 * Dejte selhání do souvislosti s výjimkami, voláními závislosti a trasováními.
 * Prozkoumejte profiler, snímky, výpisy zásobníků a protokoly trasování.
 
-### Vytváření, měření a učení
-<a id="build-measure-learn" class="xliff"></a>
+### <a name="build-measure-learn"></a>Vytváření, měření a učení
 [Změřte efektivitu](app-insights-usage-overview.md) každé nové funkce, kterou nasadíte.
 
 * Naplánujte měření toho, jak nové obchodní nebo UIX funkce využívají zákazníci.
 * Napište do svého kódu vlastní telemetrii.
 * Další vývojový cyklus založte na faktických důkazech z vaší telemetrie.
 
-## Začínáme
-<a id="get-started" class="xliff"></a>
+## <a name="get-started"></a>Začínáme
 Application Insights je jedna z mnoha služeb hostovaných v Microsoft Azure. Odesílá se do ní telemetrie pro účely analýzy a prezentace. Proto ještě než se pustíte do práce, budete potřebovat předplatné [Microsoft Azure](http://azure.com). Registrace je zdarma. Pokud zvolíte základní [cenový plán](https://azure.microsoft.com/pricing/details/application-insights/) služby Application Insights, nebudou se vám účtovat žádné poplatky, dokud se vaše aplikace nezačne významněji využívat. Pokud vaše organizace už předplatné má, je možné do něj přidat účet Microsoft.
 
 Existuje několik způsobů, jak začít. Použijte ten, který vám nejvíce vyhovuje. K ostatním se můžete vrátit později.
@@ -130,8 +120,7 @@ Existuje několik způsobů, jak začít. Použijte ten, který vám nejvíce vy
 * **[Testy dostupnosti](app-insights-monitor-web-app-availability.md)**  – Příkazem ping z našich serverů pravidelně testujte váš web.
 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Začínáme při spuštění:
 
 * [Server IIS](app-insights-monitor-performance-live-website-now.md)
@@ -143,8 +132,7 @@ Začínáme při vývoji:
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
-## Podpora a zpětná vazba
-<a id="support-and-feedback" class="xliff"></a>
+## <a name="support-and-feedback"></a>Podpora a zpětná vazba
 * Otázky a problémy:
   * [Řešení potíží][qna]
   * [Fórum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
@@ -154,8 +142,7 @@ Začínáme při vývoji:
 * Blog:
   * [Blog Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
 
-## Videa
-<a id="videos" class="xliff"></a>
+## <a name="videos"></a>Videa
 
 [![Animovaný úvod](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 

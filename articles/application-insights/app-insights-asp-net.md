@@ -21,15 +21,13 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# Nastavení Application Insights pro web ASP.NET
-<a id="set-up-application-insights-for-your-aspnet-website" class="xliff"></a>
+# <a name="set-up-application-insights-for-your-aspnet-website"></a>Nastavení Application Insights pro web ASP.NET
 
 Tímto postupem je možné konfigurovat webovou aplikaci ASP.NET tak, aby odesílala telemetrická data do služby [Azure Application Insights](app-insights-overview.md). Funguje pro aplikace ASP.NET, které jsou hostované buď na vašem vlastním serveru služby IIS, nebo v cloudu. Můžete získat grafy a výkonný dotazovací jazyk, který vám pomůže porozumět výkonu vaší aplikace a způsobu, jakým ji uživatelé používají, a také automatické výstrahy v případě selhání nebo problémů s výkonem. Celá řada vývojářů považuje tyto funkce za skvělé (a ony jsou), v případě potřeby ale můžete telemetrická data také rozšířit a přizpůsobit.
 
 Nastavení je otázkou několika kliknutí v sadě Visual Studio. Máte možnost vyhnout se placení poplatků, pokud objem telemetrických dat omezíte. Díky tomu můžete experimentovat a ladit nebo monitorovat server s menším množstvím uživatelů. Pokud se později rozhodnete, že chcete pokračovat a monitorovat svůj provozní server, můžete limit snadno zvýšit.
 
-## Než začnete
-<a id="before-you-start" class="xliff"></a>
+## <a name="before-you-start"></a>Než začnete
 Budete potřebovat:
 
 * Visual Studio 2013 s aktualizací Update 3 nebo vyšší. Později je lepší.
@@ -75,12 +73,10 @@ V sadě Visual Studio se zobrazí počet událostí, které byly zaprotokolován
 
 ![Snímek obrazovky sady Visual Studio. Během ladění se zobrazí tlačítko Application Insights.](./media/app-insights-asp-net/54.png)
 
-## Krok 3: Zobrazení vašich telemetrických dat
-<a id="step-3-see-your-telemetry" class="xliff"></a>
+## <a name="step-3-see-your-telemetry"></a>Krok 3: Zobrazení vašich telemetrických dat
 Telemetrii můžete zobrazit v sadě Visual Studio nebo na webovém portálu Application Insights. Hledáním v rámci telemetrických dat v sadě Visual Studio si můžete usnadnit ladění aplikace. Když bude váš systém v provozu, můžete monitorovat výkon a využití na webovém portálu. 
 
-### Zobrazení telemetrických dat v sadě Visual Studio
-<a id="see-your-telemetry-in-visual-studio" class="xliff"></a>
+### <a name="see-your-telemetry-in-visual-studio"></a>Zobrazení telemetrických dat v sadě Visual Studio
 
 V sadě Visual Studio otevřete okno Application Insights. Klikněte na tlačítko **Application Insights** nebo klikněte pravým tlačítkem na projekt v Průzkumníku řešení, vyberte **Application Insights** a potom klikněte na **Aktivní telemetrie služby Search**.
 
@@ -94,8 +90,7 @@ V okně Visual Studio Application Insights Search se v zobrazení **Data z relac
 [Další informace týkající se nástrojů Application Insights v sadě Visual Studio](app-insights-visual-studio.md).
 
 <a name="monitor"></a>
-### Zobrazení telemetrických dat na webovém portálu
-<a id="see-telemetry-in-web-portal" class="xliff"></a>
+### <a name="see-telemetry-in-web-portal"></a>Zobrazení telemetrických dat na webovém portálu
 
 Telemetrická data můžete zobrazit také na webovém portálu Application Insights (pokud jste se nerozhodli nainstalovat pouze sadu SDK). Portál obsahuje více grafů, analytických nástrojů a zobrazení nad několika součástmi než sada Visual Studio. Portál poskytuje také výstrahy.
 
@@ -114,8 +109,7 @@ Po kliknutí na kteroukoli dlaždici nebo graf se zobrazí podrobnější údaje
 
 [Další informace o používání Application Insights na portálu Azure Portal](app-insights-dashboards.md).
 
-## Krok 4: Publikování aplikace
-<a id="step-4-publish-your-app" class="xliff"></a>
+## <a name="step-4-publish-your-app"></a>Krok 4: Publikování aplikace
 Publikování aplikace na serveru služby IIS nebo do Azure. Sledujte [Živé vysílání metrik](app-insights-metrics-explorer.md#live-metrics-stream) a ověřte, zda vše běží hladce.
 
 Telemetrie vzniká na portálu Application Insights, kde můžete monitorovat metriky, vyhledávat telemetrii a nastavovat [řídicí panely](app-insights-dashboards.md). Můžete také použít účinný [Jazyk pro analýzy dotazů](app-insights-analytics.md) k analýze využívání a výkonu nebo k hledání konkrétních událostí.
@@ -136,44 +130,37 @@ Blahopřejeme! Nainstalovali jste do aplikace balíček Application Insights a n
 Prostředek Azure, který přijímá telemetrická data aplikace, je určen *instrumentačním klíčem*. Tento klíč najdete v souboru ApplicationInsights.config.
 
 
-## Upgrade na budoucí verze sady SDK
-<a id="upgrade-to-future-sdk-versions" class="xliff"></a>
+## <a name="upgrade-to-future-sdk-versions"></a>Upgrade na budoucí verze sady SDK
 Pokud chcete upgradovat na [novou verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), otevřete znovu **Správce balíčků NuGet** a filtrujte nainstalované balíčky. Vyberte **Microsoft.ApplicationInsights.Web** a zvolte **Upgradovat**.
 
 Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, před upgradem si uložte jeho kopii. Potom slučte změny do nové verze.
 
-## Video
-<a id="video" class="xliff"></a>
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
-### Další telemetrická data
-<a id="more-telemetry" class="xliff"></a>
+### <a name="more-telemetry"></a>Další telemetrická data
 
 * **[Údaje o prohlížečích a o načítání stránek](app-insights-javascript.md)**  – Vložte do svých webových stránek fragment kódu.
 * **[Dosažení podrobnějšího monitorování závislostí a výjimek](app-insights-monitor-performance-live-website-now.md)**  – Nainstalujte si na server Monitorování stavu.
 * **[Naprogramujte vlastní události](app-insights-api-custom-events-metrics.md)**, které počítají a měří čas nebo akce uživatelů.
 * **[Získání dat protokolu](app-insights-asp-net-trace-logs.md)**  – Zjišťujte korelaci dat protokolu s telemetrickými daty.
 
-### Analýza
-<a id="analysis" class="xliff"></a>
+### <a name="analysis"></a>Analýza
 
 * **[Práce s Application Insights v sadě Visual Studio](app-insights-visual-studio.md)**<br/>Zahrnuje informace o ladění pomocí telemetrie, diagnostických hledáních a podrobném procházení kódem.
 * **[Práce s portálem Application Insights](app-insights-dashboards.md)**<br/> Zahrnuje informace o řídicích panelech, výkonných nástrojích pro diagnostiku a analýzy, výstrahách, aktivních mapách závislostí vaší aplikace a exportu telemetrie.
 * **[Analytics](app-insights-analytics-tour.md)** – Výkonný dotazovací jazyk.
 
-### Výstrahy
-<a id="alerts" class="xliff"></a>
+### <a name="alerts"></a>Výstrahy
 
 * [Testy dostupnosti:](app-insights-monitor-web-app-availability.md) Vytvářejte testy, abyste ověřili viditelnost svého webu na internetu.
 * [Inteligentní diagnostika:](app-insights-proactive-diagnostics.md) Tyto testy se spouštějí automaticky, takže je nemusíte nijak nastavovat. Upozorní vás, pokud má aplikace nezvykle velký podíl neúspěšných požadavků.
 * [Upozornění na metriku:](app-insights-alerts.md) Nastavte si je a nechte se upozornit, pokud metrika překročí mezní hodnotu. Upozornění můžete nastavit u vlastních metrik, které v aplikaci naprogramujete.
 
-### Automation
-<a id="automation" class="xliff"></a>
+### <a name="automation"></a>Automation
 
 * [Automatizace vytvoření prostředku Application Insights](app-insights-powershell.md)
 

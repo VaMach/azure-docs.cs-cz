@@ -17,14 +17,13 @@ ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5f3900aef2b432527454da72f3ff15e533543758
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 928a2a2902f9e10bba64f891e69fdddfa2e9ce60
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 07/06/2017
 
 ---
-# Zavedení resetování hesla pro uživatele
-<a id="roll-out-password-reset-for-users" class="xliff"></a>
+# <a name="roll-out-password-reset-for-users"></a>Zavedení resetování hesla pro uživatele
 
 Většina zákazníků pro zajištění bezproblémového zavedení funkce samoobslužného resetování hesla postupuje podle následujících kroků.
 
@@ -41,8 +40,7 @@ Většina zákazníků pro zajištění bezproblémového zavedení funkce samoo
 8. Můžete zvolit, aby se vždy vynucovala registrace, a aby se po určité době po uživateli vyžadovalo potvrzení ověřovacích informací. Pokud nechcete, aby se vaši uživatelé museli registrovat, můžete [nasadit resetování hesla bez vyžadování registrace koncového uživatele](active-directory-passwords-data.md).
 9. V průběhu času můžete uživatele, kteří se registrují a používají tuto funkci, kontrolovat zobrazením [sestav, které poskytuje Azure AD](active-directory-passwords-reporting.md).
 
-## Zavedení přes e-mail
-<a id="email-based-rollout" class="xliff"></a>
+## <a name="email-based-rollout"></a>Zavedení přes e-mail
 
 Pro mnoho zákazníků je nejjednodušším způsobem, jak uživatele přimět používat samoobslužné resetování hesla, e-mailová kampaň se snadno použitelnými pokyny. [Vytvořili jsme tři jednoduché e-maily, které můžete použít jako šablony pro pomoc se zaváděním.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
@@ -50,8 +48,7 @@ Pro mnoho zákazníků je nejjednodušším způsobem, jak uživatele přimět p
 * Šablonu e-mailu **Nyní dostupné** použijte v den spuštění, abyste přiměli uživatele k registraci a potvrzení ověřovacích dat, aby v případě potřeby mohli použít samoobslužné resetování hesla.
 * Šablonu e-mailu **Připomenutí registrace** použijte několik dnů nebo týdnů po nasazení pro připomenutí uživatelům, aby se zaregistrovali a potvrdili ověřovací data.
 
-## Vytvoření vlastního portálu hesel
-<a id="creating-your-own-password-portal" class="xliff"></a>
+## <a name="creating-your-own-password-portal"></a>Vytvoření vlastního portálu hesel
 
 Řada našich větších zákazníku volí hostování webové stránky a vytvoření kořenového záznamu DNS, například https://passwords.contoso.com. Tuto stránku naplní odkazy na portály pro resetování hesla Azure AD, registraci k resetování hesla, změnu hesla a další informace specifické pro organizaci. Do e-mailů nebo letáků, které budete rozesílat, pak můžete vložit zapamatovatelnou adresu URL obsahující značku, na kterou uživatelé můžou přejít v případě, že tyto služby potřebují využít.
 
@@ -59,8 +56,7 @@ Pro mnoho zákazníků je nejjednodušším způsobem, jak uživatele přimět p
 * Portál pro registraci k resetování hesla – http://aka.ms/ssprsetup
 * Portál pro změnu hesla – https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-## Použití vynucené registrace
-<a id="using-enforced-registration" class="xliff"></a>
+## <a name="using-enforced-registration"></a>Použití vynucené registrace
 
 Pokud chcete, aby se vaši uživatelé zaregistrovali k resetování hesla, může je k registraci přinutit při přihlášení pomocí Azure. Tuto možnost můžete povolit v okně **Resetování hesla** vašeho adresáře tak, že na kartě **Registrace** povolíte možnost **Při přihlášení vyžadovat registraci uživatelů**.
 
@@ -68,18 +64,15 @@ Správci můžou nastavením možnosti **Počet dní před vyzváním uživatel�
 
 Po povolení této možnosti se uživatelům, kteří se přihlašují, zobrazí zpráva s informací, že po nich správce vyžaduje potvrzení ověřovacích informací.
 
-## Naplnění ověřovacích dat
-<a id="populate-authentication-data" class="xliff"></a>
+## <a name="populate-authentication-data"></a>Naplnění ověřovacích dat
 
 Pokud [pro své uživatele naplníte ověřovací data](active-directory-passwords-data.md), nebudou se muset registrovat k resetování hesla, aby mohli využívat samoobslužné resetování hesla. Dokud uživatelé budou mít definovaná ověřovací data splňující zásady resetování hesla, které jste definovali, budou si moct resetovat svá hesla.
 
-## Zakázání samoobslužného resetování hesla
-<a id="disabling-self-service-password-reset" class="xliff"></a>
+## <a name="disabling-self-service-password-reset"></a>Zakázání samoobslužného resetování hesla
 
 Zakázání samoobslužného resetování hesla je snadné – stačí otevřít vašeho tenanta Azure AD, přejít na **Resetování hesla**, **Vlastnosti** a v části **Samoobslužné resetování hesla je povoleno** zvolit **Nikdo**.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
 

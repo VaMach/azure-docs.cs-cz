@@ -22,16 +22,12 @@ ms.lasthandoff: 06/01/2017
 
 ---
 
-<a id="create-your-first-azure-resource-manager-template" class="xliff"></a>
-
-# Vytvoření první šablony Azure Resource Manageru
+# <a name="create-your-first-azure-resource-manager-template"></a>Vytvoření první šablony Azure Resource Manageru
 Toto téma vás provede jednotlivými kroky k vytvoření první šablony Azure Resource Manageru. Šablony Resource Manageru jsou soubory JSON, které definují, jaké prostředky je pro řešení potřeba nasadit. Abyste porozuměli konceptům spojeným s nasazením a správou řešení Azure, podívejte se na téma [Přehled Azure Resource Manageru](resource-group-overview.md). Pokud máte existující prostředky a chcete pro ně získat šablonu, podívejte se na téma [Export šablony Azure Resource Manageru z existujících prostředků](resource-manager-export-template.md).
 
 K vytváření a revidování šablon potřebujete editor JSON. [Visual Studio Code](https://code.visualstudio.com/) je jednoduchý, opensourcový editor kódu pro různé platformy. Podporuje vytváření a úpravy šablon Resource Manageru prostřednictvím rozšíření. Toto téma předpokládá, že používáte VS Code, pokud však máte jiný editor JSON (například sadu Visual Studio), můžete použít ten.
 
-<a id="get-vs-code-and-extension" class="xliff"></a>
-
-## Získání nástroje VS Code a rozšíření
+## <a name="get-vs-code-and-extension"></a>Získání nástroje VS Code a rozšíření
 1. V případě potřeby nainstalujte VS Code z adresy [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
 2. Nainstalujte rozšíření [Nástroje Azure Resource Manageru](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) tak, že otevřete okno rychlého otevření (Ctrl + P) a spustíte: 
@@ -42,9 +38,7 @@ K vytváření a revidování šablon potřebujete editor JSON. [Visual Studio C
 
 3. Až budete vyzváni, ukončete a znovu spusťte VS Code, aby se rozšíření povolilo.
 
-<a id="create-blank-template" class="xliff"></a>
-
-## Vytvoření prázdné šablony
+## <a name="create-blank-template"></a>Vytvoření prázdné šablony
 
 Začněme s prázdnou šablonou, která obsahuje pouze základní části šablony.
 
@@ -65,9 +59,7 @@ Začněme s prázdnou šablonou, která obsahuje pouze základní části šablo
 
 3. Uložte soubor jako **azuredeploy.json**. 
 
-<a id="add-storage-account" class="xliff"></a>
-
-## Přidání účtu úložiště
+## <a name="add-storage-account"></a>Přidání účtu úložiště
 1. Účet úložiště pro nasazení definujete tak, že účet úložiště přidáte do části **resources** (Prostředky) vaší šablony. Hodnoty dostupné pro účet úložiště najdete na stránce s [referenčními informacemi k šablonám pro účty úložiště](/azure/templates/microsoft.storage/storageaccounts). Zkopírujte uvedený kód JSON pro účet úložiště. 
 
 3. Vložte tento kód JSON do části **resources** (Prostředky) vaší šablony, jak je znázorněno v následujícím příkladu: 
@@ -114,9 +106,7 @@ Začněme s prázdnou šablonou, která obsahuje pouze základní části šablo
   
   Předchozí příklad obsahuje mnoho zástupných hodnot a některé vlastnosti, které možná pro váš účet úložiště nepotřebujete.
 
-<a id="set-values-for-storage-account" class="xliff"></a>
-
-## Zadání hodnot pro účet úložiště
+## <a name="set-values-for-storage-account"></a>Zadání hodnot pro účet úložiště
 
 Nyní jste připraveni nastavit hodnoty pro váš účet úložiště. 
 
@@ -183,9 +173,7 @@ Vaše šablona teď vypadá nějak takto:
 }
 ```
 
-<a id="add-template-function" class="xliff"></a>
-
-## Přidání funkce šablony
+## <a name="add-template-function"></a>Přidání funkce šablony
 
 Funkce v rámci šablony slouží k zjednodušení syntaxe šablony a k načítání hodnot, které jsou dostupné pouze během nasazování šablony. Kompletní sadu funkcí šablon najdete v tématu [Funkce šablon Azure Resource Manageru](resource-group-template-functions.md).
 
@@ -228,9 +216,7 @@ Vaše šablona teď vypadá nějak takto:
 }
 ```
 
-<a id="add-parameters-and-variables" class="xliff"></a>
-
-## Přidání parametrů a proměnných
+## <a name="add-parameters-and-variables"></a>Přidání parametrů a proměnných
 V šabloně zbývá nastavit už jen dvě hodnoty – **name** (Název) a **sku.name** (Název SKU). Pro tyto vlastnosti přidáte parametry, které vám umožní přizpůsobit tyto hodnoty během nasazení. 
 
 Pro názvy účtů úložiště platí několik omezení, proto je jejich nastavení obtížné. Název musí být dlouhý 3 až 24 znaků, obsahovat pouze číslice a malá písmena a být jedinečný. Místo toho, abyste se snažili uhodnout jedinečnou hodnotu splňující tato omezení, použijte funkci [uniqueString](resource-group-template-functions-string.md#uniquestring), která vygeneruje hodnotu hash. Aby byla tato hodnota hash srozumitelnější, přidejte předponu, která vám pomůže identifikovat ji po nasazení jako účet úložiště. 
@@ -305,9 +291,7 @@ Pro názvy účtů úložiště platí několik omezení, proto je jejich nastav
 
 4. Uložte soubor.
 
-<a id="final-template" class="xliff"></a>
-
-## Finální šablona
+## <a name="final-template"></a>Finální šablona
 
 Po dokončení kroků v tomto článku teď vaše šablona vypadá nějak takto:
 
@@ -361,9 +345,7 @@ Po dokončení kroků v tomto článku teď vaše šablona vypadá nějak takto:
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * Šablona je nyní hotová a jste připraveni k jejímu nasazení ve vašem předplatném. Informace o nasazení najdete v tématu [Nasazení prostředků do Azure](resource-manager-quickstart-deploy.md).
 * Další informace o struktuře šablon najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
 * Hotové šablony pro mnoho různých typů řešení najdete na stránce [Šablony Azure pro rychlý start](https://azure.microsoft.com/documentation/templates/).

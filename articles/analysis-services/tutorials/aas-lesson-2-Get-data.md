@@ -23,9 +23,7 @@ ms.lasthandoff: 06/03/2017
 
 ---
 
-<a id="lesson-2-get-data" class="xliff"></a>
-
-# Lekce 2: Získání dat
+# <a name="lesson-2-get-data"></a>Lekce 2: Získání dat
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,18 +33,12 @@ Pomocí funkce Získání dat můžete importovat data z celé řady zdrojů: Az
   
 Odhadovaný čas dokončení této lekce: **10 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 1: Vytvoření nového projektu s tabelárním modelem](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
-<a id="create-a-connection" class="xliff"></a>
-
-## Vytvoření připojení  
+## <a name="create-a-connection"></a>Vytvoření připojení  
   
-<a id="to-create-a-connection-to-the-adventureworksdw2014-database" class="xliff"></a>
-
-#### Vytvoření připojení k databázi AdventureWorksDW2014  
+#### <a name="to-create-a-connection-to-the-adventureworksdw2014-database"></a>Vytvoření připojení k databázi AdventureWorksDW2014  
   
 1.  V Průzkumníku tabelárních modelů klikněte pravým tlačítkem na **Zdroje dat** > **Importovat ze zdroje dat**.  
   
@@ -74,14 +66,10 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
 Po kliknutí na OK se otevře Editor dotazů. V další části vyberete jenom data, která chcete importovat.
 
   
-<a id="filter-the-table-data" class="xliff"></a>
-
-## Filtrování tabulkových dat  
+## <a name="filter-the-table-data"></a>Filtrování tabulkových dat  
 Tabulky v ukázkové databázi AdventureWorksDW2014 obsahují data, která není nutné zahrnout do modelu. Pokud je to možné, nepotřebná data byste měli vyfiltrovat, abyste ušetřili místo v paměti využívané modelem. Vyfiltrujete z tabulek některé ze sloupců, aby se neimportovaly do databáze pracovního prostoru nebo databáze modelu, až bude nasazena. 
   
-<a id="to-filter-the-table-data-before-importing" class="xliff"></a>
-
-#### Filtrování tabulkových dat před importem  
+#### <a name="to-filter-the-table-data-before-importing"></a>Filtrování tabulkových dat před importem  
   
 1.  V Editoru dotazů vyberte tabulku **DimCustomer**. Otevře se zobrazení tabulky DimCustomer ve zdroji dat (vaše ukázková databáze AdventureWorksDWQ2014). 
   
@@ -151,9 +139,7 @@ Tabulky v ukázkové databázi AdventureWorksDW2014 obsahují data, která není
 ## <a name="Import"></a>Import vybraných tabulek a dat sloupců  
 Teď, když jste zobrazili náhled a vyfiltrovali nepotřebná data, můžete importovat zbývající požadovaná data. Průvodce importuje kromě tabulkových dat také případné relace mezi tabulkami. V modelu se vytvoří nové tabulky a sloupce a data, která jste vyfiltrovali, se neimportují.  
   
-<a id="to-import-the-selected-tables-and-column-data" class="xliff"></a>
-
-#### Import vybraných tabulek a dat sloupců  
+#### <a name="to-import-the-selected-tables-and-column-data"></a>Import vybraných tabulek a dat sloupců  
   
 1.  Zkontrolujte váš výběr. Pokud vše vypadá v pořádku, klikněte na **Importovat**. V dialogovém okně Zpracování dat se zobrazí stav importování dat ze zdroje dat do databáze pracovního prostoru.
   
@@ -162,20 +148,14 @@ Teď, když jste zobrazili náhled a vyfiltrovali nepotřebná data, můžete im
 2.  Klikněte na **Zavřít**.  
 
   
-<a id="save-your-model-project" class="xliff"></a>
-
-## Uložení projektu s modelem  
+## <a name="save-your-model-project"></a>Uložení projektu s modelem  
 Je důležité projekt s modelem často ukládat.  
   
-<a id="to-save-the-model-project" class="xliff"></a>
-
-#### Uložení projektu s modelem  
+#### <a name="to-save-the-model-project"></a>Uložení projektu s modelem  
   
 -   Klikněte na **Soubor** > **Uložit vše**.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Co dále?
+## <a name="whats-next"></a>Co dále?
 [Lekce 3: Označení jako tabulky kalendářních dat](../tutorials/aas-lesson-3-mark-as-date-table.md)
 
   

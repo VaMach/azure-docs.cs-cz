@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="enable-event-hubs-capture-using-the-azure-portal" class="xliff"></a>
-
-# Povolení funkce Event Hubs Capture prostřednictvím webu Azure Portal
+# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Povolení funkce Event Hubs Capture prostřednictvím webu Azure Portal
 
 Ke konfiguraci funkce Capture v době vytvoření centra událostí můžete použít [Azure Portal](https://portal.azure.com). Funkci Capture povolíte kliknutím na tlačítko **Zapnout** v okně portálu **Vytvořit centrum událostí**. Potom nakonfigurujete účet úložiště a kontejner kliknutím na část **Kontejner** tohoto okna. Vzhledem k tomu, že Event Hubs Capture u úložiště využívá ověřování služba-služba, není potřeba zadávat připojovací řetězec úložiště. Výběr prostředku automaticky vybere URI prostředku pro váš účet úložiště. Pokud používáte Azure Resource Manager, musíte tento identifikátor URI explicitně zadat jako řetězec.
 
@@ -33,9 +31,7 @@ Výchozí časový interval je 5 minut. Minimální hodnota je 1, maximální ho
 
 ![][1]
 
-<a id="adding-capture-to-an-existing-event-hub" class="xliff"></a>
-
-## Přidání funkce Capture do existujícího centra událostí
+## <a name="adding-capture-to-an-existing-event-hub"></a>Přidání funkce Capture do existujícího centra událostí
 
 Funkci Capture je možné nakonfigurovat v existujících centrech událostí, která jsou v oborech názvů služby Event Hubs. Tato funkce není dostupná pro starší typy oborů názvů **Zasílání zpráv** nebo **Smíšené**. Pokud chcete funkci Capture povolit v existujícím centru událostí nebo chcete změnit její nastavení, klikněte na příslušný obor názvů, aby se načetlo okno **Základy**, a potom klikněte na centrum událostí, pro které chcete povolit funkci Capture nebo změnit její nastavení. Nakonec klikněte v otevřeném okně na část **Vlastnosti**, jak ukazuje následující obrázek:
 
@@ -44,9 +40,7 @@ Funkci Capture je možné nakonfigurovat v existujících centrech událostí, k
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Ke konfiguraci funkce Event Hubs Capture můžete také použít šablony Azure Resource Manageru. Další informace najdete v tématu věnovaném [povolení funkce Capture pomocí šablony Azure Resource Manageru](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
 

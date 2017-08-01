@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 ---
 
 
-<a id="how-does-hyper-v-replication-to-azure-work-in-site-recovery" class="xliff"></a>
-
-# Jak funguje replikace Hyper-V do Azure v Site Recovery?
+# <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Jak funguje replikace Hyper-V do Azure v Site Recovery?
 
 
 Tento článek popisuje komponenty a procesy používané při replikaci místních virtuálních počítačů Hyper-V do Azure s využitím služby [Azure Site Recovery](site-recovery-overview.md).
@@ -36,9 +34,7 @@ Jakékoli dotazy můžete publikovat na konci tohoto článku nebo na [fóru Azu
 
 
 
-<a id="architectural-components" class="xliff"></a>
-
-## Komponenty architektury
+## <a name="architectural-components"></a>Komponenty architektury
 
 Při replikaci virtuálních počítačů Hyper-V do Azure se využívá řada komponent.
 
@@ -60,17 +56,13 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
 ![Komponenty](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-<a id="replication-process" class="xliff"></a>
-
-## Proces replikace
+## <a name="replication-process"></a>Proces replikace
 
 **Obr. 3: replikace a proces obnovení pro replikaci Hyper-V do Azure**
 
 ![pracovní postup](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
 
-<a id="enable-protection" class="xliff"></a>
-
-### Povolení ochrany
+### <a name="enable-protection"></a>Povolení ochrany
 
 1. Po povolení ochrany pro virtuální počítače Hyper-V (na webu Azure Portal nebo místně) se spustí **Povolení ochrany**.
 2. Úloha zkontroluje, zda počítač splňuje požadavky, a potom vyvolá metodu [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), která nastaví replikaci s nastavením, které jste nakonfigurovali.
@@ -79,9 +71,7 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
         ![Seznam úloh](media/site-recovery-hyper-v-azure-architecture/image1.png)
         ![Podrobnosti povolení ochrany](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
-<a id="replicate-the-initial-data" class="xliff"></a>
-
-### Replikace počátečních dat
+### <a name="replicate-the-initial-data"></a>Replikace počátečních dat
 
 1. Při aktivaci počáteční replikace se pořídí [snímek virtuálního počítače Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
 2. Virtuální pevné disky se postupně replikují, dokud nejsou všechny zkopírované do Azure. To může nějakou dobu trvat v závislosti na velikosti virtuálního počítače a šířce pásma sítě. Pokud chcete optimalizovat využití sítě, přečtěte si téma [Správa využití šířky pásma sítě při ochraně místního prostředí do Azure](https://support.microsoft.com/kb/3056159).
@@ -90,25 +80,19 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
 5. Po dokončení počáteční replikace se snímek virtuálního počítače odstraní. Rozdílové změny na disku v protokolu se synchronizují a sloučí s nadřazeným diskem.
 
 
-<a id="finalize-protection" class="xliff"></a>
-
-### Dokončení ochrany
+### <a name="finalize-protection"></a>Dokončení ochrany
 
 1. Po dokončení počáteční replikace nakonfiguruje úloha **Dokončení ochrany na virtuálním počítači** síťová a další postreplikační nastavení tak, aby byl virtuální počítač chráněn.
     ![Úloha dokončení ochrany](media/site-recovery-hyper-v-azure-architecture/image3.png)
 2. Pokud replikujete do Azure, možná bude nutné upravit nastavení pro virtuální počítač tak, aby byl připraven k převzetí služeb při selhání. V tomto bodě můžete spustit test převzetí služeb při selhání a zkontrolovat, zda vše funguje podle očekávání.
 
-<a id="replicate-the-delta" class="xliff"></a>
-
-### Replikace rozdílů
+### <a name="replicate-the-delta"></a>Replikace rozdílů
 
 1. Po počáteční replikaci se zahájí rozdílová synchronizace, a to v souladu s nastavením replikace.
 2. Hyper-V Replica Replication Tracker zaznamenává změny na virtuálních pevných discích v souborech .hrl. Každý disk nakonfigurovaný pro replikaci má přidružený soubor .hrl. Tento protokol se po dokončení počáteční replikace odešle do účtu úložiště zákazníka. Při přenosu protokolu do Azure se změny na primárním disku zaznamenávají do jiného souboru protokolu ve stejném adresáři.
 3. Během počáteční a rozdílové replikace můžete virtuální počítač monitorovat v zobrazení virtuálního počítače. [Další informace](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
-<a id="synchronize-replication" class="xliff"></a>
-
-### Synchronizace replikace
+### <a name="synchronize-replication"></a>Synchronizace replikace
 
 1. Pokud rozdílová replikace selže a úplná replikace by byla náročná, pokud jde o šířku pásma nebo čas, pak se virtuální počítač označí pro resynchronizaci. Pokud například soubory .hrl dosáhnou 50 % velikosti disku, pak se u virtuálního počítače stanoví nutnost resynchronizace.
 2.  Resynchronizace minimalizuje množství odesílaných dat tím, že počítá kontrolní součty zdrojových a cílových virtuálních počítačů a odesílá pouze rozdílová data. Resynchronizace využívá algoritmus vytváření bloků s pevnou velikostí, kdy jsou zdrojové a cílové soubory rozdělené do pevných bloků. Pro každý blok se vytvoří kontrolní součet a následným porovnáním kontrolních součtů se určí, které bloky ze zdroje je potřeba použít na cíl.
@@ -117,9 +101,7 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
     ![Ruční resynchronizace](media/site-recovery-hyper-v-azure-architecture/image4.png)
 
 
-<a id="retry-logic" class="xliff"></a>
-
-### Logika opakování
+### <a name="retry-logic"></a>Logika opakování
 
 Pokud dojde k chybě replikace, je předdefinován opakovaný pokus. Tuto logiku je možné rozdělit do dvou kategorií:
 
@@ -130,9 +112,7 @@ Pokud dojde k chybě replikace, je předdefinován opakovaný pokus. Tuto logiku
 
 
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-## Proces převzetí služeb při selhání a navrácení služeb po obnovení
+## <a name="failover-and-failback-process"></a>Proces převzetí služeb při selhání a navrácení služeb po obnovení
 
 1. Můžete spustit plánované nebo neplánované [převzetí služeb při selhání](site-recovery-failover.md) z místních virtuálních počítačů Hyper-V do Azure. Pokud spustíte plánovanou operaci, dojde k ukončení zdrojových virtuálních počítačů, aby se zcela předešlo možné ztrátě dat.
 2. Můžete převzít službu při selhání jednoho počítače nebo vytvořit [plány zotavení](site-recovery-create-recovery-plans.md) a orchestrovat převzetí služeb více počítačů.
@@ -143,9 +123,7 @@ Pokud dojde k chybě replikace, je předdefinován opakovaný pokus. Tuto logiku
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Kontrola [matice podpory](site-recovery-support-matrix-to-azure.md)
 

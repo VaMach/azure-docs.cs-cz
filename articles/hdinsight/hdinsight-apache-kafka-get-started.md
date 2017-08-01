@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# Začínáme s Apache Kafka (Preview) v prostředí HDInsight
+# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Začínáme s Apache Kafka (Preview) v prostředí HDInsight
 
 Zjistěte, jak vytvořit a používat cluster [Apache Kafka](https://kafka.apache.org) v Azure HDInsight. Kafka je opensourcová distribuovaná streamovací platforma, která je dostupná pro HDInsight. Často se používá jako zprostředkovatel zpráv, protože nabízí funkce podobné frontě pro publikování a odběr zpráv.
 
@@ -33,17 +31,13 @@ Zjistěte, jak vytvořit a používat cluster [Apache Kafka](https://kafka.apach
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) nebo ekvivalentní, například OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-<a id="create-a-kafka-cluster" class="xliff"></a>
-
-## Vytvoření clusteru Kafka
+## <a name="create-a-kafka-cluster"></a>Vytvoření clusteru Kafka
 
 Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDInsight:
 
@@ -101,9 +95,7 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
     > [!NOTE]
     > Vytvoření clusteru trvá přibližně 20 minut.
 
-<a id="connect-to-the-cluster" class="xliff"></a>
-
-## Připojení ke clusteru
+## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
 
 Z klienta se připojte ke clusteru pomocí SSH:
 
@@ -151,9 +143,7 @@ Podle následujícího postupu vytvoříte proměnné prostředí s informacemi 
     >
     > Pokud chcete mít jistotu, že jsou informace platné, načtěte informace o hostitelích Zookeeper a Broker až krátce před jejich použitím.
 
-<a id="create-a-topic" class="xliff"></a>
-
-## Vytvoření tématu
+## <a name="create-a-topic"></a>Vytvoření tématu
 
 Kafka ukládá datové proudy do kategorií označovaných jako *témata*. V okně SSH připojenému k hlavnímu uzlu clusteru připojení použijte skript pro vytvoření tématu, dodaný se systémem Kafka:
 
@@ -169,9 +159,7 @@ Tento příkaz se připojí k hostiteli Zookeeper s použitím informací ulože
 
 Výstup tohoto příkazu vypíše seznam témat Kafka, který obsahuje i téma **test**.
 
-<a id="produce-and-consume-records" class="xliff"></a>
-
-## Produkce a konzumace záznamů
+## <a name="produce-and-consume-records"></a>Produkce a konzumace záznamů
 
 Kafka ukládá *záznamy* v tématech. Záznamy jsou vytvářeny *producenty* a spotřebovávány *konzumenty*. Producenti načítají záznamy ze *zprostředkovatelů* Kafka. Každý pracovní uzel v clusteru HDInsight je zprostředkovatelem Kafka.
 
@@ -195,9 +183,7 @@ Následujícím postupem uložíte záznamy do dříve vytvořeného tématu tes
 
 3. Konzumenta zastavíte stisknutím __Ctrl+C__.
 
-<a id="producer-and-consumer-api" class="xliff"></a>
-
-## Rozhraní API pro producenta a konzumenta
+## <a name="producer-and-consumer-api"></a>Rozhraní API pro producenta a konzumenta
 
 Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému Kafka](http://kafka.apache.org/documentation#api). Ke stažení a sestavení producenta a konzumenta v jazyce Java použijte následující postup:
 
@@ -246,9 +232,7 @@ Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému 
 
 6. Konzumenta ukončíte stisknutím __Ctrl+C__.
 
-<a id="multiple-consumers" class="xliff"></a>
-
-### Víc současných konzumentů
+### <a name="multiple-consumers"></a>Víc současných konzumentů
 
 Důležitou koncepcí platformy Kafka je, že konzumenti můžou při čtení záznamů používat skupiny konzumentů (definované pomocí ID skupiny). Výsledkem použití skupiny s více konzumenty je vyvážení zatížení při čtení záznamů z tématu. Každý konzument ze skupiny obdrží určitou část záznamů. Pokud chcete vidět tento proces v akci, použijte následující postup:
 
@@ -270,9 +254,7 @@ Konzumace klienty ze stejné skupiny se realizuje rozdělením tématu na oddíl
 
 Záznamy se v systému Kafka ukládají v pořadí, ve kterém je oddíl přijme. Pro dosažení doručování záznamů ve správném pořadí *v rámci oddílu* vytvořte skupinu příjemců, ve které bude počet instancí konzumentů odpovídat počtu oddílů. Pro dosažení doručování záznamů ve správném pořadí *v rámci tématu* vytvořte skupinu obsahující pouze jednu instanci konzumenta.
 
-<a id="streaming-api" class="xliff"></a>
-
-## API pro streamování
+## <a name="streaming-api"></a>API pro streamování
 
 Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.0; starší verze nechávají zpracování datových proudů na Apache Spark nebo Storm.
 
@@ -347,21 +329,15 @@ Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.
 
 7. Stisknutím __Ctrl+C__ ukončete konzumenta a pak pomocí příkazu `fg` přeneste streamovací úlohu z pozadí zpět na popředí. Ukončete i ji stisknutím __Ctrl+C__.
 
-<a id="delete-the-cluster" class="xliff"></a>
-
-## Odstranění clusteru
+## <a name="delete-the-cluster"></a>Odstranění clusteru
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Řešení potíží
+## <a name="troubleshoot"></a>Řešení potíží
 
 Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 V tomto dokumentu jste se naučili základy práce s platformou Apache Kafka v HDInsight. Další informace o práci s platformou Kafka najdete v těchto zdrojích:
 

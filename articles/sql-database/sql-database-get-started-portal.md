@@ -17,27 +17,24 @@ ms.topic: hero-article
 ms.date: 05/30/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 1571d30890a428fb73d31861c4f1ae395f9de374
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b1852b4182fcadd556dc4c26e65f3eafd0b50e6
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# Vytvoření databáze SQL Azure na webu Azure Portal
-<a id="create-an-azure-sql-database-in-the-azure-portal" class="xliff"></a>
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Vytvoření databáze SQL Azure na webu Azure Portal
 
 Tento úvodní kurz vás provede postupy vytvoření databáze SQL v Azure. Azure SQL Database je nabídka „databáze jako služby“, která umožňuje spouštění a škálování vysoce dostupné databáze SQL Serveru v cloudu. Tento rychlý start ukazuje, jak začít tím, že vytvoříte databázi SQL pomocí webu Azure Portal.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-## Přihlášení k portálu Azure Portal
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
+## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
-## Vytvoření databáze SQL
-<a id="create-a-sql-database" class="xliff"></a>
+## <a name="create-a-sql-database"></a>Vytvoření databáze SQL
 
 Databáze SQL Azure se vytvoří s definovanou sadou [výpočetních prostředků a prostředků úložiště](sql-database-service-tiers.md). Databáze se vytvoří v rámci [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md) a na [logickém serveru Azure SQL Database](sql-database-features.md). 
 
@@ -93,8 +90,7 @@ Postupujte podle následujících kroků a vytvořte databázi SQL obsahující 
 
    ![oznámení](./media/sql-database-get-started-portal/notification.png)
 
-## Vytvoření pravidla brány firewall na úrovni serveru
-<a id="create-a-server-level-firewall-rule" class="xliff"></a>
+## <a name="create-a-server-level-firewall-rule"></a>Vytvoření pravidla brány firewall na úrovni serveru
 
 Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránila externím aplikacím a nástrojům v připojení k serveru nebo ke kterékoli databázi na serveru, pokud není vytvořené pravidlo brány firewall k otevření brány firewall pro konkrétní IP adresy. Postupujte podle těchto kroků a vytvořte [pravidlo brány firewall na úrovni serveru služby SQL Database](sql-database-firewall-configure.md) pro vaši IP adresu klienta a umožněte externí připojení přes bránu firewall služby SQL Database pouze pro vaši IP adresu. 
 
@@ -128,8 +124,7 @@ Nyní se můžete z této IP adresy připojit k serveru SQL Database a jeho data
 > Standardně je přístup přes bránu firewall služby SQL Database povolený pro všechny služby Azure. Kliknutím na **OFF** na této stránce provedete zákaz pro všechny služby Azure.
 >
 
-## Dotazování databáze SQL
-<a id="query-the-sql-database" class="xliff"></a>
+## <a name="query-the-sql-database"></a>Dotazování databáze SQL
 
 Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít integrovaný dotazovací nástroj na webu Azure Portal k potvrzení, že se můžete připojit k databázi a zadávat dotazy na data. 
 
@@ -160,8 +155,7 @@ Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít inte
 
 7. Zavřít stránku **Editoru dotazů** a stránku **Nástroje**.
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud tyto prostředky nepotřebujete pro další Rychlý start nebo kurz (viz [Další kroky](#next-steps)), můžete je odstranit následujícím způsobem:
 
@@ -169,8 +163,7 @@ Pokud tyto prostředky nepotřebujete pro další Rychlý start nebo kurz (viz [
 1. Na webu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak na **myResourceGroup**. 
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte **myResourceGroup** a pak klikněte na **Odstranit**.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Teď, když máte databázi, můžete se k ní připojit a provádět dotazování pomocí vašich oblíbených nástrojů. Další informace získáte výběrem vašeho nástroje níže:
 

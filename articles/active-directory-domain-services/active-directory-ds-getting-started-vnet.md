@@ -22,17 +22,11 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
-
-# Vytvoření nebo výběr virtuální sítě pro Azure Active Directory Domain Services
-<a id="before-you-begin" class="xliff"></a>
-
-## Než začnete
+# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Vytvoření nebo výběr virtuální sítě pro Azure Active Directory Domain Services
+## <a name="before-you-begin"></a>Než začnete
 Přečtěte si článek [Důležité informace o sítích pro Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
-<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
-
-## Úloha 2: Vytvořte virtuální síť Azure
+## <a name="task-2-create-an-azure-virtual-network"></a>Úloha 2: Vytvořte virtuální síť Azure
 Další úlohou konfigurace je vytvoření virtuální sítě Azure a podsítě v ní. V této podsíti v rámci své virtuální sítě povolíte službu Azure Active Directory Domain Services. Pokud máte existující virtuální síť, kterou chcete použít, můžete tento krok přeskočit.
 
 > [!NOTE]
@@ -74,8 +68,6 @@ Chcete-li vytvořit virtuální síť Azure, ve které chcete povolit Azure Acti
 11. Kliknutím na **Uložit** vytvořte podsíť.
 
 
-<a id="next-step" class="xliff"></a>
-
-## Další krok
+## <a name="next-step"></a>Další krok
 [Úloha 3: Povolení služby Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md)
 

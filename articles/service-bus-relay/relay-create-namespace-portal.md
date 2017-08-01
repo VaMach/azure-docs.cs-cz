@@ -22,25 +22,19 @@ ms.lasthandoff: 06/05/2017
 
 ---
 
-<a id="create-a-relay-namespace-using-the-azure-portal" class="xliff"></a>
-
-# Vytvoření oboru názvů přenosu pomocí webu Azure Portal
+# <a name="create-a-relay-namespace-using-the-azure-portal"></a>Vytvoření oboru názvů přenosu pomocí webu Azure Portal
 Obor názvů je společný kontejner pro všechny součásti Azure Relay. Součástí jednoho oboru názvů může být několik přenosů, přičemž obory názvů často slouží jako kontejnery aplikací. Obory názvů přenosu je v současnosti možné vytvořit dvěma způsoby.
 
 1. Portál Azure Portal (tento článek)
 2. Šablony [Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md)
 
-<a id="create-a-namespace-in-the-azure-portal" class="xliff"></a>
-
-## Vytvoření oboru názvů na webu Azure Portal
+## <a name="create-a-namespace-in-the-azure-portal"></a>Vytvoření oboru názvů na webu Azure Portal
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 Blahopřejeme! Právě jste vytvořili obor názvů přenosu.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky:
+## <a name="next-steps"></a>Další kroky:
 * [Přenos – nejčastější dotazy](relay-faq.md)
 * [Začínáme s .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Začínáme s aplikací Node](relay-hybrid-connections-node-get-started.md)

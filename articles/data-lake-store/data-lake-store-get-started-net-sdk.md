@@ -22,8 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-# Začínáme s Azure Data Lake Store pomocí sady .NET SDK
-<a id="get-started-with-azure-data-lake-store-using-net-sdk" class="xliff"></a>
+# <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>Začínáme s Azure Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
 > * [Azure Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -38,8 +37,7 @@ ms.lasthandoff: 06/07/2017
 
 Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) k provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů atd. Další informace týkající se Data Lake najdete v tématu [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 * **Visual Studio 2013, 2015 nebo 2017**. Níže uvedené pokyny používají Visual Studio 2015 Update 2.
 
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -48,8 +46,7 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 
 * **Vytvoření aplikace Azure Active Directory**. Aplikaci Azure AD použijete k ověření aplikace Data Lake Store ve službě Azure AD. Existují různé přístupy k ověřování ve službě Azure AD, jsou to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md) nebo [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md).
 
-## Vytvoření aplikace .NET
-<a id="create-a-net-application" class="xliff"></a>
+## <a name="create-a-net-application"></a>Vytvoření aplikace .NET
 1. Otevřete Visual Studio a vytvořte konzolovou aplikaci.
 2. V nabídce **Soubor** klikněte na položku **Nový** a potom klikněte na položku **Projekt**.
 3. V části **Nový projekt** zadejte nebo vyberte tyto hodnoty:
@@ -114,11 +111,9 @@ Naučte se používat sadu [.NET SDK pro Azure Data Lake Store](https://msdn.mic
 
 Ve zbývajících oddílech tohoto článku uvidíte, jak používat dostupné metody rozhraní .NET k provádění operací, jako je ověřování, nahrávání souborů atd.
 
-## Authentication
-<a id="authentication" class="xliff"></a>
+## <a name="authentication"></a>Authentication
 
-### Pokud používáte ověřování koncového uživatele (doporučeno pro tento kurz)
-<a id="if-you-are-using-end-user-authentication-recommended-for-this-tutorial" class="xliff"></a>
+### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Pokud používáte ověřování koncového uživatele (doporučeno pro tento kurz)
 
 Tuto metodu použijte se stávající nativní aplikací Azure AD, pokud chcete ověřovat vaši aplikaci **interaktivně**, což znamená, že budete vyzváni k zadání přihlašovacích údajů Azure.
 
@@ -137,8 +132,7 @@ Několik věcí, které je vhodné vědět o fragmentu kódu uvedeném výše:
 * Abychom vám umožnili projít tento kurz rychleji, využívá tento fragment kódu doménu a ID klienta služby Azure AD, které jsou ve výchozím nastavení dostupné pro všechna předplatná Azure. Můžete tedy **použít ve své aplikaci tento fragment kódu bez jakýchkoli úprav**.
 * Pokud však chcete používat vlastní doménu a ID klienta aplikace Azure AD, musíte vytvořit nativní aplikaci Azure AD a pak pro vytvořenou aplikaci použít příslušné ID tenanta, ID klienta a identifikátor URI přesměrování Azure AD. Pokyny najdete v tématu [Vytvoření aplikace Active Directory pro ověřování koncového uživatele pomocí služby Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-### Pokud používáte ověřování služba-služba s tajným klíčem klienta
-<a id="if-you-are-using-service-to-service-authentication-with-client-secret" class="xliff"></a>
+### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Pokud používáte ověřování služba-služba s tajným klíčem klienta
 Následující fragment kódu můžete použít k **neinteraktivnímu** ověřování vaší aplikace pomocí tajného klíče klienta, klíče pro aplikaci nebo instančního objektu. Použijte tento fragment kódu se stávající aplikací Azure AD Webová aplikace. Pokyny k vytvoření webové aplikace Azure AD a zjištění ID a tajného klíče klienta v následujícím fragmentu kódu najdete v tématu [Vytvoření aplikace Active Directory pro ověřování služba-služba pomocí služby Data Lake Store](data-lake-store-authenticate-using-active-directory.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -151,8 +145,7 @@ Následující fragment kódu můžete použít k **neinteraktivnímu** ověřov
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
-### Pokud používáte ověřování služba-služba s certifikátem
-<a id="if-you-are-using-service-to-service-authentication-with-certificate" class="xliff"></a>
+### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Pokud používáte ověřování služba-služba s certifikátem
 
 Třetí možností je použít následující fragment kódu k **neinteraktivnímu** ověřování vaší aplikace pomocí certifikátu pro aplikaci nebo instanční objekt Azure Active Directory. Použijte tento fragment kódu se stávající [aplikací Azure AD s certifikáty](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
@@ -166,16 +159,14 @@ Třetí možností je použít následující fragment kódu k **neinteraktivní
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
     var creds = await ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate);
 
-## Vytvoření objektů klienta
-<a id="create-client-objects" class="xliff"></a>
+## <a name="create-client-objects"></a>Vytvoření objektů klienta
 Následující fragment kódu vytvoří účet Data Lake Store a objekty klientů systému souborů, které slouží k vydávání žádostí na službu.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
     _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
 
-## Zobrazení seznamu všech účtů Data Lake Store v rámci předplatného
-<a id="list-all-data-lake-store-accounts-within-a-subscription" class="xliff"></a>
+## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Zobrazení seznamu všech účtů Data Lake Store v rámci předplatného
 Následující fragment kódu zobrazí všechny účty Data Lake Store v rámci daného předplatného Azure.
 
     // List all ADLS accounts within the subscription
@@ -193,8 +184,7 @@ Následující fragment kódu zobrazí všechny účty Data Lake Store v rámci 
         return accounts;
     }
 
-## Vytvoření adresáře
-<a id="create-a-directory" class="xliff"></a>
+## <a name="create-a-directory"></a>Vytvoření adresáře
 Následující fragment kódu ukazuje metodu `CreateDirectory`, kterou můžete použít k vytvoření adresáře v rámci účtu Data Lake Store.
 
     // Create a directory
@@ -203,8 +193,7 @@ Následující fragment kódu ukazuje metodu `CreateDirectory`, kterou můžete 
         await _adlsFileSystemClient.FileSystem.MkdirsAsync(_adlsAccountName, path);
     }
 
-## Nahrání souboru
-<a id="upload-a-file" class="xliff"></a>
+## <a name="upload-a-file"></a>Nahrání souboru
 Následující fragment kódu ukazuje metodu `UploadFile`, kterou můžete použít k nahrání souborů do účtu Data Lake Store.
 
     // Upload a file
@@ -215,8 +204,7 @@ Následující fragment kódu ukazuje metodu `UploadFile`, kterou můžete použ
 
 Sada SDK podporuje rekurzivní nahrávání a stahování mezi místní cestou k souboru a cestou k souboru ve službě Data Lake Store.    
 
-## Získání informací o souboru nebo adresáři
-<a id="get-file-or-directory-info" class="xliff"></a>
+## <a name="get-file-or-directory-info"></a>Získání informací o souboru nebo adresáři
 Následující fragment kódu ukazuje metodu `GetItemInfo`, kterou můžete použít k načtení informací o souboru nebo adresáři dostupném v Data Lake Store.
 
     // Get file or directory info
@@ -225,8 +213,7 @@ Následující fragment kódu ukazuje metodu `GetItemInfo`, kterou můžete pou�
         return await _adlsFileSystemClient.FileSystem.GetFileStatusAsync(_adlsAccountName, path).FileStatus;
     }
 
-## Zobrazení seznamu souboru nebo adresářů
-<a id="list-file-or-directories" class="xliff"></a>
+## <a name="list-file-or-directories"></a>Zobrazení seznamu souboru nebo adresářů
 Následující fragment kódu ukazuje metodu `ListItem`, kterou můžete použít k zobrazení seznamu souboru a adresářů v účtu Data Lake Store.
 
     // List files and directories
@@ -235,8 +222,7 @@ Následující fragment kódu ukazuje metodu `ListItem`, kterou můžete použí
         return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
     }
 
-## Řetězení souborů
-<a id="concatenate-files" class="xliff"></a>
+## <a name="concatenate-files"></a>Řetězení souborů
 Následující fragment kódu ukazuje metodu `ConcatenateFiles`, která slouží k řetězení souborů.
 
     // Concatenate files
@@ -245,8 +231,7 @@ Následující fragment kódu ukazuje metodu `ConcatenateFiles`, která slouží
         await _adlsFileSystemClient.FileSystem.ConcatAsync(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
-## Připojení k souboru
-<a id="append-to-a-file" class="xliff"></a>
+## <a name="append-to-a-file"></a>Připojení k souboru
 Následující fragment kódu ukazuje metodu `AppendToFile`, která slouží k připojení dat k souboru, který je už uložený v účtu Data Lake Store.
 
     // Append to file
@@ -258,8 +243,7 @@ Následující fragment kódu ukazuje metodu `AppendToFile`, která slouží k p
         }
     }
 
-## Stažení souboru
-<a id="download-a-file" class="xliff"></a>
+## <a name="download-a-file"></a>Stažení souboru
 Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k stažení souboru z účtu Data Lake Store.
 
     // Download file
@@ -268,8 +252,7 @@ Následující fragment kódu ukazuje metodu `DownloadFile`, která slouží k s
          _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
     }
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

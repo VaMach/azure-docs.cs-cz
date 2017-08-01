@@ -22,8 +22,7 @@ ms.lasthandoff: 05/15/2017
 
 
 ---
-# Překlad adres (NAT) pro ExpressRoute
-<a id="nat-for-expressroute" class="xliff"></a>
+# <a name="nat-for-expressroute"></a>Překlad adres (NAT) pro ExpressRoute
 
 Pokud se chcete připojit ke cloudovým službám Microsoftu pomocí služby ExpressRoute, budete muset nastavit a spravovat směrování. Někteří poskytovatelé připojení nabízejí nastavení a správu směrování jako spravovanou službu. Zeptejte se svého poskytovatele připojení, jestli tuto službu nabízí. Pokud ne, je nutné splnit následující požadavky. 
 
@@ -34,13 +33,11 @@ Přečtěte si článek [Okruhy a domény směrování](expressroute-circuit-pee
 > 
 > 
 
-## IP adresy sloužící pro partnerské vztahy
-<a id="ip-addresses-used-for-peerings" class="xliff"></a>
+## <a name="ip-addresses-used-for-peerings"></a>IP adresy sloužící pro partnerské vztahy
 
 Je nutné rezervovat několik bloků IP adres, abyste nakonfigurovali směrování mezi vaší sítí a směrovači MSEE (Microsoft Enterprise Edge). Tato část poskytuje seznam požadavků a popisuje pravidla týkající se získávání a použití těchto IP adres.
 
-### IP adresy sloužící pro soukromý partnerský vztah Azure
-<a id="ip-addresses-used-for-azure-private-peering" class="xliff"></a>
+### <a name="ip-addresses-used-for-azure-private-peering"></a>IP adresy sloužící pro soukromý partnerský vztah Azure
 
 Ke konfiguraci partnerských vztahů můžete použít buď soukromé IP adresy, nebo veřejné IP adresy. Rozsah adres použitý ke konfiguraci tras se nesmí překrývat s rozsahy adres použitými k vytvoření virtuálních sítí v Azure. 
 
@@ -52,8 +49,7 @@ Ke konfiguraci partnerských vztahů můžete použít buď soukromé IP adresy,
   * Pro každou z těchto podsítí /30 musíte ve směrovači použít první IP adresu podsítě /30. Microsoft použije druhou IP adresu podsítě /30 k nastavení relace protokolu BGP.
   * Musíte nastavit obě relace protokolu BGP, aby naše [smlouva SLA o dostupnosti](https://azure.microsoft.com/support/legal/sla/) byla platná.  
 
-#### Příklad soukromého partnerského vztahu
-<a id="example-for-private-peering" class="xliff"></a>
+#### <a name="example-for-private-peering"></a>Příklad soukromého partnerského vztahu
 
 Pokud k nastavení partnerského vztahu zvolíte a.b.c.d/29, rozdělí se do dvou podsítí /30. V následujícím příkladu se podíváme, jak se podsíť a.b.c.d/29 použije. 
 
@@ -64,8 +60,7 @@ Představte si případ, kdy k nastavení soukromého partnerského vztahu vyber
 * 192.168.100.128/30 se přiřadí pro link1, kde poskytovatel použije 192.168.100.129 a Microsoft použije 192.168.100.130.
 * 192.168.100.132/30 se přiřadí pro link2, kde poskytovatel použije 192.168.100.133 a Microsoft použije 192.168.100.134.
 
-### IP adresy sloužící pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu
-<a id="ip-addresses-used-for-azure-public-and-microsoft-peering" class="xliff"></a>
+### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>IP adresy sloužící pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu
 
 Pro nastavení relací protokolu BGP musíte použít veřejné IP adresy, které vlastníte. Microsoft musí být schopný ověřit vlastnictví IPv4 adres v registrech RIR a IRR. 
 
@@ -75,21 +70,17 @@ Pro nastavení relací protokolu BGP musíte použít veřejné IP adresy, kter�
   * Pro každou z těchto podsítí /30 musíte ve směrovači použít první IP adresu podsítě /30. Microsoft použije druhou IP adresu podsítě /30 k nastavení relace protokolu BGP.
   * Musíte nastavit obě relace protokolu BGP, aby naše [smlouva SLA o dostupnosti](https://azure.microsoft.com/support/legal/sla/) byla platná.
 
-## Požadavek veřejné IP adresy
-<a id="public-ip-address-requirement" class="xliff"></a>
+## <a name="public-ip-address-requirement"></a>Požadavek veřejné IP adresy
 
-### Soukromý partnerský vztah
-<a id="private-peering" class="xliff"></a>
+### <a name="private-peering"></a>Soukromý partnerský vztah
 
 Pro soukromý partnerský vztah si můžete zvolit použití veřejných nebo privátních IPv4 adres. Poskytujeme ucelenou izolaci provozu, takže v případě soukromého partnerského vztahu není možné překrývání adres s jinými zákazníky. Tyto adresy nejsou inzerované na internetu. 
 
-### Veřejný partnerský vztah
-<a id="public-peering" class="xliff"></a>
+### <a name="public-peering"></a>Veřejný partnerský vztah
 
 Cesta veřejného partnerského vztahu Azure vám umožňuje připojení ke všem službám, které jsou hostovány v Azure, přes jejich veřejné IP adresy. Sem patří služby uvedené v tématu [ExpressRoute – nejčastější dotazy](expressroute-faqs.md) a všechny služby hostované nezávislými dodavateli softwaru v Microsoft Azure. Připojení ke službám Microsoft Azure ve veřejném partnerském vztahu je vždycky iniciováno z vaší sítě do sítě Microsoftu. Pro přenosy směřující do služby MSN je nutné použít veřejné IP adresy.
 
-### Partnerský vztah Microsoftu
-<a id="microsoft-peering" class="xliff"></a>
+### <a name="microsoft-peering"></a>Partnerský vztah Microsoftu
 
 Cesta partnerského vztahu Microsoftu vám umožní připojit se ke cloudovým službám Microsoftu, které nejsou podporované prostřednictvím cesty veřejného partnerského vztahu Azure. Mezi tyto služby patří služby Office 365, jako je Exchange Online, SharePoint Online, Skype pro firmy nebo Dynamics 365. Microsoft v partnerském vztahu Microsoftu podporuje obousměrné připojení. Přenosy směřující do cloudových služeb Microsoftu musí před vstupem do služby MSN používat platné veřejné IPv4 adresy.
 
@@ -108,32 +99,27 @@ Ujistěte se, že vaše IP adresa a číslo AS jsou registrované na vás v jedn
 > 
 > 
 
-## Dynamická výměna tras
-<a id="dynamic-route-exchange" class="xliff"></a>
+## <a name="dynamic-route-exchange"></a>Dynamická výměna tras
 
 Výměna směrování bude přes protokol EBGP. Relace EBGP se vytvoří mezi směrovači MSEE a vašimi směrovači. Ověřování relací BGP není povinné. V případě potřeby lze nakonfigurovat hodnotu hash MD5. Informace o konfiguraci relací BGP najdete v tématu [Konfigurace směrování](expressroute-howto-routing-classic.md) a [Pracovní postupy zřizování okruhů a stavy okruhu](expressroute-workflows.md).
 
-## Čísla autonomního systému
-<a id="autonomous-system-numbers" class="xliff"></a>
+## <a name="autonomous-system-numbers"></a>Čísla autonomního systému
 
 Microsoft pro veřejný partnerský vztah Azure, soukromý partnerský vztah Azure a partnerský vztah Microsoftu použije AS 12076. Pro interní použití jsme vyhradili čísla ASN od 65515 do 65520. Jsou podporována 16bitová a 32bitová čísla AS.
 
 Nejsou žádné požadavky týkající se symetrie přenosu dat. Cesty vpřed a zpět můžou procházet různými dvojicemi směrovačů. Můžou být inzerovány identické trasy z obou stran přes víc dvojic okruhů, které vám patří. Metriky tras nemusejí být identické.
 
-## Agregace tras a omezení předpon
-<a id="route-aggregation-and-prefix-limits" class="xliff"></a>
+## <a name="route-aggregation-and-prefix-limits"></a>Agregace tras a omezení předpon
 
 Podporujeme až 4000 předpon, které jsou nám inzerované prostřednictvím soukromého partnerského vztahu Azure. To omezení může být zvýšeno až 10 000 předpon, pokud je povolen doplněk ExpressRoute Premium. Přijímáme až 200 předpon na každou relaci BGP pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
 
 Pokud počet předpon překročí toto omezení, relace BGP se ukončí. Budeme přijímat výchozí trasy jenom na propojeních soukromého partnerského vztahu. Poskytovatel musí odfiltrovat výchozí trasy a privátní IP adresy (RFC 1918) z cest pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu. 
 
-## Tranzitní směrování a směrování mezi oblastmi
-<a id="transit-routing-and-cross-region-routing" class="xliff"></a>
+## <a name="transit-routing-and-cross-region-routing"></a>Tranzitní směrování a směrování mezi oblastmi
 
 Službu ExpressRoute nejde nakonfigurovat jako tranzitní směrovače. Ohledně služeb tranzitního směrování se budete muset spoléhat na svého poskytovatele připojení.
 
-## Inzerování výchozích tras
-<a id="advertising-default-routes" class="xliff"></a>
+## <a name="advertising-default-routes"></a>Inzerování výchozích tras
 
 Výchozí trasy jsou povolené jenom na relacích soukromého partnerského vztahu Azure. V takovém případě bude směrovat veškerý provoz z přidružených virtuálních sítí do své sítě. Inzerování výchozích tras do soukromého partnerského vztahu povede k tomu, že internetové trasy z Azure budou blokovány. Musíte spoléhat na vaše podnikové hraniční servery, že pro služby hostované v Azure přesměrují provoz z internetu a do něj. 
 
@@ -147,8 +133,7 @@ Výchozí trasy jsou povolené jenom na relacích soukromého partnerského vzta
 > 
 > 
 
-## Podpora komunit protokolu BGP (Preview)
-<a id="support-for-bgp-communities-preview" class="xliff"></a>
+## <a name="support-for-bgp-communities-preview"></a>Podpora komunit protokolu BGP (Preview)
 
 Tato část obsahuje přehled použití komunit protokolu BGP se službou ExpressRoute. Microsoft bude inzerovat trasy v cestách veřejného partnerského vztahu a partnerského vztahu Microsoftu s trasami, které jsou označené odpovídajícími hodnotami komunity. Důvody tohoto postupu a podrobnosti o hodnotách komunity jsou popsané dál. Microsoft ale nebude ctít žádné hodnoty komunity přiřazené trasám inzerovaným Microsoftu.
 
@@ -216,8 +201,7 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 > 
 > 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 * Nakonfigurujte připojení ExpressRoute.
   

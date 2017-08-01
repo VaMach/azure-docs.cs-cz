@@ -22,10 +22,8 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 07/04/2017
 
 ---
-# Azure AD Connect v Microsoft Cloudu Německo – verze Public Preview
-<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
-## Úvod
-<a id="introduction" class="xliff"></a>
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect v Microsoft Cloudu Německo – verze Public Preview
+## <a name="introduction"></a>Úvod
 Azure AD Connect poskytuje synchronizaci mezi vaší místní službou Active Directory a službou Azure Active Directory.
 V současné době je nutné, aby mnoho scénářů v [Microsoft Cloudu Německo](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) prováděl operátor. Při používání Microsoft Cloudu Německo je třeba brát v úvahu následující:
 
@@ -39,12 +37,10 @@ V současné době je nutné, aby mnoho scénářů v [Microsoft Cloudu Německo
   * Azure AD Connect Health
   * Automatické aktualizace
  
-## Ke stažení
-<a id="download" class="xliff"></a>
+## <a name="download"></a>Ke stažení
 Službu Azure AD Connect lze stáhnout z okna Azure AD Connect v rámci portálu.  Pomocí pokynů níže vyhledejte okno Azure AD Connect.
 
-### Okno Azure AD Connect
-<a id="the-azure-ad-connect-blade" class="xliff"></a>
+### <a name="the-azure-ad-connect-blade"></a>Okno Azure AD Connect
 Po přihlášení na webu Azure Portal postupujte následovně:
 
 1. Přejděte do Procházet.
@@ -63,12 +59,10 @@ Následující tabulka popisuje funkce zobrazené v okně.
 | POSLEDNÍ SYNCHRONIZACE |Čas dokončení poslední úspěšné synchronizace. |
 | FEDEROVANÉ DOMÉNY |Zobrazuje počet aktuálně nakonfigurovaných federovaných domén. |
 
-## Instalace
-<a id="installation" class="xliff"></a>
+## <a name="installation"></a>Instalace
 Chcete-li nainstalovat službu Azure AD Connect, můžete využít dokumentaci, kterou najdete [tady](active-directory-aadconnect.md#install-azure-ad-connect).
 
-## Pokročilé funkce a další informace
-<a id="advanced-features-and-additional-information" class="xliff"></a>
+## <a name="advanced-features-and-additional-information"></a>Pokročilé funkce a další informace
 Hledáte-li další informace a doprovodné materiály k vlastním nastavením nebo pokročilým konfiguracím, začněte s tématem [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).  Tato stránka poskytuje informace a odkazy na další doprovodné materiály.
 
 

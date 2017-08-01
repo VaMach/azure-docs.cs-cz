@@ -22,8 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-# Přehled směrování na základě cest URL
-<a id="url-path-based-routing-overview" class="xliff"></a>
+# <a name="url-path-based-routing-overview"></a>Přehled směrování na základě cest URL
 
 Směrování na základě cesty URL umožňuje směrovat provoz do fondů back-end serveru na základě cest URL požadavku. 
 
@@ -35,8 +34,7 @@ V následujícím příkladu služba Application Gateway obsluhuje provoz pro co
 
 Požadavky na http://contoso.com/video* jsou směrovány na VideoFondServeru a požadavky na http://contoso.com/images* jsou směrovány na ObrazkyFondServeru. Pokud nevyhovuje žádný vzor cesty, vybere se VychoziFondServeru.
     
-## Konfigurační prvek UrlPathMap
-<a id="urlpathmap-configuration-element" class="xliff"></a>
+## <a name="urlpathmap-configuration-element"></a>Konfigurační prvek UrlPathMap
 
 Prvek UrlPathMap slouží k určení vzorů cest pro mapování fondů back-end serveru. Následující ukázka kódu je fragment prvku UrlPathMap ze souboru šablony.
 
@@ -74,8 +72,7 @@ Prvek UrlPathMap slouží k určení vzorů cest pro mapování fondů back-end 
 
 Více informací najdete v dokumentu [Šablona Resource Manageru používající směrování na základě adresy URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing).
 
-## Pravidlo PathBasedRouting
-<a id="pathbasedrouting-rule" class="xliff"></a>
+## <a name="pathbasedrouting-rule"></a>Pravidlo PathBasedRouting
 
 Pravidlo RequestRoutingRule typu PathBasedRouting slouží k vytvoření vazby mezi naslouchacím procesem a UrlPathMap. Všechny požadavky přijaté tímto naslouchacím procesem jsou směrovány na základě zásad zadaných v UrlPathMap.
 Fragment pravidla PathBasedRouting:
@@ -100,8 +97,7 @@ Fragment pravidla PathBasedRouting:
 ]
 ```
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Po získání informací o směrování obsahu na základě adresy URL přejděte k tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-portal.md) a vytvořte službu Application Gateway s pravidly směrování adres URL.
 

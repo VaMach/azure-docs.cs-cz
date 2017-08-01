@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template" class="xliff"></a>
-
-# Vytvoření oboru názvů Event Hubs s centrem událostí a povolení funkce Capture pomocí šablony Azure Resource Manageru
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Vytvoření oboru názvů Event Hubs s centrem událostí a povolení funkce Capture pomocí šablony Azure Resource Manageru
 Tento článek ukazuje, jak použít šablonu Azure Resource Manageru, která vytvoří obor názvů Event Hubs s jednou instancí centra událostí, ve kterém také povolí funkci Capture. Tento článek popisuje, jak definovat, které prostředky se nasadí, a jak definovat parametry zadávané při spuštění nasazení. Tuto šablonu můžete použít pro vlastní nasazení nebo ji upravit, aby splňovala vaše požadavky.
 
 Další informace o vytváření šablon najdete v tématu [Tvorba šablon Azure Resource Manageru][Authoring Azure Resource Manager templates].
@@ -38,9 +36,7 @@ Další informace o postupech a formátech pro zásady vytváření názvů pros
 > 
 > 
 
-<a id="what-will-you-deploy" class="xliff"></a>
-
-## Co budete nasazovat?
+## <a name="what-will-you-deploy"></a>Co budete nasazovat?
 Pomocí této šablony nasadíte obor názvů Event Hubs s centrem událostí a povolíte funkci [Event Hubs Capture](event-hubs-capture-overview.md).
 
 Služba [Event Hubs](event-hubs-what-is-event-hubs.md) zpracovává události a zajišťuje příjem příchozích dat událostí a telemetrie do Azure v masivním měřítku, s nízkou latencí a vysokou spolehlivostí. Funkce Event Hubs Capture umožňuje automatické doručování streamovaných dat ve službě Event Hubs do služby Azure Blob Storage podle vašeho výběru v rámci zvoleného časového nebo velikostního intervalu.
@@ -49,16 +45,12 @@ Pokud chcete nasazení spustit automaticky, klikněte na následující tlačít
 
 [![Nasazení do Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-<a id="parameters" class="xliff"></a>
-
-## Parametry
+## <a name="parameters"></a>Parametry
 Pomocí Azure Resource Manageru definujete parametry pro hodnoty, které chcete zadat při nasazení šablony. Šablona obsahuje část `Parameters`, která obsahuje všechny hodnoty parametrů. Parametr byste měli definovat pro hodnoty, které se mění v závislosti na nasazovaném projektu nebo prostředí, do kterého nasazujete. Nedefinujte parametry pro hodnoty, které jsou vždy stejné. Každá hodnota parametru se v šabloně použije k definování nasazovaných prostředků.
 
 Šablona definuje následující parametry.
 
-<a id="eventhubnamespacename" class="xliff"></a>
-
-### eventHubNamespaceName
+### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 Název oboru názvů Event Hubs, který se má vytvořit.
 
 ```json
@@ -70,9 +62,7 @@ Název oboru názvů Event Hubs, který se má vytvořit.
 }
 ```
 
-<a id="eventhubname" class="xliff"></a>
-
-### eventHubName
+### <a name="eventhubname"></a>eventHubName
 Název centra událostí vytvořeného v oboru názvů Event Hubs.
 
 ```json
@@ -84,9 +74,7 @@ Název centra událostí vytvořeného v oboru názvů Event Hubs.
 }
 ```
 
-<a id="messageretentionindays" class="xliff"></a>
-
-### messageRetentionInDays
+### <a name="messageretentionindays"></a>messageRetentionInDays
 Počet dní, po které se zprávy budou uchovávat v centru událostí. 
 
 ```json
@@ -101,9 +89,7 @@ Počet dní, po které se zprávy budou uchovávat v centru událostí.
  }
 ```
 
-<a id="partitioncount" class="xliff"></a>
-
-### partitionCount
+### <a name="partitioncount"></a>partitionCount
 Počet oddílů, které se mají vytvořit v centru událostí.
 
 ```json
@@ -118,9 +104,7 @@ Počet oddílů, které se mají vytvořit v centru událostí.
  }
 ```
 
-<a id="captureenabled" class="xliff"></a>
-
-### captureEnabled
+### <a name="captureenabled"></a>captureEnabled
 Povolení funkce Capture v centru událostí.
 
 ```json
@@ -135,9 +119,7 @@ Povolení funkce Capture v centru událostí.
     }
  }
 ```
-<a id="captureencodingformat" class="xliff"></a>
-
-### captureEncodingFormat
+### <a name="captureencodingformat"></a>captureEncodingFormat
 Formát kódování, který zadáte pro serializaci dat událostí.
 
 ```json
@@ -152,9 +134,7 @@ Formát kódování, který zadáte pro serializaci dat událostí.
 }
 ```
 
-<a id="capturetime" class="xliff"></a>
-
-### captureTime
+### <a name="capturetime"></a>captureTime
 Časový interval, ve kterém funkce Event Hubs Capture začne zachytávat data do služby Azure Blob Storage.
 
 ```json
@@ -169,9 +149,7 @@ Formát kódování, který zadáte pro serializaci dat událostí.
 }
 ```
 
-<a id="capturesize" class="xliff"></a>
-
-### captureSize
+### <a name="capturesize"></a>captureSize
 Velikostní interval, ve kterém funkce Capture začne zachytávat data do služby Azure Blob Storage.
 
 ```json
@@ -186,9 +164,7 @@ Velikostní interval, ve kterém funkce Capture začne zachytávat data do služ
 }
 ```
 
-<a id="destinationstorageaccountresourceid" class="xliff"></a>
-
-### destinationStorageAccountResourceId
+### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
 Funkce Capture pro povolení zachytávání do požadovaného účtu Storage vyžaduje ID prostředku účtu Azure Storage.
 
 ```json
@@ -200,9 +176,7 @@ Funkce Capture pro povolení zachytávání do požadovaného účtu Storage vy�
  }
 ```
 
-<a id="blobcontainername" class="xliff"></a>
-
-### blobContainerName
+### <a name="blobcontainername"></a>blobContainerName
 Kontejner objektů blob, do kterého se mají zachytávat data událostí.
 
 ```json
@@ -215,9 +189,7 @@ Kontejner objektů blob, do kterého se mají zachytávat data událostí.
 ```
 
 
-<a id="apiversion" class="xliff"></a>
-
-### apiVersion
+### <a name="apiversion"></a>apiVersion
 Verze rozhraní API šablony.
 
 ```json
@@ -230,9 +202,7 @@ Verze rozhraní API šablony.
  }
 ```
 
-<a id="resources-to-deploy" class="xliff"></a>
-
-## Prostředky k nasazení
+## <a name="resources-to-deploy"></a>Prostředky k nasazení
 Vytvoří obor názvů typu **EventHubs** s jedním centrem událostí a povolí funkci Capture.
 
 ```json
@@ -280,29 +250,21 @@ Vytvoří obor názvů typu **EventHubs** s jedním centrem událostí a povolí
    ]
 ```
 
-<a id="commands-to-run-deployment" class="xliff"></a>
-
-## Příkazy pro spuštění nasazení
+## <a name="commands-to-run-deployment"></a>Příkazy pro spuštění nasazení
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-<a id="powershell" class="xliff"></a>
-
-## PowerShell
+## <a name="powershell"></a>PowerShell
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-<a id="azure-cli" class="xliff"></a>
-
-## Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 ```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Funkci Event Hubs Capture můžete konfigurovat také prostřednictvím webu [Azure Portal](https://portal.azure.com). Další informace najdete v tématu [Povolení funkce Event Hubs Capture pomocí webu Azure Portal](event-hubs-capture-enable-through-portal.md).
 

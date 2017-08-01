@@ -22,12 +22,10 @@ ms.lasthandoff: 05/18/2017
 
 
 ---
-# Architektura služby Service Bus
-<a id="service-bus-architecture" class="xliff"></a>
+# <a name="service-bus-architecture"></a>Architektura služby Service Bus
 Tento článek popisuje architekturu zpracování zpráv služby Azure Service Bus.
 
-## Jednotky škálování služby Service Bus
-<a id="service-bus-scale-units" class="xliff"></a>
+## <a name="service-bus-scale-units"></a>Jednotky škálování služby Service Bus
 Service Bus se organizuje podle *jednotek škálování*. Jednotka škálování je jednotka nasazení a obsahuje všechny komponenty potřebné k tomu, aby služba běžela. Každá oblast nasadí jednu nebo víc jednotek škálování služby Service Bus.
 
 K jednotce škálování je mapovaný obor názvů služby Service Bus. Jednotka škálování zpracovává všechny typy entit služby Service Bus: předání a entity zprostředkovaného zasílání zpráv (fronty, témata, odběry). Jednotka škálování služby Service Bus má tyto součásti:
@@ -37,26 +35,22 @@ K jednotce škálování je mapovaný obor názvů služby Service Bus. Jednotka
 * **Jedno úložiště brány.** Úložiště brány uchovává data pro každou entitu definovanou v této jednotce škálování. Úložiště brány se implementuje nad databázi SQL Azure.
 * **Několik úložišť pro přenos zpráv.** Úložiště pro přenos zpráv uchovává zprávy všech front, témat a odběrů definovaných v této jednotce škálování. Taky obsahuje všechna data odběru. Pokud není zapnutá možnost [dělení entit zasílání zpráv na oddíly](service-bus-partitioning.md), mapuje se fronta nebo téma do jednoho úložiště pro přenos zpráv. Odběry jsou uložené ve stejném úložišti pro přenos zpráv jako jejich nadřazené téma. Kromě [Zasílání zpráv na úrovni Premium](service-bus-premium-messaging.md) služby Service Bus se úložiště pro zasílání zpráv implementují nad databáze Azure SQL.
 
-## Kontejnery
-<a id="containers" class="xliff"></a>
+## <a name="containers"></a>Kontejnery
 Každé entitě přenosu zpráv je přiřazený specifický kontejner. Kontejner je logická konstrukce, která používá právě jedno úložiště pro přenos zpráv k uložení všech relevantních dat pro tento kontejner. Každý kontejner je přiřazený ke zprostředkovatelskému uzlu přenosu zpráv. Typicky je víc kontejnerů než zprostředkovatelských uzlů přenosu zpráv. Každý zprostředkovatelský uzel služeb načte několik kontejnerů. Distribuce kontejnerů do zprostředkovatelského uzlu přenosu zpráv je organizovaná tak, aby všechny zprostředkovatelské uzly přenosu zpráv byly rovnoměrně zatížené. Pokud se vzorec zatížení změní (například jeden z kontejnerů začne být velmi vytížený) nebo pokud je jeden zprostředkovatelský uzel přenosu zpráv dočasně nedostupný, kontejnery se předistribuují mezi zbývající zprostředkovatelské uzly přenosu zpráv.
 
-## Zpracování příchozích událostí přenosu zpráv
-<a id="processing-of-incoming-messaging-requests" class="xliff"></a>
+## <a name="processing-of-incoming-messaging-requests"></a>Zpracování příchozích událostí přenosu zpráv
 Když klient odešle požadavek do služby Service Bus, nástroj pro vyrovnávání zatížení Azure ho přesměruje do jakéhokoli z dostupných zprostředkovatelských uzlů zasílání zpráv. Uzel brány ověří požadavek. Pokud se požadavek týká entity přenosu zpráv (fronty, témata, odběru), uzel brány entitu vyhledá v úložišti brány a zjistí, ve kterém úložišti pro přenos zpráv se entita nachází. Potom vyhledá, který zprostředkovatelský uzel přenosu zpráv se aktuálně stará o tento kontejner, a odešle žádost do tohoto zprostředkovatelského uzlu přenosu zpráv. Zprostředkovatelský uzel přenosu zpráv zpracuje požadavek a aktualizuje stav entity v úložišti kontejneru. Zprostředkovatelský uzel přenosu zpráv pak odešle odpověď zpět do uzlu brány, která odešle odpovídající odpověď zpět klientovi, který vyslal původní požadavek.
 
 ![Zpracování Příchozích událostí přenosu zpráv](./media/service-bus-architecture/ic690644.png)
 
-## Zpracování příchozích událostí požadavků na předání
-<a id="processing-of-incoming-relay-requests" class="xliff"></a>
+## <a name="processing-of-incoming-relay-requests"></a>Zpracování příchozích událostí požadavků na předání
 Když klient odešle požadavek do služby [Azure Relay](/azure/service-bus-relay/), nástroj pro vyrovnávání zatížení Azure ho přesměruje do některého z uzlů brány. Pokud se jedná o požadavek na poslech, uzel brány vytvoří nové propojení. Pokud se jedná o požadavek na připojení ke konkrétnímu propojení, uzel brány předá požadavek na spojení uzlu brány, který vlastní požadované propojení. Uzel brány, který vlastní požadované propojení, pošle čekajícímu klientovi požadavek na setkání a pokyn, aby klient vytvořil dočasný kanál pro uzel brány, který obdržel požadavek na připojení.
 
 Když se vytvoří předávací spojení, klienti si můžou vyměňovat zprávy přes uzel brány, který se používá pro setkání.
 
 ![Zpracování příchozích událostí požadavků na předání WCF](./media/service-bus-architecture/ic690645.png)
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Teď, když znáte přehled architektury služby Service Bus, navštivte následující odkazy, abyste získali další informace:
 
 * [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)

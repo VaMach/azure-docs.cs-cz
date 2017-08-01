@@ -23,8 +23,7 @@ ms.lasthandoff: 05/18/2017
 
 ---
 
-# Začínáme s DNS Azure pomocí webu Azure Portal
-<a id="get-started-with-azure-dns-using-the-azure-portal" class="xliff"></a>
+# <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Začínáme s DNS Azure pomocí webu Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-portal.md)
@@ -36,8 +35,7 @@ Tento článek vás provede kroky k vytvoření první zóny a záznamu DNS pomo
 
 K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud chcete začít hostovat svou doménu v DNS Azure, musíte vytvořit zónu DNS pro daný název domény. Všechny záznamy DNS pro vaši doménu se pak vytvoří v této zóně DNS. Nakonec, pokud chcete zónu DNS publikovat na internetu, bude potřeba nakonfigurovat pro doménu názvové servery. Každý z těchto kroků je popsán v následujících krocích.
 
-## Vytvoření zóny DNS
-<a id="create-a-dns-zone" class="xliff"></a>
+## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
 1. Přihlášení k webu Azure Portal
 2. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete okno Vytvořit zónu DNS.
@@ -57,8 +55,7 @@ K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud c
 > [!NOTE]
 > Skupina prostředků označuje umístění skupiny prostředků a nemá žádný vliv na zónu DNS. Umístění zóny DNS je vždy globální a není zobrazeno.
 
-## Vytvoření záznamu DNS
-<a id="create-a-dns-record" class="xliff"></a>
+## <a name="create-a-dns-record"></a>Vytvoření záznamu DNS
 
 Následující příklad vás provede procesem vytvoření nového záznamu A. Informace o dalších typech záznamů a úpravě existujících záznamů najdete v tématu [Správa záznamů a sad záznamů DNS pomocí webu Azure Portal](dns-operations-recordsets-portal.md). 
 
@@ -76,16 +73,14 @@ Následující příklad vás provede procesem vytvoření nového záznamu A. I
    |**Jednotka hodnoty TTL**|Hodiny|Měřené jednotky času pro hodnotu TTL.|
    |**IP adresa**|ipAddressValue| Tato hodnota je IP adresa, kterou záznam DNS překládá.|
 
-## Zobrazení záznamů
-<a id="view-records" class="xliff"></a>
+## <a name="view-records"></a>Zobrazení záznamů
 
 V dolní části okna zóny DNS se zobrazí záznamy pro zónu DNS. Měli byste vidět výchozí záznamy DNS a SOA, které se vytvoří v každé zóně, a nové záznamy, které jste vytvořili.
 
 ![zóna](./media/dns-getstarted-portal/viewzone500.png)
 
 
-## Aktualizace názvových serverů
-<a id="update-name-servers" class="xliff"></a>
+## <a name="update-name-servers"></a>Aktualizace názvových serverů
 
 Jakmile budete spokojeni se správným nastavením zóny a záznamů DNS, bude potřeba nakonfigurovat váš název domény tak, aby používal názvové servery DNS Azure. Tím umožníte ostatním uživatelům na internetu najít vaše záznamy DNS.
 
@@ -95,8 +90,7 @@ Názvové servery vaší zóny můžete zobrazit na webu Azure Portal:
 
 Tyto názvové servery by měly být nakonfigurované u registrátora názvu domény (u kterého jste zakoupili název domény). Registrátor nabízí možnost nastavit názvové servery pro doménu. Další informace najdete v tématu [Delegování domény do DNS Azure](dns-domain-delegation.md).
 
-## Odstranění všech prostředků
-<a id="delete-all-resources" class="xliff"></a>
+## <a name="delete-all-resources"></a>Odstranění všech prostředků
 
 Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující kroky:
 
@@ -105,8 +99,7 @@ Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku
 1. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Klikněte na **Odstranit**, jako název skupiny prostředků zadejte *MyResourceGroup*, a pak klikněte na **Odstranit**. Odstraněním skupiny prostředků se odstraní všechny prostředky v rámci dané skupiny prostředků. Proto nikdy nezapomeňte před odstraněním skupiny prostředků zkontrolovat její obsah. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Další informace o DNS Azure najdete v tématu [Přehled DNS Azure](dns-overview.md).
 

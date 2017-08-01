@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="connectors-list" class="xliff"></a>
-
-# Seznam konektorů
+# <a name="connectors-list"></a>Seznam konektorů
 > [!TIP]
 > [Úplný seznam A–Z](#az) (v tomto tématu) obsahuje seznam všech dostupných konektorů, které můžete použít ve vašich aplikacích Logic Apps. [Podrobnosti o konektoru](/connectors/) uvádějí všechny aktivační události a akce definované ve swaggeru a také všechny limity pro jednotlivé konektory.
 
@@ -41,9 +39,7 @@ Konektory jsou nedílnou součástí vytváření aplikací logiky. Pomocí těc
 
 Další informace o poplatcích najdete v tématech [Ceny Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) a [Cenový model Logic Apps](../logic-apps/logic-apps-pricing.md). 
 
-<a id="popular-connectors" class="xliff"></a>
-
-## Oblíbené konektory
+## <a name="popular-connectors"></a>Oblíbené konektory
 Pomocí těchto konektorů úspěšně zpracovávají data a informace tisíce aplikací s miliony spuštění. Následující tabulka uvádí nejoblíbenější konektory našich uživatelů:
 
 | |  |  |  |
@@ -56,9 +52,7 @@ Pomocí těchto konektorů úspěšně zpracovávají data a informace tisíce a
 |  [![Ikona rozhraní API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Pokud SharePoint k ničemu nepoužíváte a mohli byste využít automatizaci, měli byste se podívat na tento konektor. Můžete ho použít s místní službou SharePoint nebo SharePoint Online. | [![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Jeden z nejpoužívanějších konektorů. Dokáže se připojit k místnímu SQL Serveru a ke službě Azure SQL Database. | 
 | [![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc] | Jednoduše se přihlaste pomocí účtu Twitteru a následně spouštějte pracovní postup, když se publikuje nový tweet. Pak tyto tweety uložte do databáze SQL nebo seznamu služby SharePoint. | | | 
 
-<a id="integration-account-connectors" class="xliff"></a>
-
-## Konektory účtu pro integraci 
+## <a name="integration-account-connectors"></a>Konektory účtu pro integraci 
 
 Enterprise Integration Pack (EIP) obsahuje konektory, které jsou dobře známé komunitě BizTalk Serveru. Po zakoupení [účtu pro integraci](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) obdržíte také následující konektory: 
 
@@ -68,9 +62,7 @@ Enterprise Integration Pack (EIP) obsahuje konektory, které jsou dobře známé
 [![Ikona rozhraní API][flatfileicon]<br/>**Kódování</br> plochého souboru**][flatfiledoc] | [![Ikona rozhraní API][flatfiledecodeicon]<br/>**Dekódování</br> plochého souboru**][flatfiledecodedoc] | [![Ikona rozhraní API][integrationaccounticon]<br/>**Účet<br/>pro integraci**][integrationaccountdoc] | [![Ikona rozhraní API][xmltransformicon]<br/>**Transformace<br/>XML**][xmltransformdoc] |
 | [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> X12**][x12decode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br> X12**][x12encode] | [![Ikona rozhraní API][xmlvalidateicon]<br/>**XML<br/>validace**][xmlvalidatedoc] | |
 
-<a id="enterprise-connectors" class="xliff"></a>
-
-## Podnikové konektory
+## <a name="enterprise-connectors"></a>Podnikové konektory
 
 Připojte s podnikovým aplikacím v rámci vašich aplikací logiky.
 
@@ -95,9 +87,7 @@ Připojte s podnikovým aplikacím v rámci vašich aplikací logiky.
 > [!TIP]
 > Pokud chcete začít s Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). Ihned si můžete vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 
-<a id="connectors-as-triggers-and-actions" class="xliff"></a>
-
-## Konektory jako triggery a akce
+## <a name="connectors-as-triggers-and-actions"></a>Konektory jako triggery a akce
 
 **Trigger** spouští instanci aplikace logiky. Některé konektory poskytují triggery, které vaší aplikaci odesílají upozornění na konkrétní události. Konektor FTP má například trigger `OnUpdatedFile`, který spustí vaši aplikaci při aktualizaci souboru. 
 
@@ -117,9 +107,7 @@ Konektory také poskytují **akce**, které můžete použít ve vašem pracovn�
 > Další podrobnosti o triggerech a akcích najdete v tématu [Přehled konektorů](connectors-overview.md). 
 
 
-<a id="message-manipulation-actions" class="xliff"></a>
-
-## Akce pro manipulaci se zprávami
+## <a name="message-manipulation-actions"></a>Akce pro manipulaci se zprávami
 
 Aplikace logiky zahrnují integrované akce, které můžou měnit datové části nebo s nimi manipulovat. Integrovaný konektor **Operace s daty** obsahuje následující akce: 
 
@@ -132,17 +120,13 @@ Aplikace logiky zahrnují integrované akce, které můžou měnit datové čás
 | **Parsování formátu JSON** | Pomocí parsování získá hodnoty z objektu JSON a zpřístupní je v návrháři. Například pokud vaše funkce Azure vrací datovou část JSON, můžete ji parsovat, abyste později v dalším kroku měli přístup k vlastnostem JSON. Tato akce při spuštění také ověří, že formát JSON odpovídá zadanému schématu. | 
 | **Výběr** | Vybere určité vlastnosti pole pro další zpracování. Pokud provedete výpis záznamů v SQL a vrátí se 15 sloupců, můžete pro další zpracování vybrat jenom některé z těchto sloupců. Výstupem je pole, které obsahuje pouze vlastnosti, které vyberete. |
 
-<a id="custom-connectors-and-azure-certification" class="xliff"></a>
-
-## Vlastní konektory a certifikace Azure 
+## <a name="custom-connectors-and-azure-certification"></a>Vlastní konektory a certifikace Azure 
 
 Chcete-li volat rozhraní API, která spouští vlastní kód nebo nejsou k dispozici jako konektory, můžete rozšířit platformu Logic Apps [vytvořením funkcí API Apps založených na REST jako vlastních konektorů](../logic-apps/logic-apps-create-api-app.md). 
 
 Pokud chcete, aby byly vaše vlastní funkce API Apps veřejné a k dispozici pro použití v Azure, odešlete své kandidáty do [programu Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-<a id="get-help" class="xliff"></a>
-
-## Podpora
+## <a name="get-help"></a>Podpora
 
 Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatelů Azure Logic Apps můžete ve [fóru Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
@@ -150,9 +134,7 @@ Pokud chcete pomoci při vylepšování Azure Logic Apps a konektorů, hlasujte 
 
 Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považuje za důležité? Pokud ano, rozšiřte naše stávající témata nebo přidejte nové a pomozte nám. Naše dokumentace je typu open source a je hostovaná v GitHubu. Začněte v našem [úložišti GitHub](https://github.com/Microsoft/azure-docs). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Vytvoření první aplikace logiky](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Vytvoření vlastních rozhraní API pro aplikace logiky](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorování aplikací logiky](../logic-apps/logic-apps-monitor-your-logic-apps.md)

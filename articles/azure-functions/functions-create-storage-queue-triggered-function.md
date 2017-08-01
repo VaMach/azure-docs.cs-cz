@@ -23,15 +23,13 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/01/2017
 
 ---
-# Vytvoření funkce aktivované službou Azure Queue Storage
-<a id="create-a-function-triggered-by-azure-queue-storage" class="xliff"></a>
+# <a name="create-a-function-triggered-by-azure-queue-storage"></a>Vytvoření funkce aktivované službou Azure Queue Storage
 
 Zjistíte, jak vytvořit funkci, která se aktivuje při odeslání zpráv do fronty služby Azure Storage.
 
 ![Zobrazte si zprávy v protokolech.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 - Stáhnout a nainstalovat [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
@@ -39,8 +37,7 @@ Zjistíte, jak vytvořit funkci, která se aktivuje při odeslání zpráv do fr
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## Vytvoření aplikace Azure Function App
-<a id="create-an-azure-function-app" class="xliff"></a>
+## <a name="create-an-azure-function-app"></a>Vytvoření aplikace Azure Function App
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -50,8 +47,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 <a name="create-function"></a>
 
-## Vytvoření funkce aktivované frontou
-<a id="create-a-queue-triggered-function" class="xliff"></a>
+## <a name="create-a-queue-triggered-function"></a>Vytvoření funkce aktivované frontou
 
 1. Rozbalte aplikaci Function App a klikněte na tlačítko **+** vedle položky **Funkce**. Pokud jde o první funkci ve vaší aplikaci Function App, vyberte možnost **Vlastní funkce**. Zobrazí se kompletní sada šablon funkcí.
 
@@ -71,8 +67,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte frontu úložiště **myqueue-items**.
 
-## Vytvoření fronty
-<a id="create-the-queue" class="xliff"></a>
+## <a name="create-the-queue"></a>Vytvoření fronty
 
 1. Ve funkci klikněte na **Integrace**, rozbalte položku **Dokumentace**a zkopírujte údaje **Název účtu** a **Klíč účtu**. Tyto přihlašovací údaje použijte k připojení k účtu úložiště. Pokud jste se už ke svému účtu úložiště připojili, přejděte ke kroku 4.
 
@@ -92,8 +87,7 @@ Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte frontu 
 
 Teď máte frontu úložiště a můžete funkci otestovat přidáním zprávy do fronty.
 
-## Testování funkce
-<a id="test-the-function" class="xliff"></a>
+## <a name="test-the-function"></a>Testování funkce
 
 1. Zpátky na webu Azure Portal přejděte na svoji funkci, ve spodní části stránky rozbalte **Protokoly** a ujistěte se, že není pozastavené streamování protokolů.
 
@@ -109,13 +103,11 @@ Teď máte frontu úložiště a můžete funkci otestovat přidáním zprávy d
 
 1. Zpátky v Storage Exploreru klikněte na **Refresh** (Aktualizovat) a zkontrolujte, jestli proběhlo zpracování zprávy a jestli zpráva zmizela z fronty.
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Vytvořili jste funkci, která se spustí při přidání zprávy do fronty úložiště.
 

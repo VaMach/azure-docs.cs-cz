@@ -23,8 +23,7 @@ ms.lasthandoff: 05/20/2017
 
 ---
 
-# Udělení přístupu k datům prostředí Time Series Insights pomocí webu Azure Portal
-<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
+# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Udělení přístupu k datům prostředí Time Series Insights pomocí webu Azure Portal
 
 V prostředích Time Series Insights jsou dva nezávislé typy zásad přístupu:
 
@@ -41,8 +40,7 @@ Zásady přístupu k datům udělují oprávnění k vydávání dotazů na data
 
 Tyto dva typy zásad umožňují jasné oddělení přístupu ke správě prostředí od přístupu k datům v prostředí. Například je možné nastavit prostředí tak, aby vlastník nebo tvůrce prostředí neměl přístup k datům. Stejně tak je možné neudělit přístup ke konfiguraci prostředí uživatelům a službám s oprávněním číst data z prostředí.
 
-## Udělení přístupu k datům
-<a id="grant-data-access" class="xliff"></a>
+## <a name="grant-data-access"></a>Udělení přístupu k datům
 Následující postup ukazuje, jak udělit přístup k datům objektu zabezpečení uživatele:
 
 1.    Přihlaste se k webu [Azure Portal](https://portal.azure.com).
@@ -72,8 +70,7 @@ Následující postup ukazuje, jak udělit přístup k datům objektu zabezpeče
 
   ![Správa zdroje Time Series Insights – výsledky](media/data-access/getstarted-grant-data-access5.png)
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 * [Vytvoření zdroje událostí](time-series-insights-add-event-source.md)
 * [Odesílání událostí](time-series-insights-send-events.md) do zdroje událostí

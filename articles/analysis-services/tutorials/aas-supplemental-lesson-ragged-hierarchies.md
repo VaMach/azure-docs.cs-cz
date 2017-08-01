@@ -22,8 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-# Doplňková lekce – Nepravidelné hierarchie
-<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
+# <a name="supplemental-lesson---ragged-hierarchies"></a>Doplňková lekce – Nepravidelné hierarchie
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,17 +34,14 @@ Tabulkové modely na úrovni kompatibility 1400 mají pro hierarchie další vla
   
 Odhadovaný čas dokončení této lekce: **20 minut**  
   
-## Požadavky
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma doplňkové lekce je součástí kurzu tabulkového modelování. Než začnete provádět úkoly v této doplňkové lekci, měli byste mít dokončené všechny předchozí lekce nebo mít dokončený ukázkový projekt modelu Adventure Works Internet Sales. 
 
 Pokud jste projekt AW Internet Sales vytvořili v rámci kurzu, neobsahuje model zatím žádná data nebo hierarchie, které by byly nepravidelné. Abyste mohli tuto doplňkovou lekci dokončit, musíte nejdřív problém vytvořit tak, že přidáte nějaké další tabulky, vytvoříte relace, počítané sloupce, míru a novou hierarchii Organization. Tato část zabere přibližně 15 minut. Řešení pak vytvoříte za pár minut.  
 
-## Přidání tabulek a objektů
-<a id="add-tables-and-objects" class="xliff"></a>
+## <a name="add-tables-and-objects"></a>Přidání tabulek a objektů
   
-### Postup přidání nových tabulek do modelu
-<a id="to-add-new-tables-to-your-model" class="xliff"></a>
+### <a name="to-add-new-tables-to-your-model"></a>Postup přidání nových tabulek do modelu
   
 1.  V Průzkumníku tabulkových modelů rozbalte položku **Zdroje Dat**, potom klikněte pravým tlačítkem myši na vaše připojení > **Importovat nové tabulky**.
   
@@ -116,8 +112,7 @@ Pokud jste projekt AW Internet Sales vytvořili v rámci kurzu, neobsahuje model
 
     V kontingenční tabulce můžete vidět, že hierarchie zobrazuje nepravidelné řádky. Je tam množství řádků, které zobrazují prázdné členy.
 
-## Postup opravy nepravidelné hierarchie nastavením vlastnosti Skrýt členy
-<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Postup opravy nepravidelné hierarchie nastavením vlastnosti Skrýt členy
 
 1.  V **Průzkumníku tabulkových modelů** rozbalte **Tabulky** > **DimEmployee** > **Hierarchie** > **Organization**.
 
@@ -131,8 +126,7 @@ Pokud jste projekt AW Internet Sales vytvořili v rámci kurzu, neobsahuje model
 
     Teď to vypadá mnohem líp!
 
-## Viz také
-<a id="see-also" class="xliff"></a>   
+## <a name="see-also"></a>Viz také   
 [Lekce 9: Vytvoření hierarchií](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Doplňková lekce – Dynamické zabezpečení](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Doplňková lekce – Řádky podrobností](../tutorials/aas-supplemental-lesson-detail-rows.md)  

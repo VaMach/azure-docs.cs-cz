@@ -21,8 +21,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/21/2017
 
 ---
-# Azure Active Directory pro vývojáře
-<a id="azure-active-directory-for-developers" class="xliff"></a>
+# <a name="azure-active-directory-for-developers"></a>Azure Active Directory pro vývojáře
 Azure Active Directory je cloudová služba identit, která vývojářům umožňuje bezpečně přihlásit jakéhokoli uživatele s pracovním nebo školním účtem, který zajišťuje Microsoft.  Dokumentace, kterou tady najdete, vám ukáže, jak do vaší aplikace přidat podporu Azure AD s použitím standardních oborových ověřovacích protokolů OAuth a OpenID Connect.
 
 | | |
@@ -30,8 +29,7 @@ Azure Active Directory je cloudová služba identit, která vývojářům umož�
 |[Základy ověřování](active-directory-authentication-scenarios.md) | Úvod k ověřování pomocí Azure AD |
 |[Typy aplikací](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Přehled scénářů ověřování, které podporuje Azure AD |                                
                                                                               
-## Začínáme
-<a id="get-started" class="xliff"></a>
+## <a name="get-started"></a>Začínáme
 Tato praktická nastavení vás provedou použitím našich knihoven ověřování k přihlášení uživatelů Azure Active Directory.
 
 |  |  |  |  |
@@ -42,8 +40,7 @@ Tato praktická nastavení vás provedou použitím našich knihoven ověřován
 | <center>![Webová rozhraní API](./media/active-directory-developers-guide/Web_API.png)<br />Webová rozhraní API</center> | [Přehled](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[NodeJS](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
 | <center>![Služba-služba](./media/active-directory-developers-guide/Service_App.png)<br />Služba-služba</center> | [Přehled](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Přihlašovací údaje pro klienta OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
 
-## Průvodci
-<a id="guides" class="xliff"></a>
+## <a name="guides"></a>Průvodci
 Tyto články obsahují informace o provádění běžných úloh s Azure Active Directory.
 
 |                                                                           |  |
@@ -53,8 +50,7 @@ Tyto články obsahují informace o provádění běžných úloh s Azure Active
 |[OAuth a OpenID Connect](active-directory-protocols-openid-connect-code.md)| Postup přihlášení uživatelů a volání webových rozhraní API pomocí našich moderních ověřovacích protokolů |
 |[Další průvodci...](active-directory-developers-guide-index.md#guides)        |     |
 
-## Referenční informace
-<a id="reference" class="xliff"></a>
+## <a name="reference"></a>Referenční informace
 Tyto články poskytují podrobné informace o rozhraních API, zprávách protokolů a termínech používaných v Azure Active Directory.
 
 |                                                                                   | |
@@ -64,8 +60,7 @@ Tyto články poskytují podrobné informace o rozhraních API, zprávách proto
 | [Glosář](active-directory-dev-glossary.md)                                      | Terminologie a definice slov, která se používají v této dokumentaci |
 | [Další referenční materiály...](active-directory-developers-guide-index.md#reference)|     |
 
-## Nápověda a podpora
-<a id="help--support" class="xliff"></a>
+## <a name="help--support"></a>Nápověda a podpora
 Na těchto místech získáte nejlepší pomoc s vývojem v Azure Active Directory.
 
 |  |  

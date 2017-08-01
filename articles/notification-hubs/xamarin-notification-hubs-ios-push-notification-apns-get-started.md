@@ -23,12 +23,10 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# Nabízená oznámení iOS s centry oznámení pro aplikace Xamarin
-<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
+# <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>Nabízená oznámení iOS s centry oznámení pro aplikace Xamarin
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Přehled
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Přehled
 > [!IMPORTANT]
 > K dokončení tohoto kurzu potřebujete mít aktivní účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
@@ -39,8 +37,7 @@ Vytvoříte prázdnou aplikaci Xamarin.iOS, která přijímá nabízená oznáme
 
 Tento kurz představuje scénář jednoduchého vysílání zprávy oznámení pomocí centra oznámení.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 V tomto kurzu budete potřebovat následující:
 
 * [Xcode 6.0][Install Xcode]
@@ -57,8 +54,7 @@ Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notificati
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## Konfigurace centra oznámení
-<a id="configure-your-notification-hub" class="xliff"></a>
+## <a name="configure-your-notification-hub"></a>Konfigurace centra oznámení
 Tato části vás provede vytvořením nového centra oznámení a konfigurací ověřování s použitím služby APNS a pomoci vytvořeného nabízeného certifikátu **.p12**. Pokud chcete použít centrum oznámení, které jste již vytvořili, můžete přeskočit na krok 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -78,10 +74,8 @@ Tato části vás provede vytvořením nového centra oznámení a konfigurací 
 
 Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. Zároveň máte připojovací řetězce, pomocí kterých můžete svou aplikaci zaregistrovat pro odesílání nabízených oznámení.
 
-## Připojte aplikaci k centru oznámení
-<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
-#### Vytvoření nového projektu
-<a id="create-a-new-project" class="xliff"></a>
+## <a name="connect-your-app-to-the-notification-hub"></a>Připojte aplikaci k centru oznámení
+#### <a name="create-a-new-project"></a>Vytvoření nového projektu
 1. V Xamarin Studiu vytvořte nový projekt iOS a vyberte šablonu **Unifikované API** > **Jediné zobrazení aplikace**.
    
      ![Xamarin Studio – výběr typu aplikace][31]
@@ -183,8 +177,7 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou APNS. 
    > 
 10. Spusťte aplikaci v zařízení.
 
-## Odeslání nabízených oznámení
-<a id="sending-push-notifications" class="xliff"></a>
+## <a name="sending-push-notifications"></a>Odeslání nabízených oznámení
 Nabízená oznámení můžete otestovat ve vaší aplikaci odesláním oznámení na [Azure Portal] prostřednictvím schopnosti **Testovací odeslání** v sadě nástrojů **Poradce při potížích** přímo na stránce centra oznámení, jak je znázorněno na obrazovce níže.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-test-send.png)
@@ -201,8 +194,7 @@ V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testován
 
 * **Java/PHP**: příklad odesílání nabízených oznámení pomocí rozhraní REST API najdete v části „Jak používat Notification Hubs z Javy/PHP“ ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-#### (Volitelné) Odesílání nabízených oznámení z konzoly aplikace .NET
-<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
+#### <a name="optional-send-push-notifications-from-a-net-console-app"></a>(Volitelné) Odesílání nabízených oznámení z konzoly aplikace .NET
 V této části odešleme nabízená oznámení pomocí konzolové aplikace .NET Pro účely tohoto příkladu přepněme do vývojového prostředí systému Windows, které obsahuje nainstalované Visual Studio.
 
 1. Ve Visual Studiu vytvořte novou konzolovou aplikaci Visual C#:
@@ -237,8 +229,7 @@ V této části odešleme nabízená oznámení pomocí konzolové aplikace .NET
 
 Můžete najít všechny možné datové části v Apple [Průvodci programováním místních a nabízených oznámení].
 
-#### (Volitelné) Odesílání oznámení z mobilní služby
-<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
+#### <a name="optional-send-notifications-from-a-mobile-service"></a>(Volitelné) Odesílání oznámení z mobilní služby
 V této části vám odešleme nabízená oznámení pomocí mobilních služeb prostřednictvím skriptu uzlu.
 
 Při odesílání oznámení pomocí mobilních služeb využijte téma [Začínáme používat Mobile Services] a pak:
@@ -271,8 +262,7 @@ Při odesílání oznámení pomocí mobilních služeb využijte téma [Začín
         );
 6. Klikněte na tlačítko **Spustit jednou** na dolním panelu. Měli byste obdržet upozornění na vašem zařízení.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 V tomto příkladu jste vysílali nabízená oznámení pro všechna vaše zařízení iOS. Chcete-li se zaměřit na konkrétní uživatele, využijte kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Pokud chcete segmentovat uživatele podle zájmových skupin, můžete si přečíst kurz [Používání centra oznámení k odesílání novinek]. Další informace o tom, jak používat centra oznámení, naleznete v tématu [Průvodce centry oznámení] a v tématu [Centra oznámení s postupy pro iOS].
 
 <!-- Images. -->

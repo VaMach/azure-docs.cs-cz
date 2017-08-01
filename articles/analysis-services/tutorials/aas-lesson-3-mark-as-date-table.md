@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-3-mark-as-date-table" class="xliff"></a>
-
-# Lekce 3: Označení jako tabulky kalendářních dat
+# <a name="lesson-3-mark-as-date-table"></a>Lekce 3: Označení jako tabulky kalendářních dat
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,23 +36,17 @@ Než označíte tabulku a sloupec kalendářních dat, je vhodná doba provést 
   
 Odhadovaný čas dokončení této lekce: **3 minuty**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 2: Získání dat](../tutorials/aas-lesson-2-get-data.md). 
 
-<a id="to-rename-the-fulldatealternatekey-column" class="xliff"></a>
-
-### Přejmenování sloupce FullDateAlternateKey
+### <a name="to-rename-the-fulldatealternatekey-column"></a>Přejmenování sloupce FullDateAlternateKey
 
 1.  V návrháři modelů klikněte na tabulku **DimDate**.
 
 2.  Dvakrát klikněte na hlavičku sloupce **FullDateAlternateKey** a přejmenujte ho na **Date**.
 
   
-<a id="to-set-mark-as-date-table" class="xliff"></a>
-
-### Nastavení Označit jako tabulku kalendářních dat  
+### <a name="to-set-mark-as-date-table"></a>Nastavení Označit jako tabulku kalendářních dat  
   
 1.  Vyberte sloupec **Date** a potom v okně **Vlastnosti** v části **Typ dat** ověřte, že je vybraná možnost **Datum**.  
   
@@ -65,9 +57,7 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   
 
-<a id="whats-next" class="xliff"></a>
-
-## Co dále?
+## <a name="whats-next"></a>Co dále?
 [Lekce 4: Vytvoření relací](../tutorials/aas-lesson-4-create-relationships.md)
   
 

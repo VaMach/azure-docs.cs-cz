@@ -22,8 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lekce 9: Vytvoření hierarchií
-<a id="lesson-9-create-hierarchies" class="xliff"></a>
+# <a name="lesson-9-create-hierarchies"></a>Lekce 9: Vytvoření hierarchií
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -33,15 +32,12 @@ K vytvoření hierarchií použijte návrháře modelů v *zobrazení diagramu*.
   
 Odhadovaný čas dokončení této lekce: **20 minut**  
   
-## Požadavky
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabulkového modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 8: Vytvoření perspektiv](../tutorials/aas-lesson-8-create-perspectives.md).  
   
-## Vytvoření hierarchií
-<a id="create-hierarchies" class="xliff"></a>  
+## <a name="create-hierarchies"></a>Vytvoření hierarchií  
   
-#### Postup vytvoření hierarchie Category v tabulce DimProduct
-<a id="to-create-a-category-hierarchy-in-the-dimproduct-table" class="xliff"></a>  
+#### <a name="to-create-a-category-hierarchy-in-the-dimproduct-table"></a>Postup vytvoření hierarchie Category v tabulce DimProduct  
   
 1.  V návrháři modelů (zobrazení diagramu) klikněte pravým tlačítkem myši na tabulku **DimProduct** > **Vytvořit hierarchii**. V dolní části okna tabulky se zobrazí nová hierarchie. Přejmenujte hierarchii na **Category**.  
   
@@ -60,8 +56,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
 
     ![aas-lesson9-category](../tutorials/media/aas-lesson9-category.png)
   
-#### Postup vytvoření hierarchií v tabulce DimDate
-<a id="to-create-hierarchies-in-the-dimdate-table" class="xliff"></a>  
+#### <a name="to-create-hierarchies-in-the-dimdate-table"></a>Postup vytvoření hierarchií v tabulce DimDate  
   
 1.  V tabulce **DimDate** vytvořte hierarchii s názvem **Calendar**.  
   
@@ -86,8 +81,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
- ## Co dále?
-<a id="whats-next" class="xliff"></a>
+ ## <a name="whats-next"></a>Co dále?
 [Lekce 10: Vytvoření oddílů](../tutorials/aas-lesson-10-create-partitions.md) 
   
   

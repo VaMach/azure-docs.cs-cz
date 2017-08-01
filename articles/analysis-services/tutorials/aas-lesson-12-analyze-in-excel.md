@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-12-analyze-in-excel" class="xliff"></a>
-
-# Lekce 12: Analýza v aplikaci Excel
+# <a name="lesson-12-analyze-in-excel"></a>Lekce 12: Analýza v aplikaci Excel
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,19 +32,13 @@ K dokončení této lekce je nutné, aby byla aplikace Excel nainstalována na s
   
 Odhadovaný čas dokončení této lekce: **5 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 11: Vytvoření rolí](../tutorials/aas-lesson-11-create-roles.md).  
   
-<a id="browse-using-the-default-and-internet-sales-perspectives" class="xliff"></a>
-
-## Procházení s využitím výchozí perspektivy a perspektivy Internet Sales  
+## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Procházení s využitím výchozí perspektivy a perspektivy Internet Sales  
 V rámci těchto prvních úkolů budete procházet model s využitím výchozí perspektivy, která zahrnuje všechny objekty modelu, a také s využitím perspektivy Internet Sales, kterou jste vytvořili dříve. Perspektiva Internet Sales nezahrnuje objekt tabulky se zákazníky.  
   
-<a id="to-browse-by-using-the-default-perspective" class="xliff"></a>
-
-#### Procházení s využitím výchozí perspektivy  
+#### <a name="to-browse-by-using-the-default-perspective"></a>Procházení s využitím výchozí perspektivy  
   
 1.  Klikněte na nabídku **Model** > **Analyzovat v aplikaci Excel**.  
   
@@ -58,9 +50,7 @@ V rámci těchto prvních úkolů budete procházet model s využitím výchozí
   
 4.  Zavřete aplikaci Excel bez ukládání sešitu.  
   
-<a id="to-browse-by-using-the-internet-sales-perspective" class="xliff"></a>
-
-#### Procházení s využitím perspektivy Internet Sales  
+#### <a name="to-browse-by-using-the-internet-sales-perspective"></a>Procházení s využitím perspektivy Internet Sales  
   
 1.  Klikněte na nabídku **Model** a potom na **Analyzovat v aplikaci Excel**.  
   
@@ -74,14 +64,10 @@ V rámci těchto prvních úkolů budete procházet model s využitím výchozí
     
 4.  Zavřete aplikaci Excel bez ukládání sešitu.  
   
-<a id="browse-by-using-roles" class="xliff"></a>
-
-## Procházení s využitím rolí  
+## <a name="browse-by-using-roles"></a>Procházení s využitím rolí  
 Role jsou důležitou součástí každého tabelárního modelu. Pokud nemáte alespoň jednu roli, do které se uživatelé přidávají jako členové, pak uživatelé nebudou mít přístup k datům a nebudou je moci analyzovat pomocí vašeho modelu. Funkce Analýza v aplikaci Excel nabízí způsob, jak otestovat role, které jste definovali.  
   
-<a id="to-browse-by-using-the-sales-manager-user-role" class="xliff"></a>
-
-#### Procházení s využitím role uživatele Manažer prodeje  
+#### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Procházení s využitím role uživatele Manažer prodeje  
   
 1.  V SSDT klikněte na nabídku **Model** a potom na **Analyzovat v aplikaci Excel**.  
   
@@ -91,9 +77,7 @@ Role jsou důležitou součástí každého tabelárního modelu. Pokud nemáte 
       
 3.  Zavřete aplikaci Excel bez ukládání sešitu.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Co dále?
+## <a name="whats-next"></a>Co dále?
 Přejděte na další lekci: [Lekce 13: Nasazení](../tutorials/aas-lesson-13-deploy.md).
 
   

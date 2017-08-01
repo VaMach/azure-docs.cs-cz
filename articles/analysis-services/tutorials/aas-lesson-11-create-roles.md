@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-11-create-roles" class="xliff"></a>
-
-# Lekce 11: Vytvoření rolí
+# <a name="lesson-11-create-roles"></a>Lekce 11: Vytvoření rolí
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -45,18 +43,12 @@ Protože jsou účty uživatelů a skupin systému Windows ve vaší organizaci 
   
 Odhadovaný čas dokončení této lekce: **15 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 10: Vytvoření oddílů](../tutorials/aas-lesson-10-create-partitions.md).  
   
-<a id="create-roles" class="xliff"></a>
-
-## Vytvoření rolí  
+## <a name="create-roles"></a>Vytvoření rolí  
   
-<a id="to-create-a-sales-manager-user-role" class="xliff"></a>
-
-#### Vytvoření role uživatele Manažer prodeje  
+#### <a name="to-create-a-sales-manager-user-role"></a>Vytvoření role uživatele Manažer prodeje  
   
 1.  V Průzkumníku tabelárních modelů klikněte pravým tlačítkem na **Role** > **Role**.  
   
@@ -70,9 +62,7 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
   
 5.  Volitelné: Klikněte na kartu **Členové** a pak na **Přidat**. V dialogovém okně **Vybrat uživatele nebo skupiny** zadejte uživatele nebo skupiny systému Windows z vaší organizace, které chcete zahrnout do role.  
   
-<a id="to-create-a-sales-analyst-us-user-role" class="xliff"></a>
-
-#### Vytvoření role uživatele Analytik prodej v USA  
+#### <a name="to-create-a-sales-analyst-us-user-role"></a>Vytvoření role uživatele Analytik prodej v USA  
   
 1.  Ve Správci rolí klikněte na **Nový**.    
   
@@ -91,9 +81,7 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
   
 6.  Volitelné: Klikněte na kartu **Členové** a pak na **Přidat**. V dialogovém okně **Vybrat uživatele nebo skupiny** zadejte uživatele nebo skupiny systému Windows z vaší organizace, které chcete zahrnout do role.  
   
-<a id="to-create-an-administrator-user-role" class="xliff"></a>
-
-#### Vytvoření role uživatele Správce  
+#### <a name="to-create-an-administrator-user-role"></a>Vytvoření role uživatele Správce  
   
 1.  Klikněte na možnost **Nové**.  
   
@@ -104,9 +92,7 @@ Toto téma je součástí kurzu tabelárního modelování, který by se měl do
 4.  Volitelné: Klikněte na kartu **Členové** a pak na **Přidat**. V dialogovém okně **Vybrat uživatele nebo skupiny** zadejte uživatele nebo skupiny systému Windows z vaší organizace, které chcete zahrnout do role. 
   
   
-<a id="whats-next" class="xliff"></a>
-
-## Co dále?
+## <a name="whats-next"></a>Co dále?
 [Lekce 12: Analýza v aplikaci Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)
 
   

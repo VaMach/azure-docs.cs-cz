@@ -22,13 +22,11 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/17/2017
 
 ---
-# Představení Apache Kafka ve službě HDInsight (Preview)
-<a id="introducing-apache-kafka-on-hdinsight-preview" class="xliff"></a>
+# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Představení Apache Kafka ve službě HDInsight (Preview)
 
 [Apache Kafka](https://kafka.apache.org) je open source distribuovaná streamovací platforma, kterou lze použít k vytváření aplikací a kanálů pro streamování dat v reálném čase. Kafka také poskytuje funkci pro zprostředkování zpráv podobnou frontě zpráv, ve které můžete publikovat pojmenované datové proudy a přihlásit se k jejich odběru. Kafka ve službě HDInsight představuje spravovanou, vysoce škálovatelnou a vysoce dostupnou službu v cloudu Microsoft Azure.
 
-## Proč používat Kafka ve službě HDInsight?
-<a id="why-use-kafka-on-hdinsight" class="xliff"></a>
+## <a name="why-use-kafka-on-hdinsight"></a>Proč používat Kafka ve službě HDInsight?
 
 Kafka poskytuje následující funkce:
 
@@ -48,8 +46,7 @@ Kafka poskytuje následující funkce:
 
     Informace o konfiguraci spravovaných disků v systému Kafka v HDInsight najdete v tématu [Zvýšení škálovatelnosti systému Kafka v prostředí HDInsight](hdinsight-apache-kafka-scalability.md).
 
-## Případy použití
-<a id="use-cases" class="xliff"></a>
+## <a name="use-cases"></a>Případy použití
 
 * **Zasílání zpráv:** Protože Kafka podporuje vzorec zasílání zpráv na principu publikování a odběru, často se používá jako zprostředkovatel zpráv.
 
@@ -59,8 +56,7 @@ Kafka poskytuje následující funkce:
 
 * **Transformace:** Pomocí zpracování datových proudů můžete kombinovat data z více vstupních témat a rozšiřovat je do jednoho nebo několika výstupních témat.
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Následující odkazy popisují používání Apache Kafka ve službě HDInsight:
 

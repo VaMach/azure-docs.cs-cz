@@ -22,9 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-1-create-a-new-tabular-model-project" class="xliff"></a>
-
-# Lekce 1: Vytvoření nového projektu s tabelárním modelem
+# <a name="lesson-1-create-a-new-tabular-model-project"></a>Lekce 1: Vytvoření nového projektu s tabelárním modelem
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ V této lekci pomocí SQL Server Data Tools (SSDT) vytvoříte nový projekt s t
   
 Odhadovaný čas dokončení této lekce: **10 minut**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky  
+## <a name="prerequisites"></a>Požadavky  
 Toto téma je první lekcí kurzu vytváření tabelárního modelu. K dokončení této lekce je nutné splnit několik požadavků. Další informace najdete v tématu [Azure Analysis Services – Kurz Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
-<a id="create-a-new-tabular-model-project" class="xliff"></a>
-
-## Vytvoření nového projektu s tabelárním modelem  
+## <a name="create-a-new-tabular-model-project"></a>Vytvoření nového projektu s tabelárním modelem  
   
-<a id="to-create-a-new-tabular-model-project" class="xliff"></a>
-
-#### Vytvoření nového projektu s tabelárním modelem  
+#### <a name="to-create-a-new-tabular-model-project"></a>Vytvoření nového projektu s tabelárním modelem  
   
 1.  V SSDT v nabídce **Soubor** klikněte na **Nový** > **Projekt**.  
   
@@ -66,9 +58,7 @@ Toto téma je první lekcí kurzu vytváření tabelárního modelu. K dokončen
     Pokud se v seznamu Úroveň kompatibility možnost SQL Server 2017 / Azure Analysis Services (1400) nezobrazuje, nepoužíváte nejnovější verzi SQL Server Data Tools. Pokud chcete získat nejnovější verzi, přečtěte si článek o [instalaci SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
       
   
-<a id="understanding-the-ssdt-tabular-model-authoring-environment" class="xliff"></a>
-
-## Principy prostředí pro vytváření tabelárních modelů v SSDT  
+## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Principy prostředí pro vytváření tabelárních modelů v SSDT  
 Teď, když jste vytvořili nový projekt s tabelárním modelem, věnujte chvíli seznámení se s prostředím pro vytváření tabelárních modelů v SSDT.  
   
 Jakmile se váš projekt vytvoří, otevře se v SSDT. Na pravé straně v **Průzkumníku tabelárních projektů** je stromové zobrazení objektů ve vašem modelu. Vzhledem k tomu, že jste ještě neimportovali žádná data, jsou složky prázdné. Na složku objektů můžete kliknout pravým tlačítkem a provádět akce podobně jako na řádku nabídek. V jednotlivých krocích tohoto kurzu budete Průzkumníka tabelárních modelů používat k navigaci mezi různými objekty v modelu s projektem.
@@ -92,9 +82,7 @@ Při instalaci SSDT se do prostředí sady Visual Studio přidalo několik nový
 Prozkoumejte některé z dialogových oken a umístění různých funkcí specifických pro vytváření tabelárních modelů. Přestože některé položky ještě nejsou aktivní, můžete získat dobrou představu o prostředí pro vytváření tabelárních modelů.  
   
 
-<a id="whats-next" class="xliff"></a>
-
-## Co dále?
+## <a name="whats-next"></a>Co dále?
 [Lekce 2: Získání dat](../tutorials/aas-lesson-2-get-data.md)
 
   

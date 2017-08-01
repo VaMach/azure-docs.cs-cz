@@ -23,12 +23,10 @@ ms.lasthandoff: 06/03/2017
 
 
 ---
-# Nasazení modelu ze sady SSDT
-<a id="deploy-a-model-from-ssdt" class="xliff"></a>
+# <a name="deploy-a-model-from-ssdt"></a>Nasazení modelu ze sady SSDT
 Jakmile ve svém předplatném Azure vytvoříte server, můžete na něj nasadit databázi tabulkového modelu. K vytvoření a nasazení projektu tabulkového modelu, na kterém pracujete, můžete použít sadu SSDT (SQL Server Data Tools). 
 
-## Než začnete
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>Než začnete
 Na začátek budete potřebovat:
 
 * **Server služby Analysis Services** v Azure Další informace najdete v tématu [Vytvoření serveru služby Azure Analysis Services](analysis-services-create-server.md).
@@ -40,8 +38,7 @@ Na začátek budete potřebovat:
 > 
 > 
 
-## Nasazení tabulkového modelu z SSDT
-<a id="to-deploy-a-tabular-model-from-ssdt" class="xliff"></a>
+## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Nasazení tabulkového modelu z SSDT
 
 1. Než budete moct provést nasazení, musíte získat název serveru. Na portálu **Azure Portal** > Server > **Přehled** > **Název serveru** zkopírujte název serveru.
    
@@ -60,14 +57,12 @@ Na začátek budete potřebovat:
 A je to!
 
 
-## Něco se ale pokazilo
-<a id="but-something-went-wrong" class="xliff"></a>
+## <a name="but-something-went-wrong"></a>Něco se ale pokazilo
 Pokud nasazení selže při nasazování metadat, bude to pravděpodobně tím, že se sada SSDT nemohla připojit k serveru. Ujistěte se, že se k serveru můžete připojit pomocí aplikace SSMS. Potom zkontrolujte, jestli je vlastnost Server nasazení projektu správná.
 
 Pokud nasazení selže u tabulky, bude to pravděpodobně tím, že se server nemohl připojit ke zdroji dat. Pokud je váš zdroj dat místní v síti organizace, nezapomeňte nainstalovat [místní bránu dat](analysis-services-gateway.md).
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Teď když jste tabulkový model nasadili na váš server, můžete se k němu připojit. Můžete [se k němu připojit pomocí SSMS](analysis-services-manage.md) a spravovat ho. Můžete [se k němu připojit také pomocí klientského nástroje](analysis-services-connect.md), jako je například Power BI, Power BI Desktop nebo Excel, a začít vytvářet sestavy.
 
 

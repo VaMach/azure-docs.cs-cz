@@ -23,23 +23,20 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 06/20/2017
 
 ---
-# Vytvoření funkce aktivované službou Azure Blob Storage
-<a id="create-a-function-triggered-by-azure-blob-storage" class="xliff"></a>
+# <a name="create-a-function-triggered-by-azure-blob-storage"></a>Vytvoření funkce aktivované službou Azure Blob Storage
 
 Dozvíte se, jak vytvořit funkci, která se aktivuje při odesílání souborů do služby Azure Blob Storage nebo při jejich aktualizaci v této službě.
 
 ![Zobrazte si zprávy v protokolech.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 + Stáhnout a nainstalovat [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 + Předplatné Azure. Pokud ho nemáte, než začnete, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## Vytvoření aplikace Azure Function App
-<a id="create-an-azure-function-app" class="xliff"></a>
+## <a name="create-an-azure-function-app"></a>Vytvoření aplikace Azure Function App
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -49,8 +46,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 <a name="create-function"></a>
 
-## Vytvoření funkce aktivované službou Blob Storage
-<a id="create-a-blob-storage-triggered-function" class="xliff"></a>
+## <a name="create-a-blob-storage-triggered-function"></a>Vytvoření funkce aktivované službou Blob Storage
 
 1. Rozbalte aplikaci Function App a klikněte na tlačítko **+** vedle položky **Funkce**. Pokud jde o první funkci ve vaší aplikaci Function App, vyberte možnost **Vlastní funkce**. Zobrazí se kompletní sada šablon funkcí.
 
@@ -70,8 +66,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
 Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte kontejner **mycontainer**.
 
-## Vytvoření kontejneru
-<a id="create-the-container" class="xliff"></a>
+## <a name="create-the-container"></a>Vytvoření kontejneru
 
 1. Ve funkci klikněte na **Integrace**, rozbalte položku **Dokumentace**a zkopírujte údaje **Název účtu** a **Klíč účtu**. Tyto přihlašovací údaje použijte k připojení k účtu úložiště. Pokud jste se už ke svému účtu úložiště připojili, přejděte ke kroku 4.
 
@@ -91,8 +86,7 @@ Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte kontejn
 
 Teď když máte kontejner objektů blob a můžete funkci otestovat tím, že do kontejneru odešlete soubor.
 
-## Testování funkce
-<a id="test-the-function" class="xliff"></a>
+## <a name="test-the-function"></a>Testování funkce
 
 1. Zpátky na webu Azure Portal přejděte na svoji funkci, ve spodní části stránky rozbalte **Protokoly** a ujistěte se, že není pozastavené streamování protokolů.
 
@@ -109,13 +103,11 @@ Teď když máte kontejner objektů blob a můžete funkci otestovat tím, že d
     >[!NOTE]
     > Pokud vaše Function App běží ve výchozím plánu Consumption, může mezi přidáním nebo aktualizací objektu blob a aktivací funkce dojít až k několikaminutové prodlevě. Pokud u funkcí aktivovaných objekty blob potřebujete nízkou latenci, zvažte spuštění aplikace Function App v rámci plánu služby App Service.
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Vytvořili jste funkci, která se spustí při přidání nebo aktualizaci objektu blob ve službě Blob Storage. 
 

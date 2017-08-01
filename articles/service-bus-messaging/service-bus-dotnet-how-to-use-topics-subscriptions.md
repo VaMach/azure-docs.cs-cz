@@ -22,15 +22,11 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# Začínáme s tématy služby Service Bus
+# <a name="get-started-with-service-bus-topics"></a>Začínáme s tématy služby Service Bus
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Co všechno zvládneme
+## <a name="what-will-be-accomplished"></a>Co všechno zvládneme
 
 Tento kurz se zabývá následujícími kroky:
 
@@ -40,26 +36,20 @@ Tento kurz se zabývá následujícími kroky:
 4. Napíšeme aplikaci konzoly pro odeslání zprávy do tohoto tématu.
 5. Napíšeme aplikaci konzoly pro příjem této zprávy z odběru.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 1. [Visual Studio 2015 nebo vyšší](http://www.visualstudio.com). V příkladech v tomto kurzu se používá sada Visual Studio 2017.
 2. Předplatné Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Vytvoření oboru názvů služby Service Bus pomocí webu Azure Portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Vytvoření oboru názvů služby Service Bus pomocí webu Azure Portal
 
 Pokud už máte vytvořený obor názvů pro zasílání zpráv služby Service Bus, přejděte k části [Vytvoření tématu pomocí webu Azure Portal](#2-create-a-topic-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2. Vytvoření tématu pomocí webu Azure Portal
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Vytvoření tématu pomocí webu Azure Portal
 
 1. Přihlaste se k webu [Azure Portal][azure-portal].
 2. V levém navigačním podokně portálu klikněte na **Service Bus** (pokud položku **Service Bus** nevidíte, klikněte na **Další služby**).
@@ -74,9 +64,7 @@ Pokud už máte vytvořený obor názvů pro zasílání zpráv služby Service 
     ![Vyberte Nový][createtopic3]
 6. Dole na v okně klikněte na **Vytvořit**.
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3. Vytvoření odběru tématu
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Vytvoření odběru tématu
 
 1. V podokně prostředků na portálu klikněte na obor názvů, který jste vytvořili v kroku 1, a pak klikněte na téma, které jste vytvořili v kroku 2.
 2. V horní části podokna přehledu kliknutím na symbol plus vedle možnosti **Odběr** přidejte odběr tohoto tématu.
@@ -85,30 +73,22 @@ Pokud už máte vytvořený obor názvů pro zasílání zpráv služby Service 
 
 3. Zadejte název odběru. U ostatních možností ponechte jejich výchozí hodnoty.
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4. Odesílání zpráv do tématu
+## <a name="4-send-messages-to-the-topic"></a>4. Odesílání zpráv do tématu
 
 Pro odesílání zpráv do tématu napíšeme pomocí sady Visual Studio aplikaci konzoly v jazyce C#.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Vytvoření konzolové aplikace
+### <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
 
 Spusťte sadu Visual Studio a vytvořte nový projekt **Aplikace konzoly (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Přidání balíčku Service Bus NuGet
+### <a name="add-the-service-bus-nuget-package"></a>Přidání balíčku Service Bus NuGet
 
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
 2. Klikněte na kartu **Procházet**, vyhledejte **Microsoft Azure Service Bus** a pak vyberte položku **WindowsAzure.ServiceBus**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
    
     ![Výběr balíčku NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### Napsání kódu pro odeslání zprávy do tématu
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Napsání kódu pro odeslání zprávy do tématu
 
 1. Na začátek souboru Program.cs přidejte následující příkaz `using`.
    
@@ -170,9 +150,7 @@ Spusťte sadu Visual Studio a vytvořte nový projekt **Aplikace konzoly (.NET F
    
       ![Velikost zpráv][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5. Příjem zpráv z odběru
+## <a name="5-receive-messages-from-the-subscription"></a>5. Příjem zpráv z odběru
 
 1. Pokud chcete přijímat zprávy, které jste právě odeslali, vytvořte novou aplikaci konzoly a přidejte odkaz na balíček NuGet služby Service Bus, podobně jako předtím u aplikace odesílatele.
 2. Na začátek souboru Program.cs přidejte následující příkaz `using`.
@@ -233,9 +211,7 @@ Spusťte sadu Visual Studio a vytvořte nový projekt **Aplikace konzoly (.NET F
 
 Blahopřejeme! Právě jste vytvořili téma a odběr, odeslali zprávu a přijali ji.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azure/azure-service-bus/tree/master/samples), které předvádějí některé pokročilejší funkce zasílání zpráv služby Service Bus.
 

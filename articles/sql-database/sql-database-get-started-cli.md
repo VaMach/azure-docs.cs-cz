@@ -24,8 +24,7 @@ ms.lasthandoff: 06/23/2017
 
 ---
 
-# Vytvoření izolované databáze SQL Azure pomocí Azure CLI
-<a id="create-a-single-azure-sql-database-using-the-azure-cli" class="xliff"></a>
+# <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Vytvoření izolované databáze SQL Azure pomocí Azure CLI
 
 Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tento průvodce podrobně uvádí, jak pomocí Azure CLI nasadit databázi SQL Azure ve [skupině prostředků Azure](../azure-resource-manager/resource-group-overview.md) na [logický server Azure SQL Database](sql-database-features.md).
 
@@ -35,8 +34,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Definování proměnných
-<a id="define-variables" class="xliff"></a>
+## <a name="define-variables"></a>Definování proměnných
 
 V tomto rychlém startu definujte proměnné, které se použijí ve skriptech.
 
@@ -56,16 +54,14 @@ export endip = "0.0.0.0"
 export databasename = mySampleDatabase
 ```
 
-## Vytvoření skupiny prostředků
-<a id="create-a-resource-group" class="xliff"></a>
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Vytvořte [skupinu prostředků Azure](../azure-resource-manager/resource-group-overview.md) pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky jako skupina. Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup` v umístění `westeurope`.
 
 ```azurecli-interactive
 az group create --name $resourcegroupname --location $location
 ```
-## Vytvoření logického serveru
-<a id="create-a-logical-server" class="xliff"></a>
+## <a name="create-a-logical-server"></a>Vytvoření logického serveru
 
 Vytvořte [logický server Azure SQL Database](sql-database-features.md) pomocí příkazu [az sql server create](/cli/azure/sql/server#create). Logický server obsahuje soubor databází spravovaných jako skupina. Následující příklad vytvoří ve skupině prostředků náhodně pojmenovaný server s přihlašovacím jménem správce `ServerAdmin` a heslem `ChangeYourAdminPassword1`. Podle potřeby tyto předdefinované hodnoty nahraďte.
 
@@ -74,8 +70,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
     --admin-user $adminlogin --admin-password $password
 ```
 
-## Konfigurace pravidla brány firewall serveru
-<a id="configure-a-server-firewall-rule" class="xliff"></a>
+## <a name="configure-a-server-firewall-rule"></a>Konfigurace pravidla brány firewall serveru
 
 Vytvořte [pravidlo brány firewall na úrovni serveru služby Azure SQL Database](sql-database-firewall-configure.md) pomocí příkazu [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Pravidlo brány firewall na úrovni serveru umožňuje externí aplikaci, jako je SQL Server Management Studio nebo nástroj SQLCMD, připojení k databázi SQL přes bránu firewall služby SQL Database. V následujícím příkladu je brána firewall otevřená pouze pro ostatní prostředky Azure. Pokud chcete povolit externí připojení, změňte IP adresu na příslušnou adresu pro vaše prostředí. Chcete-li otevřít všechny IP adresy, použijte jako počáteční IP adresu 0.0.0.0 a jako koncovou adresu 255.255.255.255.  
 
@@ -88,8 +83,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 > SQL Database komunikuje přes port 1433. Pokud se pokoušíte připojit z podnikové sítě, nemusí být odchozí provoz přes port 1433 bránou firewall vaší sítě povolený. Pokud je to tak, nebudete se moct připojit k serveru Azure SQL Database, dokud vaše IT oddělení neotevře port 1433.
 >
 
-## Vytvoření databáze s ukázkovými daty na serveru
-<a id="create-a-database-in-the-server-with-sample-data" class="xliff"></a>
+## <a name="create-a-database-in-the-server-with-sample-data"></a>Vytvoření databáze s ukázkovými daty na serveru
 
 Vytvořte na serveru databázi s [úrovní výkonu S0](sql-database-service-tiers.md) pomocí příkazu [az sql db create](/cli/azure/sql/db#create). Následující příklad vytvoří databázi s názvem `mySampleDatabase` a načte do této databáze ukázková data AdventureWorksLT. Nahraďte podle potřeby tyto předdefinované hodnoty (další rychlé starty v této kolekci jsou postavené na tomto rychlém startu).
 
@@ -98,8 +92,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
     --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
 
-## Vyčištění prostředků
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Další rychlé starty v této kolekci jsou postavené na tomto rychlém startu. 
 
@@ -111,8 +104,7 @@ Další rychlé starty v této kolekci jsou postavené na tomto rychlém startu.
 az group delete --name $resourcegroupname
 ```
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 Teď, když máte databázi, můžete se k ní připojit a provádět dotazování pomocí vašich oblíbených nástrojů. Další informace získáte výběrem vašeho nástroje níže:
 

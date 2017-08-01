@@ -22,18 +22,15 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# Vytvoření testovacího prostředí v Azure DevTest Labs
-<a id="create-a-lab-in-azure-devtest-labs" class="xliff"></a>
+# <a name="create-a-lab-in-azure-devtest-labs"></a>Vytvoření testovacího prostředí v Azure DevTest Labs
 Testovací prostředí ve službě Azure DevTest Labs je infrastruktura, která zahrnuje skupinu prostředků, třeba službu Virtual Machines, která vám umožní lépe spravovat tyto prostředky zadáním omezení a kvót. Tento článek vás provede procesem vytvoření testovacího prostředí pomocí webu Azure Portal.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 K vytvoření testovacího prostředí potřebujete:
 
 * Předplatné Azure. Informace o možnostech nákupu Azure najdete v tématech [Jak koupit Azure](https://azure.microsoft.com/pricing/purchase-options/) nebo [Bezplatná zkušební verze na jeden měsíc](https://azure.microsoft.com/pricing/free-trial/). Abyste mohli vytvořit testovací prostředí, musíte být vlastníky předplatného.
 
-## Postup vytvoření testovacího prostředí ve službě Azure DevTest Labs
-<a id="steps-to-create-a-lab-in-azure-devtest-labs" class="xliff"></a>
+## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Postup vytvoření testovacího prostředí ve službě Azure DevTest Labs
 Následující kroky ukazují postup vytvoření testovacího prostředí ve službě Azure DevTest Labs pomocí webu Azure Portal. 
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -60,8 +57,7 @@ Následující kroky ukazují postup vytvoření testovacího prostředí ve slu
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Po vytvoření testovacího prostředí je zde několik kroků, které je vhodné zvážit:
 
 * [Zabezpečení přístupu k testovacímu prostředí](devtest-lab-add-devtest-user.md)

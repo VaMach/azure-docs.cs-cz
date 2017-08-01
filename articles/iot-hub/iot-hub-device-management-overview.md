@@ -22,10 +22,8 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# Přehled správy zařízení ve službě IoT Hub
-<a id="overview-of-device-management-with-iot-hub" class="xliff"></a>
-## Úvod
-<a id="introduction" class="xliff"></a>
+# <a name="overview-of-device-management-with-iot-hub"></a>Přehled správy zařízení ve službě IoT Hub
+## <a name="introduction"></a>Úvod
 Azure IoT Hub poskytuje funkce a model rozšiřitelnosti, pomocí kterých mohou vývojáři zařízení a back-endů vytvářet robustní řešení pro správu zařízení IoT. Zařízení sahají od jednoduchých senzorů a jednoúčelových mikrokontrolerů po výkonné brány, které směrují komunikaci pro skupiny zařízení.  Kromě toho se způsoby použití a požadavky na operátory IoT výrazně liší v jednotlivých odvětvích.  Navzdory této variabilitě poskytuje správa zařízení pomocí IoT Hub takový rozsah možností, schémat a knihoven kódu, aby bylo možné naplnit potřeby této různorodé množiny zařízení a koncových uživatelů.
 
 Klíčovou součástí vytvoření úspěšného podnikového řešení IoT je sestavení strategie pro průběžnou správu kolekce zařízení ze strany operátorů. Operátoři IoT vyžadují jednoduché a spolehlivé nástroje a aplikace, které jim umožní zaměřit se na strategičtější aspekty přidělených úloh. Tento článek obsahuje:
@@ -35,8 +33,7 @@ Klíčovou součástí vytvoření úspěšného podnikového řešení IoT je s
 * Popis životního cyklu zařízení
 * Přehled běžných schémat správy zařízení
 
-## Principy správy zařízení
-<a id="device-management-principles" class="xliff"></a>
+## <a name="device-management-principles"></a>Principy správy zařízení
 IoT s sebou nese specifickou sadu výzev v oblasti správy zařízení a každé řešení určené pro velké podniky musí odpovídat následujícím principům:
 
 ![Grafické znázornění principů správy zařízení][img-dm_principles]
@@ -50,8 +47,7 @@ IoT s sebou nese specifickou sadu výzev v oblasti správy zařízení a každé
     * Zeměpisná poloha zařízení
 * **Obsluha mnoha rolí:** Základním požadavkem je podpora jedinečných pracovních postupů a procesů rolí provozu služby IoT. Provozní personál musí pracovat v harmonii s danými omezeními interních oddělení IT.  Musí také najít udržitelné způsoby, jak pro vedoucí pracovníky na různých úrovních zobrazovat informace o provozu zařízení v reálném čase.
 
-## Životní cyklus zařízení
-<a id="device-lifecycle" class="xliff"></a>
+## <a name="device-lifecycle"></a>Životní cyklus zařízení
 Správa zařízení probíhá v několika obecných fázích, které jsou společné pro všechny firemní projekty IoT. V Azure IoT zahrnuje životní cyklus zařízení pět fází:
 
 ![Pět fází životního cyklu zařízení Azure IoT: plánování, zřízení, konfigurace, monitorování, vyřazení][img-device_lifecycle]
@@ -74,8 +70,7 @@ V každé z těchto pěti fází existuje několik požadavků souvisejících s
   
     *Další materiály:* [Jak používat vlastnosti dvojčat zařízení][lnk-twin-properties], [Správa identit zařízení][lnk-identity-registry].
 
-## Schémata správy zařízení
-<a id="device-management-patterns" class="xliff"></a>
+## <a name="device-management-patterns"></a>Schémata správy zařízení
 IoT Hub umožňuje využívat následující schémata správy zařízení.  V [kurzech ke správě zařízení][lnk-get-started] se podrobněji dozvíte, jak tato schémata rozšířit tak, aby vyhovovala vašemu konkrétnímu scénáři, a jak na základě těchto základních šablon navrhnout nová schémata.
 
 * **Restartování** – Back-endová aplikace informuje zařízení prostřednictvím přímé metody, že zahájila restartování.  Zařízení využívá ohlášené vlastnosti k aktualizaci stavu restartování příslušného zařízení.
@@ -94,8 +89,7 @@ IoT Hub umožňuje využívat následující schémata správy zařízení.  V [
   
     ![Grafické znázornění schématu informování o průběhu a stavu ve správě zařízení][img-report_progress_pattern]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Pomocí možností, schémat a knihoven kódu, které poskytuje správa zařízení ve službě IoT Hub, můžete vytvářet firemní aplikace IoT, které odpovídají požadavkům jejich operátorů, a to ve všech fázích jejich životního cyklu.
 
 Pokud si chcete přečíst více o funkcích správy zařízení ve službě IoT Hub, podívejte se na kurz [Začínáme se správou zařízení][lnk-get-started].

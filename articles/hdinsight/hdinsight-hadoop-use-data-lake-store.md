@@ -24,9 +24,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
-
-# Použití služby Data Lake Store s clustery Azure HDInsight
+# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Použití služby Data Lake Store s clustery Azure HDInsight
 
 Pokud chcete analyzovat data v clusteru HDInsight, můžete je ukládat ve službě [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) nebo v obou. Obě možnosti ukládání umožňují bezpečné odstranění clusterů HDInsight, které se používají pro výpočty, aniž by se ztratila uživatelská data.
 
@@ -37,9 +35,7 @@ V tomto článku se dozvíte, jak služba Data Lake Store pracuje s clustery HDI
 > 
 > 
 
-<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
-
-## Dostupnosti pro clustery HDInsight
+## <a name="availabilities-for-hdinsight-clusters"></a>Dostupnosti pro clustery HDInsight
 
 Hadoop podporuje hodnoty výchozího systému souborů. Výchozí systém souborů znamená výchozí schéma a autoritu. Lze ho také použít k vyřešení relativní cesty. Během procesu vytváření clusteru HDInsight můžete jako výchozí systém souborů zadat kontejner objektů blob ve službě Azure Storage. U služby HDInsight 3.5 a novější můžete až na některé výjimky vybrat jako výchozí systém souborů službu Azure Storage nebo Azure Data Lake Store. 
 
@@ -63,9 +59,7 @@ V současné době podporují použití služby Data Lake Store jako výchozího
 Použití služby Data Lake Store jako dalšího účtu úložiště nemá vliv na výkon ani schopnost číst ze služby Azure Storage nebo do ní zapisovat z clusteru.
 
 
-<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
-
-## Použití služby Data Lake Store jako výchozího úložiště
+## <a name="use-data-lake-store-as-default-storage"></a>Použití služby Data Lake Store jako výchozího úložiště
 
 Když je služba HDInsight nasazená se službou Data Lake Store jako výchozím úložištěm, soubory související s clusterem se ukládají do služby Data Lake Store v tomto umístění:
 
@@ -87,9 +81,7 @@ Pokud chcete službu Data Lake Store použít jako výchozí úložiště, musí
 Další informace o vytvoření instančního objektu a udělení přístupu najdete v části [Konfigurace přístupu ke službě Data Lake Store](#configure-data-lake-store-access).
 
 
-<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
-
-## Použití služby Data Lake Store jako dalšího úložiště
+## <a name="use-data-lake-store-as-additional-storage"></a>Použití služby Data Lake Store jako dalšího úložiště
 
 Službu Data Lake Store můžete také použít jako další úložiště. Výchozím úložištěm clusteru v takových případech může být účet Data Lake Store nebo Azure Storage Blob. Pokud spouštíte úlohy HDInsight s daty uloženými ve službě Data Lake Store jako dalším úložišti, musíte použít plně kvalifikovanou cestu k souborům. Například:
 
@@ -104,15 +96,11 @@ Pokud chcete použít službu Data Lake Store jako další úložiště, stačí
 Další informace o vytvoření instančního objektu a udělení přístupu najdete v části [Konfigurace přístupu ke službě Data Lake Store](#configure-data-lake-store-access).
 
 
-<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
-
-## Použití více účtů Data Lake Store
+## <a name="use-more-than-one-data-lake-store-accounts"></a>Použití více účtů Data Lake Store
 
 Přidání účtu Data Lake Store jako dalšího úložiště a přidání více účtů Data Lake Store můžete provést tak, že clusteru HDInsight udělíte oprávnění k datům v jednom nebo několika účtech Data Lake Store. Viz [Konfigurace přístupu ke službě Data Lake Store](#configure-data-lake-store-access).
 
-<a id="configure-data-lake-store-access" class="xliff"></a>
-
-## Konfigurace přístupu ke službě Data Lake Store
+## <a name="configure-data-lake-store-access"></a>Konfigurace přístupu ke službě Data Lake Store
 
 Pokud chcete nakonfigurovat přístup ke službě Data Lake Store z clusteru HDInsight, musíte mít instanční objekt Azure Active Directory (Azure AD). Instanční objekt může vytvořit pouze správce Azure AD. Instanční objekt musí být vytvořený s certifikátem. Další informace najdete v části [Konfigurace přístupu ke službě Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) a [Vytvoření instančního objektu s certifikátem podepsaným svým držitelem](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
@@ -120,9 +108,7 @@ Pokud chcete nakonfigurovat přístup ke službě Data Lake Store z clusteru HDI
 > Pokud plánujete službu Azure Data Lake Store používat jako další úložiště pro cluster HDInsight, důrazně doporučujeme to provést během vytváření clusteru, jak je popsáno v tomto článku. Přidání služby Azure Data Lake Store jako dalšího úložiště do existujícího clusteru HDInsight je složitý proces, při kterém může docházet k chybám.
 >
 
-<a id="access-files-from-the-cluster" class="xliff"></a>
-
-## Přístup k souborům z clusteru
+## <a name="access-files-from-the-cluster"></a>Přístup k souborům z clusteru
 
 Existuje několik způsobů, jak můžete přistupovat k souborům ve službě Data Lake Store z clusteru HDInsight.
 
@@ -142,9 +128,7 @@ Existuje několik způsobů, jak můžete přistupovat k souborům ve službě D
 
         /example/data/sample.log
 
-<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
-
-## Vytváření clusterů HDInsight s přístupem ke službě Data Lake Store
+## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>Vytváření clusterů HDInsight s přístupem ke službě Data Lake Store
 
 Na následujících odkazech najdete podrobné pokyny k vytvoření clusterů HDInsight s přístupem ke službě Data Lake Store.
 
@@ -154,9 +138,7 @@ Na následujících odkazech najdete podrobné pokyny k vytvoření clusterů HD
 * [Pomocí šablon Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 V tomto článku jste zjistili, jak používat HDFS kompatibilní službu Azure Data Lake Store se službou HDInsight. To umožňuje vytvářet škálovatelná a dlouhodobá řešení pro získávání archivovaných dat a používat službu HDInsight k odemčení informací uvnitř uložených strukturovaných a nestrukturovaných dat.
 
 Další informace naleznete v tématu:

@@ -22,8 +22,7 @@ ms.contentlocale: cs-cz
 ms.lasthandoff: 07/06/2017
 
 ---
-# Vytvoření webové aplikace Node.js ve službě Azure
-<a id="create-a-nodejs-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-nodejs-web-app-in-azure"></a>Vytvoření webové aplikace Node.js ve službě Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  V tomto kurzu Rychlý start se dozvíte, jak nasadit aplikaci Node.js pomocí služby Azure Web Apps. Vytvoříte webovou aplikaci pomocí rozhraní příkazového řádku [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) a pomocí Gitu nasadíte ukázkový kód Node.js do webové aplikace.
 
@@ -31,8 +30,7 @@ ms.lasthandoff: 07/06/2017
 
 Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux. Pokud máte nainstalované všechny požadované prostředky, zabere vám tento postup zhruba pět minut.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 
 K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
@@ -45,8 +43,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Stažení ukázky
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>Stažení ukázky
 
 V okně terminálu naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače.
 
@@ -62,8 +59,7 @@ Přejděte do adresáře, který obsahuje vzorový kód.
 cd nodejs-docs-hello-world
 ```
 
-## Místní spuštění aplikace
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Místní spuštění aplikace
 
 Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí skriptu `npm start` spustíte integrovaný server HTTP aplikace Node.js.
 
@@ -131,8 +127,7 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## Přechod do aplikace
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>Přechod do aplikace
 
 V prohlížeči zadejte adresu nasazené aplikace.
 
@@ -146,8 +141,7 @@ Vzorový kód Node.js je spuštěný ve webové aplikaci služby Azure App Servi
 
 **Blahopřejeme!** Nasadili jste svoji první aplikaci Node.js do služby App Service.
 
-## Aktualizace a opětovné nasazení kódu
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+## <a name="update-and-redeploy-the-code"></a>Aktualizace a opětovné nasazení kódu
 
 V textovém editoru otevřete soubor `index.js`, který je součástí aplikace Node.js, a proveďte malou změnu textu u volání `response.end`:
 
@@ -166,8 +160,7 @@ Po dokončení nasazení se vraťte do okna prohlížeče, které se otevřelo v
 
 ![Aktualizovaná ukázková aplikace spuštěná ve službě Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## Správa vaší nové webové aplikace Azure
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>Správa vaší nové webové aplikace Azure
 
 Pokud chcete spravovat webovou aplikaci, kterou jste vytvořili, přejděte na web <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
@@ -183,8 +176,7 @@ Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplika
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
 > [Node.js s databází MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
