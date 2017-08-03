@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
-ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 12/06/2016
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -29,6 +30,8 @@ V rámci Azure Active Directory můžete do svého adresáře přidávat aplikac
 
 ![](media/active-directory-apps-permissions-consent/apps1.png)
 
+> [!IMPORTANT]
+> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek.
 
 ## <a name="types-of-apps"></a>Typy aplikací
 
