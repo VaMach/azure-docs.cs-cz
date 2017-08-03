@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
+ms.date: 07/26/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: af9285946fc25840c5419ee095e08bf155579ae1
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 742621fc71cc45a30628b1a4cb01d5c644766b77
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
@@ -116,7 +116,7 @@ Následující tabulka uvádí umístění podle poskytovatele služby. Pokud ch
 | **Telenor** |Podporuje se |Podporuje se |Amsterdam, Londýn |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Podporuje se |Podporuje se |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Podporuje se |Podporuje se |Toronto |
-| **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Připravuje se |Připravuje se |Sao Paulo+ |
+| **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Podporuje se |Podporuje se |Sao Paulo |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Podporuje se |Podporuje se |Amsterdam, Chicago, Dallas, Hongkong, Londýn, Silicon Valley, Singapur, Sydney, Tokio, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Podporuje se |Nepodporuje se |Londýn |
 | **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Podporuje se |Podporuje se |Amsterdam, Chicago, Dallas+, Londýn+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |

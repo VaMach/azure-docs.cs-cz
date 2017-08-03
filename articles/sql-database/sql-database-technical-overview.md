@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 17b51afc0c67377dccdef63deacdcc67af8df576
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co je služba Azure SQL Database? 
@@ -98,7 +98,7 @@ Ve službě SQL Database existují dva dostupné aspekty automatické optimaliza
 
 ### <a name="adaptive-query-processing"></a>Adaptivní zpracování dotazů
 
-Do služby SQL Database přidáváme také řadu funkcí pro [adaptivní zpracování dotazů](/sql/relational-databases/performance/adaptive-query-processing.md), včetně prokládaného spouštění funkcí s více příkazy vracejících tabulky, odezvy přidělení paměti v režimu dávky a adaptivních příkazů join v režimu dávky. Každá z těchto funkcí pro adaptivní zpracování dotazů používá podobné techniky učení a adaptace a pomáhá tak dále řešit problémy s výkonem související s historicky nezvladatelnými problémy s optimalizací dotazů.
+Do služby SQL Database přidáváme také řadu funkcí pro [adaptivní zpracování dotazů](/sql/relational-databases/performance/adaptive-query-processing), včetně prokládaného spouštění funkcí s více příkazy vracejících tabulky, odezvy přidělení paměti v režimu dávky a adaptivních příkazů join v režimu dávky. Každá z těchto funkcí pro adaptivní zpracování dotazů používá podobné techniky učení a adaptace a pomáhá tak dále řešit problémy s výkonem související s historicky nezvladatelnými problémy s optimalizací dotazů.
 
 ### <a name="intelligent-threat-detection"></a>Inteligentní detekce hrozeb
 
@@ -160,3 +160,4 @@ SQL Database podporuje vytváření aplikací pomocí Pythonu, Javy, Node.js, PH
 - Řadu ukázek v Azure CLI a PowerShellu najdete tady:
   - [Ukázky v Azure CLI pro službu SQL Database](sql-database-cli-samples.md)
   - [Ukázky v Azure PowerShellu pro službu SQL Database](sql-database-powershell-samples.md)
+

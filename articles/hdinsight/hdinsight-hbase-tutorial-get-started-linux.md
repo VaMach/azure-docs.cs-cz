@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 1c2437c6eed641a929a7e25265bfc72dc76a9782
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bbd8a838062795ee03ae02dc5e3fd45d841a6e17
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Začínáme s příkladem Apache HBase ve službě HDInsight
@@ -117,7 +117,7 @@ V HBase (implementace BigTable) vypadají stejná data následovně:
 
 HBase obsahuje několik metod načítání dat do tabulek.  Další informace naleznete v tématu [Hromadné načítání](http://hbase.apache.org/book.html#arch.bulk.load).
 
-Ukázkový datový soubor najdete ve veřejném kontejneru objektů blob: *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Obsah datového souboru je:
+Ukázkový datový soubor najdete ve veřejném kontejneru objektů blob: *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Obsah datového souboru je:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -139,7 +139,7 @@ Volitelně můžete vytvořit textový soubor a nahrát ho do vlastního účtu 
 1. Ze SSH spusťte následující příkaz, který transformuje datový soubor na StoreFiles a uloží ho do relativní cesty určené parametrem Dimporttsv.bulk.output.  Pokud jste v prostředí HBase, odejděte pomocí příkazu exit.
 
     ```bash   
-    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
     ```
 
 2. Spusťte následující příkaz a nahrajte data z adresy /example/data/storeDataFileOutput do tabulky HBase:
