@@ -75,6 +75,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog věnovaný zabezpečení, ochraně osobních údajů a dodržování předpisů v Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Ceny](security-center-pricing.md)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Přehled služby](https://azure.microsoft.com/services/security-center/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
