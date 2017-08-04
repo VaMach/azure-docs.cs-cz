@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: cs-cz
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Vysvětlení architektury Azure Active Directory
@@ -31,10 +30,10 @@ Pomocí Azure AD můžete vytvářet a spravovat uživatele a skupiny a použív
 Geograficky distribuovaná architektura služby Azure AD kombinuje rozsáhlé monitorování, automatizované přesměrování, převzetí služeb při selhání a možnosti obnovení, které nám umožňují poskytovat našim zákazníkům výkon a dostupnost na podnikové úrovni.
 
 Tento článek se zabývá následujícími prvky návrhu:
- *    Návrh architektury služeb
- *    Škálovatelnost 
- *    Nepřetržitá dostupnost
- *    Datová centra
+ *  Návrh architektury služeb
+ *  Škálovatelnost 
+ *  Nepřetržitá dostupnost
+ *  Datová centra
 
 ### <a name="service-architecture-design"></a>Návrh architektury služeb
 Nejběžnější způsob, jak vytvořit škálovatelný vysoce dostupný systém bohatý na data, je prostřednictvím nezávislých stavebních bloků nebo jednotek škálování pro datovou vrstvu služby Azure AD. Pro jednotky škálování se používá označení *oddíly*. 
@@ -87,7 +86,7 @@ Azure AD funguje napříč datovými centry s následujícími charakteristikami
 
  * Služby Authentication, Graph a další služby AD se nacházejí za službou Gateway. Gateway spravuje vyrovnávání zatížení těchto služeb. Pokud se pomocí transakčních sond stavu zjistí, že některý server není v pořádku, automaticky provede převzetí služeb při selhání. Na základě těchto sondy stavu služba Gateway dynamicky směruje provoz na datová centra, která jsou v pořádku.
  * Pro *čtení* má adresář sekundární repliky a odpovídající front-endové služby v konfiguraci typu aktivní-aktivní, které se provozují v několika datových centrech. V případě selhání celého datového centra se provoz automaticky přesměruje do jiného datového centra.
- *    Pro *zápisy* adresář provede převzetí služeb při selhání primární (hlavní) repliky napříč datovými centry prostřednictvím plánovaných (nový primární se synchronizuje s původního primárního) nebo nouzových postupů převzetí. Odolnosti dat se dosahuje tím, že se každé potvrzení replikuje nejméně do dvou datových center.
+ *  Pro *zápisy* adresář provede převzetí služeb při selhání primární (hlavní) repliky napříč datovými centry prostřednictvím plánovaných (nový primární se synchronizuje s původního primárního) nebo nouzových postupů převzetí. Odolnosti dat se dosahuje tím, že se každé potvrzení replikuje nejméně do dvou datových center.
 
 **Konzistence dat**
 

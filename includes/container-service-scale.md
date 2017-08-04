@@ -32,7 +32,7 @@ Pokud chcete změnit počet uzlů agentů, spusťte příkaz `az acs scale` a za
 Pokud například chcete změnit počet agentů v předchozím clusteru na 10, zadejte následující příkaz:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 Azure CLI 2.0 vrátí řetězec JSON představující novou konfiguraci služby kontejneru, včetně nového počtu agentů.
