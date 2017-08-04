@@ -42,6 +42,7 @@
 ## Konfigurace
 ### Azure
 #### [Profiler](app-insights-profiler.md)
+#### [Povolení profileru](enable-profiler-cloud-services.md)
 #### [Diagnostika](app-insights-azure-diagnostics.md)
 #### [Náhledy](app-insights-previews.md)
 
@@ -140,7 +141,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referenční informace
-## [Analýzy](app-insights-analytics-reference.md)
+## [Analýzy](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,13 +155,15 @@
 ### [Metrika](application-insights-data-model-metric-telemetry.md)
 ### [Kontext](application-insights-data-model-context.md)
 ## [Korelace telemetrie](application-insights-correlation.md)
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 
 ## [Jazyky a platformy](app-insights-platforms.md)
 
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 
 ## Novinky
 

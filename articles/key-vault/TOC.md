@@ -33,6 +33,7 @@
 ### [Vytváření a správa pomocí CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -55,3 +56,4 @@
 ## [Ukázky kódu](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Fóra](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Ceny](https://azure.microsoft.com/pricing/details/key-vault/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

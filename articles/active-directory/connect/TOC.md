@@ -38,6 +38,7 @@
 ##### [Rychlý start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Aktuální omezení](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Jak to funguje?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Upgrade agentů Preview](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Inteligentní uzamčení](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Nejčastější dotazy](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Řešení problémů](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [Jak provést obnovení při dosažení 10GB limitu pro LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Synchronizace identit a odolnost duplicitních atributů](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porty a protokoly, které vyžaduje hybridní identita](active-directory-aadconnect-ports.md)
 ## [Funkce ve verzi Preview](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect – nejčastější dotazy](active-directory-aadconnect-faq.md)
 ##[Zastarání DirSync](active-directory-aadconnect-dirsync-deprecated.md)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
+

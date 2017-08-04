@@ -28,7 +28,6 @@
 ## Automatizace
 ### [Spuštění runbooku](automation-starting-a-runbook.md)
 ### [Spuštění runbooku z webhooku](automation-webhooks.md)
-### [Spouštění runbooků ve funkci Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Vstupní parametry runbooku](automation-runbook-input-parameters.md)
 ### [Zpracování chyb v grafických runbookách](automation-runbook-graphical-error-handling.md)
 ### [Sledování úlohy runbooku](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Správa dat Azure Automation](automation-managing-data.md)
 ### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Předání objektu JSON do runbooku Azure Automation](automation-pass-json-string.md)
+## Hybrid Runbook Worker
+### [Nasazení funkce Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+### [Spouštění runbooků v pracovním procesu](automation-hrw-run-runbooks.md)
 ## Nasazení správy konfigurace (DSC)
 ### [Přehled konfigurace požadovaného stavu (DSC)](automation-dsc-overview.md)
 ### [Začínáme](automation-dsc-getting-started.md)
@@ -87,6 +89,7 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Ceny](https://azure.microsoft.com/pricing/details/automation/)  
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Poznámky k verzi](https://azure.microsoft.com/updates/?product=automation)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

@@ -3,6 +3,7 @@
 ## [Zabezpečení databází](azure-database-security-overview.md)
 ## [Zabezpečení úložiště](security-storage-overview.md)
 ## [Zabezpečení služby Compute](security-virtual-machines-overview.md)
+## [Provozní zabezpečení](azure-operational-security-overview.md)
 ## [Monitorování a správa zabezpečení](security-management-and-monitoring-overview.md)
 ## [Správa identit](security-identity-management-overview.md)
 ## [Zabezpečení IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
@@ -35,6 +36,8 @@
 ### [Osvědčené postupy pro úlohy IaaS](azure-security-iaas.md)
 ### [Antimalware od Microsoftu](azure-security-antimalware.md)
 ### [Šifrování disků pro virtuální počítače IaaS](azure-security-disk-encryption.md)
+#### [Šifrování disků – nejčastější dotazy](azure-security-disk-encryption-faq.md)
+#### [Řešení potíží s šifrováním disků](azure-security-disk-encryption-tsg.md)
 ### [Šifrování virtuálního počítače Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Monitorování a správa zabezpečení
@@ -53,8 +56,10 @@
 ## Služby PaaS
 ### [Zabezpečení nasazení PaaS](security-paas-deployments.md)
 #### [Zabezpečení webových a mobilních aplikací PaaS pomocí SQL](security-paas-applications-using-sql.md)
-#### [Osvědčené postupy SQL Database](azure-database-security-best-practices.md)
+#### [Osvědčené postupy zabezpečení SQL Database](azure-database-security-best-practices.md)
+#### [Kontrolní seznam zabezpečení SQL Database](azure-database-security-checklist.md)
 #### [Zabezpečení webových a mobilních aplikací PaaS pomocí App Services](security-paas-applications-using-app-services.md)
+####[Kontrolní seznam provozního zabezpečení](azure-operational-security-checklist.md)
 
 ## Internet věcí
 ### [Zabezpečení nasazení IoT](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +84,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Program MVP pro zabezpečení Azure](azure-security-mvp.md)
 ## [Poradenství pro zabezpečení](azure-security-cyber-services.md)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Blog věnovaný zabezpečení a dodržování předpisů](http://blogs.msdn.com/b/azuresecurity/)
 ## [Kurzy zabezpečení ve Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Videa o zabezpečení na webu Channel 9](security-channel-nine.md)

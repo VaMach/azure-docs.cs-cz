@@ -85,6 +85,7 @@
 ## [Využívání služeb SOAP WCF přes HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Ceny](https://azure.microsoft.com/pricing/details/api-management/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Poskytnutí přístupu podobného RBAC pomocí rozhraní REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=api-management)
 ## [Nastavení nástroje PostMan pro volání rozhraní API služby API Management](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)

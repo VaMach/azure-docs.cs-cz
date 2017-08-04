@@ -61,8 +61,9 @@
 ### [Co se stalo s mým projektem webového rozhraní API](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Knihovny ověřování (ADAL)](active-directory-authentication-libraries.md)
-## [Ukázky kódu](active-directory-code-samples.md)
+## [Článek s ukázkami kódu](active-directory-code-samples.md)
 ## [Glosář](active-directory-dev-glossary.md)
 ## [Protokoly pro ověřování](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -107,3 +108,4 @@
 ### [Obory](active-directory-v2-scopes.md)
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

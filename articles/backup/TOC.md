@@ -4,7 +4,7 @@
 
 # Začínáme
 ## [Zálohování virtuálních počítačů Azure](backup-azure-vms-first-look-arm.md)
-## [Zálohování souborů a složek](backup-try-azure-backup-in-10-mins.md)
+## [Zálohování Windows Serveru nebo počítačů s Windows](backup-try-azure-backup-in-10-mins.md)
 ## [Zálohování serverů VMware](backup-azure-backup-server-vmware.md)
 
 # Postup
@@ -27,16 +27,19 @@
 #### [Obnovení virtuálních počítačů nasazených Azure Resource Managerem na webu Azure Portal](backup-azure-arm-restore-vms.md)
 #### [Obnovení šifrovaných virtuálních počítačů](backup-azure-vms-encryption.md)
 #### [Obnovení virtuálních počítačů v Azure](backup-azure-restore-vms.md)
-#### [Obnovení klíče a tajného kódu Key Vault pro šifrované virtuální počítače pomocí Azure Backup](backup-azure-restore-key-secret.md)
+#### [Obnovení klíče a tajného kódu Key Vault pro šifrované virtuální počítače](backup-azure-restore-key-secret.md)
 
 
-## Soubory a složky ve Windows
-### [Windows Server s využitím modelu nasazení Resource Manageru](backup-configure-vault.md)
-### [Windows Server s využitím klasického modelu nasazení](backup-configure-vault-classic.md)
+## Windows Server
+### [Zálohování souborů a složek Windows Serveru](backup-configure-vault.md)
+### [Zálohování stavu systému Windows Server](backup-azure-system-state.md)
+### [Obnovení souborů z Azure do Windows Serveru](backup-azure-restore-windows-server.md)
+### [Obnovení stavu systému Windows Server](backup-azure-restore-system-state.md)
 ### [Monitorování a správa trezorů služby Recovery Services](backup-azure-manage-windows-server.md)
-### [Správa trezorů služby Backup s využitím klasického modelu nasazení](backup-azure-manage-windows-server-classic.md)
-### [Obnovení souborů na Windows Serveru s využitím modelu nasazení Resource Manager](backup-azure-restore-windows-server.md)
-### [Obnovení souborů na Windows Serveru s využitím klasického modelu nasazení](backup-azure-restore-windows-server-classic.md)
+### Zálohování a obnovení pomocí portálu Classic
+#### [Windows Server s využitím klasického modelu nasazení](backup-configure-vault-classic.md)
+#### [Správa trezorů služby Backup s využitím klasického modelu nasazení](backup-azure-manage-windows-server-classic.md)
+#### [Obnovení souborů na Windows Serveru s využitím klasického modelu nasazení](backup-azure-restore-windows-server-classic.md)
 
 ## Server Azure Backup
 ### [Systém ochrany Azure Backup Serveru](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Ceny](https://azure.microsoft.com/pricing/details/backup/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=backup)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=backup)

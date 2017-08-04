@@ -24,10 +24,6 @@
 # Postup
 ## Plánování a návrh
 ### [Pochopení architektury Azure AD](active-directory-architecture.md)
-### [Doporučené zásady zabezpečení a konfigurace](secure-email-introduction.md)
-#### [Doporučené zásady zabezpečeného e-mailu](secure-email-recommended-policies.md)
-##### [Nasazení doporučených zásad zabezpečení e-mailu](secure-email-deploy-recommended-policies.md)
-#### [Přehled služeb Office 365 a EMS](secure-email-ems-office365-service-descriptions.md)
 ### [Nasazení řešení s hybridní identitou](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Mapování deklarací v Azure Active Directory](active-directory-claims-mapping.md)
 #### Určení požadavků
@@ -167,7 +163,6 @@
 ## Správa aplikací
 ### [Přehled](active-directory-enable-sso-scenario.md)
 ### [Začínáme](active-directory-integrating-applications-getting-started.md)
-
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +173,7 @@
 ##### [Povolení proxy aplikace](active-directory-application-proxy-enable.md)
 ##### [Publikování aplikací](application-proxy-publish-azure-portal.md)
 ##### [Vlastní domény](active-directory-application-proxy-custom-domains.md)
-#### [Přístup s jednotným přihlašováním](active-directory-appssoaccess-whatis.md)
+#### [Jednotné přihlašování](application-proxy-sso-overview.md)
 ##### [Jednotné přihlašování s KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Jednotné přihlašování se záhlavími](application-proxy-ping-access.md)
 ##### [Jednotné přihlašování s ukládáním hesel do trezoru](application-proxy-sso-azure-portal.md)
@@ -219,6 +214,7 @@
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)
+#### [Přístup s jednotným přihlašováním](active-directory-appssoaccess-whatis.md)
 #### [Certifikáty pro jednotné přihlašování](active-directory-sso-certs.md)
 #### [Exportní tenanta](active-directory-tenant-restrictions.md)
 #### [Použití uživatelů zřizování SCIM](active-directory-scim-provisioning.md)
@@ -370,6 +366,7 @@
 
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Rutiny PowerShellu](/powershell/azure/overview)
 ## [Referenční informace k Java API](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +384,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

@@ -74,6 +74,7 @@
 ### [Poznámky k verzi](active-directory-b2c-developer-notes-custom.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glosář
 ### [Typy aplikací](active-directory-b2c-apps.md)
 ### [Protokoly pro ověřování](active-directory-b2c-reference-protocols.md)
@@ -92,6 +93,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Nejčastější dotazy](active-directory-b2c-faqs.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Podpora](active-directory-b2c-support.md)

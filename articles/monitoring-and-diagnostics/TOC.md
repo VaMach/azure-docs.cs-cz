@@ -59,6 +59,7 @@
 ### [Řešení potíží](azure-diagnostics-troubleshooting.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Zdroje dat monitorování](monitoring-data-sources.md)
 ## [Seznam podporovaných metrik](monitoring-supported-metrics.md)
 ## [Schéma událostí protokolu aktivit](monitoring-activity-log-schema.md)
@@ -74,5 +75,6 @@
 ## [Ukázky Azure CLI 1.0](insights-cli-samples.md)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Ukázky pro PowerShell](insights-powershell-samples.md)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Šablony Rychlý start](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

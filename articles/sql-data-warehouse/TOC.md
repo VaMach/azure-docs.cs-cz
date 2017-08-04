@@ -82,18 +82,22 @@
 
 ## Načtení
 
-### [Přehled](sql-data-warehouse-overview-load.md)
-### [Ukázková data](sql-data-warehouse-load-sample-databases.md)
-### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [Pokyny k PolyBase](sql-data-warehouse-load-polybase-guide.md)
-### [PolyBase z Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase z SQL Serveru](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [Redgate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Koncepty
+#### [Přehled](sql-data-warehouse-overview-load.md)
+#### [Pokyny k PolyBase](sql-data-warehouse-load-polybase-guide.md)
+
+### Kurzy
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### Návody
+#### [Ukázková data](sql-data-warehouse-load-sample-databases.md)
+#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+#### [PolyBase z Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [PolyBase z SQL Serveru](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [Redgate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Migrace
 
@@ -144,6 +148,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Ceny](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)

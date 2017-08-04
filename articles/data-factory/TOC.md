@@ -93,6 +93,7 @@
 ### [Řešení potíží při použití brány správy dat](data-factory-troubleshoot-gateway-issues.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -104,6 +105,7 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Ceny](https://azure.microsoft.com/pricing/details/data-factory/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Poznámky k verzi pro bránu správy dat](data-factory-gateway-release-notes.md)
 ## [Žádost o funkci](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=data-factory)

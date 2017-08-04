@@ -158,6 +158,7 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Seznam prostředků WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 

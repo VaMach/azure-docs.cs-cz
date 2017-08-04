@@ -45,8 +45,11 @@
 ## Měřítko
 ###[Aktualizace na jinou velikost a úroveň](cache-how-to-scale.md)
 ###[Použití clusteru Redis pro horizontální snížení nebo zvýšení kapacity](cache-how-to-premium-clustering.md)
+## Integrace se Spring Bootem
+###[Použití aplikace Spring Boot Initializer s Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 (Preview)](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

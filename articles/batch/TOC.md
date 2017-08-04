@@ -8,6 +8,7 @@
 ## [Výukový kurz k Batch .NET](batch-dotnet-get-started.md)
 ## [Kurz k Batch Pythonu](batch-python-tutorial.md)
 ## [Kurz k Batch Node.js](batch-nodejs-get-started.md)
+## [Služba Batch Rendering](batch-rendering-service.md)
 # Postup
 ## Vývoj
 ### [Balíčky aplikací](batch-application-packages.md)
@@ -15,6 +16,7 @@
 ### Ověřování Azure AD
 #### [Azure AD se službou Batch](batch-aad-auth.md)
 #### [Azure AD se službou Batch Management](batch-aad-auth-management.md)
+### [Virtuální počítače náročné na výpočetní výkon](batch-pool-compute-intensive-sizes.md)
 ### [Souběžné úlohy uzlu](batch-parallel-node-tasks.md)
 ### [Efektivní seznamové dotazy](batch-efficient-list-queries.md)
 ### [Příprava úlohy a dokončovací úkoly](batch-job-prep-release.md)
@@ -36,8 +38,8 @@
 #### [Přidání aplikace](./scripts/batch-cli-sample-add-application.md)
 #### [Správa fondů](./scripts/batch-cli-sample-manage-pool.md)
 #### [Spuštění úlohy a úkolů](./scripts/batch-cli-sample-run-job.md)
-
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -69,6 +71,7 @@
 ## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Ceny](https://azure.microsoft.com/pricing/details/batch/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Ukázky kódu Pythonu](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

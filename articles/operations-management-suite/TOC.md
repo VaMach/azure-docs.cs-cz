@@ -29,6 +29,7 @@
 ### [Posouzení malwaru](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Posouzení aktualizace systému](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Produkty zabezpečení Connect](oms-security-connect-products.md)
+### [Webové vyhodnocení směrného plánu](oms-security-web-baseline-assessment.md)
 
 ## Použití řešení
 ### [Řešení pro správu](operations-management-suite-solutions.md)
@@ -77,3 +78,4 @@
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

@@ -17,7 +17,6 @@
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
 ## Konfigurace připojení typu point-to-site
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -59,8 +58,7 @@
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Konfigurace brány VPN (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
-## [Skladové jednotky (SKU) brány (staré)](vpn-gateway-about-skus-legacy.md)
+## [Skladové jednotky (SKU) brány](vpn-gateway-about-skus-legacy.md)
 ## Konfigurace zařízení VPN třetích stran
 ### [Přehled a konfigurace Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Ukázka: Zařízení Cisco ASA (IKEv2/bez BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
@@ -91,5 +89,6 @@
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ceny](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

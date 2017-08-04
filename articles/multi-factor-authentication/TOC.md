@@ -51,3 +51,4 @@
 ### [Chyby rozšíření NPS](multi-factor-authentication-nps-errors.md)
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

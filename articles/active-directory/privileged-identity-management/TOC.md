@@ -23,8 +23,12 @@
 ### [Vyžadování MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [Použití protokolu auditu](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Související
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Řízení přístupu na základě rolí](../role-based-access-control-what-is.md)
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

@@ -30,3 +30,4 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Ceny](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

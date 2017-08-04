@@ -7,10 +7,11 @@
 
 # Začínáme
 ## [Export šablony](resource-manager-export-template.md)
-## [Vytvoření první šablony](resource-manager-create-first-template.md)
+## [Vytvoření šablony nasazení](resource-manager-create-first-template.md)
 ## [Visual Studio s Resource Managerem](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Ukázky
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Nasazení šablony](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [Funkce pole a objektu](resource-group-template-functions-array.md)
 ### [Funkce porovnání](resource-group-template-functions-comparison.md)
 ### [Funkce nasazení](resource-group-template-functions-deployment.md)
+### [Logické funkce](resource-group-template-functions-logical.md)
 ### [Numerické funkce](resource-group-template-functions-numeric.md)
 ### [Funkce prostředků](resource-group-template-functions-resource.md)
 ### [Funkce řetězců](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Omezování požadavků](resource-manager-request-limits.md)

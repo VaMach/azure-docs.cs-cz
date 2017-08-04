@@ -16,6 +16,7 @@
 ### [2. Nasazení aplikace .NET pomocí Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Ukázky
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Azure CLI](samples-cli.md)
 # Koncepty
@@ -111,7 +112,7 @@
 #### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Monitorování a diagnostika
+## Monitorování a diagnóza
 ### [Přehled](service-fabric-diagnostics-overview.md)
 ### [Model stavu](service-fabric-health-introduction.md)
 ### [Diagnostika ve stavovém modelu Reliable Services](service-fabric-reliable-services-diagnostics.md)
@@ -131,7 +132,6 @@
 ### Sestavení služby kontejneru
 #### [Vytvoření aplikace typu kontejner pro Windows](service-fabric-get-started-containers.md)
 #### [Vytvoření aplikace typu kontejner pro Linux](service-fabric-get-started-containers-linux.md)
-#### [Nasazení kontejneru s Windows](service-fabric-deploy-container.md)
 #### [Nasazení kontejneru Linuxu](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (Preview)](service-fabric-docker-compose.md)
 #### [Zásady správného řízení prostředků pro kontejnery a služby](service-fabric-resource-governance.md)
@@ -328,6 +328,7 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Ceny](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Ukázka kódu](http://aka.ms/servicefabricsamples)
 ## [Možnosti podpory](service-fabric-support.md)
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=service-fabric)

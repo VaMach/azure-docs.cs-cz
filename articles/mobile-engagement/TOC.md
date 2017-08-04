@@ -130,6 +130,7 @@
 ## [Ukázka .NET API](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Ukázkové aplikace](mobile-engagement-demo-apps.md)
 ## [Smlouvy o úrovni služeb (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## [Videa a aktualizace](https://azure.microsoft.com/documentation/services/mobile-engagement/)

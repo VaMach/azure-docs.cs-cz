@@ -32,6 +32,7 @@
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](expressroute-howto-coexist-resource-manager.md)
+## [Konfigurace filtrů směrování pro partnerský vztah Microsoftu](how-to-routefilter-powershell.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
 ## [Migrace přidružených virtuálních sítí z modelu nasazení Classic do Resource Manageru](expressroute-migration-classic-resource-manager.md)
 ## Konfigurace směrovače pro ExpressRoute
@@ -67,6 +68,7 @@
 ## [Případové studie](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Blog o sítích](https://azure.microsoft.com/blog/topics/networking/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/expressroute/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Předplatné a omezení služeb](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)

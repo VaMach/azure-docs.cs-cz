@@ -22,3 +22,5 @@
 # Zdroje a prostředky
 ## [Videa ke službě Azure Advisor](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
+

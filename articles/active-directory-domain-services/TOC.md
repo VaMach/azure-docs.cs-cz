@@ -47,6 +47,9 @@
 ### [Povolení verze Preview prostředí webu Azure Portal](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Řešení chyb neshod tenantů](active-directory-ds-mismatched-tenant-error.md)
 
+# Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Související
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Kontaktujte nás](active-directory-ds-contact-us.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=active-directory-ds)

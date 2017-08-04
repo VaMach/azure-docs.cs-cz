@@ -17,6 +17,7 @@
 ### [Použití fyzického zařízení](iot-hub-get-started-physical.md)
 #### [Raspberry Pi s Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi s C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Raspberry Pi s Pythonem](iot-hub-raspberry-pi-kit-python-get-started.md)
 
 #### [Intel Edison s Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison s C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +85,7 @@
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java back-end / zařízení Java](iot-hub-java-java-twin-getstarted.md)
 ### Použití přímých metod
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +105,7 @@
 ### Úlohy vysílání a plánování
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Spravovat
 ### Vytvoření centra IoT 
 #### [Použití portálu](iot-hub-create-through-portal.md)
@@ -150,6 +153,7 @@
 #### [Hostitel nativního modulu](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (služba)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (zařízení)](/dotnet/api/microsoft.azure.devices.client)
@@ -180,6 +184,7 @@
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Ceny](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Technické případové studie](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
