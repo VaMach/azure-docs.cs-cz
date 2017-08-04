@@ -30,6 +30,7 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=containers)
 ## [Ceny](https://azure.microsoft.com/pricing/details/container-registry/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Dostupnost v oblastech](https://azure.microsoft.com/regions/services/)
 ## [Aktualizace služby](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

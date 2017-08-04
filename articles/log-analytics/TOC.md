@@ -31,12 +31,22 @@
 #### [Protokoly IIS](log-analytics-data-sources-iis-logs.md)
 #### [Vlastní protokoly](log-analytics-data-sources-custom-logs.md)
 #### [Vlastní pole](log-analytics-custom-fields.md)
+
 ## Dotazování dat
 ### [Přehled prohledávání protokolů](log-analytics-log-searches.md)
 ### [Reference ke službě Search](log-analytics-search-reference.md)
 #### [Regulární výrazy](log-analytics-log-searches-regex.md)
 ### [Provedení akce z výsledků hledání](log-analytics-log-search-takeaction.md)
 ### [Skupiny počítačů](log-analytics-computer-groups.md)
+
+## Nové prohledávání protokolů
+### [Upgrade vašeho pracovního prostoru](log-analytics-log-search-upgrade.md)
+### [Nejčastější dotazy](log-analytics-log-search-faq.md)
+### [Přehled prohledávání protokolů](log-analytics-log-search-new.md)
+### [Portály prohledávání protokolů](log-analytics-log-search-portals.md)
+#### [Použití portálu prohledávání protokolů](log-analytics-log-search-log-search-portal.md)
+### [Přechod ze starší verze jazyka](log-analytics-log-search-transition.md)
+
 ## Analýza dat
 ### [Řídicí panely](log-analytics-dashboards.md)
 ### [Návrhář zobrazení](log-analytics-view-designer.md)
@@ -101,5 +111,6 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Analýzy ve Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

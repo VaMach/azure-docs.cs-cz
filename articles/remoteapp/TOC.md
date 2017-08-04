@@ -71,5 +71,6 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Ceny](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

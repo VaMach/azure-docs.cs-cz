@@ -19,9 +19,13 @@
 ### [Obnovení](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
 ### [Zakázání služby Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
-# Zdroje a prostředky
+# Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
+
+# Zdroje
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)

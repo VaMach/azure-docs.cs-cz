@@ -44,3 +44,4 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Kontaktování podpory](../azure-supportability/how-to-create-azure-support-request.md)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

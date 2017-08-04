@@ -98,6 +98,7 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

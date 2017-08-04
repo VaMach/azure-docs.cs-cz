@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Rozhraní příkazového řádku](virtual-networks-create-vnet-arm-cli.md)
 #### [Šablona](virtual-networks-create-vnet-arm-template-click.md)
-#### Classic
-##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [Rozhraní příkazového řádku](virtual-networks-create-vnet-classic-cli.md)
 
 ### Skupiny zabezpečení sítě
 #### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [DMZ pomocí brány firewall, směrování definovaného uživatelem a skupin zabezpečení sítě](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Ukázková aplikace](virtual-networks-sample-app.md)
 
+### Classic
+#### [Virtuální síť](create-virtual-network-classic.md)
+##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [Rozhraní příkazového řádku](virtual-networks-create-vnet-classic-cli.md)
+
 ## Konfigurace
 ### Virtuální počítače
 #### [Přidání nebo odebrání síťových rozhraní](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Nelze odstranit virtuální sítě](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (Classic)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
 ## [Fórum o sítích](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ceny](https://azure.microsoft.com/pricing/details/virtual-network)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

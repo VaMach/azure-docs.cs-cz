@@ -146,13 +146,17 @@
 ### [Protokoly streamování a konzola](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Řešení potíží pomocí sady Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Zdroje a prostředky
+# Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
+
+# Zdroje
 ## [Referenční informace k App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Osvědčené postupy](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Ceny](https://azure.microsoft.com/pricing/details/app-service/)  
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=app-service) 
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 

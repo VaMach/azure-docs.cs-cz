@@ -179,6 +179,7 @@
 #### [Zálohování manifestů jednotek](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostika a zotavení z chyb pro úlohy Import/export](storage-import-export-diagnostics-and-error-recovery.md)
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Klientské nástroje pro Azure Storage](storage-explorers.md)
 ## [Fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Ceny](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Správa objektů blob pomocí Storage Exploreru (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Použití Storage Exploreru (Preview) se službou Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
+### [Poznámky k verzi Storage Exploreru (Preview)](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## Balíčky NuGet
 ### [Klientská knihovna Azure Storage pro .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

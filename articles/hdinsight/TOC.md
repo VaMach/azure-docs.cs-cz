@@ -99,7 +99,6 @@
 #### [Zpracování událostí pomocí topologií Java](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Použití Power BI s topologií](hdinsight-storm-power-bi-topology.md)
 #### [Analýza dat snímače v reálném čase](hdinsight-storm-sensor-data-analysis.md)
-#### [Zpracování dat snímače vozidla](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Korelace událostí v průběhu času](hdinsight-storm-correlation-topology.md)
 #### [Vývoj topologií pomocí Pythonu](hdinsight-storm-develop-python-topology.md)
 ## Použití HDInsightu připojeného k doméně (Preview)
@@ -137,6 +136,7 @@
 ### [Analýza webových protokolů pomocí Hivu](hdinsight-hive-analyze-website-log.md)
 ### [Analýza protokolů Telemetrie Application Insights](hdinsight-spark-analyze-application-insight-logs.md)
 ## Rozšíření clusterů
+### [Použití zabezpečeného povoleného účtu úložiště](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [Přizpůsobení clusterů pomocí Bootstrapu](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Přizpůsobení clusterů pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Připojení HDInsightu k místní síti](connect-on-premises-network.md)
@@ -207,6 +207,7 @@
 #### [Optimalizace dotazů Hive](hdinsight-hadoop-optimize-hive-query.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
@@ -240,4 +241,5 @@
 ## [Získání pomoci na fóru](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Program Microsoft Professional pro velké objemy dat](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Nástroje Windows pro HDInsight](hdinsight-hadoop-windows-tools.md)

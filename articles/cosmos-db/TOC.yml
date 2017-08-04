@@ -5,8 +5,7 @@
     - name: Informace o databázi Azure Cosmos
       href: introduction.md
     - name: Vítáme zákazníky DocumentDB
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Šablony Rychlý start
   expanded: true
   items:
@@ -138,6 +137,8 @@
               href: documentdb-resources.md
             - name: Dotazy SQL
               href: documentdb-sql-query.md
+            - name: Výkon dotazů SQL
+              href: documentdb-sql-query-metrics.md
             - name: SQL Playground
               href: 'https://www.documentdb.com/sql/demo'
             - name: Dělení
@@ -195,8 +196,7 @@
                 - name: Stack Overflow
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Videa
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Aktualizace služeb
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: Portál komunity
@@ -224,8 +224,7 @@
         - name: Rozhraní Table API
           items:
             - name: Úložiště Table
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: Změna kanálu
           href: change-feed.md
         - name: Geoprostorové
@@ -284,8 +283,12 @@
           href: powerbi-visualize.md
         - name: Využití ovladače ODBC pro vizualizaci dat
           href: odbc-driver.md
+        - name: Použití aplikace Spring Boot Starter s rozhraními DocumentDB API
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Referenční informace
   items:
+    - name: Ukázky kódů
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: Rozhraní DocumentDB API
       items:
         - name: Java

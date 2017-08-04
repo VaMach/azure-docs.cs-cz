@@ -48,6 +48,7 @@
 ### [Řešení potíží s nástrojem pro vyrovnávání zatížení Azure](load-balancer-troubleshoot.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
@@ -69,4 +70,5 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Ceny](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=load-balancer)

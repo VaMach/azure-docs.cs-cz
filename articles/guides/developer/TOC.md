@@ -112,5 +112,6 @@
 # Zdroje a prostředky
 ## [Oblasti Azure](https://azure.microsoft.com/regions/)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Ukázky](https://azure.microsoft.com/resources/samples/)
 ## [Videa](https://azure.microsoft.com/resources/videos/home/)

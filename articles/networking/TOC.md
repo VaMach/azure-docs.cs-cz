@@ -64,6 +64,7 @@
 ## [Komunitní šablony](https://azure.microsoft.com/resources/templates/)
 ## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
 ## [Ceny](https://azure.microsoft.com/pricing)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Regionální dostupnost](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)

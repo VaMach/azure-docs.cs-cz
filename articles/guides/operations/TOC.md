@@ -101,3 +101,4 @@
 ## [Další kroky](azure-operations-guide.md#next-steps)
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

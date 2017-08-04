@@ -40,11 +40,12 @@
 ## [Ochrana záznamů a zón DNS](dns-protect-zones-recordsets.md)
 ## [Automatizace operací DNS se sadou .NET SDK](dns-sdk.md)
 
-## [Integrace Azure DNS s prostředky Azure](dns-custom-domain.md)
+## [Vlastní domény pro prostředky Azure](dns-custom-domain.md)
 ## Řešení potíží
 ### [Průvodce řešením problémů](dns-troubleshoot.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
@@ -68,4 +69,5 @@
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog o sítích](http://azure.microsoft.com/blog/topics/networking)
 ## [Ceny](https://azure.microsoft.com/pricing/details/dns/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=dns)

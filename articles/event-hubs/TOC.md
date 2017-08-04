@@ -42,6 +42,7 @@
 ### [Vytvoření a nasazení centra událostí pomocí šablony Resource Manageru](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -60,6 +61,7 @@
 ## [Ukázky kódu](event-hubs-samples.md)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

@@ -8,6 +8,7 @@
 ## [Multi-Site](application-gateway-multi-site-overview.md)
 ## [Koncový protokol SSL](application-gateway-backend-ssl.md)
 ## [Přesměrování](application-gateway-redirect-overview.md)
+## [Podpora více tenantů](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Omezení služby](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Začínáme
@@ -16,7 +17,8 @@
 #### [Azure Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Šablona Resource Manageru](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (Classic)](application-gateway-create-gateway.md)
 ### Směřující do interní sítě
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -40,6 +42,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurace přesměrování
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Konfigurace webových aplikací jako členů back-endového fondu
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurace sond stavu
 ### [Azure Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +74,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ceny](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

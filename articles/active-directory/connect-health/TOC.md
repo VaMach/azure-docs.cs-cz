@@ -12,6 +12,7 @@
 ## [Chyby při synchronizaci](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 # Související
@@ -22,4 +23,4 @@
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
-
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

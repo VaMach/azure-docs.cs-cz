@@ -57,6 +57,7 @@
 ## [Stav Azure](https://azure.microsoft.com/status/)
 ## [Váš názor](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Ceny](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

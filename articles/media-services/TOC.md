@@ -215,6 +215,7 @@
 ### [Logika opakování](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (správa prostředků)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
@@ -224,5 +225,6 @@
 ## [Komunita Azure Media Services](media-services-community.md)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Poznámky k verzi](media-services-release-notes.md)
 ## [Videa](https://azure.microsoft.com/resources/videos/index/?services=media-services)

@@ -28,6 +28,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Ceny](https://azure.microsoft.com/pricing/details/scheduler/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)

@@ -173,6 +173,7 @@
 
 # Referenční informace
 
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [Modul PowerShell (nový)](/powershell/module/azurerm.machinelearning)
 ## [Modul PowerShell (klasický)](machine-learning-powershell-module.md)
 ## [Referenční materiály k modulům a algoritmům](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -215,6 +216,7 @@
 
 ## [Jazyk neuronových sítí Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

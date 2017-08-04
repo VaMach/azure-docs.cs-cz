@@ -54,6 +54,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Nejčastější dotazy](iot-suite-faq.md)
 ## [Postup výuky pro IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 
 
 

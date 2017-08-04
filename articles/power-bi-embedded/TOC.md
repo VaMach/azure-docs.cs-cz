@@ -24,6 +24,7 @@
 ### [Zabezpečení na úrovni řádků v Power BI Embedded](power-bi-embedded-rls.md)
 
 # Referenční informace
+## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Stažení sady .NET SDK](https://www.nuget.org/profiles/powerbi)
@@ -38,5 +39,6 @@
 ## [Úložiště Git JavaScriptu](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Úložiště Git Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Komunita Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Ukázková aplikace](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
