@@ -197,8 +197,8 @@ Výstup by měl vypadat asi takto:
   - Kořenovou doménu nasazení, u které jste nakonfigurovali mapování na externí IP adresu příchozího přenosu dat Kubernetes (v tomto příkladu `squillace.io`).
 
   Zavolejte `draft init` a proces konfigurace vás vyzve k zadání výše uvedených hodnot. Proces při prvním spuštění vypadá asi takto:
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...

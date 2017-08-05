@@ -53,11 +53,7 @@ Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#
 Následující příklad vytvoří virtuální počítač *myVM*. Tento příklad používá jako uživatelské jméno správce *azureuser* a jako heslo *myPassword12*. Aktualizujte tyto hodnoty na nějaké vhodné pro vaše prostředí. Tyto hodnoty jsou potřeba při vytváření připojení k virtuálnímu počítači.
 
 ```azurecli-interactive 
-az vm create `
-  --resource-group myResourceGroup `
-  --name myVM --image win2016datacenter `
-  --admin-username azureuser `
-  --admin-password myPassword12
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
 Po vytvoření virtuálního počítače se v Azure CLI zobrazí podobné informace jako v následujícím příkladu. Poznamenejte si `publicIpAaddress`. Tato adresa se používá pro přístup k virtuálnímu počítači.
