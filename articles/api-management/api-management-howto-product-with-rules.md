@@ -3,7 +3,7 @@ title: "Ochrana rozhraní API ve službě Azure API Management | Dokumentace Mic
 description: "Seznamte se s možnostmi ochrany rozhraní API pomocí zásad kvót a zásad omezování četnosti."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrana rozhraní API omezením četnosti pomocí Azure API Management
@@ -53,7 +54,7 @@ Kliknutím na **Přidat produkt** zobrazíte dialogové okno **Přidání novéh
 
 Do pole **Nadpis** zadejte text **Bezplatná zkušební verze**.
 
-Do pole **Popis** zadejte následující text:  **Předplatitelé můžou spustit 10 volání za minutu až do maximálního počtu 200 volání za týden. Potom bude přístup odepřen.**
+Do pole **Popis** zadejte následující text: **Předplatitelé můžou spustit 10 volání za minutu až do maximálního počtu 200 volání za týden. Potom bude přístup odepřen.**
 
 Produkty ve službě API Management můžou být chráněné nebo otevřené. V případě chráněných produktů se musíte nejdřív přihlásit k jejich odběru a až potom je můžete používat. Otevřené produkty můžete používat bez předplatného. Pokud chcete vytvořit chráněný produkt, který vyžaduje předplatné, nezapomeňte vybrat možnost **Vyžadovat předplatné**. Toto je výchozí nastavení.
 
@@ -95,7 +96,9 @@ Vyberte **Rozhraní API v programu Echo** a potom klikněte na **Uložit**.
 ![Přidání rozhraní API v programu Echo][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Konfigurace zásad kvót a zásad omezení četnosti volání
-Omezení četnosti a kvóty se konfigurují v editoru zásad. V nabídce **API Management** na levé straně klikněte na **Zásady**. V seznamu **Produkt** klikněte na položku **Bezplatná zkušební verze**.
+Omezení četnosti a kvóty se konfigurují v editoru zásad. Dvě zásady, které v tomto kurzu budeme přidávat, jsou [Omezení četnosti volání podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) a [Nastavení kvóty využití podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Tyto zásady se musí použít na obor produktu.
+
+V nabídce **API Management** na levé straně klikněte na **Zásady**. V seznamu **Produkt** klikněte na položku **Bezplatná zkušební verze**.
 
 ![Zásady produktu][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Kliknutím na **Přidat zásady** proveďte import šablony zásad a začněte v
 
 ![Přidání zásad][api-management-add-policy]
 
-Pokud chcete zásady vložit, umístěte kurzor do šablony zásad v části **inbound** (příchozí) nebo **outbound** (odchozí). Zásady omezení četnosti a zásady kvót jsou příchozími zásadami, proto kurzor umístěte do příchozího prvku.
+Zásady omezení četnosti a zásady kvót jsou příchozími zásadami, proto kurzor umístěte do příchozího prvku.
 
 ![Editor zásad][api-management-policy-editor-inbound]
 
-Dvě zásady, které v tomto kurzu přidáváme, se nazývají [Omezení četnosti volání podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) a [Nastavení kvóty využití podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
+Posouváním seznamem zásad vyhledejte záznam zásady **Omezení četnosti volání podle předplatného**.
 
 ![Příkazy zásad][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ Po umístění kurzoru v prvku **inbound** zásad klikněte na šipku vedle polo
 </rate-limit>
 ```
 
-**Omezení četnosti volání podle předplatného** můžete použít na úrovni produktu, ale dá se použít i na úrovni rozhraní API a na úrovni názvu jednotlivých operací. V tomto kurzu používáme jenom zásady na úrovni produktu, takže z prvku **rate-limit** můžete odstranit prvky **api** a **operation**, aby zůstal jenom vnější prvek **rate-limit**, jak je znázorněno v následujícím příkladu.
+Jak je vidět ve fragmentu kódu, zásada umožňuje nastavení omezení pro operace a rozhraní API produktu. V tomto kurzu tuto schopnost využívat nebudeme, takže z elementu **rate-limit** odstraňte elementy **api** a **operation**, aby zůstal jenom vnější element **rate-limit**, jak je znázorněno v následujícím příkladu.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -135,7 +138,7 @@ V případě bezplatné zkušební verze produktu je maximální povolená četn
 </rate-limit>
 ```
 
-Pokud chcete nakonfigurovat zásady **Nastavení kvóty využití podle předplatného**, umístěte kurzor bezprostředně pod nově přidaný prvek **rate-limit** v prvku **inbound** a potom klikněte na šipku nalevo od **Nastavení kvóty využití podle předplatného**.
+Pokud chcete nakonfigurovat zásadu **Nastavení kvóty využití podle předplatného**, umístěte kurzor bezprostředně pod nově přidaný element **rate-limit** v elementu **inbound** a potom vyhledejte a klikněte na šipku nalevo od **Nastavení kvóty využití podle předplatného**.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -145,7 +148,7 @@ Pokud chcete nakonfigurovat zásady **Nastavení kvóty využití podle předpla
 </quota>
 ```
 
-Vzhledem k tomu, že se tyto zásady mají používat i na úrovni produktu, odstraňte prvky názvu **api** a **operation**, jak je znázorněno v následujícím příkladu.
+Podobně jako zásada **Nastavení kvóty využití podle předplatného** umožňuje i zásada **Nastavení kvóty využití podle předplatného** nastavení omezení pro operace a rozhraní API produktu. V tomto kurzu tuto schopnost využívat nebudeme, takže z elementu **quota** odstraňte elementy **api** a **operation**, jak je znázorněno v následujícím příkladu.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -166,7 +169,7 @@ V rámci bezplatné zkušební verze produktu má kvóta hodnotu 200 volání z
 </quota>
 ```
 
-> Intervaly zásad se zadávají v sekundách. Pokud chcete vypočítat interval pro týden, můžete počet dní (7) vynásobit počtem hodin za den (24), počtem minut za hodinu (60) a počtem sekund za minutu (60): 7 * 24 * 60 * 60 = 604800.
+> Intervaly zásad se zadávají v sekundách. Pokud chcete vypočítat interval pro týden, můžete počet dní (7) vynásobit počtem hodin za den (24), počtem minut za hodinu (60) a počtem sekund za minutu (60): 7 × 24 × 60 × 60 = 604 800.
 > 
 > 
 
@@ -264,7 +267,7 @@ Klikněte na **Odeslat** víckrát, než dovolují zásady omezení četnosti (1
 
 ![Výsledky operace][api-management-http-get-429]
 
- **Obsah odezvy** zobrazuje zbývající délku intervalu, po kterém bude opakování úspěšné.
+**Obsah odezvy** zobrazuje zbývající délku intervalu, po kterém bude opakování úspěšné.
 
 Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, následná volání nebudou úspěšná, dokud neuplyne 60 sekund od prvních 10 úspěšných volání produktu před překročením omezení četnosti volání. V tomto příkladu je zbývající délka intervalu 54 sekund.
 
@@ -323,9 +326,4 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, násled
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

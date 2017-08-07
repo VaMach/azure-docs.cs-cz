@@ -12,10 +12,10 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 9f393e9ab1b3b6ab7f1ff085d625362d50adc97c
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b9382de2b8c672670213d9f5d0daf1eb0bff8c78
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -28,42 +28,9 @@ Tento rychlý start využívá jako výchozí bod prostředky vytvořené v něk
 - [Vytvoření databáze – rozhraní příkazového řádku](quickstart-create-server-database-azure-cli.md)
 
 Budete také muset:
-- Nainstalovat [.NET Framework](https://www.microsoft.com/net/download)
-- Nainstalovat [Visual Studio](https://www.visualstudio.com/downloads/)
-- Nainstalovat [Npgsql](http://www.npgsql.org/doc/index.html) 
-
-## <a name="install-visual-studio-and-net"></a>Instalace sady Visual Studio a .NET
-Kroky v této části předpokládají, že máte zkušenosti s vývojem pomocí rozhraní .NET.
-
-### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework a .NET Core**
-Visual Studio 2017 Community je plně vybavené, rozšiřitelné a bezplatné integrované vývojové prostředí (IDE) pro vytváření moderních aplikací pro Android, iOS a Windows, stejně jako webových a databázových aplikací a cloudových služeb. Můžete nainstalovat buď úplné rozhraní .NET Framework, nebo jenom jádro .NET Core. Fragmenty kódu v rychlém startu pracují s oběma. Pokud již máte v počítači nainstalovanou sadu Visual Studio, přeskočte několik dalších kroků.
-
-1. Stáhněte si [instalační program sady Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Spusťte instalační program a podle zobrazených pokynů instalaci dokončete.
-
-### <a name="mac-os"></a>**Mac OS**
-Otevřete terminál a přejděte do adresáře, kde plánujete vytvoření projektu .NET Core. Zadejte následující příkazy, abyste nainstalovali **brew**, **OpenSSL** a **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-V systému macOS nainstalujte .NET Core. Stáhněte [oficiální instalační program](https://go.microsoft.com/fwlink/?linkid=843444). Tento instalační program nainstaluje nástroje a umístí je do proměnné PATH, abyste mohli dotnet spustit z konzoly.
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Otevřete terminál a přejděte do adresáře, kde plánujete vytvoření projektu .NET Core. Zadáním následujících příkazů nainstalujte **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+- Nainstalovat rozhraní [.NET Framework](https://www.microsoft.com/net/download). Postupujte podle kroků v odkazovaném článku a nainstalujte .NET pro vaši platformu (Windows, Ubuntu Linux nebo macOS). 
+- Nainstalovat sadu [Visual Studio](https://www.visualstudio.com/downloads/) nebo Visual Studio Code pro psaní a úpravy kódu.
+- Nainstalovat knihovnu [Npgsql](http://www.npgsql.org/doc/index.html), jak je popsáno níže.
 
 ## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Instalace referencí Npgsql do řešení v sadě Visual Studio
 Pro připojení z aplikace v jazyce C# k PostgreSQL použijte open source knihovnu ADO.NET s názvem Npgsql. Ve snadném stažení a správě referencí vám pomůže NuGet.

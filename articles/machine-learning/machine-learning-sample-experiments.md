@@ -1,6 +1,7 @@
 ---
-title: "Kopírování experimentů ukázky Machine Learningu | Dokumentace Microsoftu"
-description: "Naučte se používat experimenty ukázky Machine Learningu k vytváření nových experimentů s Cortana Intelligence Gallery a Microsoft Azure Machine Learning."
+title: "Kopírování příkladů experimentů se strojovým učením – Azure | Dokumentace Microsoftu"
+description: "Naučte se používat příklady experimentů se strojovým učením k vytváření nových experimentů s galerií Cortana Intelligence a službou Microsoft Azure Machine Learning."
+keywords: machine learning examples, sample experiment, machine learning sample
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -12,18 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/28/2017
 ms.author: cgronlun;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a6c8ca83e3a4020cb1ea0f1c14299f1aee3bdca5
+ms.contentlocale: cs-cz
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Vytváření nových experimentů Machine Learningu na základě kopírování ukázkových experimentů
-Naučte se pracovat s experimenty pomocí ukázek z [Cortana Intelligence Galerie](https://gallery.cortanaintelligence.com/), místo abyste vytvářeli experimenty Machine Learningu od začátku. Ukázky můžete použít k sestavení vlastních řešení Machine Learningu.
+# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Vytváření nových experimentů se strojovým učením na základě kopírování příkladů experimentů
+Zjistěte, jak začít s příklady experimentů z [Galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) místo vytváření experimentů se strojovým učením od začátku. Příklady můžete použít k sestavení vlastních řešení strojového učení.
 
-V galerii jsou ukázkové experimenty vytvořené týmem Microsoft Azure Machine Learning, ale i ukázky sdílené komunitou Machine Learningu. Také můžete klást otázky nebo experimenty komentovat.
+V galerii jsou příklady experimentů od týmu Microsoft Azure Machine Learning i příklady sdílené komunitou služby Machine Learning. Také můžete klást otázky nebo experimenty komentovat.
 
 Abyste se dozvěděli, jak používat galerii, podívejte se na tříminutové video [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) (Kopírování práce jiných lidí pro vědecké zkoumání dat) z řady [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) (Vědecké zkoumání dat pro začátečníky).
 
@@ -39,9 +41,9 @@ Na této stránce si můžete zobrazit **naposled přidané** experimenty, přec
 Procházení všech experimentů:
 
 1. V horní části stránky klikněte na **Browse all** (Procházet vše).
-2. V oddílu **Zpřesnit podle** v části **Kategorie** vyberte **Experiment**. Zobrazí se všechny experimenty v galerii.
+2. Na levé straně v oddílu **Zpřesnit podle** v části **Kategorie** vyberte **Experiment**. Zobrazí se všechny experimenty v galerii.
 3. Experimenty, které splňují vaše požadavky, můžete najít několika různými způsoby:
-   * **Vyberte filtry vlevo.** Pokud chcete například procházet experimenty, které používají algoritmus detekce anomálií založený na metodě PCA, vyberte v části **Categories** (Kategorie) možnost **Experiment** a v části **Algorithms Used** (Použité algoritmy) možnost **PCA-Based Anomaly Detection**. (Pokud tento algoritmus nevidíte, klikněte ve spodní části seznamu na **Show all** (Zobrazit vše)).<br></br>
+   * **Vyberte filtry vlevo.** Pokud chcete například procházet experimenty, které používají algoritmus detekce anomálií založený na PCA, s vybranou možností **Experiment** v části **Kategorie** klikněte na **Zobrazit vše**. Potom v části **Použité algoritmy** zvolte **Detekce anomálií založená na PCA**. <br></br>
      ![Vybrat filtry](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Použijte vyhledávací pole.** Pokud chcete například najít experimenty, kterými přispěl Microsoft, které se týkají rozpoznávaní číslic a které používají algoritmus podpůrného vektorového stroje se dvěma třídami, zadejte do vyhledávacího pole „digit recognition“. Vyberte filtry **Experiment**, **Microsoft content only** (Jen obsah Microsoftu) a **Two-Class Support Vector Machine**:<br></br>
      ![Použití vyhledávacího pole](./media/machine-learning-sample-experiments/search-for-experiments.png)
@@ -55,21 +57,16 @@ Procházení všech experimentů:
     >
     >
 
-## <a name="use-a-template-in-machine-learning-studio"></a>Použití šablony v nástroji Machine Learning Studio
-Nový experiment v nástroji Machine Learning Studio je možné vytvořit i pomocí ukázky z galerie, která bude použita jako šablona.
+## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Vytvoření nového experimentu s využitím příkladu jako šablony
+Nový experiment v nástroji Machine Learning Studio můžete vytvořit také pomocí příkladu z galerie jako šablony.
 
 1. Přihlaste se do [Studia](https://studio.azureml.net) pomocí přihlašovacích údajů účtu Microsoft a kliknutím na **Nový** vytvořte experiment.
-2. Projděte si ukázkový obsah a na některý klikněte.
+2. Projděte si obsah příkladu a na některý klikněte.
 
-V pracovním prostoru se vytvoří nový experiment, ve kterém ukázkový experiment slouží jako šablona.
+V pracovním prostoru Machine Learning Studio se vytvoří nový experiment s využitím příkladu experimentu jako šablony.
 
 ## <a name="next-steps"></a>Další kroky
 * [Import dat z různých zdrojů](machine-learning-data-science-import-data.md)
 * [Stručný úvodní kurz k jazyku R ve službě Machine Learning](machine-learning-r-quickstart.md)
 * [Nasazení webové služby Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

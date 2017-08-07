@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 07/26/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1cab34785d6e4f7751245ebf77b29fa8dc3c685b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 98670b60daca7091e09ce2ab03cf2eaff015070e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Úvod do Microsoft Azure Storage
@@ -110,13 +109,19 @@ Při navrhování aplikací pro škálování ve větším měřítku jsou jedno
 Účet úložiště může obsahovat libovolný počet front. Fronta může obsahovat libovolný počet zpráv až do kapacity účtu úložiště. Jednotlivé zprávy můžou mít velikost až 64 KB.
 
 ## <a name="file-storage"></a>File Storage
-Azure File Storage nabízí cloudové sdílené složky SMB, takže můžete rychle a bez nákladných přepisů migrovat starší aplikace, které spoléhají na sdílené složky, do Azure. S úložištěm Azure File můžou aplikace běžící v cloudových službách nebo virtuálních počítačích Azure připojit sdílenou složku v cloudu stejným způsobem, jako desktopová aplikace připojí typickou sdílenou složku SMB. Potom může sdílenou složku File Storage připojit a používat libovolný počet aplikací.
+Služba Soubory Azure umožňuje nastavit vysoce dostupné sdílené složky souborů sítě, ke kterým je možný přístup pomocí standardního protokolu SMB (Server Message Block). To znamená, že několik virtuálních počítačů může sdílet stejné soubory s oprávněním ke čtení i zápisu. Soubory můžete číst také pomocí rozhraní REST nebo klientských knihoven pro úložiště.
 
-Protože je sdílená složka File Storage standardní sdílenou složkou SMB, aplikace běžící v Azure můžou k datům ve sdílené složce přistupovat přes rozhraní API pro vstup/výstup souborového systému. Vývojáři tedy můžou využít svoje dovednosti a znalosti kódu při migraci stávajících aplikací. Profesionálové v oblasti výpočetní techniky můžou pomocí rutin prostředí PowerShell vytvářet, připojovat a spravovat sdílené složky File Storage v rámci správy aplikací Azure.
+Jednou z věcí, která odlišuje Azure File Storage od souborů v podnikové sdílené složce je, že k souborům můžete přistupovat odkudkoli na světě pomocí adresy URL, která odkazuje na soubor a zahrnuje token sdíleného přístupového podpisu (SAS). Můžete generovat tokeny SAS, které po určitou dobu umožňují specifický přístup k privátním prostředkům.
 
-Podobně jako ostatní služby úložiště Azure i úložiště File zpřístupňuje rozhraní REST API pro přístup k datům ve sdílené složce. Místní aplikace můžou zavolat REST API služby File Storage a získat přístup k datům ve sdílené složce. Podnik tak má možnost třeba migrovat některé starší aplikace na Azure a ostatní aplikace nechat běžet ze své organizace. Všimněte si, že připojení sdílené složky je možné jen pro aplikace, které běží v Azure. Lokální aplikace má ke sdílené složce možný přístup jen přes REST API.
+Sdílené složky můžete použít pro řadu běžných scénářů:
 
-Distribuované aplikace můžou taky používat úložiště File k ukládání a sdílení užitečných dat aplikace a testovacích nástrojů. Nějaká aplikace může například uložit konfigurační soubory a diagnostická data (protokoly, metriky a výpisy stavu systému) do úložiště File, aby byly dostupné pro několik virtuálních počítačů nebo rolí. Vývojáři a správci můžou do sdílené složky úložiště File uložit nástroje, které potřebují k sestavení nebo správě aplikace. Tato sdílená složka bude přístupná pro všechny komponenty a nebude je potřeba instalovat do každého virtuálního počítače nebo instance role.
+* Mnoho místních aplikací používá sdílené složky. Tato funkce usnadňuje migraci aplikací sdílejících data do Azure. Pokud připojíte sdílenou složku ke stejnému písmenu jednotky, které používá místní aplikace, část aplikace pro přístup ke sdílené složce by měla fungovat s minimálními, pokud vůbec nějakými, změnami.
+
+* Ve sdílené složce je možné ukládat konfigurační soubory, kde k nim bude mít přístup více virtuálních počítačů. Ve sdílené složce je možné ukládat nástroje používané více vývojáři ve skupině zajistit tak, že je všichni budou moci najít a že budou používat stejnou verzi.
+
+* Diagnostické protokoly, metriky a výpisy stavu systému jsou jenom tři z příkladů dat, která je možné zapisovat do sdílené složky a zpracovávat nebo analyzovat později.
+
+V současné době se nepodporuje ověřování založené na Active Directory ani seznamy ACL, někdy v budoucnu se ale podporovat budou. K ověřování přístupu ke sdílené složce se používají přihlašovací údaje účtu úložiště. To znamená, že všichni s připojenou sdílenou složkou k ní budou mít úplná oprávnění ke čtení i zápisu.
 
 ## <a name="access-to-blob-table-queue-and-file-resources"></a>Přístup k prostředkům Blob, Table, Queue a File
 Ve výchozím nastavení má k prostředkům v účtu úložiště přístup jen vlastník. Kvůli zabezpečení vašich dat je potřeba každý požadavek směřovaný na prostředky ve vašem účtu ověřit. Ověření používá model sdíleného klíče. Objekty blob se taky dají nakonfigurovat tak, aby podporovaly anonymní ověření.

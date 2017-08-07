@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Databáze Azure Cosmos: Vytvoření aplikace .NET využívající rozhraní Graph API
@@ -54,7 +54,7 @@ Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovac
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Potom otevřete soubor řešení v sadě Visual Studio. 
+3. Potom otevřete sadu Visual Studio a otevřete soubor řešení. 
 
 ## <a name="review-the-code"></a>Kontrola kódu
 
@@ -103,23 +103,19 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
 
 Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
-1. Na webu Azure Portal v účtu služby Azure Cosmos DB klikněte v levém navigačním panelu na **Přehled**. V dalším kroku zkopírujete hodnotu **Gremlin URI** do souboru App.config. 
+1. V sadě Visual Studio 2017 otevřete soubor App.config. 
 
-    ![Zobrazení a zkopírování přístupového klíče na webu Azure Portal v okně Klíče](./media/create-graph-dotnet/gremlin-uri.png)
-
-    Pokud je hodnota **Gremlin URI** prázdná, můžete hodnotu vygenerovat na stránce **Klíče** na portálu s použitím hodnoty **URI**, ve které odeberete „https://“ a změníte „documents“ na „graphs“. 
-
-2. V sadě Visual Studio 2017 otevřete soubor App.config. 
-
-3. Z portálu zkopírujte hodnotu **Gremlin URI** a nastavte ji jako hodnotu klíče koncového bodu v souboru App.config. 
-
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
-
-4. Zpátky na webu Azure Portal klikněte na **Klíče** v levé navigační nabídce, zkopírujte z portálu hodnotu **PRIMÁRNÍ KLÍČ**, nastavte ji jako hodnotu klíče AuthKey v souboru App.config a uložte změny. 
-
-    `<add key="AuthKey" value="FILLME" />`
+2. Na webu Azure Portal v účtu služby Azure Cosmos DB klikněte v levém navigačním panelu na **Klíče**. 
 
     ![Zobrazení a zkopírování primárního klíče na webu Azure Portal na stránce Klíče](./media/create-graph-dotnet/keys.png)
+
+3. Z portálu zkopírujte hodnotu identifikátoru **URI** a nastavte ji jako hodnotu klíče koncového bodu v souboru App.config. Hodnotu můžete zkopírovat pomocí tlačítka Kopírovat, jak ukazuje předchozí snímek obrazovky.
+
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+
+4. Z portálu zkopírujte hodnotu **PRIMÁRNÍHO KLÍČE**, nastavte ji jako hodnotu klíče AuthKey v souboru App.config a potom uložte změny. 
+
+    `<add key="AuthKey" value="FILLME" />`
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
@@ -131,6 +127,8 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
 3. Z výsledků nainstalujte knihovnu **Microsoft.Azure.Graphs**. Tím se nainstaluje balíček knihovny rozšíření grafů databáze Azure Cosmos a všechny závislosti.
 
+    Pokud se vám zobrazí zpráva týkající se kontroly změn řešení, klikněte na **OK**. Pokud se vám zobrazí zpráva týkající se přijetí licence, klikněte na **Souhlasím**.
+
 4. Spusťte aplikaci stisknutím CTRL+F5.
 
    V okně konzoly se zobrazí vrcholy a hrany, které se přidávají do grafu. Po dokončení skriptu dvojím stisknutím klávesy ENTER zavřete okno konzoly. 
@@ -139,9 +137,13 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
 Teď se můžete vrátit do Průzkumníku dat na webu Azure Portal, procházet nová data grafu a zadávat na ně dotazy.
 
-* V Průzkumníku dat se nová databáze zobrazí v podokně Kolekce. Rozbalte položky **graphdb** a **graphcoll** a potom klikněte na **Graph** (Graf).
+1. V Průzkumníku dat se nová databáze zobrazí v podokně Graphs (Grafy). Rozbalte položky **graphdb** a **graphcollz** a potom klikněte na **Graph**.
 
-    V podokně Graphs (Grafy) se zobrazí data vygenerovaná ukázkovou aplikací.
+2. Kliknutím na tlačítko **Použít filtr** použijte výchozí dotaz k zobrazení vrcholů v grafu. V podokně Graphs (Grafy) se zobrazí data vygenerovaná ukázkovou aplikací.
+
+    Graf můžete přiblížit nebo oddálit, můžete rozšířit prostor pro zobrazení grafu, přidat další vrcholy a přesouvat vrcholy na zobrazovacím povrchu.
+
+    ![Zobrazení grafu v Průzkumníku dat na webu Azure Portal](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 

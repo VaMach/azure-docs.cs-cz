@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>Aktualizace řešení pro správu v OMS
@@ -65,10 +64,10 @@ V den a čas, který zadáte v nasazení aktualizací, spustí cílové počíta
     > [!NOTE]
     > Agenta Windows není možné spravovat současně s nástrojem System Center Configuration Manager.  
     >
-* CentOS 6 (x86/x64) a 7 (x64)
-* Red Hat Enterprise 6 (x86/x64) a 7 (x64)
-* SUSE Linux Enterprise Server 11 (x86/x64) a 12 (x64)
-* Ubuntu 12.04 LTS a novější x86/x64  
+* CentOS 6 (x86/x64) a 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) a 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) a 12 (x64)  
+* Ubuntu 12.04 LTS a novější x86/x64   
     > [!NOTE]  
     > Pokud se chcete vyhnout tomu, aby se aktualizace používaly mimo časové období údržby v Ubuntu, změňte konfiguraci Unattended-Upgrade tak, aby automatické aktualizace byly zakázány. Informace o postupu této konfigurace najdete v tématu [Téma Automatické aktualizace v příručce k Ubuntu Serveru](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
@@ -79,6 +78,9 @@ V den a čas, který zadáte v nasazení aktualizací, spustí cílové počíta
     >
 
 Další informace o tom, jak nainstalovat agenta OMS pro Linux, a odkaz na stažení nejnovější verze najdete na stránce [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent Operations Management Suite pro Linux).  Informace o tom, jak nainstalovat agenta OMS pro Windows, najdete v tématu popisujícím [agenta Operations Management Suite pro Windows](../log-analytics/log-analytics-windows-agents.md).  
+
+### <a name="permissions"></a>Oprávnění
+Pokud chcete vytvořit nasazení aktualizací, musíte mít přidělenou roli přispěvatele v účtu Automation i pracovním prostoru Log Analytics.  
 
 ## <a name="solution-components"></a>Součásti řešení
 Toto řešení se skládá z následujících prostředků, které se přidají do vašeho účtu Automation, a přímo připojených agentů nebo skupiny pro správu připojené k Operations Manageru.
@@ -156,7 +158,7 @@ Když přidáte řešení pro správu aktualizací do pracovního prostoru OMS, 
 ## <a name="viewing-update-assessments"></a>Zobrazení posouzení aktualizací
 Klikněte na dlaždici **Správa aktualizací**. Otevře se řídicí panel **Správa aktualizací**.<br><br> ![Řídicí panel Souhrn Správy aktualizací](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-Tento řídicí panel poskytuje podrobný přehled stavu aktualizací rozdělený podle typu operačního systému a klasifikace aktualizace – důležitá aktualizace, aktualizace zabezpečení, nebo jiná (například aktualizace definic). Po výběru dlaždice **Nasazení aktualizací** budete přesměrováni na stránku Nasazení aktualizací, kde můžete zobrazit plány, aktuálně spuštěná nasazení a dokončená nasazení nebo můžete naplánovat nové nasazení.  
+Tento řídicí panel poskytuje podrobný přehled stavu aktualizací rozdělený podle typu operačního systému a klasifikace aktualizace – důležitá aktualizace, aktualizace zabezpečení, nebo jiná (například aktualizace definic). Výsledky na každé dlaždici na tomto řídicím panelu odrážejí pouze aktualizace schválené k nasazení na základě zdroje synchronizace počítače.   Po výběru dlaždice **Nasazení aktualizací** budete přesměrováni na stránku Nasazení aktualizací, kde můžete zobrazit plány, aktuálně spuštěná nasazení a dokončená nasazení nebo můžete naplánovat nové nasazení.  
 
 Kliknutím na konkrétní dlaždici můžete spustit prohledávání protokolů, které vrátí všechny záznamy, nebo pokud chcete spustit dotaz určité kategorie s předdefinovanými kritérii, vyberte některý ze seznamu ve sloupci **Běžné dotazy na aktualizace**.    
 
@@ -310,6 +312,17 @@ V následující tabulce jsou uvedeny ukázky hledání v protokolech pro zázna
 ## <a name="troubleshooting"></a>Řešení potíží
 
 Tato část obsahuje informace, které vám pomohou s řešením potíží s řešením pro správu aktualizací.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Jak řešit potíže s připojováním?
+Pokud při pokusech o připojení řešení nebo virtuálního počítače dochází k potížím, zkontrolujte, jestli jsou v protokolu událostí **Protokoly aplikací a služeb\Operations Manager** události s ID události 4502 a zprávou události obsahující **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  V následující tabulce najdete konkrétní chybové zprávy a možné řešení pro každou z nich.  
+
+| Zpráva | Důvod | Řešení |   
+|----------|----------|----------|  
+| Nepodařilo se zaregistrovat počítač pro správu oprav,<br>registrace se nezdařila s výjimkou<br>System.InvalidOperationException: {"Zpráva":"Počítač už je<br>registrovaný k jinému účtu. "} | Počítač už je připojený k jinému pracovnímu prostoru pro řešení Update Management | Proveďte vyčištění starých artefaktů [odstraněním hybridních runbooků](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| Nepodařilo se zaregistrovat počítač pro správu oprav,<br>registrace se nezdařila s výjimkou<br>System.Net.Http.HttpRequestException: Při odesílání požadavku došlo k chybě. ---><br>System.Net.WebException: Nadřízené připojení<br>bylo uzavřeno: Došlo k neočekávané<br>chybě při příjmu. ---> System.ComponentModel.Win32Exception:<br>Klient a server nemůžou komunikovat,<br>protože nepoužívají společný algoritmus. | Proxy server, brána nebo brána firewall blokuje komunikaci | [Zkontrolujte požadavky sítě](../automation/automation-offering-get-started.md#network-planning)|  
+| Nepodařilo se zaregistrovat počítač pro správu oprav,<br>registrace se nezdařila s výjimkou<br>Newtonsoft.Json.JsonReaderException: Chyba při analýze hodnoty kladného nekončena. | Proxy server, brána nebo brána firewall blokuje komunikaci | [Zkontrolujte požadavky sítě](../automation/automation-offering-get-started.md#network-planning)| 
+| Certifikát předložený službou <wsid>.oms.opinsights.azure.com<br>nebyl vydaný certifikační autoritou<br>používanou pro služby Microsoft. Obraťte se na<br>správce sítě a zjistěte, jestli nepoužívají proxy server bránící<br>komunikaci prostřednictvím protokolu TLS/SSL. |Proxy server, brána nebo brána firewall blokuje komunikaci | [Zkontrolujte požadavky sítě](../automation/automation-offering-get-started.md#network-planning)|  
+| Nepodařilo se zaregistrovat počítač pro správu oprav,<br>registrace se nezdařila s výjimkou<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Vytvoření certifikátu podepsaného svým držitelem se nezdařilo. ---><br>System.UnauthorizedAccessException: Přístup byl odepřen. | Chyba při generování certifikátu podepsaného svým držitelem | Ověřte, že má systémový účet<br>oprávnění ke čtení ze složky:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Jak mám řešit problémy s nasazeními aktualizací?
 V okně Úlohy vašeho účtu Automation, který je propojený s pracovním prostorem OMS podporujícím toto řešení, můžete zobrazit výsledky runbooku odpovědného za nasazení aktualizací zahrnutých v naplánovaném nasazení aktualizací.  Runbook **Patch-MicrosoftOMSComputer** je podřízený runbook, jehož cílem je konkrétní spravovaný počítač, a kontrolou podrobného datového proudu získáte podrobné informace k příslušnému nasazení.  Na výstupu se zobrazí, které požadované aktualizace se dají použít, stav stahování, stav instalace a další podrobnosti.<br><br> ![Stav úlohy nasazení aktualizací](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
