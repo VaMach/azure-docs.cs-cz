@@ -14,7 +14,7 @@ Vzhledem k rozdílům ve SLA a sadách funkcí doporučujeme pro produkci *vs.* 
 | **Vývoj a testování nebo testování konceptu**   | Basic                  |
 |                                    |                        |
 
-Pokud používáte staré SKU, pro produkci se doporučují Standard a HighPerformance SKU. Informace o starých SKU najdete v tématu věnovaném [SKU brány (staré)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Pokud používáte staré SKU, pro produkci se doporučují Standard a HighPerformance SKU. Informace o starých skladových položkách najdete v tématu [Skladové položky brány (starší skladové položky)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Sady funkcí SKU brány
 

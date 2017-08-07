@@ -1,6 +1,6 @@
 ---
-title: "Připojení počítače k virtuální síti typu Point-to-Site: PowerShell | Dokumentace Microsoftu"
-description: "Připojte počítač bezpečně ke službě Azure Virtual Network vytvořením připojení brány VPN typu Point-to-Site."
+title: "Připojení počítače k virtuální síti Azure typu Point-to-Site s použitím ověření certifikátu: PowerShell | Dokumentace Microsoftu"
+description: "Připojte počítač bezpečně ke službě Azure Virtual Network vytvořením připojení brány VPN typu Point-to-Site s použitím ověření certifikátu. Tento článek se týká modelu nasazení Resource Manager a používá PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7abc3f238d08694c9f7359479cdce07bfb3d87bd
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 27484932f13a85bef29b7a19b4f06b75722b4c38
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Konfigurace připojení Point-to-Site k virtuální síti pomocí prostředí PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím ověření certifikátu: PowerShell
 
-
-Tento článek ukazuje postup vytvoření virtuální sítě s připojením typu Point-to-Site v modelu nasazení Resource Manager pomocí PowerShellu. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
+Tento článek ukazuje postup vytvoření virtuální sítě s připojením typu Point-to-Site v modelu nasazení Resource Manager pomocí PowerShellu. Tato konfigurace používá certifikáty k ověření připojujícího se klienta. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -39,15 +37,16 @@ Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení j
 
 ![Připojení počítače k virtuální síti Azure – diagram připojení Point-to-Site](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
-Připojení typu Point-to-Site nevyžadují zařízení VPN ani veřejnou IP adresu. Point-to-Site vytvoří připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Na straně serveru podporujeme SSTP verze 1.0, 1.1 a 1.2. Klient rozhodne, která verze se má použít. Pro Windows 8.1 a novější se standardně používá SSTP verze 1.2. Další informace o připojení Point-to-Site najdete v části [Nejčastější dotazy týkající se připojení Point-to-Site](#faq) na konci tohoto článku.
-
-Připojení typu Point-to-Site vyžadují:
+Připojení typu Point-to-Site s ověřováním certifikátů vyžadují následující:
 
 * Bránu VPN typu RouteBased.
 * Veřejný klíč (soubor .cer) pro kořenový certifikát nahraný do Azure. Ten se považuje za důvěryhodný certifikát a používá se k ověřování.
 * Klientský certifikát vygenerovaný z kořenového certifikátu a nainstalovaný na každém klientském počítači, který se bude připojovat. Tento certifikát se používá k ověřování klienta.
 * Na každém klientském počítači, který se bude připojovat, musí být vygenerován a nainstalován balíček pro konfiguraci klienta VPN. Balíček pro konfiguraci klienta konfiguruje nativního klienta VPN, který již je v operačním systému, s použitím informací potřebných pro připojení k virtuální síti.
 
+Připojení typu Point-to-Site nevyžadují zařízení VPN ani místní veřejnou IP adresu. Připojení VPN se vytváří přes protokol SSTP (Secure Socket Tunneling Protocol). Na straně serveru podporujeme SSTP verze 1.0, 1.1 a 1.2. Klient rozhodne, která verze se má použít. Pro Windows 8.1 a novější se standardně používá SSTP verze 1.2. 
+
+Další informace o připojení Point-to-Site najdete v části [Nejčastější dotazy týkající se připojení Point-to-Site](#faq) na konci tohoto článku.
 
 ## <a name="before-beginning"></a>Před zahájením
 
@@ -227,11 +226,7 @@ Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než 
 
   ![Vytvořené připojení](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
-Pokud máte potíže s připojením, zkontrolujte následující:
-
-- Otevřete **správu uživatelských certifikátů** a přejděte do umístění **Důvěryhodné kořenové certifikační autority\Certifikáty**. Zkontrolujte, že je kořenový certifikát uvedený. Aby ověřování fungovalo, musí být kořenový certifikát přítomný. Pokud exportujete klientský certifikát .pfx s výchozím nastavením Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné, vyexportují se také informace o kořenovém certifikátu. Při instalaci klientského certifikátu se pak do klientského počítače nainstaluje i kořenový certifikát. 
-
-- Pokud používáte certifikát vydaný řešením CA organizace a máte problémy s ověřováním, zkontrolujte pořadí ověřování na klientském certifikátu. Pořadí seznamu ověřování můžete zkontrolovat dvojím kliknutím na klientský certifikát a přechodem na **Podrobnosti > Použití rozšířeného klíče**. Ujistěte se, že je na prvním místě seznamu položka Ověření klienta. Pokud tomu tak není, musíte vydat klientský certifikát založený na šabloně uživatele, která má Ověření klienta jako první položku seznamu.  
+[!INCLUDE [verify client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>9 – Ověření stavu připojení
 
@@ -250,7 +245,6 @@ Pokud máte potíže s připojením, zkontrolujte následující:
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
   ```
-
 
 ## <a name="connectVM"></a>Připojení k virtuálnímu počítači
 
@@ -375,4 +369,3 @@ Klientský certifikát lze obnovit odebráním jeho kryptografického otisku ze 
 
 ## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Bližší informace o sítích a virtuálních počítačích najdete v tématu s [přehledem sítě virtuálních počítačů s Linuxem v Azure](../virtual-machines/linux/azure-vm-network-overview.md).
-

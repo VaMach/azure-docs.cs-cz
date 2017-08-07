@@ -1,44 +1,44 @@
 <!-- A-series - compute-intensive instances, H-series -->
 
-The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. 
+Velikosti A8-A11 a H-series se také označují jako *náročné na výpočetní výkon*. Hardware pro hostování těchto velikostí je navržený a optimalizovaný pro úlohy náročné na výpočty a síťový provoz, včetně clusterovaného vysokovýkonného výpočetního prostředí (HPC), například pro modelování a simulace. Řady A8-A11-series používají Intel Xeon E5-2670 @ 2,6 GHz a H-series používá Intel Xeon E5-2667 v3 @ 3,2 GHz. 
 
-Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD based storage. 
+Virtuální počítače Azure H-series jsou další generací počítačů s vysokým výpočetním výkonem a jsou zaměřené na výpočetně vysoce náročné úlohy, jako je např. molekulární modelování, výpočty dynamiky tekutin a podobně. Tyto virtuální počítače s 8 a 16 virtuálními procesory jsou postavené na technologii procesorů Intel Haswell E5-2667 V3, které nabízejí paměti DDR4 a dočasné úložiště založené na jednotkách SSD. 
 
-In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
+Řada H-series nabízí kromě značného výkonu procesorů i řadu možností přímého přístupu do paměti vzdáleného počítače (RDMA) s nízkou latencí díky technologii FDR InfiniBand, a množství konfigurací paměti pro podporu požadavků na vysoce paměťově náročné výpočetní operace.
 
 
 
 ## <a name="h-series"></a>H-series
 
-ACU: 290-300
+ACU: 290–300
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
+| Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost disku: IOPS | Maximální počet síťových karet |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16 x 500 |2  |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 |
-| Standard_H8m |8 |112 |1000 |16 |16 x 500 |2  |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4  |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4  |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 |
+| Standard_H8 |8 |56 |1000 |16 |16 × 500 |2  |
+| Standard_H16 |16 |112 |2000 |32 |32 × 500 |4 |
+| Standard_H8m |8 |112 |1000 |16 |16 × 500 |2  |
+| Standard_H16m |16 |224 |2000 |32 |32 × 500 |4  |
+| Standard_H16r* |16 |112 |2000 |32 |32 × 500 |4  |
+| Standard_H16mr* |16 |224 |2000 |32 |32 × 500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+* Pro aplikace MPI umožňuje síť FDR InfiniBand vyhrazenou síť back-end s přímým přístupem do paměti vzdáleného počítače (RDMA), která poskytuje mimořádně nízkou latenci a velkou šířku pásma.
 
 <br>
 
 
 
-## <a name="a-series---compute-intensive-instances"></a>A-series - compute-intensive instances
+## <a name="a-series---compute-intensive-instances"></a>A-series – Instance náročné na výpočetní výkon
 
 ACU: 225
 
-| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs|
+| Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (HDD): GiB | Max. datových disků | Maximální propustnost datového disku: IOPS | Maximální počet síťových karet|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2 |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2  |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 |
+| Standard_A8* |8 |56 |382 |16 |16×500 |2 |
+| Standard_A9* |16 |112 |382 |16 |16×500 |4 |
+| Standard_A10 |8 |56 |382 |16 |16×500 |2  |
+| Standard_A11 |16 |112 |382 |16 |16×500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+* Pro aplikace MPI umožňuje síť FDR InfiniBand vyhrazenou síť back-end s přímým přístupem do paměti vzdáleného počítače (RDMA), která poskytuje mimořádně nízkou latenci a velkou šířku pásma.
 
 <br>
 

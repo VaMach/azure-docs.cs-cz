@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Přidání zpráv do fronty Azure Storage pomocí funkcí
@@ -35,8 +35,6 @@ Ve službě Azure Functions poskytují vstupní a výstupní vazby deklarativní
 
 * Nainstalujte [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
-
 ## <a name="add-binding"></a>Přidání výstupní vazby
  
 1. Rozbalte aplikaci Function App i funkci.
@@ -45,7 +43,7 @@ Ve službě Azure Functions poskytují vstupní a výstupní vazby deklarativní
     
     ![Přidejte výstupní vazbu Queue Storage do funkce na webu Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Použijte nastavení uvedené v tabulce a potom vyberte **Uložit**: 
+3. Použijte nastavení uvedená v tabulce: 
 
     ![Přidejte výstupní vazbu Queue Storage do funkce na webu Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -55,6 +53,8 @@ Ve službě Azure Functions poskytují vstupní a výstupní vazby deklarativní
     | **Připojení k účtu úložiště** | AzureWebJobStorage | Můžete použít připojení k účtu úložiště, které už používá vaše aplikace Function App, nebo můžete vytvořit nové.  |
     | **Název parametru zprávy** | outQueueItem | Název výstupního parametru vazby. | 
 
+4. Kliknutím na **Uložit** přidejte vazbu.
+ 
 Teď máte definovanou výstupní vazbu a je potřeba aktualizovat kód tak, aby tuto vazbu využíval k přidávání zpráv do fronty.  
 
 ## <a name="update-the-function-code"></a>Aktualizace kódu funkce

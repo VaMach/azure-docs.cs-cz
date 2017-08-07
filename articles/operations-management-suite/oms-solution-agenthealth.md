@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/17/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: ca2316010f9508b6dc71ceff434988695063db0f
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 #  <a name="agent-health-solution-in-oms"></a>Řešení Agent Health v OMS
@@ -29,10 +28,10 @@ ms.lasthandoff: 06/23/2017
 Před nasazením tohoto řešení potvrďte, že aktuálně podporujete [agenty systému Windows](../log-analytics/log-analytics-windows-agents.md) odesílající sestavy to pracovního prostoru OMS nebo do [skupiny pro správu nástroje Operations Manager](../log-analytics/log-analytics-om-agents.md) integrované s pracovním prostorem OMS.    
 
 ## <a name="solution-components"></a>Součásti řešení
-Toto řešení se skládá z následujících prostředků, které se přidají do vašeho pracovního prostoru, a přímo připojených agentů nebo skupiny pro správu připojené k nástroji Operations Manager. 
+Toto řešení se skládá z následujících prostředků, které se přidají do vašeho pracovního prostoru, a přímo připojených agentů nebo skupiny pro správu připojené k nástroji Operations Manager.
 
 ### <a name="management-packs"></a>Sady Management Pack
-Pokud je vaše skupina pro správu System Center Operations Manageru připojená k pracovnímu prostoru OMS, do Operations Manageru se nainstalují následující sady Management Pack.  Tyto sady Management Pack se po přidání tohoto řešení nainstalují také na přímo připojené počítače s Windows. U těchto sad Management Pack není nutné nic konfigurovat ani spravovat. 
+Pokud je vaše skupina pro správu System Center Operations Manageru připojená k pracovnímu prostoru OMS, do Operations Manageru se nainstalují následující sady Management Pack.  Tyto sady Management Pack se po přidání tohoto řešení nainstalují také na přímo připojené počítače s Windows. U těchto sad Management Pack není nutné nic konfigurovat ani spravovat.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
@@ -57,15 +56,15 @@ Když přidáte řešení do pracovního prostoru OMS, na řídicí panel OMS se
 
 Kliknutím na dlaždici **Agent Health** otevřete řídicí panel **Agent Health**.  Řídicí panel obsahuje sloupce v následující tabulce. Každý sloupec obsahuje seznam prvních deseti událostí podle počtu, které splňují kritéria sloupce pro zadaný časový rozsah. Výběrem možnosti **Zobrazit všechno** v pravé dolní části každého sloupce nebo kliknutím na záhlaví sloupce můžete spustit prohledávání protokolu, které vám poskytne úplný seznam.
 
-| Sloupec | Popis | 
+| Sloupec | Popis |
 |--------|-------------|
-| Počet agentů v průběhu času | Trend vývoje počtu linuxových agentů a agentů systému Windows za posledních sedm dnů.| 
-| Počet nereagujících agentů | Seznam agentů, kteří za posledních 24 hodin neodeslali prezenční signál.| 
-| Distribuce podle typu operačního systému | Rozdělení agentů systému Windows a linuxových agentů ve vašem prostředí.| 
-| Distribuce podle verze agenta | Rozdělení různých verzí agentů nainstalovaných ve vašem prostředí a jejich počet.| 
-| Distribuce podle kategorie agenta | Rozdělení různých kategorií agentů, kteří odesílají události prezenčního signálu: přímí agenti, agenti nástroje Operations Manager nebo server pro správu nástroje Operations Manager.| 
-| Distribuce podle skupiny pro správu | Rozdělení různých skupin pro správu nástroje SCOM ve vašem prostředí.| 
-| Geografické umístění agentů | Rozdělení různých zemí, ve kterých máte agenty, a celkový počet agentů nainstalovaných v každé zemi.| 
+| Počet agentů v průběhu času | Trend vývoje počtu linuxových agentů a agentů systému Windows za posledních sedm dnů.|
+| Počet nereagujících agentů | Seznam agentů, kteří za posledních 24 hodin neodeslali prezenční signál.|
+| Distribuce podle typu operačního systému | Rozdělení agentů systému Windows a linuxových agentů ve vašem prostředí.|
+| Distribuce podle verze agenta | Rozdělení různých verzí agentů nainstalovaných ve vašem prostředí a jejich počet.|
+| Distribuce podle kategorie agenta | Rozdělení různých kategorií agentů, kteří odesílají události prezenčního signálu: přímí agenti, agenti nástroje Operations Manager nebo server pro správu nástroje Operations Manager.|
+| Distribuce podle skupiny pro správu | Rozdělení různých skupin pro správu nástroje SCOM ve vašem prostředí.|
+| Geografické umístění agentů | Rozdělení různých zemí, ve kterých máte agenty, a celkový počet agentů nainstalovaných v každé zemi.|
 | Počet nainstalovaných bran | Počet serverů s nainstalovanou bránou OMS a seznam těchto serverů.|
 
 ![Ukázka řídicího panelu řešení Agent Health](./media/oms-solution-agenthealth/agenthealth-solution-dashboard.png)  
@@ -79,42 +78,61 @@ Vytvoří se záznam typu **Prezenční signál**.  Vlastnosti záznamů tohoto 
 | Vlastnost | Popis |
 | --- | --- |
 | Typ | *Heartbeat* (Prezenční signál)|
-| Kategorie | Hodnota je *Direct Agent* (Přímý agent), *SCOM Agent* (Agent nástroje SCOM) nebo *SCOM Management Server* (Server pro správu nástroje SCOM).| 
-| Počítač | Název počítače.| 
-| OSType | Operační systém Windows nebo Linux.| 
-| OSMajorVersion | Hlavní verze operačního systému.| 
-| OSMinorVersion | Podverze operačního systému.| 
-| Verze | Verze agenta OMS nebo agenta nástroje Operations Manager.| 
-| SCAgentChannel | Hodnota je *Direct* (Přímý) nebo *SCManagementServer* (Server pro správu nástroje SCOM).| 
-| IsGatewayInstalled | Pokud je nainstalovaná brána OMS, hodnota je *true*, jinak je hodnota *false*.| 
-| ComputerIP | IP adresa počítače.| 
-| RemoteIPCountry | Zeměpisné umístění, kde je počítač nasazený.| 
-| ManagementGroupName | Název skupiny pro správu nástroje Operations Manager.| 
-| SourceComputerId | Jedinečné ID počítače.| 
-| RemoteIPLongitude | Zeměpisná délka zeměpisného umístění počítače.| 
-| RemoteIPLatitude | Zeměpisná šířka zeměpisného umístění počítače.| 
+| Kategorie | Hodnota je *Direct Agent* (Přímý agent), *SCOM Agent* (Agent nástroje SCOM) nebo *SCOM Management Server* (Server pro správu nástroje SCOM).|
+| Počítač | Název počítače.|
+| OSType | Operační systém Windows nebo Linux.|
+| OSMajorVersion | Hlavní verze operačního systému.|
+| OSMinorVersion | Podverze operačního systému.|
+| Verze | Verze agenta OMS nebo agenta nástroje Operations Manager.|
+| SCAgentChannel | Hodnota je *Direct* (Přímý) nebo *SCManagementServer* (Server pro správu nástroje SCOM).|
+| IsGatewayInstalled | Pokud je nainstalovaná brána OMS, hodnota je *true*, jinak je hodnota *false*.|
+| ComputerIP | IP adresa počítače.|
+| RemoteIPCountry | Zeměpisné umístění, kde je počítač nasazený.|
+| ManagementGroupName | Název skupiny pro správu nástroje Operations Manager.|
+| SourceComputerId | Jedinečné ID počítače.|
+| RemoteIPLongitude | Zeměpisná délka zeměpisného umístění počítače.|
+| RemoteIPLatitude | Zeměpisná šířka zeměpisného umístění počítače.|
 
 Každý agent odesílající sestavy na server pro správu nástroje Operations Manager bude odesílat dva prezenční signály a hodnota vlastnosti SCAgentChannel bude zahrnovat **Direct** i **SCManagementServer** v závislosti na tom, jaká řešení a jaké zdroje dat Log Analytics jste ve svém předplatném OMS povolili. Jestli si vzpomínáte, data z řešení se buď odesílají přímo ze serveru pro správu nástroje Operations Manager do webové služby OMS, nebo se kvůli objemu dat shromážděných v agentovi odesílají přímo z agenta do webové služby OMS. U událostí prezenčního signálu, které mají hodnotu **SCManagementServer**, je hodnota ComputerIP IP adresou serveru pro správu, protože ten data ve skutečnosti odesílá.  U prezenčních signálů, které mají vlastnost SCAgentChannel nastavenou na hodnotu **Direct**, to je veřejná IP adresa agenta.  
 
 ## <a name="sample-log-searches"></a>Ukázky hledání v protokolech
-V následující tabulce jsou uvedeny ukázky prohledávání protokolu pro záznamy shromážděné tímto řešením. 
+V následující tabulce jsou uvedeny ukázky prohledávání protokolu pro záznamy shromážděné tímto řešením.
 
 | Dotaz | Popis |
 | --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Celkový počet agentů | 
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Počet nereagujících agentů za posledních 24 hodin | 
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Počet nereagujících agentů za posledních 15 minut | 
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Online počítače (za posledních 24 hodin) | 
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Celkový počet agentů, kteří byli v průběhu posledních 30 minut offline (za posledních 24 hodin) | 
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Získání trendu vývoje počtu agentů v průběhu času podle typu operačního systému| 
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribuce podle typu operačního systému | 
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribuce podle verze agenta | 
-| Type=Heartbeat&#124;measure count() by Category |Distribuce podle kategorie agenta | 
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribuce podle skupiny pro správu | 
+| Type=Heartbeat &#124; distinct Computer |Celkový počet agentů |
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Počet nereagujících agentů za posledních 24 hodin |
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Počet nereagujících agentů za posledních 15 minut |
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Online počítače (za posledních 24 hodin) |
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Celkový počet agentů, kteří byli v průběhu posledních 30 minut offline (za posledních 24 hodin) |
+| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Získání trendu vývoje počtu agentů v průběhu času podle typu operačního systému|
+| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribuce podle typu operačního systému |
+| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribuce podle verze agenta |
+| Type=Heartbeat&#124;measure count() by Category |Distribuce podle kategorie agenta |
+| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribuce podle skupiny pro správu |
 | Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Geografické umístění agentů |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Počet nainstalovaných bran OMS | 
+| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Počet nainstalovaných bran OMS |
 
-  
+
+>[!NOTE]
+> Pokud byl váš pracovní prostor upgradován na [nový dotazovací jazyk Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), výše uvedené dotazy se změní na následující.
+>
+>| Dotaz | Popis |
+|:---|:---|
+| Heartbeat &#124; distinct Computer |Celkový počet agentů |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Počet nereagujících agentů za posledních 24 hodin |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(15m) |Počet nereagujících agentů za posledních 15 minut |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Online počítače (za posledních 24 hodin) |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer !in ((Heartbeat &#124; where TimeGenerated > ago(30m) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Celkový počet agentů, kteří byli v průběhu posledních 30 minut offline (za posledních 24 hodin) |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Získání trendu vývoje počtu agentů v průběhu času podle typu operačního systému|
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Distribuce podle typu operačního systému |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by Version |Distribuce podle verze agenta |
+| Heartbeat &#124; summarize AggregatedValue = count() by Category |Distribuce podle kategorie agenta |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribuce podle skupiny pro správu |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Geografické umístění agentů |
+| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Počet nainstalovaných bran OMS |
+
 ## <a name="next-steps"></a>Další kroky
 
 * Podrobnosti o generování upozornění ze služby Log Analytics najdete v tématu [Upozornění v Log Analytics](../log-analytics/log-analytics-alerts.md).
+

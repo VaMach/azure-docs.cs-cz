@@ -1,6 +1,6 @@
 ---
 title: "Připojení k Azure Database for MySQL z jazyka C# | Dokumentace Microsoftu"
-description: "V tomto rychlém startu najdete vzorový kód jazyka C# (.Net), který můžete použít k připojení a dotazování dat ze služby Azure Database for MySQL."
+description: "V tomto rychlém startu najdete vzorový kód jazyka C# (.NET), který můžete použít k připojení a dotazování dat ze služby Azure Database for MySQL."
 services: MySQL
 author: seanli1988
 ms.author: seal
@@ -12,10 +12,10 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: ffe3ae320a61031cf314cc1d70e0c093b033f85c
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: e0db2d0a59d62eebbb624a3ad32f19fa634ad5db
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -28,43 +28,9 @@ Tento rychlý start jako výchozí bod využívá prostředky vytvořené v něk
 - [Vytvoření serveru Azure Database for MySQL pomocí Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Budete také muset:
-- Nainstalovat [.Net Framework](https://www.microsoft.com/net/download)
-- Nainstalovat [Visual Studio](https://www.visualstudio.com/downloads/)
-- Nainstalovat [ovladač ODBC pro MySQL](https://dev.mysql.com/downloads/connector/odbc/) 
-
-## <a name="install-visual-studio-and-net"></a>Instalace sady Visual Studio a .NET
-Kroky v této části předpokládají, že máte zkušenosti s vývojem pomocí rozhraní .NET.
-
-### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework a .NET Core**
-Visual Studio 2017 Community je plně vybavené, rozšiřitelné a bezplatné integrované vývojové prostředí (IDE) pro vytváření moderních aplikací pro Android, iOS a Windows, stejně jako webových a databázových aplikací a cloudových služeb. Můžete nainstalovat buď úplné rozhraní .NET Framework, nebo jenom jádro .NET Core. Fragmenty kódu v rychlém startu pracují s oběma. Pokud již máte v počítači nainstalovanou sadu Visual Studio, přeskočte několik dalších kroků.
-
-1. Stáhněte si [instalační program sady Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Spusťte instalační program a podle zobrazených pokynů instalaci dokončete.
-
-### <a name="mac-os"></a>**Mac OS**
-Otevřete terminál a přejděte do adresáře, kde plánujete vytvoření projektu .NET Core. Zadejte následující příkazy, abyste nainstalovali **brew**, **OpenSSL** a **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-V systému macOS nainstalujte .NET Core. Stáhněte [oficiální instalační program](https://go.microsoft.com/fwlink/?linkid=843444). Tento instalační program nainstaluje nástroje a umístí je do proměnné PATH, abyste mohli .net spustit z konzoly.
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Otevřete terminál a přejděte do adresáře, kde plánujete vytvoření projektu .NET Core. Zadáním následujících příkazů nainstalujte **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
-
+- Nainstalovat rozhraní [.NET](https://www.microsoft.com/net/download). Postupujte podle kroků v odkazovaném článku a nainstalujte .NET pro vaši platformu (Windows, Ubuntu Linux nebo macOS). 
+- Nainstalovat sadu [Visual Studio](https://www.visualstudio.com/downloads/).
+- Nainstalovat [ovladač ODBC pro MySQL](https://dev.mysql.com/downloads/connector/odbc/).
 
 ## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for MySQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.

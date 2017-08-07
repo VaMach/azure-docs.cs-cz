@@ -1,0 +1,2 @@
+> [!NOTE]
+> Funkce [Vyžadovat zabezpečený přenos](../articles/storage/storage-require-secure-transfer.md) vynucuje přenos všech požadavků na váš účet přes zabezpečené připojení. Tuto funkci podporují pouze clustery HDInsight verze 3.6 nebo novější. Další informace najdete v tématu [Vytvoření clusteru Hadoop s účty úložiště s bezpečným přenosem ve službě Azure HDInsight](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md).

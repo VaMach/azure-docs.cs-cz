@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Průvodce předkonfigurovaným řešením propojené továrny
@@ -47,6 +46,13 @@ Tento článek vás provede některými z klíčových prvků řešení propojen
 Následující diagram popisuje logické součásti tohoto předkonfigurovaného řešení:
 
 ![Logická architektura propojené továrny][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Vzory komunikace
+
+Toto řešení k odesílání telemetrických dat OPC UA do služby IoT Hub ve formátu JSON používá [specifikaci publikování a odběru OPC UA](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/). Řešení pro tento účel používá modul [vydavatele OPC](https://github.com/Azure/iot-edge-opc-publisher) pro IoT Edge.
+
+Řešení má také ve webové aplikaci integrovaného klienta OPC UA, který navazuje připojení k místním serverům OPC UA. Klient používá [reverzní proxy](https://wikipedia.org/wiki/Reverse_proxy) a s pomocí služby IoT Hub vytváří připojení, aniž by vyžadoval otevřené porty na místní bráně firewall. Tento vzor komunikace se nazývá [komunikace s asistencí služby](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). Řešení pro tento účel používá modul [proxy serveru OPC](https://github.com/Azure/iot-edge-opc-proxy/) pro IoT Edge.
+
 
 ## <a name="simulation"></a>Simulace
 

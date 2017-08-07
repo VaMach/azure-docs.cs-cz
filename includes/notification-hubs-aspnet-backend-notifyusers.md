@@ -1,62 +1,59 @@
-## <a name="create-the-webapi-project"></a>Create the WebAPI Project
-A new ASP.NET WebAPI backend will be created in the sections that follow and it will have three main purposes:
+## <a name="create-the-webapi-project"></a>Vytvoření projektu WebAPI
+V následujících částech se vytvoří nový back-end ASP.NET WebAPI, který bude sloužit ke třem hlavním účelům:
 
-1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
-2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag. 
+1. **Ověřování klientů:** Později se přidá popisovač zprávy, který bude ověřovat požadavky klientů a přiřazovat k požadavkům uživatele.
+2. **Registrace klientských oznámení:** Později přidáte kontroler, který bude zpracovávat nové registrace klientských zařízení k přijímání oznámení. Ověřené uživatelské jméno se automaticky přidá do registrace jako [značka](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+3. **Odesílání oznámení klientům:** Později přidáte také kontroler, který uživateli umožní aktivovat zabezpečené nabízení do zařízení a klientů přidružených ke značce. 
 
-The following steps show how to create the new ASP.NET WebAPI backend: 
+Následující kroky ukazují, jak vytvořit nový back-end ASP.NET WebAPI: 
 
 > [!NOTE]
-> **Important**: Before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
+> **Důležité:** Pokud používáte sadu Visual Studio 2015 nebo starší, před zahájením tohoto kurzu se ujistěte, že máte nainstalovanou nejnovější verzi správce balíčků NuGet. Pokud to chcete zkontrolovat, spusťte sadu Visual Studio. V nabídce **Nástroje** klikněte na **Rozšíření a aktualizace**. Vyhledejte **Správce balíčků NuGet** pro vaši verzi sady Visual Studio a ujistěte se, že máte nejnovější verzi. Pokud ne, odinstalujte a znovu nainstalujte správce balíčků NuGet.
 > 
 > ![][B4]
 > 
 > [!NOTE]
-> Make sure you have installed the Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) for website deployment.
+> Ujistěte se, že máte nainstalovanou sadu [Azure SDK](https://azure.microsoft.com/downloads/) pro vývoj pro web.
 > 
 > 
 
-1. Start Visual Studio or Visual Studio Express. Click **Server Explorer** and sign in to your Azure account. Visual Studio will need you signed in to create the web site resources on your account.
-2. In Visual Studio, click **File**, then click **New**, then **Project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET Web Application**, type the name **AppBackend**, and then click **OK**. 
+1. Spusťte sadu Visual Studio nebo Visual Studio Express. Klikněte na **Průzkumník serveru** a přihlaste se ke svému účtu Azure. Sada Visual Studio bude potřebovat vaše přihlášení, aby ve vašem účtu mohla vytvořit prostředky webu.
+2. V sadě Visual Studio klikněte na **Soubor**, potom na **Nový**, **Projekt**, rozbalte **Šablony**, **Visual C#**, klikněte na **Web** a **Webová aplikace ASP.NET**, zadejte název **AppBackend** a klikněte na **OK**. 
    
     ![][B1]
-3. In the **New ASP.NET Project** dialog, click **Web API**, then click **OK**.
+3. V dialogovém okně **Nový projekt ASP.NET** klikněte na **Web API** a potom na **OK**.
    
     ![][B2]
-4. In the **Configure Microsoft Azure Web App** dialog, choose a subscription, and an **App Service plan** you have already created. You can also choose **Create a new app service plan** and create one from the dialog. You do not need a database for this tutorial. Once you have selected your app service plan, click **OK** to create the project.
+4. V dialogovém okně **Konfigurace webové aplikace Microsoft Azure** zvolte předplatné a **Plán služby App Service**, který už jste vytvořili. Můžete také zvolit možnost **Vytvořit nový plán služby App Service** a vytvořit nový plán v dialogovém okně. Pro účely tohoto kurzu nepotřebujete databázi. Jakmile vyberete plán služby App Service, kliknutím na **OK** vytvořte projekt.
    
     ![][B5]
 
-## <a name="authenticating-clients-to-the-webapi-backend"></a>Authenticating Clients to the WebAPI Backend
-In this section, you will create a new message handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. 
+## <a name="authenticating-clients-to-the-webapi-backend"></a>Ověřování klientů v back-endu WebAPI
+V této části pro nový back-end vytvoříte novou třídu popisovače zprávy **AuthenticationTestHandler**. Tato třída je odvozená od třídy [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) a přidaná jako popisovač zprávy, aby mohla zpracovávat všechny požadavky přicházející na back-end. 
 
-1. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class will be used to authenticate users using *Basic Authentication* for simplicity. Note that your app can use any authentication scheme.
-2. In AuthenticationTestHandler.cs, add the following `using` statements:
+1. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **AppBackend**, klikněte na **Přidat** a potom klikněte na **Třída**. Pojmenujte novou třídu **AuthenticationTestHandler.cs** a kliknutím na **Přidat** ji vygenerujte. Tato třída bude pro zjednodušení sloužit k ověřování uživatelů pomocí *základního ověřování*. Nezapomeňte, že vaše aplikace může používat jakékoli schéma ověřování.
+2. V souboru AuthenticationTestHandler.cs přidejte následující příkazy `using`:
    
         using System.Net.Http;
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
-3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following code. 
+        using System.Text;
+        using System.Threading.Tasks;
+
+3. V souboru AuthenticationTestHandler.cs nahraďte definici třídy `AuthenticationTestHandler` následujícím kódem. 
    
-    This handler will authorize the request when the following three conditions are all true:
+    Tato obslužná rutina ověří požadavek při splnění všech těchto tří podmínek:
    
-   * The request included an *Authorization* header. 
-   * The request uses *basic* authentication. 
-   * The user name string and the password string are the same string.
+   * Požadavek obsahuje *autorizační* hlavičku. 
+   * Požadavek používá *základní* ověřování. 
+   * Řetězce uživatelského jména a hesla jsou stejné.
      
-     Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+     Jinak bude požadavek zamítnut. Toto není správný přístup k ověřování a autorizaci. Je to jenom velmi jednoduchý příklad pro účely tohoto kurzu.
      
-     If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+     Pokud třída `AuthenticationTestHandler` ověří a autorizuje zprávu požadavku, pak se uživatel základního ověřování připojí k aktuálnímu požadavku v objektu [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Informace o uživateli v objektu HttpContext později použije jiný kontroler (RegisterController) pro přidání [značky](https://msdn.microsoft.com/library/azure/dn530749.aspx) do požadavku na registraci oznámení.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {
-     
-           protected override Task<HttpResponseMessage> SendAsync(
-           HttpRequestMessage request, CancellationToken cancellationToken)
-           {
-               var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -99,29 +96,29 @@ In this section, you will create a new message handler class named **Authenticat
        }
      
      > [!NOTE]
-     > **Security Note**: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.                
+     > **Poznámka k zabezpečení:** Třída `AuthenticationTestHandler` nezajišťuje skutečné ověřování. Používá se pouze k napodobení základního ověřování a není bezpečná. Ve svých produkčních aplikacích a službách musíte implementovat mechanismus zabezpečeného ověřování.                
      > 
      > 
-4. Add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class to register the message handler:
+4. Přidejte následující kód pro registraci popisovače zprávy na konec metody `Register` ve třídě **App_Start/WebApiConfig.cs**:
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
-5. Save your changes.
+5. Uložte provedené změny.
 
-## <a name="registering-for-notifications-using-the-webapi-backend"></a>Registering for Notifications using the WebAPI Backend
-In this section, we will add a new controller to the WebAPI backend to handle requests to register a user and device for notifications using the client library for notification hubs. The controller will add a user tag for the user that was authenticated and attached to the HttpContext by the `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
+## <a name="registering-for-notifications-using-the-webapi-backend"></a>Registrace k oznámením pomocí back-endu WebAPI
+V této části přidáme do back-endu WebAPI nový kontroler, který bude zpracovávat požadavky na registraci uživatele a zařízení k oznámením pomocí klientské knihovny pro centra oznámení. Kontroler přidá značku uživatele pro uživatele, který byl ověřen a připojen k objektu HttpContext třídou `AuthenticationTestHandler`. Značka bude mít formát řetězce `"username:<actual username>"`.
 
-1. In Solution Explorer, right-click the **AppBackend** project and then click **Manage NuGet Packages**.
-2. On the left-hand side, click **Online**, and search for **Microsoft.Azure.NotificationHubs** in the **Search** box.
-3. In the results list, click **Microsoft Azure Notification Hubs**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
+1. V Průzkumníku řešení klikněte pravým tlačítkem na projekt **AppBackend** a potom klikněte na **Správa balíčků NuGet**.
+2. Na levé straně klikněte na **Online** a ve **vyhledávacím** poli vyhledejte **Microsoft.Azure.NotificationHubs**.
+3. V seznamů výsledků klikněte na **Microsoft Azure Notification Hubs** a potom klikněte na **Nainstalovat**. Dokončete instalaci a potom zavřete okno správce balíčků NuGet.
    
-    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
-4. We will now create a new class file that represents the connection with notification hub used to send notifications. In the Solution Explorer, right-click the **Models** folder, click **Add**, then click **Class**. Name the new class **Notifications.cs**, then click **Add** to generate the class. 
+    Ten přidá odkaz na sadu SDK centra oznámení Azure pomocí <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">balíčku Microsoft.Azure.Notification Hubs NuGet</a>.
+4. Nyní vytvoříme nový soubor třídy, která představuje propojení s centrem událostí sloužícím k odesílání oznámení. V Průzkumníku řešení klikněte pravým tlačítkem na složku **Modely**, klikněte na **Přidat** a potom klikněte na **Třída**. Pojmenujte novou třídu **Notifications.cs** a potom ji kliknutím na **Přidat** vygenerujte. 
    
     ![][B6]
-5. In Notifications.cs, add the following `using` statement at the top of the file:
+5. Na začátek souboru Notifications.cs přidejte následující příkaz `using`:
    
         using Microsoft.Azure.NotificationHubs;
-6. Replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Classic Portal](http://manage.windowsazure.com)):
+6. Nahraďte definici třídy `Notifications` následujícím kódem a nezapomeňte přitom nahradit dva zástupné symboly připojovacím řetězcem (pro úplný přístup) vašeho centra událostí a názvem centra (najdete ho na [portálu Azure Classic](http://manage.windowsazure.com)):
    
         public class Notifications
         {
@@ -134,19 +131,19 @@ In this section, we will add a new controller to the WebAPI backend to handle re
                                                                              "<hub name>");
             }
         }
-7. Next we will create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
+7. Dále vytvoříme nový kontroler **RegisterController**. V Průzkumníku řešení klikněte pravým tlačítkem na složku **Kontrolery**, klikněte na **Přidat** a potom na **Kontroler**. Klikněte na položku **Kontroler rozhraní Web API 2 – Prázdný** a potom klikněte na **Přidat**. Pojmenujte novou třídu **RegisterController** a znovu klikněte na **Přidat**. Vygeneruje se kontroler.
    
     ![][B7]
    
     ![][B8]
-8. In RegisterController.cs, add the following `using` statements:
+8. V souboru RegisterController.cs přidejte následující příkazy `using`:
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-9. Add the following code inside the `RegisterController` class definition. Note that in this code, we add a user tag for the user this is attached to the HttpContext. The user was authenticated and attached to the HttpContext by the message filter we added, `AuthenticationTestHandler`. You can also add optional checks to verify that the user has rights to register for the requested tags.
+9. Do definice třídy `RegisterController` přidejte následující kód. Všimněte si, že v tomto kódu přidáváme značku uživatele pro uživatele, který je připojený k objektu HttpContext. Tento uživatel byl ověřen a připojen k objektu HttpContext filtrem zpráv `AuthenticationTestHandler`, který jsme vytvořili. Můžete také přidat volitelné kontroly pro ověření, že uživatel má práva pro registraci k požadovaným značkám.
    
         private NotificationHubClient hub;
    
@@ -251,22 +248,22 @@ In this section, we will add a new controller to the WebAPI backend to handle re
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-10. Save your changes.
+10. Uložte provedené změny.
 
-## <a name="sending-notifications-from-the-webapi-backend"></a>Sending Notifications from the WebAPI Backend
-In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag using Azure Notification Hubs Service Management Library in the ASP.NET WebAPI backend.
+## <a name="sending-notifications-from-the-webapi-backend"></a>Odesílání oznámení z back-endu WebAPI
+V této části přidáte nový kontroler, který klientským zařízením zpřístupní možnost odesílat oznámení na základě značky uživatelského jména pomocí knihovny pro správu služby Azure Notification Hubs v back-endu ASP.NET WebAPI.
 
-1. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController** in the previous section.
-2. In NotificationsController.cs, add the following `using` statements:
+1. Vytvořte další nový kontroler **NotificationsController**. Vytvořte ho stejným způsobem jako kontroler **RegisterController** v předchozí části.
+2. V souboru NotificationsController.cs přidejte následující příkazy `using`:
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-3. Add the following method to the **NotificationsController** class.
+3. Do třídy **NotificationsController** přidejte následující metodu.
    
-    This code send a notification type based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request and formatted for the target PNS. 
+    Tento kód odesílá typ oznámení na základě parametru `pns` systému oznámení platformy. Hodnota `to_tag` slouží k nastavení značky *username* (uživatelské jméno) pro zprávu. Tato značka musí odpovídat značce uživatelského jména aktivní registrace k centru událostí. Zpráva oznámení se přetáhne z textu požadavku POST a naformátuje se pro cílový systém oznámení platformy. 
    
-    Depending on the Platform Notification Service (PNS) that your supported devices use to receive notifications, different notifications are supported using different formats. For example on Windows devices, you could use a [toast notification with WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) that isn't directly supported by another PNS. So your backend would need to format the notification into a supported notification for the PNS of devices you plan to support. Then use the appropriate send API on the [NotificationHubClient class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    V závislosti na systému oznámení platformy, který vaše zařízení používá k přijímání oznámení, jsou podporována různá oznámení v různých formátech. Například na zařízeních s Windows byste mohli použít [informační zprávu pomocí Služby nabízených oznámení Windows](https://msdn.microsoft.com/library/windows/apps/br230849.aspx), kterou ostatní systémy oznámení platformy přímo nepodporují. Takže by váš back-end musel oznámení formátovat na podporované oznámení pro systémy oznámení platformy zařízení, která chcete podporovat. Ve [třídě NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx) tedy použijte vhodné rozhraní API pro odesílání.
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -309,19 +306,20 @@ In this section you add a new controller that exposes a way for client devices t
    
             return Request.CreateResponse(ret);
         }
-4. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
+4. Stisknutím klávesy **F5** aplikaci spusťte a ověřte, že jste zatím postupovali správně. Aplikace by měla otevřít webový prohlížeč a zobrazit domovskou stránku ASP.NET. 
 
-## <a name="publish-the-new-webapi-backend"></a>Publish the new WebAPI Backend
-1. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-2. Select **Microsoft Azure Web Apps** as your publish target.
-   
+## <a name="publish-the-new-webapi-backend"></a>Publikování nového back-endu WebAPI
+1. Nyní tuto aplikaci nasadíme na web Azure, aby byla přístupná ze všech zařízení. Klikněte pravým tlačítkem na projekt **AppBackend** a vyberte **Publikovat**.
+2. Jako cíl publikování vyberte **Microsoft Azure App Service** a klikněte na **Publikovat**. Tím se otevře dialogové okno Vytvoření služby App Service, které vám pomůže vytvořit všechny prostředky Azure potřebné ke spuštění vaší webové aplikace ASP.NET v Azure.
+
     ![][B15]
-3. Log in with your Azure account and select an existing or new Web App.
-   
-    ![][B16]
-4. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
-   
-    ![][B18]
+3. V dialogovém okně **Vytvoření služby App Service** vyberte váš účet Azure. Klikněte na **Změnit typ** a vyberte **Webová aplikace**. Ponechte vyplněný **Název webové aplikace** a vyberte **Předplatné**, **Skupinu prostředků** a **Plán služby App Service**.  Klikněte na možnost **Vytvořit**.
+
+4. Poznamenejte si vlastnost **Adresa URL webu** v části **Souhrn**. Na tuto adresu URL budeme odkazovat jako na *koncový bod back-endu* později v tomto kurzu. Klikněte na **Publikovat**.
+
+5. Průvodce po dokončení publikuje webovou aplikaci ASP.NET do služby Azure a pak aplikaci spustí ve výchozím prohlížeči.  Vaši aplikaci bude možné zobrazit ve službě Azure App Service.
+
+Adresa URL používá dříve zadaný název webové aplikace ve formátu http://<název_aplikace>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -332,6 +330,6 @@ In this section you add a new controller that exposes a way for client devices t
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG

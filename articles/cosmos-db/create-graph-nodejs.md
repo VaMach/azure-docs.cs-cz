@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Databáze Azure Cosmos: Vytvoření aplikace Node.js využitím rozhraní Graph API
@@ -141,9 +141,11 @@ module.exports = config;
 
 Teď se můžete vrátit do Průzkumníku dat na webu Azure Portal, kde můžete zobrazit, upravit a pracovat s novými daty grafu a zadávat na ně dotazy.
 
-V Průzkumníku dat se nová databáze zobrazí v podokně **Kolekce**. Rozbalte položky **graphdb** a **graphcoll** a potom klikněte na **Graph** (Graf).
+V Průzkumníku dat se nová databáze zobrazí v podokně **Graphs** (Grafy). Rozbalte databázi, potom kolekci a klikněte na **Graph**.
 
-V podokně **Grafy** se zobrazí data vygenerovaná ukázkovou aplikací.
+Data generovaná ukázkovou aplikací se zobrazí v dalším podokně na kartě **Graph**, když kliknete na **Použít filtr**.
+
+Zkuste filtr otestovat provedením metody `g.V()` s hodnotami `.has('firstName', 'Thomas')`. Nezapomeňte, že se v hodnotě rozlišují malá a velká písmena.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 

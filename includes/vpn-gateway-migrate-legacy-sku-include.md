@@ -1,8 +1,9 @@
 > [!NOTE]
-> Při migraci ze staré SKU na novou SKU se změní veřejná IP adresa VPN Gateway.
+> * Při migraci ze staré skladové položky na novou se změní veřejná IP adresa brány VPN.
+> * Brány VPN Classic není možné migrovat na nové skladové položky. Brány VPN Classic můžou používat pouze starší (staré) skladové položky.
 > 
 
-Při přechodu ze starých řad SKU na nové není možné přímo měnit velikost bran VPN Azure. Pokud máte brány VPN v modelu nasazení Resource Manageru, které používají starší verze SKU, můžete migrovat na nové SKU. Pokud chcete provést migraci, odstraňte stávající bránu VPN pro vaši virtuální síť a potom vytvořte novou.
+Při přechodu ze starých řad skladových položek na nové není možné měnit velikost bran VPN Azure. Pokud máte brány VPN v modelu nasazení Resource Manageru, které používají starší verze SKU, můžete migrovat na nové SKU. Pokud chcete provést migraci, odstraňte stávající bránu VPN pro vaši virtuální síť a potom vytvořte novou.
 
 Pracovní postup migrace:
 

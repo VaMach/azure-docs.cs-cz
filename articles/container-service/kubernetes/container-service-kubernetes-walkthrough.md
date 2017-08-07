@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/01/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 51c70dcacfba82255532f3222ecb391a43eccbb4
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: a278f76fc0ac2aa42633ed0ce2ad4fbc4e7290da
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Nasazení clusteru Kubernetes pro linuxové kontejnery
 
-V tomto rychlém startu se nasadí cluster Kubernetes pomocí Azure CLI. Následně se na tomto clusteru spustí vícekontejnerová aplikace skládající se z front-end webu a instance Redis. Po dokončení bude aplikace přístupná přes internet.
+V tomto rychlém startu se nasadí cluster Kubernetes pomocí Azure CLI. Následně se na tomto clusteru nasadí a spustí vícekontejnerová aplikace skládající se z webu front-end a instance Redis. Po dokončení bude aplikace přístupná přes internet.
 
 ![Obrázek přechodu na aplikaci Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -80,7 +80,7 @@ Ke správě clusteru Kubernetes použijte klienta příkazového řádku Kuberne
 
 Pokud používáte Azure Cloud Shell, kubectl je už nainstalován. Pokud ho chcete nainstalovat místně, můžete použít příkaz [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
-Abyste nakonfigurovali kubectl pro připojení ke svému clusteru Kubernetes, spusťte příkaz [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
+Abyste nakonfigurovali kubectl pro připojení ke svému clusteru Kubernetes, spusťte příkaz [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Tímto postupem se stáhnou přihlašovací údaje a nakonfiguruje rozhraní příkazového řádku Kubernetes pro jejich použití.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 V tomto rychlém startu se k vytvoření nasazení Kubernetes použily předem vytvořené image kontejnerů. Související kód aplikace, soubor Dockerfile a soubor manifestu Kubernetes jsou k dispozici na GitHubu.
 
-[Aplikace Azure Vote s využitím Redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+[https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Další kroky
 

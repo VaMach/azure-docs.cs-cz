@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analýza využití dat v Log Analytics
@@ -141,6 +141,8 @@ V případě potřeby proveďte další analýzy k identifikaci velkých objemů
 + Datový typ **Syslog**
   - `Type=Syslog | measure count() by Facility, SeverityLevel`
   - `Type=Syslog | measure count() by ProcessName`
++ Datový typ **AzureDiagnostics**
+  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
 
 Pomocí následujících kroků snižte objem shromažďovaných protokolů:
 
@@ -150,6 +152,7 @@ Pomocí následujících kroků snižte objem shromažďovaných protokolů:
 | Čítače výkonu       | Změňte [konfiguraci čítačů výkonu](log-analytics-data-sources-performance-counters.md) tak, aby se: <br> – Snížila četnost shromažďování dat <br> – Snížil počet čítačů výkonu |
 | Protokoly událostí                 | Změňte [konfiguraci protokolů událostí](log-analytics-data-sources-windows-events.md) tak, aby se: <br> – Snížil počet shromažďovaných protokolů událostí <br> – Shromažďovaly pouze požadované úrovně událostí Například zrušte shromažďování událostí úrovně *Informace*. |
 | Syslog                     | Změňte [konfiguraci syslogu](log-analytics-data-sources-syslog.md) tak, aby se: <br> – Snížil počet zařízení, ze kterých se shromažďují data <br> – Shromažďovaly pouze požadované úrovně událostí Například zrušte shromažďování událostí úrovně *Informace* a *Ladění*. |
+| AzureDiagnostics           | Změňte shromažďování protokolů prostředků tak, aby se: <br> – Snížil počet prostředků, které odesílají protokoly do Log Analytics <br> – Shromažďovaly pouze požadované protokoly |
 | Data řešení z počítačů, které řešení nepotřebují | Použijte [cílení na řešení](../operations-management-suite/operations-management-suite-solution-targeting.md) a shromažďujte data pouze z požadované skupiny počítačů. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Kontrola, jestli existuje více uzlů, než se čekalo

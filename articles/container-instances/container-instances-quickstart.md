@@ -18,10 +18,10 @@ ms.date: 07/26/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
-ms.openlocfilehash: 933299ce5a5d6f5b2262d40ae768019ccaf8796a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -35,7 +35,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Příkazy rozhraní příkazového řádku Azure Container Instances jsou aktuálně dostupné pouze ve službě Azure Cloud Shell.
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít Azure CLI verze 2.0.12 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
@@ -52,8 +52,6 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-container"></a>Vytvoření kontejneru
 
 Kontejner můžete vytvořit zadáním názvu, image Dockeru a skupiny prostředků Azure. Volitelně můžete kontejner zveřejnit na internetu s použitím veřejné IP adresy. V tomto případě použijeme kontejner, který je hostitelem velmi jednoduché webové aplikace napsané v [Node.js](http://nodejs.org).
-
-Příkazy rozhraní příkazového řádku Azure Container Instances jsou aktuálně dostupné pouze ve službě Azure Cloud Shell.
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 

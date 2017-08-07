@@ -1,5 +1,5 @@
 ---
-title: "Připojení počítače k virtuální síti Azure typu Point-to-Site: Azure Portal: Classic | Dokumentace Microsoftu"
+title: "Připojení počítače k virtuální síti typu Point-to-Site s použitím ověření certifikátu: Portál Azure Classic | Dokumentace Microsoftu"
 description: "Připojte se bezpečně k své klasické síti Azure Virtual Network vytvořením připojení brány VPN typu Point-to-Site přes Azure Portal."
 services: vpn-gateway
 documentationcenter: na
@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f048e344026b0fd930569c949b23a42c3c30fffe
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 6735049b6068d9afe192b6ea4450e970fcf5f7d4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal-classic"></a>Konfigurace připojení typu Point-to-Site k virtuální síti pomocí webu Azure Portal (Classic)
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím ověření certifikátu (Classic): Azure Portal
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Tento článek ukazuje postup vytvoření virtuální sítě s připojením typu Point-to-Site v modelu nasazení Classic pomocí webu Azure Portal. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
+Tento článek ukazuje postup vytvoření virtuální sítě s připojením typu Point-to-Site v modelu nasazení Classic pomocí webu Azure Portal. Tato konfigurace používá certifikáty k ověření připojujícího se klienta. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -35,19 +34,21 @@ Tento článek ukazuje postup vytvoření virtuální sítě s připojením typu
 > * [Azure Portal (Classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální síti. Připojení Point-to-Site jsou užitečná, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. Připojení k síti VPN typu Point-to-Site je zahájeno z klientského počítače pomocí nativního klienta Windows VPN. Připojovaní klienti používají certifikáty k ověření. 
-
+Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální síti. Připojení Point-to-Site jsou užitečná, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. Připojení VPN typu Point-to-Site se navazuje s klientského počítače pomocí nativního klienta VPN ve Windows, který byl nakonfigurován pro připojení k virtuální síti pomocí balíčku pro konfiguraci klienta. Připojovaní klienti používají certifikáty k ověření. 
 
 ![Diagram Point-to-Site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-Připojení typu Point-to-Site nevyžadují zařízení VPN ani veřejnou IP adresu. Point-to-Site vytvoří připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Na straně serveru podporujeme SSTP verze 1.0, 1.1 a 1.2. Klient rozhodne, která verze se má použít. Pro Windows 8.1 a novější se standardně používá SSTP verze 1.2. Další informace o připojení Point-to-Site najdete v části [Nejčastější dotazy týkající se připojení Point-to-Site](#faq) na konci tohoto článku.
 
-Připojení typu Point-to-Site vyžadují:
+Připojení typu Point-to-Site s ověřováním certifikátů vyžadují následující:
 
 * Dynamickou bránu VPN.
 * Veřejný klíč (soubor .cer) pro kořenový certifikát nahraný do Azure. Ten se považuje za důvěryhodný certifikát a používá se k ověřování.
 * Klientský certifikát vygenerovaný z kořenového certifikátu a nainstalovaný na každém klientském počítači, který se bude připojovat. Tento certifikát se používá k ověřování klienta.
 * Na každém klientském počítači, který se bude připojovat, musí být vygenerován a nainstalován balíček pro konfiguraci klienta VPN. Balíček pro konfiguraci klienta konfiguruje nativního klienta VPN, který již je v operačním systému, s použitím informací potřebných pro připojení k virtuální síti.
+
+Připojení typu Point-to-Site nevyžadují zařízení VPN ani místní veřejnou IP adresu. Připojení VPN se vytváří přes protokol SSTP (Secure Socket Tunneling Protocol). Na straně serveru podporujeme SSTP verze 1.0, 1.1 a 1.2. Klient rozhodne, která verze se má použít. Pro Windows 8.1 a novější se standardně používá SSTP verze 1.2. 
+
+Další informace o připojení Point-to-Site najdete v části [Nejčastější dotazy týkající se připojení Point-to-Site](#faq) na konci tohoto článku.
 
 ### <a name="example-settings"></a>Příklad nastavení
 
@@ -94,7 +95,7 @@ Pokud ještě nemáte virtuální síť, vytvořte si ji. Snímky obrazovek slou
 
   ![dlaždice Vytváří se virtuální síť](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. Po vytvoření virtuální sítě uvidíte na portálu Azure Classic na stránce sítí v části **Stav** stav **Vytvořená**.
-11. Přidejte server DNS (volitelné). Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS pro překlad IP adres. Zadaný server DNS by měl být ten, který dokáže překládat IP adresy pro prostředky ve vaší virtuální síti.<br>Pokud chcete přidat server DNS, otevřete nastavení pro virtuální síť, klikněte na servery DNS a přidejte IP adresu serveru DNS, který chcete použít. Balíček pro konfiguraci klienta, který vygenerujete v pozdějším kroku, bude obsahovat IP adresy serverů DNS, které zadáte v tomto nastavení. Pokud bude v budoucnu potřeba aktualizovat seznam serverů DNS, můžete vygenerovat a nainstalovat nové balíčky pro konfiguraci klienta VPN odrážející aktualizovaný seznam.
+11. Přidejte server DNS (volitelné). Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS pro překlad IP adres. Zadaný server DNS by měl být ten, který dokáže překládat IP adresy pro prostředky ve vaší virtuální síti.<br>Pokud chcete přidat server DNS, otevřete nastavení pro virtuální síť, klikněte na servery DNS a přidejte IP adresu serveru DNS, který chcete použít. Balíček pro konfiguraci klienta, který vygenerujete v pozdějším kroku, obsahuje IP adresy serverů DNS, které zadáte v tomto nastavení. Pokud bude v budoucnu potřeba aktualizovat seznam serverů DNS, můžete vygenerovat a nainstalovat nové balíčky pro konfiguraci klienta VPN odrážející aktualizovaný seznam.
 
 ### <a name="gateway"></a>Část 2: Vytvoření podsítě brány a brány dynamického směrování
 
@@ -191,19 +192,14 @@ Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než 
 
   ![Vytvořené připojení](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
-Pokud máte potíže s připojením, zkontrolujte následující:
-
-- Otevřete **správu uživatelských certifikátů** a přejděte do umístění **Důvěryhodné kořenové certifikační autority\Certifikáty**. Zkontrolujte, že je kořenový certifikát uvedený. Aby ověřování fungovalo, musí být kořenový certifikát přítomný. Pokud exportujete klientský certifikát .pfx s výchozím nastavením Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné, vyexportují se také informace o kořenovém certifikátu. Při instalaci klientského certifikátu se pak do klientského počítače nainstaluje i kořenový certifikát. 
-
-- Pokud používáte certifikát vydaný řešením CA organizace a máte problémy s ověřováním, zkontrolujte pořadí ověřování na klientském certifikátu. Pořadí seznamu ověřování můžete zkontrolovat dvojím kliknutím na klientský certifikát a přechodem na **Podrobnosti > Použití rozšířeného klíče**. Ujistěte se, že je na prvním místě seznamu položka Ověření klienta. Pokud tomu tak není, musíte vydat klientský certifikát založený na šabloně uživatele, která má Ověření klienta jako první položku seznamu. 
+[!INCLUDE [verify client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ### <a name="verify-the-vpn-connection"></a>Ověření připojení VPN
 
 1. Chcete-li ověřit, zda je připojení VPN aktivní, v příkazovém řádku se zvýšenými oprávněními spusťte příkaz *ipconfig/all*.
-2. Zkontrolujte výsledky. Všimněte si, že IP adresa, kterou jste obdrželi, je jedna z adres z rozsahu adres připojení typu Point-to-Site, který jste určili během vytváření vaší virtuální sítě. Výsledek by se měl podobat následujícímu příkladu:
+2. Zkontrolujte výsledky. Všimněte si, že IP adresa, kterou jste obdrželi, je jedna z adres z rozsahu adres připojení typu Point-to-Site, který jste určili během vytváření vaší virtuální sítě. Výsledek by se měl podobat tomuto příkladu:
 
-Příklad:
-
+  ```
     PPP adapter VNet1:
         Connection-specific DNS Suffix .:
         Description.....................: VNet1
@@ -214,9 +210,7 @@ Příklad:
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
-
- 
- Pokud máte potíže s připojením k virtuálnímu počítači přes P2S, pomocí příkazu ipconfig zkontrolujte IPv4 adresu přiřazenou adaptéru Ethernet na počítači, ze kterého se připojujete. Pokud je IP adresa v rámci rozsahu adres virtuální sítě, ke které se připojujete, nebo v rámci rozsahu adres VPNClientAddressPool, tato situace se označuje jako překrývající se adresní prostor. Když se adresní prostor tímto způsobem překrývá, síťový provoz nemá přístup do Azure a zůstane v místní síti. Pokud se adresní prostory vaší sítě nepřekrývají a vy se pořád nemůžete připojit k virtuálnímu počítači, přečtěte si [řešení potíží s Připojením ke vzdálené ploše pro virtuální počítač](../virtual-machines/windows/troubleshoot-rdp-connection.md).
+  ```
 
 ## <a name="connectVM"></a>Připojení k virtuálnímu počítači
 
@@ -265,4 +259,3 @@ Klientský certifikát můžete odvolat tím, že přidáte jeho kryptografický
 
 ## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Bližší informace o sítích a virtuálních počítačích najdete v tématu s [přehledem sítě virtuálních počítačů s Linuxem v Azure](../virtual-machines/linux/azure-vm-network-overview.md).
-

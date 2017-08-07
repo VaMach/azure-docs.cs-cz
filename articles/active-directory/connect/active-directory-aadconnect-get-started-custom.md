@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Vlastní instalace služby Azure AD Connect
@@ -317,6 +317,15 @@ Další informace najdete v tématu [Pracovní režim](active-directory-aadconne
 
 ### <a name="verify-your-federation-configuration"></a>Ověření konfigurace federace
 Když kliknete na tlačítko Ověřit, služba Azure AD Connect ověří nastavení DNS za vás.
+
+**Kontrola připojení k intranetu**
+
+* Překlad plně kvalifikovaného názvu domény federace: Azure AD Connect zkontroluje, jestli DNS dokáže přeložit plně kvalifikovaný název domény federace pro zajištění možnosti připojení. Pokud Azure AD Connect nedokáže přeložit plně kvalifikovaný název domény, ověření se nezdaří. Aby bylo možné úspěšné dokončení ověření, ujistěte se, že je přítomný záznam DNS pro plně kvalifikovaný název domény federační služby.
+* Záznam DNS A: Azure AD Connect zkontroluje, jestli pro vaši federační službu existuje záznam A. Pokud záznam A chybí, ověření se nezdaří. Aby bylo možné úspěšné dokončení ověření, vytvořte pro plně kvalifikovaný název domény federace záznam A, nikoli záznam CNAME.
+
+**Kontrola připojení k extranetu**
+
+* Překlad plně kvalifikovaného názvu domény federace: Azure AD Connect zkontroluje, jestli DNS dokáže přeložit plně kvalifikovaný název domény federace pro zajištění možnosti připojení.
 
 ![Dokončit](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

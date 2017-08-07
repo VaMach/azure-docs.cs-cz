@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch
@@ -177,10 +177,14 @@ Informace o nastavení režimu přidělení fondu při vytváření účtu Batch
 
 Pokud chcete ke zřízení fondů virtuálních počítačů použít vlastní image, vytvořte účet Batch s režimem přidělování fondů Předplatné uživatele. S tímto režimem se fondy Batch přidělují do předplatného, ve které je tento účet umístěný. Informace o nastavení režimu přidělení fondu při vytváření účtu Batch najdete v části [Účet](#account).
 
-Pokud chcete použít vlastní image, budete ji muset připravit tím, že ji zobecníte. Informace o přípravě vlastních imagí Linuxu z virtuálních počítačů Azure najdete v tématu [Zachycení virtuálního počítače Azure s Linuxem pro použití jako šablony](../virtual-machines/linux/capture-image-nodejs.md). Informace o přípravě vlastních imagí Windows z virtuálních počítačů Azure najdete v tématu [Vytváření vlastních imagí virtuálních počítačů pomocí Azure PowerShellu](../virtual-machines/windows/tutorial-custom-images.md). Při přípravě vaší image mějte na paměti následující:
+Pokud chcete použít vlastní image, budete ji muset připravit tím, že ji zobecníte. Informace o přípravě vlastních imagí Linuxu z virtuálních počítačů Azure najdete v tématu [Zachycení virtuálního počítače Azure s Linuxem pro použití jako šablony](../virtual-machines/linux/capture-image-nodejs.md). Informace o přípravě vlastních imagí Windows z virtuálních počítačů Azure najdete v tématu [Vytváření vlastních imagí virtuálních počítačů pomocí Azure PowerShellu](../virtual-machines/windows/tutorial-custom-images.md). 
 
-- Zajistěte, aby image základního operačního systému, kterou použijete ke zřizování fondů Batch, neobsahovala žádná předinstalovaná rozšíření Azure, jako je například rozšíření vlastních skriptů. Pokud image obsahuje nějaké předinstalované rozšíření, v Azure může docházet k problémům při nasazování virtuálního počítače.
-- Zajistěte, aby poskytnutá image základního operačního systému používala výchozí dočasnou jednotku, protože ji očekává agent uzlu Batch.
+> [!IMPORTANT]
+> Při přípravě vlastní image mějte na paměti následující:
+> - Zajistěte, aby image základního operačního systému, kterou použijete ke zřizování fondů Batch, neobsahovala žádná předinstalovaná rozšíření Azure, jako je například rozšíření vlastních skriptů. Pokud image obsahuje nějaké předinstalované rozšíření, v Azure může docházet k problémům při nasazování virtuálního počítače.
+> - Zajistěte, aby poskytnutá image základního operačního systému používala výchozí dočasnou jednotku, protože ji očekává agent uzlu Batch.
+>
+>
 
 Pokud chcete vytvořit fond virtuálních počítačů s využitím vlastní image, budete potřebovat jeden nebo několik standardních účtů Azure Storage pro uložení vlastních imagí virtuálního pevného disku. Vlastní image se ukládají jako objekty blob. Pokud chcete při vytváření fondu zadat odkazy na vlastní image, zadejte pro vlastnost [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) vlastnosti [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) URI objektů blob VHD vlastní image.
 

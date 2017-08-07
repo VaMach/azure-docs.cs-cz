@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: cc0715b9f2c531ad493beec854202d2211a84daa
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 690aa3ddc6ec0889936565ea732cd714734abecb
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Vytvoření připojení typu Site-to-Site na webu Azure Portal
@@ -31,10 +31,8 @@ Tento článek ukazuje, jak pomocí webu Azure Portal vytvořit připojení brá
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Rozhraní příkazového řádku](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (Classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
 > 
 >
-
 
 Připojení brány VPN typu Site-to-Site slouží k připojení místní sítě k virtuální síti Azure přes tunel VPN IPsec/IKE (IKEv1 nebo IKEv2). Tento typ připojení vyžaduje místní zařízení VPN, které má přiřazenou veřejnou IP adresu. Další informace o bránách VPN najdete v tématu [Informace o službě VPN Gateway](vpn-gateway-about-vpngateways.md).
 
@@ -54,8 +52,8 @@ V příkladech v tomto článku se používají následující hodnoty. Tyto hod
 
 * **Název virtuální sítě:** TestVNet1
 * **Adresní prostor:** 
-    * 10.11.0.0/16
-    * 10.12.0.0/16 (volitelné pro toto cvičení)
+  * 10.11.0.0/16
+  * 10.12.0.0/16 (volitelné pro toto cvičení)
 * **Podsítě:**
   * FrontEnd: 10.11.0.0/24
   * BackEnd: 10.12.0.0/24 (volitelné pro toto cvičení)
@@ -87,7 +85,6 @@ DNS se k vytvoření připojení Site-to-Site nevyžaduje. Pokud ale chcete umo�
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
-
 ## <a name="VNetGateway"></a>4. Vytvoření brány VPN
 
 [!INCLUDE [vpn-gateway-add-gw-s2s-rm-portal](../../includes/vpn-gateway-add-gw-s2s-rm-portal-include.md)]
@@ -105,7 +102,6 @@ Připojení Site-to-Site k místní síti vyžadují zařízení VPN. V tomto kr
 - Sdílený klíč. Jedná se o stejný sdílený klíč, který zadáváte při vytváření připojení VPN Site-to-Site. V našich ukázkách používáme základní sdílený klíč. Doporučujeme, abyste pro použití vygenerovali složitější klíč.
 - Veřejnou IP adresu vaší brány virtuální sítě. Veřejnou IP adresu můžete zobrazit pomocí webu Azure Portal, PowerShellu nebo rozhraní příkazového řádku. Pokud chcete zjistit veřejnou IP adresu brány VPN pomocí webu Azure Portal, přejděte na **Brány virtuální sítě** a klikněte na název brány.
 
-
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## <a name="CreateConnection"></a>7. Vytvoření připojení VPN
@@ -122,9 +118,17 @@ Vytvořte připojení VPN typu Site-to-Site mezi bránou virtuální sítě a m�
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
+## <a name="how-to-reset-a-vpn-gateway"></a>Resetování brány VPN
+
+Resetování brány Azure VPN je užitečné v případě ztráty připojení VPN mezi lokalitami na jednom nebo více tunelech VPN typu Site-to-Site. V této situaci vaše místní zařízení VPN fungují správně, ale nejsou schopná vytvořit tunelová propojení prostřednictvím protokolu IPsec s branami Azure VPN. Pokyny najdete v tématu [Resetování brány VPN](vpn-gateway-resetgw-classic.md).
+
+## <a name="how-to-change-a-gateway-sku-resize-a-gateway"></a>Změna skladové položky brány (změna velikosti brány)
+
+Postup pro změnu skladové položky brány najdete v tématu popisujícím [Skladové položky brány](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ## <a name="next-steps"></a>Další kroky
 
-*  Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md).
-*  Informace o vynuceném tunelování najdete v tématu [Informace o vynuceném tunelování](vpn-gateway-forced-tunneling-rm.md).
-*  Informace o vysoce dostupných připojeních typu aktivní-aktivní najdete v tématu [Připojení s vysokou dostupností mezi jednotlivými místy a VNet-to-VNet](vpn-gateway-highlyavailable.md).
+* Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* Informace o vynuceném tunelování najdete v tématu [Informace o vynuceném tunelování](vpn-gateway-forced-tunneling-rm.md).
+* Informace o vysoce dostupných připojeních typu aktivní-aktivní najdete v tématu [Připojení s vysokou dostupností mezi jednotlivými místy a VNet-to-VNet](vpn-gateway-highlyavailable.md).
+

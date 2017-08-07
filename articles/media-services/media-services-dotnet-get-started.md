@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/16/2017
+ms.date: 07/31/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: a8e69933b977f60d09837f0f0360a274ef1b5dcd
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: e80fe0970ec130754c2c058789e1d1e2a9492216
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -88,7 +88,7 @@ Pokud chcete spustit koncový bod streamování, postupujte takto:
 
 Když službu Media Services používáte s rozhraním .NET, musíte třídu **CloudMediaContext** používat pro většinu programovacích úloh: připojení k účtu Media Services, vytváření, aktualizace, otevírání a odstraňování následujících objektů: prostředky, soubory prostředků, úlohy, zásady přístupu, lokátory atd.
 
-Přepište výchozí třídu Program následujícím kódem. Kód ukazuje, jak číst hodnoty připojení ze souboru App.config a jak vytvořit objekt **CloudMediaContext**, abyste se mohli připojit ke službě Media Services. Další informace o připojení ke službám Media Services najdete v článku [Připojení ke službám Media Services pomocí sady SDK služby Media Services SDK pro .NET](media-services-dotnet-connect-programmatically.md).
+Přepište výchozí třídu Program následujícím kódem. Kód ukazuje, jak číst hodnoty připojení ze souboru App.config a jak vytvořit objekt **CloudMediaContext**, abyste se mohli připojit ke službě Media Services. Další informace najdete v tématu popisujícím [připojení k rozhraní API služby Media Services](media-services-use-aad-auth-to-access-ams-api.md).
 
 Nezapomeňte aktualizovat název souboru a cestu podle umístění multimediálního souboru.
 

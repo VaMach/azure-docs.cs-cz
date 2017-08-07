@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 6/14/2017
+ms.date: 8/2/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 61328e32763faea90074fc6d499e660c4109ab6d
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1a0e738cfac01d90e91959412b1ad5591705f617
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>První pohled: Zálohování virtuálních počítačů Azure
@@ -49,7 +48,7 @@ Trezor záloh je entita, která ukládá všechny vytvořené zálohy a body obn
 
 > [!IMPORTANT]
 > Od března 2017 již nelze k vytvoření trezorů služby Backup použít portál Classic.
-> Nyní můžete trezory služby Backup upgradovat na trezory služby Recovery Services. Podrobnosti najdete v článku [Upgrade trezoru služby Backup na trezor služby Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft doporučuje, abyste upgradovali své trezory služby Backup na trezory služby Recovery Services.<br/> **Od 1. listopadu 2017**:
+> Trezory služby Backup můžete upgradovat na trezory služby Recovery Services. Podrobnosti najdete v článku [Upgrade trezoru služby Backup na trezor služby Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft doporučuje, abyste upgradovali své trezory služby Backup na trezory služby Recovery Services.<br/> Od 15. října 2017 nebude možné pomocí PowerShellu vytvářet trezory služby Backup. **Do 1. listopadu 2017:**
 >- Všechny zbývající trezory služby Backup budou automaticky upgradovány na trezory služby Recovery Services.
 >- Nebudete mít přístup k datům záloh na portálu Classic. Pro přístup k datům záloh v trezorech služby Recovery Services místo toho použijte Azure Portal.
 >

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorování výkonu webových aplikací Azure
@@ -31,7 +30,7 @@ Monitorování s použitím aplikace můžete konfigurovat dvěma způsoby:
 * **Při sestavení** – Do aplikace můžete balíček nainstalovat během vývoje. Tato možnost nabízí větší variabilitu. Kromě stejných standardních balíčků můžete napsat kód pro přizpůsobení telemetrických dat nebo pro odesílání vlastních telemetrických dat. Můžete protokolovat konkrétní aktivity nebo zaznamenávat události podle sémantiky domény aplikace. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Použití za běhu s Application Insights
-Pokud už webovou aplikaci v Azure spouštíte, máte již monitorování do jisté míry k dispozici: můžete monitorovat požadavky a chybovost. Přidejte Application Insights a získejte další možnosti, například zaznamenávání doby odezvy, monitorování volání podle závislostí, inteligentní detekci a výkonný dotazovací jazyk Analytics. 
+Pokud už webovou aplikaci v Azure spouštíte, máte již monitorování do jisté míry k dispozici: můžete monitorovat požadavky a chybovost. Přidejte Application Insights a získejte další možnosti, například zaznamenávání doby odezvy, monitorování volání závislostí, inteligentní detekci a výkonný dotazovací jazyk Log Analytics. 
 
 1. **Vyberte Application Insights** pro svou webovou aplikaci na ovládacím panelu Azure.
    
@@ -102,7 +101,7 @@ Application Insights může poskytovat podrobnější telemetrie po nainstalová
    
     Můžete [přizpůsobovat hledání](app-insights-diagnostic-search.md).
 
-Pokud chcete v telemetrických datech provádět výkonnější hledání, použijte [dotazovací jazyk Analytics](app-insights-analytics-tour.md).
+Pokud chcete v telemetrických datech provádět výkonnější hledání, použijte [dotazovací jazyk Log Analytics](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Další telemetrická data
 

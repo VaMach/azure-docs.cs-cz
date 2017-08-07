@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 9353ad6df121ebd2e92a5d34214c32e852ed60a3
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 9b50f1cca81348b69f7ff2d702c6c72871afe0a0
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Začínáme používat službu Notification Hubs pro aplikace Univerzální platformy Windows
@@ -49,33 +48,30 @@ Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy služby No
 Chcete-li odesílat nabízená oznámení do aplikací UWP, musíte aplikaci přidružit k Windows Storu. Pak musíte nakonfigurovat centrum oznámení pro integraci s WNS.
 
 1. Pokud jste ještě aplikaci nezaregistrovali, přejděte na [Windows Dev Center](https://dev.windows.com/overview), přihlaste se pomocí účtu Microsoft a pak klikněte na tlačítko **Vytvořit novou aplikaci**.
-2. Zadejte název aplikace a klikněte na tlačítko **Rezervovat název aplikace**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
-   
-   Tím se vytvoří nová registrace Windows Store pro vaši aplikaci.
-3. V sadě Visual Studio vytvořte nový projekt aplikace Visual C# Store pomocí šablony **Prázdná aplikace** a klikněte na **OK**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
+
+2. Zadejte název aplikace a klikněte na tlačítko **Rezervovat název aplikace**. Tím se vytvoří nová registrace Windows Store pro vaši aplikaci.
+
+3. V sadě Visual Studio vytvořte nový projekt aplikace Visual C# Store pomocí univerzální šablony **Prázdná aplikace** pro Windows a klikněte na **OK**.
+
 4. Přijměte výchozí hodnoty cíle a minimální verze platformy.
-5. V Průzkumníku řešení klikněte pravým tlačítkem na projekt aplikace Windows Store, klikněte na tlačítko **Úložiště** a pak klikněte na tlačítko **Přidružit aplikaci ve Store...**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
 
-   Zobrazí se průvodce **Přidružením aplikace k Windows Store**.
+5. V Průzkumníku řešení klikněte pravým tlačítkem na projekt aplikace Windows Store, klikněte na tlačítko **Úložiště** a pak klikněte na tlačítko **Přidružit aplikaci ve Store...**. Zobrazí se průvodce **Přidružením aplikace k Windows Store**.
 
-1. V průvodci klikněte na tlačítko **Přihlásit** a pak se přihlaste pomocí svého účtu Microsoft.
-2. Klikněte na aplikaci zaregistrovanou v kroku 2, klikněte na tlačítko **Další** a pak klikněte na tlačítko **Přidružit**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
-   
-   Tento postup přidá požadované informace o registraci Windows Store do manifestu aplikace.
-3. Zpátky na stránce [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582) pro novou aplikaci klikněte na **Services** (Služby), klikněte na **Push notifications** (Nabízená oznámení) a potom klikněte na **Live Services site** (Server služby Live) pod položkou **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Apps** (Služby nabízených oznámení Windows (WNS) a Microsoft Azure Mobile Apps).
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
-4. Na registrační stránce si poznamenejte heslo **Tajný klíč aplikace** a **Identifikátor zabezpečení (SID) balíčku**, které najdete v nastavení platformy **Windows Store**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+6. V průvodci se přihlaste pomocí svého účtu Microsoft.
+
+7. Klikněte na aplikaci zaregistrovanou v kroku 2, klikněte na tlačítko **Další** a pak klikněte na tlačítko **Přidružit**. Tento postup přidá požadované informace o registraci Windows Store do manifestu aplikace.
+
+8. Zpátky na stránce [Windows Dev Center](http://dev.windows.com/overview) pro novou aplikaci klikněte postupně na **Služby**, **Nabízená oznámení** a potom na **WNS/MPNS**.
+
+9. Klikněte na **Nové oznámení**.
+
+10. Klikněte na šablonu **Prázdná (informační zpráva)** a potom klikněte na **OK**.
+
+11. Zadejte **Název** oznámení a vizuální **kontextovou** zprávu. Potom klikněte na **Uložit jako koncept**.
+
+12. Přejděte na [Portál pro registraci aplikací](http://apps.dev.microsoft.com) a přihlaste se.
+
+13. Klikněte na název vaší aplikace. Poznamenejte si heslo **Tajný klíč aplikace** a **Identifikátor zabezpečení (SID) balíčku**, které najdete v nastavení platformy **Windows Store**.
 
      > [AZURE.WARNING]
     Tajný klíč aplikace a SID balíčku jsou důležité přihlašovací údaje zabezpečení. Tyto hodnoty s nikým nesdílejte ani je nedistribuujte s vaší aplikací.
@@ -137,8 +133,6 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou WNS. Z
    
     Tento postup zaručuje, že bude kanál URI registrován v centru oznámení při každém spuštění aplikace.
 6. Stiskněte klávesu **F5** a spusťte aplikaci. Zobrazí se automaticky otevíraný dialog, který obsahuje registrační klíč.
-   
-     ![][19]
 
 Vaše aplikace je teď připravena přijímat oznámení informačního nápisu.
 
@@ -162,9 +156,8 @@ K odeslání oznámení pomocí konzolové aplikace .NET postupujte následovně
 
 1. Klikněte pravým tlačítkem myši na řešení, vyberte možnost **Přidat** a **Nový projekt...** a pak v části **Visual C#** klikněte na tlačítko **Windows** a **Konzolové aplikace** a klikněte na tlačítko **OK**.
    
-     ![][13]
-   
     Tento postup přidá novou aplikaci Visual C# do řešení. Tento postup také můžete využít v samostatném řešení.
+
 2. Ve Visual Studiu klikněte na položku **Nástroje**, klikněte na **Správce balíčků NuGet** a pak klikněte na **Konzola Správce balíčků**.
    
     Tím se zobrazí Konzola Správce balíčků ve Visual Studiu.
@@ -199,8 +192,6 @@ K odeslání oznámení pomocí konzolové aplikace .NET postupujte následovně
          SendNotificationAsync();
          Console.ReadLine();
 7. Klikněte pravým tlačítkem na projekt konzolové aplikace ve Visual Studiu a kliknutím na tlačítko **Nastavit jako spouštěný projekt** nastavte projekt jako spouštěný. Pak stiskněte klávesu **F5** a spusťte aplikaci.
-   
-     ![][14]
    
     Na všech registrovaných zařízeních se zobrazí informační zprávy. Kliknutí nebo klepnutí na informační nápis načte aplikaci.
 

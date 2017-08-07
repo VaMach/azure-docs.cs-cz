@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Proxy aplikace služby Azure AD umožňuje podporu vzdálených pracovních proc
 6. Dokončete průvodce kliknutím na ikonu zaškrtnutí v dolní části obrazovky. Aplikace je nyní definována ve službě Azure AD.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Přiřazení uživatelů a skupin k aplikaci
-Pokud chcete, aby uživatelé měli přístup k publikované aplikaci, musíte jim ho přiřadit – jednotlivě nebo po skupinách. (Nezapomeňte přiřadit přístup také sobě.) To vyžaduje, aby každý uživatel měl licenci pro prostředí Azure Basic nebo vyšší. Licence můžete přiřadit individuálně, nebo skupinám. Další podrobnosti najdete v tématu [Přiřazování uživatelů k aplikaci](active-directory-applications-guiding-developers-assigning-users.md). 
+Pokud chcete, aby uživatelé měli přístup k publikované aplikaci, musíte jim ho přiřadit – jednotlivě nebo po skupinách. (Nezapomeňte přiřadit přístup také sobě.) Každý uživatel, kterého přiřadíte, musí mít licenci Azure úrovně Basic nebo vyšší. Licence můžete přiřadit individuálně, nebo skupinám. Další informace najdete v tématu [Přiřazování uživatelů k aplikaci](active-directory-applications-guiding-developers-assigning-users.md). 
 
-U aplikací, které vyžadují předběžné ověření, tím udělíte oprávnění k používání aplikace. U aplikací, které nevyžadují předběžné ověření, jde uživatele pořád přiřadit k aplikaci, aby se jim zobrazovala v seznamu aplikací, například MyApps.
+U aplikací, které vyžadují předběžné ověření, uživateli přiřazením udělíte oprávnění k používání aplikace. U aplikací, které nevyžadují předběžné ověření, přiřazení uživatele znamená, že daný uživatel bude k aplikaci moci přistupovat přes přístupový panel.
 
 1. Po dokončení průvodce přidáním aplikace se vám zobrazí stránka „Rychlý start“ vaší aplikace. Pokud chcete nastavit, kdo má mít přístup k aplikaci, vyberte možnost **Uživatelé a skupiny**.
    
@@ -90,7 +90,7 @@ Na stránce Konfigurace můžete publikované aplikace upravovat nebo u nich nas
 
 Jakmile aplikace publikujete pomocí proxy aplikace služby Azure Active Directory, zobrazí se v seznamu aplikací ve službě Azure AD, odkud je můžete spravovat.
 
-Pokud po publikování aplikací služby proxy aplikace zakážete, aplikace už nebudou přístupné mimo vaši privátní síť. Tím nedojde k odstranění aplikací.
+Pokud po publikování aplikací služby proxy aplikace zakážete, aplikace už nebudou přístupné mimo vaši privátní síť. Vaši uživatelé stále budou mít místní přístup k aplikacím jako obvykle.
 
 Pokud chcete zobrazit aplikaci a ujistit se, že je přístupná, klikněte dvakrát na její název. Pokud je služba proxy aplikace zakázaná a aplikace není k dispozici, zobrazí se v horní části obrazovky varovná zpráva.
 
