@@ -15,22 +15,24 @@
 ### [Klíče chráněné pomocí HSM](key-vault-hsm-protected-keys.md)
 ### [Migrace na rozhraní .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### Přehledy
-#### [Přehled světů zabezpečení](key-vault-ovw-security-worlds.md)
-#### [Přehled obnovitelného odstranění](key-vault-ovw-soft-delete.md)
-#### [Přehled klíčů účtu úložiště](key-vault-ovw-storage-keys.md)
-#### [Přehled omezování](key-vault-ovw-throttling.md)
+#### [Světy zabezpečení](key-vault-ovw-security-worlds.md)
+#### [Obnovitelné odstranění](key-vault-ovw-soft-delete.md)
+#### [Klíče účtu úložiště](key-vault-ovw-storage-keys.md)
+#### [Omezování](key-vault-ovw-throttling.md)
 
 ## Spravovat
 ### [Protokolování v Azure Key Vault](key-vault-logging.md)
 ### [Přístup přes brány firewall](key-vault-access-behind-firewall.md)
-### [Změna ID tenanta](key-vault-subscription-move-fix.md)
-### [Použití skupin pro udělení přístupu](key-vault-group-permissions-for-apps.md)
 ### [Dostupnost a redundance](key-vault-disaster-recovery-guidance.md)
+### [Změna ID tenanta](key-vault-subscription-move-fix.md)
+### [Vytváření a správa pomocí CLI 2.0](key-vault-manage-with-cli2.md)
+### [Jak používat obnovitelné odstranění Key Vaultu s využitím CLI](key-vault-soft-delete-cli.md)
+### [Jak používat obnovitelné odstranění Key Vaultu s využitím PowerShellu](key-vault-soft-delete-powershell.md)
+### [Použití skupin pro udělení přístupu](key-vault-group-permissions-for-apps.md)
 ### [Zabezpečení trezoru klíčů](key-vault-secure-your-key-vault.md)
 
 ## Automatizace
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Vytváření a správa pomocí CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
