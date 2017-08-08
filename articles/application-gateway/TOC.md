@@ -27,16 +27,20 @@
 ## Konfigurace firewallu webových aplikací
 ### [Azure Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
 ## Přizpůsobení pravidel firewallu webových aplikací
 ### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 ## Konfigurace pro přesměrování zpracování SSL
 ### [Azure Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (Classic)](application-gateway-ssl.md)
+### [Azure CLI 2.0](application-gateway-ssl.md)
 ### [Zásady a koncové řešení](application-gateway-end-to-end-ssl-powershell.md)
 ## Konfigurace směrování na základě cest URL
 ### [Azure Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 ## Konfigurace hostování několika webů
 ### [Azure Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)

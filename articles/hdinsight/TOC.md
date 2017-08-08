@@ -94,7 +94,6 @@
 #### [Zapisování do služby Data Lake Store](hdinsight-storm-write-data-lake-store.md)
 #### [Vývoj topologií založených na Javě pomocí Mavenu](hdinsight-storm-develop-java-topology.md)
 #### [Vývoj topologií C# pomocí nástrojů Hadoop](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Určení aktuálních témat na Twitteru](hdinsight-storm-twitter-trending.md)
 #### [Zpracování událostí pomocí topologií C#](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Zpracování událostí pomocí topologií Java](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Použití Power BI s topologií](hdinsight-storm-power-bi-topology.md)
