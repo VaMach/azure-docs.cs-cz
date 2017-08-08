@@ -1,10 +1,10 @@
 # Přehled
 ## [Co je služba Azure Analysis Services?](analysis-services-overview.md)
-## [Podporované zdroje dat](analysis-services-datasource.md)
 
 # Šablony Rychlý start
 ## [Vytvoření serveru – portál](analysis-services-create-server.md)
-## [Nasazení modelu – SSDT](analysis-services-deploy.md)
+## [Vytvoření serveru – PowerShell](analysis-services-create-powershell.md)
+## [Nasazení modelu – Visual Studio](analysis-services-deploy.md)
 
 # Kurzy
 ## Vytvoření a nasazení modelu
@@ -27,6 +27,7 @@
 ### [Doplňková lekce – Nepravidelné hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Koncepty
+## [Podporované zdroje dat](analysis-services-datasource.md)
 ## [Ověřování a uživatelská oprávnění](analysis-services-manage-users.md)
 ## [Vysoká dostupnost](analysis-services-bcdr.md)
 

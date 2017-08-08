@@ -4,8 +4,9 @@
 # Kurzy
 ## [Průběžná integrace a doručování s využitím VSTS](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
 ## [Integrace Jenkinse a Kubernetes](/azure/container-service/container-service-kubernetes-jenkins)
-## [Nasazení do App Service](/azure/jenkins/execute-cli-jenkins-pipeline)
+## [Jenkins a rozhraní příkazového řádku Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
 ## [Docker, GitHub a Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+## [Nasazení do App Service](/azure/jenkins/deploy-Jenkins-app-service-plugin)
 # Návody
 ## [Zabezpečení Jenkinse v Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 # Zdroje a prostředky

@@ -25,10 +25,14 @@
       href: container-instances-orchestrator-relationship.md
 - name: Návody
   items:
-    - name: Skupiny více kontejnerů
+    - name: Nasazení skupin více kontejnerů
       href: container-instances-multi-container-group.md
     - name: Správa stavu s využitím sdílených složek Azure
       href: container-instances-mounting-azure-files-volume.md
+    - name: Nasazení ze služby Azure Container Registry
+      href: container-instances-using-azure-container-registry.md
+    - name: Řešení potíží s nasazení do služby Azure Container Instances
+      href: container-instances-troubleshooting.md
 - name: Referenční informace
   items:
     - name: Azure CLI 2.0

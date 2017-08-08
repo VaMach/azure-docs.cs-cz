@@ -92,6 +92,7 @@
 
 ### Využití
 #### [Přehled](app-insights-usage-overview.md)
+#### [Odeslání kontextu uživatele](app-insights-usage-send-user-context.md)
 #### [Uživatelé, relace, události](app-insights-usage-segmentation.md)
 #### [Trychtýře](usage-funnels.md)
 #### [Uchování](app-insights-usage-retention.md)
