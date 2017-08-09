@@ -136,7 +136,7 @@
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [Vzdálená plocha](site-recovery-workload.md#protect-rds)
 ### [Výměna](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+### [SAP](site-recovery-sap.md)
 ### [Webové aplikace založené na službě IIS](site-recovery-iis.md)
 ### [Citrix XenApp a XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Další úlohy](site-recovery-workload.md#workload-summary)
