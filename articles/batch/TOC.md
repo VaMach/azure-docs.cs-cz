@@ -19,6 +19,7 @@
 ### [Virtuální počítače náročné na výpočetní výkon](batch-pool-compute-intensive-sizes.md)
 ### [Souběžné úlohy uzlu](batch-parallel-node-tasks.md)
 ### [Počet úloh podle stavu](batch-get-task-counts.md)
+### [Vytvoření fondu s využitím vlastní image](batch-custom-images.md)
 ### [Efektivní seznamové dotazy](batch-efficient-list-queries.md)
 ### [Příprava úlohy a dokončovací úkoly](batch-job-prep-release.md)
 ### [Výpočetní uzly s Linuxem](batch-linux-nodes.md)

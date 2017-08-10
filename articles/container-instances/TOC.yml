@@ -23,6 +23,8 @@
   items:
     - name: Vztah k orchestrátorům
       href: container-instances-orchestrator-relationship.md
+    - name: Skupiny kontejnerů
+      href: container-instances-container-groups.md
 - name: Návody
   items:
     - name: Nasazení skupin více kontejnerů

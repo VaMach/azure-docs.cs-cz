@@ -9,6 +9,7 @@
 ## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
 ## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
 ## [Přidružení předplatných Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Rychlý start: Samoobslužné resetování hesla](active-directory-passwords-getting-started.md)
 ## Správa licencí Azure AD
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Portál Classic](active-directory-licensing-what-is.md)
@@ -78,6 +79,7 @@
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
+### [Nastavení vypršení platnosti skupin Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
 ### [Povolení vyhrazených skupin](active-directory-accessmanagement-dedicated-groups.md)
 ### [Přidání skupiny k aplikacím SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
 #### [Osvědčené postupy pro hesla](active-directory-secure-passwords.md)
 #### [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
-### [Rychlý start: Samoobslužné resetování hesla](active-directory-passwords-getting-started.md)
 ### [Samoobslužné resetování hesla licence](active-directory-passwords-licensing.md)
 ### [Nasazení samoobslužného resetování hesla](active-directory-passwords-best-practices.md)
 ### Správci IT: Resetování hesel
