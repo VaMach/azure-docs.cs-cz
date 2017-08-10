@@ -1,13 +1,27 @@
 # Přehled
 ## [Co je služba Azure Analysis Services?](analysis-services-overview.md)
+## [Podporované zdroje dat](analysis-services-datasource.md)
+## [Ověřování a uživatelská oprávnění](analysis-services-manage-users.md)
+## [Úroveň kompatibility](analysis-services-compat-level.md)
+## [Vysoká dostupnost](analysis-services-bcdr.md)
 
-# Šablony Rychlý start
-## [Vytvoření serveru – portál](analysis-services-create-server.md)
-## [Vytvoření serveru – PowerShell](analysis-services-create-powershell.md)
-## [Nasazení modelu – Visual Studio](analysis-services-deploy.md)
+# Začínáme
+## [Vytvoření serveru na portálu Azure](analysis-services-create-server.md)
+## [Vytvoření serveru s využitím PowerShellu](analysis-services-create-powershell.md)
+## [Nasazení modelu ze sady Visual Studio](analysis-services-deploy.md)
+## [Vytvoření modelu na webu Azure Portal (Preview)](analysis-services-create-model-portal.md)
 
-# Kurzy
-## Vytvoření a nasazení modelu
+# Postupy 
+## [Správa serveru](analysis-services-manage.md)
+## [Správa uživatelů databáze](analysis-services-database-users.md)
+## [Správa správců serveru](analysis-services-server-admins.md)
+## [Instalace místní datové brány](analysis-services-gateway.md)
+## [Získání klientských knihoven](analysis-services-data-providers.md)
+## [Zálohování a obnovení](analysis-services-backup.md)
+## [Propojení s Excelem](analysis-services-connect-excel.md)
+## [Propojení s Power BI](analysis-services-connect-pbi.md)
+## [Vytvoření souboru .odc](analysis-services-odc.md)
+## Kurzy
 ### [Kurz Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lekce 1: Vytvoření nového projektu s tabelárním modelem](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [Lekce 2: Získání dat](tutorials/aas-lesson-2-get-data.md)
@@ -24,24 +38,7 @@
 ### [Lekce 13: Nasazení](tutorials/aas-lesson-13-deploy.md)
 ### [Doplňková lekce – Řádky podrobností](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [Doplňková lekce – Dynamické zabezpečení](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Doplňková lekce – Nepravidelné hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# Koncepty
-## [Podporované zdroje dat](analysis-services-datasource.md)
-## [Ověřování a uživatelská oprávnění](analysis-services-manage-users.md)
-## [Vysoká dostupnost](analysis-services-bcdr.md)
-
-# Postupy 
-## [Vytvoření modelu na webu Azure Portal (Preview)](analysis-services-create-model-portal.md)
-## [Správa serveru](analysis-services-manage.md)
-## [Správa uživatelů databáze](analysis-services-database-users.md)
-## [Správa správců serveru](analysis-services-server-admins.md)
-## [Instalace místní datové brány](analysis-services-gateway.md)
-## [Propojení s Excelem](analysis-services-connect-excel.md)
-## [Propojení s Power BI](analysis-services-connect-pbi.md)
-## [Získání klientských knihoven](analysis-services-data-providers.md)
-## [Zálohování a obnovení](analysis-services-backup.md)
-## [Vytvoření souboru .odc](analysis-services-odc.md)
+### [Doplňková lekce – Nepravidelné hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Referenční informace
 ## [PowerShell](analysis-services-powershell.md)

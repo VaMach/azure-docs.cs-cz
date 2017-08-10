@@ -28,10 +28,12 @@
 ### [Způsoby návrhu pro architekturu s více tenanty](search-modeling-multitenant-saas-applications.md)
 
 ## Vývoj
+### [Verze rozhraní API](search-api-versions.md)
 ### [Upgrade sady SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade rozhraní REST API](search-api-migration.md)
 ### [Modelování komplexních datových typů](search-howto-complex-data-types.md)
 ### [Zpracování souběžných aktualizací](search-howto-concurrency.md)
+### [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## Spravovat
 ### Správa Azure Search
@@ -68,31 +70,33 @@
 
 # Referenční informace
 
-## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (správa)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (správa)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (správa)](/rest/api/searchmanagement)
+## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
 
-# Zdroje a prostředky
-## [Verze rozhraní API](search-api-versions.md)
+# Zdroje
+
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Nejčastější dotazy](search-faq-frequently-asked-questions.md)
 ## [Ceny](https://azure.microsoft.com/pricing/details/search/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
-## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=search)
 ## Studijní materiály a kurzy
-## Ukázkové weby
-## Partneři a komunita
-### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Fórum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
-### [Živé ukázkové aplikace](https://searchsamples.azurewebsites.net/)
-### [Modelování relačních dat](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Omezující vlastnosti na více úrovních](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Ukázka analyzátoru hledání](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Videa a kurzy](search-video-demo-tutorial-list.md)
 ### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## Ukázkové weby
+### [Ukázka analyzátoru hledání](http://alice.unearth.ai/)
+### [Živé ukázkové aplikace](https://searchsamples.azurewebsites.net/)
+### [Aplikace výpisu úloh](http://aka.ms/azjobsdemo)
+## Partneři a komunita
+### [Github služby Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [blog: Modelování relačních dat](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [[blog: Víceúrovňové využití fazet](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+
