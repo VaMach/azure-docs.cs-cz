@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 6b41fd8090dd771fc40769c134bad258b3d4bd36
 ms.contentlocale: cs-cz
-ms.lasthandoff: 01/20/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Vytvoření aplikace Xamarin.Android
@@ -38,11 +38,6 @@ Pro absolvování tohoto kurzu musí být splněné následující požadavky:
 
 * Aktivní účet Azure. Pokud účet nemáte, můžete si zaregistrovat zkušební verzi Azure a získat až 10 bezplatných mobilních aplikací. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio s Xamarinem. Pokyny najdete v tématu o [nastavení a instalaci pro Visual Studio a Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
-
-> [!NOTE]
-> Pokud chcete začít se službou Azure App Service, ještě než si zaregistrujete účet Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/mobile/).  Ve službě App Service si můžete ihned vytvořit krátkodobou úvodní mobilní aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
->
->
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Vytvoření back-endu mobilní aplikace Azure
 Podle těchto pokynů vytvořte back-end mobilní aplikace.
