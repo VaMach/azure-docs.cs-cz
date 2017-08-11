@@ -1,8 +1,8 @@
 
-To deploy the resources to Azure, you must be logged in to your Azure account and you must use the Azure Resource Manager module. To learn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, see:
+Pokud chcete nasadit prostředky do Azure, musíte být přihlášení k účtu Azure a používat modul Azure Resource Manager. Další informace o použití Azure Resource Manageru s Azure PowerShellem nebo Azure CLI najdete v tématech:
 
-* [Using Azure PowerShell with Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
-* [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+* [Použití Azure PowerShellu s Azure Resource Managerem](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
+* [Použití Azure Azure CLI pro Mac, Linux a Windows se správou prostředků Azure](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
 
-The following examples assume you already have a resource group in your account with the specified name. 
+Následující příklady předpokládají, že v účtu již máte skupinu prostředků s daným názvem. 
 
