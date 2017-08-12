@@ -35,14 +35,14 @@ Vývojový počítač s:
 * [Sada Service Fabric SDK a nástroje](service-fabric-get-started.md).
 *  Docker pro Windows.  [Získejte Docker CE pro Windows (stabilní verze)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Po nainstalování a spuštění Dockeru klikněte pravým tlačítkem myši na ikonu na hlavním panelu a vyberte **Switch to Windows containers** (Přepnout na kontejnery Windows). To se vyžaduje pro spuštění imagí Dockeru založených na Windows.
 
-Cluster Windows se třemi nebo více uzly spuštěnými na Windows Serveru 2016 s kontejnery – [Vytvořte cluster](service-fabric-cluster-creation-via-portal.md) nebo [vyzkoušejte Service Fabric zdarma](https://aka.ms/tryservicefabric). 
+Cluster Windows se třemi nebo více uzly spuštěnými na Windows Serveru 2016 s kontejnery – [Vytvořte cluster](service-fabric-cluster-creation-via-portal.md) nebo [vyzkoušejte Service Fabric zdarma](https://aka.ms/tryservicefabric).
 
-Registr ve službě Azure Container Registry – [Vytvořte registr kontejneru](../container-registry/container-registry-get-started-portal.md) ve svém předplatném Azure. 
+Registr ve službě Azure Container Registry – [Vytvořte registr kontejneru](../container-registry/container-registry-get-started-portal.md) ve svém předplatném Azure.
 
 ## <a name="define-the-docker-container"></a>Definice kontejneru Dockeru
-Sestavte image založenou na [imagi Pythonu](https://hub.docker.com/_/python/), která se nachází na Docker Hubu. 
+Sestavte image založenou na [imagi Pythonu](https://hub.docker.com/_/python/), která se nachází na Docker Hubu.
 
-Definujte kontejner Dockeru v souboru Dockerfile. Soubor Dockerfile obsahuje pokyny k nastavení prostředí uvnitř kontejneru, načtení aplikace, kterou chcete pustit, a mapování portů. Soubor Dockerfile je vstupem příkazu `docker build`, který vytvoří image. 
+Definujte kontejner Dockeru v souboru Dockerfile. Soubor Dockerfile obsahuje pokyny k nastavení prostředí uvnitř kontejneru, načtení aplikace, kterou chcete pustit, a mapování portů. Soubor Dockerfile je vstupem příkazu `docker build`, který vytvoří image.
 
 Vytvořte prázdný adresář a soubor *Dockerfile* (bez přípony souboru). Do souboru *Dockerfile* přidejte následující a uložte změny:
 
@@ -86,13 +86,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
+<a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Sestavení image
 Spuštěním příkazu `docker build` vytvořte image spouštějící vaši webovou aplikaci. Otevřete okno PowerShellu a přejděte do adresáře, který obsahuje soubor Dockerfile. Spusťte následující příkaz:
 
@@ -106,7 +107,7 @@ Po dokončení příkazu pro sestavení spusťte příkaz `docker images` a zobr
 
 ```
 $ docker images
-    
+
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
 helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
 ```
@@ -141,6 +142,7 @@ Odstraňte kontejner z vývojového počítače:
 docker rm my-web-site
 ```
 
+<a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>Nahrání image do registru kontejneru
 Po ověření, že se kontejner spustí na vývojovém počítači, nahrajte image do vašeho registru ve službě Azure Container Service.
 
@@ -170,7 +172,7 @@ Sada Service Fabric SDK a nástroje poskytují šablonu služby, která vám pom
 1. Spusťte Visual Studio.  Vyberte **Soubor** > **Nový** > **Projekt**.
 2. Vyberte **Aplikace Service Fabric**, pojmenujte ji MyFirstContainer a klikněte na **OK**.
 3. Ze **seznamu šablon** služeb vyberte **Guest Container**.
-4. Do pole **Název image** zadejte „myregistry.azurecr.io/samples/helloworldapp“, tedy image, kterou jste nahráli do úložiště kontejnerů. 
+4. Do pole **Název image** zadejte „myregistry.azurecr.io/samples/helloworldapp“, tedy image, kterou jste nahráli do úložiště kontejnerů.
 5. Zadejte název služby a klikněte na **OK**.
 
 ## <a name="configure-communication"></a>Konfigurace komunikace
@@ -183,8 +185,8 @@ Kontejnerizovaná služba potřebuje koncový bod pro komunikaci. Do souboru Ser
   </Endpoints>
 </Resources>
 ```
-    
-Když Service Fabric definuje koncový bod, publikuje ho ve službě pojmenování.  Ostatní služby spuštěné v clusteru mohou tento kontejner vyhledat.  Ke komunikaci mezi kontejnery můžete také využít [reverzní proxy server](service-fabric-reverseproxy.md).  Komunikace se provede tak, že se reverznímu proxy serveru poskytne port pro naslouchání HTTP a název služeb, se kterými chcete komunikovat, jako proměnné prostředí. 
+
+Když Service Fabric definuje koncový bod, publikuje ho ve službě pojmenování.  Ostatní služby spuštěné v clusteru mohou tento kontejner vyhledat.  Ke komunikaci mezi kontejnery můžete také využít [reverzní proxy server](service-fabric-reverseproxy.md).  Komunikace se provede tak, že se reverznímu proxy serveru poskytne port pro naslouchání HTTP a název služeb, se kterými chcete komunikovat, jako proměnné prostředí.
 
 ## <a name="configure-and-set-environment-variables"></a>Konfigurace a nastavení proměnných prostředí
 Proměnné prostředí je možné zadat pro každý balíček kódu v manifestu služby. Tato funkce je dostupná pro všechny služby, bez ohledu na to, jestli jsou nasazené jako kontejnery, procesy nebo spustitelné soubory typu Host. Hodnoty proměnných prostředí můžete přepsat v manifestu aplikace, nebo je můžete zadat v průběhu nasazení jako parametry aplikace.
@@ -211,7 +213,7 @@ Tyto proměnné prostředí je možné přepsat v manifestu aplikace:
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Konfigurace mapování portu kontejneru na port hostitele a zjišťování mezi kontejnery
-Nakonfigurujte port hostitele používaný ke komunikaci s kontejnerem. Vazba portu mapuje port, na kterém služba naslouchá uvnitř kontejneru, na port na hostiteli. Přidejte element `PortBinding` do `ContainerHostPolicies` v souboru ApplicationManifest.xml.  Pro účely tohoto článku je `ContainerPort` nastaven na 80 (kontejner zpřístupňuje port 80, jak je uvedené v souboru Dockerfile) a `EndpointRef` je „Guest1TypeEndpoint“ (koncový bod dříve definovaný v manifestu služby).  Příchozí požadavky na službu na portu 8081 se mapují na port 80 v kontejneru. 
+Nakonfigurujte port hostitele používaný ke komunikaci s kontejnerem. Vazba portu mapuje port, na kterém služba naslouchá uvnitř kontejneru, na port na hostiteli. Přidejte element `PortBinding` do `ContainerHostPolicies` v souboru ApplicationManifest.xml.  Pro účely tohoto článku je `ContainerPort` nastaven na 80 (kontejner zpřístupňuje port 80, jak je uvedené v souboru Dockerfile) a `EndpointRef` je „Guest1TypeEndpoint“ (koncový bod dříve definovaný v manifestu služby).  Příchozí požadavky na službu na portu 8081 se mapují na port 80 v kontejneru.
 
 ```xml
 <Policies>
@@ -312,7 +314,7 @@ Uložte všechny provedené změny a sestavte aplikaci. Pokud chcete aplikaci pu
 
 Do pole **Koncový bod připojení** zadejte koncový bod správy pro příslušný cluster.  Příklad: containercluster.westus2.cloudapp.azure.com:19000. Koncový bod připojení ke klientu najdete v okně Přehled pro váš cluster na webu [Azure Portal](https://portal.azure.com).
 
-Klikněte na **Publikovat**. 
+Klikněte na **Publikovat**.
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) je webový nástroj pro kontrolu a správu aplikací a uzlů v clusteru Service Fabric. Otevřete prohlížeč, přejděte na adresu http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ a sledujte nasazení aplikace.  Aplikace se nasadí, ale bude v chybovém stavu, dokud se image nestáhne na uzlech clusteru (což v závislosti na velikosti image může nějakou dobu trvat): ![Chyba][1]
 
@@ -360,17 +362,17 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto článku.
       <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
       <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    
+
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
+      <!-- This endpoint is used by the communication listener to obtain the port on which to
+           listen. Please note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     </Endpoints>
@@ -388,8 +390,8 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto článku.
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
-       should match the Name and Version attributes of the ServiceManifest element defined in the 
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
@@ -411,10 +413,10 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this 
-         application type is created. You can also create one or more instances of service type using the 
+    <!-- The section below creates instances of service types, when an instance of this
+         application type is created. You can also create one or more instances of service type using the
          ServiceFabric PowerShell module.
-         
+
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Guest1">
       <StatelessService ServiceTypeName="Guest1Type" InstanceCount="[Guest1_InstanceCount]">
