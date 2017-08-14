@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: dd405eefbd69e1ed2268152017bc1f9992619c5f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started"> </a>Co jsou Mobile Apps?
@@ -30,7 +30,7 @@ Azure App Service nabízí plně spravovanou [platformu jako službu](https://az
 Služba *Mobile Apps* v *Azure App Service* nabízí vysoce škálovatelnou a globálně dostupnou platformu pro vývoj mobilních aplikací určenou pro vývojáře a integrátory systémů ve velkých firmách. Přináší bohatou sadu funkcí pro vývojáře pro mobilní zařízení. S Mobile Apps můžete:
 
 * **Sestavovat nativní a multiplatformní aplikace** – ať již vytváříte nativní aplikace pro iOS, Android a Windows, nebo multiplatformní aplikace pomocí Xamarinu či Cordovy (Phonegap), můžete využívat výhod App Service a nativních sad SDK.
-* **Nastavit připojení k firemním systémům** – s Mobile Apps můžete v řádu minut přidat firemní přihlašování a připojovat se k lokálním nebo cloudovým firemním prostředkům.
+* **Nastavit připojení k podnikovým systémům** – s funkcí Mobile Apps můžete v řádu minut přidat firemní přihlašování a připojovat se k místním nebo cloudovým firemním prostředkům.
 * **Vytvářet aplikace připravené pro offline režim se synchronizací dat** – produktivitu mobilních pracovníků zajistíte sestavením aplikací, které pracují offline a využívají Mobile Apps k synchronizaci dat na pozadí, když se obnoví připojení se zdroji firemních dat nebo s rozhraními API SaaS.
 * **Odesílat nabízená oznámení milionům příjemců v řádu sekund** – zákazníky oslovíte pomocí rychlých nabízených oznámení, která můžete odesílat na jakékoli zařízení, personalizovat podle jejich potřeb a zasílat v nejvhodnější dobu.
 
@@ -50,7 +50,7 @@ Pro vývoj mobilních řešení využívajících cloud jsou důležité násled
 * **Klientské sady SDK** – poskytujeme kompletní paletu klientských sad SDK, které zahrnují nativní vývoj ([iOS], [Android] a [Windows]), multiplatformní vývoj ([Xamarin pro iOS a Android], [Xamarin Forms]) a vývoj hybridních aplikací ([Apache Cordova]).  Všechny klientské sady SDK jsou k dispozici s licencí MIT a jako open-source.
 
 ## <a name="azure-app-service-features"></a>Funkce Azure App Service
-U systémů pro mobilní zařízení v provozním prostředí jsou obecně užitečné následující funkce:
+U systémů pro mobilní zařízení v provozním prostředí jsou užitečné následující funkce:
 
 * **automatické škálování** – App Service umožňuje rychlé vertikální nebo horizontální navýšení kapacity, aby bylo možné zvládnout jakoukoli zátěž vyplývající z příchozích zákaznických požadavků. Počet a velikost virtuálních počítačů můžete vybrat ručně nebo je možné u back-endu mobilní aplikace nastavit automatické škálování podle plánu nebo momentální zátěže.
 
@@ -64,7 +64,7 @@ U systémů pro mobilní zařízení v provozním prostředí jsou obecně užit
 * **Virtuální sítě** – App Service umožňuje připojení k místním prostředkům přes virtuální síť, ExpressRoute nebo hybridní připojení.
 
   Projděte si další informace pro [hybridní připojení], [virtuální sítě] a [ExpressRoute].
-* **Izolovaná/vyhrazená prostředí** – App Service je možné spustit v plně izolovaném a vyhrazeném prostředí pro zabezpečené spouštění aplikací Azure App Service ve velkém měřítku.  Je to ideální pro aplikační procesy vyžadující velmi velký rozsah, izolaci nebo zabezpečený přístup.
+* **Izolovaná/vyhrazená prostředí** – App Service je možné spustit v plně izolovaném a vyhrazeném prostředí pro zabezpečené spouštění aplikací Azure App Service ve velkém měřítku.  Je to ideální pro úlohy aplikací vyžadující velké škálování, izolaci nebo zabezpečený přístup k síti.
 
   Projděte si další informace o [Prostředí App Service].
 
@@ -73,11 +73,6 @@ Pokud chcete začít s Mobile Apps, postupujte podle kurzu [Začínáme].  Ten p
 
 Pokud chcete další informace o Azure Mobile Apps, nahlédněte prosím do naší [mapa kurzů].
 Další informace o platformě Azure App Service najdete v článku [Azure App Service].
-
-> [!NOTE]
-> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://azure.microsoft.com/try/app-service/mobile/), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
->
->
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

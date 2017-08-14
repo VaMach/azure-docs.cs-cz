@@ -1,11 +1,10 @@
-* If the unmanaged disk is in a storage account previously encrypted through Azure Storage Service Encryption, you can't convert it to a managed disk. For steps to copy and use these virtual hard disks (VHDs) in managed disks, see the [Managed disks and Azure Storage Service Encryption](#managed-disks-and-azure-storage-service-encryption) section later in this article.
 
-* The conversion requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. 
+* Převod vyžaduje restartování virtuálního počítače, proto naplánujte migraci virtuálních počítačů během už existujícího časového období údržby. 
 
-* The conversion is not reversible. 
+* Převod je nevratný. 
 
-* Be sure to test the conversion. Migrate a test virtual machine before you perform the migration in production.
+* Nezapomeňte převod otestovat. Před migrací v produkčním prostředí proveďte migraci testovacího virtuálního počítače.
 
-* During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If needed, you can [assign a static IP address](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to the VM.
+* Během převodu virtuální počítač uvolníte. Virtuální počítač obdrží novou IP adresu při spuštění po převodu. V případě potřeby můžete virtuálnímu počítači [přiřadit statickou IP adresu](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
-* The original VHDs and the storage account used by the VM before conversion are not deleted. They continue to incur charges. To avoid being billed for these artifacts, delete the original VHD blobs after you verify that the conversion is complete.
+* Původní virtuální pevné disky a účet úložiště používané virtuálním počítačem před převodem se neodstraní. Budou se vám za ně i nadále účtovat poplatky. Abyste se vyhnuli účtování poplatků za tyto artefakty, po ověření dokončení převodu odstraňte původní objekty blob virtuálních pevných disků.

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Začínáme s pracovním prostorem služby Log Analytics
@@ -59,7 +58,12 @@ Dalším krokem je vytvoření pracovního prostoru.
 4. Vyberte pracovní prostor a na webu Azure Portal se zobrazí jeho podrobnosti.       
     ![Podrobnosti o pracovním prostoru](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3. Přidávání řešení a nabídek řešení
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3. Upgrade pracovního prostoru pro nové prohledávání protokolů
+Byl vydán nový dotazovací jazyk Log Analytics a abyste ho mohli využít, je potřeba převést pracovní prostor.  Pokud byla upgradovaná oblast, ve které je pracovní prostor hostovaný, v horní části pracovního prostoru by se měl zobrazit fialový banner vybízející k převodu. Upgrade je zcela dobrovolný a nemá vliv na práci se službou Log Analytics ani žádnými přidanými řešeními.  
+
+Další informace pro pochopení výhod, požadavků a procesu upgradu najdete v tématu [Upgrade služby Azure Log Analytics na nové prohledávání protokolů](log-analytics-log-search-upgrade.md).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4. Přidávání řešení a nabídek řešení
 
 V další fázi přidejte řešení pro správu a nabídky řešení. Řešení pro správu jsou kolekce pravidel pro logiku, vizualizace a získávání dat, které poskytují metriky zaměřené na oblast konkrétního problému oblast. Nabídka řešení je sada řešení pro správu.
 
@@ -95,11 +99,11 @@ V dalším kroku vytvoříte v Azure jednoduchý virtuální počítač. Po vytv
 
 - Postupujte podle pokynů v části [Připojení virtuálních počítačů Azure ke službě Log Analytics](log-analytics-azure-vm-extension.md) a připojte virtuální počítač ke službě Log Analytics prostřednictvím webu Azure Portal.
 
-## <a name="5-view-and-act-on-data"></a>5. Zobrazování dat a práce s nimi
+## <a name="6-view-and-act-on-data"></a>6. Zobrazování dat a práce s nimi
 
 Dříve jste povolili řešení Activity Log Analytics a nabídky služeb pro zabezpečení a dodržování předpisů a pro automatizaci a řízení. V dalším kroku začneme s prohlížením dat shromažďovaných řešeními a výsledků v rámci prohledávání protokolů.
 
-Začněte tím, že se podíváte na data zobrazená z řešení. Pak se podívejte na některá z dostupných prohledávání protokolů. Prohledávání protokolů umožňuje zjišťovat kombinace a korelace jakýchkoli dat o počítačích z více zdrojů v rámci prostředí. Další informace najdete v tématu [Prohledávání protokolů v Log Analytics](log-analytics-log-searches.md). Nakonec proveďte požadované akce s daty nalezenými prostřednictvím portálu OMS, který se nachází mimo web Azure Portal.
+Začněte tím, že se podíváte na data zobrazená z řešení. Pak se podívejte na některá z dostupných prohledávání protokolů. Prohledávání protokolů umožňuje zjišťovat kombinace a korelace jakýchkoli dat o počítačích z více zdrojů v rámci prostředí. Další informace najdete v tématu [Prohledávání protokolů v Log Analytics](log-analytics-log-searches.md) nebo, pokud jste převedli pracovní prostor na nový dotazovací jazyk, v tématu popisujícím [principy prohledávání protokolů v Log Analytics](log-analytics-log-search-new.md). 
 
 ### <a name="to-view-antimalware-data"></a>Zobrazení antimalwarových dat
 

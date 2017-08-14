@@ -15,6 +15,11 @@ Ano, následující ASN jsou vyhrazena sítí Azure pro vnitřní a vnější pe
 
 Tato ASN nelze zadat pro místní zařízení VPN při připojování k bránám sítě Azure VPN.
 
+### <a name="are-there-any-other-asns-that-i-cant-use"></a>Existují nějaká další ASN, která nejde použít?
+Ano, následující ASN jsou [rezervovaná pro IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) a není možné je nakonfigurovat ve vaší službě Azure VPN Gateway:
+
+23456, 64496–64511, 65535–65551 a 429496729
+
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Je možné používat stejné číslo ASN pro místní sítě VPN a sítě Azure VNet?
 Ne, pokud pomocí protokolu BGP vzájemně propojujete místní sítě a sítě Azure VNet, je nutné pro ně přiřadit různá čísla ASN. Službám Azure VPN Gateway je přiřazeno výchozí číslo ASN 65515, ať už je protokol BGP povolen pro připojení mezi místními sítěmi, či nikoliv. Toto výchozí nastavení můžete změnit přiřazením jiného čísla ASN při vytváření služby VPN Gateway nebo můžete číslo ASN změnit po vytvoření služby brány. Místní čísla ASN je nutné přiřadit odpovídajícím bránám místních sítí Azure.
 

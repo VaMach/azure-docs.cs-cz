@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 6735049b6068d9afe192b6ea4450e970fcf5f7d4
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b0faf24963c6055ce7c54b9d46b5aa0851f40b2
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím ověření certifikátu (Classic): Azure Portal
@@ -95,7 +95,7 @@ Pokud ještě nemáte virtuální síť, vytvořte si ji. Snímky obrazovek slou
 
   ![dlaždice Vytváří se virtuální síť](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. Po vytvoření virtuální sítě uvidíte na portálu Azure Classic na stránce sítí v části **Stav** stav **Vytvořená**.
-11. Přidejte server DNS (volitelné). Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS pro překlad IP adres. Zadaný server DNS by měl být ten, který dokáže překládat IP adresy pro prostředky ve vaší virtuální síti.<br>Pokud chcete přidat server DNS, otevřete nastavení pro virtuální síť, klikněte na servery DNS a přidejte IP adresu serveru DNS, který chcete použít. Balíček pro konfiguraci klienta, který vygenerujete v pozdějším kroku, obsahuje IP adresy serverů DNS, které zadáte v tomto nastavení. Pokud bude v budoucnu potřeba aktualizovat seznam serverů DNS, můžete vygenerovat a nainstalovat nové balíčky pro konfiguraci klienta VPN odrážející aktualizovaný seznam.
+11. Přidejte server DNS (volitelné). Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS pro překlad IP adres. Zadaná IP adresa serveru DNS by měla být adresa serveru DNS, který dokáže přeložit názvy pro prostředky ve vaší virtuální síti.<br>Pokud chcete přidat server DNS, otevřete nastavení pro virtuální síť, klikněte na servery DNS a přidejte IP adresu serveru DNS, který chcete použít.
 
 ### <a name="gateway"></a>Část 2: Vytvoření podsítě brány a brány dynamického směrování
 
@@ -161,7 +161,7 @@ Po vytvoření brány můžete nahrát soubor .cer (obsahující informace o ve�
 
 ## <a name="vpnclientconfig"></a>Část 4 – Konfigurace klienta
 
-Pokud se chcete připojit k virtuální síti pomocí sítě VPN typu Point-to-Site, musí mít každý klient nainstalovaný balíček pro konfiguraci nativního klienta VPN ve Windows. Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení nutných k připojení k virtuální síti, a pokud jste pro virtuální síť zadali server DNS, obsahuje IP adresu serveru DNS, který klient použije pro překlad IP adres. Pokud později po vygenerování balíčku pro konfiguraci klienta změníte zadaný server DNS, nezapomeňte vygenerovat nový balíček pro konfiguraci klienta, který nainstalujete na klientských počítačích.
+Pokud se chcete připojit k virtuální síti pomocí sítě VPN typu Point-to-Site, musí mít každý klient nainstalovaný balíček pro konfiguraci nativního klienta VPN ve Windows. Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení potřebných pro připojení k virtuální síti.
 
 V každém klientském počítači můžete použít stejný konfigurační balíček klienta VPN za předpokladu, že jeho verze odpovídá architektuře klienta. Seznam podporovaných klientských operačních systémů naleznete v části [Nejčastější dotazy o připojení Point-to-Site](#faq) na konci tohoto článku.
 

@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Začínáme s Azure Mobile Engagementem pro Web Apps
@@ -25,10 +26,13 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 V tomto tématu se dozvíte, jak můžete pomocí Azure Mobile Engagementu porozumět využití své webové aplikace.
 
+> [!NOTE]
+> Službu Azure Mobile Engagement vyřadíme z provozu v březnu 2018. V současnosti je dostupná jenom pro stávající zákazníky. Další informace najdete v tématu [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
 V tomto kurzu budete potřebovat následující:
 
 * Visual Studio 2015 nebo jiný editor podle vaší volby
-* [Sada Web SDK](http://aka.ms/P7b453) 
+* [Sada Web SDK](http://aka.ms/P7b453)
 
 Sada Web SDK je ve verzi Preview, takže zatím podporuje jenom analytické funkce, ale ne odesílání nabízených oznámení v prohlížeči nebo v aplikaci. 
 
@@ -40,7 +44,7 @@ Sada Web SDK je ve verzi Preview, takže zatím podporuje jenom analytické funk
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Nastavení Mobile Engagementu pro vaši webovou aplikaci
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 V tomto kurzu si představíme „základní integraci“, tedy minimální sadu, která je zapotřebí pro shromažďování dat.
 
 Pomocí sady Visual Studio vytvoříme základní webovou aplikaci, na které si předvedeme integraci, i když uvedený postup můžete provést také s libovolnou webovou aplikací vytvořenou mimo sadu Visual Studio. 
@@ -114,10 +118,5 @@ Tady jsou všechny metody, které jsou v současné době v sadě Web SDK dostup
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

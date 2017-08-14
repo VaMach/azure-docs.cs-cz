@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 27484932f13a85bef29b7a19b4f06b75722b4c38
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6d9e43640c4f9c9c37e7ce721213755fa3a8c388
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím ověření certifikátu: PowerShell
@@ -199,7 +199,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="clientconfig"></a>6 – Stažení balíčku pro konfiguraci klienta VPN
 
-Pokud se chcete připojit k virtuální síti pomocí sítě VPN typu Point-to-Site, musí mít každý klient nainstalovaný balíček pro konfiguraci nativního klienta VPN ve Windows. Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení nutných k připojení k virtuální síti, a pokud jste pro virtuální síť zadali server DNS, obsahuje IP adresu serveru DNS, který klient použije pro překlad IP adres. Pokud později po vygenerování balíčku pro konfiguraci klienta změníte zadaný server DNS, nezapomeňte vygenerovat nový balíček pro konfiguraci klienta, který nainstalujete na klientských počítačích.
+Pokud se chcete připojit k virtuální síti pomocí sítě VPN typu Point-to-Site, musí mít každý klient nainstalovaný balíček pro konfiguraci nativního klienta VPN ve Windows. Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení potřebných pro připojení k virtuální síti.
 
 V každém klientském počítači můžete použít stejný konfigurační balíček klienta VPN za předpokladu, že jeho verze odpovídá architektuře klienta. Seznam podporovaných klientských operačních systémů naleznete v části [Nejčastější dotazy o připojení Point-to-Site](#faq) na konci tohoto článku.
 

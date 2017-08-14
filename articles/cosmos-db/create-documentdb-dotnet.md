@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d17f90d5ed5440dc336d1e3ae890a13077e33c4d
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 9bb863261da64c97f99757d4a0cb3474a7755591
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Sestavení webové aplikace s rozhraním API DocumentDB v prostředí .NET a na webu Azure Portal
@@ -56,7 +55,7 @@ Teď můžete do nové kolekce přidávat data pomocí Průzkumníka dat.
 
    ![Vytváření nových dokumentů v Průzkumníku dat na portálu Azure Portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Teď přidejte do kolekce několik dokumentů s následující strukturou, kde jako ID v jednotlivých dokumentech vložíte jedinečné hodnoty a podle potřeby změníte další vlastnosti. Nové dokumenty můžou mít jakoukoli strukturu, protože Azure Cosmos DB neuplatňuje pro data žádné schéma.
+2. Teď do kolekce přidejte dokument s následující strukturou.
 
      ```json
      {
@@ -72,13 +71,15 @@ Teď můžete do nové kolekce přidávat data pomocí Průzkumníka dat.
 
     ![Zkopírujte data json a v Průzkumníku dat na webu Azure Portal klikněte na Uložit.](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-     Teď můžete k načítání dat používat dotazy v Průzkumníku dat. Ve výchozím nastavení používá Průzkumník dat pro načtení všech dokumentů v kolekci příkaz `SELECT * FROM c`. Ten můžete změnit na příkaz `SELECT * FROM c ORDER BY c.name ASC`, který vrátí všechny dokumenty ve vzestupném abecedním pořadí podle vlastnosti name. 
+4.  Vytvořte a uložte ještě jeden dokument, ve kterém vložíte jedinečnou hodnotu pro vlastnost `id` a změníte ostatní vlastnosti podle svých potřeb. Nové dokumenty můžou mít jakoukoli strukturu, protože Azure Cosmos DB neuplatňuje pro data žádné schéma.
+
+     Teď můžete k načítání dat používat dotazy v Průzkumníku dat. Ve výchozím nastavení používá Průzkumník dat pro načtení všech dokumentů v kolekci příkaz `SELECT * FROM c`. Ten však můžete změnit na jiný [příkaz jazyka SQL](documentdb-sql-query.md), například `SELECT * FROM c ORDER BY c._ts DESC`, který vrátí všechny dokumenty v sestupném pořadí podle časového razítka.
  
      Průzkumník dat můžete použít také pro vytváření uložených procedur, funkcí UDF a triggerů pro provádění obchodní logiky a také propustnosti škálování na straně serveru. Průzkumník dat zpřístupní všechna integrovaná programová data v rozhraních API, ale zajistí jednoduchý přístup k vašim datům na portálu Azure Portal.
 
 ## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
-Teď naklonujeme aplikaci API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
+Teď přejděme k práci s kódem. Naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
 1. Otevřete okno terminálu Git, jako je třeba Git Bash, a pomocí `CD` přejděte do pracovního adresáře.  
 

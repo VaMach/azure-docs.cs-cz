@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Začínáme s Azure Data Lake Analytics s využitím webu Azure Portal
@@ -36,7 +35,7 @@ Než začnete tento kurz, musíte mít **předplatné Azure**. Viz [Získání b
 Teď zároveň vytvoříte účet Data Lake Analytics a Data Lake Store.  Tento krok je jednoduchý a trvá jen asi 60 vteřin.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na **Nový** >  **Inteligentní funkce a analýzy** > **Data Lake Analytics**.
+2. Klikněte na **Nový** >  **Data a analýzy** > **Data Lake Analytics**.
 3. Vyberte hodnoty pro následující položky:
    * **Název:** Pojmenujte svůj účet Data Lake Analytics (povolena jsou pouze malá písmena a číslice).
    * **Předplatné**: Zvolte předplatné Azure použité pro účet Analytics.
@@ -71,7 +70,7 @@ OUTPUT @a
 3. Klikněte na **Odeslat úlohu**.   
 4. Počkejte, až se stav úlohy změní na **Úspěch**.
 5. Pokud úloha nebyla úspěšná, přejděte na téma [Sledování úloh Data Lake Analytics a odstraňování potíží](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. Klikněte na kartu **Výstup** a potom na `SearchLog-from-Data-Lake.csv`. 
+6. Klikněte na kartu **Výstup** a potom na `data.csv`. 
 
 ## <a name="see-also"></a>Viz také
 

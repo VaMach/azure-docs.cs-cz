@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch
@@ -98,17 +98,18 @@ Při rozhodování o tom, který režim přidělování fondů použít, zvažte
 
 Následující tabulka porovnává režimy přidělování fondů Služba Batch a Předplatné uživatele.
 
-| **Režim přidělování fondů:**                 | **Služba Batch**                                                                                       | **Předplatné uživatele**                                                              |
+| **Režim přidělování fondů**                 | **Služba Batch**                                                                                       | **Předplatné uživatele**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Fondy se přidělují v:**               | Předplatné spravované Azure                                                                           | Předplatné uživatele, ve kterém je vytvořený účet Batch                        |
-| **Podporované konfigurace:**             | <ul><li>Konfigurace cloudové služby</li><li>Konfigurace virtuálního počítače (Linux a Windows)</li></ul> | <ul><li>Konfigurace virtuálního počítače (Linux a Windows)</li></ul>                |
-| **Podporované image virtuálních počítačů:**                  | <ul><li>Image z webu Azure Marketplace</li></ul>                                                              | <ul><li>Image z webu Azure Marketplace</li><li>Vlastní image</li></ul>                   |
-| **Podporované typy výpočetních uzlů:**         | <ul><li>Vyhrazené uzly</li><li>Uzly s nízkou prioritou</li></ul>                                            | <ul><li>Vyhrazené uzly</li></ul>                                                  |
-| **Podporované metody ověřování:**             | <ul><li>Sdílený klíč</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Vyžaduje se služba Azure Key Vault:**             | Ne                                                                                                      | Ano                                                                                |
-| **Kvóta pro jádra:**                           | Určuje se podle kvóty pro jádra služby Batch                                                                          | Určuje se podle kvóty pro jádra předplatného                                              |
-| **Podpora virtuální sítě Azure:** | Fondy vytvořené s konfigurací cloudové služby                                                      | Fondy vytvořené s konfigurací virtuálního počítače                               |
-| **Podporovaný model nasazení virtuální sítě:**      | Virtuální sítě vytvořené pomocí modelu nasazení Classic                                                             | Virtuální sítě vytvořené pomocí modelu nasazení Classic nebo Azure Resource Manager |
+| **Fondy se přidělují v**               | Předplatné spravované Azure                                                                           | Předplatné uživatele, ve kterém je vytvořený účet Batch                        |
+| **Podporované konfigurace**             | <ul><li>Konfigurace cloudové služby</li><li>Konfigurace virtuálního počítače (Linux a Windows)</li></ul> | <ul><li>Konfigurace virtuálního počítače (Linux a Windows)</li></ul>                |
+| **Podporované image virtuálních počítačů**                  | <ul><li>Image z webu Azure Marketplace</li></ul>                                                              | <ul><li>Image z webu Azure Marketplace</li><li>Vlastní image</li></ul>                   |
+| **Podporované typy výpočetních uzlů**         | <ul><li>Vyhrazené uzly</li><li>Uzly s nízkou prioritou</li></ul>                                            | <ul><li>Vyhrazené uzly</li></ul>                                                  |
+| **Podporované metody ověřování**             | <ul><li>Sdílený klíč</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Vyžaduje se služba Azure Key Vault**             | Ne                                                                                                      | Ano                                                                                |
+| **Kvóta pro jádra**                           | Určuje se podle kvóty pro jádra služby Batch                                                                          | Určuje se podle kvóty pro jádra předplatného                                              |
+| **Podpora virtuální sítě Azure** | Fondy vytvořené s konfigurací cloudové služby                                                      | Fondy vytvořené s konfigurací virtuálního počítače                               |
+| **Podporovaný model nasazení virtuální sítě**      | Virtuální sítě vytvořené pomocí modelu nasazení Classic                                                             | Virtuální sítě vytvořené pomocí modelu nasazení Classic nebo Azure Resource Manager |
+
 ## <a name="azure-storage-account"></a>Účet služby Azure Storage
 
 Většina řešení Batch pro ukládání souborů prostředků a výstupních souborů používá službu Azure Storage.  
@@ -171,6 +172,8 @@ Když vytváříte fond Batch, můžete zadat konfiguraci virtuálního počíta
     * Podobně jako u rolí pracovního procesu v rámci služby Cloud Services lze zadat *verzi operačního systému* (další informace o rolích pracovního procesu najdete v části [Více informací o cloudových službách](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) v článku [Přehled služby Cloud Services](../cloud-services/cloud-services-choose-me.md)).
     * Stejně jako u rolí pracovního procesu se doporučuje jako *Verze operačního systému* zadat `*`, aby se uzly automaticky upgradovaly a nebyla potřeba žádná práce k ošetření nově vydaných verzí. Hlavním případem použití s výběrem konkrétní verze operačního systému scénář zajištění kompatibility aplikací, který umožní testovat zpětnou kompatibilitu, než se povolí aktualizace verze. Po ověření funkčnosti je možné aktualizovat *verzi operačního systému* pro fond a nainstalovat image nového operačního systému – jakékoli spuštěné úkoly se přeruší a zařadí do fronty.
 
+Když vytvoříte fond, je nutné vybrat odpovídající **nodeAgentSkuId**, v závislosti na operačním systému základní image vašeho disku VHD. Voláním operace [Seznam podporovaných SKU agenta uzlu](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) můžete získat mapování dostupných ID SKU agenta uzlu na odpovídající reference image OS.
+
 Informace o nastavení režimu přidělení fondu při vytváření účtu Batch najdete v části [Účet](#account).
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Vlastní image pro fondy virtuálních počítačů
@@ -195,8 +198,6 @@ Ověřte, že vaše účty úložiště splňují následující kritéria:
 - V současnosti jsou podporované jenom účty úložiště úrovně Standard pro obecné účely. Azure Storage úrovně Premium se bude podporovat v budoucnu.
 - Můžete zadat jeden účet úložiště s několika vlastními objekty blob VHD, nebo několik účtů úložiště, z nichž každý má jeden objekt blob. K zajištění lepšího výkonu doporučujeme použít několik účtů úložiště.
 - Jeden jedinečný objekt blob VHD vlastní image může podporovat až 40 instancí virtuálního počítače s Linuxem nebo 20 instancí virtuálního počítače s Windows. Pokud chcete vytvořit fondy s větším počtem virtuálních počítačů, budete muset vytvořit kopie objektu blob VHD. Například fond s 200 virtuálními počítači s Windows potřebuje 10 jedinečných objektů blob VHD zadaných pro vlastnost **osDisk**.
-
-Když vytvoříte fond, je nutné vybrat odpovídající **nodeAgentSkuId**, v závislosti na operačním systému základní image vašeho disku VHD. Voláním operace [Seznam podporovaných SKU agenta uzlu](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) můžete získat mapování dostupných ID SKU agenta uzlu na odpovídající reference image OS.
 
 Pokud chcete vytvořit fond z vlastní image pomocí webu Azure Portal:
 

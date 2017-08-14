@@ -1,5 +1,5 @@
 ---
-title: "Co je to Apache Storm? – Azure HDInsight | Dokumentace Microsoftu"
+title: "Co je Apache Storm – Azure HDInsight | Dokumentace Microsoftu"
 description: "Apache Storm umožňuje zpracovávat streamy dat v reálném čase. Azure HDInsight umožňuje snadno vytvořit clustery Storm v cloudu Azure. Se sadou Visual Studio můžete vytvořit řešení Storm pomocí C# a potom ho nasadit do clusterů HDInsight Storm."
 services: hdinsight
 documentationcenter: 
@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 0d565c29767e778873dad2421c93b62455706f27
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 073672f1223313938baedee027072cb96062294b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Co je Apache Storm ve službě Azure HDInsight?
 
-[Apache Storm](http://storm.apache.org/) je distribuovaný výpočetní systém typu open source a je odolný vůči poruchám. Cluster Storm můžete využít ke zpracování streamů dat v reálném čase pomocí Hadoopu. Řešení Storm také zajišťují garantované zpracování data se schopností opakování dat, která nebyla úspěšně zpracována na první pokus.
+[Apache Storm](http://storm.apache.org/) je distribuovaný výpočetní systém typu open source a je odolný vůči poruchám. Prostřednictvím Stormu můžete zpracovávat proudy dat v reálném čase s použitím Hadoopu. Řešení Storm také zajišťují garantované zpracování data se schopností opakování dat, která nebyla úspěšně zpracována na první pokus.
 
 Storm pro HDInsight poskytuje následující klíčové výhody:
 
