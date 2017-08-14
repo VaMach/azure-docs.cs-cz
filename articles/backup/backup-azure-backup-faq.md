@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Dotazy týkající se služby Azure Backup
@@ -53,8 +53,9 @@ Bohužel ne. Obsah trezoru služby Backup nelze migrovat do trezoru služby Reco
 Při převádění virtuálních počítačů z klasického režimu do režimu Resource Manageru Body neproběhne automatická migrace bodů obnovení klasických virtuálních počítačů do trezoru služby Recovery Services. Při převedení záloh virtuálních počítačů použijte tento postup:
 
 1. V trezoru služby Backup přejděte na kartu **Chráněné položky** a vyberte virtuální počítač. Klikněte na [Zastavit ochranu](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Políčko *Delete associated backup data* (Odstranit přidružená data záloh) ponechte **nezaškrtnuté**.
-2. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a informace o síti odpovídající tomuto virtuálnímu počítači.
-3. Vytvořte trezor služby Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Podrobnosti o zálohování virtuálních počítačů do trezoru služby Recovery Services naleznete v tématu [První pohled: Ochrana virtuálních počítačů s trezorem Recovery Services](backup-azure-vms-first-look-arm.md).
+2. Odstraňte z virtuálního počítače zálohu/rozšíření snímků.
+3. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a informace o síti odpovídající tomuto virtuálnímu počítači.
+4. Vytvořte trezor služby Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Podrobnosti o zálohování virtuálních počítačů do trezoru služby Recovery Services naleznete v tématu [První pohled: Ochrana virtuálních počítačů s trezorem Recovery Services](backup-azure-vms-first-look-arm.md).
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
 Podrobný seznam dotazů je uveden v tématu [Nejčastější dotazy k zálohování souborů a složek v Azure](backup-azure-file-folder-backup-faq.md).

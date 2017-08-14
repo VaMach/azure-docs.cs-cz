@@ -1,28 +1,43 @@
+V Azure je teď dostupná podpora dvou funkcí ladění: Podpora výstupu konzoly a snímku obrazovky pro model nasazení virtuálních počítačů Azure Resource Manager. 
 
-Support for two debugging features is now available in Azure: Console Output and Screenshot support for Azure Virtual Machines Resource Manager deployment model. 
+Při přenosu vlastní image do Azure nebo spouštění některé z imagí platformy může virtuální počítač přejít do nespustitelného stavu z mnoha důvodů. Tyto funkce umožňují snadnou diagnostiku a obnovení virtuálních počítačů v případě chyb při spuštění.
 
-When bringing your own image to Azure or even booting one of the platform images, there can be many reasons why a Virtual Machine gets into a non-bootable state. These features enable you to easily diagnose and recover your Virtual Machines from boot failures.
+U virtuálních počítačů s Linuxem můžete snadno zobrazit výstup protokolu konzoly z portálu:
 
-For Linux Virtual Machines, you can easily view the output of your console log from the Portal:
-
-![Azure portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![portál Azure](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-However, for both Windows and Linux Virtual Machines, Azure also enables you to see a screenshot of the VM from the hypervisor:
+U virtuálních počítačů s Windows i Linuxem však Azure umožňuje zobrazit také snímek obrazovky virtuálního počítače z hypervisoru:
 
-![Error](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
+![Chyba](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-Both of these features are supported for Azure Virtual Machines in all regions. Note, screenshots, and output can take up to 10 minutes to appear in your storage account.
+Obě tyto funkce jsou podporované pro virtuální počítače Azure ve všech oblastech. Mějte na paměti, že může trvat až 10 minut, než se snímky obrazovky a výstup zobrazí v účtu úložiště.
 
-## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Enable diagnostics on a new virtual machine
-1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
+## <a name="common-boot-errors"></a>Běžné chyby spuštění
+
+- [0xC000000E](https://support.microsoft.com/help/4010129)
+- [0xC000000F](https://support.microsoft.com/help/4010130)
+- [0xC0000011](https://support.microsoft.com/help/4010134)
+- [0xC0000034](https://support.microsoft.com/help/4010140)
+- [0xC0000098](https://support.microsoft.com/help/4010137)
+- [0xC00000BA](https://support.microsoft.com/help/4010136)
+- [0xC000014C](https://support.microsoft.com/help/4010141)
+- [0xC0000221](https://support.microsoft.com/help/4010132)
+- [0xC0000225](https://support.microsoft.com/help/4010138)
+- [0xC0000359](https://support.microsoft.com/help/4010135)
+- [0xC0000605](https://support.microsoft.com/help/4010131)
+- [Operační systém nebyl nalezen](https://support.microsoft.com/help/4010142)
+- [Chyba při spuštění nebo NEDOSTUPNÉ_SPOUŠTĚCÍ_ZAŘÍZENÍ](https://support.microsoft.com/help/4010143)
+
+## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Povolení diagnostiky na novém virtuálním počítači
+1. Při vytváření nového virtuálního počítače na portálu Preview vyberte z rozevíracího seznamu modelu nasazení **Azure Resource Manager**:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Configure the Monitoring option to select the storage account where you would like to place these diagnostic files.
+2. Nakonfigurujte možnost Monitorování pro výběr účtu úložiště, do kterého chcete tyto diagnostické soubory ukládat.
  
-    ![Create VM](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![Vytvoření virtuálního počítače](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
 
-3. If you are deploying from an Azure Resource Manager template, navigate to your Virtual Machine resource and append the diagnostics profile section. Remember to use the “2015-06-15” API version header.
+3. Pokud provádíte nasazení z šablony Azure Resource Manageru, přejděte do prostředku vašeho virtuálního počítače a připojte část s diagnostickým profilem. Nezapomeňte použít hlavičku verze rozhraní API s hodnotou 2015-06-15.
 
     ```json
     {
@@ -31,7 +46,7 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
           … 
     ```
 
-4. The diagnostics profile enables you to select the storage account where you want to put these logs.
+4. Diagnostický profil umožňuje vybrat účet úložiště pro ukládání protokolů.
 
     ```json
             "diagnosticsProfile": {
@@ -44,11 +59,11 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
         }
     ```
 
-To deploy a sample Virtual Machine with boot diagnostics enabled, check out our repo here.
+Pokud chcete nasadit ukázkový virtuální počítač s povolenou diagnostikou spuštění, podívejte se sem na naše úložiště.
 
-## <a name="update-an-existing-virtual-machine"></a>Update an existing virtual machine ##
+## <a name="update-an-existing-virtual-machine"></a>Aktualizace stávajícího virtuálního počítače ##
 
-To enable boot diagnostics through the Portal, you can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
+Pokud chcete povolit diagnostiku přes portál, můžete přes portál také aktualizovat stávající virtuální počítač. Vyberte možnost Diagnostika spuštění a klikněte na Uložit. Restartujte virtuální počítač, aby se projevily změny.
 
-![Update Existing VM](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+![Aktualizace stávajícího virtuálního počítače](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
 

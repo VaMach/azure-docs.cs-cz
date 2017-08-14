@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Připojení k HDInsightu (Hadoop) pomocí protokolu SSH
@@ -134,7 +133,34 @@ Pokud používáte __cluster HDInsight připojený k doméně__, musíte po při
 
 Další informace najdete v tématu [Konfigurace clusterů HDInsight připojených k doméně](hdinsight-domain-joined-configure.md).
 
-## <a name="connect-to-worker-and-zookeeper-nodes"></a>Připojení k pracovním uzlům a uzlům Zookeeper
+## <a name="connect-to-nodes"></a>Připojení k uzlům
+
+Hlavní uzly a hraniční uzel (pokud existuje) jsou přístupné přes internet na portech 22 a 23.
+
+* Při připojování k __hlavním uzlům__ použijte port __22__ pro připojení k primárnímu hlavnímu uzlu a port __23__ pro připojení k sekundárnímu hlavnímu uzlu. Plně kvalifikovaný název domény, který byste měli použít, je `clustername-ssh.azurehdinsight.net`, kde `clustername` je název vašeho clusteru.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* Při připojování k __hraničnímu uzlu__ použijte port 22. Plně kvalifikovaný název domény je `edgenodename.clustername-ssh.azurehdinsight.net`, kde `edgenodename` je název zadaný při vytváření hraničního uzlu. `clustername` je název clusteru.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> V předchozích příkladech se předpokládá, že používáte ověřování heslem nebo že ověřování certifikátů probíhá automaticky. Pokud k ověřování používáte pár klíč-hodnota SSH a certifikát se nepoužívá automaticky, použijte parametr `-i` k zadání privátního klíče. Například, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+
+Jakmile budete připojeni, příkazový řádek se změní a zobrazí uživatelské jméno SSH a uzel, ke kterému jste připojeni. Například po připojení k primárnímu hlavnímu uzlu jako `sshuser` se na příkazovém řádku zobrazí `sshuser@hn0-clustername:~$`.
+
+### <a name="connect-to-worker-and-zookeeper-nodes"></a>Připojení k pracovním uzlům a uzlům Zookeeper
 
 Pracovní uzly a uzly Zookeeper nejsou přístupné přímo z internetu. Lze se k nim dostat z hlavních nebo hraničních uzlů clusteru. Toto jsou obecné kroky pro připojení k ostatním uzlům:
 
@@ -188,6 +214,33 @@ Pokud je účet SSH zabezpečený __klíči SSH__, zkontrolujte, jestli je na kl
     Pokud je privátní klíč uložen v jiném souboru, nahraďte `~/.ssh/id_rsa` cestou k souboru.
 
 5. Připojte se k hlavním uzlům nebo hraničnímu uzlu clusteru pomocí protokolu SSH. Potom se pomocí příkazu SSH k připojte k pracovnímu uzlu nebo k uzlu Zookeeper. Připojení se naváže s využitím přesměrovaného klíče.
+
+## <a name="copy-files"></a>Kopírování souborů
+
+Ke kopírování souborů na jednotlivé uzly clusteru nebo z nich je možné použít nástroj `scp`. Například následující příkaz zkopíruje soubor `test.txt` z místního systému na primární hlavní uzel:
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+Protože po `:` není zadaná žádná cesta, soubor se umístí do domovského adresáře `sshuser`.
+
+Následující příklad zkopíruje soubor `test.txt` z domovského adresáře `sshuser` na primárním hlavním uzlu do místního systému:
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> Nástroj `scp` má přístup pouze k systému souborů jednotlivých uzlů v rámci clusteru. Není možné ho použít pro přístup k datům v úložišti clusteru kompatibilním se systémem HDFS.
+>
+> Pokud potřebujete nahrát prostředek pro použití z relace SSH, použijte `scp`. Nahrajte například skript Pythonu a potom tento skript spusťte z relace SSH.
+>
+> Informace o přímém načítání dat do úložiště kompatibilního se systémem HDFS najdete v následujících dokumentech:
+>
+> * [HDInsight využívající Azure Storage](hdinsight-hadoop-use-blob-storage.md)
+>
+> * [HDInsight využívající Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="next-steps"></a>Další kroky
 

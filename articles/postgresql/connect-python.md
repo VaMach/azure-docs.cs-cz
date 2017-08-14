@@ -1,6 +1,6 @@
 ---
 title: "Připojení k Azure Database for PostgreSQL z Pythonu | Dokumentace Microsoftu"
-description: "Obsahuje vzorek kódu Python, který můžete použít k připojení a dotazování dat ze služby Azure Database for PostgreSQL."
+description: "V tomto rychlém startu najdete vzorový kód Pythonu, který můžete použít k připojení a dotazování dat ze služby Azure Database for PostgreSQL."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití Pythonu k připojení a dotazování dat
@@ -49,7 +49,7 @@ Získejte informace o připojení potřebné pro připojení ke službě Azure D
 5. Pokud zapomenete přihlašovací údaje k serveru, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby resetovat heslo.
 
 ## <a name="how-to-run-python-code"></a>Spuštění kódu Pythonu
-- Pomocí oblíbeného textového editoru vytvořte nový soubor postgres.py a uložte ho do složky projektu. Zkopírujte vzorový kód uvedený níže, vložte ho do textového souboru a ten uložte. Pokud soubor ukládáte v operačním systému Windows, nezapomeňte vybrat kódování UTF-8. 
+- Pomocí oblíbeného textového editoru vytvořte nový soubor postgres.py a uložte ho do složky projektu. Zkopírujte vzorový kód uvedený níže a vložte ho do textového souboru. Nahraďte parametry host (hostitel), dbname (název databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření serveru a databáze. Pak soubor uložte. Pokud soubor ukládáte v operačním systému Windows, nezapomeňte vybrat kódování UTF-8. 
 - Pokud chcete kód spustit, spusťte příkazový řádek nebo prostředí Bash. Změňte adresář na složku vašeho projektu, například `cd postgresql`. Potom zadejte příkaz python následovaný názvem souboru, například `python postgres.py`.
 
 > [!NOTE]

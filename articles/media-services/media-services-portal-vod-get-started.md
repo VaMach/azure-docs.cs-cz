@@ -12,23 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: cbb67ef92386a6288b3317bf77ebb67f15ce7fb2
 ms.contentlocale: cs-cz
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal
-<a id="get-started-with-delivering-content-on-demand-using-the-azure-portal" class="xliff"></a>
+# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Začínáme s doručováním obsahu na vyžádání pomocí webu Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 V tomto kurzu vás provede jednotlivými kroky implementace základní aplikace pro doručování obsahu videa na vyžádání (VoD, Video-on-Demand) pomocí služby Azure Media Services (AMS) a webu Azure Portal.
 
-## Požadavky
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Požadavky
 K dokončení kurzu potřebujete následující:
 
 * Účet Azure. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -42,8 +40,7 @@ Tento kurz sestává z následujících úloh:
 4. Publikování assetu a získání adres URL streamování a progresivního stahování  
 5. Přehrání obsahu
 
-## Spusťte koncové body streamování.
-<a id="start-streaming-endpoints" class="xliff"></a> 
+## <a name="start-streaming-endpoints"></a>Spusťte koncové body streamování. 
 
 Při práci se službou Azure Media Services je jedním z nejběžnější scénářů doručování videa prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services poskytuje dynamické balení, které umožňuje doručovat obsah s adaptivní přenosovou rychlostí s kódováním MP4 ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming). není přitom potřeba ukládat předem zabalené verze pro každý z těchto formátů streamování.
 
@@ -61,8 +58,7 @@ Pokud chcete spustit koncový bod streamování, postupujte takto:
 4. Klikněte na ikonu Spustit.
 5. Kliknutím na tlačítko Uložit uložte provedené změny.
 
-## Nahrání souborů
-<a id="upload-files" class="xliff"></a>
+## <a name="upload-files"></a>Nahrání souborů
 Pokud chcete streamovat videa pomocí služby Azure Media Services, musíte nahrát zdrojová videa, zakódovat je do více přenosových rychlostí a výsledek publikovat. První krok pokrývá tato část. 
 
 1. V okně **Nastavení** klikněte na **Assety**.
@@ -82,36 +78,33 @@ Pokud chcete streamovat videa pomocí služby Azure Media Services, musíte nahr
 
 Po dokončení nahrávání se nový prostředek zobrazí v okně **Assety**. 
 
-## Kódování assetů
-<a id="encode-assets" class="xliff"></a>
+## <a name="encode-assets"></a>Kódování assetů
+
 Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování streamování s adaptivní přenosovou rychlostí vašim klientům. Služba Media Services podporuje následující technologie streamování s adaptivní přenosovou rychlostí: HTTP Live Streaming (HLS), technologie Smooth Streaming, MPEG DASH. Příprava vašich videí pro streamování s adaptivní přenosovou rychlostí spočívá v zakódování zdrojového videa zdroje do souborů s více přenosovými rychlostmi. Ke kódování vašich videí byste měli použít kodér **Media Encoder Standard**.  
 
 Služba Media Services také poskytuje dynamické balení, což vám umožní dodávat vaše soubory MP4 s více přenosovými rychlostmi ve formátech streamování MPEG DASH, HLS nebo technologie Smooth Streaming, aniž byste je museli znovu zabalit do těchto formátů streamování. Při dynamickém balení stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services sestaví a dodá vhodný formát streamování v reakci na požadavky klientů.
 
 Pokud chcete využít výhod dynamického balení, musíte zdrojový soubor zakódovat do sady souborů MP4 s více přenosovými rychlostmi (postup kódování je uvedený dále v této části).
 
-### Použití portálu ke kódování
-<a id="to-use-the-portal-to-encode" class="xliff"></a>
+### <a name="to-use-the-portal-to-encode"></a>Použití portálu ke kódování
 Tato část popisuje kroky, jak můžete zakódovat svůj obsah pomocí procesoru Media Encoder Standard.
 
 1. V okně **Nastavení** vyberte **Assety**.  
 2. V okně **Assety** vyberte asset, který chcete zakódovat.
 3. Stiskněte tlačítko **Kódovat**.
-4. V okně **Kódovat asset** vyberte procesor „Media Encoder Standard“ a jedno z přednastavení. Pokud například více, že vaše vstupní video má rozlišení 1920 × 1080 pixelů, můžete použít přednastavení „H264 Multiple Bitrate 1080p“. Další informace o přednastaveních naleznete v [tomto](media-services-mes-presets-overview.md) článku – je důležité vybrat přednastavení, která je nejvhodnější pro váš vstup videa. Pokud máte video s nízkým rozlišením (640 x 360), neměli byste používat výchozí přednastavení „H264 Multiple Bitrate 1080p“.
+4. V okně **Kódovat asset** vyberte procesor „Media Encoder Standard“ a jedno z přednastavení. Informace o předvolbách najdete v tématu popisujícím [automatické generování žebříčku přenosových rychlostí](media-services-autogen-bitrate-ladder-with-mes.md) a v tématu [Předvolby úloh pro MES](media-services-mes-presets-overview.md). Pokud se chystáte řídit, která předvolba kódování se použije, pamatujte, že je důležité vybrat předvolbu, která je nejvhodnější pro vaše vstupní video. Pokud například více, že vaše vstupní video má rozlišení 1920 × 1080 pixelů, můžete použít přednastavení „H264 Multiple Bitrate 1080p“. Pokud máte video s nízkým rozlišením (640 × 360), neměli byste používat předvolbu H264 Multiple Bitrate 1080p.
    
    Pro snadnější správu máte možnost upravit název výstupního assetu a název úlohy.
    
    ![Kódování assetů](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Stiskněte **Vytvořit**.
 
-### Monitorování průběhu úlohy kódování
-<a id="monitor-encoding-job-progress" class="xliff"></a>
+### <a name="monitor-encoding-job-progress"></a>Monitorování průběhu úlohy kódování
 Pokud chcete monitorovat průběh úlohy kódování, klikněte na **Nastavení** (v horní části stránky) a pak vyberte **Úlohy**.
 
 ![Úlohy](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-## Publikování obsahu
-<a id="publish-content" class="xliff"></a>
+## <a name="publish-content"></a>Publikování obsahu
 Pokud chcete uživateli poskytnout adresu URL, kterou lze použít ke streamování nebo stažení vašeho obsahu, musíte asset nejprve „publikovat“ vytvořením lokátoru. Lokátory zajišťují přístup k souborům, které jsou obsaženy v assetu. Služba Media Services podporuje dva typy lokátorů: 
 
 * Lokátory streamování (OnDemandOrigin), které se používají pro adaptivní streamování (například pro streamování MPEG, HLS nebo technologie Smooth Streaming). Pokud chcete vytvořit lokátor streamování, váš asset musí obsahovat soubor .ism. 
@@ -141,8 +134,7 @@ Adresa URL typu SAS má následující formát.
 
 Pokud chcete aktualizovat datum vypršení platnosti lokátoru, použijte rozhraní [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) API nebo [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Při aktualizaci data vypršení platnosti lokátoru SAS se změní adresa URL.
 
-### Postup publikování assetu pomocí portálu
-<a id="to-use-the-portal-to-publish-an-asset" class="xliff"></a>
+### <a name="to-use-the-portal-to-publish-an-asset"></a>Postup publikování assetu pomocí portálu
 Postup publikování assetu pomocí portálu:
 
 1. Vyberte **Nastavení** > **Assety**.
@@ -155,8 +147,7 @@ Postup publikování assetu pomocí portálu:
 
 Adresa URL se přidá do seznamu **publikovaných adres URL**.
 
-## Přehrávání obsahu z portálu
-<a id="play-content-from-the-portal" class="xliff"></a>
+## <a name="play-content-from-the-portal"></a>Přehrávání obsahu z portálu
 Azure Portal nabízí přehrávač obsahu, který můžete použít k testování videa.
 
 Klikněte na požadované video a potom klikněte na tlačítko **Přehrát**.
@@ -165,17 +156,16 @@ Klikněte na požadované video a potom klikněte na tlačítko **Přehrát**.
 
 Musí být splněny určité předpoklady:
 
+* Streamování začnete tak, že spustíte **výchozí** koncový bod streamování.
 * Zkontrolujte, že bylo video publikováno.
 * Tento **Přehrávač médií** přehrává z výchozího koncového bodu streamování. Pokud chcete přehrávat z jiného než výchozího koncového bodu streamování, klikněte na zkopírování adresy URL a použijte jiný přehrávač. Například můžete použít [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 Prohlédněte si mapy kurzů k Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Poskytnutí zpětné vazby
-<a id="provide-feedback" class="xliff"></a>
+## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 

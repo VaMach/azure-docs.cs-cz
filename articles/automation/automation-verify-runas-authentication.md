@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 08/07/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 5bed2616e15a2e5f52e79d0c28159b568e7a1de3
-ms.lasthandoff: 04/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 804e05f596e1d6d5f650e4c94a18eff6b7c3ba4e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -25,31 +26,89 @@ ms.lasthandoff: 04/15/2017
 Po úspěšném vytvoření účtu Automation můžete provést jednoduchý test a zkontrolovat, že se jde úspěšně ověřit v nasazení Azure Resource Manager nebo Azure Classic pomocí nově vytvořeného nebo aktualizovaného účtu Automation Spustit jako.    
 
 ## <a name="automation-run-as-authentication"></a>Ověření pomocí účtu Automation Spustit jako
+Pomocí níže uvedeného ukázkového kódu [vytvořte powershellový runbook](automation-creating-importing-runbook.md), který bude kontrolovat ověřování pomocí účtu Spustit jako a také ve vašich vlastních runboocích ověřovat a spravovat prostředky Resource Manageru pomocí vašeho účtu služby Automation.   
 
-1. Na webu Azure Portal otevřete účet Automation, který jste vytvořili dříve.  
-2. Kliknutím na dlaždici **Runbooky** otevřete seznam runbooků.
-3. Vyberte runbook **AzureAutomationTutorialScript** a kliknutím na tlačítko **Spustit** runbook spusťte.  Zobrazí se výzva s dotazem, jestli chcete runbook spustit.
-4. Vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se okno Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy.  
-5. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  
-6. Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.<br> ![Test runbooku objektu zabezpečení](media/automation-verify-runas-authentication/job-summary-automationtutorialscript.png)<br>
-7. Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.
-8. V okně **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech prostředků, které jsou ve skupině prostředků dostupné.
-9. Zavřením okna **Výstup** se vrátíte do okna **Souhrn úlohy**.
-10. Zavřete **Souhrn úlohy** a odpovídající okno runbooku **AzureAutomationTutorialScript**.
+    $connectionName = "AzureRunAsConnection"
+    try
+    {
+        # Get the connection "AzureRunAsConnection "
+        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+        "Logging in to Azure..."
+        Add-AzureRmAccount `
+           -ServicePrincipal `
+           -TenantId $servicePrincipalConnection.TenantId `
+           -ApplicationId $servicePrincipalConnection.ApplicationId `
+           -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+    }
+    catch {
+       if (!$servicePrincipalConnection)
+       {
+          $ErrorMessage = "Connection $connectionName not found."
+          throw $ErrorMessage
+      } else{
+          Write-Error -Message $_.Exception
+          throw $_.Exception
+      }
+    }
+
+    #Get all ARM resources from all resource groups
+    $ResourceGroups = Get-AzureRmResourceGroup 
+
+    foreach ($ResourceGroup in $ResourceGroups)
+    {    
+       Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+       $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
+       ForEach ($Resource in $Resources)
+       {
+          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
+       }
+       Write-Output ("")
+    } 
+
+Všimněte si, že rutina používaná pro ověřování v runbooku – **Add-AzureRmAccount**, používá sadu parametrů *ServicePrincipalCertificate*.  Ověřování provádí pomocí certifikátu objektu služby a ne pomocí přihlašovacích údajů.  
+
+Když [spustíte runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pro ověření účtu Spustit jako, vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se okno Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.
+
+Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.  V okně **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech prostředků ve všech skupinách prostředků v rámci vašeho předplatného.  
+
+Jenom nezapomeňte odebrat blok kódu začínající komentářem `#Get all ARM resources from all resource groups`, pokud kód znovu použijete pro vlastní runbooky.
 
 ## <a name="classic-run-as-authentication"></a>Ověření pomocí účtu Spustit jako pro Azure Classic
-Pokud budete spravovat prostředky v modelu nasazení Classic, proveďte následující kroky a zkontrolujte, že se můžete úspěšně ověřit pomocí nového účtu Spustit jako pro Azure Classic.     
+Pomocí níže uvedeného ukázkového kódu [vytvořte powershellový runbook](automation-creating-importing-runbook.md), který bude kontrolovat ověřování pomocí účtu Spustit jako pro Azure Classic a také ve vašich vlastních runboocích ověřovat a spravovat prostředky v modelu nasazení Classic.  
 
-1. Na webu Azure Portal otevřete účet Automation, který jste vytvořili dříve.  
-2. Kliknutím na dlaždici **Runbooky** otevřete seznam runbooků.
-3. Vyberte runbook **AzureClassicAutomationTutorialScript** a kliknutím na tlačítko **Spustit** runbook spusťte.  Zobrazí se výzva s dotazem, jestli chcete runbook spustit.
-4. Vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se okno Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy.  
-5. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  
-6. Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.<br><br> ![Test runbooku objektu zabezpečení](media/automation-verify-runas-authentication/job-summary-automationclassictutorialscript.png)<br>  
-7. Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.
-8. V okně **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech klasických virtuálních počítačů v rámci předplatného.
-9. Zavřením okna **Výstup** se vrátíte do okna **Souhrn úlohy**.
-10. Zavřete **Souhrn úlohy** a odpovídající okno runbooku **AzureClassicAutomationTutorialScript**.
+    $ConnectionAssetName = "AzureClassicRunAsConnection"
+    # Get the connection
+    $connection = Get-AutomationConnection -Name $connectionAssetName        
+
+    # Authenticate to Azure with certificate
+    Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
+    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+    if ($Conn -eq $null)
+    {
+       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    $CertificateAssetName = $Conn.CertificateAssetName
+    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
+    $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
+    if ($AzureCert -eq $null)
+    {
+       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    Write-Verbose "Authenticating to Azure with certificate." -Verbose
+    Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
+    Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
+    
+    #Get all VMs in the subscription and return list with name of each
+    Get-AzureVM | ft Name
+
+Když [spustíte runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pro ověření účtu Spustit jako, vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se okno Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.
+
+Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.  V okně **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech virtuálních počítačů Azure nasazených ve vašem předplatném podle názvu.  
+
+Jenom nezapomeňte odebrat rutinu **Get-AzureVM**, pokud kód znovu použijete pro vlastní runbooky.
 
 ## <a name="next-steps"></a>Další kroky
 * První kroky s powershellovými runbooky najdete v článku [Můj první powershellový runbook](automation-first-runbook-textual-powershell.md).

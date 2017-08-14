@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Vlastní instalace služby Azure AD Connect
@@ -278,6 +278,9 @@ Služba AD FS vyžaduje účet doménové služby, aby mohla ověřovat uživate
 * **Uživatelský účet domény** – Tento typ účtu vyžaduje, abyste zadali heslo a pravidelně ho aktualizovali, kdykoli se změní nebo kdykoli vyprší jeho platnost. Tuto možnost použijte jenom tehdy, pokud se v doméně, do které patří server služby AD FS, nenacházejí řadiče domény systému Windows Server 2012.
 
 Pokud jste vybrali skupinový účet spravované služby a tato funkce se ve službě Active Directory ještě nikdy nepoužila, zobrazí se výzva k zadání pověření správce podniku. Tyto přihlašovací údaje slouží k inicializaci úložiště klíčů a povolení této funkce ve službě Active Directory.
+
+> [!NOTE]
+> Azure AD Connect provede kontrolu, aby se zjistilo, jestli je služba AD FS v doméně už registrovaná jako hlavní název služby (SPN).  Služba AD DS neumožní registraci duplicitních SPN.  Pokud se najde duplicitní SPN, nebude možné pokračovat, dokud ho neodeberete.
 
 ![Účet služby AD FS](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 

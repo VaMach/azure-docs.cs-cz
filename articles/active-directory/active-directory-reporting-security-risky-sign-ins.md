@@ -10,18 +10,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f66c4c0b7c391b3fc5ee042cc7a6643e46566d3f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/04/2017
 
 ---
-# Sestavy rizikových přihlášení na portálu Azure Active Directory
-<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Sestavy rizikových přihlášení na portálu Azure Active Directory
 
 Sestavy zabezpečení v Azure Active Directory (Azure AD) umožňují získat přehled o pravděpodobnosti ohrožení uživatelských účtů ve vašem prostředí. 
 
@@ -38,8 +37,20 @@ Na webu [Azure Portal](https://portal.azure.com) najdete sestavy zabezpečení v
 ![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## Edice Free a Basic služby Azure Active Directory
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Jaká licence Azure AD je potřeba pro přístup k sestavě zabezpečení?  
+
+Sestavy rizikových přihlášení nabízí všechny edice Azure Active Directory.  
+Úroveň podrobností sestav se však mezi jednotlivými edicemi liší: 
+
+- **Edice Azure Active Directory Free a Basic** již nabízí seznam rizikových přihlášení. 
+
+- Edice **Azure Active Directory Premium 1** tento model rozšiřuje tím, že umožňuje také prozkoumávat některé ze základních rizikových událostí, které byly v každé sestavě rozpoznány. 
+
+- Edice **Azure Active Directory Premium 2** poskytuje nejpodrobnější informace o základních rizikových událostech a umožňuje také konfigurovat zásady zabezpečení, které automaticky reagují na nakonfigurované úrovně rizika.
+
+
+
+## <a name="azure-active-directory-free-and-basic-edition"></a>Edice Free a Basic služby Azure Active Directory
 
 Edice Free a Basic služby Azure Active Directory poskytují seznam rizikových přihlášení, která byla zjištěná pro vaše uživatele. Sestava rizikových událostí obsahuje tyto údaje:
 
@@ -64,8 +75,7 @@ Na základě prošetření rizikového přihlášení můžete službě Azure Ac
 
 další informace najdete v tématu věnovaném [ručnímu zavření rizikových událostí](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## Edice Premium služby Azure Active Directory
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Edice Premium služby Azure Active Directory
 
 Sestavy rizikových přihlášení v edicích Premium služby Azure Active Directory vám nabízí:
 
@@ -114,8 +124,7 @@ Tím otevřete okno **Podrobnosti** pro tuto rizikovou událost. V okně **Podro
 
 
 
-## Další kroky
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Další kroky
 
 - Další informace o Azure Active Directory Identity Protection najdete v tématu [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 

@@ -100,13 +100,13 @@ Existuje několik oblíbených systémů, které umožňují nasadit celé skupi
 
 Docker má vlastní sadu nástrojů pro vytváření virtuálních počítačů ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) a taky nástroj pro správu clusteru s vyrovnáváním zatížení ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). [Rozšíření Azure Docker VM](https://github.com/Azure/azure-docker-extension/blob/master/README.md) navíc nabízí výchozí podporu pro příkaz [`docker-compose`](https://docs.docker.com/compose/), který umožňuje nasadit nakonfigurované kontejnery aplikace přes několik kontejnerů.
 
-Můžete taky vyzkoušet [systém DCOS (Data Center Operating System) od Mesosphere](http://docs.mesosphere.com/install/azurecluster/). DCOS využívá opensourcové „jádro distribuovaných systémů“ [mesos](http://mesos.apache.org/), které umožňuje využívat datové centrum jako jednu adresovatelnou službu. DCOS nabízí integrované balíčky pro několik důležitých systémů, jako je [Spark](http://spark.apache.org/) a [Kafka](http://kafka.apache.org/) (a další), a taky integrované služby, jako je [Marathon](https://mesosphere.github.io/marathon/) (systém pro řízení kontejnerů) a [Chronos](https://mesos.github.io/chronos/) (distribuovaný plánovač). Mesos vychází z poznatků zjištěných Twitterem, AirBnb a dalšími webovými společnostmi. **Swarm** jde taky využít jako orchestrační modul.
+Můžete taky vyzkoušet [systém DCOS (Data Center Operating System) od Mesosphere](http://docs.mesosphere.com). DCOS využívá opensourcové „jádro distribuovaných systémů“ [mesos](http://mesos.apache.org/), které umožňuje využívat datové centrum jako jednu adresovatelnou službu. DCOS nabízí integrované balíčky pro několik důležitých systémů, jako je [Spark](http://spark.apache.org/) a [Kafka](http://kafka.apache.org/) (a další), a taky integrované služby, jako je [Marathon](https://mesosphere.github.io/marathon/) (systém pro řízení kontejnerů) a [Chronos](https://mesos.github.io/chronos/) (distribuovaný plánovač). Mesos vychází z poznatků zjištěných Twitterem, AirBnb a dalšími webovými společnostmi. **Swarm** jde taky využít jako orchestrační modul.
 
 [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) je opensourcový systém pro správu skupin kontejnerů a virtuálních počítačů, který vychází z poznatků a zkušeností Googlu. Dokonce je možné využít i [Kubernetes a Weave k zajištění síťové podpory](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) je opensourcová platforma jako služba (PaaS), která usnadňuje nasazení a správu aplikací na vlastních serverech. Deis vychází z Dockeru a CoreOS a poskytuje službu jednoduchou službu PaaS s pracovními postupy, které jsou inspirované Heroku. Můžete snadno [vytvořit skupinu virtuálních počítačů Azure se 3 uzly, nainstalovat Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do Azure a potom [nainstalovat aplikaci Hello World typu Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.com/) je opensourcová platforma jako služba (PaaS), která usnadňuje nasazení a správu aplikací na vlastních serverech. Deis vychází z Dockeru a CoreOS a poskytuje službu jednoduchou službu PaaS s pracovními postupy, které jsou inspirované Heroku. Můžete snadno [vytvořit skupinu virtuálních počítačů Azure se 3 uzly, nainstalovat Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do Azure a potom [nainstalovat aplikaci Hello World typu Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), linuxová distribuce s optimalizovanými nároky na místo, podporou Dockeru a vlastním kontejnerovým systémem [rkt](https://github.com/coreos/rkt), taky nabízí nástroj pro správu skupin kontejnerů s názvem [fleet](https://coreos.com/using-coreos/clustering/).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), linuxová distribuce s optimalizovanými nároky na místo, podporou Dockeru a vlastním kontejnerovým systémem [rkt](https://github.com/coreos/rkt), taky nabízí nástroj pro správu skupin kontejnerů s názvem [fleet](https://coreos.com/fleet/docs/latest/).
 
 Ubuntu, další velice oblíbená distribuce Linuxu, zajišťuje dobrou podporu Dockeru a podporuje taky [linuxové clustery (typu LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -133,7 +133,7 @@ Odkazy pro kontejnery Windows:
 
 Odkazy na Docker pro Visual Studio:
 
-* [Visual Studio 2015 RC Tools for Docker – Preview](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+* [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/visual-studio-tools-for-docker)
 
 Nástroje Dockeru:
 
@@ -161,7 +161,7 @@ Linuxové distribuce a příklady Azure:
 
 Konfigurace, správa clusterů a orchestrace kontejnerů:
 
-* [Fleet v systému CoreOS](https://coreos.com/using-coreos/clustering/)
+* [Fleet v systému CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
 
   * [Vytvoření skupiny virtuálních počítačů Azure se 3 uzly, instalace Deis do Azure a spuštění aplikace Hello World typu Go](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -171,10 +171,10 @@ Konfigurace, správa clusterů a orchestrace kontejnerů:
   * [Vizualizátor Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
-  * [DCOS (Data Center Operating System) od Mesosphere](http://beta-docs.mesosphere.com/install/azurecluster/)
-* [Jenkins](https://jenkins-ci.org/) a [Hudson](http://hudson-ci.org/)
+  * [DCOS (Data Center Operating System) od Mesosphere](https://docs.mesosphere.com/1.7/overview/design/azure-container-service/)
+* [Jenkins](https://jenkins.io/) a [Hudson](http://hudson-ci.org/)
 
-  * [Blog: Plug-in Jenkins Slave pro Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+  * [Modul plug-in Jenkins agenta virtuálního počítače pro Azure](https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin)
   * [Úložiště GitHub: Plug-In Jenkins Storage pro Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Jiný výrobce: Plug-in Hudson Slave pro Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Jiný výrobce: Plug-in Hudson Storage pro Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)

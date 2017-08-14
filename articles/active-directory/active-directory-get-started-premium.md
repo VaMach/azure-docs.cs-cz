@@ -1,6 +1,6 @@
 ---
-title: "Začínáme se službou Azure Active Directory Premium"
-description: "Vysvětluje, jak si registrovat edici Azure Active Directory Premium prostřednictvím webu multilicenčních programů."
+title: "Registrace služby Azure Active Directory Premium"
+description: "Vysvětluje, jak si zaregistrovat edici Azure Active Directory Premium."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,44 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 08/09/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
+ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/10/2017
 
 ---
-# <a name="getting-started-with-azure-active-directory-premium"></a>Začínáme se službou Azure Active Directory Premium
-Tento článek ukazuje, jak začít pracovat se službou Azure Active Directory Premium, kterou jste zakoupili prostřednictvím multilicenčního programu. Pokud ještě nejste obeznámeni s různými edicemi služby Azure Active Directory, přečtěte si téma [Edice služby Azure Active Directory](active-directory-editions.md).  
+# <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Rychlý start: Registrace služby Azure Active Directory Premium
+Pokud chcete začít pracovat s Azure Active Directory (Azure AD) Premium, je potřeba koupit licence a přidružit je k vašemu předplatnému Azure. Pokud vytvoříte nové předplatné Azure, bude také potřeba aktivovat váš licenční plán a přístup do služby Azure AD podle postupu popsaného v následujících částech. 
 
-> [!IMPORTANT]
-> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek. 
-
+## <a name="sign-up-for-active-directory-premium"></a>Registrace služby Active Directory Premium
 Active Directory Premium si můžete registrovat několika způsoby: 
 
-**Azure nebo Office 365** – jako předplatitel služby Azure nebo Office 365 si můžete koupit Active Directory Premium online. Podrobný postup naleznete v tématu [Jak zakoupit Azure Active Directory Premium – stávající zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) nebo [Jak zakoupit Azure Active Directory Premium – noví zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
+### <a name="azure-or-office-365"></a>Azure nebo Office 365 
+Jako předplatitel Azure nebo Office 365 si můžete koupit Azure Active Directory Premium online. 
 
-**Enterprise Mobility + Security** – Enterprise Mobility + Security (dříve Enterprise Mobility Suite) je pro organizace nákladově efektivní způsob používání následujících služeb společně v rámci jednoho licenčního plánu: Active Directory Premium, Azure Rights Management, Microsoft Intune. Další informace naleznete na webu [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Pokud chcete získat bezplatnou 30denní zkušební verzi, klikněte [sem](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+Podrobný postup naleznete v tématu [Jak zakoupit Azure Active Directory Premium – stávající zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) nebo [Jak zakoupit Azure Active Directory Premium – noví zákazníci](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
 
-**Multilicenční služby společnosti Microsoft** – Azure Active Directory Premium je k dispozici prostřednictvím programu [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 nebo více licencí) nebo [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licencí).
+### <a name="enterprise-mobility--security"></a>Enterprise Mobility + Security
+Enterprise Mobility + Security (EMS) je pro organizace nákladově efektivní způsob používání následujících služeb společně v rámci jednoho licenčního plánu: Azure Active Directory Premium, Azure Information Protection a Microsoft Intune. Další informace o EMS najdete na [webu Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security). Další informace o typech licencí EMS, které se dají koupit, najdete na stránce [Cenové možnosti pro Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).  
+
+Začít s Azure AD prostřednictvím licencí EMS můžete s využitím některé z následujících možností licencování:
+
+- Vyzkoušení EMS pomocí bezplatné [zkušební verze předplatného Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
+- Nákup [licencí Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
+- Nákup [licencí Enterprise Mobility + Security E3](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
+
+### <a name="microsoft-volume-licensing"></a>Multilicenční program společnosti Microsoft
+Azure Active Directory Premium je k dispozici prostřednictvím programu [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 nebo více licencí) nebo [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licencí).
+
+Další informace o možnostech nákupu multilicencí najdete na stránce [Jak nakupovat prostřednictvím multilicenčního programu](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx).
 
 > [!NOTE]
 > Edice Premium a Basic služby Azure Active Directory jsou zákazníkům v Číně dostupné prostřednictvím celosvětové instance služby Azure Active Directory. Edice Premium a Basic služby Azure Active Directory nejsou aktuálně podporované ve službě Microsoft Azure provozované v Číně společností 21Vianet. Další informace si vyžádejte na [fóru služby Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 > 
 > 
 
-## <a name="step-1-sign-up-for-active-directory-premium"></a>Krok 1: Zaregistrujte si Active Directory Premium
-Postup registrace naleznete v části [Jak nakupovat prostřednictvím multilicenčního programu](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
+Pokud jste už dříve koupili a aktivovali licence Azure AD pro stejné předplatné Azure, které jste použili v předchozích krocích, pak se licence automaticky aktivují ve stejném adresáři. Nebudete také muset pokračovat podle pokynů popsaných ve zbývající části tohoto článku.
 
-## <a name="step-2-activate-your-license-plan"></a>Krok 2: Aktivujte licenční plán
-Jedná se o váš první nákup licenčního plánu prostřednictvím multilicenčního programu Enterprise Volume Licensing společnosti Microsoft?
-V takovém případě obdržíte po dokončení nákupu potvrzovací e-mail.
-Tento e-mail je potřebný k aktivaci prvního licenčního plánu.
-
-V případě jakéhokoliv následného nákupu pro tento adresář se licence automaticky aktivují ve stejném adresáři.
+## <a name="activate-your-license-plan"></a>Aktivace licenčního plánu
+Je toto první licenční plán Azure AD, který jste si koupili od Microsoftu? Pokud ano, po dokončení nákupu obdržíte vygenerovaný potvrzovací e-mail. Tento e-mail je potřebný k aktivaci prvního licenčního plánu.
 
 **Aktivaci licenčního plánu provedete následovně:**
 
@@ -56,77 +62,42 @@ V případě jakéhokoliv následného nákupu pro tento adresář se licence au
    
     ![Přihlášení][1]
 
-    - Pokud máte existujícího klienta, klikněte na tlačítko **Přihlásit se** a přihlaste se pomocí svého stávajícího účtu správce. Je třeba se přihlásit pomocí údajů globálního správce z adresáře, ve kterém se mají aktivovat licence.
+    - Pokud máte existujícího klienta, klikněte na tlačítko **Přihlásit se** a přihlaste se pomocí svého stávajícího účtu správce. Přihlaste se pomocí přihlašovacích údajů globálního správce z adresáře, ve kterém se mají aktivovat licence.
 
-    - Pokud chcete vytvořit nového klienta služby Azure Active Directory, který se bude používat s vaším licenčním plánem, klikněte na možnost **Zaregistrovat** a otevře se okno **Vytvořit profil účtu**.
+    - Pokud chcete vytvořit nového tenanta Azure AD, který se bude používat s vaším licenčním plánem, klikněte na **Zaregistrovat se** a otevře se okno **Vytvořit profil účtu**.
 
         ![Vytvoření profilu účtu][2]
 
-Až budete hotoví, zobrazí se následující dialogové okno s potvrzením aktivace licenčního plánu pro vašeho klienta.
+Až budete hotovi, zobrazí se následující dialogové okno s potvrzením aktivace licenčního plánu pro vašeho tenanta:
 
 ![Potvrzení][3]
 
-## <a name="step-3-activate-your-azure-active-directory-access"></a>Krok 3: Aktivujte přístup do služby Azure Active Directory
-Pokud jste Microsoft Azure již používali, můžete přejít na [Krok 4](#step-4-assign-license-to-user-accounts). 
+## <a name="activate-your-azure-active-directory-access"></a>Aktivace přístupu do služby Azure Active Directory
+Pokud přidáváte nové licence Azure AD Premium do existujícího předplatného, přístup do služby Azure AD by už měl být aktivovaný. Jinak je potřeba aktivovat přístup do služby Azure AD po obdržení **uvítacího e-mailu**.  
 
-Když jsou licence zřízené do vašeho adresáře, bude vám zaslán **uvítací e-mail**. E-mail bude obsahovat potvrzení, že můžete začít spravovat licence a funkce služby Azure Active Directory Premium nebo Enterprise Mobility Suite. 
+Pokud jsou zakoupené licence zřízené ve vašem adresáři, bude vám zaslán **uvítací e-mail**. E-mail bude obsahovat potvrzení, že můžete začít spravovat licence a funkce Azure Active Directory Premium nebo Enterprise Mobility + Security. 
 
-Pokud se pokusíte aktivovat přístup ke službě Azure Active Directory před obdržením uvítacího e-mailu, zobrazí se následující chybová zpráva. 
+> [!TIP]
+> Dokud neaktivujete přístup k adresáři služby Azure AD pomocí uvítacího e-mailu odeslaného automaticky při dokončení procesu zřizování licence, nebudete mít přístup do služby Azure AD pro vašeho nového tenanta. 
 
-![Přístup není k dispozici][9]
-
-Zkuste to prosím znovu za několik minut, až obdržíte e-mail.
-
-Prostřednictvím tohoto odkazu mohou noví správci ve vašem předplatném také aktivovat přístup na portál Azure Classic.
-
-**Pokud chcete aktivovat přístup do služby Azure Active Directory, postupujte takto:**
+**Pokud chcete aktivovat přístup do služby Azure AD, postupujte takto:**
 
 1. V **uvítacím e-mailu** klikněte na tlačítko **Přihlásit**. 
    
     ![Uvítací e-mail][4]
-2. Po úspěšném přihlášení je třeba dokončit druhý ověřovací faktor v podobě mobilního ověření:
+2. Po úspěšném přihlášení je potřeba dokončit také druhý faktor ověřování s použitím mobilního zařízení:
    
     ![Mobilní ověření][5]
 
-Aktivace může trvat několik minut. Po aktivaci přístupu zmizí hnědý panel a vy budete moci kliknout na **Portál**.
+Aktivace by měla trvat jenom pár minut a potom budete mít přístup ke správě služby Azure AD. 
 
-![Počkejte prosím na nastavení][6]
+## <a name="next-steps"></a>Další kroky
+V tomto rychlém startu jste zjistili, jak si zaregistrovat službu Azure AD Premium a aktivovat přístup do služby Azure Active Directory. 
 
-V tomto případě je přístup do služby Azure omezen na službu Azure Active Directory.
+Pokud už máte předplatné Azure, můžete použít následující odkaz a začít se zkušební verzí nebo koupit licence Azure AD Premium na webu Azure Portal.
 
-![Možnosti služby Azure][7]
-
-Možná již máte přístup ke službě Azure z předchozího používání; dále tedy můžete upgradovat přístup ke službě Azure Active Directory na plný přístup tím, že si aktivujete dodatečné předplatné služby Azure. V těchto případech jsou na portálu Azure Classic k dispozici další možnosti.
-
-![Možnosti služby Azure][8]
-
-## <a name="step-4-assign-license-to-user-accounts"></a>Krok 4: Přiřaďte licenci uživatelským účtům
-Před zahájením používání plánu, který jste zakoupili, budete muset ručně přiřadit licence uživatelským účtům v rámci vaší organizace, aby mohly využívat bohaté funkce programu Premium. Aby mohli uživatelé používat funkce služby Azure Active Directory Premium, přiřaďte jim licence následujícím způsobem.
-
-**Licence uživatelům přiřadíte takto:**
-
-1. Přihlaste se k portálu Azure Classic jako globální správce adresáře, který chcete přizpůsobit.
-2. Klikněte na **Active Directory** a pak vyberte adresář, kterému chcete přiřadit licence.
-3. Vyberte kartu **Licence**, zvolte možnost **Active Directory Premium** nebo **Enterprise Mobility Suite** a potom klikněte na tlačítko **Přiřadit**.
-   
-    ![Licenční plány][10]
-4. V dialogovém okně vyberte uživatele, kterým chcete přiřadit licence, a potom změny uložte kliknutím na ikonu zaškrtnutí.
-   
-    ![Přiřazení licencí][11]
-
-### <a name="license-restrictions"></a>Licenční omezení
-Některé licenční plány jsou podmnožiny nebo nadmnožiny jiných licenčních plánů. Uživateli obvykle nelze přiřadit licenční plán, který mu již byl přiřazen. Pokud máte v úmyslu přiřadit licenční plán, který je nadmnožinou, je třeba nejdříve odebrat licenční plán, který je podmnožinou.
-
-### <a name="license-requirements"></a>Licenční požadavky
-Když uživateli přiřazujete licenci, můžete ve vlastnostech jeho účtu zadat umístění primárního využití. Pokud umístění využití nezadáte, přiřadí se umístění klienta automaticky uživateli.
-
-![Umístění uživatele][12]
-
-Dostupnost služeb a funkcí pro cloudové služby společnosti Microsoft se liší podle země nebo oblasti. Služba, například Voice over Internet Protocol (VoIP), může být k dispozici v jedné zemi či oblasti, zatímco v jiné zemi či oblasti dostupná není. Funkce v rámci služby mohou být v některých zemích nebo oblastech z právních důvodů omezeny. Pokud chcete zjistit, zda je služba či funkce dostupná s omezením nebo bez něj, vyhledejte zemi nebo oblast na webu licenčních omezení dané služby.
-
-## <a name="whats-next"></a>Kam dál
-* [Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu](active-directory-add-company-branding.md)
-* [Zobrazení sestav přístupů a používání](active-directory-view-access-usage-reports.md)
+> [!div class="nextstepaction"]
+> [Aktivace licencí Azure AD Premium](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/TryBuyProductBlade) 
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png
@@ -141,4 +112,3 @@ Dostupnost služeb a funkcí pro cloudové služby společnosti Microsoft se li�
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
-

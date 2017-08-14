@@ -1,9 +1,9 @@
-Teď můžete pomocí Průzkumníka dat vytvořit kontejner grafu a přidat data do databáze. 
+Teď můžete pomocí nástroje Průzkumník dat na webu Azure Portal vytvořit databázi grafu. 
 
-1. Na webu Azure Portal v navigační nabídce klikněte na **Průzkumník dat**. 
-2. V okně Průzkumníka dat klikněte na **Nový graf** a potom stránku vyplňte pomocí následujících informací.
+1. Na webu Azure Portal v levé navigační nabídce klikněte na **Průzkumník dat (Preview)**. 
+2. V okně **Průzkumník dat (Preview)** klikněte na **Nový graf** a potom stránku vyplňte pomocí následujících informací.
 
-    ![Průzkumník dat na webu Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Průzkumník dat na portálu Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
     Nastavení|Navrhovaná hodnota|Popis
     ---|---|---

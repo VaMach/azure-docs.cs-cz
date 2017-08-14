@@ -11,7 +11,7 @@ Pro účely porovnávání výpočetního síly (výkonu procesoru) jednotlivýc
 
 <br>
 
-| Rodina SKU | ACU |
+| Rodina SKU | ACU \ virtuální procesor |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 171159fece2e3927458aff6e6185b96c792e17c8
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 28bc587204be30b1b29da7c2235e347d778b908e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím ověření certifikátu: Azure Portal
@@ -91,7 +91,7 @@ Snímky obrazovky v této části slouží jako referenční příklady. Ujistě
 
 ## <a name="dns"></a>4 – Určení serveru DNS (volitelné)
 
-Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS, aby bylo možné zpracovávat překlad názvů. Zadaný server DNS by měl být server DNS, který dokáže přeložit názvy pro prostředky, ke kterým se připojujete. Balíček pro konfiguraci klienta VPN, který vygenerujete v pozdějším kroku, bude obsahovat IP adresy serverů DNS, které zadáte v tomto nastavení. Pokud bude v budoucnu potřeba aktualizovat seznam serverů DNS, můžete vygenerovat a nainstalovat nové balíčky pro konfiguraci klienta VPN odrážející nový seznam.
+Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS, aby bylo možné zpracovávat překlad názvů. Zadaný server DNS by měl být server DNS, který dokáže přeložit názvy pro prostředky, ke kterým se připojujete.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -146,7 +146,7 @@ Po vytvoření brány můžete nahrát soubor .cer (obsahující informace o ve�
 
 ## <a name="clientconfig"></a>9 – Instalace balíčku pro konfiguraci klienta VPN
 
-Pokud se chcete připojit k virtuální síti pomocí sítě VPN typu Point-to-Site, musí mít každý klient nainstalovaný balíček pro konfiguraci nativního klienta VPN ve Windows. Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení nutných k připojení k virtuální síti, a pokud jste pro virtuální síť zadali server DNS, obsahuje IP adresu serveru DNS, který klient použije pro překlad IP adres. Pokud později po vygenerování balíčku pro konfiguraci klienta změníte zadaný server DNS, nezapomeňte vygenerovat nový balíček pro konfiguraci klienta, který nainstalujete na klientských počítačích.
+Pokud se chcete připojit k virtuální síti pomocí sítě VPN typu Point-to-Site, musí mít každý klient nainstalovaný balíček pro konfiguraci nativního klienta VPN ve Windows. Konfigurační balíček konfiguruje nativního klienta VPN ve Windows pomocí nastavení potřebných pro připojení k virtuální síti.
 
 V každém klientském počítači můžete použít stejný konfigurační balíček klienta VPN za předpokladu, že jeho verze odpovídá architektuře klienta. Seznam podporovaných klientských operačních systémů naleznete v části [Nejčastější dotazy o připojení Point-to-Site](#faq) na konci tohoto článku.
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Jaké úlohy je možné chránit pomocí Azure Site Recovery?
@@ -127,11 +126,12 @@ Site Recovery pomáhá chránit Exchange následujícím způsobem:
 ## <a name="protect-sap"></a>Ochrana nasazení SAP
 Pomocí Site Recovery můžete své nasazení SAP chránit následujícím způsobem:
 
-* Aktivace ochrany u celého nasazení SAP nastavením replikace různých vrstev nasazení do Azure nebo do sekundární lokality
+* Povolení ochrany místně spuštěných produkčních aplikací SAP NetWeaver a jiných než NetWeaver pomocí replikace komponent do Azure
+* Povolení ochrany v Azure spuštěných produkčních aplikací SAP NetWeaver a jiných než NetWeaver pomocí replikace komponent do jiného datového centra Azure
 * Zjednodušení migrace na cloud pomocí Site Recovery migrací nasazení SAP do Azure
-* Usnadnění vývoje a testování aplikací SAP díky tomu, že je možné na vyžádání vytvořit kopii produkčního prostředí pro testování a ladění aplikací
+* Zjednodušení upgradů, testování a vytváření prototypů projektů SAP pomocí vytváření produkčního klonu na vyžádání pro účely testování aplikací SAP.
 
-[Zde jsou další informace](http://aka.ms/asr-sap) o ochraně nasazení SAP.
+[Zde jsou další informace](site-recovery-sap.md) o ochraně nasazení SAP.
 
 ## <a name="protect-iis"></a>Ochrana IIS
 Pomocí Site Recovery můžete své nasazení IIS chránit následujícím způsobem:
@@ -152,11 +152,11 @@ K ochraně nasazení Citrix XenApp a XenDesktop použijte Site Recovery následu
 * Povolte ochranu nasazení Citrix XenApp a XenDesktop replikací různých vrstev nasazení (včetně serveru AD DNS, databázového serveru SQL, Citrix Delivery Controlleru, serveru StoreFront, XenApp Masteru (VDA) a Citrix XenApp License Serveru) do Azure.
 * Zjednodušte migraci do cloudu tak, že použijete Site Recovery k migraci nasazení Citrix XenApp a XenDesktop do Azure.
 * Usnadněte testování pro Citrix XenApp/XenDesktop tak, že vytvoříte na vyžádání kopii produkčního prostředí pro testování a ladění.
-* Toto řešení jde použít jenom pro virtuální plochy operačního systému Windows Server, a ne virtuální plochy klienta, protože virtuální plochy klienta se ještě pro licencování v Azure nepodporují. 
+* Toto řešení jde použít jenom pro virtuální plochy operačního systému Windows Server, a ne virtuální plochy klienta, protože virtuální plochy klienta se ještě pro licencování v Azure nepodporují.
 [Další informace](https://azure.microsoft.com/pricing/licensing-faq/) týkající se licencování pro plochy klienta nebo serveru v Azure
 
-[Další informace](site-recovery-citrix-xenapp-and-xendesktop.md) o ochraně nasazení Citrix XenApp a XenDesktop Můžete si také projít [dokument whitepaper od Citrixu](https://aka.ms/citrix-xenapp-xendesktop-with-asr), kde najdete podrobnosti o tomtéž. 
+[Další informace](site-recovery-citrix-xenapp-and-xendesktop.md) o ochraně nasazení Citrix XenApp a XenDesktop Můžete si také projít [dokument whitepaper od Citrixu](https://aka.ms/citrix-xenapp-xendesktop-with-asr), kde najdete podrobnosti o tomtéž.
 
 ## <a name="next-steps"></a>Další kroky
-[Kontrola požadavků](site-recovery-prereq.md) 
+[Kontrola požadavků](site-recovery-prereq.md)
 

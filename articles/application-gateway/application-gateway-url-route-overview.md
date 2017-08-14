@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="url-path-based-routing-overview"></a>Přehled směrování na základě cest URL
@@ -33,7 +32,10 @@ V následujícím příkladu služba Application Gateway obsluhuje provoz pro co
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Požadavky na http://contoso.com/video* jsou směrovány na VideoFondServeru a požadavky na http://contoso.com/images* jsou směrovány na ObrazkyFondServeru. Pokud nevyhovuje žádný vzor cesty, vybere se VychoziFondServeru.
-    
+
+> [!IMPORTANT]
+> Pravidla se zpracovávají v pořadí, v jakém jsou uvedena na portálu. Důrazně doporučujeme nakonfigurovat naslouchací procesy pro více webů před konfigurací základního naslouchacího procesu.  Tím se zajistí směrování provozu do správného back-endu. Pokud je základní naslouchací proces uveden jako první a odpovídá příchozímu požadavku, požadavek se zpracuje tímto naslouchacím procesem.
+
 ## <a name="urlpathmap-configuration-element"></a>Konfigurační prvek UrlPathMap
 
 Prvek UrlPathMap slouží k určení vzorů cest pro mapování fondů back-end serveru. Následující ukázka kódu je fragment prvku UrlPathMap ze souboru šablony.
