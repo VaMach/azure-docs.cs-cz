@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrování provozu sítě s použitím skupin zabezpečení sítě
@@ -50,7 +49,7 @@ Pravidla NSG obsahují následující vlastnosti:
 | --- | --- | --- | --- |
 | **Název** |Název pravidla. |Musí být v rámci oblasti jedinečný.<br/>Může obsahovat písmena, číslice, podtržítka, tečky a pomlčky.<br/>Musí začínat písmenem nebo číslicí.<br/>Musí končit písmenem, číslicí nebo podtržítkem.<br/>Nesmí být delší než 80 znaků. |Ve skupině zabezpečení sítě budete mít pravděpodobně několik pravidel, a proto je vhodné používat takové názvy, které umožní rozpoznat funkci pravidla. |
 | **Protokol** |Protokol, kterému musí pravidlo odpovídat. |TCP, UDP nebo * |Použití hodnoty * jako protokolu zahrnuje protokol ICMP (pouze provoz typu East-West), UDP a TCP a může snížit počet pravidel, která budete potřebovat.<br/>Použití hodnoty * ale současně může znamenat příliš široký záběr, a proto se doporučuje ověřit, zda je použití hodnoty * skutečně nutné. |
-| **Rozsah zdrojových portů** |Rozsah zdrojových portů, kterému musí pravidlo odpovídat. |Jedno číslo portu od 1 do 65535, rozsah portů (např. 1–65635) nebo * (pro všechny porty). |Zdrojové porty můžou být dočasné. Pokud váš klientský program nepoužívá konkrétní port, ve většině případů použijte hodnotu *.<br/>Snažte se co nejvíc používat rozsahy portů, aby nebylo třeba víc pravidel.<br/>Není možné seskupit s použitím čárky více portů nebo rozsahů portů. |
+| **Rozsah zdrojových portů** |Rozsah zdrojových portů, kterému musí pravidlo odpovídat. |Jedno číslo portu od 1 do 65535, rozsah portů (např. 1–65535) nebo * (pro všechny porty). |Zdrojové porty můžou být dočasné. Pokud váš klientský program nepoužívá konkrétní port, ve většině případů použijte hodnotu *.<br/>Snažte se co nejvíc používat rozsahy portů, aby nebylo třeba víc pravidel.<br/>Není možné seskupit s použitím čárky více portů nebo rozsahů portů. |
 | **Rozsah cílových portů** |Rozsah cílových portů, kterému musí pravidlo odpovídat. |Jedno číslo portu od 1 do 65535, rozsah portů (např. 1–65535) nebo \* (pro všechny porty). |Snažte se co nejvíc používat rozsahy portů, aby nebylo třeba víc pravidel.<br/>Není možné seskupit s použitím čárky více portů nebo rozsahů portů. |
 | **Předpona zdrojové adresy** |Předpona zdrojové adresy nebo značka, které musí pravidlo odpovídat. |Jedna IP adresa (např. 10.10.10.10), podsíť IP (např. 192.168.1.0/24), [výchozí značka](#default-tags) nebo * (pro všechny adresy). |Zvažte použití rozsahů, výchozích značek a hodnoty *, abyste snížili počet pravidel. |
 | **Předpona cílové adresy** |Předpona cílové adresy nebo značka, které musí pravidlo odpovídat. | Jedna IP adresa (např. 10.10.10.10), podsíť IP (např. 192.168.1.0/24), [výchozí značka](#default-tags) nebo * (pro všechny adresy). |Zvažte použití rozsahů, výchozích značek a hodnoty *, abyste snížili počet pravidel. |

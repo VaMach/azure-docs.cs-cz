@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Správa pracovních prostorů
@@ -64,7 +63,7 @@ Podrobnosti o pracovním prostoru můžete zobrazit na webu Azure Portal. Podrob
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Zobrazení informací o pracovním prostoru na webu Azure Portal
 
 1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého předplatného Azure.
-2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na**Log Analytics**.  
+2. V nabídce **Centra** klikněte na **Další služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na **Log Analytics**.  
     ![Centrum Azure](./media/log-analytics-manage-access/hub.png)  
 3. V okně Předplatná Log Analytics vyberte pracovní prostor.
 4. V okně pracovního prostoru se zobrazí podrobnosti o pracovním prostoru a odkazy na další informace.  
@@ -108,7 +107,60 @@ Následující aktivity také vyžadují oprávnění Azure:
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Správa přístupu k Log Analytics pomocí oprávnění Azure
 Pokud chcete udělit přístup k Log Analytics pomocí oprávnění Azure, postupujte podle kroků v tématu [Použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure](../active-directory/role-based-access-control-configure.md).
 
-Pokud máte k pracovnímu prostoru Log Analytics alespoň oprávnění Azure ke čtení, můžete otevřít portál OMS kliknutím na úlohu **Portál OMS** při procházení pracovního prostoru Log Analytics.
+Azure má pro Log Analytics dvě předdefinované role uživatele:
+- Čtenář Log Analytics
+- Přispěvatel Log Analytics
+
+Členové role *Čtenář Log Analytics* můžou provádět:
+- Zobrazení a prohledávání všech dat monitorování 
+- Zobrazení nastavení monitorování, včetně zobrazení konfigurace diagnostiky Azure pro všechny prostředky Azure
+
+| Typ    | Oprávnění | Popis |
+| ------- | ---------- | ----------- |
+| Akce | `*/read`   | Možnost zobrazit všechny prostředky a jejich konfiguraci. To zahrnuje zobrazení: <br> Stavu rozšíření virtuálního počítače <br> Konfigurace diagnostiky Azure pro prostředky <br> Všech vlastnosti a nastavení všech prostředků |
+| Akce | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Možnost provádět dotazy prohledávání protokolů v2 |
+| Akce | `Microsoft.OperationalInsights/workspaces/search/action` | Možnost provádět dotazy prohledávání protokolů v1 |
+| Akce | `Microsoft.Support/*` | Možnost otevírat případy podpory |
+|Jiný než akce | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Brání čtení klíče pracovního prostoru požadovaného pro instalaci agentů a použití rozhraní API pro shromažďování dat |
+
+
+Členové role *Přispěvatel Log Analytics* můžou provádět:
+- Čtení všech dat monitorování 
+- Vytváření a konfigurace účtů služby Automation
+- Přidání a odebrání řešení pro správu
+- Čtení klíčů účtu úložiště 
+- Konfigurace shromažďování protokolů ze služby Azure Storage
+- Úprava nastavení monitorování pro prostředky Azure, včetně
+  - Přidání rozšíření virtuálního počítače na virtuální počítače
+  - Konfigurace diagnostiky Azure pro všechny prostředky Azure
+
+> [!NOTE] 
+> Možnost přidat rozšíření virtuálního počítače na virtuální počítač můžete použít k získání úplné kontroly nad virtuálním počítačem.
+
+| Oprávnění | Popis |
+| ---------- | ----------- |
+| `*/read`     | Možnost zobrazit všechny prostředky a jejich konfiguraci. To zahrnuje zobrazení: <br> Stavu rozšíření virtuálního počítače <br> Konfigurace diagnostiky Azure pro prostředky <br> Všech vlastnosti a nastavení všech prostředků |
+| `Microsoft.Automation/automationAccounts/*` | Možnost vytvořit a konfigurovat účty služby Azure Automation, včetně přidávání a úprav runbooků |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Přidání, aktualizace a odebrání rozšíření virtuálního počítače, včetně rozšíření Microsoft Monitoring Agent a rozšíření Agent OMS pro Linux |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Zobrazení klíče účtu úložiště. Požadovaný ke konfiguraci Log Analytics pro čtení protokolů z účtů služby Azure Storage |
+| `Microsoft.Insights/alertRules/*` | Přidání, aktualizace a odebrání pravidel upozornění |
+| `Microsoft.Insights/diagnosticSettings/*` | Přidání, aktualizace a odebrání nastavení diagnostiky pro prostředky Azure |
+| `Microsoft.OperationalInsights/*` | Přidání, aktualizace a odebrání konfigurace pro pracovní prostory Log Analytics |
+| `Microsoft.OperationsManagement/*` | Přidání a odebrání řešení pro správu |
+| `Microsoft.Resources/deployments/*` | Vytvoření a odstranění nasazení. Požadováno pro přidávání a odebírání řešení, pracovních prostorů a účtů služby Automation |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Vytvoření a odstranění nasazení. Požadováno pro přidávání a odebírání řešení, pracovních prostorů a účtů služby Automation |
+
+Pokud chcete přidat uživatele do role uživatele nebo je z ní odebrat, je potřeba mít oprávnění `Microsoft.Authorization/*/Delete` a `Microsoft.Authorization/*/Write`.
+
+Pomocí těchto rolí můžete uživatelům udělit přístup v různých oborech:
+- Předplatné – Přístup ke všem pracovním prostorům v rámci předplatného
+- Skupina prostředků – Přístup ke všem pracovním prostorům v rámci skupiny prostředků
+- Prostředek – Přístup pouze k zadanému pracovnímu prostoru
+
+Pomocí [vlastních rolí](../active-directory/role-based-access-control-custom-roles.md) můžete vytvářet role s konkrétními požadovanými oprávněními.
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Role uživatele Azure a role uživatele portálu Log Analytics
+Pokud máte k pracovnímu prostoru Log Analytics alespoň oprávnění Azure ke čtení, můžete otevřít portál Log Analytics kliknutím na úlohu **Portál OMS** při procházení pracovního prostoru Log Analytics.
 
 Když otevřete portál Log Analytics, přejdete na používání starších uživatelských rolí Log Analytics. Pokud na portálu Log Analytics nemáte přiřazení role, služba [zkontroluje oprávnění Azure, které máte k pracovnímu prostoru](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Vaše přiřazení role na portálu Log Analytics se určuje následujícím způsobem:
@@ -195,7 +247,7 @@ Pomocí následujícího postupu můžete odebrat uživatele z pracovního prost
 4. Vyberte skupinu ze seznamu výsledků a klikněte na **Add** (Přidat).
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Připojení existujícího pracovního prostoru k předplatnému Azure
-Všechny pracovní prostory vytvořené po 26. září 2016 musí být propojené s předplatným Azure v okamžiku vytvoření. Pracovní prostory vytvořené před tímto datem je potřeba propojit s pracovním prostorem při vašem dalším přihlášení. Když vytváříte pracovní prostor z webu Azure Portal nebo propojujete pracovní prostor s předplatným Azure, služba Azure Active Directory se propojí jako účet vaší organizace.
+Všechny pracovní prostory vytvořené po 26. září 2016 musí být propojené s předplatným Azure v okamžiku vytvoření. Pracovní prostory vytvořené před tímto datem je potřeba propojit s předplatným při přihlášení. Když vytváříte pracovní prostor z webu Azure Portal nebo propojujete pracovní prostor s předplatným Azure, služba Azure Active Directory se propojí jako účet vaší organizace.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Propojení pracovního prostoru s předplatným Azure v portálu OMS
 
