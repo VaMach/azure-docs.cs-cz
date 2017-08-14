@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Propustnost
       href: request-units.md
-      items:
-        - name: Jednotky žádosti za minutu
-          href: request-units-per-minute.md
     - name: Rozhraní API s více modely
       items:
         - name: DocumentDB

@@ -4,13 +4,13 @@
 ## [Dostupnost](configure-availability.md)
 ## [Nejčastější dotazy](faq.md)
 
-# [Začínáme](../opensource-links.md)
+# Začínáme
 ## [Vytvoření virtuálního počítače s Linuxem pomocí portálu](createportal.md)
 ## [Instalace rozhraní příkazového řádku Azure](../../../cli-install-nodejs.md)
 ## [Vytvoření klíčů SSH](../mac-create-ssh-keys.md)
 
 # Postup
-## [Compute](../intro-on-azure.md)
+## Compute
 ### [Vytvoření vlastního virtuálního počítače](create-custom.md)
 ### [Zachycení virtuálního počítače](capture-image.md)
 ### [Použití Vzdálené plochy s virtuálním počítačem s Linuxem](remote-desktop.md)
