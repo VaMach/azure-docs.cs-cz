@@ -10,6 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Sdílení prostředků různého původu](cdn-cors.md)
+### [Mapování vlastní domény na CDN](cdn-map-content-to-custom-domain.md)
+### [Povolení HTTPS pro vlastní doménu](cdn-custom-ssl.md)
 ## Optimalizace obsahu
 ### [Přehled optimalizace](cdn-optimization-overview.md)
 ####[Optimalizace velkých souborů](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Akcelerace dynamického webu](cdn-dynamic-site-acceleration.md)
  
 ## Spravovat
-### [Povolení HTTPS pro vlastní doménu](cdn-custom-ssl.md)
 ### [Správa pomocí PowerShellu](cdn-manage-powershell.md)
 ### Konfigurace hodnoty TTL (time-to-live)
 #### [Obsah služeb Web Apps / Cloud Services, ASP.NET nebo IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Obsah služby Storage Blob](cdn-manage-expiration-of-blob-content.md)
-### [Mapování vlastní domény na CDN](cdn-map-content-to-custom-domain.md)
 ### [Omezení přístupu podle země](cdn-restrict-access-by-country.md)
 ### [Vylepšení výkonu prostřednictvím komprimace souborů](cdn-improve-performance.md)
 ### Ukládání obsahu do mezipaměti podle řetězce dotazu
