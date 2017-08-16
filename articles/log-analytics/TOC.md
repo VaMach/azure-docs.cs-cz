@@ -46,6 +46,7 @@
 ### [Portály prohledávání protokolů](log-analytics-log-search-portals.md)
 #### [Použití portálu prohledávání protokolů](log-analytics-log-search-log-search-portal.md)
 ### [Přechod ze starší verze jazyka](log-analytics-log-search-transition.md)
+### [Konektor pro Flow](log-analytics-flow-tutorial.md)
 
 ## Analýza dat
 ### [Řídicí panely](log-analytics-dashboards.md)

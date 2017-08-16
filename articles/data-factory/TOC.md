@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webová tabulka](data-factory-web-table-connector.md)
-### [Brána správy dat](data-factory-data-management-gateway.md)
+### Brána správy dat
+#### [Přehled](data-factory-data-management-gateway.md)
+#### [Vysoká dostupnost a škálovatelnost (Preview)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Názorný postup: Přesun dat z místního SQL Serveru do Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Transformace dat](data-factory-data-transformation-activities.md)

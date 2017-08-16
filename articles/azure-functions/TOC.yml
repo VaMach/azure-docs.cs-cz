@@ -109,6 +109,8 @@
           href: functions-bindings-event-hubs.md
         - name: Externí soubor
           href: functions-bindings-external-file.md
+        - name: Externí tabulka
+          href: functions-bindings-external-table.md
         - name: HTTP a webhooky
           href: functions-bindings-http-webhook.md
         - name: Mobile Apps

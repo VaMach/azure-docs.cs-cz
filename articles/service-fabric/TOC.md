@@ -69,6 +69,7 @@
 ##### [Služba DNS](service-fabric-dnsservice.md)
 ##### [Reverzní proxy server](service-fabric-reverseproxy.md)
 ##### [Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [Diagnostika reverzního proxy serveru](service-fabric-reverse-proxy-diagnostics.md)
 ### [Škálovatelnost aplikací](service-fabric-concepts-scalability.md)
 ### [Jádro ASP.NET](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -136,6 +137,7 @@
 #### [Docker Compose (Preview)](service-fabric-docker-compose.md)
 #### [Zásady správného řízení prostředků pro kontejnery a služby](service-fabric-resource-governance.md)
 #### [Svazek a ovladače protokolování](service-fabric-containers-volume-logging-drivers.md)
+#### [Služby uvnitř kontejnerů](service-fabric-services-inside-containers.md)
 
 ### Sestavení služby s modelem Reliable Services
 #### [Přehled](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java v Linuxu](service-fabric-reliable-actors-get-started-java.md)
-#### [Odeslání oznámení](service-fabric-reliable-actors-events.md) 
+#### [Odeslání oznámení](service-fabric-reliable-actors-events.md)
 #### [Nastavení časovačů a připomenutí](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurace KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Konfigurace nastavení komunikace](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Konfigurace nastavení komunikace](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Konfigurace ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## Vytvoření a správa clusterů
 ### Clustery v Azure
-#### Vytvořit 
+#### Vytvořit
 ##### [Vytvoření vašeho prvního clusteru v Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### Měřítko 
+#### Měřítko
 ##### [Ručně](service-fabric-cluster-scale-up-down.md)
 ##### [Prostřednictvím kódu programu](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgrade](service-fabric-cluster-upgrade.md)
 #### [Nastavení řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace](service-fabric-cluster-fabric-settings.md)
-#### [Správa certifikátů clusteru](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Správa certifikátů clusteru](service-fabric-cluster-security-update-certs-azure.md)
 #### [Odstranění](service-fabric-cluster-delete.md)
 
 ### Samostatné clustery
@@ -264,7 +266,7 @@
 #### [Škálování](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Nastavení řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace](service-fabric-cluster-manifest.md)
-#### [Upgrade](service-fabric-cluster-upgrade-windows-server.md) 
+#### [Upgrade](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
@@ -333,4 +335,3 @@
 ## [Možnosti podpory](service-fabric-support.md)
 ## [Aktualizace služby](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-

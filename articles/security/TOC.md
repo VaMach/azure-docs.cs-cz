@@ -5,10 +5,11 @@
 ## [Zabezpečení služby Compute](security-virtual-machines-overview.md)
 ## [Provozní zabezpečení](azure-operational-security-overview.md)
 ## [Monitorování a správa zabezpečení](security-management-and-monitoring-overview.md)
+## [Zabezpečení služby Service Fabric](azure-service-fabric-security-overview.md)
 ## [Správa identit](security-identity-management-overview.md)
 ## [Zabezpečení IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Architektura zabezpečení](azure-security-architecture-overview.md)
-### [Provozní zabezpečení](azure-operational-security.md)
+### [Povolení provozního zabezpečení](azure-operational-security.md)
 ### [Pokročilá detekce hrozeb](azure-threat-detection.md)
 ### [Protokolování a auditování](azure-log-audit.md)
 ### [Izolace ve veřejném cloudu](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Řešení potíží s šifrováním disků](azure-security-disk-encryption-tsg.md)
 ### [Šifrování virtuálního počítače Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Provozní zabezpečení
+### [Osvědčené postupy pro provozní zabezpečení](azure-operational-security-best-practices.md)
+
 ## Monitorování a správa zabezpečení
 ### [Správa zabezpečení](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Integrace výstrah služby Security Center](security-azure-log-integration-security-center.md)
 #### [Integrace protokolů se služby Key Vault pomocí Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Nejčastější dotazy](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Osvědčené postupy pro Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Kontrolní seznam pro Service Fabric](azure-service-fabric-security-checklist.md)
 
 ## Správa identit
 ### [Osvědčené postupy zabezpečení správy identit](azure-security-identity-management-best-practices.md)

@@ -49,6 +49,7 @@
 ##### [Názorný postup](operations-management-suite-walkthrough-servicemap.md)
 ##### [Použití](operations-management-suite-service-map.md)
 ##### [Konfigurace](operations-management-suite-service-map-configure.md)
+##### [Integrace s nástrojem Operations Manager](operations-management-suite-service-map-scom.md)
 #### [Posouzení SQL](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)

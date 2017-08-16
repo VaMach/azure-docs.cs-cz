@@ -1,35 +1,37 @@
-- name: QnAMaker API Documentation
+- name: Dokumentace k rozhraní QnAMaker API
   href: ../index.md
-- name: Overview
+- name: Přehled
   items:
-  - name: Learn about QnAMaker
-    href: Home.md
-- name: Quickstarts
+    - name: Další informace o QnAMakeru
+      href: Home.md
+- name: Šablony Rychlý start
   expanded: true
-  items: 
-  - name: Get started with QnAMaker
-    href: Quickstart.md
-- name: How to Guides
-  items: 
-  - name: Create a knowledge base
-    href: Guides/CreateKB.md
-  - name: Train a knowledge base
-    href: Guides/TrainKB.md
-  - name: Share a knowledge base
-    href: Guides/share-knowledgebase-qnamaker.md
-  - name: Update a knowledge base
-    href: Guides/UpdateKB.md
-  - name: Publish a knowledge base
-    href: Guides/PublishKB.md
-  - name: Authentication
-    href: SubscriptionKeys.md
-- name: Reference
-  items: 
-  - name: API Reference
-    href: HTTPEndPoint.md
-  - name: FAQ
-    href: FAQs.md
-- name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    - name: Začínáme s QnAMakerem
+      href: Quickstart.md
+- name: Průvodce postupy
+  items:
+    - name: Vytvoření znalostní báze
+      href: Guides/CreateKB.md
+    - name: Trénování znalostní báze
+      href: Guides/TrainKB.md
+    - name: Sdílení znalostní báze
+      href: Guides/share-knowledgebase-qnamaker.md
+    - name: Aktualizace znalostní báze
+      href: Guides/UpdateKB.md
+    - name: Publikování znalostní báze
+      href: Guides/PublishKB.md
+    - name: Aktivní učení
+      href: Guides/active-learning-qnamaker.md
+    - name: Authentication
+      href: SubscriptionKeys.md
+- name: Referenční informace
+  items:
+    - name: Referenční materiály k rozhraní API
+      href: HTTPEndPoint.md
+    - name: Nejčastější dotazy
+      href: FAQs.md
+- name: Zdroje
+  items:
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
