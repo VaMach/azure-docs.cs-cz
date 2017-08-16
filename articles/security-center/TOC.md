@@ -57,9 +57,10 @@
 ## Rozpoznání a odezva
 ### [Možnosti detekce](security-center-detection-capabilities.md)
 ### [Správa výstrah zabezpečení](security-center-managing-and-responding-alerts.md)
+### [Typy výstrah zabezpečení](security-center-alerts-type.md)
+### [Ověření výstrah](security-center-alert-validation.md)
 ### [Správa incidentů zabezpečení](security-center-incident.md)
 ### [Integrace protokolů Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Typy výstrah zabezpečení](security-center-alerts-type.md)
 ### [Sestava analýzy hrozeb](security-center-threat-report.md)
 
 ## Řešení potíží
