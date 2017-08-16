@@ -3,13 +3,13 @@
 ## [Správa identit Azure](identity-fundamentals.md)
 ## [Vysvětlení řešení identit Azure](understand-azure-identity-solutions.md)
 ## [Volba řešení s hybridní identitou](choose-hybrid-identity-solution.md)
+## [Přidružení předplatných Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Nejčastější dotazy](active-directory-faq.md)
 
 # Začínáme
-## [Získání tenanta služby Azure AD](active-directory-howto-tenant.md)
 ## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
-## [Přidružení předplatných Azure](active-directory-how-subscriptions-associated-directory.md)
-## [Rychlý start: Samoobslužné resetování hesla](active-directory-passwords-getting-started.md)
+## [Přidání vlastního názvu domény](add-custom-domain.md)
+## [Konfigurace samoobslužného resetování hesla](active-directory-passwords-getting-started.md)
 ## Správa licencí Azure AD
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Portál Classic](active-directory-licensing-what-is.md)
@@ -19,8 +19,7 @@
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
-## [Získání podpory pro Azure Active Directory](active-directory-troubleshooting-support-howto.md)
-## [Kurzy integrace aplikací SaaS](active-directory-saas-tutorial-list.md)
+
 
 # Postup
 ## Plánování a návrh
@@ -55,7 +54,6 @@
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
-
 ### [Přidávání uživatelů z jiných adresářů (klasický portál)](active-directory-create-users-external.md)
 ### [Odstranění uživatelů](active-directory-users-delete-user-azure-portal.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
@@ -164,6 +162,7 @@
 ## Správa aplikací
 ### [Přehled](active-directory-enable-sso-scenario.md)
 ### [Začínáme](active-directory-integrating-applications-getting-started.md)
+### [Kurzy integrace aplikací SaaS](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -239,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Vlastní názvy domén
 #### [Přehled](active-directory-add-domain-concepts.md)
-#### Přidání názvu domény
-##### [Azure Portal](active-directory-domains-add-azure-portal.md)
-##### [Portál Classic](active-directory-add-domain.md)
-##### [S AD FS](active-directory-add-domain-federated.md)
-#### [Přiřazení uživatelů](active-directory-add-domain-add-users.md)
 #### Správa názvů domén
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Portál Classic](active-directory-add-manage-domain-names.md)
@@ -270,6 +264,7 @@
 #### [Ukázka portálu se samoobslužnou registrací](active-directory-b2b-self-service-portal.md)
 #### [-mailová pozvánka](active-directory-b2b-invitation-email.md)
 #### [Uplatnění pozvánky](active-directory-b2b-redemption-experience.md)
+#### [Přidání uživatelů B2B bez pozvánky](active-directory-b2b-add-user-without-invite.md)
 #### [Podmíněný přístup pro B2B](active-directory-b2b-mfa-instructions.md)
 #### [Zásady sdílení B2B](active-directory-b2b-delegate-invitations.md)
 #### [Přidání uživatele B2B do role](active-directory-b2b-add-guest-to-role.md)
@@ -357,7 +352,8 @@
 ### [Vysoká dostupnost](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Změna podpisového algoritmu hash](active-directory-federation-sha256-guidance.md)
 
-## [Řešení problémů](active-directory-troubleshooting.md)
+## [Řešení problémů](active-directory-troubleshooting-support-howto.md)
+### [Řešení potíží s chybějící nebo nedostupnou položkou Active Directory](active-directory-troubleshooting.md)
 
 ## Nasazení testování konceptu (POC) Azure AD
 ### [Scénáře PoC: Úvod](active-directory-playbook-intro.md)
