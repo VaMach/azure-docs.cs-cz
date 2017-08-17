@@ -96,7 +96,7 @@
 #### [Uživatelé, relace, události](app-insights-usage-segmentation.md)
 #### [Trychtýře](usage-funnels.md)
 #### [Uchování](app-insights-usage-retention.md)
-#### [Toky](app-insights-usage-flows.md)
+#### [Toky uživatele](app-insights-usage-flows.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analýza

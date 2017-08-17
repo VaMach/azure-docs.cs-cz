@@ -33,6 +33,7 @@
 # Průvodci
 ## [Registrace aplikace](active-directory-integrating-applications.md)
 ## [Aplikace s více tenanty](active-directory-devhowto-multi-tenant-overview.md)
+## [Podmíněný přístup](active-directory-conditional-access-developer.md)
 ## OAuth a OpenID Connect
 ### [Protokol OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Grant kódu ověřování OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -106,6 +107,6 @@
 #### [Referenční informace o tokenech](active-directory-v2-tokens.md)
 #### [Přihlašovací údaje ve formě certifikátu](active-directory-certificate-credentials.md)
 ### [Obory](active-directory-v2-scopes.md)
-# Zdroje a prostředky
+# Zdroje
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

@@ -9,6 +9,7 @@
 # Začínáme
 ## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
 ## [Přidání vlastního názvu domény](add-custom-domain.md)
+## [Konfigurace značky společnosti](customize-branding.md)
 ## [Konfigurace samoobslužného resetování hesla](active-directory-passwords-getting-started.md)
 ## Správa licencí Azure AD
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Správa zařízení
+### [Úvod](device-management-introduction.md)
 ### [Registrace zařízení](active-directory-device-registration-overview.md)
 #### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Správa názvů domén
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Portál Classic](active-directory-add-manage-domain-names.md)
-### Přizpůsobení přihlašovací stránky
-#### [Azure Portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Pro jednotlivé jazyky](active-directory-branding-localize-azure-portal.md)
-#### [Portál Classic](active-directory-add-company-branding.md)
 ### [Správa adresáře](active-directory-administer.md)
 ### [Několik adresářů](active-directory-licensing-directory-independence.md)
 ### [Adresáře O365](active-directory-manage-o365-subscription.md)

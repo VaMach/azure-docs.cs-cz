@@ -59,8 +59,6 @@
       href: azure-vm-network-overview.md
     - name: Škálovací sady virtuálních počítačů
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-    - name: Služba metadat instance
-      href: ../virtual-machines-instancemetadataservice-overview.md
     - name: Kontejnery
       href: containers.md
     - name: Resource Manager
@@ -167,6 +165,10 @@
               href: agent-user-guide.md
             - name: Aktualizace agenta
               href: update-agent.md
+        - name: Naplánované události
+          href: scheduled-events.md
+        - name: Monitorování metadat
+          href: instance-metadata-service.md
     - name: Použití imagí
       items:
         - name: Vyhledání a použití imagí
