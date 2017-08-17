@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Přehled Azure Resource Manageru
@@ -139,8 +139,6 @@ Pokud si představíte, že vaše vrstvy mají tři samostatné životní cykly,
 ![šablona vrstvy](./media/resource-group-overview/tier-templates.png)
 
 Další rady k navrhování šablon najdete v tématu [Způsoby navrhování šablon Azure Resource Manageru](best-practices-resource-manager-design-templates.md). Informace o vnořených šablonách najdete v tématu [Použití propojených šablon s Azure Resource Managerem](resource-group-linked-templates.md).
-
-Čtyřdílný seriál o automatickém nasazení najdete v článku [Automatizace nasazení aplikací ve službě Azure Virtual Machines](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tato série se věnuje architektuře aplikací, přístupu a zabezpečení, dostupnosti a škálování a nasazení aplikací.
 
 Azure Resource Manager analyzuje závislosti a zajistí, že se prostředky vytvoří ve správném pořadí. Pokud jeden prostředek závisí na hodnotě z jiného prostředku (například virtuální počítač potřebuje účet úložiště pro disky), nastavíte závislost. Další informace najdete v tématu [Definování závislostí v šablonách Azure Resource Manageru](resource-group-define-dependencies.md).
 

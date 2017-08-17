@@ -92,8 +92,7 @@ Tyto funkce se potom často přenášejí do nástrojů, jako je [Puppet](https:
 Nedávno bylo vydané rozhraní REST API pro [správu prostředků Azure](../articles/resource-manager-deployment-model.md) a aktualizovaly se nástroje PowerShellu a rozhraní příkazového řádku Azure umožňující jeho snadné využití. Pomocí [šablon Azure Resource Manageru](../articles/resource-group-authoring-templates.md) s rozhraním API pro správu prostředků Azure můžete nasazovat, upravovat nebo opakovaně nasazovat celé topologie aplikací a využít přitom:
 
 * [Šablony na webu Azure Portal](https://github.com/Azure/azure-quickstart-templates) (Tip: Použijte tlačítko DeployToAzure.)
-* [Rozhraní příkazového řádku Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Moduly Azure PowerShellu](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Rozhraní příkazového řádku Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Nasazení a správa celých skupin kontejnerů a virtuálních počítačů Azure
 Existuje několik oblíbených systémů, které umožňují nasadit celé skupiny virtuálních počítačů a nainstalovat na ně Docker (nebo jiné hostitelské systémy kontejnerů Linux) jako na automatizovatelnou skupinu. Přímé odkazy najdete níž v části věnované [kontejnerům a nástrojům](#containers-and-vm-technologies). Systémů, které tuto operaci ve větší nebo menší míře zvládají, je několika a jejich seznam není úplný. V závislosti na vašich dovednostech a scénářích pro vás můžou nebo nemusejí být užitečné.
@@ -104,7 +103,7 @@ Můžete taky vyzkoušet [systém DCOS (Data Center Operating System) od Mesosph
 
 [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) je opensourcový systém pro správu skupin kontejnerů a virtuálních počítačů, který vychází z poznatků a zkušeností Googlu. Dokonce je možné využít i [Kubernetes a Weave k zajištění síťové podpory](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.com/) je opensourcová platforma jako služba (PaaS), která usnadňuje nasazení a správu aplikací na vlastních serverech. Deis vychází z Dockeru a CoreOS a poskytuje službu jednoduchou službu PaaS s pracovními postupy, které jsou inspirované Heroku. Můžete snadno [vytvořit skupinu virtuálních počítačů Azure se 3 uzly, nainstalovat Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do Azure a potom [nainstalovat aplikaci Hello World typu Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) je opensourcová platforma jako služba (PaaS), která usnadňuje nasazení a správu aplikací na vlastních serverech. Deis vychází z Dockeru a CoreOS a poskytuje službu jednoduchou službu PaaS s pracovními postupy, které jsou inspirované Heroku.
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), linuxová distribuce s optimalizovanými nároky na místo, podporou Dockeru a vlastním kontejnerovým systémem [rkt](https://github.com/coreos/rkt), taky nabízí nástroj pro správu skupin kontejnerů s názvem [fleet](https://coreos.com/fleet/docs/latest/).
 
@@ -163,9 +162,6 @@ Konfigurace, správa clusterů a orchestrace kontejnerů:
 
 * [Fleet v systému CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [Vytvoření skupiny virtuálních počítačů Azure se 3 uzly, instalace Deis do Azure a spuštění aplikace Hello World typu Go](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Kubernetes
 
   * [Kompletní pokyny k automatizovanému nasazení clusteru Kubernetes s využitím CoreOS a Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Vizualizátor Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)

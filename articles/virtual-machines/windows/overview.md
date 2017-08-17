@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Přehled virtuálních počítačů s Windows v Azure
@@ -38,7 +38,7 @@ Virtuální počítače Azure lze použít různými způsoby. Tady je několik 
 Počet virtuálních počítačů, které vaše aplikace používá, lze vertikálně nebo horizontálně navýšit pro splnění vašich požadavků.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Co je třeba zvážit před vytvořením virtuálního počítače?
-Při sestavování infrastruktury aplikace v Azure vždy existuje velké množství [aspektů návrhu](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Než začnete, je důležité zvážit následující aspekty virtuálního počítače:
+Při sestavování infrastruktury aplikace v Azure vždy existuje velké množství [aspektů návrhu](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Než začnete, je důležité zvážit následující aspekty virtuálního počítače:
 
 * Názvy prostředků vaší aplikace
 * Umístění, kam se ukládají prostředky
@@ -49,7 +49,7 @@ Při sestavování infrastruktury aplikace v Azure vždy existuje velké množst
 * Související prostředky, které virtuální počítač potřebuje
 
 ### <a name="naming"></a>Pojmenování
-Virtuální počítač má přiřazený [název](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a název počítače má nakonfigurovaný jako součást operačního systému. Název virtuálního může být až 15 znaků dlouhý.
+Virtuální počítač má přiřazený [název](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a název počítače má nakonfigurovaný jako součást operačního systému. Název virtuálního může být až 15 znaků dlouhý.
 
 Pokud k vytvoření disku operačního systému použijete Azure, název počítače a název virtuálního počítače budou stejné. Pokud [nahrajete a použijete vlastní image](upload-generalized-managed.md), která obsahuje dříve nakonfigurovaný operační systém, a použijete ji k vytvoření virtuálního počítače, mohou se tyto názvy lišit. Když nahráváte vlastní soubor s imagí, doporučujeme použít stejný název počítače v operačním systému jako název virtuálního počítače.
 
@@ -106,7 +106,7 @@ Prostředky v této tabulce používá virtuální počítač a je nutné, aby e
 | [Virtuální síť](../../virtual-network/virtual-networks-overview.md) |Ano |Virtuální počítač musí být členem virtuální sítě. |
 | [Veřejná IP adresa](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Ne |Virtuální počítač může mít přiřazenou veřejnou IP adresu pro umožnění vzdáleného přístupu. |
 | [Síťové rozhraní](../../virtual-network/virtual-network-network-interface.md) |Ano |Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti. |
-| [Datové disky](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Ne |Virtuální počítač může zahrnovat datové disky pro rozšíření možností úložiště. |
+| [Datové disky](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Ne |Virtuální počítač může zahrnovat datové disky pro rozšíření možností úložiště. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Jak vytvořím svůj první virtuální počítač?
 Virtuální počítač můžete vytvořit několika způsoby. Způsob, který zvolíte, závisí na prostředí, ve kterém se nacházíte. 
@@ -142,7 +142,7 @@ Pomocí tlačítka [Připojit](connect-logon.md?toc=%2fazure%2fvirtual-machines%
 ### <a name="manage-availability"></a>Správa dostupnosti
 Je důležité, abyste porozuměli tomu, jak pro svoji aplikaci [zajistit vysokou dostupnost](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tato konfigurace zahrnuje vytvoření více virtuálních počítačů pro zajištění, že je alespoň jeden spuštěný.
 
-Aby se na vaše nasazení vztahovala záruka 99,95% dostupnosti virtuálního počítače podle smlouvy SLA, je nutné nasadit alespoň dva virtuální počítače, které vaši úlohu spouští v rámci [skupiny dostupnosti](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tato konfigurace zajišťuje distribuci vašich virtuálních počítačů mezi více domén selhání a jejich nasazení na hostitele s různými časovými obdobími údržby. Úplná smlouva [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) vysvětluje garantovanou dostupnost Azure jako celku.
+Aby se na vaše nasazení vztahovala záruka 99,95% dostupnosti virtuálního počítače podle smlouvy SLA, je nutné nasadit alespoň dva virtuální počítače, které vaši úlohu spouští v rámci [skupiny dostupnosti](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tato konfigurace zajišťuje distribuci vašich virtuálních počítačů mezi více domén selhání a jejich nasazení na hostitele s různými časovými obdobími údržby. Úplná smlouva [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) vysvětluje garantovanou dostupnost Azure jako celku.
 
 ### <a name="back-up-the-vm"></a>Zálohování virtuálního počítače
 [Trezor služby Recovery Services](../../backup/backup-introduction-to-azure-backup.md) slouží k ochraně dat a assetů ve službě Backup a službách Azure Site Recovery. Pomocí trezoru služby Recovery Services můžete [nasadit a spravovat zálohy virtuálních počítačů nasazených Resource Managerem pomocí prostředí PowerShell](../../backup/backup-azure-vms-automation.md). 
@@ -150,6 +150,3 @@ Aby se na vaše nasazení vztahovala záruka 99,95% dostupnosti virtuálního po
 ## <a name="next-steps"></a>Další kroky
 * Pokud máte v úmyslu pracovat s virtuálními počítači s Linuxem, podívejte se na téma [Azure a Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Další informace o pokynech ohledně nastavení infrastruktury najdete v tématu [Průvodce ukázkovou infrastrukturou Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Je třeba dodržovat [Osvědčené postupy pro spuštění virtuálního počítače s Windows v Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

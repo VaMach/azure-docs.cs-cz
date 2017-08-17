@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Rychlý start: Samoobslužné resetování hesla Azure AD
@@ -79,13 +79,7 @@ Pokud chcete povolit místní synchronizaci identit s Azure AD, je nutné na ser
 
 Zakázání samoobslužného resetování hesla je snadné – stačí otevřít vašeho tenanta Azure AD, přejít na **Resetování hesla > Vlastnosti** a v části **Samoobslužné resetování hesla povoleno** zvolit **Žádné**.
 
-## <a name="next-steps"></a>Další kroky
-
-V tomto rychlém startu jste zjistili, jak pro vaše uživatele nakonfigurovat samoobslužné resetování hesla. Pokud chcete pokračovat na Azure Portal a dokončit tyto kroky, použijte následující odkaz na portál.
-
-> [!div class="nextstepaction"]
-> [Povolení samoobslužného resetování hesla](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>Další informace
 Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
 
 * [**Správa licencí**](active-directory-passwords-licensing.md) – Konfigurujte licencování Azure AD.
@@ -97,4 +91,12 @@ Na následujících odkazech najdete další informace o resetování hesla pomo
 * [**Podrobné technické informace**](active-directory-passwords-how-it-works.md) – Nahlédněte za oponu a pochopte, jak to funguje.
 * [**Nejčastější dotazy**](active-directory-passwords-faq.md) – Jak? Proč? Co? Kde? Kdo? Kdy? – Odpovědi na otázky, na které jste se vždy chtěli zeptat.
 * [**Řešení potíží**](active-directory-passwords-troubleshoot.md) – Zjistěte, jak řešit běžné problémy, ke kterým dochází u samoobslužného resetování hesla.
+
+## <a name="next-steps"></a>Další kroky
+
+V tomto rychlém startu jste zjistili, jak pro vaše uživatele nakonfigurovat samoobslužné resetování hesla. Pokud chcete pokračovat na Azure Portal a dokončit tyto kroky, použijte následující odkaz na portál.
+
+> [!div class="nextstepaction"]
+> [Povolení samoobslužného resetování hesla](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

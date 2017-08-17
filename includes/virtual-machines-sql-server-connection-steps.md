@@ -1,5 +1,4 @@
-### Otevření portů TCP v bráně Windows Firewall pro výchozí instanci databázového stroje
-<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Otevření portů TCP v bráně Windows Firewall pro výchozí instanci databázového stroje
 1. Pomocí Vzdálené plochy se připojte k virtuálnímu počítači. Podrobné pokyny pro připojení k virtuálnímu počítači najdete v tématu věnovaném [otevření virtuálního počítače SQL pomocí Vzdálené plochy](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 2. Po přihlášení na úvodní obrazovce zadejte **WF.msc** a potom stiskněte ENTER.
    
@@ -28,24 +27,11 @@
 
 Podle potřeby otevřete další porty pro ostatní komponenty. Další informace najdete v tématu věnovaném [konfiguraci brány Windows Firewall pro povolení přístupu k SQL Serveru](http://msdn.microsoft.com/library/cc646023.aspx).
 
-### Konfigurace naslouchání SQL Serveru pro protokol TCP
-<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
-1. Zůstaňte připojeni k virtuálnímu počítači a na úvodní stránce zadejte **SQL Server Configuration Manager** a stiskněte ENTER.
-   
-    ![Otevření SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. V podokně konzoly SQL Server Configuration Manageru rozbalte **SQL Server Network Configuration** (Konfigurace sítě SQL Serveru).
-3. V podokně konzoly klikněte na **Protokoly pro MSSQLSERVER** (výchozí název instance.) V podokně podrobností klikněte pravým tlačítkem na **TCP** a klikněte na **Povolit** (pokud tento protokol ještě není povolený).
-   
-    ![Povolení protokolu TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. V podokně konzoly klikněte na **SQL Server Services** (Služby SQL Serveru). V podokně podrobností klikněte pravým tlačítkem na **SQL Server (*název name*)** (výchozí instancí je **SQL Server (MSSQLSERVER)**) a potom klikněte na **Restartovat**. Instance SQL Serveru se zastaví a restartuje.
-   
-    ![Restartování databázového stroje](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Zavřete SQL Server Configuration Manager.
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Konfigurace naslouchání SQL Serveru pro protokol TCP
 
-Další informace o povolení protokolů pro databázový stroj SQL Serveru najdete v tématu věnovaném [povolení nebo zákazu síťového protokolu serveru](http://msdn.microsoft.com/library/ms191294.aspx).
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-### Konfigurace SQL Serveru pro kombinovaný režim ověřování
-<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Konfigurace SQL Serveru pro kombinovaný režim ověřování
 Databázový stroj SQL Serveru nemůže používat ověřování systému Windows bez doménového prostředí. Pokud se chcete připojit k databázovému stroji z jiného počítače, nakonfigurujte SQL Server ověřování ve smíšeném režimu. Smíšený režim ověřování umožňuje ověřování systému SQL Server i ověřování systému Windows.
 
 > [!NOTE]
@@ -71,8 +57,7 @@ Databázový stroj SQL Serveru nemůže používat ověřování systému Window
     ![Restartování](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. Kliknutím na **Ano** v dialogovém okně SQL Server Management Studio vyjádříte souhlas s restartováním SQL Serveru.
 
-### Vytvoření účtů ověřování serveru SQL
-<a id="create-sql-server-authentication-logins" class="xliff"></a>
+### <a name="create-sql-server-authentication-logins"></a>Vytvoření účtů ověřování serveru SQL
 Pokud se chcete připojit k databázovému stroji z jiného počítače, musíte vytvořit nejméně jeden účet ověřování SQL Serveru.
 
 1. V Průzkumníku objektů systému SQL Server rozbalte složku instance serveru, ve které chcete vytvořit nové přihlášení.
