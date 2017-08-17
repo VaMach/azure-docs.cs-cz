@@ -7,6 +7,7 @@
 ## [Směrování adres URL](application-gateway-url-route-overview.md)
 ## [Multi-Site](application-gateway-multi-site-overview.md)
 ## [Koncový protokol SSL](application-gateway-backend-ssl.md)
+## [Zásady protokolu SSL](application-gateway-ssl-policy-overview.md)
 ## [Přesměrování](application-gateway-redirect-overview.md)
 ## [Podpora více tenantů](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Přizpůsobení pravidel firewallu webových aplikací
 ### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## Konfigurace pro přesměrování zpracování SSL
+## Konfigurace SSL
 ### [Azure Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (Classic)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [Zásady a koncové řešení](application-gateway-end-to-end-ssl-powershell.md)
+### [Koncové řešení](application-gateway-end-to-end-ssl-powershell.md)
+### [Zásady protokolu SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurace směrování na základě cest URL
 ### [Azure Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

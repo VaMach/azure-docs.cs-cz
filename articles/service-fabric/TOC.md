@@ -133,11 +133,12 @@
 ### Sestavení služby kontejneru
 #### [Vytvoření aplikace typu kontejner pro Windows](service-fabric-get-started-containers.md)
 #### [Vytvoření aplikace typu kontejner pro Linux](service-fabric-get-started-containers-linux.md)
-#### [Nasazení kontejneru Linuxu](service-fabric-deploy-container-linux.md)
+#### [Zabezpečení kontejneru](service-fabric-securing-containers.md)
 #### [Docker Compose (Preview)](service-fabric-docker-compose.md)
 #### [Zásady správného řízení prostředků pro kontejnery a služby](service-fabric-resource-governance.md)
 #### [Svazek a ovladače protokolování](service-fabric-containers-volume-logging-drivers.md)
 #### [Služby uvnitř kontejnerů](service-fabric-services-inside-containers.md)
+#### [Síťové režimy kontejneru](service-fabric-networking-modes.md)
 
 ### Sestavení služby s modelem Reliable Services
 #### [Přehled](service-fabric-reliable-services-introduction.md)
