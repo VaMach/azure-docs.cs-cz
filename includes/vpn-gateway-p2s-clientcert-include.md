@@ -7,7 +7,7 @@ Klientské certifikáty můžete vygenerovat následujícími způsoby:
 - **Podnikový certifikát:**
 
   - Pokud používáte podnikové certifikační řešení, vygenerujte klientský certifikát s běžným názvem ve formátu name@yourdomain.com (namísto formátu název_domény\uživatelské_jméno).
-  - Ujistěte se, že je certifikát založený na šabloně uživatelského certifikátu, která má jako první položku v seznamu používání Ověření klienta místo Přihlášení pomocí čipové karty atd. Certifikát můžete zkontrolovat dvojím kliknutím na klientský certifikát a zobrazením *Podrobnosti > Použití rozšířeného klíče*.
+  - Ujistěte se, že je certifikát založený na šabloně uživatelského certifikátu, která má jako první položku v seznamu používání Ověření klienta místo Přihlášení pomocí čipové karty atd. Certifikát můžete zkontrolovat dvojím kliknutím na klientský certifikát a zobrazením **Podrobnosti > Použití rozšířeného klíče**.
 
 - **Kořenový certifikát podepsaný svým držitelem:** Je důležité, abyste postupovali podle pokynů v některém z níže uvedených článků věnujících se certifikátům Point-to-Site. Jinak klientské certifikáty, které vytvoříte, nebudou kompatibilní s připojeními typu Point-to-Site a klienti při pokusu o připojení obdrží chybu. Kompatibilní klientský certifikát můžete vytvořit pomocí postupu v jednom z následujících článků: 
 
