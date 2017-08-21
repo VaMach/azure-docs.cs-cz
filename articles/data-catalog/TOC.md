@@ -28,9 +28,8 @@
 ## [REST](/rest/api/datacatalog/)
 ## [Reference k syntaxi služby Search](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Koncepce pro vývojáře](data-catalog-developer-concepts.md)
-## [Ukázky pro vývojáře](data-catalog-samples.md)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Klávesové zkratky pro Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)

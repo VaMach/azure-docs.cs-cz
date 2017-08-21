@@ -4,8 +4,6 @@
   items:
     - name: Informace o databázi Azure Cosmos
       href: introduction.md
-    - name: Vítáme zákazníky DocumentDB
-      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Šablony Rychlý start
   expanded: true
   items:
