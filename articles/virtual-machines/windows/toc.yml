@@ -72,11 +72,6 @@
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Plánovaná údržba
       href: planned-maintenance.md
-      items:
-        - name: Údržba pro zachování
-          href: preserving-maintenance.md
-        - name: Restartování údržby
-          href: impactful-maintenance.md
     - name: Velikost virtuálních počítačů
       href: sizes.md
       items:

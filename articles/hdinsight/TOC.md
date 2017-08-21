@@ -199,7 +199,6 @@
 #### [Výkon a paměť Hadoopu](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Přístup k protokolům aplikací Hadoop YARN v Linuxu](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Povolení výpisů paměti haldy pro služby Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [Analýza protokolů služby HDInsight](hdinsight-debug-jobs.md)
 #### [Vysvětlení a řešení chyb WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Nastavení Hivu pro opravu chyb typu Nedostatek paměti](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Použití zobrazení Ambari k ladění úloh Tez](hdinsight-debug-ambari-tez-view.md)
