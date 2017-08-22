@@ -83,6 +83,7 @@
 ## [Povolení fakturace](active-directory-b2c-how-to-enable-billing.md)
 ## [Řízení rizik](active-directory-b2c-reference-threat-management.md)
 ## [Potíže při vytváření adresáře](active-directory-b2c-support-create-directory.md)
+## [Aplikace rozšíření](active-directory-b2c-reference-extensions-app.md)
 
 # Související
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

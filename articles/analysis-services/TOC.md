@@ -2,6 +2,7 @@
 ## [Co je služba Azure Analysis Services?](analysis-services-overview.md)
 ## [Podporované zdroje dat](analysis-services-datasource.md)
 ## [Ověřování a uživatelská oprávnění](analysis-services-manage-users.md)
+## [Připojení k místním zdrojům dat](analysis-services-gateway.md)
 ## [Úroveň kompatibility](analysis-services-compat-level.md)
 ## [Vysoká dostupnost](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Správa serveru](analysis-services-manage.md)
 ## [Správa uživatelů databáze](analysis-services-database-users.md)
 ## [Správa správců serveru](analysis-services-server-admins.md)
-## [Instalace místní datové brány](analysis-services-gateway.md)
+## [Instalace a konfigurace místní brány dat](analysis-services-gateway-install.md)
 ## [Získání klientských knihoven](analysis-services-data-providers.md)
 ## [Zálohování a obnovení](analysis-services-backup.md)
 ## [Propojení s Excelem](analysis-services-connect-excel.md)

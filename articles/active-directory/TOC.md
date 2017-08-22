@@ -144,8 +144,14 @@
 
 ## Správa zařízení
 ### [Úvod](device-management-introduction.md)
-### [Registrace zařízení](active-directory-device-registration-overview.md)
-#### [Nastavení](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [Nejčastější dotazy](device-management-faq.md)
+### Úlohy
+#### [Konfigurace hybridních zařízení připojených k Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### Řešení potíží
+##### [Hybridní zařízení s Windows 10 a Windows Serverem 2016 připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [Hybridní zařízení s Windows starší verze připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Registrace zařízení
 #### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
 #### [Nejčastější dotazy](active-directory-device-registration-faq.md)
 #### Řešení potíží
