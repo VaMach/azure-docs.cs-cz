@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/02/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f22e886ab3e59e69607e572d05a9f01d3d57f181
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze dokumentů pomocí Javy a webu Azure Portal
@@ -42,7 +42,7 @@ V tomto rychlém startu se vytvoří databáze dokumentů pomocí nástrojů pro
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
-Než budete moct vytvořit databázi grafu, je potřeba pomocí služby Azure Cosmos DB vytvořit účet databáze SQL (DocumentDB).
+Než budete moct vytvořit databázi dokumentů, je potřeba pomocí služby Azure Cosmos DB vytvořit účet databáze SQL (DocumentDB).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

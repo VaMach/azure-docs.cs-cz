@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Přehled služby Application Gateway
@@ -42,6 +42,7 @@ Služba Application Gateway aktuálně poskytuje následující možnosti:
 * **[Směrování více webů](application-gateway-multi-site-overview.md)** – Služba Application Gateway umožňuje konsolidovat až 20 webů v jedné službě Application Gateway.
 * **[Podpora protokolu WebSocket](application-gateway-websocket.md)** – Další skvělou funkcí služby Application Gateway je nativní podpora protokolu WebSocket.
 * **[Monitorování stavu](application-gateway-probe-overview.md)** – Služba Application Gateway poskytuje výchozí monitorování stavu back-endových prostředků a vlastní monitorovací sondy pro konkrétnější scénáře.
+* **[Zásady a šifrování protokolu SSL](application-gateway-ssl-policy-overview.md)** – Tato funkce poskytuje možnost omezit podporované sady šifrování a verze protokolu SSL a pořadí, ve kterém se zpracovávají.
 * **[Přesměrování požadavků](application-gateway-redirect-overview.md)** – Tato funkce poskytuje možnost přesměrovat požadavky HTTP do naslouchacího procesu HTTPS.
 * **[Podpora back-endu s více tenanty](application-gateway-web-app-overview.md)** – Služba Application Gateway podporuje konfiguraci služeb back-end s více tenanty, jako je Azure Web Apps a brána rozhraní API, jako členy fondu back-end. 
 * **[Rozšířená diagnostika](application-gateway-diagnostics.md)** – Služba Application Gateway poskytuje úplnou diagnostiku a protokoly přístupů. Protokoly brány firewall jsou dostupné pro prostředky služby Application Gateway, které mají povolený Firewall webových aplikací.
@@ -105,5 +106,5 @@ Po získání informací o službě Application Gateway můžete [vytvořit slu�
 
 Další informace o vytvoření služby Application Gateway používající směrování obsahu na základě adresy URL najdete v tématu [Vytvoření služby Application Gateway používající směrování na základě adresy URL](application-gateway-create-url-route-arm-ps.md).
 
-Další informace o některých dalších klíčových síťových funkcích Azure najdete v tématu [Sítě Azure]((../networking/networking-overview.md).
+Informace o některých dalších klíčových možnostech sítě v Azure najdete v tématu [Sítě Azure](../networking/networking-overview.md).
 

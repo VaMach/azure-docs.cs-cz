@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Nejčastější dotazy k branám VPN
@@ -58,7 +57,7 @@ Konfigurace **Point-to-Site** (VPN přes SSTP) umožňují připojit se z jednoh
 
 Virtuální síť můžete nakonfigurovat tak, aby souběžně používala připojení Site-to-Site i Point-to-Site, pokud pro bránu vytvoříte připojení Site-to-Site s použitím typu sítě VPN založeného na směrování. Typy sítí VPN založené na směrování se v modelu nasazení Classic nazývají dynamické brány.
 
-## <a name="virtual-network-gateways"></a>Brány virtuální sítě
+## <a name="gateways"></a>Brány virtuálních sítí
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Je brána sítě VPN bránou virtuální sítě?
 
@@ -132,7 +131,7 @@ Brána sítě VPN je v podstatě zařízení s více adresami, přičemž jedna 
 
 Další informace najdete v tématu [Informace o nastavení konfigurace služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Připojení typu Site-to-Site a zařízení VPN
+## <a name="s2s"></a>Připojení typu Site-to-Site a zařízení VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Co je třeba zvážit při výběru zařízení VPN?
 
@@ -196,7 +195,7 @@ Ano, sítě VPN Point-to-Site (P2S) je možné používat spolu s bránami VPN, 
 
 Ano, tato možnost je podporována. Další informace najdete v tématu [konfigurace ExpressRoute a připojení VPN typu site-to-site, která mohou existovat vedle sebe](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike-policy"></a>Zásady IPsec/IKE
+## <a name="ipsecike"></a>Zásady IPsec/IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ Ano, tato možnost je podporována. Další informace najdete v tématu [konfigu
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Připojení mezi místními sítěmi a virtuální počítače
+## <a name="vms"></a>Připojení mezi místními sítěmi a virtuální počítače
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Pokud se virtuální počítač nachází ve virtuální síti s propojením mezi různými místy, jak se k virtuálnímu počítači připojovat?
 
@@ -222,7 +221,7 @@ Ne. Bránou virtuální sítě prochází pouze s cílovou IP adresou uvedenou v
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>Nejčastější dotazy týkající se virtuálních sítí
+## <a name="faq"></a>Nejčastější dotazy týkající se virtuálních sítí
 
 Další informace o virtuálních sítích najdete v tématu [Nejčastější dotazy týkající se virtuálních sítí](../virtual-network/virtual-networks-faq.md).
 

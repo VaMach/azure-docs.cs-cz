@@ -7,8 +7,8 @@ V následujících částech se vytvoří nový back-end ASP.NET WebAPI, který 
 
 Následující kroky ukazují, jak vytvořit nový back-end ASP.NET WebAPI: 
 
-> [!NOTE]
-> **Důležité:** Pokud používáte sadu Visual Studio 2015 nebo starší, před zahájením tohoto kurzu se ujistěte, že máte nainstalovanou nejnovější verzi správce balíčků NuGet. Pokud to chcete zkontrolovat, spusťte sadu Visual Studio. V nabídce **Nástroje** klikněte na **Rozšíření a aktualizace**. Vyhledejte **Správce balíčků NuGet** pro vaši verzi sady Visual Studio a ujistěte se, že máte nejnovější verzi. Pokud ne, odinstalujte a znovu nainstalujte správce balíčků NuGet.
+> [!IMPORTANT]
+> Pokud používáte sadu Visual Studio 2015 nebo starší, před zahájením tohoto kurzu se ujistěte, že máte nainstalovanou nejnovější verzi správce balíčků NuGet. Pokud to chcete zkontrolovat, spusťte sadu Visual Studio. V nabídce **Nástroje** klikněte na **Rozšíření a aktualizace**. Vyhledejte **Správce balíčků NuGet** pro vaši verzi sady Visual Studio a ujistěte se, že máte nejnovější verzi. Pokud ne, odinstalujte a znovu nainstalujte správce balíčků NuGet.
 > 
 > ![][B4]
 > 

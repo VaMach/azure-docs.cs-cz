@@ -1,6 +1,6 @@
 ---
-title: "Sestava zabezpečení Ohrožení uživatelé na portálu Azure Active Directory | Dokumentace Microsoftu"
-description: "Přečtěte si o sestavě zabezpečení Ohrožení uživatelé na portálu Azure Active Directory"
+title: "Sestava zabezpečení Uživatelé označení příznakem rizika na portálu Azure Active Directory | Dokumentace Microsoftu"
+description: "Přečtěte si o sestavě zabezpečení Uživatelé označení příznakem rizika na portálu Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,27 +10,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Sestava zabezpečení Ohrožení uživatelé na portálu Azure Active Directory
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Sestava zabezpečení Uživatelé označení příznakem rizika na portálu Azure Active Directory
 
 Sestavy zabezpečení v Azure Active Directory (Azure AD) umožňují získat přehled o pravděpodobnosti ohrožení uživatelských účtů ve vašem prostředí. 
 
-Azure Active Directory detekuje podezřelé akce, které souvisejí s vašimi uživatelskými účty. Pro každou zjištěnou akci se vytvoří záznam nazvaný *riziková událost*. Další podrobnosti najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Azure Active Directory detekuje podezřelé akce, které souvisejí s vašimi uživatelskými účty. Pro každou zjištěnou akci se vytvoří záznam nazvaný *riziková událost*. Další informace najdete v tématu věnovaném [rizikovým událostem služby Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
 Zjištěné rizikové události se použijí k výpočtu těchto údajů:
 
-- **Riziková přihlášení** – Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. Další podrobnosti najdete v tématu [Riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins). 
+- **Riziková přihlášení** – Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. Další informace najdete v tématu popisujícím [riziková přihlášení](active-directory-identityprotection.md#risky-sign-ins). 
 
-- **Uživatelé označení příznakem rizika** – Rizikový uživatel je indikátorem uživatelského účtu, který mohl být ohrožený. Další podrobnosti najdete v tématu [Uživatelé označení příznakem rizika](active-directory-identityprotection.md#users-flagged-for-risk).  
+- **Uživatelé označení příznakem rizika** – Rizikový uživatel je indikátorem uživatelského účtu, který mohl být ohrožený. Další informace najdete v tématu popisujícím [uživatele označené příznakem rizika](active-directory-identityprotection.md#users-flagged-for-risk).  
 
 Na webu Azure Portal najdete sestavy zabezpečení v okně **Azure Active Directory** v části **Zabezpečení**.  
 
@@ -47,13 +47,13 @@ Sestavy uživatelů označených příznakem rizika nabízí všechny edice Azur
 
 - Edice **Azure Active Directory Premium 1** tento model rozšiřuje tím, že umožňuje také prozkoumávat některé ze základních rizikových událostí, které byly v každé sestavě rozpoznány. 
 
-- Edice **Azure Active Directory Premium 2** poskytuje nejpodrobnější informace o základních rizikových událostech a umožňuje také konfigurovat zásady zabezpečení, které automaticky reagují na nakonfigurované úrovně rizika.
+- Edice **Azure Active Directory Premium 2** poskytuje nejpodrobnější informace o všech základních rizikových událostech a umožňuje konfigurovat zásady zabezpečení, které automaticky reagují na nakonfigurované úrovně rizika.
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Edice Free a Basic služby Azure Active Directory
 
-Edice Free a Basic služby Azure Active Directory poskytuje sestavu ohrožených uživatelů, která obsahuje seznam uživatelských účtů, které jsou možná ohrožené. 
+Edice Free a Basic služby Azure Active Directory poskytuje sestavu uživatelů označených příznakem rizika, která obsahuje seznam uživatelských účtů, které můžou být ohrožené. 
 
 
 ![Riziková přihlášení](./media/active-directory-reporting-security-user-at-risk/03.png)
@@ -65,7 +65,7 @@ U ohrožených uživatelů můžete zkontrolovat historii jejich přihlášení 
 
 ## <a name="azure-active-directory-premium-editions"></a>Edice Premium služby Azure Active Directory
 
-Sestava ohrožených uživatelů v edicích Premium služby Azure Active Directory vám nabízí:
+Sestava uživatelů označených příznakem rizika v edicích Premium služby Azure Active Directory vám nabízí:
 
 - [Seznam uživatelských účtů](active-directory-identityprotection.md#users-flagged-for-risk), které mohly být napadeny nebo vyzrazeny 
 
@@ -92,8 +92,7 @@ Po výběru uživatele získáte podrobné zobrazení sestavy pro tohoto uživat
 ![Riziková přihlášení](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-Pokud chcete vyšetřovat rizikovou událost, vyberte ji ze seznamu.  
-Tím otevřete okno **Podrobnosti** pro tuto rizikovou událost. V okně **Podrobnosti** můžete zvolit [ruční zavření rizikové události](active-directory-identityprotection.md#closing-risk-events-manually) nebo reaktivaci ručně zavřené rizikové události. 
+Pokud chcete vyšetřit rizikovou událost, vyberte některou ze seznamu a otevře se okno **Podrobnosti** pro danou rizikovou událost. V okně **Podrobnosti** můžete zvolit [ruční zavření rizikové události](active-directory-identityprotection.md#closing-risk-events-manually) nebo reaktivaci ručně zavřené rizikové události. 
 
 
 ![Riziková přihlášení](./media/active-directory-reporting-security-user-at-risk/325.png)

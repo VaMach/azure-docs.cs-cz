@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ Azure Cosmos DB jakožto globálně distribuovaná databázová služba poskytuj
         * Další datové modely se připravují. 
 
 * **Elastické škálování propustnosti a úložiště na vyžádání, celosvětově**
-    * Snadno škálujte propustnost databáze v přírůstcích po [sekundách](request-units.md) a [minutách](request-units-per-minute.md), přičemž to můžete kdykoli změnit. 
+    * Snadno škálujte propustnost databáze v přírůstcích po [sekundách](request-units.md), přičemž to můžete kdykoli změnit. 
     * Škálujte velikost úložiště [transparentně a automaticky](partition-data.md) s ohledem na současné a budoucí požadavky na velikost.
 
 * **Vytváření aplikací s rychlou odezvou a vysokou důležitostí pro chod firmy**

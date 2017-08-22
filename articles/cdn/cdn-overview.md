@@ -3,7 +3,7 @@ title: "CDN Azure – Přehled | Dokumentace Microsoftu"
 description: "Zjistěte, co je Síť pro doručování obsahu (CDN) Azure, a jak ji používat k doručování širokopásmového obsahu díky ukládání objektů blob a statického obsahu do mezipaměti."
 services: cdn
 documentationcenter: 
-author: lichard
+author: smcevoy
 manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
-ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 299e55e095ac323ed0ded7c7844d7cd103174af2
+ms.author: v-semcev
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0517f35a43e99181075dc5a6836e406c2c06824e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Přehled služby Content Delivery Network (CDN) Azure
@@ -51,28 +50,37 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 
 |  | Akamai Standard | Verizon Standard | Verizon Premium |
 | --- | --- | --- | --- |
-| Snadná integrace se službami Azure, jako jsou [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) a [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Správa prostřednictvím [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) nebo [prostředí PowerShellu](cdn-manage-powershell.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Podpora HTTPS s koncovými body CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| HTTPS pro vlastní doménu | |**&#x2713;** |**&#x2713;** |
-| Vyrovnávání zatížení |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Ochrana proti útoku [DDoS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Duální sada protokolů IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Podpora vlastních názvů domén](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Ukládání řetězce dotazu do mezipaměti](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Geografická filtrování](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Funkce a optimalizace výkonu__ |
+| [Akcelerace dynamického webu](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| [Optimalizace streamování videa](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [Optimalizace velkých souborů](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [Vyrovnávání zatížení globálního serveru (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Rychlé vyprázdnění](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Předběžné načítání prostředku](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
-| [Základní analýza](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
+| [Ukládání řetězce dotazu do mezipaměti](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Duální sada protokolů IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Podpora HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Zabezpečení__ |
+| Podpora HTTPS s koncovými body CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| HTTPS pro vlastní doménu | |**&#x2713;** |**&#x2713;** |
+| [Podpora vlastních názvů domén](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Geografická filtrování](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Ověření tokenu](cdn-token-auth.md)|  |  |**&#x2713;**| 
+| [Ochrana proti útoku DDoS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Analýzy a generování sestav__ |
+| [Základní analýza](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Rozšířené sestavy HTTP](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Statistiky v reálném čase](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Výstrahy v reálném čase](cdn-real-time-alerts.md) | | |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Snadné použití__ |
+| Snadná integrace se službami Azure, jako jsou [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) a [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Správa prostřednictvím [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) nebo [prostředí PowerShellu](cdn-manage-powershell.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Přizpůsobitelný modul doručování obsahu založený na pravidlech](cdn-rules-engine.md) | | |**&#x2713;** |
 | Nastavení mezipaměti nebo hlaviček (pomocí [stroje pravidel](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Přesměrování nebo přepsání adresy URL (pomocí [stroje pravidel](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Pravidla mobilních zařízení (pomocí [stroje pravidel](cdn-rules-engine.md)) | | |**&#x2713;** |
-| [Ověření tokenu](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
+\* Verizon podporuje přímé doručování velkých souborů a médií prostřednictvím Obecného doručování webu.
 
 
 > [!TIP]
