@@ -67,7 +67,7 @@ Ve skutečných aplikacích můžete použít ikonu vhodnou pro oznámení podle
 > 
 
 ### <a name="enable-your-app-to-receive-gcm-push-notifications"></a>Povolení přijímání nabízených oznámení GCM v aplikaci
-1. Až nahradíte **** získané z konzoly projektu Firebase, vložte následující položky do souboru Manifest.xml mezi značky `<application>` a `</application>`. Položka \n je úmyslná, proto se ujistěte, že se nachází na konci čísla projektu.
+1. Až nahradíte **získané** z konzoly projektu Firebase, vložte následující položky do souboru Manifest.xml mezi značky `<application>` a `</application>`. Položka \n je úmyslná, proto se ujistěte, že se nachází na konci čísla projektu.
    
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 2. Vložte následující kód do souboru Manifest.xml mezi značky `<application>` a `</application>`. Nahraďte název balíčku <Your package name>.
@@ -91,9 +91,4 @@ Ve skutečných aplikacích můžete použít ikonu vhodnou pro oznámení podle
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
