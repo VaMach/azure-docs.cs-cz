@@ -54,14 +54,12 @@
 ### [Webová aplikace pomocí sady Visual Studio](web-app-visual-studio.md)
 ### [Cluster s přímým přístupem do paměti vzdáleného počítače (RDMA) pro spouštění aplikací MPI](rdma-cluster.md)
 ### [Jak používat podřízený plugin Azure s Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## Sada HPC Pack
-### [Cluster Windows RDMA pro spouštění aplikací MPI](hpcpack-cluster.md)
-### [Cluster Windows HPC se skriptem nasazení IaaS sady HPC Pack](hpcpack-cluster-starccm.md)
-### [Správa počtu a dostupnosti výpočetních uzlů](hpcpack-cluster-powershell-script.md)
-### [Přidávání uzlů na vyžádání](hpcpack-cluster-openfoam.md)
-### [Automatické škálování prostředků](hpcpack-cluster-namd.md)
+### Sada HPC Pack
+#### [Vytvoření clusteru pro linuxové úlohy](hpcpack-cluster-powershell-script.md)
+#### [Správa clusteru s linuxovými uzly](hpcpack-cluster.md)
+#### [Spuštění STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Spuštění OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Spuštění NAMD](hpcpack-cluster-namd.md)
 
 ## Řešení potíží
 ### [Nasazení virtuálních počítačů](troubleshoot-deployment-new-vm.md)

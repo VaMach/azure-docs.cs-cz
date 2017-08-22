@@ -3,9 +3,10 @@
 ## [Co je Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Vědecké zpracování týmových dat
-### [Přehled](http://aka.ms/datascienceprocess)
-### [Životní cyklus](data-science-process-overview.md)
+### [Přehled](data-science-process-overview.md)
+### [Životní cyklus](data-science-process-lifecycle.md)
 ### [Návody](data-science-process-walkthroughs.md)
+### [S využitím Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Co je Studio?](machine-learning-what-is-ml-studio.md)

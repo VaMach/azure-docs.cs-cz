@@ -17,7 +17,7 @@
 ### [Použití stávajících serverů NPS](multi-factor-authentication-nps-extension.md)
 #### [Pokročilá konfigurace pro rozšíření serveru NPS](nps-extension-advanced-configuration.md)
 ### [Vytvoření poskytovatele ověřování](multi-factor-authentication-get-started-auth-provider.md)
-### Místní Azure MFA
+### Nasazení MFA v místním prostředí
 #### [Instalace uživatelského portálu](multi-factor-authentication-get-started-portal.md)
 #### [Pokročilé konfigurace sítě VPN](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webová služba mobilní aplikace](multi-factor-authentication-get-started-server-webservice.md)
@@ -31,16 +31,19 @@
 ### [Uživatelská příručka k MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrace
-### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Použití služby Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Adresáře
-#### [Ověřování pomocí protokolu LDAP](multi-factor-authentication-get-started-server-ldap.md)
-#### [Ověřování Radius](multi-factor-authentication-get-started-server-radius.md)
-#### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [Webové aplikace služby IIS](multi-factor-authentication-get-started-server-iis.md)
-### [Brána vzdálené plochy](multi-factor-authentication-get-started-server-rdg.md)
+### [Brána vzdálené plochy](nps-extension-remote-desktop-gateway.md)
+### [Síť VPN](nps-extension-vpn.md)
+### Integrace MFA v místním prostředí
+#### [Federation Services](multi-factor-authentication-get-started-adfs.md)
+##### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [Použití služby AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
+##### [Použití služby Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
+#### Adresáře
+##### [Ověřování pomocí protokolu LDAP](multi-factor-authentication-get-started-server-ldap.md)
+##### [Ověřování Radius](multi-factor-authentication-get-started-server-radius.md)
+##### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
+#### [Webové aplikace služby IIS](multi-factor-authentication-get-started-server-iis.md)
+#### [Brána vzdálené plochy](multi-factor-authentication-get-started-server-rdg.md)
 
 ## Vývoj
 ### [Sestavování do vlastních aplikací (sada SDK)](multi-factor-authentication-sdk.md)
@@ -49,6 +52,7 @@
 ### [Nejčastější dotazy](multi-factor-authentication-faq.md)
 ### [Zeptejte se](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Chyby rozšíření NPS](multi-factor-authentication-nps-errors.md)
+
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
