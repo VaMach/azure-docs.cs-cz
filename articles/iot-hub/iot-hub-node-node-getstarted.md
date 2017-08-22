@@ -76,8 +76,9 @@ V této části vytvoříte konzolovou aplikaci Node.js, která v registru ident
 6. Přidejte následující kód k vytvoření definice zařízení v registru identit ve službě IoT Hub. Pokud ID zařízení v registru identit neexistuje, vytvoří tento kód nové zařízení. V opačném případě vrátí klíč stávajícího zařízení:
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
