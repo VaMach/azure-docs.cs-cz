@@ -14,6 +14,7 @@
 
 # Referenční informace
 ## [Azure CLI 2.0](/cli/azure) 
+
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
