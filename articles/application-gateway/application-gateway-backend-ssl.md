@@ -1,5 +1,5 @@
 ---
-title: "Povolení zásad protokolu SSL a koncového šifrování protokolu SSL ve službě Application Gateway | Dokumentace Microsoftu"
+title: "Povolení koncového šifrování protokolu SSL ve službě Azure Application Gateway | Dokumentace Microsoftu"
 description: "Tato stránka poskytuje přehled podpory koncového šifrování protokolu SSL ve službě Application Gateway."
 documentationcenter: na
 services: application-gateway
@@ -13,16 +13,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/19/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
-ms.lasthandoff: 04/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Přehled koncového šifrování protokolu SSL a zásad protokolu SSL ve službě Application Gateway
+# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Přehled koncového šifrování protokolu SSL pomocí služby Application Gateway
 
 Služba Application Gateway podporuje ukončení protokolu SSL na bráně, po čemž provoz typicky teče nešifrován na back-endové servery. Tato funkce webovým serverům umožňuje snížení nákladné režie spojené s šifrováním a dešifrováním. Pro některé zákazníky je však nešifrovaná komunikace s back-endovými servery nepřijatelnou možností. Může to být z důvodu požadavků na zabezpečení nebo dodržování předpisů nebo protože aplikace může přijímat pouze zabezpečená připojení. Pro takové aplikace služba Application Gateway podporuje koncové šifrování protokolu SSL.
 
@@ -40,17 +40,9 @@ V tomto příkladu jsou požadavky, které používají šifrování TLS 1.2, p�
 
 Služba Application Gateway komunikuje pouze se známými back-endovými instancemi, jejichž certifikáty jsou uvedeny v seznamu povolených certifikátů ve službě Application Gateway. Chcete-li povolit vytváření seznamu povolených certifikátů, musíte do aplikační brány nahrát veřejný klíč certifikátů back-endového serveru (nikoliv kořenový certifikát). Potom budou povolena jenom připojení ke známým back-endům uvedeným v seznamu. Zbývající back-endy způsobí chybu brány. Certifikáty podepsané svým držitelem slouží pouze k testování a nedoporučují se pro úlohy v produkčním prostředí. Takové certifikáty také musí být uvedeny v seznamu povolených certifikátů aplikační brány (viz popis v předchozích krocích), aby bylo možné je použít.
 
-## <a name="application-gateway-ssl-policy"></a>Zásady protokolu SSL ve službě Application Gateway
-
-Služba Application Gateway podporuje uživatelsky konfigurovatelné zásady vyjednávání SSL, které zákazníkům dávají větší kontrolu nad připojeními SSL v aplikační bráně.
-
-1. Protokoly SSL 2.0 a 3.0 jsou ve výchozím nastavení zakázané pro všechny brány Application Gateway. Tyto zásady se nedají vůbec konfigurovat.
-2. Definice zásad protokolu SSL umožňuje zakázat kterýkoliv z těchto tří protokolů – **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
-3. Pokud nejsou definované žádné zásady protokolu SSL, jsou povolené všechny tři protokoly (TLSv1\_0, TLSv1\_1, TLSv1_2).
-
 ## <a name="next-steps"></a>Další kroky
 
-Po získání informací o koncovém šifrování protokolu SSL a zásadách protokolu SSL přejděte k tématu [Povolení koncového šifrování protokolu SSL v aplikační bráně](application-gateway-end-to-end-ssl-powershell.md) a vytvořte aplikační bránu s koncovým šifrováním protokolu SSL.
+Po získání informací o koncovém šifrování protokolu SSL přejděte k tématu [Povolení koncového šifrování protokolu SSL v aplikační bráně](application-gateway-end-to-end-ssl-powershell.md) a vytvořte aplikační bránu s koncovým šifrováním protokolu SSL.
 
 <!--Image references-->
 

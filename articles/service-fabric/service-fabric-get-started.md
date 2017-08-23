@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/20/2017
+ms.date: 08/10/2017
 ms.author: ryanwi, mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 926dfe3de0715f855e6d5b57f10c2366cda8583b
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f0c6957217c21bdfd76498944e248fc808f2d271
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="prepare-your-development-environment"></a>Příprava vývojového prostředí
@@ -64,16 +63,11 @@ Pokud potřebujete jenom sadu SDK, můžete nainstalovat tento balíček:
 * [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
 
 Aktuální verze jsou:
-* Sada Service Fabric SDK 2.6.220
-* Modul runtime Service Fabric 5.6.220
-* Nástroje sady Visual Studio 2015 1.6.50508.2
-* Visual Studio 2017 s aktualizací Update 2
-
-Aktuální verze Preview jsou:
-* Sada Service Fabric SDK 255.255.2718.255
-* Modul runtime Service Fabric 255.255.5718.255
-* Nástroje sady Visual Studio 2015 1.6.50509.5
-* Visual Studio 2017 s aktualizací Update 3 ve verzi Preview 1
+* Sada Service Fabric SDK 2.7.198
+* Modul runtime Service Fabric 5.7.198
+* Service Fabric Tools for Visual Studio 2015 1.7.50721
+* Visual Studio 2017 s aktualizací Update 2 obsahuje Service Fabric Tools for Visual Studio 1.6.20170504
+* Visual Studio 2017 s aktualizací Update 3 ve verzi Preview 7 (15.3.0 Preview 7.0) obsahuje Service Fabric Tools for Visual Studio 1.7.20170721
 
 Seznam podporovaných verzí najdete v tématu [Podpora pro Service Fabric](service-fabric-support.md)
 

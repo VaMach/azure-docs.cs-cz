@@ -6,6 +6,7 @@
 ### [Reakce na incidenty](security-center-incident-response.md)
 ### [Doporučení k vylepšení zabezpečení](security-center-using-recommendations.md)
 ## [Migrace platformy](security-center-platform-migration.md)
+### [Migrace platformy – nejčastější dotazy](security-center-platform-migration-faq.md)
 
 # Začínáme
 ## [Rychlý start](security-center-get-started.md)

@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/23/2017
+ms.date: 08/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 80d4aced5e4f4b053b3b5f30a6fc383f1c4d6d27
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Začínáme s Apache Kafka (Preview) v prostředí HDInsight
@@ -27,15 +27,9 @@ ms.lasthandoff: 07/04/2017
 Zjistěte, jak vytvořit a používat cluster [Apache Kafka](https://kafka.apache.org) v Azure HDInsight. Kafka je opensourcová distribuovaná streamovací platforma, která je dostupná pro HDInsight. Často se používá jako zprostředkovatel zpráv, protože nabízí funkce podobné frontě pro publikování a odběr zpráv.
 
 > [!NOTE]
-> Aktuálně jsou pro HDInsight dostupné dvě verze Kafka: 0.9.0 (HDInsight 3.4) a 0.10.0 (HDInsight 3.5). Postupy v tomto dokumentu platí pro HDInsight 3.5.
+> Aktuálně jsou pro HDInsight dostupné dvě verze Kafka: 0.9.0 (HDInsight 3.4) a 0.10.0 (HDInsight 3.5 a 3.6). Postupy v tomto dokumentu předpokládají, že používáte Kafka ve službě HDInsight 3.6.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
-## <a name="prerequisites"></a>Požadavky
-
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) nebo ekvivalentní, například OpenJDK.
-
-* [Apache Maven](http://maven.apache.org/) 
 
 ## <a name="create-a-kafka-cluster"></a>Vytvoření clusteru Kafka
 
@@ -45,7 +39,7 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
    
     ![Vytvoření clusteru HDInsight](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
 
-2. V okně **Základy** zadejte následující informace:
+2. V části **Základy** zadejte následující informace:
 
     * **Název clusteru:** Název clusteru HDInsight.
     * **Předplatné:** Vyberte předplatné, které chcete použít.
@@ -54,29 +48,29 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
     * **Skupina prostředků:** Skupina prostředků, ve které se cluster vytváří.
     * **Umístění:** Oblast Azure, ve které se cluster vytváří.
    
-    ![Výběr předplatného](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
+ ![Výběr předplatného](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Vyberte **Typ clusteru** a pak v okně **Konfigurace clusteru** zadejte tyto hodnoty:
+3. Vyberte **Typ clusteru** a pak v části **Konfigurace clusteru** nastavte následující hodnoty:
    
     * **Typ clusteru:** Kafka
 
-    * **Verze:** Kafka 0.10.0 (HDI 3.5)
+    * **Verze:** Kafka 0.10.0 (HDI 3.6)
 
     * **Úroveň clusteru:** Standard
      
-    Nakonec uložte nastavení tlačítkem **Vybrat**.
+ Nakonec uložte nastavení tlačítkem **Vybrat**.
      
-    ![Výběr typu clusteru](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
+ ![Výběr typu clusteru](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
 4. Po výběru typu clusteru použijte tlačítko __Vybrat__ k výběru typu clusteru. Dále stisknutím tlačítka __Další__ dokončete základní konfiguraci.
 
-5. V okně **Úložiště** vyberte nebo vytvořte účet úložiště. Pro ukázkový postup v tomto dokumentu ponechte všechna ostatní pole v tomto okně na výchozích hodnotách. Stisknutím tlačítka __Další__ uložte konfiguraci úložiště.
+5. V části **Úložiště** vyberte nebo vytvořte účet úložiště. Pro ukázkový postup v tomto dokumentu ponechte ve všech ostatních polích výchozí hodnoty. Stisknutím tlačítka __Další__ uložte konfiguraci úložiště.
 
     ![Nastavení účtu úložiště pro HDInsight](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Pokud chcete pokračovat, v okně __Aplikace (volitelné)__ vyberte __Další__. Pro tento příklad se nepožadují žádné aplikace.
+6. Pokud chcete pokračovat, v části __Aplikace (volitelné)__ vyberte __Další__. Pro tento příklad se nepožadují žádné aplikace.
 
-7. Pokud chcete pokračovat, v okně __Velikost clusteru__ vyberte __Další__.
+7. Pokud chcete pokračovat, v části __Velikost clusteru__ vyberte __Další__.
 
     > [!WARNING]
     > Pokud chcete zajistit dostupnost Kafka v HDInsightu, musí cluster obsahovat aspoň tři pracovní uzly.
@@ -84,11 +78,11 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
     ![Nastavení velikosti clusteru Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!NOTE]
-    > Položka počtu disků v pracovním uzlu určuje škálovatelnost Kafka v HDInsightu. Další informace najdete v tématu věnovaném [konfiguraci úložiště a škálovatelnosti Kafka v HDInsightu](hdinsight-apache-kafka-scalability.md).
+    > Položka **počet disků na pracovní uzel** řídí škálovatelnost Kafka ve službě HDInsight. Další informace najdete v tématu věnovaném [konfiguraci úložiště a škálovatelnosti Kafka v HDInsightu](hdinsight-apache-kafka-scalability.md).
 
-8. Pokud chcete pokračovat, v okně __Upřesňující nastavení__ vyberte __Další__.
+8. Pokud chcete pokračovat, v části __Upřesňující nastavení__ vyberte __Další__.
 
-9. V okně **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec stisknutím tlačítka Vytvořit cluster vytvořte.
+9. V části **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec stisknutím tlačítka Vytvořit cluster vytvořte.
    
     ![Souhrn konfigurace clusteru](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
@@ -96,6 +90,9 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
     > Vytvoření clusteru trvá přibližně 20 minut.
 
 ## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
+
+> [!IMPORTANT]
+> Při provádění následujících kroků je potřeba použít klienta SSH. Další informace najdete v dokumentu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Z klienta se připojte ke clusteru pomocí SSH:
 
@@ -119,24 +116,32 @@ Podle následujícího postupu vytvoříte proměnné prostředí s informacemi 
     sudo apt -y install jq
     ```
 
-2. Použitím následujících příkazů nastavte proměnné prostředí s informace získanými z Ambari. Místo __CLUSTERNAME__ zadejte název vašeho clusteru Kafka. Místo __PASSWORD__ zadejte heslo (správce) pro určené při vytváření clusteru.
+2. K nastavení proměnných prostředí s informace načtenými z Ambari použijte následující příkazy:
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    CLUSTERNAME='your cluster name'
+    PASSWORD='your cluster password'
+    export KAFKAZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
+    > [!IMPORTANT]
+    > Nastavte `CLUSTERNAME=` na název clusteru Kafka. Nastavte `PASSWORD=` na přihlašovací heslo (heslo správce), které jste použili při vytváření clusteru.
+
     Následující text uvádí příklad obsahu proměnné `$KAFKAZKHOSTS`:
    
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
    
     Následující text uvádí příklad obsahu proměnné `$KAFKABROKERS`:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+
+    > [!NOTE]
+    > Příkaz `cut` slouží k oříznutí seznamu hostitelů do dvou záznamů hostitele. Při vytváření producenta nebo konzumenta Kafka není nutné zadávat úplný seznam hostitelů.
    
     > [!WARNING]
     > Nespoléhejte na to, že informace vrácené v této relaci budou vždy přesné. Při škálování clusteru můžou být zprostředkovatelé přidáni nebo odebráni. Pokud dojde k chybě a dojde k nahrazení uzlu, může se změnit název hostitele pro uzel.
@@ -185,7 +190,16 @@ Následujícím postupem uložíte záznamy do dříve vytvořeného tématu tes
 
 ## <a name="producer-and-consumer-api"></a>Rozhraní API pro producenta a konzumenta
 
-Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému Kafka](http://kafka.apache.org/documentation#api). Ke stažení a sestavení producenta a konzumenta v jazyce Java použijte následující postup:
+Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému Kafka](http://kafka.apache.org/documentation#api). K sestavení producenta nebo konzumenta v Javě použijte ve svém vývojovém prostředí následující postup.
+
+> [!IMPORTANT]
+> Ve vývojovém prostředí potřebujete mít nainstalované následující komponenty:
+>
+> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) nebo ekvivalentní, například OpenJDK.
+>
+> * [Apache Maven](http://maven.apache.org/)
+>
+> * Klient SSH a příkaz `scp`. Další informace najdete v dokumentu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Stáhněte si příklady ze stránky [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). Příklad producenta/konzumenta najdete v projektu v adresáři `Producer-Consumer`. Tento příklad obsahuje následující třídy:
    
@@ -195,7 +209,7 @@ Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému 
 
     * **Consumer** – čte záznamy z tématu.
 
-2. Přejděte do adresáře `Producer-Consumer` tohoto příkladu a pak zadáním následujícího příkazu vytvořte balíček jar:
+2. Pokud chcete vytvořit balíček jar, přejděte do adresáře, ve kterém je umístěný adresář `Producer-Consumer`, a použijte následující příkaz:
 
     ```
     mvn clean package
@@ -214,18 +228,13 @@ Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému 
 4. Jakmile příkaz `scp` dokončí kopírování souboru, připojte se ke clusteru pomocí SSH. Pomocí následujícího příkazu zapište záznamy do tématu test:
 
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-
-    Zobrazí se počitadlo jako ukazatel průběhu.
-
-    > [!NOTE]
-    > Pokud se zobrazí chyba oprávnění, pomocí následujícího příkazu nastavte soubor jako spustitelný: ```chmod +x kafka-producer-consumer.jar```
 
 5. Po skončení procesu zadejte následující příkaz pro čtení záznamů:
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
     ```
    
     Zobrazí se počet načtených záznamů spolu s celkovým počtem. Je možné, že uvidíte víc než 1 000 000 záznamů, protože jste už do tématu odeslali několik záznamů pomocí skriptu v jednom z předchozích kroků.
@@ -234,13 +243,15 @@ Produkovat a konzumovat záznamy můžete také pomocí [rozhraní API systému 
 
 ### <a name="multiple-consumers"></a>Víc současných konzumentů
 
-Důležitou koncepcí platformy Kafka je, že konzumenti můžou při čtení záznamů používat skupiny konzumentů (definované pomocí ID skupiny). Výsledkem použití skupiny s více konzumenty je vyvážení zatížení při čtení záznamů z tématu. Každý konzument ze skupiny obdrží určitou část záznamů. Pokud chcete vidět tento proces v akci, použijte následující postup:
+Konzumenti Kafka při čtení záznamů používají skupiny konzumentů. Výsledkem použití skupiny s více konzumenty je vyvážení zatížení při čtení záznamů z tématu. Každý konzument ze skupiny obdrží určitou část záznamů. Pokud chcete vidět tento proces v akci, použijte následující postup:
 
-1. Otevřete novou relaci SSH ke clusteru, abyste mohli používat dvě současně. V obou relacích spusťte konzumenta se stejným ID skupiny pomocí příkazu:
+1. Otevřete novou relaci SSH ke clusteru, abyste mohli používat dvě současně. V obou relacích pomocí následujícího příkazu spusťte konzumenta se stejným ID skupiny konzumentů:
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
     ```
+
+    Tento příkaz spustí nového konzumenta s použitím ID skupiny `mygroup`.
 
     > [!NOTE]
     > Příkazů popsaných v části [Získání informací o hostiteli Zookeeper a Broker](#getkafkainfo) nastavte proměnnou `$KAFKABROKERS` pro tuto relaci SSH.
@@ -250,7 +261,7 @@ Důležitou koncepcí platformy Kafka je, že konzumenti můžou při čtení z�
 Konzumace klienty ze stejné skupiny se realizuje rozdělením tématu na oddíly. Téma `test` vytvořené dříve má osm oddílů. Pokud otevřete osm relací SSH a v každé relaci spustíte konzumenta, bude každý z nich číst záznamy z jednoho oddílu tématu.
 
 > [!IMPORTANT]
-> Ve skupině příjemců nemůže být víc instancí konzumentů než má téma oddílů. V tomto příkladu může skupina obsahovat nejvýše 8 spotřebitelů, protože to je počet oddílů tématu. Můžete také mít víc skupin konzumentů, každou s maximálně 8 konzumenty.
+> Ve skupině příjemců nemůže být víc instancí konzumentů než má téma oddílů. V tomto příkladu může skupina konzumentů obsahovat až osm konzumentů, protože to je počet oddílů tématu. Nebo můžete mít více skupin konzumentů, každou s maximálně osmi konzumenty.
 
 Záznamy se v systému Kafka ukládají v pořadí, ve kterém je oddíl přijme. Pro dosažení doručování záznamů ve správném pořadí *v rámci oddílu* vytvořte skupinu příjemců, ve které bude počet instancí konzumentů odpovídat počtu oddílů. Pro dosažení doručování záznamů ve správném pořadí *v rámci tématu* vytvořte skupinu obsahující pouze jednu instanci konzumenta.
 
@@ -287,7 +298,7 @@ Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.
 5. Potom spusťte streamovací proces pomocí následujícího příkazu:
    
     ```bash
-    ./kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
+    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
     ```
    
     Tento příkaz spustí streamovací proces na pozadí.
@@ -295,13 +306,13 @@ Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.
 6. K odesílání zpráv do tématu `test` použijte následující příkaz. Tyto zprávy jsou zpracovány příkladem streamování:
    
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
     ```
 
 7. Následujícím příkazem zobrazíte výstup zapisovaný do tématu `wordcounts` streamovacím procesem:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
     ```
    
     > [!NOTE]

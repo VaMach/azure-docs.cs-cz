@@ -1,5 +1,3 @@
-Podle následujícího postupu se připojte k virtuálnímu počítači s SQL Serverem pomocí Vzdálené plochy:
-
 1. Po vytvoření a spuštění virtuálního počítače Azure klikněte na webu Azure Portal na ikonu služby Virtual Machines a zobrazte vaše virtuální počítače.
 
 1. Klikněte na tři tečky (**...**) u vašeho nového virtuálního počítače.
@@ -16,6 +14,4 @@ Podle následujícího postupu se připojte k virtuálnímu počítači s SQL Se
 
    ![Ověřování vzdálené plochy](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
-Po připojení k virtuálnímu počítači s SQL Serverem můžete spustit SQL Server Management Studio a připojit se pomocí ověřování systému Windows se svými přihlašovacími údaji místního správce. Pokud jste povolili ověřování SQL Serveru, můžete se také připojit pomocí ověřování SQL Serveru a použít k tomu přihlašovací jméno a heslo SQL Serveru, které jste nakonfigurovali během zřizování.
-
-Přístup k počítači vám umožňuje podle potřeb přímo měnit nastavení počítače a SQL Serveru. Můžete například nakonfigurovat nastavení brány firewall nebo změnit nastavení konfigurace SQL Serveru.
+1. Připojte se kliknutím na **OK**.

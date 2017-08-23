@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway"></a>Informace o službě VPN Gateway
@@ -28,7 +28,7 @@ Služba VPN Gateway je typem brány virtuální sítě, která odesílá šifrov
 
 Každá virtuální síť může mít pouze jednu bránu VPN. Můžete ale vytvořit více připojení ke stejné bráně VPN. Příkladem je konfigurace připojení typu Multi-Site. Když vytvoříte několik připojení ke stejné bráně VPN, všechny tunely VPN, včetně sítí VPN typu Point-to-Site, sdílejí šířku pásma, která je pro tuto bránu dostupná.
 
-### <a name="what-is-a-virtual-network-gateway"></a>Co je brána virtuální sítě?
+### <a name="whatis"></a>Co je brána virtuální sítě?
 
 Bránu virtuální sítě tvoří dva nebo více virtuálních počítačů nasazených v konkrétní podsíti, která se nazývá GatewaySubnet. Virtuální počítače, které se nachází v podsíti GatewaySubnet, se vytvoří při vytvoření brány virtuální sítě. Virtuální počítače brány virtuální sítě jsou nakonfigurovány tak, aby obsahovaly tabulky směrování a služby brány, které jsou pro bránu specifické. Virtuální počítače, které jsou součástí brány virtuální sítě, není možné konfigurovat přímo a do podsítě GatewaySubnet byste nikdy neměli nasazovat další prostředky.
 
@@ -38,7 +38,7 @@ Při vytvoření brány virtuální sítě pomocí brány typu VPN se vytvoří 
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>Konfigurace služby VPN Gateway
+## <a name="configuring"></a>Konfigurace služby VPN Gateway
 
 Připojení brány VPN se spoléhá na několik prostředků nakonfigurovaných se specifickými nastaveními. Většinu prostředků lze nakonfigurovat jednotlivě, nicméně v některých případech je třeba je konfigurovat v určitém pořadí.
 
@@ -46,11 +46,11 @@ Připojení brány VPN se spoléhá na několik prostředků nakonfigurovaných 
 
 Nastavení, která jste pro jednotlivé zdroje zvolili, jsou pro vytvoření úspěšného připojení zásadní. Informace o jednotlivých prostředcích a nastaveních služby VPN Gateway najdete v tématu [Informace o nastavení služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Tento článek obsahuje informace, které vám pomůžou pochopit typy bran, typy sítí VPN, typy připojení, podsítě brány, místní síťové brány a různá další nastavení prostředků, o kterých možná uvažujete.
 
-### <a name="deployment-tools"></a>Nástroje pro nasazení
+### <a name="tools"></a>Nástroje pro nasazení
 
 Prostředky můžete začít vytvářet a konfigurovat pomocí konfiguračního nástroje, jako je například Azure Portal. Později se můžete rozhodnout používat ke konfiguraci dalších prostředků nebo úpravám stávajících prostředků jiný nástroj, třeba PowerShell. V současné době nelze konfigurovat všechny prostředky a nastavení prostředků pomocí webu Azure Portal. Pokyny v článcích pro každou topologii připojení určují, kdy je zapotřebí specifický konfigurační nástroj. 
 
-### <a name="deployment-model"></a>Model nasazení
+### <a name="models"></a>Model nasazení
 
 Kroky při konfiguraci brány VPN se budou lišit v závislosti na modelu nasazení, který jste použili k vytvoření virtuální sítě. Například pokud jste virtuální síť vytvořili pomocí modelu nasazení Classic, budete při vytváření a konfiguraci brány VPN postupovat podle pokynů pro model nasazení Classic. Další informace o modelech nasazení najdete v tématu [Pochopení modelů nasazení Resource Manager a Classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -64,7 +64,7 @@ Je důležité vědět, že pro připojení brány VPN jsou dostupné různé ko
 
 Diagramy a popisy vám pomohou s výběrem topologie připojení, která bude odpovídat vašim požadavkům. Diagramy popisují základní topologie, ale je možné vytvořit komplexnější konfigurace s použitím diagramů jako vodítek.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-to-Site a Multi-Site (tunel VPN IPsec/IKE)
+## <a name="s2smulti"></a>Site-to-Site a Multi-Site (tunel VPN IPsec/IKE)
 
 ### <a name="S2S"></a>Site-to-Site
 

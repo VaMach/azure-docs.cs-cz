@@ -1,20 +1,16 @@
-### <a name="to-add-address-space"></a>Přidání adresního prostoru
-1. Pokud chcete přidat další adresní prostor, v části **Nastavení** v okně vaší virtuální sítě kliknutím na **Adresní prostor** otevřete okno Adresní prostor.
-2. Přidejte další adresní prostor a pak v horní části okna klikněte na **Uložit**.
-   
-    ![Přidání adresního prostoru](./media/vpn-gateway-additional-address-space-include/address_space.png)
+### <a name="to-add-additional-address-space"></a>Přidání dalšího adresního prostoru
 
-### <a name="to-create-subnets"></a>Vytvoření podsítí
-1. Pokud chcete vytvořit podsítě, v části **Nastavení** v okně vaší virtuální sítě kliknutím na **Podsítě** otevřete okno **Podsítě**. 
-2. V okně Podsítě kliknutím na **+Podsíť** otevřete okno **Přidat podsíť**. Zadejte název nové podsítě a rozsah adres.
-   
-    ![Nastavení podsítě](./media/vpn-gateway-additional-address-space-include/add_subnet.png)        
-3. Uložte změny kliknutím na **OK** v dolní části okna.
-   
-    ![Nastavení podsítě](./media/vpn-gateway-additional-address-space-include/ok.png)
+1. Pokud chcete přidat další adresní prostor, v části **Nastavení** na stránce vaší virtuální sítě kliknutím na **Adresní prostor** otevřete stránku Adresní prostor.
+2. Přidejte další adresní prostor a pak v horní části stránky klikněte na **Uložit**.
 
+  ![Přidání adresního prostoru](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
+### <a name="to-create-additional-subnets"></a>Vytvoření dalších podsítí
 
-<!--HONumber=Nov16_HO2-->
+1. Pokud chcete vytvořit podsítě, v části **Nastavení** na stránce vaší virtuální sítě kliknutím na **Podsítě** otevřete stránku **Podsítě**. 
+2. Na stránce Podsítě kliknutím na **+Podsíť** otevřete stránku **Přidat podsíť**. Zadejte název nové podsítě a rozsah adres.
 
+  ![Nastavení podsítě](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
+3. Změny uložíte kliknutím na **OK** v dolní části stránky.
 
+  ![Nastavení podsítě](./media/vpn-gateway-additional-address-space-include/ok.png)

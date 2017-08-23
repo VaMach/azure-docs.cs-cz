@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Výběr vhodného řešení Azure Multi-Factor Authentication
@@ -39,7 +39,7 @@ Pro určení správného řešení dvoustupňového ověření si nejdříve mus
 | Aplikace Saas v galerii aplikací |● |  |
 | Webové aplikace publikované prostřednictvím proxy aplikace Azure AD |● |  |
 | Aplikace služby IIS nepublikované prostřednictvím proxy aplikace Azure AD | |● |
-| Vzdálený přístup, jako je například síť VPN, RDG | |● |
+| Vzdálený přístup, jako je například síť VPN, RDG | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Kde se nachází uživatelé
 Když se dále podíváme, kde se naši uživatelé nacházejí, pomůže nám to určit správné řešení – jestli je to v cloudu nebo místně pomocí serveru MFA.
@@ -53,7 +53,7 @@ Když se dále podíváme, kde se naši uživatelé nacházejí, pomůže nám t
 | Místní služby Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Jaké funkce budu potřebovat?
-V následující tabulce je uvedeno porovnání funkcí, které jsou dostupné s Multi-Factor Authentication v cloudu a se serverem Multi-Factor Authentication.
+Následující tabulka porovnává funkce, které jsou dostupné se službou Multi-Factor Authentication v cloudu a s Multi-Factor Authentication Serverem.
 
 | Funkce | MFA v cloudu | Server MFA |
 | --- |:---:|:---:|
@@ -76,6 +76,8 @@ V následující tabulce je uvedeno porovnání funkcí, které jsou dostupné s
 | Podmíněný přístup | ● | ● |
 | Mezipaměť |  | ● |
 
+## <a name="next-steps"></a>Další kroky
+
 Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentication nebo server multi-factor authentication na místě, můžete začít s nastavováním a používáním Azure Multi-Factor Authentication. **Vyberte ikonu, která představuje váš scénář.**
 
 <center>
@@ -83,6 +85,5 @@ Teď, když jsme určili, zda chcete použít cloudové  multi-factor authentica
 
 
 
-[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Ověření](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</center>
+[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Server](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 
