@@ -135,7 +135,8 @@ Získejte informace o připojení potřebné pro připojení k databázi SQL Azu
                                System.out.println(resultSet.getString(1) + " "
                                    + resultSet.getString(2));
                            }
-                   }
+                    connection.close();
+                   }                   
            }
            catch (Exception e) {
                    e.printStackTrace();
