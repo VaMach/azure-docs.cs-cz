@@ -8,7 +8,7 @@ metadata:
   services: functions
   author: czeumault
   manager: carolz
-  ms.service: virtual-machines\linux
+  ms.service: functions
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -18,76 +18,75 @@ abstract:
   description: 'Azure Functions je výpočetní služba bez serveru umožňující spouštění kódu na vyžádání bez nutnosti explicitně zřizovat nebo spravovat infrastrukturu. Azure Functions můžete použít ke spuštění skriptu nebo kusu kódu jako reakci na různé události. Naučte se používat službu Azure Functions prostřednictvím našich šablon Rychlý start, kurzů a ukázek.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video-thumb-get-started.png
-      width: 250  
+      width: 250
     title: 'Začínáme se službou Azure Functions. (2:39)'
-    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    href: 'https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/'
     width: 250
 sections:
-- title: Zprovoznění během 5 minut
-  items:
-  - type: paragraph
-    text: 'Naučte se vytvářet funkce, které se provádějí na základě událostí vytvořených prostřednictvím:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/http.svg
-      text: HTTP
-      href: /azure/azure-functions/functions-create-first-azure-function
-    - image: 
-        src: media/index/stopwatch.svg
-      text: Časovač
-      href: /azure/azure-functions/functions-create-scheduled-function
-    - image: 
-        src: media/index/octokitty.svg
-      text: Webhook GitHubu
-      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-    - image: 
-        src: media/index/blob.svg
-      text: Objekt blob
-      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
-    - image: 
-        src: media/index/storage.svg
-      text: Fronta
-      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
-  - type: paragraph
-    text: 'Naučte se vyvíjet a ladit v místním prostředí:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /media/logos/logo_visual-studio.svg
-      text: Visual Studio
-      href: /azure/azure-functions/functions-create-your-first-function-visual-studio
-- title: Podrobné kurzy
-  items:
-  - type: paragraph
-    text: 'Naučte se vytvářet a spravovat ve službě Azure Functions:'
-  - type: list
-    style: ordered
+  - title: Zprovoznění během 5 minut
     items:
-    - html: '<a href="/azure/azure-functions/functions-twitter-email">Vytvoření funkce, která se integruje s Azure Logic Apps</a>'
-    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Vytvoření rozhraní API bez serveru pomocí služby Azure Functions</a>
-- title: Ukázky
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Naučte se vytvářet funkce, které se provádějí na základě událostí vytvořených prostřednictvím:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/http.svg
+            text: HTTP
+            href: /azure/azure-functions/functions-create-first-azure-function
+          - image:
+              src: media/index/stopwatch.svg
+            text: Časovač
+            href: /azure/azure-functions/functions-create-scheduled-function
+          - image:
+              src: media/index/octokitty.svg
+            text: Webhook GitHubu
+            href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+          - image:
+              src: media/index/blob.svg
+            text: Objekt blob
+            href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+          - image:
+              src: media/index/storage.svg
+            text: Fronta
+            href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+      - type: paragraph
+        text: 'Naučte se vyvíjet a ladit v místním prostředí:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /media/logos/logo_visual-studio.svg
+            text: Visual Studio
+            href: /azure/azure-functions/functions-create-your-first-function-visual-studio
+  - title: Podrobné kurzy
     items:
-    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
-- title: Referenční informace
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Naučte se vytvářet a spravovat ve službě Azure Functions:'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="/azure/azure-functions/functions-twitter-email">Vytvoření funkce, která se integruje s Azure Logic Apps</a>'
+          - html: <a href="/azure/azure-functions/functions-create-serverless-api">Vytvoření rozhraní API bez serveru pomocí služby Azure Functions</a>
+  - title: Ukázky
     items:
-    - title: Příkazový řádek
-      html: <p><a href="/cli/azure">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
-    - title: Vazby
- 
-      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Databáze Cosmos</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Centrum událostí</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Externí soubor</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP a webhooky</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Časovač</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Vazba výstupu z Twilia</a></p>
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Příkazový řádek
+            html: <p><a href="/cli/azure">Azure CLI</a></p>
+          - title: REST
+            html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
+          - title: Vazby
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Databáze Cosmos</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Centrum událostí</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Externí soubor</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP a webhooky</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Časovač</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Vazba výstupu z Twilia</a></p>
