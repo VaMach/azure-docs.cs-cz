@@ -10,16 +10,9 @@
 ## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
 ## [Přidání vlastního názvu domény](add-custom-domain.md)
 ## [Konfigurace značky společnosti](customize-branding.md)
+## [Přidání uživatelů do Azure AD](add-users-azure-active-directory.md)
+## [Přiřazení licencí k uživatelům](license-users-groups.md)
 ## [Konfigurace samoobslužného resetování hesla](active-directory-passwords-getting-started.md)
-## Správa licencí Azure AD
-### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
-### [Portál Classic](active-directory-licensing-what-is.md)
-### [Přiřazení licencí pomocí skupin](active-directory-licensing-whatis-azure-portal.md)
-#### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
-#### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
-#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 
 
 # Postup
@@ -44,11 +37,6 @@
 #### [Porovnání nabídek](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Správa uživatelů
-### Přidání uživatelů
-#### [Azure Portal](active-directory-users-create-azure-portal.md)
-#### [Portál Classic](active-directory-create-users.md)
-
-
 ### [Přiřazení licencí pomocí skupin](active-directory-licensing-whatis-azure-portal.md)
 #### [Přiřazení licencí ke skupině](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -147,16 +135,10 @@
 ### [Nejčastější dotazy](device-management-faq.md)
 ### Úlohy
 #### [Konfigurace hybridních zařízení připojených k Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Řešení potíží
-##### [Hybridní zařízení s Windows 10 a Windows Serverem 2016 připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Hybridní zařízení s Windows starší verze připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Registrace zařízení
 #### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
-#### [Nejčastější dotazy](active-directory-device-registration-faq.md)
-#### Řešení potíží
-##### [Řešení potíží pro Windows 10 a Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-##### [Řešení potíží pro klienty Windows nižší úrovně](active-directory-device-registration-troubleshoot-windows-legacy.md)
+### Řešení potíží
+#### [Hybridní zařízení s Windows 10 a Windows Serverem 2016 připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Hybridní zařízení s Windows starší verze připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plánování](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Nastavení registrace zařízení](active-directory-azureadjoin-setup.md)
