@@ -64,12 +64,12 @@
 ### [Virtuální počítač s Linuxem ze šablony](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Virtuální počítač s Windows ze šablony](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Ukládání dat
-### [Objekty blob](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Sdílené složky](../../storage/storage-dotnet-how-to-use-files.md)
-### [Páry klíč-hodnota](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Objekty blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Sdílené složky](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Páry klíč-hodnota](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [Dokumenty JSON](../../documentdb/documentdb-get-started.md)
 ### [Relační tabulky](../../sql-database/sql-database-get-started.md)
-### [Fronty zpráv](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Fronty zpráv](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Měřítko
 ### [Webové a mobilní aplikace](../../app-service-web/web-sites-scale.md)
