@@ -1,6 +1,6 @@
 # Přehled
 ## [O virtuálních počítačích](../../virtual-machines-windows-about.md)
-## [Disky a virtuální pevné disky (VHD)](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Disky a virtuální pevné disky (VHD)](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtuální sítě](../../../virtual-network/virtual-networks-overview.md)
 ## [Nejčastější dotazy](faq.md)
 ## [Porovnání virtuálních počítačů, webů a cloudových služeb](../../../app-service-web/choose-web-site-cloud-service-vm.md)

@@ -17,9 +17,9 @@
 ### [Sestavení a nasazení aplikace Node.js do Azure](cloud-services-nodejs-develop-deploy-app.md)
 ### [Sestavení webové aplikace Node.js pomocí Expressu](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Služba Storage a Visual Studio
-#### [Blob Storage a propojené služby](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue Storage a propojené služby](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table Storage a propojené služby](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob Storage a propojené služby](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Queue Storage a propojené služby](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Table Storage a propojené služby](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Konfigurace balíčků pro nepřetržité sestavování a nasazování
 #### [TFS a týmové sestavení](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurace pravidel přenosů pro roli](cloud-services-enable-communication-role-instances.md)
