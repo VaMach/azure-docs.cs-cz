@@ -32,6 +32,7 @@
 ### [Problémy s registrací](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Odmítnutá karta](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Problémy s přihlašováním](billing-cannot-login-subscription.md)
+### [Nenalezena žádná předplatná](billing-no-subscriptions-found.md)
 
 # Referenční informace
 ## [Přehled rozhraní API](billing-usage-rate-card-overview.md)

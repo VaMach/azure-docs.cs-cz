@@ -33,17 +33,15 @@
   items:
     - name: Zabezpečené kontejnery
       href: container-service-security.md
-    - name: Instanční objekt – Kubernetes
-      href: container-service-kubernetes-service-principal.md
 - name: Návody
   items:
-    - name: Rychlý start pro Kubernetes s Windows
+    - name: Kubernetes s Windows
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: Správa kontejnerů – uživatelské rozhraní Kubernetes
+    - name: Webové rozhraní Kubernetes
       href: container-service-kubernetes-ui.md
     - name: Nasazení diagramů Helmu
       href: container-service-kubernetes-helm.md
-    - name: Průběžná integrace a doručování s využitím Kubernetes a Jenkinse
+    - name: Jenkins a ACS Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: Použití konceptu s ACR a ACS
       href: container-service-draft-up.md

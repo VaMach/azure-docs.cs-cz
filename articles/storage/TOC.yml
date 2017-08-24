@@ -1,0 +1,12 @@
+- name: Přehled
+  items:
+    - name: Úvod
+      href: ./common/storage-introduction.md
+    - name: 'Výběr objektů blob, souborů nebo datových disků'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Objekty blob
+  href: ./blobs/storage-blobs-introduction.md
+- name: Soubory
+  href: ./files/storage-files-introduction.md
+- name: Fronty
+  href: ./queues/storage-queues-introduction.md

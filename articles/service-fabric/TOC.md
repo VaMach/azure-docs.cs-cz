@@ -176,11 +176,14 @@
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java v Linuxu](service-fabric-reliable-actors-get-started-java.md)
+##### [Java Actor v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Odeslání oznámení](service-fabric-reliable-actors-events.md)
 #### [Nastavení časovačů a připomenutí](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurace KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Konfigurace nastavení komunikace](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Konfigurace ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Migrace staré aplikace v Javě pro podporu Mavenu](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci](service-fabric-reverseproxy-configure-secure-communication.md)
 

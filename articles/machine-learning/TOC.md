@@ -3,10 +3,17 @@
 ## [Co je Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Vědecké zpracování týmových dat
-### [Přehled](data-science-process-overview.md)
-### [Životní cyklus](data-science-process-lifecycle.md)
+### [Přehled](http://aka.ms/datascienceprocess)
+### [Životní cyklus](data-science-process-overview.md)
 ### [Návody](data-science-process-walkthroughs.md)
-### [S využitím Azure ML](http://aka.ms/datascienceprocess)
+####[Spark s PySparkem a Scalou](data-science-process-walkthroughs-spark.md)
+##### [Zkoumání dat](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Modely skóre](machine-learning-data-science-spark-model-consumption.md)
+##### [Pokročilé zkoumání dat](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive s HDInsight Hadoopem](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL s Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python a T-SQL s SQL Serverem](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL a Python s SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
 
 ## Machine Learning Studio
 ### [Co je Studio?](machine-learning-what-is-ml-studio.md)
@@ -100,12 +107,6 @@
 ##### [Použití Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Použití virtuálních počítačů SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Použití Data Pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Zpracování dat pomocí Sparku
-##### [Přehled](machine-learning-data-science-spark-overview.md)
-##### [Zkoumání dat](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Modely skóre](machine-learning-data-science-spark-model-consumption.md)
-##### [Pokročilé zkoumání dat](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Použití Scaly a Sparku](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Vývoj modelů
 ### Technické a vybrané funkce
@@ -166,11 +167,7 @@
 ### [Ukázkové experimenty](machine-learning-sample-experiments.md)
 ### [Ukázkové datové sady](machine-learning-use-sample-datasets.md)
 ### [Příklad změn zákazníka](machine-learning-azure-ml-customer-churn-scenario.md)
-### Kompletní scénáře
-#### [Použití clusterů Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Použití Hadoopu s 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [Použití SQL Serveru](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Použití SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Referenční informace
 

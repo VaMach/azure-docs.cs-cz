@@ -55,6 +55,7 @@
 #### [Použití Azure Backup Serveru k zálohování sharepointové farmy](backup-azure-backup-sharepoint-mabs.md)
 #### [Použití Azure Backup Serveru k zálohování SQL](backup-azure-sql-mabs.md)
 #### [Ochrana stavu systému a úplné obnovení systému](backup-mabs-system-state-and-bmr.md)
+### [Obnovení dat z Azure Backup Serveru](backup-azure-alternate-dpm-server.md)
 
 ## Data Protection Manager
 ### [Příprava úloh DPM na webu Azure Portal](backup-azure-dpm-introduction.md)

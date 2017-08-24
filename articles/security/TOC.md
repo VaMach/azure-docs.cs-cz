@@ -8,6 +8,7 @@
 ## [Zabezpečení služby Service Fabric](azure-service-fabric-security-overview.md)
 ## [Správa identit](security-identity-management-overview.md)
 ## [Zabezpečení IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Přehled šifrování Azure](security-azure-encryption-overview.md)
 ## [Architektura zabezpečení](azure-security-architecture-overview.md)
 ### [Povolení provozního zabezpečení](azure-operational-security.md)
 ### [Pokročilá detekce hrozeb](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Zabezpečení úložiště
 ### [Osvědčené postupy šifrování a zabezpečení dat](azure-security-data-encryption-best-practices.md)
-### [Příručka zabezpečení úložiště](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Příručka zabezpečení úložiště](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Zabezpečení výpočetních služeb
 ### [Osvědčené postupy pro virtuální počítače Azure](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## Služby PaaS
 ### [Zabezpečení nasazení PaaS](security-paas-deployments.md)
-#### [Zabezpečení webových a mobilních aplikací PaaS pomocí SQL](security-paas-applications-using-sql.md)
-#### [Osvědčené postupy zabezpečení SQL Database](azure-database-security-best-practices.md)
-#### [Kontrolní seznam zabezpečení SQL Database](azure-database-security-checklist.md)
 #### [Zabezpečení webových a mobilních aplikací PaaS pomocí App Services](security-paas-applications-using-app-services.md)
+#### [Zabezpečení webových a mobilních aplikací PaaS pomocí SQL](security-paas-applications-using-sql.md)
+##### [Osvědčené postupy zabezpečení SQL Database](azure-database-security-best-practices.md)
+##### [Kontrolní seznam zabezpečení SQL Database](azure-database-security-checklist.md)
 ####[Kontrolní seznam provozního zabezpečení](azure-operational-security-checklist.md)
+#### [Zabezpečení webových a mobilních aplikací PaaS pomocí Azure Storage](security-paas-applications-using-storage.md)
 
 ## Internet věcí
 ### [Zabezpečení nasazení IoT](../iot-suite/iot-suite-security-deployment.md)
