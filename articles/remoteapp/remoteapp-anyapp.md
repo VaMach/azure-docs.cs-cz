@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Spuštění libovolné aplikace pro Windows v jakémkoliv zařízení s Azure RemoteAppem
@@ -88,7 +88,7 @@ První část, kterou provedete jako správce. Potom máme několik kroků pro v
 1. Začněte publikováním rozhraní příkazového řádku (cmd.exe). Na kartě **Publikování** vyberte možnost **cmd** a potom klikněte na **Publikovat > Publikovat program pomocí cesty**.
 2. Zadejte název a cestu aplikace. Pro naše účely použijte jako název „Průzkumník souborů“ a jako cestu „%SYSTEMDRIVE%\windows\explorer.exe“.
    ![Publikování souboru cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Nyní je třeba vytvořit [účet úložiště](../storage/storage-create-storage-account.md) Azure. Náš jsme pojmenovali „accessstorage“, vy si vyberte jakýkoliv svůj smysluplný název. (Název „accessstorage“ musí být jedinečný) ![Náš účet úložiště Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Nyní je třeba vytvořit [účet úložiště](../storage/common/storage-create-storage-account.md) Azure. Náš jsme pojmenovali „accessstorage“, vy si vyberte jakýkoliv svůj smysluplný název. (Název „accessstorage“ musí být jedinečný) ![Náš účet úložiště Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Nyní přejděte zpět na řídicí panel, kde získáte cestu do úložiště (umístění koncového bodu). Za chvilku ji budete potřebovat, takže si ji někam zkopírujte.
    ![Cesta k účtu úložiště](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Po vytvoření účtu úložiště je nutné zadat primární přístupový klíč. Klikněte na tlačítko **Spravovat přístupové klíče** a poté zkopírujte primární přístupový klíč.

@@ -1,11 +1,6 @@
-## <a name="create-an-azure-storage-account"></a>Vytvoření účtu úložiště Azure
-Nejjednodušší způsob, jak vytvořit první účet úložiště Azure, je pomocí [webu Azure Portal](https://portal.azure.com). Další informace najdete v tématu [Vytvoření účtu úložiště](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
+## <a name="create-an-azure-storage-account"></a>Create an Azure storage account
+The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.com). To learn more, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-Účet úložiště Azure můžete vytvořit také pomocí prostředí [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [rozhraní příkazového řádku Azure](../articles/storage/storage-azure-cli.md) nebo pomocí [klientské knihovny pro poskytovatele prostředků úložiště pro rozhraní .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
 

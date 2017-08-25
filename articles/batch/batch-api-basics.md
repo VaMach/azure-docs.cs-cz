@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch
@@ -46,7 +46,7 @@ Následující obecný pracovní postup je typický pro téměř všechny aplika
 V následujících částech se dozvíte o těchto a o dalších prostředcích služby Batch, které umožňují váš distribuovaný výpočetní scénář.
 
 > [!NOTE]
-> K používání služby Batch potřebujete [účet Batch](#account). Většina řešení Batch také používá pro ukládání a načítání souborů účet [Azure Storage][azure_storage]. Služba Batch aktuálně podporuje jenom účty úložiště pro **obecné účely**, jak popisuje krok 5 části [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v tématu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
+> K používání služby Batch potřebujete [účet Batch](#account). Většina řešení Batch také používá pro ukládání a načítání souborů účet [Azure Storage][azure_storage]. Služba Batch aktuálně podporuje jenom účty úložiště pro **obecné účely**, jak popisuje krok 5 části [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account) v tématu [Informace o účtech Azure Storage](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -114,7 +114,7 @@ Následující tabulka porovnává režimy přidělování fondů Služba Batch 
 
 Většina řešení Batch pro ukládání souborů prostředků a výstupních souborů používá službu Azure Storage.  
 
-Služba Batch aktuálně podporuje jenom účty úložiště pro obecné účely, jak popisuje krok 5 části [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v tématu [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md). Úkoly služby Batch (včetně standardních úkolů, spouštěcích úkolů, úkolů přípravy úloh a úkolů uvolnění úloh) musí určovat soubory prostředků, které jsou umístěné jenom v účtech úložiště pro obecné účely.
+Služba Batch aktuálně podporuje jenom účty úložiště pro obecné účely, jak popisuje krok 5 části [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account) v tématu [Informace o účtech Azure Storage](../storage/common/storage-create-storage-account.md). Úkoly služby Batch (včetně standardních úkolů, spouštěcích úkolů, úkolů přípravy úloh a úkolů uvolnění úloh) musí určovat soubory prostředků, které jsou umístěné jenom v účtech úložiště pro obecné účely.
 
 
 ## <a name="compute-node"></a>Výpočetní uzel

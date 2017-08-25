@@ -10,7 +10,7 @@
    2. Zadejte **Umístění** služby. Obvykle je dobré vybrat umístění, které je nejblíže geografickému regionu, kde chcete zařízení nasadit. Zvažte i následující okolnosti: 
       
       * Pokud máte v Azure existující úlohy, které chcete také nasadit se zařízením StorSimple, měli byste použít stejné datové centrum.
-      * Služby StorSimple Manager a úložiště Azure mohou být ve dvou různých umístěních. V takovém případě je nutné vytvořit účty služeb StorSimple Manager a úložiště Azure odděleně. Pokud chcete vytvořit účet úložiště Azure, přejděte do služby Azure Storage na portálu Azure Classic a postupujte způsobem popsaným v článku [Vytvoření účtu služby Azure Storage](../articles/storage/storage-create-storage-account.md#create-a-storage-account). Po přihlášení k tomuto účtu pomocí kroků popsaných v článku [Konfigurace nového účtu úložiště pro službu](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service) účet přidejte do služby StorSimple Manager.
+      * Služby StorSimple Manager a úložiště Azure mohou být ve dvou různých umístěních. V takovém případě je nutné vytvořit účty služeb StorSimple Manager a úložiště Azure odděleně. Pokud chcete vytvořit účet úložiště Azure, přejděte do služby Azure Storage na portálu Azure Classic a postupujte způsobem popsaným v článku [Vytvoření účtu služby Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). Po přihlášení k tomuto účtu pomocí kroků popsaných v článku [Konfigurace nového účtu úložiště pro službu](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service) účet přidejte do služby StorSimple Manager.
    3. V rozevíracím seznamu **Předplatné** vyberte předplatné. Předplatné je propojeno s vaším fakturačním účtem. Toto pole není dostupné, pokud máte pouze jedno předplatné.
    4. Výběrem možnosti **Vytvořit nový účet úložiště** můžete vytvořit účet úložiště automaticky se službou. Takový účet úložiště bude mít speciální název, například storsimplebwv8c6dcnf. Pokud potřebujete mít data v jiném umístění, zaškrtnutí políčka zrušte. 
    5. Kliknutím na **Vytvořit StorSimple Manager** vytvořte službu.
@@ -24,9 +24,4 @@
 ![Dostupné video](./media/storsimple-create-new-service/Video_icon.png) **Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit novou službu StorSimple Manager, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

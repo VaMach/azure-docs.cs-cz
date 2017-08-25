@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7fbbb56d775ee96c9a44363a4e41d4fc3c630582
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -52,7 +52,7 @@ Související informace a koncepty najdete v tématu [s přehledem](container-re
       > Kromě poskytování přístupu prostřednictvím účtu uživatele s právy pro správu registry kontejnerů podporují ověřování zajišťované instančními objekty Azure Active Directory. Další informace a aspekty najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md).
       >
 
-    e. **Účet úložiště:** Použijte výchozí nastavení a vytvořte si [účet úložiště](../storage/storage-introduction.md), nebo vyberte existující účet úložiště ve stejném umístění. Storage úrovně Premium se v tuto chvíli nepodporuje.
+    e. **Účet úložiště:** Použijte výchozí nastavení a vytvořte si [účet úložiště](../storage/common/storage-introduction.md), nebo vyberte existující účet úložiště ve stejném umístění. Storage úrovně Premium se v tuto chvíli nepodporuje.
 
 ## <a name="manage-registry-settings"></a>Správa nastavení registru
 Po vytvoření registru začněte v okně portálu **Registry kontejnerů** a vyhledejte nastavení registru. Nastavení můžete potřebovat například k přihlášení ke svému registru, nebo můžete chtít povolit nebo zakázat uživatele s právy pro správu.

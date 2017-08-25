@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure
@@ -52,7 +51,7 @@ Tady je seznam toho, co budete potřebovat v Azure.
 | **Požadavek** | **Podrobnosti** |
 | --- | --- |
 | **Účet Azure** |Budete potřebovat účet [Microsoft Azure](https://azure.microsoft.com/). Můžete začít s [bezplatnou zkušební verzí](https://azure.microsoft.com/pricing/free-trial/). [Další informace](https://azure.microsoft.com/pricing/details/site-recovery/) o cenách za Site Recovery |
-| **Úložiště Azure** |K ukládání replikovaných dat budete potřebovat účet úložiště Azure. Replikovaná data jsou uložena v úložišti Azure a virtuální počítače Azure se spouštějí, když je třeba převzít služby při selhání. <br/><br/>Potřebujete [účet se standardním geograficky redundantním úložištěm](../storage/storage-redundancy.md#geo-redundant-storage). Účet musí být ve stejné oblasti jako služba Site Recovery a musí být přidružený ke stejnému předplatnému. Poznámka: Replikace do účtů Storage úrovně Premium není aktuálně podporována a neměla by se používat.<br/><br/>[Přečtěte si informace o](../storage/storage-introduction.md) úložišti Azure. |
+| **Úložiště Azure** |K ukládání replikovaných dat budete potřebovat účet úložiště Azure. Replikovaná data jsou uložena v úložišti Azure a virtuální počítače Azure se spouštějí, když je třeba převzít služby při selhání. <br/><br/>Potřebujete [účet se standardním geograficky redundantním úložištěm](../storage/common/storage-redundancy.md#geo-redundant-storage). Účet musí být ve stejné oblasti jako služba Site Recovery a musí být přidružený ke stejnému předplatnému. Poznámka: Replikace do účtů Storage úrovně Premium není aktuálně podporována a neměla by se používat.<br/><br/>[Přečtěte si informace o](../storage/common/storage-introduction.md) úložišti Azure. |
 | **Síť Azure** |Budete potřebovat virtuální síť Azure, ke které se budou virtuální počítače Azure připojovat, když dojde k převzetí služeb při selhání. Virtuální síť Azure musí být ve stejné oblasti jako trezor Site Recovery. |
 
 ## <a name="on-premises-prerequisites"></a>Místní požadavky

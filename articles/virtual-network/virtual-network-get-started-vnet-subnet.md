@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -160,7 +160,7 @@ Přestože jste vytvořili jednu virtuální síť a dva virtuální počítače
 
     ![Obsah skupiny prostředků](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Další informace o virtuálních počítačích, discích a účtech úložiště najdete v článcích, které obsahují přehledy [virtuálních počítačů](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [disků](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [účtů úložiště](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vidíte dvě výchozí skupiny zabezpečení sítě, které pro vás portál vytvořil. Vidíte také, že portál vytvořil dva prostředky síťového rozhraní. Síťové rozhraní umožňuje připojení virtuálního počítače k ostatním prostředkům přes virtuální síť. Další informace o síťových rozhraních najdete v článku [Síťová rozhraní](virtual-network-network-interface.md). Portál také vytvořil jeden prostředek veřejné IP adresy. Veřejné IP adresy jsou jedním z nastavení prostředku veřejné IP adresy. Další informace o veřejných IP adresách najdete v článku [IP adresy](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Další informace o virtuálních počítačích, discích a účtech úložiště najdete v článcích, které obsahují přehledy [virtuálních počítačů](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [disků](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [účtů úložiště](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vidíte dvě výchozí skupiny zabezpečení sítě, které pro vás portál vytvořil. Vidíte také, že portál vytvořil dva prostředky síťového rozhraní. Síťové rozhraní umožňuje připojení virtuálního počítače k ostatním prostředkům přes virtuální síť. Další informace o síťových rozhraních najdete v článku [Síťová rozhraní](virtual-network-network-interface.md). Portál také vytvořil jeden prostředek veřejné IP adresy. Veřejné IP adresy jsou jedním z nastavení prostředku veřejné IP adresy. Další informace o veřejných IP adresách najdete v článku [IP adresy](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Připojení k virtuálním počítačům
 

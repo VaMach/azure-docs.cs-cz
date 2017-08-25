@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Řešení pro Batch a prostředí HPC pro rozsáhlé výpočetní úlohy
@@ -106,7 +106,7 @@ Výpočetní služby Azure jsou jádrem řešení Big Compute. Různé výpočet
 ### <a name="storage-services"></a>Služby Storage
 Řešení Big Compute obvykle pracuje se sadou vstupních dat a generuje data pro své výsledky. Mezi služby úložiště Azure, které se používají v řešeních pro Big Compute, patří:
 
-* [Blob, Table, a Queue Storage](https://azure.microsoft.com/documentation/services/storage/) – umožňují spravovat velké objemy nestrukturovaných dat, dat typu NoSQL a zpráv pro pracovní postup, v uvedeném pořadí. Úložiště objektů blob můžete například použít pro velké sady technických dat nebo vstupní image či soubory médií, které vaše aplikace zpracovává. Fronty (queues) můžete v řešení použít k asynchronní komunikaci. Přečtěte si článek [Úvod do Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Blob, Table, a Queue Storage](https://azure.microsoft.com/documentation/services/storage/) – umožňují spravovat velké objemy nestrukturovaných dat, dat typu NoSQL a zpráv pro pracovní postup, v uvedeném pořadí. Úložiště objektů blob můžete například použít pro velké sady technických dat nebo vstupní image či soubory médií, které vaše aplikace zpracovává. Fronty (queues) můžete v řešení použít k asynchronní komunikaci. Přečtěte si článek [Úvod do Microsoft Azure Storage](../storage/common/storage-introduction.md).
 * [Azure File Storage](https://azure.microsoft.com/services/storage/files/) – sdílí společné soubory a data v Azure pomocí standardního protokol SMB, který je nutný pro některá řešení clusteru prostředí HPC.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) – Poskytuje pro cloud hyperškálovatelný systém Apache Hadoop Distributed File System, který je užitečný pro dávkovou (batch) a interaktivní analýzu v reálném čase.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Začínáme se Storage Explorerem (Preview)
@@ -156,7 +156,7 @@ Pokud se chcete připojit k účtu externího úložiště, budete potřebovat n
 2. V potvrzovací zprávě potvrďte výběrem možnosti **Yes** (Ano) odpojení od externího účtu úložiště.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>Připojení účtu úložiště pomocí sdíleného přístupového podpisu (SAS)
-[SAS](storage/storage-dotnet-shared-access-signature-part-1.md) umožňuje správci předplatného Azure udělit dočasný přístup k účtu úložiště, aniž by musel zadávat přihlašovací údaje předplatného Azure.
+[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) umožňuje správci předplatného Azure udělit dočasný přístup k účtu úložiště, aniž by musel zadávat přihlašovací údaje předplatného Azure.
 
 Ukažme si tento scénář na příkladu. Řekněme, že uživatel A je správcem předplatného Azure a uživatel A chce uživateli B povolit přístup k účtu úložiště po omezenou dobu s určitými oprávněními:
 
