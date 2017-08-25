@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Co je služba Azure Analysis Services?
@@ -34,7 +34,7 @@ Se službou Analysis Services můžete provádět mashup a kombinování dat z v
 Podívejte se na [toto video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) a zjistěte, jak služba Azure Analysis Services zapadá do celkových možností BI společnosti Microsoft a jaké výhody vám může přinést převedení datových modelů do cloudu.
 
 ## <a name="built-on-sql-server-analysis-services"></a>Vytvořeno na základě SQL Server Analysis Services
-Služba Azure Analysis Services je kompatibilní s mnoha skvělými funkcemi, které už jsou ve službě SQL Server Analysis Services Enterprise Edition. Azure Analysis Services podporuje tabulkové modely na [úrovních kompatibility](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1200 a 1400. Podporují se oddíly, zabezpečení na úrovni řádku, obousměrné relace i překlady. Režimy In-Memory a DirectQuery znamenají bleskově rychlé dotazy nad obrovskými a komplexními datovými sadami.
+Služba Azure Analysis Services je kompatibilní s mnoha skvělými funkcemi, které už jsou ve službě SQL Server Analysis Services Enterprise Edition. Azure Analysis Services podporuje tabulkové modely na [úrovních kompatibility](analysis-services-compat-level.md) 1200 a 1400. Podporují se oddíly, zabezpečení na úrovni řádku, obousměrné relace i překlady. Režimy In-Memory a DirectQuery znamenají bleskově rychlé dotazy nad obrovskými a komplexními datovými sadami.
 
 Tabulkové modely nabízejí rychlý vývoj a jsou vysoce přizpůsobitelné. Pro vývojáře tabulkové modely zahrnují tabulkový objektový model (TOM) pro popis objektů modelu. Tabulkový objektový model (TOM) je přístupný ve formátu JSON prostřednictvím [jazyka TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) a jazyka DDL AMO v oboru názvů [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 

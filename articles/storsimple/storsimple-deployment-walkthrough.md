@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Nasazení místního zařízení StorSimple
@@ -239,7 +240,7 @@ Ruční zálohování lze provést kdykoliv. Popis potřebného postupu najdete 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurace nového účtu úložiště pro službu
 Toto je volitelný krok, který je potřeba provést pouze v případě, že jste ve své službě nepovolili automatické vytvoření účtu úložiště. K vytvoření kontejneru svazků zařízení StorSimple je potřeba účet služby Microsoft Azure Storage.
 
-Pokud potřebujete vytvořit účet služby Azure Storage v jiné oblasti, postupujte podle pokynů v tématu [Účty Azure Storage](../storage/storage-create-storage-account.md).
+Pokud potřebujete vytvořit účet služby Azure Storage v jiné oblasti, postupujte podle pokynů v tématu [Účty Azure Storage](../storage/common/storage-create-storage-account.md).
 
 Na portálu Azure Classic na stránce**Manažer StorSimple** proveďte následující kroky.
 
@@ -282,10 +283,5 @@ Pomocí následujících kroků na portálu Azure Classic vytvořte ruční zál
 ## <a name="next-steps"></a>Další kroky
 * Konfigurace [virtuálního zařízení](storsimple-virtual-device-u2.md)
 * Použití [služby StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) ke správě zařízení StorSimple
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

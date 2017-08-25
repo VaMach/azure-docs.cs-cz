@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Nasazení místního zařízení StorSimple (Update 1)
@@ -213,7 +214,7 @@ Ruční zálohování lze provést kdykoliv. Popis potřebného postupu najdete 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurace nového účtu úložiště pro službu
 Toto je volitelný krok, který je potřeba provést pouze v případě, že jste ve své službě nepovolili automatické vytvoření účtu úložiště. K vytvoření kontejneru svazků zařízení StorSimple je potřeba účet služby Microsoft Azure Storage.
 
-Pokud potřebujete vytvořit účet služby Azure Storage v jiné oblasti, postupujte podle pokynů v tématu [Účty Azure Storage](../storage/storage-create-storage-account.md).
+Pokud potřebujete vytvořit účet služby Azure Storage v jiné oblasti, postupujte podle pokynů v tématu [Účty Azure Storage](../storage/common/storage-create-storage-account.md).
 
 Na portálu Azure Classic na stránce**Manažer StorSimple** proveďte následující kroky.
 
@@ -266,10 +267,5 @@ Pokyny k instalaci a konfiguraci funkce MPIO pro zařízení StorSimple připoje
 ## <a name="next-steps"></a>Další kroky
 * Konfigurace [virtuálního zařízení](storsimple-virtual-device-u2.md)
 * Použití [služby StorSimple Manager](storsimple-manager-service-administration.md) ke správě zařízení StorSimple
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

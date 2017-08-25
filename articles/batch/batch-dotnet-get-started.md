@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Začínáme sestavovat řešení pomocí klientské knihovny služby Batch pro .NET
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-V tomto článku se seznámíte se základy [Azure Batch][azure_batch] a s knihovnou [Batch .NET][net_api] a společně si krok za krokem probereme ukázkovou aplikaci v jazyce C#. Podíváme se, jak tato ukázková aplikace využívá službu Batch ke zpracování paralelní úlohy v cloudu, a jak komunikuje se službou [Azure Storage](../storage/storage-introduction.md) při přípravě a načítání souborů. Seznámíte se s běžným pracovním postupem aplikací Batch a získáte základní přehled o součástech služby Batch, například o úlohách, úkolech, fondech a výpočetních uzlech.
+V tomto článku se seznámíte se základy [Azure Batch][azure_batch] a s knihovnou [Batch .NET][net_api] a společně si krok za krokem probereme ukázkovou aplikaci v jazyce C#. Podíváme se, jak tato ukázková aplikace využívá službu Batch ke zpracování paralelní úlohy v cloudu, a jak komunikuje se službou [Azure Storage](../storage/common/storage-introduction.md) při přípravě a načítání souborů. Seznámíte se s běžným pracovním postupem aplikací Batch a získáte základní přehled o součástech služby Batch, například o úlohách, úkolech, fondech a výpočetních uzlech.
 
 ![Pracovní postup řešení Batch (Basic)][11]<br/>
 
@@ -41,10 +41,10 @@ Tento článek předpokládá, že máte praktické znalosti jazyka C# a sady Vi
 ### <a name="accounts"></a>Účty
 * **Účet Azure**: Pokud ještě nemáte předplatné Azure, [vytvořte si bezplatný účet Azure][azure_free_account].
 * **Účet Batch**: Po pořízení předplatného Azure si [vytvořte účet Azure Batch](batch-account-create-portal.md).
-* **Účet Storage**: Viz část [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v článku [Informace o účtech Azure Storage](../storage/storage-create-storage-account.md).
+* **Účet Storage**: Viz část [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account) v článku [Informace o účtech Azure Storage](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Služba Batch aktuálně podporuje *jenom* typ účtu úložiště **pro obecné účely**, jak je popsáno v kroku č. 5 [Vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) v článku [Informace o účtech úložiště Azure](../storage/storage-create-storage-account.md).
+> Služba Batch aktuálně podporuje *jenom* typ účtu úložiště **pro obecné účely**, jak je popsáno v kroku č. 5 [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account) v článku [Informace o účtech úložiště Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -128,7 +128,7 @@ V projektu *DotNetTutorial* v souboru `Program.cs` přejděte do horní části 
 ![Vytvoření kontejnerů ve službě Azure Storage][1]
 <br/>
 
-Batch obsahuje vestavěnou podporu pro komunikaci se službou Azure Storage. Kontejnery v účtu Storage poskytnou soubory, které potřebují úkoly spuštěné v účtu Batch. Kontejnery také poskytují místo pro ukládání výstupních dat, která úkoly vytvářejí. Klientská aplikace *DotNetTutorial* nejdřív vytvoří tři kontejnery ve službě [Azure Blob Storage](../storage/storage-introduction.md):
+Batch obsahuje vestavěnou podporu pro komunikaci se službou Azure Storage. Kontejnery v účtu Storage poskytnou soubory, které potřebují úkoly spuštěné v účtu Batch. Kontejnery také poskytují místo pro ukládání výstupních dat, která úkoly vytvářejí. Klientská aplikace *DotNetTutorial* nejdřív vytvoří tři kontejnery ve službě [Azure Blob Storage](../storage/common/storage-introduction.md):
 
 * **application**: Do tohoto kontejneru se bude ukládat aplikace spuštěná úkoly a také veškeré její závislé položky, například knihovny DLL.
 * **input**: Datové soubory ke zpracování budou úkoly stahovat z kontejneru *input*.
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 Po vytvoření kontejnerů může aplikace začít odesílat soubory, které budou úkoly používat.
 
 > [!TIP]
-> Článek [Použití služby Blob Storage pomocí technologie .NET](../storage/storage-dotnet-how-to-use-blobs.md) nabízí pěkný přehled o práci s kontejnery a objekty blob ve službě Azure Storage. Když začnete pracovat se službou Batch, je určitě na místě si ten článek přečíst.
+> Článek [Použití služby Blob Storage pomocí technologie .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) nabízí pěkný přehled o práci s kontejnery a objekty blob ve službě Azure Storage. Když začnete pracovat se službou Batch, je určitě na místě si ten článek přečíst.
 >
 >
 
@@ -286,7 +286,7 @@ Sdílené přístupové podpisy jsou řetězce, které (když jsou součástí a
 * **Sdílené přístupové podpisy kontejnerů**: Když každý úkol dokončí svojí práci ve výpočetním uzlu, odešle svůj výstupní soubor do kontejneru *output* ve službě Azure Storage. Aby to mohl provést, používá TaskApplication sdílený přístupový podpis kontejneru, který zajišťuje oprávnění k zápisu do kontejneru jako součást cesty při nahrávání souboru. Získání sdíleného přístupového podpisu kontejneru se provádí podobným způsobem jako získávání sdíleného přístupového podpisu objektu blob. V aplikaci DotNetTutorial zjistíte, že pomocná metoda `GetContainerSasUrl` za tímto účelem volá [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Další informace o tom, jak TaskApplication používá sdílený přístupový podpis kontejneru, se dočtete v kroku 6: Sledování úkolů.
 
 > [!TIP]
-> Přečtěte si dvoudílný článek, který pojednává o sdíleném přístupovém podpisu: [Část 1: Vysvětlení modelu sdíleného přístupového podpisu (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) a [Část 2: Vytvoření a používání sdíleného přístupového podpisu (SAS) se službou Blob Storage](../storage/storage-dotnet-shared-access-signature-part-2.md). Dozvíte se další informace o zajišťování bezpečného přístupu k datům v účtu služby Storage.
+> Přečtěte si dvoudílný článek, který pojednává o sdíleném přístupovém podpisu: [Část 1: Vysvětlení modelu sdíleného přístupového podpisu (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) a [Část 2: Vytvoření a používání sdíleného přístupového podpisu (SAS) se službou Blob Storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Dozvíte se další informace o zajišťování bezpečného přístupu k datům v účtu služby Storage.
 >
 >
 

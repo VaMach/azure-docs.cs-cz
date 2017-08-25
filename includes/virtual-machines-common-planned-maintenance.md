@@ -1,104 +1,48 @@
+Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+
+- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+
+This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+
+Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+
+## <a name="in-place-vm-migration"></a>In-place VM migration
+
+When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+
+For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
 
 
-## <a name="memory-preserving-updates"></a>Aktualizace zachovávající paměť
-U určité třídy aktualizací v systému Microsoft Azure si zákazníci nevšimnou žádného dopadu na spuštěné virtuální počítače. Mnoho takových aktualizací se týká komponent nebo služeb, které je možné aktualizovat bez zásahů do běžící instance. Některé z těchto aktualizací jsou aktualizace infrastruktury platformy v hostitelském operačním systému, které je možné nainstalovat bez potřeby úplného restartování virtuálních počítačů.
+## <a name="maintenance-requiring-a-reboot"></a>Maintenance requiring a reboot
 
-Takové aktualizace jsou možné díky technologii umožňující místní migraci za provozu, která se označuje také jako aktualizace zachovávající paměť. Při aktualizace se virtuální počítač umístí do stavu „pozastaveno“ a paměť se zachová v paměti RAM, zatímco základní hostitelský operační systém obdrží potřebné aktualizace a opravy. Virtuální počítač se obnoví během 30 sekund od pozastavení. Po obnovení se hodiny virtuálního počítače automaticky synchronizují.
+When VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
 
-Ne všechny aktualizace je možné nasadit pomocí tohoto mechanismu, ale díky krátkému období pozastavení má tento způsob nasazení aktualizací výrazně nižší vliv na virtuální počítače.
+The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
 
-Aktualizace více instancí (pro virtuální počítače ve skupině dostupnosti) se instalují vždy jenom v jedné aktualizační doméně.  
+When you start self-service maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
 
-## <a name="virtual-machine-configurations"></a>Konfigurace virtuálních počítačů
-Existují dva typy konfigurace virtuálních počítačů: s více instancemi a s jednou instancí. V konfiguraci s více instancemi jsou podobné virtuální počítače umístěné ve skupině dostupnosti.
+If you start self-service maintenance and there is an error during the process, the operation is stopped, the VM is not updated and it is also removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do self-service maintenance. 
 
-Konfigurace s více instancemi poskytuje redundanci fyzických počítačů, napájení a sítě a je doporučenou konfigurací pro zajištění dostupnosti aplikace. Všechny virtuální počítače ve skupině dostupnosti by měly pro aplikaci sloužit ke stejnému účelu.
+When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
 
-Další informace o konfiguraci virtuálních počítačů pro vysokou dostupnost najdete v tématu [Správa dostupnosti virtuálních počítačů s Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nebo [Správa dostupnosti virtuálních počítačů s Linuxem](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="availability-considerations-during-planned-maintenance"></a>Availability Considerations during Planned Maintenance 
 
-Naproti tomu konfigurace s jednou instancí se používá pro samostatné virtuální počítače, které nejsou umístěné v žádné skupině dostupnosti. Na takové virtuální počítače se nevztahuje smlouva SLA, která vyžaduje nasazení dvou nebo více virtuálních počítačů ve stejné skupině dostupnosti.
+If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
 
-Další informace o smlouvách SLA najdete v částech Cloudové služby a Virtuální počítače na stránce [Smlouvy SLA](https://azure.microsoft.com/support/legal/sla/).
+### <a name="paired-regions"></a>Paired Regions
 
-## <a name="multi-instance-configuration-updates"></a>Aktualizace konfigurací s více instancemi
-Platforma Azure během plánované údržby nejprve aktualizuje sady virtuálních počítačů hostovaných v konfiguraci s více instancemi. Aktualizace způsobí restartování těchto virtuálních počítačů a přibližně 15minutový výpadek.
+Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Aktualizace konfigurace s více instancemi předpokládá, že všechny virtuální počítače ve skupině dostupnosti mají podobnou funkci. V tomto nastavení se virtuální počítače aktualizují tak, aby se v průběhu celého procesu zachovala dostupnost.
+### <a name="availability-sets-and-scale-sets"></a>Availability sets and scale sets
 
-Základní platforma Azure každému virtuálnímu počítači ve skupině dostupnosti přiřadí aktualizační doménu a doménu selhání. Každá aktualizační doména je skupina virtuálních počítačů, které se budou restartovat ve stejném časovém období. Každá doména selhání je skupina virtuálních počítačů, které sdílejí společný zdroj napájení a síťový přepínač.
+When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
 
+Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
 
-Další informace o aktualizačních doménách a doménách selhání najdete v tématu [Konfigurace více virtuálních počítačů ve skupině dostupnosti pro zajištění redundance](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
-Za účelem zachování dostupnosti během aktualizace provádí Azure údržbu podle aktualizačních domén – aktualizuje vždy jenom jednu aktualizační doménu. Údržba v rámci aktualizační domény se skládá z vypnutí všech virtuálních počítačů v doméně, nainstalování aktualizace na hostitelských počítačích a následného restartování virtuálních počítačů. Jakmile je údržba v rámci domény dokončena, Azure tento proces zopakuje pro další aktualizační doménu a tak pokračuje s každou doménou, dokud nejsou aktualizované všechny.
-
-Restartování aktualizačních domén během plánované údržby nemusí probíhat sekvenčně, ale vždy se restartuje jenom jedna aktualizační doména. Azure v současné době nabízí oznámení s týdenním předstihem o plánované údržbě virtuálních počítačů v konfiguraci s více instancemi.
-
-Tady je příklad toho, co se může zobrazit v Prohlížeči událostí systému Windows po obnovení virtuálního počítače:
-
-<!--Image reference-->
-![][image2]
-
-
-Pomocí webu Azure Portal, Azure PowerShellu nebo Azure CLI můžete nastavit, aby se v Prohlížeči hlásily virtuální počítače nakonfigurované v konfiguraci s více instancemi. Například na webu Azure Portal můžete do dialogového okna Procházet **virtuální počítače (Classic)** přidat položku _Skupina dostupnosti_. Virtuální počítače, u kterých je uvedena stejná skupina dostupnosti, jsou součástí konfigurace s více instancemi. V následujícím příkladu se konfigurace s více instancemi skládá z virtuálních počítačů SQLContoso01 a SQLContoso02.
-
-<!--Image reference-->
-  ![Zobrazení Virtuální počítače (Classic) z webu Azure Portal][image4]
-
-## <a name="single-instance-configuration-updates"></a>Aktualizace konfigurací s jednou instancí
-Po dokončení aktualizací konfigurací s více instancemi Azure provede aktualizace konfigurací s jednou instancí. Tyto aktualizace také způsobí restartování virtuálních počítačů, které nejsou spuštěné ve skupinách dostupnosti.
-
-> [!NOTE]
-> Pokud je ve skupině dostupnosti spuštěna pouze jedna instance virtuálního počítače, platforma Azure se bude chovat, jako kdyby šlo o aktualizaci v konfiguraci s více instancemi.
->
-
-Údržba v rámci konfigurace s jednou instancí se skládá z vypnutí všech virtuálních počítačů spuštěných na hostitelském počítači, aktualizace hostitelského počítače a následného restartování virtuálních počítačů. Údržba vyžaduje výpadek přibližně 15 minut. Plánovaná událost údržby se spouští ve všech virtuálních počítačích v oblasti v jednom časovém období údržby.
-
-
-V případě konfigurací s jednou instancí mají plánované události údržby dopad na dostupnost aplikací. Azure nabízí oznámení s týdenním předstihem o plánované údržbě virtuálních počítačů v konfiguracích s jednou instancí.
-
-## <a name="email-notification"></a>E-mailové oznámení
-Azure odesílá e-mailové upozornění o nadcházející plánované údržbě (týden předem) pouze pro konfigurace s jednou instancí a s více instancemi. Tento e-mail se odesílá na e-mailové účty správce a spolusprávce předplatného. Tady je příklad tohoto typu e-mailu:
-
-<!--Image reference-->
-![][image1]
-
-## <a name="region-pairs"></a>Párování oblastí
-
-Azure při provádění údržby aktualizuje pouze instance virtuálních počítačů v jedné oblasti z páru. Například při aktualizaci virtuálních počítačů v oblasti Střed USA – sever nebude Azure zároveň aktualizovat žádné virtuální počítače v oblasti Střed USA – jih. To se naplánuje na jindy – díky tomu je umožněno převzetí služeb při selhání nebo vyrovnávání zatížení mezi oblastmi. V ostatních oblastech, jako je Severní Evropa, však může údržba probíhat ve stejnou dobu jako v oblasti Východní USA.
-
-Aktuální párování oblastí najdete v následující tabulce:
-
-| Oblast 1 | Oblast 2 |
-|:--- | ---:|
-| Východ USA |Západní USA |
-| Východ USA 2 |Střed USA |
-| Střed USA – sever |Střed USA – jih |
-| Západní střed USA |Západní USA 2 |
-| Východní Kanada |Střední Kanada |
-| Brazílie – jih |Střed USA – jih |
-| USA (Gov) – Iowa |USA (Gov) – Virginia |
-| US DoD – východ |US DoD – střed |
-| Severní Evropa |Západní Evropa |
-| Spojené království – západ |Spojené království – jih |
-| Německo – střed |Německo – severovýchod |
-| Jihovýchodní Asie |Východní Asie |
-| Austrálie – jihovýchod |Austrálie – východ |
-| Indie – střed |Indie – jih |
-| Indie – západ |Indie – jih |
-| Japonsko – východ |Japonsko – západ |
-| Korea – střed |Korea – jih |
-| Východní Čína |Severní Čína |
-
-
-<!--Anchors-->
-[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
-[image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
-
-
-<!--Link references-->
-[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).

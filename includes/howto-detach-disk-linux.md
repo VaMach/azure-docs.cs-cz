@@ -1,19 +1,19 @@
-Když už nepotřebujete datový disk připojený k virtuálnímu počítači, můžete jej jednoduše odpojit. Při odpojení disku od virtuálního počítače nedojde k odebrání disku z úložiště. Pokud znovu chcete použít existující data na disku, můžete jej znovu připojit ke stejnému nebo jinému virtuálnímu počítači.  
+When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. When you detach a disk from the VM, the disk is not removed it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
 
 > [!NOTE]
-> Virtuální počítač v Azure používá různé typy disků – disk operačního systému, místní dočasný disk a volitelné datové disky. Podrobnosti najdete v tématu [Disky a virtuální pevné disky (VHD) pro virtuální počítače](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Disk operačního systému nelze odpojit bez odstranění virtuálního počítače.
+> A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot detach an operating system disk unless you also delete the VM.
 
-## <a name="find-the-disk"></a>Vyhledání disku
-Než budete moci odpojit disk od virtuálního počítače, musíte zjistit číslo logické jednotky (LUN), což je identifikátor disku, který se má odpojit. Provedete to podle těchto kroků:
+## <a name="find-the-disk"></a>Find the disk
+Before you can detach a disk from a VM you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
 
-1. Otevřete rozhraní příkazového řádku Azure a [připojte se k předplatnému Azure](../articles/xplat-cli-connect.md). Zkontrolujte, že jste v režimu Azure Service Management (`azure config mode asm`).
-2. Zjistěte, které disky jsou připojené k virtuálnímu počítači. Následující příklad zobrazí seznam disků pro virtuální počítač `myVM`:
+1. Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+2. Find out which disks are attached to your VM. The following example lists disks for the VM named `myVM`:
 
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Výstup se podobá následujícímu příkladu:
+    The output is similar to the following example:
 
     ```azurecli
     * Fetching disk images
@@ -26,12 +26,12 @@ Než budete moci odpojit disk od virtuálního počítače, musíte zjistit čí
       info:    vm disk list command OK
     ```
 
-3. Poznamenejte si **logickou jednotku** (LUN) disku, který chcete odpojit.
+3. Note the LUN or the **logical unit number** for the disk that you want to detach.
 
-## <a name="remove-operating-system-references-to-the-disk"></a>Odebrání odkazů operačního systému na disk
-Před odpojením disku od hostitele s Linuxem se ujistěte, že se nepoužívají žádné oddíly disku. Zajistěte, aby se je operační systém po restartu nepokusil znovu připojit. Tyto kroky vrátí zpět konfiguraci, kterou jste pravděpodobně vytvořili při [připojení](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) disku.
+## <a name="remove-operating-system-references-to-the-disk"></a>Remove operating system references to the disk
+Before detaching the disk from the Linux guest, you should make sure that all partitions on the disk are not in use. Ensure that the operating system does not attempt to remount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) the disk.
 
-1. Pomocí příkazu `lsscsi` zjistěte identifikátor disku. `lsscsi` můžete nainstalovat pomocí příkazu `yum install lsscsi` (v distribucích založených na Red Hat) nebo `apt-get install lsscsi` (v distribucích založených na Debian). Hledaný identifikátor disku najdete pomocí čísla logické jednotky (LUN). Poslední číslo v řazené kolekci členů na každém řádku je logická jednotka (LUN). V následujícím příkladu výstupu z příkazu `lsscsi` se logická jednotka LUN 0 mapuje na */dev/sdc*.
+1. Use the `lsscsi` command to discover the disk identifier. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk identifier you are looking for by using the LUN number. The last number in the tuple in each row is the LUN. In the following example from `lsscsi`, LUN 0 maps to */dev/sdc*
 
     ```bash
     [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -40,7 +40,7 @@ Před odpojením disku od hostitele s Linuxem se ujistěte, že se nepoužívaj�
     [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
     ```
 
-2. Pomocí příkazu `fdisk -l <disk>` najděte oddíly přidružené k disku, který se má odpojit. Následující příklad zobrazí výstup pro `/dev/sdc`:
+2. Use `fdisk -l <disk>` to discover the partitions associated with the disk to be detached. The following example shows the output for `/dev/sdc`:
 
     ```bash
     Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors
@@ -54,13 +54,13 @@ Před odpojením disku od hostitele s Linuxem se ujistěte, že se nepoužívaj�
     /dev/sdc1            2048  2145386495  1072692224   83  Linux
     ```
 
-3. Odpojte všechny oddíly uvedené u disku. Následující příklad odpojí `/dev/sdc1`:
+3. Unmount each partition listed for the disk. The following example unmounts `/dev/sdc1`:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-4. Pomocí příkazu `blkid` zjistěte identifikátory UUID pro všechny oddíly. Výstup se podobá následujícímu příkladu:
+4. Use the `blkid` command to discovery the UUIDs for all partitions. The output is similar to the following example:
 
     ```bash
     /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -68,35 +68,35 @@ Před odpojením disku od hostitele s Linuxem se ujistěte, že se nepoužívaj�
     /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
     ```
 
-5. V souboru **/etc/fstab** odeberte záznamy související s cestami zařízení nebo s identifikátory UUID pro všechny oddíly disku, který se má odpojit.  Záznamy pro tento příklad můžou být:
+5. Remove entries in the **/etc/fstab** file associated with either the device paths or UUIDs for all partitions for the disk to be detached.  Entries for this example might be:
 
     ```sh  
    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
    ```
 
-    nebo
+    or
    
    ```sh   
    /dev/sdc1   /datadrive   ext4   defaults   1   2
    ```
 
-## <a name="detach-the-disk"></a>Odpojení disku
-Po zjištění čísla logické jednotky (LUN) disku a odebrání odkazů operačního systému jste připraveni disk odpojit:
+## <a name="detach-the-disk"></a>Detach the disk
+After you find the LUN number of the disk and removed the operating system references, you're ready to detach it:
 
-1. Odpojte vybraný disk od virtuálního počítače spuštěním příkazu `azure vm disk detach
-   <virtual-machine-name> <LUN>`. Následující příklad odpojí logickou jednotku (LUN) `0` od virtuálního počítače `myVM`:
+1. Detach the selected disk from the virtual machine by running the command `azure vm disk detach
+   <virtual-machine-name> <LUN>`. The following example detaches LUN `0` from the VM named `myVM`:
    
     ```azurecli
     azure vm disk detach myVM 0
     ```
 
-2. Odpojení disku můžete ověřit opětovným spuštěním příkazu `azure vm disk list`. Následující příklad zkontroluje virtuální počítač `myVM`:
+2. You can check if the disk got detached by running `azure vm disk list` again. The following example checks the VM named `myVM`:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Výstup bude vypadat podobně jako v následujícím příkladu, který ukazuje, že datový disk už není připojen:
+    The output is similar to the following example, which shows the data disk is no longer attached:
 
     ```azurecli
     info:    Executing command vm disk list
@@ -110,5 +110,5 @@ Po zjištění čísla logické jednotky (LUN) disku a odebrání odkazů opera�
      info:    vm disk list command OK
     ```
 
-Odpojený disk zůstává v úložišti, ale už není připojen k virtuálnímu počítači.
+The detached disk remains in storage but is no longer attached to a virtual machine.
 

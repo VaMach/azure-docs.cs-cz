@@ -14,7 +14,7 @@ Služba Blob service obsahuje následující součásti:
 
 ![Architektura objektu blob](./media/storage-blob-concepts-include/blob1.png)
 
-* **Účet úložiště:** Veškerý přístup k úložišti Azure se provádí prostřednictvím účtu úložiště. Tento účet úložiště může být **účtem úložiště pro obecné účely** nebo **účtem služby Blob Storage**, který se specializuje na ukládání objektů blob. Další informace najdete v tématu [Účty Azure Storage](../articles/storage/storage-create-storage-account.md).
+* **Účet úložiště:** Veškerý přístup k úložišti Azure se provádí prostřednictvím účtu úložiště. Tento účet úložiště může být **účtem úložiště pro obecné účely** nebo **účtem služby Blob Storage**, který se specializuje na ukládání objektů blob. Další informace najdete v tématu [Účty Azure Storage](../articles/storage/common/storage-create-storage-account.md).
 * **Kontejner:** Kontejner zajišťuje seskupení sady objektů blob. Všechny objekty blob musí být v kontejneru. Účet může obsahovat neomezený počet kontejnerů. Kontejner můžete pojmout neomezený počet objektů blob. Všimněte si, že název kontejneru musí být psaný malými písmeny.
 * **Objekt blob:** Soubor libovolného typu a velikosti. Úložiště Azure Storage nabízí tři typy objektů blob – objekty blob bloků, doplňovací objekty blob a objekty blob stránek.
   

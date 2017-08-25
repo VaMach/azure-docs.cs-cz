@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Zabezpečení trezoru klíčů
@@ -197,7 +197,7 @@ Definovanou vlastní roli je možné přiřadit jenom v předplatném, ve které
 
 Přiřazení vlastní role pro vývojáře/operátory pro oprávnění „deploy/action“ má nastavený obor na skupinu prostředků. Tímto způsobem bude moci tajné klíče (certifikát SSL a zaváděcí certifikát) získat jen virtuální počítače vytvořené ve skupině prostředků ContosoAppRG. Jakýkoli virtuální počítač, který člen týmu vývojářů a operátorů vytvoří v jiné skupině prostředků, nebude moci získat tyto tajné klíče, a to i navzdory znalosti URI tajných klíčů.
 
-Tento příklad znázorňuje jednoduchý scénář. Reálné scénáře v praxi mohou být komplexnější a může se stát, že bude nutné oprávnění k vašemu trezoru klíčů upravit, aby odpovídala vašim potřebám. V našem příkladu třeba předpokládáme, že bezpečnostní tým poskytne reference klíčů a tajných klíčů (URI a kryptografické otisky), které tým vývojářů a operátorů potřebuje k odkazování ve svých aplikacích. Není tu tedy nutné udělovat vývojářům a operátorům přístup k rovině dat. Také připomínáme, že tento příklad se zaměřuje na zabezpečení trezoru klíčů. Obdobnou péči byste nicméně měli věnovat i zabezpečení [virtuálních počítačů](https://azure.microsoft.com/services/virtual-machines/security/), [účtů úložiště](../storage/storage-security-guide.md) a dalších prostředků Azure.
+Tento příklad znázorňuje jednoduchý scénář. Reálné scénáře v praxi mohou být komplexnější a může se stát, že bude nutné oprávnění k vašemu trezoru klíčů upravit, aby odpovídala vašim potřebám. V našem příkladu třeba předpokládáme, že bezpečnostní tým poskytne reference klíčů a tajných klíčů (URI a kryptografické otisky), které tým vývojářů a operátorů potřebuje k odkazování ve svých aplikacích. Není tu tedy nutné udělovat vývojářům a operátorům přístup k rovině dat. Také připomínáme, že tento příklad se zaměřuje na zabezpečení trezoru klíčů. Obdobnou péči byste nicméně měli věnovat i zabezpečení [virtuálních počítačů](https://azure.microsoft.com/services/virtual-machines/security/), [účtů úložiště](../storage/common/storage-security-guide.md) a dalších prostředků Azure.
 
 > [!NOTE]
 > Poznámka: Tento příklad ukazuje, jak bude přístup k trezoru klíčů uzamčen v produkčním prostředí. Vývojáři by měli mít vedle toho vlastní předplatné nebo skupinu prostředků, ve kterých budou mít oprávnění k plné správě svých trezorů, virtuálních počítačů a účtů úložiště při vývoji aplikace.

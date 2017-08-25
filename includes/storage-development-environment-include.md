@@ -39,9 +39,9 @@ K získání obou balíčků můžete použít balíček NuGet. Postupujte násl
 Ke spuštění příkladů z této příručky máte dvě možnosti prostředí:
 
 * Svůj kód můžete spustit na účtu služby Azure Storage v cloudu. 
-* Svůj kód můžete spustit v emulátoru úložiště Azure. Emulátor úložiště je místní prostředí, které emuluje účet služby Azure Storage v cloudu. Emulátor je bezplatnou možností pro testování a ladění kódu během vývoje aplikace. Emulátor používá známý účet a klíč. Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](../articles/storage/storage-use-emulator.md).
+* Svůj kód můžete spustit v emulátoru úložiště Azure. Emulátor úložiště je místní prostředí, které emuluje účet služby Azure Storage v cloudu. Emulátor je bezplatnou možností pro testování a ladění kódu během vývoje aplikace. Emulátor používá známý účet a klíč. Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](../articles/storage/common/storage-use-emulator.md).
 
-Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure Portal primární přístupový klíč svého účtu úložiště. Další informace najdete v článku [Zobrazení a kopírování přístupového klíče k úložišti](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure Portal primární přístupový klíč svého účtu úložiště. Další informace najdete v článku [Zobrazení a kopírování přístupového klíče k úložišti](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
 > Pokud se chcete vyhnout nákladům spojeným se službou Azure Storage, můžete se zaměřit na emulátor úložiště. I když se zaměříte na účet úložiště Azure v cloudu, budou náklady na vyzkoušení postupů z tohoto kurzu zanedbatelné.
@@ -51,7 +51,7 @@ Pokud se zaměřujete na účet úložiště v cloudu, zkopírujte z webu Azure 
 ### <a name="configure-your-storage-connection-string"></a>Konfigurace připojovacího řetězce úložiště
 Knihovna klienta služby Azure Storage pro .NET podporuje použití připojovacího řetězce úložiště ke konfiguraci koncových bodů a přihlašovacích údajů pro přístup ke službám úložiště. Připojovací řetězec úložiště se nejlépe uchovává v konfiguračním souboru. 
 
-Další informace o připojovacích řetězcích najdete v článku [Konfigurace připojovací řetězce pro službu Azure Storage](../articles/storage/storage-configure-connection-string.md).
+Další informace o připojovacích řetězcích najdete v článku [Konfigurace připojovací řetězce pro službu Azure Storage](../articles/storage/common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > Klíč účtu úložiště je podobný kořenovému heslu vašeho účtu úložiště. Vždy klíč účtu úložiště pečlivě chraňte. Nedávejte ho jiným uživatelům, nezakódovávejte ho ani ho neukládejte do souboru ve formátu prostého textu, který je přístupný ostatním uživatelům. Pokud se domníváte, že je klíč ohrožený, vygenerujte ho znovu pomocí webu Azure Portal.

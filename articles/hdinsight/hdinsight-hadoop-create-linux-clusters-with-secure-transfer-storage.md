@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 08/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5e9cae224e5a36e1529c962ad8cbab77176dda8c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Vytvoření clusteru Hadoop s účty úložiště s bezpečným přenosem ve službě Azure HDInsight
 
-Funkce [Vyžadovat zabezpečený přenos](../storage/storage-require-secure-transfer.md) zvyšuje zabezpečení účtu služby Azure Storage tím, že vynucuje přenos všech požadavků na účet přes zabezpečené připojení. Tuto funkci a schéma wasbs podporují pouze clustery HDInsight verze 3.6 nebo novější. 
-
->[!NOTE] 
-> Vytváření clusterů s účty úložiště s povoleným zabezpečeným přenosem pomocí sady .NET SDK se aktuálně nepodporuje. Alternativním řešením je nastavení wasbs ve vlastnosti fs.defaultFS v konfiguraci základního webu jako součásti ClusterCreateParametersExtended.
+Funkce [Vyžadovat zabezpečený přenos](../storage/common/storage-require-secure-transfer.md) zvyšuje zabezpečení účtu služby Azure Storage tím, že vynucuje přenos všech požadavků na účet přes zabezpečené připojení. Tuto funkci a schéma wasbs podporují pouze clustery HDInsight verze 3.6 nebo novější. 
 
 ## <a name="prerequisites"></a>Požadavky
 Než začnete tento kurz, musíte mít:
 
 * **Předplatné Azure**: pro vytvoření bezplatného zkušebního účet na jeden měsíc otevřete web [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **Účet služby Azure Storage s povoleným zabezpečeným přenosem**. Pokyny najdete v tématech popisujících [vytvoření účtu úložiště](../storage/storage-create-storage-account.md#create-a-storage-account) a funkci [Vyžadovat zabezpečený přenos](../storage/storage-require-secure-transfer.md).
+* **Účet služby Azure Storage s povoleným zabezpečeným přenosem**. Pokyny najdete v tématech popisujících [vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account) a funkci [Vyžadovat zabezpečený přenos](../storage/common/storage-require-secure-transfer.md).
 * **Kontejner objektů blob v účtu úložiště**. 
 ## <a name="create-cluster"></a>Vytvoření clusteru
 

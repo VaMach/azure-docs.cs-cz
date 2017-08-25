@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Vytvoření soukromého registru kontejnerů Dockeru pomocí Azure CLI 2.0
@@ -35,7 +35,7 @@ Pomocí příkazů na stránce [Azure CLI 2.0](https://github.com/Azure/azure-cl
 ## <a name="prerequisites"></a>Požadavky
 * **Azure CLI 2.0:** Chcete-li nainstalovat a začít používat Azure CLI 2.0, přečtěte si [pokyny k instalaci](/cli/azure/install-azure-cli). Přihlaste se ke svému předplatnému Azure spuštěním příkazu `az login`. Další informace najdete v článku [Začínáme s Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 * **Skupina prostředků:** Než vytvoříte registr kontejnerů, vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) nebo použijte existující skupinu prostředků. Ujistěte se, že je skupina prostředků v umístění, kde je služba Container Registry [dostupná](https://azure.microsoft.com/regions/services/). Chcete-li vytvořit skupinu prostředků pomocí Azure CLI 2.0, podívejte se na [referenční informace k Azure CLI 2.0](/cli/azure/group).
-* **Účet úložiště** (volitelné): Pro účely zálohování registru kontejnerů vytvořte standardní [účet úložiště](../storage/storage-introduction.md) Azure ve stejném umístění. Pokud při vytváření registru pomocí příkazu `az acr create` nezadáte účet úložiště, příkaz ho vytvoří za vás. Chcete-li vytvořit účet úložiště pomocí Azure CLI 2.0, podívejte se na [referenční informace k Azure CLI 2.0](/cli/azure/storage/account). Storage úrovně Premium se v tuto chvíli nepodporuje.
+* **Účet úložiště** (volitelné): Pro účely zálohování registru kontejnerů vytvořte standardní [účet úložiště](../storage/common/storage-introduction.md) Azure ve stejném umístění. Pokud při vytváření registru pomocí příkazu `az acr create` nezadáte účet úložiště, příkaz ho vytvoří za vás. Chcete-li vytvořit účet úložiště pomocí Azure CLI 2.0, podívejte se na [referenční informace k Azure CLI 2.0](/cli/azure/storage/account). Storage úrovně Premium se v tuto chvíli nepodporuje.
 * **Instanční objekt** (volitelné): Pokud vytvoříte registr pomocí rozhraní příkazového řádku, ve výchozím nastavení nebude nastavený pro přístup. Podle potřeby můžete k registru přiřadit existující instanční objekt Azure Active Directory (nebo vytvořit a přiřadit nový) nebo povolit uživatelský účet s právy pro správu registru. Pokyny najdete v dalších částech tohoto článku. Další informace o přístupu k registru najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md).
 
 ## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
