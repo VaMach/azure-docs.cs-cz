@@ -4,7 +4,7 @@ description: "Tento kurz vás provede kroky pro vytvoření účtu služby Azure
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services
