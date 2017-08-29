@@ -4,7 +4,7 @@ description: "V tomto tématu najdete přehled scénářů využití služby Mic
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

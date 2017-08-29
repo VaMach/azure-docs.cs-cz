@@ -1,1 +1,0 @@
-![Vzory a postupy](media/guidance-pnp-include/pnp-logo.png)

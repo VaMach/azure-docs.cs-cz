@@ -4,7 +4,7 @@ description: "V tomto kurzu vás provede jednotlivými kroky implementace zákla
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services

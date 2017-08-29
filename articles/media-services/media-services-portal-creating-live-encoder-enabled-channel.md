@@ -4,7 +4,7 @@ description: "Tento kurz vás provede kroky k vytvoření kanálu, který přij�
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services
