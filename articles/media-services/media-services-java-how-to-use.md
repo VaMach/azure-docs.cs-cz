@@ -4,7 +4,7 @@ description: "Tento kurz vás provede jednotlivými kroky implementace základn�
 services: media-services
 documentationcenter: java
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
