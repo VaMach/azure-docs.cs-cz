@@ -13,6 +13,7 @@
 ### [Sociální média](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Hodnocení v reálném čase s Machine Learningem](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Zpracování událostí v reálném čase](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Detekce anomálií v příručce využití Azure (Preview)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## Vytváření úloh
 ### [Vytváření vstupů](stream-analytics-define-inputs.md)
@@ -66,7 +67,7 @@
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
 ## [Fórum pro názory](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [Ceny](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Poznámky k verzi](stream-analytics-release-notes.md)

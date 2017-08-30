@@ -18,7 +18,7 @@
 # Ukázky
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure CLI](samples-cli.md)
+## [Service Fabric CLI](samples-cli.md)
 # Koncepty
 ## [Principy mikroslužeb](service-fabric-overview-microservices.md)
 ## [Celkový přehled](service-fabric-content-roadmap.md)
@@ -113,11 +113,14 @@
 #### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Integrace se službou API Management](service-fabric-api-management-overview.md)
+
 ## Monitorování a diagnóza
 ### [Přehled](service-fabric-diagnostics-overview.md)
 ### [Model stavu](service-fabric-health-introduction.md)
 ### [Diagnostika ve stavovém modelu Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Čítače výkonu pro vzdálenou komunikaci modelu Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Průvodce postupy
 ## Nastavení vývojového prostředí
@@ -126,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Sestavení aplikace
+### [Vytvoření první aplikace C# v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Sestavení služby spustitelné hostem
 #### [Hostování aplikace Node.js ve Windows](quickstart-guest-app.md)
 #### [Nasazení hostujícího spustitelného souboru](service-fabric-deploy-existing-app.md)
@@ -206,9 +210,7 @@
 ### [Ladění služby Java v Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Místní monitorování a diagnostika](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Integrace se službou API Management
-### [Přehled](service-fabric-api-management-overview.md)
-### [Rychlý start](service-fabric-api-management-quick-start.md)
+## [Nasazení API Managementu a Service Fabric do Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrace ze služby Cloud Services
 ### [Porovnání služby Cloud Services se Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -221,7 +223,7 @@
 ### Nasazení nebo odebrání aplikací
 #### [Nasazení aplikací v místním clusteru](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [Rozhraní API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -256,6 +258,7 @@
 #### [Upgrade](service-fabric-cluster-upgrade.md)
 #### [Nastavení řízení přístupu](service-fabric-cluster-security-roles.md)
 #### [Konfigurace](service-fabric-cluster-fabric-settings.md)
+#### [Otevření portu v nástroji pro vyrovnávání zatížení](create-load-balancer-rule.md)
 #### [Správa certifikátů clusteru](service-fabric-cluster-security-update-certs-azure.md)
 #### [Odstranění](service-fabric-cluster-delete.md)
 
@@ -275,8 +278,7 @@
 ### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 
-### [Správa clusteru pomocí rozhraní příkazového řádku XPlat](service-fabric-azure-cli.md)
-### [Správa clusteru pomocí příkazů Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+### [Správa clusteru pomocí rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
 ### [Oprava uzlů clusteru](service-fabric-patch-orchestration-application.md)
 
 ### Správa a orchestrace prostředků clusteru

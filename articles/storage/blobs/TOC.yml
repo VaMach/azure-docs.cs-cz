@@ -38,6 +38,8 @@
           href: storage-blob-storage-tiers.md
         - name: Navrhování aplikací s vysokou dostupností s využitím RA-GRS
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Reakce na události
+          href: storage-blob-event-overview.md
         - name: Škálovatelnost a cíle výkonnosti
           href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Kontrolní seznam pro výkon a škálovatelnost
@@ -74,6 +76,8 @@
           href: storage-properties-metadata.md
         - name: Použití emulátoru úložiště
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Směrování událostí na vlastní koncový bod
+          href: storage-blob-event-quickstart.md
         - name: Vlastní domény
           href: storage-custom-domain-name.md
         - name: Prohledávání služby Blob Storage pomocí Azure Search

@@ -57,14 +57,11 @@
 ### [Použití DataFu s Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Clustery na vyžádání](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Odeslání úloh systému Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Použít R Serveru
-### [Možnosti úložiště](hdinsight-hadoop-r-server-storage.md)
-### [Instalace nástroje RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Kontexty služby Compute](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR a SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Použití Sparku pro zpracování v paměti
+### Začínáme – vývojář ve Sparku
+#### [Vytvoření samostatné aplikace](hdinsight-apache-spark-create-standalone-application.md)
+#### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Pomocí Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Vytvoření samostatné aplikace](hdinsight-apache-spark-create-standalone-application.md)
 ### [Vytváření aplikací pomocí Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Vytváření aplikací pomocí IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Zpracování událostí streamování](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Použití externích balíčků s Jupyterem s využitím magických příkazů v buňkách](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Použití externích balíčků s Jupyterem s využitím akcí skriptů](hdinsight-apache-spark-python-package-installation.md)
 ### [Použití místní aplikace Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Vzdálené ladění úloh pomocí IntelliJ přes VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Známé problémy](hdinsight-apache-spark-known-issues.md)
+## Použít R Serveru
+### [Možnosti úložiště](hdinsight-hadoop-r-server-storage.md)
+### [Instalace nástroje RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Kontexty služby Compute](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR a SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Použití HBase
 ### [Použití Phoenixu a SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analýza tweetů v reálném čase](hdinsight-hbase-analyze-twitter-sentiment.md)

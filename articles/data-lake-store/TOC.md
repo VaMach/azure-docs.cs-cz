@@ -39,12 +39,14 @@
 ### [Průvodce laděním výkonu pro Storm ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Integrace se službami Azure
+### Pomocí HDInsight
+#### [Pomocí portálu](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Pomocí PowerShellu (výchozí úložiště)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Pomocí PowerShellu (další úložiště)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Pomocí šablony Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Přístup z virtuálních počítačů ve virtuální síti Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Použití se službou Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [HDInsight se službou Data Lake Store – portál](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [HDInsight se službou Data Lake Store jako výchozí úložištěm – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [HDInsight se službou Data Lake Store jako dalším úložištěm – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [HDInsight se službou Data Lake Store – šablona Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Použití s Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
 ### [Použití se službou Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Použití se službou Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Použití s Power BI](data-lake-store-power-bi.md)

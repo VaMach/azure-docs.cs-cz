@@ -46,6 +46,7 @@
 ## [Konfigurace tokenů](active-directory-b2c-token-session-sso.md)
 ## [Povolení MFA](active-directory-b2c-reference-mfa.md)
 ## [Použití vlastních atributů](active-directory-b2c-reference-custom-attr.md)
+## [Přizpůsobení hesla](active-directory-b2c-reference-password-complexity.md)
 ## [Přizpůsobení uživatelského rozhraní](active-directory-b2c-reference-ui-customization.md)
 ### [Pomocný nástroj pro přizpůsobení](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Vlastní nastavení jazyka](active-directory-b2c-reference-language-customization.md)
@@ -56,9 +57,12 @@
 ## [Vlastní zásady](active-directory-b2c-overview-custom.md)
 ## Průvodci
 ### [Začínáme](active-directory-b2c-get-started-custom.md)
-### Konfigurace zprostředkovatelů OIDC
+### Konfigurace zprostředkovatelů OIDC/OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Účet Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Konfigurace zprostředkovatelů SAML
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrace rozhraní RESTful API
 #### [Ověření vstupu uživatele](active-directory-b2c-rest-api-validation-custom.md)
@@ -68,11 +72,12 @@
 #### [Vlastní atributy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom.md)
 #### [Přizpůsobení tokenů](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Přizpůsobení hesla](active-directory-b2c-reference-password-complexity-custom.md)
 ### Řešení potíží
 #### [Shromažďování protokolů pomocí Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referenční informace
 ### [Poznámky k verzi](active-directory-b2c-developer-notes-custom.md)
-
+### [Definice architektury důvěryhodnosti](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glosář

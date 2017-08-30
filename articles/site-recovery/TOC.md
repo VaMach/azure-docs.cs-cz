@@ -140,6 +140,8 @@
 ## Monitorování a odstraňování potíží
 ### [Potíže s replikací z Azure do Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Potíže s replikací z místního prostředí do Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Problémy instalace služby Mobility](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Problémy převzetí služeb při selhání do Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Shromažďování protokolů a řešení potíží s místním prostředím](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referenční informace
