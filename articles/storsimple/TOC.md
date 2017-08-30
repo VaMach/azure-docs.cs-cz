@@ -162,7 +162,6 @@
 ##### [Vytvoření balíčku pro podporu](storsimple-8000-create-manage-support-package.md)
 
 ### Migrace
-#### [Z řad 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Z jiných zařízení úložišť](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aktualizace
@@ -301,16 +300,17 @@
 ##### [Vytvoření balíčku pro podporu](storsimple-create-manage-support-package.md)
 
 ### Migrace
-#### [Z řad 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Z jiných zařízení úložišť](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aktualizace
+#### [Instalace aktualizace 5 – aktuální](storsimple-install-update-5.md)
 #### [Instalace aktualizace 4](storsimple-install-update-4.md)
 #### [Instalace aktualizace 3](storsimple-install-update-3.md)
 #### [Aktualizace zařízení](storsimple-update-device.md)
 
 ## Poznámky k verzi
-### [Aktualizace 4 – aktuální](storsimple-update4-release-notes.md)
+### [Aktualizace 5 – aktuální](storsimple-update5-release-notes.md)
+### [Aktualizace 4](storsimple-update4-release-notes.md)
 ### [Aktualizace 3](storsimple-update3-release-notes.md)
 ### [Aktualizace 2.2](storsimple-update21-release-notes.md)
 

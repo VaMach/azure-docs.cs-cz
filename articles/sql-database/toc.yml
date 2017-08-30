@@ -65,6 +65,10 @@
           href: sql-database-servers-databases.md
         - name: Úrovně služby
           href: sql-database-service-tiers.md
+        - name: Omezení prostředků
+          href: sql-database-resource-limits.md
+        - name: Izolované databáze
+          href: sql-database-single-database-resources.md
         - name: Elastické fondy
           href: sql-database-elastic-pool.md
         - name: Architektura připojení
@@ -75,8 +79,6 @@
           href: sql-database-what-is-a-dtu.md
         - name: Srovnávací test DTU
           href: sql-database-benchmark-overview.md
-        - name: Omezení
-          href: sql-database-resource-limits.md
         - name: PaaS nebo IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: Auditování
@@ -416,7 +418,7 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: Aktualizace služeb
       href: 'https://azure.microsoft.com/updates/?service=sql-database'
-    - name: Pokyny pro architekturu
-      href: /azure/architecture/guide/
+    - name: Centrum architektury
+      href: /azure/architecture/
     - name: Příběhy zákazníků
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
