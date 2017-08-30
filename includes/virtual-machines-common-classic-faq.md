@@ -1,131 +1,131 @@
 
 
 
-This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.
+Tento článek se zabývá některými běžnými dotazy uživatelů k virtuálním počítačům Azure vytvořeným pomocí modelu nasazení Classic.
 
-## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Can I migrate my VM created in the classic deployment model to the new Resource Manager model?
-Yes. For instructions on how to migrate, see:
+## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Můžu migrovat virtuální počítač vytvořený v modelu nasazení Classic na nový model Resource Manager?
+Ano. Pokyny k migraci najdete tady:
 
-* [Migrate from classic to Azure Resource Manager using Azure PowerShell](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md).
-* [Migrate from classic to Azure Resource Manager using Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
+* [Migrace z modelu Classic na Azure Resource Manager pomocí Azure PowerShellu](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md).
+* [Migrace z modelu Classic na Azure Resource Manager pomocí Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
-## <a name="what-can-i-run-on-an-azure-vm"></a>What can I run on an Azure VM?
-All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
+## <a name="what-can-i-run-on-an-azure-vm"></a>Co můžu spouštět na virtuálním počítači Azure?
+Všichni předplatitelé můžou na virtuálním počítači Azure spouštět serverový software. Můžete spouštět nejnovější verze Windows Serveru i celou řadu linuxových distribucí. Podrobnosti o podpoře najdete tady:
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Virtuální počítače s Windows – [Podpora serverového softwaru Microsoft pro virtuální počítače Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Virtuální počítače s Linuxem – [Linux v distribucích schválených pro Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+V případě imagí klienta Windows jsou pro předplatitele MSDN Azure Benefit a předplatitele MSDN s průběžnými platbami podle aktuálního využití pro vývoj/testování dostupné určité verze Windows 7 a Windows 8.1 pro úlohy vývoje a testování. Podrobnosti, včetně pokynů a omezení, najdete v tématu [Image klienta Windows pro předplatitele MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
-## <a name="why-are-affinity-groups-being-deprecated"></a>Why are affinity groups being deprecated?
-Affinity groups are a legacy concept for a geographical grouping of a customer’s cloud service deployments and storage accounts within Azure. They were originally provided to improve VM-to-VM network performance in the early Azure network designs. They also supported the initial release of virtual networks (VNets), which were limited to a small set of hardware in a region.
+## <a name="why-are-affinity-groups-being-deprecated"></a>Proč se skupiny vztahů přestávají používat jako zastaralé?
+Skupiny vztahů jsou starším konceptem geografického seskupování zákaznických nasazení cloudových služeb a účtů úložiště v rámci Azure. Původně byly poskytovány za účelem vylepšení výkonu sítě mezi virtuálními počítači v raných návrzích sítě Azure. Podporovaly také počáteční verzi virtuálních sítí, které byly omezené na malou sadu hardwaru v oblasti.
 
-The current Azure network within a region is designed so that affinity groups are no longer required. Virtual networks are also at a regional scope, so an affinity group is no longer required when you use a virtual network. Due to these improvements, we no longer recommend that customers use affinity groups because they can be limiting in some scenarios. Using affinity groups will unnecessarily associate your VMs to specific hardware that limits the choice of VM sizes that are available to you. It might also lead to capacity-related errors when you attempt to add new VMs if the specific hardware associated with the affinity group is near capacity.
+Aktuální síť Azure v rámci oblasti je navržená tak, že skupiny vztahů už nejsou potřeba. Virtuální sítě navíc mají regionální rozsah, takže skupina vztahů už není při používání virtuální sítě potřeba. Kvůli těmto vylepšením už zákazníkům nedoporučujeme používat skupiny vztahů, protože v některých scénářích můžou být omezující. Používání skupin vztahů zbytečně přidruží vaše virtuální počítače ke konkrétnímu hardwaru, který omezuje výběr dostupných velikostí virtuálních počítačů. Může to také vést k chybám souvisejícím s kapacitou při pokusu o přidání nových virtuálních počítačů, pokud se konkrétní hardware přidružený ke skupině vztahů blíží svojí kapacitě.
 
-Affinity group features are already deprecated in the Azure Resource Manager deployment model and in the Azure portal. For the classic Azure portal, we're deprecating support for creating affinity groups and creating storage resources that are pinned to an affinity group. You don't need to modify existing cloud services that are using an affinity group. However, you should not use affinity groups for new cloud services unless an Azure support professional recommends them.
+Funkce skupiny vztahů už se nepoužívají v modelu nasazení Azure Resource Manager ani na webu Azure Portal. Na portálu Azure Classic přestáváme podporovat vytváření skupin vztahů a vytváření prostředků úložiště připnutých ke skupině vztahů. Stávající cloudové služby, které používají skupinu vztahů, není nutné upravovat. Pro nové cloudové služby byste však skupiny vztahů používat neměli, pokud to nedoporučí specialista podpory Azure.
 
-## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>How much storage can I use with a virtual machine?
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Kolik úložiště můžu využít s virtuálním počítačem?
+Každý datový disk může mít velikost až 1 TB. Počet datových disků, které můžete využít, závisí na velikosti virtuálního počítače. Podrobnosti najdete v článku [Velikosti služeb Virtual Machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Účet úložiště Azure poskytuje úložiště pro disk operačního systému a všechny datové disky. Každý disk je soubor .vhd uložený jako objekt blob stránky. Podrobnosti o cenách najdete v tématu [Podrobnosti o cenách úložiště](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
-## <a name="which-virtual-hard-disk-types-can-i-use"></a>Which virtual hard disk types can I use?
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
+## <a name="which-virtual-hard-disk-types-can-i-use"></a>Jaké typy virtuálních pevných disků můžu použít?
+Azure podporuje pouze virtuální pevné disky s pevnou velikostí a ve formátu VHD. Pokud máte disk ve formátu VHDX, který chcete použít v Azure, musíte ho nejprve převést pomocí Správce technologie Hyper-V nebo rutiny [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Až to uděláte, pomocí rutiny [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (v režimu správy služby) nahrajte disk VHD do účtu úložiště v Azure, abyste ho mohli použít s virtuálními počítači.
 
-* For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* For Windows instructions, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Pokyny pro Linux najdete v tématu [Vytvoření a nahrání virtuálního pevného disku obsahujícího operační systém Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Pokyny pro Windows najdete v tématu [Vytvoření a nahrání virtuálního pevného disku s Windows Serverem do Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Are these virtual machines the same as Hyper-V virtual machines?
-In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:
+## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Jsou tyto virtuální počítače stejné jako virtuální počítače Hyper-V?
+V mnoha ohledech jsou podobné 1. generaci virtuálních počítačů Hyper-V, ale nejsou úplně stejné. Oba typy poskytují virtualizovaný hardware a virtuální pevné disky ve formátu VHD jsou kompatibilní. To znamená, že je můžete přesouvat mezi Hyper-V a Azure. Tři hlavní rozdíly, které někdy překvapí uživatele Hyper-V, jsou:
 
-* Azure doesn’t provide console access to a virtual machine. There is no way to access a VM until it is done booting.
-* Azure VMs in most [sizes](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
-* Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) and [Generation 2 Virtual Machine Overview](https://technet.microsoft.com/library/dn282285.aspx).
+* Azure neposkytuje přístup k virtuálnímu počítači prostřednictvím konzoly. Neexistuje žádná možnost přístupu k virtuálnímu počítači, dokud se nespustí.
+* Virtuální počítače Azure ve většině [velikostí](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mají pouze 1 virtuální síťový adaptér, což znamená, že také můžou mít pouze 1 externí IP adresu. (Velikosti A8 a A9 používají druhý síťový adaptér pro komunikaci aplikací mezi instancemi v omezených scénářích.)
+* Virtuální počítače Azure nepodporují funkce 2. generace virtuálních počítačů Hyper-V. Podrobnosti o těchto funkcích najdete v tématech [Specifikace virtuálních počítačů pro Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) a [Přehled virtuálních počítačů 2. generace](https://technet.microsoft.com/library/dn282285.aspx).
 
-## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Can these virtual machines use my existing, on-premises networking infrastructure?
-For virtual machines created in the classic deployment model, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect them to on-premises IT infrastructure. For details, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Můžou tyto virtuální počítače používat moji stávající místní síťovou infrastrukturu?
+Pro virtuální počítače vytvořené v modelu nasazení Classic můžete pomocí služby Azure Virtual Network rozšířit vaši stávající infrastrukturu. Přístup je podobný jako při zakládání firemní pobočky. Můžete zřídit a spravovat virtuální privátní sítě (VPN) v Azure nebo je bezpečně připojit k místní IT infrastruktuře. Podrobnosti najdete v článku [Přehled služby Virtual Network](../articles/virtual-network/virtual-networks-overview.md).
 
-You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. You can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
+Při vytváření virtuálního počítače budete muset určit síť, do které má patřit. Existující virtuální počítač není možné připojit k virtuální síti. Můžete to však obejít tak, že z existujícího virtuálního počítače odpojíte virtuální pevný disk (VHD) a použijete ho k vytvoření nového virtuálního počítače s požadovanou konfigurací sítě.
 
-## <a name="how-can-i-access--my-virtual-machine"></a>How can I access  my virtual machine?
-You need to establish a remote connection to log on to the virtual machine by using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM. For instructions, see:
+## <a name="how-can-i-access--my-virtual-machine"></a>Jak můžu přistupovat k virtuálnímu počítači?
+Pokud se chcete přihlásit k virtuálnímu počítači, je potřeba navázat vzdálené připojení pomocí Připojení ke vzdálené ploše pro virtuální počítač s Windows nebo protokolu Secure Shell (SSH) pro virtuální počítače s Linuxem. Pokyny najdete tady:
 
-* [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
-* [How to Log on to a Virtual Machine Running Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+* [Jak se přihlásit k virtuálnímu počítači s Windows Serverem](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Podporují se maximálně 2 souběžná připojení, pokud server není nakonfigurovaný jako hostitel relace vzdálené plochy.  
+* [Jak se přihlásit k virtuálnímu počítači s Linuxem](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). SSH ve výchozím nastavení umožňuje maximálně 10 souběžných připojení. Toto číslo můžete navýšit upravením konfiguračního souboru.
 
-If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extension to help fix the problem.
+Pokud máte problémy se Vzdálenou plochou nebo SSH, nainstalujte rozšíření [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a použijte ho k opravení problému.
 
-For Windows VMs, additional options include:
+Pro virtuální počítače s Windows další možnosti zahrnují:
 
-* In the Azure classic portal, find the VM, then click **Reset Remote Access** from the Command bar.
-* Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Na portálu Azure Classic vyhledejte virtuální počítač a potom klikněte na **Resetovat vzdálený přístup** na panelu příkazů.
+* Přečtěte si článek [Řešení problémů s připojením ke vzdálené ploše na virtuálním počítači Azure s Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Připojte se k virtuálnímu počítači prostřednictvím vzdálené komunikace prostředí Windows PowerShell nebo vytvořte další koncové body, aby se k virtuálnímu počítači mohly připojit další prostředky. Podrobnosti najdete v článku [Nastavení koncových bodů pro virtuální počítač](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
+Pokud už znáte technologii Hyper-V, možná hledáte podobný nástroj jako VMConnect. Azure žádný podobný nástroj nenabízí, protože přístup k virtuálnímu počítači prostřednictvím konzoly nepodporuje.
 
-## <a name="can-i-use-the-temporary-disk-the-d-drive-for-windows-or-devsdb1-for-linux-to-store-data"></a>Can I use the temporary disk (the D: drive for Windows or /dev/sdb1 for Linux) to store data?
-You shouldn’t use the temporary disk (the D: drive by default for Windows or /dev/sdb1 for Linux) to store data. They are only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+## <a name="can-i-use-the-temporary-disk-the-d-drive-for-windows-or-devsdb1-for-linux-to-store-data"></a>Můžu použít dočasný disk (jednotku D: ve Windows nebo adresář /dev/sdb1 v Linuxu) k ukládání dat?
+Dočasný disk (jednotku D: ve Windows nebo adresář /dev/sdb1 v Linuxu) byste neměli používat k ukládání dat. Jsou to pouze dočasná úložiště, takže byste riskovali nenávratnou ztrátu dat. K tomu může dojít při přesunu virtuálního počítače na jiného hostitele. Mezi důvody možného přesunu virtuálního počítače patří změna velikosti virtuálního počítače, aktualizace hostitele nebo selhání hardwaru.
 
-## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>How can I change the drive letter of the temporary disk?
-On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Jak můžu změnit písmeno jednotky dočasného disku?
+Na virtuálním počítači s Windows můžete písmeno jednotky změnit přesunutím stránkovacího souboru a novým přiřazením písmen jednotek, ale budete se muset ujistit, že kroky provádíte v určitém pořadí. Pokyny najdete v článku [Změna písmena jednotky na dočasném disku ve Windows](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="how-can-i-upgrade-the-guest-operating-system"></a>How can I upgrade the guest operating system?
-The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware. For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:
+## <a name="how-can-i-upgrade-the-guest-operating-system"></a>Jak můžu upgradovat hostovaný operační systém?
+Termín upgrade obecně znamená přesun na aktuálnější verzi operačního systému při zachování stejného hardwaru. U virtuálních počítačů Azure se proces přesunu na aktuálnější verzi pro Linux a Windows liší:
 
-* For Linux VMs, use the package management tools and procedures appropriate for the distribution.
-* For a Windows virtual machine, you need to migrate the server using something like the Windows Server Migration Tools. Don’t attempt to upgrade the guest OS while it resides on Azure. It isn’t supported because of the risk of losing access to the virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems.
+* U virtuálních počítačů s Linuxem použijte vhodné nástroje pro správu balíčků a postupy pro příslušnou distribuci.
+* U virtuálních počítačů s Windows je potřeba migrovat server pomocí nějakého nástroje, jako jsou například Nástroje pro migraci systému Windows Server. Nepokoušejte se upgradovat hostovaný operační systém, který se nachází v Azure. Nepodporuje se to kvůli riziku ztráty přístupu k virtuálnímu počítači. Kdyby během upgradu došlo k problémům, mohli byste ztratit možnost spustit relaci vzdálené plochy a nemohli byste problémy odstranit.
 
-For general details about the tools and processes for migrating a Windows Server, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
+Obecné podrobnosti o nástrojích a postupech pro migraci Windows Serveru najdete v tématu [Migrace rolí a funkcí na Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
-## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>What's the default user name and password on the virtual machine?
-The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
+## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Jaké je výchozí uživatelské jméno a heslo na virtuálním počítači?
+Image poskytované Azure nemají předkonfigurované uživatelské jméno a heslo. Při vytváření virtuálního počítače pomocí některé z takových imagí budete muset zadat uživatelské jméno a heslo, které budete používat k přihlášení k tomuto virtuálnímu počítači.
 
-If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extension to fix the problem.
+Pokud jste uživatelské jméno nebo heslo zapomněli a máte nainstalovaného agenta virtuálního počítače, můžete nainstalovat rozšíření [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a použít ho k opravení problému.
 
-Additional details:
+Další podrobnosti:
 
-* For the Linux images, if you use the Azure classic portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
-* For Windows images, you’ll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
+* Pro image Linuxu se při použití portálu Azure Classic jako výchozí uživatelské jméno přidělí azureuser, ale to můžete změnit použitím způsobu vytvoření virtuálního počítače Z galerie místo možnosti Rychlé vytvoření. Při použití možnosti Z galerie se také můžete rozhodnout, jestli se k přihlášení má používat heslo, klíč SSH nebo obojí. Uživatelský účet je neprivilegovaný uživatel s přístupem k příkazu sudo pro spouštění privilegovaných příkazů. Účet root je zakázaný.
+* V případě imagí Windows bude potřeba zadat uživatelské jméno a heslo při vytváření virtuálního počítače. Účet se přidá do skupiny Administrators.
 
-## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Can Azure run anti-virus on my virtual machines?
-Azure offers several options for anti-virus solutions, but it’s up to you to manage it. For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription. Microsoft Antimalware is free of charge. For details, see:
+## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Může Azure na mém virtuálním počítači spouštět antivirové produkty?
+Azure nabízí několik možností antivirových řešení, ale jejich správa je na vás. Například můžete potřebovat samostatné předplatné pro antimalwarový software a budete se muset rozhodnout, kdy spouštět prohledávání a instalovat aktualizace. Podporu antivirových produktů můžete přidat při vytváření virtuálního počítače s Windows nebo později pomocí rozšíření virtuálního počítače pro Microsoft Antimalware, Symantec Endpoint Protection nebo agenta TrendMicro Deep Security Agent. Rozšíření Symantec a TrendMicro umožňují použít bezplatnou, časově omezenou zkušební verzi předplatného nebo stávající podnikové předplatné. Microsoft Antimalware je zdarma. Podrobnosti najdete tady:
 
-* [How to install and configure Symantec Endpoint Protection on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-* [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [Jak nainstalovat a nakonfigurovat Symantec Endpoint Protection na virtuálním počítači Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
+* [Jak nainstalovat a nakonfigurovat Trend Micro Deep Security jako službu na virtuálním počítači Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+* [Nasazování antimalwarových řešení na virtuálních počítačích Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
-## <a name="what-are-my-options-for-backup-and-recovery"></a>What are my options for backup and recovery?
-Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../articles/backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+## <a name="what-are-my-options-for-backup-and-recovery"></a>Jaké mám možnosti zálohování a obnovení?
+V určitých oblastech je dostupná služba Azure Backup jako verze Preview. Podrobnosti najdete v článku [Zálohování virtuálních počítačů Azure](../articles/backup/backup-azure-vms.md). Další řešení jsou k dispozici od certifikovaných partnerů. Pokud chcete zjistit, co je právě k dispozici, prohledejte web Azure Marketplace.
 
-An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
+Další možností je využít možnosti snímků úložiště objektů blob. Pokud to chcete provést, před každou operací, která se spoléhá na snímek objektu blob, budete muset vypnout virtuální počítač. Tím se uloží probíhající zápisy dat a systém souborů přejde do konzistentního stavu.
 
-## <a name="how-does-azure-charge-for-my-vm"></a>How does Azure charge for my VM?
-Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free.
+## <a name="how-does-azure-charge-for-my-vm"></a>Jak se v Azure účtují virtuální počítače?
+Azure účtuje hodinovou cenu na základě velikosti virtuálního počítače a na jeho operačním systému. V případě neúplných hodin Azure účtuje jenom využité minuty. Pokud vytvoříte virtuální počítač pomocí image virtuálního počítače, která obsahuje určitý předinstalovaný software, můžou se uplatňovat další hodinové sazby za tento software. Azure účtuje úložiště pro operační systém virtuálního počítače a pro datové disky zvlášť. Dočasné diskové úložiště je zdarma.
 
-You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
+Virtuální počítač se vám účtuje ve spuštěném nebo zastaveném stavu, ale ne ve stavu Zastaveno (přidělení zrušeno). Pokud chcete změnit stav virtuálního počítače na Zastaveno (přidělení zrušeno), proveďte jednu z následujících akcí:
 
-* Shut down or delete the VM from the Azure classic portal.
-* Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.
-* Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.
+* Vypněte nebo odstraňte virtuální počítač na portálu Azure Classic.
+* Použijte rutinu Stop-AzureVM, která je dostupná v modulu Azure PowerShellu.
+* Použijte operaci Shutdown Role (Vypnutí role) v rozhraní REST API pro správu služeb a pro element PostShutdownAction zadejte StoppedDeallocated.
 
-For more details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+Další podrobnosti najdete v článku [Ceny virtuálních počítačů](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="will-azure-reboot-my-vm-for-maintenance"></a>Will Azure reboot my VM for maintenance?
-Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters.
+## <a name="will-azure-reboot-my-vm-for-maintenance"></a>Bude Azure restartovat můj virtuální počítač kvůli údržbě?
+Azure někdy virtuální počítač restartuje jako součást pravidelných a plánovaných aktualizací údržby v datových centrech Azure.
 
-Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+K neplánovaným událostem údržby může docházet, když Azure zjistí závažný problém s hardwarem, který má vliv na váš virtuální počítač. V případě neplánovaných událostí Azure automaticky migruje virtuální počítač na hostitele, který je v pořádku, a restartuje virtuální počítač.
 
-For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
+U každého samostatného virtuálního počítače (tj. virtuální počítače, které nejsou součástí žádné sady dostupnosti) Azure e-mailem upozorní správce služeb předplatného alespoň týden před plánovanou údržbou, protože během aktualizace může dojít k restartování virtuálních počítačů. U aplikací spouštěných na virtuálních počítačích může dojít k výpadku.
 
-You also can use the Azure classic portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Pokud dojde k restartování z důvodu plánované údržby, pomocí portálu Azure Classic nebo Azure PowerShellu můžete také zobrazit protokoly restartování. Podrobnosti najdete v tématu [Zobrazení protokolů restartování virtuálního počítače](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pokud chcete zajistit redundanci, umístěte do stejné skupiny dostupnosti dva nebo více podobně nakonfigurovaných virtuálních počítačů. Tím pomůžete zajistit, že během plánované nebo neplánované údržby bude dostupný alespoň jeden virtuální počítač. Azure pro tuto konfiguraci zaručuje určité úrovně dostupnosti virtuálních počítačů. Podrobnosti najdete v článku [Správa dostupnosti virtuálních počítačů](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="additional-resources"></a>Additional resources
-[About Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md)
+## <a name="additional-resources"></a>Další zdroje
+[Informace o virtuálních počítačích Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Different Ways to Create a Linux Virtual Machine](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Vytvoření a správa virtuálních počítačů s Linuxem pomocí Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Different Ways to Create a Windows Virtual Machine](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Vytvoření a správa virtuálních počítačů s Windows pomocí Azure PowerShellu](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

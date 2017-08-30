@@ -1,44 +1,44 @@
-Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get a [free Azure trial here](https://azure.microsoft.com/pricing/free-trial/).
+Než budete moct použít Azure CLI s příkazy a šablonami Resource Manageru k nasazení prostředků a úloh Azure pomocí skupin prostředků, budete potřebovat účet s Azure. Pokud účet nemáte, [tady můžete získat bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/cli-install-nodejs.md) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login` command.
+Pokud jste ještě nenainstalovali Azure CLI a nepřipojili se ke svým předplatným, přečtěte si článek [Instalace Azure CLI](../articles/cli-install-nodejs.md), pomocí příkazu `azure config mode arm` nastavte režim na `arm` a pomocí příkazu `azure login` se připojte k Azure.
 
-## <a name="cli-versions-to-complete-the-task"></a>CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
+## <a name="cli-versions-to-complete-the-task"></a>Verze rozhraní příkazového řádku pro dokončení úlohy
+K dokončení úlohy můžete využít jednu z následujících verzí rozhraní příkazového řádku:
 
-- Azure CLI 10 – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) - our next generation CLI for the resource management deployment model
+- Azure CLI 10 – naše rozhraní příkazového řádku pro modely nasazení Classic a Resource Manager (tento článek)
+- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basic Azure Resource Manager commands in Azure CLI
-This article covers basic commands you will want to use with Azure CLI to manage and interact with your resources (primarily VMs) in your Azure subscription.  For more detailed help with specific command line switches and options, you can use the online command help and options by typing `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Základní příkazy Azure Resource Manageru v Azure CLI
+Tento článek obsahuje základní příkazy, které budete moct používat v Azure CLI ke správě a interakci s prostředky (hlavně virtuálními počítači) ve vašich předplatných Azure.  Podrobnější nápovědu ke konkrétním přepínačům a možnostem příkazového řádku můžete získat pomocí online nápovědy k příkazům a jejich možnostem zadáním `azure <command> <subcommand> --help` nebo `azure help <command> <subcommand>`.
 
 > [!NOTE]
-> These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Tyto příklady nezahrnují operace založené na šablonách, které se obecně doporučují pro nasazení virtuálních počítačů v Resource Manageru. Informace najdete ve článcích [Použití Azure CLI s Azure Resource Managerem](../articles/xplat-cli-azure-resource-manager.md) a [Nasazení a správa virtuálních počítačů pomocí šablon Azure Resource Manageru a Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-| Task | Resource Manager |
+| Úkol | Resource Manager |
 | --- | --- | --- |
-| Create the most basic VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for examples.) |
-| Create a Linux VM |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
-| Create a Windows VM |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
-| List VMs |`azure  vm list [options]` |
-| Get information about a VM |`azure  vm show [options] <resource_group> <name>` |
-| Start a VM |`azure vm start [options] <resource_group> <name>` |
-| Stop a VM |`azure vm stop [options] <resource_group> <name>` |
-| Deallocate a VM |`azure vm deallocate [options] <resource-group> <name>` |
-| Restart a VM |`azure vm restart [options] <resource_group> <name>` |
-| Delete a VM |`azure vm delete [options] <resource_group> <name>` |
-| Capture a VM |`azure vm capture [options] <resource_group> <name>` |
-| Create a VM from a user image |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Create a VM from a specialized disk |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
-| Add a data disk to a VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
-| Remove a data disk from a VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
-| Add a generic extension to a VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Add VM Access extension to a VM |`azure vm reset-access [options] <resource-group> <name>` |
-| Add Docker extension to a VM |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
-| Remove a VM extension |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Get usage of VM resources |`azure vm list-usage [options] <location>` |
-| Get all available VM sizes |`azure vm sizes [options]` |
+| Vytvoření nejzákladnějšího virtuálního počítače |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Získejte hodnotu `image-urn` z příkazu `azure vm image list`. Příklady najdete v [tomto článku](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).) |
+| Vytvoření virtuálního počítače s Linuxem |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
+| Vytvoření virtuálního počítače s Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
+| Výpis virtuálních počítačů |`azure  vm list [options]` |
+| Získání informací o virtuálním počítači |`azure  vm show [options] <resource_group> <name>` |
+| Spuštění virtuálního počítače |`azure vm start [options] <resource_group> <name>` |
+| Zastavení virtuálního počítače |`azure vm stop [options] <resource_group> <name>` |
+| Uvolnění virtuálního počítače |`azure vm deallocate [options] <resource-group> <name>` |
+| Restartování virtuálního počítače |`azure vm restart [options] <resource_group> <name>` |
+| Odstranění virtuálního počítače |`azure vm delete [options] <resource_group> <name>` |
+| Zachycení virtuálního počítače |`azure vm capture [options] <resource_group> <name>` |
+| Vytvoření virtuálního počítače z uživatelské image |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
+| Vytvoření virtuálního počítače ze specializovaného disku |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Přidání datového disku k virtuálnímu počítači |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
+| Odebrání datového disku z virtuálního počítače |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
+| Přidání obecného rozšíření do virtuálního počítače |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
+| Přidání rozšíření přístupu virtuálních počítačů do virtuálního počítače |`azure vm reset-access [options] <resource-group> <name>` |
+| Přidání rozšíření Dockeru do virtuálního počítače |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
+| Odebrání rozšíření virtuálního počítače |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
+| Získání využití prostředků virtuálního počítače |`azure vm list-usage [options] <location>` |
+| Získání všech dostupných velikostí virtuálních počítačů |`azure vm sizes [options]` |
 
-## <a name="next-steps"></a>Next steps
-* For additional examples of the CLI commands going beyond basic VM management, see [Using the Azure CLI with Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
+## <a name="next-steps"></a>Další kroky
+* Další příklady příkazů rozhraní příkazového řádku, které přesahují základní správu virtuálních počítačů, najdete v článku [Použití Azure CLI s Azure Resource Managerem](../articles/virtual-machines/azure-cli-arm-commands.md).

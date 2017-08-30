@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/010/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e3fa1705e1f4e0805409eee83d5797bee7f6603d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Vytvoření připojení typu Site-to-Site pomocí webu Azure Portal (Classic)
@@ -64,9 +64,9 @@ V příkladech v tomto článku se používají následující hodnoty. Tyto hod
 * **Podsíť brány:** 10.11.255.0/27
 * **Skupina prostředků:** TestRG1
 * **Umístění:** Východní USA
-* **Server DNS:** 8.8.8.8 (volitelné pro toto cvičení)
+* **Server DNS:** 10.11.0.3 (volitelné pro toto cvičení)
 * **Název místní lokality:** Site2
-* **Klientský adresní prostor:** Tento adresní prostor je umístěný ve vaší místní lokalitě.
+* **Klientský adresní prostor:** Adresní prostor umístěný ve vaší místní lokalitě.
 
 ## <a name="CreatVNet"></a>1. Vytvoření virtuální sítě
 
@@ -79,43 +79,43 @@ Pokud vytváříte virtuální síť pro použití k připojení typu Site-to-Si
 ### <a name="to-create-a-virtual-network"></a>Chcete-li vytvořit virtuální síť
 
 1. V prohlížeči přejděte na [portál Azure](http://portal.azure.com) a v případě potřeby se přihlaste pomocí účtu Azure.
-2. Klikněte na **+**. Do pole **Hledat na Marketplace** zadejte text „Virtuální síť“. Ve vráceném seznamu vyhledejte položku **Virtuální síť** a kliknutím otevřete okno **Virtuální síť**.
+2. Klikněte na **+**. Do pole **Hledat na Marketplace** zadejte text „Virtuální síť“. Ve vráceném seznamu vyhledejte položku **Virtuální síť** a kliknutím otevřete stránku **Virtuální síť**.
 
-  ![Okno pro vyhledání virtuální sítě](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. U dolního okraje okna Virtuální síť v rozevíracím seznamu **Vybrat model nasazení** vyberte **Classic** a potom klikněte na **Vytvořit**.
+  ![Stránka pro vyhledání virtuální sítě](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+3. U dolního okraje stránky Virtuální síť v rozevíracím seznamu **Vybrat model nasazení** vyberte **Classic** a potom klikněte na **Vytvořit**.
 
   ![Výběr modelu nasazení](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. V okně **Vytvořit virtuální síť (Classic)** nakonfigurujte nastavení virtuální sítě. V tomto okně přidáte první adresní prostor a jeden rozsah adres podsítě. Po dokončení vytváření sítě VNet můžete přejít zpět a přidat další podsítě a adresní prostory.
+4. Na stránce **Vytvořit virtuální síť (Classic)** nakonfigurujte nastavení virtuální sítě. Na této stránce přidáte první adresní prostor a jeden rozsah adres podsítě. Po dokončení vytváření sítě VNet můžete přejít zpět a přidat další podsítě a adresní prostory.
 
-  ![Okno pro vytvoření virtuální sítě](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Okno pro vytvoření virtuální sítě")
+  ![Stránka pro vytvoření virtuální sítě](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Stránka pro vytvoření virtuální sítě")
 5. V rozevíracím seznamu **Předplatné** zkontrolujte, jestli je vybrané správné předplatné. Předplatná můžete měnit prostřednictvím rozevíracího seznamu.
-6. Klikněte na **Skupina prostředků** a vyberte existující skupinu nebo zadáním názvu nové skupiny prostředků vytvořte novou skupinu prostředků. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Klikněte na **Skupina prostředků** a vyberte existující skupinu prostředků nebo zadáním názvu vytvořte novou. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Potom vyberte nastavení **Umístění** sítě VNet. Umístění určuje, kde budou uloženy prostředky nasazené v této síti VNet.
-8. Pokud chcete mít k síti VNet snadný přístup na řídicím panelu, vyberte možnost **Připnout na řídicí panel** a potom klikněte na **Vytvořit**.
+8. Pokud chcete mít k síti VNet snadný přístup na řídicím panelu, vyberte **Připnout na řídicí panel**. Kliknutím na **Vytvořit** vytvořte virtuální síť.
 
   ![Připnout na řídicí panel](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Připnout na řídicí panel")
 9. Po kliknutí na Vytvořit se na řídicím panelu zobrazí dlaždice, která zobrazuje postup vaší virtuální sítě. Obsah dlaždice se v průběhu vytváření sítě VNet mění.
 
   ![Dlaždice Vytváří se virtuální síť](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Vytváří se virtuální síť")
 
-Po vytvoření virtuální sítě uvidíte na portálu Azure Classic na stránce sítí v části **Stav** stav **Vytvořená**.
+Po vytvoření virtuální sítě se na portálu Azure Classic na stránce sítí v části **Stav** zobrazí stav **Vytvořená**.
 
 ## <a name="additionaladdress"></a>2. Přidání dalšího adresního prostoru
 
 Po vytvoření virtuální sítě můžete přidat další adresní prostor. Přidání dalšího adresního prostoru se nevyžaduje jako součást konfigurace Site-to-Site, pokud ale potřebujete více adresních prostorů, postupujte následovně:
 
 1. Vyhledejte virtuální sítě na portálu.
-2. V okně pro virtuální síť v části **Nastavení** klikněte na **Adresní prostor**.
-3. V okně Adresní prostor klikněte na **+Přidat** a zadejte další adresní prostor.
+2. Na stránce pro virtuální síť v části **Nastavení** klikněte na **Adresní prostor**.
+3. Na stránce Adresní prostor klikněte na **+Přidat** a zadejte další adresní prostor.
 
 ## <a name="dns"></a>3. Určení serveru DNS
 
-Nastavení DNS se nevyžaduje jako součást konfigurace Site-to-Site, ale pokud chcete překlad IP adres, server DNS je nezbytný.
+Nastavení DNS se nevyžaduje jako součást konfigurace Site-to-Site, ale pokud chcete překlad IP adres, server DNS je nezbytný. Zadání hodnoty nevytvoří nový server DNS. Server DNS, jehož IP adresu zadáte, by měl být server DNS, který dokáže přeložit názvy pro prostředky, ke kterým se připojujete. Pro příklad nastavení jsme použili privátní IP adresu. IP adresa, kterou používáme, pravděpodobně není IP adresa vašeho serveru DNS. Je potřeba, abyste použili svoje vlastní hodnoty.
 
-Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS, aby bylo možné zpracovávat překlad názvů. Otevřete nastavení pro virtuální síť, klikněte na servery DNS a přidejte IP adresu serveru DNS, který chcete použít pro překlad IP adres. Toto nastavení neslouží k vytvoření serveru DNS. V tomto příkladu nastavení použijeme veřejný server DNS. Obvykle je vhodné použít privátní server DNS. Je nutné přidat server DNS, s nímž můžou komunikovat vaše prostředky.
+Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS, aby bylo možné zpracovávat překlad názvů. Otevřete nastavení pro virtuální síť, klikněte na servery DNS a přidejte IP adresu serveru DNS, který chcete použít pro překlad IP adres.
 
 1. Vyhledejte virtuální sítě na portálu.
-2. V okně pro virtuální síť v části **Nastavení** klikněte na **Servery DNS**.
+2. Na stránce pro virtuální síť v části **Nastavení** klikněte na **Servery DNS**.
 3. Přidejte server DNS.
 4. Uložte nastavení kliknutím na **Uložit** v horní části stránky.
 
@@ -124,11 +124,11 @@ Po vytvoření virtuální sítě můžete přidat IP adresu serveru DNS, aby by
 Místní lokalita obvykle odkazuje na vaše místní umístění. Obsahuje IP adresu zařízení VPN, ke kterému vytvoříte připojení, a rozsah IP adres, které budou do tohoto zařízení VPN směrovány přes bránu VPN.
 
 1. Na portálu přejděte na virtuální síť, pro kterou chcete vytvořit bránu.
-2. V okně pro virtuální síť klikněte v okně **Přehled** v části pro připojení VPN na položku **Brána**. Otevře se okno **Nové připojení VPN**.
+2. Na stránce pro virtuální síť klikněte na stránce **Přehled** v části pro připojení VPN na **Brána**. Otevře se stránka **Nové připojení VPN**.
 
   ![Kliknutím nakonfigurujte nastavení brány](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Kliknutím nakonfigurujte nastavení brány")
-3. V okně **Nové připojení VPN** vyberte **Site-to-Site**.
-4. Kliknutím na **Místní lokalita – Konfigurovat požadované nastavení** otevřete okno **Místní lokalita**. Nakonfigurujte nastavení a potom kliknutím na **OK** nastavení uložte.
+3. Na stránce **Nové připojení VPN** vyberte **Site-to-Site**.
+4. Kliknutím na **Místní lokalita – Konfigurovat požadované nastavení** otevřete stránku **Místní lokalita**. Nakonfigurujte nastavení a potom kliknutím na **OK** nastavení uložte.
   - **Název:** Vytvořte název pro místní lokalitu, abyste ji mohli snadno identifikovat.
   - **IP adresa brány VPN:** Toto je veřejná IP adresa zařízení VPN pro vaši místní síť. Zařízení VPN vyžaduje veřejnou IP adresu IPv4. Zadejte platnou veřejnou IP adresu pro zařízení VPN, ke kterému se chcete připojit. IP adresa nemůže být za serverem NAT a musí být dostupná pro Azure. Pokud neznáte IP adresu zařízení VPN, pořád můžete použít zástupnou hodnotu (pokud je ve formátu platné veřejné IP adresy) a změnit ji později.
   - **Klientský adresní prostor:** Vypište rozsahy IP adres, které chcete přes tuto bránu směrovat do místní sítě. Můžete přidat více různých rozsahů adres. Ujistěte se, že se zde zadané rozsahy nepřekrývají s rozsahy jiných sítí, ke kterým se vaše virtuální síť připojuje, nebo s rozsahy adres samotné virtuální sítě.
@@ -139,14 +139,14 @@ Místní lokalita obvykle odkazuje na vaše místní umístění. Obsahuje IP ad
 
 Pro bránu VPN je nutné vytvořit podsíť brány. Podsíť brány obsahuje IP adresy, které bude používat služba brány VPN.
 
-1. V okně **Nové připojení VPN** zaškrtněte políčko **Vytvořit bránu hned**. Zobrazí se okno Volitelná konfigurace brány. Pokud políčko nezaškrtnete, okno, ve kterém můžete konfigurovat podsíť brány, se nezobrazí.
+1. Na stránce **Nové připojení VPN** zaškrtněte políčko **Vytvořit bránu hned**. Zobrazí se stránka Volitelná konfigurace brány. Pokud políčko nezaškrtnete, stránka, na které můžete konfigurovat podsíť brány, se nezobrazí.
 
   ![Konfigurace brány – Podsíť, velikost, typ směrování](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Konfigurace brány – Podsíť, velikost, typ směrování")
-2. Kliknutím na **Volitelná konfigurace brány – Podsíť, velikost a typ směrování** otevřete okno **Konfigurace brány**.
-3. V okně **Konfigurace brány** kliknutím na **Podsíť – Konfigurovat požadované nastavení** otevřete okno **Přidat podsíť**.
+2. Stránku **Konfigurace brány** otevřete kliknutím na **Volitelná konfigurace brány – Podsíť, velikost a typ směrování**.
+3. Na stránce **Konfigurace brány** kliknutím na **Podsíť – Konfigurovat požadované nastavení** otevřete stránku **Přidat podsíť**.
 
   ![Konfigurace brány – podsíť brány](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Konfigurace brány – podsíť brány")
-4. V okně **Přidat podsíť** přidejte podsíť brány. Velikost podsítě brány, kterou zadáte, závisí na konfiguraci brány VPN, kterou chcete vytvořit. I když je možné vytvořit podsíť brány s minimální velikostí /29, doporučujeme vytvořit větší podsíť, která pojme více adres, tzn. vybrat velikost /27 nebo /28. Použitím větší podsítě brány zajistíte dostatek IP adres pro případné další konfigurace.
+4. Na stránce **Přidat podsíť** přidejte podsíť brány. Velikost podsítě brány, kterou zadáte, závisí na konfiguraci brány VPN, kterou chcete vytvořit. Přestože je možné vytvořit tak malou podsíť brány, jako je /29, doporučujeme použít /27 nebo /28. Vytvoří se tak vetší podsíť zahrnující více adres. Použitím větší podsítě brány zajistíte dostatek IP adres pro případné další konfigurace.
 
   ![Přidání podsítě brány](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Přidání podsítě brány")
 
@@ -157,7 +157,7 @@ Pro bránu VPN je nutné vytvořit podsíť brány. Podsíť brány obsahuje IP 
   ![Výběr SKU a typu sítě VPN](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Výběr SKU a typu sítě VPN")
 2. Vyberte pro bránu **typ směrování**. Označuje se také jako typ sítě VPN. Je důležité vybrat správný typ brány, protože typ brány nelze měnit. Zařízení VPN musí být kompatibilní s typem směrování, který zvolíte. Další informace o typu sítě VPN najdete v tématu [Informace o nastavení služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Můžete narazit na články, které odkazují na typy sítě VPN RouteBased a PolicyBased. Typ Dynamická odpovídá RouteBased a Statická odpovídá PolicyBased.
 3. Kliknutím na **OK** uložte nastavení.
-4. V dolní části okna **Nové připojení VPN** klikněte na **OK** – tím začnete bránu virtuální sítě vytvářet. Dokončení operace může trvat až 45 minut.
+4. V dolní části stránky **Nové připojení VPN** klikněte na **OK** – zahájí se vytváření brány virtuální sítě. V závislosti na vybrané skladové položce může vytvoření brány virtuální sítě trvat až 45 minut.
 
 ## <a name="vpndevice"></a>7. Konfigurace zařízení VPN
 
@@ -202,7 +202,7 @@ Při práci s PowerShellem a modelem nasazení Classic někdy názvy prostředk�
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Otevřete soubor konfigurace sítě v editoru XML a zkontrolujte hodnoty „LocalNetworkSite name“ (Název místní síťové lokality) a „VirtualNetworkSite name“ (Název virtuální síťové lokality). Upravte příklad tak, aby odpovídal těmto hodnotám. Pokud zadáváte název, který obsahuje mezery, zadejte hodnotu v jednoduchých uvozovkách.
+2. Otevřete soubor konfigurace sítě v editoru XML a zkontrolujte hodnoty „LocalNetworkSite name“ (Název místní síťové lokality) a „VirtualNetworkSite name“ (Název virtuální síťové lokality). Upravte příklad tak, aby odpovídal potřebným hodnotám. Pokud zadáváte název, který obsahuje mezery, zadejte hodnotu v jednoduchých uvozovkách.
 
 3. Nastavte sdílený klíč a vytvořte připojení. Hodnota, kterou generujete a zadáváte, je „-SharedKey“. V příkladu jsme použili „abc123“, ale můžete (a měli byste) vygenerovat něco složitějšího. Důležité je, aby hodnota, kterou zde zadáte, byla stejná jako hodnota, kterou jste zadali při konfiguraci zařízení VPN.
 
@@ -218,11 +218,11 @@ Jakmile se připojení vytvoří, výsledkem bude: **Stav: Úspěch**.
 
 Pokud máte potíže s připojením, podívejte se do části **Řešení potíží** obsahu v levém podokně.
 
-## <a name="how-to-reset-a-vpn-gateway"></a>Resetování brány VPN
+## <a name="reset"></a>Resetování brány VPN
 
 Resetování brány Azure VPN je užitečné v případě ztráty připojení VPN mezi lokalitami na jednom nebo více tunelech VPN typu Site-to-Site. V této situaci vaše místní zařízení VPN fungují správně, ale nejsou schopná vytvořit tunelová propojení prostřednictvím protokolu IPsec s branami Azure VPN. Pokyny najdete v tématu [Resetování brány VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="how-to-change-a-gateway-sku"></a>Změna skladové položky brány
+## <a name="changesku"></a>Změna skladové položky brány
 
 Postup pro změnu skladové položky brány najdete v tématu [Změna velikosti skladové položky brány](vpn-gateway-about-SKUS-legacy.md).
 
