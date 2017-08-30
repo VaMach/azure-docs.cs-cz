@@ -44,7 +44,6 @@
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Přidávání uživatelů z jiných adresářů (klasický portál)](active-directory-create-users-external.md)
-### [Odstranění uživatelů](active-directory-users-delete-user-azure-portal.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
 ### [Správa pracovních informací uživatelů](active-directory-users-work-info-azure-portal.md)
@@ -132,10 +131,14 @@
 
 ## Správa zařízení
 ### [Úvod](device-management-introduction.md)
+### [Pomocí webu Azure Portal](device-management-azure-portal.md)
 ### [Nejčastější dotazy](device-management-faq.md)
 ### Úlohy
+#### [Konfigurace zařízení s Windows 10 registrovaných v Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Konfigurace zařízení připojených k Azure AD](device-management-azuread-joined-devices-setup.md)
 #### [Konfigurace hybridních zařízení připojených k Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
+#### [Připojení k Azure AD během prvního spuštění Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Řešení potíží
 #### [Hybridní zařízení s Windows 10 a Windows Serverem 2016 připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Hybridní zařízení s Windows starší verze připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Technické referenční informace](active-directory-conditional-access-technical-reference.md)
-#### [Podporované aplikace](active-directory-conditional-access-supported-apps.md)
 #### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
 #### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
 #### [Nápravy](active-directory-conditional-access-device-remediation.md)

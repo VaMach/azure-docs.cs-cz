@@ -7,17 +7,17 @@
 ## [Kompatibilní software jiných výrobců](active-directory-ds-compatible-software.md)
 
 # Začínáme
-## klasický portál Azure
-### [Úloha 1: vytvoření skupiny správců](active-directory-ds-getting-started-create-group.md)
-### [Úloha 2: Vytvoření nebo výběr virtuální sítě](active-directory-ds-getting-started-vnet.md)
-### [Úloha 3: Povolení služby Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Úloha 4: Aktualizace nastavení DNS pro virtuální síť](active-directory-ds-getting-started-update-dns.md)
-### [Úloha 5: Povolení synchronizace hesel](active-directory-ds-getting-started-password-sync.md)
 ## Azure Portal (Preview)
 ### [Úloha 1: Konfigurace základního nastavení](active-directory-ds-getting-started.md)
 ### [Úloha 2: Konfigurace nastavení sítě](active-directory-ds-getting-started-network.md)
 ### [Úloha 3: Konfigurace skupiny správců a povolení služby Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ### [Úloha 4: Aktualizace nastavení DNS pro virtuální síť](active-directory-ds-getting-started-dns.md)
+### [Úloha 5: Povolení synchronizace hesel](active-directory-ds-getting-started-password-sync.md)
+## Portál Azure Classic (zastaralé)
+### [Úloha 1: vytvoření skupiny správců](active-directory-ds-getting-started-create-group.md)
+### [Úloha 2: Vytvoření nebo výběr virtuální sítě](active-directory-ds-getting-started-vnet.md)
+### [Úloha 3: Povolení služby Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
+### [Úloha 4: Aktualizace nastavení DNS pro virtuální síť](active-directory-ds-getting-started-update-dns.md)
 ### [Úloha 5: Povolení synchronizace hesel](active-directory-ds-getting-started-password-sync.md)
 
 # Postup

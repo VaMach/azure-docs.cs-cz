@@ -39,6 +39,8 @@
       href: functions-twitter-email.md
     - name: 2. Vytvoření rozhraní API bez serveru
       href: functions-create-serverless-api.md
+    - name: 3. Vytvoření definice OpenAPI
+      href: functions-openapi-definition.md
 - name: Ukázky
   items:
     - name: Ukázky kódů
@@ -99,6 +101,8 @@
           href: functions-api-definition-getting-started.md
         - name: Export do PowerApps a Microsoft Flow
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Volání funkce z PowerApps
+          href: functions-powerapps-scenario.md
 - name: Referenční informace
   items:
     - name: Vazby
