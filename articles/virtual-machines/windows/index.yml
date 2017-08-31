@@ -4,7 +4,7 @@ title: Dokumentace k virtuálním počítačům s Windows
 metadata:
   document_id: 1d98d530-28c7-635f-d41b-8da3ae02970c
   title: 'Dokumentace k virtuálním počítačům Azure s Windows – kurzy, reference k rozhraní API'
-  meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
+  meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
   services: virtual-machines\windows
   author: czeumault
   manager: carolz
@@ -18,89 +18,90 @@ abstract:
   description: 'Virtuální počítače s Windows v Azure poskytují vysoce škálovatelnou zabezpečenou virtualizovanou infrastrukturu na vyžádání s využitím Windows Serveru. Naučte se vytvářet, konfigurovat, spravovat a škálovat virtuální počítače s Windows prostřednictvím našich šablon Rychlý start, výukových kurzů a ukázek.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/create-windows-server-virtual-machine.png
-      width: 250  
+      src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/create-windows-server-virtual-machine.png'
+      width: 250
     title: 'Vytvoření virtuálního počítače s Windows Serverem (3:58)'
-    href: https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/
+    href: 'https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/'
     width: 250
 sections:
-- title: Zprovoznění během 5 minut
-  items:
-  - type: paragraph
-    text: 'Podívejte se, jak nasadit webový server IIS ve virtuálním počítači s Windows Serverem 2016:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-- title: Podrobné kurzy
-  items:
-  - type: paragraph
-    text: 'Jak nasadit, spravovat a škálovat virtuální počítače s Windows v Azure'
-  - type: list
-    style: ordered
+  - title: Zprovoznění během 5 minut
     items:
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Vytvoření a správa virtuálních počítačů s Windows</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Vytvoření a správa disků virtuálního počítače</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatizace konfigurace virtuálních počítačů</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Vytváření vlastních imagí virtuálních počítačů</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Vytvoření vysoce dostupných virtuálních počítačů</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Vytvoření škálovací sady virtuálních počítačů</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Vyrovnávání zatížení virtuálních počítačů</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Správa virtuálních počítačů s virtuálními sítěmi</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Zálohování virtuálních počítačů</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitorování virtuálních počítačů</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Správa zabezpečení na virtuálních počítačích</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Vytvoření kanálu průběžné integrace se sadou Visual Studio</a>
-- title: Bezplatné školicí video od PluralSightu
-  items:
-  - type: list
-    style: cards
-    className: cardsW
+      - type: paragraph
+        text: 'Podívejte se, jak nasadit webový server IIS ve virtuálním počítači s Windows Serverem 2016:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/portal.svg'
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/cli.svg'
+            text: Azure CLI
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json'
+  - title: Podrobné kurzy
     items:
-    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Správa infrastruktury</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png
-        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme se službou Virtual Machines</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png
-        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme s monitorováním IaaS</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png
-        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Ukázky
-  items:
-  - type: paragraph
-    text: Nasazení první aplikace do Azure
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Jak nasadit, spravovat a škálovat virtuální počítače s Windows v Azure'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Vytvoření a správa virtuálních počítačů s Windows</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Vytvoření a správa disků virtuálního počítače</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatizace konfigurace virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Vytváření vlastních imagí virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Vytvoření vysoce dostupných virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Vytvoření škálovací sady virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Vyrovnávání zatížení virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Správa virtuálních počítačů s virtuálními sítěmi</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Zálohování virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitorování virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Správa zabezpečení na virtuálních počítačích</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Vytvoření kanálu průběžné integrace se sadou Visual Studio</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Zabezpečení webového serveru pomocí SSL</a>
+  - title: Bezplatné školicí video od PluralSightu
     items:
-    - html: <a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a>
-    - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
-- title: Referenční informace
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsW
+        items:
+          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Správa infrastruktury</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png'
+              href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme se službou Virtual Machines</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png'
+              href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme s monitorováním IaaS</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png'
+              href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+  - title: Ukázky
     items:
-    - title: Příkazový řádek
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">Azure CLI</a></p>
-    - title: Jazyky
-      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-    - title: REST
-      html: <p><a href="/rest/api/compute">Referenční informace k rozhraní REST API služby Compute</a></p>
+      - type: paragraph
+        text: Nasazení první aplikace do Azure
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a>
+          - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Příkazový řádek
+            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">Azure CLI</a></p>
+          - title: Jazyky
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/compute">Referenční informace k rozhraní REST API služby Compute</a></p>

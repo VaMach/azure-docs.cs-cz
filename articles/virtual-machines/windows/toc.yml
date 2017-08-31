@@ -108,6 +108,10 @@
           href: csharp.md
         - name: 'Použití šablony s jazykem C#'
           href: csharp-template.md
+        - name: Vytvoření virtuálního počítače pomocí Chefu
+          href: chef-automation.md
+        - name: Použití Javy
+          href: java.md
         - name: Použití Pythonu
           href: python.md
         - name: Použití šablony

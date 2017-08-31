@@ -32,7 +32,9 @@
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](expressroute-howto-coexist-resource-manager.md)
-## [Konfigurace filtrů směrování pro partnerský vztah Microsoftu](how-to-routefilter-powershell.md)
+## Konfigurace filtrů směrování pro partnerský vztah Microsoftu
+### [Azure Portal](how-to-routefilter-portal.md)
+### [PowerShell](how-to-routefilter-powershell.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
 ## [Migrace přidružených virtuálních sítí z modelu nasazení Classic do Resource Manageru](expressroute-migration-classic-resource-manager.md)
 ## Konfigurace směrovače pro ExpressRoute

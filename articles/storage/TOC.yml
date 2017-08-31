@@ -10,3 +10,7 @@
   href: ./files/storage-files-introduction.md
 - name: Fronty
   href: ./queues/storage-queues-introduction.md
+- name: Tabulky
+  href: ../cosmos-db/table-storage-overview.md
+- name: Disky
+  href: ../virtual-machines/windows/managed-disks-overview.md
