@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Data Catalog – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Zjistěte, jak nastavit katalog dat, jehož prostřednictvím může organizace najít, pochopit a využívat zdroje dat. Kurzy, reference k rozhraní API a další dokumentace"
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

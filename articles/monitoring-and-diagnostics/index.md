@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Monitor – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat služby monitorování a diagnostiky ke sledování výkonu, správě zabezpečení a rozpoznávání trendů. Reference k rozhraní API, osvědčené postupy a další zdroje informací"
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

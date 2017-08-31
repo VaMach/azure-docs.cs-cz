@@ -5,7 +5,7 @@ metadata:
   title: Dokumentace ke službě Azure Container Instances – kurzy | Dokumentace Microsoftu
   description: Služba Azure Container Instances nabízí nejrychlejší a nejjednodušší způsob provozování kontejneru v Azure. Není přitom nutné zřizovat žádné virtuální počítače nebo využívat služby vyšší úrovně.
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na

@@ -2,8 +2,8 @@
 title: "Dokumentace ke službě Azure Data Lake Analytics – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se analyzovat velké objemy dat s použitím služby Data Lake Analytics. V kurzech se naučíte spouštět dávkové analýzy, analýzy v reálném čase a interaktivní analýzy a psát dotazy v jazyce U-SQL."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

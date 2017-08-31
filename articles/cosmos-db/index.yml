@@ -6,7 +6,7 @@ metadata:
   title: 'Dokumentace k databázi Azure Cosmos – kurzy, reference k rozhraní API'
   description: 'Naučte se pomocí databáze Azure Cosmos vytvářet globálně distribuované databáze s více modely. V kurzech se dozvíte, jak sestavit a dotazovat databáze dokumentů, klíčů a hodnot nebo grafů.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 3: Označení jako tabulk
 description: "Popisuje, jak označit tabulku kalendářních dat v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

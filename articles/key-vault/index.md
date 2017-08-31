@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Key Vault – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat službu Key Vault k vytváření a správě klíčů, kterí zajišťují přístup k vašim cloudovým prostředků, aplikacím a řešením a jejich šifrování. Kurzy, reference k rozhraní API a další zdroje informací"
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

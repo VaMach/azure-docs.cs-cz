@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 9: Vytvoření hierarchi�
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

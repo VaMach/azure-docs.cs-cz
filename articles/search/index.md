@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Search – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se přidávat do vlastních webových nebo mobilních aplikací robustní možnosti vyhledávání. Reference k rozhraním API a další dokumentace."
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 7fffe78bebd6799cad544c12c20eb1926975a68f
+ms.contentlocale: cs-cz
 ms.lasthandoff: 05/03/2017
 
 ---

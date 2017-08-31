@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 8: Vytvoření perspektiv
 description: "Popisuje, jak vytvořit perspektivy v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Application Gateway – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se nasadit cloudový kontroler doručování aplikací. V dokumentaci je uvedeno, jak nastavit směrování na úrovni aplikace a vyrovnávání zatížení pro webový front-end."
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.contentlocale: cs-cz
 ms.lasthandoff: 03/15/2017
 
 ---
@@ -161,7 +162,7 @@ Naučte se nasadit kontroler doručování aplikací (ADC) Application Gateway j
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 

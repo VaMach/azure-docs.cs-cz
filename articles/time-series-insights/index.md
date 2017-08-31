@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Time Series Insights – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se spouštět analýzy IoT v cloudu s plně spravovaným zpracováním událostí. Analyzujte data v reálném čase z aplikací, senzorů, zařízení a dalších zdrojů."
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: d22a3f0484da78d03dbe8411e74eb408185b1f30
+ms.contentlocale: cs-cz
 ms.lasthandoff: 05/03/2017
 
 --- 

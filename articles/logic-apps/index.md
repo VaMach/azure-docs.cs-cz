@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Logic Apps – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se vyvíjet aplikace logiky, které automatizují a zjednodušují obchodní pracovní postupy v místě i v cloudu. Kurzy, šablony a reference k rozhraní API"
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

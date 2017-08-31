@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Resource Manager – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat Resource Manager k nasazování a správě prostředků řešení ve formě skupiny a k vytváření šablon pro konzistentní a opakovatelné nasazování prostředků."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

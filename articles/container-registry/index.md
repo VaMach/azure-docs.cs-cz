@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Container Registry – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se vytvářet a spravovat registry kontejnerů pro ukládání imagí nasazení pomocí spravované služby registru Dockeru. Kurzy, reference k rozhraní API a další zdroje informací"
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -108,9 +110,4 @@ Naučte se používat registr kontejneru k ukládání a správě imagí pro vš
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

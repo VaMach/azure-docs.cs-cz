@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 6: Vytvoření měr | Dok
 description: "Popisuje, jak vytvořit míry v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 12: Analýza v aplikaci E
 description: "Popisuje, jak používat funkci Analýza v aplikaci Excel v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

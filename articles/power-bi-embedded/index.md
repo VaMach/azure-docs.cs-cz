@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Power BI Embedded – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Zjistěte, jak můžete vložit vizualizace dat Power BI a interaktivní sestavy do aplikací. Kurzy, reference k rozhraní API a další dokumentace"
 services: power-bi-embedded
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 48f9fe41b94016e54a2ec622df9684b7dcd4dfed
 ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Dokumentace ke službě Power BI Embedded
@@ -139,10 +141,5 @@ Zjistěte, jak můžete přidat vizualizace dat a interaktivní sestavy do aplik
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

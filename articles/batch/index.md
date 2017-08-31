@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Batch – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Zjistěte, jak služba Batch umožňuje efektivně spouštět rozsáhlé paralelní aplikace a aplikace vysokovýkonného výpočetního prostředí. Kurzy, reference k rozhraní API a další dokumentace"
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

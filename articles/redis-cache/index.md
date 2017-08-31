@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Redis Cache – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat službu Azure Redis Cache. Tento zprostředkovatel zasílání zpráv a zabezpečené mezipaměti dat poskytuje aplikacím rychlý přístup k datům. Kurzy, reference k rozhraní API a další zdroje informací"
 services: redis-cache
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
 ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="redis-cache-documentation"></a>Dokumentace ke službě Redis Cache
@@ -195,10 +197,5 @@ Naučte se využívat službu Azure Redis Cache. Tento zprostředkovatel zasíl�
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

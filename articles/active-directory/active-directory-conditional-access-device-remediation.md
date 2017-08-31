@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Odsud se tam nelze dostat pro zařízení s Windows
@@ -47,7 +47,7 @@ To, jestli k prostředku nejde přistupovat kvůli nepodporovanému prohlížeč
 
 ![Zpráva „Odsud se tam nelze dostat“ pro nepodporované prohlížeče](./media/active-directory-conditional-access-device-remediation/02.png "Scénář")
 
-Jedinou možností odstranění problému je použít prohlížeč, který aplikace pro platformu vašeho zařízení podporuje. Úplný seznam podporovaných prohlížečů najdete v části [Podporované prohlížeče](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
+Jedinou možností odstranění problému je použít prohlížeč, který aplikace pro platformu vašeho zařízení podporuje. Úplný seznam podporovaných prohlížečů najdete v části [Podporované prohlížeče](active-directory-conditional-access-supported-apps.md).  
 
 
 ## <a name="supported-versions-of-windows"></a>Podporované verze Windows

@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure HDInsight – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat Hadoop v HDInsightu. Z dokumentace se dozvíte, jak pomocí Hadoopu, Sparku, HBase, R-Serveru a dalších technologií zpracovávat, analyzovat a zkoumat velké objemy dat."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

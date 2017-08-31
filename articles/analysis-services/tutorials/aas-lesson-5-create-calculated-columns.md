@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 5: Vytvoření počítan�
 description: "Popisuje, jak vytvořit počítané sloupce v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Data Factory – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat službu Data Factory k nastavování automatizovaných datových kanálů do místních a cloudových zdrojů a z nich s cílem přesouvat a zpracovávat data pro analýzu."
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

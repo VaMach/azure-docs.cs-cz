@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Data Lake Store – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se nastavovat a spravovat úložiště Data Lake ve velkém měřítku, které je kompatibilní s Hadoopem, a přistupovat k němu pro účely analýzy dat libovolné velikosti, typu a rychlosti příjmu."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

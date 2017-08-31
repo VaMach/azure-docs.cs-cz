@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Machine Learning – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Dokumentace, videa a ukázkové modely pro Machine Learning, cloudovou službu pro vědce pracující s daty a vývojáře, kteří v aplikacích používají prediktivní analýzy"
 services: machine-learning
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f33e230cc32b9da3129a0be720a7be0bb463e096
 ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/15/2017
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Dokumentace ke službě Azure Machine Learning
@@ -140,10 +142,5 @@ Naučte se, jakým způsobem můžou odborníci přes data a vývojáři použí
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

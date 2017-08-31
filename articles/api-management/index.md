@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure API Management – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat API Management k bezpečnému a škálovanému publikování rozhraní API. Dokumentace ukazuje, jak vytvořit moderní brány rozhraní API pro stávající služby back-end."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>Dokumentace ke službě API Management
@@ -143,10 +145,5 @@ Naučte se využívat API Management k bezpečnému a škálovanému publikován
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
