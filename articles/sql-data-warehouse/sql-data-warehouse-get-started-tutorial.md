@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Začínáme s SQL Data Warehouse
@@ -63,8 +62,7 @@ SQL Data Warehouse je zvláštním typem databáze, která je navržena pro výk
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na **Nový** > **Databáze** > **SQL Data Warehouse**.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Zadání podrobností o nasazení
 
@@ -84,8 +82,7 @@ SQL Data Warehouse je zvláštním typem databáze, která je navržena pro výk
 
     **Vybrat výkon:** Doporučujeme začít se standardním nastavením 400DWU.
 
-4. Zvolte **Připnout na řídicí panel**
-    ![Připnout na řídicí panel](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png).
+4. Zvolte **Připnout na řídicí panel**![Připnout na řídicí panel](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png).
 
 5. Opřete se a počkejte, než se datový sklad nasadí! Je běžné, že tento proces trvá několik minut. Portál vás upozorní, jakmile bude váš datový sklad připraven k použití. 
 
@@ -657,7 +654,7 @@ Pokud jste už pro dnešek se zkoumáním hotovi, nezapomeňte svoji instanci po
 
 [Migrace dat do Azure SQL Data Warehouse][]
 
-[Souběžnost a správa úloh]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Souběžnost a správa úloh]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Osvědčené postupy pro službu Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Monitorování dotazů]: sql-data-warehouse-manage-monitor.md
 [10 nejlepších osvědčených postupů pro sestavení rozsáhlého relačního datového skladu]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/

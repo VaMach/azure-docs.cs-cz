@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 29e13b51e094047be07843ad3d865290be32446b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Začínáme s Application Insights ve webovém projektu Java
@@ -387,7 +387,7 @@ Získáte tabulky s dobami odezvy a navíc e-mailová oznámení, pokud váš we
 * Můžete napsat i [vlastní telemetrii](app-insights-api-custom-events-metrics.md) ke sledování využití v prohlížeči nebo na serveru.
 * Vytvářejte si [řídicí panely](app-insights-dashboards.md), kde budete mít pohromadě klíčové grafy pro monitorování systému.
 * [Analytické funkce](app-insights-analytics.md) vám pomůžou přímo z vaší aplikace zadávat efektivní dotazy na telemetrie.
-* Další informace naleznete ve [Středisku pro vývojáře Java](/develop/java/).
+* Další informace najdete na webu [Azure pro vývojáře v Javě](/java/azure).
 
 <!--Link references-->
 

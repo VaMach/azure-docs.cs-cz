@@ -1,5 +1,5 @@
 ---
-title: "Nastavení vývojového prostředí v Mac OS X | Dokumentace Microsoftu"
+title: "Nastavení vývojového prostředí v Mac OS X pro práci s Azure Service Fabric | Dokumentace Microsoftu"
 description: "Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace v Mac OS X."
 services: service-fabric
 documentationcenter: java
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/21/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Nastavení vývojového prostředí v Mac OS X
@@ -51,7 +51,6 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
     ```
     Tento postup přinese soubor `Vagrantfile` obsahující konfiguraci virtuálního počítače společně s umístěním virtuálního počítače, ze kterého je stažen.
 
-
 2. Přejděte do místního klonu úložiště.
 
     ```bash
@@ -75,24 +74,46 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
 
     ![Spouštění instalace clusteru po zřízení virtuálního počítače][cluster-setup-script]
 
->[!TIP]
-> Pokud stažení virtuálního počítače trvá dlouhou dobu, můžete ho stáhnout pomocí nástrojů wget nebo curl nebo prostřednictvím prohlížeče tak, že přejdete na odkaz určený položkou **config.vm.box_url** v souboru `Vagrantfile`. Po stažení do místního počítače upravte soubor `Vagrantfile` tak, aby odkazoval na místní cestu, kam jste image stáhli. Pokud jste například stáhli image do adresáře /home/users/test/azureservicefabric.tp8.box, nastavte položku **config.vm.box_url** na tuto cestu.
->
+    >[!TIP]
+    > Pokud stažení virtuálního počítače trvá dlouhou dobu, můžete ho stáhnout pomocí nástrojů wget nebo curl nebo prostřednictvím prohlížeče tak, že přejdete na odkaz určený položkou **config.vm.box_url** v souboru `Vagrantfile`. Po stažení do místního počítače upravte soubor `Vagrantfile` tak, aby odkazoval na místní cestu, kam jste image stáhli. Pokud jste například stáhli image do adresáře /home/users/test/azureservicefabric.tp8.box, nastavte položku **config.vm.box_url** na tuto cestu.
+    >
 
 5. Otestujte správné nastavení clusteru tak, že přejdete do Service Fabric Exploreru na adrese http://192.168.50.50:19080/Explorer (za předpokladu, že jste ponechali výchozí IP adresu privátní sítě).
 
     ![Service Fabric Explorer zobrazený z hostitelského počítače Mac][sfx-mac]
 
+
+## <a name="create-application-on-mac-using-yeoman"></a>Vytvoření aplikace na počítači Mac pomocí Yeomanu
+Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman.
+
+1. V počítači Mac musí být instalováno Node.js a NPM. Pokud ne, můžete nainstalovat Node.js a NPM pomocí Homebrew následujícím postupem. Pokud chcete zkontrolovat verze Node.js a NPM nainstalované na počítači Mac, můžete použít možnost ``-v``.
+
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. Instalace generátoru šablon [Yeoman](http://yeoman.io/) na počítač z NPM
+
+  ```bash
+  npm install -g yo
+  ```
+3. Nainstalujte generátor Yeoman, který chcete použít, podle kroků v úvodní [dokumentaci](service-fabric-get-started-linux.md). Pokud chcete vytvářet aplikace Service Fabric pomocí Yeomanu, postupujte podle těchto kroků:
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
+4. K vytvoření aplikace Service Fabric Java na počítači Mac budete potřebovat nainstalovanou sadu JDK 1.8 a Gradle.
+
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalace modulu plug-in Service Fabric pro Eclipse Neon
 
 Service Fabric poskytuje modul plug-in pro **integrovaná vývojové prostředí Eclipse Neon pro Javu**, který může zjednodušit proces vytváření, sestavování a nasazování služeb v Javě. Můžete provést kroky instalace uvedené v této obecné [dokumentaci](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) týkající se instalace nebo aktualizace modulu plug-in Service Fabric Eclipse.
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Použití modulu plug-in Service Fabric Eclipse v systému Mac
-
-Ujistěte se, jste prošli kroky v [dokumentaci modulu plug-in Service Fabric Eclipse](service-fabric-get-started-eclipse.md). Kroky pro vytvoření, sestavení a nasazení aplikace Service Fabric v Javě pomocí kontejneru hosta vagrant na hostiteli se systémem Mac je z větší části stejný, jak popisuje obecná dokumentace, kromě následujících položek:
-
-* Vzhledem k tomu, že aplikace Service Fabric v Javě bude vyžadovat knihovny Service Fabric, je potřeba vytvořit projekt Eclipse ve sdílené cestě. Ve výchozím nastavení je obsah v cestě na hostiteli, kde ``Vagrantfile`` existuje, sdílený s cestou ``/vagrant`` na hostovi.
-* Pokud máte ``Vagrantfile`` v cestě, například ``~/home/john/allprojects/``, pak je potřeba vytvořit projekt Service Fabric ``MyActor`` v umístění ``~/home/john/allprojects/MyActor`` a cesta k pracovnímu prostoru Eclipse bude ``~/home/john/allprojects``.
+>[!TIP]
+> Standardně podporujeme výchozí adresu IP, jak je uvedeno v souboru ``Vagrantfile`` a v souboru ``Local.json`` generované aplikace. V případě, že provedete změnu a nasadíte Vagrant s jinou IP adresou, aktualizujte také odpovídající IP adresu v souboru ``Local.json`` vaší aplikace.
 
 ## <a name="next-steps"></a>Další kroky
 <!-- Links -->

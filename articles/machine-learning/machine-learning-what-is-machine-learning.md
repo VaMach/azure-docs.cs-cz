@@ -16,27 +16,28 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 179a0d3696c6044ffb5b9e377effa30dda54ba7f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Úvod do služby Machine Learning v cloudu Azure
 
 ## <a name="what-is-machine-learning"></a>Co je strojové učení?
-Strojové učení je technika datové vědy, která umožňuje počítačům s využitím existujících dat předvídat budoucí chování, výsledky a trendy. Pomocí strojového učení se počítače můžou učit, aniž by byly explicitně naprogramované.
+Strojové učení je technika datové vědy, která umožňuje počítačům s využitím existujících dat předvídat budoucí chování, výsledky a trendy. Pomocí strojového učení se počítače můžou učit, aniž by byly explicitně naprogramované. 
 
-Díky předpovědím neboli predikcím ze strojového učení můžou být aplikace a zařízení chytřejší. Při online nakupování je díky strojovému učení možné na základě již pořízeného zboží doporučit produkty, které by se vám mohly líbit. Po protažení platební karty čtečkou porovnává strojově učený proces danou transakci s databází, a pomáhá tak odhalovat podvody. A takový robotický vysavač na základě strojového učení zjišťuje, jestli už v místnosti dostatečně uklidil.
+Strojové učení je považováno za podkategorii umělé inteligence (AI). Díky předpovědím neboli predikcím ze strojového učení můžou být aplikace a zařízení chytřejší. Při online nakupování je díky strojovému učení možné na základě již pořízeného zboží doporučit produkty, které by se vám mohly líbit. Po protažení platební karty čtečkou porovnává strojově učený proces danou transakci s databází, a pomáhá tak odhalovat podvody. A takový robotický vysavač na základě strojového učení zjišťuje, jestli už v místnosti dostatečně uklidil.
 
 Stručný přehled získáte třeba zhlédnutím série videí [Datová věda pro začátečníky](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Datová věda pro začátečníky vám bez nesrozumitelných výrazů a složité matematiky představí strojové učení a krok za krokem vás provede jednoduchým prediktivním modelem.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Co je Machine Learning v cloudu Microsoft Azure?
+
+![Co je strojové učení? Základní pracovní postup pro zprovoznění prediktivních analýz v Azure Machine Learning](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 Azure Machine Learning je cloudová služba pro prediktivní analýzu, která umožňuje rychle vytvářet a nasazovat prediktivní modely jako analytická řešení.
 
 Můžete pracovat s knihovnou algoritmů připravených k použití, vytvářet pomocí nich modely na počítači připojeném k internetu a rychle nasadit prediktivní řešení. Začněte s příklady a řešeními připravenými k použití v [Galerii Cortana Intelligence](https://gallery.cortanaintelligence.com/).
-
-![Co je strojové učení? Základní pracovní postup pro zprovoznění prediktivních analýz v Azure Machine Learning](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Nejenže Azure Machine Learning poskytuje nástroje pro modelování prediktivních analýz, ale přináší také plně spravovanou službu, pomocí které můžete své prediktivní modely nasazovat jako k použití připravené webové služby.
 

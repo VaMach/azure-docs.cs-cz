@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure pomocí služby Site Recovery na webu Azure Portal
@@ -81,8 +81,8 @@ Budete potřebovat síť Azure, ke které se připojí virtuální počítače A
 Sítě Azure používané pro Site Recovery se nedají [přesouvat](../azure-resource-manager/resource-group-move-resources.md) v rámci stejného předplatného ani mezi jinými předplatnými.
 
 ### <a name="set-up-an-azure-storage-account"></a>Nastavení účtu úložiště Azure
-* Abyste mohli uchovávat data replikovaná do Azure, potřebujete účet Azure Storage úrovně Standard nebo Premium. [Storage úrovně Premium](../storage/storage-premium-storage.md) slouží pro virtuální počítače, které potřebují trvale vysoký výkon na vstupu a výstupu a nízkou latenci pro hostování intenzivních úloh vstupu a výstupu. Pokud pro ukládání replikovaných dat chcete používat účet Storage úrovně Premium, musíte mít také účet Storage úrovně Standard pro ukládání protokolů replikace, do kterých se zaznamenávají průběžné změny místních dat. Účet musí být ve stejné oblasti jako trezor Služeb zotavení.
-* V závislosti na modelu prostředků, který budete chtít použít pro virtuální počítače Azure, které převezmou služby po selhání, nastavíte účet v [režimu Resource Manageru](../storage/storage-create-storage-account.md) nebo [klasickém režimu](../storage/storage-create-storage-account-classic-portal.md).
+* Abyste mohli uchovávat data replikovaná do Azure, potřebujete účet Azure Storage úrovně Standard nebo Premium. [Storage úrovně Premium](../storage/common/storage-premium-storage.md) slouží pro virtuální počítače, které potřebují trvale vysoký výkon na vstupu a výstupu a nízkou latenci pro hostování intenzivních úloh vstupu a výstupu. Pokud pro ukládání replikovaných dat chcete používat účet Storage úrovně Premium, musíte mít také účet Storage úrovně Standard pro ukládání protokolů replikace, do kterých se zaznamenávají průběžné změny místních dat. Účet musí být ve stejné oblasti jako trezor Služeb zotavení.
+* V závislosti na modelu prostředků, který budete chtít použít pro virtuální počítače Azure, které převezmou služby po selhání, nastavíte účet v [režimu Resource Manageru](../storage/common/storage-create-storage-account.md) nebo [klasickém režimu](../storage/common/storage-create-storage-account.md).
 * Doporučujeme nastavit účet ještě před tím, než začnete. Pokud to neuděláte, budete to muset udělat při nasazení služby Site Recovery.
 - Mějte na paměti, že účty úložiště používané pro Site Recovery se nedají [přesouvat](../azure-resource-manager/resource-group-move-resources.md) v rámci stejného předplatného ani mezi jinými předplatnými.
 
@@ -221,7 +221,7 @@ Zadejte účet úložiště Azure, který se má používat pro replikaci, a sí
    ![Úložiště](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * Pokud chcete vytvořit účet úložiště pomocí klasického modelu, můžete to udělat na webu Azure Portal. [Další informace](../storage/storage-create-storage-account-classic-portal.md)
+   * Pokud chcete vytvořit účet úložiště pomocí klasického modelu, můžete to udělat na webu Azure Portal. [Další informace](../storage/common/storage-create-storage-account.md)
    * Pokud pro replikovaná data používáte účet úložiště Storage úrovně Premium, nastavte si ještě účet úložiště úrovně Standard pro ukládání protokolů replikace, do kterých se zaznamenávají průběžné změny místních dat.
 5. Pokud jste ještě nevytvořili síť Azure a chcete ji vytvořit pomocí modelu Resource Manageru, klikněte na **+Síť** a můžete to provést přímo tady. V okně **Vytvořit virtuální síť** zadejte název sítě, rozsah adres, podrobnosti o podsíti, předplatné a umístění. Síť by měla být ve stejném umístění jako trezor Služeb zotavení.
 
@@ -261,7 +261,7 @@ Když se začne mapovat síť, dojde k tomuto:
 3. V části **Frekvence kopírování** určete, jak často chcete replikovat rozdílová data po počáteční replikaci (každých 30 sekund, 5 minut nebo 15 minut).
 
     > [!NOTE]
-    >  Frekvence každých 30 sekund se nepodporuje při replikaci do Storage úrovně Premium. Omezení je určeno počtem snímků na jeden objekt blob (100), který Storage úrovně Premium podporuje. [Další informace](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Frekvence každých 30 sekund se nepodporuje při replikaci do Storage úrovně Premium. Omezení je určeno počtem snímků na jeden objekt blob (100), který Storage úrovně Premium podporuje. [Další informace](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
 4. V části **Uchování bodu obnovení** zadejte (v hodinách), jak dlouhý bude interval uchovávání dat pro jednotlivé body obnovení. Chráněné počítače je možné obnovit do libovolného bodu v rámci tohoto intervalu.
 5. V nastavení **Frekvence snímků konzistentní vzhledem k aplikacím** určete, jak často (1–12 hodin) se mají vytvářet body obnovení obsahující snímky konzistentní vzhledem k aplikacím. Technologie Hyper-V používá dva typy snímků – standardní snímek, což je přírůstkový snímek celého virtuálního počítače, a snímek konzistentní vzhledem k aplikacím, který vytvoří snímek dat aplikací ve virtuálním počítači v daném okamžiku. Snímky konzistentní vzhledem k aplikacím využívají službu Stínová kopie svazku (VSS), aby bylo zajištěno, že aplikace budou při pořízení snímku v konzistentním stavu. Pokud povolíte snímky konzistentní vzhledem k aplikacím, bude to mít vliv na výkon aplikací běžících na zdrojových virtuálních počítačích. Zajistěte, aby byla hodnota, kterou nastavíte, menší než počet dalších bodů obnovení, které nakonfigurujete.
@@ -307,7 +307,7 @@ Teď následujícím způsobem povolte replikaci:
 3. V nastavení **Cíl** vyberte předplatné, model nasazení po převzetí služeb při selhání a účet úložiště, který používáte pro replikovaná data.
 
     ![Povolení replikace](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Vyberte účet úložiště, který chcete použít. Pokud chcete použít jiný účet úložiště, než ten, který máte, musíte si ho [vytvořit](#set-up-an-azure-storage-account). Pokud pro replikovaná data používáte účet Storage úrovně Premium, musíte si nastavit ještě účet Storage úrovně Standard pro ukládání protokolů replikace, do kterých se zaznamenávají průběžné změny místních dat. Pokud chcete vytvořit účet úložiště pomocí modelu Resource Manageru, klikněte na **Vytvořit nový**. Pokud chcete vytvořit účet úložiště pomocí klasického modelu, můžete to udělat [na webu Azure Portal](../storage/storage-create-storage-account-classic-portal.md). Pak klikněte na **OK**.
+4. Vyberte účet úložiště, který chcete použít. Pokud chcete použít jiný účet úložiště, než ten, který máte, musíte si ho [vytvořit](#set-up-an-azure-storage-account). Pokud pro replikovaná data používáte účet Storage úrovně Premium, musíte si nastavit ještě účet Storage úrovně Standard pro ukládání protokolů replikace, do kterých se zaznamenávají průběžné změny místních dat. Pokud chcete vytvořit účet úložiště pomocí modelu Resource Manageru, klikněte na **Vytvořit nový**. Pokud chcete vytvořit účet úložiště pomocí klasického modelu, můžete to udělat [na webu Azure Portal](../storage/common/storage-create-storage-account.md). Pak klikněte na **OK**.
 5. Vyberte síť Azure a podsíť, ke kterým se připojí virtuální počítače Azure, když se po převzetí služeb při selhání vytvoří. Výběrem možnosti **Nakonfigurovat pro vybrané počítače** použijte nastavení sítě pro všechny počítače, které jste vybrali pro ochranu. Vyberte **Nakonfigurovat později** a vyberte síť Azure pro konkrétní počítač. Pokud chcete použít jinou síť než tu, kterou máte, musíte si ji [vytvořit](#set-up-an-azure-network). Pokud chcete vytvořit síť pomocí modelu Resource Manageru, klikněte na **Vytvořit nový**. Pokud chcete vytvořit síť pomocí klasického modelu, udělejte to [na portálu Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). V odpovídajícím případě vyberte podsíť. Pak klikněte na **OK**.
 6. V nastavení **Virtuální počítače** > **Výběr virtuálních počítačů** klikněte a vyberte každý počítač, který chcete replikovat. Můžete vybrat pouze počítače, pro které je možné povolit replikaci. Pak klikněte na **OK**.
 
@@ -432,8 +432,8 @@ Kde:
 * * **/EncryptionEnabled**: Volitelný parametr, který je možné použít při replikaci virtuálních počítačů Hyper-V v cloudech VMM do Azure. Zadejte, jestli chcete virtuální počítače v Azure šifrovat (šifrování neaktivních dat). Zkontrolujte, jestli má název souboru příponu **.pfx**. Šifrování je ve výchozím nastavení vypnuté.
 
     > [!NOTE]
-    > K šifrování neaktivních uložených dat doporučujeme používat funkci šifrování, kterou poskytuje Azure, namísto používání možnosti šifrování (možnost EncryptionEnabled), kterou poskytuje Azure Site Recovery. Funkci šifrování, kterou poskytuje Azure, je možné zapnout pro účet úložiště a pomáhá dosahovat lepšího výkonu, protože o šifrování a dešifrování se stará Azure  
-    > Storage.
+    > K šifrování neaktivních uložených dat doporučujeme používat funkci šifrování, kterou poskytuje Azure, namísto používání možnosti šifrování (možnost EncryptionEnabled), kterou poskytuje Azure Site Recovery. Funkci šifrování, kterou poskytuje Azure, je možné zapnout pro účet úložiště a pomáhá dosahovat lepšího výkonu, protože o šifrování a dešifrování se stará úložiště  
+    > Azure.
     > [Další informace o šifrování služby Storage v Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
     
 * **/proxyAddress**: Volitelný parametr, který určuje adresu proxy serveru.

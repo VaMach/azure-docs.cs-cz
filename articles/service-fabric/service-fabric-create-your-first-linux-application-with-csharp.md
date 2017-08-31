@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 8/21/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 4baf144cc28eeff0ab8f8b60e837f8a2bad903af
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Vytvoření první aplikace Azure Service Fabric
@@ -34,10 +34,29 @@ Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET
 ## <a name="prerequisites"></a>Požadavky
 Než začnete, ujistěte se, že máte [v Linuxu nastavené vývojové prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
 
-Budete také pro nasazení aplikace chtít nakonfigurovat [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (doporučeno) nebo [XPlat CLI](service-fabric-azure-cli.md).
+Budete také chtít nainstalovat [Service Fabric CLI](service-fabric-cli.md).
+
+### <a name="install-and-set-up-the-generators-for-csharp"></a>Instalace a nastavení generátorů pro CSharp
+Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric CSharp z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman pro CSharp.
+1. Instalace nodejs a NPM na počítači
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Instalace generátoru šablon [Yeoman](http://yeoman.io/) na počítač z NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Instalace generátoru aplikací Service Fabric Yeo Java z NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfcsharp
+  ```
 
 ## <a name="create-the-application"></a>Vytvoření aplikace
-Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Service Fabric SDK pro Linux zahrnuje generátor [Yeoman](http://yeoman.io/), který vám usnadní vytvoření první služby a případná další rozšíření později. Pomocí generátoru Yeoman vytvoříme aplikaci s jedinou službou.
+Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Generátor šablon Service Fabric [Yeoman](http://yeoman.io/) pro CSharp, který jste nainstalovali v posledním kroku, vám usnadní vytvoření první služby a případná další rozšíření později. Pomocí generátoru Yeoman vytvoříme aplikaci s jedinou službou.
 
 1. V terminálu zadejte následující příkaz, který zahájí sestavování základní kostry aplikace: `yo azuresfcsharp`
 2. Pojmenujte svoji aplikaci.
@@ -62,12 +81,10 @@ Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každ
 
 Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru.
 
-### <a name="using-xplat-cli"></a>Použití XPlat CLI
-
 1. Připojte se k místnímu clusteru služby Service Fabric.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Spuštěním instalačního skriptu, který je součástí šablony, zkopírujte balíček aplikace do úložiště imagí clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
@@ -76,14 +93,11 @@ Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru.
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>Použití Azure CLI 2.0
-
-Nasazení sestavené aplikace je stejné jako u všech ostatních aplikací Service Fabric. Podrobné pokyny najdete v dokumentaci s popisem [správy aplikace Service Fabric pomocí Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md).
+Nasazení sestavené aplikace je stejné jako u všech ostatních aplikací Service Fabric. Podrobné pokyny najdete v dokumentaci s popisem [správy aplikace Service Fabric pomocí Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md).
 
 Parametry těchto příkazů najdete v generovaných manifestech uvnitř balíčku aplikace.
 
-Jakmile je aplikace nasazená, otevřete prohlížeč a přejděte k nástroji [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) na adrese [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
-Pak rozbalte uzel **Aplikace** a všimněte si, že už obsahuje položku pro váš typ aplikace a další položku pro první instanci tohoto typu.
+Jakmile je aplikace nasazená, otevřete prohlížeč a přejděte k nástroji [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) na adrese [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Pak rozbalte uzel **Aplikace** a všimněte si, že už obsahuje položku pro váš typ aplikace a další položku pro první instanci tohoto typu.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Spuštění klienta testování a převzetí služeb při selhání
 Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba nebo klient posílali zprávy. Šablona actor zahrnuje jednoduchý testovací skript, který můžete použít k interakci se službou actor.
@@ -101,7 +115,7 @@ Projekty Actor samy o sobě nedělají nic. Vyžadují, aby jim jiná služba ne
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Přidání více služeb do stávající aplikace
 
-Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, proveďte následující kroky: 
+Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, proveďte následující kroky:
 1. Změňte adresář na kořenovou složku stávající aplikace.  Například `cd ~/YeomanSamples/MyApplication`, pokud `MyApplication` je aplikace vytvořená pomocí Yeomanu.
 2. Spusťte `yo azuresfcsharp:AddService`.
 
@@ -111,14 +125,11 @@ Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, 
 3. V souboru build.sh aktualizujte názvy souborů projektu na soubory csproj.
 
 ## <a name="next-steps"></a>Další kroky
+
 * [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Azure](service-fabric-azure-cli.md)
+* [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
 * Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
-
-## <a name="related-articles"></a>Související články
-
-* [Začínáme s platformou Service Fabric a Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Začínáme se Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Začínáme se Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

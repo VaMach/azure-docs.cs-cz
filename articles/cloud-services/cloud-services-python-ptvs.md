@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6b21f38ddd64278db26d7042349470805b799203
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webové role a role pracovních procesů Pythonu při použití nástrojů Python Tools for Visual Studio
@@ -170,7 +170,7 @@ Proměnné **PYTHON2** a **PYPATH** je třeba přidat do počáteční úlohy pr
 Dále vytvořte soubory **PrepPython.ps1** a **PipInstaller.ps1** ve složce **./bin** vaší role.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Tento skript nainstaluje Python. Pokud je proměnná prostředí **PYTHON2** nastavena na hodnotu **on**, bude nainstalován Python 2.7; v opačném případě bude nainstalován Python 3.5.
+Tento skript nainstaluje Python. Pokud je proměnná prostředí **PYTHON2** nastavená na hodnotu **on**, nainstaluje se Python 2.7; v opačném případě se nainstaluje Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -216,7 +216,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Tento skript volá program pip a instaluje všechny závislosti v souboru **requirements.txt**. Pokud je proměnná prostředí **PYTHON2** nastavena na hodnotu **on**, použije se Python 2.7; v opačném případě se použije Python 3.5.
+Tento skript volá program pip a instaluje všechny závislosti v souboru **requirements.txt**. Pokud je proměnná prostředí **PYTHON2** nastavená na hodnotu **on**, použije se Python 2.7; v opačném případě se použije Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -251,7 +251,7 @@ if (-not $is_emulated){
 
 Soubor **bin\LaunchWorker.ps1** byl původně vytvořen pro větší množství přípravných prací, ve skutečnosti však tento cíl neplní. Nahraďte obsah daného souboru následujícím skriptem.
 
-Tento skript volá soubor **worker.py** z projektu v Pythonu. Pokud je proměnná prostředí **PYTHON2** nastavena na hodnotu **on**, použije se Python 2.7; v opačném případě se použije Python 3.5.
+Tento skript volá soubor **worker.py** z projektu v Pythonu. Pokud je proměnná prostředí **PYTHON2** nastavená na hodnotu **on**, použije se Python 2.7; v opačném případě se použije Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -327,14 +327,14 @@ V okně výstupu uvidíte průběh a pak se zobrazí okno Protokoly aktivit Micr
 Pár minut bude probíhat nasazování a pak už vám na Azure začne běžet webová role a role pracovního procesu.
 
 ### <a name="investigate-logs"></a>Prozkoumání protokolů
-Po spuštění virtuálního počítače cloudové služby a instalaci Pythonu si můžete prohlédnou protokoly a hledat případné zprávy o neúspěchu. Tyto protokoly jsou umístěné ve složce **C:\Resources\Directory\\{role}\LogFiles**. Soubor **PrepPython.err.txt** bude obsahovat alespoň jednu chybu, protože se skript pokusil zjistit, zda je nainstalován Python, a soubor **PipInstaller.err.txt** může obsahovat zprávu ohledně zastaralé verze programu pip.
+Po spuštění virtuálního počítače cloudové služby a instalaci Pythonu si můžete prohlédnou protokoly a hledat případné zprávy o neúspěchu. Tyto protokoly jsou umístěné ve složce **C:\Resources\Directory\\{role}\LogFiles**. Soubor **PrepPython.err.txt** obsahuje alespoň jednu chybu, protože se skript pokusil zjistit, zda je nainstalován Python, a soubor **PipInstaller.err.txt** může obsahovat zprávu ohledně zastaralé verze programu pip.
 
 ## <a name="next-steps"></a>Další kroky
 Další podrobné informace o práci s webovými rolemi a rolemi pracovních procesů v nástrojích Python Tools for Visual Studio najdete v dokumentaci k těmto nástrojům:
 
 * [Projekty cloudových služeb][Cloud Service Projects]
 
-Další podrobnosti o používání služeb Azure z vaší webové role a role pracovního procesu, například pomocí služeb Azure Storage nebo Azure Service Bus, najdete v následujících článcích.
+Další podrobnosti o používání služeb Azure z vaší webové role a role pracovního procesu, například pomocí služeb Azure Storage nebo Azure Service Bus, najdete v následujících článcích:
 
 * [Služba Blob][Blob Service]
 * [Služba Table][Table Service]
@@ -350,9 +350,9 @@ Další podrobnosti o používání služeb Azure z vaší webové role a role p
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
+[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
