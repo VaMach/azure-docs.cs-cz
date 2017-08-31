@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 11: Vytvoření rolí | D
 description: "Popisuje, jak vytvořit role v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -6,14 +6,14 @@ metadata:
   title: 'Dokumentace k Azure PostgreSQL – kurzy, reference k rozhraní API | Dokumentace Microsoftu'
   description: Azure Database for PostgreSQL je služba relačních databází v cloudu Microsoftu vytvořená pro vývojáře na základě open source databázového stroje PostgreSQL.
   services: postgresql
-  author: jasonwhowell
-  manager: jhubbard
+  author: czeumault
+  manager: carolz
   ms.service: postgresql
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: jasonh
+  ms.author: carolz
 abstract:
   description: 'Azure Database for PostgreSQL je služba relačních databází založená na open source databázovém stroji PostgreSQL.  Je to nabídka plně spravované databáze jako služby schopné spravovat důležité úlohy s předvídatelným výkonem, zabezpečením, vysokou dostupností a možností dynamického škálování.  Vyvíjejte aplikace pomocí Azure Database for PostgreSQL s využitím open source nástrojů a platformy podle vašeho výběru.  Naučte se používat Azure Database for Azure Database for PostgreSQL prostřednictvím našich šablon Rychlý start, kurzů a ukázek.'
 sections:

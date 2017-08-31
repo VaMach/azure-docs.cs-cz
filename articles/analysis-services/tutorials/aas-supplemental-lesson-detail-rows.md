@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Doplňková lekce: Řádky podr
 description: "Popisuje, jak vytvořit výraz řádků podrobností v kurzu služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

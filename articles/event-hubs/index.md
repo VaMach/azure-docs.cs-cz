@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Event Hubs – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat službu Event Hubs k ingestování milionů událostí za sekundu z připojených aplikací a zařízení IoT na široké škále platformy."
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

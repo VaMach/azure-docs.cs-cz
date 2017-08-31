@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Backup – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Pomocí dokumentace k Backupu se naučíte zálohovat do cloudu. Prohlédněte si kurzy a videa pro aplikaci, server Windows a zálohování virtuálních počítačů Azure."
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

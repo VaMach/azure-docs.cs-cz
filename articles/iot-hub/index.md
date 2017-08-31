@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure IoT Hub – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Zjistěte, jak můžete IoT Hub použít k propojení, monitorování a řízení milionů assetů Internetu věcí. Kurzy, reference k rozhraní API, videa a další dokumentace"
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -18,10 +18,10 @@ ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d5c23c7b75d7eab563b223bc6eccfc158e9274db
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -108,7 +108,7 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 Soubor manifestu Kubernetes definuje požadovaný stav clusteru, včetně toho, jaké image kontejnerů mají být spuštěné. V tomto příkladu manifest slouží k vytvoření všech objektů potřebných ke spuštění aplikace Azure Vote. 
 
-Vytvořte soubor `azure-vote.yaml` a zkopírujte do něj následující kód YAML. Pokud pracujete ve službě Azure Cloud Shell, můžete tento soubor vytvořit pomocí editoru vi nebo Nano stejně, jako kdybyste pracovali na virtuálním nebo fyzickém systému.
+Vytvořte soubor `azure-vote.yml` a zkopírujte do něj následující kód YAML. Pokud pracujete ve službě Azure Cloud Shell, můžete tento soubor vytvořit pomocí editoru vi nebo Nano stejně, jako kdybyste pracovali na virtuálním nebo fyzickém systému.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -174,7 +174,7 @@ spec:
 Pomocí příkazu [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) spusťte aplikaci.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl create -f azure-vote.yml
 ```
 
 Výstup:

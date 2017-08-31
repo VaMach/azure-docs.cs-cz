@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure ExpressRoute – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se, jak můžete konfigurovat a spravovat privátní připojení ExpressRoute ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo společně umístěného zařízení."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

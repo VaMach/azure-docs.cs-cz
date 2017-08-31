@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Doplňková lekce: Nepravideln�
 description: "Popisuje, jak opravit nepravidelné hierarchie v kurzu služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

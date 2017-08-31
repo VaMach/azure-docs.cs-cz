@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Doplňková lekce: Dynamické z
 description: "Popisuje, jak používat dynamické zabezpečení s využitím filtrů řádků v kurzu služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 2: Získání dat | Dokum
 description: "Popisuje, jak získat a importovat data v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

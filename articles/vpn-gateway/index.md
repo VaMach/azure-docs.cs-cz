@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure VPN Gateway – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se konfigurovat brány virtuální privátní sítě (VPN) ke správě přenosů dat mezi cloudovými virtuálními sítěmi a místními systémy, nebo mezi cloudovými virtuálními sítěmi."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

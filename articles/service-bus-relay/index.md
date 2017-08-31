@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "Dokumentace ke službě Service Bus Relay"
 description: "Zjistěte, jak služba Azure Relay funguje v hybridním cloudovém a místním prostředí, a prohlédněte si kompletní postupy, kurzy, videa, reference k rozhraní API a další informace."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: cs-cz
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Dokumentace ke službě Service Bus Relay
 Zjistěte, jak služba Azure Relay podporuje hybridní aplikace mezi místními a cloudovými prostředími v rámci podnikové sítě a veřejného cloudu, a to bez nutnosti otevřít připojení brány firewall nebo provést výraznější změny v infrastruktuře podnikové sítě.

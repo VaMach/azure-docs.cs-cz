@@ -4,7 +4,7 @@ description: "Přečtěte si o službě Stream Analytics, která umožňuje v re
 keywords: "analytics jako služba, spravované služby, zpracování datového proudu, streamování analytics, co je datový proud analytics"
 services: stream-analytics
 documentationcenter: 
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -98,6 +98,6 @@ Stream Analytics je spravovaná služba v cloudu, což pomáhá předcházet ztr
 * Seznamte se s dotazovacím jazykem typu SQL pro Stream Analytics a s jedinečnými koncepty, jako jsou [oddílové funkce](stream-analytics-window-functions.md).
 * Zjistěte, jak [škálovat úlohy Stream Analytics](stream-analytics-scale-jobs.md). 
 * Zjistěte, jak [integrovat Stream Analytics a Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* Najděte odpovědi na své dotazy ke službě Stream Analytics ve [fóru Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Najděte odpovědi na své dotazy ke službě Stream Analytics ve [fóru Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 

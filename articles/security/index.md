@@ -2,7 +2,7 @@
 title: "Dokumentace k zabezpečení Azure – kurzy | Dokumentace Microsoftu"
 description: "Zjistěte, jak můžete přizpůsobit možnosti zabezpečení ve službách Azure, abyste splnili požadavky nasazení služeb a dat v cloudu."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

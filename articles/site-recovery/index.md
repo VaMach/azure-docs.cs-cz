@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Site Recovery – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se nastavit zotavení po havárii cloudu a provozní kontinuitu pro fyzické servery a virtuální počítače prostřednictvím nasazení a správy replikace."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

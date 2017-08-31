@@ -2,7 +2,7 @@
 title: "Dokumentace ke škálovacím sadám virtuálních počítačů Azure – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat škálovací sady virtuálních počítačů k vytváření virtuálních počítačů s Windows nebo Linuxem a automatickým škálováním pro rozsáhlá výpočetní řešení, řešení pro velké objemy dat a kontejnerizovaná řešení."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: cs-cz
 ms.lasthandoff: 04/12/2017
 
 ---

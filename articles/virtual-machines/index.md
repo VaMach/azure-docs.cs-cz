@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Virtual Machines – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se vytvářet, nasazovat a spravovat virtuální počítače s Windows nebo Linuxem. Kurzy, reference k rozhraní API a další dokumentace"
 services: virtual-machines
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff1cc256ff9ba84504a9df16c33888a920f62cd6
 ms.openlocfilehash: da4f6ab3c7f0c4f96440b3008e6ac62d94ea2406
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="virtual-machines-documentation"></a>Dokumentace k Virtual Machines
@@ -60,10 +62,5 @@ Naučte se vytvářet virtuální počítače Azure. Kurzy, reference k rozhran�
     </li>    
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

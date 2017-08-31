@@ -2,7 +2,7 @@
 title: "Dokumentace k síti Azure CDN – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat službu Content Delivery Network (CDN) k doručování obsahu z globálních datových center do libovolného zařízení. Kurzy, reference k rozhraní API a další dokumentace"
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure SQL Server Stretch Database – kurzy | Dokumentace Microsoftu"
 description: "Naučte se používat SQL Server Stretch Database k bezpečné migraci studených dat do Azure beze změny dotazů nebo aplikací. Kurzy a další dokumentace"
 services: sql-server-stretch-database
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 91c1cb9713d087982dc68f2511b72ef86a050616
 ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
+ms.contentlocale: cs-cz
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Dokumentace k funkci SQL Server Stretch Database
@@ -99,10 +101,5 @@ Naučte se používat SQL Server Stretch Database k transparentní a bezpečné 
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

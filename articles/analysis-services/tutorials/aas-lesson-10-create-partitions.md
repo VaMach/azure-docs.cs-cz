@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 10: Vytvoření oddílů 
 description: "Popisuje, jak vytvořit oddíly v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

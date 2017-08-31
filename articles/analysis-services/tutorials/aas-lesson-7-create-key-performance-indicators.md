@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 7: Vytvoření klíčový
 description: "Popisuje, jak vytvořit klíčové ukazatele výkonu v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

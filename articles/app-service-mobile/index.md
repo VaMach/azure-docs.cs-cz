@@ -1,12 +1,12 @@
 ---
 title: "Dokumentace ke službě Azure Mobile Apps – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se využívat Mobile Apps ve službě Azure App Service k sestavování a hostování nativních aplikací pro iOS, Android nebo Windows nebo aplikací pro více platforem pomocí Xamarinu nebo Cordovy."
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Billing – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Zjistěte, jak můžete porozumět fakturaci Azure a také spravovat a monitorovat využití a náklady. Kurzy, nejčastější dotazy, reference k rozhraní API a další dokumentace"
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

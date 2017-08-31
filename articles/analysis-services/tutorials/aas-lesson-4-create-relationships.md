@@ -3,7 +3,7 @@ title: "Kurz služby Azure Analysis Services – Lekce 4: Vytvoření relací | 
 description: "Popisuje, jak vytvořit relace v projektu Kurz služby Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

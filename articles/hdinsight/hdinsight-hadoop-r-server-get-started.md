@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 14e2a14c74e00709e18a80325fbdd3cbcd71da37
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Začínáme používat R Server ve službě HDInsight
@@ -342,32 +342,37 @@ Všimněte si také, že nově přidaní uživatelé nemají v systému Linux ko
 
 2. Zobrazený výstup by měl vypadat přibližně takto:
     
-    R version 3.2.2 (2015-08-14) -- "Fire Safety" Copyright (C) 2015 The R Foundation for Statistical Computing Platform: x86_64-pc-linux-gnu (64-bit)
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
 
-    R je bezplatný software a nevztahuje se na něj ŽÁDNÁ ZÁRUKA.
-    Za určitých podmínek jej můžeme dál distribuovat.
-    Podrobnosti o distribuci zobrazíte zadáním license() nebo licence().
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
 
     Podpora přirozeného jazyka, ale spuštění v anglickém národním prostředí
 
-    R je projekt spolupráce s mnoha přispěvateli.
-    Zadáním contributors() zobrazíte další informace a zadáním citation() zobrazíte informace o citování R nebo balíčků R v publikacích.
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
 
-    Zadáním demo() zobrazíte některé ukázky, zadáním help() získáte online nápovědu a zadáním help.start() zobrazíte nápovědu v rozhraní prohlížeče HTML.
-    Pokud chcete R ukončit, zadejte q().
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
 
-    Microsoft R Server verze 8.0: vylepšená distribuce balíčků R Microsoftu – Copyright (C) 2016 Microsoft Corporation
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
 
     Pokud chcete zobrazit poznámky k verzi, zadejte readme().
     >
 
 3. Na příkazovém řádku `>` můžete zadat kód R. R Server obsahuje balíčky umožňující snadnou interakci se systémem Hadoop a spouštění distribuovaných výpočtů. Například pomocí následujícího příkazu zobrazíte kořen výchozího systému souborů pro cluster HDInsight:
 
-    rxHadoopListFiles("/")
+        rxHadoopListFiles("/")
 
 4. Můžete také použít adresování ve stylu WASB.
 
-    rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Použití R Serveru ve službě HDInsight ze vzdálené instance Microsoft R Serveru nebo klienta Microsoft R Client

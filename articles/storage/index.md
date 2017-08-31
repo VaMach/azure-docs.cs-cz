@@ -2,7 +2,7 @@
 title: "Dokumentace ke službě Azure Storage – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se používat Azure Storage – úložiště pro objekty blob, tabulky, fronty, soubory a disky virtuálních počítačů v cloudu. Kurzy, reference k rozhraní API a další dokumentace"
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
