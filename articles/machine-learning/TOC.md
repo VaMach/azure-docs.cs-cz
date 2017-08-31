@@ -3,8 +3,8 @@
 ## [Co je Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Vědecké zpracování týmových dat
-### [Přehled](http://aka.ms/datascienceprocess)
-### [Životní cyklus](data-science-process-overview.md)
+### [Přehled](data-science-process-overview.md)
+### [Životní cyklus](data-science-process-lifecycle.md)
 ### [Návody](data-science-process-walkthroughs.md)
 ####[Spark s PySparkem a Scalou](data-science-process-walkthroughs-spark.md)
 ##### [Zkoumání dat](machine-learning-data-science-spark-data-exploration-modeling.md)
@@ -14,6 +14,7 @@
 ####[U-SQL s Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
 ####[R, Python a T-SQL s SQL Serverem](data-science-process-walkthroughs-sql-server.md)
 ####[T-SQL a Python s SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [S využitím Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Co je Studio?](machine-learning-what-is-ml-studio.md)

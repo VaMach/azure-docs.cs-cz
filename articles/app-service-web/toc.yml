@@ -117,8 +117,6 @@
               href: app-service-linux-intro.md
             - name: Správa pomocí rozhraní příkazového řádku
               href: app-service-linux-cli.md
-            - name: Vytvoření webové aplikace v Linuxu
-              href: app-service-linux-how-to-create-web-app.md
             - name: Webová aplikace Ruby v Linuxu
               href: app-service-linux-ruby-get-started.md
             - name: Webová aplikace Node.js v Linuxu

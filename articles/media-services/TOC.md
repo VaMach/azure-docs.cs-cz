@@ -190,6 +190,7 @@
 #### [Přehrávače Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Vkládání reklam na straně klienta](media-services-inserting-ads-on-client-side.md)
 ### [Licencování sady pro portování klienta Microsoft Smooth Streaming](media-services-sspk.md)
+### [Přehrávání HLS se šifrováním AES v prohlížeči Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integrace
 ### [Použití Azure Functions se službou Media Services](media-services-dotnet-how-to-use-azure-functions.md)

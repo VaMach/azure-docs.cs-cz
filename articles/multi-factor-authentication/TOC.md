@@ -21,6 +21,7 @@
 #### [Instalace uživatelského portálu](multi-factor-authentication-get-started-portal.md)
 #### [Pokročilé konfigurace sítě VPN](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webová služba mobilní aplikace](multi-factor-authentication-get-started-server-webservice.md)
+#### [Konfigurace vysoké dostupnosti](mfa-server-high-availability.md)
 #### [Ověřování systému Windows](multi-factor-authentication-get-started-server-windows.md)
 #### [Upgrade serveru MFA](multi-factor-authentication-server-upgrade.md)
 #### [Upgrade z PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)

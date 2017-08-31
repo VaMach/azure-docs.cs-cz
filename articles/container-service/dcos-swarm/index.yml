@@ -28,6 +28,10 @@ sections:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
             text: Vytvoření clusteru DC/OS
             href: /azure/container-service/container-service-dcos-quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+            text: Vytvoření clusteru Docker Swarm
+            href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
   - title: Podrobné kurzy
     items:
       - type: paragraph

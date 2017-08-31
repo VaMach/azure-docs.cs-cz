@@ -1,16 +1,21 @@
-# [Přehled](../azure-portal-overview.md)
+# Přehled
+## [Informace o webu Azure Portal](../azure-portal-overview.md)
+# Kurzy
+## [DevOps pomocí webu Azure Portal](tutorial-azureportal-devops.md)
+# Koncepty
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# Začínáme
-## [Nasazení pomocí šablony Resource Manageru](../azure-resource-manager/resource-group-template-deploy.md)
-
-# Postup
+## [Klávesové zkratky](azure-portal-keyboard-shortcuts.md)
+## [Podporované prohlížeče a zařízení](../azure-preview-portal-supported-browsers-devices.md)
+# Návody
 ## Nasazení
 ### [Vytváření šablon Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [Nasazení pomocí šablony Resource Manageru](../azure-resource-manager/resource-group-template-deploy.md)
+### [Vytváření a sdílení řídicích panelů Azure](azure-portal-dashboards.md)
 ## Spravovat
-### [Použití portálu Preview ke správě prostředků](../azure-resource-manager/resource-group-portal.md)
-### [Správa přístupu pomocí RBAC](../active-directory/role-based-access-control-configure.md)
+### [Zapnutí vysokého kontrastu nebo změna motivu](azure-portal-change-theme-high-contrast.md)
+### [Použití portálu ke správě prostředků](../azure-resource-manager/resource-group-portal.md)
+### [Správa přístupu prostřednictvím řízení přístupu na základě role](../active-directory/role-based-access-control-configure.md)
+### [Sdílení řídicích panelů prostřednictvím řízení přístupu na základě role](azure-portal-dashboard-share-access.md)
 ### [Použití značek k uspořádání prostředků](../azure-resource-manager/resource-group-using-tags.md)
 ### [Škálování prostředků](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Vytvoření nového instančního objektu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)

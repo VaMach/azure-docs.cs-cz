@@ -64,6 +64,7 @@
 ## [Zdroje dat monitorování](monitoring-data-sources.md)
 ## [Seznam podporovaných metrik](monitoring-supported-metrics.md)
 ## [Schéma událostí protokolu aktivit](monitoring-activity-log-schema.md)
+## [Podporované služby, kategorie a schémata pro diagnostické protokoly](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)

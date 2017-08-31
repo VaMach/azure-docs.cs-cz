@@ -42,8 +42,11 @@
 ## Správa opětovně využitelných šablon
 ### [Přidání úložiště Git pro artefakty a šablony](devtest-lab-add-artifact-repo.md)
 ### [Použití šablon správce prostředků](devtest-lab-use-resource-manager-template.md)
-### [Přidání vlastních artefaktů](devtest-lab-artifact-author.md)
 ### [Správa vzorců](devtest-lab-manage-formulas.md)
+
+## Správa artefaktů
+### [Přidání vlastních artefaktů](devtest-lab-artifact-author.md)
+### [Diagnostikování selhání artefaktů](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Správa virtuálních sítí
 ### [Konfigurace virtuálních sítí](devtest-lab-configure-vnet.md)

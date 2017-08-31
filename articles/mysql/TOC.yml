@@ -29,6 +29,8 @@
           href: connect-cpp.md
         - name: Přejít
           href: connect-go.md
+        - name: MySQL Workbench
+          href: connect-workbench.md
 - name: Kurzy
   items:
     - name: 1. Návrh databáze
