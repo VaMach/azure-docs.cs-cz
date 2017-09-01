@@ -85,7 +85,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 Pomocí následujícího příkazu vytvořte s virtuálním počítačem relaci vzdálené plochy. IP adresu nahraďte veřejnou IP adresou vašeho virtuálního počítače. Po zobrazení výzvy zadejte přihlašovací údaje, které jste použili při vytváření virtuálního počítače.
 
 ```bash 
-mstsc /v:<Public IP Address>
+mstsc /v:Public IP Address
 ```
 
 ## <a name="install-iis-using-powershell"></a>Instalace služby IIS pomocí PowerShellu
