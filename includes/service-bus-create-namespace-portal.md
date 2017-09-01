@@ -1,4 +1,4 @@
-Pokud chcete začít používat fronty služby Service Bus v Azure, musíte nejdřív vytvořit obor názvů. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace. 
+Pokud chcete začít používat fronty služby Service Bus v Azure, musíte nejdřív vytvořit obor názvů s jedinečným názvem v rámci Azure. Obor názvů poskytuje kontejner oboru pro adresování prostředků služby Service Bus v rámci vaší aplikace.
 
 Vytvoření oboru názvů:
 

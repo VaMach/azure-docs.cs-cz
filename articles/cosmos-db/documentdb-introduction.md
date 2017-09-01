@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Úvod do služby Azure Cosmos DB: Rozhraní DocumentDB API
@@ -48,6 +48,8 @@ Azure Cosmos DB prostřednictvím rozhraní DocumentDB API nabízí následujíc
 * **Otevřené řešení:** Pomocí existujících dovedností a nástrojů můžete začít rychle. Programování s rozhraním DocumentDB API je jednoduché, srozumitelné a nevyžaduje, abyste se učili pracovat s novými nástroji nebo využívali vlastní rozšíření JSON nebo JavaScriptu. Máte přístup k veškerým funkcím databáze, včetně CRUD, dotazování a zpracování JavaScriptu přes jednoduché rozhraní RESTful HTTP. Rozhraní DocumentDB API pracuje s existujícími formáty, jazyky a standardy a zároveň k nim nabízí hodnotné schopnosti databáze.
 
 * **Automatické indexování:** Azure Cosmos DB ve výchozím nastavení automaticky indexuje všechny dokumenty v databázi a neočekává ani nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Nechcete indexovat všechno? Buďte bez obav, můžete také [výslovně nesouhlasit s používáním cest v souborech JSON](indexing-policies.md).
+
+* **Podpora kanálu změn:** Kanál změn poskytuje seřazený seznam dokumentů v kolekci Azure Cosmos DB v pořadí, ve kterém byly upraveny. Tento kanál lze použít k naslouchání změnám dat, aby bylo možné na základě aktualizací replikovat data, aktivovat volání rozhraní API nebo provádět zpracování datového proudu. Kanál změn je automaticky povolený a snadno se používá: přečtěte si [další informace o kanálu změn](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## <a name="data-management"></a>Jak se spravují data pomocí rozhraní DocumentDB API?
 Rozhraní DocumentDB API pomáhá spravovat data JSON prostřednictvím jasně definovaných databázových prostředků. Tyto prostředky se pro zachování vysoké dostupnosti replikují a je možné je jedinečně adresovat pomocí logického identifikátoru URI. Rozhraní DocumentDB API nabízí pro všechny prostředky jednoduchý programovací model RESTful založený na HTTP. 

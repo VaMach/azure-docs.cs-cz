@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Vytvoření služby BizTalk Services pomocí webu Azure Portal
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/31/2017
 > Abyste se mohli přihlásit na webu Azure Portal, potřebujete účet Azure a předplatné Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podívejte se na stránku [bezplatné zkušební verze Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-## <a name="create-a-biztalk-service"></a>Vytvoření služby BizTalk
+## <a name="CreateService"></a>Vytvoření služby BizTalk
 V závislosti na edici, kterou si zvolíte, nemusí být dostupná všechna nastavení služby BizTalk.
 
 1. Přihlaste se na web [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -233,13 +232,14 @@ Při vytváření služby Azure BizTalk se vytvoří také adresa URL HTTPS, kte
 
 <ul>
 <li><strong>Rozšířené použití klíče</strong>: Služba Azure BizTalk Services vyžaduje minimálně ověření serveru.</li>
-<li><strong>Běžný název</strong>: Zadejte plně kvalifikovaný název domény (FQDN) adresy URL služby Azure BizTalk. Projděte si část <a HREF="#BizTalk">Vytvoření služby BizTalk</a> v tomto článku.</li>
+<li><strong>Běžný název</strong>: Zadejte plně kvalifikovaný název domény (FQDN) adresy URL služby Azure BizTalk. Projděte si část <a HREF="#CreateService">Vytvoření služby BizTalk</a> v tomto článku.</li>
 </ul>
 <br/>
 Po vytvoření služby BizTalk můžete přidat nový nebo jiný certifikát.
 </td>
 </tr>
 </table>
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 

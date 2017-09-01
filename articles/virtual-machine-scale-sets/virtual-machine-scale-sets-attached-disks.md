@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Škálovací sady virtuálních počítačů Azure a připojené datové disky
@@ -99,10 +99,21 @@ Disk můžete přidat také přidáním nového záznamu do vlastnosti _dataDisk
     }          
 ]
 ```
+
 Potom vyberte _PUT_ a aplikujte změny na škálovací sadu. Tento příklad bude fungovat, pokud použijete velikost virtuálních počítačů, která podporuje více než dva připojené datové disky.
 
 > [!NOTE]
 > Když provedete změnu definice škálovací sady, například přidáním nebo odebráním datového disku, změna se aplikuje na všechny nově vytvořené virtuální počítače. Na existující virtuální počítače se ale aplikuje pouze pokud je vlastnost _upgradePolicy_ nastavena na Automatic. Pokud je nastavena na Manual, je třeba nový model na existující virtuální počítače aplikovat ručně. To můžete udělat na portálu, pomocí příkazu PowerShellu _Update-AzureRmVmssInstance_ nebo pomocí příkazu rozhraní příkazového řádku _az vmss update-instances_.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Přidání disků předem naplněných daty do existující škálovací sady 
+> Když přidáváte disky do existující škálovací sady, disk se z principu vždy vytvoří prázdný. Tento scénář také zahrnuje nové instance vytvořené škálovací sadou. Příčinou tohoto chování je, že definice škálovací sady má prázdný datový disk. Chcete-li vytvořit pro model existující škálovací sady diskové jednotky předem naplněné daty, můžete zvolit jednu z následujících dvou možností:
+
+* Zkopírujte data z virtuálního počítače instance 0 na datové disky v jiných virtuálních počítačích spuštěním vlastního skriptu.
+* Vytvořte spravovanou image s diskem operačního systému a datovým diskem (s požadovanými daty) a vytvořte novou škálovací sadu s touto image. Tímto způsobem bude mít každý nově vytvořený virtuální počítač datový disk, který je součástí definice škálovací sady. Vzhledem k tomu, že tato definice bude odkazovat na image s datovým diskem, který má přizpůsobená data, každý virtuální počítač ve škálovací sadě se automaticky vytvoří s těmito změnami.
+
+> Postup vytvoření vlastní image najdete v tématu s popisem [vytvoření spravované image zobecněného virtuálního počítače v Azure](/azure/virtual-machines/windows/capture-image-resource/). 
+
+> Uživatel musí zachytit instanci 0 virtuálního počítače, která má požadovaná data, a pak použít tento virtuální pevný disk k definici image.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Odebrání datového disku ze škálovací sady
 Datový disk můžete ze škálovací sady virtuálních počítačů odebrat pomocí příkazu Azure CLI _az vmss disk detach_. Například následující příkaz odebere disk definovaný na logické jednotce 2:

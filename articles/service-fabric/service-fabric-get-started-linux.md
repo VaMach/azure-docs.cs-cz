@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/10/2017
+ms.date: 8/23/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: da6a8b4824d7215eb1db131680856ac04003f5aa
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 4f51030446d2d2a5a11018b1fce7d7e9193f3dfc
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Příprava vývojového prostředí v Linuxu
@@ -44,7 +44,7 @@ Pokud chcete nainstalovat sadu SDK a přidružený balíček modulu runtime pomo
 2. Přidejte do seznamu zdrojů úložiště Service Fabric.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Přidejte do seznamu zdrojů úložiště `dotnet`.
@@ -79,125 +79,84 @@ Pokud chcete nainstalovat sadu SDK a přidružený balíček modulu runtime pomo
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-containers-and-guest-executables"></a>Instalace a nastavení sady SDK pro kontejnery a spustitelné soubory hosta
+## <a name="install-and-set-up-the-sdk-for-local-cluster-setup"></a>Instalace a nastavení sady SDK pro nastavení místního clusteru
 
-Po aktualizaci vašich zdrojů můžete nainstalovat sadu SDK.
-
-1. Nainstalujte balíček sady Service Fabric SDK, potvrďte instalaci a vyjádřete souhlas s licenční smlouvou.
-
-    ```bash
-    sudo apt-get install servicefabricsdkcommon
-    ```
-
-    >   [!TIP]
-    >   Následující příkazy automatizují přijetí licence pro balíčky Service Fabric:
-    >   ```bash
-    >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
-    >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
-    >   ```
-    
-2. Spusťte instalační skript sady SDK.
-
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
-    ```
-
-Po nainstalování balíčku běžné sady SDK byste měli být schopni vytvářet aplikace se službami spustitelného souboru hosta nebo kontejneru spuštěním příkazu `yo azuresfguest` nebo `yo azuresfcontainer`. Může být potřeba nastavit vaši proměnnou prostředí $NODE_PATH na umístění modulů uzlu. 
-
+Po aktualizaci vašich zdrojů můžete nainstalovat sadu SDK. Nainstalujte balíček sady Service Fabric SDK, potvrďte instalaci a vyjádřete souhlas s licenční smlouvou.
 
 ```bash
-    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+sudo apt-get install servicefabricsdkcommon
 ```
 
-Pokud používáte prostředí jako uživatel root, může být potřeba nastavit proměnnou pomocí následujícího příkazu:
-
-```bash
-    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
-```
-
-
-> [!TIP]
-> Můžete chtít přidat tyto příkazy do souboru ~/.bashrc, aby nebylo potřeba nastavovat proměnnou prostředí při každém přihlášení.
->
-
-## <a name="set-up-the-xplat-service-fabric-cli"></a>Nastavení rozhraní příkazového řádku Service Fabric XPlat
-[Rozhraní příkazového řádku XPlat][azure-xplat-cli-github] obsahuje příkazy pro komunikaci s entitami služby Service Fabric, včetně clusterů a aplikací. Je založené na Node.js, takže [se ujistěte, že máte Node nainstalované][install-node] před tím, než budete pokračovat v následujících pokynech:
-
-1. Naklonujte úložiště GitHub do svého vývojového počítače.
-
-    ```bash
-    git clone https://github.com/Azure/azure-xplat-cli.git
-    ```
-
-2. Přepněte do naklonovaného úložiště a nainstalujte závislosti rozhraní příkazového řádku pomocí Node Package Manageru (npm).
-
-    ```bash
-    cd azure-xplat-cli
-    npm install
-    ```
-
-3. Vytvořte symlink ze složky `bin/azure` naklonovaného úložiště do složky `/usr/bin/azure`.
-
-    ```bash
-    sudo ln -s $(pwd)/bin/azure /usr/bin/azure
-    ```
-
-4. Nakonec povolte automatické dokončování příkazů služby Service Fabric.
-
-    ```bash
-    azure --completion >> ~/azure.completion.sh
-    echo 'source ~/azure.completion.sh' >> ~/.bash_profile
-    source ~/azure.completion.sh
-    ```
-
-### <a name="set-up-azure-cli-20"></a>Nastavení Azure CLI 2.0
-
-Jako alternativu rozhraní XPlat CLI nyní rozhraní Azure CLI zahrnuje příkazový modul Service Fabric.
-
-Další informace o instalaci Azure CLI 2.0 a používání příkazů Service Fabric najdete v tématu [Začínáme s platformou Service Fabric a Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
+>   [!TIP]
+>   Následující příkazy automatizují přijetí licence pro balíčky Service Fabric:
+>   ```bash
+>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
+>   ```
 
 ## <a name="set-up-a-local-cluster"></a>Nastavení místního clusteru
-Pokud je instalace úspěšná, měli byste být schopni spustit místní cluster.
+  Pokud je instalace úspěšná, měli byste být schopni spustit místní cluster.
 
-1. Spusťte instalační skript clusteru.
+  1. Spusťte instalační skript clusteru.
 
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-    ```
+      ```bash
+      sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+      ```
 
-2. Otevřete webový prohlížeč a přejděte do [Service Fabric Exploreru](http://localhost:19080/Explorer). Pokud se cluster spustil, měl by se zobrazit řídicí panel Service Fabric Exploreru.
+  2. Otevřete webový prohlížeč a přejděte do [Service Fabric Exploreru](http://localhost:19080/Explorer). Pokud se cluster spustil, měl by se zobrazit řídicí panel Service Fabric Exploreru.
 
-    ![Service Fabric Explorer v Linuxu][sfx-linux]
+      ![Service Fabric Explorer v Linuxu][sfx-linux]
 
-V tuto chvíli můžete nasadit předem sestavené balíčky aplikací Service Fabric nebo nové balíčky založené na kontejnerech nebo spustitelných souborech hostů. Pokud chcete sestavit nové služby pomocí sad Java SDK nebo .NET Core SDK, postupujte podle pokynů k instalaci uvedených v dalších částech.
+  V tuto chvíli můžete nasadit předem sestavené balíčky aplikací Service Fabric nebo nové balíčky založené na kontejnerech nebo spustitelných souborech hostů. Pokud chcete sestavit nové služby pomocí sad Java SDK nebo .NET Core SDK, postupujte podle pokynů k instalaci uvedených v dalších částech.
 
 
-> [!NOTE]
-> Samostatné clustery nejsou podporované v systému Linux. Verze Preview podporuje pouze clustery typu One-box a clustery Azure s více počítači s Linuxem.
->
+  > [!NOTE]
+  > Samostatné clustery nejsou podporované v systému Linux. Verze Preview podporuje pouze clustery typu One-box a clustery Azure s více počítači s Linuxem.
+  >
 
-## <a name="install-the-java-sdk-optional-if-you-want-to-use-the-java-programming-models"></a>Instalace sady Java SDK (volitelné, pokud chcete použít programovací modely jazyka Java)
-Sada Java SDK poskytuje knihovny a šablony potřebné k sestavení služeb Service Fabric pomocí Javy.
+## <a name="set-up-the-service-fabric-cli"></a>Nastavení rozhraní příkazového řádku Service Fabric
 
-1. Nainstalujte balíček Java SDK.
+[Rozhraní příkazového řádku Service Fabric](service-fabric-cli.md) obsahuje příkazy pro komunikaci s entitami služby Service Fabric, včetně clusterů a aplikací. Je založeno na Pythonu, takže je nutné mít nainstalovaný python a pip předtím, než budete pokračovat následujícím příkazem:
 
-    ```bash
-    sudo apt-get install servicefabricsdkjava
-    ```
+```bash
+pip install sfctl
+```
 
-2. Spusťte instalační skript sady SDK.
+## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Instalace a nastavení generátorů pro kontejnery a spustitelné soubory hosta
+Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikace Service Fabric z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman.
 
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
-    ```
+1. Instalace nodejs a NPM na počítači
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Instalace generátoru šablon [Yeoman](http://yeoman.io/) na počítač z NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Instalace generátoru pro kontejnery a spustitelné soubory hosta Service Fabric Yeo z NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+  sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+  ```
+
+Po nainstalování uvedených generátorů byste měli být schopni vytvářet aplikace se službami spustitelného souboru hosta nebo kontejneru spuštěním příkazu `yo azuresfguest` nebo `yo azuresfcontainer`.
+
+## <a name="install-the-necessary-java-artifacts-optional-if-you-want-to-use-the-java-programming-models"></a>Instalace potřebných artefaktů Java (volitelné, pokud chcete použít programovací modely jazyka Java)
+
+Chcete-li sestavovat služby Service Fabric pomocí Javy, zkontrolujte, že máte nainstalovanou sadu JDK 1.8 a Gradle, které se používají pro spouštění úloh sestavení. Následující fragment kódu nainstaluje otevřenou sadu JDK 1.8 společně s Gradlem. Knihovny Service Fabric Java se berou z Mavenu.
+
+  ```bash
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+  ```
 
 ## <a name="install-the-eclipse-neon-plug-in-optional"></a>Instalace modulu plug-in Eclipse Neon (volitelné)
 
 Modul plug-in Eclipse pro Service Fabric můžete nainstalovat z **integrovaného vývojového prostředí Eclipse pro vývojáře v jazyce Java**. Mimo aplikací Service Fabric v Javě můžete k vytvoření aplikací spustitelných souborů hosta a aplikací kontejneru Service Fabric použít Eclipse.
-
-> [!NOTE]
-> Sada Java SDK je předpokladem používání modulu plug-in Eclipse, i když ho používáte jenom pro aplikace spustitelných souborů hosta a kontejnerů.
->
 
 1. V prostředí Eclipse se ujistěte, že máte nainstalované nejnovější prostředí Eclipse Neon a nejnovější verzi Buildship (1.0.17 nebo novější). Verze nainstalovaných komponent můžete zkontrolovat tak, že vyberete **Help** (Nápověda) > **Installation Details** (Podrobnosti o instalaci). Buildship můžete aktualizovat pomocí pokynů v článku [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Moduly plug-in Eclipse pro Gradle).
 
@@ -219,18 +178,10 @@ Další informace najdete v tématu [Modul plug-in Service Fabric pro vývoj apl
 
 
 ## <a name="install-the-net-core-sdk-optional-if-you-want-to-use-the-net-core-programming-models"></a>Instalace sady .NET Core SDK (volitelné, pokud chcete použít programovací modely .NET Core)
-Sada .NET Core SDK poskytuje knihovny a šablony potřebné k sestavení služeb Service Fabric pomocí .NET Core.
-
-1. Nainstalujte balíček .NET Core SDK.
+Sada .NET Core SDK poskytuje knihovny a šablony potřebné k sestavení služeb Service Fabric pomocí .NET Core. Nainstalujte balíček .NET Core SDK spuštěním následujícího kódu:
 
    ```bash
    sudo apt-get install servicefabricsdkcsharp
-   ```
-
-2. Spusťte instalační skript sady SDK.
-
-   ```bash
-   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
    ```
 
 ## <a name="update-the-sdk-and-runtime"></a>Aktualizace sady SDK a modulu runtime
@@ -239,25 +190,22 @@ Pokud chcete aktualizovat sadu SDK a modul runtime na nejnovější verze, spus�
 
 ```bash
 sudo apt-get update
-sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 ```
-
+Pokud chcete aktualizovat binární soubory sady Java SDK z Mavenu, je potřeba aktualizovat podrobnosti o verzi příslušného binárního souboru v souboru ``build.gradle`` tak, aby odkazovaly na nejnovější verzi. Abyste přesně zjistili, kde potřebujete aktualizovat verzi, můžete se podívat na jakýkoli soubor ``build.gradle`` v úvodních příkladech Service Fabric, které jsou uvedené [tady](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
 > Aktualizace balíčků může způsobit zastavení místního vývojového clusteru. Po provedení upgradu restartujte místní cluster podle pokynů na této stránce.
 
 ## <a name="next-steps"></a>Další kroky
+
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí Yeomana](service-fabric-create-your-first-linux-application-with-java.md)
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí modulu plug-in Service Fabric pro Eclipse](service-fabric-get-started-eclipse.md)
 * [Vytvoření první aplikace v CSharp v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Příprava vývojového prostředí v OSX](service-fabric-get-started-mac.md)
-* [Správa aplikací Service Fabric pomocí XPlat CLI](service-fabric-azure-cli.md)
+* [Správa aplikací pomocí Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Rozdíly Service Fabric pro Windows a Linux](service-fabric-linux-windows-differences.md)
-
-## <a name="related-articles"></a>Související články
-
-* [Začínáme s platformou Service Fabric a Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Začínáme se Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Začínáme s rozhraním příkazového řádku Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->
 

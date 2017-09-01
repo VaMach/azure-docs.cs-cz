@@ -12,34 +12,67 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 08/23/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 254f38a600ea4026120bc411368eeb01310e56b2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: baf948587ede31fe3d5b4f6f0981269b4cfe4d3d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Vytvoření první aplikace Service Fabric Reliable Actors v Javě v Linuxu
+> [!div class="op_single_selector"]
+> * [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+> * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+>
+>
 
 Tento rychlý start vám pomůže během několika minut vytvořit první aplikaci Azure Service Fabric v Javě v linuxovém vývojovém prostředí.  Až budete hotovi, budete mít jednoduchou jednoúčelovou aplikaci v Javě spuštěnou v místním vývojovém clusteru.  
 
 ## <a name="prerequisites"></a>Požadavky
-Než začnete, nainstalujte sadu Service SDK a Azure CLI a nastavte vývojový cluster ve svém [linuxovém vývojovém prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového vývojového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
+Než začnete, nainstalujte sadu Service SDK a Service Fabric CLI a nastavte vývojový cluster ve svém [linuxovém vývojovém prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového vývojového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
 
-Budete také pro nasazení aplikace chtít nakonfigurovat [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (doporučeno) nebo [XPlat CLI](service-fabric-azure-cli.md).
+Budete také chtít nainstalovat [Service Fabric CLI](service-fabric-cli.md).
+
+### <a name="install-and-set-up-the-generators-for-java"></a>Instalace a nastavení generátorů pro Javu
+Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric Java z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman pro Javu.
+1. Instalace nodejs a NPM na počítači
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Instalace generátoru šablon [Yeoman](http://yeoman.io/) na počítač z NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Instalace generátoru aplikací Service Fabric Yeo Java z NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfjava
+  ```
 
 ## <a name="create-the-application"></a>Vytvoření aplikace
-Aplikace Service Fabric obsahuje jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Service Fabric SDK pro Linux zahrnuje generátor [Yeoman](http://yeoman.io/), který vám usnadní vytvoření první služby a případná další rozšíření později.  Vytvořit, sestavit a nasadit aplikace Service Fabric v Javě můžete také pomocí modulu plug-in pro Eclipse. Viz [Vytvoření a nasazení první aplikace v Javě pomocí Eclipse](service-fabric-get-started-eclipse.md). Pro účely tohoto rychlého startu použijte Yeoman k vytvoření aplikace s jednou službou, která ukládá a získává hodnotu čítače.
+Aplikace Service Fabric obsahuje jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Generátor, který jste nainstalovali v poslední části, vám usnadní vytvoření první služby a případná další rozšíření později.  Vytvořit, sestavit a nasadit aplikace Service Fabric v Javě můžete také pomocí modulu plug-in pro Eclipse. Viz [Vytvoření a nasazení první aplikace v Javě pomocí Eclipse](service-fabric-get-started-eclipse.md). Pro účely tohoto rychlého startu použijte Yeoman k vytvoření aplikace s jednou službou, která ukládá a získává hodnotu čítače.
 
 1. V terminálu zadejte ``yo azuresfjava``.
-2. Pojmenujte svoji aplikaci. 
+2. Pojmenujte svoji aplikaci.
 3. Vyberte typ první služby a pojmenujte ji. Pro účely tohoto kurzu zvolte službu Reliable Actor. Další informace o ostatních typech služeb najdete v tématu [Přehled programovacího modelu Service Fabric](service-fabric-choose-framework.md).
    ![Generátor Service Fabric Yeoman pro Javu][sf-yeoman]
 
 ## <a name="build-the-application"></a>Sestavení aplikace
-Šablony Service Fabric Yeoman zahrnují skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace z terminálu. Pokud chcete sestavit a zabalit aplikaci, spusťte následující:
+Šablony Service Fabric Yeoman zahrnují skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace z terminálu.
+Závislosti Service Fabric Java se získávají z Mavenu. Chcete-li sestavovat aplikace Service Fabric Java a pracovat s nimi, musíte zajistit, že máte nainstalovanou sadu JDK a Gradle. Pokud ještě nejsou instalované, můžete nainstalovat sadu JDK(openjdk-8-jdk) a Gradle spuštěním následujícího kódu:
+
+  ```bash
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+  ```
+
+Pokud chcete sestavit a zabalit aplikaci, spusťte následující:
 
   ```bash
   cd myapp
@@ -49,12 +82,10 @@ Aplikace Service Fabric obsahuje jednu nebo víc služeb, z nichž každá má u
 ## <a name="deploy-the-application"></a>Nasazení aplikace
 Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru.
 
-### <a name="using-xplat-cli"></a>Použití XPlat CLI
-
 1. Připojte se k místnímu clusteru služby Service Fabric.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Spuštěním instalačního skriptu, který je součástí šablony, zkopírujte balíček aplikace do úložiště imagí clusteru, zaregistrujte typ aplikace a vytvořte její instanci.
@@ -63,9 +94,7 @@ Jakmile je aplikace sestavená, můžete ji nasadit do místního clusteru.
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>Použití Azure CLI 2.0
-
-Nasazení sestavené aplikace je stejné jako u všech ostatních aplikací Service Fabric. Podrobné pokyny najdete v dokumentaci s popisem [správy aplikace Service Fabric pomocí Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md).
+Nasazení sestavené aplikace je stejné jako u všech ostatních aplikací Service Fabric. Podrobné pokyny najdete v dokumentaci s popisem [správy aplikace Service Fabric pomocí Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md).
 
 Parametry těchto příkazů najdete v generovaných manifestech uvnitř balíčku aplikace.
 
@@ -97,17 +126,104 @@ Pomocí odinstalačního skriptu, který je součástí šablony, odstraňte ins
 
 V nástroji Service Fabric Explorer uvidíte, že se aplikace a typ aplikace už nezobrazují v uzlu **Aplikace**.
 
+## <a name="service-fabric-java-libraries-on-maven"></a>Knihovny Service Fabric Java v Mavenu
+Hostitelem knihoven Service Fabric Java je Maven. Můžete přidat závislosti do souborů ``pom.xml`` nebo ``build.gradle`` vašich projektů, aby se používali knihovny Service Fabric Java z úložiště **mavenCentral**.
+
+### <a name="actors"></a>Objekty actor
+
+Podpora Service Fabric Reliable Actor pro vaši aplikaci.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-actors-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+  }
+  ```
+
+### <a name="services"></a>Služby
+
+Podpora Service Fabric Stateless Service pro vaši aplikaci.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-services-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+  }
+  ```
+
+### <a name="others"></a>Ostatní
+#### <a name="transport"></a>Přenos
+
+Podpora přenosové vrstvy pro aplikace Service Fabric Java. Pokud neprogramujete na úrovni přenosové vrstvy, nemusíte tuto závislost do aplikace Reliable Actor nebo aplikace služby explicitně přidávat.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-transport-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+  }
+  ```
+
+#### <a name="fabric-support"></a>Podpora prostředků infrastruktury
+
+Podpora na úrovni systému pro Service Fabric, která komunikuje s modulem runtime nativním pro Service Fabric. Tuto závislost nemusíte do aplikace Reliable Actor nebo aplikace služby explicitně přidávat. Načte se z Mavenu automaticky, jakmile zahrnete ostatní závislosti uvedené výše.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+  }
+  ```
+
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migrace starých aplikací Service Fabric Java pro použití s Mavenem
+Nedávno jsme přesunuli knihovny Service Fabric Java ze sady Service Fabric Java SDK do úložiště Maven. Zatímco nové aplikace, které vygenerujete pomocí Yeomanu nebo Eclipse, vygenerují nejnovější aktualizované projekty (které budou moct pracovat s Mavenem), můžete vaše stávající bezstavové aplikace nebo aplikace objektu actor v Javě pro Service Fabric, které dřív používali sadu Service Fabric Java SDK, aktualizovat tak, aby používaly závislosti Service Fabric Java z Mavenu. Abyste zajistili fungování starších aplikací s Mavenem, postupujte podle kroků uvedených [tady](service-fabric-migrate-old-javaapp-to-use-maven.md).
+
 ## <a name="next-steps"></a>Další kroky
+
 * [Vytvoření první aplikace Service Fabric v Javě v Linuxu pomocí Eclipse](service-fabric-get-started-eclipse.md)
 * [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Komunikace s clustery Service Fabric pomocí Azure CLI](service-fabric-azure-cli.md)
-* [Řešení potíží s nasazením](service-fabric-azure-cli.md#troubleshooting)
+* [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
 * Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
-
-## <a name="related-articles"></a>Související články
-
-* [Začínáme s platformou Service Fabric a Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Začínáme se Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Začínáme se Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

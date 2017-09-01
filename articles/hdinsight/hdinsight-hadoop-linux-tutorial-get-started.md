@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/23/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: f2a97c32e9f1a286102e0800db57107e041d1990
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: fd9e6dcea6524f55c1bd06da35f02be5670bf95f
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Kurz Hadoopu: Začínáme používat Hadoop v HDInsight
 
-Naučte se vytvářet clustery [Hadoop](http://hadoop.apache.org/) v HDInsight a spouštět úlohy Hive v HDInsight. [Hive Apache](https://hive.apache.org/) je nejoblíbenější součástí ekosystému Hadoop. V současné době je součástí služby HDInsight šest různých typů clusterů: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interaktivní Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) a [R server](hdinsight-hadoop-r-server-overview.md).  Každý typ clusteru podporuje odlišnou sadu komponent. Všech šest typů clusteru podporuje Hive. Seznam podporovaných součásti v HDInsight naleznete v tématu [Co je nového ve verzích clusterů Hadoop poskytovaných v HDInsight?](hdinsight-component-versioning.md)  
+Naučte se vytvářet clustery [Hadoop](http://hadoop.apache.org/) v HDInsight a spouštět úlohy Hive v HDInsight. [Hive Apache](https://hive.apache.org/) je nejoblíbenější součástí ekosystému Hadoop. Aktuálně se HDInsight dodává se [sedmi různými typy clusteru](hdinsight-hadoop-introduction.md#overview). Každý typ clusteru podporuje odlišnou sadu komponent. Všechny typy clusteru podporují Hive. Seznam podporovaných součásti v HDInsight naleznete v tématu [Co je nového ve verzích clusterů Hadoop poskytovaných v HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -64,7 +63,7 @@ Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte ně
     * **Typ operačního systému**: Linux
     * **Počet pracovních uzlů**: 2
 
-     Každý cluster obsahuje závislost účtu Azure Storage. Označuje se jako výchozí účet úložiště. Cluster HDInsight a jeho výchozí účet úložiště musí být umístěny společně a nacházet se ve stejné oblasti Azure. Odstraněním clusterů nedojde k odstranění účtu úložiště. 
+     Každý cluster obsahuje závislost [účtu Azure Storage](hdinsight-hadoop-use-blob-storage.md) nebo [účtu Azure Data Lake](hdinsight-hadoop-use-data-lake-store.md). Označuje se jako výchozí účet úložiště. Cluster HDInsight a jeho výchozí účet úložiště musí být umístěny společně a nacházet se ve stejné oblasti Azure. Odstraněním clusterů nedojde k odstranění účtu úložiště. 
      
      Podrobnější vysvětlení těchto vlastností naleznete v tématu [Vytváření clusterů Hadoop ve službě HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -78,7 +77,7 @@ Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte ně
 
 
 ## <a name="run-hive-queries"></a>Spuštění dotazů Hive
-[Apache Hive](hdinsight-use-hive.md) je nejoblíbenější součástí používanou v HDInsight. Existuje mnoho způsobů spouštění úloh Hive v HDInsight. V tomto kurzu použijete zobrazení Ambari Hive z portálu ke spuštění několika úloh Hive. Další metody pro odesílání úloh Hive naleznete v části [Použití Hive v HDInsight](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) je nejoblíbenější součástí používanou v HDInsight. Existuje mnoho způsobů spouštění úloh Hive v HDInsight. V tomto kurzu použijete zobrazení Ambari Hive z portálu. Další metody pro odesílání úloh Hive naleznete v části [Použití Hive v HDInsight](hdinsight-use-hive.md).
 
 1. Klikněte na **Řídicí panel clusteru** uvedený na předchozím snímku obrazovky a pak klikněte na **Řídicí panel clusteru HDInsight**.  Můžete také přejít na adresu **https://&lt;název_clusteru>.azurehdinsight.net**, kde &lt;název_clusteru> je název clusteru vytvořeného v předchozí části pro otevření Ambari.
 2. Zadejte uživatelské jméno a heslo Hadoop, které jste zadali v předchozí části. Výchozí uživatelské jméno **admin**.

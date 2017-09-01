@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ecfe6dab6e4deaa75d073badcb88d536396fe678
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="about-vpn-gateway"></a>Informace o službě VPN Gateway
@@ -84,7 +84,11 @@ Tento typ připojení je variací připojení Site-to-Site. Z brány virtuální
 
 ## <a name="P2S"></a>Point-to-Site (VPN prostřednictvím protokolu SSTP)
 
-Připojení brány VPN typu Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení k virtuální síti z jednotlivých klientských počítačů. P2S je připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol). Na rozdíl od připojení S2S nevyžadují připojení P2S místní veřejnou IP adresu ani zařízení VPN. Připojení VPN se navazuje ze strany klientského počítače. Toto řešení je užitečné, pokud se chcete připojit k virtuální síti ze vzdáleného umístění, například z domova nebo z konference, nebo pokud máte pouze několik klientů, kteří se potřebují k virtuální síti připojit. Připojení typu P2S je možné použít s připojeními typu S2S prostřednictvím stejné brány VPN za předpokladu, že všechny požadavky na konfiguraci obou připojení jsou kompatibilní.
+Brána VPN typu Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení k virtuální síti z jednotlivých klientských počítačů. Připojení VPN typu Point-to-Site jsou užitečná, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například při práci z domova nebo z místa konání konference. Síť VPN P2S je také užitečným řešením nahrazujícím síť VPN Site-to-Site, pokud máte pouze několik klientů, kteří se potřebují připojit k virtuální síti. 
+
+Na rozdíl od připojení S2S nevyžadují připojení P2S místní veřejnou IP adresu ani zařízení VPN. Připojení typu P2S je možné použít s připojeními typu S2S prostřednictvím stejné brány VPN za předpokladu, že všechny požadavky na konfiguraci obou připojení jsou kompatibilní.
+
+P2S používá protokol SSTP (Secure Socket Tunneling Protocol), což je protokol VPN založený na protokolu SSL. Připojení VPN P2S se vytváří jeho zahájením z klientského počítače.
 
 ![Příklad propojení Point-to-Site pomocí Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 

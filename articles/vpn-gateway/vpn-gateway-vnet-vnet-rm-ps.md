@@ -463,7 +463,7 @@ Jelikož brány v tomto příkladu patří do různých předplatných, rozděl�
 
 ## <a name="faq"></a>Nejčastější dotazy týkající se propojení VNet-to-VNet
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
 

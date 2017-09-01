@@ -6,17 +6,17 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 05/02/2017
+ms.date: 08/22/2017
 ms.topic: hero-article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: erikre
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
+manager: cfowler
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -44,11 +44,14 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
 
 Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure, jako například aplikace Function App, databáze a účty úložiště.
 
-Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup`:
+Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup`.  
+Pokud nepoužíváte cloudové prostředí, musíte se nejdřív přihlásit pomocí `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
+
+
 ## <a name="create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage
 
 Aplikace Functions používá účet Azure Storage k zachování stavu a dalších informací o vašich funkcích. Ve skupině prostředků, kterou jste vytvořili vytvořte účet úložiště pomocí příkazu [az storage account create](/cli/azure/storage/account#create).
@@ -86,7 +89,8 @@ K hostování provádění funkcí musíte mít aplikaci Function App. Function 
 V následujícím příkazu nahraďte zástupný symbol `<app_name>` a účet úložiště pro `<storage_name>` vlastním jedinečným názvem aplikace Function App. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. 
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
+az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
+--consumption-plan-location westeurope
 ```
 Ve výchozím nastavení se aplikace Function App vytvoří s plánem hostování Consumption, což znamená, že se prostředky přidávají dynamicky podle požadavků vašich funkcí a platíte, jenom když funkce běží. Další informace najdete v tématu [Výběr správného plánu hostování](functions-scale.md). 
 
@@ -117,7 +121,9 @@ Teď, když máte aplikaci Function App, můžete nasadit samotný kód funkce z
 Existuje několik způsobů vytvoření kódu funkce v nové aplikaci Function App. V tomto tématu se připojíte k ukázkovému úložišti v GitHubu. Tak jako předtím nahraďte v následujícím kódu zástupný symbol `<app_name>` názvem aplikace Function App, který jste vytvořili. 
 
 ```azurecli-interactive
-az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
+az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
+--repo-url https://github.com/Azure-Samples/functions-quickstart \
+--manual-integration 
 ```
 Po nastavení zdroje nasazení zobrazí Azure CLI informace podobně jako v následujícím příkladu (hodnoty null byly odebrány pro zachování přehlednosti):
 

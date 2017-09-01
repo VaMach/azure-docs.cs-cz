@@ -1,5 +1,5 @@
 1. V novém okně se přihlaste k webu [Azure Portal](https://portal.azure.com/).
-2. V levém podokně klikněte na **Nový**, potom na **Databáze** a nakonec na **Databáze Azure Cosmos**.
+2. V levém podokně klikněte na **Nový**, potom na **Databáze** a nakonec v části **Databáze Azure Cosmos** klikněte na **Vytvořit**.
    
    ![Podokno databází portálu Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: cd4baa2e99ab84e55d00d76df4773f70430aa4c6
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5ac679279bb977fb7d38b5046164d1b5f6a80e0a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím ověření certifikátu (Classic): Azure Portal
@@ -34,7 +34,10 @@ Tento článek ukazuje postup vytvoření virtuální sítě s připojením typu
 > * [Azure Portal (Classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-Konfigurace Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení jednotlivých klientských počítačů k virtuální síti. Připojení Point-to-Site jsou užitečná, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například z domova nebo z místa konání konference, nebo když máte jen několik klientů, kteří se potřebují připojovat k virtuální síti. Připojení VPN typu Point-to-Site se navazuje s klientského počítače pomocí nativního klienta VPN ve Windows, který byl nakonfigurován pro připojení k virtuální síti pomocí balíčku pro konfiguraci klienta. Připojovaní klienti používají certifikáty k ověření. 
+Brána VPN typu Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojení k virtuální síti z jednotlivých klientských počítačů. Připojení VPN typu Point-to-Site jsou užitečná, když se chcete ke své virtuální síti připojit ze vzdáleného umístění, například při práci z domova nebo z místa konání konference. Síť VPN P2S je také užitečným řešením nahrazujícím síť VPN Site-to-Site, pokud máte pouze několik klientů, kteří se potřebují připojit k virtuální síti. 
+
+P2S používá protokol SSTP (Secure Socket Tunneling Protocol), což je protokol VPN založený na protokolu SSL. Připojení VPN P2S se vytváří jeho zahájením z klientského počítače.
+
 
 ![Diagram Point-to-Site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
@@ -192,6 +195,8 @@ Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než 
 
   ![Vytvořené připojení](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
+#### <a name="troubleshooting-p2s-connections"></a>Řešení potíží s připojeními P2S
+
 [!INCLUDE [verify-client-certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ### <a name="verifyvpnconnect"></a>Ověření připojení VPN
@@ -255,7 +260,7 @@ Klientský certifikát můžete odvolat tím, že přidáte jeho kryptografický
 
 ## <a name="faq"></a>Nejčastější dotazy týkající se připojení Point-to-Site
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v tématu [Virtuální počítače](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Bližší informace o sítích a virtuálních počítačích najdete v tématu s [přehledem sítě virtuálních počítačů s Linuxem v Azure](../virtual-machines/linux/azure-vm-network-overview.md).

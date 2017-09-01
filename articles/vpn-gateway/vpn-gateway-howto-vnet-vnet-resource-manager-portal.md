@@ -187,7 +187,7 @@ Na jednotlivá připojení můžete dvakrát kliknout a zobrazit tak další inf
 ## <a name="faq"></a>Nejčastější dotazy týkající se propojení VNet-to-VNet
 Projděte si Nejčastější dotazy, kde najdete další informace o propojeních VNet-to-VNet.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Další informace najdete v [dokumentaci ke službě Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Rozdíly mezi Service Fabric v Linuxu (verze Preview) a ve Windows (obecně dostupná verze)
@@ -107,5 +107,5 @@ Nástroje pro vývoj ve Windows a v Linuxu se také liší. Ve Windows se použ�
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí Yeomana](service-fabric-create-your-first-linux-application-with-java.md)
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí modulu plug-in Service Fabric pro Eclipse](service-fabric-get-started-eclipse.md)
 * [Vytvoření první aplikace v CSharp v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [Správa aplikací Service Fabric pomocí Azure CLI](service-fabric-azure-cli.md)
+* [Správa aplikací pomocí Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 

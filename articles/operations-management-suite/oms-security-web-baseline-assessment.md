@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Vyhodnocování standardních hodnot webu v řešení Zabezpečení a audit pro Operations Management Suite
@@ -29,6 +29,9 @@ Tento dokument vám pomůže s použitím schopností vyhodnocování standardn�
 Zabezpečení v OMS v současné době umožňuje vyhodnocování standardních hodnot zabezpečení pro operační systémy. Každých 24 hodin prohledá nastavení operačního systému vašich serverů a zobrazí potenciálně ohrožená nastavení. Další informace najdete v tématu [Vyhodnocování standardních hodnot v řešení Zabezpečení a audit pro Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline).
 
 Cílem vyhodnocování standardních hodnot webu je najít potenciálně ohrožená nastavení webového serveru. Tři hlavní zdroje konfigurace standardních hodnot webu jsou: .NET, ASP.NET a konfigurace služby IIS.  Stejně jako v případě vyhodnocování standardních hodnot operačního systému bude Zabezpečení v OMS každých 24 hodin prohledávat vaše webové servery a zobrazí stav jejich zabezpečení.  Konfigurace v Internetové informační službě (IIS) jsou vysoce přizpůsobitelné, což umožňuje přepsání úrovní různých webů a aplikací. Skener kromě výchozí kořenové úrovně kontroluje i nastavení na jednotlivých úrovních aplikace nebo webu. Díky tomu můžete identifikovat potenciálně ohrožená nastavení a s našimi doporučeními k těmto nastavením je rychle opravit.
+
+>[!NOTE] 
+>Identifikátory obecných konfigurací a základní pravidla používaná zabezpečením OMS si můžete stáhnout na této [stránce](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0).
 
 
 ## <a name="web-security-baseline-assessment"></a>Vyhodnocování standardních hodnot zabezpečení webu
