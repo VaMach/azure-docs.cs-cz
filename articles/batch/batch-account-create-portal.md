@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e6e27595f625fcb3ffdb0a6bccf75ad2dcc77cb3
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Vytvoření účtu Batch pomocí webu Azure Portal
@@ -154,7 +154,7 @@ Doporučujeme vytvořit nový účet úložiště pro výhradní použití vaš�
 ![Vytvoření účtu úložiště pro obecné účely][storage_account]
 
 > [!NOTE]
-> Azure Batch momentálně podporuje pouze typ účtu úložiště pro obecné účely. Tento typ účtu je popsaný v kroku 5, [Vytvoření účtu úložiště] (../storage/storage-create-storage-account.md#create-a-storage-account), v tématu [O účtech úložiště Azure](../storage/storage-create-storage-account.md).
+> Azure Batch momentálně podporuje pouze typ účtu úložiště pro obecné účely. Tento typ účtu je popsaný v kroku 5, [Vytvoření účtu úložiště] (../storage/common/storage-create-storage-account.md#create-a-storage-account), v tématu [O účtech úložiště Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
