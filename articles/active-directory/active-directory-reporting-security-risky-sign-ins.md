@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Sestavy rizikových přihlášení na portálu Azure Active Directory
@@ -52,7 +52,7 @@ Sestavy rizikových přihlášení nabízí všechny edice Azure Active Director
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Edice Free a Basic služby Azure Active Directory
 
-Edice Free a Basic služby Azure Active Directory poskytují seznam rizikových přihlášení, která byla zjištěná pro vaše uživatele. Sestava rizikových událostí obsahuje tyto údaje:
+Edice Free a Basic služby Azure Active Directory poskytují seznam rizikových přihlášení, která byla zjištěná pro vaše uživatele. Tato sestava uvádí:
 
 - **Uživatel** – Jméno uživatele použité během přihlašovací operace
 - **IP** – IP adresa zařízení použitá pro připojení k Azure Active Directory
@@ -60,7 +60,6 @@ Edice Free a Basic služby Azure Active Directory poskytují seznam rizikových 
 - **Čas přihlášení** – Čas, kdy k přihlášení došlo
 - **Stav** – Stav přihlášení
 
-Tato sestava poskytuje možnost stažení příslušných dat.
 
 ![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Na základě prošetření rizikového přihlášení můžete službě Azure Ac
 ![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 další informace najdete v tématu věnovaném [ručnímu zavření rizikových událostí](active-directory-identityprotection.md#closing-risk-events-manually).
+
+V tomto dialogovém okně máte možnost:
+
+- Vyhledávat prostředky
+- Stáhnout data sestavy
+
+
+![Riziková přihlášení](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Edice Premium služby Azure Active Directory
 

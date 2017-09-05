@@ -1,6 +1,6 @@
 ---
 title: "Přehled architektury zpracování zpráv služby Azure Service Bus | Dokumentace Microsoftu"
-description: "Popisuje architekturu zpracování zpráv a přenosů služby Azure Service Bus."
+description: "Popisuje architekturu zpracování zpráv služby Azure Service Bus."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="service-bus-architecture"></a>Architektura služby Service Bus
@@ -28,9 +27,9 @@ Tento článek popisuje architekturu zpracování zpráv služby Azure Service B
 ## <a name="service-bus-scale-units"></a>Jednotky škálování služby Service Bus
 Service Bus se organizuje podle *jednotek škálování*. Jednotka škálování je jednotka nasazení a obsahuje všechny komponenty potřebné k tomu, aby služba běžela. Každá oblast nasadí jednu nebo víc jednotek škálování služby Service Bus.
 
-K jednotce škálování je mapovaný obor názvů služby Service Bus. Jednotka škálování zpracovává všechny typy entit služby Service Bus: předání a entity zprostředkovaného zasílání zpráv (fronty, témata, odběry). Jednotka škálování služby Service Bus má tyto součásti:
+K jednotce škálování je mapovaný obor názvů služby Service Bus. Jednotka škálování zpracovává všechny typy entit služby Service Bus (fronty, témata, odběry). Jednotka škálování služby Service Bus má tyto součásti:
 
-* **Sada uzlů brány.** Uzly brány ověřují příchozí požadavky a zpracovávají požadavky na předání. Každý uzel brány má veřejnou IP adresu.
+* **Sada uzlů brány.** Uzly brány ověřují příchozí požadavky. Každý uzel brány má veřejnou IP adresu.
 * **Sada zprostředkovatelských uzlů pro přenos zpráv.** Zprostředkovatelské uzly pro přenos zpráv zpracovávají požadavky týkající se entit přenos zpráv.
 * **Jedno úložiště brány.** Úložiště brány uchovává data pro každou entitu definovanou v této jednotce škálování. Úložiště brány se implementuje nad databázi SQL Azure.
 * **Několik úložišť pro přenos zpráv.** Úložiště pro přenos zpráv uchovává zprávy všech front, témat a odběrů definovaných v této jednotce škálování. Taky obsahuje všechna data odběru. Pokud není zapnutá možnost [dělení entit zasílání zpráv na oddíly](service-bus-partitioning.md), mapuje se fronta nebo téma do jednoho úložiště pro přenos zpráv. Odběry jsou uložené ve stejném úložišti pro přenos zpráv jako jejich nadřazené téma. Kromě [Zasílání zpráv na úrovni Premium](service-bus-premium-messaging.md) služby Service Bus se úložiště pro zasílání zpráv implementují nad databáze Azure SQL.
@@ -43,18 +42,10 @@ Když klient odešle požadavek do služby Service Bus, nástroj pro vyrovnává
 
 ![Zpracování Příchozích událostí přenosu zpráv](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Zpracování příchozích událostí požadavků na předání
-Když klient odešle požadavek do služby [Azure Relay](/azure/service-bus-relay/), nástroj pro vyrovnávání zatížení Azure ho přesměruje do některého z uzlů brány. Pokud se jedná o požadavek na poslech, uzel brány vytvoří nové propojení. Pokud se jedná o požadavek na připojení ke konkrétnímu propojení, uzel brány předá požadavek na spojení uzlu brány, který vlastní požadované propojení. Uzel brány, který vlastní požadované propojení, pošle čekajícímu klientovi požadavek na setkání a pokyn, aby klient vytvořil dočasný kanál pro uzel brány, který obdržel požadavek na připojení.
-
-Když se vytvoří předávací spojení, klienti si můžou vyměňovat zprávy přes uzel brány, který se používá pro setkání.
-
-![Zpracování příchozích událostí požadavků na předání WCF](./media/service-bus-architecture/ic690645.png)
-
 ## <a name="next-steps"></a>Další kroky
 Teď, když znáte přehled architektury služby Service Bus, navštivte následující odkazy, abyste získali další informace:
 
 * [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
-* [Přehled služby Azure Relay](../service-bus-relay/relay-what-is-it.md)
 * [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Řešení zasílání zpráv ve frontě pomocí front Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 

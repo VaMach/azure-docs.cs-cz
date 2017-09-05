@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5ce9adf6c82e3a5521883c5de1e0689d5bf0d94e
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-service-fabric-command-line"></a>Příkazový řádek Azure Service Fabric
@@ -23,17 +23,75 @@ Azure Service Fabric CLI (sfctl) je nástroj příkazového řádku pro práci s
 
 Před instalací se ujistěte, že ve vašem prostředí je nainstalovaný python a pip. Další informace najdete v [úvodní dokumentaci nástroje pip](https://pip.pypa.io/en/latest/quickstart/) a oficiální [instalační dokumentaci pro python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-I když je podporovaná verze pythonu 2.7 i 3.6, doporučuje se používat python 3.6.
+I když je podporovaná verze pythonu 2.7 i 3.6, doporučuje se používat python 3.6. Následující část popisuje, jak nainstalovat požadované součásti a rozhraní příkazového řádku.
 
-## <a name="install"></a>Instalace
+## <a name="install-pip-python-and-sfctl"></a>Instalace pip, pythonu a sfctl
 
-Nástroj Azure Service Fabric CLI (sfctl) je zabalený jako balíček pythonu. Chcete-li nainstalovat nejnovější verzi, spusťte:
+Přestože existuje řada způsobů, jak nainstalovat pip a python na vaší platformě, tady je několik kroků, pomocí kterých můžete rychle nastavit python 3.6 a pip na hlavních operačních systémech:
 
-```bash
-pip install sfctl
+### <a name="windows"></a>Windows
+
+V systému Windows 10, Server 2016 a Server 2012R2 můžete použít standardní oficiální pokyny pro instalaci. Instalační program pythonu ve výchozím nastavení nainstaluje také pip.
+
+- Přejděte na oficiální [stránku pro stažení pythonu](https://www.python.org/downloads/) a stáhněte nejnovější vydanou verzi pythonu 3.6.
+- Spusťte instalační program.
+- V dolní části příkazového řádku vyberte možnost `Add Python 3.6 to PATH`.
+- Vyberte `Install Now`
+- Dokončete instalaci.
+
+Teď byste měli být schopni otevřít nové příkazové okno a získat verze pythonu i nástroje pip:
+
+```bat
+python --version
+pip --version
 ```
 
-Po instalaci spusťte `sfctl -h`, abyste získali informace o dostupných příkazech.
+Potom spusťte následující příkaz a nainstalujte Service Fabric CLI:
+
+```
+pip install sfctl
+sfctl -h
+```
+
+### <a name="ubuntu"></a>Ubuntu
+
+V systému Ubuntu 16.04 Desktop můžete python 3.6 nainstalovat pomocí PPA třetích stran:
+
+Z terminálu spusťte následující příkazy:
+
+```bash
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt-get install python3-pip
+```
+
+Potom spusťte následující příkaz, pokud chcete nainstalovat sfctl pouze pro vaši instalaci pythonu 3.6:
+
+```bash
+python3.6 -m pip install sfctl
+sfctl -h
+```
+
+Tyto kroky nemají vliv na python 3.5 a 2.7 nainstalované v systému. Nepokoušejte se upravovat tyto instalace, pokud dobře neznáte Ubuntu.
+
+### <a name="macos"></a>MacOS
+
+V systému MacOS se doporučuje použít [správce balíčků HomeBrew](https://brew.sh). Pokud HomeBrew ještě není nainstalovaný, nainstalujte ho spuštěním následujícího příkazu:
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Potom z terminálu nainstalujte python 3.6, pip a sfctl:
+
+```bash
+brew install python3
+pip3 install sfctl
+sfctl -h
+```
+
+Tyto kroky neupravují systémovou instalaci pythonu 2.7.
 
 ## <a name="cli-syntax"></a>Syntaxe rozhraní příkazového řádku
 

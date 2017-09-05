@@ -1,150 +1,116 @@
 ---
-title: "Vytvoření prvního hlavního serveru Jenkinse na virtuálním počítači s Linuxem (Ubuntu) v Azure"
-description: "Využijte k nasazení Jenkinse šablonu řešení."
-services: app-service\web
-documentationcenter: 
+title: "Vytvoření serveru Jenkins v Azure"
+description: "Instalace Jenkinse na virtuálním počítači Azure s Linuxem ze šablony řešení Jenkins a sestavení ukázkové aplikace v Javě."
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: multiple
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: hero-article
-ms.date: 6/7/2017
+ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
-ms.openlocfilehash: 06d6d305eb9711768dc62a04726359e6280d1b69
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Vytvoření prvního hlavního serveru Jenkinse na virtuálním počítači s Linuxem (Ubuntu) v Azure
+# <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Vytvoření serveru Jenkins na virtuálním počítači Azure s Linuxem pomocí webu Azure Portal
 
-Tento rychlý start ukazuje, jak nainstalovat nejnovější stabilní verzi Jenkinse na virtuálním počítači s Linuxem (Ubuntu 14.04 LTS) společně s nástroji a moduly plug-in nakonfigurovanými pro práci s Azure. Mezi tyto nástroje patří:
-<ul>
-<li>Git pro správu zdrojového kódu</li>
-<li>Modul plug-in Azure Credentials pro zabezpečené připojení</li>
-<li>Modul plug-in Azure VM Agents pro elastické sestavování, testování a průběžnou integraci</li>
-<li>Modul plug-in Azure Storage pro ukládání artefaktů</li>
-<li>Azure CLI pro nasazování aplikací pomocí skriptů</li>
-</ul>
+V tomto rychlém startu se dozvíte, jak na virtuálním počítači s Ubuntu Linuxem nainstalovat [Jenkinse](https://jenkins.io) s nakonfigurovanými nástroji a moduly plug-in pro práci s Azure. Až budete hotovi, budete mít v Azure spuštěný server Jenkins sestavující ukázkovou aplikaci v Javě z [GitHubu](https://github.com).
 
-V tomto kurzu se naučíte:
+## <a name="prerequisites"></a>Požadavky
 
-> [!div class="checklist"]
-> * Vytvořit bezplatný účet Azure.
-> * Vytvořit hlavní server Jenkinse na virtuálním počítači Azure pomocí šablony řešení. 
-> * Provést počáteční konfiguraci Jenkinse.
-> * Nainstalovat navrhované moduly plug-in.
+* Předplatné Azure
+* Přístup k SSH na příkazovém řádku vašeho počítače (například prostředí Bash nebo nástroj [PuTTY](http://www.putty.org/))
 
-Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Vytvoření virtuálního počítače v Azure nasazením šablony řešení pro Jenkinse
+## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Vytvoření virtuálního počítače s Jenkinsem ze šablony řešení
 
-Pomocí šablon Azure pro rychlý start můžete v Azure rychle a spolehlivě nasazovat komplexní technologie.  Azure Resource Manager umožňuje zřizovat aplikace pomocí [deklarativní šablony](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). S jednou šablonou můžete nasadit několik služeb společně s jejich závislostmi. Stejnou šablonu můžete použít k opakovanému nasazení aplikace během každé fáze životního cyklu této aplikace.
-
-Abyste porozuměli cenovým možnostem, podívejte se na informace o [plánech a cenách](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) pro tuto šablonu.
-
-Přejděte k [imagi Jenkinse na webu Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) a klikněte na **ZÍSKAT**.  
-
-Na webu Azure Portal klikněte na **Vytvořit**.  Tato šablona vyžaduje použití Resource Manageru, proto je rozevírací seznam modelu šablony neaktivní.
+Ve webovém prohlížeči otevřete [image Jenkinse na webu Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) a na levé straně stránky vyberte **ZÍSKAT**. Zkontrolujte podrobnosti o cenách a vyberte **Pokračovat**, pak vyberte **Vytvořit** a nakonfigurujte server Jenkins na webu Azure Portal. 
    
 ![Dialogové okno na webu Azure Portal](./media/install-jenkins-solution-template/ap-create.png)
 
-Na kartě **Konfigurace základního nastavení**:
+Na kartě **Konfigurace základního nastavení** vyplňte následující pole:
 
 ![Konfigurace základního nastavení](./media/install-jenkins-solution-template/ap-basic.png)
 
-* Zadejte název instance Jenkinse.
-* Vyberte typ disku virtuálního počítače.  Pro produkční úlohy zvolte větší virtuální počítač a jednotku SSD. Zajistíte tím lepší výkon.  Další informace o typech disků Azure si můžete přečíst [zde](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage).
-* Uživatelské jméno: musí splňovat požadavky na délku a nesmí obsahovat vyhrazená slova ani nepodporované znaky. Jména jako „admin“ nejsou povolena.  Další informace a požadavky na uživatelské jméno a heslo najdete [zde](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq).
-* Typ ověřování: vytvořte instanci zabezpečenou heslem nebo [veřejným klíčem SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). Pokud použijete heslo, musí splňovat 3 z těchto požadavků: jedno malé písmeno, jedno velké písmeno, jedna číslice a jeden speciální znak.
-* Jako typ vydané verze Jenkinse ponechte **LTS**.
-* Vyberte předplatné.
-* Vytvořte skupinu prostředků nebo použijte stávající, která je prázdná. 
-* Vyberte umístění.
+* Jako **Název** použijte **Jenkins**.
+* Zadejte **Uživatelské jméno**. Uživatelské jméno musí splňovat [určité požadavky](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+* Jako **Typ ověřování** vyberte **Heslo** a zadejte heslo. Heslo musí obsahovat velké písmeno, číslici a jeden speciální znak.
+* Jako **Skupina prostředků** použijte **myJenkinsResourceGroup**.
+* Z rozevíracího seznamu **Umístění** zvolte [Oblast Azure](https://azure.microsoft.com/regions/) **USA – východ**.
 
-Na kartě **Konfigurace dalších možností**:
+Vyberte **OK** a pokračujte na kartu **Konfigurace dalších možností**. Zadejte jedinečný název domény pro identifikaci serveru Jenkins a vyberte **OK**.
 
-![Nastavení dalších možností](./media/install-jenkins-solution-template/ap-addtional.png)
+![Nastavení dalších možností](./media/install-jenkins-solution-template/ap-addtional.png)  
 
-* Zadejte popisek názvu domény pro jedinečnou identifikaci hlavního serveru Jenkinse.
+ Jakmile úspěšně proběhne ověření, znovu vyberte **OK** na kartě **Souhrn**. Nakonec vyberte **Koupit** a vytvoří se virtuální počítač s Jenkinsem. Jakmile bude váš server připravený, na webu Azure Portal se vám zobrazí oznámení:   
 
-Kliknutím na **OK** přejděte k dalšímu kroku. 
-
-Jakmile úspěšně proběhne ověření, klikněte na **OK** a stáhněte šablonu a parametry. 
-
-Pak vyberte **Koupit** a zřiďte všechny prostředky.
-
-## <a name="setup-ssh-port-forwarding"></a>Nastavení přesměrování portu SSH
-
-Instance Jenkinse ve výchozím nastavení používá protokol HTTP a naslouchá na portu 8080. Uživatelé by se neměli ověřovat prostřednictvím nezabezpečených protokolů.
-    
-Nastavte přesměrování portu, abyste zobrazili uživatelské rozhraní Jenkinse na místním počítači.
-
-### <a name="if-you-are-using-windows"></a>Pokud používáte Windows:
-
-Nainstalujte PuTTY a pokud používáte k zabezpečení Jenkinse heslo, spusťte tento příkaz:
-```
-putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* Pro přihlášení zadejte heslo.
-
-![Pro přihlášení zadejte heslo.](./media/install-jenkins-solution-template/jenkins-pwd.png)
-
-Pokud používáte SSH, spusťte tento příkaz:
-```
-putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-
-### <a name="if-you-are-using-linux-or-mac"></a>Pokud používáte Linux nebo Mac:
-
-Pokud používáte k zabezpečení hlavního serveru Jenkinse heslo, spusťte tento příkaz:
-```
-ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* Pro přihlášení zadejte heslo.
-
-Pokud používáte SSH, spusťte tento příkaz:
-```
-ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
+![Oznámení o připravenosti Jenkinse](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
 
 ## <a name="connect-to-jenkins"></a>Připojení k Jenkinsu
-Po spuštění tunelu přejděte na místním počítači na adresu http://localhost:8080/.
 
-Poprvé odemkněte řídicí panel Jenkinse pomocí počátečního hesla správce.
+Ve webovém prohlížeči přejděte ke svému virtuálnímu počítači (například http://jenkins2517454.eastus.cloudapp.azure.com/). Konzola Jenkinse není přístupná přes nezabezpečený protokol HTTP, proto se na stránce zobrazí pokyny pro zabezpečený přístup ke konzole Jenkinse z vašeho počítače pomocí tunelu SSH.
+
+![Odemknutí Jenkinse](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
+
+Nastavte tunel z příkazového řádku s použitím příkazu `ssh` uvedeného na stránce, ve kterém nahradíte `username` názvem uživatele s právy pro správu virtuálního počítače, který jste zvolili dříve při nastavování virtuálního počítače ze šablony řešení.
+
+```bash
+ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
+```
+
+Po spuštění tunelu přejděte na místním počítači na adresu http://localhost:8080/. 
+
+Získejte počáteční heslo spuštěním následujícího příkazu v příkazovém řádku, zatímco jste připojeni k virtuálnímu počítači s Jenkinsem prostřednictvím SSH.
+
+```bash
+`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+```
+
+Pomocí tohoto počátečního hesla poprvé odemkněte řídicí panel Jenkinse.
 
 ![Odemknutí Jenkinse](./media/install-jenkins-solution-template/jenkins-unlock.png)
 
-Pokud chcete získat token, připojte se přes SSH k virtuálnímu počítači a spusťte příkaz `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
-
-![Odemknutí Jenkinse](./media/install-jenkins-solution-template/jenkins-ssh.png)
-
-Zobrazí se výzva k instalaci navrhovaných modulů plug-in.
-
-Dále vytvořte pro hlavní server Jenkinse uživatele s rolí správce.
-
-Vaše instance Jenkinse je teď připravena k použití! Přístup k zobrazení jen pro čtení získáte tak, že přejdete na adresu http://\<Veřejný název DNS instance, kterou jste právě vytvořili\>.
+Na další stránce vyberte **Install suggested plugins** (Nainstalovat doporučené moduly plug-in) a pak vytvořte uživatele s právy pro správu Jenkinse, který bude sloužit pro přístup k řídicímu panelu Jenkinse.
 
 ![Jenkins je připraven!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
+Server Jenkins je teď připravený sestavovat kód.
+
+## <a name="create-your-first-job"></a>Vytvoření první úlohy
+
+V konzole Jenkinse vyberte **Create new jobs** (Vytvořit nové úlohy), zadejte název **mySampleApp**, vyberte **Freestyle project** (Volný projekt) a pak vyberte **OK**.
+
+![Vytvoření nové úlohy](./media/install-jenkins-solution-template/jenkins-new-job.png) 
+
+Vyberte kartu **Source Code Management** (Správa zdrojového kódu), povolte **Git** a do pole **Repository URL** (Adresa URL úložiště) zadejte následující adresu URL: `https://github.com/spring-guides/gs-spring-boot.git`.
+
+![Definování úložiště Git](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
+
+Vyberte kartu **Build** (Sestavení) a pak vyberte **Add build step** (Přidat krok sestavení) a **Invoke Gradle script** (Vyvolání skriptu Gradle). Vyberte **Use Gradle Wrapper** (Použít obálku Gradle) a pak zadejte `complete` do pole **Wrapper location** (Umístění obálky) a `build` do pole **Tasks** (Úlohy).
+
+![Použití obálky Gradle k sestavení](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
+
+Vyberte **Advanced...** (Upřesnit...) a pak zadejte `complete` do pole **Root Build script** (Kořenový skript sestavení). Vyberte **Uložit**.
+
+![Nastavení upřesňujících nastavení v kroku sestavení obálky Gradle](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
+
+## <a name="build-the-code"></a>Sestavení kódu
+
+Vyberte **Build Now** (Sestavit). Kód se zkompiluje a ukázková aplikace se zabalí do balíčku. Po dokončení sestavení vyberte odkaz **Workspace** (Pracovní prostor) pro projekt.
+
+![Přechod do pracovního prostoru a získání souboru JAR ze sestavení](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
+
+Přejděte do umístění `complete/build/libs` a ujistěte se, že je tam soubor `gs-spring-boot-0.1.0.jar`, abyste ověřili, že sestavení proběhlo úspěšně. Váš server Jenkins je teď připravený k sestavování vašich vlastních projektů v Azure.
+
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste:
-
-> [!div class="checklist"]
-> * Vytvořili hlavní server Jenkinse pomocí šablony řešení.
-> * Provedli počáteční konfiguraci Jenkinse.
-> * Nainstalovali moduly plug-in.
-
-Na tomto odkazu najdete informace o použití agentů virtuálních počítačů Azure pro průběžnou integraci pomocí Jenkinse.
-
 > [!div class="nextstepaction"]
-> [Virtuální počítače Azure jako agenti Jenkinse](jenkins-azure-vm-agents.md)
+> [Přidání virtuálních počítačů Azure jako agentů Jenkinse](jenkins-azure-vm-agents.md)
 

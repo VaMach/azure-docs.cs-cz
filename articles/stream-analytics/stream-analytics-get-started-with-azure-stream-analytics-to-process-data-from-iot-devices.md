@@ -4,7 +4,7 @@ description: "Zařízení SensorTag pro IoT, proudy dat, analytické funkce pro 
 keywords: "řešení iot, začínáme s iot"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
-ms.lasthandoff: 01/24/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
+ms.contentlocale: cs-cz
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Začínáme se zpracováním dat ze zařízení IoT pomocí služby Azure Stream Analytics
@@ -65,7 +65,7 @@ Pro snadnější použití tato příručka Začínáme poskytuje soubor ukázko
 4. Zaškrtněte políčko pro umístění úlohy do řídicího panelu a klikněte na **VYTVOŘIT**.
    
     ![průběh vytváření úlohy](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. V pravém horním rohu okna prohlížeče by se měla zobrazovat zpráva Nasazení začalo... Brzy se změní na okno s informací o dokončení, jak je vidět dále.
+5. V pravém horním rohu okna prohlížeče by se měla zobrazit zpráva Nasazení začalo... Brzy se změní na okno s informací o dokončení, jak je vidět dále.
    
     ![průběh vytváření úlohy](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -111,7 +111,7 @@ Vytvoříme podrobnější dotaz. Pro každý typ snímače chceme monitorovat p
 Teď byste měli vidět výsledky, které obsahují pouze 245 řádků a uvádějí jenom názvy snímačů, u kterých průměrná teplota překročila 100 stupňů. Tento dotaz seskupí toky událostí podle hodnoty **dspl**, což je název snímače, a pomocí 30sekundového **přeskakujícího okna**. Dočasné dotazy musí stanovit, jakým způsobem se má načasovat postup. Pomocí klauzule **TIMESTAMP BY** jsme jako klíč přidružení časů ke všem dočasným výpočtům určili sloupec **OUTPUTTIME**. Podrobné informace najdete v článcích na webu MSDN o [správě času](https://msdn.microsoft.com/library/azure/mt582045.aspx) a [funkcích práce s okny](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 ### <a name="query-detect-absence-of-events"></a>Dotaz: Zjištění neexistence událostí
-Jak napsat dotaz, abychom dokázali najít chybějící vstupní události? Můžete například zjistit, kdy snímač naposledy odeslal data a následně po dobu jedné minuty neodeslal žádné události. Dotaz je umístěný v souboru AbsenseOfEvent.txt.
+Jak napsat dotaz, abychom dokázali najít chybějící vstupní události? Můžete například zjistit, kdy snímač naposledy odeslal data a následně po dobu 5 sekund neodeslal žádné události. Dotaz je umístěný v souboru AbsenseOfEvent.txt.
 
 ![Zjištění neexistence událostí](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

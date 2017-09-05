@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Průvodce předkonfigurovaným řešením propojené továrny
 
 [Předkonfigurované řešení][lnk-preconfigured-solutions] sady IoT Suite pro propojenou továrnu je implementace komplexního průmyslového řešení, které:
 
-* Se připojuje k simulovaným průmyslovým zařízením se servery OPC UA na simulovaných výrobních linkách i ke skutečným zařízením serveru OPC UA. Další informace o OPC UA najdete v části [Nejčastější dotazy][lnk-faq].
+* Se připojuje k simulovaným průmyslovým zařízením se servery OPC UA na simulovaných výrobních linkách i ke skutečným zařízením serveru OPC UA. Další informace o OPC UA najdete v tématu [Propojená továrna – Nejčastější dotazy](iot-suite-faq-cf.md).
 * Ukazuje klíčové ukazatele výkonu a celkovou efektivitu těchto zařízení a výrobních linek.
 * Ukazuje možnosti použití cloudové aplikace k interakci se serverovými systémy OPC UA.
 * Umožňuje připojení vlastních zařízení serveru OPC UA.
@@ -40,6 +40,8 @@ Tento článek vás provede některými z klíčových prvků řešení propojen
 * Odstraňovat potíže v řešení.
 * Naplánujte, jak řešení přizpůsobit podle konkrétních požadavků.
 * Navrhněte vlastní řešení IoT, které používá služby Azure.
+
+Další informace najdete v tématu [Propojená továrna – Nejčastější dotazy](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Logická architektura
 
@@ -128,6 +130,7 @@ Webová aplikace nasazená jako součást předkonfigurovaného řešení se skl
 Další informace o sadě IoT Suite najdete v následujících článcích:
 
 * [Oprávnění na webu azureiotsuite.com][lnk-permissions]
+* [Nasazení brány pro předkonfigurované řešení propojené továrny ve Windows nebo v Linuxu](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ Další informace o sadě IoT Suite najdete v následujících článcích:
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

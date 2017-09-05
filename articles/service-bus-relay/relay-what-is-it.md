@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 06/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-azure-relay"></a>Co je Azure Relay?
@@ -52,15 +51,22 @@ Hybridní připojení i přenosy WCF umožňují zabezpečené připojení k pro
 
 Schopnost zabezpečených [hybridních připojení služby Azure Relay](relay-hybrid-connections-protocol.md) s podporou otevřených protokolů je důsledkem vývoje stávajících funkcí služby Relay. Hybridní připojení můžete nasadit na jakékoli platformě a v libovolném jazyku se základní podporou protokolu WebSocket, konkrétně rozhraní WebSocket API v běžných webových prohlížečích. Hybridní připojení jsou založená na protokolech HTTP a WebSocket.
 
+### <a name="service-history"></a>Historie služby
+
+Hybridní připojení nahrazuje starší funkci služby BizTalk Services s podobným názvem, která byla postavená na službě Azure Service Bus WCF Relay. Nová schopnost Hybrid Connections doplňuje stávající funkci WCF Relay a tyto dvě schopnosti existují ve službě Azure Relay vedle sebe. Sdílejí sice společnou bránu, jinak se ale jedná o rozdílné implementace.
+
 ## <a name="wcf-relays"></a>Přenosy WCF
 
 Služba WCF Relay funguje s celým rozhraním .NET Framework (NETFX) i s technologií WCF. Propojení místní služby se službou Relay vytvoříte pomocí skupiny „předávacích“ vazeb WCF. Na pozadí se děje to, že předávací vazby mapují do nových elementů přenosové vazby určené k vytvoření komponentů kanálu WCF, které se integrují se službou Service Bus v cloudu.
 
-## <a name="service-history"></a>Historie služby
+## <a name="architecture-processing-of-incoming-relay-requests"></a>Architektura: Zpracování příchozích požadavků na předání
+Když klient odešle požadavek do služby [Azure Relay](/azure/service-bus-relay/), nástroj pro vyrovnávání zatížení Azure ho přesměruje do některého z uzlů brány. Pokud se jedná o požadavek na poslech, uzel brány vytvoří nové propojení. Pokud se jedná o požadavek na připojení ke konkrétnímu propojení, uzel brány předá požadavek na spojení uzlu brány, který vlastní požadované propojení. Uzel brány, který vlastní požadované propojení, pošle čekajícímu klientovi požadavek na setkání a pokyn, aby klient vytvořil dočasný kanál pro uzel brány, který obdržel požadavek na připojení.
 
-Hybridní připojení nahrazuje starší funkci služby BizTalk Services s podobným názvem, která byla postavená na službě Azure Service Bus WCF Relay. Nová schopnost Hybrid Connections doplňuje stávající funkci WCF Relay a tyto dvě schopnosti služby v dohledné budoucnosti budou ve službě Azure Relay existovat vedle sebe. Sdílejí sice společnou bránu, jinak se ale jedná o rozdílné implementace.
+Když se vytvoří předávací spojení, klienti si můžou vyměňovat zprávy přes uzel brány, který se používá pro setkání.
 
-## <a name="next-steps"></a>Další kroky:
+![Zpracování příchozích událostí požadavků na předání WCF](./media/relay-what-is-it/ic690645.png)
+
+## <a name="next-steps"></a>Další kroky
 
 * [Přenos – nejčastější dotazy](relay-faq.md)
 * [Vytvoření oboru názvů](relay-create-namespace-portal.md)

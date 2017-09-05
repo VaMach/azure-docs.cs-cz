@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 98c5bacd0a040d3a2d83bfe088b11d0f15449ed9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -40,9 +40,11 @@ Přihlaste se k webu Azure Portal na adrese [http://portal.azure.com](http://por
 
     ![Výstup po instalaci clusteru][cluster-setup-basics]
 
-4. Vyplňte formulář **Konfigurace clusteru**.  Jako **Počet typů uzlů** zadejte hodnotu 1 a [	Úroveň odolnosti](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) nastavte na Bronzová.
+4. Vyplňte formulář **Konfigurace clusteru**.  Jako **Počet typů uzlu** zadejte 1.
 
-5. Vyberte **Konfigurovat každý typ uzlu** a vyplňte formulář **Konfigurace typu uzlu**. Typy uzlů definují velikost virtuálních počítačů, jejich počet, vlastní koncové body a další nastavení pro virtuální počítače daného typu. Každý definovaný typ uzlu je nastavený jako samostatná škálovací sada virtuálních počítačů, která se používá k nasazení a správě virtuálních počítačů jako sady. U každého typu uzlu je možné nezávisle vertikálně navýšit nebo snížit kapacitu. Mají různé sady otevřených portů a můžou mít různé metriky kapacity.  První (nebo primární) typ uzlu je ten, kde jsou hostované systémové služby Service Fabric. Musí mít pět nebo víc virtuálních počítačů.
+5. Vyberte **Typ uzlu 1 (Primární)** a vyplňte formulář **Konfigurace typu uzlu**.  Zadejte název typu uzlu a nastavte [Úroveň odolnosti](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) na Bronzová.  Vyberte velikost virtuálního počítače.
+
+    Typy uzlů definují velikost virtuálních počítačů, jejich počet, vlastní koncové body a další nastavení pro virtuální počítače daného typu. Každý definovaný typ uzlu je nastavený jako samostatná škálovací sada virtuálních počítačů, která se používá k nasazení a správě virtuálních počítačů jako sady. U každého typu uzlu je možné nezávisle vertikálně navýšit nebo snížit kapacitu. Mají různé sady otevřených portů a můžou mít různé metriky kapacity.  První (nebo primární) typ uzlu je ten, kde jsou hostované systémové služby Service Fabric. Musí mít pět nebo víc virtuálních počítačů.
 
     Důležitým krokem každého produkčního nasazení je [plánování kapacity](service-fabric-cluster-capacity.md).  V tomto rychlém zprovoznění ale nespouštíme aplikace, takže jako velikost virtuálního počítače vyberte *DS1_v2 Standard*.  Jako [Úroveň spolehlivosti](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) vyberte Stříbrná a počáteční kapacitu škálovací sady virtuálních počítačů nastavte na hodnotu 5.  
 
@@ -84,20 +86,20 @@ Po vytvoření si cluster můžete prohlédnout na portálu v okně **Přehled**
 Připojte se pomocí PowerShellu a ověřte, že cluster je spuštěný.  Modul PowerShell ServiceFabric se instaluje spolu se sadou [Service Fabric SDK](service-fabric-get-started.md).  Rutina [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) vytvoří připojení ke clusteru.   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
 Další příklady připojení ke clusteru najdete v článku [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md). Po připojení ke clusteru zobrazte pomocí rutiny [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) seznam uzlů v clusteru a stavové informace pro každý uzel. Položka **HealthState** by měla mít pro každý uzel hodnotu *OK*.
 
 ```powershell
-PS C:\> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
-NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
-                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
 ### <a name="remove-the-cluster"></a>Odebrání clusteru
@@ -106,65 +108,58 @@ Cluster Service Fabric se kromě vlastního prostředku clusteru skládá z dal�
 Odstranění skupiny prostředků na webu Azure Portal:
 1. Přejděte ke clusteru Service Fabric, který chcete odstranit.
 2. Na stránce základů clusteru klikněte na název **skupiny prostředků**.
-3. Na stránce **Základy skupiny prostředků** klikněte na **Odstranit**, postupujte podle pokynů na této stránce a dokončete odstranění skupiny prostředků.
+3. Na stránce **Základy skupiny prostředků** klikněte na **Odstranit skupinu prostředků**, postupujte podle pokynů na této stránce a dokončete odstranění skupiny prostředků.
     ![Odstranění skupiny prostředků][cluster-delete]
 
 
 ## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Nasazení zabezpečeného clusteru pomocí Azure PowerShellu
+1. Stáhněte si na počítač [modul Azure PowerShell verze 4.0 nebo vyšší](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-
-1) Stáhněte si na počítač [modul Azure PowerShell verze 4.0 nebo vyšší](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
-
-2) Otevřete okno Windows PowerShellu a spusťte následující příkaz. 
+2. Otevřete okno Windows PowerShellu a spusťte následující příkaz. 
     
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-Zobrazený výstup by měl vypadat přibližně takto:
+    Zobrazený výstup by měl vypadat přibližně takto:
 
-![ps-list][ps-list]
+    ![ps-list][ps-list]
 
-3) Přihlaste se k Azure a vyberte předplatné, pro které chcete vytvořit cluster.
+3. Přihlaste se k Azure a vyberte předplatné, pro které chcete vytvořit cluster.
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
+4. Nyní vytvořte zabezpečený cluster spuštěním následujícího příkazu. Nezapomeňte upravit parametry. 
 
-4) Nyní vytvořte zabezpečený cluster spuštěním následujícího příkazu. Nezapomeňte upravit parametry. 
+    ```powershell
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.azure.com"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ```
 
-````powershell
+    Dokončení příkazu může trvat 10–30 minut a pak by se měl zobrazit výstup podobný následujícímu. Výstup obsahuje informace o certifikátu, službě KeyVault, do které se nahrál, a místní složce, do které se certifikát zkopíroval. 
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.azure.com"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    ![ps-out][ps-out]
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+5. Celý výstup zkopírujte a uložte do textového souboru, protože se k němu budeme odkazovat. Z výstupu si poznamenejte následující informace. 
 
-````
-
-Dokončení příkazu může trvat 10–30 minut a pak by se měl zobrazit výstup podobný následujícímu. Výstup obsahuje informace o certifikátu, službě KeyVault, do které se nahrál, a místní složce, do které se certifikát zkopíroval. 
-
-![ps-out][ps-out]
-
-5) Celý výstup zkopírujte a uložte do textového souboru, protože se k němu budeme odkazovat. Z výstupu si poznamenejte následující informace.
- 
-
-- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort** : 19000
+    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+    - **ClientConnectionEndpointPort** : 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Instalace certifikátu na místním počítači
   
