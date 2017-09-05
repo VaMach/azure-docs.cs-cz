@@ -12,17 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c0d3f90c0f15fbb7aad00fe24c2946738e24ffd8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Vytvoření nebo výběr virtuální sítě pro Azure Active Directory Domain Services
+
+> [!IMPORTANT]
+> Prostředí portálu Azure Classic pro povolení služby Azure AD Domain Services ukázané v tomto článku bude brzy odebráno. Pro nová nasazení [**místo toho použijte nové (ve verzi Preview) prostředí webu Azure Portal**](active-directory-ds-getting-started.md).
+>
+
 ## <a name="before-you-begin"></a>Než začnete
 Přečtěte si článek [Důležité informace o sítích pro Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
@@ -30,7 +34,7 @@ Přečtěte si článek [Důležité informace o sítích pro Azure Active Direc
 Další úlohou konfigurace je vytvoření virtuální sítě Azure a podsítě v ní. V této podsíti v rámci své virtuální sítě povolíte službu Azure Active Directory Domain Services. Pokud máte existující virtuální síť, kterou chcete použít, můžete tento krok přeskočit.
 
 > [!NOTE]
-> Ujistěte se, že virtuální síť Azure, kterou vytváříte nebo si vyberete pro použití se službou Azure Active Directory Domain Services, patří do oblasti Azure podporované službou Azure Active Directory Domain Services. Oblasti Azure, ve kterých je služba Azure Active Directory Domain Services k dispozici, pro ověření najdete v článku [Služby Azure podle oblasti](https://azure.microsoft.com/regions/#services/).
+> Ujistěte se, že virtuální síť Azure, kterou vytváříte nebo si vyberete pro použití se službou Azure Active Directory Domain Services, patří do oblasti Azure podporované službou Azure Active Directory Domain Services. Oblasti Azure, ve kterých je služba Azure Active Directory Domain Services k dispozici, najdete v článku [Služby Azure podle oblasti](https://azure.microsoft.com/regions/#services/).
 >
 >Poznamenejte si název virtuální sítě, abyste při povolování služby Azure Active Directory Domain Services v dalším kroku konfigurace zajistili výběr správné virtuální sítě.
 

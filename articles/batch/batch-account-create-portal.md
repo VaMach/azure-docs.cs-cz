@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e6e27595f625fcb3ffdb0a6bccf75ad2dcc77cb3
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 520d1d42d35b25db1a35d4317e9eb616cf5de565
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Vytvoření účtu Batch pomocí webu Azure Portal
@@ -137,7 +137,7 @@ Po vytvoření účtu můžete otevřít **okno účtu Batch** pro přístup k j
 
 ![Adresa URL účtu Batch na portálu][account_url]
 
-* **Přístupové klíče** (režim služby Batch): Pro ověření přístupu k účtu Batch z vaší aplikace budete potřebovat přístupový klíč účtu. (Toto nastavení není k dispozici v režimu předplatného uživatele, pokud používáte ověřování Azure Active Directory.)
+* **Přístupové klíče** (režim služby Batch): Pro ověření přístupu k účtu Batch z vaší aplikace budete potřebovat přístupový klíč účtu. (Toto nastavení není k dispozici v režimu předplatného uživatele, pokud používáte ověřování pomocí Azure Active Directory.)
 
     Chcete-li zobrazit nebo obnovit přístupový klíč účtu Batch, zadejte `keys` do pole **Hledat** v levé nabídce v okně účtu Batch a vyberte položku **Klíče**.
 

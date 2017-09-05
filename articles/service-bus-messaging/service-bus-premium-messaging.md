@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Úrovně zasílání zpráv Service Bus Premium a Standard
@@ -47,7 +47,7 @@ V následujících částech je uvedeno několik rozdílů mezi úrovněmi zasí
 
 ### <a name="partitioned-queues-and-topics"></a>Dělené fronty a témata
 
-Dělené fronty a témata se podporují v zasílání zpráv úrovně Premium; ve skutečnosti jsou tyto entity vždy dělené (a nelze je vypnout). Dělené fronty a témata úrovně Premium ale nefungují na stejném principu jako při zasílání zpráv Service Bus na úrovních Standard a Basic. Zasílání zpráv na úrovni Premium nepoužívá úložiště dat SQL a není tu tak možnost soupeření o prostředky, které je obvyklé na sdílené platformě. To znamená, že dělení není pro zvýšení výkonu potřeba. Počet oddílů na úrovni Premium se navíc snížil z 16, které jsou na úrovni Standard, na 2. Dva oddíly zajišťují dostupnost, navíc je to vhodnější počet pro prostředí runtime úrovně Premium. 
+Dělené fronty a témata se podporují v zasílání zpráv úrovně Premium; ve skutečnosti jsou tyto entity vždy dělené (a nelze je vypnout). Dělené fronty a témata úrovně Premium ale nefungují na stejném principu jako při zasílání zpráv Service Bus na úrovni Standard. Zasílání zpráv na úrovni Premium nepoužívá úložiště dat SQL a není tu tak možnost soupeření o prostředky, které je obvyklé na sdílené platformě. To znamená, že dělení není pro zvýšení výkonu potřeba. Počet oddílů na úrovni Premium se navíc snížil z 16, které jsou na úrovni Standard, na 2. Dva oddíly zajišťují dostupnost, navíc je to vhodnější počet pro prostředí runtime úrovně Premium. 
 
 Pokud u zasílání zpráv úrovně Premium zadáte velikost entity pomocí [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), rozdělí se tato velikost rovným dílem mezi 2 oddíly, na rozdíl od [standardních dělených entit](service-bus-partitioning.md#standard), u kterých je celková velikost 16násobek zadané velikosti. 
 

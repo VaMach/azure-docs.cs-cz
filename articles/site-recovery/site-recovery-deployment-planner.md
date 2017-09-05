@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
@@ -67,7 +67,7 @@ Nástroj má dvě hlavní fáze: profilace a generování sestav. Existuje také
 
 | Požadavek na server | Popis|
 |---|---|
-|Profilace a měření propustnosti| <ul><li>Operační systém: Microsoft Windows Server 2012 R2<br>(Ideálně alespoň stejná velikost jako [doporučená velikost pro konfigurační server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfigurace počítače: 8 virtuálních CPU, 16 GB paměti RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetový přístup k Azure z tohoto serveru</li><li>Účet služby Azure Storage</li><li>Přístup správce na server</li><li>Volné místo na disku alespoň 100 GB (za předpokladu 1 000 virtuálních počítačů, každý průměrně se 3 disky a profilovaný po dobu 30 dnů)</li><li>Úroveň statistiky VMware vCenter musí být nastavená na hodnotu 2 nebo vysokou úroveň.</li></ul>|
+|Profilace a měření propustnosti| <ul><li>Operační systém: Microsoft Windows Server 2012 R2<br>(Ideálně alespoň stejná velikost jako [doporučená velikost pro konfigurační server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfigurace počítače: 8 virtuálních CPU, 16 GB paměti RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetový přístup k Azure z tohoto serveru</li><li>Účet služby Azure Storage</li><li>Přístup správce na server</li><li>Volné místo na disku alespoň 100 GB (za předpokladu 1 000 virtuálních počítačů, každý průměrně se 3 disky a profilovaný po dobu 30 dnů)</li><li>Úroveň statistiky VMware vCenter musí být nastavená na hodnotu 2 nebo vysokou úroveň.</li><li>Povolený port 443: ASR Deployment Planner se přes tento port připojuje k serveru vCenter nebo hostiteli ESXi.</ul></ul>|
 | Generování sestav | Počítač s Windows nebo Windows Server s aplikací Microsoft Excel 2013 nebo novější |
 | Uživatelská oprávnění | Oprávnění jen ke čtení pro uživatelský účet používaný pro přístup k serveru VMware vCenter nebo k hostiteli VMware vSphere ESXi během profilace |
 
@@ -118,14 +118,18 @@ Nejprve potřebujete seznam virtuálních počítačů určených k profilaci. V
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Chcete-li získat všechny názvy virtuálních počítačů na serveru vCenter nebo hostiteli vSphere ESXi a jejich seznam uložit do souboru .txt, spusťte zde uvedené dva příkazy.
+4. Možná bude potřeba spustit následující příkaz, pokud Connect-VIServer nebude rozpoznán jako název rutiny.
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. Chcete-li získat všechny názvy virtuálních počítačů na serveru vCenter nebo hostiteli vSphere ESXi a jejich seznam uložit do souboru .txt, spusťte zde uvedené dva příkazy.
 Nahraďte zástupné hodnoty &lsaquo;server name&rsaquo; (název serveru), &lsaquo;user name&rsaquo; (uživatelské jméno), &lsaquo;password&rsaquo; (heslo) a &lsaquo;outputfile.txt&rsaquo; (výstupní soubor) vlastními hodnotami.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. Otevřete výstupní soubor v Poznámkovém bloku a zkopírujte názvy všech virtuálních počítačů, které chcete profilovat, do jiného souboru (například ProfileVMList.txt), přičemž každý název virtuálního počítače musí být na samostatném řádku. Tento soubor se použije jako vstup pro parametr *-VMListFile* nástroje příkazového řádku.
+6. Otevřete výstupní soubor v Poznámkovém bloku a zkopírujte názvy všech virtuálních počítačů, které chcete profilovat, do jiného souboru (například ProfileVMList.txt), přičemž každý název virtuálního počítače musí být na samostatném řádku. Tento soubor se použije jako vstup pro parametr *-VMListFile* nástroje příkazového řádku.
 
     ![Seznam názvů virtuálních počítačů v Deployment Planneru](./media/site-recovery-deployment-planner/profile-vm-list.png)
 

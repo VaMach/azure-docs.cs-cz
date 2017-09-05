@@ -1,25 +1,31 @@
 
-1. Klikněte na **App Services** > vyberte váš back-end mobilní aplikace > klikněte na **Rychlý start** > vaše klientská platforma (iOS, Android, Xamarin, Cordova).
+1. Klikněte na tlačítko **App Services**, vyberte svůj back-end Mobile Apps, vyberte **Rychlý start** a potom vyberte svou klientskou platformu (iOS, Android, Xamarin, Cordova).
 
-![Azure Portal se zvýrazněnou možností Mobile Apps Quickstart][quickstart]
+    ![Azure Portal se zvýrazněnou možností Rychlý start Mobile Apps][quickstart]
 
-2. Pokud není nakonfigurováno připojení k databázi, musíte vytvořit datové připojení.
+2. Pokud není nakonfigurované připojení k databázi, vytvořte ho následujícím způsobem:
 
-![Azure Portal s připojením k databázi pro Mobile Apps][connect]
+    ![Azure Portal s připojením k databázi pro Mobile Apps][connect]
 
-  * Vytvořte novou službu SQL Database a server.
+    a. Vytvořte novou databázi SQL a server.
 
-  ![Azure Portal s vytvořením nové databáze a serveru pro Mobile Apps][server]
+    ![Azure Portal s vytvořením nové databáze a serveru pro Mobile Apps][server]
 
-  * Počkejte na úspěšné vytvoření datového připojení.
+    b. Počkejte na úspěšné vytvoření datového připojení.
 
-  ![Azure Portal s oznámením o vytvoření datového připojení pro Mobile Apps][notification]
+    ![Oznámení na webu Azure Portal o úspěšném vytvoření datového připojení][notification]
 
-  * Vytvoření datového připojení musí proběhnout úspěšně.
+    c. Vytvoření datového připojení musí proběhnout úspěšně.
 
-  ![Azure Portal s oznámením o vytvoření datového připojení pro Mobile Apps][already-connection]
+    ![Oznámení na webu Azure Portal s textem „Už máte datové připojení“][already-connection]
 
-3. V části **2. Vytvoření rozhraní API tabulky** vyberte jako **Jazyk back-endu** možnost Node.js. Přijměte potvrzení a klikněte na **Create TodoItem table** (Vytvořit tabulku TodoItem). Tím se ve vaší databázi vytvoří nová tabulka *TodoItem*. Pamatujte si, že přepnutím stávajícího prostředí back-end na Node.js přepíšete všechen obsah! Pokud místo toho chcete vytvořit back-end .NET, [postupujte podle těchto pokynů][instructions].
+3. V části **2. Vytvoření rozhraní API tabulky** vyberte jako **Jazyk back-endu** možnost Node.js. 
+ 
+4. Přijměte potvrzení a potom vyberte **Create TodoItem table** (Vytvořit tabulku TodoItem).  
+    Tato akce ve vaší databázi vytvoří novou tabulku úkolů. 
+
+    >[!IMPORTANT]
+    > Přepnutím stávajícího back-endu na Node.js se přepíše veškerý obsah. Pokud místo toho chcete vytvořit back-end v .NET, přečtěte si téma [Práce se sadou SDK serveru back-end v .NET pro Mobile Apps][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

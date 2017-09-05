@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Začínáme s předkonfigurovaným řešením propojené továrny
@@ -53,7 +53,7 @@ K dokončení tohoto kurzu potřebujete mít aktivní předplatné služby Azure
 4. Kliknutím na dlaždici zobrazíte v pravém podokně informace o řešení.
 
 > [!NOTE]
-> Pokud při nasazování předkonfigurovaného řešení narazíte na problémy, zkontrolujte [Oprávnění na webu azureiotsuite.com][lnk-permissions] a přečtěte si [Nejčastější dotazy][lnk-faq]. Pokud problémy přetrvávají, vytvořte na [portálu][lnk-portal] lístek služby.
+> Pokud při nasazování předkonfigurovaného řešení narazíte na problémy, zkontrolujte [Oprávnění na webu azureiotsuite.com][lnk-permissions] a přečtěte si téma [Propojená továrna – Nejčastější dotazy](iot-suite-faq-cf.md). Pokud problémy přetrvávají, vytvořte na [portálu][lnk-portal] lístek služby.
 
 Hledali jste informace, které se týkají vašeho řešení a nejsou zde uvedeny? Sdělte nám návrhy na funkce na webu [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -81,7 +81,7 @@ Přes řídicí panel řešení můžete spravovat nasazené řešení. Je to hi
 
 Řídicí panel obsahuje tyto informace:
 
-* Panel **Seznam továren**, na kterém se zobrazuje stav, umístění a aktuální konfigurace výroby továren v řešení. Když řešení poprvé spustíte, zahrnuje několik simulovaných zařízení. Simulace výrobní linky se skládá ze tří skutečných serverů OPC UA na každou výrobní linku, které provádí simulované úlohy a sdílí data. Další informace o OPC UA najdete v části [Nejčastější dotazy][lnk-faq].
+* Panel **Seznam továren**, na kterém se zobrazuje stav, umístění a aktuální konfigurace výroby továren v řešení. Když řešení poprvé spustíte, zahrnuje několik simulovaných zařízení. Simulace výrobní linky se skládá ze tří skutečných serverů OPC UA na každou výrobní linku, které provádí simulované úlohy a sdílí data. Další informace o OPC UA najdete v tématu [Propojená továrna – Nejčastější dotazy](iot-suite-faq-cf.md).
 * **Mapu**, která zobrazuje umístění každého zařízení připojeného k řešení. Řešení může pomocí rozhraní API pro Mapy Bing vykreslovat na mapě informace. Pokud je ve vašem předplatném povolené podnikové rozhraní API pro Mapy Bing, tato funkce se použije automaticky. Pokud ne, přečtěte si [Nejčastější dotazy][lnk-faq], kde se dozvíte, jak zařídit dynamickou mapu.
 * Panel **Výstrahy**, na kterém se zobrazují výstrahy generované při překročení konkrétních mezních hodnot pro telemetrii nebo hodnoty celkové efektivity zařízení nebo klíčových ukazatelů výkonu.
 * Panel **Celková efektivita zařízení**, na kterém se zobrazují hodnoty celkové efektivity zařízení pro celý podnik, nebo továrnu/výrobní linku/stanici, kterou si právě prohlížíte. Tato hodnota se shromažďuje od zobrazení stanice až po úroveň podniku. Hodnotu celkové efektivity zařízení a elementy, ze kterých se skládá, můžete dále analyzovat.
