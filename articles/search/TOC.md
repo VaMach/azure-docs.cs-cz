@@ -59,7 +59,8 @@
 #### [Syntaxe dotazů Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Příklady dotazů syntaxe Lucene](search-query-lucene-examples.md)
 #### [Syntaxe výrazů filtru](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Vlastní vyhledávání
+### Analyzátory ve službě Azure Search
+#### [Přehled](search-analyzers.md)
 #### [Analyzátory jazyka](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Vlastní analyzátory](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Výsledky stránkování](search-pagination-page-layout.md)
