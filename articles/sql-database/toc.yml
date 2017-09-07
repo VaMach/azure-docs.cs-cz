@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3. Zabezpečení databáze SQL
       href: sql-database-security-tutorial.md
-    - name: 4. Vylepšení výkonu SQL DB
-      href: sql-database-performance-tutorial.md
-    - name: 5. Implementace aplikace s více tenanty
-      href: sql-database-multi-tenant-application.md
-    - name: 6. Implementace geograficky distribuované databáze
+    - name: 4. Implementace geograficky distribuované databáze
       href: sql-database-implement-geo-distributed-database.md
 - name: Ukázky
   items:

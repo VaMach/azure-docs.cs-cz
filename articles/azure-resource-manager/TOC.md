@@ -6,8 +6,8 @@
 ## [Spravované aplikace](managed-application-overview.md)
 
 # Začínáme
-## [Export šablony](resource-manager-export-template.md)
 ## [Vytvoření šablony nasazení](resource-manager-create-first-template.md)
+## [Rozšíření VS Code pro šablony](resource-manager-vscode-extension.md)
 ## [Visual Studio s Resource Managerem](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Ukázky
@@ -20,8 +20,8 @@
 
 # Postup
 ## Vytváření šablon
-### [Osvědčené postupy pro šablony](resource-manager-template-best-practices.md)
 ### [Části šablon](resource-group-authoring-templates.md)
+### [Osvědčené postupy pro šablony](resource-manager-template-best-practices.md)
 ### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
 ### [Vytvoření víc instancí](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Sdílení stavu mezi propojenými šablonami](best-practices-resource-manager-state.md)
 ### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
 
+
 ## Nasazení
 ### PowerShell
 #### [Nasazení šablony](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [Nasazení šablony](resource-group-template-deploy-cli.md)
 #### [Nasazení privátní šablony s tokenem SAS](resource-manager-cli-sas-token.md)
 #### [Export šablony a opětovné nasazení](resource-manager-export-template-cli.md)
-### [Azure Portal](resource-group-template-deploy-portal.md)
+### Portál
+#### [Nasazení prostředků](resource-group-template-deploy-portal.md)
+#### [Export šablony](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Nasazení napříč skupinami prostředků](resource-manager-cross-resource-group-deployment.md)
 ### [Průběžná integrace se sadou Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

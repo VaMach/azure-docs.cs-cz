@@ -6,11 +6,13 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Klávesové zkratky](azure-portal-keyboard-shortcuts.md)
 ## [Podporované prohlížeče a zařízení](../azure-preview-portal-supported-browsers-devices.md)
+## [Struktura řídicích panelů Azure](azure-portal-dashboards-structure.md)
 # Návody
 ## Nasazení
 ### [Vytváření šablon Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Nasazení pomocí šablony Resource Manageru](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Vytváření a sdílení řídicích panelů Azure](azure-portal-dashboards.md)
+### [Vytváření řídicích panelů Azure prostřednictvím kódu programu](azure-portal-dashboards-create-programmatically.md)
 ## Spravovat
 ### [Zapnutí vysokého kontrastu nebo změna motivu](azure-portal-change-theme-high-contrast.md)
 ### [Použití portálu ke správě prostředků](../azure-resource-manager/resource-group-portal.md)
