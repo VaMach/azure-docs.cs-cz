@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 01321cb74cce35fc01824d2c6c67211caab33258
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5939af4cf071664415d57ccbaee3413d61aa69e9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
 
-Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). 
+Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create). 
 
 Následující příklad vytvoří virtuální počítač *myVM*. Tento příklad používá jako uživatelské jméno správce *azureuser* a jako heslo *myPassword12*. Aktualizujte tyto hodnoty na nějaké vhodné pro vaše prostředí. Tyto hodnoty jsou potřeba při vytváření připojení k virtuálnímu počítači.
 
