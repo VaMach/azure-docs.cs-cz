@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: cs-cz
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Získání dat pomocí rozhraní API pro generování sestav Azure AD s certifikáty
@@ -26,10 +26,10 @@ Tento článek probírá, jak používat rozhraní API pro generování sestav A
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Použití rozhraní API pro vytváření sestav Azure AD 
 Rozhraní API pro vytváření sestav Azure AD vyžaduje, abyste provedli následující kroky:
- *    Požadavky na instalaci
- *    Nastavení certifikátu v aplikaci
- *    Získání přístupového tokenu
- *    Použití přístupového tokenu pro volání rozhraní Graph API
+ *  Požadavky na instalaci
+ *  Nastavení certifikátu v aplikaci
+ *  Získání přístupového tokenu
+ *  Použití přístupového tokenu pro volání rozhraní Graph API
 
 Informace o zdrojovém kódu najdete v tématu popisujícím [využití modulu rozhraní API pro sestavy](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
