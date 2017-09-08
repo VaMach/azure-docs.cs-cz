@@ -5,7 +5,7 @@ Tato webová aplikace poskytuje prostor pro hostování vašeho kódu a adresu U
 V následujícím příkazu nahraďte *\<app_name >* jedinečným názvem (platné znaky jsou `a-z`, `0-9` a `-`). Pokud název `<app_name>` není jedinečný, zobrazí se chybová zpráva „Web se zadaným názvem <název_aplikace> již existuje“. Výchozí adresa URL webové aplikace je `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 Po vytvoření webové aplikace se v rozhraní příkazového řádku Azure CLI zobrazí podobné informace jako v následujícím příkladu:
