@@ -132,6 +132,7 @@
 ## Správa zařízení
 ### [Úvod](device-management-introduction.md)
 ### [Pomocí webu Azure Portal](device-management-azure-portal.md)
+### [Plánování služby Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Nejčastější dotazy](device-management-faq.md)
 ### Úlohy
 #### [Konfigurace zařízení s Windows 10 registrovaných v Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
@@ -142,15 +143,6 @@
 ### Řešení potíží
 #### [Hybridní zařízení s Windows 10 a Windows Serverem 2016 připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Hybridní zařízení s Windows starší verze připojená k Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Plánování](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Nastavení registrace zařízení](active-directory-azureadjoin-setup.md)
-#### [Registrace nových zařízení](active-directory-azureadjoin-user-frx.md)
-#### [Nasazení](active-directory-azureadjoin-devices-group-policy.md)
-#### [Vysvětlení integrace Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [použití zařízení s Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Připojení zařízení](active-directory-azureadjoin-personal-device.md)
-#### [Připojení k zařízení s Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
 ## Správa aplikací
 ### [Přehled](active-directory-enable-sso-scenario.md)
@@ -299,6 +291,8 @@
 ### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
+#### [Možnosti připojení sítě VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Správa mobilních aplikací](active-directory-conditional-access-mam.md)
 #### [Technické referenční informace](active-directory-conditional-access-technical-reference.md)
 #### [Vysvětlení zásad zařízení](active-directory-conditional-access-device-policies.md)
 #### [Nastavení přístupu k připojeným aplikacím](active-directory-conditional-access-policy-connected-applications.md)
@@ -306,7 +300,6 @@
 #### [Nejčastější dotazy](active-directory-conditional-faqs.md)
 #### [Portál Classic](active-directory-conditional-access.md)
 ##### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Ověření bez hesla](active-directory-azureadjoin-passport.md)

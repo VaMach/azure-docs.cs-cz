@@ -53,6 +53,12 @@
 ## Spravovat
 ### [Knihovny pro správu Service Bus](service-bus-management-libraries.md)
 ### [Použití šablon Azure Resource Manageru](service-bus-resource-manager-overview.md)
+#### [Vytvoření oboru názvů](service-bus-resource-manager-namespace.md)
+#### [Vytvoření oboru názvů a fronty](service-bus-resource-manager-namespace-queue.md)
+#### [Vytvoření oboru názvů s tématem a předplatným](service-bus-resource-manager-namespace-topic.md)
+#### [Vytvoření autorizačního pravidla pro obor názvů a frontu](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Vytvoření oboru názvů s tématem, předplatným a pravidlem](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Použití PowerShellu ke zřizování entit](service-bus-manage-with-ps.md)
 
 # Referenční informace
