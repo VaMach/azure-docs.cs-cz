@@ -26,8 +26,3 @@
      > 
 7. Kliknutím na **Otevřít** spustíte sériovou relaci.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

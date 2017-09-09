@@ -1,9 +1,7 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
-#### Přidání přihlašovacích údajů účtu úložiště ve stejném předplatném Azure, jako je služba Správce zařízení StorSimple
+#### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Přidání přihlašovacích údajů účtu úložiště ve stejném předplatném Azure, jako je služba Správce zařízení StorSimple
 
 1. Přejděte do služby Správce zařízení StorSimple. V části **Konfigurace** klikněte na **Přihlašovací údaje účtu úložiště**.
 
