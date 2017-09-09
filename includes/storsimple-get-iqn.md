@@ -7,8 +7,3 @@
     ![Vlastnosti iniciátoru iSCSI](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 3. Uložte tento řetězec.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -1,7 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Připojení, inicializace a formátování svazku
-<a id="to-mount-initialize-and-format-a-volume" class="xliff"></a>
+#### <a name="to-mount-initialize-and-format-a-volume"></a>Připojení, inicializace a formátování svazku
 1. Spusťte iniciátor iSCSI od Microsoftu.
 2. V okně **iSCSI Initiator Properties (Vlastnosti iniciátoru iSCSI)** na kartě **Zjišťování** klikněte na **Vyhledat portál**.
 3. V dialogovém okně **Zjistit cílový portál** zadejte IP adresu svého síťového rozhraní s podporou iSCSI a potom klikněte na **OK**. 

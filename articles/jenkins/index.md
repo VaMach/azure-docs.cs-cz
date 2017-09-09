@@ -13,14 +13,14 @@ ms.date: 06/20/2017
 ms.author: carolz
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: aad1e4839154b552b39258f65e6ed97bf1de90fb
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 <div class="content">
-    <h1>Jenkins v Azure</h1>
+    <h1>Jenkins® na platformě Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
             <img src="media/Jenkins.png" align="right" alt="Jenkins Logo"> Jenkins, oblíbený opensourcový automatizační server, se bez problémů integruje s Azure a umožňuje průběžnou integraci (CI) a průběžné doručování (CD).  Naučte se prostřednictvím našich šablon Rychlý start, kurzů a ukázek instalovat, konfigurovat a využívat Jenkinse se službami a nástroji Azure.
@@ -43,5 +43,7 @@ ms.lasthandoff: 08/04/2017
 <a href="https://plugins.jenkins.io/azure-vm-agents">Plug-in Azure VM Agents</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Plug-in Azure Storage</a><br/>
 <a href="https://jenkins.io">Další informace o systému Jenkins</a><br/>
+<h4>      
+Jenkins® je registrovaná ochranná známka společnosti Software in the Public Interest, Inc. [Logo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) je licencováno v rámci [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) z [projektu Jenkins](https://jenkins.io).</h4>
 </div>
 

@@ -21,6 +21,8 @@
           href: container-instances-tutorial-deploy-app.md
 - name: Koncepty
   items:
+    - name: Oblasti a dostupnost
+      href: container-instances-region-availability.md
     - name: Vztah k orchestrátorům
       href: container-instances-orchestrator-relationship.md
     - name: Skupiny kontejnerů

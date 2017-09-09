@@ -1,8 +1,6 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
-### Provedení zálohy
+### <a name="to-take-a-backup"></a>Provedení zálohy
 
 1. Přejděte do služby Správce zařízení StorSimple. V tabulkovém výpisu zařízení vyberte a klikněte na vaše zařízení a pak na **Všechna nastavení**. V okně **Nastavení** přejděte do **Nastavení > Správa > Zásady zálohování**.
 

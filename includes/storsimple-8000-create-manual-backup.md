@@ -1,9 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-<a id="to-create-a-manual-backup" class="xliff"></a>
-
-#### Ruční vytvoření zálohy
+#### <a name="to-create-a-manual-backup"></a>Ruční vytvoření zálohy
 
 1. Přejděte do služby Správce zařízení StorSimple a klikněte na **Zařízení**. V tabulkovém výpisu zařízení vyberte své zařízení. Přejděte do **Nastavení > Správa > Zásady zálohování**.
 
