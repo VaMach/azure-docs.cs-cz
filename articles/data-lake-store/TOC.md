@@ -57,7 +57,7 @@
 
 ## Spravovat
 ### [Přístup k diagnostickým protokolům](data-lake-store-diagnostic-logs.md)
-### [Plánování pro vysokou dostupnost](data-lake-store-troubleshooting-guidance.md)
+### [Plánování pro vysokou dostupnost](data-lake-store-disaster-recovery-guidance.md)
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

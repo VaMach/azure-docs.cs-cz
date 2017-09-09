@@ -49,7 +49,7 @@
       href: functions-cli-samples.md
 - name: Koncepty
   items:
-    - name: Využití a plány služby App Service
+    - name: Porovnání plánů hostování
       href: functions-scale.md
     - name: Triggery a vazby
       href: functions-triggers-bindings.md

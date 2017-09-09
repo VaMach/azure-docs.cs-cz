@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Použití licencování AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: Použití práv hostování více klientů pro Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Zabezpečení virtuálních počítačů
       items:
         - name: Šifrování

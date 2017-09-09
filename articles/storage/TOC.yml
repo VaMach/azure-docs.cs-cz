@@ -2,7 +2,7 @@
   items:
     - name: Úvod
       href: ./common/storage-introduction.md
-    - name: 'Výběr objektů blob, souborů nebo datových disků'
+    - name: 'Výběr objektů blob, souborů nebo disků'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Objekty blob
   href: ./blobs/storage-blobs-introduction.md

@@ -16,7 +16,7 @@
 ### [Vlastní nastavení](active-directory-aadconnect-get-started-custom.md)
 ### [Upgrade z nástroje DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade z předchozí verze](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Instalace s využitím existující databáze ADSync](active-directory-aadconnect-existing-database.md)
 
 # Postup
 ## Plánování a návrh

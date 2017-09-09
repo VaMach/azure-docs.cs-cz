@@ -33,6 +33,8 @@
   items:
     - name: Zabezpečené kontejnery
       href: container-service-security.md
+    - name: Instanční objekt – Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: Návody
   items:
     - name: Kubernetes s Windows
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: Škálování clusteru ACS
       href: container-service-scale.md
+    - name: Vyrovnávání zatížení clusteru Kubernetes ACS
+      href: container-service-kubernetes-load-balancing.md
     - name: Monitorování
       items:
+        - name: Monitorování pomocí OMS
+          href: container-service-kubernetes-oms.md
         - name: Monitorování pomocí služby Datadog
           href: container-service-kubernetes-datadog.md
         - name: Monitorování pomocí služby Sysdig
@@ -68,7 +74,7 @@
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna

@@ -13,7 +13,7 @@
 ## [Podívejte se na základní přehled](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Začínáme
-## [Replikace virtuálních počítačů Azure (Preview)](site-recovery-azure-to-azure.md)
+## [Replikace virtuálních počítačů Azure do Azure (Preview)](site-recovery-azure-to-azure.md)
 ## [Replikace virtuálních počítačů VMware do Azure](vmware-walkthrough-overview.md)
 ### [Krok 1: Kontrola architektury](vmware-walkthrough-architecture.md)
 ### [Krok 2: Kontrola požadavků a omezení](vmware-walkthrough-prerequisites.md)
