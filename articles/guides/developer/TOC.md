@@ -5,10 +5,10 @@
 ## [Sady SDK a nástroje](../../index.md#pivot=sdkstools)
 
 # Rychlý start
-## [Web Apps](../../app-service-web/web-sites-dotnet-get-started.md)
+## [Web Apps](../../app-service-web/app-service-web-get-started-html.md)
 ## Virtuální počítače
-### [Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md)
-### [Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+### [Linux](../../virtual-machines/linux/quick-create-portal.md)
+### [Windows](../../virtual-machines/windows/quick-create-portal.md)
 ## [Bez serveru](../../azure-functions/functions-create-first-azure-function.md)
 ## Mikroslužby
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
@@ -16,16 +16,16 @@
 
 # Kurzy
 ## Vytvoření a nasazení webové aplikace
-### [ASP.NET](../../app-service-web/web-sites-dotnet-get-started.md)
-### [Java](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Node.js](../../app-service-web/app-service-web-nodejs-get-started.md)
-### [PHP](../../app-service-web/app-service-web-php-get-started.md)
-### [Python](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
+### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
+### [Java](../../app-service-web/app-service-web-get-started-java.md)
+### [Node.js](../../app-service-web/app-service-web-get-started-nodejs.md)
+### [PHP](../../app-service-web/app-service-web-get-started-php.md)
+### [Python](../../app-service-web/app-service-web-get-started-python.md)
 ## Nasazení komplexních šablon virtuálních počítačů
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Vytvoření připojené funkce Azure](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Nasazení webové aplikace Dockeru v Linuxu](../../app-service-web/app-service-linux-using-custom-docker-image.md) 
+## [Nasazení webové aplikace Dockeru v Linuxu](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # Ukázky
 ## Azure CLI
@@ -48,12 +48,11 @@
 
 # Průvodce postupy
 ## Plánování
-### [Architektury webových aplikací](../../guidance/guidance-ra-app-service.md)
-### [Architektury virtuálních počítačů](../../guidance/guidance-ra-compute.md)
-### [Připojení k místním sítím](../../guidance/guidance-ra-hybrid-networking.md)
+### [Architektury webových aplikací](/azure/architecture/reference-architectures/managed-web-app/)
+### [Architektury virtuálních počítačů](/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [Připojení k místním sítím](/azure/architecture/reference-architectures/hybrid-networking/)
 ### [Vzory a scénáře mikroslužeb](../../service-fabric/service-fabric-patterns-and-scenarios.md)
 ## Vývoj
-### [Aplikace WordPress](../../app-service-web/web-sites-php-web-site-gallery.md)
 ### [Virtuální počítač s Linuxem](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Virtuální počítač s Windows](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Aplikace bez serveru](../../azure-functions/functions-reference.md)
@@ -67,8 +66,8 @@
 ### [Objekty blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 ### [Sdílené složky](../../storage/files/storage-dotnet-how-to-use-files.md)
 ### [Páry klíč-hodnota](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-### [Dokumenty JSON](../../documentdb/documentdb-get-started.md)
-### [Relační tabulky](../../sql-database/sql-database-get-started.md)
+### [Dokumenty JSON](../../cosmos-db/documentdb-get-started.md)
+### [Relační tabulky](../../sql-database/sql-database-get-started-portal.md)
 ### [Fronty zpráv](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Měřítko
@@ -77,7 +76,7 @@
 ### [Aplikace mikroslužeb](../../service-fabric/service-fabric-concepts-scalability.md)
 
 ## Zabezpečení
-### [Webové a mobilní aplikace](../../app-service-web/web-sites-security.md)
+### [Webové a mobilní aplikace](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
 
 ## Zálohování
 ### [Webové a mobilní aplikace](../../app-service-web/web-sites-backup.md)
@@ -85,7 +84,7 @@
 
 ## Monitorování
 ### [Webové a mobilní aplikace](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Virtuální počítač s Linuxem](../../virtual-machines/virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json.md)
+### [Virtuální počítač s Linuxem](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Virtuální počítač s Windows](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Mikroslužby](../../service-fabric/service-fabric-diagnostics-overview.md)
 ### [Upozornění fakturace](../../billing/billing-set-up-alerts.md)
