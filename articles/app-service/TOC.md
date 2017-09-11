@@ -32,10 +32,9 @@
 
 ## Plánování a návrh
 ### [Osvědčené postupy pro Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Azure App Service a stávající služby Azure](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Podrobný popis plánů App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [Hostování s vysokou hustotou](app-service-high-density-hosting.md)
-### [App Service v Linuxu](app-service-linux-readme.md)
+### [App Service v Linuxu](containers/app-service-linux-intro.md)
 ### [Použití WebJobs v Azure App Service](app-service-webjobs-readme.md)
 ### [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Dokumentace pro App Service Environment](app-service-app-service-environments-readme.md)
@@ -78,7 +77,6 @@
 #### [Vlastní domény s Traffic Managerem](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Klonování existující aplikace](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Hybrid Connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Hybrid Connections v2](app-service-hybrid-connections.md)
 ### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Pokročilá konfigurace](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -94,7 +92,6 @@
 #### [Podrobnosti o konfiguraci sítě pomocí ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Zabezpečení](app-service-security-readme.md)
-### [Zabezpečení aplikace ve službě Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Ověřování a autorizace](app-service-authentication-overview.md)
 ### Ověřování pomocí zprostředkovatelů identity
 #### [Ověřování pomocí Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -117,7 +114,6 @@
 ## Backup
 ### [Zálohování aplikace v Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Obnovení aplikace v Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Použití služby REST k zálohování a obnovení aplikací App Service](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Monitorování](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Povolení diagnostického protokolování](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -126,18 +122,12 @@
 ## Automatizace
 ### [Agilní vývoj](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Nasazení podle modelu Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [MSDeploy s vlastním názvem hostitele a certifikátem SSL](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### PowerShell
 #### [Automatizace zálohování a obnovení](app-service-powershell-backup.md)
 #### [Klonování aplikací](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Vazba certifikátu protokolu SSL](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Použití Azure Resource Manageru v PowerShellu](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Správa aplikací pomocí Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Integrace
-### [Přístup k místním prostředkům pomocí hybridních připojení](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Odeslání e-mailů v Azure pomocí SendGridu](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Export do PowerApps a Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
@@ -150,8 +140,6 @@
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
 
 # Zdroje
-## [Referenční informace k App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Osvědčené postupy](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
