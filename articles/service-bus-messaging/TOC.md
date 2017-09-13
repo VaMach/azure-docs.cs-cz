@@ -37,6 +37,7 @@
 ### [Aplikace, které používají fronty](service-bus-create-queues.md)
 ### [Aplikace, které používají témata nebo předplatná](service-bus-create-topics-subscriptions.md)
 ### [Ověřování a autorizace](service-bus-authentication-and-authorization.md)
+#### [Migrace z ACS do SAS](service-bus-migrate-acs-sas.md)
 #### [Ověřování sdílenými přístupovými podpisy](service-bus-sas.md)
 ### [Dělené fronty a témata](service-bus-partitioning.md)
 ### [Fronty nedoručených zpráv](service-bus-dead-letter-queues.md)

@@ -152,7 +152,7 @@ Kliknutím na **Manage** (Správa) otevřete portál pro správu řízení pří
 Identita služby Access Control Service je sada přihlašovacích údajů, která umožňuje aplikacím nebo klientům přímé ověření u řízení přístupu a získání tokenu.
 
 > [!IMPORTANT]
-> Služba BizTalk používá výchozí identitu služby **Vlastník** a hodnotu **Heslo**. Pokud místo hodnoty Heslo použijete hodnotu Symetrický klíč, může dojít k následující chybě.<br/><br/>*Zadané přihlašovací údaje neumožňují připojení k účtu služby pro správu řízení přístupu.*
+> Služba BizTalk používá výchozí identitu služby **Vlastník** a hodnotu **Heslo**. Pokud místo hodnoty Heslo použijete hodnotu Symetrický klíč, může dojít k následující chybě.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 

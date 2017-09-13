@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 09/07/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 4752199803f1fab04608e6a8618e3294e85fb38a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Sledování stavu zabezpečení v Azure Security Center
@@ -29,7 +28,7 @@ Tento článek vám pomůže s využíváním možností v Azure Security Center
 Pod pojmem sledování si často představujeme pozorování a čekání, až se stane nějaká událost, abychom na situaci reagovali. Sledování zabezpečení odkazuje na používání proaktivní strategie, kdy se auditují vaše prostředky a identifikují ty systémy, které nesplňují organizační standardy nebo osvědčené postupy.
 
 ## <a name="monitoring-security-health"></a>Sledování stavu zabezpečení
-Po povolení [zásad zabezpečení](security-center-policies.md) pro prostředky předplatného služba Security Center analyzuje zabezpečení vašich prostředků, aby identifikovala potenciální ohrožení zabezpečení. Informace o konfiguraci vaší sítě jsou k dispozici okamžitě. Získání informací o konfiguraci virtuálního počítače, jako je stav aktualizace zabezpečení nebo konfigurace operačního systému, může trvat hodinu i déle. V části **Prevence** můžete zobrazit stav zabezpečení svých prostředků a případné problémy. Seznam těchto problémů můžete zobrazit také na dlaždici **Doporučení**.
+Po povolení [zásad zabezpečení](security-center-policies.md) pro prostředky předplatného služba Security Center analyzuje zabezpečení vašich prostředků, aby identifikovala potenciální ohrožení zabezpečení. Informace o konfiguraci vaší sítě jsou k dispozici okamžitě. Získání informací o konfiguraci virtuálních počítačů a počítačů, jako je stav aktualizace zabezpečení nebo konfigurace operačního systému, může trvat hodinu i déle v závislosti na počtu virtuálních počítačů a počítačů, na kterých máte nainstalovaného agenta. V části **Prevence** můžete zobrazit stav zabezpečení svých prostředků a případné problémy. Seznam těchto problémů můžete zobrazit také na dlaždici **Doporučení**.
 
 Další informace o tom, jak používat doporučení, najdete v článku [Implementace doporučení zabezpečení v Azure Security Center](security-center-recommendations.md).
 
@@ -39,41 +38,39 @@ V části **Prevence** můžete monitorovat stav zabezpečení svých prostředk
 
 
 ### <a name="monitor-compute"></a>Monitorování služby Compute
-Po kliknutí na dlaždici **Compute** se otevře okno **Compute** se třemi kartami:
+Po kliknutí na dlaždici **Compute** se zobrazí tři karty:
 
-- **Přehled:** Doporučení pro monitorování a virtuální počítač
-- **Virtuální počítače:** Seznam všech virtuálních počítačů a jejich aktuálního stavu zabezpečení
+- **Přehled:** Monitorování a doporučení.
+- **Virtuální počítače a počítače:** Seznam všech virtuálních počítačů a počítačů a jejich aktuálního stavu zabezpečení.
 - **Cloudová služby:** Seznam všech webových a pracovních rolí monitorovaných pomocí služby Security Center.
 
-![Chybějící aktualizace systému podle virtuálních počítačů](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
+![Chybějící aktualizace systému podle virtuálních počítačů](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
 Na každé kartě můžete mít několik částí a v každé části můžete vybrat jednotlivé možnosti, abyste zobrazili další podrobnosti o doporučeném postupu k vyřešení konkrétního problému. 
 
 #### <a name="monitoring-recommendations"></a>Doporučení pro monitorování
-Tato část uvádí celkový počet virtuálních počítačů, které byly inicializovány pro shromažďování dat, a jejich aktuální stavy. Jakmile je u všech virtuálních počítačů shromažďování dat inicializováno, budou připravené přijímat zásady zabezpečení služby Security Center. Po kliknutí na tuto položku se otevře okno **Agent virtuálního počítače chybí nebo neodpovídá**. 
+Tato část uvádí celkový počet virtuálních počítačů a počítačů, které byly inicializovány pro automatické zřizování, a jejich aktuální stavy. Po kliknutí na tuto položku se otevře okno **Agent virtuálního počítače chybí nebo neodpovídá**. 
 
 ![Chybějící aktualizace systému podle virtuálních počítačů](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
-#### <a name="virtual-machine-recommendations"></a>Doporučení pro virtuální počítače
-Tato část obsahuje sadu [doporučení pro každý virtuální počítač](security-center-virtual-machine-recommendations.md) monitorovaný pomocí Azure Security Center. První sloupec uvádí doporučení. Druhý sloupec zobrazuje celkový počet virtuálních počítačů, které jsou ovlivněny tímto doporučením. Třetí sloupec zobrazuje závažnost problému, jak je znázorněno na následujícím snímku obrazovky.
+#### <a name="recommendations"></a>Doporučení
+Tato část obsahuje sadu [doporučení pro každý virtuální počítač a počítač](security-center-virtual-machine-recommendations.md) monitorovaný pomocí Azure Security Center. První sloupec uvádí doporučení. Druhý sloupec zobrazuje celkový počet virtuálních počítačů a počítačů, které jsou ovlivněny tímto doporučením. Třetí sloupec zobrazuje závažnost problému, jak je znázorněno na následujícím snímku obrazovky:
 
-![Doporučení pro virtuální počítače](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
+![Doporučení pro virtuální počítače](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> V seznamu **Síťová topologie** v okně **Stav sítě** se zobrazí jenom virtuální počítače s aspoň jedním veřejným koncovým bodem.
+> V seznamu **Síťová topologie** v okně **Stav sítě** se zobrazí jenom virtuální počítače s alespoň jedním veřejným koncovým bodem.
 >
->
 
-Každé doporučení obsahuje sadu akcí, které můžete provést, když na ni kliknete. Pokud například kliknete na **Chybějící aktualizace systému**, otevře se okno **Chybějící aktualizace systému**. Uvádí seznam virtuálních počítačů, kterým chybí opravy, a závažnost chybějící aktualizace, jak je znázorněno na následujícím snímku obrazovky.
+Každé doporučení obsahuje sadu akcí, které můžete provést, když na ni kliknete. Pokud například kliknete na **Chybějící aktualizace systému**, zobrazí se seznam virtuálních počítačů a počítačů s chybějícími opravami a závažnost chybějících aktualizací, jak je znázorněno na následujícím snímku obrazovky:
 
-![Chybějící aktualizace systému pro virtuální počítače](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Chybějící aktualizace systému pro virtuální počítače](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
-Okno **Chybějící aktualizace systému** zobrazí tabulku s následujícími informacemi:
+**Chybějící aktualizace systému** obsahují souhrn důležitých aktualizací ve formátu grafu, jeden pro Windows a jeden pro Linux. Druhá část obsahuje tabulku s následujícími informacemi:
 
-* **VIRTUÁLNÍ POČÍTAČ**: Název virtuálního počítače, kterému chybí aktualizace.
-* **AKTUALIZACE SYSTÉMU**: Počet aktualizací systému, které chybí.
-* **ČAS POSLEDNÍ KONTROLY**: Čas, kdy služba Security Center naposledy hledala ve virtuálním počítači aktualizace.
+* **NÁZEV:** Název chybějící aktualizace.
+* **POČET VIRTUÁLNÍCH POČÍTAČŮ A POČÍTAČŮ:** Celkový počet virtuálních počítačů a počítačů, na kterých chybí daná aktualizace.
 * **STAV**: Aktuální stav doporučení:
   * **Otevřené**: Doporučení dosud nebylo řešeno.
   * **Probíhá**: Doporučení se aktuálně na tyto prostředky používá a není třeba provádět žádnou akci.
@@ -83,38 +80,49 @@ Okno **Chybějící aktualizace systému** zobrazí tabulku s následujícími i
   * **Střední**: Nekritické nebo další kroky jsou potřebné k dokončení procesu nebo odstranění ohrožení.
   * **Nízká**: Ohrožení zabezpečení by se mělo řešit, ale nevyžaduje okamžitou pozornost. (Ve výchozím nastavení nejsou doporučení s nízkou závažností uváděny, ale pokud je chcete zobrazit, je možné je vyfiltrovat.)
 
-Pokud chcete zobrazit podrobnosti o doporučení, klikněte na název virtuálního počítače. Otevře se nové okno pro tento virtuální počítač se seznamem aktualizací, jak ukazuje následující snímek obrazovky.
+Pokud chcete zobrazit podrobnosti o doporučení, klikněte na název chybějící aktualizace v seznamu. 
 
-![Chybějící aktualizace systému pro konkrétní virtuální počítač](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Chybějící aktualizace systému pro konkrétní virtuální počítač](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> Bezpečnostní doporučení uvedená tady jsou stejná jako v okně **Doporučení**. Další informace o tom, jak řešit doporučení, najdete v článku [Implementace doporučení zabezpečení v Azure Security Center](security-center-recommendations.md). Týká se to nejen virtuálních počítačů, ale taky všech prostředků, které jsou k dispozici na dlaždici **Stav prostředku**.
+> Bezpečnostní doporučení uvedená tady jsou stejná jako v možnosti **Doporučení**. Další informace o tom, jak řešit doporučení, najdete v článku [Implementace doporučení zabezpečení v Azure Security Center](security-center-recommendations.md). Týká se to nejen virtuálních počítačů a počítačů, ale také všech prostředků, které jsou k dispozici na dlaždici **Resource Health**.
 >
->
 
-#### <a name="virtual-machines-section"></a>Část virtuálních počítačů
-Část virtuálních počítačů poskytuje přehled všech virtuálních počítačů a doporučení. Každý sloupec představuje jednu sadu doporučení, jak ukazuje následující snímek obrazovky:
+#### <a name="vms--computers-section"></a>Část virtuálních počítačů a počítačů
+Část virtuálních počítačů a počítačů poskytuje přehled doporučení pro všechny virtuální počítače a počítače. Každý sloupec představuje jednu sadu doporučení, jak ukazuje následující snímek obrazovky:
 
-![Přehled všech virtuálních počítačů a doporučení](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
+![Přehled všech virtuálních počítačů a doporučení](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
 
-Ikona, která se zobrazí pod každým doporučením, pomáhá rychle zjistit, které virtuální počítače vyžadují pozornost a o jaký typ doporučení se jedná.
+V tomto seznamu se používají čtyři typy ikon, jak je popsáno v tomto seznamu:
 
-V předchozím příkladu má jeden virtuální počítač kritické doporučení týkající se ochrany koncových bodů. Pokud chcete získat další informace o tomto virtuálním počítači, klikněte na něj. Nové okno, které se otevře, představuje tento virtuální počítač, jak je znázorněno na následujícím snímku obrazovky.
+![icon1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Počítač mimo Azure.
 
-![Podrobné informace o zabezpečení virtuálního počítače](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
+![icon2](./media/security-center-monitoring/security-center-monitoring-icon2.png) Virtuální počítač Azure Resource Manageru.
 
-Toto okno obsahuje podrobné informace o zabezpečení pro virtuální počítač. V dolní části tohoto okna vidíte doporučenou akci a závažnost jednotlivých problémů.
+![icon3](./media/security-center-monitoring/security-center-monitoring-icon3.png) Virtuální počítač Azure Classic.
+
+![icon4](./media/security-center-monitoring/security-center-monitoring-icon4.png) Virtuální počítače identifikované pouze z pracovního prostoru, který je součástí zobrazeného předplatného. To zahrnuje virtuální počítače z jiných předplatných, které se hlásí k pracovnímu prostoru v tomto předplatném, a virtuální počítače nainstalované s přímým agentem SCOM, které nemají žádné ID prostředku.
+
+Ikona, která se zobrazí pod každým doporučením, pomáhá rychle zjistit, které virtuální počítače a počítače vyžadují pozornost a o jaký typ doporučení se jedná. Pomocí možnosti **Filtr** můžete také vybrat, jaké možnosti se na obrazovce zobrazí.
+
+![Filtr](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
+
+V předchozím příkladu má jeden virtuální počítač kritické doporučení týkající se ochrany koncových bodů. Pokud chcete získat další informace o tomto virtuálním počítači, klikněte na něj:
+
+![Podrobné informace o zabezpečení virtuálního počítače](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
+
+Tady vidíte podrobné informace o zabezpečení pro virtuální počítač nebo počítač. V dolní části vidíte doporučenou akci a závažnost jednotlivých problémů.
 
 #### <a name="cloud-services-section"></a>Část cloudových služeb
 Pro cloudové služby se doporučení vytvoří, když je verze operačního systému zastaralá, jak je znázorněno na následujícím snímku obrazovky:
 
 ![Stav pro cloudové služby](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-V případě, kdy máte doporučení (což není případ předchozího příkladu), budete muset postupovat podle kroků v doporučení, abyste aktualizovali verzi operačního systému. Když je k dispozici aktualizace, obdržíte výstrahu (červenou nebo oranžovou – v závislosti na závažnosti problému). Když kliknete na tuto výstrahu v řádku Webová role 1 (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS) nebo Role pracovního procesu 1 (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS), otevře se nové okno s dalšími podrobnostmi týkajícími se tohoto doporučení, jak je znázorněno na následujícím snímku obrazovky:
+V případě, kdy máte doporučení (což není případ předchozího příkladu), budete muset postupovat podle kroků v doporučení, abyste aktualizovali verzi operačního systému. Když je k dispozici aktualizace, obdržíte výstrahu (červenou nebo oranžovou – v závislosti na závažnosti problému). Když kliknete na tuto výstrahu v řádku Webová role 1 (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS) nebo Role pracovního procesu 1 (spouští Windows Server s vaší webovou aplikací automaticky nasazenou do služby IIS), zobrazí se další podrobnosti týkající se tohoto doporučení, jak je znázorněno na následujícím snímku obrazovky:
 
 ![Podrobnosti cloudové služby](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Pokud chcete zobrazit podrobnější vysvětlení tohoto doporučení, klikněte na **Aktualizovat verzi operačního systému** ve sloupci **POPIS**. Otevře se okno **Aktualizovat verzi operačního systému (Preview)** s dalšími podrobnostmi.
+Pokud chcete zobrazit podrobnější vysvětlení tohoto doporučení, klikněte na **Aktualizovat verzi operačního systému** ve sloupci **POPIS**. 
 
 ![Doporučení pro Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -124,7 +132,7 @@ Po kliknutí na dlaždici **Sítě** se otevře okno **Sítě** s dalšími podr
 ![Okno Sítě](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>Doporučení pro sítě
-Podobně jako u informací o stavu prostředků virtuálních počítačů toto okno obsahuje v horní části souhrnný seznam problémů a v dolní části seznam monitorovaných sítí.
+Podobně jako u informací o stavu prostředků virtuálních počítačů se tady zobrazí v horní části souhrnný seznam problémů a v dolní části seznam monitorovaných sítí.
 
 Část rozpisu stavu sítí uvádí možné problémy zabezpečení a nabízí [doporučení](security-center-network-recommendations.md). Možné problémy mohou zahrnovat:
 
@@ -134,13 +142,11 @@ Podobně jako u informací o stavu prostředků virtuálních počítačů toto 
 * Omezený externí přístup prostřednictvím veřejného externího koncového bodu.
 * Internetové koncové body, které jsou v pořádku
 
-Po kliknutí na doporučení se otevře nové okno s dalšími podrobnostmi o doporučení, jak je znázorněno na následujícím snímku obrazovky.
+Po kliknutí na doporučení se zobrazí další podrobnosti o doporučení, jak je znázorněno v následujícím příkladu:
 
 ![Podrobnosti o doporučení v okně Sítě](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-V tomto příkladu obsahuje okno **Nakonfigurovat chybějící skupiny zabezpečení sítě pro podsítě** seznam podsítí a virtuálních počítačů, kde chybí ochrana skupiny zabezpečení sítě. Pokud kliknete na podsíť, na kterou chcete použít skupinu zabezpečení sítě, otevře se jiné okno.
-
-V okně **Zvolit skupinu zabezpečení sítě** můžete vybrat nejvhodnější skupinu zabezpečení sítě pro podsíť nebo můžete vytvořit novou skupinu zabezpečení sítě.
+V tomto příkladu obsahuje okno **Nakonfigurovat chybějící skupiny zabezpečení sítě pro podsítě** seznam podsítí a virtuálních počítačů, kde chybí ochrana skupiny zabezpečení sítě. Pokud kliknete na podsíť, na kterou chcete použít skupinu zabezpečení sítě, zobrazí se okno **Zvolit skupinu zabezpečení sítě**. Tady můžete vybrat nejvhodnější skupinu zabezpečení sítě pro podsíť nebo můžete vytvořit novou skupinu zabezpečení sítě.
 
 #### <a name="internet-facing-endpoints-section"></a>Část internetových koncových bodů
 V části **Internetové koncové body** uvidíte virtuální počítače, které jsou aktuálně nakonfigurované s internetovým koncovým bodem, a jejich aktuální stav.
@@ -190,21 +196,21 @@ Okno **Povolit auditování a detekci hrozeb u databází SQL** obsahuje násled
 
 Když kliknete na databázi, abyste vyřešili toto doporučení, otevře se okno **Auditování a detekce hrozeb**, jak je znázorněno na následující obrazovce.
 
-![Okno Auditování a detekce hrozeb](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Auditování a detekce hrozeb](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Pokud chcete povolit auditování, vyberte **Zapnuto** pod možností **Auditování**.
 
 ### <a name="monitor-applications"></a>Monitorování aplikací
 
-Pokud má vaše úloha Azure aplikace, které jsou umístěné ve [virtuálních počítačích (vytvořených přes Azure Resource Managera)](../azure-resource-manager/resource-manager-deployment-model.md) se zpřístupněnými webovými porty (porty TCP 80 a 443), Security Center je může sledovat, aby se zjistily možné problémy zabezpečení a doporučily se kroky k nápravě. Když kliknete na dlaždici **Aplikace**, otevře se okno **Aplikace** s řadou doporučení v části **Doporučení pro aplikace**. Také ukazuje rozpis aplikací na hostitele nebo virtuální IP adresu, jak je znázorněno na následujícím snímku obrazovky.
+Pokud má vaše úloha Azure aplikace, které jsou umístěné ve [virtuálních počítačích (vytvořených přes Azure Resource Managera)](../azure-resource-manager/resource-manager-deployment-model.md) se zpřístupněnými webovými porty (porty TCP 80 a 443), Security Center je může sledovat, aby se zjistily možné problémy zabezpečení a doporučily se kroky k nápravě. Když kliknete na dlaždici **Aplikace**, otevře se okno **Aplikace** s řadou doporučení v části **Doporučení pro aplikace**. Také ukazuje rozpis aplikací na hostitele, IP adresu nebo doménu a jestli je nainstalované řešení WAF:
 
-![Stav zabezpečení aplikací](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
+![Stav zabezpečení aplikací](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
 
-Stejně jako u ostatních doporučení můžete kliknutím na doporučení zobrazit další podrobnosti o problému a způsobu řešení. Příklad uvedený na následujícím obrázku je aplikace, která byla identifikována jako nezabezpečená webová aplikace. Když vyberete aplikaci, která není považovaná za bezpečnou, otevře se další okno, kde je k dispozici následující možnost:
+Stejně jako u ostatních doporučení můžete kliknutím na doporučení zobrazit další podrobnosti o problému a způsobu řešení. Příklad uvedený na následujícím obrázku je aplikace, která byla identifikována jako nezabezpečená webová aplikace. Když vyberete aplikaci, která není považovaná za bezpečnou, zobrazí se následující možnost:
 
-![Podrobnosti o aplikaci, která není zabezpečená](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Podrobnosti](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-Toto okno bude mít seznam všech doporučení pro tuto aplikaci. Pokud kliknete na doporučení **Přidat firewall webových aplikací**, otevře se okno **Přidat firewall webových aplikací** s možnostmi instalace firewallu webových aplikací (WAF) od partnera, jak je znázorněno na následujícím snímku obrazovky.
+Tady máte seznam všech doporučení pro tuto aplikaci. Když kliknete na doporučení **Přidat firewall webových aplikací**, otevře se okno **Přidat firewall webových aplikací** s možnostmi instalace brány firewall webových aplikací (WAF) od partnera, jak je znázorněno na následujícím snímku obrazovky.
 
 ![Dialogové okno Přidat firewall webových aplikací](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 

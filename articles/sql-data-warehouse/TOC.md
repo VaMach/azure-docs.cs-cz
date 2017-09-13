@@ -10,7 +10,7 @@
 ## [Kurz pro začátečníky](sql-data-warehouse-get-started-tutorial.md)
 ## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
 ## [Správa](sql-data-warehouse-overview-manage.md)
-## [Získat podporu](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Postup
@@ -139,18 +139,22 @@
 # Referenční informace
 
 ## [Omezení kapacity](sql-data-warehouse-service-capacity-limits.md)
-## [Elementy jazyka T-SQL](sql-data-warehouse-reference-tsql-language-elements.md)
-## [Příkazy jazyka T-SQL](sql-data-warehouse-reference-tsql-statements.md)
-## [Zobrazení systému jazyka T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Úplný přehled](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [Elementy jazyka SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)
+### [Příkazy SQL DW](sql-data-warehouse-reference-tsql-statements.md)
+## [Systémová zobrazení](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Rutiny PowerShellu](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=databases)
-## [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Ceny](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
+## [Žádosti o funkce](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Podpora](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partneři

@@ -24,6 +24,10 @@ Ne. Virtuální sítě se můžou nacházet ve stejné oblasti (umístění) Azu
 
 Ne.
 
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Je možné použít VNet-to-VNet k propojení virtuálních sítí v samostatných instancích Azure? 
+
+Ne. VNet-to-VNet podporuje propojování virtuálních sítí v rámci stejné instance Azure. Například není možné vytvořit propojení mezi veřejnou instancí Azure a instancí Azure v oblastech Čína, Německo nebo USA (Gov). Pro tyto scénáře zvažte použití připojení VPN typu Site-to-Site.
+
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Je možné použít VNet-to-VNet společně s připojením propojujícím víc serverů?
 
 Ano. Možnost připojení k virtuální síti je možné využívat současně se sítěmi VPN s více servery.

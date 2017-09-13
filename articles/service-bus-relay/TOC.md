@@ -13,6 +13,7 @@
 # Postup
 ## Plánování a návrh
 ### [Ověřování a zabezpečení](relay-authentication-and-authorization.md)
+#### [Migrace z ACS do SAS](relay-migrate-acs-sas.md)
 ### [Protokol pro hybridní připojení](relay-hybrid-connections-protocol.md)
 ## Vývoj
 ### [Dostupná rozhraní API](relay-api-overview.md)

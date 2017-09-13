@@ -4,6 +4,8 @@
   items:
     - name: Informace o funkci Web Apps
       href: app-service-web-overview.md
+    - name: Informace o službě Web Apps for Containers
+      href: ../app-service/containers/app-service-linux-intro.md
     - name: Porovnání možností hostování
       href: choose-web-site-cloud-service-vm.md
 - name: Šablony Rychlý start
@@ -29,10 +31,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: 1. PHP s MySQL
       href: app-service-web-tutorial-php-mysql.md
-    - name: 1. WordPress s MySQL
-      href: app-service-web-create-web-app-from-marketplace.md
-    - name: 1. Python s PostgreSQL
-      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 1. Java s MySQL
+      href: app-service-web-tutorial-java-mysql.md
     - name: 2. Mapování vlastní domény
       href: app-service-web-tutorial-custom-domain.md
     - name: 3. Vazba certifikátu protokolu SSL
@@ -73,14 +73,8 @@
               href: app-service-web-php-get-started.md
             - name: Nastavení projektu PHP
               href: web-sites-php-configure.md
-            - name: Vytvoření víc lokalit WordPress
-              href: web-sites-php-convert-wordpress-multisite.md
         - name: Node.js
           items:
-            - name: Aplikace Sails.js s databází NOSQL
-              href: app-service-web-nodejs-sails.md
-            - name: Použití io.js
-              href: web-sites-nodejs-iojs.md
             - name: Ladění aplikace v Node.js
               href: web-sites-nodejs-debug.md
         - name: Java
@@ -89,14 +83,8 @@
               href: app-service-web-eclipse-create-hello-world-web-app.md
             - name: Aplikace v Javě s IntelliJ
               href: app-service-web-intellij-create-hello-world-web-app.md
-            - name: Použití Azure SDK pro Javu
-              href: java-create-azure-website-using-java-sdk.md
             - name: Nahrání existující aplikace
               href: web-sites-java-add-app.md
-        - name: Python
-          items:
-            - name: Aplikace v Djangu s MySQL
-              href: web-sites-python-ptvs-django-mysql.md
         - name: Odesílání e-mailů pomocí SendGridu
           href: sendgrid-dotnet-how-to-send-email.md
         - name: Konfigurace modulu runtime
@@ -111,28 +99,6 @@
           items:
             - name: Použití nastavení aplikace
               href: web-sites-configure.md
-        - name: Webová aplikace v Linuxu
-          items:
-            - name: Přehled
-              href: app-service-linux-intro.md
-            - name: Správa pomocí rozhraní příkazového řádku
-              href: app-service-linux-cli.md
-            - name: Webová aplikace Ruby v Linuxu
-              href: app-service-linux-ruby-get-started.md
-            - name: Webová aplikace Node.js v Linuxu
-              href: app-service-linux-using-nodejs-pm2.md
-            - name: Webová aplikace .NET Core v Linuxu
-              href: app-service-linux-using-dotnetcore.md
-            - name: Vlastní webová aplikace .Dockeru v Linuxu
-              href: app-service-linux-using-custom-docker-image.md
-            - name: Připojení pomocí protokolu SSH
-              href: app-service-linux-ssh-support.md
-            - name: Průběžné nasazování
-              href: app-service-linux-ci-cd.md
-            - name: Typ nasazení – vlastní image nebo integrované?
-              href: app-service-linux-choose-deployment-type.md
-            - name: Webová aplikace v Linuxu – Nejčastější dotazy
-              href: app-service-linux-faq.md
     - name: Nasazení do Azure
       href: web-sites-deploy.md
       items:
@@ -162,12 +128,6 @@
               href: web-sites-traffic-manager-custom-domain-name.md
             - name: Migrace aktivní domény
               href: app-service-custom-domain-name-migrate.md
-        - name: Migrace z IIS
-          href: web-sites-migration-from-iis-server.md
-        - name: Testování v produkčním prostředí
-          href: app-service-web-test-in-production-get-start.md
-        - name: Přidání funkce k webové aplikaci
-          href: app-service-web-get-started-2.md
         - name: Nasazení aplikace Spring Boot do Azure Web Apps s využitím modulu plug-in Maven
           href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
         - name: Nasazení kontejnerizované aplikace Spring Boot s využitím modulu plug-in Maven
@@ -178,8 +138,6 @@
           href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
     - name: Připojení k databázi nebo prostředkům
       items:
-        - name: Připojení k místním datům
-          href: web-sites-hybrid-connection-get-started.md
         - name: Připojení k virtuální síti Azure
           href: web-sites-integrate-with-vnet.md
         - name: Připojení k virtuální síti Azure s využitím PowerShellu
@@ -214,8 +172,6 @@
           href: web-sites-scale.md
         - name: Horizontální navýšení kapacity
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Vyrovnávání zatížení s využitím Traffic Manageru
-          href: web-sites-traffic-manager.md
         - name: Rozsáhlé škálování s využitím služeb App Service Environment
           href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Použití Azure CDN k zajištění globálního dosahu
@@ -224,8 +180,6 @@
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Vytvoření Redis Cache
           href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Správa stavu relace pomocí Azure Redis Cache
-          href: web-sites-dotnet-session-state-caching.md
     - name: Monitorování
       items:
         - name: Monitorování aplikací
@@ -240,8 +194,6 @@
           href: web-sites-backup.md
         - name: Obnovení aplikace ze zálohy
           href: web-sites-restore.md
-        - name: Zálohování pomocí REST API
-          href: websites-csm-backup.md
     - name: Správa prostředků aplikace
       items:
         - name: Klonování aplikací s využitím PowerShellu
@@ -250,10 +202,6 @@
           href: app-service-web-app-cloning-portal.md
         - name: Přesunutí prostředků
           href: app-service-move-resources.md
-        - name: Použití Azure Resource Manageru v prostředí PowerShell
-          href: app-service-web-app-azure-resource-manager-powershell.md
-        - name: Správa aplikací pomocí Azure Automation
-          href: automation-manage-web-app.md
     - name: Integrace
       items:
         - name: Export do PowerApps a Microsoft Flow
