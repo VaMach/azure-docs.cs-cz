@@ -4,6 +4,8 @@
 
 # Šablony Rychlý start
 ## [Vytvoření aplikace .NET](service-fabric-quickstart-dotnet.md)
+## [Nasazení aplikace typu kontejner pro Windows](service-fabric-quickstart-containers.md)
+## [Nasazení aplikace typu kontejner pro Linux](service-fabric-quickstart-containers-linux.md)
 
 # Kurzy
 ## Nasazení aplikace .NET
@@ -122,7 +124,7 @@
 ### [Diagnostika v Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Čítače výkonu pro vzdálenou komunikaci modelu Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md)
 
-# Průvodce postupy
+# Návody
 ## Nastavení vývojového prostředí
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)

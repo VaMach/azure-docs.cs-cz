@@ -24,6 +24,8 @@ Azure Container Service je služba Azure, na kterou se vztahuje smlouva SLA, s f
 
 [Modul ACS](http://github.com/Azure/acs-engine) je open source projekt, který umožňuje zkušeným uživatelům přizpůsobení konfigurace clusteru na všech úrovních. Možnost změny konfigurace infrastruktury i softwaru znamená, že pro modul ACS nenabízíme žádnou smlouvu SLA. Podpora probíhá prostřednictvím open source projektu na GitHubu, nikoli přes oficiální kanály Microsoftu. 
 
+Další podrobnosti najdete v našich [zásadách podpory pro kontejnery](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
+
 ## <a name="cluster-management"></a>Správa clusteru
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Jak pro cluster vytvořím klíče SSH?

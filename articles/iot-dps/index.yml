@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentace ke službě Azure IoT Hub Device Provisioning (Preview)
+metadata:
+  title: 'Dokumentace ke službě Azure IoT Hub Device Provisioning (Preview) – kurzy, reference k rozhraní API'
+  meta.description: Overview of Azure IoT Hub Device Provisioning Service.
+  services: iot-dps
+  author: nberdy
+  manager: timlt
+  ms.service: iot-dps
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: nberdy
+abstract:
+  description: 'Služba IoT Hub Device Provisioning (Preview) je pomocná služba pro IoT Hub. Umožňuje plně automatizované zřizování za běhu ve správném IoT Hubu, které nevyžaduje zásah člověka. Zákazníci tak mohou bezpečným a škálovatelným způsobem zřizovat miliony zařízení. Pomocí našich šablon Rychlý start, kurzů a ukázek se naučíte zřizovat zařízení v IoT Hubu.'
+sections:
+  - title: Zprovoznění během 5 minut
+    items:
+      - type: paragraph
+        text: 'Zjistěte, jak nastavit první instanci služby Device Provisioning a zřídit v IoT Hubu simulované zařízení.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Nastavení automatického zřizování
+            href: /azure/iot-dps/quick-setup-auto-provision
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Vytvoření simulovaného zařízení
+            href: /azure/iot-dps/quick-create-simulated-device
+  - title: Podrobné kurzy
+    items:
+      - type: paragraph
+        text: Naučte se používat IoT Hub Device Provisioning (Preview) k automatickému zřízení zabezpečených zařízení v jednom nebo několika IoT Hubech.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Konfigurace cloudových prostředků</a>
+          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Nastavení zařízení pro připojení k Azure</a>
+          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Zřízení zařízení v jednom IoT Hubu</a>
+          - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Zřízení zařízení v několika IoT Hubech s vyrovnáváním zatížení</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/iot-dps">REST API</a></p>

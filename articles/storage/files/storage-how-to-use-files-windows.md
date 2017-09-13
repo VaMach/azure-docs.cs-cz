@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,16 +27,19 @@ ms.lasthandoff: 08/21/2017
 
 Aby bylo možné připojit sdílenou složku Azure mimo oblast, ve které je hostovaná, například v místním prostředí nebo jiné oblasti Azure, operační systém musí podporovat protokol SMB 3.0. 
 
-V závislosti na verzi operačního systému je možné sdílenou složku Azure připojit na počítači se systémem Windows v místním prostředí nebo na virtuálním počítači Azure. Ilustruje to následující tabulka. 
+Sdílené složky Azure můžete připojit v instalaci Windows na virtuálním počítači Azure nebo v místním prostředí. Následující tabulka uvádí, které verze operačního systému a v jakém prostředí podporují připojení sdílených složek:
 
-| Verze systému Windows        | Verze protokolu SMB |Možnost připojit na virtuálním počítači Azure|Možnost připojit v místním prostředí|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Ano                 | Ne                  |
-| Windows Server 2008 R2 | SMB 2.1     | Ano                 | Ne                  |
-| Windows 8              | SMB 3.0     | Ano                 | Ano                 |
-| Windows Server 2012    | SMB 3.0     | Ano                 | Ano                 |
-| Windows Server 2012 R2 | SMB 3.0     | Ano                 | Ano                 |
-| Windows 10             | SMB 3.0     | Ano                 | Ano                 |
+| Verze systému Windows        | Verze protokolu SMB | Možnost připojit na virtuálním počítači Azure | Možnost připojit v místním prostředí |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Ano | Ano |
+| Windows Server 2016    | SMB 3.0     | Ano                   | Ano                  |
+| Windows 8.1            | SMB 3.0     | Ano                   | Ano                  |
+| Windows Server 2012 R2 | SMB 3.0     | Ano                   | Ano                  |
+| Windows Server 2012    | SMB 3.0     | Ano                   | Ano                  |
+| Windows 7              | SMB 2.1     | Ano                   | Ne                   |
+| Windows Server 2008 R2 | SMB 2.1     | Ano                   | Ne                   |
+
+<sup>1</sup>Windows 10 verze 1507, 1511, 1607 a 1703
 
 > [!Note]  
 > Vždy doporučujeme získat nejnovější aktualizaci KB pro vaši verzi systému Windows.

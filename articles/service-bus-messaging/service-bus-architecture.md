@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="service-bus-architecture"></a>Architektura služby Service Bus
@@ -35,7 +35,7 @@ K jednotce škálování je mapovaný obor názvů služby Service Bus. Jednotka
 * **Několik úložišť pro přenos zpráv.** Úložiště pro přenos zpráv uchovává zprávy všech front, témat a odběrů definovaných v této jednotce škálování. Taky obsahuje všechna data odběru. Pokud není zapnutá možnost [dělení entit zasílání zpráv na oddíly](service-bus-partitioning.md), mapuje se fronta nebo téma do jednoho úložiště pro přenos zpráv. Odběry jsou uložené ve stejném úložišti pro přenos zpráv jako jejich nadřazené téma. Kromě [Zasílání zpráv na úrovni Premium](service-bus-premium-messaging.md) služby Service Bus se úložiště pro zasílání zpráv implementují nad databáze Azure SQL.
 
 ## <a name="containers"></a>Kontejnery
-Každé entitě přenosu zpráv je přiřazený specifický kontejner. Kontejner je logická konstrukce, která používá právě jedno úložiště pro přenos zpráv k uložení všech relevantních dat pro tento kontejner. Každý kontejner je přiřazený ke zprostředkovatelskému uzlu přenosu zpráv. Typicky je víc kontejnerů než zprostředkovatelských uzlů přenosu zpráv. Každý zprostředkovatelský uzel služeb načte několik kontejnerů. Distribuce kontejnerů do zprostředkovatelského uzlu přenosu zpráv je organizovaná tak, aby všechny zprostředkovatelské uzly přenosu zpráv byly rovnoměrně zatížené. Pokud se vzorec zatížení změní (například jeden z kontejnerů začne být velmi vytížený) nebo pokud je jeden zprostředkovatelský uzel přenosu zpráv dočasně nedostupný, kontejnery se předistribuují mezi zbývající zprostředkovatelské uzly přenosu zpráv.
+Každé entitě přenosu zpráv je přiřazený specifický kontejner. Kontejner je logická konstrukce, která používá jedno úložiště pro přenos zpráv k uložení všech relevantních dat pro tento kontejner. Každý kontejner je přiřazený ke zprostředkovatelskému uzlu přenosu zpráv. Typicky je víc kontejnerů než zprostředkovatelských uzlů přenosu zpráv. Každý zprostředkovatelský uzel služeb načte několik kontejnerů. Distribuce kontejnerů do zprostředkovatelského uzlu přenosu zpráv je organizovaná tak, aby všechny zprostředkovatelské uzly přenosu zpráv byly rovnoměrně zatížené. Pokud se vzorec zatížení změní (například jeden z kontejnerů začne být velmi vytížený) nebo pokud je jeden zprostředkovatelský uzel přenosu zpráv dočasně nedostupný, kontejnery se předistribuují mezi zbývající zprostředkovatelské uzly přenosu zpráv.
 
 ## <a name="processing-of-incoming-messaging-requests"></a>Zpracování příchozích událostí přenosu zpráv
 Když klient odešle požadavek do služby Service Bus, nástroj pro vyrovnávání zatížení Azure ho přesměruje do jakéhokoli z dostupných zprostředkovatelských uzlů zasílání zpráv. Uzel brány ověří požadavek. Pokud se požadavek týká entity přenosu zpráv (fronty, témata, odběru), uzel brány entitu vyhledá v úložišti brány a zjistí, ve kterém úložišti pro přenos zpráv se entita nachází. Potom vyhledá, který zprostředkovatelský uzel přenosu zpráv se aktuálně stará o tento kontejner, a odešle žádost do tohoto zprostředkovatelského uzlu přenosu zpráv. Zprostředkovatelský uzel přenosu zpráv zpracuje požadavek a aktualizuje stav entity v úložišti kontejneru. Zprostředkovatelský uzel přenosu zpráv pak odešle odpověď zpět do uzlu brány, která odešle odpovídající odpověď zpět klientovi, který vyslal původní požadavek.

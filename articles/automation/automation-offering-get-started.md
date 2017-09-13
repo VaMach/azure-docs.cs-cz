@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ Doporučenou metodou připojení služby Automation je výběr nabídky Automati
    - Zadejte název pro nový **pracovní prostor OMS**.
    - Vyberte **předplatné**, které má být cílem propojení, výběrem z rozevíracího seznamu, pokud výchozí vybrané předplatné není vhodné.
    - U položky **Skupina prostředků** můžete vytvořit skupinu prostředků nebo vybrat už existující skupinu prostředků.  
-   - Vyberte **Umístění**.  V současnosti jsou pro výběr dostupná jenom umístění **Austrálie – jihovýchod**, **Východní USA**, **Jihovýchodní Asie**, **Střed USA – západ** a **Západní Evropa**.
-   - Vyberte možnost u položky **Cenová úroveň**.  Řešení se nabízí ve dvou úrovních: úroveň Free a úroveň Per Node (OMS).  V úrovni Free je omezen objem dat shromážděných za den, doba uchovávání a počet minut běhu úloh runbooku.  V úrovni Per Node (OMS) není objem dat shromážděných za den nijak omezený.  
+   - Vyberte **Umístění**.  Další informace najdete na stránce uvádějící [oblasti, ve kterých je dostupná služba Azure Automation](https://azure.microsoft.com/regions/services/).  Řešení se nabízejí ve dvou úrovních: úroveň Free a úroveň Per Node (OMS).  V úrovni Free je omezen objem dat shromážděných za den, doba uchovávání a počet minut běhu úloh runbooku.  V úrovni Per Node (OMS) není objem dat shromážděných za den nijak omezený.  
    - Vyberte **Účet Automation**.  Pokud vytváříte nový pracovní prostor OMS, bude potřeba, abyste vytvořili i nový účet služby Automation, který je přidružený k novému pracovnímu prostoru OMS určenému dříve, a to včetně vašeho předplatného Azure, skupiny prostředků a oblasti.  Můžete vybrat **Vytvořit účet Automation** a v okně **čet Automation** zadat následující údaje: 
   - Do pole **Název** zadejte název účtu služby Automation.
 

@@ -1,0 +1,71 @@
+- name: Dokumentace ke službě Azure IoT Hub Device Provisioning
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Informace o službě IoT Device Provisioning
+      href: about-iot-dps.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Nastavení automatického zřizování
+      href: quick-setup-auto-provision.md
+    - name: Vytvoření simulovaného zařízení
+      href: quick-create-simulated-device.md
+- name: Kurzy
+  items:
+    - name: 1. Nastavení cloudových prostředků
+      href: tutorial-set-up-cloud.md
+    - name: 2. Nastavení zařízení
+      href: tutorial-set-up-device.md
+    - name: 3. Zřízení zařízení v IoT Hubu
+      href: tutorial-provision-device-to-hub.md
+    - name: 4. Zřízení zařízení v několika centrech
+      href: tutorial-provision-multiple-hubs.md
+- name: Koncepty
+  items:
+    - name: Koncepty zařízení
+      href: concepts-device.md
+    - name: Koncepty služby
+      href: concepts-service.md
+    - name: Koncepty zabezpečení
+      href: concepts-security.md
+- name: Návody
+  items:
+    - name: Správa registrací zařízení
+      href: how-to-manage-enrollments.md
+- name: Referenční informace
+  items:
+    - name: REST
+      href: /rest/api/iot-dps
+- name: Zdroje
+  items:
+    - name: Azure IoT Hub
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: Katalog zařízení Azure Certified for IoT
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Centrum pro vývojáře Azure IoT
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Nástroj Device Explorer
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: Nástroj iothub-diagnostics
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: Nástroj iothub-explorer
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Postup výuky
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Cenová kalkulačka
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizace služeb
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Technické případové studie
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videa
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

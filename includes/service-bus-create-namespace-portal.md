@@ -14,6 +14,7 @@ Vytvoření oboru názvů:
 8. Klikněte na možnost **Vytvořit**. Systém teď vytvoří obor názvů a povolí ho. Pravděpodobně budete muset několik minut počkat, než systém zřídí prostředky pro váš účet.
 
 ### <a name="obtain-the-management-credentials"></a>Získání přihlašovacích údajů pro správu
+Vytvořením nového oboru názvů se automaticky vygeneruje počáteční pravidlo sdíleného přístupového podpisu (SAS) s přidruženým párem primárního a sekundárního klíče, které uděluje úplnou kontrolu nad všemi aspekty tohoto oboru názvů. V článku [Ověřování a autorizace Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) najdete informace o vytvoření dalších pravidel s omezenějšími oprávněními pro normální odesílatele a příjemce. Pokud chcete zkopírovat počáteční pravidlo, postupujte následovně: 
 
 1. V seznamu oborů názvů klikněte na nově vytvořený obor názvů.
 2. V okně oboru názvů klikněte na **Zásady sdíleného přístupu**.
