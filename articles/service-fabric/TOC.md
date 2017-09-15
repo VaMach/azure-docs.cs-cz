@@ -280,7 +280,7 @@
 ### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 
-### [Správa clusteru pomocí rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
+### [Začínáme se Service Fabric CLI](service-fabric-cli.md)
 ### [Oprava uzlů clusteru](service-fabric-patch-orchestration-application.md)
 
 ### Správa a orchestrace prostředků clusteru
