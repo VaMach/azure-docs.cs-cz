@@ -41,6 +41,8 @@ sections:
         style: cards
         className: cardsD
         items:
+          - title: Příkazový řádek
+            html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p>
           - title: Rozhraní REST API
             html: <p><a href="/rest/api/eventgrid">REST</a></p>
           - title: Schémata

@@ -75,7 +75,9 @@
       href: /cli/azure/acs
     - name: REST
       href: /rest/api/container-services
-- name: Zdroje a prostředky
+    - name: PowerShell
+      href: '/powershell/module/azurerm.compute/#container_service'
+- name: Zdroje
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
