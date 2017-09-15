@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: ac35ff9fe1c5f315c4de08de951f505627ec412b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="getting-started"> </a>Informace o funkci Mobile Apps v Azure App Service
@@ -103,7 +103,7 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 [automatickém škálování]: ../app-service-web/web-sites-scale.md
 [přípravná prostředí]: ../app-service-web/web-sites-staged-publishing.md
 [možnostech nasazení]: ../app-service-web/web-sites-deploy.md
-[hybridní připojení]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[hybridní připojení]: ../biztalk-services/integration-hybrid-connection-overview.md
 [virtuální sítě]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [prostředích App Service]: ../app-service-web/app-service-app-service-environment-intro.md

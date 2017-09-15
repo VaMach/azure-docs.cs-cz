@@ -6,7 +6,7 @@ Chcete-li načíst název hostitele, porty a přístupové klíče pomocí webu 
 ![Nastavení mezipaměti Redis](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Načtení názvu hostitele, portů a přístupových klíčů pomocí Azure CLI
-Chcete-li načíst název hostitele a porty pomocí Azure CLI 2.0, můžete zavolat příkaz [az redis show](https://docs.microsoft.com/cli/azure/redis#show). K načtení klíčů můžete zavolat příkaz [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). Následující skript volá tyto dva příkazy a vypíše název hostitele, porty a klíče na konzolu.
+Chcete-li načíst název hostitele a porty pomocí Azure CLI 2.0, můžete zavolat příkaz [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show). K načtení klíčů můžete zavolat příkaz [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). Následující skript volá tyto dva příkazy a vypíše název hostitele, porty a klíče na konzolu.
 
 ```azurecli
 #/bin/bash

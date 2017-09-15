@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Správa prostředků služby Batch pomocí Azure CLI
@@ -67,8 +67,8 @@ Pokud chcete používat rozhraní příkazového řádku Azure CLI se službou B
 
 Existuje několik různých způsobů přihlášení k Azure, které jsou podrobně popsány v článku [Přihlášení pomocí Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Interaktivní přihlášení](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in): Přihlaste se interaktivně, pokud spouštíte příkazy rozhraní příkazového řádku Azure CLI sami z příkazového řádku.
-2. [Přihlášení pomocí instančního objektu](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal): Pokud spouštíte příkazy rozhraní příkazového řádku Azure CLI ze skriptu nebo aplikace, přihlaste se pomocí instančního objektu.
+1. [Interaktivní přihlášení](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in): Přihlaste se interaktivně, pokud spouštíte příkazy rozhraní příkazového řádku Azure CLI sami z příkazového řádku.
+2. [Přihlášení pomocí instančního objektu](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal): Pokud spouštíte příkazy rozhraní příkazového řádku Azure CLI ze skriptu nebo aplikace, přihlaste se pomocí instančního objektu.
 
 Pro účely tohoto článku vám ukážeme, jak se k Azure přihlásit interaktivně. V příkazovém řádku napište [az login](https://docs.microsoft.com/cli/azure/#login):
 
@@ -85,7 +85,7 @@ Příklady uvedené v části [Ukázkové skripty prostředí](#sample-shell-scr
 
 ### <a name="log-in-to-your-batch-account"></a>Přihlášení k účtu Batch
 
-Pokud chcete rozhraní příkazového řádku Azure CLI používat ke správě prostředků služby Batch, jako jsou fondy, úlohy a úkoly, musíte se přihlásit k účtu Batch a provést ověření. Ke službě Batch se přihlásíte pomocí příkazu [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+Pokud chcete rozhraní příkazového řádku Azure CLI používat ke správě prostředků služby Batch, jako jsou fondy, úlohy a úkoly, musíte se přihlásit k účtu Batch a provést ověření. Ke službě Batch se přihlásíte pomocí příkazu [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login). 
 
 Máte dvě možnosti ověření proti účtu Batch:
 
@@ -99,7 +99,7 @@ Máte dvě možnosti ověření proti účtu Batch:
 
     Ověřování pomocí služby Azure AD je vyžadováno, pokud jste při vytvoření účtu služby Azure Batch nastavili pro Režim přidělování fondů možnost Předplatné uživatele. 
 
-    Pokud se chcete přihlásit k účtu Batch pomocí služby Azure AD, použijte volání příkazu [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
+    Pokud se chcete přihlásit k účtu Batch pomocí služby Azure AD, použijte volání příkazu [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
