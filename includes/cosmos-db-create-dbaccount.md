@@ -1,31 +1,31 @@
-1. V novém okně se přihlaste k webu [Azure Portal](https://portal.azure.com/).
-2. V levém podokně klikněte na **Nový**, potom na **Databáze** a nakonec v části **Databáze Azure Cosmos** klikněte na **Vytvořit**.
+1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
+2. In the left pane, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
    
-   ![Podokno databází portálu Azure Portal](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. V okně **Nový účet** zadejte požadovanou konfiguraci pro tento účet Azure Cosmos DB. 
+3. On the **New account** blade, specify the configuration that you want for this Azure Cosmos DB account. 
 
-    Ve službě Azure Cosmos DB můžete vybrat jeden ze čtyř programovacích modelů: Gremlin (graf), MongoDB, SQL (DocumentDB) a Tabulka (klíč-hodnota). Každý z nich aktuálně vyžaduje samostatný účet.
+    With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value), each which currently require a separate account.
     
-    V tomto článku rychlého zprovoznění programujeme s využitím rozhraní DocumentDB API, takže při vyplňování formuláře vyberte možnost **SQL (DocumentDB)**. Pokud máte data grafu pro aplikaci sociálních médií, data typu klíč/hodnota (tabulka) nebo data migrovaná z aplikace MongoDB, je dobré si uvědomit, že služba Azure Cosmos DB může poskytnout vysoce dostupnou a globálně distribuovanou platformu databázové služby pro všechny důležité podnikové aplikace.
+    In this quick-start article we program against the DocumentDB API, so choose **SQL (DocumentDB)** as you fill out the form. If you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
 
-    V okně **Nový účet** vyplňte pole podle informací v následujícím snímku obrazovky – ty slouží pouze jako vodítko, vaše hodnoty se můžou od hodnot na snímku obrazovky lišit.
+    Complete the fields on the **New account** blade, using the information in the following screenshot as a guide- your values may be different than the values in the screenshot.
  
-    ![Okno Nový účet pro službu Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
-    Nastavení|Navrhovaná hodnota|Popis
+    Setting|Suggested value|Description
     ---|---|---
-    ID|*Jedinečná hodnota*|Jedinečný název, který identifikuje tento účet Azure Cosmos DB. Jelikož je řetězec *documents.azure.com* připojený k ID, které poskytnete k vytvoření identifikátoru URI, použijte jedinečné, ale snadno rozpoznatelné ID. Toto ID může obsahovat pouze malá písmena, číslice a znak spojovníku (-) a musí se skládat ze 3 až 50 znaků.
-    Rozhraní API|SQL (DocumentDB)|Dál v tomto článku budeme programovat za použití [rozhraní DocumentDB API](../articles/documentdb/documentdb-introduction.md).|
-    Předplatné|*Vaše předplatné*|Předplatné Azure, které chcete pro tento účet Azure Cosmos DB použít. 
-    Skupina prostředků|*Stejná hodnota jako ID*|Nový název skupiny prostředků pro váš účet. V zájmu jednoduchosti můžete použít název, který se shoduje s vaším ID. 
-    Umístění|*Oblast nejbližší vašim uživatelům*|Zeměpisné umístění, ve kterém chcete účet databáze Azure Cosmos hostovat. Vyberte umístění, které je vašim uživatelům nejbližší, abyste jim zajistili nejrychlejší přístup k datům.
-4. Kliknutím na **Vytvořit** vytvořte účet.
-5. Pokud chcete monitorovat proces nasazení, na horním panelu nástrojů klikněte na ikonu **Oznámení** ![Ikona oznámení](./media/cosmos-db-create-dbaccount/notification-icon.png).
+    ID|*Unique value*|A unique name that identifies this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID. The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
+    API|SQL (DocumentDB)|We program against the [DocumentDB API](../articles/cosmos-db/documentdb-introduction.md) later in this article.|
+    Subscription|*Your subscription*|The Azure subscription that you want to use for this Azure Cosmos DB account. 
+    Resource Group|*The same value as ID*|The new resource-group name for your account. For simplicity, you can use the same name as your ID. 
+    Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location that's closest to your users to give them the fastest access to the data.
+4. Click **Create** to create the account.
+5. On the top toolbar, click the **Notifications** icon ![The notification icon](./media/cosmos-db-create-dbaccount/notification-icon.png) to monitor the deployment process.
 
-    ![Podokno Oznámení portálu Azure Portal](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
+    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
 
-6.  Když okno Oznámení značí, že nasazení proběhlo úspěšně, zavřete okno oznámení a otevřete nový účet z dlaždice **Všechny prostředky** na řídicím panelu. 
+6.  When the Notifications window indicates the deployment succeeded, close the notification window and open the new account from the **All Resources** tile on the Dashboard. 
 
-    ![Účet DocumentDB na dlaždici Všechny prostředky](./media/cosmos-db-create-dbaccount/all-resources.png)
+    ![The Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount/all-resources.png)
  

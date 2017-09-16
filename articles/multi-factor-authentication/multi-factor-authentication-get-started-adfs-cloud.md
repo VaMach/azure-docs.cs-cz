@@ -3,7 +3,7 @@ title: "Zabezpečení cloudových prostředků s Azure MFA a AD FS | Dokumentace
 description: "Toto je stránka vícefaktorového ověřování Azure, která popisuje, jak začít s vícefaktorovým ověřováním Azure a službami AD FS v cloudu."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 0927fc67-8090-4fdd-913a-b3cfed3fbe77
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
-ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.author: joflore
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: d8f077f6e402b14f7d9134a5633dae58e914bd06
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 

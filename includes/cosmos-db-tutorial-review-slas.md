@@ -1,7 +1,7 @@
-Nyní když je vaše aplikace vytvořená a spuštěná, budete chtít zajistit kontinuitu obchodních procesů a dohlížet na přístup uživatelů, abyste zaručili vysokou dostupnost. Na webu Azure Portal můžete zkontrolovat dostupnost, latenci, propustnost a konzistenci své kolekce. 
+Now that your app is up and running, you'll want to ensure business continuity and watch user access to ensure high availability. You can use the Azure portal to review the availability, latency, throughput, and consistency of your collection. 
 
-Každý graf přidružený ke [smlouvám SLA pro Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/documentdb/) obsahuje řádek, který udává kvótu nutnou ke splnění požadavků smlouvy SLA a vaše aktivní použití, takže vám dává jasný přehled o výkonu vaší databáze. Na portálu najdete také další metriky, jako je využití úložiště nebo počet požadavků za minutu.
+Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) provides a line that shows the quota required to meet the SLA and your actual usage. This information gives you a clear view into your database performance. Additional metrics, such as storage usage and number of requests per minute, are also included in the portal.
 
-* Na webu Azure Portal v levém podokně v části **Monitorování** klikněte na **Metriky**.
+* In the Azure portal, in the pane on the left, under **Monitoring**, select **Metrics**.
 
-   ![Aplikace seznamu úkolů s ukázkovými daty](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+   ![Todo app with sample data](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)

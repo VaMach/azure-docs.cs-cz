@@ -14,10 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
-ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: f2c448af24e180db58f3ef3d39e90036dda3f7eb
+ms.contentlocale: cs-cz
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Použití Azure Redis Cache s Node.js
@@ -32,7 +33,7 @@ ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
 
 Azure Redis Cache vám umožňuje přístup do zabezpečené, vyhrazené mezipaměti Redis spravované Microsoftem. Vaše mezipaměť je přístupná ze všech aplikací v rámci Microsoft Azure.
 
-Toto téma ukazuje, jak začít s Azure Redis Cache pomocí Node.js. Další příklad použití Azure Redis Cache s Node.js najdete v tématu [Sestavení aplikace Chat v Node.js se Socket.IO na webu Azure](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
+Toto téma ukazuje, jak začít s Azure Redis Cache pomocí Node.js. 
 
 ## <a name="prerequisites"></a>Požadavky
 Nainstalujte [node_redis](https://github.com/mranney/node_redis):
@@ -85,10 +86,5 @@ Výstup:
 ## <a name="next-steps"></a>Další kroky
 * [Povolte diagnostiku mezipaměti](cache-how-to-monitor.md#enable-cache-diagnostics), abyste mohli [monitorovat](cache-how-to-monitor.md) stav svojí mezipaměti.
 * Přečtěte si oficiální [dokumentaci k Redis](http://redis.io/documentation).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
