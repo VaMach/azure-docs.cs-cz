@@ -183,7 +183,7 @@
 ### [Doručení materiálu stažením](media-services-deliver-asset-download.md)
 ### [Scénář streamování při selhání](media-services-implement-failover.md)
 
-## Konzumace
+## Přehrávání
 ### [Přehrávání multimédií pomocí stávajících přehrávačů](media-services-playback-content-with-existing-players.md)
 ### [Přehrávání multimédií pomocí Media Playeru](media-services-develop-video-players.md)
 ### Další možnosti přehrávání

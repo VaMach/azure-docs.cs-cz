@@ -5,6 +5,7 @@
 ## Kurz k runbookům
 ### [Vytvoření grafického runbooku](automation-first-runbook-graphical.md)
 ### [Vytvoření powershellového runbooku](automation-first-runbook-textual-powershell.md)
+### [Můj první runbook Pythonu](automation-first-runbook-textual-python2.md)
 ### [Vytvoření runbooku pracovního postupu PowerShellu](automation-first-runbook-textual.md)
 # Postup
 ## Ověřování a zabezpečení
@@ -37,7 +38,10 @@
 ### [Předání objektu JSON do runbooku Azure Automation](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Nasazení funkce Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+### [Funkce Hybrid Runbook Worker služby Azure Automation ve Windows](automation-windows-hrw-install.md)
+### [Funkce Hybrid Runbook Worker služby Azure Automation v Linuxu](automation-linux-hrw-install.md)
 ### [Spouštění runbooků v pracovním procesu](automation-hrw-run-runbooks.md)
+### [Odebrání funkce Hybrid Runbook Worker služby Azure Automation](automation-remove-hrw.md)
 ## Nasazení správy konfigurace (DSC)
 ### [Přehled konfigurace požadovaného stavu (DSC)](automation-dsc-overview.md)
 ### [Začínáme](automation-dsc-getting-started.md)

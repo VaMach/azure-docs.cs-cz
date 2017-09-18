@@ -1,0 +1,56 @@
+- name: Dokumentace ke službě Text Analytics
+  href: index.md
+- name: Přehled
+  items:
+    - name: Informace o analýze textu
+      href: overview.md
+- name: Šablony Rychlý start
+  items:
+    - name: 'C#'
+      href: Quickstarts/CSharp.md
+    - name: Java
+      href: Quickstarts/Java.md
+    - name: Node.js
+      href: Quickstarts/NodeJS.md
+    - name: Python
+      href: Quickstarts/Python.md
+    - name: Ruby
+      href: Quickstarts/Ruby.md
+    - name: PHP
+      href: Quickstarts/PHP.md
+- name: Kurzy
+  items:
+    - name: Analýza textu s využitím Power BI
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+- name: Návody
+  items:
+    - name: Registrace
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: Získání přístupového klíče
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: Volání rozhraní Text Analytics API
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: Zjištění jazyka
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: Analýza mínění
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: Extrakce klíčových frází
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+- name: Referenční informace
+  items:
+    - name: Referenční materiály k rozhraní API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
+    - name: Sada .Net Standard SDK
+      href: 'https://aka.ms/tasdkdotnet'
+- name: Zdroje
+  items:
+    - name: Externí obsah a obsah komunity
+      href: text-analytics-resource-external-community.md
+    - name: Nejčastější dotazy
+      href: text-analytics-resource-faq.md
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

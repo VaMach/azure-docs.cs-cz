@@ -1,0 +1,265 @@
+- name: Dokumentace k Azure Stacku
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Co je Azure Stack?
+      href: azure-stack-poc.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Nasazení Azure Stacku
+      href: azure-stack-deploy-overview.md
+- name: Kurzy
+  items:
+    - name: Povolení virtuálních počítačů
+      href: azure-stack-tutorial-tenant-vm.md
+    - name: Povolení databází SQL
+      href: azure-stack-tutorial-sql-server.md
+    - name: Povolení Web Apps
+      href: azure-stack-tutorial-app-service.md
+    - name: Nasazení aplikací v Azure a Azure Stacku
+      href: azure-stack-solution-pipeline.md
+- name: Koncepty
+  items:
+    - name: "Poznámky k\_verzi"
+      href: azure-stack-asdk-release-notes.md
+    - name: Klíčové funkce a koncepty
+      href: azure-stack-key-features.md
+    - name: Architektura vývojové sady pro Azure Stack
+      href: azure-stack-architecture.md
+    - name: Základy správy
+      href: azure-stack-manage-basics.md
+- name: Návody
+  items:
+    - name: Nasazení
+      items:
+        - name: Požadavky
+          href: azure-stack-deploy.md
+        - name: Nasazení
+          href: azure-stack-run-powershell-script.md
+        - name: Registrace
+          href: azure-stack-register.md
+        - name: Připojení ke službě Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Přidání výchozí image
+          href: azure-stack-add-default-image.md
+        - name: Vytvoření testovacího virtuálního počítače
+          href: azure-stack-provision-vm.md
+    - name: Spravovat
+      items:
+        - name: Správa oblastí
+          href: azure-stack-region-management.md
+        - name: Použití portálů
+          href: azure-stack-manage-portals.md
+        - name: Připojení ke službě Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Povolení rozhraní příkazového řádku pro uživatele
+          href: azure-stack-cli-admin.md
+        - name: Nastavení prostředí pro správu
+          items:
+            - name: Instalace PowerShellu
+              href: azure-stack-powershell-install.md
+            - name: Stažení nástrojů
+              href: azure-stack-powershell-download.md
+            - name: Konfigurace PowerShellu – operátor cloudu
+              href: azure-stack-powershell-configure-admin.md
+            - name: Zprovoznění s využitím PowerShellu
+              href: azure-stack-powershell-configure-quickstart.md
+        - name: Správa aktualizací
+          href: azure-stack-updates.md
+        - name: Monitorování stavu a výstrah
+          href: azure-stack-monitor-health.md
+        - name: Správa síťových prostředků
+          href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Správa prostředků úložiště
+          href: azure-stack-manage-storage-accounts.md
+        - name: Správa virtuálních počítačů se sadou Windows Azure Pack
+          href: azure-stack-manage-windows-azure-pack.md
+    - name: "Zabezpečení a\_dodržování předpisů"
+      items:
+        - name: Správa RBAC
+          href: azure-stack-manage-permissions.md
+        - name: Přidání uživatelů pro Azure AD
+          href: azure-stack-add-new-user-aad.md
+        - name: Přidání uživatelů pro AD FS
+          href: azure-stack-add-users-adfs.md
+        - name: Vytvoření instančních objektů
+          href: Azure-stack-create-service-principals.md
+        - name: Povolení víceklientské architektury
+          href: azure-stack-enable-multitenancy.md
+    - name: Nabídka služeb
+      items:
+        - name: Přehled nabízených služeb
+          href: azure-stack-offer-services-overview.md
+        - name: 'Vytvoření plánů, nabídek a kvót'
+          items:
+            - name: 'Přehled plánů, nabídek, kvót a předplatných'
+              href: azure-stack-plan-offer-quota-overview.md
+            - name: Vytvoření plánu
+              href: azure-stack-create-plan.md
+            - name: Vytvoření nabídky
+              href: azure-stack-create-offer.md
+            - name: Přihlášení k odběru nabídky
+              href: azure-stack-subscribe-plan-provision-vm.md
+            - name: Delegování nabídek v Azure Stacku
+              href: azure-stack-delegated-provider.md
+            - name: Typy kvót
+              href: azure-stack-quota-types.md
+        - name: Nabídka SQL nebo MySQL jako PaaS
+          items:
+            - name: Přehled služeb PaaS
+              href: azure-stack-tools-paas-services.md
+            - name: Nasazení poskytovatele prostředků MySQL
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Nasazení poskytovatele prostředků SQL
+              href: azure-stack-sql-resource-provider-deploy.md
+        - name: Nabídka App Service jako PaaS
+          items:
+            - name: Přehled App Service v Azure Stacku
+              href: azure-stack-app-service-overview.md
+            - name: Než začnete
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Nasazení poskytovatele prostředků App Service
+              href: azure-stack-app-service-deploy.md
+            - name: Nasazení App Service offline
+              href: azure-stack-app-service-deploy-offline.md
+            - name: Přidání dalších webových rolí pracovního procesu
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Konfigurace zdrojů nasazení
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Povolení FTP ve službě App Service v Azure Stacku
+              href: azure-stack-app-service-enable-ftp.md
+        - name: Naplnění webu Marketplace
+          items:
+            - name: Přehled webu Marketplace
+              href: azure-stack-marketplace.md
+            - name: Stažení položek z Marketplace
+              href: azure-stack-download-azure-marketplace-item.md
+            - name: Položky Azure Marketplace pro Azure Stack
+              href: azure-stack-marketplace-azure-items.md
+            - name: Vytvoření a publikování položky Marketplace
+              href: azure-stack-create-and-publish-marketplace-item.md
+            - name: Použití nástroje pro publikování na Marketplace
+              href: azure-stack-marketplace-publisher.md
+            - name: Přidání vlastní image virtuálního počítače
+              href: azure-stack-add-vm-image.md
+            - name: Přidání škálovacích sad virtuálních počítačů
+              href: azure-stack-compute-add-scalesets.md
+            - name: Nasazení virtuálních počítačů s Linuxem
+              href: azure-stack-linux.md
+        - name: Využití a fakturace
+          items:
+            - name: Přehled
+              href: azure-stack-billing-and-chargeback.md
+            - name: Generování sestav dat využití
+              href: azure-stack-usage-reporting.md
+            - name: Rozhraní API využití zprostředkovatele
+              href: azure-stack-provider-resource-api.md
+            - name: Rozhraní API využití tenanta
+              href: azure-stack-tenant-resource-usage-api.md
+            - name: Nejčastější dotazy k využití
+              href: azure-stack-usage-related-faq.md
+    - name: Použití služeb
+      items:
+        - name: Klíčové aspekty
+          href: azure-stack-considerations.md
+        - name: Compute
+          items:
+            - name: Aspekty virtuálních počítačů
+              href: azure-stack-vm-considerations.md
+            - name: Vytvoření virtuálního počítače – PowerShell
+              href: azure-stack-quick-create-vm-powershell.md
+        - name: Úložiště
+          items:
+            - name: Přehled
+              href: azure-stack-storage-overview.md
+            - name: Aspekty úložišť
+              href: azure-stack-acs-differences.md
+            - name: Nástroje pro vývoj úložišť
+              href: azure-stack-storage-dev.md
+            - name: Nástroje pro přenos dat
+              href: azure-stack-storage-transfer.md
+            - name: Připojení průzkumníka úložišť
+              href: azure-stack-storage-connect-se.md
+        - name: Síť
+          items:
+            - name: Aspekty sítí
+              href: azure-stack-network-differences.md
+            - name: iDNS pro Azure Stack
+              href: azure-stack-understanding-dns.md
+            - name: DNS v Azure Stacku
+              href: azure-stack-dns.md
+            - name: Principy připojení k sítím Site-to-Site VPN
+              href: azure-stack-create-vpn-connection-one-node.md
+        - name: Key Vault
+          items:
+            - name: Přehled
+              href: azure-stack-kv-intro.md
+            - name: Správa pomocí portálu
+              href: azure-stack-kv-manage-portal.md
+            - name: Správa pomocí PowerShellu
+              href: azure-stack-kv-manage-powershell.md
+            - name: Vytvoření virtuálního počítače s tajným kódem
+              href: azure-stack-kv-deploy-vm-with-secret.md
+            - name: Vytvoření virtuálního počítače s certifikátem
+              href: azure-stack-kv-push-secret-into-vm.md
+            - name: Ukázková aplikace služby Key Vault
+              href: azure-stack-kv-sample-app.md
+    - name: Vytváření aplikací
+      items:
+        - name: Vývoj pro Azure Stack
+          href: azure-stack-developer.md
+        - name: Nastavení vývojového prostředí
+          items:
+            - name: Instalace PowerShellu
+              href: azure-stack-powershell-install.md
+            - name: Stažení nástrojů
+              href: azure-stack-powershell-download.md
+            - name: Konfigurace PowerShellu – uživatel
+              href: azure-stack-powershell-configure-user.md
+            - name: Zprovoznění s využitím PowerShellu
+              href: azure-stack-powershell-configure-quickstart.md
+            - name: Instalace a konfigurace rozhraní příkazového řádku
+              href: azure-stack-connect-cli.md
+            - name: Instalace sady Visual Studio
+              href: azure-stack-install-visual-studio.md
+            - name: Správa profilů verzí API
+              href: azure-stack-version-profiles.md
+        - name: Použití modulu zásad
+          href: azure-stack-policy-module.md
+        - name: Použití šablon
+          items:
+            - name: Přehled šablon
+              href: azure-stack-arm-templates.md
+            - name: Vývoj šablon
+              href: azure-stack-develop-templates.md
+            - name: Kontrola šablon
+              href: azure-stack-validate-templates.md
+            - name: Nasazení s využitím portálu
+              href: azure-stack-deploy-template-portal.md
+            - name: Nasazení s využitím PowerShellu
+              href: azure-stack-deploy-template-powershell.md
+            - name: Nasazení s využitím sady Visual Studio
+              href: azure-stack-deploy-template-visual-studio.md
+    - name: Řešení potíží
+      items:
+        - name: Známé problémy
+          href: azure-stack-troubleshooting.md
+        - name: Diagnostika v Azure Stacku
+          href: azure-stack-diagnostics.md
+        - name: Znovunasazení vývojové sady pro Azure Stack
+          href: azure-stack-redeploy.md
+- name: Referenční informace
+  items:
+    - name: PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Zdroje
+  items:
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Informace o cenách
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'

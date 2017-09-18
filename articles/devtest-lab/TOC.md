@@ -28,6 +28,7 @@
 ### [Nastavení zásad a plánů ](devtest-lab-set-lab-policy.md)
 ### [Konfigurace správy nákladů](devtest-lab-configure-cost-management.md)
 ### [Konfigurace imagí Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Přidání značek do testovacího prostředí](devtest-lab-add-tag.md)
 
 ## [Výběr vlastní image nebo vzorce](devtest-lab-comparing-vm-base-image-types.md)
 

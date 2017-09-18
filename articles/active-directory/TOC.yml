@@ -1,0 +1,74 @@
+- name: Přístup k prostředkům v Azure
+  href: active-directory-understanding-resource-access.md
+- name: Řízení přístupu na základě rolí
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Správa přiřazení přístupu
+      items:
+        - name: Podle uživatele
+          href: role-based-access-control-manage-assignments.md
+        - name: Podle prostředku
+          href: role-based-access-control-configure.md
+    - name: Vestavěné role
+      href: role-based-access-built-in-roles.md
+    - name: Vlastní role
+      href: role-based-access-control-custom-roles.md
+    - name: Přiřazení vlastních rolí pro interní a externí uživatele
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Vytváření sestav
+      href: role-based-access-control-access-change-history-report.md
+    - name: 'Další způsoby, jak spravovat role'
+      items:
+        - name: S využitím rozhraní příkazového řádku Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: S využitím PowerShellu
+          href: role-based-access-control-manage-access-powershell.md
+        - name: S využitím REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Zvýšení úrovně přístupu správce tenanta
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Řešení potíží
+      href: role-based-access-control-troubleshooting.md
+    - name: Operace poskytovatele prostředků
+      href: role-based-access-control-resource-provider-operations.md
+- name: Managed Service Identity
+  href: msi-overview.md
+  items:
+    - name: Konfigurace MSI pro virtuální počítač s Windows
+      items:
+        - name: S využitím webu Azure Portal
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: S využitím PowerShellu
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: S využitím rozhraní příkazového řádku Azure
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: S využitím šablon Azure Resource Manageru
+          href: msi-qs-configure-template-windows-vm.md
+    - name: Použití MSI pro přístup k Azure Resource Manageru
+      items:
+        - name: Virtuální počítač s Windows
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: Virtuální počítač s Linuxem
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Použití MSI pro přístup k úložišti Azure
+      items:
+        - name: Virtuální počítač s Windows
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: Virtuální počítač s Linuxem
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Použití MSI pro přístup k prostředku AD mimo Azure
+      items:
+        - name: Virtuální počítač s Windows
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: Virtuální počítač s Linuxem
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Přiřazení přístupu MSI k prostředku Azure
+      items:
+        - name: S využitím webu Azure Portal
+          href: msi-howto-assign-access-portal.md
+        - name: S využitím PowerShellu
+          href: msi-howto-assign-access-powershell.md
+        - name: S využitím rozhraní příkazového řádku Azure
+          href: msi-howto-assign-access-cli.md
+    - name: Známé problémy
+      href: msi-known-issues.md

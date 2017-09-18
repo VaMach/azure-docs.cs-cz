@@ -358,6 +358,8 @@
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Vyzkoušejte si Azure Cosmos DB zdarma
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Nejčastější dotazy

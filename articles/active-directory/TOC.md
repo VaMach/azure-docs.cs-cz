@@ -135,9 +135,9 @@
 ### [Plánování služby Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Nejčastější dotazy](device-management-faq.md)
 ### Úlohy
-#### [Konfigurace zařízení s Windows 10 registrovaných v Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Konfigurace zařízení připojených k Azure AD](device-management-azuread-joined-devices-setup.md)
-#### [Konfigurace hybridních zařízení připojených k Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Nastavení zařízení s Windows 10 registrovaných v Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Nastavení zařízení připojených k Azure AD](device-management-azuread-joined-devices-setup.md)
+#### [Nastavení hybridních zařízení připojených k Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
 #### [Připojení k Azure AD během prvního spuštění Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Řešení potíží
@@ -266,34 +266,21 @@
 
 ### [Integrace místních identit pomocí Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Správa přístupu k Azure](toc.yml)
+
 ## Delegování přístupu k prostředkům
 ### [Role správce](active-directory-assign-admin-roles.md)
 #### [Přiřazení rolí správce](active-directory-users-assign-role-azure-portal.md)
 ### [Jednotky pro správu](active-directory-administrative-units-management.md)
-### [Přístup k prostředkům v Azure](active-directory-understanding-resource-access.md)
-### [Řízení přístupu na základě rolí](role-based-access-control-what-is.md)
-#### Správa přiřazení přístupu
-##### [Podle uživatele](role-based-access-control-manage-assignments.md)
-##### [Podle prostředku](role-based-access-control-configure.md)
-#### [Předdefinované role](role-based-access-built-in-roles.md)
-#### [Vlastní role](role-based-access-control-custom-roles.md)
-#### [Přiřazení vlastních rolí pro interní a externí uživatele](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Vytváření sestav](role-based-access-control-access-change-history-report.md)
-#### Další způsoby, jak spravovat role
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Zvýšení úrovně přístupu správce tenanta](role-based-access-control-tenant-admin-access.md)
-#### [Řešení problémů](role-based-access-control-troubleshooting.md)
-#### [Operace poskytovatele prostředků](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
 
 ## Zabezpečení identit
 ### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)
+#### [Ovládací prvky](active-directory-conditional-access-controls.md)
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)
-#### [Úlohy]
+#### Úlohy
 ##### [Nastavení podmíněného přístupu na základě zařízení](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Nastavení podmíněného přístupu na základě aplikace](active-directory-conditional-access-mam.md)
 ##### [Nastavení možností připojení sítě VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
