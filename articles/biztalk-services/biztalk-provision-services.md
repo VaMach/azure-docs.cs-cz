@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/18/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Vytvoření služby BizTalk Services pomocí webu Azure Portal
@@ -152,7 +152,7 @@ Kliknutím na **Manage** (Správa) otevřete portál pro správu řízení pří
 Identita služby Access Control Service je sada přihlašovacích údajů, která umožňuje aplikacím nebo klientům přímé ověření u řízení přístupu a získání tokenu.
 
 > [!IMPORTANT]
-> Služba BizTalk používá výchozí identitu služby **Vlastník** a hodnotu **Heslo**. Pokud místo hodnoty Heslo použijete hodnotu Symetrický klíč, může dojít k následující chybě.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
+> Služba BizTalk používá výchozí identitu služby **Vlastník** a hodnotu **Heslo**. Pokud místo hodnoty Heslo použijete hodnotu Symetrický klíč, může dojít k následující chybě.<br/><br/>*Zadané přihlašovací údaje neumožňují připojení k účtu služby pro správu řízení přístupu.*
 > 
 > 
 
