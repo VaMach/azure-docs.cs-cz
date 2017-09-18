@@ -41,7 +41,9 @@
   items:
     - name: Azure CLI 2.0
       href: /cli/azure/container
-- name: Zdroje
+    - name: REST
+      href: /rest/api/container-instances
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
