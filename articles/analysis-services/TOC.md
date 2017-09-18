@@ -16,6 +16,7 @@
 ## [Správa serveru](analysis-services-manage.md)
 ## [Správa uživatelů databáze](analysis-services-database-users.md)
 ## [Správa správců serveru](analysis-services-server-admins.md)
+## [Monitorování metrik serveru](analysis-services-monitor.md)
 ## [Instalace a konfigurace místní brány dat](analysis-services-gateway-install.md)
 ## [Získání klientských knihoven](analysis-services-data-providers.md)
 ## [Zálohování a obnovení](analysis-services-backup.md)
