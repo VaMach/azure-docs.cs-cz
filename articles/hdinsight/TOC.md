@@ -61,10 +61,12 @@
 ## Použití Sparku pro zpracování v paměti
 ### Začínáme – vývojář ve Sparku
 #### [Vytvoření samostatné aplikace](hdinsight-apache-spark-create-standalone-application.md)
-#### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [Použití interaktivní prostředí Sparku](hdinsight-spark-shell.md)
+#### [Vzdálené úlohy s Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Pomocí Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Vytváření aplikací pomocí Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Vytváření aplikací pomocí IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [Co je Spark Streaming?](hdinsight-spark-streaming-overview.md)
 ### [Zpracování událostí streamování](hdinsight-apache-spark-eventhub-streaming.md)
 ### [Předpověď výkonu HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Předpověď výsledků kontroly potravin](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -109,6 +111,7 @@
 ### [Replikace dat Kafka](hdinsight-apache-kafka-mirroring.md)
 ### [Konfigurace úložiště a škálovatelnosti Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Konfigurace vysoké dostupnosti dat](hdinsight-apache-kafka-high-availability.md)
+### [Analýza protokolů Kafka](apache-kafka-log-analytics-operations-management.md)
 ### [Použití se službou Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Použití s Apache Sparkem (strukturované streamování)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Použití s Apache Sparkem (DStream)](hdinsight-apache-spark-with-kafka.md)

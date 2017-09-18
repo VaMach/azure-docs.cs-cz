@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentace k Azure Stacku
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Dokumentace k Azure Stacku – kurzy, reference k rozhraní API'
+  description: Naučte se používat Azure Stack Preview k doručování služeb Azure z vašeho datového centra. Podívejte se na předvedení funkcí z prostředí pro testování konceptu.
+  services: azure-stack
+  author: czeumault
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/28/2017
+  ms.author: carolz
+abstract:
+  description: 'Microsoft Azure Stack je hybridní cloudová platforma, která umožňuje zřizovat služby Azure z vašeho datového centra. Pomocí našich šablon Rychlý start a kurzů se naučíte, jak nasadit Azure Stack a nabízet služby.'
+sections:
+  - title: Rychlý start
+    items:
+      - type: paragraph
+        text: 'Nastavení hardwaru a nasazení Azure Stacku:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            text: Nasazení Azure Stacku
+            href: azure-stack-deploy-overview.md
+  - title: Podrobné kurzy
+    items:
+      - type: paragraph
+        text: 'Naučte se, jak přidat služby do vašeho nasazení Azure Stacku:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Povolení Virtual Machines v Azure Stacku</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Povolení SQL Database v Azure Stacku</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Povolení Web Apps v Azure Stacku</a>
+          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Nasazení aplikací napříč Azure a Azure Stackem</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Příkazový řádek
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>

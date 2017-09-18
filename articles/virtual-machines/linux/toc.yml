@@ -57,60 +57,35 @@
       href: powershell-samples.md
 - name: Koncepty
   items:
-    - name: Distribuce schválené pro Azure
-      href: endorsed-distros.md
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Oblasti a dostupnost
       href: regions-and-availability.md
-    - name: Storage
+    - name: Velikosti a typy virtuálních počítačů
+      href: sizes.md
+    - name: Schválené distribuce
+      href: endorsed-distros.md
+    - name: Údržba a aktualizace
+      href: maintenance-and-updates.md
+    - name: Úložiště
       href: azure-vm-storage-overview.md
     - name: Sítě
-      href: azure-vm-network-overview.md
-    - name: Škálovací sady virtuálních počítačů
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-    - name: Kontejnery
-      href: containers.md
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-        - name: Modely nasazení
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Šablony pro virtuální počítače
-          href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure Linux Agent
-      href: agent-user-guide.md
-    - name: Azure Security Center
-      href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Zotavení po havárii
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Plánovaná údržba
-      href: planned-maintenance.md
-    - name: Velikost virtuálních počítačů
-      items:
-        - name: Přehled velikostí virtuálních počítačů
-          href: sizes.md
-          items:
-            - name: Obecné účely
-              href: sizes-general.md
-            - name: Optimalizované z hlediska výpočetních služeb
-              href: sizes-compute.md
-            - name: Optimalizované z hlediska paměti
-              href: sizes-memory.md
-            - name: Optimalizované z hlediska úložiště
-              href: sizes-storage.md
-            - name: GPU
-              href: sizes-gpu.md
-              items:
-                - name: Ovladače GPU
-                  href: n-series-driver-setup.md
-            - name: Vysokovýkonné výpočetní prostředí
-              href: sizes-hpc.md
-        - name: Výpočetní jednotky Azure (ACU)
-          href: acu.md
-        - name: Výsledky srovnávacích testů Compute
-          href: compute-benchmark-scores.md
+      href: network-overview.md
+    - name: Automatické škálování aplikací
+      href: autoscale.md
+    - name: Automatizace infrastruktury
+      href: infrastructure-automation.md
+    - name: Zabezpečení a zásady
+      href: security-policy.md
+    - name: Monitorování
+      href: monitor.md
+    - name: Backup a obnovení
+      href: backup-recovery.md
+    - name: Vysokovýkonné výpočetní prostředí (HPC)
+      href: high-performance-computing.md
     - name: Aspekty nasazování
       items:
-        - name: Příklad základního nasazení
+        - name: Pokyny pro infrastrukturu
           href: infrastructure-example.md
 - name: Návody
   items:

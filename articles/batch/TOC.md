@@ -64,11 +64,10 @@
 # Související
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Zpracování dat pomocí služeb Batch a Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Řešení pro Batch a prostředí HPC v cloudu Azure](batch-hpc-solutions.md)
+## [řešení pro Batch, HPC a Big Compute v Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
-## [Prostředky Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Ukázky kódu C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

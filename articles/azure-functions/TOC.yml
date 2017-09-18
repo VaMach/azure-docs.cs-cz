@@ -103,6 +103,8 @@
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Volání funkce z PowerApps
           href: functions-powerapps-scenario.md
+        - name: Použití služby Managed Service Identity
+          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Referenční informace
   items:
     - name: Vazby
@@ -147,6 +149,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Regionální dostupnost
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Videa
+      href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Fórum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
     - name: Stack Overflow
