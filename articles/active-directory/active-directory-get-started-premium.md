@@ -1,5 +1,5 @@
 ---
-title: "Registrace služby Azure Active Directory Premium"
+title: "Registrace služby Azure Active Directory Premium | Dokumentace Microsoftu"
 description: "Vysvětluje, jak si zaregistrovat edici Azure Active Directory Premium."
 services: active-directory
 documentationcenter: 
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Rychlý start: Registrace služby Azure Active Directory Premium
-Pokud chcete začít pracovat s Azure Active Directory (Azure AD) Premium, je potřeba koupit licence a přidružit je k vašemu předplatnému Azure. Pokud vytvoříte nové předplatné Azure, bude také potřeba aktivovat váš licenční plán a přístup do služby Azure AD podle postupu popsaného v následujících částech. 
+Pokud chcete začít pracovat s Azure Active Directory (Azure AD) Premium, můžete si koupit licence a přidružit je k vašemu předplatnému Azure. Pokud vytvoříte nové předplatné Azure, bude také potřeba aktivovat váš licenční plán a přístup do služby Azure AD podle postupu popsaného v následujících částech. 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Registrace služby Active Directory Premium
 Active Directory Premium si můžete registrovat několika způsoby: 
+* Použitím předplatného Azure nebo Office 365.
+* Použitím licenčního plánu Enterprise Mobility + Security.
+* Použitím plánu multilicenčního programu společnosti Microsoft.
 
 ### <a name="azure-or-office-365"></a>Azure nebo Office 365 
 Jako předplatitel Azure nebo Office 365 si můžete koupit Azure Active Directory Premium online. 
@@ -48,10 +52,8 @@ Další informace o možnostech nákupu multilicencí najdete na stránce [Jak n
 
 > [!NOTE]
 > Edice Premium a Basic služby Azure Active Directory jsou zákazníkům v Číně dostupné prostřednictvím celosvětové instance služby Azure Active Directory. Edice Premium a Basic služby Azure Active Directory nejsou aktuálně podporované ve službě Microsoft Azure provozované v Číně společností 21Vianet. Další informace si vyžádejte na [fóru služby Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
 
-Pokud jste už dříve koupili a aktivovali licence Azure AD pro stejné předplatné Azure, které jste použili v předchozích krocích, pak se licence automaticky aktivují ve stejném adresáři. Nebudete také muset pokračovat podle pokynů popsaných ve zbývající části tohoto článku.
+Pokud jste už dříve koupili a aktivovali licence Azure AD pro stejné předplatné Azure, které jste použili v předchozích krocích, pak se licence automaticky aktivují ve stejném adresáři. V opačném případě pokračujte podle pokynů popsaných ve zbývající části tohoto článku.
 
 ## <a name="activate-your-license-plan"></a>Aktivace licenčního plánu
 Je toto první licenční plán Azure AD, který jste si koupili od Microsoftu? Pokud ano, po dokončení nákupu obdržíte vygenerovaný potvrzovací e-mail. Tento e-mail je potřebný k aktivaci prvního licenčního plánu.
@@ -62,7 +64,7 @@ Je toto první licenční plán Azure AD, který jste si koupili od Microsoftu? 
    
     ![Přihlášení][1]
 
-    - Pokud máte existujícího klienta, klikněte na tlačítko **Přihlásit se** a přihlaste se pomocí svého stávajícího účtu správce. Přihlaste se pomocí přihlašovacích údajů globálního správce z adresáře, ve kterém se mají aktivovat licence.
+    - Pokud máte existujícího klienta, klikněte na tlačítko **Přihlásit se** a přihlaste se pomocí svého stávajícího účtu správce. Přihlaste se pomocí přihlašovacích údajů globálního správce pro tenanta, ve kterém se mají aktivovat licence.
 
     - Pokud chcete vytvořit nového tenanta Azure AD, který se bude používat s vaším licenčním plánem, klikněte na **Zaregistrovat se** a otevře se okno **Vytvořit profil účtu**.
 

@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s Azure Service Fabric CLI (sfctl)"
+title: "Začínáme s Azure Service Fabric CLI"
 description: "Naučte se používat Azure Service Fabric CLI. Zjistěte, jak se připojit ke clusteru a jak spravovat aplikace."
 services: service-fabric
 author: samedder
@@ -9,37 +9,39 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="azure-service-fabric-command-line"></a>Příkazový řádek Azure Service Fabric
+# <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
-Azure Service Fabric CLI (sfctl) je nástroj příkazového řádku pro práci s entitami Azure Service Fabric a jejich správu. Sfctl lze použít s clustery systému Windows, nebo Linux. Sfctl běží na libovolné platformě, kde je podporován python.
+Rozhraní příkazového řádku (CLI) Azure Service Fabric je nástroj příkazového řádku pro práci s entitami Service Fabric a jejich správu. Service Fabric CLI lze použít s clustery s Windows nebo Linuxem. Service Fabric CLI funguje na libovolné platformě, kde je podporován Python.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Před instalací se ujistěte, že ve vašem prostředí je nainstalovaný python a pip. Další informace najdete v [úvodní dokumentaci nástroje pip](https://pip.pypa.io/en/latest/quickstart/) a oficiální [instalační dokumentaci pro python](https://wiki.python.org/moin/BeginnersGuide/Download).
+Před instalací se ujistěte, že je ve vašem prostředí nainstalovaný Python a pip. Další informace najdete v [úvodní dokumentaci nástroje pip](https://pip.pypa.io/en/latest/quickstart/) a oficiální [dokumentaci k instalaci Pythonu](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-I když je podporovaná verze pythonu 2.7 i 3.6, doporučuje se používat python 3.6. Následující část popisuje, jak nainstalovat požadované součásti a rozhraní příkazového řádku.
+I když je podporovaný Python 2.7 i 3.6, doporučujeme používat Python 3.6. Následující část popisuje, jak nainstalovat všechny požadované součásti a rozhraní příkazového řádku.
 
-## <a name="install-pip-python-and-sfctl"></a>Instalace pip, pythonu a sfctl
+## <a name="install-pip-python-and-the-service-fabric-cli"></a>Instalace nástroje pip, Pythonu a Service Fabric CLI
 
-Přestože existuje řada způsobů, jak nainstalovat pip a python na vaší platformě, tady je několik kroků, pomocí kterých můžete rychle nastavit python 3.6 a pip na hlavních operačních systémech:
+ Na své platformě můžete pip a Python nainstalovat mnoha způsoby. Tady je několik kroků, pomocí kterých můžete rychle nastavit Python 3.6 a pip na hlavních operačních systémech.
 
 ### <a name="windows"></a>Windows
 
-V systému Windows 10, Server 2016 a Server 2012R2 můžete použít standardní oficiální pokyny pro instalaci. Instalační program pythonu ve výchozím nastavení nainstaluje také pip.
+Ve Windows 10, Windows Server 2016 a Windows Server 2012 R2 použijte standardní oficiální pokyny k instalaci. Instalační program Pythonu ve výchozím nastavení nainstaluje také pip.
 
-- Přejděte na oficiální [stránku pro stažení pythonu](https://www.python.org/downloads/) a stáhněte nejnovější vydanou verzi pythonu 3.6.
-- Spusťte instalační program.
-- V dolní části příkazového řádku vyberte možnost `Add Python 3.6 to PATH`.
-- Vyberte `Install Now`
-- Dokončete instalaci.
+1. Přejděte na oficiální [stránku pro stažení Pythonu](https://www.python.org/downloads/) a stáhněte nejnovější vydanou verzi Pythonu 3.6.
 
-Teď byste měli být schopni otevřít nové příkazové okno a získat verze pythonu i nástroje pip:
+2. Spusťte instalační program.
+
+3. V dolní části příkazového řádku vyberte **Add Python 3.6 to PATH** (Přidat Python 3.6 do CESTA).
+
+4. Vyberte **Install Now** (Nainstalovat) a dokončete instalaci.
+
+Teď můžete otevřít nové příkazové okno a získat verze Pythonu i nástroje pip.
 
 ```bat
 python --version
@@ -55,7 +57,7 @@ sfctl -h
 
 ### <a name="ubuntu"></a>Ubuntu
 
-V systému Ubuntu 16.04 Desktop můžete python 3.6 nainstalovat pomocí PPA třetích stran:
+V systému Ubuntu 16.04 Desktop můžete Python 3.6 nainstalovat pomocí osobního archivu balíčků (PPA) třetí strany.
 
 Z terminálu spusťte následující příkazy:
 
@@ -66,24 +68,24 @@ sudo apt-get install python3.6
 sudo apt-get install python3-pip
 ```
 
-Potom spusťte následující příkaz, pokud chcete nainstalovat sfctl pouze pro vaši instalaci pythonu 3.6:
+Potom spusťte následující příkaz, pokud chcete nainstalovat Service Fabric CLI pouze pro vaši instalaci Pythonu 3.6:
 
 ```bash
 python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Tyto kroky nemají vliv na python 3.5 a 2.7 nainstalované v systému. Nepokoušejte se upravovat tyto instalace, pokud dobře neznáte Ubuntu.
+Tyto kroky nemají vliv na systémovou instalaci Pythonu 3.5 a 2.7. Nepokoušejte se upravovat tyto instalace, pokud dobře neznáte Ubuntu.
 
 ### <a name="macos"></a>MacOS
 
-V systému MacOS se doporučuje použít [správce balíčků HomeBrew](https://brew.sh). Pokud HomeBrew ještě není nainstalovaný, nainstalujte ho spuštěním následujícího příkazu:
+V systému MacOS doporučujeme použít [správce balíčků HomeBrew](https://brew.sh). Pokud HomeBrew ještě není nainstalovaný, nainstalujte ho spuštěním následujícího příkazu:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Potom z terminálu nainstalujte python 3.6, pip a sfctl:
+Potom z terminálu nainstalujte Python 3.6, pip a Service Fabric CLI spuštěním následujících příkazů:
 
 ```bash
 brew install python3
@@ -91,13 +93,13 @@ pip3 install sfctl
 sfctl -h
 ```
 
-Tyto kroky neupravují systémovou instalaci pythonu 2.7.
+Tyto kroky neupravují systémovou instalaci Pythonu 2.7.
 
 ## <a name="cli-syntax"></a>Syntaxe rozhraní příkazového řádku
 
-Příkazy mají vždy předponu `sfctl`. Obecné informace o všech příkazech, které můžete použít, získáte zadáním `sfctl -h`. Nápovědu ke konkrétnímu příkazu získáte pomocí příkazu `sfctl <command> -h`.
+Příkazy mají vždy předponu `sfctl`. Obecné informace o všech příkazech, které můžete použít, získáte pomocí příkazu `sfctl -h`. Nápovědu ke konkrétnímu příkazu získáte pomocí příkazu `sfctl <command> -h`.
 
-Příkazy dodržují opakovatelnou strukturu, kdy cíl příkazu předchází operaci nebo akci:
+Příkazy dodržují opakovatelnou strukturu, kdy cíl příkazu předchází operaci nebo akci.
 
 ```azurecli
 sfctl <object> <action>
@@ -107,7 +109,7 @@ V tomto příkladu je `<object>` cílem pro `<action>`.
 
 ## <a name="select-a-cluster"></a>Výběr clusteru
 
-Před provedením jakékoli operace musíte vybrat cluster, ke kterému se připojíte. Například spuštěním následujícího příkazu vyberete cluster s názvem `testcluster.com` a připojíte se k němu.
+Před provedením jakékoli operace musíte vybrat cluster, ke kterému se připojíte. Pokud například chcete vybrat cluster `testcluster.com` a připojit se k němu, spusťte následující příkaz:
 
 > [!WARNING]
 > Nepoužívejte nezabezpečené clustery Service Fabric v produkčním prostředí.
@@ -118,7 +120,7 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 Koncový bod clusteru musí mít předponu `http` nebo `https`. Musí zahrnovat port pro bránu HTTP. Tento port a adresa jsou stejné jako adresa URL nástroje Service Fabric Explorer.
 
-Pro clustery, které jsou zabezpečené pomocí certifikátu, můžete určit certifikát kódovaný PEM. Certifikát lze zadat jako jeden soubor, nebo jako dvojici certifikátu a klíče.
+Pro clustery, které jsou zabezpečené pomocí certifikátu, můžete určit certifikát kódovaný PEM. Certifikát lze zadat jako jeden soubor nebo jako pár certifikátu a klíče.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -128,7 +130,7 @@ Další informace najdete v tématu [Připojení k zabezpečenému clusteru Azur
 
 ## <a name="basic-operations"></a>Základní operace
 
-Informace o připojení ke clusteru se uchovávají napříč více relacemi sfctl. Po výběru clusteru Service Fabric na něm můžete spouštět jakékoli příkazy Service Fabric.
+Informace o připojení ke clusteru se uchovávají napříč více relacemi Service Fabric CLI. Po výběru clusteru Service Fabric na něm můžete spouštět jakékoli příkazy Service Fabric.
 
 Pokud například chcete získat stav clusteru Service Fabric, použijte následující příkaz:
 
@@ -163,7 +165,7 @@ Příkaz vrátí následující výstup:
 
 ## <a name="tips-and-troubleshooting"></a>Tipy a řešení potíží
 
-Zde jsou některé návrhy a tipy pro řešení běžných problémů.
+Tady jsou některé návrhy a tipy pro řešení běžných problémů.
 
 ### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Převod certifikátu z formátu PFX na PEM
 
@@ -175,7 +177,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Další informace najdete v [dokumentace k OpenSSL](https://www.openssl.org/docs/).
 
-### <a name="connection-issues"></a>Problémy s připojením
+### <a name="connection-problems"></a>Problémy s připojením
 
 Některé operace můžou generovat následující zprávu:
 
@@ -185,17 +187,17 @@ Ověřte, že zadaný koncový bod clusteru je dostupný a naslouchá. Ověřte 
 
 ### <a name="detailed-logs"></a>Podrobné protokoly
 
-Podrobné protokoly jsou často užitečné při ladění nebo hlášení problému. Existuje globální příznak `--debug`, kterým se zvyšuje úroveň podrobností souborů protokolů.
+Podrobné protokoly jsou často užitečné při ladění nebo hlášení problému. Globální příznak `--debug` zvyšuje úroveň podrobností souborů protokolů.
 
 ### <a name="command-help-and-syntax"></a>Nápověda k příkazům a jejich syntaxe
 
-Pokud chcete získat nápovědu ke konkrétnímu příkazu nebo skupině příkazů, použijte příznak `-h`:
+Pokud chcete získat nápovědu ke konkrétnímu příkazu nebo skupině příkazů, použijte příznak `-h`.
 
 ```azurecli
 sfctl application -h
 ```
 
-Další příklad:
+Tady je další příklad:
 
 ```azurecli
 sfctl application create -h

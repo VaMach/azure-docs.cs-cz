@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ Pro zachytávání dat do služby Azure Data Lake Store vytvoříte účet Data 
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Vytvoření účtu Azure Data Lake Store a složek
 
-1. Vytvořte účet Data Lake Store podle pokynů v tématu [Začínáme s Azure Data Lake Store s použitím webu Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md). 
-2. Vytvořte pod tímto účtem složku podle pokynů v části [Vytváření složek v účtu Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#createfolder).
-3. Na stránce účtu Data Lake Store klikněte na **Průzkumník dat**.
-4. Klikněte na **Přístup**.
-5. Klikněte na tlačítko **Přidat**.
-6. Do pole **Hledat podle jména nebo e-mailu** zadejte **Microsoft.EventHubs** a pak tuto možnost vyberte. 
-7. Zobrazí se karta **Oprávnění**. Nastavte oprávnění tak, jak je znázorněno na následujícím obrázku:
-
-    ![][6]
-
-8. Klikněte na **OK**.
-9. Nyní v kořenové složce vytvořte složku tak, že přejdete do cílové složky a kliknete na název složky.
-10. Klikněte na **Přístup**.
-11. Klikněte na tlačítko **Přidat**.
-12. Do pole **Hledat podle jména nebo e-mailu** zadejte **Microsoft.EventHubs** a pak tuto možnost vyberte.
-13. Znovu se zobrazí karta **Oprávnění**. Nastavte oprávnění tak, jak je znázorněno na následujícím obrázku:
-
-    ![][5]
+1. Vytvořte účet Data Lake Store podle pokynů v tématu [Začínáme s Azure Data Lake Store s použitím webu Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Postupujte podle pokynů v části [Přiřazení oprávnění ke službě Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) a v rámci účtu Data Lake Store vytvořte složku, do které chcete zachytávat data ze služby Event Hubs, a službě Event Hubs přiřaďte oprávnění k zápisu dat do vašeho účtu Data Lake Store.  
 
 ### <a name="create-an-event-hub"></a>Vytvoření centra událostí
 
@@ -87,12 +71,11 @@ Funkci Capture můžete nakonfigurovat v existujících centrech událostí, kte
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Další kroky
 
 - Další informace o funkci Event Hubs Capture najdete v tématu [Přehled funkce Event Hubs Capture][capture-overview].
 - Ke konfiguraci funkce Event Hubs Capture můžete také použít šablony Azure Resource Manageru. Další informace najdete v tématu věnovaném [povolení funkce Capture pomocí šablony Azure Resource Manageru](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Začínáme s Azure Data Lake Store pomocí webu Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

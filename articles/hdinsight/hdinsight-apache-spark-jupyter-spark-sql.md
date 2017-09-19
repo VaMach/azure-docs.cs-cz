@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Vytvoření clusteru Apache Spark ve službě Azure HDInsight
 
-V tomto článku se dozvíte, jak vytvořit cluster Apache Spark ve službě Azure HDInsight. Informace o Apache Spark ve službě HDInsight najdete v tématu [Přehled: Apache Spark v Azure HDInsight](hdinsight-apache-spark-overview.md).
+V tomto článku se dozvíte, jak vytvořit cluster Apache Spark ve službě Azure HDInsight a pak spustit dotaz Spark SQL na tabulku Hive. Informace o Apache Spark ve službě HDInsight najdete v tématu [Přehled: Apache Spark v Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Diagram rychlého startu popisující postup vytvoření clusteru Apache Spark ve službě Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Rychlý start k použití Apache Spark ve službě HDInsight. Popsané postupy: vytvoření clusteru, spuštění interaktivního dotazu Spark")
 
@@ -65,9 +65,15 @@ Pokud narazíte na problém s vytvářením clusterů HDInsight, může to být 
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>Spuštění dotazu Hive pomocí Spark SQL
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Spouštění příkazů Spark SQL na tabulku Hive
 
-Pokud používáte poznámkový blok Jupyter nakonfigurovaný pro váš cluster HDInsight Spark, získáte přednastavený kontext `sqlContext`, který můžete použít ke spouštění dotazů Hive pomocí Spark SQL. V této části zjistíte, jak spustit poznámkový blok Jupyter a potom spustit základní dotaz Hive.
+Jazyk SQL (Structured Query Language) je nejběžnějším a široce používaným jazykem pro dotazování a definování dat. Zakladatelé Sparku chtěli využít tyto znalosti a zpřístupnit dobře známý jazyk pro dotazování dat širšímu publiku analytiků, kteří chtějí pracovat s daty v systému souborů HDFS (Hadoop Distributed File System). Takovou nabídkou je Spark SQL. Funguje jako rozšíření Apache Spark pro zpracování strukturovaných dat a používá známou syntaxi jazyka SQL.
+
+Spark SQL jako dotazovací jazyky podporuje SQL i HiveQL. Mezi jeho schopnosti patří vytváření vazeb v jazycích Python, Scala a Java. Můžete díky němu dotazovat data uložená v mnoha umístěních, jako jsou externí databáze, strukturované datové soubory (například JSON) a tabulky Hive.
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Spouštění Spark SQL v clusteru HDInsight
+
+Pokud používáte poznámkový blok Jupyter nakonfigurovaný pro váš cluster HDInsight Spark, získáte přednastavený kontext `sqlContext`, který můžete použít ke spouštění dotazů Hive pomocí Spark SQL. V této části se dozvíte, jak spustit poznámkový blok Jupyter a pak spustit základní dotaz Spark SQL na existující tabulku Hive (**hivesampletable**), která je k dispozici na všech clusterech HDInsight.
 
 1. Otevřete web [Azure Portal](https://portal.azure.com/).
 
@@ -87,7 +93,7 @@ Pokud používáte poznámkový blok Jupyter nakonfigurovaný pro váš cluster 
    >
 3. Vytvořte poznámkový blok. Klikněte na tlačítko **Nový** a pak klikněte na tlačítko **PySpark**.
 
-   ![Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL")
+   ![Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL")
 
    Nový poznámkový blok se vytvoří a otevře s názvem Bez názvu (Bez názvu.pynb).
 
@@ -117,7 +123,7 @@ Pokud používáte poznámkový blok Jupyter nakonfigurovaný pro váš cluster 
 
 8. Pokud se chystáte další kroky dokončit později, nezapomeňte odstranit cluster HDInsight, který jste vytvořili v rámci tohoto článku. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>Další krok 
 
