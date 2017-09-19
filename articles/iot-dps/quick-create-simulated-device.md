@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: d4eeb7a77d6336e241c196e4ad48af52d57af1d4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,7 +44,7 @@ Než budete pokračovat, nezapomeňte dokončit kroky v tématu [Nastavení slu�
 5. V lokální kopii tohoto úložiště GitHub vytvořte složku pro proces sestavení CMake. 
 
     ```cmd/sh
-    cd azure-iot-device-auth
+    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
@@ -58,7 +58,7 @@ Než budete pokračovat, nezapomeňte dokončit kroky v tématu [Nastavení slu�
 7. V samostatném příkazovém řádku přejděte do kořenové složky GitHub a spusťte simulátor [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview). Ten naslouchá přes soket na portech 2321 a 2322. Toto příkazové okno nezavírejte, simulátor je potřeba nechat spuštěný až do konce této úvodní příručky. 
 
     ```cmd/sh
-    .\azure-iot-device-auth\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
 ## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Vytvoření položky registrace zařízení ve službě Device Provisioning
@@ -69,11 +69,20 @@ Než budete pokračovat, nezapomeňte dokončit kroky v tématu [Nastavení slu�
 
 3. Přihlaste se k webu Azure Portal, v nabídce vlevo klikněte na tlačítko **Všechny prostředky** a otevřete svou službu Device Provisioning.
 
-4. V okně s přehledem služby Device Provisioning vyberte **Správa registrací**. Vyberte kartu **Jednotlivé registrace** a klikněte na tlačítko **Přidat** v horní části. Jako *Mechanismus* ověření identity vyberte **TPM** a zadejte *ID registrace* a *Ověřovací klíč*, jak to okno vyžaduje. Jakmile budete hotovi, klikněte na tlačítko **Uložit**. 
+4. V okně s přehledem služby Device Provisioning vyberte **Správa registrací**. Vyberte kartu **Jednotlivé registrace** a klikněte na tlačítko **Přidat** v horní části. 
+
+5. V části **Přidat položku seznamu registrací** zadejte následující informace:
+    - Jako *Mechanismus* ověření identity vyberte **TPM**.
+    - Zadejte *ID registrace* a *Ověřovací klíč* pro zařízení TPM. 
+    - Vyberte centrum IoT propojené s vaší zřizovací službou.
+    - Zadejte jedinečné ID zařízení. Při pojmenování zařízení se ujistěte, že nepoužíváte citlivá data.
+    - Aktualizujte **Počáteční stav dvojčete zařízení** s použitím požadované počáteční konfigurace zařízení.
+    - Jakmile budete hotovi, klikněte na tlačítko **Uložit**. 
 
     ![Zadání informací o registraci zařízení v okně portálu](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Po úspěšné registraci se *ID registrace* vašeho zařízení zobrazí v seznamu na kartě *Jednotlivé registrace*. 
+
 
 <a id="firstbootsequence"></a>
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>Simulace první spouštěcí sekvence pro zařízení
@@ -94,6 +103,8 @@ Než budete pokračovat, nezapomeňte dokončit kroky v tématu [Nastavení slu�
 4. Klikněte pravým tlačítkem na projekt **dps_client_sample** a vyberte **Nastavit jako spouštěný projekt**. Spusťte ukázku. Všimněte si zpráv, které simulují spouštění zařízení a jeho připojování ke službě Device Provisioning pro získání informací o vašem centru IoT. Po úspěšném zřízení simulovaného zařízení pro centrum IoT propojené se zřizovací službou se ID zařízení zobrazí v okně **Device Explorer** centra. 
 
     ![Zařízení je zaregistrované u centra IoT](./media/quick-create-simulated-device/hub-registration.png) 
+
+    Pokud jste v položce registrace pro vaše zařízení změnili *počáteční stav dvojčete zařízení* z výchozí hodnoty, může si zařízení požadovaný stav dvojčete vyžádat z centra a příslušně na něj reagovat. Další informace najdete v tématu [Principy a použití dvojčat zařízení ve službě IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků

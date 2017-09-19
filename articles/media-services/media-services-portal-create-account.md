@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Vytvoření účtu Azure Media Services pomocí webu Azure Portal
@@ -36,6 +36,9 @@ Azure Portal nabízí rychlou možnost vytvoření účtu Azure Media Services (
 
 Tento článek popisuje některé obvyklé koncepty a ukazuje jak vytvořit účet Media Services pomocí webu Azure Portal.
 
+> [!NOTE]
+> Informace o dostupnosti funkcí služby Azure Media Services v různých oblastech najdete v tématu popisujícím [dostupnost funkcí AMS v datových centrech](scenarios-and-availability.md#availability).
+
 ## <a name="concepts"></a>Koncepty
 Přístup ke službě Media Services vyžaduje dva přidružené účty:
 
@@ -43,8 +46,8 @@ Přístup ke službě Media Services vyžaduje dva přidružené účty:
   
 * Účet úložiště Azure. Účty úložiště pro mediální soubory musí být umístěné ve stejné zeměpisné oblasti jako účet Media Services. Při vytváření účtu Media Services můžete zvolit buď stávající účet úložiště ve stejné oblasti, nebo můžete vytvořit nový účet úložiště ve stejné oblasti. Pokud odstraníte účet Media Services, objekty blob v souvisejícím účtu úložiště odstraněny nebudou.
 
-> [!NOTE]
-> Informace o dostupnosti funkcí služby Azure Media Services v různých oblastech najdete v tématu popisujícím [dostupnost funkcí AMS v datových centrech](scenarios-and-availability.md#availability).
+  > [!NOTE]
+  > Služba Media Services omezuje primární účet úložiště tak, že může být pouze **obecným účtem Storage** s tabulkami a frontami. Další informace o typech úložiště najdete v článku [Informace o účtech Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="create-an-ams-account"></a>Vytvoření účtu AMS
 Postup v této části ukazuje, jak vytvořit účet AMS.

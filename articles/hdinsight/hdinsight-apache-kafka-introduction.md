@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Představení Apache Kafka ve službě HDInsight (Preview)
@@ -42,7 +42,7 @@ Kafka poskytuje následující funkce:
 
 * Integrace se službou Azure Managed Disks: Spravované disky přináší virtuálním počítačům v clusteru HDInsight lepší škálování a vyšší propustnost.
 
-    Správa disků je v systému Kafka v HDInsight ve výchozím nastavení zapnutá a počet disků v jednotlivých uzlech můžete nastavit při vytváření prostředí HDInsight. Další informace o spravovaných discích najdete v tématu [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    Pro systém Kafka ve službě HDInsight jsou spravované disky povolené ve výchozím nastavení. Počet použitých disků na uzel je možné nakonfigurovat při vytváření služby HDInsight. Další informace o spravovaných discích najdete v tématu [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Informace o konfiguraci spravovaných disků v systému Kafka v HDInsight najdete v tématu [Zvýšení škálovatelnosti systému Kafka v prostředí HDInsight](hdinsight-apache-kafka-scalability.md).
 
@@ -55,6 +55,15 @@ Kafka poskytuje následující funkce:
 * **Agregace:** Pomocí zpracování datových proudů můžete agregovat a kombinovat informace z různých datových proudů a centralizovat je v podobě provozních dat.
 
 * **Transformace:** Pomocí zpracování datových proudů můžete kombinovat data z více vstupních témat a rozšiřovat je do jednoho nebo několika výstupních témat.
+
+## <a name="architecture"></a>Architektura
+
+![Konfigurace clusteru Kafka](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Tento diagram ukazuje obvyklou konfiguraci Kafka s využitím skupin příjemců, dělení a replikace. Díky tomu nabízí paralelní čtení událostí s odolností proti chybám. Apache ZooKeeper spravuje stav clusteru Kafka a proto je postaven pro souběžné a odolné transakce s nízkou latencí. Kafka ukládá záznamy v *tématech*. Záznamy jsou vytvářeny *producenty* a spotřebovávány *konzumenty*. Producenti načítají záznamy ze *zprostředkovatelů* Kafka. Každý pracovní uzel v clusteru HDInsight je zprostředkovatelem Kafka. Pro každého příjemce se vytvoří jeden oddíl, což umožňuje paralelní zpracování streamovaných dat. K rozprostření oddílů mezi uzly se využívá replikace, která zajišťuje ochranu před výpadky uzlů (zprostředkovatelé). Oddíl s označením *(L)* je vedoucím daného uzlu. Provoz producenta se směruje do vedoucích jednotlivých uzlů pomocí stavu, který spravuje ZooKeeper.
+
+> [!IMPORTANT]
+> Kafka nemá žádné informace o podkladovém hardwaru (rack) v datovém centru Azure. Pokud chcete zajistit správné rozmístění oddílů napříč podkladovým hardwarem, přečtěte si téma věnované [konfiguraci vysoké dostupnosti dat (Kafka)](hdinsight-apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9d4b28416376482247127698bec7c99b83308885
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d06052099acbb5544581ef3e8e2007dd751a7544
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="my-first-graphical-runbook"></a>Můj první grafický runbook
@@ -29,17 +28,17 @@ ms.lasthandoff: 05/18/2017
 > * [Grafický](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Pracovní postup PowerShellu](automation-first-runbook-textual.md)
-> 
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 V tomto kurzu se seznámíte s vytvořením [grafického runbooku](automation-runbook-types.md#graphical-runbooks) ve službě Azure Automation.  Začneme s jednoduchým runbookem pro testování a publikování, zatímco budeme vysvětlovat, jak sledovat stav úlohy runbooku.  Potom runbook upravíme, aby skutečně spravoval prostředky Azure, v tomto případě virtuální počítač Azure.  Na závěr kurzu runbook rozšíříme přidáním parametrů runbooku a podmíněných propojení.
 
 ## <a name="prerequisites"></a>Požadavky
-K dokončení tohoto kurzu potřebujete:
+Pro absolvování tohoto kurzu potřebujete:
 
-* Předplatné Azure.  Pokud nemáte účet, můžete si [aktivovat výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo <a href="/pricing/free-account/" target="_blank">[si zaregistrovat bezplatný účet](https://azure.microsoft.com/free/).
-* [Účet Azure Automation](automation-sec-configure-azure-runas-account.md), abyste si mohli runbook ponechat a mohli ověřovat prostředky Azure.  Tento účet musí mít oprávnění ke spuštění a zastavení virtuálního počítače.
-* Virtuální počítač Azure.  Počítač zastavíme a spustíme, proto to nesmí být produkční počítač.
+* Předplatné Azure. Pokud ještě žádné nemáte, můžete si [aktivovat výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Účet Automation](automation-offering-get-started.md), abyste si mohli runbook podržet a mohli ověřovat prostředky Azure.  Tento účet musí mít oprávnění ke spuštění a zastavení virtuálního počítače.
+* Virtuální počítač Azure. Počítač zastavíme a spustíme, proto to nesmí být produkční virtuální počítač.
 
 ## <a name="step-1---create-runbook"></a>Krok 1 – vytvoření runbooku
 Začneme vytvořením jednoduchého runbooku, který zobrazí text *Hello World*.

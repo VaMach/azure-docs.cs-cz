@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;sngun
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: cd8ea6e5a85d00f8ee5a011330d5b93863fd735e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a0e802d931f017c986eba0b64eebfb27c288c8c2
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="my-first-powershell-runbook"></a>Můj první powershellový runbook
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/02/2017
 > * [Grafický](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Pracovní postup PowerShellu](automation-first-runbook-textual.md)
-> 
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 V tomto kurzu se seznámíte s vytvořením [powershellového runbooku](automation-runbook-types.md#powershell-runbooks) ve službě Azure Automation. Začneme s jednoduchým runbookem, který společně otestujeme a publikujeme a současně vám vysvětlíme, jak sledovat stav úlohy runbooku. Potom runbook upravíme, aby skutečně spravoval prostředky Azure, v tomto případě virtuální počítač Azure. Nakonec runbook uděláme robustnější přidáním parametrů.
@@ -36,7 +36,7 @@ V tomto kurzu se seznámíte s vytvořením [powershellového runbooku](automati
 ## <a name="prerequisites"></a>Požadavky
 Pro absolvování tohoto kurzu potřebujete:
 
-* Předplatné Azure. Pokud nemáte účet, můžete si [aktivovat výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo <a href="/pricing/free-account/" target="_blank">[si zaregistrovat bezplatný účet](https://azure.microsoft.com/free/).
+* Předplatné Azure. Pokud ještě žádné nemáte, můžete si [aktivovat výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Účet Automation](automation-offering-get-started.md), abyste si mohli runbook podržet a mohli ověřovat prostředky Azure.  Tento účet musí mít oprávnění ke spuštění a zastavení virtuálního počítače.
 * Virtuální počítač Azure. Počítač zastavíme a spustíme, proto to nesmí být produkční virtuální počítač.
 

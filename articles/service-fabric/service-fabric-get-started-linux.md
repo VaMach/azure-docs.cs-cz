@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 4f51030446d2d2a5a11018b1fce7d7e9193f3dfc
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Příprava vývojového prostředí v Linuxu
@@ -116,11 +116,9 @@ sudo apt-get install servicefabricsdkcommon
 
 ## <a name="set-up-the-service-fabric-cli"></a>Nastavení rozhraní příkazového řádku Service Fabric
 
-[Rozhraní příkazového řádku Service Fabric](service-fabric-cli.md) obsahuje příkazy pro komunikaci s entitami služby Service Fabric, včetně clusterů a aplikací. Je založeno na Pythonu, takže je nutné mít nainstalovaný python a pip předtím, než budete pokračovat následujícím příkazem:
+[Rozhraní příkazového řádku Service Fabric](service-fabric-cli.md) obsahuje příkazy pro komunikaci s entitami služby Service Fabric, včetně clusterů a aplikací.
+Pokud chcete nainstalovat rozhraní příkazového řádku, postupujte podle pokynů v tématu [Service Fabric CLI](service-fabric-cli.md).
 
-```bash
-pip install sfctl
-```
 
 ## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Instalace a nastavení generátorů pro kontejnery a spustitelné soubory hosta
 Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikace Service Fabric z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman.

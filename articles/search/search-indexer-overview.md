@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -58,8 +58,8 @@ Indexer automatizuje některé úkoly související s příjmem dat, ale vytvá�
 Indexer získává data ze **zdroje dat**, který obsahuje informace, jako je například připojovací řetězec. Aktuálně jsou podporované tyto zdroje dat:
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
+* [Databáze Azure Cosmos](search-howto-index-documentdb.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) pro vybrané typy obsahu
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 Zdroje dat se konfigurují a spravují nezávisle na indexerech, které je používají, což znamená, že několik indexerů může používat zdroj dat k načtení více indexů současně.
@@ -71,8 +71,8 @@ Definice indexeru je konstrukce, která určuje index, zdroj dat a plán. Indexe
 Teď jste získali základní představu. V dalším kroku se zaměříme na požadavky a úlohy specifické pro různé typy zdrojů dat.
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* Služba [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), která slouží k extrakci textu z dokumentů PDF, dokumentů Office, HTML nebo XML
+* [Databáze Azure Cosmos](search-howto-index-documentdb.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexování objektů blob CSV pomocí indexeru Azure Search Blob](search-howto-index-csv-blobs.md)
 * [Indexování objektů blob JSON pomocí indexeru Azure Search Blob](search-howto-index-json-blobs.md)

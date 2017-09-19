@@ -1,5 +1,5 @@
 ---
-title: "Začínáme používat službu Azure Notification Hubs pro aplikace Univerzální platformy Windows | Dokumentace Microsoftu"
+title: "Začínáme se službou Azure Notification Hubs pro aplikace Univerzální platformy Windows | Dokumentace Microsoftu"
 description: "V tomto kurzu zjistíte, jak pomocí služby Azure Notification Hubs odesílat nabízená oznámení do aplikace Univerzální platformy Windows."
 services: notification-hubs
 documentationcenter: windows
@@ -15,100 +15,105 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 9b50f1cca81348b69f7ff2d702c6c72871afe0a0
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/08/2017
 
 ---
-# <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Začínáme používat službu Notification Hubs pro aplikace Univerzální platformy Windows
+# <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Začínáme se službou Notification Hubs pro aplikace Univerzální platformy Windows
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Přehled
-V tomto kurzu zjistíte, jak pomocí služby Azure Notification Hubs k odesílat nabízená oznámení do aplikace Univerzální platformy Windows (UPW).
+V tomto článku zjistíte, jak pomocí služby Azure Notification Hubs odesílat nabízená oznámení do aplikace Univerzální platformy Windows (UPW).
 
-V tomto kurzu vytvoříte prázdnou aplikaci pro Windows Store, která obdrží nabízená oznámení pomocí služby nabízených oznámení Windows (WNS). Jakmile budete hotovi, budete moci používat vaše centra oznámení k vysílání nabízených oznámení pro všechna zařízení používající vaši aplikaci.
+V tomto článku vytvoříte prázdnou aplikaci pro Windows Store, která přijímá nabízená oznámení pomocí služby nabízených oznámení Windows (WNS). Jakmile budete hotovi, budete moci používat vaše centrum oznámení k vysílání nabízených oznámení do všech zařízení používajících vaši aplikaci.
 
 ## <a name="before-you-begin"></a>Než začnete
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Dokončený kód v tomto kurzu lze najít v části Github [zde](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+Dokončený kód pro tento kurz najdete na [GitHubu](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
 ## <a name="prerequisites"></a>Požadavky
 V tomto kurzu budete potřebovat následující:
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) nebo novější
-* [Nainstalované nástroje pro vývoj univerzálních aplikací pro Windows](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
-* Aktivní účet Azure <br/>Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
+* [Nainstalované nástroje pro vývoj aplikací pro UPW](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+* Aktivní účet Azure  
+    Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný zkušební účet. Další informace najdete na stránce [bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 * Aktivní účet Windows Store
 
-Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy služby Notification Hubs pro aplikace Univerzální platformy Windows.
+Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy služby Notification Hubs pro aplikace UPW.
 
 ## <a name="register-your-app-for-the-windows-store"></a>Registrace aplikace pro Windows Store
-Chcete-li odesílat nabízená oznámení do aplikací UWP, musíte aplikaci přidružit k Windows Storu. Pak musíte nakonfigurovat centrum oznámení pro integraci s WNS.
+Pokud chcete odesílat nabízená oznámení do aplikací UPW, přidružte svou aplikaci k Windows Store. Pak nakonfigurujte centrum oznámení pro integraci se službou WNS.
 
-1. Pokud jste ještě aplikaci nezaregistrovali, přejděte na [Windows Dev Center](https://dev.windows.com/overview), přihlaste se pomocí účtu Microsoft a pak klikněte na tlačítko **Vytvořit novou aplikaci**.
+1. Pokud jste ještě aplikaci nezaregistrovali, přejděte na web [Windows Dev Center](https://dev.windows.com/overview), přihlaste se pomocí účtu Microsoft a pak vyberte **Vytvořit novou aplikaci**.
 
-2. Zadejte název aplikace a klikněte na tlačítko **Rezervovat název aplikace**. Tím se vytvoří nová registrace Windows Store pro vaši aplikaci.
+2. Zadejte název aplikace a pak vyberte **Rezervovat název aplikace**. Tím se vytvoří nová registrace Windows Store pro vaši aplikaci.
 
-3. V sadě Visual Studio vytvořte nový projekt aplikace Visual C# Store pomocí univerzální šablony **Prázdná aplikace** pro Windows a klikněte na **OK**.
+3. V sadě Visual Studio vytvořte nový projekt aplikace Visual C# pro Store pomocí šablony **Prázdná aplikace** UPW a pak vyberte **OK**.
 
 4. Přijměte výchozí hodnoty cíle a minimální verze platformy.
 
-5. V Průzkumníku řešení klikněte pravým tlačítkem na projekt aplikace Windows Store, klikněte na tlačítko **Úložiště** a pak klikněte na tlačítko **Přidružit aplikaci ve Store...**. Zobrazí se průvodce **Přidružením aplikace k Windows Store**.
+5. V Průzkumníku řešení klikněte pravým tlačítkem na projekt aplikace pro Windows Store, vyberte **Store** a pak vyberte **Přidružit aplikaci ve Store**.  
+    Zobrazí se průvodce **Přidružením aplikace k Windows Store**.
 
 6. V průvodci se přihlaste pomocí svého účtu Microsoft.
 
-7. Klikněte na aplikaci zaregistrovanou v kroku 2, klikněte na tlačítko **Další** a pak klikněte na tlačítko **Přidružit**. Tento postup přidá požadované informace o registraci Windows Store do manifestu aplikace.
+7. Vyberte aplikaci zaregistrovanou v kroku 2, vyberte **Další** a pak vyberte **Přidružit**. Tím se přidají požadované informace o registraci Windows Store do manifestu aplikace.
 
-8. Zpátky na stránce [Windows Dev Center](http://dev.windows.com/overview) pro novou aplikaci klikněte postupně na **Služby**, **Nabízená oznámení** a potom na **WNS/MPNS**.
+8. Zpátky na stránce [Windows Dev Center](http://dev.windows.com/overview) pro novou aplikaci vyberte postupně **Služby**, **Nabízená oznámení** a pak **WNS/MPNS**.
 
-9. Klikněte na **Nové oznámení**.
+9. Vyberte **Nové oznámení**.
 
-10. Klikněte na šablonu **Prázdná (informační zpráva)** a potom klikněte na **OK**.
+10. Vyberte šablonu **Prázdná (informační zpráva)** a pak vyberte **OK**.
 
-11. Zadejte **Název** oznámení a vizuální **kontextovou** zprávu. Potom klikněte na **Uložit jako koncept**.
+11. Zadejte **Název** oznámení a vizuální **kontextovou** zprávu a pak vyberte **Uložit jako koncept**.
 
 12. Přejděte na [Portál pro registraci aplikací](http://apps.dev.microsoft.com) a přihlaste se.
 
-13. Klikněte na název vaší aplikace. Poznamenejte si heslo **Tajný klíč aplikace** a **Identifikátor zabezpečení (SID) balíčku**, které najdete v nastavení platformy **Windows Store**.
+13. Vyberte název vaší aplikace. V nastavení platformy **Windows Store** si poznamenejte heslo **Tajný klíč aplikace** a **Identifikátor zabezpečení (SID) balíčku**.
 
-     > [AZURE.WARNING]
-    Tajný klíč aplikace a SID balíčku jsou důležité přihlašovací údaje zabezpečení. Tyto hodnoty s nikým nesdílejte ani je nedistribuujte s vaší aplikací.
+    >[!WARNING]
+    >Tajný klíč aplikace a SID balíčku jsou důležité přihlašovací údaje zabezpečení. Tyto hodnoty s nikým nesdílejte ani je nedistribuujte s vaší aplikací.
 
 ## <a name="configure-your-notification-hub"></a>Konfigurace centra oznámení
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="6">
-<li><p>Vyberte možnosti <b>Notification Services</b> a <b>Služba nabízených oznámení Windows (WNS)</b>. Potom zadejte <b>Tajný klíč aplikace</b> do pole <b>Klíč zabezpečení</b>. Zadejte hodnotu <b>Identifikátor SID balíčku</b>, kterou jste ve službě WNS získali v předchozí části, a klikněte na <b>Uložit</b>.</p>
+<ol start="5">
+<li><p>Vyberte <b>Notification Services</b> > <b>Windows(WNS)</b> a pak zadejte tajný klíč aplikace do pole <b>Klíč zabezpečení</b>. Do pole <b>SID balíčku</b> zadejte hodnotu, kterou jste ve službě WNS získali v předchozí části, a pak vyberte <b>Uložit</b>.</p>
 </li>
 </ol>
 
-&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
+![Pole SID balíčku a Klíč zabezpečení](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou WNS. Zároveň máte připojovací řetězce, pomocí kterých můžete svou aplikaci zaregistrovat pro odesílání oznámení.
+Vaše centrum oznámení je teď nakonfigurované pro práci se službou WNS. Máte připojovací řetězec, pomocí kterého můžete zaregistrovat aplikaci a odesílat oznámení.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Připojte aplikaci k centru oznámení
-1. Ve Visual Studiu klikněte pravým tlačítkem na řešení a potom na **Spravovat balíčky NuGet**.
+1. V sadě Visual Studio klikněte pravým tlačítkem na řešení a pak vyberte **Spravovat balíčky NuGet**.  
+    Otevře se okno **Spravovat balíčky NuGet**.
+
+2. Do vyhledávacího pole zadejte **WindowsAzure.Messaging.Managed**, vyberte **Nainstalovat** a přijměte podmínky použití.
    
-    Zobrazí se dialogové okno **Správa balíčků NuGet**.
-2. Vyhledejte `WindowsAzure.Messaging.Managed`, klikněte na **Instalovat** a potom přijměte podmínky použití.
+    ![Okno Spravovat balíčky NuGet][20]
    
-    ![][20]
-   
-    Tento správce stáhne, nainstaluje a přidá odkaz na knihovnu zasílání zpráv Azure pro Windows pomocí <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">balíčku NuGet WindowsAzure.Messaging.Managed</a>.
+    Tato akce stáhne, nainstaluje a přidá odkaz na knihovnu zasílání zpráv Azure pro Windows pomocí [balíčku NuGet WindowsAzure.Messaging.Managed](http://nuget.org/packages/WindowsAzure.Messaging).
+
 3. Otevřete soubor projektu App.xaml.cs a přidejte následující příkazy `using`: 
    
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
         using Windows.UI.Popups;
-4. Také do souboru App.xaml.cs přidejte následující definici metody **InitNotificationsAsync** do třídy **Aplikace**:
+
+4. V souboru App.xaml.cs také přidejte do třídy **App** následující definici metody **InitNotificationsAsync**:
    
         private async void InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
    
-            var hub = new NotificationHub("< your hub name>", "<Your DefaultListenSharedAccessSignature connection string>");
+            var hub = new NotificationHub("<your hub name>", "<Your DefaultListenSharedAccessSignature connection string>");
             var result = await hub.RegisterNativeAsync(channel.Uri);
    
             // Displays the registration ID so you know it was successful
@@ -123,54 +128,64 @@ Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou WNS. Z
    
     Tento kód načte identifikátor URI kanálu pro aplikaci z WNS a pak zaregistruje tento kanál URI pomocí centra oznámení.
    
-   > [!NOTE]
-   > Zástupný text „název vašeho centra“ je potřeba nahradit názvem centra oznámení, který se zobrazí na webu Azure Portal. Taky nahraďte zástupný symbol připojovacího řetězce připojovacím řetězcem **DefaultListenSharedAccessSignature**, který jste získali v předchozí části na stránce **Zásady přístupu** vašeho centra oznámení.
+    >[!NOTE]
+    >* Zástupný text **hub name** nahraďte názvem centra oznámení, který se zobrazí na webu Azure Portal. 
+    >* Nahraďte také zástupný připojovací řetězec připojovacím řetězcem **DefaultListenSharedAccessSignature**, který jste získali v předchozí části na stránce **Zásady přístupu** vašeho centra oznámení.
    > 
    > 
 5. V horní části **OnLaunched** obslužné rutiny událostí v souboru App.xaml.cs přidejte následující volání do nové metody **InitNotificationsAsync**:
    
         InitNotificationsAsync();
    
-    Tento postup zaručuje, že bude kanál URI registrován v centru oznámení při každém spuštění aplikace.
-6. Stiskněte klávesu **F5** a spusťte aplikaci. Zobrazí se automaticky otevíraný dialog, který obsahuje registrační klíč.
+    Tato akce zaručuje, že se identifikátor URI kanálu zaregistruje v centru oznámení při každém spuštění aplikace.
+
+6. Pokud chcete aplikaci spustit, stiskněte klávesu **F5**. Zobrazí se dialogové okno, které obsahuje registrační klíč.
 
 Vaše aplikace je teď připravena přijímat oznámení informačního nápisu.
 
 ## <a name="send-notifications"></a>Odeslat oznámení
-Příjem oznámení ve vaší aplikaci můžete rychle otestovat zasláním oznámení z webu [Azure Portal](https://portal.azure.com/) prostřednictvím tlačítka **Poslat na zkoušku** v centru oznámení, jak vidíte na následující obrazovce.
+Příjem oznámení ve vaší aplikaci můžete rychle otestovat odesláním oznámení na webu [Azure Portal](https://portal.azure.com/). Použijte tlačítko **Poslat na zkoušku** v centru oznámení, jak je znázorněno na následujícím obrázku:
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+![Podokno Testovací odeslání](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
-Nabízená oznámení se většinou posílají ve službě back-end, jako je služba Mobile Services, nebo v technologii ASP.NET pomocí kompatibilní knihovny. Můžete také použít rozhraní API REST k přímému zasílání oznámení, pokud pro vaše prostředí back-end není dostupná žádná knihovna. 
+Nabízená oznámení se obvykle odesílají ve službě back-end, jako je služba Mobile Services, nebo v technologii ASP.NET pomocí kompatibilní knihovny. Pokud pro váš back-end není dostupná žádná knihovna, můžete oznámení také odeslat přímo pomocí rozhraní REST API. 
 
-V tomto kurzu nebudeme dělat nic složitého a jednoduše předvedeme testování vaší klientské aplikace pomocí odesílání oznámení v sadě SDK .NET pro centra oznámení v konzolové aplikaci, místo back-end služby. Jako další krok pro odesílání oznámení z backendu ASP.NET doporučujeme absolvovat kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Následující přístupy lze však použít pro zasílání oznámení:
+Tento kurz předvádí, jak otestovat klientskou aplikaci prostým odesláním oznámení, která používají sadu .NET SDK pro centra oznámení v konzolové aplikaci, místo služby back-end. Jako další krok pro odesílání oznámení z back-endu ASP.NET doporučujeme absolvovat kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Oznámení však můžete odesílat pomocí následujících postupů:
 
-* **Rozhraní REST**: oznámení můžete podporovat na jakékoli backend platformě pomocí [rozhraní REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
-* **Microsoft Azure oznámení centra .NET SDK**: Ve správci balíčků Nuget pro Visual Studio spusťte položku [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-* **Node.js**: [Jak používat Notification Hubs z Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Azure Mobile Apps**: Příklad zasílání oznámení ze služby Azure Mobile Apps integrované se službou Notification Hubs najdete v tématu [Přidání nabízených oznámení do mobilních aplikací](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-* **Java / PHP**: Příklad odesílání oznámení pomocí rozhraní API REST najdete v části „Použití centra oznámení z Java/PHP“ ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **Rozhraní REST:** Oznámení můžete podporovat na jakékoli platformě back-end pomocí [rozhraní REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+
+* **Sada .NET SDK služby Microsoft Azure Notification Hubs:** Ve správci balíčků NuGet pro sadu Visual Studio spusťte příkaz [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+
+* **Node.js:** Viz [Jak používat Notification Hubs z Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
+* **Azure Mobile Apps:** Příklad odesílání oznámení z mobilní aplikace Azure integrované se službou Notification Hubs najdete v tématu [Přidání nabízených oznámení pro funkci Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+
+* **Java nebo PHP:** Příklady odesílání oznámení pomocí rozhraní REST API:
+    * [Java](notification-hubs-java-push-notification-tutorial.md)
+    * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
 ## <a name="optional-send-notifications-from-a-console-app"></a>(Volitelné) Odesílání oznámení z konzoly aplikace
-K odeslání oznámení pomocí konzolové aplikace .NET postupujte následovně. 
+Pokud chcete odesílat oznámení pomocí konzolové aplikace .NET, postupujte následovně: 
 
-1. Klikněte pravým tlačítkem myši na řešení, vyberte možnost **Přidat** a **Nový projekt...** a pak v části **Visual C#** klikněte na tlačítko **Windows** a **Konzolové aplikace** a klikněte na tlačítko **OK**.
+1. Klikněte pravým tlačítkem na řešení, vyberte **Přidat** > **Nový projekt**, v části **Visual C#** vyberte **Windows** a **Konzolová aplikace** a pak vyberte **OK**.
    
-    Tento postup přidá novou aplikaci Visual C# do řešení. Tento postup také můžete využít v samostatném řešení.
+    Do řešení se přidá nová konzolová aplikace Visual C#. Projekt můžete také přidat do samostatného řešení.
 
-2. Ve Visual Studiu klikněte na položku **Nástroje**, klikněte na **Správce balíčků NuGet** a pak klikněte na **Konzola Správce balíčků**.
+2. V sadě Visual Studio vyberte **Nástroje**, vyberte **Správce balíčků NuGet** a pak vyberte **Konzola Správce balíčků**.
    
-    Tím se zobrazí Konzola Správce balíčků ve Visual Studiu.
-3. V okně konzoly Správce balíčků nastavte **Výchozí projekt** na nový projekt konzolové aplikace a pak v okně konzoly spusťte následující příkaz:
+    V sadě Visual Studio se otevře Konzola Správce balíčků.
+
+3. V okně Konzola Správce balíčků nastavte **Výchozí projekt** na nový projekt konzolové aplikace a pak v okně konzoly spusťte následující příkaz:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Ten přidá odkaz na sadu SDK centra oznámení Azure pomocí <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">balíčku Microsoft.Azure.Notification Hubs NuGet</a>.
+    Tato akce přidá referenci na sadu SDK služby Azure Notification Hubs pomocí [balíčku NuGet Microsoft.Azure.Notification Hubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-4. Otevřete soubor Program.cs a přidejte následující příkaz `using`:
+    ![Název výchozího projektu](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+4. Otevřete soubor Program.cs a pak přidejte následující příkaz `using`:
    
         using Microsoft.Azure.NotificationHubs;
+
 5. Přidejte následující metodu do třídy **Program**:
    
         private static async void SendNotificationAsync()
@@ -181,28 +196,29 @@ K odeslání oznámení pomocí konzolové aplikace .NET postupujte následovně
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
    
-       Make sure to replace the "hub name" placeholder with the name of the notification hub that as it appears in the Azure Portal. Also, replace the connection string placeholder with the **DefaultFullSharedAccessSignature** connection string that you obtained from the **Access Policies** page of your Notification Hub in the section called "Configure your notification hub."
-   
-   > [!NOTE]
-   > Ujistěte se, že používáte připojovací řetězec s **Úplným** přístupem, nikoli s přístupem **Naslouchat**. Řetězec s přístupem k naslouchání neposkytuje oprávnění k zasílání oznámení.
+    >[!NOTE]
+    >* Zástupný text **hub name** nahraďte názvem centra oznámení, který se zobrazí na webu Azure Portal. 
+    >* Nahraďte zástupný připojovací řetězec připojovacím řetězcem **DefaultFullSharedAccessSignature**, který jste získali v části Konfigurace centra oznámení na stránce **Zásady přístupu** vašeho centra oznámení.
+    >* Použijte připojovací řetězec s *úplným* přístupem, nikoli s přístupem *naslouchat*. Řetězec s přístupem k naslouchání neposkytuje oprávnění k zasílání oznámení.
    > 
    > 
-6. Přidejte následující řádky do metody **Hlavní**:
+6. Do metody **Main** přidejte následující řádky:
    
          SendNotificationAsync();
          Console.ReadLine();
-7. Klikněte pravým tlačítkem na projekt konzolové aplikace ve Visual Studiu a kliknutím na tlačítko **Nastavit jako spouštěný projekt** nastavte projekt jako spouštěný. Pak stiskněte klávesu **F5** a spusťte aplikaci.
+
+7. Klikněte pravým tlačítkem na projekt konzolové aplikace v sadě Visual Studio a výběrem **Nastavit jako spouštěný projekt** nastavte projekt jako spouštěný. Pak stiskněte klávesu **F5** a spusťte aplikaci.
    
-    Na všech registrovaných zařízeních se zobrazí informační zprávy. Kliknutí nebo klepnutí na informační nápis načte aplikaci.
+    Na všech registrovaných zařízeních se zobrazí informační zprávy. Výběr nebo klepnutí na informační nápis načte aplikaci.
 
 Všechny podporované datové části v tématech [katalog informační zprávy], [katalog dlaždic] a [přehled odznaků] naleznete na webu MSDN.
 
 ## <a name="next-steps"></a>Další kroky
-V tomto jednoduchém příkladu jste zaslali oznámení vysílání pro všechna vaše zařízení systému Windows pomocí portálu nebo aplikace konzoly. Jako další krok doporučujeme tutoriál [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Zobrazí se postup odesílání oznámení z ASP.NET back-end pomocí značek pro cílové konkrétní uživatele.
+V tomto jednoduchém příkladu jste pomocí portálu nebo konzolové aplikace odeslali oznámení vysílání do všech vašich zařízení s Windows. Jako další krok doporučujeme kurz [Použití Notification Hubs k odeslání nabízených oznámení uživatelům]. Předvádí postup odesílání oznámení z back-endu ASP.NET s využitím značek pro cílení na konkrétní uživatele.
 
 Pokud chcete segmentovat uživatele podle zájmových skupin, přečtěte si kurz [Používání centra oznámení k odesílání novinek]. 
 
-Další obecné informace o službě Notification Hubs najdete v tématu [Průvodce centry oznámení](notification-hubs-push-notification-overview.md).
+Další obecné informace o službě Notification Hubs najdete v tématu [Průvodce službou Notification Hubs](notification-hubs-push-notification-overview.md).
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
@@ -218,4 +234,5 @@ Další obecné informace o službě Notification Hubs najdete v tématu [Průvo
 [katalog informační zprávy]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [katalog dlaždic]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [přehled odznaků]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+ 
 

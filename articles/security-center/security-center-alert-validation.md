@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Ověřování výstrah ve službě Azure Security Center
@@ -35,12 +35,15 @@ Po nainstalování agenta Security Center do vašeho počítače postupujte na p
 3. Otevřete příkazový řádek a spusťte tento soubor s argumentem (pouze vymyšlený název argumentu), například: *ASC_AlertTest_662jfi039N.exe -foo*
 4. Počkejte 5 až 10 minut a otevřete výstrahy služby Security Center. Měla by se tam zobrazit výstraha podobá této:
 
-    ![Ověřování výstrah](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Ověřování výstrah](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 Při kontrole této výstrahy ověřte, že se v poli Arguments Auditing Enabled (Auditování argumentů povoleno) zobrazuje hodnota true. Pokud se zobrazuje hodnota false, je potřeba povolit auditování argumentů příkazového řádku. Tuto možnost můžete povolit pomocí následujícího příkazového řádku:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> Pokud chcete vidět ukázku této funkce, podívejte se na video [Ověřování výstrah v Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center). 
 
 ## <a name="see-also"></a>Viz také
 V tomto článku jste se seznámili s procesem ověřování výstrah. Teď, když už jste obeznámeni s tímto ověřováním, zkuste následující články:

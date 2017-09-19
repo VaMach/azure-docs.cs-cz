@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/14/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 880a186a3d9a23b013294b0121e8265270d160cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 41d96958ee999e4d0b304dfd9296f51d53eb3277
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -36,12 +36,12 @@ Následující diagram porovnává platformu Kafka ve službě HDInsight před p
 
 1. Postupujte podle kroků v tématu [Vytvoření clusteru HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md), kde se dozvíte, jaký je obecný postup pro vytvoření clusteru pomocí portálu. Proces vytvoření clusteru pomocí portálu nedokončujte.
 
-2. V okně __Velikost clusteru__ pomocí pole __Počet disků v pracovním uzlu__ nakonfigurujte počet disků.
+2. V části __Velikost clusteru__ pomocí pole __Počet disků v pracovním uzlu__ nakonfigurujte počet disků.
 
     > [!NOTE]
     > Typ spravovaného disku může být buď __Standardní__ (HDD), nebo __Prémiový__ (SSD). Prémiové disky se používají u virtuálních počítačů řady DS a GS. Všechny ostatní typy virtuálních počítačů používají standardní disky.
 
-    ![Obrázek okna Velikost clusteru se zvýrazněným počtem disků v pracovním uzlu](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Obrázek části Velikost clusteru se zvýrazněným počtem disků v pracovním uzlu](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Konfigurace spravovaných disků: šablony Resource Manageru
 

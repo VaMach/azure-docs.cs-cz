@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Přehled SQL Serveru v Azure Virtual Machines
@@ -27,34 +26,8 @@ Toto téma popisuje možnosti spouštění SQL Serveru na virtuálních počíta
 
 > [!NOTE]
 > Pokud jste již obeznámeni s SQL Serverem a chcete jenom zjistit, jak nasadit virtuální počítač s SQL Serverem, najdete informace v tématu [Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## <a name="overview"></a>Přehled
-Pokud jste správce databáze nebo vývojář, nabízejí virtuální počítače Azure způsob, jak lokální úlohy aplikace SQL Serveru přesunout do cloudu. Následující video poskytuje technický přehled virtuálních počítačů Azure pro SQL Server.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-Ve videu se probírají následující oblasti:
-
-| Čas | Oblast |
-| --- | --- |
-| 00:21 |Co jsou virtuální počítače Azure? |
-| 01:45 |Zabezpečení |
-| 02:50 |Připojení |
-| 03:30 |Spolehlivost a výkon úložiště |
-| 05:20 |Velikost virtuálních počítačů |
-| 05:54 |Vysoká dostupnost a smlouva SLA |
-| 07:30 |Podpora konfigurace |
-| 08:00 |Monitorování |
-| 08:32 |Ukázka: Vytvoření virtuálního počítače s SQL Serverem 2016 |
-
-> [!NOTE]
-> Video se zaměřuje na SQL Server 2016, ale Azure poskytuje image virtuálních počítačů pro mnoho verzí SQL Serveru: 2012, 2014 a 2016. 
-> 
-> 
+Pokud jste správce databáze nebo vývojář, nabízejí virtuální počítače Azure způsob, jak lokální úlohy aplikace SQL Serveru přesunout do cloudu.
 
 ## <a name="scenarios"></a>Scénáře
 Existuje mnoho důvodů, kvůli kterým byste se mohli rozhodnout, že jako hostitele dat budete využívat Azure. Pokud do Azure přesunujete některou aplikaci, dosáhnete lepšího výkonu, když tam přesunete i data. Ale jsou tu i další výhody. Budete mít automaticky přístup k většímu počtu datových center pro dosažení globální působnosti a zotavení po havárii. Data také získají vysoké zabezpečení a odolnost.
@@ -126,7 +99,7 @@ Virtuální počítače Azure mohou používat [Automatické opravy](virtual-mac
 ### <a name="customer-experience-improvement-program-ceip"></a>Program Zlepšování softwaru a služeb na základě zkušeností uživatelů (CEIP)
 Program Zlepšování softwaru a služeb na základě zkušeností uživatelů (CEIP) je ve výchozím nastavení povolen. Ten pravidelně odesílá zprávy do Microsoftu s cílem přispět k vylepšování SQL Serveru. S programem CEIP není spojená žádná nutná úloha správy – za předpokladu, že ho nechcete po zřízení zakázat. Tento program můžete přizpůsobit nebo vypnout připojením k virtuálnímu počítači pomocí vzdálené plochy. Pak spusťte nástroj **pro zasílání zpráv o chybách a vytváření sestav využití SQL Serveru**. Podle pokynů zakažte generování sestav. 
 
-Další informace najdete v části věnované programu CEIP v tématu [Přijetí licenčních podmínek](https://msdn.microsoft.com/library/ms143343.aspx). 
+Další informace o shromažďování dat najdete v [Prohlášení o zásadách ochrany osobních údajů pro SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Další kroky
 
