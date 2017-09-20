@@ -142,7 +142,6 @@ Vzhledem k tomu, že jste aktuálně přihlášeni jako správce serveru, máte 
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Nyní pomocí dotazu na *databázi SQL Data Warehouse* vytvořte uživatele databáze na základě účtu, který jste vytvořili pro přístup a provádění operací na databázi.
