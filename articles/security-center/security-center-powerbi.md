@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -31,7 +31,7 @@ K sestavám Power BI můžete získat přístup také pomocí řídicího panelu
 
 1. Na řídicím panelu **Azure Security Center** klikněte na tlačítko **Power BI**.
 
-    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig13.png)
+    ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. Napravo se otevře okno **Power BI**, jak vidíte na následující obrazovce:
 
     ![Připojení ke službě Azure Security Center pomocí Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)

@@ -11,8 +11,6 @@
 ### [Přidání operací](api-management-howto-add-operations.md)
 ### [Vytvoření rozhraní API](api-management-howto-create-apis.md)
 ### [Import definice rozhraní API](api-management-howto-import-api.md)
-### [Začínáme s revizemi](api-management-get-started-revise-api.md)
-### [Začínáme s verzemi](api-management-get-started-publish-versions.md)
 ## Zabezpečení back-endu
 ### [Ochrana webového rozhraní API back-endu pomocí AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Připojení k virtuální síti](api-management-using-with-vnet.md)

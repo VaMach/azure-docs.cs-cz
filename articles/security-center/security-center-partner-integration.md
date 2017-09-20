@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ Obsah, který se zobrazí po otevření řešení zabezpečení, se může liši
 
 V části **Připojená řešení** se zobrazují všechna řešení zabezpečení, která jsou aktuálně propojená se službou Security Center. 
 
-![Připojená řešení](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Připojená řešení](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 Informace zobrazené u jednotlivých řešení se můžou lišit v závislosti na řešení. Mezi informacemi dostupnými na každé dlaždici může být:
 
@@ -106,7 +106,7 @@ Upozornění Azure AD Identity Protection procházejí kanálem detekce služby 
 
 Pro integraci se službou Security Center můžete přidat počítače Azure i počítače mimo Azure.  Přidání počítačů mimo Azure znamená, že můžete přidat místní počítač nebo zařízení, které podporuje formát CEF. 
 
-![Zdroje dat](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Zdroje dat](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>Viz také

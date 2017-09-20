@@ -60,7 +60,6 @@
 ### Konfigurace automatického škálování
 #### [Azure Portal](cloud-services-how-to-scale-portal.md)
 #### [Portál Classic](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Použití Pythonu ke správě prostředků Azure](cloud-services-python-how-to-use-service-management.md)
 
 ### [Opravy hostovaného operačního systému](cloud-services-guestos-msrc-releases.md)
