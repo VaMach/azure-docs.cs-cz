@@ -3,7 +3,7 @@
 ## [Disky a virtuální pevné disky (VHD)](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtuální sítě](../../../virtual-network/virtual-networks-overview.md)
 ## [Nejčastější dotazy](faq.md)
-## [Porovnání virtuálních počítačů, webů a cloudových služeb](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [Porovnání virtuálních počítačů, webů a cloudových služeb](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Kontejnery](../../virtual-machines-windows-containers.md)
 
 # Začínáme

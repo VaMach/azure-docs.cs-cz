@@ -143,6 +143,8 @@
               href: agent-user-guide.md
             - name: Aktualizace agenta
               href: update-agent.md
+        - name: Plánovaná údržba
+          href: maintenance-notifications.md
         - name: Naplánované události
           href: scheduled-events.md
         - name: Monitorování metadat

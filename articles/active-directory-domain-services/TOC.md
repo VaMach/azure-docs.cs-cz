@@ -7,16 +7,15 @@
 ## [Kompatibilní software jiných výrobců](active-directory-ds-compatible-software.md)
 
 # Začínáme
-## Azure Portal (Preview)
-### [Úloha 1: Konfigurace základního nastavení](active-directory-ds-getting-started.md)
-### [Úloha 2: Konfigurace nastavení sítě](active-directory-ds-getting-started-network.md)
-### [Úloha 3: Konfigurace skupiny správců a povolení služby Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Úloha 4: Aktualizace nastavení DNS pro virtuální síť](active-directory-ds-getting-started-dns.md)
-### [Úloha 5: Povolení synchronizace hesel](active-directory-ds-getting-started-password-sync.md)
+## [Úloha 1: Konfigurace základního nastavení](active-directory-ds-getting-started.md)
+## [Úloha 2: Konfigurace nastavení sítě](active-directory-ds-getting-started-network.md)
+## [Úloha 3: Konfigurace skupiny správců a povolení služby Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Úloha 4: Aktualizace nastavení DNS pro virtuální síť](active-directory-ds-getting-started-dns.md)
+## [Úloha 5: Povolení synchronizace hesel](active-directory-ds-getting-started-password-sync.md)
 
 # Postup
 ## Připojení ke spravované doméně
-### [Připojení virtuálního počítače s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Připojení virtuálního počítače s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Připojení virtuálního počítače s Windows Serverem pomocí PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Připojení virtuálního počítače s Linuxem](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Správa spravované domény
