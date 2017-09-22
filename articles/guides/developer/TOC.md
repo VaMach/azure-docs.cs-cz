@@ -1,12 +1,17 @@
 # Přehled
 ## [Příručka pro vývojáře](azure-developer-guide.md) 
+### [Co je Azure?](azure-developer-guide.md#what-is-azure)
+### [Kde mám začít?](azure-developer-guide.md#where-do-i-start)
+### [Oblasti Azure](azure-developer-guide.md#azure-regions)
+### [Jak můžu spravovat svoje aplikace a projekty?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [Vysvětlení účtů, předplatných a fakturace](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Přehled služeb Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [Přehled portálu](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Přehled služeb Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Přehled portálu](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Sady SDK a nástroje](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Rychlý start
-## [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Virtuální počítače
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # Kurzy
 ## Vytvoření a nasazení webové aplikace
-### [.NET s SQL DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Node.js s Mongo DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [PHP s databází MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [Java s MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [.NET s SQL DB](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js s Mongo DB](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [PHP s databází MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [Java s MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## Nasazení komplexních šablon virtuálních počítačů
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # Ukázky
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Virtuální počítač s Linuxem](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Virtuální počítač s Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Virtuální počítač s Linuxem](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Virtuální počítač s Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Koncepty
 ## [Fakturace a předplatná](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Porovnání hostingů](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [Co je App Service?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [Porovnání hostingů](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Co je App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## Virtuální počítače
 ### [Virtuální počítače s Linuxem](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Virtuální počítače s Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Přehled platformy Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Průvodce postupy
-## [Plánování](https://docs.microsoft.com/azure/architecture/guide/)
+## Plánování
 ### [Architektury webových aplikací](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [Architektury virtuálních počítačů](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Připojení k místním sítím](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [Aplikace bez serveru](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Cluster mikroslužeb](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Nasazení
-### [Webové a mobilní aplikace ze správy zdrojového kódu](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Webové a mobilní aplikace ze správy zdrojového kódu](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Mikroslužby lokálně](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Virtuální počítač s Linuxem](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Virtuální počítač s Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [Fronty zpráv](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Měřítko
-### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [Virtual Machines](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [Aplikace mikroslužeb](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Zabezpečení
-### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Zálohování
-### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Virtual Machines](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Monitorování
-### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Webové a mobilní aplikace](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Virtuální počítač s Linuxem](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Virtuální počítač s Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Mikroslužby](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Upozornění fakturace](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Automatizace
-### [Agilní vývoj webových aplikací](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Škálování virtuálního počítače s Linuxem](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Škálování virtuálního počítače s Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 

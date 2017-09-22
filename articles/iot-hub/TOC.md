@@ -32,6 +32,7 @@
 ##### [Nastavení Intel NUC jako brány](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Připojení brány ke službě IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Použití brány pro převod dat](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Řešení potíží](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Rozšířené scénáře IoT
 ### [Správa zasílání zpráv cloudových zařízení pomocí iothub-exploreru](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Nahrání souborů ze zařízení](iot-hub-csharp-csharp-file-upload.md)
+### [Nahrání souborů ze zařízení]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Začínáme s dvojčaty zařízení
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### Začínáme se správou zařízení
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back-end / zařízení Java](iot-hub-java-java-device-management-getstarted.md)
 ### Jak používat vlastnosti dvojčat
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Back-end .NET / zařízení .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java back-end / zařízení Java](iot-hub-java-java-twin-how-to-configure.md)
 ### Použití úloh zařízení k aktualizaci firmwaru zařízení
 #### [Back-end Node / zařízení Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-firmware-update.md)

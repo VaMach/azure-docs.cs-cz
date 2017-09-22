@@ -12,8 +12,9 @@
 ### [1. Sestavení aplikace .NET](service-fabric-tutorial-create-dotnet-app.md)
 ### [2. Nasazení aplikace](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3. Konfigurace CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4. Monitorování a diagnostika](service-fabric-tutorial-monitoring-aspnet.md)
 
-## Migrace aplikace metodou „lift and shift“
+## Kontejnerizace existující aplikace v .NET
 ### [1. Vytvoření zabezpečeného clusteru v Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2. Nasazení aplikace .NET pomocí Docker Compose](service-fabric-host-app-in-a-container.md)
 
