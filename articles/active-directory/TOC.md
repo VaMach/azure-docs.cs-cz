@@ -42,6 +42,7 @@
 #### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
+#### [Podmínky použití pro uživatele a aplikace](active-directory-tou.md)
 #### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Přidávání uživatelů z jiných adresářů (klasický portál)](active-directory-create-users-external.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
@@ -197,6 +198,7 @@
 #### [Zobrazení všech mých aplikací](active-directory-coreapps-view-azure-portal.md)
 #### [Správa zřizování uživatelských účtů](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Správa jednotného přihlašování pro podnikové aplikace](active-directory-enterprise-apps-manage-sso.md)
+#### [Pokročilé podepisování certifikátů pro aplikace SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)
@@ -273,6 +275,17 @@
 #### [Přiřazení rolí správce](active-directory-users-assign-role-azure-portal.md)
 ### [Jednotky pro správu](active-directory-administrative-units-management.md)
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
+
+## Kontroly přístupu
+### [Přehled kontrol přístupu](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [Dokončení kontroly přístupu](active-directory-azure-ad-controls-complete-access-review.md)
+### [Vytvoření kontroly přístupu](active-directory-azure-ad-controls-create-access-review.md)
+### [Provádění kontroly přístupu](active-directory-azure-ad-controls-perform-access-review.md)
+### [Jak kontrolovat přístup](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [Přístup hosta pomocí kontrol přístupu](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [Správa přístupu uživatelů pomocí kontrol](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [Správa programů a ovládacích prvků](active-directory-azure-ad-controls-manage-programs-controls.md)
+
 
 ## Zabezpečení identit
 ### [Podmíněný přístup](active-directory-conditional-access-azure-portal.md)

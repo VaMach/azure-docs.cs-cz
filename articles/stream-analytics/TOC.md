@@ -27,7 +27,7 @@
 ### [Vytváření výstupů](stream-analytics-define-outputs.md)
 ### [Výstup do služby Azure Functions](stream-analytics-functions-redis.md)
 ### [Výstup do Data Lake Store](stream-analytics-data-lake-output.md)
-### [Výstup do DocumentDB](stream-analytics-documentdb-output.md)
+### [Výstup do Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## Monitorování a optimalizace
 ### [Přidání výstrah](stream-analytics-set-up-alerts.md)

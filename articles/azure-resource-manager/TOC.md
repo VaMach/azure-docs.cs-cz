@@ -95,10 +95,24 @@
 ## Řešení potíží
 ### [Běžné chyby nasazení](resource-manager-common-deployment-errors.md)
 ### [Vysvětlení chyb nasazení](resource-manager-troubleshoot-tips.md)
-### [Chyba RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Řešení chyb
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Chyby nasazení virtuálního počítače
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [Problémy při nasazení](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [Problémy při zřizování a přidělení](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Běžné chybové zprávy](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [Problémy při nasazení](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [Problémy při zřizování a přidělení](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Běžné chybové zprávy](../virtual-machines/windows/error-messages.md)
 
 # Referenční informace
 ## [Formát šablon](/azure/templates/)

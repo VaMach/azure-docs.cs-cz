@@ -27,6 +27,7 @@
 ### [Pokud už máte Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Správa služby Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Obnovení certifikátů pro O365 a Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Aktualizace certifikátu SSL pro farmu Active Directory Federation Services (AD FS)](active-directory-aadconnectfed-ssl-update.md)
 ### [Povolení zpětného zápisu zařízení](active-directory-aadconnect-feature-device-writeback.md)
 ### [Možnosti přihlášení uživatele](active-directory-aadconnect-user-signin.md)
 #### [Bezproblémové jednotné přihlašování](active-directory-aadconnect-sso.md)

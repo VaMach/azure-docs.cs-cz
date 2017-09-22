@@ -4,6 +4,30 @@
   items:
     - name: Informace o Content Moderatoru
       href: overview.md
+- name: Šablony Rychlý start
+  items:
+    - name: Nástroj pro revize
+      href: quick-start.md
+    - name: Rozhraní API pro moderování
+      items:
+        - name: Rozhraní Image API
+          href: try-image-api.md
+        - name: Rozhraní API pro správu seznamu obrázků
+          href: try-image-list-api.md
+        - name: Rozhraní Text API
+          href: try-text-api.md
+        - name: Rozhraní API pro správu seznamu termínů
+          href: try-terms-list-api.md
+    - name: Recenze rozhraní API
+      items:
+        - name: Úlohy
+          href: try-review-api-job.md
+        - name: Recenze
+          href: try-review-api-review.md
+        - name: Pracovní postupy
+          href: try-review-api-workflow.md
+- name: Koncepty
+  items:
     - name: Moderování obrázků
       href: image-moderation-api.md
     - name: Moderování textu
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: Recenze rozhraní API
       href: review-api.md
-- name: Začínáme
+- name: Návody
   items:
-    - name: Nástroj pro recenze
-      href: quick-start.md
-    - name: Vyzkoušejte si rozhraní API pro moderování
-      items:
-        - name: Image
-          href: try-image-api.md
-        - name: Seznamy imagí
-          href: try-image-list-api.md
-        - name: Text
-          href: try-text-api.md
-        - name: Seznamy termínů
-          href: try-terms-list-api.md
-    - name: Vyzkoušejte si rozhraní API pro recenze
-      items:
-        - name: Úlohy
-          href: try-review-api-job.md
-        - name: Recenze
-          href: try-review-api-review.md
-        - name: Pracovní postupy
-          href: try-review-api-workflow.md
-- name: Postup
-  items:
-    - name: Použití nástroje pro recenze
+    - name: Nástroj pro revize
       items:
         - name: Zapojení lidí
           href: Review-Tool-User-Guide/human-in-the-loop.md
