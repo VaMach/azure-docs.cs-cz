@@ -20,7 +20,6 @@ ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
 ms.contentlocale: cs-cz
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Co je Operations Management Suite (OMS)?
 Tento článek obsahuje úvod k sadě Operations Management Suite (OMS), včetně stručného přehledu výhod, které poskytuje, řešení správy a služeb, které zahrnuje, a nabídek, které zahrnují různé služby a řešení.  Zahrnuje také odkazy na podrobnou dokumentaci k nasazení jednotlivých služeb a řešení.

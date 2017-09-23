@@ -12,8 +12,3 @@ Fronty služby Service Bus představují univerzální technologii, kterou můž
 Použití fronty vám umožňuje snazší škálování aplikací a zvyšuje odolnost vaší architektury proti chybám.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

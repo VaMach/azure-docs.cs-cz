@@ -34,8 +34,3 @@
 9. Dokončení aktualizace trvá několik hodin. Podrobnosti o úloze můžete kdykoli zobrazit výběrem úlohy aktualizace a kliknutím na **Podrobnosti**.
 10. Po dokončení úlohy přejděte na stránku **Údržba** a přejděte dolů do části **Aktualizace softwaru**.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

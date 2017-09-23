@@ -5,8 +5,3 @@
 * [Integrace aplikací se službou Azure Active Directory](../articles/active-directory/active-directory-integrating-applications.md)
 * [Rejstřík článků o správě aplikací ve službě Azure Active Directory](../articles/active-directory/active-directory-apps-index.md)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

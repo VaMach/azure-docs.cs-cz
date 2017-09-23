@@ -21,7 +21,6 @@ ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
 ms.contentlocale: cs-cz
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metody a procesy pro zavádění služby Azure Data Catalog
 Tento článek vám pomůže přijmout službu **Azure Data Catalog** ve vaší organizaci. Chcete-li úspěšně přijmout službu **Azure Data Catalog**, budete se muset zaměřit na tři klíčové položky: definovat svou vizi, identifikovat klíčové případy obchodního použití v rámci vaší organizace a zvolit pilotní projekt.

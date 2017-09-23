@@ -28,8 +28,3 @@ Na pracovní prostory Log Analytics se vztahují na následující omezení:
 | Rozhraní API kolekce dat | Maximální velikost pro jeden příspěvek je 30 MB.<br>Maximální velikost pro hodnoty pole je 32 kB. | Rozdělte větší svazky na více příspěvků.<br>Pole delší než 32 kB se oříznou. |
 | Search API | 5000 záznamů vrácených pro neagregovaná data<br>500000 záznamů vrácených pro agregovaná data | Agregovaná data znamenají vyhledávání, které zahrnuje příkaz `measure`.
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-

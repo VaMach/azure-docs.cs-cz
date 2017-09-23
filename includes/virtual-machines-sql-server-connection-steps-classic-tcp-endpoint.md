@@ -1,5 +1,4 @@
-### Vytvoření koncového bodu TCP pro virtuální počítač
-<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
+### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Vytvoření koncového bodu TCP pro virtuální počítač
 Aby měl virtuální počítač přístup k SQL Serveru z internetu, musí mít koncový bod pro poslech příchozí komunikace TCP. Tento krok konfigurace Azure směruje příchozí provoz portu TCP na port TCP, který je pro virtuální počítač přístupný.
 
 > [!NOTE]

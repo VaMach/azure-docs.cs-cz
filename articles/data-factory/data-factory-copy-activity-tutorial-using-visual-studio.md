@@ -20,7 +20,6 @@ ms.openlocfilehash: f90b158e45a3679210685765b23c8299eb76ed50
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí sady Visual Studio
 > [!div class="op_single_selector"]

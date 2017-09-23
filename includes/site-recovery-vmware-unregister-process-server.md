@@ -20,8 +20,3 @@ Postup zrušení registrace procesového serveru se liší v závislosti na jeho
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
 4. Tím se vymažou podrobnosti o procesovém serveru ze systému.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

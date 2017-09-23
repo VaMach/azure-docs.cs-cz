@@ -212,8 +212,3 @@ A nakonec můžete virtuální počítač odstranit pomocí příkazu `vm delete
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-
-
-<!--HONumber=Jan17_HO5-->
-
-

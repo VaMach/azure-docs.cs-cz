@@ -20,11 +20,8 @@ ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-azure-data-lake-store-using-azure-cli-20" class="xliff"></a>
-
-# Začínáme s Azure Data Lake Store s použitím rozhraní příkazového řádku Azure CLI 2.0
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Začínáme s Azure Data Lake Store s použitím rozhraní příkazového řádku Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Azure Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -42,25 +39,19 @@ Naučte se používat rozhraní příkazového řádku Azure CLI 2.0 k vytvořen
 Rozhraní příkazového řádku Azure CLI 2.0 představuje nové prostředí příkazového řádku Azure pro správu prostředků Azure. Je možné používat ho v systémech macOS, Linux a Windows. Další informace najdete v [přehledu rozhraní příkazového řádku Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview). Můžete si také prostudovat [referenční informace k rozhraní příkazového řádku Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls) obsahující úplný seznam příkazů a syntaxi.
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Požadavky
+## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto článku měli tyto položky:
 
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Rozhraní příkazového řádku Azure CLI 2.0** – Pokyny najdete v článku [Instalace Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-<a id="authentication" class="xliff"></a>
-
-## Authentication
+## <a name="authentication"></a>Authentication
 
 Tento článek využívá jednodušší přístup ověřování ve službě Data Lake Store, kdy se přihlašujete jako koncový uživatel. Úroveň přístupu k účtu služby Data Lake Store a systému souborů se pak řídí úrovní přístupu přihlášeného uživatele. Existují však i jiné přístupy k ověřování ve službě Data Lake Store. Je to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md) nebo [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md).
 
 
-<a id="log-in-to-your-azure-subscription" class="xliff"></a>
-
-## Přihlášení k předplatnému Azure
+## <a name="log-in-to-your-azure-subscription"></a>Přihlášení k předplatnému Azure
 
 1. Přihlaste se ke svému předplatnému Azure.
 
@@ -76,9 +67,7 @@ Tento článek využívá jednodušší přístup ověřování ve službě Data
     az account set --subscription <subscription id> 
     ```
 
-<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
-
-## Vytvoření účtu Azure Data Lake Store
+## <a name="create-an-azure-data-lake-store-account"></a>Vytvoření účtu Azure Data Lake Store
 
 1. Vytvořte novou skupinu prostředků. V následujícím příkazu zadejte hodnoty parametrů, které chcete použít. Pokud název umístění obsahuje mezery, dejte ho do uvozovek. Například „East US 2“. 
    
@@ -92,9 +81,7 @@ Tento článek využívá jednodušší přístup ověřování ve službě Data
     az dls account create --account mydatalakestore --resource-group myresourcegroup
     ```
 
-<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
-
-## Vytváření složek v účtu Data Lake Store
+## <a name="create-folders-in-a-data-lake-store-account"></a>Vytváření složek v účtu Data Lake Store
 
 V rámci účtu Azure Data Lake Store můžete vytvářet složky, které slouží ke správě a ukládání dat. Následujícím příkazem vytvořte v kořenovém adresáři Data Lake Store složku s názvem **mynewfolder**.
 
@@ -107,9 +94,7 @@ az dls fs create --account mydatalakestore --path /mynewfolder --folder
 > 
 >
 
-<a id="upload-data-to-a-data-lake-store-account" class="xliff"></a>
-
-## Nahrání dat do účtu Data Lake Store
+## <a name="upload-data-to-a-data-lake-store-account"></a>Nahrání dat do účtu Data Lake Store
 
 Data můžete do Data Lake Store nahrát přímo na úrovni kořenového adresáře nebo do složky, kterou jste v rámci účtu vytvořili. Níže zobrazené fragmenty kódu ukazují, jak nahrát ukázková data do složky (**mynewfolder**), kterou jste vytvořili v předchozí části.
 
@@ -125,9 +110,7 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 >
 
 
-<a id="list-files-in-a-data-lake-store-account" class="xliff"></a>
-
-## Zobrazení seznamu souborů v účtu Data Lake Store
+## <a name="list-files-in-a-data-lake-store-account"></a>Zobrazení seznamu souborů v účtu Data Lake Store
 
 Následujícím příkazem zobrazte seznam souborů v účtu Data Lake Store.
 
@@ -155,9 +138,7 @@ Výstup by měl vypadat přibližně takto:
         }
     ]
 
-<a id="rename-download-and-delete-data-from-a-data-lake-store-account" class="xliff"></a>
-
-## Přejmenování, stažení a odstranění dat z účtu Data Lake Store 
+## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Přejmenování, stažení a odstranění dat z účtu Data Lake Store 
 
 * **Pokud chcete přejmenovat soubor**, použijte tento příkaz:
   
@@ -188,9 +169,7 @@ Výstup by měl vypadat přibližně takto:
     az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
     ```
 
-<a id="work-with-permissions-and-acls-for-a-data-lake-store-account" class="xliff"></a>
-
-## Práce s oprávněními a seznamy řízení přístupu (ACL) pro účet Data Lake Store
+## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Práce s oprávněními a seznamy řízení přístupu (ACL) pro účet Data Lake Store
 
 V této části se naučíte spravovat seznamy řízení přístupu a oprávnění prostřednictvím rozhraní příkazového řádku Azure CLI 2.0. Podrobný rozbor implementace seznamů řízení přístupu v Azure Data Lake Store najdete v článku [Řízení přístupu v Azure Data Lake Store](data-lake-store-access-control.md).
 
@@ -250,9 +229,7 @@ V této části se naučíte spravovat seznamy řízení přístupu a oprávněn
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
-<a id="delete-a-data-lake-store-account" class="xliff"></a>
-
-## Odstranění účtu Data Lake Store
+## <a name="delete-a-data-lake-store-account"></a>Odstranění účtu Data Lake Store
 Následujícím příkazem odstraňte účet Data Lake Store.
 
 ```azurecli
@@ -261,9 +238,7 @@ az dls account delete --account mydatalakestore
 
 Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
-<a id="next-steps" class="xliff"></a>
-
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 * [Referenční informace k rozhraní příkazového řádku Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)

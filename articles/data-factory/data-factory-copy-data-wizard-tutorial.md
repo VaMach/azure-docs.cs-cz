@@ -20,7 +20,6 @@ ms.openlocfilehash: 5922c050cc09236ba5fdec885a70d11da20135cd
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
 > [!div class="op_single_selector"]

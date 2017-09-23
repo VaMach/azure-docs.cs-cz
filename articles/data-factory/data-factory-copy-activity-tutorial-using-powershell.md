@@ -20,7 +20,6 @@ ms.openlocfilehash: 81efe7c6af29af778686e1f6bcf62fedc9711052
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Kurz: Vytvoření kanálu Data Factory pro přesouvání dat pomocí Azure PowerShellu
 > [!div class="op_single_selector"]

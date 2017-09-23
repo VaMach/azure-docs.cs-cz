@@ -45,8 +45,8 @@ Můžete také zakázat jednotlivé koncové body, které jsou součástí profi
     5. V části **Priorita** vyberte **1**. Výsledkem bude, že veškerý provoz bude přicházet do tohoto koncového bodu, pokud bude v pořádku.
     6. Políčko **Přidat jako zakázaný** ponechte nezaškrtnuté.
     7. Klikněte na tlačítko **OK**.
-6.    Opakujte kroky 4 a 5 a přidejte další koncový bod Azure. Nezapomeňte ho přidat s hodnotou **Priorita** nastavenou na **2**.
-7.    Po přidání se oba koncové body zobrazí v okně **Profil služby Traffic Manager** a jejich stav monitorování bude **Online**.
+6.  Opakujte kroky 4 a 5 a přidejte další koncový bod Azure. Nezapomeňte ho přidat s hodnotou **Priorita** nastavenou na **2**.
+7.  Po přidání se oba koncové body zobrazí v okně **Profil služby Traffic Manager** a jejich stav monitorování bude **Online**.
 
 > [!NOTE]
 > Po přidání nebo odebrání koncového bodu z profilu metodou směrování provozu *Převzetí služeb při selhání* nemusí být seznam priorit přebírání služeb seřazen tak, jak si představujete. Pořadí tohoto seznamu priorit můžete upravit na stránce Konfigurace. Další informace najdete v části [Konfigurování směrování provozu s převzetím služeb při selhání](traffic-manager-configure-failover-routing-method.md).
