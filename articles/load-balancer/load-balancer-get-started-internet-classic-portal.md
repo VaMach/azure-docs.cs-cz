@@ -3,7 +3,7 @@ title: "Vytvoření internetového nástroje pro vyrovnávání zatížení – 
 description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v modelu nasazení Classic pomocí portálu Azure Classic"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management

@@ -147,4 +147,3 @@ Za veřejné IP adresy se může účtovat nominální poplatek. Další informa
 * [Nasazení virtuálního počítače se statickou veřejnou IP adresou pomocí webu Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 * [Nasazení virtuálního počítače se statickou veřejnou IP adresou pomocí šablony](virtual-network-deploy-static-pip-arm-template.md)
 * [Nasazení virtuálního počítače se statickou privátní IP adresou pomocí webu Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
-

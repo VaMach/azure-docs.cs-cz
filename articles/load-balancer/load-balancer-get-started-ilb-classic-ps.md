@@ -3,7 +3,7 @@ title: "Vytvoření interního nástroje pro vyrovnávání zatížení – Powe
 description: "Zjistěte, jak vytvořit interní nástroj pro vyrovnávání zatížení pomocí prostředí PowerShell v modelu nasazení Classic"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
