@@ -52,8 +52,8 @@ Data Lake Store nabízí dva režimy pro správu hlavních šifrovacích klíč�
 
 Pro správu hlavních šifrovacích klíčů existují tyto dva režimy:
 
-*    Klíče spravované službou
-*    Klíče spravované zákazníkem
+*   Klíče spravované službou
+*   Klíče spravované zákazníkem
 
 V obou režimech je hlavní šifrovací klíč zabezpečen uložením ve službě Azure Key Vault. Key Vault je plně spravovaná, vysoce zabezpečená služba v Azure, kterou můžete použít k bezpečnému ukládání kryptografických klíčů. Další informace najdete v tématu [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +74,8 @@ Kromě tohoto rozdílu, tedy kdo spravuje hlavní šifrovací klíče a instanci
 
 Při výběru režimu pro hlavní šifrovací klíče je důležité pamatovat na následující:
 
-*    Možnost výběru, jestli chcete použít klíče spravované zákazníkem nebo klíče spravované službou, máte při zřizování účtu Data Lake Store.
-*    Po zřízení účtu Data Lake Store už režim nejde změnit.
+*   Možnost výběru, jestli chcete použít klíče spravované zákazníkem nebo klíče spravované službou, máte při zřizování účtu Data Lake Store.
+*   Po zřízení účtu Data Lake Store už režim nejde změnit.
 
 ### <a name="encryption-and-decryption-of-data"></a>Šifrování a dešifrování dat
 
@@ -92,20 +92,20 @@ Následující diagram znázorňuje tyto koncepty:
 ![Klíče v šifrování dat](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo algoritmus dešifrování souboru:
-1.    Kontrola, jestli je klíč DEK pro účet Data Lake Store uložený v mezipaměti a připravený k použití.
+1.  Kontrola, jestli je klíč DEK pro účet Data Lake Store uložený v mezipaměti a připravený k použití.
     - Pokud není, přečtení šifrovaného klíče DEK z trvalého úložiště a jeho odeslání do služby Key Vault k dešifrování. Uložení dešifrovaného klíče DEK v mezipaměti. Nyní je připraven k použití.
-2.    Pro každý blok dat v souboru:
+2.  Pro každý blok dat v souboru:
     - Načtení šifrovaného bloku dat z trvalého úložiště.
     - Vygenerování klíče BEK z klíče DEK a šifrovaného bloku dat.
     - Dešifrování dat pomocí klíče BEK.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudo algoritmus šifrování bloku dat:
-1.    Kontrola, jestli je klíč DEK pro účet Data Lake Store uložený v mezipaměti a připravený k použití.
+1.  Kontrola, jestli je klíč DEK pro účet Data Lake Store uložený v mezipaměti a připravený k použití.
     - Pokud není, přečtení šifrovaného klíče DEK z trvalého úložiště a jeho odeslání do služby Key Vault k dešifrování. Uložení dešifrovaného klíče DEK v mezipaměti. Nyní je připraven k použití.
-2.    Vygenerování jedinečného klíče BEK pro blok dat z klíče DEK.
-3.    Šifrování datového bloku pomocí klíče BEK s použitím šifrování AES-256.
-4.    Uložení šifrovaného datového bloku v trvalém úložišti.
+2.  Vygenerování jedinečného klíče BEK pro blok dat z klíče DEK.
+3.  Šifrování datového bloku pomocí klíče BEK s použitím šifrování AES-256.
+4.  Uložení šifrovaného datového bloku v trvalém úložišti.
 
 > [!NOTE] 
 > Z důvodu zajištění lepšího výkonu se klíč DEK v nezašifrované podobě uloží po krátkou dobu do mezipaměti a pak se okamžitě vymaže. Na trvalém médiu je vždy uložen zašifrovaný klíčem MEK.
@@ -127,15 +127,15 @@ Pamatujte, že pokud použijete výchozí možnosti šifrování, vaše data se 
 
     ![Snímek obrazovky služby Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Vyberte klíč přidružený k vašemu účtu Data Lake Store a vytvořte novou verzi tohoto klíče. Pamatujte, že Data Lake Store aktuálně podporuje pouze obměnu klíče za novou verzi klíče. Obměnu za jiný klíč nepodporuje.
+3.  Vyberte klíč přidružený k vašemu účtu Data Lake Store a vytvořte novou verzi tohoto klíče. Pamatujte, že Data Lake Store aktuálně podporuje pouze obměnu klíče za novou verzi klíče. Obměnu za jiný klíč nepodporuje.
 
    ![Snímek obrazovky okna Klíče se zvýrazněnou možností Nová verze](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Přejděte do účtu úložiště Data Lake Store a vyberte **Šifrování**.
+4.  Přejděte do účtu úložiště Data Lake Store a vyberte **Šifrování**.
 
     ![Snímek obrazovky okna účtu úložiště Data Lake Store se zvýrazněnou možností Šifrování](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Zobrazí se zpráva informující o dostupnosti nové verze klíče. Kliknutím na **Obměnit klíč** aktualizujte klíč na novou verzi.
+5.  Zobrazí se zpráva informující o dostupnosti nové verze klíče. Kliknutím na **Obměnit klíč** aktualizujte klíč na novou verzi.
 
     ![Snímek obrazovky okna Data Lake Store se zvýrazněnou zprávou a možností Obměnit klíč](./media/data-lake-store-encryption/rotatekey.png)
 

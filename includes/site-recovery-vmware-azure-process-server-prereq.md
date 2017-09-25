@@ -7,8 +7,3 @@ V tomto článku se předpokládá následující:
 
 > [!TIP]
 > Ujistěte se, že se můžete připojit na port 443 konfiguračního serveru (spuštěného místně) z Azure Virtual Network, kam bylo provedeno převzetí služeb při selhání virtuálních počítačů.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

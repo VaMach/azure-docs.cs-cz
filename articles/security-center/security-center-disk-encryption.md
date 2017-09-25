@@ -20,7 +20,6 @@ ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
 ms.contentlocale: cs-cz
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Šifrování virtuálního počítače Azure
 Azure Security Center vás upozorní, pokud máte virtuální počítače, které nejsou šifrované. Tyto výstrahy se zobrazují jako upozornění s vysokou závažností. Doporučuje se tyto virtuální počítače zašifrovat.

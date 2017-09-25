@@ -20,7 +20,6 @@ ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
 ms.contentlocale: cs-cz
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="azure-security-center-data-security"></a>Zabezpečení dat ve službě Azure Security Center
 Služba Azure Security Center pomáhá zákazníkům předcházet hrozbám, detekovat je a reagovat na ně tím, že shromažďuje a zpracovává data související se zabezpečením, včetně informací o konfiguraci, metadat, protokolů událostí, souborů se stavem systému a dalších dat. Společnost Microsoft dodržuje přísné pokyny pro dodržování předpisů a zabezpečení – od psaní kódu po provoz služeb.

@@ -1,6 +1,4 @@
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
-
-#### Zastavení a spuštění cloudového zařízení
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>Zastavení a spuštění cloudového zařízení
 
 1. Pokud chcete zastavit cloudové zařízení, přejděte do virtuálního počítače pro cloudové zařízení.
     ![Virtuální počítač s řešením StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -27,9 +25,7 @@ K zastavení a spuštění cloudového zařízení slouží následující rutin
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
-
-#### Restartování cloudového zařízení
+#### <a name="to-restart-a-cloud-appliance"></a>Restartování cloudového zařízení
 
 Pokud chcete restartovat cloudové zařízení, přejděte do virtuálního počítače pro cloudové zařízení. Na panelu příkazů klikněte na **Restartovat**. Po zobrazení výzvy potvrďte restartování. Když je cloudové zařízení připravené k použití, jeho stav je **Spuštěno**.
 

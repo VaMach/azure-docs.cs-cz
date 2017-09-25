@@ -4,8 +4,3 @@ Pokud chcete provést kroky v tomto článku, budete muset [nainstalovat a nakon
 
 > [!NOTE]
 > Pokud účet Azure nemáte, musíte si ho vytvořit. Zde si můžete zaregistrovat [bezplatnou zkušební verzi](../articles/active-directory/sign-up-organization.md).
-
-
-<!--HONumber=Dec16_HO1-->
-
-

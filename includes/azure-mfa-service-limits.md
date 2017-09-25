@@ -9,8 +9,3 @@
 | Uzamknutí uživatelského účtu po **X** po sobě jdoucích odepřeních MFA |Nenastaveno |99 |
 | Resetování čítače uzamčení účtu po **X** minutách |Nenastaveno |9999 |
 | Odemknutí účtu po **X** minutách |Nenastaveno |9999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

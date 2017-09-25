@@ -4,8 +4,3 @@
 
    > [!NOTE]
    > Pokud přidáváte server VMware vCenter nebo hostitele VMware vSphere pomocí účtu, který nemá oprávnění správce na serveru vCenter nebo serveru hostitele, ujistěte se, že má účet povolená tato oprávnění: Datové centrum, Úložiště dat, Složka, Hostitel, Síť, Prostředek, Virtuální počítač a Distribuovaný přepínač vSphere. Kromě toho server VMware vCenter potřebuje povolené oprávnění Zobrazení úložišť.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

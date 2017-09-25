@@ -20,7 +20,6 @@ ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Požadavky ExpressRoute a kontrolní seznam
 Pokud se chcete připojit ke cloudovým službám Microsoftu pomocí služby ExpressRoute, musíte ověřit, že jsou splněné požadavky uvedené v následujících oddílech.

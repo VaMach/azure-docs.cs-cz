@@ -8,8 +8,3 @@
 
     > [!Note]
   > Může trvat 15 minut nebo déle, než se název účtu objeví na portálu. Chcete-li provést aktualizaci okamžitě, klikněte na **Konfigurační servery** > ***název serveru*** > **Aktualizovat server**.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

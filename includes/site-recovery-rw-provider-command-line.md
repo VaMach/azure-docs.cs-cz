@@ -24,8 +24,3 @@ Parametry:
 * SkipSpaceCheck: Volitelné. Přeskočí kontrolu místa v mezipaměti.
 * AcceptThirdpartyEULA: Povinné. Přijme smlouvy EULA třetích stran.
 * ShowThirdpartyEULA: Povinné. Zobrazí smlouvy EULA třetích stran. Pokud je zadán jako vstup, všechny ostatní parametry budou ignorovány.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

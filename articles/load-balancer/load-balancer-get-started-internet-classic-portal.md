@@ -3,7 +3,7 @@ title: "Vytvoření internetového nástroje pro vyrovnávání zatížení – 
 description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v modelu nasazení Classic pomocí portálu Azure Classic"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
+ms.contentlocale: cs-cz
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -67,9 +69,4 @@ U dalších virtuálních počítačů v sadě s vyrovnáváním zatížení opa
 [Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení](load-balancer-distribution-mode.md)
 
 [Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

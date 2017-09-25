@@ -1,7 +1,5 @@
 
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
-
-#### Konfigurace vzdálené správy na cloudovém zařízení
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Konfigurace vzdálené správy na cloudovém zařízení
 
 1. Ve službě Správce zařízení StorSimple klikněte na **Zařízení**. V seznamu zařízení připojených ke službě vyberte a klikněte na vaše cloudové zařízení.
     ![Výběr cloudového zařízení StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)

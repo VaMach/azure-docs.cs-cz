@@ -1,6 +1,4 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
-#### Konfigurace a registrace cloudového zařízení
+#### <a name="to-configure-and-register-the-cloud-appliance"></a>Konfigurace a registrace cloudového zařízení
 
 1. V okně **Zařízení** vyberte a klikněte na řešení StorSimple Cloud Appliance, které jste vytvořili.
 

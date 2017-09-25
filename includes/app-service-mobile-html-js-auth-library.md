@@ -1,4 +1,4 @@
-### <a name="a-nameserver-authahow-to-authenticate-with-a-provider-server-flow"></a><a name="server-auth"></a>Postup: Ověřování pomocí zprostředkovatele (tok na straně serveru)
+### <a name="server-auth"></a>Postup: Ověřování pomocí zprostředkovatele (tok na straně serveru)
 Pokud chcete, aby funkce Mobile Apps spravovala proces ověřování ve vaší aplikaci, je třeba aplikaci zaregistrovat u vašeho zprostředkovatele identity. Potom je nutné ve službě Azure App Service nakonfigurovat ID aplikace a tajný klíč, který vám poskytne zprostředkovatel.
 Další informace najdete v kurzu [Přidání ověřování do aplikace](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
@@ -19,7 +19,7 @@ Platné hodnoty pro zprostředkovatele jsou „aad“, „facebook“, „google
 
 V tomto případě služba Azure App Service spravuje tok ověřování OAuth 2.0.  Zobrazí přihlašovací stránku vybraného zprostředkovatele a po úspěšném přihlášení pomocí zprostředkovatele identity vygeneruje ověřovací token služby App Service. Funkce login po dokončení vrátí objekt JSON, který vystaví ID uživatele a ověřovací token služby App Service v polích userId a authenticationToken. Tento token se může uložit do mezipaměti a znovu požívat do vypršení platnosti.
 
-###<a name="a-nameclient-authahow-to-authenticate-with-a-provider-client-flow"></a><a name="client-auth"></a>Postup: Ověřování pomocí zprostředkovatele (tok na straně klienta)
+###<a name="client-auth"></a>Postup: Ověřování pomocí zprostředkovatele (tok na straně klienta)
 
 Vaše aplikace také může nezávisle kontaktovat zprostředkovatele identity a následně poskytnout navrácený token službě App Service k ověření. Tento tok na straně klienta vám umožní poskytnout uživatelům jednotné přihlašování nebo od zprostředkovatele identity načíst další uživatelská data.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 Tento příklad získá token ze služby Live Connect a zavoláním funkce login jej předá vaší službě App Service.
 
-###<a name="a-nameauth-getinfoahow-to-obtain-information-about-the-authenticated-user"></a><a name="auth-getinfo"></a>Postup: Získání informací o ověřeném uživateli
+###<a name="auth-getinfo"></a>Postup: Získání informací o ověřeném uživateli
 
 Ověřovací informace můžete načíst z koncového bodu `/.auth/me` voláním HTTP pomocí libovolné knihovny AJAX.  Ujistěte se, že jste hlavičku `X-ZUMO-AUTH` nastavili na váš ověřovací token.  Ověřovací token je uložen v `client.currentUser.mobileServiceAuthenticationToken`.  Například pokud chcete použít rozhraní Fetch API:
 
@@ -78,8 +78,3 @@ fetch(url, { headers: headers })
 ```
 
 Fetch je k dispozici jako [balíček npm](https://www.npmjs.com/package/whatwg-fetch) nebo ke stažení přes prohlížeč na webu [CDNJS](https://cdnjs.com/libraries/fetch). K načtení informací můžete použít také jQuery nebo jiné rozhraní AJAX API.  Přijatá data jsou ve formátu objektu JSON.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

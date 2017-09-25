@@ -5,8 +5,3 @@
 > Snadno použitelné a úplné ukázky kódu pro Azure Storage, které si můžete stáhnout a použít, jsou shrnuté v seznamu [ukázky pro Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-samples-java).
 
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

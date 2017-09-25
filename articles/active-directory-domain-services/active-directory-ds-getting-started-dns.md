@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/27/2017
+ms.date: 09/20/2017
 ms.author: maheshu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
 ms.contentlocale: cs-cz
 ms.lasthandoff: 06/30/2017
-
 
 ---
 # <a name="enable-azure-active-directory-domain-services-preview"></a>Povolení služby Azure Active Directory Domain Services (Preview)

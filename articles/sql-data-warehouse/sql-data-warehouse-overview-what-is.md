@@ -21,7 +21,6 @@ ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Co je Azure SQL Data Warehouse?
 Azure SQL Data Warehouse je cloudová, škálovatelná, relační databáze, která dokáže zpracovávat ohromné objemy dat, postavená na architektuře MPP (Massively Parallel Processing). 

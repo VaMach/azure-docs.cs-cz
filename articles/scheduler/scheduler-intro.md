@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-
+ms.contentlocale: cs-cz
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="what-is-azure-scheduler"></a>Co je Azure Scheduler?
@@ -52,10 +53,5 @@ Scheduler umožní vytvářet, aktualizovat, odstraňovat, zobrazovat a spravova
  [Omezení, výchozí hodnoty a chybové kódy Azure Scheduleru](scheduler-limits-defaults-errors.md)
 
  [Odchozí ověření Azure Scheduleru](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

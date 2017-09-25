@@ -5,8 +5,3 @@
 
 ## <a name="get-security-updates-for-our-products"></a>Získejte bezpečnostní aktualizace našich produktů
 Doporučujeme využívat oznámení o incidentech zabezpečení. Navštivte proto [stránku TechCenter věnovanou technickým oznámením zabezpečení Microsoftu ](https://technet.microsoft.com/security/dd252948) a přihlaste se k odběru služby Security Advisory Alerts.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

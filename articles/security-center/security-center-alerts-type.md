@@ -20,7 +20,6 @@ ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
 ms.contentlocale: cs-cz
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Principy výstrah zabezpečení ve službě Azure Security Center
 Tento článek vám pomůže porozumět různým typům výstrah zabezpečení a souvisejícím přehledům, které jsou dostupné ve službě Azure Security Center. Další informace o správě těchto výstrah a incidentů najdete v tématu [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md).

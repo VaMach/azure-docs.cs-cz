@@ -1,6 +1,4 @@
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
-
-#### Vytvoření veřejných koncových bodů na cloudovém zařízení
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Vytvoření veřejných koncových bodů na cloudovém zařízení
 
 1. Přihlaste se k portálu Azure.
 2. Přejděte na **Virtuální počítače** a vyberte a klikněte na virtuální počítač, který používáte jako cloudové zařízení.

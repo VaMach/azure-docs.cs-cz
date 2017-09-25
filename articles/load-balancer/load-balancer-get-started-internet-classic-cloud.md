@@ -3,7 +3,7 @@ title: "Vytvoření internetového nástroje pro vyrovnávání zatížení pro 
 description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení pro cloudové služby v modelu nasazení Classic"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
+ms.contentlocale: cs-cz
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -89,10 +91,5 @@ Další informace najdete ve schématu definice služby pro [test stavu](https:/
 [Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení](load-balancer-distribution-mode.md)
 
 [Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

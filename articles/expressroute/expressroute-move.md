@@ -20,7 +20,6 @@ ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
 ms.contentlocale: cs-cz
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager
 Tento článek obsahuje přehled toho, co znamená přesun okruhu Azure ExpressRoute z modelu nasazení Classic do Azure Resource Manager.
