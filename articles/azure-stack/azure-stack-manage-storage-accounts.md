@@ -20,7 +20,6 @@ ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
 ms.contentlocale: cs-cz
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Manage Storage Accounts in Azure Stack
 Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.

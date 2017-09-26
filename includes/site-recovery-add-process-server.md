@@ -34,8 +34,3 @@
 9. Na stránce **Souhrn** zkontrolujte informace a klikněte na **Nainstalovat**. Po dokončení instalace se vygeneruje heslo. Budete ho potřebovat k povolení replikace, proto si ho zkopírujte a uložte na bezpečném místě.
 
      ![Přidání procesového serveru 7](./media/site-recovery-add-process-server/ps-page-8.png)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

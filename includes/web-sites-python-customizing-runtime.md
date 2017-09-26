@@ -15,8 +15,3 @@ jsou následující:
 
 Pokud je uvedená mikroverze (třetí číslice), bude se ignorovat.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
