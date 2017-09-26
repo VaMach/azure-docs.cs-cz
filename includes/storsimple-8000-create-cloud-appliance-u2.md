@@ -20,7 +20,7 @@
    7. Zaškrtnutím příslušného políčka potvrďte, že jste seznámeni s tím, že data uložená v cloudovém zařízení jsou hostována v datacentru Microsoftu.
        * Pokud používáte jenom fyzické zařízení, váš šifrovací klíč se uchovává se zařízením, a Microsoft proto nemůže data dešifrovat.
 
-       * Při použití cloudového zařízení jsou šifrovací i dešifrovací klíč uloženy v Microsoft Azure. Další informace najdete v tématu popisujícím [aspekty zabezpečení pro používání cloudového zařízení](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       * Při použití cloudového zařízení jsou šifrovací i dešifrovací klíč uloženy v Microsoft Azure. Další informace najdete v tématu popisujícím [aspekty zabezpečení pro používání cloudového zařízení](../articles/storsimple/storsimple-security.md).
    8. Kliknutím na **Vytvořit** zřiďte cloudové zařízení. Zřízení zařízení může trvat zhruba 30 minut. Po úspěšném vytvoření cloudového zařízení se zobrazí oznámení. Přejděte do okna Zařízení – seznam zařízení se aktualizuje a zobrazí se v něm cloudové zařízení. Stav zařízení je **Připraveno k nastavení**.
       
       ![Řešení StorSimple Cloud Appliance připravené k nastavení](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

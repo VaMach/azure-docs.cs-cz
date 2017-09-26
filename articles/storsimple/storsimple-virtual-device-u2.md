@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Nasazení a správa virtuálního zařízení StorSimple v Azure
@@ -64,7 +64,7 @@ V následující tabulce jsou uvedeny některé hlavní rozdíly mezi virtuáln�
 | **Šifrovací klíč dat služby** |Obnovte na fyzickém zařízení a potom aktualizujte virtuální zařízení pomocí nového klíče. |Nelze znovu vygenerovat z virtuálního zařízení. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Požadavky na virtuální zařízení
-Následující části popisují požadavky na konfiguraci pro virtuální zařízení StorSimple. Před nasazením virtuálního zařízení si přečtěte [požadavky na zabezpečení pro použití virtuálních zařízení](storsimple-security.md#storsimple-virtual-device-security).
+Následující části popisují požadavky na konfiguraci pro virtuální zařízení StorSimple. Před nasazením virtuálního zařízení si přečtěte [požadavky na zabezpečení pro použití virtuálních zařízení](storsimple-security.md).
 
 #### <a name="azure-requirements"></a>Požadavky na Azure
 Než zřídíte virtuální zařízení, je třeba provést následující přípravy v prostředí Azure:
