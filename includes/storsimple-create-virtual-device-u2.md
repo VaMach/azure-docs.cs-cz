@@ -21,7 +21,7 @@
       > 
    7. Zaškrtnutím příslušného políčka potvrďte, že jste seznámeni s tím, že data uložená ve virtuálním zařízení budou hostována v datovém centru Microsoftu. Pokud používáte jenom fyzické zařízení, váš šifrovací klíč se uchovává se zařízením, a Microsoft proto nemůže data dešifrovat. 
       
-       Při použití virtuálního zařízení jsou šifrovací i dešifrovací klíče uloženy v Microsoft Azure. Další informace najdete v článku o [bezpečnostních aspektech použití virtuálního zařízení](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       Při použití virtuálního zařízení jsou šifrovací i dešifrovací klíče uloženy v Microsoft Azure. Další informace najdete v článku o [bezpečnostních aspektech použití virtuálního zařízení](../articles/storsimple/storsimple-security.md).
    8. Kliknutím na ikonu zaškrtnutí vytvořte virtuální zařízení. Zřízení zařízení může trvat zhruba 30 minut.
       
       ![Fáze vytváření virtuálního zařízení StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

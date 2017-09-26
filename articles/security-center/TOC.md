@@ -74,6 +74,7 @@
 
 ## Cloudová ochrana
 ### [Přístup právě včas](security-center-just-in-time.md)
+### [Adaptivní ovládací prvky aplikace](security-center-adaptive-application.md)
 
 ## Automatizace a orchestrace
 ### [Scénáře](security-center-playbooks.md)

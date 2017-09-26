@@ -21,7 +21,7 @@
 ### [Ověřování odchozích spojení](scheduler-outbound-authentication.md)
 
 # Referenční informace
-## [PowerShell](/powershell/module/azurerm.scheduler)
+## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Zdroje a prostředky

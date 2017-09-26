@@ -18,23 +18,23 @@
 # Postup
 ## Vytvoření a změny okruhu
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## Vytvoření a změny konfigurace partnerského vztahu
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## Propojení virtuální sítě k okruhu ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## Konfigurace brány virtuální sítě pro ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurace společně používaných připojení typu Site-to-Site a ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## Konfigurace filtrů směrování pro partnerský vztah Microsoftu
 ### [Azure Portal](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
 ## [Migrace přidružených virtuálních sítí z modelu nasazení Classic do Resource Manageru](expressroute-migration-classic-resource-manager.md)
 ## Konfigurace směrovače pro ExpressRoute
@@ -53,7 +53,7 @@
 ### [Získání tabulek protokolu ARP (Classic)](expressroute-troubleshooting-arp-classic.md)
 
 # Referenční informace
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/dn606310)
