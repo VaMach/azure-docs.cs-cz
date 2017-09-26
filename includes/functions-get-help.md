@@ -1,5 +1,5 @@
-### <a name="need-some-help"></a>Potřebujete pomoc?
-Ptejte se ve fórech Azure. - [Navštivte web MSDN.](http://go.microsoft.com/fwlink/?LinkId=780719)
+### <a name="need-some-help"></a>Need some help?
+Post questions in the Azure forums. - [Visit MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)
 
-Dotazy označte klíčovým slovem `azure-functions`. - [Navštivte web Stack Overflow.](http://stackoverflow.com/questions/tagged/azure-functions)
+Tag questions with the keyword `azure-functions`. - [Visit Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 

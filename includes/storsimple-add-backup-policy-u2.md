@@ -22,8 +22,3 @@
 
 Nově přidaná zásada se zobrazí v tabulkovém zobrazení na stránce **Zásady zálohování**.
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

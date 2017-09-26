@@ -32,7 +32,7 @@ ms.lasthandoff: 07/01/2017
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
->
+> 
 
 Naučte se používat rozhraní příkazového řádku Azure CLI 2.0 k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake Store najdete v tématu [Přehled Data Lake Store](data-lake-store-overview.md).
 

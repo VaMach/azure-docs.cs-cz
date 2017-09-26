@@ -18,8 +18,3 @@ Jedná se o alternativní postup využívající fakt, že skript nasazení odst
 ### <a name="option-3-customize-deployment-script"></a>Možnost 3: Přizpůsobení skriptu nasazení
 Pokud jste přizpůsobili skript nasazení, můžete změnit kód v souboru deploy.cmd a vynutit, aby odstranil složku env.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
