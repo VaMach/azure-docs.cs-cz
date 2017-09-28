@@ -16,7 +16,7 @@
 # Postup
 ## Připojení ke spravované doméně
 ### [Připojení virtuálního počítače s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Připojení virtuálního počítače s Windows Serverem pomocí PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Připojení virtuálního počítače s Windows Serverem s využitím Azure PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Připojení virtuálního počítače s Linuxem](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Správa spravované domény
 ### [Správa spravované domény](active-directory-ds-admin-guide-administer-domain.md)

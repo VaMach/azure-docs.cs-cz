@@ -4,8 +4,8 @@
 
 # Šablony Rychlý start
 ## [Vytvoření aplikace .NET](service-fabric-quickstart-dotnet.md)
-## [Nasazení aplikace typu kontejner pro Windows](service-fabric-quickstart-containers.md)
 ## [Nasazení aplikace typu kontejner pro Linux](service-fabric-quickstart-containers-linux.md)
+## [Nasazení aplikace typu kontejner pro Windows](service-fabric-quickstart-containers.md)
 
 # Kurzy
 ## Nasazení aplikace .NET
@@ -17,11 +17,24 @@
 ## Kontejnerizace existující aplikace v .NET
 ### [1. Vytvoření zabezpečeného clusteru v Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2. Nasazení aplikace .NET pomocí Docker Compose](service-fabric-host-app-in-a-container.md)
+### [3. Monitorování kontejneru](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## Vytvoření aplikace typu kontejner pro Linux
+### [1. Vytvoření imagí kontejneru](service-fabric-tutorial-create-container-images.md)
+### [2. Balení a nasazení kontejnerů](service-fabric-tutorial-package-containers.md)
+### [3. Převzetí služeb při selhání a škálování](service-fabric-tutorial-containers-failover.md)
+
+## Vytvoření a správa clusteru
+### 1. Vytvoření clusteru v Azure
+#### [1a. Vytvoření zabezpečeného clusteru s Windows v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b. Vytvoření zabezpečeného clusteru s Linuxem v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2. Nasazení API Managementu s využitím Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Ukázky
-## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
+
 # Koncepty
 ## [Principy mikroslužeb](service-fabric-overview-microservices.md)
 ## [Celkový přehled](service-fabric-content-roadmap.md)
@@ -67,6 +80,8 @@
 #### [Stav služby](service-fabric-concepts-state.md)
 #### [Dělení služby](service-fabric-concepts-partitioning.md)
 #### [Dostupnost služeb](service-fabric-availability-services.md)
+#### [Repliky a instance](service-fabric-concepts-replica-lifecycle.md)
+#### [Rekonfigurace](service-fabric-concepts-reconfiguration.md)
 #### Komunikace služeb
 ##### [Přehled](service-fabric-connect-and-communicate-with-services.md)
 ##### [Služba DNS](service-fabric-dnsservice.md)
@@ -91,7 +106,6 @@
 
 ## Vytvoření a správa clusterů
 ### [Přehled](service-fabric-deploy-anywhere.md)
-### [Service Fabric v Linuxu](service-fabric-linux-overview.md)
 ### Plánování a příprava
 #### [Plánování kapacity](service-fabric-cluster-capacity.md)
 #### [Zotavení po havárii](service-fabric-disaster-recovery.md)
@@ -130,6 +144,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [Nastavení rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
 
 ## Sestavení aplikace
 ### [Vytvoření první aplikace C# v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -225,13 +241,13 @@
 
 ### Nasazení nebo odebrání aplikací
 #### [Nasazení aplikací v místním clusteru](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [Rozhraní API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Upgrade aplikací
-#### [Upgrade s využitím PowerShellu](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Upgrade s využitím Azure PowerShellu](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Upgrade s využitím sady Visual Studio](service-fabric-application-upgrade-tutorial.md)
 #### [Řešení potíží s upgrady aplikací](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -280,8 +296,6 @@
 
 ### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
-
-### [Začínáme se Service Fabric CLI](service-fabric-cli.md)
 ### [Oprava uzlů clusteru](service-fabric-patch-orchestration-application.md)
 
 ### Správa a orchestrace prostředků clusteru
@@ -326,7 +340,7 @@
 ### [Řešení potíží s místním clusterem](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referenční informace
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Rozhraní API Java](/java/api/overview/azure/servicefabric)
