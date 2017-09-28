@@ -1,0 +1,177 @@
+- name: Dokumentace ke službě Azure Machine Learning (Preview)
+  href: index.yml
+- name: Přehled
+  expanded: true
+  items:
+    - name: Co je Azure Machine Learning?
+      href: overview-what-is-azure-ml.md
+    - name: Přehled správy modelů
+      href: model-management-overview.md
+- name: Šablony Rychlý start
+  items:
+    - name: Instalace a vytvoření
+      href: quickstart-installation.md
+- name: Kurzy
+  items:
+    - name: 1. Příprava dat
+      href: tutorial-classifying-iris-part-1.md
+    - name: 2. Sestavení modelu
+      href: tutorial-classifying-iris-part-2.md
+    - name: 3. Nasazení modelu
+      href: tutorial-classifying-iris-part-3.md
+    - name: 4. Pokročilá příprava dat
+      href: tutorial-bikeshare-dataprep.md
+- name: Koncepty
+  items:
+    - name: Klíčové koncepty
+      href: overview-general-concepts.md
+- name: Návody
+  items:
+    - name: Použití aplikace Machine Learning Workbench
+      items:
+        - name: Práce s integrovanými vývojovými prostředími Pythonu
+          href: how-to-configure-your-IDE.md
+        - name: Použití poznámkových bloků Jupyter
+          href: how-to-use-jupyter-notebooks.md
+        - name: Integrace s úložištěm Git
+          href: using-git-ml-project.md
+        - name: Strukturování projektu s TDSP
+          href: how-to-use-tdsp-in-azure-ml.md
+        - name: Postupy při roamingu a spolupráci
+          href: roaming-and-collaboration.md
+    - name: Použití nástrojů sady Visual Studio
+      href: quickstart-visual-studio-tools.md
+    - name: Konfigurace výpočetního prostředí
+      items:
+        - name: Konfigurace cílů spouštění
+          href: experiment-execution-configuration.md
+        - name: Trénování s grafickými procesory
+          href: how-to-use-gpu.md
+    - name: Získání dat a jejich pochopení
+      items:
+        - name: Přístup k datům s využitím Průvodce zdrojem dat
+          href: data-source-wizard.md
+        - name: Začínáme s přípravou dat
+          href: data-prep-getting-started.md
+        - name: Průvodce přípravou dat
+          href: data-prep-user-guide.md
+        - name: Transformace při přípravě dat
+          items:
+            - name: Sloučení sloupců podle příkladu
+              href: data-prep-combine-columns-by-example.md
+            - name: Odvození sloupce podle příkladu
+              href: data-prep-derive-column-by-example.md
+            - name: Rozdělení sloupce podle příkladu
+              href: data-prep-split-column-by-example.md
+            - name: Rozbalení notace JSON
+              href: data-prep-expand-json.md
+    - name: Vývoj modelů
+      items:
+        - name: Klasifikace Iris s využitím rozhraní příkazového řádku
+          href: tutorial-iris-azure-cli.md
+        - name: Sledování historie spuštění a metrik modelů
+          href: how-to-use-run-history-model-metrics.md
+        - name: Čtení a zápis souborů
+          href: how-to-read-write-files.md
+        - name: Knihovna MMLSpark
+          href: how-to-use-mmlspark.md
+    - name: Modely nasazení
+      items:
+        - name: Nastavení správy modelů
+          href: deployment-setup-configuration.md
+        - name: Nasazení webové služby
+          href: model-management-service-deploy.md
+        - name: Využívání webové služby
+          href: model-management-consumption.md
+        - name: Jak používat shromažďování dat modelů
+          href: how-to-use-model-data-collection.md
+    - name: Příklady z reálného světa
+      items:
+        - name: Analýza kolekce dokumentů
+          href: scenario-document-collection-analysis.md
+        - name: Porovnání otázek a odpovědí
+          href: scenario-qna-matching.md
+        - name: Prediktivní údržba
+          href: scenario-predictive-maintenance.md
+        - name: Klasifikace leteckých snímků
+          href: scenario-aerial-image-classification.md
+        - name: Prognózování úloh serveru s terabajty dat
+          href: scenario-big-data.md
+        - name: Prognózování poptávky po energiích v čase
+          href: scenario-time-series-forecasting.md
+        - name: Distribuované ladění hyperparametrů
+          href: scenario-distributed-tuning-of-hyperparameters.md
+        - name: Předpověď výpovědi zákazníků
+          href: scenario-churn-prediction.md
+        - name: Analýza mínění s hloubkovým učením
+          href: scenario-sentiment-analysis-deep-learning.md
+        - name: Rozpoznávání biomedicínských entit – projekt TDSP
+          href: scenario-tdsp-biomedical-recognition.md
+        - name: Klasifikace příjmů v USA – projekt TDSP
+          href: scenario-tdsp-classifying-us-incomes.md
+- name: Referenční informace
+  items:
+    - name: Příprava dat
+      items:
+        - name: Rozšíření Pythonu pro přípravu dat
+          href: data-prep-python-extensibility-overview.md
+        - name: Podporované zdroje dat
+          href: data-prep-appendix2-supported-data-sources.md
+        - name: Podporované transformace
+          href: data-prep-appendix3-supported-transforms.md
+        - name: Podporované kontroly
+          href: data-prep-appendix4-supported-inspectors.md
+        - name: Podporované datové cíle
+          href: data-prep-appendix5-supported-destinations.md
+        - name: Podporované kombinace prostředí dat a spuštění
+          href: data-prep-supported-runtime-data-environments.md
+        - name: Ukázka výrazu filtru v Pythonu
+          href: data-prep-appendix6-sample-filter-expressions-python.md
+        - name: Ukázka vlastních transformací DataFlow v Pythonu
+          href: data-prep-appendix7-sample-transform-data-flow-python.md
+        - name: Ukázka připojení zdroje v Pythonu
+          href: data-prep-appendix8-sample-source-connections-python.md
+        - name: Ukázka připojení cíle v Pythonu
+          href: data-prep-appendix9-sample-destination-connections-python.md
+        - name: Ukázka transformací sloupců v Pythonu
+          href: data-prep-appendix10-sample-custom-column-transforms-python.md
+        - name: Rozhraní API pro spuštění přípravy dat
+          href: data-prep-python-execution-api.md
+    - name: Experimentování
+      items:
+        - name: Konfigurace spuštění
+          href: experiment-execution-configuration-reference.md
+    - name: Správa modelů
+      items:
+        - name: Rozhraní API pro správu modelů
+          href: model-management-api-reference.md
+        - name: Rozhraní příkazového řádku správy modelů
+          href: model-management-cli-reference.md
+        - name: Rozhraní API pro shromažďování dat modelů
+          href: model-data-collection-api-reference.md
+- name: Zdroje
+  items:
+    - name: Nejčastější dotazy
+      href: frequently-asked-questions.md
+    - name: Známé problémy a průvodce odstraňováním potíží
+      href: known-issues-and-troubleshooting-guide.md
+    - name: Dokumentace k vědeckému zpracování týmových dat
+      href: ../team-data-science-process/overview.md
+    - name: Dokumentace k virtuálním počítačům pro datové vědy
+      href: ../data-science-virtual-machine/overview.md
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Videa
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Fórum pro názory
+      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+    - name: Dostupnost v oblastech
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Možnosti podpory
+      href: 'https://azure.microsoft.com/support/options/'

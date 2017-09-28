@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9. Zálohování virtuálních počítačů
       href: tutorial-backup-vms.md
-    - name: 10. Monitorování virtuálních počítačů
+    - name: 10. Monitorování a aktualizace virtuálních počítačů
       href: tutorial-monitoring.md
     - name: 11. Správa zabezpečení virtuálního počítače
       href: tutorial-azure-security.md
@@ -163,6 +163,12 @@
           href: manage-availability.md
         - name: Vertikální škálování
           href: vertical-scaling-automation.md
+        - name: Vytvoření virtuálního počítače v zóně dostupnosti
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: Portál
+              href: create-portal-availability-zone.md
     - name: Použití nástrojů automatizace
       items:
         - name: Chef
@@ -170,7 +176,7 @@
     - name: Spouštění aplikací
       items:
         - name: SQL Server
-          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: SAP v Azure
@@ -342,7 +348,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/vm
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute

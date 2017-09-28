@@ -11,8 +11,8 @@
 ### [Správa ověřování AAD pomocí portálu](media-services-portal-get-started-with-aad.md)
 ### [Přístup k rozhraní API pomocí .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Přístup k rozhraní API pomocí REST](media-services-rest-connect-with-aad.md)
-### [Vytvoření a konfigurace aplikace AAD pomocí rozhraní příkazového řádku](media-services-cli-create-and-configure-aad-app.md)
-### [Vytvoření a konfigurace aplikace AAD pomocí PowerShellu](media-services-powershell-create-and-configure-aad-app.md)
+### [Vytvoření a konfigurace aplikace AAD pomocí rozhraní příkazového řádku Azure](media-services-cli-create-and-configure-aad-app.md)
+### [Vytvoření a konfigurace aplikace AAD pomocí Azure PowerShellu](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Doručování videa na vyžádání
 ### [Azure Portal](media-services-portal-vod-get-started.md)
@@ -120,7 +120,7 @@
 ### [Specifikace živého ingestování fragmentovaného MP4](media-services-fmp4-live-ingest-overview.md)
 
 ## [Ochrana](media-services-content-protection-overview.md)
-### [Konfigurace ochrany obsahu pomocí portálu](media-services-portal-protect-content.md)
+### [Konfigurace ochrany obsahu na webu Azure Portal](media-services-portal-protect-content.md)
 ### [Konfigurace nezašifrovaného klíče AES-128 pro váš stream](media-services-protect-with-aes128.md)
 ### [Použití REST k šifrování obsahu pomocí šifrování úložiště](media-services-rest-storage-encryption.md)
 ### [Přehled šablon licencování Media Services PlayReady](media-services-playready-license-template-overview.md)
@@ -147,7 +147,7 @@
 ### [Předávání ověřovacích tokenů](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Analýza](media-services-analytics-overview.md)
-### [Analýza médií pomocí portálu](media-services-portal-analyze.md)
+### [Analýza médií s využitím webu Azure Portal](media-services-portal-analyze.md)
 ### [Zpracování pomocí Indexeru 2](media-services-process-content-with-indexer2.md)
 ### [Zpracování pomocí Indexeru](media-services-index-content.md)
 #### [Předvolby úloh](indexer-task-preset.md)
@@ -213,8 +213,8 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
-## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [PowerShell (správa prostředků)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [Azure PowerShell (správa služeb)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)  
 

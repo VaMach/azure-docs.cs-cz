@@ -1,0 +1,29 @@
+- name: Dokumentace k řešení Azure Cost Management
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Co je správa nákladů?
+      href: overview.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Zobrazení informací o nákladech
+      href: quick-register-azure-sub.md
+    - name: Zobrazení informací o nákladech – EA
+      href: quick-register-ea.md
+    - name: Zobrazení informací o nákladech – CSP
+      href: quick-register-csp.md
+- name: Kurzy
+  items:
+    - name: 1. Kontrola využití a nákladů
+      href: tutorial-review-usage.md
+    - name: 2. Řízení přístupu k datům
+      href: tutorial-user-access.md
+- name: Zdroje
+  items:
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Dostupnost podle oblastí
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'

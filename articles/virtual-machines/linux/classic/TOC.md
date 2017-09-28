@@ -5,7 +5,7 @@
 ## [Nejčastější dotazy](faq.md)
 
 # Začínáme
-## [Vytvoření virtuálního počítače s Linuxem pomocí portálu](createportal.md)
+## [Vytvoření virtuálního počítače s Linuxem s využitím webu Azure Portal](createportal.md)
 ## [Instalace rozhraní příkazového řádku Azure](../../../cli-install-nodejs.md)
 ## [Vytvoření klíčů SSH](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Resetování Linuxových hesel nebo klíčů, opravení SSH a kontrola disků](reset-access.md)
 ### [Údržba](planned-maintenance-schedule.md)
 ### [Vytvoření hostitele Docker pomocí rozhraní příkazového řádku](cli-use-docker.md)
-### [Vytvoření hostitele Docker pomocí portálu](portal-use-docker.md)
+### [Vytvoření hostitele Docker s využitím webu Azure Portal](portal-use-docker.md)
 ### [Jak použít Docker se Swarmem](../../virtual-machines-linux-docker-swarm.md)
 
 ## Použití úložiště
@@ -67,7 +67,7 @@
 ### [Připojení virtuálního pevného disku pro řešení potíží s virtuálním počítačem](troubleshoot-recovery-disks-portal.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Tvorba šablon Resource Manageru](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

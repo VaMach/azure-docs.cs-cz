@@ -12,6 +12,8 @@
   items:
     - name: Monitorování změn virtuálních počítačů pomocí aplikací logiky
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Změna velikosti nahraných obrázků
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Koncepty
   items:
     - name: Koncepty Event Grid

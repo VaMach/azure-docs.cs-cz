@@ -36,7 +36,7 @@
 ### Konfigurace vzdálené plochy
 #### [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Portál Classic](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Nasazení
 ### Vytvoření a nasazení cloudové služby na portálu
@@ -80,7 +80,7 @@
 ### [Testování výkonu](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testování pomocí profileru sady Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Povolení diagnostiky
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Použití čítačů výkonu v Diagnostice Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -108,8 +108,14 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [Schéma .csdef XML](schema-csdef-file.md)
+### [Schéma LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
+### [Schéma WebRole](schema-csdef-webrole.md)
+### [Schéma WorkerRole](schema-csdef-workerrole.md)
+### [Schéma NetworkTrafficRules](schema-csdef-networktrafficrules.md)
+## [Schéma .cscfg XML](schema-cscfg-file.md)
+### [Schéma rolí](schema-cscfg-role.md)
+### [Schéma NetworkConfiguration](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Zdroje a prostředky

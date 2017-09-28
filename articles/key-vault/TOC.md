@@ -25,9 +25,9 @@
 ### [Přístup přes brány firewall](key-vault-access-behind-firewall.md)
 ### [Dostupnost a redundance](key-vault-disaster-recovery-guidance.md)
 ### [Změna ID tenanta](key-vault-subscription-move-fix.md)
-### [Vytváření a správa pomocí CLI 2.0](key-vault-manage-with-cli2.md)
+### [Vytvoření a správa s využitím rozhraní příkazového řádku Azure](key-vault-manage-with-cli2.md)
 ### [Jak používat obnovitelné odstranění Key Vaultu s využitím CLI](key-vault-soft-delete-cli.md)
-### [Jak používat obnovitelné odstranění Key Vaultu s využitím PowerShellu](key-vault-soft-delete-powershell.md)
+### [Jak používat obnovitelné odstranění Key Vaultu s využitím Azure PowerShellu](key-vault-soft-delete-powershell.md)
 ### [Použití skupin pro udělení přístupu](key-vault-group-permissions-for-apps.md)
 ### [Zabezpečení trezoru klíčů](key-vault-secure-your-key-vault.md)
 
@@ -36,8 +36,8 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
-## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2](/cli/azure/keyvault)
+## [Azure PowerShell](/powershell/module/azurerm.keyvault)
+## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

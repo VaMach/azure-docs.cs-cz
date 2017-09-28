@@ -8,7 +8,7 @@
 
 # Začínáme
 ## [Vytvoření serveru na portálu Azure](analysis-services-create-server.md)
-## [Vytvoření serveru s využitím PowerShellu](analysis-services-create-powershell.md)
+## [Vytvoření serveru s využitím Azure PowerShellu](analysis-services-create-powershell.md)
 ## [Nasazení modelu ze sady Visual Studio](analysis-services-deploy.md)
 ## [Vytvoření modelu na webu Azure Portal (Preview)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [Doplňková lekce – Nepravidelné hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Referenční informace
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

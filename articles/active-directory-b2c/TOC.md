@@ -67,12 +67,17 @@
 ### Integrace rozhraní RESTful API
 #### [Ověření vstupu uživatele](active-directory-b2c-rest-api-validation-custom.md)
 #### [Získání dalších deklarací identity](active-directory-b2c-rest-api-step-custom.md)
-### Přizpůsobení přihlášení
+### Toky uživatele
 #### [Konfigurace uživatelského vstupu](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Vlastní atributy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom.md)
 #### [Přizpůsobení tokenů](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Přizpůsobení hesla](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Složitost hesel](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Změna hesel](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Povolení možnosti zůstat přihlášeni](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Řešení potíží
 #### [Shromažďování protokolů pomocí Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referenční informace

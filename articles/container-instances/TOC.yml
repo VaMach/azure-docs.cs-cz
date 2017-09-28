@@ -7,8 +7,12 @@
 - name: Šablony Rychlý start
   expanded: true
   items:
-    - name: Vytvoření instance kontejneru
+    - name: Vytvoření kontejneru – rozhraní příkazového řádku
       href: container-instances-quickstart.md
+    - name: Vytvoření kontejneru – portál
+      href: container-instances-quickstart-portal.md
+    - name: Vytvoření kontejneru – PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Kurzy
   items:
     - name: Sestavení a nasazení kontejneru
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Referenční informace
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

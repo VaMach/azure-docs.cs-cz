@@ -45,6 +45,7 @@
 ## Nasazení správy konfigurace (DSC)
 ### [Přehled konfigurace požadovaného stavu (DSC)](automation-dsc-overview.md)
 ### [Začínáme](automation-dsc-getting-started.md)
+### [Konfigurace serverů do požadovaného stavu a správa odchylek s využitím Azure Automation](tutorial-configure-servers-desired-state.md)
 ### [Připojování počítačů pro správu](automation-dsc-onboarding.md)
 ### [Kompilace konfigurací DSC](automation-dsc-compile.md)
 ### [Nepřetržité nasazování pomocí Chocolatey](automation-dsc-cd-chocolatey.md)
@@ -68,8 +69,12 @@
 ### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Nasazení šablony Azure Resource Manageru v powershellového runbooku Azure Automation](automation-deploy-template-runbook.md)
 ## Řešení
-### [Sledování změn](../log-analytics/log-analytics-change-tracking.md)
 ### [Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)
+#### [Správa aktualizací pro několik virtuálních počítačů](manage-update-multi.md)
+#### [Integrace SCCMr s OMS Update Managementem](oms-solution-updatemgmt-sccmintegration.md)
+### [Sledování změn](../log-analytics/log-analytics-change-tracking.md)
+### [Sledování změn ve vašich virtuálních počítačích](automation-vm-change-tracking.md)
+### [Správa virtuálního počítače se shromažďování dat pro inventarizaci](automation-vm-inventory.md)
 ### [Spuštění/zastavení virtuálních počítačů mimo špičku](automation-solution-vm-management.md)
 ## Monitorování
 ### [Předávání dat úloh Azure Automation do Log Analytics](automation-manage-send-joblogs-log-analytics.md)
@@ -81,8 +86,8 @@
 ### [Odstraňování běžných chyb](automation-troubleshooting-automation-errors.md)
 ### [Řešení potíží s funkcí Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Referenční informace
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)

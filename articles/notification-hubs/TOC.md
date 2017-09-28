@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Automatizace
-### [Nasazení a správa Notification Hubs pomocí PowerShellu](notification-hubs-deploy-and-manage-powershell.md)
+### [Nasazení a správa Notification Hubs s využitím Azure PowerShellu](notification-hubs-deploy-and-manage-powershell.md)
 ### [Odesílání plánovaných oznámení](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Řešení potíží
@@ -61,7 +61,7 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

@@ -2,7 +2,7 @@
 ## [Co jsou škálovací sady virtuálních počítačů?](virtual-machine-scale-sets-overview.md)
 
 # Začínáme
-## [Nasazení škálovací sady na portálu](virtual-machine-scale-sets-portal-create.md)
+## [Nasazení škálovací sady na webu Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ## [Nasazení škálovací sady s použitím PowerShellu nebo Azure CLI](virtual-machine-scale-sets-create.md)
 ## [Nasazení aplikace s automatickým škálováním pomocí šablony](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Použití automatického škálování na základě hosta s využitím šablony škálovací sady pro Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Nasazení
-### [Vytvoření pomocí portálu](virtual-machine-scale-sets-portal-create.md)
+### [Vytvoření s využitím webu Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Vytvoření pomocí sady Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Vytvoření pomocí PowerShellu nebo Azure CLI](virtual-machine-scale-sets-create.md)
+### [Vytvoření pomocí Azure PowerShellu nebo Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Škálovací sada se spravovanými disky](virtual-machine-scale-sets-managed-disks.md)
 ### [Škálovací sada pro Linux s automatickým škálováním](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Škálovací sada pro Windows s automatickým škálováním](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Spravovat
-### [Škálovací sada pro Windows s použitím PowerShellu](virtual-machine-scale-sets-windows-manage.md)
+### [Škálovací sada pro Windows s použitím Azure PowerShellu](virtual-machine-scale-sets-windows-manage.md)
 ### [Automatické škálování a škálovací sady](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Pokročilé automatické škálování](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Vertikální škálování ve škálovací sadě](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Nejčastější dotazy týkající se škálovacích sad](virtual-machine-scale-sets-faq.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

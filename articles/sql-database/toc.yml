@@ -11,7 +11,7 @@
       href: sql-database-get-started-portal.md
     - name: Vytvoření databáze – Azure CLI
       href: sql-database-get-started-cli.md
-    - name: Vytvoření databáze – PowerShell
+    - name: Vytvoření databáze – Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Připojení a dotazování
       items:
@@ -51,7 +51,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Azure CLI
       href: sql-database-cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: sql-database-powershell-samples.md
 - name: Koncepty
   items:
@@ -71,6 +71,8 @@
           href: sql-database-connectivity-architecture.md
         - name: Pravidla brány firewall
           href: sql-database-firewall-configure.md
+        - name: Pravidla virtuální sítě brány firewall
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Jednotky DTU a eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Srovnávací test DTU
@@ -95,6 +97,8 @@
           href: sql-database-elastic-transactions-overview.md
         - name: Elastické úlohy
           href: sql-database-elastic-jobs-overview.md
+        - name: Posouzení ohrožení zabezpečení SQL
+          href: sql-vulnerability-assessment.md
         - name: Běžné funkce SQL Serveru
           href: sql-database-features.md
     - name: Zabezpečení
@@ -155,6 +159,10 @@
           href: sql-database-advisor.md
         - name: Automatické ladění
           href: sql-database-automatic-tuning.md
+        - name: Užitečné přehledy
+          href: sql-database-intelligent-insights.md
+        - name: Diagnostické protokoly Intelligence Insights
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Ruční ladění
           href: sql-database-performance-guidance.md
         - name: Provozování úložiště dotazů
@@ -229,7 +237,7 @@
           href: sql-database-elastic-jobs-service-installation.md
         - name: Vytvoření úlohy – portál
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Vytvoření úlohy – PowerShell
+        - name: Vytvoření úlohy – Azure PowerShell
           href: sql-database-elastic-jobs-powershell.md
         - name: Vytvoření úlohy – ukázková aplikace
           href: sql-database-elastic-jobs-getting-started.md
@@ -255,12 +263,14 @@
           href: sql-database-dynamic-data-masking-get-started-portal.md
         - name: Konfigurace vícefaktorového ověřování
           href: sql-database-ssms-mfa-authentication-configure.md
+        - name: Pravidla virtuálních sítí s využitím PowerShellu
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Kontinuita podnikových procesů
       items:
         - name: Načítání dat pomocí BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Načítání dat pomocí ADF
-          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: Synchronizace dat
           href: sql-database-get-started-sql-data-sync.md
     - name: Monitorování a ladění
@@ -273,6 +283,8 @@
           href: sql-database-advisor-portal.md
         - name: Povolení automatického ladění
           href: sql-database-automatic-tuning-enable.md
+        - name: Řešení potíží s výkonem Intelligent Insights
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Monitorování výkonu pomocí zobrazení dynamické správy
           href: sql-database-monitoring-with-dmvs.md
         - name: Vytváření upozornění
@@ -335,7 +347,7 @@
           href: sql-database-connect-excel.md
 - name: Referenční informace
   items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (elastická databáze)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'

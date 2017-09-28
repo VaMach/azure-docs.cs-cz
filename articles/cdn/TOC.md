@@ -19,7 +19,7 @@
 ####[Akcelerace dynamického webu](cdn-dynamic-site-acceleration.md)
  
 ## Spravovat
-### [Správa pomocí PowerShellu](cdn-manage-powershell.md)
+### [Správa pomocí Azure PowerShellu](cdn-manage-powershell.md)
 ### Konfigurace hodnoty TTL (time-to-live)
 #### [Obsah služeb Web Apps / Cloud Services, ASP.NET nebo IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Obsah služby Storage Blob](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

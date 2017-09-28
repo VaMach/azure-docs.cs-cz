@@ -30,12 +30,12 @@
 ## Business Intelligence
 ### [SQL Server Business Intelligence ve virtuálních počítačích Azure](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [Použití ReportVieweru na webu hostovaném v Azure](virtual-machines-windows-classic-sql-server-reportviewer.md)
-### [Použití PowerShellu k vytvoření virtuálního počítače Azure se serverem sestav](virtual-machines-windows-classic-ps-sql-report.md)
+### [Použití Azure PowerShellu k vytvoření virtuálního počítače Azure se serverem sestav](virtual-machines-windows-classic-ps-sql-report.md)
 ## [Osvědčené postupy z hlediska výkonu](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Vzory aplikací](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Referenční informace
-## [PowerShell – Classic](/powershell/azure/overview?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [Ovladače SQL Serveru](https://docs.microsoft.com/sql/connect/sql-server-drivers)

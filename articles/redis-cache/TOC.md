@@ -24,7 +24,7 @@
 ###[Zabezpečení mezipaměti pomocí virtuální sítě](cache-how-to-premium-vnet.md)
 ###[Distribuovaná mezipaměť pomocí clusterování](cache-how-to-premium-clustering.md)
 ## Automatizace
-###[Nasazení a správa pomocí PowerShellu](cache-howto-manage-redis-cache-powershell.md)
+###[Nasazení a správa s využitím Azure PowerShellu](cache-howto-manage-redis-cache-powershell.md)
 ###[Nasazení a správa přes rozhraní příkazového řádku Azure](cli-samples.md)
 ###[Zřízení mezipaměti Redis Cache](cache-redis-cache-arm-provision.md)
 ###[Zřízení webové aplikace s mezipamětí Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
@@ -32,13 +32,13 @@
 ###[Poskytovatel stavu relace](cache-aspnet-session-state-provider.md)
 ###[Poskytovatel výstupní mezipaměti](cache-aspnet-output-cache-provider.md)
 ## Spravovat
-###[Konfigurace na portálu](cache-configure.md)
+###[Konfigurace na webu Azure Portal](cache-configure.md)
 ###[Konfigurace geografické replikace](cache-how-to-geo-replication.md)
 ###[Import/export dat](cache-how-to-import-export-data.md)
 ###[Restartování](cache-administration.md#reboot)
 ###[Plán aktualizací](cache-administration.md#schedule-updates)
 ## Monitorování a odstraňování potíží
-###[Monitorování na portálu](cache-how-to-monitor.md)
+###[Monitorování na webu Azure Portal](cache-how-to-monitor.md)
 ###[Řešení problémů s mezipamětí](cache-how-to-troubleshoot.md)
 ###[Nastavení výstrah pro výjimky](cache-how-to-monitor.md#operations-and-alerts)
 ## Měřítko
@@ -49,8 +49,8 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Azure CLI 2.0 (Preview)](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Azure CLI – Preview](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Klienti Redis](http://redis.io/clients)

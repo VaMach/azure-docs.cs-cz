@@ -38,7 +38,7 @@
 ## Spravovat
 ### Správa Azure Search
 #### [Azure Portal](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### Azure [Azure PowerShell](search-manage-powershell.md)
 ### [Monitorování využití a statistiky](search-monitor-usage.md)
 ### [Prohledání analýzy provozu](search-traffic-analytics.md)
 ### [Výkon a optimalizace](search-performance-optimization.md)
