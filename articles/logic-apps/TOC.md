@@ -19,8 +19,19 @@
 ### [Zprávy dávkového zpracování](logic-apps-batch-process-send-receive-messages.md)
 ### [Vytváření definic aplikací logiky](logic-apps-author-definitions.md)
 ### [Volání, triggery nebo vnořené aplikace logiky](logic-apps-http-endpoint.md)
-### [Vytvoření vlastních rozhraní API pro aplikace logiky](logic-apps-create-api-app.md)
-### [Volání vlastních rozhraní API pro aplikace logiky](logic-apps-custom-hosted-api.md)
+### Vývoj vlastních konektorů
+#### [Přehled vlastních konektorů](custom-connector-overview.md)
+#### [Vytvoření konektorů z webových rozhraní API](custom-connector-build-web-api-app-tutorial.md)
+#### [Zabezpečení konektorů pomocí Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Popis rozhraní API pomocí nástroje Postman](custom-connector-api-postman-collection.md)
+#### [Rozšíření OpenAPI pro vlastní konektory](custom-connector-openapi-extensions.md)
+#### [Registrace vašeho konektoru](logic-apps-custom-connector-register.md)
+#### [Certifikace vašeho konektoru](custom-connector-submit-certification.md)
+#### [Nejčastější dotazy k vlastním konektorům](custom-connector-faq.md)
+### Vývoj vlastních rozhraní API
+#### [Vytvoření vlastních rozhraní API pro aplikace logiky](logic-apps-create-api-app.md)
+#### [Zabezpečení volání vlastních rozhraní API](logic-apps-custom-api-authentication.md)
+#### [Nasazení a volání vlastních rozhraní API](logic-apps-custom-api-host-deploy-call.md)
 ### [Zpracování chyb a výjimek](logic-apps-exception-handling.md)
 ### [Zpracování typů obsahu](logic-apps-content-type.md)
 ### [Zabezpečení aplikací logiky](logic-apps-securing-a-logic-app.md)
@@ -32,6 +43,7 @@
 ### [Partneři](logic-apps-enterprise-integration-partners.md)
 ### [Smlouvy](logic-apps-enterprise-integration-agreements.md)
 ### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md)
+### [Odesílání zpráv EDI jako dávek](logic-apps-scenario-edi-send-batch-messages.md)
 ### [Zpracování XML](logic-apps-enterprise-integration-xml.md)
 ### [Zpracování plochých souborů](logic-apps-enterprise-integration-flatfile.md)
 ### [Ověření XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -73,12 +85,11 @@
 #### [Schéma sledování X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Vlastní schémata sledování](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Příklady, scénáře a názorné postupy
-### [Přehled](logic-apps-examples-and-scenarios.md)
+## [Příklady, scénáře a názorné postupy](logic-apps-examples-and-scenarios.md)
 ### [Vytvoření řídicího panelu sociálních sítí bez serveru](logic-apps-scenario-social-serverless.md)
 ### [Volání aplikací logiky se službou Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Přidání zpracování chyb a výjimek](logic-apps-scenario-error-and-exception-handling.md)
-### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md)
+### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md) 
 
 ## Ceny a fakturace
 ### [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -98,7 +109,7 @@
 ## [Jazyk pro definování pracovních postupů](logic-apps-workflow-definition-language.md)
 ## [Triggery a akce pracovních postupů](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Konektory: Podrobná témata
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)

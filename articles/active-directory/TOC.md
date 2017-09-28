@@ -42,9 +42,7 @@
 #### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
-#### [Podmínky použití pro uživatele a aplikace](active-directory-tou.md)
-#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
-### [Přidávání uživatelů z jiných adresářů (klasický portál)](active-directory-create-users-external.md)
+#### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
 ### [Správa pracovních informací uživatelů](active-directory-users-work-info-azure-portal.md)
@@ -56,7 +54,7 @@
 ### Správa skupin
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Portál Classic](active-directory-accessmanagement-manage-groups.md)
-#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Správa členů skupin](active-directory-groups-members-azure-portal.md)
 ### [Správa vlastníků skupin](active-directory-accessmanagement-managing-group-owners.md)
 ### [Správa členství ve skupinách](active-directory-groups-membership-azure-portal.md)
@@ -65,7 +63,7 @@
 #### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
-#### [Příklady prostředí PowerShell pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
+#### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Nastavení vypršení platnosti skupin Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
 ### [Povolení vyhrazených skupin](active-directory-accessmanagement-dedicated-groups.md)
@@ -149,7 +147,12 @@
 ### [Přehled](active-directory-enable-sso-scenario.md)
 ### [Začínáme](active-directory-integrating-applications-getting-started.md)
 ### [Kurzy integrace aplikací SaaS](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+### [Cloud App Discovery](cloudappdiscovery-overview.md)
+#### [Co je Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+#### [Nastavení kroků](cloudappdiscovery-get-started.md)
+#### [Vytvoření sestav snímků](cloudappdiscovery-set-up-snapshots.md)
+#### [Konfigurace průběžného vytváření sestav](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+#### [Použití vlastního analyzátoru protokolů](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -244,7 +247,7 @@
 #### [Správci přidávají uživatele B2B](active-directory-b2b-admin-add-users.md)
 #### [Informační pracovníci přidávají uživatele B2B](active-directory-b2b-iw-add-users.md)
 #### [Rozhraní API a přizpůsobení](active-directory-b2b-api.md)
-#### [Kód a ukázky pro PowerShell](active-directory-b2b-code-samples.md)
+#### [Ukázky kódu a Azure PowerShellu](active-directory-b2b-code-samples.md)
 #### [Ukázka portálu se samoobslužnou registrací](active-directory-b2b-self-service-portal.md)
 #### [-mailová pozvánka](active-directory-b2b-invitation-email.md)
 #### [Uplatnění pozvánky](active-directory-b2b-redemption-experience.md)
@@ -296,6 +299,7 @@
 #### Úlohy
 ##### [Nastavení podmíněného přístupu na základě zařízení](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Nastavení podmíněného přístupu na základě aplikace](active-directory-conditional-access-mam.md)
+##### [Podmínky použití pro uživatele a aplikace](active-directory-tou.md)
 ##### [Nastavení možností připojení sítě VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Nastavení SharePointu a Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Nápravy](active-directory-conditional-access-device-remediation.md)
@@ -325,6 +329,9 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
+## [Integrace ostatních služeb s Azure AD]()
+### [Povolení integrace LinkedIn](linkedin-integration.md)
+
 ## [Nasazení AD DS na virtuálních počítačích Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory na virtuálních počítačích Azure](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replika řadiče domény ve virtuální síti Azure](active-directory-install-replica-active-directory-domain-controller.md)
@@ -348,7 +355,7 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
-## [Rutiny PowerShellu](/powershell/azure/overview)
+## [Rutiny Azure PowerShellu](/powershell/azure/overview)
 ## [Referenční informace k Java API](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Limity a omezení služby](active-directory-service-limits-restrictions.md)

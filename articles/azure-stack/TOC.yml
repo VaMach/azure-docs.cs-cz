@@ -1,4 +1,4 @@
-- name: Dokumentace k Azure Stacku
+- name: Dokumentace operátora k Azure Stacku
   href: index.yml
 - name: Přehled
   items:
@@ -11,16 +11,18 @@
       href: azure-stack-deploy-overview.md
 - name: Kurzy
   items:
-    - name: Povolení virtuálních počítačů
+    - name: Nabídka virtuálních počítačů
       href: azure-stack-tutorial-tenant-vm.md
-    - name: Povolení databází SQL
+    - name: Nabídka databází SQL
       href: azure-stack-tutorial-sql-server.md
-    - name: Povolení Web Apps
+    - name: Nabídka webových aplikací
       href: azure-stack-tutorial-app-service.md
-    - name: Nasazení aplikací v Azure a Azure Stacku
-      href: azure-stack-solution-pipeline.md
 - name: Koncepty
   items:
+    - name: Aspekty plánování
+      href: azure-stack-planning-considerations.md
+    - name: Zásady obsluhy
+      href: azure-stack-servicing-policy.md
     - name: "Poznámky k\_verzi"
       href: azure-stack-asdk-release-notes.md
     - name: Klíčové funkce a koncepty
@@ -45,11 +47,17 @@
           href: azure-stack-add-default-image.md
         - name: Vytvoření testovacího virtuálního počítače
           href: azure-stack-provision-vm.md
+    - name: Integrace datových center
+      items:
+        - name: Integrace DNS
+          href: azure-stack-integrate-dns.md
+        - name: Publikování koncových bodů
+          href: azure-stack-integrate-endpoints.md
     - name: Spravovat
       items:
         - name: Správa oblastí
           href: azure-stack-region-management.md
-        - name: Použití portálů
+        - name: Použití portálu správce
           href: azure-stack-manage-portals.md
         - name: Připojení ke službě Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -57,7 +65,7 @@
           href: azure-stack-cli-admin.md
         - name: Nastavení prostředí pro správu
           items:
-            - name: Instalace PowerShellu
+            - name: Instalace Azure Stack PowerShellu
               href: azure-stack-powershell-install.md
             - name: Stažení nástrojů
               href: azure-stack-powershell-download.md
@@ -65,8 +73,14 @@
               href: azure-stack-powershell-configure-admin.md
             - name: Zprovoznění s využitím PowerShellu
               href: azure-stack-powershell-configure-quickstart.md
+        - name: Přístup k privilegovanému koncovému bodu
+          href: azure-stack-privileged-endpoint.md
         - name: Správa aktualizací
-          href: azure-stack-updates.md
+          items:
+            - name: Správa přehledu aktualizací
+              href: azure-stack-updates.md
+            - name: Instalace aktualizací
+              href: azure-stack-apply-updates.md
         - name: Monitorování stavu a výstrah
           href: azure-stack-monitor-health.md
         - name: Správa síťových prostředků
@@ -75,18 +89,26 @@
           href: azure-stack-manage-storage-accounts.md
         - name: Správa virtuálních počítačů se sadou Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
-    - name: "Zabezpečení a\_dodržování předpisů"
+        - name: Výměna hardwaru
+          items:
+            - name: Výměna disku
+              href: azure-stack-replace-disk.md
+    - name: "Zabezpečení,\_dodržování předpisů a identita"
       items:
-        - name: Správa RBAC
-          href: azure-stack-manage-permissions.md
-        - name: Přidání uživatelů pro Azure AD
-          href: azure-stack-add-new-user-aad.md
-        - name: Přidání uživatelů pro AD FS
-          href: azure-stack-add-users-adfs.md
-        - name: Vytvoření instančních objektů
-          href: Azure-stack-create-service-principals.md
-        - name: Povolení víceklientské architektury
-          href: azure-stack-enable-multitenancy.md
+        - name: Přehled zabezpečení
+          href: azure-stack-security-foundations.md
+        - name: Identita
+          items:
+            - name: Správa RBAC
+              href: azure-stack-manage-permissions.md
+            - name: Přidání uživatelů pro Azure AD
+              href: azure-stack-add-new-user-aad.md
+            - name: Přidání uživatelů pro AD FS
+              href: azure-stack-add-users-adfs.md
+            - name: Vytvoření instančních objektů
+              href: Azure-stack-create-service-principals.md
+            - name: Povolení víceklientské architektury
+              href: azure-stack-enable-multitenancy.md
     - name: Nabídka služeb
       items:
         - name: Přehled nabízených služeb
@@ -127,8 +149,6 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Konfigurace zdrojů nasazení
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Povolení FTP ve službě App Service v Azure Stacku
-              href: azure-stack-app-service-enable-ftp.md
         - name: Naplnění webu Marketplace
           items:
             - name: Přehled webu Marketplace
@@ -159,88 +179,12 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: Nejčastější dotazy k využití
               href: azure-stack-usage-related-faq.md
-    - name: Použití služeb
-      items:
-        - name: Klíčové aspekty
-          href: azure-stack-considerations.md
-        - name: Compute
+        - name: Připojení k Azure
           items:
-            - name: Aspekty virtuálních počítačů
-              href: azure-stack-vm-considerations.md
-            - name: Vytvoření virtuálního počítače – PowerShell
-              href: azure-stack-quick-create-vm-powershell.md
-        - name: Úložiště
-          items:
-            - name: Přehled
-              href: azure-stack-storage-overview.md
-            - name: Aspekty úložišť
-              href: azure-stack-acs-differences.md
-            - name: Nástroje pro vývoj úložišť
-              href: azure-stack-storage-dev.md
-            - name: Nástroje pro přenos dat
-              href: azure-stack-storage-transfer.md
-            - name: Připojení průzkumníka úložišť
-              href: azure-stack-storage-connect-se.md
-        - name: Síť
-          items:
-            - name: Aspekty sítí
-              href: azure-stack-network-differences.md
-            - name: iDNS pro Azure Stack
-              href: azure-stack-understanding-dns.md
-            - name: DNS v Azure Stacku
-              href: azure-stack-dns.md
-            - name: Principy připojení k sítím Site-to-Site VPN
-              href: azure-stack-create-vpn-connection-one-node.md
-        - name: Key Vault
-          items:
-            - name: Přehled
-              href: azure-stack-kv-intro.md
-            - name: Správa pomocí portálu
-              href: azure-stack-kv-manage-portal.md
-            - name: Správa pomocí PowerShellu
-              href: azure-stack-kv-manage-powershell.md
-            - name: Vytvoření virtuálního počítače s tajným kódem
-              href: azure-stack-kv-deploy-vm-with-secret.md
-            - name: Vytvoření virtuálního počítače s certifikátem
-              href: azure-stack-kv-push-secret-into-vm.md
-            - name: Ukázková aplikace služby Key Vault
-              href: azure-stack-kv-sample-app.md
-    - name: Vytváření aplikací
-      items:
-        - name: Vývoj pro Azure Stack
-          href: azure-stack-developer.md
-        - name: Nastavení vývojového prostředí
-          items:
-            - name: Instalace PowerShellu
-              href: azure-stack-powershell-install.md
-            - name: Stažení nástrojů
-              href: azure-stack-powershell-download.md
-            - name: Konfigurace PowerShellu – uživatel
-              href: azure-stack-powershell-configure-user.md
-            - name: Zprovoznění s využitím PowerShellu
-              href: azure-stack-powershell-configure-quickstart.md
-            - name: Instalace a konfigurace rozhraní příkazového řádku
-              href: azure-stack-connect-cli.md
-            - name: Instalace sady Visual Studio
-              href: azure-stack-install-visual-studio.md
-            - name: Správa profilů verzí API
-              href: azure-stack-version-profiles.md
-        - name: Použití modulu zásad
-          href: azure-stack-policy-module.md
-        - name: Použití šablon
-          items:
-            - name: Přehled šablon
-              href: azure-stack-arm-templates.md
-            - name: Vývoj šablon
-              href: azure-stack-develop-templates.md
-            - name: Kontrola šablon
-              href: azure-stack-validate-templates.md
-            - name: Nasazení s využitím portálu
-              href: azure-stack-deploy-template-portal.md
-            - name: Nasazení s využitím PowerShellu
-              href: azure-stack-deploy-template-powershell.md
-            - name: Nasazení s využitím sady Visual Studio
-              href: azure-stack-deploy-template-visual-studio.md
+            - name: Připojení pomocí VPN
+              href: azure-stack-connect-vpn.md
+            - name: Připojení pomocí ExpressRoute
+              href: azure-stack-connect-expressroute.md
     - name: Řešení potíží
       items:
         - name: Známé problémy
@@ -251,7 +195,7 @@
           href: azure-stack-redeploy.md
 - name: Referenční informace
   items:
-    - name: PowerShell
+    - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Zdroje
   items:
@@ -263,3 +207,5 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Školení a certifikace
+      href: azure-stack-train-and-cert.md

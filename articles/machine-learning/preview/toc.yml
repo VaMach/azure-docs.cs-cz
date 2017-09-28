@@ -141,6 +141,8 @@
       items:
         - name: Konfigurace spuštění
           href: experiment-execution-configuration-reference.md
+        - name: Protokolování rozhraní API
+          href: reference-logging-api.md
     - name: Správa modelů
       items:
         - name: Rozhraní API pro správu modelů

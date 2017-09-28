@@ -16,7 +16,7 @@
 # Postup
 ## Připojení ke spravované doméně
 ### [Připojení virtuálního počítače s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Připojení virtuálního počítače s Windows Serverem pomocí PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Připojení virtuálního počítače s Windows Serverem s využitím Azure PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Připojení virtuálního počítače s Linuxem](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Správa spravované domény
 ### [Správa spravované domény](active-directory-ds-admin-guide-administer-domain.md)
@@ -24,8 +24,7 @@
 ### Konfigurace zabezpečeného protokolu LDAP pro spravovanou doménu
 #### [Úloha 1: získání certifikátu pro protokol LDAPS](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Úloha 2: Export certifikátu protokolu LDAPS](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Úloha 3: Povolení protokolu LDAPS pro spravované domény pomocí portálu Azure Classic](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Úloha 3: Povolení protokolu LDAPS pro spravované domény pomocí portálu Azure Classic](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Úloha 3: Povolení protokolu LDAPS pro spravované domény pomocí webu Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Vytvoření OU ve spravované doméně](active-directory-ds-admin-guide-create-ou.md)
 ### [Správa zásad skupiny ve spravované doméně](active-directory-ds-admin-guide-administer-group-policy.md)

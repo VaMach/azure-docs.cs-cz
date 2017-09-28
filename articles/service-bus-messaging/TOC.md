@@ -43,6 +43,7 @@
 ### [Fronty nedoručených zpráv](service-bus-dead-letter-queues.md)
 ### [Zpracování transakcí](service-bus-transactions.md)
 ### [Diagnostické protokoly](service-bus-diagnostic-logs.md)
+### [Implementace spárovaného oboru názvů](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Přehled AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
@@ -60,13 +61,14 @@
 #### [Vytvoření autorizačního pravidla pro obor názvů a frontu](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Vytvoření oboru názvů s tématem, předplatným a pravidlem](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Použití PowerShellu ke zřizování entit](service-bus-manage-with-ps.md)
+### [Použití Azure PowerShellu ke zřizování entit](service-bus-manage-with-ps.md)
 
 # Referenční informace
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Výjimky](service-bus-messaging-exceptions.md)
 ## [Kvóty](service-bus-quotas.md)

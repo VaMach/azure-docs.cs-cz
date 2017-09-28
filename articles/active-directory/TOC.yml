@@ -1,6 +1,8 @@
+- name: Přehled správy přístupu
+  href: manage-access-to-azure-resources.md
 - name: Přístup k prostředkům v Azure
   href: active-directory-understanding-resource-access.md
-- name: Řízení přístupu na základě rolí
+- name: Řízení přístupu na základě role (RBAC)
   href: role-based-access-control-what-is.md
   items:
     - name: Správa přiřazení přístupu
@@ -31,10 +33,14 @@
       href: role-based-access-control-troubleshooting.md
     - name: Operace poskytovatele prostředků
       href: role-based-access-control-resource-provider-operations.md
+- name: Privileged Identity Management (PIM) pro RBAC
+  href: pim-azure-resource.md
+- name: Podmíněný přístup pro správu Azure
+  href: conditional-access-azure-management.md
 - name: Managed Service Identity
   href: msi-overview.md
   items:
-    - name: Konfigurace MSI pro virtuální počítač s Windows
+    - name: Konfigurace MSI pro virtuální počítač Azure
       items:
         - name: S využitím webu Azure Portal
           href: msi-qs-configure-portal-windows-vm.md
