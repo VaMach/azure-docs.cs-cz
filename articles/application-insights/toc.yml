@@ -226,6 +226,13 @@
       items:
         - name: Průběžný export
           href: app-insights-export-telemetry.md
+          items:
+            - name: Ukázky kódů
+              items:
+                - name: Export do SQL s použitím Stream Analytics
+                  href: app-insights-code-sample-export-sql-stream-analytics.md
+                - name: Export do Stream Analytics
+                  href: app-insights-export-stream-analytics.md
         - name: Export datového modelu
           href: app-insights-export-data-model.md
         - name: Export do Power BI

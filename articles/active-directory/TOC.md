@@ -42,7 +42,6 @@
 #### [Identifikace a řešení potíží s licencemi ve skupině](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
-#### [Podmínky použití pro uživatele a aplikace](active-directory-tou.md)
 #### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
@@ -153,7 +152,7 @@
 #### [Nastavení kroků](cloudappdiscovery-get-started.md)
 #### [Vytvoření sestav snímků](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurace průběžného vytváření sestav](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Použití vlastního analyzátoru protokolů](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+#### [Použití vlastního analyzátoru protokolů](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -300,6 +299,7 @@
 #### Úlohy
 ##### [Nastavení podmíněného přístupu na základě zařízení](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Nastavení podmíněného přístupu na základě aplikace](active-directory-conditional-access-mam.md)
+##### [Podmínky použití pro uživatele a aplikace](active-directory-tou.md)
 ##### [Nastavení možností připojení sítě VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Nastavení SharePointu a Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Nápravy](active-directory-conditional-access-device-remediation.md)

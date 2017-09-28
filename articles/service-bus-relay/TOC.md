@@ -9,6 +9,8 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [WCF Relay](relay-wcf-dotnet-get-started.md)
+## [Kurz pro WCF Relay](service-bus-relay-tutorial.md)
+## [Kurz pro WCF Relay REST](service-bus-relay-rest-tutorial.md)
 
 # Postup
 ## Plánování a návrh

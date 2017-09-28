@@ -82,6 +82,8 @@
   items:
     - name: Zotavení po havárii
       items:
+        - name: Do Azure pro virtuální počítače VMware s podporou více tenantů
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Do Azure pro virtuální počítače Hyper-V
           href: tutorial-hyper-v-to-azure.md
         - name: Do Azure pro fyzické servery

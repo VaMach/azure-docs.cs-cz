@@ -43,6 +43,7 @@
 ### [Partneři](logic-apps-enterprise-integration-partners.md)
 ### [Smlouvy](logic-apps-enterprise-integration-agreements.md)
 ### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md)
+### [Odesílání zpráv EDI jako dávek](logic-apps-scenario-edi-send-batch-messages.md)
 ### [Zpracování XML](logic-apps-enterprise-integration-xml.md)
 ### [Zpracování plochých souborů](logic-apps-enterprise-integration-flatfile.md)
 ### [Ověření XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [Vytvoření řídicího panelu sociálních sítí bez serveru](logic-apps-scenario-social-serverless.md)
 ### [Volání aplikací logiky se službou Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Přidání zpracování chyb a výjimek](logic-apps-scenario-error-and-exception-handling.md)
-### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md)
+### [Zpracování B2B](logic-apps-enterprise-integration-b2b.md) 
 
 ## Ceny a fakturace
 ### [Ceny](https://azure.microsoft.com/pricing/details/logic-apps/)

@@ -19,6 +19,8 @@
       href: azure-stack-tutorial-app-service.md
 - name: Koncepty
   items:
+    - name: Aspekty plánování
+      href: azure-stack-planning-considerations.md
     - name: Zásady obsluhy
       href: azure-stack-servicing-policy.md
     - name: "Poznámky k\_verzi"

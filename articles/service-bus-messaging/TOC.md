@@ -43,6 +43,7 @@
 ### [Fronty nedoručených zpráv](service-bus-dead-letter-queues.md)
 ### [Zpracování transakcí](service-bus-transactions.md)
 ### [Diagnostické protokoly](service-bus-diagnostic-logs.md)
+### [Implementace spárovaného oboru názvů](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Přehled AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
