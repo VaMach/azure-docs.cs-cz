@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Uživatelská dokumentace k Azure Stacku
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Dokumentace k Azure Stacku – kurzy, reference k rozhraní API'
+  description: Naučte se používat Azure Stack Preview k doručování služeb Azure z vašeho datového centra. Podívejte se na předvedení funkcí z prostředí pro testování konceptu.
+  services: azure-stack
+  author: carolz
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Stack je hybridní cloudová platforma, která umožňuje využívat služby Azure z datového centra vaší společnosti nebo vašeho poskytovatele služeb. Jako vývojář můžete v Azure Stacku vytvářet aplikace. Můžete je potom nasadit do Azure Stacku, do Azure, nebo můžete vytvořit skutečně hybridní aplikace, které využívají možnosti připojení mezi cloudem Azure Stack a Azure.  Prostřednictvím našich šablon Rychlý start a kurzů se naučíte, jak vytvářet prostředky a nasazovat aplikace.'
+sections:
+  - title: Rychlý start
+    items:
+      - type: paragraph
+        text: 'Naučte se, jak v Azure Stacku nasadit virtuální počítač s Windows:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portál
+            href: azure-stack-quick-windows-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-windows-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Rozhraní příkazového řádku
+            href: azure-stack-quick-create-vm-windows-cli.md
+      - type: paragraph
+        text: 'Naučte se, jak v Azure Stacku nasadit virtuální počítač s Linuxem:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portál
+            href: azure-stack-quick-linux-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-linux-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Rozhraní příkazového řádku
+            href: azure-stack-quick-create-vm-linux-cli.md
+  - title: Podrobné kurzy
+    items:
+      - type: paragraph
+        text: 'Nasazení aplikací napříč Azure a Azure Stackem:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Nasazení aplikací do Azure Stacku a Azure</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Příkazový řádek
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

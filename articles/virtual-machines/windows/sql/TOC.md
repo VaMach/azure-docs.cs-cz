@@ -16,8 +16,8 @@
 #### [Automaticky – pomocí šablony](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Ručně – požadavky](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Ručně – kurz](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Nástroj pro vyrovnávání zatížení – portál](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Nástroj pro vyrovnávání zatížení – PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Load Balancer – web Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Load Balancer – Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Několik oblastí](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Instance clusteru převzetí služeb při selhání
 #### [Konfigurace](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [Vzory aplikací](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Ovladače SQL Serveru](https://msdn.microsoft.com/library/mt654049.aspx)

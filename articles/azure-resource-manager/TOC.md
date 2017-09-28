@@ -12,7 +12,7 @@
 
 # Ukázky
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Nasazení šablony](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -35,7 +35,7 @@
 
 
 ## Nasazení
-### PowerShell
+### Azure PowerShell
 #### [Nasazení šablony](resource-group-template-deploy.md)
 #### [Nasazení privátní šablony s tokenem SAS](resource-manager-powershell-sas-token.md)
 #### [Export šablony a opětovné nasazení](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Nasazení šablony](resource-group-template-deploy-cli.md)
 #### [Nasazení privátní šablony s tokenem SAS](resource-manager-cli-sas-token.md)
 #### [Export šablony a opětovné nasazení](resource-manager-export-template-cli.md)
-### Portál
+### portál Azure
 #### [Nasazení prostředků](resource-group-template-deploy-portal.md)
 #### [Export šablony](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -52,7 +52,7 @@
 ### [Předání zabezpečených hodnot během nasazení](resource-manager-keyvault-parameter.md)
 
 ## Spravovat
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
@@ -62,8 +62,8 @@
 
 ## Řízení přístupu
 ### Vytvoření instančního objektu
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Ověřovací rozhraní API pro přístup k předplatným](resource-manager-api-authentication.md)
@@ -71,7 +71,7 @@
 
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### [Přiřazení zásad pomocí portálu](resource-manager-policy-portal.md)
+### [Přiřazení zásad s využitím webu Azure Portal](resource-manager-policy-portal.md)
 ### [Přiřazení zásad pomocí skriptů](resource-manager-policy-create-assign.md)
 ### Příklady
 #### [Značky](resource-manager-policy-tags.md)

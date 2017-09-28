@@ -1,8 +1,10 @@
 # Přehled
 ## [Co je nástroj pro vyrovnávání zatížení?](load-balancer-overview.md)
+## [Co je Load Balancer Standard?](load-balancer-standard-overview.md)
 ## [Internetový nástroj pro vyrovnávání zatížení](load-balancer-internet-overview.md)
 ## [Interní nástroj pro vyrovnávání zatížení.](load-balancer-internal-overview.md)
 ## [Porozumění testům nástroje pro vyrovnávání zatížení](load-balancer-custom-probe-overview.md)
+## [Principy portů s vysokou dostupnost](load-balancer-ha-ports-overview.md)
 ## [Podpora Azure Resource Manageru](load-balancer-arm.md)
 ## [Podpora protokolu IPv6](load-balancer-ipv6-overview.md)
 ## [Více virtuálních IP adres](load-balancer-multivip-overview.md)
@@ -33,6 +35,10 @@
 ### [Vytvoření internetového nástroje pro vyrovnávání zatížení s protokolem IPv6 (rozhraní příkazového řádku)](load-balancer-ipv6-internet-cli.md)
 ### [Vytvoření internetového nástroje pro vyrovnávání zatížení s protokolem IPv6 (šablona)](load-balancer-ipv6-internet-template.md)
 
+## [Vytvoření zónově redundantní veřejné služby Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
+### [Vytvoření zónově redundantní veřejné služby Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Vytvoření zónově redundantní veřejné služby Load Balancer Standard (rozhraní příkazového řádku)](load-balancer-get-started-internet-az-cli.md)
+
 # Postup
 ## [Konfigurace časového limitu nečinnosti protokolu TCP nástroje Load Balancer](load-balancer-tcp-idle-timeout.md)
 ## [Konfigurace distribučního režimu nástroje Load Balancer](load-balancer-distribution-mode.md)
@@ -44,13 +50,17 @@
 ### [Použití několika konfigurací IP (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log Analytics pro Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurace protokolu DHCPv6 pro virtuální počítače s Linuxem](load-balancer-ipv6-for-linux.md)
+## [Konfigurace portů s vysokou dostupností pro interní nástroj pro vyrovnávání zatížení](load-balancer-configure-ha-ports.md)
+## [Vytvoření veřejné IP adresy v zóně dostupnosti](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Vytvoření veřejné IP adresy v zóně dostupnosti (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Vytvoření veřejné IP adresy v zóně dostupnosti (rozhraní příkazového řádku)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Řešení potíží
 ### [Řešení potíží s nástrojem pro vyrovnávání zatížení Azure](load-balancer-troubleshoot.md)
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

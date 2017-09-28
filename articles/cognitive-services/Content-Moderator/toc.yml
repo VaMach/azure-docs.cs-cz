@@ -62,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Zobrazení řídicího panelu
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Kurzy
+  items:
+    - name: Moderování příspěvků na Facebooku
+      href: facebook-post-moderation.md
 - name: Reference k rozhraní API
   items:
     - name: Všechna rozhraní API
@@ -73,6 +77,6 @@
     - name: Sada SDK pro Windows
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Ukázky
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: Nejčastější dotazy
       href: FAQs.md

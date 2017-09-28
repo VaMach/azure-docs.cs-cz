@@ -1,0 +1,234 @@
+- name: Dokumentace k vědeckému zpracování týmových dat
+- name: Přehled
+  href: overview.md
+- name: Životní cyklus
+  href: lifecycle.md
+  items:
+    - name: 1. Principy podniku
+      href: lifecycle-business-understanding.md
+    - name: 2. Získávání a pochopení dat
+      href: lifecycle-data.md
+    - name: 3. Modelování
+      href: lifecycle-modeling.md
+    - name: 4. Nasazení
+      href: lifecycle-deployment.md
+    - name: 5. Přijetí zákazníky
+      href: lifecycle-acceptance.md
+    - name: S využitím Azure ML
+      href: 'http://aka.ms/datascienceprocess'
+- name: Role a úlohy
+  href: roles-tasks.md
+  items:
+    - name: Správce skupiny
+      href: group-manager-tasks.md
+    - name: Vedoucí týmu
+      href: team-lead-tasks.md
+    - name: Vedoucí projektu
+      href: project-lead-tasks.md
+    - name: Jednotlivý přispěvatel
+      href: project-ic-tasks.md
+- name: Struktura projektu
+  href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
+- name: Spuštění projektu
+  href: project-execution.md
+- name: Kurzy
+  href: walkthroughs.md
+  items:
+    - name: Azure Machine Learning Workbench
+      href: walkthroughs-aml-with-tdsp.md
+      items:
+        - name: Klasifikace příjmů v USA
+          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          maintainContext: true
+        - name: Rozpoznávání biomedicínských entit
+          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          maintainContext: true
+    - name: Spark s PySparkem a Scalou
+      href: walkthroughs-spark.md
+      items:
+        - name: Zkoumání dat
+          href: spark-data-exploration-modeling.md
+        - name: Modely skóre
+          href: spark-model-consumption.md
+        - name: Pokročilé zkoumání dat
+          href: spark-advanced-data-exploration-modeling.md
+    - name: Hive s HDInsight Hadoopem
+      href: walkthroughs-hdinsight-hadoop.md
+    - name: U-SQL s Azure Data Lake
+      href: walkthroughs-azure-data-lake.md
+    - name: 'R, Python a T-SQL s SQL Serverem'
+      href: walkthroughs-sql-server.md
+    - name: T-SQL a Python s SQL DW
+      href: walkthroughs-sql-data-warehouse.md
+- name: Postup
+  items:
+    - name: Použití TDSP v Azure ML
+      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      maintainContext: true
+    - name: Nastavení prostředí pro datové vědy
+      href: environment-setup.md
+      items:
+        - name: Účty služby Azure Storage
+          href: ../../storage/common/storage-create-storage-account.md
+          maintainContext: true
+        - name: Platformy a nástroje
+          href: platforms-and-tools.md
+        - name: Přizpůsobení Hadoopu
+          href: customize-hadoop-cluster.md
+        - name: Pracovní prostor služby Azure Machine Learning
+          href: ../studio/create-workspace.md
+          maintainContext: true
+        - name: Nastavení virtuálních počítačů
+          href: virtual-machines.md
+    - name: Analýza obchodních potřeb
+      items:
+        - name: Určení scénáře
+          href: plan-your-environment.md
+    - name: Získání dat a jejich pochopení
+      items:
+        - name: Správa logistiky dat
+          items:
+            - name: Přehled
+              href: ingest-data.md
+            - name: Blob Storage
+              href: move-azure-blob.md
+            - name: Použití Storage Exploreru
+              href: move-data-to-azure-blob-using-azure-storage-explorer.md
+            - name: Použití AzCopy
+              href: move-data-to-azure-blob-using-azcopy.md
+            - name: Použití Pythonu
+              href: move-data-to-azure-blob-using-python.md
+            - name: Použití SSIS
+              href: move-data-to-azure-blob-using-ssis.md
+            - name: Přesun do virtuálního počítače
+              href: move-sql-server-virtual-machine.md
+            - name: Přesun do databáze SQL
+              href: move-sql-azure.md
+            - name: Načítání do tabulek Hive
+              href: move-hive-tables.md
+            - name: Načítání z místního SQL
+              href: move-sql-azure-adf.md
+            - name: Načítání z tabulek oddílů SQL
+              href: parallel-load-sql-partitioned-tables.md
+        - name: Zkoumání a vizualizace dat
+          items:
+            - name: Příprava dat
+              href: prepare-data.md
+            - name: Zkoumání dat
+              items:
+                - name: Přehled
+                  href: explore-data.md
+                - name: Použití Pandasu
+                  href: explore-data-blob.md
+                - name: Použití virtuálních počítačů SQL
+                  href: explore-data-sql-server.md
+                - name: Použití tabulek Hive
+                  href: explore-data-hive-tables.md
+            - name: Ukázková data
+              items:
+                - name: Přehled
+                  href: sample-data.md
+                - name: Použití služby Blob Storage
+                  href: sample-data-blob.md
+                - name: Použití SQL Serveru
+                  href: sample-data-sql-server.md
+                - name: Použití tabulek Hive
+                  href: sample-data-hive.md
+            - name: Zpracování dat
+              items:
+                - name: Přístup pomocí Pythonu
+                  href: python-data-access.md
+                - name: Zpracování dat objektů blob
+                  href: data-blob.md
+                - name: Použití Azure Data Lake
+                  href: data-lake-walkthrough.md
+                - name: Použití virtuálních počítačů SQL
+                  href: sql-server-virtual-machine.md
+                - name: Použití Data Pipeline
+                  href: automated-data-pipeline-cheat-sheet.md
+                - name: Použití Sparku
+                  href: spark-overview.md
+                - name: Použití Scaly a Sparku
+                  href: scala-walkthrough.md
+    - name: Vývoj modelů
+      items:
+        - name: Konstrukce funkcí
+          items:
+            - name: Přehled
+              href: create-features.md
+            - name: Použití Pandasu
+              href: create-features-blob.md
+            - name: Použití SQL a Pythonu
+              href: create-features-sql-server.md
+            - name: Použití dotazů Hive
+              href: create-features-hive.md
+        - name: Výběr funkcí
+          href: select-features.md
+        - name: Vytvoření a trénování modelů
+          items:
+            - name: Volba algoritmů
+              href: ../studio/algorithm-choice.md
+              maintainContext: true
+            - name: Tahák s algoritmy
+              href: ../studio/algorithm-cheat-sheet.md
+              maintainContext: true
+    - name: Modely nasazení
+      items:
+        - name: S využitím webové služby
+          href: ../studio/publish-a-machine-learning-web-service.md
+          maintainContext: true
+        - name: Využívání webové služby
+          href: ../studio/consume-web-services.md
+          maintainContext: true
+- name: Související
+  items:
+    - name: Sada Microsoft Cognitive Toolkit – CNTK
+      href: 'https://docs.microsoft.com/en-us/cognitive-toolkit/'
+      maintainContext: true
+    - name: Partnerská řešení Cortana Intelligence
+      items:
+        - name: Galerie Cortana Intelligence
+          href: 'https://gallery.cortanaintelligence.com'
+        - name: Průvodce publikováním Cortana Intelligence
+          href: cortana-intelligence-appsource-publishing-guide.md
+        - name: Nástroj pro vyhodnocení řešení Cortana Intelligence
+          href: cortana-intelligence-appsource-evaluation-tool.md
+    - name: Cortana Analytics
+      items:
+        - name: Rozhraní API
+          items:
+            - name: Detekce anomálií
+              href: apps-anomaly-detection-api.md
+            - name: Kognitivní služby
+              href: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+            - name: Prediktivní údržba
+              items:
+                - name: Přehled
+                  href: cortana-analytics-playbook-predictive-maintenance.md
+                - name: Architektura
+                  href: cortana-analytics-architecture-predictive-maintenance.md
+                - name: Technický průvodce
+                  href: cortana-analytics-technical-guide-predictive-maintenance.md
+            - name: Telemetrie vozidel
+              items:
+                - name: Přehled
+                  href: cortana-analytics-playbook-vehicle-telemetry.md
+                - name: Playbook
+                  href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+                - name: Nastavení
+                  href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+- name: Zdroje
+  items:
+    - name: Nástroje a pomůcky TDSP – GitHub
+      href: 'https://github.com/Azure/Azure-TDSP-Utilities'
+      items:
+        - name: Nejnovější nástroje pro vědecké zpracování týmových dat
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
+    - name: Blog věnovaný Cortana Intelligence a Machine Learningu
+      href: 'https://blogs.technet.microsoft.com/machinelearning/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Videa
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

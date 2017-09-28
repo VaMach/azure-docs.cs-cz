@@ -1,0 +1,52 @@
+- name: Dokumentace k virtuálním počítačům pro datové vědy
+  items: null
+- name: Přehled
+  items:
+    - name: Co je virtuální počítač pro datové vědy?
+      href: overview.md
+    - name: Co je virtuální počítač pro hloubkové učení?
+      href: deep-learning-dsvm-overview.md
+- name: Začínáme
+  items:
+    - name: Vytvoření virtuálního počítače s Windows pro datové vědy
+      href: provision-vm.md
+    - name: Vytvoření virtuálního počítače s Ubuntu pro datové vědy
+      href: dsvm-ubuntu-intro.md
+    - name: Vytvoření virtuálního počítače s CentOS pro datové vědy
+      href: linux-dsvm-intro.md
+    - name: Vytvoření virtuálního počítače pro hloubkové učení
+      href: provision-deep-learning-dsvm.md
+- name: Postup
+  items:
+    - name: Použití virtuálního počítače s Windows pro datové vědy
+      href: vm-do-ten-things.md
+    - name: Použití virtuálního počítače s Linuxem pro datové vědy
+      href: linux-dsvm-walkthrough.md
+    - name: Použití virtuálního počítače pro hloubkové učení
+      href: use-deep-learning-dsvm.md
+- name: Referenční informace
+  items:
+    - name: Architektura AI a hloubkového učení
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Nástroje pro datové vědy a ML
+      href: dsvm-ml-data-science-tools.md
+    - name: Jazyky
+      href: dsvm-languages.md
+    - name: Vývojářské nástroje
+      href: dsvm-tools-development.md
+    - name: Nástroje pro ingestování dat
+      href: dsvm-tools-ingestion.md
+    - name: Nástroje pro zkoumání a vizualizaci dat
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Datové platformy
+      href: dsvm-data-platforms.md
+    - name: Ukázky a názorné postupy
+      href: dsvm-samples-and-walkthroughs.md
+- name: Zdroje
+  items:
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: Fórum MSDN
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

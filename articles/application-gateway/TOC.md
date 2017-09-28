@@ -16,52 +16,52 @@
 ## Vytvoření služby Application Gateway
 ### Veřejně přístupné
 #### [Azure Portal](application-gateway-create-gateway-portal.md)
-#### [PowerShell](application-gateway-create-gateway-arm.md)
+#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
 #### [Šablona Resource Manageru](application-gateway-create-gateway-arm-template.md)
 #### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
-#### [PowerShell (Classic)](application-gateway-create-gateway.md)
+#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure PowerShell (Classic)](application-gateway-create-gateway.md)
 ### Směřující do interní sítě
-#### [PowerShell](application-gateway-ilb-arm.md)
-#### [PowerShell (Classic)](application-gateway-ilb.md)
+#### [Azure PowerShell](application-gateway-ilb-arm.md)
+#### [Azure PowerShell (Classic)](application-gateway-ilb.md)
 # Postup
 ## Konfigurace firewallu webových aplikací
 ### [Azure Portal](application-gateway-web-application-firewall-portal.md)
-### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
+### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI](application-gateway-web-application-firewall-cli.md)
 ## Přizpůsobení pravidel firewallu webových aplikací
 ### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
+### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 ## Konfigurace SSL
 ### [Azure Portal](application-gateway-ssl-portal.md)
-### [PowerShell](application-gateway-ssl-arm.md)
-### [PowerShell (Classic)](application-gateway-ssl.md)
-### [Azure CLI 2.0](application-gateway-ssl.md)
+### [Azure PowerShell](application-gateway-ssl-arm.md)
+### [Azure PowerShell (Classic)](application-gateway-ssl.md)
+### [Azure CLI](application-gateway-ssl.md)
 ### [Koncové řešení](application-gateway-end-to-end-ssl-powershell.md)
 ### [Zásady protokolu SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurace směrování na základě cest URL
 ### [Azure Portal](application-gateway-create-url-route-portal.md)
-### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## Konfigurace hostování několika webů
 ### [Azure Portal](application-gateway-create-multisite-portal.md)
-### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurace přesměrování
-### [PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Konfigurace webových aplikací jako členů back-endového fondu
-### [PowerShell](application-gateway-web-app-powershell.md)
+### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurace sond stavu
 ### [Azure Portal](application-gateway-create-probe-portal.md)
-### [PowerShell](application-gateway-create-probe-ps.md)
-### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
+### [Azure PowerShell](application-gateway-create-probe-ps.md)
+### [Azure PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
 ## [Integrace služby Azure Security Center](application-gateway-integration-security-center.md)
 ## [Kombinace služeb pro vyrovnávání zatížení](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Řešení potíží
 ### [Řešení chyb ve službě Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Metriky a protokolování diagnostiky](application-gateway-diagnostics.md)
 # Referenční informace
-## [PowerShell](/powershell/azure/overview)
-## [Azure CLI 2.0](/cli/azure/network/application-gateway)
+## [Azure PowerShell](/powershell/azure/overview)
+## [Azure CLI](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)

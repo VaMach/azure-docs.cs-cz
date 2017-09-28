@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: 'Virtuální počítače s Linuxem v Azure poskytují vysoce škálovatelnou zabezpečenou virtualizovanou infrastrukturu na vyžádání s využitím Red Hatu, Ubuntu nebo linuxové distribuce podle vaší volby. Naučte se vytvářet, konfigurovat, spravovat a škálovat linuxové virtuální počítače prostřednictvím našich šablon Rychlý start, výukových kurzů a ukázek.'
+  description: 'Virtuální počítače s Linuxem v Azure poskytují vysoce škálovatelnou zabezpečenou virtualizovanou infrastrukturu na vyžádání s využitím Red Hatu, Ubuntu nebo linuxové distribuce podle vaší volby. Prostřednictvím našich šablon Rychlý start, výukových kurzů a ukázek se naučíte vytvářet, konfigurovat, spravovat, aktualizovat a škálovat linuxové virtuální počítače.'
   aside:
     image:
       alt: null
@@ -61,29 +61,32 @@ sections:
           - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Vyrovnávání zatížení virtuálních počítačů</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Správa virtuálních počítačů a virtuálních sítí</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Zálohování virtuálních počítačů</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorování virtuálních počítačů</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorování a aktualizace virtuálních počítačů</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Správa zabezpečení na virtuálních počítačích</a>
           - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Vytvoření infrastruktury CI/CD pomocí Jenkins, Dockeru a GitHubu</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD s Team Services</a>
           - html: 'Vytvoření zásobníku webového serveru pomocí <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> nebo <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Zabezpečení webového serveru pomocí SSL</a>
-  - title: Bezplatné školicí video od PluralSightu
+  - title: Bezplatné školicí video od Pluralsightu
     items:
       - type: list
         style: cards
-        className: cardsW
+        className: cardsFTitle
         items:
-          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Správa infrastruktury</a></p>'
+          - title: Správa infrastruktury v Azure
+            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme se službou Virtual Machines</a></p>'
+          - title: Začínáme s Azure Virtual Machines
+            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Začínáme s monitorováním IaaS</a></p>'
+          - title: Začínáme s monitorováním IaaS
+            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
   - title: Ukázky
     items:

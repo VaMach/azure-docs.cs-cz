@@ -36,6 +36,7 @@
 #### [Správa úloh](storsimple-virtual-array-manage-jobs.md)
 #### [Změna hesla zařízení](storsimple-virtual-array-change-device-admin-password.md)
 #### [Konfigurace funkce MPIO na hostiteli s Windows Serverem](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Monitorování s využitím upozornění](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnostika a řešení potíží](storsimple-virtual-array-diagnose-problems.md)
 #### [Protokolování žádosti o podporu](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [Informace o řešení](storsimple-overview.md)
 ### [Mapa kurzů StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Aspekty zabezpečení](storsimple-8000-security.md)
+### [Nejčastější dotazy: Přesun na web Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Začínáme
 

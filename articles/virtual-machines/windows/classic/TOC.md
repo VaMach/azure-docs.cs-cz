@@ -7,7 +7,7 @@
 ## [Kontejnery](../../virtual-machines-windows-containers.md)
 
 # Začínáme
-## [Vytvoření virtuálního počítače pomocí portálu](tutorial.md)
+## [Vytvoření virtuálního počítače s využitím webu Azure Portal](tutorial.md)
 ## [Přihlášení k virtuálnímu počítači](connect-logon.md)
 ## [Instalace Azure PowerShellu](/powershell/azure/overview)
 ## [Instalace rozhraní příkazového řádku Azure](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Připojení virtuálního pevného disku pro řešení potíží s virtuálním počítačem](troubleshoot-recovery-disks-portal.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

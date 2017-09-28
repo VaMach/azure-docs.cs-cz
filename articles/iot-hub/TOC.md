@@ -109,23 +109,24 @@
 ### Použití úloh zařízení k aktualizaci firmwaru zařízení
 #### [Back-end Node / zařízení Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Java back-end / zařízení Java](iot-hub-java-java-firmware-update.md)
 ### Úlohy vysílání a plánování
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Spravovat
 ### Vytvoření centra IoT 
-#### [Použití portálu](iot-hub-create-through-portal.md)
-#### [Použití PowerShellu](iot-hub-create-using-powershell.md)
-#### [Použití CLI 2.0](iot-hub-create-using-cli.md)
+#### [Použití webu Azure Portal](iot-hub-create-through-portal.md)
+#### [Použití Azure Powershellu](iot-hub-create-using-powershell.md)
+#### [Použití rozhraní příkazového řádku Azure](iot-hub-create-using-cli.md)
 #### [Použití rozhraní příkazového řádku](iot-hub-create-using-cli-nodejs.md)
 #### [Použití rozhraní REST API](iot-hub-rm-rest.md)
-#### [Použití šablony z PowerShellu](iot-hub-rm-template-powershell.md)
+#### [Použití šablony z Azure PowerShellu](iot-hub-rm-template-powershell.md)
 #### [Použití šablony z rozhraní .NET](iot-hub-rm-template.md)
 ### Konfigurace odesílání souborů
-#### [Použití portálu](iot-hub-configure-file-upload.md)
-#### [Použití PowerShellu](iot-hub-configure-file-upload-powershell.md)
-#### [Použití CLI 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Použití webu Azure Portal](iot-hub-configure-file-upload.md)
+#### [Použití Azure Powershellu](iot-hub-configure-file-upload-powershell.md)
+#### [Použití rozhraní příkazového řádku Azure](iot-hub-configure-file-upload-cli.md)
 ### [Hromadná správa zařízení IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Metriky využití](iot-hub-metrics.md)
 ### [Monitorování operací](iot-hub-operations-monitoring.md)

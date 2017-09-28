@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: Export certifikátů
           href: local-emulator-export-ssl-certificates.md
+    - name: 6. Integrace s funkcemi
+      items:
+        - name: Trigger HTTP
+          href: tutorial-functions-http-trigger.md
 - name: Ukázky
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: Koncepty
   items:
+    - name: Databáze bez serveru
+      href: serverless-computing-database.md
     - name: Globální distribuce
       href: distribute-data-globally.md
     - name: Dělení
@@ -268,6 +274,8 @@
           href: geospatial.md
         - name: Indexování
           href: indexing-policies.md
+        - name: Připojená služba v sadě Visual Studio
+          href: connected-service.md
     - name: Spravovat
       items:
         - name: Nákladově efektivní čtení a zápisy
@@ -282,8 +290,14 @@
           href: set-throughput.md
         - name: Monitorování smluv SLA
           href: monitor-accounts.md
+        - name: Použití metrik
+          href: use-metrics.md
+        - name: Protokolování diagnostiky
+          href: logging.md
         - name: Správa klíčů a konzistence
           href: manage-account.md
+        - name: Azure Storage Explorer
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Zabezpečení
           items:
             - name: Šifrování v klidovém stavu
@@ -309,7 +323,7 @@
         - name: Integrace se službou Azure Search
           href: ../search/search-howto-index-documentdb.md
         - name: Přesun dat pomocí služby Azure Data Factory
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Analýza dat v reálném čase pomocí Azure Stream Analytics
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Získání změněného záznamu HL7 FHIR pomocí Logic Apps

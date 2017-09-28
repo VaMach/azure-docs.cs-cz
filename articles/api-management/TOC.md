@@ -6,6 +6,10 @@
 ## [Zvýšení výkonu přidáním mezipaměti](api-management-howto-cache.md)
 ## [Nejčastější dotazy](api-management-faq.md)
 # Postup
+## Nastavení služby APIM
+### [Vytvoření instance APIM](get-started-create-service-instance.md)
+### [Upgrade a škálování](upgrade-and-scale.md)
+### [Konfigurace vlastní domény](configure-custom-domain.md)
 ## Vývoj API
 ### [Přidání a publikování produktu rozhraní API](api-management-howto-add-products.md)
 ### [Přidání operací](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Rychlý start](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Referenční informace
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [Rozhraní REST (původní)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Zásady](api-management-policies.md)

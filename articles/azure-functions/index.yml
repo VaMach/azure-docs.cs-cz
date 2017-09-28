@@ -46,6 +46,10 @@ sections:
             text: Webhook GitHubu
             href: /azure/azure-functions/functions-create-github-webhook-triggered-function
           - image:
+              src: media/index/cosmosdb.svg
+            text: Azure Cosmos DB
+            href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+          - image:
               src: media/index/blob.svg
             text: Objekt blob
             href: /azure/azure-functions/functions-create-storage-blob-triggered-function
@@ -59,7 +63,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: /media/logos/logo_visual-studio.svg
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
             text: Visual Studio
             href: /azure/azure-functions/functions-create-your-first-function-visual-studio
   - title: Podrobné kurzy
@@ -71,6 +75,8 @@ sections:
         items:
           - html: '<a href="/azure/azure-functions/functions-twitter-email">Vytvoření funkce, která se integruje s Azure Logic Apps</a>'
           - html: <a href="/azure/azure-functions/functions-create-serverless-api">Vytvoření rozhraní API bez serveru pomocí služby Azure Functions</a>
+          - html: <a href="/azure/azure-functions/functions-openapi-definition">Vytvoření definice OpenAPI pro funkci</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automatizace změny velikosti nahraných obrázků s využitím služby Event Grid</a>
   - title: Ukázky
     items:
       - type: list
@@ -89,4 +95,4 @@ sections:
           - title: REST
             html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
           - title: Vazby
-            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Databáze Cosmos</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Centrum událostí</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Externí soubor</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP a webhooky</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Časovač</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Vazba výstupu z Twilia</a></p>
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Databáze Azure Cosmos</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Centrum událostí</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Externí soubor</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP a webhooky</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Časovač</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Vazba výstupu z Twilia</a></p>

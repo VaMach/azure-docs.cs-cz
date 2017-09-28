@@ -1,0 +1,229 @@
+- name: Dokumentace ke službě Azure Backup
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Co je Azure Backup?
+      href: backup-introduction-to-azure-backup.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Zálohování virtuálního počítače – portál
+      href: quick-backup-vm-portal.md
+    - name: Zálohování virtuálního počítače – PowerShell
+      href: quick-backup-vm-powershell.md
+    - name: Zálohování virtuálního počítače – rozhraní příkazového řádku
+      href: quick-backup-vm-cli.md
+- name: Kurzy
+  items:
+    - name: Škálované zálohování virtuálních počítačů Azure
+      href: tutorial-backup-vm-at-scale.md
+    - name: Obnovení disku
+      href: tutorial-restore-disk.md
+    - name: Obnovení jednotlivých souborů
+      href: tutorial-restore-files.md
+    - name: Zálohování Windows Serveru
+      href: tutorial-backup-windows-server-to-azure.md
+    - name: Obnovení souborů do Windows Serveru
+      href: tutorial-backup-restore-files-windows-server.md
+- name: Ukázky
+  items:
+    - name: Azure PowerShell
+      href: powershell-backup-samples.md
+- name: Koncepty
+  items:
+    - name: Nejčastější dotazy
+      items:
+        - name: Nejčastější dotazy k trezorům služby Recovery Services
+          href: backup-azure-backup-faq.md
+        - name: Nejčastější dotazy k zálohování virtuálních počítačů Azure
+          href: backup-azure-vm-backup-faq.md
+        - name: Nejčastější dotazy k zálohování souborů a složek pomocí agenta Azure Backup
+          href: backup-azure-file-folder-backup-faq.md
+    - name: Řízení přístupu na základě rolí
+      href: backup-rbac-rs-vault.md
+    - name: Zabezpečení pro hybridní zálohy
+      href: backup-azure-security-feature.md
+    - name: Konfigurace zálohování offline
+      href: backup-azure-backup-import-export.md
+    - name: Náhrada páskové knihovny
+      href: backup-azure-backup-cloud-as-tape.md
+- name: Postup
+  items:
+    - name: Server Azure Backup
+      items:
+        - name: Systém ochrany Azure Backup Serveru
+          href: backup-mabs-protection-matrix.md
+        - name: Instalace nebo upgrade
+          items:
+            - name: Příprava úloh Azure Backup Serveru na webu Azure Portal
+              href: backup-azure-microsoft-azure-backup.md
+            - name: Příprava úloh Azure Backup Serveru na portálu Azure Classic
+              href: backup-azure-microsoft-azure-backup-classic.md
+            - name: Přidání úložiště do Azure Backup Serveru
+              href: backup-mabs-add-storage.md
+            - name: Upgrade Azure Backup Serveru na v.2
+              href: backup-mabs-upgrade-to-v2.md
+            - name: Bezobslužná instalace Azure Backup Serveru
+              href: backup-mabs-unattended-install.md
+        - name: Ochrana úloh
+          items:
+            - name: Použití Azure Backup Serveru k zálohování serveru VMware
+              href: backup-azure-backup-server-vmware.md
+            - name: Použití Azure Backup Serveru k zálohování Exchange
+              href: backup-azure-exchange-mabs.md
+            - name: Použití Azure Backup Serveru k zálohování sharepointové farmy
+              href: backup-azure-backup-sharepoint-mabs.md
+            - name: Použití Azure Backup Serveru k zálohování SQL
+              href: backup-azure-sql-mabs.md
+            - name: Ochrana stavu systému a úplné obnovení systému
+              href: backup-mabs-system-state-and-bmr.md
+        - name: Obnovení dat z Azure Backup Serveru
+          href: backup-azure-alternate-dpm-server.md
+    - name: Virtuální počítače Azure
+      items:
+        - name: Příprava virtuálního počítače
+          items:
+            - name: Příprava virtuálních počítačů nasazených pomocí Resource Manageru
+              href: backup-azure-arm-vms-prepare.md
+            - name: Aplikačně konzistentní zálohování virtuálních počítačů s Linuxem
+              href: backup-azure-linux-app-consistent.md
+            - name: Příprava virtuálních počítačů Azure
+              href: backup-azure-vms-prepare.md
+        - name: Plánování prostředí
+          items:
+            - name: Plánování infrastruktury zálohování virtuálních počítačů
+              href: backup-azure-vms-introduction.md
+        - name: Zálohování virtuálních počítačů
+          items:
+            - name: Zálohování virtuálních počítačů Azure do trezoru služby Recovery Services
+              href: backup-azure-arm-vms.md
+            - name: Zálohování šifrovaných virtuálních počítačů
+              href: backup-azure-vms-encryption.md
+            - name: Zálohování virtuálních počítačů Azure
+              href: backup-azure-vms.md
+        - name: Správa a monitorování virtuálních počítačů
+          items:
+            - name: Správa záloh virtuálních počítačů Azure na webu Azure Portal
+              href: backup-azure-manage-vms.md
+            - name: Monitorování upozornění pro zálohy virtuálních počítačů Azure na webu Azure Portal
+              href: backup-azure-monitor-vms.md
+            - name: Správa a sledování záloh virtuálních počítačů Azure na portálu Classic
+              href: backup-azure-manage-vms-classic.md
+        - name: Obnovení dat z virtuálních počítačů
+          items:
+            - name: Obnovení souborů ze záloh virtuálních počítačů Azure
+              href: backup-azure-restore-files-from-vm.md
+            - name: Obnovení virtuálních počítačů nasazených pomocí Resource Manageru na webu Azure Portal
+              href: backup-azure-arm-restore-vms.md
+            - name: Obnovení šifrovaných virtuálních počítačů
+              href: backup-azure-vms-encryption.md
+            - name: Obnovení virtuálních počítačů v Azure
+              href: backup-azure-restore-vms.md
+            - name: Obnovení klíče a tajného kódu Key Vault pro šifrované virtuální počítače
+              href: backup-azure-restore-key-secret.md
+    - name: Konfigurace sestav Azure Backup
+      items:
+        - name: Konfigurace sestav Azure Backup
+          href: backup-azure-configure-reports.md
+        - name: Datový model pro sestavy Azure Backup
+          href: backup-azure-reports-data-model.md
+        - name: Datový model Log Analytics pro Azure Backup
+          href: backup-azure-log-analytics-data-model.md
+    - name: Data Protection Manager
+      items:
+        - name: Příprava úloh DPM na webu Azure Portal
+          href: backup-azure-dpm-introduction.md
+        - name: Příprava úloh DPM na portálu Classic
+          href: backup-azure-dpm-introduction-classic.md
+        - name: Použití nástroje System Center DPM k zálohování serveru Exchange
+          href: backup-azure-backup-exchange-server.md
+        - name: Obnovení dat na alternativní server DPM
+          href: backup-azure-alternate-dpm-server.md
+        - name: Použití DPM k zálohování úloh SQL Serveru
+          href: backup-azure-backup-sql.md
+        - name: Použití DPM k zálohování sharepointové farmy
+          href: backup-azure-backup-sharepoint.md
+    - name: Použití Azure Powershell
+      items:
+        - name: Virtuální počítače Azure na webu Azure Portal
+          href: backup-azure-vms-automation.md
+        - name: Virtuální počítače Azure na portálu Classic
+          href: backup-azure-vms-classic-automation.md
+        - name: DPM na webu Azure Portal
+          href: backup-dpm-automation.md
+        - name: DPM na portálu Classic
+          href: backup-dpm-automation-classic.md
+        - name: Windows Server na webu Azure Portal
+          href: backup-client-automation.md
+        - name: Windows Server na portálu Classic
+          href: backup-client-automation-classic.md
+    - name: Azure SQL Database
+      items:
+        - name: Konfigurace dlouhodobého uchovávání záloh
+          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Zobrazení záloh v trezoru služby Recovery Services
+          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Obnovení z dlouhodobě uchovávaných záloh
+          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Odstranění dlouhodobých záloh Azure SQL
+          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Windows Server
+      items:
+        - name: Zálohování souborů a složek Windows Serveru
+          href: backup-configure-vault.md
+        - name: Zálohování stavu systému Windows Server
+          href: backup-azure-system-state.md
+        - name: Obnovení souborů z Azure do Windows Serveru
+          href: backup-azure-restore-windows-server.md
+        - name: Obnovení stavu systému Windows Server
+          href: backup-azure-restore-system-state.md
+        - name: Monitorování a správa trezorů služby Recovery Services
+          href: backup-azure-manage-windows-server.md
+        - name: Zálohování a obnovení pomocí portálu Classic
+          items:
+            - name: Windows Server s využitím modelu nasazení Classic
+              href: backup-configure-vault-classic.md
+            - name: Správa trezorů služby Backup s využitím modelu nasazení Classic
+              href: backup-azure-manage-windows-server-classic.md
+            - name: Obnovení souborů na Windows Serveru s využitím modelu nasazení Classic
+              href: backup-azure-restore-windows-server-classic.md
+    - name: Trezor služby Recovery Services
+      items:
+        - name: Přehled trezorů služby Recovery Services
+          href: backup-azure-recovery-services-vault-overview.md
+        - name: Upgrade úložiště záloh do trezoru služby Recovery Services
+          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Odstranění trezoru služby Recovery Services
+          href: backup-azure-delete-vault.md
+    - name: Řešení potíží
+      items:
+        - name: Potíže se zálohami virtuálních počítačů Azure na webu Azure Portal
+          href: backup-azure-vms-troubleshoot.md
+        - name: Potíže se zálohami virtuálních počítačů Azure na portálu Classic
+          href: backup-azure-vms-troubleshoot-classic.md
+        - name: 'Selhání zálohování virtuálních počítačů Azure: S agentem virtuálního počítače nebylo možné komunikovat – Dílčí úloze snímku virtuálního počítače vypršel časový limit'
+          href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+        - name: Pomalé zálohování souborů a složek ve službě Azure Backup
+          href: backup-azure-troubleshoot-slow-backup-performance-issue.md
+        - name: Odstraňování potíží Azure Backup Serveru
+          href: backup-azure-mabs-troubleshoot.md
+- name: Referenční informace
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+- name: Zdroje a prostředky
+  items:
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/backup/'
+    - name: Cenová kalkulačka
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizace služeb
+      href: 'https://azure.microsoft.com/updates/?product=backup'
+    - name: Videa
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

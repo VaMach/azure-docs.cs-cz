@@ -4,15 +4,18 @@
 ## [Záznamy a zóny DNS](dns-zones-records.md)
 ## [Delegování DNS s využitím Azure DNS](dns-domain-delegation.md)
 ## [Nejčastější dotazy k DNS](dns-faq.md)
+## [Použití privátních zón DNS](private-dns-overview.md)
 
 # Začínáme
 
 ## Vytvoření záznamu a zóny DNS
 ### [Azure Portal](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-### [Azure CLI 2.0](dns-getstarted-cli.md)
+### [Azure CLI](dns-getstarted-cli.md)
 
+## Vytvoření privátní zóny DNS a záznamu
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [Delegování domény do Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Vytvoření vlastních záznamů DNS pro webovou aplikaci](dns-web-sites-custom-domain.md)
 
@@ -20,15 +23,15 @@
 
 ## Správa zón DNS
 ### [Azure Portal](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## Správa záznamů DNS
 ### [Azure Portal](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## Správa reverzních záznamů DNS
 ### [Přehled](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)

@@ -1,0 +1,81 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentace ke službě Azure Data Factory V2 ve verzi Preview
+metadata:
+  title: 'Dokumentace ke službě Azure Data Factory – kurzy, reference k rozhraní API | Dokumentace Microsoftu'
+  description: Naučte se používat službu Data Factory k nastavování automatizovaných datových kanálů do místních a cloudových zdrojů a z nich s cílem přesouvat a zpracovávat data pro analýzu.
+  services: data-factory
+  author: spelluru
+  manager: jhubbard
+  ms.service: data-factory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/08/2017
+  ms.author: spelluru
+abstract:
+  description: 'Naučte se používat cloudovou službu pro integraci dat Data Factory k sestavování služeb úložišť dat, přesouvání a zpracování v automatizovaných datových kanálech. V kurzech a další dokumentaci se naučíte nastavit a spravovat datové kanály a také přesouvat a transformovat data pro analýzu. <p>Momentálně je služba Data Factory V2 ve verzi Preview. Verze V1 je obecně dostupná. Pokud používáte službu Data Factory V1, projděte si <a href=/azure/data-factory/v1/data-factory-introduction>dokumentaci k V1</a>.</p>'
+sections:
+  - title: Zprovoznění během 5 minut
+    items:
+      - type: paragraph
+        text: 'Naučte se, jak vytvořit datovou továrnu s využitím těchto možností:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-factory/media/index/logo_powershell.svg
+            text: Azure PowerShell
+            href: /azure/data-factory/quickstart-create-data-factory-powershell
+          - image:
+              src: /azure/data-factory/media/index/logo_net.svg
+            text: .NET
+            href: /azure/data-factory/quickstart-create-data-factory-dot-net
+          - image:
+              src: /azure/data-factory/media/index/logo_python.svg
+            text: Python
+            href: /azure/data-factory/quickstart-create-data-factory-python
+          - image:
+              src: /azure/data-factory/media/index/logo_rest.svg
+            text: REST
+            href: /azure/data-factory/quickstart-create-data-factory-rest-api
+          - image:
+              src: /azure/data-factory/media/index/portal.svg
+            text: portál Azure
+            href: /azure/data-factory/quickstart-create-data-factory-portal
+  - title: Podrobné kurzy
+    items:
+      - type: paragraph
+        text: 'Naučte se, jak vytvořit a monitorovat datovou továrnu:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Nasazení balíčků SSIS do Azure</a>
+          - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">Kopírování dat v cloudu</a>
+          - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">Kopírování místních dat do cloudu</a>
+          - html: <a href="../data-factory/tutorial-bulk-copy">Hromadné kopírování dat</a>
+          - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Přírůstkové kopírování dat</a>
+          - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Transformace dat v cloudu</a>
+          - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Transformace dat ve virtuální síti</a>
+          - html: <a href="../data-factory/tutorial-control-flow">Tok řízení</a>
+  - title: Ukázky
+    items:
+      - type: paragraph
+        text: Následující ukázky použijte při práci s Data Factory.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Příkazový řádek
+            html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
+          - title: Jazyky
+            html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/datafactory">REST API</a></p>

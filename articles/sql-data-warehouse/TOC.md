@@ -8,6 +8,7 @@
 # Začínáme
 
 ## [Kurz pro začátečníky](sql-data-warehouse-get-started-tutorial.md)
+## [Kurz k elastickým dotazům](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
 ## [Správa](sql-data-warehouse-overview-manage.md)
 
@@ -20,7 +21,7 @@
 ### [Přehled zálohování](sql-data-warehouse-backups.md)
 ### [Přehled obnovení](sql-data-warehouse-restore-database-overview.md)
 #### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Připojení
@@ -34,7 +35,7 @@
 
 ## Vytvořit
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Vývoj
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Vizualizace Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Elastické dotazy s využitím SQL Database a SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Načtení
 

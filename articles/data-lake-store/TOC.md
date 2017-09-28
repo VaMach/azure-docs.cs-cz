@@ -5,18 +5,18 @@
 ## [Open source aplikace, které využívají službu Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Začínáme
-## [Pomocí portálu](data-lake-store-get-started-portal.md)
-## [Pomocí PowerShellu](data-lake-store-get-started-powershell.md)
+## [Pomocí webu Azure Portal](data-lake-store-get-started-portal.md)
+## [Použití Azure PowerShellu](data-lake-store-get-started-powershell.md)
 ## [Pomocí sady .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Pomocí sady Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)
-## [Použití Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+## [Použití Azure CLI](data-lake-store-get-started-cli-2.0.md)
 ## [Pomocí Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Pomocí Pythonu](data-lake-store-get-started-python.md)
 
 # Postup
 ## Kopírování dat
-### [Pomocí služby Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Pomocí služby Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Pomocí AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Pomocí DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Pomocí Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -40,14 +40,14 @@
 
 ## Integrace se službami Azure
 ### Pomocí HDInsight
-#### [Pomocí portálu](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [Pomocí PowerShellu (výchozí úložiště)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Pomocí PowerShellu (další úložiště)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Pomocí webu Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Pomocí Azure PowerShellu (výchozí úložiště)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Pomocí Azure PowerShellu (další úložiště)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Pomocí šablony Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Přístup z virtuálních počítačů ve virtuální síti Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Použití se službou Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Použití s Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Použití se službou Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Použití se službou Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Použití se službou Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Použití s Power BI](data-lake-store-power-bi.md)
 ### [Použití se službou Data Catalog](data-lake-store-with-data-catalog.md)
@@ -61,16 +61,16 @@
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (správa účtů)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (správa systému souborů)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog služby Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Váš názor na UserVoice](https://feedback.azure.com/forums/327234-data-lake)

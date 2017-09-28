@@ -1,0 +1,51 @@
+- name: Azure Container Registry
+  href: ./index.yml
+- name: Přehled
+  items:
+    - name: Informace o službě Container Registry
+      href: container-registry-intro.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Container Registry – rozhraní příkazového řádku
+      href: container-registry-get-started-azure-cli.md
+    - name: Container Registry – portál
+      href: container-registry-get-started-portal.md
+    - name: Container Registry – PowerShell
+      href: container-registry-get-started-powershell.md
+- name: Kurzy
+  items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service
+      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+- name: Návody
+  items:
+    - name: Nabízená a vyžádaná instalace image
+      href: container-registry-get-started-docker-cli.md
+    - name: Zobrazení úložišť
+      href: container-registry-repositories.md
+    - name: Vytvoření instančního objektu
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+    - name: Ověření pomocí registru
+      href: container-registry-authentication.md
+    - name: Použití webhooků ACR
+      href: ./container-registry-webhook.md
+- name: Referenční informace
+  items:
+    - name: Azure CLI
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+- name: Zdroje
+  items:
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Dostupnost v oblastech
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'

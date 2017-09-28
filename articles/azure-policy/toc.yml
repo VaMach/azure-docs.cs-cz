@@ -1,0 +1,31 @@
+- name: Přehled
+  items:
+    - name: Přehled zásad Azure
+      href: azure-policy-introduction.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Přiřazení zásad – portál
+      href: assign-policy-definition.md
+    - name: Přiřazení zásad – PowerShell
+      href: assign-policy-definition-ps.md
+    - name: Přiřazení zásad – rozhraní příkazového řádku Azure
+      href: assign-policy-definition-cli.md
+- name: Kurzy
+  items:
+    - name: Vytvoření a správa zásad Azure
+      href: create-manage-policy.md
+- name: Referenční informace
+  items:
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.3.1'
+- name: Zdroje
+  items:
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/azure-policy/'
+    - name: Cenová kalkulačka
+      href: 'https://azure.microsoft.com/pricing/calculator/'

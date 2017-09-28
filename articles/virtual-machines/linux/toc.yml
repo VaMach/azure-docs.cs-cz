@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: Vytvoření virtuálního počítače – portál
       href: quick-create-portal.md
-    - name: Vytvoření virtuálního počítače – PowerShell
+    - name: Vytvoření virtuálního počítače – Azure PowerShell
       href: quick-create-powershell.md
 - name: Kurzy
   items:
@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9. Zálohování virtuálních počítačů
       href: tutorial-backup-vms.md
-    - name: 10. Monitorování virtuálních počítačů
+    - name: 10. Monitorování a aktualizace virtuálních počítačů
       href: tutorial-monitoring.md
     - name: 11. Správa zabezpečení virtuálního počítače
       href: tutorial-azure-security.md
@@ -53,7 +53,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Koncepty
   items:
@@ -187,6 +187,8 @@
           href: manage-availability.md
         - name: Vertikální škálování
           href: vertical-scaling-automation.md
+        - name: Vytvoření virtuálního počítače v zóně dostupnosti
+          href: create-cli-availability-zone.md
     - name: Použití nástrojů automatizace
       items:
         - name: Ansible

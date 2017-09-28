@@ -4,6 +4,8 @@
   items:
     - name: Informace o analýze textu
       href: overview.md
+    - name: Podporované jazyky
+      href: text-analytics-supported-languages.md
 - name: Šablony Rychlý start
   items:
     - name: 'C#'
