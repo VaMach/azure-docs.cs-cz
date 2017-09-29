@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Začínáme s Apache Kafka (Preview) v prostředí HDInsight
@@ -47,6 +47,9 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
     * **Uživatelské jméno Secure Shell (SSH:)** Přihlašovací údaje používané pro přístup ke clusteru přes SSH. Ve výchozím nastavení je heslo stejné jako pro přihlášení ke clusteru.
     * **Skupina prostředků:** Skupina prostředků, ve které se cluster vytváří.
     * **Umístění:** Oblast Azure, ve které se cluster vytváří.
+
+        > [!IMPORTANT]
+        > K zajištění vysoké dostupnosti dat doporučujeme vybrat umístění (oblast), které obsahuje __tři domény selhání__. Další informace najdete v části [Vysoká dostupnost dat](#data-high-availability).
    
  ![Výběr předplatného](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +76,12 @@ Pomocí následujících kroků můžete vytvořit systém Kafka na clusteru HDI
 7. Pokud chcete pokračovat, v části __Velikost clusteru__ vyberte __Další__.
 
     > [!WARNING]
-    > Pokud chcete zajistit dostupnost Kafka v HDInsightu, musí cluster obsahovat aspoň tři pracovní uzly.
+    > Pokud chcete zajistit dostupnost Kafka v HDInsightu, musí cluster obsahovat aspoň tři pracovní uzly. Další informace najdete v části [Vysoká dostupnost dat](#data-high-availability).
 
     ![Nastavení velikosti clusteru Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > Položka **počet disků na pracovní uzel** řídí škálovatelnost Kafka ve službě HDInsight. Další informace najdete v tématu věnovaném [konfiguraci úložiště a škálovatelnosti Kafka v HDInsightu](hdinsight-apache-kafka-scalability.md).
+    > [!IMPORTANT]
+    > Položka **počet disků na pracovní uzel** řídí škálovatelnost Kafka ve službě HDInsight. Platforma Kafka ve službě HDInsight používá místní disky virtuálních počítačů v clusteru. Platforma Kafka je náročná na V/V prostředky, proto k zajištění vysoké propustnosti a vyšší kapacity úložiště na každý uzel se využívá služba [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md). Typ spravovaného disku může být buď __Standardní__ (HDD), nebo __Prémiový__ (SSD). Prémiové disky se používají u virtuálních počítačů řady DS a GS. Všechny ostatní typy virtuálních počítačů používají standardní disky.
 
 8. Pokud chcete pokračovat, v části __Upřesňující nastavení__ vyberte __Další__.
 
@@ -340,6 +343,27 @@ Rozhraní API pro streamování bylo do platformy Kafka přidáno ve verzi 0.10.
 
 7. Stisknutím __Ctrl+C__ ukončete konzumenta a pak pomocí příkazu `fg` přeneste streamovací úlohu z pozadí zpět na popředí. Ukončete i ji stisknutím __Ctrl+C__.
 
+## <a name="data-high-availability"></a>Vysoká dostupnost dat
+
+Každá oblast Azure (umístění) poskytuje _domény selhání_. Doména selhání je logické seskupení základního hardwaru v datovém centru Azure. Všechny domény selhání sdílí společný zdroje napájení a síťový přepínač. Virtuální počítače a spravované disky, které implementují uzly v clusteru služby HDInsight, jsou distribuované napříč těmito doménami selhání. Tato architektura omezuje potenciální dopad selhání fyzického hardwaru.
+
+Informace o počtu domén selhání v oblasti najdete v dokumentu popisujícím [dostupnost Linuxových virtuálních počítačů](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+
+> [!IMPORTANT]
+> Doporučujeme použít oblast Azure, která obsahuje tři domény selhání, a použít faktor replikace 3.
+
+Pokud musíte použít oblast, která obsahuje jenom dvě domény selhání, použijte faktor replikace 4, abyste zajistili rovnoměrné rozložení replik napříč těmito dvěma doménami selhání.
+
+### <a name="kafka-and-fault-domains"></a>Kafka a domény selhání
+
+Kafka nemá o doménách selhání žádné informace. Při vytváření replik oddílu pro témata se nemusí repliky distribuovat správně z hlediska vysoké dostupnosti. K zajištění vysoké dostupnosti použijte [nástroj pro obnovení rovnováhy oddílů Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Tento nástroj se musí spustit z relace SSH na hlavní uzel clusteru Kafka.
+
+K zajištění nejvyšší dostupnost dat Kafka byste měli obnovit rovnováhu replik oddílů pro vaše téma v těchto situacích:
+
+* Při vytvoření nového tématu nebo oddílu
+
+* Při vertikálním navýšení kapacity clusteru
+
 ## <a name="delete-the-cluster"></a>Odstranění clusteru
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +376,10 @@ Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se 
 
 V tomto dokumentu jste se naučili základy práce s platformou Apache Kafka v HDInsight. Další informace o práci s platformou Kafka najdete v těchto zdrojích:
 
-* [Zajištění vysoké dostupnosti dat s využitím Kafka ve službě HDInsight](hdinsight-apache-kafka-high-availability.md)
-* [Zvýšení škálovatelnosti konfigurací spravovaných disků s využitím Kafka v HDInsightu](hdinsight-apache-kafka-scalability.md)
-* [Dokumentace Apache Kafka](http://kafka.apache.org/documentation.html) na webu kafka.apache.org.
-* [Vytvoření repliky Kafka ve službě HDInsight pomocí MirrorMakeru](hdinsight-apache-kafka-mirroring.md)
+* [Analýza protokolů Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Replikace dat mezi clustery Kafka](hdinsight-apache-kafka-mirroring.md)
+* [Použití streamování Apache Sparku (DStream) se systémem Kafka ve službě HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Použití strukturovaného streamování Apache Sparku se systémem Kafka ve službě HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Použití Apache Stormu se systémem Kafka ve službě HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Použití Apache Sparku se systémem Kafka ve službě HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Připojení k systému Kafka přes virtuální síť Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
 

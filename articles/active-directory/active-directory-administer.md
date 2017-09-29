@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Správa adresáře služby Azure AD
@@ -59,12 +59,14 @@ Pokud ještě nemáte předplatné cloudové služby Microsoftu, můžete k regi
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Jak změnit výchozí adresář pro předplatné
 
-1. Pokud chcete převést vlastnictví předplatného, přihlaste se k [Centru účtů Azure](https://account.windowsazure.com/Home/Index) pomocí účtu, který je správcem účtu pro příslušné předplatné.
+1. Pokud chcete převést vlastnictví předplatného, přihlaste se k [Centru účtů Azure](https://account.azure.com/Subscriptions) pomocí účtu, který je správcem účtu pro příslušné předplatné.
 2. Zkontrolujte, že uživatel, který se má stát vlastníkem předplatného, je v cílovém adresáři.
 3. Klikněte na **Převod vlastnictví předplatného**.
 4. Zadejte příjemce. Příjemce automaticky dostane e-mail s odkazem pro akceptaci.
 5. Příjemce klikne na odkaz a postupuje podle pokynů, včetně zadání platebních údajů. Pokud je příjemce úspěšný, předplatné je převedeno. 
 6. Výchozím adresářem předplatného se v případě úspěšného přenosu tohoto předplatného stane adresář, ve kterém je příslušný uživatel.
+
+Další informace najdete v popisu [přenosu vlastnictví předplatného Azure na jiný účet](../billing/billing-subscription-transfer.md).
 
 ### <a name="manage-the-default-directory-in-azure"></a>Správa výchozího adresáře v Azure
 Při registraci v Azure se k vašemu předplatnému přidruží výchozí adresář Azure AD. Za používání služby Azure AD se neplatí a vaše adresáře jsou bezplatným prostředkem. Existují placené služby Azure AD, které se licencují samostatně a poskytují další funkce, jako je třeba firemní branding při přihlášení nebo samoobslužné resetování hesla. Můžete si také místo výchozí domény *.onmicrosoft.com vytvořit vlastní doménu s využitím názvu DNS, který vlastníte.
