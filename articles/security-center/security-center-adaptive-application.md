@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Adaptivní řízení aplikací v Azure Security Center (Preview)
@@ -33,6 +33,9 @@ Adaptivní řízení aplikací pomáhá řídit, které aplikace se můžou spou
 - Zamezit spouštění starých a nepodporovaných aplikací.
 - Zabránit používání konkrétních softwarových nástrojů, které nejsou ve vaší organizaci povolené.
 - Umožnit IT oddělení řídit přístup k citlivým datům prostřednictvím používání aplikace.
+
+> [!NOTE]
+> Adaptivní řízení aplikací je dostupné jako omezená verze Public Preview pro zákazníky využívající Azure Security Center Standard. Pokud se chcete připojit k verzi Preview, zašlete [nám](mailto:ASC_appcontrol@microsoft.com) e-mail s ID vašich předplatných.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Jak povolit adaptivní řízení aplikací?
 Adaptivní řízení aplikací pomáhá definovat sadu aplikací, které mají povoleno spouštění v nakonfigurovaných skupinách prostředků. Tato funkce je dostupná pouze pro počítače s Windows (všechny verze, Classic nebo Azure Resource Manager). Pokud chcete ve službě Security Center nakonfigurovat přidávání aplikací na seznam povolených, postupujte podle následujících kroků:
@@ -144,10 +147,6 @@ Služba Security Center doporučí přidávání aplikací na seznam povolených
 Seznam obsahuje:
 - **NÁZEV:** Název předplatného a skupiny prostředků.
 - **VIRTUÁLNÍ POČÍTAČE:** Počet virtuálních počítačů ve skupině prostředků.
-
-## <a name="preview-registration"></a>Registrace verze Preview
-
-Adaptivní řízení aplikací je dostupné jako omezená verze Public Preview pro zákazníky využívající Azure Security Center Standard. Pokud se chcete připojit k verzi Preview, zašlete [nám](mailto:ASC_appcontrol@microsoft.com) e-mail s ID vašich předplatných.
 
 ## <a name="see-also"></a>Viz také
 V tomto dokumentu jste zjistili, jak použít adaptivní řízení aplikací v Azure Security Center k přidávání aplikací spuštěných na virtuálních počítačích Azure na seznam povolených aplikací. Pokud se o službě Azure Security Center chcete dozvědět víc, pročtěte si tato témata:

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Vytvoření webové aplikace s Redis Cache
@@ -71,7 +70,7 @@ Máte-li sadu Visual Studio 2013, můžete si [stáhnout nejnovější verzi Azu
 
     Ujistěte se, že v nastavení **Ověřování** je zadáno **Bez ověřování**. V závislosti na verzi sady Visual Studio může být výchozí hodnotou něco jiného. Chcete-li ji změnit, klikněte na **Změnit ověřování** a vyberte **Bez ověřování**.
 
-    Pokud postupujete se sadou Visual Studio 2015, zrušte zaškrtnutí políčka **Hostovat v cloudu**. [Prostředky Azure zřídíte](#provision-the-azure-resources) a [aplikaci do Azure publikujete](#publish-the-application-to-azure) v dalších krocích tohoto kurzu. Příklad zřízení webové aplikace App Service ze sady Visual Studio se zaškrtnutým políčkem **Hostovat v cloudu** najdete v tématu [Začínáme s Web Apps v Azure App Service pomocí ASP.NET a sady Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    Pokud postupujete se sadou Visual Studio 2015, zrušte zaškrtnutí políčka **Hostovat v cloudu**. [Prostředky Azure zřídíte](#provision-the-azure-resources) a [aplikaci do Azure publikujete](#publish-the-application-to-azure) v dalších krocích tohoto kurzu. Příklad zřízení webové aplikace App Service ze sady Visual Studio se zaškrtnutým políčkem **Hostovat v cloudu** najdete v tématu [Začínáme s Web Apps v Azure App Service pomocí ASP.NET a sady Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Výběr šablony projektu][cache-select-template]
 4. Projekt vytvoříte kliknutím na **OK**.
@@ -827,7 +826,7 @@ Po vybrání nebo vytvoření mezipaměti, kterou chcete použít, přejděte do
 * Další příklady vytvoření webové aplikace ASP.NET ve službě App Service najdete v článku [Vytvoření a nasazení webové aplikace ve službě Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) z [demoverze](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) představené na konferenci 2015 Connect.
   * Další rychlé starty z demoverze HealthClinic.biz najdete v článku [Rychlé starty nástrojů pro vývojáře Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Zjistěte více o přístupu [Code First pro novou databázi](https://msdn.microsoft.com/data/jj193542) k Entity Frameworku, který používáme v tomto kurzu.
-* Zjistěte více o [webových aplikacích v Azure App Service](../app-service-web/app-service-web-overview.md).
+* Zjistěte více o [webových aplikacích v Azure App Service](../app-service/app-service-web-overview.md).
 * Zjistěte, jak [monitorovat](cache-how-to-monitor.md) vaši mezipaměť na webu Azure Portal.
 * Prozkoumejte prémiové funkce Azure Redis Cache
   

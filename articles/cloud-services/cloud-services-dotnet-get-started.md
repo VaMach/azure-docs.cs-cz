@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Začínáme s cloudovými službami Azure Cloud Services a technologií ASP.NET
@@ -36,7 +36,7 @@ Aplikace slouží jako vývěsní tabule pro inzerci. Uživatelé vytvářejí r
 Aplikace používá [způsob práce zaměřený na fronty](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby vyvážila práci při vytváření miniatur (která je náročná na prostředky procesoru) vůči back-endovému procesu.
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>Alternativní architektura: weby a webové úlohy
-Tento kurz ukazuje, jak spustit front-end i back-end v cloudové službě Azure. Alternativou je spuštění front-endu na [webu Azure](/services/web-sites/) a použití funkce [webových úloh](http://go.microsoft.com/fwlink/?LinkId=390226) (momentálně ve verzi Preview) pro back-end. Kurz, který používá webové úlohy, najdete v článku [Začínáme se sadou SDK pro webové úlohy Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Informace o tom, jak zvolit služby, které budou nejlépe vyhovovat vašemu scénáři, najdete v článku o [porovnání webů Azure, služeb Cloud Services a virtuálních počítačů](../app-service-web/choose-web-site-cloud-service-vm.md).
+Tento kurz ukazuje, jak spustit front-end i back-end v cloudové službě Azure. Alternativou je spuštění front-endu na [webu Azure](/services/web-sites/) a použití funkce [webových úloh](http://go.microsoft.com/fwlink/?LinkId=390226) (momentálně ve verzi Preview) pro back-end. Kurz, který používá webové úlohy, najdete v článku [Začínáme se sadou SDK pro webové úlohy Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Informace o tom, jak zvolit služby, které budou nejlépe vyhovovat vašemu scénáři, najdete v článku o [porovnání webů Azure, služeb Cloud Services a virtuálních počítačů](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Co se dozvíte
 * Postup zprovoznění počítače pro vývoj na platformě Azure nainstalováním sady Azure SDK.
