@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Jak je předplatné Azure propojeno se službou Azure Active Directory
@@ -48,13 +48,14 @@ Službu Azure AD získáte zdarma při registraci libovolné z těchto cloudový
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Přidání existujícího předplatného do adresáře služby Azure AD
 Musíte se přihlásit pomocí účtu, který existuje v aktuálním adresáři, ke kterému je předplatné přidruženo, i v adresáři, do kterého chcete předplatné přidat. 
 
-1. Přihlaste se k [Centru účtů Azure](https://account.windowsazure.com/Home/Index) pomocí účtu, který je správcem účtu předplatného, jehož vlastnictví chcete převést.
+1. Přihlaste se k [Centru účtů Azure](https://account.azure.com/Subscriptions) pomocí účtu, který je správcem účtu předplatného, jehož vlastnictví chcete převést.
 2. Zkontrolujte, že uživatel, který se má stát vlastníkem předplatného, je v cílovém adresáři.
 3. Klikněte na **Převod vlastnictví předplatného**.
 4. Zadejte příjemce. Příjemce automaticky dostane e-mail s odkazem pro akceptaci.
 5. Příjemce klikne na odkaz a postupuje podle pokynů, včetně zadání platebních údajů. Pokud je příjemce úspěšný, předplatné je převedeno. 
 6. Výchozím adresářem předplatného se stane adresář, ve kterém je příslušný uživatel.
 
+Další informace najdete v popisu [přenosu vlastnictví předplatného Azure na jiný účet](../billing/billing-subscription-transfer.md).
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Návrhy pro správu předplatného i adresáře
 Správní role pro předplatné služby Azure spravují prostředky, které jsou svázané s předplatným služby Azure. Tato část vysvětluje rozdíly mezi správci předplatného Azure a správci adresáře Azure AD. Správní role a další návrhy pro jejich využití ke správě předplatného jsou popsané v kapitole [Přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles.md).

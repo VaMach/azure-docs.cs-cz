@@ -9,15 +9,17 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
 Rozhraní příkazového řádku (CLI) Azure Service Fabric je nástroj příkazového řádku pro práci s entitami Service Fabric a jejich správu. Service Fabric CLI lze použít s clustery s Windows nebo Linuxem. Service Fabric CLI funguje na libovolné platformě, kde je podporován Python.
+
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -55,6 +57,13 @@ pip install sfctl
 sfctl -h
 ```
 
+V případě chyby nenalezení `sfctl` spusťte následující příkazy:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### <a name="ubuntu"></a>Ubuntu
 
 V systému Ubuntu 16.04 Desktop můžete Python 3.6 nainstalovat pomocí osobního archivu balíčků (PPA) třetí strany.
@@ -75,6 +84,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
+V případě chyby nenalezení `sfctl` spusťte následující příkazy:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 Tyto kroky nemají vliv na systémovou instalaci Pythonu 3.5 a 2.7. Nepokoušejte se upravovat tyto instalace, pokud dobře neznáte Ubuntu.
 
 ### <a name="macos"></a>MacOS
@@ -92,6 +108,15 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
+
+
+V případě chyby nenalezení `sfctl` spusťte následující příkazy:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 
 Tyto kroky neupravují systémovou instalaci Pythonu 2.7.
 
@@ -120,10 +145,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 Koncový bod clusteru musí mít předponu `http` nebo `https`. Musí zahrnovat port pro bránu HTTP. Tento port a adresa jsou stejné jako adresa URL nástroje Service Fabric Explorer.
 
-Pro clustery, které jsou zabezpečené pomocí certifikátu, můžete určit certifikát kódovaný PEM. Certifikát lze zadat jako jeden soubor nebo jako pár certifikátu a klíče.
+Pro clustery, které jsou zabezpečené pomocí certifikátu, můžete určit certifikát kódovaný PEM. Certifikát lze zadat jako jeden soubor nebo jako pár certifikátu a klíče. Pokud je certifikát, který není podepsaný certifikační autoritou, podepsaný svým držitelem, můžete obejít ověření certifikační autority zadáním možnosti `--no-verify`.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Další informace najdete v tématu [Připojení k zabezpečenému clusteru Azure Service Fabric](service-fabric-connect-to-secure-cluster.md).
@@ -175,6 +200,12 @@ Service Fabric CLI podporuje certifikáty na straně klienta v podobě souborů 
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Podobně k převodu ze souboru PEM do souboru PFX můžete použít následující příkazy (zde bez zadání hesla):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 Další informace najdete v [dokumentace k OpenSSL](https://www.openssl.org/docs/).
 
 ### <a name="connection-problems"></a>Problémy s připojením
@@ -202,6 +233,16 @@ Tady je další příklad:
 ```azurecli
 sfctl application create -h
 ```
+
+## <a name="updating-the-service-fabric-cli"></a>Aktualizace rozhraní příkazového řádku Service Fabric 
+
+Pokud chcete aktualizovat rozhraní příkazového řádku Service Fabric, spusťte následující příkazy (podle volby provedené během původní instalace nahraďte `pip` pomocí `pip3`):
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## <a name="next-steps"></a>Další kroky
 
