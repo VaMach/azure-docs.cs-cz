@@ -2,7 +2,7 @@ Ve službě Cloud Shell vytvořte přihlašovací údaje nasazení pomocí pří
 
 Uživatel nasazení je vyžadován pro nasazení pomocí FTP a místního Gitu do webové aplikace. Uživatelské jméno a heslo jsou na úrovni účtu. _To znamená, že se liší od přihlašovacích údajů předplatného Azure._
 
-V následujícím příkazu nahraďte hodnoty *\<user-name>* a *\<password>* novým uživatelským jménem a heslem. Uživatelské jméno musí být jedinečné. Heslo musí obsahovat alespoň osm znaků a musí v něm být použity minimálně dva z následujících typů znaků: písmena, číslice a symboly. 
+V následujícím příkazu nahraďte hodnoty *\<username>* a *\<password>* novým uživatelským jménem a heslem. Uživatelské jméno musí být jedinečné. Heslo musí obsahovat alespoň osm znaků a musí v něm být použity minimálně dva z následujících typů znaků: písmena, číslice a symboly. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>
