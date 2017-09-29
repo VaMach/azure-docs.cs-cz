@@ -64,7 +64,7 @@
 ## [Virtuální počítač](/azure/virtual-machines/)
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web Apps](/azure/app-service-web/)
+## [Web Apps](/azure/app-service/)
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=networking)

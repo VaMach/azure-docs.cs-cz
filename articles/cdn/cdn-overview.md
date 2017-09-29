@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 2706f22d2bc3e77a53f0a6a39dcbea8048879d01
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Přehled služby Content Delivery Network (CDN) Azure
@@ -75,7 +75,7 @@ Existují tři produkty Azure CDN: **Azure CDN Standard od společnosti Akamai**
 | [Statistiky v reálném čase](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Výstrahy v reálném čase](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Snadné použití__ |
-| Snadná integrace se službami Azure, jako jsou [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) a [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Snadná integrace se službami Azure, jako jsou [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) a [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Správa prostřednictvím [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) nebo [prostředí PowerShellu](cdn-manage-powershell.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Přizpůsobitelný modul doručování obsahu založený na pravidlech](cdn-rules-engine.md) | | |**&#x2713;** |
 | Nastavení mezipaměti nebo hlaviček (pomocí [stroje pravidel](cdn-rules-engine.md)) | | |**&#x2713;** |

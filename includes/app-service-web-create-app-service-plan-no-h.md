@@ -1,4 +1,4 @@
-Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvořte plán služby App Service.
+Ve službě Cloud Shell pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvořte plán služby App Service.
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
