@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření vývojového prostředí pro mikroslužby Azure | Dokumentace Microsoftu"
-description: "Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace."
+title: "Nastavení vývojového prostředí ve Windows pro mikroslužby Azure | Dokumentace Microsoftu"
+description: "Nainstalujte modul runtime, sadu SDK a nástroje a vytvořte místní vývojový cluster. Po dokončení této instalace a nastavení budete moci sestavovat aplikace ve Windows."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 10a5871d64524ff8adeb6ee3041b348ef2b1b32e
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 0691f26168feacf290b732afd7dfd680a2537179
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="prepare-your-development-environment"></a>Příprava vývojového prostředí
+# <a name="prepare-your-development-environment-on-windows"></a>Příprava vývojového prostředí ve Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/30/2017
 > 
 > 
 
- Pokud chcete sestavovat a spouštět [aplikace Azure Service Fabric][1] na vývojovém počítači, musíte nainstalovat modul runtime, sadu SDK a nástroje. Musíte taky povolit spouštění skriptů prostředí Windows PowerShell, které jsou součástí sady SDK.
+ Pokud chcete sestavovat a spouštět [aplikace Azure Service Fabric][1] na vývojovém počítači s Windows, nainstalujte modul runtime, sadu SDK a nástroje. Musíte taky povolit spouštění skriptů prostředí Windows PowerShell, které jsou součástí sady SDK.
 
 ## <a name="prerequisites"></a>Požadavky
 ### <a name="supported-operating-system-versions"></a>Podporované verze operačních systémů
@@ -63,8 +63,8 @@ Pokud potřebujete jenom sadu SDK, můžete nainstalovat tento balíček:
 * [Instalace sady Microsoft Azure Service Fabric SDK][core-sdk]
 
 Aktuální verze jsou:
-* Sada Service Fabric SDK 2.7.198
-* Modul runtime Service Fabric 5.7.198
+* Sada Service Fabric SDK 2.8.211
+* Modul runtime Service Fabric 6.0.211
 * Service Fabric Tools for Visual Studio 2015 1.7.50721
 * Visual Studio 2017 s aktualizací Update 3 obsahuje Service Fabric Tools for Visual Studio 1.7.20170817
 * Visual Studio 2017 s aktualizací Update 4 ve verzi Preview 1 (15.4.0 Preview 1.0) obsahuje Service Fabric Tools for Visual Studio 1.7.20170721

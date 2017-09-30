@@ -1,6 +1,6 @@
 ---
-title: "Vývoj pro Azure File Storage pomocí .NET | Dokumentace Microsoftu"
-description: "Zjistěte, jak vyvíjet aplikace a služby .NET, které používají službu Azure File Storage k ukládání dat souborů."
+title: "Vývoj pro Soubory Azure pomocí .NET | Dokumentace Microsoftu"
+description: "Zjistěte, jak vyvíjet aplikace a služby .NET, které používají Soubory Azure k ukládání dat souborů."
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-net"></a>Vývoj pro službu Azure File Storage pomocí .NET 
+# <a name="develop-for-azure-files-with-net"></a>Vývoj pro Soubory Azure pomocí .NET 
 > [!NOTE]
-> Tento článek ukazuje, jak spravovat službu Azure File Storage pomocí kódu .NET. Další informace o službě Azure File Storage najdete v tématu [Úvod do služby Azure File Storage](storage-files-introduction.md).
+> Tento článek ukazuje, jak spravovat Soubory Azure pomocí kódu .NET. Další informace o službě Soubory Azure najdete v tématu [Úvod do služby Soubory Azure](storage-files-introduction.md).
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>O tomto kurzu
-Tento kurz vám ukáže základy používání technologie .NET k vývoji aplikací a služeb, které používají službu Azure File Storage k ukládání dat souborů. V tomto kurzu vytvoříme jednoduchou konzolovou aplikaci a ukážeme si, jak provádět základní akce s technologií .NET a službou Azure File Storage:
+Tento kurz vám ukáže základy používání technologie .NET k vývoji aplikací a služeb, které používají Soubory Azure k ukládání dat souborů. V tomto kurzu vytvoříme jednoduchou konzolovou aplikaci a ukážeme si, jak provádět základní akce s technologií .NET a službou Soubory Azure:
 
 * Získání obsahu souboru
 * Nastavte kvótu (maximální velikost) pro sdílenou složku.
@@ -42,7 +42,7 @@ Tento kurz vám ukáže základy používání technologie .NET k vývoji aplika
 * Použijte Azure Storage Metrics pro řešení potíží.
 
 > [!Note]  
-> Protože je služba Azure File Storage přístupná přes protokol SMB, je možné psát jednoduché aplikace, které přistupují ke sdílené složce Azure pomocí standardních tříd System.IO pro vstupně-výstupní operace se soubory. Tento článek popisuje, jak psát aplikace, které používají sadu .NET SDK pro Azure Storage, která se službou Azure File Storage komunikuje pomocí rozhraní [REST API pro Azure File Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api). 
+> Protože je služba Soubory Azure přístupná přes protokol SMB, je možné psát jednoduché aplikace, které přistupují ke sdílené složce Azure pomocí standardních tříd System.IO pro vstupně-výstupní operace se soubory. Tento článek popisuje, jak psát aplikace, které používají sadu .NET SDK pro Azure Storage, která se Soubory Azure komunikuje pomocí [souborového rozhraní REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api). 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Vytvoření konzolové aplikace a získání sestavení
@@ -86,7 +86,7 @@ Dál uložte svoje přihlašovací údaje do souboru app.config vašeho projektu
 ```
 
 > [!NOTE]
-> Nejnovější verze emulátoru úložiště Azure nepodporuje službu Azure File Storage. Aby váš připojovací řetězec mohl pracovat se službou Azure File Storage, musí jako cíl mít účet služby Azure Storage v cloudu.
+> Nejnovější verze emulátoru úložiště Azure nepodporuje Soubory Azure. Aby váš připojovací řetězec mohl pracovat se Soubory Azure, musí jako cíl mít účet služby Azure Storage v cloudu.
 
 ## <a name="add-using-directives"></a>Přidání direktiv using
 V Průzkumníku řešení otevřete soubor `Program.cs` a na začátek souboru přidejte následující direktivy using.
@@ -95,7 +95,7 @@ V Průzkumníku řešení otevřete soubor `Program.cs` a na začátek souboru p
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +104,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 Dál přidejte následující kód k metodě `Main()` (po výše uvedeném kódu) pro získání připojovacího řetězce. Tento kód získá odkaz na soubor, který jsme vytvořili předtím, a vypíše obsah do okna konzoly.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -149,7 +149,7 @@ Dole uvedený příklad ukazuje, jak můžete zkontrolovat aktuální využití 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +184,7 @@ V následujícím příkladu se vytvoří sdílená zásada přístupu pro sdíl
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +242,7 @@ Pomocí nástroje AzCopy taky můžete zkopírovat jeden soubor do jiného nebo 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +286,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +327,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Stejným způsobem můžete kopírovat objekt blob do souboru. Pokud je zdrojovým objektem objekt blob, vytvořte SAS k ověření přístupu k tomuto objektu blob při kopírování.
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>Řešení potíží se službou Azure File Storage pomocí metrik
-Azure Storage Analytics teď podporuje metriky pro službu Azure File Storage. S údaji z metriky můžete sledovat žádosti a diagnostikovat potíže.
+## <a name="troubleshooting-azure-files-using-metrics"></a>Řešení potíží se Soubory Azure pomocí metrik
+Analýza úložiště Azure teď podporuje metriky pro Soubory Azure. S údaji z metriky můžete sledovat žádosti a diagnostikovat potíže.
 
+Metriky pro Soubory Azure můžete povolit na webu [Azure Portal](https://portal.azure.com). Metriky taky můžete zapnout programově zavoláním operace Set File Service Properties přes REST API nebo některou z podobných operací v Klientské knihovně pro úložiště.
 
-Metriky pro službu Azure File Storage můžete povolit na webu [Azure Portal](https://portal.azure.com). Metriky taky můžete zapnout programově zavoláním operace Set File Service Properties přes REST API nebo některou z podobných operací v Klientské knihovně pro úložiště.
-
-
-Následující příklad kódu ukazuje, jak můžete použít Klientskou knihovnu pro úložiště pro .NET k zapnutí metrik pro službu Azure File Storage.
+Následující příklad kódu ukazuje, jak můžete použít Klientskou knihovnu pro úložiště pro .NET k zapnutí metrik pro Soubory Azure.
 
 Nejdříve do souboru `Program.cs` mimo těch, které jste přidali výše, přidejte následující direktivy `using`:
 
@@ -343,7 +341,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Pamatujte, že zatímco objekty blob Azure, Tabulky Azure a Fronty Azure používají sdílený typ `ServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.Shared.Protocol`, Azure File Storage používá vlastní typ `FileServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.File.Protocol`. Aby se ale následující kód mohl zkompilovat, musí se z vašeho kódu odkazovat oba obory názvů.
+Pamatujte, že zatímco objekty blob Azure, Tabulky Azure a Fronty Azure používají sdílený typ `ServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.Shared.Protocol`, služba Soubory Azure používá vlastní typ `FileServiceProperties` v oboru názvů `Microsoft.WindowsAzure.Storage.File.Protocol`. Aby se ale následující kód mohl zkompilovat, musí se z vašeho kódu odkazovat oba obory názvů.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +384,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Podrobné pokyny, jak postupovat při řešení potíží, najdete v článku [Azure File storage Troubleshooting Article](storage-troubleshoot-windows-file-connection-problems.md) (Azure File Storage – řešení problémů).
+Podrobné pokyny, jak postupovat při řešení problémů, najdete v článku [Azure Files Troubleshooting Article](storage-troubleshoot-windows-file-connection-problems.md) (Soubory Azure – řešení problémů).
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
+Další informace o službě Soubory Azure najdete na těchto odkazech.
 
 ### <a name="conceptual-articles-and-videos"></a>Koncepční články a videa
-* [Azure File Storage: hladký cloudový souborový systém SMB pro Windows a Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Jak používat Azure File Storage s Linuxem](storage-how-to-use-files-linux.md)
+* [Soubory Azure: hladký cloudový souborový systém SMB pro Windows a Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Jak používat Soubory Azure s Linuxem](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Podpora nástrojů pro úložiště File
 * [Použití nástroje AzCopy s Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Použití Azure CLI s Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Řešení potíží se službou Azure File Storage](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Řešení potíží se Soubory Azure](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referenční informace
 * [Klientská knihovna Storage pro .NET – referenční informace](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [REST API služby File – referenční informace](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Příspěvky na blozích
-* [Úložiště Azure File je nyní dostupné pro veřejnost](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Uvnitř Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Služba Soubory Azure je teď obecně dostupná](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Uvnitř služby Soubory Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Představujeme službu Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Nastavení trvalých připojení ke službě Microsoft Azure File Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Nastavení trvalých připojení k Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

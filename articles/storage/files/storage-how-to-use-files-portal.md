@@ -1,6 +1,6 @@
 ---
-title: "Správa služby Azure File Storage z webu Azure Portal | Dokumentace Microsoftu"
-description: "Zjistěte, jak pomocí webu Azure Portal spravovat službu Azure File Storage."
+title: "Správa služby Soubory Azure z webu Azure Portal | Dokumentace Microsoftu"
+description: "Zjistěte, jak pomocí webu Azure Portal spravovat službu Soubory Azure."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d5ffa7cff0a31e36f5a96aaa4b2d477fa39333fb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="how-to-use-azure-file-storage-from-the-azure-portal"></a>Správa služby Azure File Storage z webu Azure Portal
-[Azure Portal](https://portal.azure.com) nabízí uživatelské rozhraní pro správu služby Azure File Storage. Z webového prohlížeče můžete provádět následující akce:
+# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Použití služby Soubory Azure z webu Azure Portal
+[Azure Portal](https://portal.azure.com) nabízí uživatelské rozhraní pro správu služby Soubory Azure. Z webového prohlížeče můžete provádět následující akce:
 
 * Vytvoření sdílené složky
 * Ukládat soubory do sdílené složky a stahovat soubory ze sdílené složky.
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/21/2017
 
     ![Snímek obrazovky, který ukazuje vytvoření sdílené složky v portálu.](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Zadejte název sdílené složky a její velikost (max. 5120 GB) a vaše první složka se vytvoří. Po vytvoření sdílené složky ji můžete připojit z jakéhokoli souborové systému, který podporuje SMB 2.1 nebo SMB 3.0. Po kliknutí na **Kvóta** sdílené složky můžete změnit velikost souboru až do velikosti 5 120 GB. Pro odhad nákladů na úložiště při použití služby Azure File Storage použijte [cenovou kalkulačku funkcí Azure](https://azure.microsoft.com/pricing/calculator/).
+6. Zadejte název sdílené složky a její velikost (max. 5120 GB) a vaše první složka se vytvoří. Po vytvoření sdílené složky ji můžete připojit z jakéhokoli souborové systému, který podporuje SMB 2.1 nebo SMB 3.0. Po kliknutí na **Kvóta** sdílené složky můžete změnit velikost souboru až do velikosti 5 120 GB. Pro odhad nákladů na úložiště při použití služby Soubory Azure použijte [cenovou kalkulačku funkcí Azure](https://azure.microsoft.com/pricing/calculator/).
 
     ![Snímek obrazovky, který ukazuje vytvoření sdílené složky v portálu.](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/21/2017
     ![Snímek obrazovky, který ukazuje ukládání souborů z portálu.](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## <a name="connect-to-file-share"></a>Připojení ke sdílené složce
--  Klikněte na **Připojit** a zobrazí se příkazový řádek pro připojení sdílené složky z Windows a Linuxu. Pokud jste uživatelem Linuxu, další informace o připojení pro jiné distribuce Linuxu najdete v tématu [Používání služby Azure File Storage s Linuxem](../storage-how-to-use-files-linux.md).
+-  Klikněte na **Připojit** a zobrazí se příkazový řádek pro připojení sdílené složky z Windows a Linuxu. Pokud jste uživatelem Linuxu, další informace o připojení pro jiné distribuce Linuxu najdete v tématu [Jak používat Soubory Azure s Linuxem](../storage-how-to-use-files-linux.md).
 
     ![Snímek obrazovky, který ukazuje připojení sdílené složky.](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
 -  Můžete zkopírovat příkazy pro připojení sdílené složky v systému Windows nebo Linux a spustit je z virtuálního počítače Azure nebo místního počítače.
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/21/2017
 Přístupový klíč účtu úložiště pro připojení najdete tak, že kliknete na **Zobrazit přístupové klíče pro tento účet úložiště** ve spodní části stránky připojení.
 
 ## <a name="see-also"></a>Viz také
-Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
+Další informace o službě Soubory Azure najdete na těchto odkazech.
 
 * [Nejčastější dotazy](../storage-files-faq.md)
 * [Řešení potíží ve Windows](storage-troubleshoot-windows-file-connection-problems.md)      

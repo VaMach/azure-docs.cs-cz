@@ -1,6 +1,6 @@
 ---
-title: "Použití PowerShellu ke správě služby Azure File Storage | Dokumentace Microsoftu"
-description: "Zjistěte, jak pomocí PowerShellu spravovat službu Azure File Storage."
+title: "Správa služby Soubory Azure pomocí PowerShellu | Dokumentace Microsoftu"
+description: "Zjistěte, jak pomocí PowerShellu spravovat službu Soubory Azure."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>Použití PowerShellu ke správě služby Azure File Storage
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>Správa služby Soubory Azure pomocí PowerShellu
 Azure PowerShell můžete použít k vytváření a správě sdílených složek.
 
 ## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Instalace rutin PowerShellu pro Azure Storage
@@ -96,7 +96,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Další kroky
-Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
+Další informace o službě Soubory Azure najdete na těchto odkazech.
 
 * [Nejčastější dotazy](../storage-files-faq.md)
 * [Řešení potíží ve Windows](storage-troubleshoot-windows-file-connection-problems.md)      

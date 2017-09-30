@@ -1,6 +1,6 @@
 ---
 title: "Rozdíly Azure Service Fabric pro Linux a Windows | Dokumentace Microsoftu"
-description: "Rozdíly mezi Azure Service Fabric Preview v Linuxu a Azure Service Fabric ve Windows"
+description: "Rozdíly mezi Azure Service Fabric v Linuxu a Azure Service Fabric ve Windows."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,34 +12,26 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Rozdíly mezi Service Fabric v Linuxu (verze Preview) a ve Windows (obecně dostupná verze)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Rozdíly mezi Service Fabric v Linuxu a ve Windows
 
-Protože Service Fabric v Linuxu je ve verzi Preview, existují určité funkce, které jsou ve Windows podporované, ale v Linuxu zatím ne. Nakonec si sady funkcí budou odpovídat, až bude Service Fabric v Linuxu v obecně dostupné verzi. S budoucími verzemi se bude tato mezera zmenšovat. Mezi nejnovějšími dostupnými verzemi (tedy mezi verzí 5.6 pro Windows a verzí 5.5 pro Linux) existují následující rozdíly: 
+Existují určité funkce, které jsou ve Windows podporované, ale v Linuxu zatím ne. S každou vydanou verzí se rozdíly mezi funkcemi budou zmenšovat, až si nakonec sady funkcí budou odpovídat. Mezi nejnovějšími dostupnými verzemi (tedy mezi verzí 6.0 ve Windows a verzí 6.0 v Linuxu) existují následující rozdíly: 
 
-* Reliable Collections (a Reliable Stateful Services) 
-* ReverseProxy 
-* Samostatný instalační program 
-* Ověření schématu XML pro soubory manifestu 
-* Přesměrování konzoly 
-* Fault Analysis Service (FAS)
-* Ovladače protokolování a svazku a Docker Compose pro kontejnery 
-* Zásady správného řízení prostředků pro kontejnery a služby 
-* Služba DNS
-* Podpora Azure Active Directory
-* Ekvivalenty příkazů rozhraní příkazového řádku pro určité příkazy PowerShellu 
-* Proti clusteru Linux lze spustit pouze podmnožinu příkazů Powershellu (jak je rozvedeno v další části).
-
->[!NOTE]
->Přesměrování konzoly se nepodporuje v produkčních clusterech, dokonce ani ve Windows.
+* Všechny programovací modely jsou ve verzi Preview (Java/C# Reliable Actors, Reliable Stateless Services a Reliable Stateful Services).
+* Envoy (ReverseProxy) je v Linuxu ve verzi Preview.
+* Samostatný instalační program pro Linux ještě není v Linuxu k dispozici.
+* Přesměrování konzoly (nepodporuje se v produkčních clusterech s Linuxem ani s Windows).
+* Fault Analysis Service (FAS) v Linuxu.
+* Služba DNS pro služby Service Fabric (služba DNS je podporována pro kontejnery v Linuxu).
+* Ekvivalenty příkazů rozhraní příkazového řádku pro určité příkazy PowerShellu (seznam je níže; většina se vztahuje pouze na samostatné clustery).
 
 Nástroje pro vývoj ve Windows a v Linuxu se také liší. Ve Windows se používá sada Visual Studio, PowerShell, VSTS a Trasování událostí pro Windows, zatímco v Linuxu se používá Yeoman, Eclipse, Jenkins a LTTng.
 
@@ -67,7 +59,6 @@ Nástroje pro vývoj ve Windows a v Linuxu se také liší. Ve Windows se použ�
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

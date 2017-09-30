@@ -3,7 +3,7 @@ title: "Vytvoření interního nástroje pro vyrovnávání zatížení – Azur
 description: "Zjistěte, jak vytvořit interní nástroj pro vyrovnávání zatížení v Resource Manageru pomocí webu Azure Portal"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
 ms.contentlocale: cs-cz
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,6 +30,9 @@ ms.lasthandoff: 01/24/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Šablona](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -55,7 +58,7 @@ Pomocí následujícího postupu vytvořte interní nástroj pro vyrovnávání 
 7. V části **Přiřazení IP adresy** klikněte buď na **Dynamické**, nebo **Statické** v závislosti na tom, jestli chcete, aby IP adresa nástroje pro vyrovnávání zatížení byla pevná (statická) nebo ne.
 
    > [!NOTE]
-   > Pokud vyberete použití statické IP adresy, budete muset zadat adresu nástroje pro vyrovnávání zatížení.
+   > Pokud vyberete použití statické IP adresy, musíte zadat adresu nástroje pro vyrovnávání zatížení.
 
 8. V části **Skupina prostředků** buď zadejte název nové skupiny prostředků pro nástroj pro vyrovnávání zatížení, nebo klikněte na **vybrat existující** a vyberte existující skupinu prostředků.
 9. Klikněte na možnost **Vytvořit**.
@@ -63,18 +66,18 @@ Pomocí následujícího postupu vytvořte interní nástroj pro vyrovnávání 
 ## <a name="configure-load-balancing-rules"></a>Konfigurace pravidel vyrovnávání zatížení
 
 Po vytvoření nástroje pro vyrovnávání zatížení přejděte do prostředku nástroje pro vyrovnávání zatížení, abyste jej nakonfigurovali.
-Nejdříve je nutné nakonfigurovat back-endový fond adres a test, teprve potom je možné konfigurovat pravidlo vyrovnávání zatížení.
+Před konfigurací pravidla vyrovnávání zatížení nakonfigurujte back-endový fond adres a test.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Krok 1: Konfigurace back-endového fondu
+### <a name="step-1-configure-a-backend-pool"></a>Krok 1: Konfigurace back-endového fondu
 
-1. Na webu Azure Portal klikněte na **Procházet** > **Nástroje pro vyrovnávání zatížení** a potom klikněte na nástroj pro vyrovnávání zatížení, který jste vytvořili výše.
+1. Na webu Azure Portal klikněte na **Procházet** > **Nástroje pro vyrovnávání zatížení** a potom klikněte na nástroj pro vyrovnávání zatížení, který jste vytvořili dříve.
 2. V okně **Nastavení** klikněte na **Back-endové fondy**.
 3. V okně **Back-endové fondy adres** klikněte na **Přidat**.
 4. V okně **Přidat back-endový fond** zadejte **Název** back-endového fondu a potom klikněte na **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Krok 2: Konfigurace testu
 
-1. Na webu Azure Portal klikněte na **Procházet** > **Nástroje pro vyrovnávání zatížení** a potom klikněte na nástroj pro vyrovnávání zatížení, který jste vytvořili výše.
+1. Na webu Azure Portal klikněte na **Procházet** > **Nástroje pro vyrovnávání zatížení** a potom klikněte na nástroj pro vyrovnávání zatížení, který jste vytvořili dříve.
 2. V okně **Nastavení** klikněte na **Testy**.
 3. V okně **Testy** klikněte na **Přidat**.
 4. V okně **Přidat test** zadejte **Název** testu.
@@ -87,14 +90,14 @@ Nejdříve je nutné nakonfigurovat back-endový fond adres a test, teprve potom
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Krok 3: Konfigurace pravidel vyrovnávání zatížení
 
-1. Na webu Azure Portal klikněte na **Procházet** > **Nástroje pro vyrovnávání zatížení** a potom klikněte na nástroj pro vyrovnávání zatížení, který jste vytvořili výše.
+1. Na webu Azure Portal klikněte na **Procházet** > **Nástroje pro vyrovnávání zatížení** a potom klikněte na nástroj pro vyrovnávání zatížení, který jste vytvořili dříve.
 2. V okně **Nastavení** klikněte na **Pravidla vyrovnávání zatížení**.
 3. V okně **Pravidla vyrovnávání zatížení** klikněte na **Přidat**.
 4. V okně **Přidat pravidlo vyrovnávání zatížení** zadejte **Název** pravidla.
 5. V části **Protokol** vyberte **HTTP** (pro weby) nebo **TCP** (pro ostatní aplikace založené na protokolu TCP).
 6. V části **Port** zadejte port, ke kterému se připojují klienti v nástroji pro vyrovnávání zatížení.
 7. V části **Back-endový port** zadejte port, který se má použít v back-endovém fondu (port nástroje pro vyrovnávání zatížení a back-endový port jsou obvykle stejné).
-8. V části **Back-endový fond** vyberte back-endový fond, který jste vytvořili výše.
+8. V části **Back-endový fond** vyberte back-endový fond, který jste vytvořili dříve.
 9. V části **Trvalost relace** vyberte, jak chcete uchovávat relace.
 10. V části **Časový limit nečinnosti (v minutách)** zadejte časový limit nečinnosti.
 11. V části **Plovoucí IP (přímá odpověď ze serveru)** klikněte na **Zakázáno** nebo **Povoleno**.

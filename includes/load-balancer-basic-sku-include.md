@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+Azure Load Balancer podporuje dva různé typy: Basic a Standard. Tento článek popisuje Load Balancer úrovně Basic. Služba Load Balancer úrovně Basic je obecně dostupná, zatímco Load Balancer úrovně Standard je aktuálně ve verzi Public Preview. Další informace o službě Load Balancer úrovně Standard najdete v tématu [Přehled služby Load Balancer úrovně Standard](https://aka.ms/AzureLoadBalancerStandard).

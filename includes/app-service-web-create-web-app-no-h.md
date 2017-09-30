@@ -1,4 +1,4 @@
-Pomocí příkazu [az webapp create](/cli/azure/webapp#create) vytvořte [webovou aplikaci](../articles/app-service-web/app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`. 
+Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp#create) vytvořte [webovou aplikaci](../articles/app-service/app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`. 
 
 Tato webová aplikace poskytuje prostor pro hostování vašeho kódu a adresu URL, na které si můžete nasazenou aplikaci zobrazit.
 

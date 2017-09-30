@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Nejčastější dotazy k branám VPN
@@ -113,9 +113,9 @@ Ověřování je omezeno na použití předsdílených klíčů (PSK).
 * Azure Portal: Přejděte k položce klasická virtuální síť > připojení k síti VPN > připojení VPN typu Site-to-Site > Název místní lokality > Místní lokalita > Klientský adresní prostor. 
 * Portál Azure Classic: Přidejte všechny rozsahy, které chcete odesílat prostřednictvím brány pro virtuální síť, na stránce Sítě v části Místní sítě. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Je možné konfigurovat vynucené tunelování?
+### <a name="can-i-configure-force-tunneling"></a>Je možné konfigurovat vynucené tunelování?
 
-Ano. Informace najdete v části [Konfigurace vynuceného tunelování](vpn-gateway-about-forced-tunneling.md).
+Ano. Informace najdete v tématu [Konfigurace vynuceného tunelování](vpn-gateway-about-forced-tunneling.md).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Je možné nastavit v Azure vlastní server VPN a používat ho pro připojování k místní síti?
 
@@ -159,9 +159,13 @@ Konfigurace připojení Site-to-Site pro více míst je podporována u serverů 
 
 Jiná softwarová řešení sítě VPN by měla s naší bránou spolupracovat, pokud odpovídají implementacím protokolu IPsec podle průmyslových standardů. Ohledně pokynů ke konfiguraci a podporu se obraťte na výrobce příslušného softwaru.
 
-## <a name="P2S"></a>Připojení typu Point-to-Site
+## <a name="P2S"></a>Point-to-Site – nativní ověřování certifikátů Azure
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Point-to-Site – ověřování pomocí protokolu RADIUS
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Připojení typu VNet-to-VNet a Multi-Site
 

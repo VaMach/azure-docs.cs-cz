@@ -5,7 +5,7 @@ Služba Azure Cloud Shell je volně dostupné prostředí Bash, které můžete 
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-Toto tlačítko spustí interaktivní prostředí, které můžete použít k provedení všech kroků v tématu:
+Toto tlačítko spustí interaktivní prostředí, které můžete použít k provedení kroků v tématu:
 
 [![Snímek obrazovky okna služby Cloud Shell na portálu](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 

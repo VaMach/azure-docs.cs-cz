@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Vytvoření první aplikace Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java – Linux (Preview)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# – Linux (Preview)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET Core a Javy. V tomto kurzu si projdeme postup vytvoření aplikace pro Linux a vytvoření služby pomocí jazyka C# (.NET Core).
+Service Fabric poskytuje sady SDK pro vytváření služeb v Linuxu pomocí .NET Core a Javy. V tomto kurzu si projdeme postup vytvoření aplikace pro Linux a vytvoření služby pomocí jazyka C# na .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Požadavky
 Než začnete, ujistěte se, že máte [v Linuxu nastavené vývojové prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
 
 Budete také chtít nainstalovat [Service Fabric CLI](service-fabric-cli.md).
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Instalace a nastavení generátorů pro CSharp
-Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric CSharp z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman pro CSharp.
+### <a name="install-and-set-up-the-generators-for-c"></a>Instalace a nastavení generátorů pro jazyk C#
+Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvářet aplikace Service Fabric z terminálu pomocí generátorů šablon Yeoman. Podle těchto pokynů nastavte generátory šablon Service Fabric Yeoman pro jazyk C#:
+
 1. Instalace nodejs a NPM na počítači
 
   ```bash
@@ -56,7 +57,7 @@ Service Fabric nabízí nástroje pro generování uživatelského rozhraní, kt
   ```
 
 ## <a name="create-the-application"></a>Vytvoření aplikace
-Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Generátor šablon Service Fabric [Yeoman](http://yeoman.io/) pro CSharp, který jste nainstalovali v posledním kroku, vám usnadní vytvoření první služby a případná další rozšíření později. Pomocí generátoru Yeoman vytvoříme aplikaci s jedinou službou.
+Aplikace Service Fabric může obsahovat jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Generátor Service Fabric [Yeoman](http://yeoman.io/) pro jazyk C#, který jste nainstalovali v posledním kroku, vám usnadní vytvoření první služby a případná další rozšíření později. Pomocí generátoru Yeoman vytvoříme aplikaci s jedinou službou.
 
 1. V terminálu zadejte následující příkaz, který zahájí sestavování základní kostry aplikace: `yo azuresfcsharp`
 2. Pojmenujte svoji aplikaci.
@@ -126,7 +127,6 @@ Pokud chcete přidat další službu do aplikace již vytvořené pomocí `yo`, 
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
 * Informace o [možnostech podpory pro Service Fabric](service-fabric-support.md)
 * [Začínáme se Service Fabric CLI](service-fabric-cli.md)
