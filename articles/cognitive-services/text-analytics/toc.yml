@@ -24,6 +24,8 @@
   items:
     - name: Analýza textu s využitím Power BI
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Analýza textu v Power Apps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
 - name: Návody
   items:
     - name: Registrace

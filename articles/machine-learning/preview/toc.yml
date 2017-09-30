@@ -45,6 +45,8 @@
       items:
         - name: Konfigurace cílů spouštění
           href: experiment-execution-configuration.md
+        - name: Vytvoření clusteru DSVM a HDI Spark
+          href: how-to-create-dsvm-hdi.md
         - name: Trénování s grafickými procesory
           href: how-to-use-gpu.md
     - name: Získání dat a jejich pochopení

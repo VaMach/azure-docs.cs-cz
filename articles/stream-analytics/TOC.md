@@ -29,6 +29,11 @@
 ### [Výstup do Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Výstup do Cosmos DB](stream-analytics-documentdb-output.md)
 
+## Použití nástrojů sady Visual Studio
+### [Instalace](stream-analytics-tools-for-visual-studio-install.md)
+### [Začínáme](stream-analytics-tools-for-visual-studio.md)
+### [Nastavení kanálů CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
+
 ## Monitorování a optimalizace
 ### [Přidání výstrah](stream-analytics-set-up-alerts.md)
 ### [Monitorování úloh](stream-analytics-monitoring.md)
@@ -52,7 +57,6 @@
 ### [Protokoly diagnostiky](stream-analytics-job-diagnostic-logs.md)
 
 ## Automatizace
-### [Nástroje pro Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Použití Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [Azure PowerShell jedním kliknutím](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 

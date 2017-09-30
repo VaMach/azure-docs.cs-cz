@@ -26,9 +26,8 @@
 ### [Konfigurace internetového nástroje pro vyrovnávání zatížení (rozhraní příkazového řádku)](load-balancer-get-started-internet-arm-cli.md)
 ### [Konfigurace internetového nástroje pro vyrovnávání zatížení (šablona)](load-balancer-get-started-internet-arm-template.md)
 
-## [Konfigurace internetového nástroje pro vyrovnávání zatížení (portál Classic)](load-balancer-get-started-internet-classic-portal.md)
+## [Konfigurace internetového nástroje pro vyrovnávání zatížení (Classic PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [Konfigurace internetového nástroje pro vyrovnávání zatížení (cloud Classic)](load-balancer-get-started-internet-classic-cloud.md)
-### [Konfigurace internetového nástroje pro vyrovnávání zatížení (PowerShell Classic)](load-balancer-get-started-internet-classic-ps.md)
 ### [Konfigurace internetového nástroje pro vyrovnávání zatížení (rozhraní příkazového řádku Classic)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Vytvoření internetového nástroje pro vyrovnávání zatížení s protokolem IPv6](load-balancer-ipv6-internet-ps.md)

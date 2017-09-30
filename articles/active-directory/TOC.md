@@ -148,13 +148,14 @@
 ### [Začínáme](active-directory-integrating-applications-getting-started.md)
 ### [Kurzy integrace aplikací SaaS](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Co je Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Nastavení kroků](cloudappdiscovery-get-started.md)
+#### [Nastavení zjišťování bez agenta](cloudappdiscovery-get-started.md)
 #### [Vytvoření sestav snímků](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurace průběžného vytváření sestav](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Použití vlastního analyzátoru protokolů](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Zjišťování na základě agenta
+##### [Co je Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Aktualizace nastavení registru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Vysvětlení zabezpečení a ochrany soukromí](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Vzdálený přístup k aplikací s App Proxy](active-directory-application-proxy-get-started.md)

@@ -33,6 +33,7 @@
 
 ## Ladění programů U-SQL
 ### [Monitorování úloh a odstraňování potíží](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Řešení potíží s neobvykle se opakující úlohou](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Ladění kódu C# v U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Použití prohlížeče úloh a zobrazení úloh](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Použití zobrazení provádění vrcholů](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
