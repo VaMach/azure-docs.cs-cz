@@ -3,7 +3,7 @@ title: "Vytvoření internetového nástroje pro vyrovnávání zatížení – 
 description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v režimu Classic pomocí prostředí PowerShell"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
 ms.contentlocale: cs-cz
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="set-up-load-balancer-using-powershell"></a>Nastavení nástroje pro vyrovnávání zatížení pomocí prostředí PowerShell
 
-Pokud chcete nastavit nástroj pro vyrovnávání zatížení pomocí prostředí PowerShell, použijte následující postup:
+Pokud chcete nastavit nástroj pro vyrovnávání zatížení pomocí PowerShellu, proveďte následující kroky:
 
 1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, přejděte na téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) a proveďte všechny pokyny, abyste se mohli přihlásit k Azure a vybrat své předplatné.
 2. Po vytvoření virtuálního počítače můžete pomocí rutin prostředí PowerShell přidat nástroj pro vyrovnávání zatížení do virtuálního počítače v rámci stejné cloudové služby.

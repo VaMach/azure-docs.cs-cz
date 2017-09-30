@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
 ms.contentlocale: cs-cz
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -31,11 +31,13 @@ ms.lasthandoff: 01/24/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Šablona](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Tento článek se týká modelu nasazení Resource Manager. Případně [zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení pomocí modelu nasazení Classic](load-balancer-get-started-internet-classic-portal.md).
+Tento článek se týká modelu nasazení Resource Manager.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -63,7 +65,7 @@ Další informace o komponentách nástroje pro vyrovnávání zatížení s Azu
 3. V okně **Vytvořit nástroj pro vyrovnávání zatížení** zadejte název svého nástroje pro vyrovnávání zatížení. Tady jsme ho nazvali **myLoadBalancer**.
 4. V části **Typ** vyberte **Veřejný**.
 5. V části **Veřejná IP adresa** vytvořte novou veřejnou IP adresu s názvem **myPublicIP**.
-6. V části Skupina prostředků vyberte **myRG**. Následně vyberte odpovídající **Umístění** a klikněte na **OK**. Nástroj pro vyrovnávání zatížení se začne nasazovat. Úspěšné dokončení nasazení potrvá několik minut.
+6. V části Skupina prostředků vyberte **myRG**. Následně vyberte odpovídající **Umístění** a klikněte na **OK**. Nástroj pro vyrovnávání zatížení se pak začne nasazovat. Úspěšné dokončení nasazení trvá několik minut.
 
     ![Aktualizace skupiny prostředků nástroje pro vyrovnávání zatížení](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -83,7 +85,7 @@ Další informace o komponentách nástroje pro vyrovnávání zatížení s Azu
     V části Nastavení vašeho nástroje pro vyrovnávání zatížení vyberte Testy. Potom klikněte na **Přidat** v horní části okna.
 
     Test můžete nakonfigurovat dvěma způsoby: HTTP nebo TCP. Tento příklad ukazuje HTTP, ale TCP lze nakonfigurovat podobným způsobem.
-    Aktualizujte potřebné informace. Jak už bylo zmíněno, **myLoadBalancer** bude vyrovnávat zatížení provozu na portu 80. Vybraná cesta je HealthProbe.aspx, interval je 15 sekund a prahová hodnota špatného stavu je 2. Jakmile budete hotovi, kliknutím na **OK** vytvořte test.
+    Aktualizujte potřebné informace. Jak už bylo zmíněno, **myLoadBalancer** vyrovnává zatížení provozu na portu 80. Vybraná cesta je HealthProbe.aspx, interval je 15 sekund a prahová hodnota špatného stavu je 2. Jakmile budete hotovi, kliknutím na **OK** vytvořte test.
 
     Pokud najedete myší na ikonu „i“, zobrazí se další informace o těchto jednotlivých konfiguracích a jak je změnit, aby vyhovovaly vašim požadavkům.
 

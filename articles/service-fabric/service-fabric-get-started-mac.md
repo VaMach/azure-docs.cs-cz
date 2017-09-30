@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/21/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Nastavení vývojového prostředí v Mac OS X
@@ -49,7 +49,7 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Tento postup přinese soubor `Vagrantfile` obsahující konfiguraci virtuálního počítače společně s umístěním virtuálního počítače, ze kterého je stažen.
+    Tento postup přinese soubor `Vagrantfile` obsahující konfiguraci virtuálního počítače společně s umístěním virtuálního počítače, ze kterého je stažen.  Tento soubor odkazuje na skladovou image Ubuntu. 
 
 2. Přejděte do místního klonu úložiště.
 
@@ -70,9 +70,24 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
     vagrant up
     ```
 
-   Tento krok stáhne předem nakonfigurovanou image virtuálního počítače, místně jej spustí a následně v něm nastaví místní cluster služby Service Fabric. Očekávejte, že tento proces zabere několik minut. Pokud se instalace úspěšně dokončí, zobrazí se ve výstupu zpráva s oznámením, že se spouští cluster.
 
-    ![Spouštění instalace clusteru po zřízení virtuálního počítače][cluster-setup-script]
+5. Přihlaste se k virtuálnímu počítači a nainstalujte sadu Service Fabric SDK.
+
+    ```bash
+    vagrant ssh
+    ```
+   
+   Nainstalujte sadu SDK způsobem popsaným v tématu věnovaném [instalaci sady SDK](service-fabric-get-started-linux.md).  Společně s rozhraním příkazového řádku sfctl je poskytován níže uvedený skript pro usnadnění instalace modulu runtime Service Fabric a běžné sady SDK Service Fabric. Spuštěním skriptu se předpokládá, že jste si přečetli o licencích pro veškerý instalovaný software a souhlasíte s nimi.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Spusťte cluster Service Fabric.
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > Pokud stažení virtuálního počítače trvá dlouhou dobu, můžete ho stáhnout pomocí nástrojů wget nebo curl nebo prostřednictvím prohlížeče tak, že přejdete na odkaz určený položkou **config.vm.box_url** v souboru `Vagrantfile`. Po stažení do místního počítače upravte soubor `Vagrantfile` tak, aby odkazoval na místní cestu, kam jste image stáhli. Pokud jste například stáhli image do adresáře /home/users/test/azureservicefabric.tp8.box, nastavte položku **config.vm.box_url** na tuto cestu.
@@ -106,6 +121,10 @@ Service Fabric nabízí nástroje pro generování uživatelského rozhraní, kt
   npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
   ```
 4. K vytvoření aplikace Service Fabric Java na počítači Mac budete potřebovat nainstalovanou sadu JDK 1.8 a Gradle.
+
+## <a name="set-up-net-core-20-development"></a>Nastavení pro vývoj v .NET Core 2.0
+
+Pokud chcete začít [vytvářet aplikace Service Fabric v jazyce C#](service-fabric-create-your-first-linux-application-with-csharp.md), nainstalujte sadu [.NET Core 2.0 SDK pro Mac](https://www.microsoft.com/net/core#macos). Balíčky pro aplikace Service Fabric v .NET Core 2.0 jsou hostované na NuGet.org a aktuálně ve verzi Preview.
 
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalace modulu plug-in Service Fabric pro Eclipse Neon

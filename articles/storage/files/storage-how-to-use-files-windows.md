@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Připojení sdílené složky Azure a přístup k ní v systému Windows
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) je snadno použitelný cloudový systém souborů od Microsoftu. Sdílené složky Azure je možné připojit v systémech Windows a Windows Server. Tento článek ukazuje tři různé způsoby připojení sdílené složky Azure v systému Windows: pomocí uživatelského rozhraní Průzkumníka souborů, přes PowerShell a přes příkazový řádek. 
+Služba [Soubory Azure](storage-files-introduction.md) je snadno použitelný cloudový systém souborů od Microsoftu. Sdílené složky Azure je možné připojit v systémech Windows a Windows Server. Tento článek ukazuje tři různé způsoby připojení sdílené složky Azure v systému Windows: pomocí uživatelského rozhraní Průzkumníka souborů, přes PowerShell a přes příkazový řádek. 
 
 Aby bylo možné připojit sdílenou složku Azure mimo oblast, ve které je hostovaná, například v místním prostředí nebo jiné oblasti Azure, operační systém musí podporovat protokol SMB 3.0. 
 
@@ -39,7 +39,7 @@ Sdílené složky Azure můžete připojit v instalaci Windows na virtuálním p
 | Windows 7              | SMB 2.1     | Ano                   | Ne                   |
 | Windows Server 2008 R2 | SMB 2.1     | Ano                   | Ne                   |
 
-<sup>1</sup>Windows 10 verze 1507, 1511, 1607 a 1703
+<sup>1</sup>Windows 10 verze 1507, 1511, 1607, 1703 a 1709.
 
 > [!Note]  
 > Vždy doporučujeme získat nejnovější aktualizaci KB pro vaši verzi systému Windows.
@@ -49,7 +49,7 @@ Sdílené složky Azure můžete připojit v instalaci Windows na virtuálním p
 
 * **Klíč účtu úložiště:** Pro připojení sdílené složky Azure budete potřebovat primární (nebo sekundární) klíč úložiště. Klíče SAS aktuálně nejsou pro připojení podporovány.
 
-* **Ujistěte se, že je otevřený port 445:** Azure File Storage používá protokol SMB. Protokol SMB komunikuje přes protokol TCP 445 – zkontrolujte, že brána firewall neblokuje port TCP 445 z klientského počítače.
+* **Ujistěte se, že je otevřený port 445:** Služba Soubory Azure používá protokol SMB. Protokol SMB komunikuje přes protokol TCP 445 – zkontrolujte, že brána firewall neblokuje port TCP 445 z klientského počítače.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Připojení sdílené složky Azure pomocí Průzkumníka souborů
 > [!Note]  
@@ -63,7 +63,7 @@ Sdílené složky Azure můžete připojit v instalaci Windows na virtuálním p
 
 3. **Zkopírujte cestu UNC z podokna Připojit na webu Azure Portal:** Podrobný popis toho, jak tuto informaci najít, najdete [tady](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![Cesta UNC z podokna Připojit služby Azure File Storage](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Cesta UNC z podokna Připojit služby Soubory Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Vyberte písmeno jednotky a zadejte cestu UNC.** 
     
@@ -121,24 +121,24 @@ Sdílené složky Azure můžete připojit v instalaci Windows na virtuálním p
 >   ```
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
+Další informace o službě Soubory Azure najdete na těchto odkazech.
 
 * [Nejčastější dotazy](../storage-files-faq.md)
 * [Řešení potíží ve Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Koncepční články a videa
-* [Azure File Storage: hladký cloudový souborový systém SMB pro Windows a Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Jak používat Azure File Storage s Linuxem](../storage-how-to-use-files-linux.md)
+* [Soubory Azure: hladký cloudový souborový systém SMB pro Windows a Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Jak používat Soubory Azure s Linuxem](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Podpora nástrojů pro službu Azure File Storage
+### <a name="tooling-support-for-azure-files"></a>Podpora nástrojů pro Soubory Azure
 * [Použití nástroje AzCopy s Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Použití Azure CLI s Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Řešení potíží se službou Azure File Storage – Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Řešení potíží se službou Azure File Storage – Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Řešení potíží se Soubory Azure – Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Řešení potíží se Soubory Azure – Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Příspěvky na blozích
-* [Úložiště Azure File je nyní dostupné pro veřejnost](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Uvnitř Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Služba Soubory Azure je teď obecně dostupná](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Uvnitř služby Soubory Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Představujeme službu Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migrace dat do služby Soubory Azure](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

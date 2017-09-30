@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření sdílené složky Azure | Dokumentace Microsoftu"
-description: "Postup vytvoření sdílené složky Azure ve službě Azure File Storage pomocí webu Azure Portal, PowerShellu a Azure CLI."
+description: "Postup vytvoření sdílené složky Azure ve službě Soubory Azure pomocí webu Azure Portal, PowerShellu a Azure CLI."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,32 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b81701e2544ace092f007e5d98b3141e1f7da724
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="create-a-file-share-in-azure-file-storage"></a>Vytvoření sdílené složky ve službě Azure File Storage
-Sdílené složky Azure můžete vytvářet pomocí webu [Azure Portal](https://portal.azure.com/), rutin PowerShellu pro službu Azure Storage, klientských knihoven pro službu Azure Storage nebo rozhraní REST API pro službu Azure Storage. V tomto kurzu se naučíte:
+# <a name="create-a-file-share-in-azure-files"></a>Vytvoření sdílené složky ve službě Soubory Azure
+Sdílené složky Azure můžete vytvářet pomocí webu [Azure Portal](https://portal.azure.com/), rutin PowerShellu pro Azure Storage, klientských knihoven Azure Storage nebo rozhraní REST API pro Azure Storage. V tomto kurzu se dozvíte:
 * [Jak vytvořit sdílenou složku Azure pomocí webu Azure Portal](#Create file share through the Portal)
 * [Jak vytvořit sdílenou složku Azure pomocí PowerShellu](#Create file share using PowerShell)
 * [Jak vytvořit sdílenou složku Azure pomocí rozhraní příkazového řádku](#create-file-share-using-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Požadavky
-Pokud chcete vytvořit sdílenou složku Azure, můžete použít už existující účet úložiště nebo [vytvořit nový účet úložiště Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pokud chcete vytvořit sdílenou složku Azure pomocí PowerShellu, budete potřebovat klíč účtu a název účtu úložiště. Pokud se chystáte použít PowerShell nebo rozhraní příkazového řádku, budete potřebovat klíč účtu úložiště.
+Pokud chcete vytvořit sdílenou složku Azure, můžete použít už existující účet úložiště nebo [vytvořit nový účet služby Azure Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pokud chcete vytvořit sdílenou složku Azure pomocí PowerShellu, budete potřebovat klíč účtu a název účtu úložiště. Pokud se chystáte použít PowerShell nebo rozhraní příkazového řádku, budete potřebovat klíč účtu úložiště.
 
-## <a name="create-file-share-through-the-portal"></a>Vytvoření sdílené složky prostřednictvím portálu
+## <a name="create-file-share-through-the-azure-portal"></a>Vytvoření sdílené složky prostřednictvím webu Azure Portal
 1. **Přejděte do okna Účet úložiště na webu Azure Portal:**    
     ![Okno Účet úložiště](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **Klikněte na tlačítko Přidat sdílenou složku:**    
     ![Kliknutí na tlačítko Přidat sdílenou složku](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Zadejte název a kvótu. Aktuálně může být kvóta maximálně 5 TB:**    
+3. **Zadejte název a kvótu. Aktuálně může být kvóta maximálně 5 TiB:**    
     ![Zadání názvu a požadované kvóty pro novou sdílenou složku](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **Zobrazte novou sdílenou složku:** ![Zobrazení nové sdílené složky](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
@@ -73,7 +73,7 @@ K používání PowerShellu budete potřebovat stáhnout a nainstalovat rutiny m
     Viz témata [Instalace Azure CLI 2.0](/cli/azure/install-az-cli2.md) a [Začínáme s Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md).
 
 2. **Vytvořte připojovací řetězec k účtu úložiště, kde chcete sdílenou složku vytvořit.**  
-    V následujícím příkladu nahraďte ```<storage-account>``` a ```<resource_group>``` názvem svého účtu úložiště a skupinou prostředků.
+    V následujícím příkladu nahraďte ```<storage-account>``` a ```<resource_group>``` názvem svého účtu úložiště a skupinou prostředků:
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
@@ -93,7 +93,7 @@ K používání PowerShellu budete potřebovat stáhnout a nainstalovat rutiny m
 * [Připojení ke sdílené složce a její připojení – Linux](../storage-how-to-use-files-linux.md)
 * [Připojení ke sdílené složce a její připojení – macOS](storage-how-to-use-files-mac.md)
 
-Další informace o úložišti Azure File jsou dostupné na těchto odkazech.
+Další informace o službě Soubory Azure najdete na těchto odkazech.
 
 * [Nejčastější dotazy](../storage-files-faq.md)
 * [Řešení potíží ve Windows](storage-troubleshoot-windows-file-connection-problems.md)      

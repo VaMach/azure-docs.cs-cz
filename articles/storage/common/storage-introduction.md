@@ -3,7 +3,7 @@ title: "Úvod do Azure Storage | Dokumentace Microsoftu"
 description: "Úvod do Azure Storage, datového úložiště v cloudu od Microsoftu."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Úvod do Microsoft Azure Storage
 
 Microsoft Azure Storage je cloudová služba spravovaná Microsoftem, která poskytuje vysoce dostupné, zabezpečené, odolné, škálovatelné a redundantní úložiště. Microsoft se stará o údržbu a řeší za vás kritické problémy. 
@@ -37,13 +37,9 @@ V tomto článku jsou probrána následující témata:
 * přenos dat do nebo z úložiště
 * velký počet dostupných klientských knihoven pro úložiště 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+Pokud chcete rychle zprovoznit Azure Storage, podívejte se na některý z následujících rychlých startů:
+* [Vytvoření účtu úložiště pomocí PowerShellu](storage-quickstart-create-storage-account-powershell.md)
+* [Vytvoření účtu úložiště pomocí rozhraní příkazového řádku](storage-quickstart-create-storage-account-cli.md)
 
 ## <a name="introducing-the-azure-storage-services"></a>Seznámení se službami Azure Storage
 
@@ -55,7 +51,7 @@ Bloby jsou v podstatě soubory podobné těm, které ukládáte ve svém počít
 
 Když uložíte soubory ve službě Blob Storage, můžete k nim přistupovat z libovolného místa na světě pomocí adres URL, rozhraní REST nebo některé z klientských knihoven pro úložiště Azure SDK. Klientské knihovny pro úložiště jsou dostupné pro řadu jazyků, včetně Node.js, Javy, PHP, Ruby, Pythonu a .NET. 
 
-Existují tři typy objektů blob – objekty blob bloku, doplňovací objekty blob a objekty blob stránky (používané jako soubory VHD).
+Existují tři typy objektů blob – objekty blob bloku, objekty blob stránky (používané pro soubory VHD) a doplňovací objekty blob.
 
 * Objekty blob bloku se používají k uložení obyčejných souborů až do velikosti 4,7 TB. 
 * Objekty blob stránky se používají k uložení souborů s náhodným přístupem až do velikosti 8 TB. Používají se pro soubory VHD, které zálohují virtuální počítače.
@@ -63,11 +59,10 @@ Existují tři typy objektů blob – objekty blob bloku, doplňovací objekty b
 
 V případě velkých datových sad, kde stahování nebo ukládání dat do Blob Storage přes internet není vzhledem k síťovým omezením reálné, můžete sadu pevných disků zaslat společnosti Microsoft, která data exportuje nebo importuje přímo v datovém centru. Další informace najdete v tématu [Přenos dat do Blob Storage pomocí služby Microsoft Azure Import/Export](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>File Storage
+## <a name="azure-files"></a>Soubory Azure
+Služba [Soubory Azure](../files/storage-files-introduction.md) umožňuje nastavit vysoce dostupné sdílené složky souborů sítě, ke kterým je možný přístup pomocí standardního protokolu SMB (Server Message Block). To znamená, že několik virtuálních počítačů může sdílet stejné soubory s oprávněním ke čtení i zápisu. Soubory můžete číst také pomocí rozhraní REST nebo klientských knihoven pro úložiště. 
 
-Služba Soubory Azure umožňuje nastavit vysoce dostupné sdílené složky souborů sítě, ke kterým je možný přístup pomocí standardního protokolu SMB (Server Message Block). To znamená, že několik virtuálních počítačů může sdílet stejné soubory s oprávněním ke čtení i zápisu. Soubory můžete číst také pomocí rozhraní REST nebo klientských knihoven pro úložiště. 
-
-Jednou z věcí, která odlišuje Azure File Storage od souborů v podnikové sdílené složce je, že k souborům můžete přistupovat odkudkoli na světě pomocí adresy URL, která odkazuje na soubor a zahrnuje token sdíleného přístupového podpisu (SAS). Můžete generovat tokeny SAS, které po určitou dobu umožňují specifický přístup k privátním prostředkům. 
+Jednou z věcí, která odlišuje Soubory Azure od souborů v podnikové sdílené složce je, že k souborům můžete přistupovat odkudkoli na světě pomocí adresy URL, která odkazuje na soubor a zahrnuje token sdíleného přístupového podpisu (SAS). Můžete generovat tokeny SAS, které po určitou dobu umožňují specifický přístup k privátním prostředkům. 
 
 Sdílené složky můžete použít pro řadu běžných scénářů: 
 
@@ -85,14 +80,13 @@ Služba front Azure se využívá k ukládání a načítání zpráv. Fronty zp
 
 Řekněme například, že chcete zákazníkům umožnit odesílání obrázků a pro každý obrázek chcete vytvořit miniatury. Můžete nechat zákazníky při odesílání obrázků čekat na to, až tyto miniatury vytvoříte. Alternativou může být použití fronty. Když zákazník dokončí nahrávání, zapište zprávu do fronty. Potom nechte funkci Azure Functions, aby načetla tuto zprávu z fronty a vytvořila miniatury. Jednotlivé části tohoto zpracování je možné škálovat samostatně. Získáte tak větší kontrolu při jeho vylaďování pro vaše využití.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Úložiště Table
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-Azure Table Storage na úrovni Standard je teď součástí Cosmos DB. Pro Azure Table Storage je ale také dostupná úroveň Premium, která nabízí tabulky optimalizované pro zvýšení propustnosti, globální distribuci a automatické sekundární indexy. Další informace a možnost vyzkoušet si nové prostředí úrovně Premium najdete na stránce [Azure Cosmos DB: Rozhraní Table API](https://aka.ms/premiumtables).
+
+Azure Table Storage na úrovni Standard je teď součástí Cosmos DB. Příslušnou dokumentaci najdete v tématu [Přehled služby Azure Table Storage](../../cosmos-db/table-storage-overview.md). Pro Azure Table Storage je ale také dostupná úroveň Premium, která nabízí tabulky optimalizované pro zvýšení propustnosti, globální distribuci a automatické sekundární indexy. Další informace a možnost vyzkoušet si nové prostředí úrovně Premium najdete na stránce [Azure Cosmos DB: Rozhraní Table API](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Diskové úložiště
 
-Tým služby Azure Storage také vlastní disky, což zahrnuje všechny funkce spravovaných a nespravovaných disků využívaných virtuálními počítači. Další informace o těchto funkcích najdete v [dokumentaci ke Compute Services](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Azure Storage také zahrnuje funkce spravovaných a nespravovaných disků využívaných virtuálními počítači. Další informace o těchto funkcích najdete v [dokumentaci ke Compute Services](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Typy účtů úložiště 
 
@@ -227,11 +221,9 @@ Prostředky Azure Storage jsou dostupné přes jakýkoli jazyk, který umí vytv
 * [Další informace o službě File Storage](../storage-files-introduction.md)
 * [Další informace o službě Queue Storage](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Pokud chcete rychle zprovoznit Azure Storage, podívejte se na některý z následujících rychlých startů:
+* [Vytvoření účtu úložiště pomocí PowerShellu](storage-quickstart-create-storage-account-powershell.md)
+* [Vytvoření účtu úložiště pomocí rozhraní příkazového řádku](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -273,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>Pro správce
@@ -284,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>Pro vývojáře v rozhraní .NET
 * [Začínáme s úložištěm Azure Blob pomocí rozhraní .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Vývoj pro Soubory Azure pomocí .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Začínáme s úložištěm Azure Table pomocí rozhraní .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Začínáme s úložištěm Azure Queue pomocí rozhraní .NET](../storage-dotnet-how-to-use-queues.md)
-* [Začínáme s úložištěm Azure File ve Windows](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Pro vývojáře v Javě a Androidu
 * [Používání úložiště Blob z Javy](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Vývoj pro Soubory Azure pomocí Javy](../files/storage-java-how-to-use-file-storage.md)
 * [Používání úložiště Table z Javy](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Používání úložiště Queue z Javy](../storage-java-how-to-use-queue-storage.md)
-* [Používání úložiště File z Javy](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Pro vývojáře v Node.js
 * [Používání úložiště Blob z Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -311,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>Pro vývojáře v Pythonu
 * [Používání úložiště Blob z Pythonu](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Vývoj pro Soubory Azure pomocí Pythonu](../files/storage-python-how-to-use-file-storage.md)
 * [Používání úložiště Table z Pythonu](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Používání úložiště Queue z Pythonu](../storage-python-how-to-use-queue-storage.md)   
-* [Používání File Storage z Pythonu](../storage-python-how-to-use-file-storage.md) 
--->
+* [Používání úložiště Queue z Pythonu](../storage-python-how-to-use-queue-storage.md)

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -166,7 +166,7 @@ Pokud chcete vytvořit aplikaci Service Fabric typu kontejner, otevřete okno te
 
 Pojmenujte aplikaci (například mycontainer). 
 
-Zadejte adresu URL image kontejneru v registru kontejneru (například „“). 
+Zadejte adresu URL image kontejneru v registru kontejneru (například myregistry.azurecr.io/samples/helloworldapp). 
 
 Tato image má definovaný vstupní bod úloh, takže je potřeba explicitně zadat vstupní příkazy (příkazy se spouští uvnitř kontejneru, což zajistí zachování provozu kontejneru po spuštění). 
 
@@ -175,23 +175,35 @@ Jako počet instancí zadejte 1.
 ![Generátor Service Fabric Yeoman pro kontejnery][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>Konfigurace mapování portů a ověřování úložiště kontejnerů
-Vaše kontejnerizovaná služba potřebuje koncový bod pro komunikaci.  Nyní přidejte protokol, port a typ do části `Endpoint` v souboru ServiceManifest.xml. Pro účely tohoto článku kontejnerizovaná služba naslouchá na portu 4000: 
+Vaše kontejnerizovaná služba potřebuje koncový bod pro komunikaci.  Nyní přidejte protokol, port a typ do části `Endpoint` v souboru ServiceManifest.xml pod značku Resources (Prostředky). Pro účely tohoto článku kontejnerizovaná služba naslouchá na portu 4000: 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 Pokud zadáte `UriScheme`, koncový bod kontejneru se automaticky zaregistruje ve Službě pojmenování Service Fabric, aby byl zjistitelný. Úplný ukázkový soubor ServiceManifest.xml najdete na konci tohoto článku. 
 
-Nakonfigurujte v kontejneru mapování portů na hostitele určením zásady `PortBinding` v části `ContainerHostPolicies` souboru APplicationManifest.xml.  Pro účely tohoto článku je `ContainerPort` nastaven na 80 (kontejner zpřístupňuje port 80, jak je zadáno v souboru Dockerfile) a `EndpointRef` je myserviceTypeEndpoint (koncový bod definovaný v manifestu služby).  Příchozí požadavky na službu na portu 4000 se mapují na port 80 v kontejneru.  Pokud se váš kontejner potřebuje ověřovat v privátním úložišti, přidejte `RepositoryCredentials`.  Pro účely tohoto článku přidejte název a heslo účtu pro registr kontejneru myregistry.azurecr.io. 
+Nakonfigurujte v kontejneru mapování portů na hostitele určením zásady `PortBinding` v části `ContainerHostPolicies` souboru APplicationManifest.xml.  Pro účely tohoto článku je `ContainerPort` nastaven na 80 (kontejner zpřístupňuje port 80, jak je zadáno v souboru Dockerfile) a `EndpointRef` je myserviceTypeEndpoint (koncový bod definovaný v manifestu služby).  Příchozí požadavky na službu na portu 4000 se mapují na port 80 v kontejneru.  Pokud se váš kontejner potřebuje ověřovat v privátním úložišti, přidejte `RepositoryCredentials`.  Pro účely tohoto článku přidejte název a heslo účtu pro registr kontejneru myregistry.azurecr.io. Zajistěte, aby se zásada přidala pod značku ServiceManifestImport odpovídající správnému balíčku služby.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Sestavení a zabalení aplikace Service Fabric
 Šablony Service Fabric Yeoman zahrnují skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace z terminálu. Pokud chcete sestavit a zabalit aplikaci, spusťte následující:
@@ -278,7 +290,7 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto článku.
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -300,7 +312,7 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto článku.
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>

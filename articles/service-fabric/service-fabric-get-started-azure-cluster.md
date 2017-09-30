@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -70,18 +70,6 @@ Přihlaste se k webu Azure Portal na adrese [http://portal.azure.com](http://por
 
     Průběh vytváření můžete sledovat v oznámeních. (Klikněte na ikonu zvonku u stavového řádku v pravém horním rohu obrazovky.) Pokud jste při vytváření clusteru klikli na **Připnout na Úvodní panel**, na tabuli **Start** bude připnuté **Nasazování clusteru Service Fabric**.
 
-### <a name="view-cluster-status"></a>Zobrazení stavu clusteru
-Po vytvoření si cluster můžete prohlédnout na portálu v okně **Přehled**. Na řídicím panelu se zobrazí podrobnosti o clusteru, včetně veřejného koncového bodu clusteru a odkaz na Service Fabric Explorer.
-
-![Stav clusteru][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Vizualizace clusteru pomocí Service Fabric Exploreru
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) je nástroj vhodný pro vizualizaci clusteru a správu aplikací.  Service Fabric Explorer je služba, která běží v clusteru.  K přístupu využijte webový prohlížeč. Na stránce **Přehled** clusteru na portálu klikněte na odkaz **Service Fabric Explorer**.  Můžete taky zadat adresu přímo do prohlížeče: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer).
-
-Řídicí panel clusteru poskytuje přehled o clusteru včetně souhrnu stavu aplikací a uzlů. Zobrazení uzlu obsahuje fyzické rozložení clusteru. Pro daný uzel můžete zjistit, které aplikace mají v uzlu nasazený kód.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>Připojení ke clusteru pomocí prostředí PowerShell
 Připojte se pomocí PowerShellu a ověřte, že cluster je spuštěný.  Modul PowerShell ServiceFabric se instaluje spolu se sadou [Service Fabric SDK](service-fabric-get-started.md).  Rutina [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) vytvoří připojení ke clusteru.   
 
@@ -112,7 +100,7 @@ Odstranění skupiny prostředků na webu Azure Portal:
     ![Odstranění skupiny prostředků][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Nasazení zabezpečeného clusteru pomocí Azure PowerShellu
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Nasazení zabezpečeného clusteru s Windows pomocí Azure PowerShellu
 1. Stáhněte si na počítač [modul Azure PowerShell verze 4.0 nebo vyšší](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 2. Otevřete okno Windows PowerShellu a spusťte následující příkaz. 
@@ -205,10 +193,6 @@ Spuštěním následujícího příkazu zkontrolujte, že jste připojeni a clus
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publikování aplikací do clusteru ze sady Visual Studio
-
-Když teď máte nastavený cluster Azure, můžete do něj publikovat aplikace ze sady Visual Studio pomocí postupů v dokumentu [Publikování do clusteru](service-fabric-publish-app-remote-cluster.md). 
-
 ### <a name="remove-the-cluster"></a>Odebrání clusteru
 Cluster se kromě vlastního prostředku clusteru skládá z dalších prostředků Azure. Nejjednodušší způsob, jak odstranit cluster a všechny prostředky, které využívá, je odstranit příslušnou skupinu prostředků. 
 
@@ -217,12 +201,62 @@ Cluster se kromě vlastního prostředku clusteru skládá z dalších prostřed
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Nasazení zabezpečeného clusteru s Linuxem pomocí Azure CLI
+
+1. Nainstalujte na svém počítači [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. Přihlaste se k Azure a vyberte předplatné, ve kterém chcete cluster vytvořit.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Spuštěním příkazu [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) vytvořte zabezpečený cluster.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Připojení ke clusteru
+Spuštěním následujícího příkazu rozhraní příkazového řádku se připojte ke clusteru pomocí certifikátu.  Pokud k ověřování používáte klientský certifikát, podrobnosti o certifikátu musí odpovídat certifikátu nasazenému do uzlů clusteru.  Pro certifikát podepsaný svým držitelem použijte možnost `--no-verify`.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Spuštěním následujícího příkazu zkontrolujte, že jste připojeni a cluster je v pořádku.
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Další kroky
 Teď, když jste nastavili vývojový cluster, zkuste provést následující kroky:
-* [Vytvoření zabezpečeného clusteru na portálu](service-fabric-cluster-creation-via-portal.md)
-* [Vytvoření clusteru ze šablony](service-fabric-cluster-creation-via-arm.md) 
+* [Vizualizace clusteru pomocí nástroje Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Odebrání clusteru](service-fabric-cluster-delete.md) 
 * [Nasazení aplikací s použitím prostředí PowerShell](service-fabric-deploy-remove-applications.md)
+* [Nasazení aplikací s použitím rozhraní příkazového řádku](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

@@ -3,7 +3,7 @@ title: "Vytvoření interního nástroje pro vyrovnávání zatížení – klas
 description: "Zjistěte, jak vytvořit interní nástroj pro vyrovnávání zatížení pomocí rozhraní příkazového řádku Azure v modelu nasazení Classic"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
 ms.contentlocale: cs-cz
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 03/21/2017
 
 Pokud chcete vytvořit sadu interního nástroje pro vyrovnávání zatížení a servery, které do ní budou posílat provoz, musíte provést následující:
 
-1. Vytvořte instanci interního vyrovnávání zatížení, která bude koncovým bodem příchozího provozu, u kterého se bude vyrovnávat zatížení napříč servery sady s vyrovnáváním zatížení.
-2. Přidejte koncové body odpovídající virtuálním počítačům, které budou přijímat příchozí provoz.
-3. Nakonfigurujte servery, které budou posílat provoz k vyrovnání zatížení, aby posílaly provoz na virtuální IP adresu instance interního vyrovnávání zatížení.
+1. Vytvořte instanci interního vyrovnávání zatížení, která je koncovým bodem příchozího provozu, u kterého se bude vyrovnávat zatížení napříč servery sady s vyrovnáváním zatížení.
+2. Přidejte koncové body odpovídající virtuálním počítačům, které můžou přijímat příchozí provoz.
+3. Nakonfigurujte servery tak, aby posílaly provoz na virtuální IP adresu instance interního vyrovnávání zatížení.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Vytvoření interního nástroje pro vyrovnávání zatížení pomocí rozhraní příkazového řádku krok za krokem
 
@@ -93,7 +93,7 @@ Následuje příklad výstupu:
 
 ### <a name="step-2"></a>Krok 2
 
-Sadu interního nástroje pro vyrovnávání zatížení konfigurujete při přidání prvního koncového bodu. V tomto kroku přidružíte porty koncového bodu, virtuálního počítače a testu k sadě interního nástroje pro vyrovnávání zatížení.
+Sadu interního nástroje pro vyrovnávání zatížení konfigurujete při přidání prvního koncového bodu. V tomto kroku můžete přidružit porty koncového bodu, virtuálního počítače a testu k sadě interního nástroje pro vyrovnávání zatížení.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -107,7 +107,7 @@ Ověřte konfiguraci nástroje pro vyrovnávání zatížení pomocí příkazu 
 azure vm show DB1
 ```
 
-Výstup bude:
+Výstup je následující:
 
     azure vm show DB1
     info:    Executing command vm show

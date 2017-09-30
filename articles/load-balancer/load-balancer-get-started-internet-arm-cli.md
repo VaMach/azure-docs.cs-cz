@@ -3,7 +3,7 @@ title: "Vytvoření internetového nástroje pro vyrovnávání zatížení – 
 description: "Zjistěte, jak vytvořit internetový nástroj pro vyrovnávání zatížení v Resource Manageru pomocí rozhraní příkazového řádku Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.contentlocale: cs-cz
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Vytvoření internetového nástroje pro vyrovnávání zatížení pomocí Azure CLI
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/21/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Šablona](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -85,7 +89,7 @@ Další informace najdete v tématu [Podpora služby Load Balancer v Azure Resou
     ```
 
    > [!IMPORTANT]
-   > Nástroj pro vyrovnávání zatížení použije název domény veřejné IP adresy jako svůj plně kvalifikovaný název domény. Tím se liší od modelu nasazení Classic, který používá cloudovou službu jako plně kvalifikovaný název domény nástroje pro vyrovnávání zatížení.
+   > Nástroj pro vyrovnávání zatížení používá název domény veřejné IP adresy jako svůj plně kvalifikovaný název domény. Tím se liší od modelu nasazení Classic, který používá cloudovou službu jako plně kvalifikovaný název domény nástroje pro vyrovnávání zatížení.
    > V tomto příkladu je plně kvalifikovaný název domény *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## <a name="create-a-load-balancer"></a>Vytvoření nástroje pro vyrovnávání zatížení

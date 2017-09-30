@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b413b6f1a6c73251dfdbe6bf9d23cdfa6510839a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
 ms.contentlocale: cs-cz
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Úvod do Azure HDInsight, technologie a clusterů Hadoop
@@ -53,7 +53,7 @@ Velké objemy dat se shromažďují v narůstajícím množství, vyšší rychl
 ## <a name="overview"></a>Typy clusterů ve službě HDInsight
 HDInsight zahrnuje specifické typy clusterů a možnosti přizpůsobení clusterů, jako je například přidávání komponent, nástrojů a jazyků.
 
-### <a name="spark-kafka-interactive-hive-hbase-customized-and-other-cluster-types"></a>Spark, Kafka, interaktivní Hive, HBase, přizpůsobené clustery a další typy clusterů
+### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark, Kafka, Interactive Query, HBase, přizpůsobené clustery a další typy clusterů
 HDInsight nabízí následující typy clusteru:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop):** Používá [HDFS](#hdfs), správu prostředků [YARN](#yarn) a jednoduchý programovací model [MapReduce](#mapreduce) pro paralelní zpracování a analýzu dat dávek.
@@ -61,7 +61,7 @@ HDInsight nabízí následující typy clusteru:
 * **[Apache HBase](http://hbase.apache.org/)**: Databáze NoSQL postavená na systému Hadoop, která umožňuje náhodný přístup a zajišťuje velkou konzistenci pro velké objemy nestrukturovaných a částečně strukturovaných dat – potenciálně až miliardy řádků krát miliony sloupců. Přečtěte si téma [Co je HBase v HDInsight?](hdinsight-hbase-overview.md)
 * **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: Server pro hostování a správu paralelních, distribuovaných procesů R. Poskytuje datovým vědcům, statistikům a programátorům v R přístup ke škálovatelným, distribuovaným analytickým metodám služby HDInsight na vyžádání. Viz [Přehled R Serveru ve službě HDInsight](hdinsight-hadoop-r-server-overview.md).
 * **[Apache Storm](https://storm.incubator.apache.org/)**: distribuovaný výpočetní systém v reálném čase pro rychlé zpracování velkých streamů dat. Storm je poskytován jako spravovaný cluster v prostředí HDInsight. Viz [Analýza dat snímačů v reálném čase pomocí nástrojů Storm a Hadoop](hdinsight-storm-sensor-data-analysis.md).
-* **[Apache Interactive Hive ve verzi Preview (také označované LLAP (Live Long and Process))](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: Ukládání do mezipaměti pro interaktivní a rychlejší dotazy Hivu. Viz [Použití Interactive Hivu ve službě HDInsight](hdinsight-hadoop-use-interactive-hive.md).
+* **[Apache Interactive Query ve verzi Preview (také označované LLAP (Live Long and Process)):](https://cwiki.apache.org/confluence/display/Hive/LLAP)** Ukládání do mezipaměti pro interaktivnější a rychlejší dotazy Hive. Viz [Použití Interactive Query ve službě HDInsight](hdinsight-hadoop-use-interactive-hive.md).
 * **[Apache Kafka](https://kafka.apache.org/)**: Open source platforma sloužící k vytváření aplikací a kanálů pro streamovaná data. Kafka také poskytuje funkce propojující fronty zpráv, pomocí kterých můžete publikovat datové streamy a přihlašovat se k jejich odběru. Viz [Úvod k Apache Kafka ve službě HDInsight](hdinsight-apache-kafka-introduction.md).
 
 Clustery můžete konfigurovat také pomocí následujících metod:
