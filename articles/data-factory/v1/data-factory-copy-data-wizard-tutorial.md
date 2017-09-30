@@ -35,7 +35,7 @@ ms.lasthandoff: 09/25/2017
 
 V tomto kurzu se dozvíte, jak používat **Průvodce kopírováním** ke zkopírování dat z úložiště objektů blob v Azure do databáze Azure SQL. 
 
-**Průvodce kopírováním ** Azure Data Factory vám umožní rychle vytvořit datové kanály, které kopírují data z podporovaných zdrojů úložišť dat do podporovaných cílů úložišť dat. Proto doporučujeme použít průvodce jako první krok k vytvoření ukázkového kanálu pro svůj scénář pohybu dat. Seznam úložišť dat podporovaných jako zdroje a cíle najdete v tématu [podporovaná úložiště dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
+**Průvodce kopírováním**  Azure Data Factory vám umožní rychle vytvořit datové kanály, které kopírují data z podporovaných zdrojů úložišť dat do podporovaných cílů úložišť dat. Proto doporučujeme použít průvodce jako první krok k vytvoření ukázkového kanálu pro svůj scénář pohybu dat. Seznam úložišť dat podporovaných jako zdroje a cíle najdete v tématu [podporovaná úložiště dat](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
 Tento návod ukazuje, jak vytvořit objekt pro vytváření dat Azure, spustit Průvodce kopírováním a projít posloupností kroků poskytnutí podrobností o vašem scénáři příjmu/pohybu dat. Po dokončení kroků v průvodci se automaticky vytvoří kanál s aktivitou kopírování pro kopírování dat z úložiště Azure Blob Storage do Azure SQL Database. Další informace o aktivitě kopírování najdete v tématu [Aktivity pohybu dat](data-factory-data-movement-activities.md).
 
