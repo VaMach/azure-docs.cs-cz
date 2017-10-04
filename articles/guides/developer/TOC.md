@@ -1,11 +1,5 @@
 # Přehled
 ## [Příručka pro vývojáře](azure-developer-guide.md) 
-### [Co je Azure?](azure-developer-guide.md#what-is-azure)
-### [Kde mám začít?](azure-developer-guide.md#where-do-i-start)
-### [Oblasti Azure](azure-developer-guide.md#azure-regions)
-### [Jak můžu spravovat svoje aplikace a projekty?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Vysvětlení účtů, předplatných a fakturace](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Přehled služeb Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Přehled portálu](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Sady SDK a nástroje](https://docs.microsoft.com/azure/index#pivot=sdkstools)

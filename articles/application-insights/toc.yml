@@ -117,6 +117,8 @@
               href: app-insights-snapshot-debugger.md
         - name: J2EE
           items:
+            - name: Eclipse
+              href: app-insights-java-eclipse.md
             - name: Trasování protokolů
               href: app-insights-java-trace-logs.md
             - name: Unixové metriky
@@ -138,6 +140,8 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Anomálie výkonu
               href: app-insights-proactive-performance-diagnostics.md
+        - name: Dynamics CRM
+          href: app-insights-sample-mscrm.md
         - name: Vytvoření prostředku
           href: app-insights-create-new-resource.md
     - name: Analýza

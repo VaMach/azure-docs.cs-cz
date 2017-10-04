@@ -43,7 +43,7 @@
 ##### [Inteligentní uzamčení](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Nejčastější dotazy](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Řešení problémů](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
-##### [Podrobné informace o zabezpečení](active-directory-aadconnect-pta-security-deep-dive.md)
+##### [Podrobné informace o zabezpečení](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
 ### [Podpora více domén pro federaci](active-directory-aadconnect-multiple-domains.md)
 ### [Automatický upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Použití zprostředkovatele identity (IdP) SAML 2.0 pro Jednotné přihlašování](active-directory-aadconnect-federation-saml-idp.md)
