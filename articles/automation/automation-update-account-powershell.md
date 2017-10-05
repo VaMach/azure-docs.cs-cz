@@ -3,7 +3,7 @@ title: "Vytvoření účtu Azure Automation Spustit jako pomocí PowerShellu | D
 description: "Tento článek popisuje, jak upgradovat váš účet Automation pomocí PowerShellu, abyste vytvořili účty Spustit jako, pokud jste tento krok neprovedli během počátečního vytváření z portálu."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

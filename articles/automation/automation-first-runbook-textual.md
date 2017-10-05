@@ -3,7 +3,7 @@ title: "Můj první runbook pracovního postupu PowerShellu v Azure Automation |
 description: "Kurz vás provede vytvořením, otestováním a publikováním jednoduchého textového runbooku, který využívá pracovní postup PowerShellu."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "pracovní postup v powershellu, příklady pracovního postupu v powershellu, pracovní postup powershell"

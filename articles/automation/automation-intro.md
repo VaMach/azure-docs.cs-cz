@@ -3,7 +3,7 @@ title: Co je Azure Automation | Dokumentace Microsoftu
 description: "Seznamte se s hodnotou, kterou Azure Automation nabízí, a získejte odpovědi na časté otázky, abyste mohli začít vytváření za pomoci runbooků a Azure Automation DSC."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "co je automatizace, azure automation, příklady azure automation"

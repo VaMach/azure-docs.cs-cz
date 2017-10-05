@@ -3,7 +3,7 @@ title: "Ověření konfigurace účtu Azure Automation | Dokumentace Microsoftu"
 description: "Tento článek popisuje způsob ověření, že konfigurace vašeho účtu Automation je nastavená správně."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

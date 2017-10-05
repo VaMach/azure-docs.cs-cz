@@ -3,7 +3,7 @@ title: "Můj první grafický runbook v Azure Automation | Dokumentace Microsoft
 description: "Kurz vás provede vytvořením, otestováním a publikováním jednoduchého grafického runbooku."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "runbook, šablona sady runbook, automatizace sady runbook, runbook azure"
