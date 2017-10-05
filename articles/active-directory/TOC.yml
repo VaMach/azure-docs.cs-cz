@@ -40,6 +40,8 @@
 - name: Managed Service Identity
   href: msi-overview.md
   items:
+    - name: Postup přihlášení nebo získání tokenu
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurace MSI pro virtuální počítač Azure
       items:
         - name: S využitím webu Azure Portal
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: S využitím šablon Azure Resource Manageru
           href: msi-qs-configure-template-windows-vm.md
+        - name: S využitím Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: Přiřazení přístupu MSI k prostředku Azure
       items:
         - name: S využitím webu Azure Portal

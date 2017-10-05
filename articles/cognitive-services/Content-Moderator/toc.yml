@@ -66,6 +66,8 @@
   items:
     - name: Moderování příspěvků na Facebooku
       href: facebook-post-moderation.md
+    - name: Moderování katalogů elektronického obchodování
+      href: ecommerce-retail-catalog-moderation.md
 - name: Reference k rozhraní API
   items:
     - name: Všechna rozhraní API

@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2. Řízení přístupu k datům
       href: tutorial-user-access.md
+    - name: 3. Odhad nákladů
+      href: tutorial-forecast-spending.md
 - name: Zdroje
   items:
     - name: Plány Azure do budoucna

@@ -37,11 +37,13 @@
 ### [Podpora HTTP/2](cdn-http2.md)
 
 ## Analýza
-### [Analýza vzorců používání](cdn-analyze-usage-patterns.md)
-### [Generování pokročilých sestav HTTP](cdn-advanced-http-reports.md)
-### [Zobrazení statistik v reálném čase](cdn-real-time-stats.md)
-### [Analýza výkonu hraničních uzlů](cdn-edge-performance.md)
-### [Export metrik s využitím diagnostických protokolů](cdn-log-analysis.md)
+### [Analýza vzorů využití Azure CDN](cdn-log-analysis.md)
+#### [Základní sestavy od Verizonu](cdn-analyze-usage-patterns.md)
+#### [Protokoly diagnostiky Azure](cdn-azure-diagnostic-logs.md)
+### Analytické nástroje pro Azure CDN od Verizonu
+#### [Generování pokročilých sestav HTTP](cdn-advanced-http-reports.md)
+#### [Zobrazení statistik v reálném čase](cdn-real-time-stats.md)
+#### [Analýza výkonu hraničních uzlů](cdn-edge-performance.md)
 
 ## Vývoj
 ### [.NET](cdn-app-dev-net.md)

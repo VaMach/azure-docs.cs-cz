@@ -16,8 +16,9 @@
 # Postup
 ## Připojení ke spravované doméně
 ### [Připojení virtuálního počítače s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Připojení virtuálního počítače s Windows Serverem s využitím Azure PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Připojení virtuálního počítače s Linuxem](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Připojení virtuálního počítače s Windows Serverem pomocí PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Správa spravované domény
 ### [Správa spravované domény](active-directory-ds-admin-guide-administer-domain.md)
 ### [Správa DNS ve spravované doméně](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Řešení potíží
 ### [Nejčastější dotazy](active-directory-ds-faqs.md)
 ### [Průvodce řešením problémů](active-directory-ds-troubleshooting.md)
-### [Povolení verze Preview prostředí webu Azure Portal](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Řešení chyb neshod tenantů](active-directory-ds-mismatched-tenant-error.md)
 
 # Referenční informace

@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: Sledování historie spuštění a metrik modelů
           href: how-to-use-run-history-model-metrics.md
+        - name: Jak najít spuštění s největší přesností a nejkratší dobou trvání
+          href: how-to-find-best-accuracy-cli.md
         - name: Čtení a zápis souborů
           href: how-to-read-write-files.md
         - name: Knihovna MMLSpark

@@ -1,13 +1,13 @@
-- name: ACS s protokolem Kubernetes
+- name: Kubernetes v Azure
   href: ./index.yml
 - name: Přehled
   items:
-    - name: Služba Container Service
+    - name: Kubernetes v Azure
       href: container-service-intro-kubernetes.md
 - name: Šablony Rychlý start
   expanded: true
   items:
-    - name: Kubernetes Linux
+    - name: Kubernetes v Azure
       href: container-service-kubernetes-walkthrough.md
 - name: Kurzy
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7. Monitorování pomocí OMS
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Ukázky
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Koncepty
   items:
-    - name: Zabezpečené kontejnery
-      href: container-service-security.md
     - name: Instanční objekt – Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: Návody
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Webové rozhraní Kubernetes
       href: container-service-kubernetes-ui.md
-    - name: Nasazení diagramů Helmu
+    - name: Použití diagramů Helmu
       href: container-service-kubernetes-helm.md
-    - name: Jenkins a ACS Kubernetes
+    - name: Použití Jenkinse s ACS
       href: container-service-kubernetes-jenkins.md
-    - name: Použití konceptu s ACR a ACS
+    - name: Použití konceptu s ACS
       href: container-service-draft-up.md
-    - name: Připojení ke clusteru ACS
-      href: container-service-connect.md
-    - name: Škálování clusteru ACS
+    - name: Škálování clusteru
       href: container-service-scale.md
-    - name: Vyrovnávání zatížení clusteru Kubernetes ACS
-      href: container-service-kubernetes-load-balancing.md
     - name: Monitorování
       items:
         - name: Monitorování pomocí OMS
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Referenční informace
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
