@@ -3,7 +3,7 @@ title: "Zpracování chyb v grafických runboocích Azure Automation | Dokumenta
 description: "Tento článek popisuje, jak implementovat logiku zpracování chyb v grafických runboocích Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 

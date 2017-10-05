@@ -3,7 +3,7 @@ title: "Vytvoření účtu uživatele Azure AD | Dokumentace Microsoftu"
 description: "Tento článek popisuje způsob vytvoření přihlašovacích údajů účtu uživatele Azure AD pro runbooky ve službě Azure Automation za účelem ověřování v Azure a Azure Classic."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "uživatel azure active directory, správa služby azure, uživatelský účet azure ad"

@@ -3,7 +3,7 @@ title: "Můj první powershellový runbook v Azure Automation | Dokumentace Micr
 description: "Kurz vás provede vytvořením, otestováním a publikováním jednoduchého powershellového runbooku."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "azure powershell, kurz k powershellovému scriptu, automatizace powershellu"
