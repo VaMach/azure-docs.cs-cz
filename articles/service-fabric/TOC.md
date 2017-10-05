@@ -26,8 +26,8 @@
 
 ## Vytvoření a správa clusteru
 ### 1. Vytvoření clusteru v Azure
-#### [1a. Vytvoření zabezpečeného clusteru s Windows v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b. Vytvoření zabezpečeného clusteru s Linuxem v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a. Vytvoření clusteru s Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b. Vytvoření clusteru s Linuxem](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2. Nasazení API Managementu s využitím Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Ukázky
@@ -198,7 +198,6 @@
 ### Sestavení služby s modelem Reliable Actors
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java v Linuxu](service-fabric-reliable-actors-get-started-java.md)
 ##### [Java Actor v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Odeslání oznámení](service-fabric-reliable-actors-events.md)
 #### [Nastavení časovačů a připomenutí](service-fabric-reliable-actors-timers-reminders.md)

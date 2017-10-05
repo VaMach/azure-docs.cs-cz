@@ -12,6 +12,7 @@
 ### [Archiv](hdinsight-release-notes-archive.md)
 
 # Začínáme
+## [Plánování kapacity clusteru HDInsight](hdinsight-capacity-planning.md)
 ## [Začínáme s Hadoopem](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## Začínáme se Spark
 ### [Vytvoření clusteru Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -167,6 +168,8 @@
 ### [Použití SSH s HDInsightem](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Použití tunelového propojení SSH](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Omezení přístupu k datům](hdinsight-storage-sharedaccesssignature-permissions.md)
+### [Autorizace uživatelů pro zobrazení Ambari](hdinsight-authorize-users-to-ambari.md)
+### [Správa uživatelských oprávnění na úrovních souborů a složek](hdinsight-add-acls-at-file-folder-levels.md)
 ## Spravovat
 ### [Vytvoření clusterů s Linuxem](hdinsight-hadoop-provision-linux-clusters.md)
 #### [Použití Azure Powershellu](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -200,6 +203,7 @@
 ### [Použití Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [Řídicí panely pro konkrétní clustery](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Použití dotazů se službou Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [Monitorování výkonu clusteru](hdinsight-key-scenarios-to-monitor.md)
 ## [Řešení problémů](hdinsight-troubleshoot-guide.md)
 ### [Řešení potíží s HBASE](hdinsight-troubleshoot-hbase.md)
 ### [Řešení potíží s HDFS](hdinsight-troubleshoot-hdfs.md)

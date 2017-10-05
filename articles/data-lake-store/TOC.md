@@ -1,22 +1,18 @@
 # Přehled
 ## [Přehled Azure Data Lake Store](data-lake-store-overview.md)
 ## [Porovnání Azure Data Lake Store se službou Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Použití Azure Data Lake Store k zpracování velkého objemu dat](data-lake-store-data-scenarios.md)
-## [Open source aplikace, které využívají službu Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Azure Data Lake Store pro zpracování velkého objemu dat](data-lake-store-data-scenarios.md)
+## [Open source aplikace využívající Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Začínáme
-## [Pomocí webu Azure Portal](data-lake-store-get-started-portal.md)
-## [Použití Azure PowerShellu](data-lake-store-get-started-powershell.md)
-## [Pomocí sady .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Pomocí sady Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)
-## [Použití Azure CLI](data-lake-store-get-started-cli-2.0.md)
-## [Pomocí Node.js](data-lake-store-manage-use-nodejs.md)
-## [Pomocí Pythonu](data-lake-store-get-started-python.md)
+## [Pomocí portálu](data-lake-store-get-started-portal.md)
+## [Pomocí PowerShellu](data-lake-store-get-started-powershell.md)
+## [Použití Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+
 
 # Postup
-## Kopírování dat
-### [Pomocí služby Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+## Načtení a přesun dat
+### [Pomocí služby Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Pomocí AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Pomocí DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Pomocí Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -27,12 +23,35 @@
 ### [Přehled zabezpečení](data-lake-store-security-overview.md)
 ### [Řízení přístupu v Data Lake Store](data-lake-store-access-control.md)
 ### [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
-### [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md)
-### [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md)
 ### [Šifrování](data-lake-store-encryption.md)
+
+## Ověřování s využitím služby Data Lake Store
+### [Možnosti ověřování](data-lakes-store-authentication-using-azure-active-directory.md)
+### [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [Pomocí Javy](data-lake-store-end-user-authenticate-java-sdk.md)
+#### [Pomocí sady .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Pomocí rozhraní REST API](data-lake-store-end-user-authenticate-rest-api.md)
+#### [Pomocí Pythonu](data-lake-store-end-user-authenticate-python.md)
+### [Ověřování služba-služba](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+#### [Pomocí Javy](data-lake-store-service-to-service-authenticate-java.md)
+#### [Pomocí sady .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Pomocí rozhraní REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
+#### [Pomocí Pythonu](data-lake-store-service-to-service-authenticate-python.md)
+
+## Práce s Data Lake Store
+### Operace správy účtů
+#### [Pomocí sady .NET SDK](data-lake-store-get-started-net-sdk.md)
+#### [Pomocí rozhraní REST API](data-lake-store-get-started-rest-api.md)
+#### [Pomocí Pythonu](data-lake-store-get-started-python.md)
+### Operace systému souborů
+#### [Pomocí sady .NET SDK](data-lake-store-data-operations-net-sdk.md)
+#### [Pomocí sady Java SDK](data-lake-store-get-started-java-sdk.md)
+#### [Pomocí rozhraní REST API](data-lake-store-data-operations-rest-api.md)
+#### [Pomocí Pythonu](data-lake-store-data-operations-python.md)
 
 ## Výkon
 ### [Průvodce laděním výkonu pro Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Průvodce laděním výkonu pro použití PowerShellu se službou Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 ### [Průvodce laděním výkonu pro Spark ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
 ### [Průvodce laděním výkonu pro Hive ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
 ### [Průvodce laděním výkonu pro MapReduce ve službě HDInsight a Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)

@@ -25,7 +25,6 @@
 ### [Integrace funkcí UDF JavaScriptu](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrace REST API a Machine Learningu](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Vytváření výstupů](stream-analytics-define-outputs.md)
-### [Výstup do služby Azure Functions](stream-analytics-functions-redis.md)
 ### [Výstup do Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Výstup do Cosmos DB](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [Monitorování úloh](stream-analytics-monitoring.md)
 ### [Programové monitorování úloh](stream-analytics-monitor-jobs.md)
 ### [Monitorování úloh s PowerShellem](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Optimalizace jednotek streamování](stream-analytics-streaming-unit-consumption.md)
+### [Principy a úpravy jednotek streamování](stream-analytics-streaming-unit-consumption.md)
+### [využití paralelizace dotazů](stream-analytics-parallelization.md)
 ### [Škálování pro zvýšení prostupnosti](stream-analytics-scale-jobs.md)
 ### [Škálování pro funkce Machine Learningu](stream-analytics-scale-with-machine-learning-functions.md)
 

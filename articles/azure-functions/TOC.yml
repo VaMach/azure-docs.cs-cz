@@ -145,9 +145,13 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: Referenční informace k OpenAPI
+    - name: Reference k host.json
+      href: functions-host-json.md
+    - name: Reference k nastavení aplikací
+      href: functions-app-settings.md
+    - name: Reference k OpenAPI
       href: functions-api-definition.md
-- name: Zdroje a prostředky
+- name: Zdroje
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
