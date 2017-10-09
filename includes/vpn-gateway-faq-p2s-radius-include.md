@@ -28,4 +28,8 @@ K žádné změně maximálního počtu připojení SSTP podporovaných ověřov
 
 Při ověřování certifikátů pomocí protokolu RADIUS se žádost o ověření předá serveru RADIUS, který zpracuje vlastní ověření certifikátu. Tato možnost je užitečná, pokud chcete využít integraci s infrastrukturou ověřování certifikátů, kterou již prostřednictvím protokolu RADIUS máte.
   
-Při použití Azure k ověřování certifikátů provádí ověření certifikátu služba Azure VPN Gateway. Do brány musíte nahrát veřejný klíč certifikátu. Můžete také zadat seznam odvolaných certifikátů, kterým by nemělo být povoleno připojení.  
+Při použití Azure k ověřování certifikátů provádí ověření certifikátu služba Azure VPN Gateway. Do brány musíte nahrát veřejný klíč certifikátu. Můžete také zadat seznam odvolaných certifikátů, kterým by nemělo být povoleno připojení.
+
+### <a name="does-radius-authentication-work-with-both-ikev2-and-sstp-vpn"></a>Funguje ověřování RADIUS s IKEv2 i SSTP VPN?
+
+Ano, ověřování RADIUS je podporované jak pro IKEv2, tak i pro SSTP VPN.  

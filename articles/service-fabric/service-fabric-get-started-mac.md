@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 09/26/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Nastavení vývojového prostředí v Mac OS X
@@ -49,7 +49,7 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Tento postup přinese soubor `Vagrantfile` obsahující konfiguraci virtuálního počítače společně s umístěním virtuálního počítače, ze kterého je stažen.  Tento soubor odkazuje na skladovou image Ubuntu. 
+    Tento postup stáhne soubor `Vagrantfile` obsahující konfiguraci virtuálního počítače společně s umístěním virtuálního počítače, ze kterého je stažen.  Tento soubor odkazuje na skladovou image Ubuntu.
 
 2. Přejděte do místního klonu úložiště.
 
@@ -76,7 +76,7 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
     ```bash
     vagrant ssh
     ```
-   
+
    Nainstalujte sadu SDK způsobem popsaným v tématu věnovaném [instalaci sady SDK](service-fabric-get-started-linux.md).  Společně s rozhraním příkazového řádku sfctl je poskytován níže uvedený skript pro usnadnění instalace modulu runtime Service Fabric a běžné sady SDK Service Fabric. Spuštěním skriptu se předpokládá, že jste si přečetli o licencích pro veškerý instalovaný software a souhlasíte s nimi.
 
     ```bash
@@ -97,6 +97,23 @@ Chcete-li vytvořit místní virtuální počítač s clusterem Service Fabric s
 
     ![Service Fabric Explorer zobrazený z hostitelského počítače Mac][sfx-mac]
 
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>Instalace potřebných artefaktů Java na Vagrant pro použití programovacího modelu Service Fabric Java
+
+Chcete-li sestavovat služby Service Fabric pomocí Javy, zkontrolujte, že máte nainstalovanou sadu JDK 1.8 a Gradle, které se používají pro spouštění úloh sestavení. Následující fragment kódu nainstaluje otevřenou sadu JDK 1.8 společně s Gradlem. Knihovny Service Fabric Java se berou z Mavenu.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli"></a>Nastavení rozhraní příkazového řádku Service Fabric
+
+[Rozhraní příkazového řádku Service Fabric](service-fabric-cli.md) obsahuje příkazy pro komunikaci s entitami služby Service Fabric, včetně clusterů a aplikací. Je založeno na Pythonu, takže je nutné mít nainstalovaný python a pip předtím, než budete pokračovat následujícím příkazem:
+
+```bash
+pip install sfctl
+```
 
 ## <a name="create-application-on-mac-using-yeoman"></a>Vytvoření aplikace na počítači Mac pomocí Yeomanu
 Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman.
@@ -141,6 +158,7 @@ Service Fabric poskytuje modul plug-in pro **integrovaná vývojové prostředí
 * [Vytvoření clusteru služby Service Fabric na webu Azure Portal](service-fabric-cluster-creation-via-portal.md)
 * [Vytvoření clusteru služby Service Fabric pomocí Azure Resource Manageru](service-fabric-cluster-creation-via-arm.md)
 * [Pochopení aplikačního modelu služby Service Fabric](service-fabric-application-model.md)
+* [Správa aplikací pomocí Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
