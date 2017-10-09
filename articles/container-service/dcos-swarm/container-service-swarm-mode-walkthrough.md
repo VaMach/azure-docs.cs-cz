@@ -18,10 +18,10 @@ ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 7b8336e3865e7032e3ee0d5e4ee712bcb95aa4b5
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 01357ceca1d78c80c901c9fbec08ce85f02fb958
 ms.contentlocale: cs-cz
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -69,6 +69,8 @@ Následující příklad vytvoří cluster *mySwarmCluster* s jedním hlavním 
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
+
+V některých případech, například s omezenou zkušební verzí, má předplatné Azure omezený přístup k prostředkům Azure. Pokud se nasazení nezdaří kvůli omezenému počtu dostupných jader, snižte výchozí počet agentů přidáním možnosti `--agent-count 1` do příkazu [az acs create](/cli/azure/acs#create). 
 
 Po několika minutách se příkaz dokončí a vrátí informace o clusteru ve formátu JSON.
 
