@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 341128e4a1ad6902f6052eb954ffae08e5d78121
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="network-security"></a>Zabezpečení sítě
@@ -129,7 +129,7 @@ Výchozí pravidla nemůžete odebrat, ale můžete je přepsat vytvořením pra
 * **Internet** (Resource Manager) (**INTERNET** v případě modelu Classic): Tato značka označuje adresní prostor veřejných IP adres Azure. Adresy zahrnuté v této značce jsou uvedené v pravidelně aktualizovaném dokumentu [Veřejný prostor IP adres vlastněný Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (pouze Resource Manager): Tato značka označuje adresní prostor IP adres pro službu Azure Traffic Manager.
 * **Storage** (pouze Resource Manager): Tato značka označuje adresní prostor IP adres pro službu Azure Storage. Pokud jako hodnotu zadáte *Storage*, provoz směřující do úložiště se povolí nebo zakáže. Pokud chcete povolit přístup k úložišti pouze v konkrétní [oblasti](https://azure.microsoft.com/regions), můžete zadat tuto oblast. Pokud například chcete povolit přístup pouze ke službě Azure Storage v oblasti Východní USA, můžete jako značku služby zadat *Storage.EastUS*. Další dostupné značky regionálních služeb: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS a Storage.WestUS2. Značka představuje službu, ale ne konkrétní instance služby. Značka například představuje službu Azure Storage, ale ne konkrétní účet služby Azure Storage.
-* **Sql** (pouze Resource Manager): Tato značka označuje předpony adres služeb Azure SQL Database a Azure SQL Data Warehouse. Pro tuto značku služby můžete zadat pouze konkrétní oblasti. Pokud například chcete povolit přístup pouze ke službě Azure SQL Database v oblasti Východní USA, můžete jako značku služby zadat *Storage.EastUS*. Pouze Sql není možné zadat pro všechny oblasti Azure, jednotlivé oblasti je potřeba zadat ručně. Další dostupné značky regionálních služeb: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS a Storage.WestUS2. Značka představuje službu, ale ne konkrétní instance služby. Značka například představuje službu Azure SQL Database, ale ne konkrétní databázi SQL Azure.
+* **Sql** (pouze Resource Manager): Tato značka označuje předpony adres služeb Azure SQL Database a Azure SQL Data Warehouse. Pro tuto značku služby můžete zadat pouze konkrétní oblasti. Pokud například chcete povolit přístup pouze ke službě Azure SQL Database v oblasti Východní USA, můžete jako značku služby zadat *Storage.EastUS*. Pouze Sql není možné zadat pro všechny oblasti Azure, jednotlivé oblasti je potřeba zadat ručně. Další dostupné regionální značky služeb: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS a Sql.WestUS2. Značka představuje službu, ale ne konkrétní instance služby. Značka například představuje službu Azure SQL Database, ale ne konkrétní databázi SQL Azure.
 
 > [!WARNING]
 > Značky služeb AzureTrafficManager, Storage a Sql jsou dostupné ve verzi Preview. Funkce ve verzi Preview nedosahují stejné úrovně dostupnosti a spolehlivosti jako služby v obecné verzi. Značky služeb jsou dostupné pouze v následujících oblastech: Východní USA, Západní USA, Západní USA 2, Západní střed USA, Austrálie – východ, Austrálie – jihovýchod a Velká Británie – jih.

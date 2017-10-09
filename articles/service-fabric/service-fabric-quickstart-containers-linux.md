@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
@@ -53,18 +53,18 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Nasazení kontejnerů do clusteru Service Fabric v Azure
-Pokud chcete nasadit aplikaci do clusteru v Azure, použijte vlastní cluster nebo Party Cluster.
+Pokud chcete nasadit aplikaci do clusteru v Azure, použijte vlastní cluster nebo cluster Party.
 
-Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Jsou udržované týmem Service Fabric a kdokoli na nich může nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k Party Clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
+Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Jsou udržované týmem Service Fabric a kdokoli na nich může nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k clusteru Party, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
 
 Informace o vytvoření vlastního clusteru najdete v tématu [Vytvoření vašeho prvního clusteru Service Fabric v Azure](service-fabric-get-started-azure-cluster.md).
 
 > [!Note]
-> Webová front-end služba je nakonfigurovaná k naslouchání příchozímu provozu na portu 80. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte Party Cluster, je tento port otevřený.
+> Webová front-end služba je nakonfigurovaná k naslouchání příchozímu provozu na portu 80. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte cluster Party, je tento port otevřený.
 >
 
 ### <a name="deploy-the-application-manifests"></a>Nasazení manifestů aplikace 
-Nainstalujte ve svém prostředí rozhraní příkazového řádku příkazový řádek Service Fabric (sfctl).
+Nainstalujte ve svém prostředí rozhraní příkazového řádku [Service Fabric CLI (sfctl)](service-fabric-cli.md).
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -82,7 +82,7 @@ Pomocí instalačního skriptu, poskytnutého ke zkopírování definice hlasova
 ./install.sh
 ```
 
-Otevřete prohlížeč a přejděte na Service Fabric Explorer na adrese http://\<adresa_url_vašeho_clusteru_service_fabric>:80 – například `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Rozbalte uzel Aplikace a všimněte si, že už obsahuje položku pro typ hlasovací aplikace a instanci, kterou jste vytvořili.
+Otevřete prohlížeč a přejděte na Service Fabric Explorer na adrese http://\<adresa_url_vašeho_clusteru_service_fabric>:19080/Explorer – například `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Rozbalte uzel Aplikace a všimněte si, že už obsahuje položku pro typ hlasovací aplikace a instanci, kterou jste vytvořili.
 
 ![Service Fabric Explorer][sfx]
 
@@ -95,7 +95,7 @@ Service Fabric zajišťuje v případě selhání automatický přesun instancí
 
 Pokud chcete převzít služby při selhání front-end kontejneru, proveďte následující kroky:
 
-1. Otevřete ve vašem clusteru Service Fabric Explorer – například `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Otevřete ve vašem clusteru Service Fabric Explorer – například `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
 2. Ve stromovém zobrazení klikněte na uzel **fabric:/Voting/azurevotefront** a rozbalte uzel oddílu (reprezentovaný identifikátorem GUID). Všimněte si názvu uzlu ve stromovém zobrazení, které zobrazuje uzly, na kterých je kontejner právě spuštěný – například `_nodetype_4`.
 3. Ve stromovém zobrazení rozbalte uzel **Uzly**. Klikněte na tři tečky vedle uzlu, na kterém je kontejner spuštěný.
 4. Pokud chcete tento uzel restartovat, zvolte **Restartovat** a potvrďte akci restartování. Restartování způsobí převzetí služeb při selhání kontejneru do jiného uzlu v clusteru.
