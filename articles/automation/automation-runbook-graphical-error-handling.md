@@ -51,7 +51,7 @@ Představte si například runbook, který se pokusí spustit virtuální počí
 1. Odešle oznámení o tomto problému.
 2. Spustí jiný runbook, který automaticky zřídí nový virtuální počítač.
 
-Jedním z řešení je vytvořit chybové propojení odkazující na aktivitu, která zpracuje krok&1;. Můžete například propojit rutinu **Write-Warning** s aktivitou pro krok&2;, například rutinou **Start-AzureRmAutomationRunbook**.
+Jedním z řešení je vytvořit chybové propojení odkazující na aktivitu, která zpracuje krok 1. Můžete například propojit rutinu **Write-Warning** s aktivitou pro krok 2, například rutinou **Start-AzureRmAutomationRunbook**.
 
 Toto chování můžete také zobecnit pro použití v mnoha runboocích tím, že obě aktivity umístíte do samostatného runbooku pro zpracování chyb podle výše navrhovaných pokynů. Před voláním tohoto runbooku pro zpracování chyb můžete z dat v původním runbooku vytvořit vlastní zprávu a předat ji jako parametr do runbooku pro zpracování chyb.
 
