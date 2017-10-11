@@ -1,18 +1,18 @@
-In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999, as specified earlier) and another rule to open the availability group listener port. Because you created the load-balanced endpoint on the VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective VMs.
+V tomto kroku vytvoříte pravidlo brány firewall otevřít port testu pro koncový bod Vyrovnávání zatížení sítě (59999, jak je uvedeno výše) a jiné pravidlo otevřít port naslouchacího procesu skupiny dostupnosti. Vzhledem k tomu, že jste vytvořili koncový bod Vyrovnávání zatížení na virtuálních počítačích, které obsahují replik skupin dostupnosti, budete muset otevřít port testu a port naslouchacího procesu na příslušných virtuálních počítačích.
 
-1. On VMs that host replicas, start **Windows Firewall with Advanced Security**.
+1. Na virtuálních počítačích, které jsou hostiteli repliky, spusťte **brány Windows Firewall s pokročilým zabezpečením**.
 
-2. Right-click **Inbound Rules**, and then click **New Rule**.
+2. Klikněte pravým tlačítkem na **příchozí pravidla**a potom klikněte na **nové pravidlo**.
 
-3. On the **Rule Type** page, select **Port**, and then click **Next**.
+3. Na **typ pravidla** vyberte **Port**a potom klikněte na **Další**.
 
-4. On the **Protocol and Ports** page, select **TCP**, type **59999** in the **Specific local ports** box, and then click **Next**.
+4. Na **protokol a porty** vyberte **TCP**, typ **59999** v **určité místní porty** pole a pak klikněte na tlačítko  **Další**.
 
-5. On the **Action** page, keep **Allow the connection** selected, and then click **Next**.
+5. Na **akce** ponechte **povolit připojení** vybrané a potom klikněte na **Další**.
 
-6. On the **Profile** page, accept the default settings, and then click **Next**.
+6. Na **profil** stránky, přijměte výchozí nastavení a pak klikněte na tlačítko **Další**.
 
-7. On the **Name** page, in the **Name** text box, specify a rule name, such as **Always On Listener Probe Port**, and then click **Finish**.
+7. Na **název** stránky v **název** text zadejte název pravidla, jako například **vždy na Port naslouchacího procesu testu**a potom klikněte na **Dokončit**.
 
-8. Repeat the preceding steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script), and then specify an appropriate rule name, such as **Always On Listener Port**.
+8. Opakujte předchozí kroky pro port naslouchacího procesu skupiny dostupnosti (uvedený dříve v parametru $EndpointPort skriptu) a pak zadejte název příslušné pravidlo, jako například **vždy na Port naslouchacího procesu**.
 

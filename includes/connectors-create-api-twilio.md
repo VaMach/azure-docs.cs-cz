@@ -1,26 +1,26 @@
-### <a name="prerequisites"></a>Prerequisites
-* A Twilio account
-* A verified Twilio phone number that can receive SMS
-* A verified Twilio phone number that can send SMS
+### <a name="prerequisites"></a>Požadavky
+* Účet Twilio
+* Ověřené telefonní číslo Twilio, který může přijímat zprávy SMS
+* Ověřené Twilio telefonní číslo, které může poslat SMS
 
 > [!NOTE]
-> If you are using a Twilio trial account, you can only send SMS to **verified** phone numbers.  
+> Pokud používáte zkušební účet Twilio, lze odeslat pouze SMS k **ověřit** telefonních čísel.  
 > 
 > 
 
-Before you can use your Twilio account in a Logic app, you must authorize the Logic app to connect to your Twilio account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Než účtu Twilio můžete použít v aplikaci logiky, musíte je nejdříve autorizovat aplikaci logiky se připojit ke svému účtu Twilio. Naštěstí můžete k tomu snadno z v rámci aplikace logiky na portálu Azure. 
 
-Here are the steps to authorize your Logic app to connect to your Twilio account:
+Tady jsou kroky k autorizaci aplikace logiky pro připojení k účtu Twilio:
 
-1. To create a connection to Twilio, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Twilio* in the search box. Select the trigger or action you'll like to use:  
+1. Chcete-li vytvořit připojení k Twiliu, v návrháři aplikace logiky, vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu zadejte *Twilio* do vyhledávacího pole. Vyberte aktivační události nebo akci, kterou budete chtít použít:  
    ![](./media/connectors-create-api-twilio/twilio-0.png)
-2. If you haven't created any connections to Twilio before, you'll get prompted to provide your Twilio credentials. These credentials will be used to authorize your Logic app to connect to, and access your Twilio account's data:  
+2. Pokud jste nevytvořili žádné připojení k Twiliu před, budete získat zobrazí výzva k zadání přihlašovacích údajů vaší Twilio. Tyto přihlašovací údaje se použije k autorizaci aplikace logiky pro připojení k a přístup k datům účtu Twilio:  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. You'll need the **Twilio account id** and **Twilio access token**  from the dashboard in Twilio, so log in to your Twilio account now to grab these two pieces of information:  
+3. Budete potřebovat **id účtu Twilio** a **Twilio přístupový token** z řídicího panelu Twilio, přihlaste se k účtu Twilio teď se získat tyto dva údaje:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Twilio and Logic apps use different names to identify these two pieces of infomation. Here is how you must map them to the Logic apps dialog: ![](./media/connectors-create-api-twilio/twilio-3.png)  
-5. Select the **Create connection** button:  
+4. K identifikaci tyto dvě údaje Twilio a logiku aplikace použít odlišné názvy. Zde je, jak je nutné mapovat do dialogového okna aplikace logiky:![](./media/connectors-create-api-twilio/twilio-3.png)  
+5. Vyberte **vytvořit připojení** tlačítko:  
    ![](./media/connectors-create-api-twilio/twilio-4.png)
-6. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+6. Všimněte si vytvořil připojení a je nyní můžete pokračovat v dalších krocích v aplikaci logiky:  
    ![](./media/connectors-create-api-twilio/twilio-5.png)
 

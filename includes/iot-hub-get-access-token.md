@@ -1,9 +1,7 @@
-<a id="obtain-an-azure-resource-manager-token" class="xliff"></a>
+## <a name="obtain-an-azure-resource-manager-token"></a>Získání tokenu Azure Resource Manager
+Azure Active Directory musí ověřovat všechny úlohy, které můžete provádět na prostředků pomocí Azure Resource Manager. Z příkladu používá ověřování hesla, naleznete v dalších přístupy [požadavků ověřování Azure Resource Manager][lnk-authenticate-arm].
 
-## Obtain an Azure Resource Manager token
-Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
-
-1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
+1. Přidejte následující kód, který **hlavní** metoda do souboru Program.cs k načtení tokenu z Azure AD pomocí id aplikace a hesla.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -18,14 +16,14 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
       return;
     }
     ```
-2. Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:
+2. Vytvoření **ResourceManagementClient** objekt, který používá token přidáním následující kód do konce **hlavní** metoda:
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Create, or obtain a reference to, the resource group you are using:
+3. Vytvořit nebo získat odkaz na skupinu prostředků, kterou používáte:
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Ukázka sady Operations Management Suite (OMS) vlastním tempem – Service Map
 Tato ukázka vlastním tempem vás provede použitím [řešení Service Map](operations-management-suite-service-map.md) v sadě Operations Management Suite (OMS) a umožní vám identifikovat a diagnostikovat simulovaný problém ve webové aplikaci.  Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami.  Také konsoliduje data shromážděná ostatními službami OMS a pomáhá analyzovat výkon a identifikovat případné potíže.  Můžete také využít [prohledávání protokolu ve službě Log Analytics](../log-analytics/log-analytics-log-searches.md) a přejít k podrobnostem shromážděných dat s cílem identifikovat hlavní problém.
 
@@ -85,7 +83,7 @@ Podívejme se na **acmetomcat** blíž.  Klikněte v pravém horním rohu závis
 Podívejme se, jestli můžeme zjistit příčinu tohoto vysokého využití.  Klikněte na kartu **Souhrn**.  Poskytuje informace, které sada OMS získala z tohoto počítače, jako jsou neúspěšná připojení, kritické výstrahy a změny softwaru.  Oddíly se zajímavými informacemi z nedávné doby by už měly být rozbalené. Můžete rozbalit i další sekce a prohlédnout si informace, které obsahují.
 
 
-Pokud ještě není otevřené **sledování změn**, rozbalte ho.  Zobrazuje informace shromážděné [řešením Change Tracking](../log-analytics/log-analytics-change-tracking.md).  Vypadá to, že se během tohoto časového intervalu změnil software.  Podrobnosti zobrazíte kliknutím na **Software**.  Do počítače se právě kolem 4:00 rán přidal proces zálohování a právě ten asi bude příčinou nadměrné spotřeby prostředků.
+Pokud ještě není otevřené **Sledování změn**, rozbalte ho.  Zobrazuje informace shromážděné [řešením Change Tracking](../log-analytics/log-analytics-change-tracking.md).  Vypadá to, že se během tohoto časového intervalu změnil software.  Podrobnosti zobrazíte kliknutím na **Software**.  Do počítače se právě kolem 4:00 ráno přidal proces zálohování a právě ten asi bude příčinou nadměrné spotřeby prostředků.
 
 ![Sledování změn](./media/operations-management-suite-walkthrough-servicemap/change-tracking.png)
 
@@ -98,7 +96,7 @@ Můžeme to dál ověřit tak, že se podíváme na podrobné informace o výkon
 
 
 ### <a name="9-open-saved-search"></a>9. Otevření uloženého hledání
-Podívejme se, jestli můžeme o sběru údajů o výkonu, který tuto výstrahu způsobil zjistit něco víc a ověřit si podezření, že problémy jsou způsobené právě tímto procesem zálohování.  Změnit časový rozsah na **6 hodin**.  Potom klikněte na **Oblíbené** a posuňte se dolů na uložená hledání pro **Service Map**.  Tyto dotazy jsme vytvořili speciálně pro tuto analýzu.  Klikněte na **Top 5 Processes by CPU for acmetomcat** (Hlavních 5 procesů podle CPU pro acmetomcat).
+Podívejme se, jestli můžeme o sběru údajů o výkonu, který tuto výstrahu způsobil, zjistit něco víc a ověřit si podezření, že problémy jsou způsobené právě tímto procesem zálohování.  Změňte časový rozsah na **6 hodin**.  Potom klikněte na **Oblíbené** a posuňte se dolů na uložená hledání pro **Service Map**.  Tyto dotazy jsme vytvořili speciálně pro tuto analýzu.  Klikněte na **Top 5 Processes by CPU for acmetomcat** (Hlavních 5 procesů podle CPU pro acmetomcat).
 
 ![Uložené hledání](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
@@ -109,7 +107,7 @@ V tomto případě vidíme, že proces zálohování konzistentně využívá p�
 
 
 ## <a name="summary-points"></a>Souhrn v bodech
-- [Mapa služeb](operations-management-suite-service-map.md) poskytuje přehled celé aplikace i v případě, že nevíte o všech serverech a závislostech.
+- [Service Map](operations-management-suite-service-map.md) poskytuje přehled celé aplikace i v případě, že nevíte o všech serverech a závislostech.
 - Service Map poskytuje informace o datech, která shromáždila ostatní řešení OMS, a pomáhá odhalit potíže s aplikací a její podpůrnou infrastrukturou.
 - [Prohledávání protokolu](../log-analytics/log-analytics-log-searches.md) umožňuje přejít k podrobnostem specifických dat shromážděných v úložišti Log Analytics.    
 

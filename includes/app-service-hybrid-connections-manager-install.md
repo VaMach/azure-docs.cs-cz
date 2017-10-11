@@ -1,22 +1,22 @@
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
+1. V **hybridní připojení** okno, klikněte na tlačítko hybridní připojení, který jste právě vytvořili, klikněte **naslouchací proces instalace**.
    
-    ![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded HybridConnectionManager.msi package, and copy the gateway connection string.
+    ![Klikněte na tlačítko naslouchací proces instalace](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+2. **Vlastnosti hybridní připojení** otevře se okno. V části **místní správce hybridního připojení**, zvolte **stáhnout a nakonfigurovat ručně**, uložte stažený balíček HybridConnectionManager.msi a zkopírujte připojovací řetězec brány.
    
-    ![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. From an administrator command prompt, type the following command to start the installer:
+    ![Chcete-li nainstalovat, klikněte sem](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Z příkazového řádku správce zadejte následující příkaz, který spouští instalační program:
    
         start HybridConnectionManager.msi
-4. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
-5. Paste the hybrid connection string that you copied earlier and click **OK**. 
+4. Po spuštění instalačního programu, klikněte na tlačítko **teď ne**, pak přejděte do složky %ProgramFiles%\Microsoft\HybridConnectionManager, spustí HCMConfigWizard.exe a klikněte na tlačítko **Ano** v **uživatelský účet Ovládací prvek** dialogové okno.
+5. Vložte hybridní připojovací řetězec, který jste zkopírovali dříve a klikněte na tlačítko **OK**. 
    
-    ![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. When the install completes, click **Close**.
+    ![Instalace](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
+6. Po dokončení instalace klikněte na tlačítko **Zavřít**.
    
-    ![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+    ![Klikněte na tlačítko Zavřít](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
+    Na **hybridní připojení** okně **stav** teď zobrazuje sloupec **připojeno**. 
    
-    ![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+    ![Připojené stav](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: e641de26d47d54e1543157d788aa131fb3bd3cf3
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Vytvoření oboru názvů přenosu pomocí webu Azure Portal
 Obor názvů je společný kontejner pro všechny součásti Azure Relay. Součástí jednoho oboru názvů může být několik přenosů, přičemž obory názvů často slouží jako kontejnery aplikací. Obory názvů přenosu je v současnosti možné vytvořit dvěma způsoby.
 
@@ -38,5 +36,4 @@ Blahopřejeme! Právě jste vytvořili obor názvů přenosu.
 * [Přenos – nejčastější dotazy](relay-faq.md)
 * [Začínáme s .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Začínáme s aplikací Node](relay-hybrid-connections-node-get-started.md)
-
 

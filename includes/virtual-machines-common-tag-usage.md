@@ -1,20 +1,20 @@
 
 
 
-## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
-Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
+## <a name="viewing-your-tags-in-the-usage-details"></a>Zobrazení značek v podrobnosti o využití
+Značky umístit na výpočty, sítě, a prostředky úložiště v modelu nasazení Resource Manager vyplní v podrobností o využití v [fakturace portál](https://account.windowsazure.com/).
 
-Click on **Download usage details** to view the usage details in your subscription.
+Klikněte na **stáhnout podrobnosti o použití** Chcete-li zobrazit podrobnosti o využití v rámci vašeho předplatného.
 
-![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Podrobnosti o použití portálu Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Select your billing statement and the **Version 2** usage details:
+Vyberte fakturační údajů a **verze 2** podrobnosti o použití:
 
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Podrobnosti o použití Preview verze 2 na portálu Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-From the usage details, you can see all of the tags in the **Tags** column:
+Z podrobnosti o využití, můžete zobrazit všechny značky v **značky** sloupce:
 
-![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Sloupec značky na portálu Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
+Analýzou tyto značky společně s využití, bude moct nové proniknout do jejich datům o spotřebě organizace.
 

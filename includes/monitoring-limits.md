@@ -1,5 +1,5 @@
 
-| Resource | Limit |
+| Prostředek | Omezení |
 | --- | --- |
-| Autoscale Settings |100 per region per subscription |
-| Metric Alerts |100 active alert rules per subscription |
+| Nastavení automatického škálování |100 na oblast na předplatné |
+| Upozornění metrik |100 aktivní pravidla výstrah na předplatné |

@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>To install regular hotfixes via Windows PowerShell for StorSimple
-1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](../articles/storsimple/storsimple-update-device.md#step1).
-2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Pro instalaci regulární oprav hotfix prostřednictvím Windows Powershellu pro StorSimple
+1. Připojte ke konzole sériového portu zařízení. Další informace najdete v tématu [krok 1: připojení ke konzole sériového portu](../articles/storsimple/storsimple-update-device.md#step1).
+2. V nabídce konzoly sériového portu, vyberte možnost 1, **přihlásit úplný přístup**. Zadejte heslo. Výchozí heslo je **Heslo1**.
+3. Na příkazovém řádku zadejte:
    
     ```
     Start-HcsHotfix
@@ -11,9 +11,9 @@
    
     > [!IMPORTANT]
     >
-    > This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
-    > You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+    > Tento příkaz se vztahuje pouze na regulární opravy hotfix. Tento příkaz spustit na jenom jeden řadič, ale oba řadiče se pak zaktualizuje.
+    > Může dojít k selhání řadiče během procesu aktualizace. převzetí služeb při selhání však nebude mít vliv dostupnosti systému nebo operace.
 
-4. When prompted, supply the path to the network shared folder that contains the hotfix files.
-5. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+4. Po zobrazení výzvy zadejte cestu k sdílené síťové složce, která obsahuje soubory oprav hotfix.
+5. Zobrazí se výzva k potvrzení. Typ **Y** pokračovat v instalaci oprav hotfix.
 

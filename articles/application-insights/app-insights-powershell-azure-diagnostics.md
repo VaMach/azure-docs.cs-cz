@@ -4,20 +4,20 @@ description: "Automatizujte konfiguraci kanálu Azure Diagnostics pro službu Ap
 services: application-insights
 documentationcenter: .net
 author: sbtron
-manager: douge
+manager: carmonm
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/17/2015
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
-
-
+ms.author: bwren
+ms.openlocfilehash: 3b6da89cc33cda713b483a2af3cbb493a03d6bec
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Použití prostředí PowerShell k nastavení Application Insights pro webovou aplikaci v Azure
 [Microsoft Azure](https://azure.com) může být [konfigurované k odesílání Azure Diagnostics](app-insights-azure-diagnostics.md) do [Azure Application Insights](app-insights-overview.md). Diagnostika se týká cloudových služeb Azure a virtuálních počítačů Azure. Doplňují telemetrii, kterou odesíláte z aplikace pomocí Application Insights SDK. Jako součást automatizace procesu vytváření nových prostředků v Azure můžete nakonfigurovat diagnostiku pomocí prostředí PowerShell.
@@ -137,10 +137,4 @@ Chcete-li odebrat rozšíření diagnostiky pro každou jednotlivou roli:
 * [Monitorování aplikací v Azure Cloud Services službou Application Insights](app-insights-cloudservices.md)
 * [Odesílání Diagnostiky Azure do Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizace konfigurace výstrah](app-insights-powershell-alerts.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

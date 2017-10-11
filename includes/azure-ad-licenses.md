@@ -1,3 +1,3 @@
 > [!NOTE]
-> To learn if specific features are supported by your license type, check the [Azure Active Directory Pricing information](https://azure.microsoft.com/pricing/details/active-directory/) page. 
+> Další informace, pokud konkrétní funkce podporuje vaše typ licence, zkontrolujte [informace o cenách Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) stránky. 
 

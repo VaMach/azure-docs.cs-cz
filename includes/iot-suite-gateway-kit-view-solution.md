@@ -1,38 +1,38 @@
-## <a name="view-the-solution-dashboard"></a>View the solution dashboard
+## <a name="view-the-solution-dashboard"></a>Zobrazení řídicího panelu řešení
 
-The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and invoke methods.
+Přes řídicí panel řešení můžete spravovat nasazené řešení. Můžete například zobrazit telemetrická data, přidat zařízení a volat metody.
 
-1. When the provisioning is complete and the tile for your preconfigured solution indicates **Ready**, choose **Launch** to open your remote monitoring solution portal in a new tab.
+1. Až bude zřizování dokončeno a dlaždice předkonfigurovaného řešení bude hlásit **Připraveno**, zvolte **Spustit**. Na nové kartě se otevře portál předkonfigurovaného řešení vzdáleného monitorování.
 
-    ![Launch the preconfigured solution][img-launch-solution]
+    ![Spuštění předkonfigurovaného řešení][img-launch-solution]
 
-1. By default, the solution portal shows the *dashboard*. Navigate to other areas of the solution portal using the menu on the left-hand side of the page.
+1. Ve výchozím nastavení se na portálu řešení zobrazuje *řídicí panel*. Přejděte do jiných oblastí portálu řešení pomocí nabídky na levé straně stránky.
 
-    ![Remote monitoring preconfigured solution dashboard][img-menu]
+    ![Řídicí panel předkonfigurovaného řešení vzdáleného monitorování][img-menu]
 
-## <a name="add-a-device"></a>Add a device
+## <a name="add-a-device"></a>Přidání zařízení
 
-For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
+Aby se zařízení mohlo připojit k předkonfigurovanému řešení, musí se identifikovat ve službě IoT Hub pomocí platných přihlašovacích údajů. Přihlašovací údaje zařízení můžete zjistit z řídicího panelu řešení. Přihlašovací údaje zařízení vložíte do klientské aplikace později v tomto kurzu.
 
-To add a device to your remote monitoring solution, complete the following steps in the solution dashboard:
+Pokud chcete přidat zařízení do řešení vzdáleného monitorování, proveďte na řídicím panelu řešení následující kroky:
 
-1. In the lower left-hand corner of the dashboard, click **Add a device**.
+1. V levém dolním rohu řídicího panelu klikněte na **Přidat zařízení**.
 
-   ![Add a device][1]
+   ![Přidání zařízení][1]
 
-1. In the **Custom Device** panel, click **Add new**.
+1. Na panelu **Vlastní zařízení** klikněte na **Přidat nové**.
 
-   ![Add a custom device][2]
+   ![Přidání vlastního zařízení][2]
 
-1. Choose **Let me define my own Device ID**. Enter a Device ID such as **device01**, click **Check ID** to verify you haven't already used the name in your solution, and then click **Create** to provision the device.
+1. Vyberte možnost **Definovat vlastní ID zařízení**. Zadejte ID zařízení, jako **device01**, klikněte na tlačítko **Zkontrolujte ID** ověření již nepoužili název ve vašem řešení a potom klikněte na **vytvořit** ke zřízení zařízení.
 
-   ![Add device ID][3]
+   ![Přidání ID zařízení][3]
 
-1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Intel NUC needs these values to connect to the remote monitoring solution. Then click **Done**.
+1. Poznamenejte si přihlašovací údaje zařízení (**ID zařízení**, **název hostitele centra IoT**, a **klíč zařízení**). Klientské aplikace na Intel NUC musí tyto hodnoty pro připojení k řešení vzdáleného monitorování. Potom klikněte na **Done** (Hotovo).
 
-    ![View device credentials][4]
+    ![Zobrazení přihlašovacích údajů zařízení][4]
 
-1. Select your device in the device list in the solution dashboard. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**. The remote monitoring solution can now receive telemetry from your device and invoke methods on the device.
+1. V seznamu zařízení na řídicím panelu řešení vyberte své zařízení. Pak na panelu **Podrobnosti o zařízení** klikněte na **Povolit zařízení**. Stav vašeho zařízení je teď **Spuštěno**. Řešení vzdáleného monitorování teď může z vašeho zařízení přijímat telemetrii a vyvolávat v něm metody.
 
 [img-launch-solution]: media/iot-suite-gateway-kit-view-solution/launch.png
 [img-menu]: media/iot-suite-gateway-kit-view-solution/menu.png

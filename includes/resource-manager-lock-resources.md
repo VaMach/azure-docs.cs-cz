@@ -1,13 +1,13 @@
-1. In the Settings blade for the resource, resource group, or subscription that you wish to lock, select **Locks**.
+1. V okně Nastavení prostředku, skupiny prostředků nebo předplatného, která chcete zamknout, vyberte **zamkne**.
    
-      ![select lock](./media/resource-manager-lock-resources/select-lock.png)
-2. To add a lock, select **Add**. If you want to create a lock at a parent level, select the parent. The currently selected resource inherits the lock from the parent. For example, you could lock the resource group to apply a lock to all its resources.
+      ![Vyberte zámek](./media/resource-manager-lock-resources/select-lock.png)
+2. Chcete-li přidat zámek, vyberte **přidat**. Pokud chcete vytvořit zámek na nadřazené úrovni, vyberte nadřazenou. Aktuálně vybraný zdroj zámek dědí z nadřazeného objektu. Například může zamknout skupinu prostředků, které chcete použít zámek pro všechny její prostředky.
    
-      ![add lock](./media/resource-manager-lock-resources/add-lock.png) 
-3. Give the lock a name and lock level. Optionally, you can add notes that describe the lock.
+      ![Přidání zámku](./media/resource-manager-lock-resources/add-lock.png) 
+3. Zadejte název a zámek úroveň zámek. Volitelně můžete přidat poznámky, které popisují zámek.
    
-      ![set lock](./media/resource-manager-lock-resources/set-lock.png) 
-4. To delete the lock, select the ellipsis and **Delete** from the available options.
+      ![Sada zámku](./media/resource-manager-lock-resources/set-lock.png) 
+4. Pokud chcete odstranit zámek, vyberte se třemi tečkami a **odstranit** z dostupných možností.
    
-      ![delete lock](./media/resource-manager-lock-resources/delete-lock.png) 
+      ![Odstranit zámku](./media/resource-manager-lock-resources/delete-lock.png) 
 

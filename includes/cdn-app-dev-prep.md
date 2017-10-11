@@ -1,53 +1,53 @@
-## <a name="prerequisites"></a>Prerequisites
-Before we can write CDN management code, we need to do some preparation to enable our code to interact with the Azure Resource Manager.  To do this, you'll need to:
+## <a name="prerequisites"></a>Požadavky
+Před jsme můžete napsat kód správu CDN, je potřeba provést určitou přípravu pro povolení naše kódu pro interakci s Azure Resource Manager.  Chcete-li to provést, musíte:
 
-* Create a resource group to contain the CDN profile we create in this tutorial
-* Configure Azure Active Directory to provide authentication for our application
-* Apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile
+* Vytvořte skupinu prostředků tak, aby obsahovala, které jsme v tomto kurzu vytvoříte profil CDN
+* Konfigurace služby Azure Active Directory pro zajištění ověřování pro naši aplikaci
+* Použití oprávnění ke skupině prostředků, takže jenom autorizovaným uživatelům z našich klienta Azure AD mohou komunikovat s naše profil CDN
 
-### <a name="creating-the-resource-group"></a>Creating the resource group
-1. Log into the [Azure Portal](https://portal.azure.com).
-2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
+### <a name="creating-the-resource-group"></a>Vytvoření skupiny prostředků
+1. Přihlaste se [portál Azure](https://portal.azure.com).
+2. Klikněte na tlačítko **nový** tlačítko v levém horním a potom **správy**, a **skupiny prostředků**.
 
-    ![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
-3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
+    ![Vytvoření nové skupiny prostředků](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
+3. Volání vaší skupiny prostředků *CdnConsoleTutorial*.  Vyberte předplatné a zvolte umístění okolo vás.  Pokud chcete, mohou kliknutím **připnout na řídicí panel** chcete připnout na řídicí panel skupinu prostředků na portálu.  To bude bylo snazší najít později.  Po provedení váš výběr, klikněte na tlačítko **vytvořit**.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
-4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.
+    ![Názvy skupiny prostředků](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+4. Po vytvoření skupiny prostředků nebyla připnout na řídicí panel, najdete ho kliknutím na **Procházet**, pak **skupiny prostředků**.  Klikněte na skupinu prostředků a ten se otevře.  Poznamenejte si vaše **ID předplatného**.  Budeme ho později potřebovat.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Názvy skupiny prostředků](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creating the Azure AD application and applying permissions
-There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Vytvoření aplikace Azure AD a použití oprávnění
+Existují dva přístupy k ověřování aplikace v Azure Active Directory: jednotlivé uživatele nebo hlavní název služby. Objekt služby je podobný účet služby v systému Windows.  Namísto udělení oprávnění k interakci s profily CDN určitého uživatele, místo toho jsme udělit oprávnění k instanční objekt.  Objekty služby se obecně používají pro neinteraktivní, automatizované procesy.  I když v tomto kurzu je zápis aplikace interaktivní konzoly, zaměříme budete na hlavní přístupu služby.
 
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../articles/resource-group-create-service-principal-portal.md).
-
-> [!IMPORTANT]
-> Be sure to follow all the steps in the [linked tutorial](../articles/resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal.
->
-> When you get to the step named Configure multi-tenant application, select **No**.
->
-> When you get to the step [Assign application to role](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
->
->
-
-Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
-
-![Users blade](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
-
-### <a name="interactive-user-authentication"></a>Interactive user authentication
-If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
+Vytvoření objektu služby se skládá z několika kroků, včetně vytváření aplikací Azure Active Directory.  K tomuto účelu vytvoříme [v tomto kurzu](../articles/resource-group-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
+> Postupujte podle pokynů v [propojené kurzu](../articles/resource-group-create-service-principal-portal.md).  Je *velmi důležité* dokončit ho přesně tak, jak je popsáno.  Zajistěte, aby si uvědomit, vaše **ID klienta**, **název domény klienta** (běžně *. onmicrosoft.com* domény Pokud jste zadali vlastní domény), **ID klienta** , a **ověřovací klíč klienta**, jak jsme budete potřebovat později.  Buďte velmi opatrní ochrana vašeho **ID klienta** a **ověřovací klíč klienta**, jak tyto přihlašovací údaje můžete použít libovolný uživatel k provedení operací jako objekt služby.
+>
+> Při přechodu na krok s názvem konfigurace víceklientské aplikace, vyberte **ne**.
+>
+> Při přechodu na krok [přiřazení aplikace k roli](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), použít skupinu prostředků, kterou jsme vytvořili výše, *CdnConsoleTutorial*, ale místo **čtečky** role, přiřadit  **Přispěvatel profil CDN** role.  Po přiřazení aplikace **Přispěvatel profil CDN** role ve vaší skupině prostředků, vraťte se do tohoto kurzu. 
 >
 >
 
-1. When creating your application, instead of **Web Application**, choose **Native application**.
+Po vytvoření instančního objektu a přiřadit **Přispěvatel profil CDN** role, **uživatelé** okno skupiny prostředků by měl vypadat podobně jako tento.
 
-    ![Native application](./media/cdn-app-dev-prep/cdn-native-application-include.png)
-2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later.
-3. There is no need to create a **client authentication key**.
-4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
+![Okno Uživatelé](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
 
-    ![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+### <a name="interactive-user-authentication"></a>Interaktivním ověřování uživatelů
+Pokud místo hlavní název služby, byste měli místo ověřování interaktivní jednotlivých uživatelů, proces je velmi podobný pro hlavní název služby.  Musíte ve skutečnosti, postupujte stejným způsobem, ale provést několik menších změn.
+
+> [!IMPORTANT]
+> Následujícím postupem další, pouze pokud se rozhodnete používat ověřování jednotlivých uživatelů místo instanční objekt.
+>
+>
+
+1. Při vytváření aplikace, místo **webové aplikace**, zvolte **nativní aplikace**.
+
+    ![Nativní aplikace](./media/cdn-app-dev-prep/cdn-native-application-include.png)
+2. Na další stránce, zobrazí se výzva pro **identifikátor URI pro přesměrování**.  Identifikátor URI nebude ověřena, ale mějte na paměti, jste zadali.  Budete ho potřebovat později.
+3. Není nutné vytvořit **ověřovací klíč klienta**.
+4. Místo objekt služby pro přiřazení **Přispěvatel profil CDN** role, vytvoříme přiřadit jednotlivým uživatelům nebo skupinám.  V tomto příkladu uvidíte, že jste přidělený *uživatel Demo CDN* k **Přispěvatel profil CDN** role.  
+
+    ![Přístup jednotlivých uživatelů](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

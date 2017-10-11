@@ -1,2 +1,2 @@
-To use this feature and other new Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
+Chcete-li používat tuto funkci a další nové možnosti Azure, zaregistrujte si [bezplatnou verzi preview](https://account.windowsazure.com/PreviewFeatures).
 

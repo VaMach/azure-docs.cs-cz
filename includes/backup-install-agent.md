@@ -1,42 +1,42 @@
-## <a name="download-install-and-register-the-azure-backup-agent"></a>Download, install, and register the Azure Backup agent
-After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
+## <a name="download-install-and-register-the-azure-backup-agent"></a>Stažení, instalace a registrace agenta Azure Backup
+Po vytvoření trezoru zálohování Azure, je třeba nainstalovat agenta na všechny vaše Windows počítače (Windows Server, klient systému Windows, server System Center Data Protection Manager nebo počítače serveru Azure Backup), které povoluje zálohování dat a aplikací do Azure.
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
-2. Click **Recovery Services**, then select the backup vault that you want to register with a server. The Quick Start page for that backup vault appears.
+1. Přihlaste se k [portálu pro správu](https://manage.windowsazure.com/)
+2. Klikněte na tlačítko **služeb zotavení**, zvolte úložiště záloh, které chcete zaregistrovat serveru. Zobrazí se stránka rychlý Start pro tento trezor záloh.
    
-    ![Quick start](./media/backup-install-agent/quickstart.png)
-3. On the Quick Start page, click the **For Windows Server or System Center Data Protection Manager or Windows client** option under **Download Agent**. Click **Save** to copy it to the local machine.
+    ![Rychlý start](./media/backup-install-agent/quickstart.png)
+3. Na stránce Rychlý Start klikněte na **klienta pro systém Windows Server nebo System Center Data Protection Manager nebo Windows** možnost pod **stáhnout agenta**. Klikněte na tlačítko **Uložit** a zkopírujte ho do místního počítače.
    
-    ![Save agent](./media/backup-install-agent/agent.png)
-4. Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
-5. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
-6. The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
-7. Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
+    ![Uložit agenta](./media/backup-install-agent/agent.png)
+4. Po instalaci agenta, poklikejte na MARSAgentInstaller.exe spustíte instalaci agenta Azure Backup agent. Vyberte instalační složku a pomocné složky, které jsou potřebné pro agenta. Zadané umístění mezipaměti musí mít volné místo, který je nejméně 5 % zálohovaná data.
+5. Pokud používáte proxy server pro připojení k Internetu, v **konfiguraci proxy serveru** obrazovky, zadejte podrobnosti o proxy serveru. Pokud používáte ověřený server proxy, zadejte uživatelské jméno a heslo podrobnosti na této obrazovce.
+6. Agent Azure Backup nainstaluje rozhraní .NET Framework 4.5 a prostředí Windows PowerShell (Pokud není k dispozici již) pro dokončení instalace.
+7. Po instalaci agenta, klikněte na **přejít k registraci** tlačítko pokračujte s pracovním postupem.
    
-   ![Register](./media/backup-install-agent/register.png)
-8. In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.
+   ![Registrace](./media/backup-install-agent/register.png)
+8. Na obrazovce přihlašovací údaje trezoru vyhledejte a vyberte soubor s přihlašovacími údaji trezoru, který byl dříve staženy.
    
-    ![Vault credentials](./media/backup-install-agent/vc.png)
+    ![Přihlašovací údaje trezoru](./media/backup-install-agent/vc.png)
    
-    The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
+    Soubor s přihlašovacími údaji je platná pouze pro 48 hodin (po jeho stažení z portálu). Pokud dojde k chybě v této plánováním obrazovce (například "soubor s přihlašovacími údaji poskytuje vypršela"), přihlášení k portálu Azure a znovu stáhnout soubor s přihlašovacími údaji.
    
-    Ensure that the vault credentials file is available in a location which can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
+    Ujistěte se, že je soubor s přihlašovacími údaji k dispozici v umístění, která je přístupná instalační program aplikace. Pokud narazíte na přístup související chyby, zkopírujte soubor s přihlašovacími údaji do dočasného umístění v tomto počítači a operaci opakujte.
    
-    If you encounter an invalid vault credential error (e.g “Invalid vault credentials provided") the file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks on the **Download vault credential** option in the Azure portal, in quick succession. In this case, only the second vault credential file is valid.
-9. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
+    Pokud dojde k chybě neplatný úložiště přihlašovacích údajů (např. "Neplatné přihlašovací údaje úložiště") soubor je buď poškozený nebo nemá mít poslední přihlašovací údaje související se službou obnovení. Opakujte operaci po stažení nový soubor s přihlašovacími údaji trezoru z portálu. Tato chyba je zpravidla se zobrazí, pokud uživatel klikne na **přihlašovací údaje trezoru Stáhnout** možnost na portálu Azure rychle po sobě. V takovém případě je platný pouze druhý soubor přihlašovacích údajů trezoru.
+9. V **nastavení šifrování** obrazovky, můžete buď vygenerovat přístupové heslo nebo zadat přístupové heslo (minimálně 16 znaků). Nezapomeňte uložit heslo v zabezpečeném umístění.
    
-    ![Encryption](./media/backup-install-agent/encryption.png)
+    ![Šifrování](./media/backup-install-agent/encryption.png)
    
    > [!WARNING]
-   > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
+   > Pokud heslo ztratíte nebo zapomenete; Microsoft vám nemůže pomoci obnovit zálohovaná data. Koncový uživatel vlastní šifrovací přístupové heslo a Microsoft nemá přehled přístupové heslo používané koncovým uživatelem. Uložte soubor na bezpečné místo, jako je vyžadována během operace obnovení.
    > 
    > 
-10. Once you click the **Finish** button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure.
-11. When using Microsoft Azure Backup standalone you can modify the settings specified during the registration workflow by clicking on the **Change Properties** option in the Azure Backup mmc snap in.
+10. Po kliknutí **Dokončit** tlačítko, počítač se úspěšně registrovaný k úložišti a je nyní připraven pro spuštění zálohování na Microsoft Azure.
+11. Při použití samostatných Microsoft Azure Backup můžete upravit nastavení určené během pracovního postupu registrace kliknutím na **změnit vlastnosti** možnost v Azure Backup konzoly mmc modul snap-in.
     
-    ![Change Properties](./media/backup-install-agent/change.png)
+    ![Změnit vlastnosti](./media/backup-install-agent/change.png)
     
-    Alternatively, when using Data Protection Manager, you can modify the settings specified  during the registration workflow by clicking the **Configure** option by selecting **Online** under the **Management** Tab.
+    Případně, pokud používáte Data Protection Manager, můžete upravit nastavení určené během pracovního postupu registrace kliknutím **konfigurace** možnost výběrem **Online** pod **Správu** kartě.
     
-    ![Configure Azure Backup](./media/backup-install-agent/configure.png)
+    ![Konfigurace služby Azure Backup](./media/backup-install-agent/configure.png)
 

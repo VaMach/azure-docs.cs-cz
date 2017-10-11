@@ -14,12 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Začínáme s hybridními připojeními pro přenos
 
@@ -83,5 +82,4 @@ Blahopřejeme, vytvořili jste kompletní aplikaci Hybrid Connections pomocí No
 * [Vytvoření oboru názvů](relay-create-namespace-portal.md)
 * [Začínáme s .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Začínáme s aplikací Node](relay-hybrid-connections-node-get-started.md)
-
 

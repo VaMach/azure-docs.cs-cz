@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
-
-
+ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymetrické směrování s několika síťovými cestami
 Tento článek vysvětluje, jak může dopředný a zpětný síťový provoz využívat různé trasy, pokud je mezi zdrojem a cílem v síti k dispozici více cest.
@@ -71,10 +71,4 @@ Jiný způsob řešení problémů asymetrického směrování je prostřednictv
 
 ## <a name="asymmetric-routing-detection"></a>Detekce asymetrického směrování
 Nejlepším způsobem, jak zajistit, že provoz z vaší sítě prochází očekávanou cestou, je traceroute. Pokud budete chtít, aby provoz z vašeho místního serveru SMTP do Microsoftu procházel internetem, očekávané použití příkazu traceroute je ze serveru SMTP na Office 365. Výsledek ověří, že provoz skutečně opouští vaši síť směrem do internetu, a ne směrem do ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

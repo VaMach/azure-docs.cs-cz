@@ -11,18 +11,17 @@ keywords: Kubernetes, Docker, Containers, Microservices, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: gamonroy
-ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: ed3193cce078b4b81f269fe01a40d3aa4465782d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/25/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 92cdbe20e7a2974a734dfed5294c547866050290
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Seznámení se službou Azure Container Service pro Kubernetes
 Azure Container Service pro Kubernetes zjednodušuje vytvoření, konfiguraci a správu clusteru virtuálních počítačů, ve kterých je předem nakonfigurované spouštění kontejnerizovaných aplikací. Díky tomu můžete při nasazování a správě kontejnerových aplikací v Microsoft Azure využívat své stávající dovednosti nebo stavět na rozsáhlých a stále se rozšiřujících odborných znalostech komunity.

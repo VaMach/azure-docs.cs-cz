@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.contentlocale: cs-cz
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Vytvoření federace několika instancí Azure AD s jednou instancí AD FS
 
 Jedna farma AD FS s vysokou dostupností může federovat několik doménových struktur, pokud mezi nimi existuje obousměrný vztah důvěryhodnosti. Těchto několik doménových struktur může, ale nemusí odpovídat téže službě Azure Active Directory. Tento článek obsahuje pokyny pro konfiguraci federace mezi jedním nasazením služby AD FS a více než jednou doménovou strukturou, přičemž doménové struktury se synchronizují do různých služeb Azure AD.
@@ -66,4 +64,3 @@ Uvedená operace vytvoří federaci domény fabrikam.com se stejnou službou AD 
 
 ## <a name="next-steps"></a>Další kroky
 [Připojení Active Directory s Azure Active Directory](active-directory-aadconnect.md)
-

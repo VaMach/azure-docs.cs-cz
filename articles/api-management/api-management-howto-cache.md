@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
-
-
+ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Přidání ukládání do mezipaměti ke zlepšení výkonu služby Azure API Management
 Operace ve službě API Management můžete nakonfigurovat tak, aby odpovědi ukládaly do mezipaměti. Ukládání odpovědí do mezipaměti může v případě dat, která se často nemění, výrazně zlepšit latenci rozhraní API, využití šířky pásma a načítání webových služeb.
@@ -171,9 +171,3 @@ Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Prot
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

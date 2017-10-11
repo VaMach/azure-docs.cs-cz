@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 06/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metody a procesy pro zavádění služby Azure Data Catalog
 Tento článek vám pomůže přijmout službu **Azure Data Catalog** ve vaší organizaci. Chcete-li úspěšně přijmout službu **Azure Data Catalog**, budete se muset zaměřit na tři klíčové položky: definovat svou vizi, identifikovat klíčové případy obchodního použití v rámci vaší organizace a zvolit pilotní projekt.
@@ -167,4 +166,3 @@ Tento článek byl o seznámení se službou **Azure Data Catalog** ve vaší or
 * [Prohledávání zdrojů dat](data-catalog-get-started.md)
 * [Přidání poznámek ke zdrojům dat](data-catalog-get-started.md)
 * [Metadata crowdsourcingu](data-catalog-get-started.md)
-

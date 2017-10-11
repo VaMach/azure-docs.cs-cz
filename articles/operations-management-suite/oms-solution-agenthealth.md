@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Řešení Agent Health v OMS
 Řešení Agent Health v OMS vám pomůže rozpoznat, kteří z agentů, odesílajících sestavy přímo do pracovního prostoru OMS nebo do skupiny pro správu nástroje System Center Operations Manager připojené k OMS, nereagují a odesílají provozní data.  Můžete také sledovat, kolik agentů je nasazených a jak jsou geograficky distribuováni, a provádět další dotazy, abyste si udrželi přehled o distribuci agentů nasazených v Azure, dalších cloudových prostředích nebo místně.    
@@ -135,4 +134,3 @@ V následující tabulce jsou uvedeny ukázky prohledávání protokolu pro záz
 ## <a name="next-steps"></a>Další kroky
 
 * Podrobnosti o generování upozornění ze služby Log Analytics najdete v tématu [Upozornění v Log Analytics](../log-analytics/log-analytics-alerts.md).
-

@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [Trello](http://trello.com) account 
+### <a name="prerequisites"></a>Požadavky
+* A [Trello](http://trello.com) účtu 
 
-Before you can use your Trello account in a Logic app, you must authorize the Logic app to connect to your Trello account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Než v aplikaci logiky můžete použít váš účet Trello, musíte je nejdříve autorizovat aplikaci logiky se připojit ke svému účtu Trello. Naštěstí můžete k tomu snadno z v rámci aplikace logiky na portálu Azure. 
 
-Here are the steps to authorize your Logic app to connect to your Trello account:
+Tady jsou kroky k autorizaci aplikace logiky pro připojení k účtu Trello:
 
-1. To create a connection to Trello, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Trello* in the search box. Select the trigger or action you'll like to use:  
+1. Chcete-li vytvořit připojení k Trello, v návrháři aplikace logiky, vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu zadejte *Trello* do vyhledávacího pole. Vyberte aktivační události nebo akci, kterou budete chtít použít:  
    ![](./media/connectors-create-api-trello/trello-1.png)
-2. If you haven't created any connections to Trello before, you'll get prompted to provide your Trello credentials. These credentials will be used to authorize your Logic app to connect to, and access your Trello account's data:  
+2. Pokud jste nevytvořili žádné připojení k Trello před, budete získat zobrazí výzva k zadání přihlašovacích údajů vaší Trello. Tyto přihlašovací údaje se použije k autorizaci aplikace logiky pro připojení k a přístup k datům účtu Trello:  
    ![](./media/connectors-create-api-trello/trello-2.png) 
-3. Allow us to connect to Trello:  
+3. Povolit nám se připojit k Trello:  
    ![](./media/connectors-create-api-trello/trello-3.png)   
-4. Provide your Trello user name and password to authorize your Logic app:  
+4. Zadejte svoje Trello uživatelské jméno a heslo k autorizaci aplikace logiky:  
    ![](./media/connectors-create-api-trello/trello-4.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+5. Všimněte si vytvořil připojení a je nyní můžete pokračovat v dalších krocích v aplikaci logiky:  
    ![](./media/connectors-create-api-trello/trello-5.png)
 

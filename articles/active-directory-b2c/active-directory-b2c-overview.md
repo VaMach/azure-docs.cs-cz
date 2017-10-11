@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: Soustřeďte se na svoji aplikaci, o registraci a přihlašování se postaráme my
 
@@ -80,5 +79,4 @@ Následující odkazy jsou užitečné při prozkoumávání služby do hloubky:
 ## <a name="get-security-updates-for-our-products"></a>Získejte bezpečnostní aktualizace našich produktů
 
 Doporučujeme vám získávat oznámení o bezpečnostních incidentech tak, že navštívíte [tuto stránku](https://technet.microsoft.com/security/dd252948) a přihlásíte se k odběru služby Security Advisory Alerts.
-
 

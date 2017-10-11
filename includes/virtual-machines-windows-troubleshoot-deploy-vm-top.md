@@ -1,4 +1,4 @@
-The following top issues may help resolve your issue. To start troubleshooting, review these steps:
+Následující problémy mohou pomoci vyřešit problém. Pokud chcete spustit Poradce při potížích, projděte si tyto kroky:
 
-- [The cluster cannot support the requested VM size](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [The cluster does not have free resources](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [Cluster nemůže podporovat požadovaná velikost virtuálního počítače](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [Cluster nemá uvolnění prostředků](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

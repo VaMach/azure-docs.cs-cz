@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-ms.contentlocale: cs-cz
-ms.lasthandoff: 12/07/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-azure-scheduler"></a>Co je Azure Scheduler?
 Azure Scheduler vám umožní deklarativně popisovat akce, které mají běžet v cloudu. Potom naplánuje a automaticky spustí tyto akce.  Scheduler k tomu použije [portál Azure](scheduler-get-started-portal.md), kód, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) nebo Azure PowerShell.
@@ -53,5 +52,4 @@ Scheduler umožní vytvářet, aktualizovat, odstraňovat, zobrazovat a spravova
  [Omezení, výchozí hodnoty a chybové kódy Azure Scheduleru](scheduler-limits-defaults-errors.md)
 
  [Odchozí ověření Azure Scheduleru](scheduler-outbound-authentication.md)
-
 

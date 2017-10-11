@@ -1,41 +1,41 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### <a name="to-cable-your-device-for-power"></a>To cable your device for power
+#### <a name="to-cable-your-device-for-power"></a>Chcete-li zapojení kabeláže zařízení pro napájení
 > [!NOTE]
-> Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
+> Obě skříně zařízení StorSimple zahrnují redundantní PCMs. Pro každou skříň musí být nainstalované PCMs a připojené k jiné power zdroje k zajištění vysoké dostupnosti.
 > 
 > 
 
-1. Make sure that the power switches on all the PCMs are in the OFF position.
-2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
-3. Make sure that the two PCMs on the primary enclosure use separate power sources.
-4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
-5. Repeat steps 2 through 4 for the EBOD enclosure.
-6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
-7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
-8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
-9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
-10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
+1. Zajistěte, aby napájení přepínače na všechny PCMs byla v pozici OFF.
+2. Na primární skříň připojte k obou PCMs napájecích kabelů. Napájecích kabelů jsou identifikovány červeně v diagramu kabeláže napájení.
+3. Ujistěte se, že dvě PCMs na primární skříni používají zdrojů energie samostatné.
+4. K zapnutí jednotek pro distribuci rack připojte napájecích kabelů, jak je znázorněno v power kabelů diagram.
+5. Opakujte kroky 2 až 4 pro EBOD skříň.
+6. Zapněte skříni EBOD překlopení vypínač na každý PCM na pozici ON.
+7. Ověřte, jestli je zapnutá skříni EBOD kontrolou, že jsou zelená LED na zadní straně řadičem EBOD povolena ON.
+8. Zapněte primární skříň překlopení každý přepínač PCM na pozici ON.
+9. Ověřte, že systém je na zajištěním řadiče zařízení, které jste zapnuli LED.
+10. Ujistěte se, že je spojení mezi řadičem EBOD a řadiče zařízení aktivní pomocí ověření, že jsou čtyři LED vedle SAS portů na řadiči EBOD zelená.
     
     > [!IMPORTANT]
-    > To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
+    > K zajištění vysoké dostupnosti pro váš systém, doporučujeme, budete striktně dodržovat power kabelů schéma vidět v následujícím diagramu.
     > 
     > 
     
-    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![Zapojení kabeláže zařízení 4U pro napájení](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
     
-    **Power cabling**
+    **Kabeláž napájení**
     
-    | Label | Description |
+    | Štítek | Popis |
     |:--- |:--- |
-    | 1 |Primary enclosure |
+    | 1 |Primární skříň |
     | 2 |PCM 0 |
     | 3 |PCM 1 |
-    | 4 |Controller 0 |
-    | 5 |Controller 1 |
-    | 6 |EBOD controller 0 |
-    | 7 |EBOD controller 1 |
-    | 8 |EBOD enclosure |
-    | 9 |PDUs |
+    | 4 |Řadič 0 |
+    | 5 |Řadič 1 |
+    | 6 |EBOD řadič 0 |
+    | 7 |EBOD řadiči 1 |
+    | 8 |EBOD skříň |
+    | 9 |Jednotky PDU |
 

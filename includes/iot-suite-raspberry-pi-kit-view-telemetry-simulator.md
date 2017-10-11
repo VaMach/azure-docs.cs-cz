@@ -1,31 +1,31 @@
-## <a name="view-the-telemetry"></a>View the telemetry
+## <a name="view-the-telemetry"></a>Zobrazení telemetrie
 
-The Raspberry Pi is now sending telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send messages to your Raspberry Pi from the solution dashboard.
+Pi malin nyní odesílá telemetrii do řešení vzdáleného monitorování. Můžete zobrazit telemetrii na řídicí panel řešení. Na řídicím panelu řešení také mohou zasílat zprávy do vaší malin pí.
 
-- Navigate to the solution dashboard.
-- Select your device in the **Device to View** dropdown.
-- The telemetry from the Raspberry Pi displays on the dashboard.
+- Přejděte na řídicí panel řešení.
+- Vyberte zařízení v **zařízení do zobrazení** rozevíracího seznamu.
+- Telemetrie z platformy malin zobrazí na řídicím panelu.
 
-![Display telemetry from the Raspberry Pi][img-telemetry-display]
+![Zobrazení telemetrie z malin platformy][img-telemetry-display]
 
-## <a name="act-on-the-device"></a>Act on the device
+## <a name="act-on-the-device"></a>Fungovat na zařízení
 
-From the solution dashboard, you can invoke methods on your Raspberry Pi. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports.
+Na řídicím panelu řešení můžete volat metody na vaše malin pí. Když pí malin připojí k řešení vzdáleného monitorování, odešle informace o metodách, které podporuje.
 
-- In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
+- Na řídicím panelu řešení, klikněte na tlačítko **zařízení** přejděte **zařízení** stránky. Vyberte vaše Malinová platformy v **seznam zařízení**. Zvolte **metody**:
 
-    ![List devices in dashboard][img-list-devices]
+    ![Seznam zařízení na řídicím panelu][img-list-devices]
 
-- On the **Invoke Method** page, choose **LightBlink** in the **Method** dropdown.
+- Na **vyvolání metody** vyberte **LightBlink** v **metoda** rozevíracího seznamu.
 
-- Choose **InvokeMethod**. The simulator prints a message in the console on the Raspberry Pi. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard:
+- Zvolte **InvokeMethod**. Simulátor vytiskne zprávy v konzole na malin pí. Aplikace na platformy malin odešle na potvrzení zpět na řídicí panel řešení:
 
-    ![Show method history][img-method-history]
+    ![Zobrazit historii – metoda][img-method-history]
 
-- You can switch the LED on and off using the **ChangeLightStatus** method with a **LightStatusValue** set to **1** for on or **0** for off.
+- Můžete přepnout Indikátor zapnout a vypnout pomocí **ChangeLightStatus** metoda s **LightStatusValue** nastavena na **1** pro na nebo **0** pro vypnout.
 
 > [!WARNING]
-> If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
+> Pokud necháte řešení vzdáleného monitorování spuštěné v účtu Azure, se vám účtuje v době spuštění. Další informace o snížení spotřeby průběhu řešení vzdáleného monitorování najdete v tématu [konfigurace Azure IoT Suite předkonfigurovaných řešení pro účely ukázky][lnk-demo-config]. Odstraňte předkonfigurované řešení z účtu Azure, když přestanete používat.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

@@ -1,17 +1,17 @@
-Because of ongoing development, the Android SDK version installed in Android Studio might not match the version in the code. The Android SDK referenced in this tutorial is version 23, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recommend using the latest version available.
+Z důvodu probíhající vývoj verze sady SDK pro Android nainstalovaná v Android Studio nemusí shodovat s verzí v kódu. V tomto kurzu odkazuje SDK pro Android je verze 23, nejnovější v době psaní textu. Číslo verze může zvýšit objeví nové verze sady SDK, a doporučujeme používat na nejnovější dostupnou verzi.
 
-Two symptoms of version mismatch are:
+Dvěma příznaky neshoda verze jsou:
 
-- When you build or rebuild the project, you may get Gradle error messages like "**failed to find target Google Inc.:Google APIs:n**".
-- Standard Android objects in code that should resolve based on `import` statements may be generating error messages.
+- Při vytvoření nebo znovu sestavte projekt, může dojít k Gradle chybové zprávy jako "**se nepodařilo najít cílový Google Inc.:Google APIs:n**".
+- Standardní Android objekty v kódu, který by měl směrovat na základě `import` příkazy může být generování chybové zprávy.
 
-If either of these appears, the version of the Android SDK installed in Android Studio might not match the SDK target of the downloaded project. To verify the version, make the following changes:
+Pokud se zobrazí některá z nich, nemusí odpovídat verzi sady SDK pro Android nainstalovaná v Android Studio SDK cíl staženého projektu. Pokud chcete ověřit verzi, proveďte následující změny:
 
-1. In Android Studio, click **Tools** > **Android** > **SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
-2. On the **Project Explorer** tab, under **Gradle Scripts**, open the file **build.gradle (modeule: app)**. Ensure that the **compileSdkVersion** and **buildToolsVersion** are set to the latest SDK version installed. The tags might look like this:
+1. V Android Studio, klikněte na **nástroje** > **Android** > **SDK Manager**. Pokud jste nenainstalovali nejnovější verzi sady SDK platformy, klikněte na tlačítko ji nainstalovat. Poznamenejte si číslo verze.
+2. Na **Project Exploreru** v části **Gradle skripty**, otevřete soubor **build.gradle (modeule: aplikace)**. Ujistěte se, že **compileSdkVersion** a **buildToolsVersion** jsou nastaveny na nainstalovanou nejnovější verzi sady SDK. Značky může vypadat například takto:
 
              compileSdkVersion 'Google Inc.:Google APIs:23'
             buildToolsVersion "23.0.2"
-3. In the Android Studio Project Explorer, right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.
+3. V prohlížeči projektu Android Studio, klikněte pravým tlačítkem na uzel projektu, zvolte **vlastnosti**a v levém sloupci vyberte **Android**. Ujistěte se, že **cíl sestavení projektu** je nastaven na stejnou verzi sady SDK, jako **targetSdkVersion**.
 
-In Android Studio, the manifest file is no longer used to specify the target SDK and minimum SDK version, unlike the case with Eclipse.
+V nástroji Android Studio souboru manifestu už slouží k určení cíle SDK a minimální verze SDK, na rozdíl od případu se Eclipse.

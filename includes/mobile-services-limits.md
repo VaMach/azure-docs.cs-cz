@@ -1,16 +1,16 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| ÚROVEŇ: | FREE | BASIC | STANDARD |
 | --- | --- | --- | --- |
-| API Calls |500 K |1.5 M / unit |15 M / unit |
-| Active Devices |500 |Unlimited |Unlimited |
-| Scale |N/A |Up to 6 units |Unlimited units |
-| Push Notifications |Notification Hubs Free Tier included, up to 1 M pushes |Notification Hubs Basic Tier included, up to 10 M pushes |Notification Hubs Standard Tier included, up to 10 M pushes |
-| Real time messaging/<br/>Web Sockets |Limited |350 / mobile service |Unlimited |
-| Offline synchronizations |Limited |Included |Included |
-| Scheduled jobs |Limited |Included |Included |
-| SQL Database (required) <br/>Standard rates apply for additional capacity |20 MB included |20 MB included |20 MB included |
-| CPU capacity |60 minutes / day |Unlimited |Unlimited |
-| Outbound data transfer |165 MB per day (daily Rollover) |Included |Included |
+| Volání rozhraní API |500 KB |1.5 M / jednotka |15 M / jednotka |
+| Aktivní zařízení |500 |Unlimited |Unlimited |
+| Měřítko |– |Až 6 jednotky |Neomezený počet jednotek |
+| Nabízená oznámení |Notification Hubs úroveň Free zahrnuty, až 1 milion nabízených oznámení |Notification Hubs základní úroveň zahrnuty, až 10 M nabízených oznámení |Notification Hubs úrovně Standard zahrnuty, až 10 M nabízených oznámení |
+| Zasílání zpráv v reálném čase nebo<br/>Webové sokety |Omezená |350 / mobilní služby |Unlimited |
+| Offline synchronizace |Omezená |Zahrnuje |Zahrnuje |
+| Naplánované úlohy |Omezená |Zahrnuje |Zahrnuje |
+| Databáze SQL (povinné) <br/>Pro další kapacitu platí sazby úrovně Standard |Zahrnuté 20 MB |Zahrnuté 20 MB |Zahrnuté 20 MB |
+| Kapacita procesoru |60 minut za den |Unlimited |Unlimited |
+| Přenos odchozích dat |165 MB za den (denní výměny) |Zahrnuje |Zahrnuje |
 
-For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Další informace o těchto omezení a informace o cenách najdete v části [ceník služby Mobile Services](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

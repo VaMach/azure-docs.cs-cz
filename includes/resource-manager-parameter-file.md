@@ -1,4 +1,4 @@
-If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example:
+Pokud použijete soubor s parametry předat hodnoty parametrů během nasazování, budete muset vytvořte soubor JSON ve formátu podobně jako v následujícím příkladu:
 
 ```json
 {
@@ -26,7 +26,7 @@ If you use a parameter file to pass parameter values during deployment, you need
 }
 ```
 
-The size of the parameter file cannot be more than 64 KB.
+Velikost souboru parametr nemůže být delší než 64 KB.
 
-If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
+Pokud potřebujete zajistit citlivou hodnotu pro parametr (třeba heslo), přidejte tuto hodnotu do trezoru klíčů. Během nasazování načtěte trezoru klíčů, jak je znázorněno v předchozím příkladu. Další informace najdete v tématu [předat zabezpečené hodnoty během nasazení](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 

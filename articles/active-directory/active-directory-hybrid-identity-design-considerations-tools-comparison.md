@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
-ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
-ms.contentlocale: cs-cz
-ms.lasthandoff: 01/18/2017
-
+ms.openlocfilehash: f87b5837c7a786c8b309a6a52e69b53c0ad4c9d8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Hybridní identita: Porovnání nástrojů pro integraci adresáře
 V průběhu let se nástroje pro integraci adresáře rozšířily a vyvinuly.  Tento dokument vám poskytne ucelený přehled těchto nástrojů a porovnání funkcí, které jsou v nich dostupné.
@@ -92,5 +91,4 @@ PP = Public Preview
 
 ## <a name="next-steps"></a>Další kroky
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
-
 

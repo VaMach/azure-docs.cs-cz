@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegování domény do Azure DNS
 
 Azure DNS vám umožňuje hostovat zónu DNS a spravovat záznamy DNS pro doménu v Azure. Mají-li se dotazy DNS pro doménu dostat k Azure DNS, musí doména být delegovaná z nadřazené domény do Azure DNS. Pamatujte, že Azure DNS není doménový registrátor. Tento článek vysvětluje, jak delegovat doménu do Azure DNS.
@@ -308,4 +306,3 @@ Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku
 [Správa zón DNS](dns-operations-dnszones.md)
 
 [Správa záznamů DNS](dns-operations-recordsets.md)
-

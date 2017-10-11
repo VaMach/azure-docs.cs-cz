@@ -1,38 +1,38 @@
 <!--author=SharS last changed: 03/17/2016-->
 
-#### <a name="to-download-hotfixes"></a>To download hotfixes
-Perform the following steps to download the software update.
+#### <a name="to-download-hotfixes"></a>Stažení oprav hotfix
+Proveďte následující kroky stáhnout aktualizace softwaru.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
-2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
-    ![Install catalog](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3063418**, and then click **Search**.
-4. You will see the **StorSimple Update 1.2 Appliance Update** bundle. Click **Add**. The update will be added to the basket.
-5. Search for any additional hotfixes listed in the table above (**3043005** and **3063416**), and add each the basket.
-6. Click **View Basket**.
+1. Spusťte Internet Explorer a přejděte na [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+2. Pokud na tomto počítači používáte Katalog služby Microsoft Update poprvé, po zobrazení výzvy k instalaci doplňku Katalog služby Microsoft Update klikněte na **Nainstalovat**.
+    ![Nainstalujte katalogu](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
+3. Do vyhledávacího pole katalogu služby Microsoft Update, zadejte číslo znalostní báze Knowledge Base (KB) opravy hotfix, které chcete stáhnout, například **3063418**a potom klikněte na **vyhledávání**.
+4. Zobrazí se **StorSimple aktualizace 1.2 zařízení aktualizace** sady. Klikněte na tlačítko **Přidat**. Aktualizace bude přidána do košíku.
+5. Vyhledejte všechny další opravy hotfix uvedené v předchozí tabulce (**3043005** a **3063416**) a přidejte všechny košíku.
+6. Klikněte na **Zobrazit košík**.
    
-    ![View basket](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
-7. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
+    ![Zobrazit košík](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
+7. Klikněte na **Stáhnout**. Zadejte místní umístění, do kterého chcete aktualizace stáhnout, nebo do něj přejděte pomocí tlačítka **Procházet**. Aktualizace se stáhnou do zadaného umístění do podsložky se stejným názvem, jako má aktualizace. Složku je také možné zkopírovat do sdílené síťové složky dostupné ze zařízení.
 
 > [!NOTE]
-> The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
+> Opravy hotfix musí být dostupný z obou řadičích ke zjištění potenciálních chybové zprávy z druhé strany řadiče.
 > 
 > 
 
-#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>To install and verify regular mode hotfixes
-Perform the following steps to install and verify the regular-mode hotfixes. If you already installed them using the Azure Portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Instalace a ověření oprav hotfix běžného režimu
+Proveďte následující kroky k instalaci a ověření opravy hotfix regular režimu. Pokud jste již nainstalovali pomocí portálu Azure, přeskočit na [instalaci a ověření opravy hotfix režimu údržby](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
-2. Select **Option 1** to log on to the device with full access.
-3. To install the update package, at the command prompt, type:
+1. K instalaci aktualizace softwaru, přístup k rozhraní Windows PowerShell na konzole sériového portu zařízení StorSimple. Postupujte podle podrobných pokynů v článku [Připojení ke konzole sériového portu pomocí klienta PuTTy](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Na příkazovém řádku stiskněte **Enter**.
+2. Vyberte **Možnost 1** a přihlaste se k zařízení s úplným přístupem.
+3. Chcete-li instalaci balíčku aktualizace, na příkazovém řádku zadejte:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share.
+    V cestě ke sdílené složce v předchozím příkazu používejte IP adresu místo DNS. Parametr Credential se používá pouze pro přístup ke sdílené složce s nutností ověření.
    
-    We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+    Parametr Credential doporučujeme používat pro přístup ke sdíleným složkám. I sdílené složky otevřené všem uživatelům obvykle nejsou otevřené pro neověřené uživatele.
    
-    A sample output is shown below.
+    Ukázkový výstup najdete níž.
    
     ```
     Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -46,10 +46,10 @@ Perform the following steps to install and verify the regular-mode hotfixes. If 
     [Y] Yes [N] No [?] Help (default is "Y"): Y
     ```
 
-4. Type **Y** when prompted to confirm the hotfix installation.
-5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet.
+4. Po zobrazení výzvy k potvrzení instalace opravy hotfix zadejte **Y**.
+5. Průběh aktualizace můžete sledovat pomocí rutiny `Get-HcsUpdateStatus`.
    
-    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
+    Následující ukázkový výstup ukazuje probíhající aktualizaci. Když aktualizace probíhá, hodnota `RunInprogress` bude `True`.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -60,7 +60,7 @@ Perform the following steps to install and verify the regular-mode hotfixes. If 
     Controller1Events   :
     ```
    
-     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
+     Následující ukázkový výstup ukazuje dokončení aktualizace. Když se aktualizace dokončí, hodnota `RunInProgress` bude `False`.
 
     ```
     Controller1>Get-HcsUpdateStatus
@@ -73,32 +73,32 @@ Perform the following steps to install and verify the regular-mode hotfixes. If 
     ```
    
    > [!NOTE]
-   > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
+   > Rutina občas hlásí `False`, i když aktualizace stále probíhá. Pokud chcete zkontrolovat, že se oprava hotfix dokončila, počkejte několik minut, znovu spusťte tento příkaz a ověřte, že hodnota `RunInProgress` je `False`. Pokud ano, oprava hotfix byla dokončena.
    > 
    > 
-6. After the software update is complete, verify the system software versions. Type the following command:
+6. Po dokončení aktualizace softwaru zkontrolujte verze systémového softwaru. Zadejte následující příkaz:
    
     `Get-HcsSystem`
    
-    You should see the following versions:
+    Měly by se zobrazit následující verze:
    
    * HcsSoftwareVersion: 6.3.9600.17584
    * CisAgentVersion: 1.0.9049.0
    * MdsAgentVersion: 26.0.4696.1433
      
-     If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
-7. Repeat steps 3-5 to install the remaining regular-mode hotfix (KB3043005).
+     Pokud číslo verze se nezmění po instalaci aktualizace, znamená to, že se nepodařilo použít opravu hotfix. Pokud je to váš případ a potřebujete další pomoc, kontaktujte [podporu Microsoftu](../articles/storsimple/storsimple-contact-microsoft-support.md).
+7. Zopakujte kroky 3 až 5 pro instalaci oprav hotfix zbývající regular režimu (KB3043005).
 
-#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>To install and verify maintenance mode hotfixes
-Use KB3063416 to install disk firmware updates. These are disruptive updates and take around 30-45 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Instalace a ověření oprav hotfix režimu údržby
+Použití KB3063416 k instalaci aktualizace firmwaru disku. Tyto jsou rušivý aktualizace a trvat zhruba 30 – 45 minut. Můžete se rozhodnout je nainstalovat během naplánovaného časového období údržby pomocí připojení ke konzole sériového portu zařízení.
 
-To install the disk firmware updates, follow the instructions below.
+Pokud chcete nainstalovat aktualizace firmwaru disku, postupujte podle následujících pokynů.
 
-1. Place the device in Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
+1. Umístíte zařízení do režimu údržby. Všimněte si, že byste neměli používat vzdálenou komunikaci prostředí Windows PowerShell, při připojení k zařízení v režimu údržby. Musíte se tato rutina spustit na řadiči zařízení při připojení prostřednictvím konzole sériového portu zařízení. Zadejte:
    
     `Enter-HcsMaintenanceMode`
    
-    A sample output is shown below.
+    Ukázkový výstup najdete níž.
    
         Controller0>Enter-HcsMaintenanceMode
         Checking device state...
@@ -120,12 +120,12 @@ To install the disk firmware updates, follow the instructions below.
         [4] Change language
         Please enter your choice>
    
-    Both the controllers then restart into Maintenance mode.
-2. To install the disk firmware update, type:
+    Oběma řadičům potom restartujte do režimu údržby.
+2. Pokud chcete nainstalovat aktualizaci firmwaru disku, zadejte:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    A sample output is shown below.
+    Ukázkový výstup najdete níž.
    
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
         Enter Password:
@@ -134,17 +134,17 @@ To install the disk firmware updates, follow the instructions below.
         This operation starts a hotfix installation and could reboot one or both of the controllers. Are you sure you want to continue?
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-3. Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
-4. After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
+3. Průběh instalace můžete sledovat pomocí příkazu `Get-HcsUpdateStatus`. Když se `RunInProgress` změní na `False`, aktualizace je dokončena.
+4. Po dokončení instalace bude nutné restartovat řadiče, na kterém byla nainstalována oprava hotfix režimu údržby. Přihlaste se jako Možnost 1 s úplným přístup a zkontrolujte verzi firmwaru disku. Zadejte:
    
    `Get-HcsFirmwareVersion`
    
-   The expected disk firmware versions are:
+   Očekávané verze firmwaru disku jsou:
    
    `XMGG, XGEE, KZ50, F6C2, VR08`
    
-   Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller:
+   Na druhém kontroleru spusťte příkaz `Get-HcsFirmwareVersion` a ověřte, že došlo k aktualizaci verze softwaru. Potom můžete ukončit režim údržby. Zadejte následující příkaz pro každý řadič zařízení:
    
    `Exit-HcsMaintenanceMode`
-5. The controllers restart when you exit Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the Maintenance mode updates for 24 hours.
+5. V řadičích restartovat po ukončení režimu údržby. Po úspěšné instalaci aktualizací firmwaru disku a ukončení režimu údržby na zařízení se vraťte na portál Azure Classic. Všimněte si, že nemusí zobrazit na portálu, že jste nainstalovali aktualizace režimu údržby po dobu 24 hodin.
 

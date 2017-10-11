@@ -1,10 +1,10 @@
-| Resource | Maximum Limit |
+| Prostředek | Maximální omezení |
 | --- | --- |
-| Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs) |100 |
-| Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs) |200 |
-| Max number of modules that can be imported every 30 seconds per Automation Account |5 |
-| Max size of a Module |100 MB |
-| Job Run Time - Free tier |500 minutes per subscription per calendar month |
-| Max amount of memory given to a job |400 MB |
-| Max number of network sockets allowed per job |1000 |
+| Maximální počet nové úlohy, které se dají odeslat každých 30 sekund na účtu Automation (bez naplánovaná úloh) |100 |
+| Maximální počet souběžných úloh spuštěných na stejnou instanci doba účet Automation (bez naplánovaná úloh) |200 |
+| Maximální počet modulů, které lze importovat každých 30 sekund na účtu Automation |5 |
+| Maximální velikost modulu |100 MB |
+| Čas spuštění úlohy - úroveň Free |500 minut za předplatné za kalendářní měsíc |
+| Maximální množství paměti na úlohu |400 MB |
+| Maximální počet soketů sítě povolené na úlohu |1000 |
 

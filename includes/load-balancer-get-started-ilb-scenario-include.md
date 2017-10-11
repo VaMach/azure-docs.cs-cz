@@ -9,8 +9,3 @@ Interní nástroj pro vyrovnávání zatížení se konfiguruje ve virtuální s
 * 2 virtuální počítače s názvy DB1 a DB2
 * Koncové body
 * Interní nástroj pro vyrovnávání zatížení
-
-
-<!--HONumber=Nov16_HO2-->
-
-

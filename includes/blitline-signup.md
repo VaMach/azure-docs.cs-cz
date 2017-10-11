@@ -1,30 +1,30 @@
 
-### <a name="to-sign-up-for-a-blitline-account"></a>To sign up for a Blitline account
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
-2. In the lower pane of the management portal, click **New**.
+### <a name="to-sign-up-for-a-blitline-account"></a>Chcete-li si zaregistrovat účet Blitline
+1. Přihlaste se k [portál pro správu Azure](https://manage.windowsazure.com/).
+2. V dolním podokně portálu pro správu, klikněte na **nový**.
    
     ![command-bar-new][command-bar-new]
-3. Click **Store**.
+3. Klikněte na tlačítko **úložiště**.
    
-    ![blitline-store][blitline-store]
-4. In the **Choose an Add-on** dialog, select **Blitline** and click the right arrow.
-5. In the **Personalize Add-on** dialog select the **Blitline** plan you want to sign up for.
-6. Enter a name to identify your **Blitline** service in your Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+    ![blitline úložiště][blitline-store]
+4. V **zvolte doplněk** dialogovém okně, vyberte **Blitline** a klikněte na šipku vpravo.
+5. V **přizpůsobení rozšíření** dialogovém okně vyberte **Blitline** chcete registraci k plánu.
+6. Zadejte název pro identifikaci vaší **Blitline** služby v Azure nastavení, nebo použijte výchozí hodnotu **Blitline**. Název musí mít délku 1 až 100 znaků a musí obsahovat pouze alfanumerické znaky, pomlčky, tečky a podtržítka. Název musí být v seznamu předplacených položek Azure Storu jedinečný.
    
-    ![store-screen-1][store-screen-1]
-7. Choose a value for the region; for example, West US. 
-8. Click the right arrow.
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your Blitline account will begin the provisioning process. 
+    ![úložiště obrazovky-1][store-screen-1]
+7. Vyberte hodnotu pro oblast; například západní USA. 
+8. Klikněte na šipku vpravo.
+9. Na **zkontrolujte nákupu** kartě, zkontrolujte plán a informace o cenách a přečíst si právní podmínky. Pokud souhlasíte s podmínkami, klikněte na zatržítko. Po kliknutí na tlačítko zaškrtnutí, váš účet Blitline zahájíte proces zřizování. 
 
-To use Blitline you need to have your Application ID.
+Chcete-li použít Blitline musíte mít ID aplikace.
 
-### <a name="to-find-your-blitline-application-id"></a>To find your Blitline Application ID
-1. Click **Connection Info**.
+### <a name="to-find-your-blitline-application-id"></a>Najít vaše ID aplikace Blitline
+1. Klikněte na tlačítko **informace o připojení**.
    
-    ![blitline-connection-info-button][blitline-connection-info-button]
-2. In the *Connection info* dialog, you can see your Application ID
+    ![blitline připojení informace tlačítka][blitline-connection-info-button]
+2. V *informace o připojení* dialogu uvidíte vaše ID aplikace
    
-    ![blitline-connection-info][blitline-connection-info]
+    ![informace o blitline připojení][blitline-connection-info]
 
 <!--images-->
 

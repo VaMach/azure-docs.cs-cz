@@ -1,9 +1,9 @@
 
-1. In the Solution view (or **Solution Explorer** in Visual Studio), right-click the **Components** folder, click  **Get More Components...**, search for the **Google Cloud Messaging Client** component and add it to the project.
-2. Open the ToDoActivity.cs project file and add the following using statement to the class:
+1. V zobrazení řešení (nebo **Průzkumníku řešení** v sadě Visual Studio), klikněte pravým tlačítkem myši **součásti** složku, klikněte na tlačítko **získat další komponenty...** , vyhledejte **klient Google Cloud Messaging** součástí a přidejte ji do projektu.
+2. Otevřete soubor projektu ToDoActivity.cs a přidejte následující pomocí příkazu pro třídu:
    
         using Gcm.Client;
-3. In the **ToDoActivity** class, add the following new code: 
+3. V **ToDoActivity** třídy, přidejte následující kód nové: 
    
         // Create a new instance field for this activity.
         static ToDoActivity instance = new ToDoActivity();
@@ -25,8 +25,8 @@
             }
         }
    
-    This enables you to access the mobile client instance from the push handler service process.
-4. Add the following code to the **OnCreate** method, after the **MobileServiceClient** is created:
+    Můžete se připojit k instanci mobilního klienta z procesu nabízené obslužné rutiny služby.
+4. Přidejte následující kód, který **OnCreate** metoda, po **MobileServiceClient** je vytvořena:
    
        // Set the current instance of TodoActivity.
        instance = this;
@@ -38,5 +38,5 @@
        // Register the app for push notifications.
        GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
-Your **ToDoActivity** is now prepared for adding push notifications.
+Vaše **ToDoActivity** je nyní připraven pro přidání nabízených oznámení.
 

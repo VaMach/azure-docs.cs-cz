@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Upgrade z nástroje DirSync
 Azure AD Connect je nástupcem nástroje DirSync. V tomto tématu najdete popis způsobů upgradu z nástroje DirSync. Pokud upgradujete z jiné verze služby Azure AD Connect nebo ze služby Azure AD Sync, tyto kroky nefungují.
 
@@ -218,4 +216,3 @@ Zjistěte více o těchto nových funkcích, které byly povoleny v rámci insta
 Zjistěte více o těchto běžných tématech: [plánovač a spouštění synchronizace](active-directory-aadconnectsync-feature-scheduler.md).
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Začínáme s Azure Mobile Engagementem pro univerzální aplikace pro Windows
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -197,4 +196,3 @@ Pokud se zobrazuje oznámení v aplikaci, ale ne oznámení s informační zprá
 [11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
-

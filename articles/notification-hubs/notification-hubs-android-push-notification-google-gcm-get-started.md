@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
 ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Odesílání nabízených oznámení do systému Android pomocí Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -59,7 +59,7 @@ Dokončení tohoto kurzu je předpokladem pro všechny ostatní kurzy Notificati
 
 Vaše centrum oznámení je nyní nakonfigurováno pro práci se službou GCM. Zároveň máte připojovací řetězce, pomocí kterých můžete svou aplikaci zaregistrovat pro příjem a odesílání nabízených oznámení.
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Připojte aplikaci k centru oznámení
+## <a id="connecting-app"></a>Připojte aplikaci k centru oznámení
 ### <a name="create-a-new-android-project"></a>Vytvořte nový projekt Android
 1. V nástroji Android Studio spusťte nový projekt Android Studio.
    
@@ -669,9 +669,3 @@ Další obecné informace o centrech oznámení naleznete v tématu naše [Pokyn
 [Použití centra oznámení pro nabízená oznámení uživatelům]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Používání centra oznámení k odesílání novinek]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
-ms.contentlocale: cs-cz
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-10"></a>Začínáme s DNS Azure pomocí Azure CLI 1.0
 
 > [!div class="op_single_selector"]
@@ -121,5 +119,4 @@ Další informace o DNS Azure najdete v tématu [Přehled DNS Azure](dns-overvie
 Další informace o správě zón DNS v DNS Azure najdete v tématu [Správa zón DNS v DNS Azure pomocí Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).
 
 Další informace o správě záznamů DNS v DNS Azure najdete v tématu [Správa záznamů a sad záznamů DNS v DNS Azure pomocí Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md).
-
 

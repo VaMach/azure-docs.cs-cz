@@ -1,18 +1,18 @@
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM. First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM. Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.
+Po povolení Azure Key Vault integrace, můžete povolit šifrování SQL serveru na virtuální počítač SQL. Nejprve musíte vytvořit asymetrický klíč v trezoru klíčů a symetrický klíč v rámci systému SQL Server na vašem virtuálním počítači. Potom bude možné provést T-SQL příkazy pro zapnutí šifrování pro databáze a zálohování.
 
-There are several forms of encryption you can take advantage of:
+Existuje několik typů šifrování, které můžete využít výhod:
 
-* [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Transparentní šifrování dat (šifrování TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Šifrované zálohování](https://msdn.microsoft.com/library/dn449489.aspx)
+* [Šifrování na úrovni sloupce (Vymazat)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-The following Transact-SQL scripts provide examples for each of these areas.
+Tyto skripty jazyka Transact-SQL zadejte příklady pro každé z těchto oblastí.
 
-### <a name="prerequisites-for-examples"></a>Prerequisites for examples
+### <a name="prerequisites-for-examples"></a>Předpoklady pro příklady
 
-Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**. The following Transact-SQL commands setup these prerequisites for running the examples.
+Každý příklad vychází z dva požadavky: asymetrického klíče z trezoru klíčů názvem **CONTOSO_KEY** pověření vytvořené funkci Integrace se službou AZURE s názvem **Azure_EKM_TDE_cred**. Tyto požadavky pro spuštění příkladů instalačního programu následující příkazy jazyka Transact-SQL.
 
 ``` sql
 USE master;
@@ -51,9 +51,9 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
+### <a name="transparent-data-encryption-tde"></a>Transparentní šifrování dat (šifrování TDE)
 
-1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
+1. Vytvořit přihlášení systému SQL Server, který má být používána databázový stroj pro šifrování TDE a pak do ní přidejte přihlašovací údaje.
 
    ``` sql
    USE master;
@@ -71,7 +71,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Create the database encryption key that will be used for TDE.
+1. Vytvořte šifrovací klíč databáze, který se použije pro šifrování TDE.
 
    ``` sql
    USE ContosoDatabase;
@@ -88,9 +88,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="encrypted-backups"></a>Encrypted backups
+### <a name="encrypted-backups"></a>Šifrované zálohování
 
-1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
+1. Vytvořit přihlášení systému SQL Server, který má být používána databázový stroj pro šifrování záloh a do něj přidat přihlašovací údaje.
 
    ``` sql
    USE master;
@@ -107,7 +107,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Backup the database specifying encryption with the asymmetric key stored in the key vault.
+1. Zálohování databáze zadat šifrování s asymetrického klíče uložené v trezoru klíčů.
 
    ``` sql
    USE master;
@@ -118,9 +118,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="column-level-encryption-cle"></a>Column Level Encryption (CLE)
+### <a name="column-level-encryption-cle"></a>Šifrování na úrovni sloupce (Vymazat)
 
-This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.
+Tento skript vytvoří symetrického klíče chráněné pomocí asymetrického klíče v trezoru klíčů a potom pomocí symetrický klíč k šifrování dat v databázi.
 
 ``` sql
 CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -143,8 +143,8 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-## <a name="additional-resources"></a>Additional resources
+## <a name="additional-resources"></a>Další zdroje
 
-For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+Další informace o tom, jak používat tyto funkce šifrování najdete v tématu [pomocí EKM pomocí funkcí šifrování SQL serveru](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Všimněte si, že postup v tomto článku předpokládá, že už máte SQL Server běžící na virtuálním počítači Azure. Pokud ne, najdete v části [zřízení virtuálního počítače s SQL serverem v Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Další pokyny k systémem SQL Server na virtuálních počítačích Azure, najdete v části [SQL Server na virtuálních počítačích Azure přehled](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).

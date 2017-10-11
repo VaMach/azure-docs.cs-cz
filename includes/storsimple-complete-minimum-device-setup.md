@@ -37,8 +37,3 @@
 
 Pokud si chcete přehrát video, které ukazuje, jak provést minimální nastavení zařízení, klikněte [sem](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

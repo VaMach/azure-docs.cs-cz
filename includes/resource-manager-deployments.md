@@ -1,36 +1,36 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
-When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The primary difference between these two modes is how Resource Manager handles existing resources in the resource group that are not in the template:
+## <a name="incremental-and-complete-deployments"></a>Přírůstkové a úplné nasazení
+Při nasazení vašich prostředků, zadejte, že nasazení je k přírůstkové aktualizaci nebo kompletní aktualizace. Hlavní rozdíl mezi tyto dva režimy je, jak Resource Manager zpracovává existující prostředky ve skupině prostředků, které nejsou v šabloně:
 
-* In complete mode, Resource Manager **deletes** resources that exist in the resource group but are not specified in the template. 
-* In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but are not specified in the template.
+* V dokončení režimu Resource Manager **odstraní** prostředky, které existují ve skupině prostředků, ale nejsou zadané v šabloně. 
+* V přírůstkové režimu Resource Manager **zůstane beze změny** prostředky, které existují ve skupině prostředků, ale nejsou zadané v šabloně.
 
-For both modes, Resource Manager attempts to provision all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, the operation results in no change. If you change the settings for a resource, the resource is provisioned with those new settings. If you attempt to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
+Pro oba režimy Resource Manager pokusí zřídit všechny prostředky zadané v šabloně. Pokud prostředek již existuje ve skupině prostředků a jsou stejné jako jeho nastavení, výsledkem operace žádná změna. Pokud změníte nastavení pro prostředek, prostředek je opatřen tyto nové nastavení. Pokud budete chtít aktualizovat umístění nebo typ existující prostředek, nasazení se nezdaří s chybou. Místo toho nasaďte nový prostředek s umístění nebo typu, je nutné.
 
-By default, Resource Manager uses the incremental mode.
+Ve výchozím nastavení používá přírůstkové režimu Resource Manager.
 
-To illustrate the difference between incremental and complete modes, consider the following scenario.
+Pro ilustraci rozdíl mezi režimy přírůstkové a úplné, zvažte následující scénář.
 
-**Existing Resource Group** contains:
+**Existující skupinu prostředků** obsahuje:
 
-* Resource A
-* Resource B
-* Resource C
+* Prostředek A
+* Prostředek B
+* Prostředek C
 
-**Template** defines:
+**Šablona** definuje:
 
-* Resource A
-* Resource B
-* Resource D
+* Prostředek A
+* Prostředek B
+* Prostředek D
 
-When deployed in **incremental** mode, the resource group contains:
+Při nasazení v **přírůstkové** režimu, skupina prostředků obsahuje:
 
-* Resource A
-* Resource B
-* Resource C
-* Resource D
+* Prostředek A
+* Prostředek B
+* Prostředek C
+* Prostředek D
 
-When deployed in **complete** mode, Resource C is deleted. The resource group contains:
+Při nasazení v **dokončení** režimu C prostředků se odstraní. Skupina prostředků obsahuje:
 
-* Resource A
-* Resource B
-* Resource D
+* Prostředek A
+* Prostředek B
+* Prostředek D
