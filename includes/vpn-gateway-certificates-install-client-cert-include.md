@@ -1,7 +1,7 @@
-If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported.
+Pokud chcete vytvořit připojení P2S z jiného klientského počítače, než který jste použili k vytvoření klientských certifikátů, budete muset klientský certifikát nainstalovat. Při instalaci klientského certifikátu budete potřebovat heslo, které bylo vytvořeno při jeho exportu.
 
-1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, and then click **Next**.
-2. On the **File** to import page, don't make any changes. Click **Next**.
-3. On the **Private key protection** page, input the password for the certificate, or verify that the security principal is correct, then click **Next**.
-4. On the **Certificate Store** page, leave the default location, and then click **Next**.
-5. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. You can feel comfortable clicking 'Yes' because you generated the certificate. The certificate is now successfully imported.
+1. Vyhledejte a zkopírujte soubor *.pfx* na klientský počítač. Na klientském počítači spusťte instalaci dvojím kliknutím na soubor *.pfx*. Ponechte **Umístění úložiště** jako **Aktuální uživatel** a pak klikněte na **Další**.
+2. Na stránce **Importovaný soubor** neprovádějte žádné změny. Klikněte na **Další**.
+3. Na **ochranu privátního klíče** stránky, zadejte heslo pro certifikát, nebo ověřte, zda je správný objekt zabezpečení a pak klikněte na tlačítko **Další**.
+4. Na stránce **Úložiště certifikátů** ponechte výchozí umístění a pak klikněte na **Další**.
+5. Klikněte na **Finish** (Dokončit). V okně **Upozornění zabezpečení** pro instalaci certifikátu klikněte na **Ano**. Na tlačítko Ano můžete s klidem kliknout, protože jste certifikát generovali vy. Certifikát se teď úspěšně naimportoval.

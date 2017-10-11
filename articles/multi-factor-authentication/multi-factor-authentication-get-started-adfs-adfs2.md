@@ -15,12 +15,11 @@ ms.date: 06/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: a05219398aefa158321ae63934743dd43841e33f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurace serveru Azure Multi-Factor Authentication pro práci se službou AD FS 2.0
 Tento článek je určený pro organizace, které jsou federované se službou Azure Active Directory a chtějí zabezpečit prostředky, které mají uložené místně nebo v cloudu. Chraňte své prostředky pomocí Azure Multi-Factor Authentication Serveru a jeho nakonfigurováním tak, aby fungoval s AD FS a bylo možné spouštět dvoustupňové ověření pro koncové body vysoké hodnoty.
@@ -117,4 +116,3 @@ Důvěryhodné IP adresy umožňují uživatelům obejít ověřování Azure Mu
 4. Zadejte IP adresu, rozsah IP adres nebo podsíť, které chcete zařadit na seznam povolených adres. Pokud zadáváte podsíť, vyberte příslušnou síťovou masku a klikněte na tlačítko **OK**. Seznam důvěryhodných adres IP se přidal.
 
 <center>![Nastavení](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-

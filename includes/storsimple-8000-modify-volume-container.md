@@ -1,32 +1,32 @@
 <!--author=alkohli last changed: 07/05/2017-->
 
 > [!NOTE] 
-> You cannot modify the encryption settings and the storage account credentials associated with a volume container after it is created.
+> Nelze změnit nastavení šifrování a přihlašovací údaje účtu úložiště přidružené kontejner svazků po jejím vytvoření.
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
+#### <a name="to-modify-a-volume-container"></a>Chcete-li upravit kontejneru svazků
 
-1. Go to your StorSimple Device Manager service and then navigate to **Management > Volume containers**.
+1. Přejděte do služby StorSimple Manager zařízení a potom přejděte na **správy > kontejnery svazků**.
 
-2. From the tabular list of volume containers, select the volume container you want to modify. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+2. Ze seznamu tabulkové kontejnery svazků vyberte kontejner svazků, které chcete upravit. Na **zařízení** vyberte zařízení, na ni dvakrát kliknete a pak klikněte na tlačítko **kontejnery svazků** kartě.
 
-2. In the tabular listing of the volume containers, select the volume container that you want to modify. In the blade that opens up, click **Modify** from the command bar.
+2. V tabulkovém seznam kontejnery svazků, vyberte kontejner svazek, který chcete upravit. V okně, které se otevře, klikněte na tlačítko **upravit** z řádku nabídek.
 
-    ![Modify volume container](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
+    ![Upravit kontejneru svazků](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
 
-3. In the **Modify Volume container** blade, do the following steps:
+3. V **kontejneru svazků upravit** okno, proveďte následující kroky:
    
-   1. The name, encryption key, and storage account associated with the volume container cannot be changed after they are specified. Change the associated bandwidth setting.
+   1. Název, šifrovací klíč a účet úložiště přidružený ke kontejneru svazků nelze změnit, jakmile jsou uvedené. Změňte nastavení přidružené šířky pásma.
       
-       ![Change bandwidth setting](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
+       ![Změňte nastavení šířky pásma](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
-   2.  Click **OK**.
-4. In the next page of the **Modify Volume Container** dialog box:
+   2.  Klikněte na **OK**.
+4. Na další stránce **upravit kontejneru svazků** dialogové okno:
    
-   1. From the drop-down list, choose an existing bandwidth template.
-   2. Review the schedule settings for the specified bandwidth template.
-   3. Click **Save** and confirm the changes.
+   1. V rozevíracím seznamu vyberte existující šablonu šířky pásma.
+   2. Zkontrolujte nastavení plánu pro šablony zadaný šířky pásma.
+   3. Klikněte na tlačítko **Uložit** a potvrďte změny.
       
-       ![Confirm changes](./media/storsimple-8000-modify-volume-container/modify-vol-container3.png)
+       ![Potvrzení změn](./media/storsimple-8000-modify-volume-container/modify-vol-container3.png)
 
-   3. The **Volume containers** blade is updated to reflect the changes.
+   3. **Kontejnery svazků** okno se aktualizuje tak, aby odrážely změny.
 

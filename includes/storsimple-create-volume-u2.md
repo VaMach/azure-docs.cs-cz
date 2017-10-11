@@ -39,8 +39,3 @@
       ![Přidání svazku](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Vytvoří se svazek se zadaným nastavením.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

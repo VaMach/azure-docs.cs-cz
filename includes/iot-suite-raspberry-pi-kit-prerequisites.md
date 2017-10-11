@@ -1,32 +1,32 @@
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Požadavky
 
-To complete this tutorial, you need an active Azure subscription.
+K dokončení tohoto kurzu potřebujete mít aktivní předplatné služby Azure.
 
 > [!NOTE]
-> If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+> Pokud nemáte účet, můžete si během několika minut vytvořit bezplatný účet zkušební. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][lnk-free-trial].
 
-### <a name="required-software"></a>Required software
+### <a name="required-software"></a>Požadovaný software
 
-You need SSH client on your desktop machine to enable you to remotely access the command line on the Raspberry Pi.
+Musíte klient SSH na umožňují vzdálený přístup na příkazovém řádku pí malin stolního počítače.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
-- Most Linux distributions and Mac OS include the command-line SSH utility. For more information, see [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- Windows nezahrnuje klientem SSH. Doporučujeme používat [PuTTY](http://www.putty.org/).
+- Většina Linuxových distribucích a Mac OS, obsahují nástroj příkazového řádku SSH. Další informace najdete v tématu [SSH pomocí Linux nebo Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-hardware"></a>Required hardware
+### <a name="required-hardware"></a>Požadovaný hardware
 
-A desktop computer to enable you to connect remotely to the command line on the Raspberry Pi.
+Stolní počítač, abyste mohli vzdáleně připojit k na příkazovém řádku malin pí.
 
-[Microsoft IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] or equivalent components. This tutorial uses the following items from the kit:
+[Microsoft IoT Starter Kit malin pí 3] [ lnk-starter-kits] nebo ekvivalentní součásti. V tomto kurzu používá následující položky ze sady kit:
 
-- Raspberry Pi 3
-- MicroSD Card (with NOOBS)
-- A USB Mini cable
-- An Ethernet cable
-- BME280 sensor
+- Malinová pí 3
+- Karta MicroSD (s NOOBS)
+- Kabelu USB malé
+- Kabel Ethernet
+- Senzor BME280
 - Breadboard
-- Jumper wires
-- Resistors
-- LEDs
+- Můstek vodičům
+- Odpory
+- LED
 
 [lnk-starter-kits]: https://azure.microsoft.com/develop/iot/starter-kits/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

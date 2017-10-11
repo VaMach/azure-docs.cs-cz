@@ -4,11 +4,11 @@
 
 3. Do vyhledávacího pole zadejte **Mobile Apps**.
 
-    ![Azure Portal se zvýrazněnou možností Rychlý start Mobile Apps][quickstart]
+    ![Portál Azure s mobilní aplikace rychlý start zvýrazněná][quickstart]
 
-4. V seznamu výsledků vyberte **Rychlý start Mobile Apps** a potom vyberte **Vytvořit**.
+4. V seznamu výsledků vyberte **využít postup rychlého spuštění Mobile Apps**a potom vyberte **vytvořit**.
  
-5. V části **Skupina prostředků** vyberte existující skupinu prostředků nebo vytvořte novou (použijte stejný název, jaký má aplikace).
+5. V části **skupiny prostředků**, vyberte existující skupinu prostředků nebo vytvořte novou (pomocí stejný název jako vaše aplikace).
 
 6. Klikněte na možnost **Vytvořit**. Počkejte několik minut na úspěšné nasazení služby a teprve potom pokračujte.
 

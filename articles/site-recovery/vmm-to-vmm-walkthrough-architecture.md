@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Krok 1: Kontrola architektury pro replikaci Hyper-V do sekundární lokality
 
@@ -65,4 +64,3 @@ Dál je uvedeno, co potřebujete pro replikaci virtuálních počítačů Hyper-
 ## <a name="next-steps"></a>Další kroky
 
 Přejděte ke [kroku 2: Kontrola požadavků a omezení](vmm-to-vmm-walkthrough-prerequisites.md).
-

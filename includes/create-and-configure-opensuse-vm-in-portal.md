@@ -1,52 +1,52 @@
-1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
-2. On the command bar at the bottom of the window, click **New**.
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
+1. Přihlaste se do [portál Azure Classic](http://manage.windowsazure.com).  
+2. Na panelu příkazů v dolní části okna klikněte na tlačítko **nový**.
+3. V části **výpočetní**, klikněte na tlačítko **virtuálního počítače**a potom klikněte na **z Galerie**.
    
-    ![Create a New Virtual Machine][Image1]
-4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
-5. On the first **Virtual machine configuration** page:
+    ![Vytvoření nového virtuálního počítače][Image1]
+4. V části **SUSE** skupiny, vyberte bitovou kopii virtuálního počítače OpenSUSE a pak klikněte na šipku pokračujte.
+5. V prvním **konfigurace virtuálního počítače** stránky:
    
-   * Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
-   * Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-   * Type a **New User Name**, or accept the default, **azureuser**. This name is added to the Sudoers list file.
-   * Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
-6. On the next **Virtual machine configuration** page:
+   * Zadejte **název virtuálního počítače**, jako je například "testlinuxvm". Název musí obsahovat 3 až 15 znaků, může obsahovat pouze písmena, číslice a pomlčky a musí začínat písmenem a končit písmenem nebo číslicí.
+   * Ověřte **vrstvy** a vyberte **velikost**. Určuje vrstvu velikostí, které můžete vybrat z. Velikost ovlivní náklady na používání, stejně jako možnosti konfigurace, jako například kolik dat disků můžete připojit. Podrobnosti najdete v tématu [velikosti virtuálních počítačů](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   * Zadejte **nové uživatelské jméno**, nebo přijměte výchozí nastavení, **azureuser**. Tento název se přidá do souboru Sudoers seznamu.
+   * Rozhodněte, který typ **ověřování** používat. Obecné heslo, naleznete na adrese [silná hesla](http://msdn.microsoft.com/library/ms161962.aspx).
+6. Při dalším **konfigurace virtuálního počítače** stránky:
    
-   * Use the default **Create a new cloud service**.
-   * In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".
-   * In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
-   * Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
+   * Použít výchozí **vytvořte novou cloudovou službu**.
+   * V **název DNS** zadejte jedinečný název DNS, který bude použit jako část adresy, jako je například "testlinuxvm".
+   * V **oblasti nebo vztahů skupiny nebo virtuální síť** vyberte oblast, kde se bude hostovat tuto bitovou kopii virtuálního.
+   * V části **koncové body**, zachovat koncový bod SSH. Můžete přidat další nyní, nebo přidat, změnit nebo odstranit, je po vytvoření virtuálního počítače.
      
      > [!NOTE]
-     > If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't add a virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+     > Pokud chcete virtuální počítač používat virtuální síť, můžete **musí** při vytváření virtuálního počítače zadejte virtuální síť. Virtuální počítač nelze přidat k virtuální síti, po vytvoření virtuálního počítače. Další informace najdete v tématu [Přehled virtuálních sítí](../articles/virtual-network/virtual-networks-overview.md).
      > 
      > 
-7. On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.
+7. Na poslední **konfigurace virtuálního počítače** , potvrďte výchozí nastavení a pak klikněte na tlačítko zaškrtnutí dokončete.
 
-The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being set up. When the status is reported as **Running**, you can move on to the next step.
+Na portálu zobrazí nový virtuální počítač v rámci **virtuální počítače**. Když stav je uveden jako **(zřizování)**, virtuální počítač se nastavuje. Pokud je stav uveden jako **systémem**, můžete přesunout další krok.
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the Virtual Machine
-You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:
+## <a name="connect-to-the-virtual-machine"></a>Připojit k virtuálnímu počítači
+SSH nebo PuTTY budete používat pro připojení k virtuálnímu počítači, v závislosti na operační systém na počítač, na kterém budete připojení z:
 
-* From a computer running Linux, use SSH. At the command prompt, type:
+* Z počítače se systémem Linux pomocí SSH. Na příkazovém řádku zadejte:
   
     `$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
   
-    Type the user's password.
-* From a computer running Windows, use PuTTY. If you don't have it installed, download it from the [PuTTY Download Page][PuTTYDownload].
+    Zadejte heslo uživatele.
+* Z počítače se systémem Windows použití klienta PuTTY. Pokud nemáte nainstalováno, ji stáhnout z [stránku položek ke stažení PuTTY][PuTTYDownload].
   
-    Save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and run **putty.exe**.
+    Uložit **putty.exe** do adresáře v počítači. Otevřete příkazový řádek, přejděte do této složky a spusťte **putty.exe**.
   
-    Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.
+    Zadejte název hostitele, jako je například "testlinuxvm.cloudapp.net" a "22" zadejte **Port**.
   
-    ![PuTTY Screen][Image6]  
+    ![PuTTY obrazovky][Image6]  
 
-## <a name="update-the-virtual-machine-optional"></a>Update the Virtual Machine (optional)
-1. After you're connected to the virtual machine, you can optionally install system updates and patches. To run the update, type:
+## <a name="update-the-virtual-machine-optional"></a>Aktualizovat virtuální počítač (volitelné)
+1. Poté, co jste připojení k virtuálnímu počítači, můžete volitelně nainstalovat opravy a aktualizace systému. Chcete-li spustit aktualizaci, zadejte:
    
     `$ sudo zypper update`
-2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
-3. After installation is done, select **Finish**.  Your system is now up to date.
+2. Vyberte **softwaru**, pak **Online aktualizace** seznam dostupných aktualizací. Vyberte **přijmout** spuštění instalace a použít všechny nové dostupných oprav (s výjimkou těch, volitelný).
+3. Po dokončení instalace, vyberte **Dokončit**.  Systém je nyní aktuální.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 

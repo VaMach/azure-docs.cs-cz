@@ -18,8 +18,3 @@
    
    Záloha by se měla zobrazit v seznamu sad záloh uvedených v katalogu.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

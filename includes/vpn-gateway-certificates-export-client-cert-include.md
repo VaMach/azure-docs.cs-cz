@@ -1,8 +1,8 @@
-When you generate a client certificate, it's automatically installed on the computer that you used to generate it. If you want to install the client certificate on another client computer, you need to export the client certificate that you generated.                              
+Při generování klientský certifikát se automaticky nainstaluje na počítači, který jste použili k jeho vygenerování. Pokud chcete nainstalovat certifikát klienta v jiném počítači klienta, musíte exportovat certifikát klienta, který jste vygenerovali.                              
 
-1. To export a client certificate, open **Manage user certificates**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **Export** to open the **Certificate Export Wizard**.
-2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
-3. On the **Export File Format** page, leave the defaults selected. Make sure that **Include all certificates in the certification path if possible** is selected. Selecting this also exports the root certificate information that is required for successful authentication. Then, click **Next**.
-4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then, click **Next**.
-5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
-6. Click **Finish** to export the certificate.
+1. Pokud chcete exportovat klientský certifikát, otevřete **správu uživatelských certifikátů**. Klientské certifikáty, které jste vygenerovali nacházejí ve výchozím nastavení, v 'Certifikáty – aktuální User\Personal\Certificates'. Klikněte pravým tlačítkem na certifikát klienta, který chcete exportovat, klikněte na **všechny úlohy**a potom klikněte na **exportovat** otevřete **Průvodce exportem certifikátu**.
+2. V průvodci klikněte na **Další**, vyberte **Ano, exportovat privátní klíč** a klikněte na **Další**.
+3. Na stránce **Formát souboru pro export** ponechte vybrané výchozí nastavení. Ujistěte se, že je vybrána možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**. Vyberete tuto možnost zároveň exportuje informace kořenového certifikátu, který je vyžadován pro úspěšné ověření. Pak klikněte na **Další**.
+4. Na stránce **Zabezpečení** je nutné chránit soukromý klíč. Pokud vyberete použití hesla, ujistěte se, že jste si poznamenali nebo si pamatujete heslo, které jste pro tento certifikát nastavili. Pak klikněte na **Další**.
+5. V části **Soubor pro export** **přejděte** do umístění, do kterého chcete certifikát vyexportovat. V části **Název souboru** zadejte název souboru. Pak klikněte na **Další**.
+6. Certifikát vyexportujte kliknutím na **Dokončit**.

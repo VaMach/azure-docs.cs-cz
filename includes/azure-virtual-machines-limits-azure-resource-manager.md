@@ -1,7 +1,7 @@
-| Resource | Default Limit |
+| Prostředek | Výchozí omezení |
 | --- | --- |
-| Virtual machines per availability set | 200 |
-| Certificates per subscription |Unlimited<sup>1</sup> |
+| Virtuální počítače na sady dostupnosti. | 200 |
+| Certifikáty na předplatné |Neomezená<sup>1</sup> |
 
-<sup>1</sup>With Azure Resource Manager, certificates are stored in the Azure Key Vault. Although the number of certificates is unlimited for a subscription, there is still a 1 MB limit of certificates per deployment (which consists of either a single VM or an availability set).
+<sup>1</sup>s Azure Resource Manager, certifikáty jsou uloženy v Azure Key Vault. I když počet certifikátů neomezená pro předplatné, je stále omezení 1 MB certifikátů za nasazení (což se skládá z jedné virtuální počítač nebo skupina dostupnosti).
 

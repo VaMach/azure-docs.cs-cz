@@ -1,11 +1,11 @@
-| Resource | Maximum Limit |
+| Prostředek | Maximální omezení |
 | --- | --- |
-| App Collection Users |5 per App Collection |
-| Average Data points |200 per Active User/Day |
-| Average App-Info set |50 per Active User/Day |
-| Average Messages pushed |20 per Active User/Day |
-| Segments |100 per app |
-| Criteria per segment |10 |
-| Active Push Campaigns |50 per app |
-| Total Push Campaigns (includes Active & Completed) |1000 per app |
+| Kolekce uživatelů aplikace |5 na kolekce aplikací |
+| Průměrná datových bodů |200 za aktivní uživatele a den |
+| Průměrná sady App-Info |50 za aktivní uživatele a den |
+| Průměrná zpráv nabídnutých |20 za aktivní uživatele a den |
+| Segmenty |100 jednotlivé aplikace |
+| Kritéria jednotlivých segmentů |10 |
+| Aktivní nabízené kampaně |50 jednotlivé aplikace |
+| Celkový počet nabízené kampaně (zahrnuje Active & dokončeno) |1000 jednotlivé aplikace |
 

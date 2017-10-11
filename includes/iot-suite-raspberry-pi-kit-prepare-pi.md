@@ -1,85 +1,85 @@
-## <a name="prepare-your-raspberry-pi"></a>Prepare your Raspberry Pi
+## <a name="prepare-your-raspberry-pi"></a>Příprava vašeho Malinová platformy
 
-### <a name="install-raspbian"></a>Install Raspbian
+### <a name="install-raspbian"></a>Nainstalujte Raspbian
 
-If this is the first time you are using your Raspberry Pi, you need to install the Raspbian operating system using NOOBS on the SD card included in the kit. The [Raspberry Pi Software Guide][lnk-install-raspbian] describes how to install an operating system on your Raspberry Pi. This tutorial assumes you have installed the Raspbian operating system on your Raspberry Pi.
+Pokud používáte vaše platformy malin poprvé, musíte nainstalovat operační systém Raspbian pomocí NOOBS na kartu SD. součástí sady. [Malin pí softwaru průvodce] [ lnk-install-raspbian] popisuje postup instalace operačního systému na vaše malin pí. Tento kurz předpokládá, že jste nainstalovali Raspbian operačního systému na vaše malin pí.
 
 > [!NOTE]
-> The SD card included in the [Microsoft Azure IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] already has NOOBS installed. You can boot the Raspberry Pi from this card and choose to install the Raspbian OS.
+> Používání SD karet součástí [Microsoft Azure IoT Starter Kit malin pí 3] [ lnk-starter-kits] již má nainstalované NOOBS. Můžete spustit pí malin z této karty a zvolit instalaci operačního systému Raspbian.
 
-### <a name="set-up-the-hardware"></a>Set up the hardware
+### <a name="set-up-the-hardware"></a>Nastavení hardwaru
 
-This tutorial uses the BME280 sensor included in the [Microsoft Azure IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] to generate telemetry data. It uses an LED to indicate when the Raspberry Pi processes a method invocation from the solution dashboard.
+Tento kurz používá BME280 senzoru součástí [Microsoft Azure IoT Starter Kit malin pí 3] [ lnk-starter-kits] ke generování telemetrická data. Používá DIODU označíte, když pí malin zpracovává volání metody na řídicím panelu řešení.
 
-The components on the bread board are:
+Součásti na panelu chléb jsou:
 
-- Red LED
-- 220-Ohm resistor (red, red, brown)
-- BME280 sensor
+- Red DIODU
+- 220 Ohm odpor (červená, red menších.)
+- Senzor BME280
 
-The following diagram shows how to connect your hardware:
+Následující diagram ukazuje, jak připojit hardwaru:
 
-![Hardware setup for Raspberry Pi][img-connection-diagram]
+![Nastavení hardwaru pro malin platformy][img-connection-diagram]
 
-The following table summarizes the connections from the Raspberry Pi to the components on the breadboard:
+Následující tabulka shrnuje připojení z platformy malin součástí na breadboard:
 
-| Raspberry Pi            | Breadboard             |Color         |
+| Raspberry Pi            | Breadboard             |Barva         |
 | ----------------------- | ---------------------- | ------------- |
-| GND (Pin 14)            | LED -ve pin (18A)      | Purple          |
-| GPCLK0 (Pin 7)          | Resistor (25A)         | Orange          |
-| SPI_CE0 (Pin 24)        | CS (39A)               | Blue          |
-| SPI_SCLK (Pin 23)       | SCK (36A)              | Yellow        |
-| SPI_MISO (Pin 21)       | SDO (37A)              | White         |
-| SPI_MOSI (Pin 19)       | SDI (38A)              | Green         |
-| GND (Pin 6)             | GND (35A)              | Black         |
-| 3.3 V (Pin 1)           | 3Vo (34A)              | Red           |
+| ZEM (Pin 14)            | Indikátor - sunout pin (18A)      | Fialová          |
+| GPCLK0 (Pin 7)          | Odpor (25A)         | Orange          |
+| SPI_CE0 (Pin 24)        | CS (39A)               | Modrá          |
+| SPI_SCLK (Pin 23)       | SCK (36A)              | Žlutá        |
+| SPI_MISO (Pin 21)       | SDO (37A)              | Bílá         |
+| SPI_MOSI (Pin 19)       | SDI (38A)              | Zelená         |
+| ZEM (Pin 6)             | ZEM (35A)              | Černá         |
+| 3.3 V (Pin 1)           | 3Vo (34A)              | Červená           |
 
-To complete the hardware setup, you need to:
+Chcete-li dokončit nastavení hardwaru, je potřeba:
 
-- Connect your Raspberry Pi to the power supply included in the kit.
-- Connect your Raspberry Pi to your network using the Ethernet cable included in your kit. Alternatively, you can set up [Wireless Connectivity][lnk-pi-wireless] for your Raspberry Pi.
+- Připojte vaše platformy malin k napájení součástí sady.
+- Vaše platformy malin připojte k síti pomocí kabelu Ethernet, který je součástí vaší sady. Alternativně můžete nastavit [bezdrátové připojení] [ lnk-pi-wireless] vaše malin pí.
 
-You have now completed the hardware setup of your Raspberry Pi.
+Teď jste dokončili nastavení hardwaru vaší malin pí.
 
-### <a name="sign-in-and-access-the-terminal"></a>Sign in and access the terminal
+### <a name="sign-in-and-access-the-terminal"></a>Přihlaste se a přístup k terminálu
 
-You have two options to access a terminal environment on your Raspberry Pi:
+Máte dvě možnosti pro přístup k Terminálové prostředí na vaše malin platformy:
 
-- If you have a keyboard and monitor connected to your Raspberry Pi, you can use the Raspbian GUI to access a terminal window.
+- Pokud máte klávesnici a monitorování, které jsou připojené k vaší malin platformy, můžete použít Raspbian grafického uživatelského rozhraní pro přístup k okno terminálu.
 
-- Access the command line on your Raspberry Pi using SSH from your desktop machine.
+- Přístup na příkazovém řádku vaší malin pí pomocí protokolu SSH ze stolního počítače.
 
-#### <a name="use-a-terminal-window-in-the-gui"></a>Use a terminal Window in the GUI
+#### <a name="use-a-terminal-window-in-the-gui"></a>Použijte okno terminálu v grafickém uživatelském rozhraní
 
-The default credentials for Raspbian are username **pi** and password **raspberry**. In the task bar in the GUI, you can launch the **Terminal** utility using the icon that looks like a monitor.
+Výchozí pověření pro Raspbian jsou uživatelské jméno **pí** a heslo **malin**. Na hlavním panelu v grafickém uživatelském rozhraní, můžete spustit **Terminálové** nástroj pomocí ikonu, která vypadá jako monitorování.
 
-#### <a name="sign-in-with-ssh"></a>Sign in with SSH
+#### <a name="sign-in-with-ssh"></a>Přihlaste se pomocí protokolu SSH
 
-You can use SSH for command-line access to your Raspberry Pi. The article [SSH (Secure Shell)][lnk-pi-ssh] describes how to configure SSH on your Raspberry Pi, and how to connect from [Windows][lnk-ssh-windows] or [Linux & Mac OS][lnk-ssh-linux].
+SSH můžete použít pro příkazového řádku přístup k vaší malin pí. Článek [SSH (Secure Shell)] [ lnk-pi-ssh] popisuje postup konfigurace SSH na vaše malin platformy a jak se připojit z [Windows] [ lnk-ssh-windows] nebo [ Linux & Mac OS][lnk-ssh-linux].
 
-Sign in with username **pi** and password **raspberry**.
+Přihlaste se pomocí uživatelského jména **pí** a heslo **malin**.
 
-#### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>Optional: Share a folder on your Raspberry Pi
+#### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>Volitelné: Sdílené složky na vaše malin platformy
 
-Optionally, you may want to share a folder on your Raspberry Pi with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Raspberry Pi instead of using `nano` or `vi`.
+Volitelně můžete sdílet složky na vaše malin pí s prostředí plochy. Sdílení složky vám umožní použít upřednostňované plochy textový editor (například [Visual Studio Code](https://code.visualstudio.com/) nebo [Sublime Text](http://www.sublimetext.com/)) Chcete-li upravit soubory na vaše malin platformy místo použití `nano` nebo `vi`.
 
-To share a folder with Windows, configure a Samba server on the Raspberry Pi. Alternatively, use the built-in [SFTP](https://www.raspberrypi.org/documentation/remote-access/) server with an SFTP client on your desktop.
+Sdílení složky s Windows, konfigurace serveru Samba na malin pí. Můžete taky použít integrované [SFTP](https://www.raspberrypi.org/documentation/remote-access/) serveru s klientem SFTP na ploše.
 
-### <a name="enable-spi"></a>Enable SPI
+### <a name="enable-spi"></a>Povolit SPI
 
-Before you can run the sample application, you must enable the Serial Peripheral Interface (SPI) bus on the Raspberry Pi. The Raspberry Pi communicates with the BME280 sensor device over the SPI bus. Use the following command to edit the configuration file:
+Než spustíte ukázkovou aplikaci, je nutné povolit sběrnici sériové periferní rozhraní (SPI) na malin pí. Malin platformy zařízení senzor BME280 komunikuje přes sběrnici SPI. Chcete-li upravit konfigurační soubor, použijte následující příkaz:
 
 ```sh
 sudo nano /boot/config.txt
 ```
 
-Find the line:
+Vyhledejte řádek:
 
 `#dtparam=spi=on`
 
-- To uncomment the line, delete the `#` at the start.
-- Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
-- To enable SPI, reboot the Raspberry Pi. Rebooting disconnects the terminal, you need to sign in again when the Raspberry Pi restarts:
+- Chcete-li Odkomentujte řádek, odstraňte `#` na začátku.
+- Uložte změny (**Ctrl-O**, **Enter**) a ukončete editor (**Ctrl-X**).
+- Pokud chcete povolit SPI, restartování malin pí. Restartování odpojí terminálu, musíte se přihlásit znovu, pokud restartování malin platformy:
 
   ```sh
   sudo reboot

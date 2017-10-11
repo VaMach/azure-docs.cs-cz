@@ -1,17 +1,17 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
+#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>Pro instalaci oprav hotfix režimu údržby pomocí prostředí Windows PowerShell pro StorSimple
 > [!IMPORTANT]
-> In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
+> V režimu údržby musíte nejprve použít opravu hotfix na jednom řadiči a poté na jiný řadič.
 > 
 > 
 
-1. Place the device into Maintenance mode. See [Step 2: Enter Maintenance mode](../articles/storsimple/storsimple-update-device.md#step2) for instructions on how to enter Maintenance mode.
-2. To apply the hotfix, type:
+1. Umístíte zařízení do režimu údržby. V tématu [krok 2: Zadejte údržby režimu](../articles/storsimple/storsimple-update-device.md#step2) pokyny o tom, jak přechod do režimu údržby.
+2. Chcete-li použít opravu hotfix, zadejte:
    
      `Start-HcsHotfix` 
-3. When prompted, supply the path to the network shared folder that contains the hotfix files.
-4. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
-5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
-6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](../articles/storsimple/storsimple-update-device.md#step4) for instructions.
+3. Po zobrazení výzvy zadejte cestu k sdílené síťové složce, která obsahuje soubory oprav hotfix.
+4. Zobrazí se výzva k potvrzení. Typ **Y** pokračovat v instalaci oprav hotfix.
+5. Po instalaci opravy hotfix na jednom řadiči, přihlaste se k jiné řadiče. Opravy hotfix, stejně jako u předchozí kontroleru.
+6. Po použití opravy hotfix, ukončete režim údržby. V tématu [krok 4: režim údržby ukončení](../articles/storsimple/storsimple-update-device.md#step4) pokyny.
 

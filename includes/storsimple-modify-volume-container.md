@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
-3. In the **Modify Volume container** dialog box, do the following:
+#### <a name="to-modify-a-volume-container"></a>Chcete-li upravit kontejneru svazků
+1. Na **zařízení** vyberte zařízení, na ni dvakrát kliknete a pak klikněte na tlačítko **kontejnery svazků** kartě.
+2. V tabulkovém seznam kontejnery svazků, vyberte nastavení, které chcete upravit a klikněte na tlačítko **upravit**.
+3. V **kontejneru svazků upravit** dialogové okno pole, postupujte takto:
    
-   1. Change the name of the volume container and modify the associated bandwidth setting. 
+   1. Změňte název kontejneru svazků a upravit nastavení přidružené šířky pásma. 
       
-       ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
-   2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
-4. In the next page of the **Modify Volume Container** dialog box:
+       ![Upravit kontejneru svazků s šablony šířky pásma 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+   2. Šifrovací klíč a úložiště účet nelze změnit, jakmile jsou uvedené. Pokud jste zadali **vybrat šablonu šířky pásma**, klikněte na šipku a přejít na další stránku.
+4. Na další stránce **upravit kontejneru svazků** dialogové okno:
    
-   1. From the drop-down list, choose an existing bandwidth template.
-   2. Review the schedule settings for the specified bandwidth template.
+   1. V rozevíracím seznamu vyberte existující šablonu šířky pásma.
+   2. Zkontrolujte nastavení plánu pro šablony zadaný šířky pásma.
       
-       ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-   3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+       ![Upravit kontejneru svazků s šablony šířky pásma 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+   3. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) uložte aktualizovaná nastavení. **Kontejnery svazků** stránka bude aktualizována tak, aby odrážely změny.
 

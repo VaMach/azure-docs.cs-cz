@@ -1,22 +1,22 @@
 
-| Resource | Default limit |
+| Prostředek | Výchozí omezení |
 | --- | --- |
-| Collections per user |1 |
-| Published apps per collection |100 |
-| Paid collections |3 |
-| Paid template images |25 |
-| Users - basic tier |800 maximum |
-| Users - standard tier |500 maximum |
-| Users- premium tier |100 maximum |
-| Users - premium plus tier |50 maximum |
-| User data storage (UPD) per user per collection |50 GB |
-| Idle timeout |4 hours |
-| Disconnected timeout |4 hours |
+| Kolekce na uživatele |1 |
+| Publikované aplikace na kolekci |100 |
+| Placené kolekce |3 |
+| Image šablony placené |25 |
+| Uživatelé – základní vrstvě |800 maximální |
+| Uživatelé – úrovně standard |maximální 500 |
+| Uživatelé premium vrstvy |maximální 100 |
+| Úroveň uživatelé – premium plus |maximálně 50 |
+| Úložiště dat uživatele (UPD) na uživatele na kolekci |50 GB |
+| Časový limit nečinnosti |4 hodiny |
+| Odpojené vypršení časového limitu |4 hodiny |
 
-The number of users is determined by the number of VMs used for your collection:
+Počet uživatelů, je určený počet virtuálních počítačů použít pro svoji kolekci:
 
-* Basic = 16 users per VM
-* Standard = 10 users per VM
-* Premium = 4 users per VM
-* Premium plus = 2 users per VM
+* Základní = 16 uživatelů na virtuální počítač
+* Standardní = 10 uživateli na virtuální počítač
+* Premium = 4 users na virtuální počítač
+* Premium plus = 2 uživatelé na virtuální počítač
 

@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Požadavky
+* A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) účtu  
 
-Before you can use your SMTP account in a logic app, you must authorize the logic app to connect to your SMTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Než v aplikaci logiky můžete použít váš účet SMTP, musíte je nejdříve autorizovat aplikaci logiky se připojit ke svému účtu SMTP. Naštěstí můžete k tomu snadno z v rámci aplikace logiky na portálu Azure.  
 
-Here are the steps to authorize your logic app to connect to your SMTP account:  
+Tady jsou kroky k autorizaci aplikace logiky pro připojení k účtu SMTP:  
 
-1. To create a connection to SMTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SMTP* in the search box. Select the trigger or action you'll like to use:  
+1. Chcete-li vytvořit připojení k SMTP, v návrháři aplikace logiky, vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu zadejte *SMTP* do vyhledávacího pole. Vyberte aktivační události nebo akci, kterou budete chtít použít:  
    ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. If you haven't created any connections to SMTP before, you'll get prompted to provide your SMTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SMTP account's data:  
+2. Pokud jste nevytvořili žádné připojení k SMTP před, budete získat zobrazí výzva k zadání přihlašovacích údajů vaší SMTP. Tyto přihlašovací údaje se použije k autorizaci aplikace logiky pro připojení k a přístup k datům účet SMTP:  
    ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
+3. Všimněte si vytvořil připojení a je nyní můžete pokračovat v dalších krocích v aplikaci logiky:  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 

@@ -14,7 +14,7 @@ Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala 
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Odeslání oznámení do vaší aplikace
+## <a id="send"></a>Odeslání oznámení do vaší aplikace
 Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat oznámení do vaší aplikace.
 
 1. Na portálu Mobile Engagement přejděte na kartu **REACH**.
@@ -41,9 +41,4 @@ Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat 
 6. Poslední krok: Kliknutím na **Aktivovat** aktivujte svoji kampaň, která bude zasílat nabízená oznámení.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

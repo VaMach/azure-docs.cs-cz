@@ -1,28 +1,28 @@
-## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>How to create a classic VNet in the Azure portal
-To create a classic VNet based on the scenario above, follow the steps below.
+## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Postup vytvoření klasické virtuální sítě na portálu Azure
+Pokud chcete vytvořit klasické virtuální sítě založené na výše uvedené scénáře, použijte následující postup.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Click **NEW** > **Networking** > **Virtual network**, notice that the **Select a deployment model** list already shows **Classic**, and then click **Create**, as seen in the figure below.
+1. V prohlížeči přejděte na http://portal.azure.com a v případě potřeby se přihlaste pomocí účtu Azure.
+2. Klikněte na tlačítko **nový** > **sítě** > **virtuální síť**, Všimněte si, že **vybrat model nasazení** Zobrazí seznam již **Classic**a potom klikněte na **vytvořit**, jak je vidět na obrázku níže.
    
-    ![Create VNet in Azure portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
-3. On the **Virtual network** blade, type the **Name** of the VNet, and then click **Address space**. Configure your address space settings for the VNet and its first subnet, then click **OK**. The figure below shows the CIDR block settings for our scenario.
+    ![Vytvoření virtuální sítě VNet na portálu Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+3. Na **virtuální síť** okno, zadejte **název** virtuální síť a potom klikněte na **adresní prostor**. Nakonfigurujte nastavení prostoru adres pro síť VNet a jeho první podsíť a pak klikněte na tlačítko **OK**. Následující obrázek znázorňuje nastavení blok CIDR pro náš scénář.
    
-    ![Address space blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-4. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+    ![Okno prostoru adres](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
+4. Klikněte na tlačítko **skupiny prostředků** a vyberte skupinu prostředků přidat síť VNet, nebo kliknutím na tlačítko **vytvořit novou skupinu prostředků** přidat síť VNet do nové skupiny prostředků. Následující obrázek ukazuje nastavení skupiny prostředky pro novou skupinu prostředků s názvem **TestRG**. Další informace o skupinách prostředků najdete v článku [Přehled Azure Resource Manageru](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
    
-    ![Create resource group blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**. 
-7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+    ![Vytvořit okno skupiny prostředků](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
+5. V případě potřeby změňte nastavení **Předplatné** a **Umístění** sítě VNet. 
+6. Pokud nechcete tuto síť VNet zobrazovat jako dlaždici v zobrazení **Úvodní panel**, zakažte možnost **Připnout na Úvodní panel**. 
+7. Klikněte na **Vytvořit** a všimněte si dlaždice s názvem **Vytváří se virtuální síť**, znázorněné na následujícím obrázku.
    
-    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
-8. Wait for the VNet to be created, and when you see the tile below, click it to add more subnets.
+    ![Vytvoření sítě VNet na portálu](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
+8. Počkejte pro virtuální síť, který se má vytvořit a pokud se zobrazí na dlaždici níže, kliknutím na Přidat další podsítě.
    
-    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
-9. You should see the **Configuration** for your VNet as shown below. 
+    ![Vytvoření sítě VNet na portálu](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
+9. Měli byste vidět **konfigurace** pro vaši virtuální síť, jak je uvedeno níže. 
    
-    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
-10. Click **Subnets** > **Add**, then type a **Name** and specify an **Address range (CIDR block)** for your subnet, and then click **OK**. The figure below shows the settings for our current scenario.
+    ![Vytvoření sítě VNet na portálu](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
+10. Klikněte na tlačítko **podsítě** > **přidat**, zadejte **název** a zadejte **rozsahu (blok CIDR) adres** pro podsíť a potom Klikněte na tlačítko **OK**. Následující obrázek ukazuje nastavení pro náš scénář aktuální.
     
-    ![Create VNet in Azure portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+    ![Vytvoření virtuální sítě VNet na portálu Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 

@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publikování aplikací pomocí proxy aplikace služby Azure AD
 
 > [!div class="op_single_selector"]
@@ -103,5 +101,4 @@ Pokud chcete aplikaci odstranit, vyberte ji ze seznamu a klikněte na **Odstrani
 * [Práce s aplikacemi využívajícími deklarace](active-directory-application-proxy-claims-aware-apps.md)
 
 Nejnovější novinky a aktualizace naleznete na [blogu proxy aplikace](http://blogs.technet.com/b/applicationproxyblog/)
-
 

@@ -1,31 +1,31 @@
 
-1. Klikněte na tlačítko **App Services**, vyberte svůj back-end Mobile Apps, vyberte **Rychlý start** a potom vyberte svou klientskou platformu (iOS, Android, Xamarin, Cordova).
+1. Klikněte **App Services** tlačítko vyberte vaše mobilní aplikace back-endu, vyberte **rychlý Start**a pak vybrat klientskou platformu (iOS, Android, Xamarin, Cordova).
 
-    ![Azure Portal se zvýrazněnou možností Rychlý start Mobile Apps][quickstart]
+    ![Portál Azure s mobilní aplikace rychlý start zvýrazněná][quickstart]
 
-2. Pokud není nakonfigurované připojení k databázi, vytvořte ho následujícím způsobem:
+2. Pokud není nakonfigurováno připojení k databázi, vytvořte ji následujícím způsobem:
 
-    ![Azure Portal s připojením k databázi pro Mobile Apps][connect]
+    ![Portál Azure s mobilní aplikací připojení k databázi][connect]
 
-    a. Vytvořte novou databázi SQL a server.
+    a. Vytvořte novou databázi SQL a serveru.
 
-    ![Azure Portal s vytvořením nové databáze a serveru pro Mobile Apps][server]
+    ![Portál Azure s Mobile Apps vytvářet nové databáze a serveru][server]
 
     b. Počkejte na úspěšné vytvoření datového připojení.
 
-    ![Oznámení na webu Azure Portal o úspěšném vytvoření datového připojení][notification]
+    ![Azure portálu oznámení o úspěšném vytvoření datové připojení][notification]
 
     c. Vytvoření datového připojení musí proběhnout úspěšně.
 
-    ![Oznámení na webu Azure Portal s textem „Už máte datové připojení“][already-connection]
+    ![Azure portálu oznámení "Již máte data připojení"][already-connection]
 
 3. V části **2. Vytvoření rozhraní API tabulky** vyberte jako **Jazyk back-endu** možnost Node.js. 
  
-4. Přijměte potvrzení a potom vyberte **Create TodoItem table** (Vytvořit tabulku TodoItem).  
-    Tato akce ve vaší databázi vytvoří novou tabulku úkolů. 
+4. Přijměte potvrzení a pak vyberte **vytvořit tabulku TodoItem**.  
+    Tato akce vytvoří novou tabulku položky úkolů ve vaší databázi. 
 
     >[!IMPORTANT]
-    > Přepnutím stávajícího back-endu na Node.js se přepíše veškerý obsah. Pokud místo toho chcete vytvořit back-end v .NET, přečtěte si téma [Práce se sadou SDK serveru back-end v .NET pro Mobile Apps][instructions].
+    > Probíhá přepínání existující back-end na Node.js přepíše veškerý obsah. Místo toho vytvoření rozhraní .NET back-end, naleznete v tématu [pracovat s .NET back-end server SDK pro Mobile Apps][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

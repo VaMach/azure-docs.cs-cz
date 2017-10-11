@@ -1,65 +1,65 @@
 
 
 
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines][Manage the availability of virtual machines].
+Sadu dostupnosti pomáhá udržovat vaše virtuální počítače, které jsou k dispozici při výpadku, například při údržbě. Umístění podobně nakonfigurované dva nebo více virtuálních počítačů v nastavení dostupnosti vytvoří redundance potřebné pro zachování dostupnost aplikace nebo služby, které běží ve virtuálním počítači. Podrobnosti o tomto postupu najdete v tématu [Správa dostupnosti virtuálních počítačů][Manage the availability of virtual machines].
 
-It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load balancing for Azure infrastructure services][Load balancing for Azure infrastructure services].
+Je vhodné použít skupiny dostupnosti a vyrovnávání zatížení koncové body k zajištění, že aplikace je vždy k dispozici a spuštěné efektivně. Podrobnosti o koncové body s vyrovnáváním zatížení najdete v tématu [pro infrastrukturu Azure služby Vyrovnávání zatížení][Load balancing for Azure infrastructure services].
 
-You can add classic virtual machines into an availability set by using one of two options:
+Klasické virtuální počítače můžete přidat do dostupnosti nastavit pomocí jedné ze dvou možností:
 
-* [Option 1: Create a virtual machine and an availability set at the same time][Option 1: Create a virtual machine and an availability set at the same time]. Then, add new virtual machines to the set when you create those virtual machines.
-* [Option 2: Add an existing virtual machine to an availability set][Option 2: Add an existing virtual machine to an availability set].
+* [Možnost 1: Vytvoření virtuálního počítače a sadu ve stejnou dobu dostupnosti][Option 1: Create a virtual machine and an availability set at the same time]. Potom přidáte nové virtuální počítače do sady, při vytváření těchto virtuálních počítačů.
+* [Možnost 2: Přidání existujícího virtuálního počítače do skupiny dostupnosti][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
-> In the classic model, virtual machines that you want to put in the same availability set must belong to the same cloud service.
+> V klasickém modelu virtuální počítače, které chcete umístit do stejné skupiny dostupnosti musí patřit do stejné cloudové služby.
 > 
 > 
 
-## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time
-You can use either the Azure portal or Azure PowerShell commands to do this.
+## <a id="createset"></a>Možnost 1: vytvoření virtuálního počítače a současně sadu dostupnosti
+K tomu můžete portálu Azure nebo Azure PowerShell příkazy.
 
-To use the Azure portal:
+Použití portálu Azure:
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **+ New**, and then click **Virtual Machine**.
+1. Pokud jste to ještě neudělali, přihlaste se k [Portálu Azure](https://portal.azure.com).
+2. V nabídce centra klikněte na tlačítko **+ nový**a potom klikněte na **virtuální počítač**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
-3. Select the Marketplace virtual machine image you wish to use. You can choose to create a Linux or Windows virtual machine.
-4. For the selected virtual machine, verify that the deployment model is set to **Classic** and then click **Create**
+    ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+3. Vyberte Marketplace image virtuálního počítače, který chcete použít. Můžete vytvořit virtuální počítač se systémem Linux nebo Windows.
+4. Pro vybraný virtuální počítač, ověřte, že model nasazení je nastavena na **Classic** a pak klikněte na tlačítko **vytvořit**
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
-5. Enter a virtual machine name, user name and password (for Windows machines) or SSH public key (for Linux machines). 
-6. Choose the VM size and then click **Select** to continue.
-7. Choose **Optional Configuration > Availability set**, and select the availability set you wish to add the virtual machine to.
+    ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
+5. Zadejte název virtuálního počítače, uživatelské jméno a heslo (pro počítače s Windows) nebo veřejný klíč SSH (pro počítače se systémem Linux). 
+6. Zvolte velikost virtuálního počítače a pak klikněte na tlačítko **vyberte** pokračujte.
+7. Zvolte **volitelné konfigurace > sadu dostupnosti**, a vyberte sadu dostupnosti, které chcete přidat virtuální počítač.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
-8. Review your configuration settings. When you're done, click **Create**.
-9. While Azure creates your virtual machine, you can track the progress under **Virtual Machines** in the hub menu.
+    ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
+8. Zkontrolujte nastavení konfigurace. Když jste hotovi, klikněte na tlačítko **vytvořit**.
+9. Zatímco Azure vytváří virtuální počítač, můžete sledovat průběh v části **virtuální počítače** v nabídce centra.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Pomocí příkazů prostředí Azure PowerShell k vytvoření virtuálního počítače Azure a přidejte ji do nové nebo existující dostupnost sady naleznete v části [pomocí prostředí Azure PowerShell k vytvoření a nastavení virtuálních počítačích se systémem Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set
-In the Azure portal, you can add existing classic virtual machines to an existing availability set or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
+## <a id="addmachine"></a>Možnost 2: Přidání existujícího virtuálního počítače do skupiny dostupnosti
+Na portálu Azure můžete přidat existující klasické virtuální počítače na existující dostupnost nastavit nebo vytvořte novou pro ně. (Mějte na paměti, že virtuální počítače ve stejné skupině dostupnosti musí patřit do stejné cloudové služby.) Kroky jsou téměř stejný. V prostředí Azure PowerShell můžete přidat virtuální počítač do stávající sady dostupnosti.
 
-1. If you have not already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, click **Virtual Machines (classic)**.
+1. Pokud jste tak již neučinili, přihlaste se k [portál Azure](https://portal.azure.com).
+2. V nabídce centra klikněte na tlačítko **virtuálních počítačů (klasické)**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
-3. From the list of virtual machines, select the name of the virtual machine that you want to add to the set.
-4. Choose **Availability set** from the virtual machine **Settings**.
+    ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
+3. Seznam virtuálních počítačů vyberte název virtuálního počítače, který chcete přidat do sady.
+4. Zvolte **sadu dostupnosti** z virtuálního počítače **nastavení**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
-5. Select the availability set you wish to add the virtual machine to. The virtual machine must belong to the same cloud service as the availability set.
+    ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
+5. Vyberte skupinu dostupnosti, které chcete přidat virtuální počítač. Virtuální počítač musí patřit do stejné cloudové služby jako skupiny dostupnosti.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. Click **Save**.
+    ![Obrázek alternativní text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
+6. Klikněte na **Uložit**.
 
-To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &lt;VmCloudServiceName&gt;), replace everything within the quotes, including the < and > characters, with the correct names.
+Chcete-li použít příkazy prostředí Azure PowerShell, otevřete relaci prostředí Azure PowerShell úrovni správce a spusťte následující příkaz. Zástupné symboly (například &lt;VmCloudServiceName&gt;), nahraďte všechna data v uvozovkách, včetně < a > znaky s správné názvy.
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 > [!NOTE]
-> The virtual machine might have to be restarted to finish adding it to the availability set.
+> Může mít virtuální počítač restartovat, aby dokončit ho přidáte do skupiny dostupnosti.
 > 
 > 
 

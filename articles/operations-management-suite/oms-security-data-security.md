@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 6af6c10cef317453131197db74a9380518afadf0
-ms.lasthandoff: 12/02/2016
-
-
+ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Zabezpečení dat v řešení Zabezpečení a audit pro Operations Management Suite
 [Řešení Zabezpečení a audit pro Operations Management Suite (OMS)](operations-management-suite-overview.md) pomáhá zákazníkům předcházet hrozbám, rozpoznat je a reagovat na ně tím, že shromažďuje a zpracovává data o prostředcích, k nimž patří:
@@ -59,5 +58,4 @@ V tomto dokumentu jste se dozvěděli, jakým způsobem probíhá správa a ochr
 * [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
-
 

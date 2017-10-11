@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplikace, oprávnění a vyjádření souhlasu v Azure Active Directory
 V rámci Azure Active Directory můžete do svého adresáře přidávat aplikace.  Aplikace se mohou lišit v závislosti na typu aplikace.  Pokud chcete zobrazit aplikace na portálu Classic, vyberte adresář a zvolte Aplikace.
 
@@ -220,5 +218,4 @@ V případě FabrikamMail to vypadá přibližně takto:
 (**ClientId** je ID instančního objektu aplikace FabrikamMail (který se právě vytvořil), **PrincipalId** je ID objektu uživatele (který vyjádřil souhlas), **ResourceId** je ID instančního objektu aplikace Exchange, Scope je oprávnění v aplikaci Exchange, se kterým se souhlasilo).
 
 Pokud uživatelům není povoleno vyjadřovat souhlas, zobrazí se jim obrazovka s upozorněním, že je vyžadováno oprávnění.
-
 

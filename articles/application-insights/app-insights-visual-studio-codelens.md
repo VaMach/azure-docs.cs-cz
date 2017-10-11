@@ -10,15 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 03/17/2017
-ms.author: daviste
-translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
-ms.lasthandoff: 11/16/2016
-
-
+ms.author: bwren
+ms.openlocfilehash: 20933afab55043ccc5ce908c04c6e4a7a28e3538
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetrie Application Insights ve Visual Studio CodeLens
 Metody v kódu vaší webové aplikace mohou být opatřeny poznámkami s telemetrií o výjimkách za běhu a časech odezvy na požadavky. Pokud ve své aplikaci nainstalujete [Azure Application Insights](app-insights-overview.md), telemetrie se zobrazí ve Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) s poznámkami v horní části každé funkce, kde jste zvyklí vídat užitečné informace, jako například počet míst, ze kterých se na funkci odkazuje, nebo jméno poslední osoby, která ji upravila.
@@ -79,5 +78,4 @@ Chcete-li zobrazit podrobnosti, klikněte na indikátor požadavků CodeLens:
 | **[Práce s Application Insights v sadě Visual Studio](app-insights-visual-studio.md)**<br/>Hledejte telemetrii, zobrazujte data v CodeLens a konfigurujte Application Insights. Vše v sadě Visual Studio. |![Klikněte pravým tlačítkem myši na projekt a vyberte Application Insights, Vyhledávání](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Přidání dalších dat](app-insights-asp-net-more.md)**<br/>Sledování využití, dostupnosti, závislostí, výjimek. Integrujte trasování z rozhraní protokolování. Zapisuje vlastní telemetrii. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Práce s portálem Application Insights](app-insights-dashboards.md)**<br/>Řídicí panely, výkonné nástroje pro diagnostiku a analýzy, výstrahy, aktivní mapa závislostí vaší aplikace a export telemetrie. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
-
 

@@ -1,11 +1,11 @@
-The Mobile Apps feature of Azure App Service uses [Azure Notification Hubs] to send pushes, so you will be configuring a notification hub for your mobile app.
+Funkce Mobile Apps služby Azure App Service používá [Azure Notification Hubs] k odesílání nabízených oznámení, tak se konfigurace centra oznámení pro mobilní aplikace.
 
-1. In the [Azure portal], go to **App Services**, and then click your app back end. Under **Settings**, click **Push**.
-2. Click **Connect** to add a notification hub resource to the app. You can either create a hub or connect to an existing one.
+1. V [portál Azure], přejděte na **App Services**a potom klikněte na vaši aplikaci back-end. V části **nastavení**, klikněte na tlačítko **Push**.
+2. Klikněte na tlačítko **Connect** přidat prostředek centra oznámení do aplikace. Můžete buď vytvořit rozbočovač nebo připojení k existující.
 
     ![](./media/app-service-mobile-create-notification-hub/configure-hub-flow.png)
 
-Now you have connected a notification hub to your Mobile Apps back-end project. Later you will configure this notification hub to connect to a platform notification system (PNS) to push to devices.
+Nyní jste se připojili centra oznámení projektu back-end mobilní aplikace. Později nakonfigurujete toto centrum oznámení pro připojení k systému oznámení platformy (PNS) k zařízení.
 
-[Azure portal]: https://portal.azure.com/
+[portál Azure]: https://portal.azure.com/
 [Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/

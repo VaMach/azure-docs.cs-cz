@@ -1,27 +1,27 @@
-## <a name="install-wordpress"></a>Install WordPress
+## <a name="install-wordpress"></a>Instalace aplikace WordPress
 
-If you want to try your stack, install a sample app. As an example, the following steps install the open source [WordPress](https://wordpress.org/) platform to create websites and blogs. Other workloads to try include [Drupal](http://www.drupal.org) and [Moodle](https://moodle.org/). 
+Pokud budete chtít zkusit do zásobníku, nainstalujte ukázkovou aplikaci. Jako příklad následující kroky instalace open source [WordPress](https://wordpress.org/) platformu pro vytváření webů a blogů. Zahrnout další úlohy a zkuste to [Drupal](http://www.drupal.org) a [Moodle](https://moodle.org/). 
 
-This WordPress setup is for proof of concept. For more information and settings for production installation, see the [WordPress documentation](https://codex.wordpress.org/Main_Page). 
+Tato instalace WordPress je pro testování konceptu. Další informace a nastavení pro provozní instalace najdete v tématu [WordPress dokumentaci](https://codex.wordpress.org/Main_Page). 
 
 
 
-### <a name="install-the-wordpress-package"></a>Install the WordPress package
+### <a name="install-the-wordpress-package"></a>Instalovat balíček WordPress
 
-Run the following command:
+Spusťte následující příkaz:
 
 ```bash
 sudo apt install wordpress
 ```
 
-### <a name="configure-wordpress"></a>Configure WordPress
+### <a name="configure-wordpress"></a>Konfigurace WordPress
 
-Configure WordPress to use MySQL and PHP. Run the following command to open a text editor of your choice and create the file `/etc/wordpress/config-localhost.php`:
+Konfigurace WordPress používání MySQL a PHP. Spusťte následující příkaz a otevřete textový editor podle svého výběru vytvoření souboru `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-Copy the following lines to the file, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Zkopírujte následující řádky do souboru, nahraďte heslo k databázi pro *yourPassword* (nechte ostatní hodnoty beze změny). Pak soubor uložte.
 
 ```php
 <?php
@@ -33,13 +33,13 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ?>
 ```
 
-In a working directory, create a text file `wordpress.sql` to configure the WordPress database: 
+V pracovním adresáři, vytvořte textový soubor `wordpress.sql` konfigurace WordPress databáze: 
 
 ```bash
 sudo sensible-editor wordpress.sql
 ```
 
-Add the following commands, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Přidejte následující příkazy, nahraďte heslo k databázi pro *yourPassword* (nechte ostatní hodnoty beze změny). Pak soubor uložte.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -51,15 +51,15 @@ FLUSH PRIVILEGES;
 ```
 
 
-Run the following command to create the database:
+Spusťte následující příkaz k vytvoření databáze:
 
 ```bash
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
 
-After the command completes, delete the file `wordpress.sql`.
+Po dokončení příkazu, odstraňte soubor `wordpress.sql`.
 
-Move the WordPress installation to the web server document root:
+Přesunete instalaci WordPress na kořen dokumentu webového serveru:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
@@ -67,6 +67,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Now you can complete the WordPress setup and publish on the platform. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
+Nyní můžete dokončit nastavení WordPress a publikovat na platformě. Otevřete prohlížeč a přejděte na `http://yourPublicIPAddress/wordpress`. Nahraďte veřejnou IP adresu vašeho virtuálního počítače. By měla vypadat podobně jako tento obrázek.
 
-![WordPress installation page](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)
+![Stránka Instalace WordPress](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

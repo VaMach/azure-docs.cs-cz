@@ -14,15 +14,12 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
-ms.contentlocale: cs-cz
-ms.lasthandoff: 04/18/2017
-
-
+ms.openlocfilehash: c85b8f8434d1e837ac96ac63b9b37f990677ed6e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Přidání přihlašování do webové aplikace Node.js
 
 **Passport** je ověřovací middleware pro Node.js. Passport je velmi flexibilní a modulární a lze ho snadno nainstalovat v jakékoli webové aplikaci využívající Express nebo Restify. Komplexní sada strategií podporuje ověřování pomocí uživatelského jména a hesla, Facebooku, Twitteru a dalších.
@@ -50,7 +47,7 @@ Před použitím Azure AD B2C musíte vytvořit adresář, nebo klienta.  Adres�
 
 Dále musíte vytvořit aplikaci v adresáři B2C. Azure AD díky tomu získá informace potřebné k bezpečné komunikaci s vaší aplikací. Klientská aplikace i webové rozhraní API budou mít stejné **ID aplikace**, protože společně tvoří jednu logickou aplikaci. Chcete-li vytvořit aplikaci, postupujte podle [těchto pokynů](active-directory-b2c-app-registration.md). Ujistěte se, že:
 
-- Jste do aplikace zahrnuli **webovou aplikaci**/**webové rozhraní API**.
+- Jste do aplikace zahrnuli **webovou aplikaci** / **webové rozhraní API**.
 - Jste do pole **Adresa URL odpovědi** vyplnili `http://localhost:3000/auth/openid/return`. To je výchozí URL pro tento příklad.
 - Vytvořte pro aplikaci **tajný klíč aplikace** a poznamenejte si ho. Budete ho potřebovat později. Před tím, než tuto hodnotu použijete, musí být [uvozena v XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. To také budete potřebovat později.
@@ -426,4 +423,3 @@ You can now move on to more advanced B2C topics. You might try:
 [Customizing the your B2C App's UX >>]()
 
 -->
-

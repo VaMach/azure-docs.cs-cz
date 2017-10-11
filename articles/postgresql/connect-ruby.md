@@ -6,24 +6,22 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/30/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: a04188aed40a46e8cb64dfeb1230fb9b3c6ab679
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 9153a5a843dd5c18f27a3af232fea3b152240fe1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití Ruby k připojení a dotazování dat
 Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí aplikace v [Ruby](https://www.ruby-lang.org). Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. V tomto článku se předpokládá, že máte zkušenosti s vývojem pomocí Ruby, ale teprve začínáte pracovat se službou Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Požadavky
-Tento rychlý start jako výchozí bod využívá prostředky vytvořené v některém z těchto průvodců:
+Tento rychlý start využívá jako výchozí bod prostředky vytvořené v některém z těchto průvodců:
 - [Vytvoření databáze – portál](quickstart-create-server-database-portal.md)
 - [Vytvoření databáze – rozhraní příkazového řádku Azure](quickstart-create-server-database-azure-cli.md)
 
@@ -61,7 +59,7 @@ Nainstalujte Ruby na vlastní počítač.
 ## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo na webu Azure Portal klikněte na **Všechny prostředky** a vyhledejte vytvořený server, například **mypgserver-20170401**.
 3. Klikněte na název serveru **mypgserver-20170401**.
 4. Vyberte stránku **Přehled** serveru. Poznamenejte si **Název serveru** a **Přihlašovací jméno správce serveru**.
@@ -214,4 +212,3 @@ end
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
 > [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
-

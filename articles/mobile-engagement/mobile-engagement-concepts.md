@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2db8af1badf908ec69e4d994755bad87e8653dee
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Koncepty Azure Mobile Engagementu
 Mobile Engagement definuje několik konceptů, které jsou společné pro všechny podporované platformy. Tento článek tyto koncepty stručně popisuje.
@@ -87,5 +86,4 @@ Celý strom párů klíč/hodnota se ukládá jako objekt JSON. Nicméně pouze 
 * [Přehled sady Windows Phone Silverlight SDK pro Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
 * [iOS SDK pro Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
 * [Android SDK pro Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
-
 

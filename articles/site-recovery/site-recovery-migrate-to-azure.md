@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Migrace do Azure pomocí Site Recovery
 
@@ -83,4 +81,3 @@ Můžete migrovat instance AWS do virtuálních počítačů Azure. V tomto scé
 - [Migrace instancí AWS do Azure](site-recovery-migrate-aws-to-azure.md)
 - [Připravte migrované počítače na povolení replikace](site-recovery-azure-to-azure-after-migration.md) do jiné oblasti pro případ, že by bylo nutné je zotavit po havárii.
 - Začněte chránit svoje úlohy pomocí [replikace virtuálních počítačů Azure](site-recovery-azure-to-azure.md).
-

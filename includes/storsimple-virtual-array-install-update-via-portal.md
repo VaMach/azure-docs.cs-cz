@@ -1,55 +1,55 @@
 <!--author=alkohli last changed: 11/07/16 -->
 
-#### <a name="to-install-updates-via-the-azure-portal"></a>To install updates via the Azure portal
+#### <a name="to-install-updates-via-the-azure-portal"></a>Instalace aktualizací prostřednictvím webu Azure Portal
 
-1. Go to your StorSimple Device Manager and select **Devices**. From the list of devices connected to your service, select and click the device you want to update. 
+1. Přejděte do Správce zařízení StorSimple a vyberte **Zařízení**. Ze seznamu zařízení připojených k vaší službě vyberte a klikněte na zařízení, které chcete aktualizovat. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
 
-2. In the **Settings** blade, click **Device updates**. 
+2. V okně **Nastavení** klikněte na **Aktualizace zařízení**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
 
-3. You see a message if the software updates are available. To check for updates, you can also click **Scan**.
+3. Pokud jsou k dispozici aktualizace softwaru, zobrazí se zpráva. Aktualizace můžete zkontrolovat také kliknutím na **Vyhledat**.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
 
-    You will be notified when the scan starts and completes successfully.
+    Po spuštění a úspěšném dokončení vyhledávání se zobrazí zpráva.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
 
-4. Once the updates are scanned, click **Download updates**. 
+4. Jakmile budou aktualizace prohledané, klikněte na **Stáhnout aktualizace**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
 
-5. In the **New updates** blade, review the information that after the updates are downloaded, you need to confirm the installation. Click **OK**.
+5. V okně **Nové aktualizace** si prohlédněte informaci o nutnosti potvrdit instalaci po stažení aktualizací. Klikněte na tlačítko **OK**.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
 
-6. You are notified when the upload starts and completes successfully.
+6. Po spuštění a úspěšném dokončení nahrávání se zobrazí zpráva.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
+     ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
 
-5. In the **Device updates** blade, click **Install**.
+5. V okně **Aktualizace zařízení** klikněte na **Nainstalovat**.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
+     ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
 
-6. In the **New updates** blade, you are warned that the update is disruptive. As virtual array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click **OK** to install the updates. 
+6. V okně **Nové aktualizace** se zobrazí upozornění na narušení běhu zařízení touto aktualizací. Protože je virtuální pole zařízením s jedním uzlem, zařízení se po aktualizaci restartuje. To naruší běh všech probíhajících V/V. Kliknutím na **OK** nainstalujte aktualizace. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
 
-7. You are notified when the install job starts. 
+7. Po spuštění úlohy instalace se zobrazí zpráva. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
 
-8.  After the install job completes successfully, click **View Job** link in the **Device updates** blade to monitor the installation. 
+8.  Po úspěšném dokončení úlohy instalace můžete kliknutím na odkaz **Zobrazit úlohu** v okně **Aktualizace zařízení** monitorovat instalaci. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
 
-    This takes you to the **Install Updates** blade. You can view detailed information about the job here.
+    Tím přejdete do okna **Instalace aktualizací**. Tady si můžete prohlédnout podrobné informace o úloze.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. After the updates are successfully installed, you see a message to this effect in the Device updates blade. The software version also changes to **10.0.10288.0**. 
+9. Po úspěšné instalaci aktualizace zobrazí zprávu, která tímto účelem se v okně aktualizace zařízení. Verze softwaru také změní na **10.0.10288.0**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

@@ -1,12 +1,12 @@
-## <a name="display-the-azure-explorer-view"></a>Display the Azure Explorer view
+## <a name="display-the-azure-explorer-view"></a>Zobrazit Průzkumník Azure
 
-If the **Azure Explorer** view is not visible in Eclipse, display it by doing the following:
+Pokud **Azure Explorer** zobrazení není zobrazená v prostředí Eclipse, zobrazit pomocí následujících kroků:
 
-1. Click **Window**, click **Show View**, and then click **Other**.
+1. Klikněte na tlačítko **okno**, klikněte na tlačítko **zobrazit zobrazení**a potom klikněte na **jiných**.
 
-   ![Show View command](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
+   ![Zobrazit zobrazení – příkaz](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
 
-2. In the **Show View** dialog box, select **Azure Explorer**, and then click **OK**.
+2. V **zobrazit zobrazení** dialogové okno, vyberte **Azure Explorer**a potom klikněte na **OK**.
 
-   ![Show View dialog box](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
+   ![Zobrazit dialogové okno zobrazení](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
 

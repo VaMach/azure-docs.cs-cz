@@ -1,19 +1,19 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Přidat nebo upravit plán zálohování StorSimple
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. Přejděte ke svému zařízení StorSimple a klikněte na **Zásady zálohování**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to modify. Right-click to invoke the context menu and then select **Add schedule**.
+2. V tabulkovém seznam zásad, vyberte a klikněte na zásadu, kterou chcete upravit. Klikněte pravým tlačítkem na vyvolání v místní nabídce a potom vyberte **přidat plán**.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
+    ![Spravovat plány](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. In the **Add schedule** blade, modify the snapshot type, backup frequency, retention, and start date and time. Click **Add**.
+3. V **přidat plán** okně Upravit typ snímku, frekvenci zálohování, uchovávání a počáteční datum a čas. Klikněte na tlačítko **Přidat**.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
+    ![Spravovat plány](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
-4. You are notified when the backup policy creation is complete. The backup policy list is also updated.
+4. Upozornění se zobrazí po dokončení vytvoření zásady zálohování. Zásady zálohování seznamu je také aktualizovat.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
+    ![Spravovat plány](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 

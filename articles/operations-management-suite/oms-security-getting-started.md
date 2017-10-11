@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Začínáme s řešením Zabezpečení a audit v Operations Management Suite
 Tento dokument vám umožní rychle začít používat řešení Zabezpečení a audit v Operations Management Suite (OMS) a provede vás jednotlivými možnostmi.
@@ -200,5 +199,4 @@ V tomto dokumentu jste se seznámili s řešením Zabezpečení a audit v OMS. D
 * [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
-
 

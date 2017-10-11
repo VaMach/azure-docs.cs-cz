@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
-ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
-
-
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Úvod do zabezpečení Hadoop s clustery HDInsight připojenými k doméně (Preview)
 
@@ -27,8 +28,9 @@ Služba Azure HDInsight až doteď podporovala jako místního správce pouze je
 
 > [!NOTE]
 > Nové funkce popsané v této verzi Preview jsou dostupné jenom na clusterech HDInsight založených na Linuxu pro úlohy Hivu. Další úlohy, jako například HBase, Spark, Storm a Kafka, budou povoleny v budoucích verzích.
->
->
+
+> [!IMPORTANT]
+> Oozie není povoleno v doméně HDInsight.
 
 ## <a name="benefits"></a>Výhody
 Zabezpečení podniku se skládá ze čtyř hlavních pilířů – Zabezpečení perimetru, Ověřování, Autorizace a Šifrování.
@@ -48,16 +50,10 @@ Osvědčeným postupem, který dodržuje většina podniků, je, že ne každý 
 Kromě ochrany prostředků clusteru HDInsight před neautorizovanými uživateli a zabezpečení dat je nezbytné provádění auditu veškerých přístupů k prostředkům a datům clusteru za účelem sledování neautorizovaného nebo nechtěného přístupu k prostředkům. V této verzi Preview může správce zobrazit a vytvářet sestavy o všech přístupech k prostředkům a datům clusteru HDInsight. Správce může také zobrazit a vytvářet sestavy o všech změnách v zásadách řízení přístupu provedených v koncových bodech podporovaných v Apache Ranger. Cluster HDInsight připojený k doméně používá k prohledávání protokolů auditu známé uživatelské rozhraní Apache Ranger. Na back-endu používá Ranger k ukládání a prohledávání protokolů [Apache Solr](http://hortonworks.com/apache/solr/).
 
 ### <a name="encryption"></a>Šifrování
-Ochrana dat je důležitá pro splnění požadavků na zabezpečení organizace a dodržování předpisů. Kromě omezení přístupu k datům neautorizovanými uživateli by data měla být zabezpečena také šifrováním. Obě úložiště dat pro clustery HDInsight (Azure Storage Blob a úložiště Azure Data Lake) podporují transparentní [šifrování neaktivních uložených dat](../storage/storage-service-encryption.md) na straně serveru. Zabezpečené clustery HDInsight budou bez problému fungovat s touto schopností šifrování neaktivních uložených dat na straně serveru.
+Ochrana dat je důležitá pro splnění požadavků na zabezpečení organizace a dodržování předpisů. Kromě omezení přístupu k datům neautorizovanými uživateli by data měla být zabezpečena také šifrováním. Obě úložiště dat pro clustery HDInsight (Azure Storage Blob a úložiště Azure Data Lake) podporují transparentní [šifrování neaktivních uložených dat](../storage/common/storage-service-encryption.md) na straně serveru. Zabezpečené clustery HDInsight budou bez problému fungovat s touto schopností šifrování neaktivních uložených dat na straně serveru.
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete konfigurovat cluster HDInsight připojený k doméně, přečtěte si téma [Konfigurace clusterů HDInsight připojených k doméně](hdinsight-domain-joined-configure.md).
 * Pokud chcete spravovat clustery HDInsight připojené k doméně, přečtěte si téma [Správa clusterů HDInsight připojených k doméně](hdinsight-domain-joined-manage.md).
 * Pokud chcete konfigurovat zásady Hivu a spouštět dotazy Hivu, přečtěte si téma [Konfigurace zásad Hivu pro clustery HDInsight připojené k doméně](hdinsight-domain-joined-run-hive.md).
-* Pokud chcete spouštět dotazy Hivu pomocí SSH na clusterech HDInsight připojených k doméně, přečtěte si téma [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Linux, Unix nebo OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+* Spuštění dotazů Hive pomocí protokolu SSH v clusterech HDInsight připojený k doméně, najdete v části [použití SSH s HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

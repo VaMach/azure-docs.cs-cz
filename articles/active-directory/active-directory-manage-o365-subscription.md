@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Správa adresáře pro předplatné služeb Office 365 ve službě Azure
 Tento článek popisuje, jak spravovat adresář, který byl vytvořen pro předplatné služeb Office 365, pomocí portálu Azure Classic. Pokud se chcete přihlásit k portálu Azure Classic, musíte být správce nebo spolusprávce služeb v předplatném služby Azure. Pokud ještě nemáte předplatné Azure, můžete si pomocí tohoto odkazu zaregistrovat [bezplatnou 30denní zkušební verzi](https://azure.microsoft.com/trial/get-started-active-directory/) ještě dnes a nasadit první cloudové řešení za méně než 5 minut. Nezapomeňte použít pracovní nebo školní účet, jaký používáte k přihlášení do služeb Office 365.
@@ -70,4 +69,3 @@ Nyní předpokládejme, že Jana Valentová potřebuje spravovat prostředky web
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o vztahu mezi předplatnými a adresáři najdete v článku, [jak předplatné je spojeno s adresářem](active-directory-how-subscriptions-associated-directory.md).
-

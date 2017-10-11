@@ -1,100 +1,100 @@
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Back up Azure unmanaged VM disks with incremental snapshots
-## <a name="overview"></a>Overview
-Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we describe a scenario in which you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks.
+# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Zálohování Azure nespravované disky virtuálních počítačů s přírůstkové snímky
+## <a name="overview"></a>Přehled
+Úložiště Azure poskytuje schopnost pořizovat snímky objektů BLOB. Snímky zaznamenání stavu objektů blob v tomto bodě v čase. V tomto článku jsme popisují scénáře, ve kterém můžete spravovat zálohy disků virtuálních počítačů pomocí snímků. Můžete použít tuto metodu, když jste zvolit nepoužívání Azure zálohování a obnovení služby a chcete vytvořit vlastní strategii zálohování pro disky virtuálního počítače.
 
-Azure virtual machine disks are stored as page blobs in Azure Storage. Since we are describing a backup strategy for virtual machine disks in this article, we refer to snapshots in the context of page blobs. To learn more about snapshots, refer to [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+Disky virtuálních počítačů Azure jsou uloženy jako objekty BLOB stránky ve službě Azure Storage. Vzhledem k tomu, že jsme se s popisem strategie zálohování pro disky virtuálního počítače v tomto článku, označujeme snímky v souvislosti s objekty BLOB stránky. Další informace o snímků, najdete v tématu [vytvoření snímku objektu Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-## <a name="what-is-a-snapshot"></a>What is a snapshot?
-A blob snapshot is a read-only version of a blob that is captured at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up a blob as it appears at a moment in time. Until REST version 2015-04-05, you had the ability to copy full snapshots. With the REST version 2015-07-08 and above, you can also copy incremental snapshots.
+## <a name="what-is-a-snapshot"></a>Co je snímek?
+Objekt blob snímek je jen pro čtení verze objektu blob zachycenou v bodě v čase. Po vytvoření snímku, ho můžete číst, kopírovat, nebo odstranit, ale nedojde ke změně. Snímky poskytují způsob, jak zálohovat objekt blob, jak se objevuje v časovém okamžiku. Dokud REST verze 2015-04-05 bylo možnost Kopírovat úplné snímky. S ostatními verze 2015-07-08 a vyšší, můžete také můžete zkopírovat přírůstkové snímky.
 
-## <a name="full-snapshot-copy"></a>Full snapshot copy
-Snapshots can be copied to another storage account as a blob to keep backups of the base blob. You can also copy a snapshot over its base blob, which is like restoring the blob to an earlier version. When a snapshot is copied from one storage account to another, it occupies the same space as the base page blob. Therefore, copying whole snapshots from one storage account to another is slow and consumes much space in the target storage account.
+## <a name="full-snapshot-copy"></a>Kopírování úplné snímku
+Snímky je možné zkopírovat do jiného účtu úložiště jako objekt blob zachovat zálohy základní objekt blob. Můžete také zkopírovat snímek přes jeho základní objekt blob, které je třeba obnovení objektu blob na starší verzi. Po zkopírování snímek z jednoho účtu úložiště do druhého zabírá na stejném místě jako objekt blob základní stránky. Proto kopírování celou snímky z jednoho účtu úložiště do druhého je pomalé a spotřebuje, kolik místa v cílový účet úložiště.
 
 > [!NOTE]
-> If you copy the base blob to another destination, the snapshots of the blob are not copied along with it. Similarly, if you overwrite a base blob with a copy, snapshots associated with the base blob are not affected and stay intact under the base blob name.
+> Pokud základní objekt blob zkopírujete na jiný cíl, nejsou spolu se ji zkopírovat snímky objektu blob. Podobně přepíšete základní objekt blob se kopie, neovlivní snímky přidružené základní objekt blob a zůstanou beze změn v části název základního objektu blob.
 > 
 > 
 
-### <a name="back-up-disks-using-snapshots"></a>Back up disks using snapshots
-As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operation or [AzCopy](../articles/storage/common/storage-use-azcopy.md). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article, we describe steps to take backups of virtual machine disks using snapshots.
+### <a name="back-up-disks-using-snapshots"></a>Zálohovat disky pomocí snímků
+Jako strategie zálohování pro disky virtuálního počítače, můžete využít pravidelné snímky objektu blob disk nebo stránce a kopírování je do jiného úložiště účtu pomocí nástroje jako [kopírovat objekt Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operaci nebo [AzCopy](../articles/storage/common/storage-use-azcopy.md). Snímek můžete zkopírovat na cílový objekt blob stránky s jiným názvem. Výsledný objekt blob stránky cílové je objekt blob stránky lze zapisovat a není snímek. Později v tomto článku jsme popisují kroky pro zálohování disky virtuálního počítače pomocí snímků.
 
-### <a name="restore-disks-using-snapshots"></a>Restore disks using snapshots
-When it is time to restore your disk to a stable version that was previously captured in one of the backup snapshots, you can copy a snapshot over the base page blob. After the snapshot is promoted to the base page blob, the snapshot remains, but its source is overwritten with a copy that can be both read and written. Later in this article we describe steps to restore a previous version of your disk from its snapshot.
+### <a name="restore-disks-using-snapshots"></a>Obnovení disků pomocí snímků
+Pokud nastane čas k obnovení vašeho disku stabilní verzi, která byla dříve zaznamenána v jednom z snímků zálohy, můžete zkopírovat snímek přes základní stránky objektu blob. Po snímku je propagována do základní stránky objektu blob, zůstanou snímku, ale dojde k přepsání zdrojem kopie, kterou může být číst a zapisovat. Později v tomto článku jsme popisují postup obnovit předchozí verze disku z jeho snímků.
 
-### <a name="implementing-full-snapshot-copy"></a>Implementing full snapshot copy
-You can implement a full snapshot copy by doing the following,
+### <a name="implementing-full-snapshot-copy"></a>Implementace kopie úplné snímku
+Pomocí těchto kroků můžete implementovat kopii úplné snímku
 
-* First, take a snapshot of the base blob using the [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) operation.
-* Then, copy the snapshot to a target storage account using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
-* Repeat this process to maintain backup copies of your base blob.
+* Nejprve vytvořte snímek pomocí základní objekt blob [snímku Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) operaci.
+* Zkopírujte snímek pomocí účet cílového úložiště [kopírovat objekt Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
+* Opakujte tento postup k udržování záložní kopie vaše základní objekt blob.
 
-## <a name="incremental-snapshot-copy"></a>Incremental snapshot copy
-The new feature in the [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API provides a much better way to back up the snapshots of your page blobs or disks. The API returns the list of changes between the base blob and the snapshots, which reduces the amount of storage space used on the backup account. The API supports page blobs on Premium Storage as well as Standard Storage. Using this API, you can build faster and more efficient backup solutions for Azure VMs. This API will be available with the REST version 2015-07-08 and higher.
+## <a name="incremental-snapshot-copy"></a>Kopírování přírůstkový snímek
+Nová funkce v [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) rozhraní API poskytuje mnohem lepší způsob, jak zálohovat snímky objekty BLOB stránky nebo disků. Rozhraní API vrátí seznam změn mezi základní objekt blob a snímky, což snižuje množství prostoru úložiště použít na účet záloh. Rozhraní API podporuje objekty BLOB stránky na Storage úrovně Premium, jakož i úložiště Standard Storage. Toto rozhraní API používáte, můžete vytvořit rychlejší a efektivnější řešení zálohování pro virtuální počítače Azure. Toto rozhraní API bude k dispozici REST verze 2015-07-08 a vyšší.
 
-Incremental Snapshot Copy allows you to copy from one storage account to another the difference between,
+Přírůstkové kopie snímků umožňuje kopírovat z jednoho účtu úložiště do druhého rozdíl mezi,
 
-* Base blob and its Snapshot OR
-* Any two snapshots of the base blob
+* Základní objekt blob a jeho snímek nebo
+* Všechny dva snímky základní objekt blob
 
-Provided the following conditions are met,
+Za předpokladu, že jsou splněny následující podmínky,
 
-* The blob was created on Jan-1-2016 or later.
-* The blob was not overwritten with [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) or [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) between two snapshots.
+* Objekt blob byl vytvořen ledna-1-2016 nebo novější.
+* Objekt blob nebyla přepsána [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) nebo [kopírovat objekt Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) mezi dvěma snímky.
 
-**Note**: This feature is available for Premium and Standard Azure Page Blobs.
+**Poznámka:**: Tato funkce je dostupná pro Premium a Standard objekty BLOB stránky Azure.
 
-When you have a custom backup strategy using snapshots, copying the snapshots from one storage account to another can be slow and can consume much storage space. Instead of copying the entire snapshot to a backup storage account, you can write the difference between consecutive snapshots to a backup page blob. This way, the time to copy and the space to store backups is substantially reduced.
+Až budete mít vlastní strategii zálohování pomocí snímků, kopírování snímky z jednoho účtu úložiště do druhého může být pomalé a spotřebovat velké úložiště. Namísto kopírování celý snímek na účet úložiště záloh, můžete napsat rozdíl mezi po sobě jdoucích snímků na objekt blob stránky zálohování. Tímto způsobem je podstatně snížit čas pro kopírování a místa pro uložení zálohy.
 
-### <a name="implementing-incremental-snapshot-copy"></a>Implementing Incremental Snapshot Copy
-You can implement incremental snapshot copy by doing the following,
+### <a name="implementing-incremental-snapshot-copy"></a>Implementace přírůstkový snímek kopie
+Pomocí těchto kroků můžete implementovat přírůstkový snímek kopie
 
-* Take a snapshot of the base blob using [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copy the snapshot to the target backup storage account using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). This is the backup page blob. Take a snapshot of the backup page blob and store it in the backup account.
-* Take another snapshot of the base blob using Snapshot Blob.
-* Get the difference between the first and second snapshots of the base blob using [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Use the new parameter **prevsnapshot**, to specify the DateTime value of the snapshot you want to get the difference with. When this parameter is present, the REST response includes only the pages that were changed between target snapshot and previous snapshot including clear pages.
-* Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) to apply these changes to the backup page blob.
-* Finally, take a snapshot of the backup page blob and store it in the backup storage account.
+* Pořízení snímku základní objekt blob pomocí [snímku Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
+* Kopírování snímku do cílového úložiště pro zálohy účtu pomocí [kopírovat objekt Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Toto je objektů blob zálohy stránky. Pořízení snímku objektů blob zálohy stránky a uloží jej v zálohování účtu.
+* Vytvořte nový snímek objektu blob základní pomocí snímku objektů Blob.
+* Získat rozdíl mezi prvním a druhém snímkům základní objekt blob pomocí [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Použít nový parametr **prevsnapshot**, zadejte hodnotu data a času chcete získat rozdíl oproti snímku. Pokud tento parametr, REST odpověď obsahuje pouze stránky, které byly změněny mezi cíl snímku a předchozího snímku, včetně zrušte stránky.
+* Použití [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) použití těchto změn na objekt blob stránky zálohování.
+* Nakonec pořízení snímku objektů blob zálohy stránky a uloží jej v účtu úložiště záloh.
 
-In the next section, we will describe in more detail how you can maintain backups of disks using Incremental Snapshot Copy
+V další části jsme se podrobněji popisují jak můžete spravovat zálohy disků pomocí přírůstkové kopie snímků
 
-## <a name="scenario"></a>Scenario
-In this section, we describe a scenario that involves a custom backup strategy for virtual machine disks using snapshots.
+## <a name="scenario"></a>Scénář
+V této části popisují jsme scénář, který zahrnuje vlastní strategii zálohování pro disky virtuálního počítače pomocí snímků.
 
-Consider a DS-series Azure VM with a premium storage P30 disk attached. The P30 disk called *mypremiumdisk* is stored in a premium storage account called *mypremiumaccount*. A standard storage account called *mybackupstdaccount* is used for storing the backup of *mypremiumdisk*. We would like to keep a snapshot of *mypremiumdisk* every 12 hours.
+Zvažte DS-series virtuální počítač Azure s připojený disk P30 úložiště premium. P30 disk označuje *mypremiumdisk* je uložený v účtu úložiště premium názvem *mypremiumaccount*. Účet standardního úložiště s názvem *mybackupstdaccount* se použije k uložení zálohy *mypremiumdisk*. Rádi bychom se zachovat snímek *mypremiumdisk* každých 12 hodin.
 
-To learn about creating storage account and disks, refer to [About Azure storage accounts](../articles/storage/storage-create-storage-account.md).
+Další informace o vytváření účtu úložiště a disky, najdete v tématu [účty Azure storage](../articles/storage/storage-create-storage-account.md).
 
-To learn about backing up Azure VMs, refer to [Plan Azure VM backups](../articles/backup/backup-azure-vms-introduction.md).
+Další informace o zálohování virtuálních počítačů Azure, najdete v tématu [zálohování virtuálního počítače Azure plánování](../articles/backup/backup-azure-vms-introduction.md).
 
-## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Steps to maintain backups of a disk using incremental snapshots
-The following steps describe how to take snapshots of *mypremiumdisk* and maintain the backups in *mybackupstdaccount*. The backup is a standard page blob called *mybackupstdpageblob*. The backup page blob always reflects the same state as the last snapshot of *mypremiumdisk*.
+## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Postup Udržovat zálohy disku pomocí přírůstkové snímků
+Následující kroky popisují postup pořízení snímků *mypremiumdisk* a udržovat záloh v *mybackupstdaccount*. Zálohování je objekt blob standardní stránky názvem *mybackupstdpageblob*. Objekt blob zálohování stránky vždy odráží stejného stavu jako poslední snímek *mypremiumdisk*.
 
-1. Create the backup page blob for your premium storage disk, by taking a snapshot of *mypremiumdisk* called *mypremiumdisk_ss1*.
-2. Copy this snapshot to mybackupstdaccount as a page blob called *mybackupstdpageblob*.
-3. Take a snapshot of *mybackupstdpageblob* called *mybackupstdpageblob_ss1*, using [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) and store it in *mybackupstdaccount*.
-4. During the backup window, create another snapshot of *mypremiumdisk*, say *mypremiumdisk_ss2*, and store it in *mypremiumaccount*.
-5. Get the incremental changes between the two snapshots, *mypremiumdisk_ss2* and *mypremiumdisk_ss1*, using [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) on *mypremiumdisk_ss2* with the **prevsnapshot** parameter set to the timestamp of *mypremiumdisk_ss1*. Write these incremental changes to the backup page blob *mybackupstdpageblob* in *mybackupstdaccount*. If there are deleted ranges in the incremental changes, they must be cleared from the backup page blob. Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) to write incremental changes to the backup page blob.
-6. Take a snapshot of the backup page blob *mybackupstdpageblob*, called *mybackupstdpageblob_ss2*. Delete the previous snapshot *mypremiumdisk_ss1* from premium storage account.
-7. Repeat steps 4-6 every backup window. In this way, you can maintain backups of *mypremiumdisk* in a standard storage account.
+1. Vytvořte objekt blob zálohování stránky pro disk úložiště premium, tak, že pořízení snímku *mypremiumdisk* názvem *mypremiumdisk_ss1*.
+2. Zkopírujte tento snímek do mybackupstdaccount jako objekt blob stránky názvem *mybackupstdpageblob*.
+3. Pořízení snímku *mybackupstdpageblob* názvem *mybackupstdpageblob_ss1*pomocí [snímku Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) a uloží jej v *mybackupstdaccount*.
+4. V daném intervalu zálohování vytvořit snímek jiného *mypremiumdisk*, například *mypremiumdisk_ss2*a ukládá je v *mypremiumaccount*.
+5. Získat přírůstkové změny mezi dvěma snímky *mypremiumdisk_ss2* a *mypremiumdisk_ss1*pomocí [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) na *mypremiumdisk_ ss2* s **prevsnapshot** parametr nastaven na časové razítko *mypremiumdisk_ss1*. Zapište tyto přírůstkové změny do objektů blob zálohy stránky *mybackupstdpageblob* v *mybackupstdaccount*. Pokud jsou v přírůstkové změny odstraněné rozsahy, je potřeba smazat z objektů blob zálohy stránky. Použití [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) k zápisu do objektů blob zálohy stránky přírůstkové změny.
+6. Pořízení snímku objektů blob zálohy stránky *mybackupstdpageblob*, volané *mybackupstdpageblob_ss2*. Odstranit předchozí snímek *mypremiumdisk_ss1* z prémiový účet úložiště.
+7. Opakujte kroky 4 až 6 každých intervalu zálohování. Tímto způsobem můžete udržovat zálohy *mypremiumdisk* v standardní účet úložiště.
 
-![Back up disk using incremental snapshots](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
+![Zálohování pomocí přírůstkové snímků disku](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
 
-## <a name="steps-to-restore-a-disk-from-snapshots"></a>Steps to restore a disk from snapshots
-The following steps, describe how to restore the premium disk, *mypremiumdisk* to an earlier snapshot from the backup storage account *mybackupstdaccount*.
+## <a name="steps-to-restore-a-disk-from-snapshots"></a>Postup obnovení disku ze snímků
+Následující kroky popisují, jak obnovit premium disk *mypremiumdisk* na dřívějším snímkem z účtu úložiště pro zálohy *mybackupstdaccount*.
 
-1. Identify the point in time that you wish to restore the premium disk to. Let's say that it is snapshot *mybackupstdpageblob_ss2*, which is stored in the backup storage account *mybackupstdaccount*.
-2. In mybackupstdaccount, promote the snapshot *mybackupstdpageblob_ss2* as the new backup base page blob *mybackupstdpageblobrestored*.
-3. Take a snapshot of this restored backup page blob, called *mybackupstdpageblobrestored_ss1*.
-4. Copy the restored page blob *mybackupstdpageblobrestored* from *mybackupstdaccount* to *mypremiumaccount* as the new premium disk *mypremiumdiskrestored*.
-5. Take a snapshot of *mypremiumdiskrestored*, called *mypremiumdiskrestored_ss1* for making future incremental backups.
-6. Point the DS series VM to the restored disk *mypremiumdiskrestored* and detach the old *mypremiumdisk* from the VM.
-7. Begin the Backup process described in previous section for the restored disk *mypremiumdiskrestored*, using the *mybackupstdpageblobrestored* as the backup page blob.
+1. Identifikujte bod v čase, kterou chcete obnovit premium disk. Řekněme, že je snímek *mybackupstdpageblob_ss2*, který je uložený v účtu úložiště pro zálohy *mybackupstdaccount*.
+2. V mybackupstdaccount, zvýšení úrovně snímku *mybackupstdpageblob_ss2* jako nový objekt blob zálohování základní stránky *mybackupstdpageblobrestored*.
+3. Pořízení snímku tento objekt blob stránky obnovené zálohy, nazývá *mybackupstdpageblobrestored_ss1*.
+4. Kopírovat objekt blob obnovené stránky *mybackupstdpageblobrestored* z *mybackupstdaccount* k *mypremiumaccount* jako nový disk premium *mypremiumdiskrestored*.
+5. Pořízení snímku *mypremiumdiskrestored*, volané *mypremiumdiskrestored_ss1* pro provedení budoucí přírůstkové zálohování.
+6. Bodu řady DS virtuální počítač obnovený disk *mypremiumdiskrestored* a odpojit starý *mypremiumdisk* z virtuálního počítače.
+7. Zahájit proces zálohování popsané v předchozí části pro obnovené disk *mypremiumdiskrestored*pomocí *mybackupstdpageblobrestored* jako objekt blob zálohování stránky.
 
-![Restore disk from snapshots](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
+![Obnovení disku ze snímků](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Next Steps
-Use the following links to learn more about creating snapshots of a blob and planning your VM backup infrastructure.
+## <a name="next-steps"></a>Další kroky
+Další informace o vytváření snímků objektu blob a plánování infrastruktury zálohování virtuálních počítačů pomocí následujících odkazů.
 
-* [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [Plan your VM Backup Infrastructure](../articles/backup/backup-azure-vms-introduction.md)
+* [Vytvoření snímku objektu Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+* [Plánování vaší infrastruktury zálohování virtuálních počítačů](../articles/backup/backup-azure-vms-introduction.md)
 

@@ -1,6 +1,6 @@
 ---
 title: "Spouštění analytických dotazů pro více databází SQL Azure | Dokumentace Microsoftu"
-description: "Spouštění distribuovaných dotazů ve více databázích SQL Azure"
+description: "Extrahovat data z databáze klienta do databáze analýzy pro offline analýzu"
 keywords: kurz k sql database
 services: sql-database
 documentationcenter: 
@@ -9,27 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Spouštění distribuovaných dotazů ve více databázích SQL Azure
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Extrahovat data z databáze klienta do databáze analýzy pro offline analýzu
 
-V tomto kurzu budete spouštět analytické dotazy u všech tenantů v katalogu. Vytvoří se elastická úloha, která spouští dotazy. Úloha načítá data a nahraje je do samostatné analytické databáze vytvořené na katalogovém serveru. Tato databáze může být dotazována k extrahování přehledů, které jsou skryté v každodenních provozních datech všech tenantů. Výstupem úlohy je tabulka vytvořená z dotazů, které vracejí výsledky v rámci analytické databáze tenantů.
+V tomto kurzu použijete elastické úlohy ke spouštění dotazů na každou databázi klienta. Úloha extrahuje data prodeje lístků a načte ji do databáze analýzy (nebo datového skladu) pro analýzu. Databáze analýzy je pak dotazován extrahovat statistiky z této každodenní provozních dat všech klientů.
 
 
-Co se v tomto kurzu naučíte:
+V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Vytvoření analytické databáze tenantů
@@ -37,8 +35,8 @@ Co se v tomto kurzu naučíte:
 
 Předpokladem dokončení tohoto kurzu je splnění následujících požadavků:
 
-* Je nasazená aplikace WTP. Informace o nasazení, které netrvá ani pět minut, najdete v článku [Nasazení SaaS aplikace WTP a seznámení s ní](sql-database-saas-tutorial.md).
-* Prostředí Azure PowerShell je nainstalované. Podrobnosti najdete v článku [Začínáme s prostředím Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Adresář Wingtip SaaS aplikace je nasazená. Nasazení za méně než pět minut najdete v tématu [nasazení a seznamte se s Wingtip SaaS aplikace](sql-database-saas-tutorial.md)
+* Je nainstalované prostředí Azure PowerShell. Podrobnosti najdete v článku [Začínáme s prostředím Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Je nainstalovaná nejnovější verze SQL Server Management Studia (SSMS). [Stažení a instalace SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 ## <a name="tenant-operational-analytics-pattern"></a>Vzor provozní analýzy tenanta
@@ -47,7 +45,7 @@ Jednou ze skvělých příležitostí, které nabízejí aplikace SaaS, je použ
 
 ## <a name="get-the-wingtip-application-scripts"></a>Získání skriptů aplikace Wingtip
 
-Skripty a zdrojový kód aplikace Wingtip Tickets jsou k dispozici v úložišti GitHubu [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Soubory se skripty jsou ve [složce Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Stáhněte si složku **Learning Modules** do svého místního počítače. Dejte pozor, abyste zachovali strukturu složky.
+Adresář Wingtip SaaS skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) úložiště github. [Postup stažení skripty Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Nasazení databáze pro výsledky analýzy tenanta
 
@@ -68,14 +66,14 @@ Tento kurz vyžaduje, abyste měli nasazenou databázi, do které se budou zazna
 
 Tento skript vytvoří úlohu k načtení informací o nákupu lístků ze všech tenantů. Po shrnutí do jedné tabulky můžete získat bohatou informační metriku o vzorcích nákupu lístků napříč tenanty.
 
-1. Otevřete SSMS a připojte se k serveru catalog-\<user\>.database.windows.net.
+1. Otevřete SSMS a připojte se k serveru catalog-&lt;user&gt;.database.windows.net.
 1. Otevřete složku ...\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*TicketPurchasesfromAllTenants.sql*
-1. Změňte parametr \<WtpUser\> a použijte uživatelské jméno, které jste použili při nasazení aplikace WTP v horní části skriptu, **sp\_add\_target\_group\_member** a **sp\_add\_jobstep**
-1. Klikněte pravým tlačítkem, vyberte **Connection** (Připojení) a připojte se k serveru catalog-\<WtpUser\>.database.windows.net, pokud jste se k němu ještě nepřipojili.
+1. Upravit &lt;uživatele&gt;, použít uživatelské jméno použít při nasazení aplikace Wingtip SaaS v horní části na skript, **sp\_přidat\_cíl\_skupiny\_člen** a **sp\_přidat\_krok úlohy**
+1. Klikněte pravým tlačítkem, vyberte **připojení**a připojte se k katalogu -&lt;uživatele&gt;. database.windows.net serveru, pokud ještě není připojen.
 1. Zkontrolujte, že jste připojení k databázi **jobaccount**, a stisknutím klávesy **F5** spusťte skript.
 
 * **sp\_add\_target\_group** vytvoří cílovou skupinu s názvem *TenantGroup*. Teď potřebujeme přidat cílové členy.
-* **sp\_add\_target\_group\_member** přidá typ člena *server*, který předpokládá, že všechny databáze na daném serveru (server customer1-&lt;WtpUser&gt; obsahující databáze tenantů) budou v okamžiku spuštění úlohy do této úlohy zahrnuté.
+* **SP\_přidat\_cíl\_skupiny\_člen** přidá *server* cíle typ člena, které považuje za všechny databáze v rámci tohoto serveru (Poznámka: Toto je customer1-&lt; Uživatel&gt; server obsahující databáze klienta) v čase úlohy by měl být součástí provádění úlohy.
 * **sp\_add\_job** vytvoří novou týdně plánovanou úlohu nazvanou Nákup lístků ze všech tenantů.
 * **sp\_add\_jobstep** vytvoří krok úlohy, který obsahuje text příkazu T-SQL k načtení všech informací o nákupu lístků ze všech tenantů, a zkopíruje výslednou sadu výsledků do tabulky nazvané *AllTicketsPurchasesfromAllTenants*
 * Zbývající pohledy ve skriptu zobrazují existující objekty a monitorují provádění úlohy. Zkontrolujte stavovou hodnotu ze sloupce **lifecycle**, která vám umožní monitorovat stav. V případě úspěchu je úloha zdárně dokončena na všech databázích tenantů i na dvou dalších databázích obsahujících referenční tabulku.
@@ -90,8 +88,8 @@ Tento skript vytvoří úlohu k načtení souhrnu všech nákupů lístků ze v�
 
 1. Otevřete SSMS a připojte se k serveru*catalog-&lt;User&gt;.database.windows.net*.
 1. Otevřete skript …\\Learning Modules\\Provision and Catalog\\Operational Analytics\\Tenant Analytics\\*Results-TicketPurchasesfromAllTenants.sql*
-1. Změňte parametr &lt;WtpUser&gt; a použijte uživatelské jméno, které jste použili při nasazení aplikace WTP ve skriptu v uložené proceduře **sp\_add\_jobstep**
-1. Klikněte pravým tlačítkem, vyberte **Connection** (Připojení) a připojte se k serveru catalog-\<WtpUser\>.database.windows.net, pokud jste se k němu ještě nepřipojili.
+1. Upravit &lt;uživatele&gt;, použít uživatelské jméno použít při nasazení aplikace Wingtip SaaS ve skriptu, v **sp\_přidat\_krok úlohy** uložené procedury
+1. Klikněte pravým tlačítkem, vyberte **připojení**a připojte se k katalogu -&lt;uživatele&gt;. database.windows.net serveru, pokud ještě není připojen.
 1. Zkontrolujte, že jste připojení k databázi **tenantanalytics**, a stisknutím klávesy **F5** spusťte skript.
 
 Úspěšné spuštění skriptu by mělo vrátit podobné výsledky:
@@ -119,5 +117,5 @@ Blahopřejeme!
 
 ## <a name="additional-resources"></a>Další zdroje
 
-* [Další kurzy, které vycházejí z původně nasazené aplikace WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Další [návodů, které stavět na adresář Wingtip SaaS aplikace](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastické úlohy](sql-database-elastic-jobs-overview.md)

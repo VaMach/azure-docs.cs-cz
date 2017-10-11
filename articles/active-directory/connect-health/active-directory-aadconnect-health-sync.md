@@ -14,12 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Sledování synchronizace Azure AD Connect pomocí služby Azure AD Connect Health
 Následující dokumentace se věnuje sledování služby Azure AD Connect (Sync) pomocí služby Azure AD Connect Health.  Informace o sledování služby AD FS pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md). Informace o sledování služby Active Directory Domain Services pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md).

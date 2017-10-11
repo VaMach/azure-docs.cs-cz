@@ -1,21 +1,21 @@
-#### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account 
+#### <a name="prerequisites"></a>Požadavky
+* Účet Azure; můžete vytvořit [bezplatný účet](https://azure.microsoft.com/free)
+* A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) účtu 
 
-Before you can use your OneDrive account in a logic app, authorize the logic app to connect to your OneDrive account.  You can do this easily within your logic app on the Azure portal. 
+Než účtem Onedrivu můžete použít v aplikaci logiky, autorizovat aplikaci logiky se připojit ke svému účtu OneDrive.  Můžete k tomu snadno v rámci aplikace logiky na portálu Azure. 
 
-Authorize your logic app to connect to your OneDrive account using the following steps:
+Autorizace aplikace logiky pro připojení k účtu OneDrive pomocí následujících kroků:
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "onedrive" in the search box. Select one of the triggers or actions:  
+1. Vytvoření aplikace logiky. V Návrháři Logic Apps vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu a potom zadejte do vyhledávacího pole "onedrive". Vyberte jednu z aktivační události nebo akce:  
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. If you haven't previously created any connections to OneDrive, you are prompted to sign in using your OneDrive credentials:  
+2. Pokud jste dosud nevytvořili všechna připojení k Onedrivu, budete vyzváni k přihlášení pomocí přihlašovacích údajů OneDrive:  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**:  
+3. Vyberte **přihlášení**a zadejte uživatelské jméno a heslo. Vyberte **přihlášení**:  
    ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
-    These credentials are used to authorize your logic app to connect to, and access the data in your OneDrive account. 
-4. Select **Yes** to authorize the logic app to use your OneDrive account:  
+    Tyto přihlašovací údaje se používají k autorizaci aplikace logiky pro připojení k a přístupu k datům v účtu OneDrive. 
+4. Vyberte **Ano** autorizovat aplikaci logiky, aby používala účtu OneDrive:  
    ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app:  
+5. Všimněte si, že existuje připojení. Nyní pokračujte další kroky v aplikaci logiky:  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 

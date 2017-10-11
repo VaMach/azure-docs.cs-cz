@@ -6,16 +6,15 @@ author: sanagama
 ms.author: sanagama
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: b2be9e265075c58ed53a0a49c01a08e05db35a06
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: d78243abc140c7b3f0b99bdf56821b7920568550
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Vytvoření Azure Database for PostgreSQL pomocí rozhraní CLI Azure
 Azure Database for PostgreSQL je spravovaná služba, která umožňuje spouštět, spravovat a škálovat vysoce dostupné databáze PostgreSQL v cloudu. Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. V tomto rychlém startu se dozvíte, jak vytvořit server Azure Database for PostgreSQL ve [skupině prostředků Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pomocí rozhraní CLI Azure.
@@ -165,4 +164,3 @@ az postgres server delete --resource-group myresourcegroup --name mypgserver-201
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
 > [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
-

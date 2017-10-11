@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Jak funguje replikace Hyper-V do Azure v Site Recovery?
 
 
@@ -47,7 +44,7 @@ Při replikaci virtuálních počítačů Hyper-V do Azure se využívá řada k
 
 Další informace o požadavcích pro nasazení a pro jednotlivé komponenty najdete v [matici podpory](site-recovery-support-matrix-to-azure.md).
 
-**Obr. 1: Replikace z lokality Hyper-V do Azure**
+**Obrázek 1: Replikace z lokality Hyper-V do Azure**
 
 ![Komponenty](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
@@ -68,8 +65,7 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
 2. Úloha zkontroluje, zda počítač splňuje požadavky, a potom vyvolá metodu [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), která nastaví replikaci s nastavením, které jste nakonfigurovali.
 3. Úloha spustí počáteční replikaci vyvoláním metody [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), která zahájí úplnou replikaci virtuálního počítače a odešle virtuální disky virtuálního počítače do Azure.
 4. Úlohu můžete sledovat na kartě **Úlohy**.
-        ![Seznam úloh](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Podrobnosti povolení ochrany](media/site-recovery-hyper-v-azure-architecture/image2.png)
+        ![Seznam úloh](media/site-recovery-hyper-v-azure-architecture/image1.png) ![Podrobnosti povolení ochrany](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replikace počátečních dat
 
@@ -126,4 +122,3 @@ Pokud dojde k chybě replikace, je předdefinován opakovaný pokus. Tuto logiku
 ## <a name="next-steps"></a>Další kroky
 
 Kontrola [matice podpory](site-recovery-support-matrix-to-azure.md)
-

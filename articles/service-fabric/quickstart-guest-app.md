@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hostování aplikace Node.js na platformě Azure Service Fabric
 
 Tento rychlý start vám pomůže s nasazením existující aplikace (v tomto příkladu Node.js) do clusteru Service Fabric spuštěného v Azure.

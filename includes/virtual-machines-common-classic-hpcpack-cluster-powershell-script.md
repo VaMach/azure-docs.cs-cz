@@ -2,56 +2,56 @@
 
 
 
-Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, and additional cluster nodes. Alternatively, the script can use pre-existing Azure infrastructure and create only the HPC cluster nodes.
+V závislosti na prostředí a možnosti můžete vytvořit skript všechny clusteru infrastruktury, včetně virtuální síť Azure, účty úložiště, cloudové služby, řadič domény, vzdálení nebo místní databáze SQL, hlavního uzlu a další uzly clusteru. Skript můžete alternativně použít existující infrastrukturu Azure a vytvořit pouze uzly clusteru prostředí HPC.
 
-For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) content in the HPC Pack 2012 R2 TechNet Library.
+Základní informace o plánování clusteru služby HPC Pack, najdete v článku [období pro vyzkoušení produktu a plánování](https://technet.microsoft.com/library/jj899596.aspx) a [Začínáme](https://technet.microsoft.com/library/jj899590.aspx) obsahu v knihovně TechNet HPC Pack 2012 R2.
 
-## <a name="prerequisites"></a>Prerequisites
-* **Azure subscription**: You can use a subscription in either the Azure Global or Azure China service. Your subscription limits affect the number and type of cluster nodes you can deploy. For information, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
-* **Windows client computer with Azure PowerShell 0.8.10 or later installed and configured**: See [Get started with Azure PowerShell](/powershell/azureps-cmdlets-docs) for installation instructions and steps to connect to your Azure subscription.
-* **HPC Pack IaaS deployment script**: Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.5.2 of the script.
-* **Script configuration file**: Create an XML file that the script uses to configure the HPC cluster. For information and examples, see sections later in this article and the file Manual.rtf that accompanies the deployment script.
+## <a name="prerequisites"></a>Požadavky
+* **Předplatné Azure**: předplatné můžete použít ve službě Azure globální nebo Azure China. Vaše předplatné omezení ovlivnit počet a typ uzly clusteru, který můžete nasadit. Informace najdete v tématu [předplatného Azure a omezení služby, kvóty a omezení](../articles/azure-subscription-service-limits.md).
+* **Klientský počítač s Windows v prostředí Azure PowerShell 0.8.10 nebo později nainstalovaný a nakonfigurovaný**: najdete v části [Začínáme s Azure PowerShell](/powershell/azureps-cmdlets-docs) pokyny k instalaci a kroky pro připojení k předplatnému Azure.
+* **Skript nasazení HPC Pack IaaS**: Stáhněte a rozbalte nejnovější verzi skript z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Zkontrolujte verzi skript spuštěním `New-HPCIaaSCluster.ps1 –Version`. Tento článek vychází z verze 4.5.2 skriptu.
+* **Konfigurační soubor skriptu**: Vytvořte soubor XML, který používá skript ke konfiguraci clusteru HPC. Informace a příklady najdete v částech dále v tomto článku a soubor Manual.rtf, který doprovází skript nasazení.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Syntaxe
 ```PowerShell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
-> Run the script as an administrator.
+> Spusťte skript jako správce.
 > 
 > 
 
-### <a name="parameters"></a>Parameters
-* **ConfigFile**: Specifies the file path of the configuration file to describe the HPC cluster. See more about the configuration file in this topic, or in the file Manual.rtf in the folder containing the script.
-* **AdminUserName**: Specifies the user name. If the domain forest is created by the script, this becomes the local administrator user name for all VMs and the domain administrator name. If the domain forest already exists, this specifies the domain user as the local administrator user name to install HPC Pack.
-* **AdminPassword**: Specifies the administrator’s password. If not specified in the command line, the script prompts you to input the password.
-* **HPCImageName** (optional): Specifies the HPC Pack VM image name used to deploy the HPC cluster. It must be a Microsoft-provided HPC Pack image from the Azure Marketplace. If not specified (recommended usually), the script chooses the latest published [HPC Pack 2012 R2 image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). The latest image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
+### <a name="parameters"></a>Parametry
+* **ConfigFile**: Určuje cestu k souboru konfiguračního souboru k popisu clusteru prostředí HPC. Další informace o konfigurační soubor v tomto tématu najdete v článku nebo v souboru Manual.rtf ve složce obsahující skript.
+* **AdminUserName**: Určuje uživatelské jméno. Pokud domény doménové struktury se vytvoří skript, to se změní na uživatelské jméno místního správce pro všechny virtuální počítače a jméno správce domény. Pokud doménová struktura domény už existuje, určuje uživatele domény jako uživatelské jméno místního správce k instalaci sady HPC Pack.
+* **AdminPassword**: Určuje heslo správce. Pokud není zadaný v příkazovém řádku, skript zobrazí výzvu k zadejte heslo.
+* **HPCImageName** (volitelné): Určuje název bitové kopie prostředí HPC Pack virtuálního počítače použít k nasazení clusteru HPC. Musí to být image poskytovaný společností Microsoft HPC Pack z Azure Marketplace. Není-li zadána (doporučeno obvykle), skript vybere nejnovější publikované [image HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). Nejnovější bitové kopie je založená na Windows Server 2012 R2 Datacenter s HPC Pack 2012 R2 Update 3 nainstalován.
   
   > [!NOTE]
-  > Deployment fails if you don't specify a valid HPC Pack image.
+  > Nasazení se nezdaří, pokud neurčíte platnou bitovou kopií HPC Pack.
   > 
   > 
-* **LogFile** (optional): Specifies the deployment log file path. If not specified, the script creates a log file in the temp directory of the computer running the script.
-* **Force** (optional): Suppresses all the confirmation prompts.
-* **NoCleanOnFailure** (optional): Specifies that the Azure VMs that are not successfully deployed are not removed. Remove these VMs manually before rerunning the script to continue the deployment, or the deployment may fail.
-* **PSSessionSkipCACheck** (optional): For every cloud service with VMs deployed by this script, a self-signed certificate is automatically generated by Azure, and all the VMs in the cloud service use this certificate as the default Windows Remote Management (WinRM) certificate. To deploy HPC features in these Azure VMs, the script by default temporarily installs these certificates in the Local Computer\\Trusted Root Certification Authorities store of the client computer to suppress the “not trusted CA” security error during script execution. The certificates are removed when the script finishes. If this parameter is specified, the certificates are not installed in the client computer, and the security warning is suppressed.
+* **Soubor protokolu** (volitelné): Určuje cestu k souboru protokolu nasazení. Pokud není zadaný, skript vytvoří soubor protokolu v adresáři temp počítače se systémem skript.
+* **Platnost** (volitelné): potlačí všechny výzvy potvrzení.
+* **NoCleanOnFailure** (volitelné): Určuje, že nejsou odstranit virtuální počítače Azure, které nejsou úspěšně nasazena. Odebrat tyto virtuální počítače ručně před opětovným spuštěním skriptu pokračujte nasazení nebo nasazení může selhat.
+* **PSSessionSkipCACheck** (volitelné): pro všechny cloudové služby s virtuálními počítači nasadit pomocí tohoto skriptu, je certifikát podepsaný svým držitelem automaticky generuje služba Azure, a všechny virtuální počítače v rámci cloudové služby použít tento certifikát jako výchozí vzdáleného systému Windows Certifikát správy (WinRM). Pokud chcete nasadit HPC funkcí v těchto virtuálních počítačích Azure, skript ve výchozím nastavení dočasně nainstaluje tyto certifikáty v místním počítači\\úložiště Důvěryhodné kořenové certifikační autority klientského počítače k potlačení chyby "není důvěryhodné certifikační Autority" zabezpečení. Při provádění skriptu. Certifikáty jsou odebrány, po dokončení skriptu. Pokud je tento parametr zadán, v klientském počítači nejsou nainstalovány certifikáty a potlačeno upozornění zabezpečení.
   
   > [!IMPORTANT]
-  > This parameter is not recommended for production deployments.
+  > Tento parametr se nedoporučuje pro nasazení v produkčním prostředí.
   > 
   > 
 
-### <a name="example"></a>Example
-The following example creates an HPC Pack cluster using the configuration file *MyConfigFile.xml*, and specifies administrator credentials for installing the cluster.
+### <a name="example"></a>Příklad
+Následující příklad vytvoří cluster služby HPC Pack pomocí konfiguračního souboru *MyConfigFile.xml*a určuje přihlašovací údaje správce pro instalaci clusteru.
 
 ```PowerShell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
-### <a name="additional-considerations"></a>Additional considerations
-* The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
-* The script can optionally run custom pre- and post-configuration scripts on the head node if you want to install additional software or configure other settings.
+### <a name="additional-considerations"></a>Další aspekty
+* Skript Volitelně můžete umožnit odesílání úlohy prostřednictvím webového portálu HPC Pack nebo HPC Pack REST API.
+* Skript můžete případně spustit vlastní skripty před a po konfiguraci z hlavního uzlu Pokud chcete nainstalovat další software nebo konfigurovat další nastavení.
 
-## <a name="configuration-file"></a>Configuration file
-The configuration file for the deployment script is an XML file. The schema file HPCIaaSClusterConfig.xsd is in the HPC Pack IaaS deployment script folder. **IaaSClusterConfig** is the root element of the configuration file, which contains the child elements described in detail in the file Manual.rtf in the deployment script folder.
+## <a name="configuration-file"></a>Konfigurační soubor
+Konfigurační soubor nasazení skriptu je soubor XML. Soubor schématu HPCIaaSClusterConfig.xsd je ve složce HPC Pack IaaS nasazení skriptu. **IaaSClusterConfig** je kořenový prvek konfiguračního souboru, který obsahuje podřízené elementy podrobně popsány v souboru Manual.rtf ve složce nasazení skriptu.
 

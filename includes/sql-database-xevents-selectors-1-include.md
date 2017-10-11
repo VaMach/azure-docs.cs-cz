@@ -1,7 +1,7 @@
 > [!div class="op_single_selector"]
-> * [Overview](../articles/sql-database/sql-database-xevent-db-diff-from-svr.md)
-> * [Ring Buffer](../articles/sql-database/sql-database-xevent-code-ring-buffer.md)
-> * [Event File](../articles/sql-database/sql-database-xevent-code-event-file.md)
+> * [Přehled](../articles/sql-database/sql-database-xevent-db-diff-from-svr.md)
+> * [Cyklické vyrovnávací paměti](../articles/sql-database/sql-database-xevent-code-ring-buffer.md)
+> * [Soubor událostí](../articles/sql-database/sql-database-xevent-code-event-file.md)
 > 
 > 
 

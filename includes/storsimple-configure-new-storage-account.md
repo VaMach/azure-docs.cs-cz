@@ -14,8 +14,3 @@
       ![Přidání účtu úložiště](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Nově vytvořený účet úložiště se zobrazí na stránce **Konfigurace** v části **Účty úložiště**. Uložte nově vytvořený účet úložiště kliknutím na **Uložit**. Po zobrazení výzvy k potvrzení klikněte na **OK**.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

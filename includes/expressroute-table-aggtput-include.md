@@ -1,7 +1,7 @@
-|  | **ExpressRoute Gateway throughput (up to)** | **VPN Gateway and ExpressRoute coexist** |
+|  | **Propustnost brány ExpressRoute (do)** | **Brána sítě VPN a ExpressRoute vedle sebe** |
 | --- | --- | --- |
-| **Basic SKU (deprecated)** |500 Mbps |No |
-| **Standard SKU** |1000 Mbps |Yes |
-| **High Performance SKU** |2000 Mbps |Yes |
-| **Ultra Performance SKU** |9000 Mbps |Yes |
+| **Základní SKU (zastaralé)** |500 Mb/s |Ne |
+| **Standardní SKU** |1000 Mb/s |Ano |
+| **SKU pro vysoký výkon** |2000 Mb/s |Ano |
+| **Ultra výkonu SKU** |9000 MB/s |Ano |
 

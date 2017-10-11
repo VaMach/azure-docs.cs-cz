@@ -1,40 +1,40 @@
-## <a name="configure-your-application-to-access-azure-storage"></a>Configure your application to access Azure Storage
-There are two ways to authenticate your application to access Storage services:
+## <a name="configure-your-application-to-access-azure-storage"></a>Konfigurace aplikace pro přístup k úložišti Azure
+Existují dva způsoby, jak aplikaci pro přístup ke službám úložiště ověřovat:
 
-* Shared Key: Use Shared Key for testing purposes only
-* Shared Access Signature (SAS): Use SAS for production applications
+* Sdílený klíč: Použít sdílený klíč jenom pro účely testování
+* Sdílený přístupový podpis (SAS): Použití SAS pro výrobní aplikace
 
-### <a name="shared-key"></a>Shared Key
-Shared Key authentication means that your application will use your account name and account key to access Storage services. For the purposes of quickly showing how to use this library, we will be using Shared Key authentication in this getting started.
+### <a name="shared-key"></a>Sdílený klíč
+Ověření pomocí sdíleného klíče znamená, že vaše aplikace bude používat název účtu a klíč účtu pro přístup ke službám úložiště. Pro účely rychle znázorňující způsob použití této knihovny můžeme použít ověření sdíleným klíčem v této příručce Začínáme.
 
 > [!WARNING] 
-> **Only use Shared Key authentication for testing purposes!** Your account name and account key, which give full read/write access to the associated Storage account, will be distributed to every person that downloads your app. This is **not** a good practice as you risk having your key compromised by untrusted clients.
+> **Používejte ověření sdíleným klíčem pouze pro účely testování!** Název účtu a klíč účtu, což dává přístup pro čtení/zápisu pro přidružený účet úložiště, budou distribuována do všech osob, který stahuje vaší aplikace. Toto je **není** dobrou praxi, protože riskujete, že má váš klíč nekompromitovali nedůvěryhodní klienti.
 > 
 > 
 
-When using Shared Key authentication, you will create a [connection string](../articles/storage/common/storage-configure-connection-string.md). The connection string is comprised of:  
+Pokud používáte ověření sdíleným klíčem, vytvoříte [připojovací řetězec](../articles/storage/common/storage-configure-connection-string.md). Připojovací řetězec se skládá z:  
 
-* The **DefaultEndpointsProtocol** - you can choose HTTP or HTTPS. However, using HTTPS is highly recommended.
-* The **Account Name** - the name of your storage account
-* The **Account Key** - On the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information.
-* (Optional) **EndpointSuffix** - This is used for storage services in regions with different endpoint suffixes, such as Azure China or Azure Governance.
+* **DefaultEndpointsProtocol** – můžete protokolu HTTP nebo HTTPS. Však pomocí protokolu HTTPS důrazně doporučujeme.
+* **Název účtu** – název účtu úložiště
+* **Klíč účtu** – na [portálu Azure](https://portal.azure.com), přejděte na svůj účet úložiště a klikněte na tlačítko **klíče** ikonu najít tyto informace.
+* (Volitelné) **EndpointSuffix** – používá se pro služby úložiště v oblasti s přípon jinému koncovému bodu, například Azure China nebo Azure zásad správného řízení.
 
-Here is an example of connection string using Shared Key authentication:
+Tady je příklad připojovacího řetězce, pomocí ověření sdíleným klíčem:
 
 `"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"`
 
-### <a name="shared-access-signatures-sas"></a>Shared Access Signatures (SAS)
-For a mobile application, the recommended method for authenticating a request by a client against the Azure Storage service is by using a Shared Access Signature (SAS). SAS allows you to grant a client access to a resource for a specified period of time, with a specified set of permissions.
-As the storage account owner, you'll need to generate a SAS for your mobile clients to consume. To generate the SAS, you'll probably want to write a separate service that generates the SAS to be distributed to your clients. For testing purposes, you can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) or the [Azure Portal](https://portal.azure.com) to generate a SAS. When you create the SAS, you can specify the time interval over which the SAS is valid, and the permissions that the SAS grants to the client.
+### <a name="shared-access-signatures-sas"></a>Sdílené přístupové podpisy (SAS)
+Mobilní aplikace je doporučené metody pro ověřování na požadavek klienta pro službu Azure Storage pomocí sdíleného přístupového podpisu (SAS). SAS můžete udělit klientský přístup k prostředku pro zadaný časový úsek, se zadanou sadou oprávnění.
+Jako vlastník účtu úložiště budete potřebovat pro mobilní klienty využívat SAS můžete vygenerovat. Pokud chcete vygenerovat SAS, budete pravděpodobně chtít zápisu samostatnou službu, která vygeneruje SAS distribuována do klientů. Pro účely testování můžete použít [Microsoft Azure Storage Explorer](http://storageexplorer.com) nebo [portálu Azure](https://portal.azure.com) SAS můžete vygenerovat. Když vytvoříte SAS, můžete zadat časový interval, za které je platný SAS a oprávnění, která uděluje SAS klientovi.
 
-The following example shows how to use the Microsoft Azure Storage Explorer to generate a SAS.
+Následující příklad ukazuje, jak používat Microsoft Azure Storage Explorer SAS můžete vygenerovat.
 
-1. If you haven't already, [Install the Microsoft Azure Storage Explorer](http://storageexplorer.com)
-2. Connect to your subscription.
-3. Click on your Storage account and click on the "Actions" tab at the bottom left. Click "Get Shared Access Signature" to generate a "connection string" for your SAS.
-4. Here is an example of a SAS connection string that grants read and write permissions at the service, container and object level for the blob service of the Storage account.
+1. Pokud jste to ještě neudělali, [nainstalovat Microsoft Azure Storage Explorer](http://storageexplorer.com)
+2. Připojte se ke svému předplatnému.
+3. Klikněte na vašem účtu úložiště a klikněte na kartu "Akce" v dolní části vlevo. Klikněte na tlačítko "Získání sdíleného přístupového podpisu" generovat "připojovací řetězec" pro vaše SAS.
+4. Tady je příklad připojovacího řetězce SAS, že uděluje oprávnění čtení a zápis na služby, kontejneru a na úrovni objektu služby objektů blob účtu úložiště.
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-As you can see, when using a SAS, you’re not exposing your account key in your application. You can learn more about SAS and best practices for using SAS by checking out [Shared Access Signatures: Understanding the SAS model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Jak můžete vidět, když pomocí SAS, nejsou vystavení klíč účtu v aplikaci. Další informace o přidružení zabezpečení a doporučené postupy pro používání SAS vyzkoušejte [sdílené přístupové podpisy: vysvětlení modelu SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

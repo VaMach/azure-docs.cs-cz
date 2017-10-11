@@ -1,4 +1,3 @@
-
 ---
 title: "Nejčastější dotazy k agentovi Azure Backup | Dokumentace Microsoftu"
 description: "Odpovědi na běžné dotazy týkající se fungování agenta Azure Backup a omezení zálohování a uchovávání."
@@ -13,17 +12,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: b9d022c780b618825bb2416f3834e4ada280092f
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="questions-about-the-azure-backup-agent"></a>Dotazy týkající se agenta Azure Backup
 Tento článek obsahuje odpovědi na běžné dotazy, které vám pomůžou rychle porozumět komponentám agenta Azure Backup. Některé odpovědi zahrnují odkazy na články obsahující komplexní informace. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -128,4 +125,3 @@ Agent Azure Backup se spoléhá na systém souborů NTFS. [Specifikace délky ce
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Zobrazuje se upozornění „Služba Azure Backup nebyla pro tento server nakonfigurovaná“ i přesto, že jsem nakonfiguroval zásadu zálohování. <br/>
 Toto upozornění se zobrazí v případě, že se nastavení plánu zálohování uložené na místním serveru neshodují s nastaveními uloženými v trezoru záloh. Pokud došlo k obnovení serveru nebo nastavení do známého stavu, může dojít ke ztrátě synchronizace plánů zálohování. Pokud se zobrazí toto upozornění, [překonfigurujte zásadu zálohování](backup-azure-manage-windows-server.md) a poté **spusťte Zálohovat nyní**, aby došlo k opětovné synchronizaci místního serveru s Azure. 
-

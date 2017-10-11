@@ -1,5 +1,5 @@
 ---
-title: "Konfigurace zásad Hivu ve službě HDInsight připojené k doméně | Dokumentace Microsoftu"
+title: "Nakonfigurovat zásady Hive v HDInsight připojený k doméně - Azure | Microsoft Docs"
 description: "Zjistěte..."
 services: hdinsight
 documentationcenter: 
@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
-ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
-
-
+ms.openlocfilehash: de537d5e39dd0d3f75ff802948c7372e4d65d127
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Konfigurace zásad Hivu ve službě HDInsight připojené k doméně (Preview)
 Zjistěte, jak nakonfigurovat zásady Apache Rangeru pro Hive. V tomto článku vytvoříte dvě zásady Ranger pro omezení přístupu k hivesampletable. Hivesampletable je součástí clusterů HDInsight. Po nakonfigurování zásad použijete Excel nebo ovladač ODBC a připojíte se k tabulkám Hivu ve službě HDInsight.
@@ -90,7 +91,7 @@ Pokyny najdete v tématu [Vytvoření zdroje dat Hive ODBC](hdinsight-connect-ex
     Typ serveru Hive|Vyberte <strong>Hive Server 2</strong>.
     Mechanismus|Vyberte <strong>Služba Azure HDInsight</strong>
     Cesta HTTP|Ponechte prázdné.
-    Uživatelské jméno|Zadejte hiveuser1@contoso158.onmicrosoft.com. Pokud je název domény jiný, aktualizujte jej.
+    Uživatelské jméno|Zadejte hiveuser1@contoso158.onmicrosoft.com. Aktualizujte název domény, pokud se liší.
     Heslo|Zadejte heslo uživatele hiveuser1.
     </table>
 
@@ -139,13 +140,7 @@ Testování druhé zásady (read-hivesampletable-devicemake) vytvořené v před
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete konfigurovat cluster HDInsight připojený k doméně, přečtěte si téma [Konfigurace clusterů HDInsight připojených k doméně](hdinsight-domain-joined-configure.md).
 * Pokud chcete spravovat clustery HDInsight připojené k doméně, přečtěte si téma [Správa clusterů HDInsight připojených k doméně](hdinsight-domain-joined-manage.md).
-* Pokud chcete spouštět dotazy Hivu pomocí SSH na clusterech HDInsight připojených k doméně, přečtěte si téma [Použití SSH se systémem Linux Hadoop ve službě HDInsight ze systému Linux, Unix nebo OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Spuštění dotazů Hive pomocí protokolu SSH v clusterech HDInsight připojený k doméně, najdete v části [použití SSH s HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Pokud se chcete připojit k Hivu pomocí Hive JDBC, přečtěte si téma [Připojení k Hivu ve službě Azure HDInsight pomocí ovladače Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
 * Pokud chcete připojit Excel k systému Hadoop pomocí rozhraní Hive ODBC, přečtěte si téma [Připojení Excelu k systému Hadoop pomocí ovladače Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md).
 * Pokud chcete připojit Excel k systému Hadoop pomocí doplňku Power Query, přečtěte si téma [Připojení Excelu k systému Hadoop pomocí doplňku Power Query](hdinsight-connect-excel-power-query.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

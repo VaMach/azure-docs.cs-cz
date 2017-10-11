@@ -4,21 +4,20 @@ description: "Analyzujte, vizualizujte a zkoumejte trendy v telemetrii služby A
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 03/17/2017
-ms.author: daviste
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: c0c1eb80685d18794bcae7acaa16b777ff21b3e6
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 13fca37303296355ce601333b13110d04fa5fa4e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analýza trendů v sadě Visual Studio
 Nástroj Trendy Application Insights vizualizuje průběžné změny důležitých telemetrických událostí ve vaší webové aplikaci. Díky tomu můžete rychle identifikovat problémy a anomálie. Nástroj Trendy vám dodá podrobnější diagnostické informace, abyste mohli zlepšit výkon aplikace, sledovat příčiny výjimek a získat přehledy z vlastních událostí.
@@ -107,5 +106,4 @@ Nástroj Trendy může zvýraznit bubliny událostí, které jsou ve srovnání 
 | **[Práce s Application Insights v sadě Visual Studio](app-insights-visual-studio.md)**<br/>Hledejte telemetrii, zobrazujte data v CodeLens a konfigurujte Application Insights. Vše v sadě Visual Studio. |![Klikněte pravým tlačítkem myši na projekt a vyberte Application Insights, Vyhledávání](./media/app-insights-visual-studio-trends/34.png) |
 | **[Přidání dalších dat](app-insights-asp-net-more.md)**<br/>Sledování využití, dostupnosti, závislostí, výjimek. Integrujte trasování z rozhraní protokolování. Zapisuje vlastní telemetrii. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Práce s portálem Application Insights](app-insights-dashboards.md)**<br/>Řídicí panely, výkonné nástroje pro diagnostiku a analýzy, výstrahy, aktivní mapa závislostí vaší aplikace a export telemetrie. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
-
 

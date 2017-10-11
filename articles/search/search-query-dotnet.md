@@ -13,12 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Dotazování indexu Azure Search pomocí .NET SDK
 > [!div class="op_single_selector"]
@@ -171,5 +170,4 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 ```
 
 Výše uvedený ukázkový kód používá k vypsání výsledků vyhledávání konzolu. Stejně tak budete potřebovat zobrazit výsledky vyhledávání ve své aplikaci. Ukázku vykreslování výsledků vyhledávání ve webové aplikaci založené na ASP.NET MVC naleznete v [této ukázce na GitHubu](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
-
 

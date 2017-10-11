@@ -1,47 +1,47 @@
 <!--author=SharS last changed: 9/17/15-->
 
-In this procedure, you will:
+V tomto postupu budete:
 
-1. [Prepare to run the Maintainer executable](#to-prepare-to-run-the-maintainer) .
-2. [Prepare the content database and Recycle Bin for immediate deletion of orphaned BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
-3. [Run Maintainer.exe](#to-run-the-maintainer).
-4. [Revert the content database and Recycle Bin settings](#to-revert-the-content-database-and-recycle-bin-settings).
+1. [Příprava ke spuštění spustitelného souboru Funkce Maintainer](#to-prepare-to-run-the-maintainer) .
+2. [Příprava databáze obsahu a Koš pro okamžité odstranění objektů BLOB osamocené](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
+3. [Spustit Maintainer.exe](#to-run-the-maintainer).
+4. [Obnovit databázi obsahu a nastavení koše](#to-revert-the-content-database-and-recycle-bin-settings).
 
-#### <a name="to-prepare-to-run-the-maintainer"></a>To prepare to run the Maintainer
-1. On the Web front-end server, open the SharePoint 2013 Management Shell as an administrator.
-2. Navigate to the folder *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
-3. Rename **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** to **web.config**.
-4. Use `aspnet_regiis -pdf connectionStrings` to decrypt the web.config file.
-5. In the decrypted web.config file, under the `connectionStrings` node, add the connection string for your SQL server instance and the content database name. See the following example.
+#### <a name="to-prepare-to-run-the-maintainer"></a>Příprava ke spuštění funkce Maintainer
+1. Na webovém serveru front-end otevřete prostředí SharePoint 2013 Management Shell jako správce.
+2. Přejděte do složky *spouštěcí jednotka*: \Program Files\Microsoft 10.50\Maintainer SQL vzdáleného úložiště objektů Blob\.
+3. Přejmenování **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** k **web.config**.
+4. Použití `aspnet_regiis -pdf connectionStrings` pro dešifrování souboru web.config.
+5. V souboru web.config dešifrovaný v části `connectionStrings` uzlu přidat připojovací řetězec pro vaše instance SQL serveru a název databáze obsahu. Prohlédněte si následující příklad.
    
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
-6. Use `aspnet_regiis –pef connectionStrings` to re-encrypt the web.config file. 
-7. Rename web.config to Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
+6. Použití `aspnet_regiis –pef connectionStrings` k opětovnému zašifrování souboru web.config. 
+7. Přejmenujte soubor web.config Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
 
-#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>To prepare the content database and Recycle Bin to immediately delete orphaned BLOBs
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database: 
+#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>Příprava obsahu databáze a Koš okamžitě Odstranit osamocené objekty BLOB
+1. Na serveru SQL v SQL Management Studio, spusťte následující dotazy aktualizace pro cílovou databázi obsahu: 
    
        `use WSS_Content`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. On the web front-end server, under **Central Administration**, edit the **Web Application General Settings** for the desired content database to temporarily disable the Recycle Bin. This action will also empty the Recycle Bin for any related site collections. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the **Recycle Bin Status** to **OFF**.
+2. Na webovém serveru front-end v části **centrální správy**, upravit **obecné nastavení webové aplikace** pro požadovanou databázi obsahu k dočasnému zakázání funkce Koš. Tato akce také vyprázdníte koš pro všechny související kolekce webů. Chcete-li to provést, klikněte na tlačítko **centrální správy** -> **Správa aplikací** -> **webových aplikací (Správa webové aplikace)**  ->  **SharePoint - 80** -> **obecné nastavení aplikace**. Nastavte **Stav koše** k **OFF**.
    
-    ![Web Application General Settings](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
+    ![Obecné nastavení webové aplikace](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
-#### <a name="to-run-the-maintainer"></a>To run the Maintainer
-* On the web front-end server, in the SharePoint 2013 Management Shell, run the Maintainer as follows:
+#### <a name="to-run-the-maintainer"></a>Spuštění funkce Maintainer
+* Na webovém serveru front-end v prostředí SharePoint 2013 Management Shell, spusťte Funkce Maintainer následujícím způsobem:
   
       `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
   
   > [!NOTE]
-  > Only the `GarbageCollection` operation is supported for StorSimple at this time. Also note that the parameters issued for Microsoft.Data.SqlRemoteBlobs.Maintainer.exe are case sensitive. 
+  > Pouze `GarbageCollection` operace je podporována pro zařízení StorSimple v tuto chvíli. Všimněte si také, zda jsou parametry vydán pro Microsoft.Data.SqlRemoteBlobs.Maintainer.exe velká a malá písmena. 
   > 
   > 
 
-#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>To revert the content database and Recycle Bin settings
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database:
+#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>Můžete obnovit databázi obsahu a nastavení koše
+1. Na serveru SQL v SQL Management Studio, spusťte následující dotazy aktualizace pro cílovou databázi obsahu:
    
       `use WSS_Content`
    
@@ -50,5 +50,5 @@ In this procedure, you will:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. On the web front-end server, in **Central Administration**, edit the **Web Application General Settings** for the desired content database to re-enable the Recycle Bin. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the Recycle Bin Status to **ON**.
+2. Na webovém serveru front-end v **centrální správy**, upravit **obecné nastavení webové aplikace** pro databázi požadovaného obsahu znovu zapnout Koš. Chcete-li to provést, klikněte na tlačítko **centrální správy** -> **Správa aplikací** -> **webových aplikací (Správa webové aplikace)**  ->  **SharePoint - 80** -> **obecné nastavení aplikace**. Nastavit stav Bin recyklaci na **ON**.
 
