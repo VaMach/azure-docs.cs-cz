@@ -1,47 +1,47 @@
-## <a name="set-up-azure-powershell-for-azure-dns"></a>Set up Azure PowerShell for Azure DNS
+## <a name="set-up-azure-powershell-for-azure-dns"></a>Nastavení prostředí Azure PowerShell pro Azure DNS
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Než začnete
 
-Verify that you have the following items before beginning your configuration.
+Před zahájením konfigurace ověřte, zda máte následující.
 
-* An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You need to install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/).
+* Musíte nainstalovat nejnovější verzi rutin Powershellu pro Azure Resource Manager. Další informace najdete v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azureps-cmdlets-docs).
 
-### <a name="sign-in-to-your-azure-account"></a>Sign in to your Azure account
+### <a name="sign-in-to-your-azure-account"></a>Přihlášení k účtu Azure
 
-Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
+Otevřete konzolu prostředí PowerShell a připojte se ke svému účtu. Další informace najdete v tématu [pomocí prostředí PowerShell s Resource Managerem](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-### <a name="select-the-subscription"></a>Select the subscription
+### <a name="select-the-subscription"></a>Výběr předplatného
  
-Check the subscriptions for the account.
+Zkontrolujte předplatná pro příslušný účet.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Choose which of your Azure subscriptions to use.
+Zvolte předplatné Azure, které chcete použít.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 ```
 
-### <a name="create-a-resource-group"></a>Create a resource group
+### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
+Azure Resource Manager vyžaduje, aby všechny skupiny prostředků určily umístění. Toto umístění slouží jako výchozí umístění pro prostředky v příslušné skupině prostředků. Všechny prostředky DNS jsou ale globální, a ne místní, takže volba umístění skupiny prostředků nemá na Azure DNS žádný vliv.
 
-You can skip this step if you are using an existing resource group.
+Pokud používáte některou ze stávajících skupin prostředků, můžete tento krok přeskočit.
 
 ```powershell
 New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 ```
 
-### <a name="register-resource-provider"></a>Register resource provider
+### <a name="register-resource-provider"></a>Registrace poskytovatele prostředků
 
-The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription must be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
+Službu Azure DNS spravuje poskytovatel prostředků Microsoft.Network. Abyste mohli používat Azure DNS, je nutné zaregistrovat předplatné Azure k používání tohoto poskytovatele prostředků. Jedná se o jednorázovou operaci u každého odběru.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network

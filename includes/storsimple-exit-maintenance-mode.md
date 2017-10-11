@@ -1,10 +1,10 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-exit-maintenance-mode"></a>To exit Maintenance mode
-1. At the command prompt type:
+#### <a name="to-exit-maintenance-mode"></a>Chcete-li ukončit režim údržby
+1. Na příkazovém řádku zadejte:
    
      `Exit-HcsMaintenanceMode`
-2. A warning message and a confirmation message will appear. Type **Y** to exit Maintenance mode.
+2. Zobrazí se zpráva s upozorněním a potvrzovací zpráva. Typ **Y** pro ukončení režimu údržby.
    
-    Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Normal mode.
+    Oba řadiče se restartuje. Po dokončení restartování se zobrazí další zpráva označující, že zařízení je v normálním režimu.
 

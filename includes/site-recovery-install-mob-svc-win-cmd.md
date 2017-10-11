@@ -1,4 +1,4 @@
-1. Copy the installer to a local folder (for example, C:\Temp) on the server that you want to protect. Run the following commands as an administrator at a command prompt:
+1. Zkopírujte instalační službu do místní složky (například C:\Temp) na serveru, který chcete chránit. Jako správce na příkazovém řádku spusťte následující příkazy:
 
   ```
   cd C:\Temp
@@ -6,47 +6,47 @@
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted.
   ```
-2. To install Mobility Service, run the following command:
+2. Pro instalaci služby Mobility, spusťte následující příkaz:
 
   ```
   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
-3. Now the agent needs to be registered with the Configuration Server.
+3. Nyní agent musí být registrováno s konfiguračním serverem.
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
-#### <a name="mobility-service-installer-command-line-arguments"></a>Mobility Service installer command-line arguments
+#### <a name="mobility-service-installer-command-line-arguments"></a>Argumenty příkazového řádku Instalační program služby mobility
 
 ```
 Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| Parameter|Type|Description|Possible values|
+| Parametr|Typ|Popis|Možné hodnoty|
 |-|-|-|-|
-|/Role|Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
-|/InstallLocation|Optional|Location where Mobility Service is installed|Any folder on the computer|
-|/Platform|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
-|/Silent|Optional|Specifies to run the installer in silent mode| NA|
+|/ Role|Povinné|Určuje, zda by měly být nainstalovány služby Mobility (MS) nebo MasterTarget(MT) by měly být nainstalovány.|MS </br> MT –|
+|/InstallLocation|Nepovinné|Umístění, kde je nainstalovaná služba Mobility|Libovolná složka v počítači|
+|/ Platform|Povinné|Určuje platformu, na kterém služba Mobility je získávání nainstalovaná </br> </br>- **VMware** : tuto hodnotu použijte, pokud k instalaci služby mobility na virtuálním počítači systémem *VMware vSphere hostitelích ESXi*, *hostitelů Hyper-V* a *Phsyical servery* </br> - **Azure** : tuto hodnotu použijte, pokud instalujete agenta na virtuálním počítači Azure IaaS| VMware </br> Azure|
+|/ Tichou|Nepovinné|Určuje, spusťte instalační program v bezobslužném režimu| Není k dispozici|
 
 >[!TIP]
-> The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> Instalační protokoly naleznete v části %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
 
-#### <a name="mobility-service-registration-command-line-arguments"></a>Mobility Service registration command-line arguments
+#### <a name="mobility-service-registration-command-line-arguments"></a>Argumenty příkazového řádku registrace služby mobility
 
 ```
 Usage :
 UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | Parameter|Type|Description|Possible values|
+  | Parametr|Typ|Popis|Možné hodnoty|
   |-|-|-|-|
-  |/CSEndPoint |Mandatory|IP address of the configuration server| Any valid IP address|
-  |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
+  |/ CSEndPoint |Povinné|IP adresa konfiguračního serveru| Všechny platnou IP adresu|
+  |/PassphraseFilePath|Povinné|Umístění heslo |Všechny platné UNC nebo místní cesta|
 
 
 >[!TIP]
-> The AgentConfiguration logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> Protokoly AgentConfiguration naleznete v části %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log

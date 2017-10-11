@@ -1,17 +1,17 @@
-You can create multiple services within a subscription, each one provisioned at a specific tier, limited only by the number of services allowed at each tier. For example, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. For more information about tiers, see [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md).
+Můžete vytvořit více služeb v rámci předplatného, každé z nich zřízené v konkrétní úroveň, omezena pouze počet služeb v každé úrovni povoleno. Například můžete vytvořit až 12 services na úroveň Basic a jiné 12 services na vrstvě S1 v rámci stejného předplatného. Další informace o úrovních najdete v tématu [zvolte SKU nebo vrstvy pro službu Azure Search](../articles/search/search-sku-tier.md).
 
-Maximum service limits can be raised upon request. Contact Azure Support if you need more services within the same subscription.
+Omezení maximální služby může být vyvolána při požadavku. Pokud potřebujete další služby v rámci stejného předplatného, kontaktujte podporu Azure.
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD <sup>1</sup> |
+| Prostředek | Free | Basic | S1 | S2 | S3 | S3 HD <sup>1</sup> |
 | --- | --- | --- | --- | --- | --- | --- |
-| Maximum services |1 |12 |12 |6 |6 |6 |
-| Maximum scale in SU <sup>2</sup> |N/A <sup>3</sup> |3 SU <sup>4</sup> |36 SU |36 SU |36 SU |36 SU |
+| Maximální služby |1 |12 |12 |6 |6 |6 |
+| Maximální měřítko v SU <sup>2</sup> |NENÍ K DISPOZICI <sup>3</sup> |3 SU <sup>4</sup> |36 SU |36 SU |36 SU |36 SU |
 
-<sup>1</sup> S3 HD does not support [indexers](../articles/search/search-indexer-overview.md) at this time. 
+<sup>1</sup> S3 HD nepodporuje [indexery](../articles/search/search-indexer-overview.md) v tuto chvíli. 
 
-<sup>2</sup> Search units (SU) are billing units, allocated as either a *replica* or a *partition*. You need both resources for storage, indexing, and query operations. To learn more about how search units are computed, plus a chart of valid combinations that stay under the maximum limits, see [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> jednotek služby vyhledávání (SU) jsou fakturace jednotek, které jsou přidělené jako buď *repliky* nebo *oddílu*. Potřebujete i prostředky pro úložiště, indexování a operace dotazů. Další informace o tom, jak se vypočítávají jednotek služby vyhledávání plus graf platné kombinace, které zůstávají v rámci maximální limit najdete v tématu [škálovat prostředek úrovně pro úlohy dotazovací a indexovací](../articles/search/search-capacity-planning.md). 
 
-<sup>3</sup> Free is based on shared resources used by multiple subscribers. At this tier, there are no dedicated resources for an individual subscriber. For this reason, maximum scale is marked as not applicable.
+<sup>3</sup> Free je založen na sdílené prostředky využívané víc odběratelům. Na této úrovni neexistují vyhrazené prostředky pro jednotlivé odběratele. Z tohoto důvodu maximální měřítko je označeno není k dispozici.
 
-<sup>4</sup> Basic has one fixed partition. At this tier, additional SUs are used for allocating more replicas for increased query workloads.
+<sup>4</sup> basic má pevnou jeden oddíl. Na této úrovni další služby SUs slouží pro přidělení více replik pro úlohy vyšší dotazu.
 

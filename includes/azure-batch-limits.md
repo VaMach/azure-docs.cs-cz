@@ -1,19 +1,19 @@
-| **Resource** | **Default Limit** | **Maximum Limit** |
+| **Prostředek** | **Výchozí omezení** | **Maximální omezení** |
 | --- | --- | --- |
-| Batch accounts per region per subscription | 3 |50 |
-| Dedicated cores per Batch account (Batch service mode)<sup>1</sup> | 20 | N/A<sup>2</sup> |
-| Low-priority cores per Batch account (Batch service mode)<sup>3</sup> | 50 | N/A<sup>4</sup> |
-| Active jobs and job schedules<sup>5</sup> per Batch account | 20 | 5000<sup>6</sup> |
-| Pools per Batch account | 20 | 2500 |
+| Počet účtů Batch na oblast na předplatné | 3 |50 |
+| Vyhrazené jader na účtu Batch (režim služby Batch)<sup>1</sup> | 20 | NENÍ K DISPOZICI<sup>2</sup> |
+| Nízkou prioritu jader na účtu Batch (režim služby Batch)<sup>3</sup> | 50 | NENÍ K DISPOZICI<sup>4</sup> |
+| Aktivní úlohy a plány úloh<sup>5</sup> na účtu Batch | 20 | 5000<sup>6</sup> |
+| Počet fondů na účet Batch | 20 | 2500 |
 
-<sup>1</sup> Dedicated core quotas shown are only for accounts with pool allocation mode set to **Batch service**. For accounts with the mode set to **user subscription**, core quotas are based on the VM cores quota at a regional level or per VM family in your subscription.
+<sup>1</sup> vyhrazené základní kvóty, zobrazí se pouze pro účty s režimem přidělení fondu nastaveny na **služba Batch**. Pro účty s režimem nastavené na **uživatele předplatné**, základní kvóty jsou založené na kvótu jader virtuálního počítače na místní úrovni nebo na jednu rodinu virtuálních počítačů v rámci vašeho předplatného.
 
-<sup>2</sup> The number of dedicated cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>2</sup> je možné zvýšit počet vyhrazených jader na účtu Batch, ale maximální počet není zadána. Požádejte podporu Azure o zvýšení možnosti popisují.
 
-<sup>3</sup> Low-priority core quotas shown are only for accounts with pool allocation mode set to **Batch service**. Low-priority cores are not available for accounts with pool allocation mode set to **user subscription**.
+<sup>3</sup> kvóty základní nízkou prioritu, zobrazí se pouze pro účty s režimem přidělení fondu nastaveny na **služba Batch**. Nízkou prioritu jader nejsou k dispozici pro účty s režimem přidělení fondu nastaveny na **uživatele předplatné**.
 
-<sup>4</sup> The number of low-priority cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>4</sup> je možné zvýšit počet nízkou prioritu jader na účtu Batch, ale maximální počet není zadána. Požádejte podporu Azure o zvýšení možnosti popisují.
 
-<sup>5</sup> Completed jobs and job schedules are not limited.
+<sup>5</sup> dokončené úlohy a plány úloh nejsou nijak omezené.
 
-<sup>6</sup> Contact Azure support if you want to request an increase beyond this limit.
+<sup>6</sup> Azure obraťte se na podporu, pokud chcete požádat o zvýšení překračuje tento limit.

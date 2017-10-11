@@ -1,16 +1,16 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+Tady je postup použití **Service Bus - při příjmu zprávy ve frontě** aktivační událost zahájíte pracovní postup aplikace logiky odeslání novou položku do fronty Service Bus.  
 
 > [!NOTE]
-> You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+> Zobrazí se výzva k Přihlaste se pomocí vaší připojovací řetězec sběrnice služeb, pokud jste ještě nevytvořili připojení k Service Bus.  
 > 
 > 
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-   ![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-2. The **When a message is received in a queue** dialog box is displayed.  
-   ![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-3. Enter the name of the Service Bus queue you would like the trigger to monitor.   
-   ![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Do vyhledávacího pole v návrháři aplikace logiky, zadejte **služby sběrnice**. Vyberte **Service Bus - při příjmu zprávy ve frontě** aktivační události.  
+   ![Service Bus aktivační událost obrázek 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+2. **Při příjmu zprávy ve frontě** se zobrazí dialogové okno.  
+   ![Service Bus aktivační událost obrázek 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+3. Zadejte název fronty Service Bus chcete aktivační události k monitorování.   
+   ![Obrázek aktivační události služby Service Bus 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+Aplikace logiky v tomto okamžiku je nakonfigurovaná s aktivační událost. Po přijetí nové položky ve frontě, které jste vybrali aktivační událost zahájíte spustit další aktivační události a akcí v pracovním postupu.    
 

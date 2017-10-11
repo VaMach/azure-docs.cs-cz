@@ -74,8 +74,3 @@ Pokud zařízení po úspěšné registraci nepřejde do stavu Online, můžete 
 
 Pokud si chcete přehrát video, které ukazuje postup konfigurace a registrace zařízení pomocí rozhraní Windows PowerShell pro zařízení StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

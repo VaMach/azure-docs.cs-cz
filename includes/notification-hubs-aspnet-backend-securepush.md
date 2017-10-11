@@ -1,6 +1,6 @@
-## <a name="webapi-project"></a>WebAPI Project
-1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
-2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Classic Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
+## <a name="webapi-project"></a>WebAPI projektu
+1. V sadě Visual Studio, otevřete **AppBackend** projekt, který jste vytvořili v **upozornění uživatelů** kurzu.
+2. V Notifications.cs, nahraďte celek **oznámení** třídy následujícím kódem. Ujistěte se, že nahraďte zástupné symboly připojovací řetězec (s úplným přístupem) pro vaše Centrum oznámení a název rozbočovače. Můžete získat z těchto hodnot [portálu Azure Classic](http://manage.windowsazure.com). Tento modul představuje teď jiné zabezpečené oznámení, které se budou odesílat. Do dokončení implementace se uloží oznámení v databázi. pro jednoduchost v takovém případě jsme je uložit v paměti.
    
         public class Notification
         {
@@ -40,7 +40,7 @@
             }
         }
 
-1. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
+1. V NotificationsController.cs, nahraďte kód uvnitř **NotificationsController** třídy definice následujícím kódem. Tato součást implementuje způsob, jak zařízení bezpečně načíst oznámení a také poskytuje způsob (pro účely tohoto kurzu) k aktivaci zabezpečené oznámení do zařízení. Všimněte si, že při odesílání oznámení do centra oznámení, jenom odešleme nezpracovaná oznámení s ID oznámení (a žádná skutečná zpráva):
    
        public NotificationsController()
        {
@@ -75,8 +75,8 @@
         }
 
 
-Note that the `Post` method now does not send a toast notification. It sends a raw notification that contains only the notification ID, and not any sensitive content. Also, make sure to comment the send operation for the platforms for which you do not have credentials configured on your notification hub, as they will result in errors.
+Všimněte si, že `Post` metoda teď neodešle oznámení s informační zprávou. Odešle nezpracovaná oznámení, že obsahuje pouze ID oznámení a ne všechny citlivého obsahu. Zkontrolujte taky, okomentujte operaci odeslání pro platformy, pro které nemáte přihlašovací údaje, které jsou nakonfigurované v centru oznámení, jak bude vést k chybám.
 
-1. Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-2. Select Azure Website as your publish target. Log in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+1. Nyní jsme bude znovu nasaďte tuto aplikaci na web Azure aby přístupná ze všech zařízení. Klikněte pravým tlačítkem na projekt **AppBackend** a vyberte **Publikovat**.
+2. Vyberte web Azure jako váš cíl publikování. Přihlaste se pomocí účtu Azure a vyberte stávajícího nebo nového webu a poznamenejte si **cílová adresa URL** vlastnost **připojení** kartě. Na tuto adresu URL budeme odkazovat jako na *koncový bod back-endu* později v tomto kurzu. Klikněte na **Publikovat**.
 

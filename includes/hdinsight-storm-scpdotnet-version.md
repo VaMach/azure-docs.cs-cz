@@ -1,13 +1,13 @@
 > [!IMPORTANT]
-> The SCP.Net version used in your project must match the Storm version present on your HDInsight cluster. Use the following table to determine which version you should use:
+> Je SCP.Net verze použitá v projektu musí shodovat s verzí Storm v clusteru HDInsight. Pomocí následující tabulky můžete určit verzi, které byste měli používat:
 > 
-> | HDInsight version | Apache Storm version | SCP.NET version | Default Mono version |
+> | HDInsight verze | Apache Storm verze | SCP.NET verze | Výchozí Mono verze |
 > |:---:|:---:|:---:|:---:|
-> | 3.3 |0.10.0.x |0.10.0.x (Windows-based clusters only) | NA |
+> | 3.3 |0.10.0.x |0.10.0.x (clusterech se systémem Windows pouze) | Není k dispozici |
 > | 3.4 |0.10.0.x |0.10.0.x | 3.2.8 |
-> | 3.5 |1.0.2.x |1.0.0.x | 4.2.1 |
+> | 3,5 |1.0.2.x |1.0.0.x | 4.2.1 |
 > | 3.6 |1.1.0.# | 1.0.0.x | 4.2.8 |
 > 
-> For more information on components provided with HDInsight, see [HDInsight component versions](../articles/hdinsight/hdinsight-component-versioning.md).
+> Další informace o součásti s HDInsight naleznete v tématu [HDInsight verze součástí](../articles/hdinsight/hdinsight-component-versioning.md).
 
 

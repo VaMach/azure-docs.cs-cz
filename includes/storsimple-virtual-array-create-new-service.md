@@ -1,35 +1,35 @@
-#### <a name="to-create-a-new-service"></a>To create a new service
+#### <a name="to-create-a-new-service"></a>Vytvoření nové služby
 
-1.  Using your Microsoft account credentials, log on to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, log in at: <https://portal.azure.us/>
+1.  Pomocí přihlašovacích údajů k účtu Microsoft se přihlaste na webu Azure Portal na této adrese URL: <https://portal.azure.com/>. Pokud nasazení zařízení na portál Government, přihlaste se na: <https://portal.azure.us/>
 
-2.  In the Azure portal, click **+ New** &gt; **Storage** &gt; **StorSimple Virtual Series**.
+2.  Na portálu Azure klikněte na tlačítko **+ nový** &gt; **úložiště** &gt; **virtuální řady StorSimple**.
 
-    ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
+    ![Vytvoření nové služby](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
-3.  In the **StorSimple Device Manager** blade that opens up, do the following:
+3.  V **Manager zařízení StorSimple** okno, které se otevře, proveďte následující:
 
-    1.  Supply a unique **Resource name** for your service. The resource name is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+    1.  Zadejte pro službu jedinečný **Název prostředku**. Název prostředku je popisný název, který slouží k identifikaci služby. Název může být tvořen 2 až 50 písmeny, číslicemi a spojovníky. Název musí začínat a končit písmenem nebo číslicí.
 
-    2.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
+    2.  V rozevíracím seznamu **Předplatné** vyberte předplatné. Předplatné je propojeno s vaším fakturačním účtem. Toto pole není dostupné, pokud máte pouze jedno předplatné.
 
-    3.  For **Resource group**, select an existing or create a new group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+    3.  Pro **skupiny prostředků**, vyberte existující, nebo vytvořte novou skupinu. Další informace najdete v tématu [Skupiny prostředků Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4.  Supply a **Location** for your service. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about which services are available in which region. In general, choose a **Location** closest to the geographical region where you want to deploy your device. You may also want to factor in the following:
+    4.  Zadejte **Umístění** služby. V tématu [oblasti Azure](https://azure.microsoft.com/regions/#services) Další informace o tom, které služby jsou dostupné v konkrétních oblastech. Obecně platí, vyberte **umístění** nejbližší zeměpisnou oblast, ve které chcete nasadit zařízení. Zvažte i následující okolnosti:
 
-        -   If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+        -   Pokud máte existující úlohy v Azure, který chcete nasadit se zařízením StorSimple, doporučujeme vám, že používáte stejné datové centrum.
 
-        -   Your StorSimple Device Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure portal and follow the steps in [Create an Azure Storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). After you create this account, add it to the StorSimple Device Manager service by following the steps in [Configure a new storage account for the service](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   Správce zařízení StorSimple a Azure úložiště může být na dvě samostatná místa. V takovém případě je nutné vytvořit Správce zařízení StorSimple a účet úložiště Azure odděleně. Pokud chcete vytvořit účet úložiště Azure, přejděte na webu Azure Portal do služby Azure Storage a postupujte podle kroků popsaných v tématu [Vytvoření účtu služby Azure Storage](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). Po vytvoření účtu jej přidejte do služby Správce zařízení StorSimple pomocí kroků popsaných v tématu [Konfigurace nového účtu úložiště pro službu](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
 
-        -   If deploying the virtual device in the Government Portal, the StorSimple Device Manager service is available in US Iowa and US Virginia locations.
+        -   Pokud nasazujete virtuální zařízení na portálu Government, služba Správce zařízení StorSimple je k dispozici v nám Iowa a Virginia nám umístění.
 
-    5.  Select **Create a new Azure storage account** to automatically create a storage account with the service. Specify a **Storage account name**. If you need your data in a different location, uncheck this box.
+    5.  Vyberte **vytvořit nový účet úložiště Azure** pro automatické vytvoření účtu úložiště se službou. Zadejte **název účtu úložiště**. Pokud potřebujete mít data v jiném umístění, zaškrtnutí políčka zrušte.
 
-    6.  Check **Pin to dashboard** if you want a quick link to this service on your dashboard.
+    6.  Pokud chcete mít na řídicím panelu rychlý odkaz na tuto službu, zaškrtněte políčko **Připnout na řídicí panel**.
 
-    7.  Click **Create** to create the StorSimple Device Manager.
+    7.  Kliknutím na **Vytvořit** vytvořte Správce zařízení StorSimple.
 
-        ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Vytvoření nové služby](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
-You are directed to the **Service** landing page. The service creation takes a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+Budete přesměrováni **služby** cílová stránka. Vytvoření služby trvá několik minut. Po úspěšném vytvoření služby budete odpovídajícím způsobem upozorněni a stav služby se změní na **Aktivní**.
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
-ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Využití Azure Security Center při reakci na incidenty
 Mnoho organizací se naučí reagovat na incidenty zabezpečení teprve když se stanou obětí útoku. Kvůli snížení nákladů a minimalizaci škod je důležité mít hotový plán reakce na incidenty ještě před tím, než k útoku dojde. Azure Security Center můžete využít v různých fázích reakce na incidenty.
@@ -84,7 +83,7 @@ Judy se přihlásila k portálu Azure Portal a pracuje v konzole Security Center
    > Pro účely tohoto scénáře provede Judy vyhodnocení výstrahy Škodlivá aktivita SQL, jak je znázorněno na předchozím obrázku.
    >
    >
-2. Klikněte na výstrahu **Škodlivá aktivita SQL** a zkontrolujte napadené prostředky v okně **Škodlivá aktivita SQL**:  ![Podrobnosti o incidentu](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Klikněte na tlačítko **škodlivý SQL aktivity** výstrahy a zkontrolujte attacked prostředky v **škodlivý SQL aktivity** okno: ![podrobnosti incidentu](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     V tomto okně si Judy může dělat poznámky týkající se napadených prostředků, četnosti útoku a době jeho zjištění.
 3. Kliknutím na **napadený prostředek** získáte další informace o daném útoku.
@@ -101,4 +100,3 @@ Tým, který reaguje na incidenty, může využívat i výhody možnosti [zabezp
 
 ## <a name="conclusion"></a>Závěr
 Sestavení týmu dříve, než dojde k incidentu, je pro vaši organizaci velmi důležité a pozitivně to ovlivní způsob zpracování incidentů. Dostupnost správných nástrojů pro monitorování prostředků může tomuto týmu pomoci s výběrem správného postupu k napravení incidentu zabezpečení. [Funkce detekce](security-center-detection-capabilities.md) v Security Center mohou IT oddělení pomoci s rychlou reakcí na incidenty zabezpečení a s nápravou problémů zabezpečení.
-

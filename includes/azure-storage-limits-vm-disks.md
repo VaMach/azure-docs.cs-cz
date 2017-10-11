@@ -1,11 +1,11 @@
-An Azure virtual machine supports attaching a number of data disks. For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
+Virtuální počítače Azure podporují připojení řady datových disků. Pro optimální výkon omezte počet vysoce využívaných disků připojených k virtuálnímu počítači, abyste zabránili možnému omezení. Pokud nejsou všechny disky vysoce využívané ve stejnou dobu, může účet úložiště podporovat větší počet disků.
 
-* **For Azure Managed Disks:** Managed Disks count limit is regional and also depends on the storage type. The default and also the maximum limit is 10,000 per subscription, per region and per storage type. For example, you can create up to 10,000 standard managed disks and also 10,000 premium managed disks in a subscription and in a region. 
+* **Pro spravované disky systému Azure:** limit počtu spravované disků je místní a také závisí na typu úložiště. Výchozí hodnota a také maximální limit je 10 000 jedno předplatné, jednotlivých oblasti a typ úložiště. Například můžete vytvořit až 10 000 standardní spravované disky a také 10 000 premium spravované disky v předplatném a v oblasti. 
 
-    Managed Snapshots and Images are counted against the Managed Disks limit.
+    Do omezení služby Managed Disks se započítávají i spravované snímky a image.
 
-* **For standard storage accounts:** A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
+* **Pro účty úložiště úrovně Standard:** Účet úložiště úrovně Standard má maximální celkovou frekvenci požadavků 20 000 IOPS. Celkový počet IOPS na všech discích virtuálních počítačů v účtu úložiště úrovně Standard by neměl překročit toto omezení.
   
-    You can roughly calculate the number of highly utilized disks supported by a single standard storage account based on the request rate limit. For example, for a Basic Tier VM, the maximum number of highly utilized disks is about 66 (20,000/300 IOPS per disk), and for a Standard Tier VM, it is about 40 (20,000/500 IOPS per disk), as shown in the table below. 
-* **For premium storage accounts:** A premium storage account has a maximum total throughput rate of 50 Gbps. The total throughput across all of your VM disks should not exceed this limit.
+    Na základě omezení frekvence požadavků si můžete přibližně spočítat, kolik vysoce využívaných disků podporuje jeden účet úložiště úrovně Standard. Například pro virtuální počítač úrovně Basic je počet vysoce využívaných disků asi 66 (20 000/300 IOPS na disk) a pro virtuální počítač úrovně Standard to je přibližně 40 (20 000/500 IOPS na disk), jak je znázorněno v tabulce níže. 
+* **Pro účty úložiště úrovně Premium:** Účet úložiště úrovně Premium má maximální propustnost 50 Gb/s. Celková propustnost všech disků virtuálních počítačů by neměla překročit toto omezení.
 

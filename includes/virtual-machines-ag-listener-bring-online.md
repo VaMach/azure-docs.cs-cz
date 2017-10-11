@@ -1,27 +1,27 @@
-1. In Failover Cluster Manager, expand **Roles**, and then highlight your availability group.  
+1. Ve Správci clusteru převzetí služeb při selhání rozbalte **role**a pak zvýraznit vaší skupiny dostupnosti.  
 
-2. On the **Resources** tab, right-click the listener name, and then click **Properties**.
+2. Na **prostředky** , klikněte pravým tlačítkem na název naslouchacího procesu a pak klikněte **vlastnosti**.
 
-3. Click the **Dependencies** tab. If multiple resources are listed, verify that the IP addresses have OR, not AND, dependencies.  
+3. Klikněte **závislosti** kartě. Pokud nejsou uvedeny více prostředků, ověřte, že IP adresy OR, not a závislosti.  
 
-4. Click **OK**.
+4. Klikněte na **OK**.
 
-5. Right-click the listener name, and then click **Bring Online**.
+5. Klikněte pravým tlačítkem na název naslouchacího procesu a pak klikněte na **přepnout do režimu Online**.
 
-6. After the listener is online, on the **Resources** tab, right-click the availability group, and then click **Properties**.
+6. Po online na naslouchací proces **prostředky** , klikněte pravým tlačítkem na skupinu dostupnosti a pak klikněte **vlastnosti**.
    
-    ![Configure the availability group resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+    ![Konfigurace prostředek skupiny dostupnosti](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-7. Create a dependency on the listener name resource (not the IP address resources name), and then click **OK**.
+7. Závislost na prostředku názvu naslouchací proces (ne IP adresy prostředky názvem) a potom klikněte na **OK**.
    
-    ![Add dependency on the listener name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+    ![Přidat závislost na název naslouchacího procesu](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-8. Start SQL Server Management Studio, and then connect to the primary replica.
+8. Spusťte SQL Server Management Studio a připojte se k primární replice.
 
-9. Go to **AlwaysOn High Availability** > **Availability Groups** > **\<AvailabilityGroupName\>** > **Availability Group Listeners**.  
-    The listener name that you created in Failover Cluster Manager should be displayed.
+9. Přejděte na **AlwaysOn vysokou dostupnost** > **skupiny dostupnosti** > **\<AvailabilityGroupName\>**   >  **Naslouchací procesy skupiny dostupnosti**.  
+    Název naslouchacího procesu, který jste vytvořili ve Správci clusteru převzetí služeb při selhání by měl být zobrazen.
 
-10. Right-click the listener name, and then click **Properties**.
+10. Klikněte pravým tlačítkem na název naslouchacího procesu a pak klikněte na **vlastnosti**.
 
-11. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort that you used earlier (in this tutorial, 1433 was the default), and then click **OK**.
+11. V **Port** pole, zadejte číslo portu pro naslouchací proces skupiny dostupnosti pomocí $EndpointPort dříve používaného (v tomto kurzu 1433 se výchozí nastavení) a potom klikněte na **OK**.
 

@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Co je Azure SQL Data Warehouse?
 Azure SQL Data Warehouse je cloudová, škálovatelná, relační databáze, která dokáže zpracovávat ohromné objemy dat, postavená na architektuře MPP (Massively Parallel Processing). 
@@ -154,4 +153,3 @@ Teď, když jste se s SQL Data Warehouse seznámili, můžete zjistit, jak rychl
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [smlouvám o úrovni služeb]: https://azure.microsoft.com/en-us/support/legal/sla/
-

@@ -14,16 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/29/2017
 ---
-
-
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-with-vmm-to-azure-replication"></a>Krok 2: Kontrola požadavků pro replikaci Hyper-V (s nástrojem VMM) do Azure
 
 Po kontrole [architektury scénáře](vmm-to-azure-walkthrough-architecture.md) si přečtěte tento článek a ujistěte se, že rozumíte požadavkům na nasazení. 
@@ -45,4 +41,3 @@ Po kontrole [architektury scénáře](vmm-to-azure-walkthrough-architecture.md) 
 ## <a name="next-steps"></a>Další kroky
 
 Přejděte na [Krok 3: Plánování kapacity](vmm-to-azure-walkthrough-capacity.md)
-

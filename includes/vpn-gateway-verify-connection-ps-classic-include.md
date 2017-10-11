@@ -1,11 +1,11 @@
-You can verify that your connection succeeded by using the 'Get-AzureVNetConnection' cmdlet.
+Můžete ověřit, že bylo připojení úspěšně pomocí rutiny 'Get-AzureVNetConnection'.
 
-1. Use the following cmdlet example, configuring the values to match your own. The name of the virtual network must be in quotes if it contains spaces.
+1. Použijte následující příklad rutiny a nakonfigurujte hodnoty tak, aby odpovídaly vašemu prostředí. Název virtuální sítě musí být v uvozovkách, pokud obsahuje mezery.
 
   ```powershell
   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
   ```
-2. After the cmdlet has finished, view the values. In the example below, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
+2. Po dokončení zpracování rutiny si prohlédněte hodnoty. V následujícím příkladu zobrazuje stav připojení jako "Připojena" a vy vidíte příchozí a Odchozí bajty.
 
         ConnectivityState         : Connected
         EgressBytesTransferred    : 181664

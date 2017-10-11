@@ -1,8 +1,8 @@
 
-| Resource | Default limit |
+| Prostředek | Výchozí omezení |
 | --- | --- |
-| Zones per subscription |100 <sup>1</sup> |
-| Record sets per zone |5000 <sup>1</sup> |
-| Records per record set |20 |
+| Zóny na předplatné |100 <sup>1</sup> |
+| Sady záznamů na zóny |5000 <sup>1</sup> |
+| Záznamů na sady záznamů |20 |
 
-<sup>1</sup> Contact Azure Support in case you need to increase these limits.
+<sup>1</sup> obraťte se na podporu Azure v případě budete muset tyto limity zvýšit.

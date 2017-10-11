@@ -15,8 +15,3 @@
 
 Xcode vytvoří ukázkovou aplikaci, do které budeme integrovat Mobile Engagement.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

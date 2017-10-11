@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-#### <a name="to-add-or-remove-a-volume"></a>To add or remove a volume
+#### <a name="to-add-or-remove-a-volume"></a>Přidat nebo odebrat svazku
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. Přejděte ke svému zařízení StorSimple a klikněte na **Zásady zálohování**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to modify. Right-click to invoke the context menu and then select **Add/remove volume**.
+2. V tabulkovém seznam zásad, vyberte a klikněte na zásadu, kterou chcete upravit. Klikněte pravým tlačítkem na vyvolání v místní nabídce a potom vyberte **přidat nebo odebrat svazek**.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
+    ![Spravovat plány](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
 
-3. In the **Add/remove volume** blade, select or deselect the checkbox(es) to add or remove the volume. Multiple volumes are selected/deselected by checking or unchecking the corresponding checkboxes.
+3. V **přidat nebo odebrat svazek** okně vyberte nebo zrušte výběr checkbox(es) přidat nebo odebrat svazku. Několik svazků jsou vybrané nevybrány zaškrtnutím nebo zrušením zaškrtnutí políček odpovídající.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![Spravovat plány](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
-    If you assign volumes from different volume containers to a backup policy, then you will need to remember to fail over those volume containers together. You will see a warning to that effect.
+    Pokud svazky z kontejnerů jiný svazek, který přiřadíte zásady zálohování, pak bude muset nezapomeňte převzetí služeb při selhání tyto kontejnery svazků najednou. Zobrazí se upozornění k tomuto účelu.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![Spravovat plány](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
-4. You are notified when the backup policy is modified. The backup policy list is also updated.
+4. Budete upozorněni, když dojde k úpravě zásad zálohování. Zásady zálohování seznamu je také aktualizovat.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![Spravovat plány](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

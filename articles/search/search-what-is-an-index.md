@@ -12,12 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.contentlocale: cs-cz
-ms.lasthandoff: 12/10/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>Vytvoření indexu Azure Search
 > [!div class="op_single_selector"]
@@ -66,5 +65,4 @@ Podrobnější informace o [atributech indexu služby Azure Search najdete tady]
 Při navrhování indexu si ve fázi plánování pečlivě promyslete každé rozhodnutí. Při navrhování indexu je důležité zohlednit uživatelskou práci při vyhledávání a potřeby podniku, protože každému poli se musí přiřadit [správné atributy](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Při změně indexu po nasazení je nutné znovu sestavit a načíst data.
 
 Pokud se v průběhu času změní požadavky na úložiště dat, můžete zvýšit nebo snížit kapacitu přidáním nebo odebráním oddílů. Podrobnosti najdete v tématu [Správa služby Search v Azure](search-manage.md) nebo [Omezení služby](search-limits-quotas-capacity.md).
-
 

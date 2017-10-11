@@ -1,47 +1,47 @@
-### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
+### <a name="noconnection"></a>Úprava předpon IP adres místní síťové brány – žádné připojení brány
 
-#### <a name="to-add-additional-address-prefixes"></a>To add additional address prefixes:
+#### <a name="to-add-additional-address-prefixes"></a>Přidání dalších předpon adres:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space in the *Add additional address range* box.
-3. Click **Save** to save your settings.
+1. Na bráně místní sítě prostředku v **nastavení** klikněte na tlačítko **konfigurace**.
+2. Přidejte adresní prostor IP adres v *přidat další rozsah adres* pole.
+3. Klikněte na tlačítko **Uložit** uložte nastavení.
 
-#### <a name="to-remove-address-prefixes"></a>To remove address prefixes:
+#### <a name="to-remove-address-prefixes"></a>Odebrání předpon adres:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **'...'** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Na bráně místní sítě prostředku v **nastavení** klikněte na tlačítko **konfigurace**.
+2. Klikněte **'...** na řádek obsahující předponu, která chcete odebrat.
+3. Klikněte na tlačítko **odebrat**.
+4. Klikněte na tlačítko **Uložit** uložte nastavení.
 
-### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection
+### <a name="withconnection"></a>Úprava předpon IP adres místní síťové brány – existující připojení brány
 
-If you have a gateway connection and want to add or remove the IP address prefixes contained in your local network gateway, you need to do the following steps, in order. This results in some downtime for your VPN connection. When modifying IP address prefixes, you don't need to delete the VPN gateway. You only need to remove the connection.
+Pokud máte připojení k bráně a chcete přidat nebo odebrat předpony IP adres obsažené v bráně místní sítě, musíte v uvedeném pořadí provést následující kroky. Způsobí to určitý výpadek připojení VPN. Při upravování předpon IP adres není potřeba odstraňovat bránu VPN. Stačí jenom odebrat připojení.
 
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Odeberte připojení.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for each connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. Na bráně místní sítě prostředku v **nastavení** klikněte na tlačítko **připojení**.
+2. Klikněte **...**  na řádek pro každé připojení klikněte **odstranit**.
+3. Klikněte na tlačítko **Uložit** uložte nastavení.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Modify the address prefixes.
+#### <a name="2-modify-the-address-prefixes"></a>2. Úprava předpon adres.
 
-To add additional address prefixes:
+Přidání dalších předpon adres:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space.
-3. Click **Save** to save your settings.
+1. Na bráně místní sítě prostředku v **nastavení** klikněte na tlačítko **konfigurace**.
+2. Přidejte adresní prostor IP adres.
+3. Klikněte na tlačítko **Uložit** uložte nastavení.
 
-To remove address prefixes:
+Odebrání předpon adres:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **...** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Na bráně místní sítě prostředku v **nastavení** klikněte na tlačítko **konfigurace**.
+2. Klikněte **...**  na řádek obsahující předpona, kterou chcete odebrat.
+3. Klikněte na tlačítko **odebrat**.
+4. Klikněte na tlačítko **Uložit** uložte nastavení.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Znovu vytvořte připojení.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Přejděte k bráně virtuální sítě pro virtuální síť. (Nikoli brány místní sítě.)
+2. Na bráně virtuální sítě v **nastavení** klikněte na tlačítko **připojení**.
+3. Klikněte **+ přidat** otevřete **přidat připojení** okno.
+4. Znovu vytvořte připojení.
+5. Klikněte na tlačítko **OK** k vytvoření připojení.

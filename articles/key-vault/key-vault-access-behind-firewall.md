@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: da4d156132fba9efc98b3af441b6d095a4bb60ea
-ms.openlocfilehash: e0bc6e75fef1f3567940e30acf6f9f429258be12
-
-
+ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Přístup ke službě Azure Key Vault za bránou firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>Otázka: Moje klientská aplikace trezoru klíčů musí být za bránou firewall. Které porty, hostitele nebo IP adresy je nutné otevřít, pokud chci umožnit přístup k trezoru klíčů?
@@ -38,9 +38,9 @@ Klientské aplikace trezoru klíčů budou kvůli ověřování potřebovat př�
 
 | Typ objektu zabezpečení | Koncový bod:port |
 | --- | --- |
-| Uživatel používající účet Microsoft<br> (například <ph id="ph1">adresa@hotmail.com)</ph>user@hotmail.com) |**Globální:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> a <br>login.live.com:443 |
-| Uživatel nebo instanční objekt používající pracovní nebo školní účet s Azure AD (například <ph id="ph1">adresa@contoso.com)</ph>user@contoso.com) |**Globální:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
-| Uživatel nebo instanční objekt používající pracovní nebo školní účet a službu Active Directory Federation Services (AD FS) nebo jiný federovaný koncový bod (například <ph id="ph1">adresa@contoso.com)</ph>user@contoso.com) |Všechny koncové body pro pracovní nebo školní účet a AD FS nebo jiné federované koncové body |
+| Uživatel používající účet Microsoft<br> (například user@hotmail.com) |**Globální:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> a <br>login.live.com:443 |
+| Uživatel nebo objektu zabezpečení pomocí pracovní nebo školní účet s Azure AD (například user@contoso.com) |**Globální:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
+| Uživatel nebo objektu zabezpečení pomocí pracovní nebo školní účet a služby Active Directory Federation Services (AD FS) nebo jiný federované koncový bod (například user@contoso.com) |Všechny koncové body pro pracovní nebo školní účet a AD FS nebo jiné federované koncové body |
 
 Existují i další možné komplexní scénáře. Další informace najdete v tématech [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/) (Tok ověřování Azure Active Directory), [Integrating Applications with Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) (Integrace aplikací s Azure Active Directory) a [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Ověřovací protokoly Active Directory).  
 
@@ -64,10 +64,4 @@ Služba Key Vault používá jiné prostředky Azure, například infrastrukturu
 
 ## <a name="next-steps"></a>Další kroky
 Pokud máte dotazy ke službě Key Vault, navštivte [fóra služby Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -10,8 +10,3 @@ Služba Azure Backup má dva typy trezorů – trezor Backup a trezor Recovery S
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

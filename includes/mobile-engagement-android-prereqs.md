@@ -1,7 +1,7 @@
-Before starting this tutorial, you must first complete the [Getting Started](../articles/mobile-engagement/mobile-engagement-android-get-started.md) tutorial.
+Před zahájením tohoto kurzu, je třeba nejprve provést [Začínáme](../articles/mobile-engagement/mobile-engagement-android-get-started.md) kurzu.
 
 > [!IMPORTANT]
-> Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
+> Vaše minimální úroveň rozhraní API systému Android SDK musí být 10 nebo vyšší (Android 2.3.3 nebo vyšší).
 > 
 > 
 

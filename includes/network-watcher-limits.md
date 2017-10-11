@@ -1,6 +1,6 @@
-| Resource | Default limit | Note |
+| Prostředek | Výchozí omezení | Poznámka |
 | --- | --- | --- |
-| Network Watcher | 1 per region  | |
-| Packet Capture sessions |10 per region |# of sessions only, not saved captures |
+| Network Watcher | 1 podle oblastí  | |
+| Relace zachytávání paketů |10 podle oblastí |zaznamená počet relací, není uložen |
 
 

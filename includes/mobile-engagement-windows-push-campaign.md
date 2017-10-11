@@ -23,8 +23,3 @@ Teď vytvoříme jednoduchou kampaň nabízených oznámení. Ta bude odesílat 
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

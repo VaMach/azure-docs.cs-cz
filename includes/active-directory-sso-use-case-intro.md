@@ -1,18 +1,18 @@
-Organizations are using more [Software as a Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications for productivity because cloud technology and tools are becoming more readily available. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure.
+Organizace používá více [Software jako služba (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) aplikací pro produktivitu protože cloudové technologie a nástroje jsou čím dál víc snadno dostupné. S růstem počet aplikací SaaS stane náročné správcům spravovat účty a oprávnění a pro uživatele pamatovat jiné hesla. Správu těchto aplikací jednotlivě vytvoří další práci a je méně bezpečné.
 
-* Employees who have to keep track of many passwords tend to use less-secure methods to remember them, either writing down passwords or using the same passwords across many accounts.
-* When a new employee arrives or one leaves, all their accounts must be individually provisioned or de-provisioned.
-* Additionally, employees may start using SaaS apps for their work without going through IT, which means they are creating their own accounts on systems that the IT administrators haven't approved and aren't monitoring.  
+* Zaměstnanci, kteří mají ke sledování mnoho hesla zpravidla použití méně bezpečných metod pamatovat, zápis dolů hesla nebo přihlašovali stejnými hesly napříč mnoha účty.
+* Když dorazí nového zaměstnance nebo jeden opustí, všechny své účty musí být jednotlivě zřízený nebo zrušte zřízený.
+* Kromě toho zaměstnanci mohou začít používat aplikace SaaS pro práci bez průchodu přes IT, což znamená, budou v systémech, které správci IT neschválili nejsou monitorování a vytváření svoje vlastní účty.  
 
-A solution for all of these challenges is single sign-on (SSO). It's the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (Azure AD) provides a robust SSO solution and has many available pre-integrated applications, with tutorials for admins to quickly set up a new app and start provisioning users.
+Jednotné přihlašování (SSO) je řešení pro všechny tyto problémy. Je nejjednodušší způsob, jak spravovat víc aplikací a poskytněte uživatelům konzistentní prostředí přihlášení. Azure Active Directory (Azure AD) poskytuje robustní řešení jednotné přihlašování a má mnoho k dispozici předem integrovaných aplikací, s kurzy pro správce rychle nastavit nové aplikace a spustit zřizování uživatelů.
 
-## <a name="how-does-azure-active-directory-integrate-apps"></a>How does Azure Active Directory integrate apps?
-Azure AD allows you to integrate your apps and provisioned accounts. This can be done through either of two approaches.
+## <a name="how-does-azure-active-directory-integrate-apps"></a>Jak Azure Active Directory integraci aplikace?
+Azure AD umožňuje integraci se vaše aplikace a zřízené účty. To lze provést prostřednictvím buď dva přístupy.
 
-* If the app is pre-integrated in the app Gallery, you can go through that portal to set up apps and configure the settings to allow SSO. For any Gallery app, you can get started by follow the simple step-by-step instructions presented in the app gallery and in the Azure portal to enable single sign-on.
-* If the app is not in the Gallery, you can still set up most apps in Azure AD as a custom app. This requires a bit more technical expertise to configure. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.
+* Pokud je aplikace předem integrovaných v aplikaci Galerie, můžete přejít prostřednictvím tohoto portálu k nastavení aplikace a konfigurace nastavení pro povolení jednotného přihlašování. Pro žádné Galerie aplikace, můžete začít používat podle podle pokynů jednoduché podrobné uvedené v galerii aplikací a na webu Azure portal povolit jednotné přihlašování.
+* Pokud aplikace není v galerii, může stále nastavíte většinu aplikací ve službě Azure AD jako vlastní aplikaci. To vyžaduje trochu další technické znalosti ke konfiguraci. Přidáním jakékoli aplikace, který podporuje SAML 2.0 jako federované aplikace nebo jakékoli aplikace, která má HTML na přihlašovací stránku jako heslo jednotného přihlašování k aplikaci.
 
-In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
+V případě, kde uživatelé vytvořili svoje vlastní účty pro aplikace SaaS, které nejsou spravovány IT, [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) nástroj poskytuje řešení. Tento nástroj monitoruje webové přenosy identifikovat, které aplikace se používají v rámci organizace a kolik uživatelů pomocí každého z nich. IT můžete použít tyto informace se dozvíte, jaké aplikace uživatelé dáváte přednost a rozhodnout, která integruje do Azure AD pro jednotné přihlašování.  
 
-When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.  
+Při integraci aplikace do Azure AD, můžete namapovat identit uživatelů zavedené aplikace na jejich odpovídající identit Azure AD.  
 

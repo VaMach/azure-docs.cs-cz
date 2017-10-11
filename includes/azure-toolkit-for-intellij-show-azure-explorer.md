@@ -1,6 +1,6 @@
-## <a name="displaying-the-azure-explorer-tool-window"></a>Displaying the Azure Explorer Tool Window
+## <a name="displaying-the-azure-explorer-tool-window"></a>Zobrazení okna Nástroj Průzkumník Azure
 
-If the **Azure Explorer** tool window is not visible in IntelliJ, click **View**, then click **Tool Windows**, and then click **Azure Explorer**.
+Pokud **Průzkumník Azure** okno nástroje není zobrazená v IntelliJ, klikněte na tlačítko **zobrazení**, pak klikněte na tlačítko **nástroj Windows**a pak klikněte na **Azure Explorer**.
 
-![Show Azure Explorer Tool Window](./media/azure-toolkit-for-intellij-show-azure-explorer/show-az-exp-01.png)
+![Zobrazit okno nástroje Azure Explorer](./media/azure-toolkit-for-intellij-show-azure-explorer/show-az-exp-01.png)
 

@@ -1,34 +1,34 @@
 ## <a name="virtual-network"></a>Virtual Network
-Virtual Networks (VNET) and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
+Virtuální sítí (VNET) a podsítě prostředky pomohl definovat hranici zabezpečení pro úlohy běžící v Azure. Virtuální síť je charakterizovaná kolekce adresní prostory, které jsou definované jako bloků CIDR. 
 
 > [!NOTE]
-> Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
+> Správci sítě se seznámíte s notaci CIDR. Pokud nejste obeznámeni s CIDR, [Další informace o](http://whatismyipaddress.com/cidr).
 > 
 > 
 
-![VNet with multiple subnets](./media/resource-groups-networking/Figure4.png)
+![Virtuální síť s více podsítěmi](./media/resource-groups-networking/Figure4.png)
 
-VNets contain the following properties.
+Virtuální sítě obsahují následující vlastnosti.
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **addressSpace** |Collection of address prefixes that make up the VNet in CIDR notation |192.168.0.0/16 |
-| **subnets** |Collection of subnets that make up the VNet |see [subnets](#Subnets) below. |
-| **ipAddress** |IP address assigned to object. This is a read-only property. |104.42.233.77 |
+| **adresní prostor** |Kolekce předpon adres, které tvoří virtuální sítě v notaci CIDR |192.168.0.0/16 |
+| **podsítě** |Kolekce podsítě, které tvoří virtuální sítě |v tématu [podsítě](#Subnets) níže. |
+| **IP adresa** |Přiřazené objektu IP adresy. Toto je vlastnost jen pro čtení. |104.42.233.77 |
 
-### <a name="subnets"></a>Subnets
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
+### <a name="subnets"></a>Podsítě
+Podsíť je prostředkem podřízené virtuální sítě, a pomáhá definovat segmenty adresní prostory v rámci blok CIDR pomocí předpony IP adres. Síťové adaptéry můžete přidat do podsítí a připojení k virtuálním počítačům, poskytuje připojení pro různé úlohy.
 
-Subnets contain the following properties. 
+Podsítě obsahují následující vlastnosti. 
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **addressPrefix** |Single address prefix that make up the subnet in CIDR notation |192.168.1.0/24 |
-| **networkSecurityGroup** |NSG applied to the subnet |see [NSGs](#Network-Security-Group) |
-| **routeTable** |Route table applied to the subnet |see [UDR](#Route-table) |
-| **ipConfigurations** |Collection of IP configruation objects used by NICs connected to the subnet |see [UDR](#Route-table) |
+| **addressPrefix** |Jedna adresa předponu, která tvoří podsíť v notaci CIDR |192.168.1.0/24 |
+| **skupinu zabezpečení sítě** |Skupina NSG použije na podsíť |v tématu [skupiny Nsg](#Network-Security-Group) |
+| **routeTable** |Směrovací tabulka použije na podsíť |v tématu [UDR](#Route-table) |
+| **Konfigurace IP adresy** |Kolekce objektů configruation IP používané síťové adaptéry připojené k podsíti |v tématu [UDR](#Route-table) |
 
-Sample VNet in JSON format:
+Ukázka VNet ve formátu JSON:
 
     {
         "name": "TestVNet",
@@ -72,8 +72,8 @@ Sample VNet in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) for Subnets.
+### <a name="additional-resources"></a>Další zdroje
+* Přečtěte si další informace o [VNet](../articles/virtual-network/virtual-networks-overview.md).
+* Pro čtení [referenční dokumentace rozhraní API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) pro virtuální sítě.
+* Pro čtení [referenční dokumentace rozhraní API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) pro podsítě.
 

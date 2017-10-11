@@ -1,19 +1,19 @@
-The following table describes each of the major quotas, limits, defaults, and throttles in Azure Scheduler.
+Následující tabulka popisuje všechny hlavní kvót, omezení, výchozí hodnoty a omezení ve službě Azure Scheduler.
 
-| Resource | Limit Description |
+| Prostředek | Popis limit |
 | --- | --- |
-| **Job size** |Maximum job size is 16K. If a PUT or a PATCH results in a job larger than these limits, a 400 Bad Request status code is returned. |
-| **Request URL size** |Maximum size of the request URL is 2048 chars. |
-| **Aggregate header size** |Maximum aggregate header size is 4096 chars. |
-| **Header count** |Maximum header count is 50 headers. |
-| **Body size** |Maximum body size is 8192 chars. |
-| **Recurrence span** |Maximum recurrence span is 18 months. |
-| **Time to start time** |Maximum “time to start time” is 18 months. |
-| **Job history** |Maximum response body stored in job history is 2048 bytes. |
-| **Frequency** |The default max frequency quota is 1 hour in a free job collection and 1 minute in a standard job collection. The max frequency is configurable on a job collection to be lower than the maximum. All jobs in the job collection are limited the value set on the job collection. If you attempt to create a job with a higher frequency than the maximum frequency on the job collection then request will fail with a 409 Conflict status code. |
-| **Jobs** |The default max jobs quota is 5 jobs in a free job collection and 50 jobs in a standard job collection. The maximum number of jobs is configurable on a job collection. All jobs in the job collection are limited the value set on the job collection. If you attempt to create more jobs than the maximum jobs quota, then the request fails with a 409 Conflict status code. |
-| **Job collections** |Maximum number of job collection per subscription is 200,000. |
-| **Job history retention** |Job history is retained for up to 2 months or up to the last 1000 executions. |
-| **Completed and faulted job retention** |Completed and faulted jobs are retained for 60 days. |
-| **Timeout** |There’s a static (not configurable) request timeout of 60 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background. |
+| **Velikost úlohy** |Maximální velikost je 16 kB. Pokud PUT nebo opravy výsledkem úlohu větší než těchto mezních hodnot, vrátí se 400 stavový kód chybný požadavek. |
+| **Velikost adresy URL žádosti** |Maximální velikost adrese URL žádosti je 2048 znaků. |
+| **Velikost agregační záhlaví** |Velikost maximální agregační záhlaví je 4096 znaků. |
+| **Počet záhlaví** |Hlavička maximální počet je 50 hlavičky. |
+| **Velikost obsahu** |Text maximální velikost je 8192 znaků. |
+| **Interval opakování** |Maximální počet opakování rozpětí je 18 měsíců. |
+| **Čas spuštění** |Maximální počet "čas spuštění" je 18 měsíců. |
+| **Historie úlohy** |Maximální odpovědi, které jsou uloženy v historii úlohy je 2048 bajtů. |
+| **Frekvence** |Kvóta maximální frekvence výchozí je 1 hodina bezplatnou kolekci úloh a 1 minuta v kolekci standardní úlohy. Maximální frekvence se dá nakonfigurovat na kolekci úloh nižší než maximální. Všechny úlohy v kolekci úloh jsou omezené hodnotu nastavenou v kolekci úloh. Pokud se pokusíte vytvořit úlohu s frekvencí vyšší než maximální frekvence na kolekci úloh se nezdaří žádost s 409 konflikt stavový kód. |
+| **Úlohy** |Výchozí kvótu maximální počet úloh je 5 úloh v bezplatnou kolekci úloh a 50 úloh v kolekci standardní úlohy. Maximální počet úloh je možné konfigurovat na kolekci úloh. Všechny úlohy v kolekci úloh jsou omezené hodnotu nastavenou v kolekci úloh. Pokud budete chtít vytvořit více úloh než kvóta maximální úlohy, požadavek selže s 409 konflikt stavový kód. |
+| **Kolekce úloh** |Maximální počet kolekce úloh podle předplatného je 200 000. |
+| **Uchování historie úlohy** |Historie úlohy se uchovávají po dobu až 2 měsíců nebo maximálně posledních 1000 spuštěních. |
+| **Uchování dokončené a chybný úlohy** |Dokončené a chybný úlohy jsou uchovávat 60 dnů. |
+| **Časový limit** |Je statický časový limit (ne konfigurovat) požadavku 60 sekund pro akce HTTP. Delší spuštění operací postupujte podle asynchronní protokoly HTTP; například vrátit 202 okamžitě však pokračovat v práci na pozadí. |
 

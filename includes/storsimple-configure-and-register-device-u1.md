@@ -63,8 +63,3 @@
        
         Zkontrolujte, jestli je port 9354 otevřený pro odchozí komunikaci, protože ho používá sběrnice služby pro komunikaci služby StorSimple Manager se zařízením.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

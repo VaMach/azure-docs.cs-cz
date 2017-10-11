@@ -1,16 +1,16 @@
-## <a name="net-sample-code-repositories"></a>.NET sample code repositories
+## <a name="net-sample-code-repositories"></a>Rozhraní .NET ukázkový kód úložiště
 
-Here is a list of all our sample repositories for the Azure Storage .NET client library.
+Tady je seznam všech naše Ukázka úložiště pro klientské knihovny .NET úložiště Azure.
 
-* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)
-* [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-getting-started/)
-* [Backup Azure Virtual Machine Disks with Incremental Snapshots](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-back-up-with-incremental-snapshots/)
-* [Getting Started with Azure Client Side Encryption in .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-client-side-encryption/)
-* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
-* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
-* [Getting Started with Azure Storage Resource Provider in .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
-* [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
-* [Getting Started with Shared Access Signatures (SAS)](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
-* [Import Export Job Management through REST API](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
-* [MyDriving - An Azure IOT and Mobile Sample Application](https://azure.microsoft.com/resources/samples/mydriving/)
-* [.NET Storage Client Library Samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
+* [Azure Blob Storage Fotogalerie webové aplikace](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)
+* [Ukázky úložiště objektů Blob v Azure pro .NET](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-getting-started/)
+* [Disky zálohování virtuálních počítačů Azure s přírůstkové snímky](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-back-up-with-incremental-snapshots/)
+* [Začínáme s šifrování na straně klienta Azure v rozhraní .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-client-side-encryption/)
+* [Začínáme se službou Azure souborů v rozhraní .NET](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
+* [Začínáme se službou Azure fronty v rozhraní .NET](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
+* [Začínáme s poskytovatelem prostředků úložiště Azure v rozhraní .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
+* [Začínáme s Azure Table Storage v rozhraní .NET](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
+* [Začínáme s sdílené přístupové podpisy (SAS)](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
+* [Správa úloh importu a exportu prostřednictvím rozhraní API REST](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
+* [MyDriving - služby Azure IOT a mobilní ukázkové aplikace](https://azure.microsoft.com/resources/samples/mydriving/)
+* [Ukázky knihovny klienta úložiště rozhraní .NET](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)

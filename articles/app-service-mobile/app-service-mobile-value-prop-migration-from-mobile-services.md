@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="getting-started"> </a>Používám Mobile Services, jak mi pomůže App Service?
 ## <a name="overview"></a>Přehled
@@ -64,4 +63,3 @@ Back-end a databáze je možné automaticky zálohovat. Kód a data jsou zabezpe
 S *Azure App Service* je nyní možné pro své mobilní aplikace vytvořit několik privátních testovacích a přípravných prostředí. Můžete je využít k otestování aplikací předtím, než je nasadíte. Do ostrého provozu je možné přejít zcela bez výpadku. Webové aplikace se načítají předem – díky tomu mají zákazníci maximální pohodlí.
 
 Výhody *App Service* pro existující Mobile Service můžete začít využívat tak, že si projdete tento [kurz](app-service-mobile-migrating-from-mobile-services.md).
-

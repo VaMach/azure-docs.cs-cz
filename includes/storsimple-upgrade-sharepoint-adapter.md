@@ -1,33 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
+### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Upgradovat SharePoint 2010 pro službu SharePoint 2013 a potom nainstalovat adaptér StorSomple pro službu SharePoint
 > [!IMPORTANT]
-> Any files that were previously moved to external storage via RBS will not be available until the upgrade is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
+> Všechny soubory, které byly dříve přesunuty do externího úložiště prostřednictvím RBS nebudete mít k dispozici, dokud je dokončen upgrade a je RBS funkce znovu povolena. Pokud chcete omezit dopad uživatele, proveďte všechny upgrade nebo přeinstalaci během plánované údržby.
 > 
 > 
 
-#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>To upgrade SharePoint 2010 to SharePoint 2013 and then install the adapter
-1. In the SharePoint 2010 farm, note the BLOB store path for the externalized BLOBs and the content databases for which RBS is enabled. 
-2. Install and configure the new SharePoint 2013 farm. 
-3. Move databases, applications, and site collections from the SharePoint 2010 farm to the new SharePoint 2013 farm. For instructions, go to [Overview of the upgrade process to SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
-4. Install the StorSimple Adapter for SharePoint on the new farm. Go to [Install the StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint) for procedures.
-5. Using the information that you noted in step 1, enable RBS for the same set of content databases and provide the same BLOB store path that was used in the SharePoint 2010 installation. Go to [Configure RBS](#configure-rbs) for procedures. After you complete this step, previously externalized files should be accessible from the new farm. 
+#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>K upgradu služby SharePoint 2010 na SharePoint 2013 a potom nainstalujte adaptér
+1. Ve farmě služby SharePoint 2010 Všimněte si, cesta k úložišti objektů BLOB pro externalized objekty BLOB a databáze obsahu, pro které je RBS povolená. 
+2. Nainstalujte a nakonfigurujte nové farmy serverů Sharepointu 2013. 
+3. Přesun databáze, aplikace a kolekce webů z farmy SharePoint 2010 do nové farmy serverů Sharepointu 2013. Pokyny, přejděte na [přehled procesu upgradu na SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+4. Instalace adaptéru StorSimple pro SharePoint v nové farmě. Přejděte na [instalovat adaptér StorSimple pro službu SharePoint](#install-the-storsimple-adapter-for-sharepoint) postupy.
+5. Pomocí informací, které jste si poznamenali v kroku 1, povolte RBS pro stejnou sadu databází obsahu a zadat stejnou cestu úložiště objektů BLOB, která byla použita při instalaci serveru SharePoint 2010. Přejděte na [konfigurace RBS](#configure-rbs) postupy. Po dokončení tohoto kroku, dříve externalized soubory musí být přístupný z nové farmy. 
 
-### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Upgrade the StorSimple Adapter for SharePoint
+### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Upgrade adaptéru StorSimple pro službu SharePoint
 > [!IMPORTANT]
-> You should schedule this upgrade to occur during a planned maintenance window for the following reasons:
+> Měli byste naplánovat tento upgrade proběhnout během plánované údržby z následujících důvodů:
 > 
-> * Previously externalized content will not be available until the adapter is reinstalled.
-> * Any content uploaded to the site after you uninstall the previous version of the StorSimple Adapter for SharePoint, but before you install the new version, will be stored in the content database. You will need to move that content to the StorSimple device after you install the new adapter. You can use the Microsoft` RBS Migrate()` PowerShell cmdlet included with SharePoint to migrate the content. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Externalized obsah dříve nebudete mít k dispozici, dokud bude znovu nainstalován adaptér.
+> * Veškerý obsah, nahrán do lokality po odinstalaci předchozí verze adaptéru StorSimple pro službu SharePoint, ale před instalací nové verze, bude uložen v databázi obsahu. Potřebujete přesunout obsah do zařízení StorSimple, po instalaci nový adaptér. Můžete použít Microsoft` RBS Migrate()` rutiny prostředí PowerShell, které jsou součástí služby SharePoint k přenosu obsahu. Další informace najdete v tématu [migraci obsahu do nebo z RBS](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 
-#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>To upgrade the StorSimple Adapter for SharePoint
-1. Uninstall the previous version of StorSimple Adapter for SharePoint.
+#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>Upgrade adaptéru StorSimple pro službu SharePoint
+1. Odinstalujte předchozí verzi zařízení StorSimple adaptéru pro službu SharePoint.
    
    > [!NOTE]
-   > This will automatically disable RBS on the content databases. However, existing BLOBs will remain on the StorSimple device. Because RBS is disabled and the BLOBs have not been migrated back to the content databases, any requests for those BLOBs will fail. 
+   > Tato akce automaticky zakáže RBS v databázích obsahu. Existující objekty BLOB, ale bude zůstanou v zařízení StorSimple. Protože je zakázán RBS a objekty BLOB nebyly migrována zpět do databáze obsahu, všechny požadavky pro tyto objekty BLOB se nezdaří. 
    > 
    > 
-2. Install the new StorSimple Adapter for SharePoint. The new adapter will automatically recognize the content databases that were previously enabled or disabled for RBS and will use the previous settings.
+2. Nainstalujte nový adaptér StorSimple pro službu SharePoint. Nový adaptér databáze obsahu, které byly dříve povolit nebo zakázat pro RBS automaticky rozpozná a použije předchozí nastavení.
 

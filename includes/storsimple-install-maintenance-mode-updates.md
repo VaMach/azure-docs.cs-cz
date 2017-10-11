@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>To install Maintenance mode updates via Windows PowerShell for StorSimple
-1. If you haven't done so already, access the device serial console and select option 1, **Log in with full access**. 
-2. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>K instalaci aktualizací režimu údržby pomocí prostředí Windows PowerShell pro StorSimple
+1. Pokud jste tak ještě neučinili, přístup k konzoly sériového portu zařízení a vyberte možnost 1, **přihlásit úplný přístup**. 
+2. Zadejte heslo. Výchozí heslo je **Heslo1**.
+3. Na příkazovém řádku zadejte:
    
      `Get-HcsUpdateAvailability` 
-4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Step 2: Enter Maintenance mode](../articles/storsimple/storsimple-update-device.md#step2) for instructions.
-5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
-6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
-7. Monitor the status of updates. Type:
+4. Zobrazí se upozornění, pokud jsou k dispozici aktualizace, a zda jsou aktualizace rušivý nebo omezovaly. Na rušivý aktualizace, musíte převést zařízení do režimu údržby. V tématu [krok 2: Zadejte údržby režimu](../articles/storsimple/storsimple-update-device.md#step2) pokyny.
+5. Když je zařízení v režimu údržby, na příkazovém řádku zadejte:`Start-HcsUpdate`
+6. Zobrazí se výzva k potvrzení. Po ověření, aktualizace, budou nainstalovány na řadiči, který se právě používají. Po instalaci aktualizace, řadičem se restartuje. 
+7. Monitorujte stav aktualizace. Zadejte:
    
     `Get-HcsUpdateStatus`
    
-    If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
-8. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
-9. After both controllers are updated, exit Maintenance mode. See [Step 4: Exit Maintenance mode](../articles/storsimple/storsimple-update-device.md#step4) for instructions.
+    Pokud `RunInProgress` je `True`, aktualizaci stále probíhá. Pokud `RunInProgress` je `False`, znamená to, že aktualizace byla dokončena.  
+8. Pokud je aktualizace nainstalována na řadiči aktuální a jeho restartování, připojit k jiné řadiče a proveďte kroky 1 až 6.
+9. Po aktualizaci oba řadiče ukončení režimu údržby. V tématu [krok 4: režim údržby ukončení](../articles/storsimple/storsimple-update-device.md#step4) pokyny.
 

@@ -1,17 +1,17 @@
 ## <a name="load-balancer"></a>Load Balancer
-A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
+Nástroj pro vyrovnávání zatížení se používá, když chcete škálovat vaše aplikace. Typické nasazení scénáře zahrnují aplikací běžících na více instancí virtuálního počítače. Nástroj pro vyrovnávání zatížení, která pomáhá distribuovat síťový provoz na různých instancí jsou přední stěnou instance virtuálních počítačů. 
 
-![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
+![Karty síťového rozhraní na jeden virtuální počítač](./media/resource-groups-networking/figure8.png)
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| *frontendIPConfigurations* |a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
-| *backendAddressPools* |these are IP addresses associated with the VM NICs to which load will be distributed |
-| *loadBalancingRules* |a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |
-| *Probes* |probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
-| *inboundNatRules* |NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool |
+| *frontendIPConfigurations* |Nástroj pro vyrovnávání zatížení může obsahovat jednu nebo více adres IP front-endu známé jako virtuální IP adresy (VIP). Tyto IP adresy sloužit jako příchozího provozu a může být veřejné IP adresy nebo privátní IP |
+| *backendAddressPools* |Toto jsou IP adresy přidružené síťové adaptéry virtuálních počítačů, do které budou distribuována zatížení |
+| *Pravidla* |Vlastnost rule mapuje danou front-end IP a portu kombinace na sadu back-end IP adresy a portu. S definicí jeden prostředek pro vyrovnávání zatížení můžete definovat více pravidel Vyrovnávání zatížení, každé pravidlo odrážející kombinaci popředí end IP adresy a portu a zpět Koncová IP adresa a port přidružený virtuálních počítačů. Pravidlo je jeden port ve front-endu fondu se mají velký počet virtuálních počítačů ve fondu back-end |
+| *Sondy* |sondy umožňují udržování přehledu o stavu instance virtuálních počítačů. Pokud selže test stavu, instance virtuálního počítače se provedou mimo otočení automaticky |
+| *inboundNatRules* |Definování příchozí provoz předávaných mezi přední pravidla NAT ukončení IP a distribuovat do back-end IP do instance konkrétní virtuální počítač. Pravidlo NAT je jeden port ve front-endu fondu k jednomu virtuálnímu počítači ve fondu back-end |
 
-Example of load balancer template in Json format:
+Příklad šablony služby Vyrovnávání zatížení ve formátu Json:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -186,6 +186,6 @@ Example of load balancer template in Json format:
       ]
     }
 
-### <a name="additional-resources"></a>Additional resources
-Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.
+### <a name="additional-resources"></a>Další zdroje
+Čtení [REST API nástroj pro vyrovnávání zatížení](https://msdn.microsoft.com/library/azure/mt163651.aspx) Další informace.
 

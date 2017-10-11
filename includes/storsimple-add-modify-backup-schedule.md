@@ -1,20 +1,20 @@
 
 <!--author=SharS last changed: 9/15/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
-3. Under **general**, you can modify the backup policy name.
-4. Under **schedules**, click **manage schedules** to add or remove schedules. In the **Manage Schedule** dialog box, do the following:
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Přidat nebo upravit plán zálohování StorSimple
+1. Na obrazovce **Rychlý start** zařízení klikněte na kartu **Zásady zálohování**. Tím přejdete na stránku **Zásady zálohování**.
+2. V tabulkovém seznam zásad, vyberte a klikněte na zásadu, kterou chcete upravit.
+3. V části **Obecné**, můžete upravit název zásady zálohování.
+4. V části **plány**, klikněte na tlačítko **Spravovat plány** přidat nebo odebrat plány. V **spravovat plán** dialogové okno pole, postupujte takto:
    
-   1. Choose an existing schedule or create a new schedule.
-   2. Select the type of backup as local or cloud snapshot.
-   3. Specify the backup frequency, retention, and starting time of the schedule.
-   4. Enable or disable the schedule.
-   5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) to save the changes to the schedule.
-5. In the **Volumes** section, add or remove the volumes to this policy.
-6. Save the changes to this policy.
-7. You will prompted for confirmation. Click **OK** to save the policy.
+   1. Vyberte existující plán nebo vytvořte nový plán.
+   2. Vyberte typ zálohy jako místní nebo cloudový snímek.
+   3. Zadejte četnost zálohování, uchovávání a počáteční čas plánu.
+   4. Povolit nebo zakázat plán.
+   5. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) Chcete-li uložit změny plánu.
+5. V **svazky** část, přidat nebo odebrat svazky, které chcete tuto zásadu.
+6. Uložte změny do této zásady.
+7. Zobrazí se výzva k potvrzení. Klikněte na tlačítko **OK** zásady uložit.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+**Zásady zálohování** stránka bude aktualizována a uložte změny zásad.
 

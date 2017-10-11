@@ -1,63 +1,63 @@
-Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
+Některé balíčky se při spuštění v Azure nemusí pomocí systému pip nainstalovat.  Může to být jednoduše proto, že nejsou dostupné v indexu balíčků Pythonu.  Důvodem může být také to, že je požadován kompilátor (kompilátor není dostupný v počítači, ve kterém běží webová aplikace ve službě Azure App Service).
 
-In this section, we'll look at ways to deal with this issue.
+V této části najdete popis způsobů řešení tohoto problému.
 
-### <a name="request-wheels"></a>Request wheels
-If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
+### <a name="request-wheels"></a>Vyžádání souborů wheel
+Pokud instalace balíčku vyžaduje kompilátor, pokuste se kontaktovat vlastníka balíčku a požádejte ho o zpřístupnění souborů wheel balíčku.
 
-With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], it is now easier to build packages that have native code for Python 2.7.
+S nedávno vydanému [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], je nyní snazší sestavovat balíčky, které mají nativní kód pro Python 2.7.
 
-### <a name="build-wheels-requires-windows"></a>Build wheels (requires Windows)
-Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
+### <a name="build-wheels-requires-windows"></a>Sestavení souborů wheel (vyžaduje Windows)
+Poznámka: Při použití této možnosti je nutné balíček zkompilovat pomocí prostředí Python, které odpovídá platformě, architektuře a verzi použité ve webové aplikaci ve službě Azure App Service (Windows/32-bit/2.7 nebo 3.4).
 
-If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
+Pokud se balíček nenainstaluje, protože vyžaduje kompilátor, můžete kompilátor nainstalovat na místním počítači a sestavit pro balíček soubor wheel, který potom zahrnete do úložiště.
 
-Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][Create a Virtual Machine Running Windows] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
+Uživatelé Mac/Linux: Pokud nemáte přístup k počítači s Windows, přečtěte si téma [vytvoření virtuálního počítače s Windows] [ Create a Virtual Machine Running Windows] pro vytvoření virtuálního počítače na platformě Azure.  Můžete ho použít k vytvoření souborů wheel, přidat je do úložiště a virtuální počítač zahodit. 
 
-For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
+Python 2.7 můžete nainstalovat [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
-For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
+Pro Python 3.4 můžete nainstalovat [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
-To build wheels, you'll need the wheel package:
+K sestavení souborů wheel budete potřebovat balíček wheel:
 
     env\scripts\pip install wheel
 
-You'll use `pip wheel` to compile a dependency:
+Závislost zkompilujete pomocí příkazu `pip wheel`:
 
     env\scripts\pip wheel azure==0.8.4
 
-This creates a .whl file in the \wheelhouse folder.  Add the \wheelhouse folder and wheel files to your repository.
+Vytvoříte tak soubor .whl ve složce \wheelhouse.  Složku \wheelhouse a soubory wheel přidejte do úložiště.
 
-Edit your requirements.txt to add the `--find-links` option at the top. This tells pip to look for an exact match in the local folder before going to the python package index.
+Upravte soubor requirements.txt a přidejte na jeho začátek možnost `--find-links`. Tento parametr řekne systému pip, aby před použitím indexu balíčků Pythonu nejprve vyhledal přesnou shodu v místní složce.
 
     --find-links wheelhouse
     azure==0.8.4
 
-If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding `--no-index` to the top of your requirements.txt.
+Pokud chcete zahrnout všechny svoje závislosti do složky \wheelhouse, a index balíčků Pythonu vůbec nechcete použít, můžete přidáním parametru `--no-index` na začátek souboru requirements.txt vynutit, aby systém pip index balíčků ignoroval.
 
     --no-index
 
-### <a name="customize-installation"></a>Customize installation
-You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
+### <a name="customize-installation"></a>Přizpůsobení instalace
+Skript nasazení můžete přizpůsobit tak, aby nainstalovat balíček ve virtuálním prostředí pomocí alternativního instalačního programu, jako je například easy\_install.  Příklad tohoto postupu označený jako komentář najdete v souboru deploy.cmd.  Ujistěte se, že tyto balíčky nejsou uvedené v souboru requirements.txt, abyste systému pip zabránili v jejich instalaci.
 
-Add this to the deployment script:
+Do skriptu nasazení přidejte následující kód:
 
     env\scripts\easy_install somepackage
 
-You may also be able to use easy\_install to install from an exe installer (some are zip compatible, so easy\_install supports them).  Add the installer to your repository, and invoke easy\_install by passing the path to the executable.
+V některých případech můžete k instalaci z instalačního souboru .exe použít také instalační program easy\_install (některé balíčky jsou kompatibilní s formátem .zip, takže je easy\_install podporuje).  Přidejte instalační program do úložiště a předáním cesty spustitelnému souboru spusťte easy\_install.
 
-Add this to the deployment script:
+Do skriptu nasazení přidejte následující kód:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### <a name="include-the-virtual-environment-in-the-repository-requires-windows"></a>Include the virtual environment in the repository (requires Windows)
-Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
+### <a name="include-the-virtual-environment-in-the-repository-requires-windows"></a>Zahrnutí virtuálního prostředí do úložiště (vyžaduje Windows)
+Poznámka: Při použití této možnosti je nutné použít virtuální prostředí, které odpovídá platformě, architektuře a verzi použité ve webové aplikaci ve službě Azure App Service (Windows/32-bit/2.7 nebo 3.4).
 
-If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
+Pokud do úložiště zahrnete virtuální prostředí, můžete skriptu nasazení zabránit ve správě virtuálního prostředí v Azure vytvořením prázdného souboru:
 
     .skipPythonDeployment
 
-We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
+Existující virtuální prostředí v aplikaci se doporučuje odstranit, abyste zabránili zanechání nepotřebných souborů z období, kdy bylo virtuální prostředí spravováno automaticky.
 
 [Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27

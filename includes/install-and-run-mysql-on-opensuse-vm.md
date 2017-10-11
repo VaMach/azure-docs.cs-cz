@@ -1,70 +1,70 @@
 
-1. To escalate privileges, type:
+1. Pro zvýšení oprávnění, zadejte:
    
         sudo -s
    
-    Enter your password.
-2. To install MySQL Community Server edition, type:
+    Zadejte svoje heslo.
+2. Chcete-li nainstalovat MySQL Community Server edition, zadejte:
    
         zypper install mysql-community-server
    
-    Wait while MySQL downloads and installs.
-3. To set MySQL to start when the system boots, type:
+    Počkejte, než MySQL se stáhne a nainstaluje.
+3. Pokud chcete nastavit MySQL spustit při spuštění systému, zadejte:
    
         insserv mysql
-4. Start the MySQL daemon (mysqld) manually with this command:
+4. Démon MySQL (mysqld) spusťte ručně pomocí tohoto příkazu:
    
         rcmysql start
    
-    To check the status of the MySQL daemon, type:
+    Chcete-li zkontrolovat stav démon MySQL, zadejte:
    
         rcmysql status
    
-    To stop the MySQL daemon, type:
+    Chcete-li zastavit démon MySQL, zadejte:
    
         rcmysql stop
    
    > [!IMPORTANT]
-   > After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
+   > Po instalaci MySQL kořenové heslo je prázdné ve výchozím nastavení. Doporučujeme spustit **mysql\_zabezpečené\_instalace**, skript, který pomáhá zabezpečené MySQL. Skript vyzve k změnit kořenové heslo MySQL, odeberte anonymní uživatelské účty, zakažte kořenové vzdáleného přihlášení, odebrat testovací databáze a znovu načíst tabulky oprávnění. Doporučujeme Ano odpovědět, aby se všechny tyto možnosti a kořenové heslo změnit.
    > 
    > 
-5. Type this to run the script MySQL installation script:
+5. Zadejte to pro spuštění skriptu MySQL instalační skript:
    
         mysql_secure_installation
-6. Log in to MySQL:
+6. Přihlaste se k MySQL:
    
         mysql -u root -p
    
-    Enter the MySQL root password (which you changed in the previous step) and you'll be presented with a prompt where you can issue SQL statements to interact with the database.
-7. To create a new MySQL user, run the following at the **mysql>** prompt:
+    Zadejte hesla kořenového MySQL (který jste změnili v předchozím kroku) a zobrazí vám s výzvou kde můžete použít příkazy SQL pro interakci s databází.
+7. Pokud chcete vytvořit nového uživatele databáze MySQL, spusťte následující příkaz na **mysql >** řádku:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note, the semi-colons (;) at the end of the lines are crucial for ending the commands.
-8. To create a database and grant the `mysqluser` user permissions on it, issue the following commands:
+    Poznámka: středníkem (;) na konci řádky jsou zásadní pro ukončení příkazy.
+8. K vytvoření databáze a udělit `mysqluser` oprávnění uživatele, vydávání následující příkazy:
    
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note that database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
-9. To log in from another computer, type:
+    Všimněte si, že databáze uživatelská jména a hesla používají pouze skripty s připojením k databázi.  Názvy databáze uživatelských účtů nutně nepředstavuje skutečný uživatelské účty v systému.
+9. Chcete-li se přihlásit z jiného počítače, zadejte:
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    where `ip-address` is the IP address of the computer from which you will connect to MySQL.
-10. To exit the MySQL database administration utility, type:
+    kde `ip-address` je IP adresa počítače, ze kterého budete se připojovat k MySQL.
+10. Ukončete nástroj pro správu databáze MySQL, zadejte:
     
         quit
 
-## <a name="add-an-endpoint"></a>Add an endpoint
-1. After MySQL is installed, you'll need to configure an endpoint to access MySQL remotely. Log in to the [Azure  classic portal][AzurePortal]. Click **Virtual Machines**, click the name of your new virtual machine, and then click **Endpoints**.
-2. Click **Add** at the bottom of the page.
-3. Add an endpoint named "MySQL" with protocol **TCP**, and **Public** and **Private** ports set to "3306".
-4. To remotely connect to the virtual machine from your computer, type:
+## <a name="add-an-endpoint"></a>Přidání koncového bodu
+1. Po instalaci MySQL, budete potřebovat ke konfiguraci koncového bodu vzdálený přístup MySQL. Přihlaste se k [portál Azure classic][AzurePortal]. Klikněte na tlačítko **virtuální počítače**, klikněte na název nového virtuálního počítače a pak klikněte na tlačítko **koncové body**.
+2. Klikněte na tlačítko **přidat** v dolní části stránky.
+3. Přidat koncový bod s názvem "MySQL" s protokolem **TCP**, a **veřejné** a **privátní** porty nastavena na "3306".
+4. Chcete-li vzdáleně připojit k virtuálnímu počítači z vašeho počítače, zadejte:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    For example, using the virual machine we created in this tutorial, type this command:
+    Například používání virtuální počítače, které jsme vytvořili v tomto kurzu, zadejte tento příkaz:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 

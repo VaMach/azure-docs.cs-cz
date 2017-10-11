@@ -1,57 +1,57 @@
 
-Each endpoint has a *public port* and a *private port*:
+Každý koncový bod má *veřejný port* a *privátní port*:
 
-* The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-* The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+* Veřejný port se používá nástrojem pro vyrovnávání zatížení Azure pro naslouchání pro příchozí provoz na virtuální počítač z Internetu.
+* Privátní port se používá pro virtuální počítač tak, aby naslouchala pro příchozí provoz, obvykle určené do aplikace nebo služby spuštěné na virtuálním počítači.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+Výchozí hodnoty pro protokol IP a porty TCP nebo UDP pro dobře známé sítě, které jsou určeny protokoly, když vytvoříte koncové body pomocí portálu Azure. Pro vlastní koncové body musíte zadat správný protokol IP (TCP nebo UDP) a veřejné a privátní porty. Pokud chcete distribuovat náhodně příchozí provoz napříč více virtuálních počítačů, budete muset vytvořit sadu Vyrovnávání zatížení sítě skládající se z více koncových bodů.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Po vytvoření koncového bodu, můžete použít seznam řízení přístupu (ACL) můžete definovat pravidla povolení nebo odmítnutí příchozí provoz veřejný port, na základě jeho IP adresy zdrojového koncového bodu. Ale pokud virtuální počítač je ve virtuální síť Azure, je vhodnější použít skupiny zabezpečení sítě. Podrobnosti najdete v tématu [o skupinách zabezpečení sítě](../articles/virtual-network/virtual-networks-nsg.md).
 
 > [!NOTE]
-> Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
+> Konfigurace brány firewall pro virtuální počítače Azure se provádí automaticky pro porty, které jsou přidružené k připojení k vzdálené koncové body, které Azure nastaví automaticky. Pro porty určené pro všechny ostatní koncové body se automaticky provádí žádná konfigurace brány firewall virtuálního počítače. Když vytvoříte koncový bod virtuálního počítače, musíte zajistit, že brána firewall virtuálního počítače také umožňuje přenos pro protokol a privátní port odpovídající konfiguraci koncového bodu. Chcete-li nakonfigurovat bránu firewall, naleznete v dokumentaci nebo online nápověda pro operační systém spuštěný na virtuálním počítači.
 >
 >
 
-## <a name="create-an-endpoint"></a>Create an endpoint
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3. Click **Endpoints** in the **Settings** group. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
+## <a name="create-an-endpoint"></a>Vytvoření koncového bodu
+1. Pokud jste to ještě neudělali, přihlaste se k [Portálu Azure](https://portal.azure.com).
+2. Klikněte na tlačítko **virtuální počítače**a potom klikněte na název virtuálního počítače, který chcete nakonfigurovat.
+3. Klikněte na tlačítko **koncové body** v **nastavení** skupiny. **Koncové body** stránce uvedeny všechny aktuální koncové body pro virtuální počítač. (V tomto příkladu je virtuální počítač s Windows. Linux virtuálního počítače se ve výchozím nastavení zobrazí koncový bod SSH.)
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Koncové body](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
-4. In the command bar above the endpoint entries, click **Add**.
-5. On the **Add endpoint** page, type a name for the endpoint in **Name**.
-6. In **Protocol**, choose either **TCP** or **UDP**.
-7. In **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 6) and private port.
-10. Click **Ok**.
+4. Na panelu příkazů výše položky koncového bodu, klikněte na tlačítko **přidat**.
+5. Na **přidání koncového bodu** stránky, zadejte název koncového bodu v **název**.
+6. V **protokol**, vyberte buď **TCP** nebo **UDP**.
+7. V **veřejný Port**, zadejte číslo portu pro příchozí provoz z Internetu. V **privátní Port**, zadejte číslo portu, na kterém je virtuální počítač přijímá. Tato čísla portů se může lišit. Ujistěte se, že v bráně firewall na virtuální počítač nakonfigurovaný umožňující přenos odpovídající protokol (v kroku 6) a privátní port.
+10. Klikněte na tlačítko **OK**.
 
-The new endpoint will be listed on the **Endpoints** page.
+Nový koncový bod se objeví na **koncové body** stránky.
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
+![Úspěšné vytvoření koncového bodu](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
 
-## <a name="manage-the-acl-on-an-endpoint"></a>Manage the ACL on an endpoint
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+## <a name="manage-the-acl-on-an-endpoint"></a>Správa seznamu ACL v koncovém bodě
+K definování sady počítačů, které mohou odesílat provoz, můžete omezit seznam ACL u koncového bodu provozu na základě zdrojové IP adresy. Postupujte podle těchto kroků přidávat, upravovat nebo odebírat ACL v koncovém bodě.
 
 > [!NOTE]
-> If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> Pokud koncový bod je součástí skupiny s vyrovnáváním zatížení, všechny změny provedené v seznamu ACL v koncovém bodě platí pro všechny koncové body v sadě.
 >
 >
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Pokud virtuální počítač je ve virtuální síť Azure, doporučujeme skupin zabezpečení sítě místo seznamy ACL. Podrobnosti najdete v tématu [o skupinách zabezpečení sítě](../articles/virtual-network/virtual-networks-nsg.md).
 
-1. If you haven't already done so, sign in to the Azure portal.
-2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3. Click **Endpoints**. From the list, select the appropriate endpoint. The ACL list is at the bottom of the page.
+1. Pokud jste zatím žádný nevytvořili, přihlášený k portálu Azure.
+2. Klikněte na tlačítko **virtuální počítače**a potom klikněte na název virtuálního počítače, který chcete nakonfigurovat.
+3. Klikněte na **Koncové body**. Ze seznamu vyberte příslušný koncový bod. V seznamu ACL je v dolní části stránky.
 
-   ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
+   ![Zadejte podrobnosti seznamu ACL](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-4. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is `10.1.0.0/8`.
+4. Řádky v seznamu použijte k přidání, odstranění, nebo upravit pravidla pro seznam ACL a změnit jejich pořadí. **Vzdálené podsíti** hodnota je rozsah IP adres pro příchozí provoz z Internetu pomocí nástroje pro vyrovnávání zatížení Azure, která povolí nebo zakážou provoz na základě jeho zdrojové IP adresy. Nezapomeňte zadat rozsah IP adres ve formátu CIDR, také známé jako formát předponu adresy. Příkladem je `10.1.0.0/8`.
 
- ![New ACL entry](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+ ![Nová položka seznamu ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+Můžete vytvořit pravidla a povolit pouze provoz z konkrétní počítače odpovídající počítače na Internetu nebo zakážou provoz z rozsahů adres konkrétní, známé.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List](../articles/virtual-network/virtual-networks-acl.md).
+Pravidla jsou vyhodnocovány v pořadí od první pravidlo a konče posledním pravidlem. To znamená, že by měl pravidla řazení z nejméně omezující na nejvíc omezující. Příklady a další informace najdete v tématu [co je seznam řízení přístupu sítě](../articles/virtual-network/virtual-networks-acl.md).

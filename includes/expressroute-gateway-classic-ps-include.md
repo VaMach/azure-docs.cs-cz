@@ -1,26 +1,26 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+Je nutné vytvořit virtuální síť a podsíť brány nejprve, před prací na následující úlohy. Najdete v článku [konfigurace virtuální sítě pomocí portálu classic](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) Další informace.   
 
-## <a name="add-a-gateway"></a>Add a gateway
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+## <a name="add-a-gateway"></a>Přidat bránu
+Použijte následující příkaz k vytvoření brány. Nezapomeňte nahradit všechny hodnoty vlastními.
 
     New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
 
-## <a name="verify-the-gateway-was-created"></a>Verify the gateway was created
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+## <a name="verify-the-gateway-was-created"></a>Ověřte, že vytvoření brány
+Použijte následující příkaz k ověření, zda byl vytvořen brány. Tento příkaz načte také ID brány, které potřebujete pro jiné operace.
 
     Get-AzureVirtualNetworkGateway
 
-## <a name="resize-a-gateway"></a>Resize a gateway
-There are a number of [Gateway SKUs](../articles/expressroute/expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
+## <a name="resize-a-gateway"></a>Změnit velikost brány
+Existuje řada [SKU brány](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Tento příkaz můžete kdykoli změnit skladová položka brány.
 
 > [!IMPORTANT]
-> This command doesn't work for UltraPerformance gateway. To change your gateway to an UltraPerformance gateway, first remove the existing ExpressRoute gateway, and then create a new UltraPerformance gateway. To downgrade your gateway from an UltraPerformance gateway, first remove the UltraPerformance gateway, and then create a new gateway. 
+> Tento příkaz nefunguje pro UltraPerformance bránu. Chcete-li změnit bránu pro bránu UltraPerformance, nejprve odeberte existující bránu ExpressRoute a poté vytvořit novou bránu UltraPerformance. Přejít na starší verzi bránu z bránu UltraPerformance, nejprve odeberte UltraPerformance brány a poté vytvořit novou bránu. 
 > 
 > 
 
     Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
-## <a name="remove-a-gateway"></a>Remove a gateway
-Use the command below to remove a gateway
+## <a name="remove-a-gateway"></a>Odebrat bránu
+Pomocí následujícího příkazu odeberte brány
 
     Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>

@@ -1,5 +1,5 @@
-1. In your **app** project, open the file `AndroidManifest.xml`. In the code in the next two steps, replace *`**my_app_package**`* with the name of the app package for your project. This is the value of the `package` attribute of the `manifest` tag.
-2. Add the following new permissions after the existing `uses-permission` element:
+1. Ve vašem **aplikace** projektu, otevřete soubor `AndroidManifest.xml`. V kódu v následujících dvou krocích, nahraďte  *`**my_app_package**`*  s názvem balíčku aplikace pro váš projekt. Toto je hodnota `package` atribut `manifest` značky.
+2. Přidejte následující nová oprávnění po existující `uses-permission` element:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE"
             android:protectionLevel="signature" />
@@ -7,7 +7,7 @@
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
-3. Add the following code after the `application` opening tag:
+3. Přidejte následující kód po `application` počáteční značce:
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
                                          android:permission="com.google.android.c2dm.permission.SEND">
@@ -16,24 +16,24 @@
                 <category android:name="**my_app_package**" />
             </intent-filter>
         </receiver>
-4. Open the file *ToDoActivity.java*, and add the following import statement:
+4. Otevřete soubor *ToDoActivity.java*a přidejte následující příkaz importu:
 
         import com.microsoft.windowsazure.notifications.NotificationsManager;
-5. Add the following private variable to the class. Replace *`<PROJECT_NUMBER>`* with the project number assigned by Google to your app in the preceding procedure.
+5. Přidejte následující soukromé proměnné do třídy. Nahraďte  *`<PROJECT_NUMBER>`*  číslem projektu Google přiřazené vaší aplikaci v předchozím postupu.
 
         public static final String SENDER_ID = "<PROJECT_NUMBER>";
-6. Change the definition of *MobileServiceClient* from **private** to **public static**, so it now looks like this:
+6. Změnit definici *MobileServiceClient* z **privátní** k **veřejné statické**, takže ho teď vypadá takto:
 
         public static MobileServiceClient mClient;
-7. Add a new class to handle notifications. In Project Explorer, open the **src** > **main** > **java** nodes, and right-click the package name node. Click **New**, and then click **Java Class**.
-8. In **Name**, type `MyHandler`, and then click **OK**.
+7. Přidání nové třídy pro zpracování oznámení. Otevřete v prohlížeči projektu klikněte **src** > **hlavní** > **java** uzly a klikněte pravým tlačítkem na název uzlu balíčku. Klikněte na tlačítko **nový**a potom klikněte na **třída jazyka Java**.
+8. V **název**, typ `MyHandler`a potom klikněte na **OK**.
 
     ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 
-9. In the MyHandler file, replace the class declaration with:
+9. V souboru MyHandler nahraďte deklarace třídy se:
 
         public class MyHandler extends NotificationsHandler {
-10. Add the following import statements for the `MyHandler` class:
+10. Přidejte následující příkazy pro import `MyHandler` třídy:
 
         import com.microsoft.windowsazure.notifications.NotificationsHandler;
         import android.app.NotificationManager;
@@ -43,10 +43,10 @@
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.v4.app.NotificationCompat;
-11. Next add this member to the `MyHandler` class:
+11. Dále přidejte tohoto člena `MyHandler` třídy:
 
         public static final int NOTIFICATION_ID = 1;
-12. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service notification hub.
+12. V `MyHandler` třídy, přidejte následující kód k přepsání **onRegistered** metodu, která registruje zařízení s centrem oznámení mobilní služby.
 
         @Override
         public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -66,7 +66,7 @@
                }
            }.execute();
        }
-13. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
+13. V `MyHandler` třídy, přidejte následující kód k přepsání **události onReceive** metoda, což způsobí, že zobrazíte při obdržení oznámení.
 
         @Override
         public void onReceive(Context context, Bundle bundle) {
@@ -89,8 +89,8 @@
                        context.getSystemService(Context.NOTIFICATION_SERVICE);
                notificationManager.notify(NOTIFICATION_ID, notification);
        }
-14. Back in the TodoActivity.java file, update the **onCreate** method of the *ToDoActivity* class to register the notification handler class. Make sure to add this code after the *MobileServiceClient* is instantiated.
+14. Zpět v souboru TodoActivity.java aktualizace **onCreate** metodu *ToDoActivity* třída registrovat třídu obslužné rutiny oznámení. Nezapomeňte přidat tento kód po *MobileServiceClient* je vytvořena instance.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-    Your app is now updated to support push notifications.
+    Aplikace je nyní aktualizovat o podporu nabízených oznámení.

@@ -1,5 +1,5 @@
 ---
-title: "Načtení dat ze souboru CSV do databáze Azure SQL Database (bcp) | Dokumentace Microsoftu"
+title: "Načtení dat ze souboru CSV do Azure SQL Database (bcp) | Microsoft Docs"
 description: "Pro malá množství dat se k importu dat do databáze SQL Azure používá bcp."
 services: sql-database
 documentationcenter: NA
@@ -8,25 +8,25 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: load & move data
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
-
-
+ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Načtení dat ze souboru CSV do Azure SQL Data Warehouse (ploché soubory)
+# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Načtení dat ze souboru CSV do Azure SQL Database (ploché soubory)
 Nástroj příkazového řádku bcp můžete použít k importu dat ze souboru CSV do databáze Azure SQL Database.
 
 ## <a name="before-you-begin"></a>Než začnete
 ### <a name="prerequisites"></a>Požadavky
-Pro jednotlivé kroky v tomto kurzu budete potřebovat:
+Chcete-li provést kroky v tomto článku, je třeba:
 
 * Logický server a databáze Azure SQL Database
 * Nainstalovaný nástroj příkazového řádku bcp
@@ -75,20 +75,20 @@ Otevřete Poznámkový blok a zkopírujte následující řádky dat do nového 
 
 (Volitelné) Pokud chcete z databáze SQL Serveru vyexportovat svoje vlastní data, otevřete příkazový řádek a spusťte následující příkaz. TableName, ServerName, DatabaseName, Username a Password nahraďte svými vlastními informacemi.
 
-```sql
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```bcp
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
 ## <a name="3-load-the-data"></a>3. Načtení dat
 Pokud chcete načíst data, otevřete příkazový řádek a spusťte následující příkaz, přičemž hodnoty parametrů Server Name (Název serveru), Database name (Název databáze), Username (Uživatelské jméno) a Password (Heslo) nahraďte svými vlastními informacemi.
 
-```sql
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```bcp
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Pomocí tohoto příkazu ověřte, že se data načetla správně.
 
-```sql
+```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
@@ -118,9 +118,3 @@ Postup migrace databáze serveru SQL Server naleznete v části [Migrace databá
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

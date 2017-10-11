@@ -1,21 +1,21 @@
-The job produces a JSON output file that contains metadata about detected and tracked faces. The metadata includes coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
+Úloha vytvoří výstupní soubor JSON, který obsahuje metadata o zjištěných a sledovaných strany. Metadat obsahuje souřadnice označující umístění řezy, stejně jako číslo ID vzhled určující sledování to jednotlivých. Čísla ID vzhled jsou náchylné k resetování okolností v případě, že dojde ke ztrátě nebo překryté v rámečku, čelní tučné výsledkem některé jednotlivce získávání přiřazeno více ID.
 
-The output JSON includes the following attributes:
+Výstup JSON obsahuje následující atributy:
 
-| Element | Description |
+| Element | Popis |
 | --- | --- |
-| version |This refers to the version of the Video API. |
-| index | (Applies to Azure Media Redactor only) defines the frame index of the current event. |
-| timescale |"Ticks" per second of the video. |
-| offset |This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
-| framerate |Frames per second of the video. |
-| fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). |
-| start |The start time of the first event in ‘ticks’. |
-| duration |The length of the fragment, in “ticks”. |
-| interval |The interval of each event entry within the fragment, in “ticks”. |
-| events |Each event contains the faces detected and tracked within that time duration. It is an array of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time. An empty bracket [] means no faces were detected. |
-| id |The ID of the face that is being tracked. This number may inadvertently change if a face becomes undetected. A given individual should have the same ID throughout the overall video, but this cannot be guaranteed due to limitations in the detection algorithm (occlusion, etc.) |
-| x, y |The upper left X and Y coordinates of the face bounding box in a normalized scale of 0.0 to 1.0. <br/>-X and Y coordinates are relative to landscape always, so if you have a portrait video (or upside-down, in the case of iOS), you'll have to transpose the coordinates accordingly. |
-| width, height |The width and height of the face bounding box in a normalized scale of 0.0 to 1.0. |
-| facesDetected |This is found at the end of the JSON results and summarizes the number of faces that the algorithm detected during the video. Because the IDs can be reset inadvertently if a face becomes undetected (e.g. face goes off screen, looks away), this number may not always equal the true number of faces in the video. |
+| Verze |Vztahuje se na verzi rozhraní API Video. |
+| Index | (Platí pouze pro Azure Media Redactor) definuje index rámečku aktuální událost. |
+| Časová osa |"Rysky" za sekundu videa. |
+| Posun |Toto je časové posunutí pro časová razítka. Ve verzi 1.0 rozhraní API, Video bude vždy 0. V budoucích scénáře, které podporujeme, tato hodnota může změnit. |
+| kmitočet snímků |Počet snímků za sekundu videa. |
+| fragmenty |Metadata se blokové až do různých segmentů názvem fragmenty. Každý fragment obsahuje počáteční, doba trvání, číslo intervalu a událostí. |
+| start |Čas zahájení první událost v 'rysky'. |
+| Doba trvání |Délka fragment v "rysky". |
+| Interval |Interval každý záznam události v rámci fragment v "rysky". |
+| stránka events |Každá událost obsahuje řezy zjištěn a sledují v rámci této doby trvání. Jde pole událostí. Vnější pole představuje jeden časový interval. Vnitřní pole se skládá z 0 nebo více událostí, které bylo provedeno v tomto bodě v čase. Prázdný závorky [] znamená, že nebyly zjištěny žádné řezy. |
+| id |ID řez, který je sledován. Toto číslo může nechtěně změnit, pokud se stane nezjištěné řez. Daný individuální by mělo mít stejné ID v rámci celkového video, ale to nemůže zaručit z důvodu omezení v algoritmus detekce (NF pásmová atd.) |
+| x, y |Vlevo nahoře X a Y souřadnice ohraničujícího pole Normalizovaný rozsahu 0,0 až 1,0 písmo. <br/>-X a Y souřadnice jsou relativní na šířku vždycky, takže pokud máte na výšku video (nebo obráceným v případě iOS), budete muset transponuje souřadnice odpovídajícím způsobem. |
+| šířky, výšky |Šířka a výška tučné ohraničujícího pole Normalizovaný rozsahu od 0,0 do 1,0. |
+| facesDetected |To se nachází na konci výsledky JSON a shrnuje počet řezy, které algoritmus zjistil při přehrávání videa. Protože ID můžete nechtěně obnovit, pokud se stane nezjištěné řez (např. řez bude mimo obrazovku, vypadá rychle aplikace), toto číslo nemusí vždy rovná true počet řezy ve videu. |
 

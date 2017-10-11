@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migrace platformy pro Azure Security Center
 
@@ -78,5 +77,4 @@ Ve spojení s migrací platformy postupně zavádíme některé další menší 
 - Shromažďování dat bude vyžadováno a automaticky povoleno pro zákazníky na cenové úrovni Standard.
 - Azure Security Center začne zjišťovat antimalwarová řešení, která nebyla nasazena prostřednictvím rozšíření Azure. Jako první bude k dispozici zjišťování nástrojů Symantec Endpoint Protection a Defender pro Windows 2016.
 - Zásady a oznámení prevence je možné konfigurovat pouze na úrovni *předplatného*, ale ceny je stále možné nastavit na úrovni *skupiny prostředků*.
-
 

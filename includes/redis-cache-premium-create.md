@@ -1,13 +1,13 @@
-To create a premium cache, sign-in to the [Azure portal](https://portal.azure.com) and click **New** > **Databases** > **Redis Cache**.
+Pokud chcete vytvořit mezipaměť Premium, přihlaste se k webu [Azure Portal](https://portal.azure.com) a klikněte na **Nový**,  > **Databáze** > **Mezipaměť Redis**.
 
-![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
+![Vytvoření mezipaměti](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Redis Cache, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> Mezipaměti můžete vytvářet na portálu Azure Portal, ale také pomocí šablon Resource Manageru, PowerShellu nebo rozhraní příkazového řádku Azure. Další informace o vytvoření Azure Redis Cache najdete v tématu věnovaném [vytvoření mezipaměti](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 
-To configure premium features, first select one of the premium pricing tiers in the **Pricing tier** drop-down list. For more information about each pricing tier, click **View full pricing details** and select a pricing tier from the **Choose your pricing tier** blade.
+Ke konfiguraci funkcí premium, nejprve vyberte jednu z premium cenových úrovní v **cenová úroveň** rozevíracího seznamu. Další informace o jednotlivých cenových úrovní, klikněte na tlačítko **zobrazení úplné podrobnosti o cenách** a vyberte cenovou úroveň z **zvolte cenovou úroveň** okno.
 
-![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![Volba cenové úrovně](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

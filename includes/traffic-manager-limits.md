@@ -1,7 +1,7 @@
-| Resource | Default limit |
+| Prostředek | Výchozí omezení |
 | --- | --- |
-| Profiles per subscription |100 <sup>1</sup> |
-| Endpoints per profile |200 |
+| Profily na předplatné |100 <sup>1</sup> |
+| Koncové body na jeden profil |200 |
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>v případě, že budete muset tyto limity zvýšit, kontaktujte podporu.
 

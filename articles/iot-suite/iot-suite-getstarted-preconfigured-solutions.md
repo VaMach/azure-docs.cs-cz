@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 466825ab78a5ac9773d8beff69cca90ff9db6c01
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-the-preconfigured-solutions"></a>Začínáme s předkonfigurovanými řešeními
 
@@ -337,7 +336,7 @@ Na panelu **Podrobnosti o zařízení** můžete odesílat příkazy do zaříze
 
 Když nasadíte předkonfigurované řešení, proces nasazení vytvoří ve vybraném předplatném Azure několik prostředků. Tyto prostředky můžete zobrazit na webu [Azure Portal][lnk-portal]. Proces nasazení vytváří **skupinu prostředků**. Její název bude vycházet z názvu, který jste vybrali pro předkonfigurované řešení:
 
-![Předkonfigurované řešení na portálu Azure][img-portal]
+![Předkonfigurované řešení na portálu Azure Portal][img-portal]
 
 Nastavení každého prostředku se zobrazí, když jej vyberete v seznamu ve skupině prostředků.
 

@@ -1,14 +1,14 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## <a name="preparing-for-updates"></a>Preparing for updates
-You will need to perform the following steps before you scan and apply the update:
+## <a name="preparing-for-updates"></a>Příprava pro aktualizace
+Budete muset před vyhledání a použít aktualizaci provést následující kroky:
 
-1. Take a cloud snapshot of the device data.
-2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
+1. Pořízení snímku cloudu dat zařízení.
+2. Zajistěte, aby vaše pevné IP adresy řadiče jsou směrovatelné a může připojit k Internetu. Tyto pevné IP adresy se použije k servis aktualizací na vaše zařízení. Toto můžete otestovat spuštěním následující rutiny v každém řadiči z rozhraní Windows PowerShell zařízení:
    
      `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
    
-    **Sample output for Test-Connection when fixed IPs can connect to the Internet**
+    **Ukázkový výstup pro Test-Connection, když pevné IP adresy můžete připojit k Internetu**
 
         Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 
@@ -28,5 +28,5 @@ You will need to perform the following steps before you scan and apply the updat
         HCSNODE0  204.79.197.200  204.79.197.200
         HCSNODE0  204.79.197.200  204.79.197.200
 
-After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
+Jakmile úspěšně dokončíte tyto ruční předběžné kontroly, můžete pokračovat kontrolovat a instalovat aktualizace.
 

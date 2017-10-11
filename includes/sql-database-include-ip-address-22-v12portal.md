@@ -15,25 +15,25 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
-2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
-3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
+1. Přihlaste se k [portál Azure](https://portal.azure.com/) v http://portal.azure.com/.
+2. V levém informační zprávě, klikněte na tlačítko **Procházet vše**. **Procházet** zobrazí se okno.
+3. Přejděte a klikněte na **servery SQL**. **Servery SQL** zobrazí se okno.
    
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
-4. For convenience, click the minimize control on the earlier **Browse** blade.
-5. In the filter text box, start typing the name of your server. Your row is displayed.
-6. Click the row for your server. A blade for your server is displayed.
-7. On your server blade, click **Settings**. The **Settings** blade is displayed.
-8. Click **Firewall**. The **Firewall Settings** blade is displayed.
+    ![Najít server služby Azure SQL Database na portálu][b21-FindServerInPortal]
+4. Pro usnadnění práce, klikněte na ovládací prvek pro minimalizaci k dřívějšímu **Procházet** okno.
+5. Do textového pole Filtr začněte zadávat text název vašeho serveru. Řádek, který jste se zobrazí.
+6. Klikněte na řádek pro váš server. Zobrazí se okno pro váš server.
+7. V okně vaší serveru klikněte na tlačítko **nastavení**. **Nastavení** zobrazí se okno.
+8. Klikněte na tlačítko **brány Firewall**. **Nastavení brány Firewall** zobrazí se okno.
    
-    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
-9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
-10. Type in the low and high IP address values for the range you want to enable.
+    ![Klikněte na Nastavení > brány Firewall][b31-SettingsFirewallNavig]
+9. Klikněte na tlačítko **Přidání klienta IP**. Zadejte název nové pravidlo do textového pole první.
+10. Zadejte v vysoké a nízké hodnoty adres IP pro oblast, kterou chcete povolit.
     
-    * It can be handy to have the low value end with **.0** and the high with **.255**.
+    * Může být užitečný tak, aby měl nízkou hodnotu končit **.0** a vysoce s **.255**.
     
-    ![Add an IP address range to allow][b41-AddRange]
-11. Click **Save**.
+    ![Přidat rozsah IP adres umožňuje][b41-AddRange]
+11. Klikněte na **Uložit**.
 
 <!-- Image references. -->
 

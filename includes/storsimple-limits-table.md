@@ -1,29 +1,29 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Limit identifier | Limit | Comments |
+| Identifikátor omezení | Omezení | Komentáře |
 | --- | --- | --- |
-| Maximum number of storage account credentials |64 | |
-| Maximum number of volume containers |64 | |
-| Maximum number of volumes |255 | |
-| Maximum number of schedules per bandwidth template |168 |A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a tiered volume on physical devices |64 TB for 8100 and 8600 |8100 and 8600 are physical devices. |
-| Maximum size of a tiered volume on virtual devices in Azure |30 TB for 8010 <br></br> 64 TB for 8020 |8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
-| Maximum size of a locally pinned volume on physical devices |9 TB for 8100 <br></br> 24 TB for 8600 |8100 and 8600 are physical devices. |
-| Maximum number of iSCSI connections |512 | |
-| Maximum number of iSCSI connections from initiators |512 | |
-| Maximum number of access control records per device |64 | |
-| Maximum number of volumes per backup policy |24 | |
-| Maximum number of backups retained per backup policy |64 | |
-| Maximum number of schedules per backup policy |10 | |
-| Maximum number of snapshots of any type that can be retained per volume |256 |This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device |10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone |16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul> |
-| Restore and clone recover time for tiered volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete. |
-| Restore recover time for locally pinned volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress. |
-| Thin-restore availability |Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* |920/720 MB/s with a single 10GbE network interface |Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* |120/250 MB/s | |
-| Maximum client read/write throughput (when served from the cloud tier)* |11/41 MB/s |Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Maximální počet přihlašovacích údajů účtu úložiště |64 | |
+| Maximální počet kontejnery svazků |64 | |
+| Maximální počet svazků |255 | |
+| Maximální počet plány na šablony šířky pásma |168 |Plán pro každou hodinu, každý den v týdnu (24 * 7). |
+| Maximální velikost vrstvený svazek na fyzických zařízení |64 TB pro 8100 a 8600 |8100 a 8600 jsou fyzické zařízení. |
+| Maximální velikost vrstvený svazek na virtuálním zařízením v Azure |30 TB pro 8010 <br></br> 64 TB pro 8020 |8010 a 8020 jsou virtuální zařízení v Azure, které používají úložiště úrovně Standard a Premium Storage v uvedeném pořadí. |
+| Maximální velikost místně vázaný svazek na fyzických zařízení |9 TB pro 8100 <br></br> 24 TB pro 8600 |8100 a 8600 jsou fyzické zařízení. |
+| Maximální počet připojení iSCSI |512 | |
+| Maximální počet připojení iniciátorů iSCSI |512 | |
+| Maximální počet záznamů řízení přístupu podle zařízení |64 | |
+| Maximální počet svazků na zásady zálohování |24 | |
+| Maximální počet záloh uchovávány v zásady zálohování |64 | |
+| Maximální počet plány na zásady zálohování |10 | |
+| Maximální počet snímků žádný typ, který uchovávání může být na svazku |256 |Jedná se o místní snímky a cloudových snímků. |
+| Maximální počet snímků, které můžou být v libovolném zařízení |10 000 | |
+| Maximální počet svazků, které lze zpracovat paralelní zálohování, obnovení nebo klonování |16 |<ul><li>Pokud existuje víc než 16 svazky, budou se zpracují postupně zpracování sloty dostupná.</li><li>Nové zálohy klonovaný nebo obnovený vrstvený svazek nemůže proběhnout, dokud je operace dokončena. Pro místní svazek, jsou však zálohy povoleny, po svazek je online.</li></ul> |
+| Obnovení a klonování obnovit dobu vrstvené svazky |< 2 minuty |<ul><li>Svazek je k dispozici během 2 minut operaci obnovení nebo klonování, bez ohledu na velikost svazku.</li><li>Výkon svazku může zpočátku pomalejší než běžné jako většinu dat a metadat se stále nachází v cloudu. Jako toky dat z cloudu do zařízení StorSimple může zvýšit výkon.</li><li>Celkový čas ke stažení metadat, závisí na velikosti přiděleného svazku. Metadata se automaticky přenesou do zařízení na pozadí ve výši 5 minut za TB dat přidělené svazku. Tato míra může mít vliv šířky pásma Internetu do cloudu.</li><li>Obnovení nebo operaci klonování je dokončena po všechna metadata v zařízení.</li><li>Operace zálohování nelze provést, dokud nebude obnovení nebo je plně dokončení operace klonování. |
+| Obnovení obnovit dobu místně vázaných svazků |< 2 minuty |<ul><li>Svazek je k dispozici během 2 minut operaci obnovení, bez ohledu na velikost svazku.</li><li>Výkon svazku může zpočátku pomalejší než běžné jako většinu dat a metadat se stále nachází v cloudu. Jako toky dat z cloudu do zařízení StorSimple může zvýšit výkon.</li><li>Celkový čas ke stažení metadat, závisí na velikosti přiděleného svazku. Metadata se automaticky přenesou do zařízení na pozadí ve výši 5 minut za TB dat přidělené svazku. Tato míra může mít vliv šířky pásma Internetu do cloudu.</li><li>Na rozdíl od vrstvené svazky, v případě místně vázaných svazků data na svazku je také stažen místně na zařízení. Operace obnovení byla dokončena, pokud všechna data svazek znovu do zařízení.</li><li>Operace obnovení může trvat dlouho a celkovou dobu pro dokončení obnovení bude záviset na velikosti zřízené místní svazek, pásma vašeho internetového připojení a existující data v zařízení. Operace zálohování na místně vázaný svazek jsou povoleny, když probíhá operace obnovení. |
+| Dynamické obnovení dostupnosti |Poslední převzetí služeb při selhání | |
+| Propustnost pro čtení a zápis maximálního počtu klientů (Pokud obsluhovat z vrstvy SSD) * |920/720 MB/s se jeden 10GbE síťové rozhraní |Až 2 x s funkci MPIO a dvě síťová rozhraní. |
+| Propustnost pro čtení a zápis maximálního počtu klientů (Pokud obsluhovat z vrstvy HDD) * |120/250 MB/s | |
+| Propustnost pro čtení a zápis maximálního počtu klientů (Pokud obsluhovat z vrstvy cloudu) * |11/41 MB/s |Propustnost čtení závisí na klientech generování a údržbu dostatečná hloubku fronty vstupně-výstupní operace. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; Maximální propustnost podle typu vstupně-výstupních operací se měří s 100 procent čtení a zápisu 100 procent scénáře. Skutečná propustnost může být nižší a závisí na vstupně-výstupních operací kombinovat a síťové podmínky.
 

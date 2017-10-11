@@ -1,17 +1,17 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-create-a-new-service"></a>To create a new service
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://portal.azure.us/).
-2. In the Government Portal, click **+** and then in the marketplace, click **See all**. Search for _StorSimple Physical_. Select and click **StorSimple Physical Device Series** and then click **Create**. Alternatively, in the Government portal, click **+** and then under **Storage**, click **StorSimple Physical Device Series**.
-3. In the **StorSimple Device Manager** blade, do the following steps:
+#### <a name="to-create-a-new-service"></a>Vytvoření nové služby
+1. Použijte svoje přihlašovací údaje účtu Microsoft k přihlášení k [portálu Microsoft Azure Government](https://portal.azure.us/).
+2. Na portálu Government, klikněte na tlačítko  **+**  a na webu Marketplace, klikněte na tlačítko **zobrazit všechny**. Vyhledejte _Fyzické zařízení StorSimple_. Vyberte a klikněte na **Řada fyzických zařízení StorSimple** a pak klikněte na **Vytvořit**. Alternativně Government portálu, klikněte na tlačítko  **+**  a potom v části **úložiště**, klikněte na tlačítko **fyzického zařízení řady StorSimple**.
+3. V okně **Správce zařízení StorSimple** proveďte následující kroky:
    
-   1. Supply a unique **Resource name** for your service. This name is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-   2. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-   3. For **Resource group**, **Use existing** or **Create new** group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
-   4. Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device. Select **US Govt Iowa** or **US Govt Virgina**.
-   5. Select **Create a new storage account** to automatically create a storage account with the service. Specify a name for this storage account. If you need your data in a different location, uncheck this box.
-   6. Check **Pin to dashboard** if you want a quick link to this service on your dashboard.
-   7. Click **Create** to create the StorSimple Device Manager. The service creation takes a few minutes. After the service is successfully created, you will see a notification and the new service blade opens up.
+   1. Zadejte pro službu jedinečný **Název prostředku**. Tento název je popisný název, který můžete použít k identifikaci služby. Název může být tvořen 2 až 50 písmeny, číslicemi a spojovníky. Název musí začínat a končit písmenem nebo číslicí.
+   2. V rozevíracím seznamu **Předplatné** vyberte předplatné. Předplatné je propojeno s vaším fakturačním účtem. Toto pole není dostupné, pokud máte pouze jedno předplatné.
+   3. V části **Skupina prostředků** vyberte možnost **Použít existující** nebo **Vytvořit novou** skupinu. Další informace najdete v tématu [Skupiny prostředků Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   4. Zadejte **Umístění** služby. Umístění odkazuje zeměpisnou oblast, ve které chcete nasadit zařízení. Vyberte **USA Govt Iowa** nebo **USA Govt Virgina**.
+   5. Výběrem možnosti **Vytvořit nový účet úložiště** můžete vytvořit účet úložiště automaticky se službou. Zadejte název tohoto účtu úložiště. Pokud potřebujete mít data v jiném umístění, zaškrtnutí políčka zrušte.
+   6. Pokud chcete mít na řídicím panelu rychlý odkaz na tuto službu, zaškrtněte políčko **Připnout na řídicí panel**.
+   7. Kliknutím na **Vytvořit** vytvořte Správce zařízení StorSimple. Vytvoření služby trvá několik minut. Po úspěšném vytvoření služby se zobrazí oznámení a otevře se okno nové služby.
 
 

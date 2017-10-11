@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-create-a-new-service"></a>To create a new service
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
-2. In the Government Portal, click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
-3. In the form that is displayed, do the following:
+#### <a name="to-create-a-new-service"></a>Vytvoření nové služby
+1. Použijte svoje přihlašovací údaje účtu Microsoft k přihlášení k [portálu Microsoft Azure Government](https://manage.windowsazure.us/).
+2. Na portálu Government, klikněte na tlačítko **nový** > **datové služby** > **StorSimple Manager** > **rychle vytvořit** .
+3. Ve formuláři, který se zobrazí, proveďte následující akce:
    
-   1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-   2. Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device. Select **US Govt Iowa** or **US Govt Virgina**.
-   3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-   4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf."
-   5. Click **Create StorSimple Manager** to create the service.
+   1. Zadejte jedinečný **Název** služby. Jedná se o popisný název, který můžete použít k identifikaci služby. Název může být tvořen 2 až 50 písmeny, číslicemi a spojovníky. Název musí začínat a končit písmenem nebo číslicí.
+   2. Zadejte **Umístění** služby. Umístění odkazuje zeměpisnou oblast, ve které chcete nasadit zařízení. Vyberte **USA Govt Iowa** nebo **USA Govt Virgina**.
+   3. V rozevíracím seznamu **Předplatné** vyberte předplatné. Předplatné je propojeno s vaším fakturačním účtem. Toto pole není dostupné, pokud máte pouze jedno předplatné.
+   4. Výběrem možnosti **Vytvořit nový účet úložiště** můžete vytvořit účet úložiště automaticky se službou. Takový účet úložiště bude mít speciální název, například storsimplebwv8c6dcnf.
+   5. Kliknutím na **Vytvořit StorSimple Manager** vytvořte službu.
       
-       ![create a service](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
+       ![Vytvoření služby](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
       
-      You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+      Budete přesměrováni na cílovou stránku **služby**. Vytvoření služby může trvat několik minut. Po úspěšném vytvoření služby budete odpovídajícím způsobem upozorněni a stav služby se změní na **Aktivní**.
       
-       ![service creation](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
+       ![vytvoření služby](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 

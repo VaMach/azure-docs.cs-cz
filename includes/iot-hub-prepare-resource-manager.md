@@ -1,58 +1,58 @@
-## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepare to authenticate Azure Resource Manager requests
-You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure this is to use PowerShell or Azure CLI.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Příprava k ověřování žádostí o Azure Resource Manager
+Je třeba ověřit všechny operace, které můžete provádět na prostředky pomocí [Azure Resource Manager] [ lnk-authenticate-arm] s Azure Active Directory (AD). Nejjednodušší způsob, jak nakonfigurovat tuto funkci je pomocí Powershellu nebo rozhraní příkazového řádku Azure.
 
-Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you continue.
+Nainstalujte [rutin prostředí Azure PowerShell] [ lnk-powershell-install] než budete pokračovat.
 
-The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session.
+Následující kroky ukazují, jak nastavit ověřování hesla pro aplikaci AD pomocí prostředí PowerShell. Tyto příkazy můžete spustit ve standardní relaci prostředí PowerShell.
 
-1. Log in to your Azure subscription using the following command:
+1. Přihlaste se k předplatnému Azure, pomocí následujícího příkazu:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+1. Pokud máte víc předplatných Azure, přihlášení do Azure uděluje přístup do všech předplatná Azure přidružená přihlašovacích údajů. Pomocí následujícího příkazu zobrazíte seznam předplatných Azure, které je k dispozici pro použití:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Use the following command to select subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+    Pomocí následujícího příkazu vyberte předplatné, které chcete použít ke spuštění příkazů ke správě služby IoT hub. Z výstupu předchozí příkaz můžete použít buď název odběru nebo ID:
 
     ```powershell
     Select-AzureRMSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-2. Make a note of your **TenantId** and **SubscriptionId**. You need them later.
-3. Create a new Azure Active Directory application using the following command, replacing the place holders:
+2. Poznamenejte si vaše **TenantId** a **SubscriptionId**. Budete potřebovat později.
+3. Vytvořte novou aplikaci Azure Active Directory pomocí následujícího příkazu, nahraďte svými držiteli místní:
    
-   * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Home page URL}:** the URL of the home page of your app such as **http://mysampleapp/home**. This URL does not need to point to a real application.
-   * **{Application identifier}:** A unique identifier such as **http://mysampleapp**. This URL does not need to point to a real application.
-   * **{Password}:** A password that you use to authenticate with your app.
+   * **{Zobrazovaný název}:** zobrazovaný název pro vaši aplikaci, jako **MySampleApp**
+   * **{Adresu URL domovské stránky}:** adresu URL domovské stránky aplikace jako **http://mysampleapp/home**. Tato adresa URL nemusí tak, aby odkazoval na reálné aplikaci.
+   * **{Identifikátor aplikace}:** jedinečný identifikátor, jako **http://mysampleapp**. Tato adresa URL nemusí tak, aby odkazoval na reálné aplikaci.
+   * **{Heslo}:** heslo, které použijete k ověření s vaší aplikací.
      
      ```powershell
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
      ```
-4. Make a note of the **ApplicationId** of the application you created. You need this later.
-5. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
+4. Poznamenejte si **ApplicationId** aplikace, které jste vytvořili. Budete potřebovat později.
+5. Vytvořit nový objekt služby pomocí následujícího příkazu, nahraďte **{MyApplicationId}** s **ApplicationId** z předchozího kroku:
    
     ```powershell
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Set up a role assignment using the following command, replacing **{MyApplicationId}** with your **ApplicationId**.
+6. Nastavení přiřazení role pomocí následujícího příkazu, nahraďte **{MyApplicationId}** s vaší **ApplicationId**.
    
     ```powershell
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-You have now finished creating the Azure AD application that enables you to authenticate from your custom C# application. You need the following values later in this tutorial:
+Nyní dokončení vytvoření aplikace Azure AD, která umožňuje ověření z vaší vlastní aplikaci C#. Později v tomto kurzu potřebujete následující hodnoty:
 
 * TenantId
 * SubscriptionId
 * ApplicationId
-* Password
+* Heslo
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

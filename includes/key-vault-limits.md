@@ -1,16 +1,16 @@
-Key transactions (Max transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
+Klíč transakce (maximální počet povolených za 10 sekund, za transakcí trezoru každou oblast<sup>1</sup>):
 
-|Key type|HSM-Key<br>CREATE Key|HSM-key<br>All other transactions|Software-key<br>CREATE Key|Software-key<br>All other transactions|
+|Typ klíče|Klíč HSM<br>Vytvoření klíče|Klíč HSM<br>Všechny ostatní transakce|Softwarový klíč<br>Vytvoření klíče|Softwarový klíč<br>Všechny ostatní transakce|
 |:---|---:|---:|---:|---:|
-|RSA 2048-bit|5|1000|10|2000|
-|RSA 3072-bit|5|250|10|500|
-|RSA 4096-bit|5|125|10|250|
+|RSA 2048 bitů|5|1000|10|2000|
+|RSA 3072 bitů|5|250|10|500|
+|Šifrování RSA 4096 bitů|5|125|10|250|
 |
 
-Secrets, Managed Storage Account Keys, and vault transactions:
-| Transactions Type | Max transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
+Tajné klíče, spravovat klíče účtu úložiště a transakce úložiště:
+| Typ transakce | Maximální počet povolených za 10 sekund, za transakcí trezoru podle oblastí<sup>1</sup> |
 | --- | --- |
-| All transactions |2000 |
+| Všechny transakce |2000 |
 |
 
-<sup>1</sup> There is a subscription-wide limit for all transaction types, that is 5x per key vault limit. For example, HSM- other transactions per subscription are limited to 5000 transactions in 10 seconds per subscription.
+<sup>1</sup> existuje omezení celé předplatné pro všechny typy transakcí, který je 5 x za limit trezoru klíčů. Například HSM - dalších transakcí podle předplatného jsou omezeny na 5000 transakce za 10 sekund na jedno předplatné.
