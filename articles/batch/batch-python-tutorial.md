@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Začínáme se sadou SDK služby Batch pro Python
 
@@ -371,7 +371,7 @@ Při vytváření fondu můžete definovat [PoolAddParameter][py_pooladdparam], 
 
 * **ID** fondu (*id* – povinné)<p/>Stejně jako u většiny entit ve službě Batch musí mít nový fond v rámci účtu Batch jedinečné ID. Váš kód bude na tento fond odkazovat pomocí jeho ID, podle kterého tento fond můžete také identifikovat na webu [Azure Portal][azure_portal].
 * **Počet výpočetních uzlů** (*target_dedicated* – povinné)<p/>Tato vlastnost určuje, kolik virtuálních počítačů má být ve fondu nasazeno. Je důležité, abyste si všimli, že všechny účty Batch mají výchozí **kvótu**, která omezuje počet **jader** (a tedy výpočetních uzlů) na účtu Batch. Výchozí kvóty a pokyny pro [navýšení kvóty](batch-quota-limit.md#increase-a-quota) (například maximální počet jader na účtu Batch) najdete v článku [Kvóty a omezení služby Azure Batch](batch-quota-limit.md). Možná vás někdy napadne otázka, proč váš fond nedosahuje víc než X uzlů. příčinou může být tato kvóta na jádra.
-* **Operační systém** uzlů (*virtual_machine_configuration* **nebo** *cloud_service_configuration* – povinné)<p/>Ve skriptu *python_tutorial_client.py* vytvoříme fond linuxových uzlů pomocí [VirtualMachineConfiguration][py_vm_config]. Funkce `select_latest_verified_vm_image_with_node_agent_sku` v `common.helpers` zjednodušuje práci s imagemi z [Azure Virtual Machines Marketplace][vm_marketplace]. Další informace o používání imagí z Marketplace najdete v tématu [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
+* **Operační systém** uzlů (*virtual_machine_configuration***nebo***cloud_service_configuration* – povinné)<p/>Ve skriptu *python_tutorial_client.py* vytvoříme fond linuxových uzlů pomocí [VirtualMachineConfiguration][py_vm_config]. Funkce `select_latest_verified_vm_image_with_node_agent_sku` v `common.helpers` zjednodušuje práci s imagemi z [Azure Virtual Machines Marketplace][vm_marketplace]. Další informace o používání imagí z Marketplace najdete v tématu [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md).
 * **Velikost výpočetních uzlů** (*vm_size* – povinné)<p/>Vzhledem k tomu, že zadáváme linuxové uzly pro naší [VirtualMachineConfiguration][py_vm_config], zadáme velikost virtuálního počítače (v této ukázce `STANDARD_A1`) podle článku [Velikosti virtuálních počítačů v Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Další informace opět najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md) 
 * **Spustit úkol** (*start_task* – nepovinné)<p/>Spolu s výše uvedenými fyzickými vlastnostmi uzlu můžete určit také [StartTask][py_starttask] fondu (nepovinné). StartTask se spustí na každém uzlu, když se takový uzel připojí k fondu, a taky pokaždé, když se uzel restartuje. StartTask je zvláště užitečný pro přípravu výpočetních uzlů k provádění úkolů, například k instalaci aplikací, které budou vaše úkoly spouštět.<p/>V této ukázkové aplikaci StartTask zkopíruje soubory, které stáhne ze služby Storage (které je určené vlastností **resource_files** ze StartTask) z *pracovního adresáře* StartTask do *sdíleného* adresáře, ke kterému mají přístup všechny úkoly spuštěné v takovém uzlu. V podstatě zkopíruje soubor `python_tutorial_task.py` do sdíleného adresáře v každém uzlu v okamžiku, kdy se uzel připojí k fondu, aby každý úkol spuštěný v uzlu měl k tomuto souboru přístup.
 

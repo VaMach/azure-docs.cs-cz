@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: 4e8a77e3644bb726d1b8e2050dab61893ccfa3c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 1ae47899443d5552178078a417b7d1ebe91966d2
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pro webové stránky
 Zjistěte informace o výkonu a využití webové stránky nebo aplikace. Když přidáte [Application Insights](app-insights-overview.md) do skriptu stránky, získáte časování načtení stránky a volání AJAX, počty a podrobnosti výjimek prohlížeče a selhání AJAX, a také počty uživatelů a relací. Všechny tyto hodnoty mohou být segmentovány podle stránky, klientského operačního systému a verze prohlížeče, zeměpisné polohy a ostatních dimenzí. Můžete nastavit výstrahy na počet selhání nebo pomalé načítání stránky. A vložíte-li do kódu JavaScript trasování volání, můžete sledovat využití různých funkcí aplikace webové stránky.
@@ -231,5 +230,4 @@ Chcete zjistit, co uživatelé provádějí s vaší aplikací?
 * [Sledování využití](app-insights-web-track-usage.md)
 * [Vlastní události a metriky](app-insights-api-custom-events-metrics.md)
 * [Sestavení vyhodnocení poučení](app-insights-web-track-usage.md)
-
 

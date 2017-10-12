@@ -24,8 +24,3 @@
    
    * Povolte možnost **Push Notifications** (Nabízená oznámení) v části Targets (Cíle) > Your Target Name (Název vašeho cíle) > Capabilities (Schopnosti).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

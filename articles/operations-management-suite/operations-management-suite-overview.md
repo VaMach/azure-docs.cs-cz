@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Co je Operations Management Suite (OMS)?
 Tento článek obsahuje úvod k sadě Operations Management Suite (OMS), včetně stručného přehledu výhod, které poskytuje, řešení správy a služeb, které zahrnuje, a nabídek, které zahrnují různé služby a řešení.  Zahrnuje také odkazy na podrobnou dokumentaci k nasazení jednotlivých služeb a řešení.
@@ -172,5 +171,4 @@ Microsoft a partneři pravidelně přidávají do OMS další řešení, což v�
 * Další informace o [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * Další informace o [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
 * Objevte [řešení, která jsou dostupná](../log-analytics/log-analytics-add-solutions.md) v různých nabídkách OMS. 
-
 

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0459eb5cc71939202c8491f6b2714e28bd8e202d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Správa přístupu uživatelů pomocí kontrol přístupu Azure AD
 
 Azure Active Directory vám umožní snadno zajistit, aby vaši uživatelé měli odpovídající přístup. Požádá uživatele samotné nebo pracovníky s rozhodovací pravomocí, aby se zúčastnili kontroly přístupu a znovu certifikovali (nebo potvrdili) přístup uživatele.  Revidující se mohou vyjádřit k nutnosti dalšího přístupu pro jednotlivé uživatele, a to na základě návrhů z Azure AD. Až kontrola přístupu skončí, můžete provést změny a ukončit přístup uživatelů, kteří ho už nepotřebují.
@@ -50,8 +48,7 @@ V rámci kontroly přístupu může revidujícími být mít jednoho nebo někol
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Vytvoření kontroly přístupu pro členy skupiny nebo přístupu k aplikaci](active-directory-azure-ad-controls-create-access-review.md)
-
+- [Vytváření kontroly přístupu pro členy skupiny nebo přístupu k aplikaci](active-directory-azure-ad-controls-create-access-review.md)
 
 
 

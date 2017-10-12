@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
+ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-overview"></a>Přehled Azure Automation
 Microsoft Azure Automation nabízí uživatelům možnost automatizace ručních, dlouhotrvajících, problematických a často se opakujících úloh, které se běžně provádějí v cloudovém a podnikovém prostředí. Šetří čas a zvyšuje spolehlivost běžných administrativních úloh a umí je dokonce naplánovat, aby se v pravidelných intervalech prováděly automaticky. Procesy můžete automatizovat pomocí runbooků nebo můžete automatizovat správu konfigurace pomocí DSC (požadovaný stav konfigurace). Tento článek poskytuje stručný přehled Azure Automation a odpovědi na některé běžné dotazy. Podrobnější informace o dalších tématech najdete v jiných článcích z této knihovny.
@@ -84,5 +83,4 @@ K dispozici jsou různé druhy zdrojů, ze kterých můžete získat další inf
 
 ## <a name="can-i-provide-feedback"></a>Posílání připomínek
 **Budeme velmi rádi za vaše připomínky.** Pokud hledáte řešení runbooku služby Azure Automation nebo hledáte modul integrace, zadejte v Centru skriptů požadavek na skript. Pokud máte požadavky k připomínkám nebo funkcím Azure Automation, odešlete je na [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Děkujeme! 
-
 

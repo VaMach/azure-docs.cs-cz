@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: Rozšířené události
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Úrovně kompatibility
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Monitorování v paměti
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Horizontální navýšení kapacity
@@ -266,6 +264,12 @@
         - name: Pravidla virtuálních sítí s využitím PowerShellu
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Kontinuita podnikových procesů
+      items:
+        - name: Konfigurace trezoru – zálohy
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Geografická replikace – Portál
+          href: sql-database-geo-replication-portal.md
+    - name: Načítání a přesun dat
       items:
         - name: Načítání dat pomocí BCP
           href: sql-database-load-from-csv-with-bcp.md

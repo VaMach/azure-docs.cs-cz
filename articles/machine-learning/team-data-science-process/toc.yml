@@ -34,7 +34,7 @@
 - name: Kurzy
   href: walkthroughs.md
   items:
-    - name: Azure Machine Learning Workbench
+    - name: Aplikace Azure Machine Learning Workbench
       href: walkthroughs-aml-with-tdsp.md
       items:
         - name: Klasifikace příjmů v USA

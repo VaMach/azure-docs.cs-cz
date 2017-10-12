@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Nasazení služby AD FS (Active Directory Federation Service) v Azure
 Služby AD FS nabízí zjednodušené možnosti zabezpečené federace identit a jednotného přihlašování na webu (SSO). Federace pomocí Azure AD nebo O365 uživatelům umožňuje ověřování pomocí místních přihlašovacích údajů a přístup ke všem prostředkům v cloudu. V důsledku toho je důležité mít vysoce dostupnou infrastrukturu služby AD FS, která zajistí přístup k místním prostředkům i k prostředkům v cloudu. Nasazení služby AD FS v Azure může zajistit požadovanou vysokou dostupnost při minimálním úsilí.
@@ -355,5 +354,4 @@ Při nasazování této šablony můžete použít stávající virtuální sí�
 * [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurace a správa služby AD FS pomocí služby Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
 

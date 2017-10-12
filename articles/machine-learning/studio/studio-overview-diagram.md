@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f4e53fa46a6b7f8811e4fee67b1466786b81cdc9
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagram s přehledem možností nástroje Machine Learning Studio
 Diagram s **přehledem možností nástroje Machine Learning Studio** nastiňuje na nejvyšší úrovni, jak pomocí nástroje Machine Learning Studio vyvinout model prediktivní analýzy a zprovoznit ho v cloudu Azure.
@@ -51,5 +50,4 @@ Stáhněte si diagram s **přehledem možností nástroje Machine Learning Studi
 * Algoritmy strojového učení dostupné v nástroji Machine Learning Studio podrobně rozebíráme v tématu [Jak zvolit algoritmy pro Microsoft Azure Machine Learning](algorithm-choice.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

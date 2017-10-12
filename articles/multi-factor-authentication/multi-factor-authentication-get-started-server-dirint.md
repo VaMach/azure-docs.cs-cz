@@ -15,12 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrace adresáře mezi Azure MFA Serverem a službou Active Directory
 Pro integraci se službou Active Directory nebo jiným adresářem LDAP použijte část Azure MFA Serveru Integrace adresáře. Můžete nastavit atributy podle schématu adresáře a zapnout automatickou synchronizaci uživatelů.
@@ -139,4 +138,3 @@ Tlačítka Přesunout nahoru a Přesunout dolů umožňují správci změnit po�
 Můžete zřídit další Multi-Factor Auth Servery, které budou sloužit jako záložní servery proxy pro RADIUS, servery proxy pro LDAP nebo jako servery pro Ověřování IIS. Konfigurace synchronizace se sdílí mezi všemi agenty. Služba Multi-Factor Auth Server ale může běžet jen na jednom z těchto agentů. Tato karta vám umožní vybrat Multi-Factor Auth Server, který se měl povolit pro synchronizaci.
 
 ![Multi-Factor-Auth Servery](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Správa adresáře pro předplatné služeb Office 365 ve službě Azure
 Tento článek popisuje, jak spravovat adresář, který byl vytvořen pro předplatné služeb Office 365, pomocí portálu Azure Classic. Pokud se chcete přihlásit k portálu Azure Classic, musíte být správce nebo spolusprávce služeb v předplatném služby Azure. Pokud ještě nemáte předplatné Azure, můžete si pomocí tohoto odkazu zaregistrovat [bezplatnou 30denní zkušební verzi](https://azure.microsoft.com/trial/get-started-active-directory/) ještě dnes a nasadit první cloudové řešení za méně než 5 minut. Nezapomeňte použít pracovní nebo školní účet, jaký používáte k přihlášení do služeb Office 365.
@@ -33,8 +34,8 @@ Pokud již máte předplatné služby Azure, proces správy dalšího adresáře
 
 | Předplatné | Office 365 | Azure |
 | --- | --- | --- |
-|   Zobrazované jméno |Contoso |Výchozí adresář Azure Active Directory (Azure AD) |
-|   Název domény |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Zobrazované jméno | Contoso | Výchozí adresář Azure Active Directory (Azure AD) |
+|   Název domény | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Chce spravovat identity uživatelů v adresáři společnosti Contoso, když je přihlášený do služby Azure pomocí svého účtu Microsoft, aby mohl povolit funkce Azure AD, jako například vícefaktorové ověřování. Proces dobře znázorňuje následující diagram.
 

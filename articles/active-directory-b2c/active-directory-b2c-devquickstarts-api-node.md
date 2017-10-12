@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Zabezpečení webového rozhraní API pomocí Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ S Azure Active Directory (Azure AD) B2C můžete zabezpečit webové rozhraní A
 Chcete-li postupovat podle této ukázky, budete muset:
 
 1. Zaregistrovat aplikaci s Azure AD.
-2. Nastavit aplikaci pro používání modulu plug-in `azure-ad-passport` Passportu.
+2. Nastavit aplikaci pro používání modulu plug-in `passport-azure-ad` Passportu.
 3. Nakonfigurovat klientskou aplikaci, aby volala webové rozhraní API „seznam úkolů“.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Získání adresáře služby Azure AD B2C
@@ -762,4 +760,3 @@ Implementovali jste rozhraní REST API s použitím Restify a OAuth! Nyní máte
 Nyní se můžete přesunout k pokročilejším tématům, jako například:
 
 [Připojení k webovému rozhraní API pomocí iOS s B2C](active-directory-b2c-devquickstarts-ios.md)
-

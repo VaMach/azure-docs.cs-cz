@@ -26,8 +26,3 @@ Vytvoření zásad:
    
     Nové zásady se okamžitě použijí na trezor.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

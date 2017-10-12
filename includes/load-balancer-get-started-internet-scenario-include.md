@@ -5,8 +5,3 @@ V tomto scénáři budou provedeny následující úlohy:
 * Vytvoření testů stavu
 
 ![Scénář nástroje pro vyrovnávání zatížení](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-
