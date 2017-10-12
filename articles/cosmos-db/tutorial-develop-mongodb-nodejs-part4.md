@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 6fd88c58c0067deab08d502be4bd624c297b5fde
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Vytvoření aplikace MongoDB s Angular a službou Azure Cosmos DB – Část 4: Vytvoření účtu služby Azure Cosmos DB pomocí Azure CLI
 
@@ -86,4 +85,3 @@ Můžete přejít k další části kurzu a připojit službu Azure Cosmos DB ke
 
 > [!div class="nextstepaction"]
 > [Připojení ke službě Azure Cosmos DB pomocí Mongoose](tutorial-develop-mongodb-nodejs-part5.md)
-

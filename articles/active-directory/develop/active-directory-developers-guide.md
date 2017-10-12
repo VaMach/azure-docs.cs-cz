@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory pro vývojáře
 Azure Active Directory je cloudová služba identit, která vývojářům umožňuje bezpečně přihlásit jakéhokoli uživatele s pracovním nebo školním účtem, který zajišťuje Microsoft.  Dokumentace, kterou tady najdete, vám ukáže, jak do vaší aplikace přidat podporu Azure AD s použitím standardních oborových ověřovacích protokolů OAuth a OpenID Connect.
@@ -73,4 +72,3 @@ Na těchto místech získáte nejlepší pomoc s vývojem v Azure Active Directo
 
 > [!NOTE]
 > Pokud potřebujete přihlašovat osobní účty Microsoft, měli byste zvážit použití [koncového bodu Azure AD v2.0](active-directory-appmodel-v2-overview.md).  Koncový bod Azure AD v2.0 sjednocuje osobní účty Microsoft a pracovní účty Microsoft (z Azure AD) do jednoho ověřovacího systému.
-

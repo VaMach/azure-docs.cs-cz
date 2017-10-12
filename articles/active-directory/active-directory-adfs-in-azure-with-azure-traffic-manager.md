@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
-ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
-
-
+ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru
 Článek [Nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md) poskytuje podrobné pokyny pro nasazení jednoduché infrastruktury služby AD FS pro vaši organizaci v Azure. Tento článek popisuje další kroky při vytváření nasazení služby AD FS v Azure mezi geografickými lokalitami pomocí [Azure Traffic Manageru](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager pomáhá vytvořit geograficky rozsáhlou infrastruktury služby AD FS s vysokou dostupnost a vysokým výkonem pro vaši organizaci tím, že využívá široké spektrum metod směrování, které jsou k dispozici pro splnění různých požadavků infrastruktury.
@@ -122,10 +122,4 @@ Nejjednodušší způsob otestování služby AD FS je pomocí stránky IdpIniti
 ## <a name="next-steps"></a>Další kroky
 * [Správa profilu Azure Traffic Manageru](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Přidávání, zakazování, povolování nebo odstraňování koncových bodů](../traffic-manager/traffic-manager-endpoints.md) 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

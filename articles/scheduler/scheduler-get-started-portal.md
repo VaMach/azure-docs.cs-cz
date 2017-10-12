@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Začínáme se Schedulerem na portálu Azure
 Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto kurzu se naučíte, jak vytvořit úlohu. Taky poznáte možnosti Scheduleru pro sledování a správu.
@@ -30,14 +30,14 @@ Ve službě Azure Scheduler je vytváření plánovaných úloh snadné. V tomto
     ![][marketplace-create]
 3. Teď vytvoříme úlohu, která jednoduše vyšle požadavek GET na http://www.microsoft.com/. Na obrazovce **Úloha Scheduleru** zadejte následující informace:
    
-   1. **Název:** `getmicrosoft`  
+   1. **Název:**`getmicrosoft`  
    2. **Předplatné:** Vaše předplatné Azure   
-   3. **Kolekce úloh:** Vyberte existující kolekci úloh nebo klikněte na **Vytvořit novou** > zadejte název.
+   3. **Kolekce úloh:** Vyberte existující kolekci úloh nebo klikněte na **Vytvořit novou** &gt; zadejte název.
 4. Dál klikněte na **Nastavení akce** a definujte tyto hodnoty:
    
-   1. **Typ akce:** ` HTTP`  
-   2. **Metoda:** `GET`  
-   3. **Adresa URL:** ` http://www.microsoft.com`  
+   1. **Typ akce:**` HTTP`  
+   2. **Metoda:**`GET`  
+   3. **Adresa URL:**` http://www.microsoft.com`  
       
       ![][action-settings]
 5. Nakonec nastavíme plán. Úloha se může definovat jako jednorázová, ale my vytvoříme plán opakování:

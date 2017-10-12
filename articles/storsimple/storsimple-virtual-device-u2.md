@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Nasazení a správa virtuálního zařízení StorSimple v Azure
 ## <a name="overview"></a>Přehled
@@ -37,9 +36,9 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 | **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/common/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/common/storage-premium-storage.md) |
 | **Pokyny týkající se úloh** |Načítání souborů ze zálohy na úrovni položek |Scénáře vývoje a testování v cloudu, nízká latence, náročnější úlohy <br></br>Sekundární zařízení pro zotavení po havárii |
 
-<sup>1</sup> *Dříve označované jako 1100*.
+<sup>1</sup>*Dříve označované jako 1100*.
 
-<sup>2</sup> *Pro cloudovou vrstvu používají zařízení 8010 i 8020 službu Azure Standard Storage. Rozdíl je pouze u místní vrstvy v rámci zařízení*.
+<sup>2</sup>*Pro cloudovou vrstvu používají zařízení 8010 i 8020 službu Azure Standard Storage. Rozdíl je pouze u místní vrstvy v rámci zařízení*.
 
 Tento článek popisuje podrobný postup nasazení virtuálního zařízení StorSimple v Azure. Po přečtení tohoto článku:
 
@@ -236,4 +235,3 @@ Pokud během vytváření virtuálního zařízení není k dispozici připojen�
 ## <a name="next-steps"></a>Další kroky
 * Podívejte se, jak [použít službu StorSimple Manager pro správu virtuálního zařízení](storsimple-manager-service-administration.md).
 * Naučte se [obnovit svazek StorSimple ze zálohovacího skladu](storsimple-restore-from-backup-set.md).
-

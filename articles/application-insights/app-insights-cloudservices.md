@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: c12b225aa351d0c272243469550791a6840091e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 692cd9e3113589142a7df84da88215eabe8f10fd
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pro Azure Cloud Services
 U [aplikací cloudových služeb Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) lze pomocí služby [Application Insights][start] sledovat dostupnost, výkon, chyby a využití díky kombinování dat ze sad SDK služby Application Insights a dat [diagnostiky Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) z vašich cloudových služeb. Na základě zpětné vazby ohledně výkonu a efektivity vaší aplikace při běžném používání můžete informovaně rozhodovat o směrování návrhu v každé fázi vývoje.
@@ -105,7 +104,7 @@ Tato možnost umožňuje přidat vlastní obchodní telemetrická data do které
 
 V sadě Visual Studio nakonfigurujte sadu SDK Application Insights pro každý projekt cloudové aplikace.
 
-1. **Webové role:** Klikněte na projekt pravým tlačítkem myši a zvolte možnost **Nakonfigurovat Application Insights** nebo **Přidat > Telemetrie Application Insights**.
+1. **Webové role:** Klikněte na projekt pravým tlačítkem myši a zvolte možnost **Nakonfigurovat Application Insights** nebo **Přidat &gt; Telemetrie Application Insights**.
 
 2. **Role pracovních procesů**: 
  * Klikněte na projekt pravým tlačítkem myši a vyberte možnost **Spravovat balíčky Nuget**.
@@ -252,4 +251,3 @@ Vytvořili jste sestavení pro .NET 4.6? Verze 4.6 není v rolích Azure Cloud S
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikace virtuálních počítačů Hyper-V v cloudech VMM do Azure pomocí služby Site Recovery na webu Azure Portal
 > [!div class="op_single_selector"]
@@ -475,4 +474,3 @@ Hodnota registru **UploadThreadsPerVM** řídí počet vláken, která se použ�
 ## <a name="next-steps"></a>Další kroky
 
 Po dokončení počáteční replikace a po otestování nasazení můžete podle potřeby vyvolat převzetí služeb při selhání. Přečtěte si [další informace](site-recovery-failover.md) o různých typech převzetí služeb při selhání a o tom, jak je spustit.
-

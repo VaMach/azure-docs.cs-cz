@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Šifrování virtuálního počítače Azure
 Azure Security Center vás upozorní, pokud máte virtuální počítače, které nejsou šifrované. Tyto výstrahy se zobrazují jako upozornění s vysokou závažností. Doporučuje se tyto virtuální počítače zašifrovat.
@@ -116,7 +115,7 @@ Výstup skriptu by měl vypadat podobně jako na následujícím obrázku:
 ## <a name="encrypt-the-azure-virtual-machine"></a>Šifrování virtuálního počítače Azure
 Nyní jste připraveni k šifrování virtuálního počítače. Pokud je virtuální počítač umístěný ve stejné skupině prostředků jako služba Key Vault, můžete přejít ke krokům pro šifrování. Pokud ale virtuální počítač není ve stejné skupině prostředků jako služba Key Vault, budete muset v konzole Integrovaného skriptovacího prostředí (ISE) v prostředí PowerShell zadat následující:
 
-**$resourceGroupName = <’skupina_prostředků_virtuálního_počítače’>**
+**$resourceGroupName = &lt;’skupina_prostředků_virtuálního_počítače’&gt;**
 
 Místo **<’skupina_prostředků_virtuálního_počítače’>** použijte název skupiny prostředků, která obsahuje váš virtuální počítač (v jednoduchých uvozovkách). Potom stiskněte **ENTER**.
 Pro potvrzení, že byla zadaná správná skupina prostředků, zadejte v konzole Integrovaného skriptovacího prostředí (ISE) v prostředí PowerShell následující text:
@@ -130,7 +129,7 @@ Stiskněte **ENTER**. Měl by se zobrazit název skupiny prostředků, ve které
 ### <a name="encryption-steps"></a>Kroky pro šifrování
 Nejdřív musíte PowerShellu předat název virtuálního počítače, který chcete zašifrovat. V konzole zadejte:
 
-**$vmName = <’název_virtuálního_počítače’>**
+**$vmName = &lt;’název_virtuálního_počítače’&gt;**
 
 Místo **<’název_virtuálního_počítače’>** zadejte název vašeho virtuálního počítače (v jednoduchých uvozovkách) a potom stiskněte **ENTER**.
 
@@ -179,4 +178,3 @@ V tomto dokumentu jste se naučili zašifrovat virtuální počítač Azure. Pok
 * [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
-

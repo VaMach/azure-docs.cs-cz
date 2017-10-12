@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture"></a>Krok 1: Kontrola architektury
 
@@ -60,8 +60,7 @@ Další informace o požadavcích pro nasazení a pro jednotlivé komponenty naj
 1. Po povolení ochrany pro virtuální počítače Hyper-V (na webu Azure Portal nebo místně) se spustí **Povolení ochrany**.
 2. Úloha zkontroluje, zda počítač splňuje požadavky, a potom vyvolá metodu [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), která nastaví replikaci s nastavením, které jste nakonfigurovali.
 3. Úloha spustí počáteční replikaci vyvoláním metody [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), která zahájí úplnou replikaci virtuálního počítače a odešle virtuální disky virtuálního počítače do Azure.
-4. Úlohu můžete sledovat na kartě **Úlohy**.
-        ![Seznam úloh](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Podrobnosti povolení ochrany](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. Úlohu můžete sledovat na kartě **Úlohy**.      ![Seznam úloh](media/vmm-to-azure-walkthrough-architecture/image1.png)![Podrobnosti povolení ochrany](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replikace počátečních dat
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
+ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-standalone-azure-automation-account"></a>Vytvoření samostatného účtu Azure Automation
 Toto téma ukazuje, jak vytvořit účet Automation z webu Azure Portal, pokud se chcete seznámit se službou Azure Automation a vyzkoušet si ji bez zahrnutí dalších řešení pro správu nebo integrace s OMS Log Analytics k poskytování pokročilého monitorování úloh runbooků.  Tato řešení pro správu nebo integraci s Log Analytics můžete přidat kdykoli v budoucnu.  S účtem Automation můžete ověřit runbooky, které spravují prostředky buď v Azure Resource Manageru, nebo v nasazení Azure Classic.
 
@@ -92,4 +90,3 @@ Následující tabulka shrnuje prostředky pro účet Spustit jako pro Azure Cla
 * První kroky s powershellovými runbooky najdete v článku [Můj první powershellový runbook](automation-first-runbook-textual-powershell.md).
 * První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).
 * První kroky s runbooky Python2 najdete v článku [Můj první runbook Python2](automation-first-runbook-textual-python2.md).
-

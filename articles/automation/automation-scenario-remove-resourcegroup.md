@@ -3,7 +3,7 @@ title: "Automatizace odebrání skupin prostředků | Dokumentace Microsoftu"
 description: "Verze scénáře Azure Automation s pracovními postupy prostředí PowerShell, včetně runbooků pro odebrání všech skupin prostředků v rámci vašeho předplatného."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-
-
+ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Scénář Azure Automation – automatizace odebrání skupin prostředků
+# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scénář Azure Automation – automatizace odebrání skupin prostředků
 Mnoho zákazníků vytváří více než jednu skupinu prostředků. Některé mohou sloužit ke správě produkčních aplikací, jiné mohou sloužit jako vývojové, testovací nebo přípravné prostředí. Automatizace nasazení těchto prostředků je jedna věc, ale možnost vyřadit skupinu prostředků z provozu jediným kliknutím něco úplně jiného. Tuto běžnou úlohu správy můžete zjednodušit pomocí Azure Automation. To je užitečné v případě, že pracujete s předplatným Azure, které má nastavený limit útraty prostřednictvím členské nabídky, jako je například MSDN nebo program Microsoft Partner Network Cloud Essentials.
 
 Tento scénář je založený na runbooku PowerShellu a je určený k odebrání jedné nebo několika skupin prostředků, které zadáte ze svého předplatného. Ve výchozím nastavení runbook nejdříve testuje a poté pokračuje. Tím je zajištěno, že nechtěně neodstraníte skupinu prostředků dříve, než budete připraveni tento postup dokončit.   
@@ -67,9 +67,3 @@ Pokud chcete zobrazit podrobné informace o úloze runbooku **Remove-ResourceGro
 ## <a name="next-steps"></a>Další kroky
 * Pokud se chcete pustit do vytváření vlastního runbooku, přečtěte si téma [Vytvoření nebo import runbooku ve službě Azure Automation](automation-creating-importing-runbook.md).
 * První kroky s runbooky pracovních postupů prostředí PowerShell najdete v článku [Můj první runbook pracovního postupu prostředí PowerShell](automation-first-runbook-textual.md).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-
