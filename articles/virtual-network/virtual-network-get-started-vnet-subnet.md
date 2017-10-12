@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>Vytvoření první virtuální sítě
 
 Zjistěte, jak vytvořit virtuální síť se dvěma podsítěmi a jak vytvořit dva virtuální počítače a oba připojit k jedné z podsítí, jak je znázorněno na následujícím obrázku:
@@ -58,7 +56,7 @@ Pokud chcete vytvořit virtuální síť se dvěma podsítěmi, dokončete násl
     |**Název podsítě**|*Front-end*|Název podsítě musí být v rámci virtuální sítě jedinečný.|
     |**Rozsah adres podsítě**|*10.0.0.0/24*| Zadaný rozsah musí existovat v rámci adresního prostoru, který jste nadefinovali pro virtuální síť.|
     |**Předplatné**|*[Vaše předplatné]*|Vyberte předplatné, ve kterém se má virtuální síť vytvořit. Virtuální síť existuje v jednom předplatném.|
-    |**Skupina prostředků**|**Vytvořit novou:** *MyRG*|Vytvořte skupinu prostředků. Název skupiny prostředků musí být v rámci vybraného předplatného jedinečný. Další informace o skupinách prostředků najdete v článku s přehledem [Resource Manageru](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups).|
+    |**Skupina prostředků**|**Vytvořit novou:***MyRG*|Vytvořte skupinu prostředků. Název skupiny prostředků musí být v rámci vybraného předplatného jedinečný. Další informace o skupinách prostředků najdete v článku s přehledem [Resource Manageru](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups).|
     |**Umístění**|*Západní USA*| Obvykle je vybráno umístění co nejblíže vašemu fyzickému umístění.|
 
     Vytvoření virtuální sítě trvá několik sekund. Jakmile se vytvoří, zobrazí se řídicí panel webu Azure Portal.
@@ -253,4 +251,3 @@ V tomto cvičení jste vytvořili virtuální síť a dva virtuální počítač
 - [Síťová rozhraní](virtual-network-network-interface.md)
 - [Skupiny zabezpečení sítě](virtual-networks-nsg.md)
 - [Virtual Machines](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

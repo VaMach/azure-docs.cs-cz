@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>Co je Azure Machine Learning?
 
 Azure Machine Learning je integrované, komplexní řešení datové vědy a pokročilé analýzy. Umožňuje datovým vědcům připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -179,7 +177,7 @@ Server Microsoft Machine Learning využijete při provádění těchto úkonů:
 - Distribuce tréninku jazyka R a Python ve velkém měřítku v clusteru Hadoop nebo Spark
 
 ### <a name="data-science-virtual-machine"></a>Virtuální počítač pro datové vědy
-[Virtuální počítač pro datové vědy](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) je přizpůsobená image virtuálního počítače v cloudu Azure Microsoftu vytvoření speciálně pro účely datových věd. Obsahuje řadu oblíbených předinstalovaných nástrojů datové vědy a dalších funkcí a je předem nakonfigurovaná, abyste mohli hned začít sestavovat inteligentní aplikace pro pokročilou analýzu. Je k dispozici pro Windows Server a Linux. Edici virtuálního počítače pro datové vědy pro Windows nabízíme ve verzích pro Server 2016 a Server 2012. Edici virtuálního počítače pro datové vědy pro Linux nabízíme ve verzích pro distribuce Linuxu založené na Ubuntu 16.04 LTS a OpenLogic 7.2 CentOS. 
+[Virtuální počítač pro datové vědy](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) je přizpůsobená image virtuálního počítače v cloudu Azure Microsoftu vytvoření speciálně pro účely datových věd. Obsahuje řadu oblíbených předinstalovaných nástrojů datové vědy a dalších funkcí a je předem nakonfigurovaná, abyste mohli hned začít sestavovat inteligentní aplikace pro pokročilou analýzu. Je k dispozici pro Windows Server a Linux. Edici virtuálního počítače pro datové vědy pro Windows nabízíme ve verzích pro Server 2016 a Server 2012. Edici virtuálního počítače pro datové vědy pro Linux nabízíme ve verzích pro distribuce Linuxu založené na Ubuntu 16.04 LTS a OpenLogic 7.2 CentOS. 
 
 Virtuální počítač pro datové vědy můžete využít, když potřebujete spustit nebo hostovat úlohy v jednom uzlu nebo když potřebujete vzdáleně vertikálně navýšit kapacitu zpracování v jednom počítači. Virtuální počítač pro datové vědy je podporovaný jako cíl pro služby Experimentování i Správa modelů ve službě Azure Machine Learning. 
 
@@ -219,4 +217,3 @@ Služba Microsoft Cognitive Services se dá používat k vývoji aplikací např
 
 ## <a name="next-steps"></a>Další kroky
 * [Instalace a vytvoření služby Azure Machine Learning](quickstart-installation.md)
-

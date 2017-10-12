@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-site-recovery"></a>Co je Site Recovery?
 
@@ -32,7 +31,7 @@ Jako organizace potřebujete vyřešit, jak zajistíte bezpečnost vašich dat a
 Služba Azure Recovery Services přispívá ke strategii BCDR:
 
 - **Služba Site Recovery:** Site Recovery pomáhá zajistit kontinuitu podnikových procesů tím, že zajistí provoz aplikací na virtuálních počítačích a dostupnost fyzických serverů v případě, že je lokalita mimo provoz. Site Recovery replikuje úlohy spuštěné na virtuálních počítačích a fyzických serverech, aby zůstaly dostupné v sekundárním umístění v případě, že je primární lokalita nedostupná. Po opětovném zprovoznění primární lokality do ní úlohy obnoví.
-- **Služba Backup:** [Azure Backup](https://docs.microsoft.com/azure/backup/) navíc zajišťuje zabezpečení a obnovitelnost vašich dat tím, že je zálohuje do Azure.
+- **Služba Backup:**[Azure Backup](https://docs.microsoft.com/azure/backup/) navíc zajišťuje zabezpečení a obnovitelnost vašich dat tím, že je zálohuje do Azure.
 
 Site Recovery může spravovat replikaci pro:
 
@@ -79,4 +78,3 @@ Site Recovery může spravovat replikaci pro:
 ## <a name="next-steps"></a>Další kroky
 * Další informace o [podpoře úloh](site-recovery-workload.md)
 * Můžete začít s [replikací virtuálních počítačů Azure mezi oblastmi](site-recovery-azure-to-azure.md), [replikací VMware do Azure](vmware-walkthrough-overview.md) nebo [replikací Hyper-V do Azure](hyper-v-site-walkthrough-overview.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
+ms.openlocfilehash: 6939e3b31c3c1b514df4c559c2d9408fce122a4e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Provádění živého streamování pomocí místních kodérů na webu Azure Portal
 > [!div class="op_single_selector"]
@@ -44,7 +43,7 @@ Důrazně doporučujeme přečtení následujících článků:
 * [Přehled živého streamování pomocí služby Azure Media Services](media-services-manage-channels-overview.md)
 * [Živé streamování pomocí místních kodérů, které vytvářejí datové proudy s více přenosovými rychlostmi](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a id="scenario"> </a>Běžný scénář živého streamování
+## <a id="scenario"></a>Běžný scénář živého streamování
 Následující kroky popisují úlohy, které jsou běžně součástí procesu vytváření aplikací pro živé streamování, které používají kanály, nakonfigurované pro průchozí doručování. Tento kurz ukazuje, jak vytvořit a spravovat průchozí kanál a živé události.
 
 >[!NOTE]
@@ -154,5 +153,4 @@ Prohlédněte si mapy kurzů k Media Services.
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

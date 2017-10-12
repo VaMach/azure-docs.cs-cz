@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Nasazení aplikace s automatickým škálováním pomocí šablony
 
 [Šablony Azure Resource Manageru](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) nabízí skvělou možnost pro nasazení skupin souvisejících prostředků. Tento kurz vychází z [Nasazení jednoduché škálovací sady](virtual-machine-scale-sets-mvss-start.md) a popisuje, jak pomocí šablony Azure Resource Manageru nasadit jednoduchou, automaticky škálovatelnou aplikaci ve škálovací sadě.  Automatické škálování můžete nastavit také pomocí PowerShellu, rozhraní příkazového řádku nebo portálu. Další informace najdete v tématu [Přehled automatického škálování](virtual-machine-scale-sets-autoscale-overview.md).
@@ -309,4 +307,3 @@ fi
 ## <a name="next-steps"></a>Další kroky
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

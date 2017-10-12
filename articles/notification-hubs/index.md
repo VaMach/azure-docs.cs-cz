@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="notification-hubs-documentation"></a>Dokumentace ke službě Notification Hubs
 
 Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro více platforem k zasílání nabízených oznámení, k rychlému rozesílání milionů zpráv. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy nastavení a odesílání nabízených oznámení z jakéhokoli back-endu na jakékoli mobilní zařízení. 
@@ -212,5 +210,4 @@ Naučte se, jak můžete používat Notification Hubs, škálovatelný modul pro
         </div>
     </li>
 </ul>
-
 

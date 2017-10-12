@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+ms.openlocfilehash: d24139de04b36044bbb88d0e9b9a1feb6d8edfa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 56c24eb26faf1729c33b025d5c9fcf5d13abd376
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-documentation"></a>Dokumentace ke službě Event Hubs
 
 Naučte se využívat službu Event Hubs ke shromažďování a správě milionů událostí za sekundu z připojených aplikací a zařízení IoT. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy nastavení škálovatelného ingestování událostí na široké škále platforem.
@@ -151,4 +149,3 @@ Naučte se využívat službu Event Hubs ke shromažďování a správě milion�
         </div>
     </li>
 </ul>
-

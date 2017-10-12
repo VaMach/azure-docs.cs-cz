@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Nahrání a načtení dat obrázků v cloudu</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Aktivace Azure Functions pro zpracování objektů blob</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Aktivace Azure Functions pro zpracování objektů blob</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Zabezpečení dat aplikací</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorování a odstraňování potíží s úložištěm</a>
   - title: Ukázky

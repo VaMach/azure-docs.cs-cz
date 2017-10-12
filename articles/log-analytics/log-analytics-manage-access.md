@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-workspaces"></a>Správa pracovních prostorů
 
@@ -169,7 +168,7 @@ Vaše přiřazení role na portálu OMS se určuje následujícím způsobem:
 |--------------------------------------------------------------|----------------------------------|-------|
 | Váš účet patří ke starší uživatelské roli Log Analytics.     | Zadaná uživatelská role Log Analytics | |
 | Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Úplné oprávnění Azure k pracovnímu prostoru (oprávnění `*` <sup>1</sup>) | Správce ||
-| Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Úplné oprávnění Azure k pracovnímu prostoru (oprávnění `*` <sup>1</sup>) <br> *ne akce* `Microsoft.Authorization/*/Delete` a `Microsoft.Authorization/*/Write` | Přispěvatel ||
+| Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Úplné oprávnění Azure k pracovnímu prostoru (oprávnění `*` <sup>1</sup>) <br> *ne akce*`Microsoft.Authorization/*/Delete` a `Microsoft.Authorization/*/Write` | Přispěvatel ||
 | Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Oprávnění Azure ke čtení | Jen pro čtení ||
 | Váš účet nepatří ke starší uživatelské roli Log Analytics. <br> Oprávnění Azure nejsou rozpoznána. | Jen pro čtení ||
 | Pro předplatná spravovaná poskytovatelem Cloud Solution Provider (CSP) <br> Účet, pomocí kterého jste přihlášeni, je ve službě Azure Active Directory propojené s pracovním prostorem. | Správce | Obvykle zákazník poskytovatele CSP |

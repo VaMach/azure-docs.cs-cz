@@ -1,4 +1,4 @@
---- 
+---
 title: "Začínáme s Azure Automation | Dokumentace Microsoftu"
 description: "Tento článek obsahuje přehled služby Azure Automation. Najdete tu popis návrhu a podrobnosti implementace v rámci přípravy na zprovoznění nabídky z Azure Marketplace."
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Začínáme s Azure Automation
 
 Tato příručka Začínáme představuje základní koncepty související s nasazením služby Azure Automation. Ať už se službou Automation v Azure teprve začínáte nebo máte zkušenostmi se softwarem pro pracovní postupy automatizace, jako je System Center Orchestrator, tento průvodce vám pomůže porozumět přípravě a zprovoznění služby Automation.  Potom budete připraveni začít vyvíjet runbooky na podporu vašich potřeb automatizace procesů. 
@@ -162,7 +160,7 @@ Doporučenou metodou připojení služby Automation je výběr nabídky Automati
 
 2. Klikněte na možnost **Nové**.<br><br> ![Výběr možnosti Nové na webu Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Vyhledejte **Automation** a potom ve výsledcích hledání vyberte **Automation and Control***.<br><br> ![Hledání a výběr Automation & Control na Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
+3. Vyhledejte **Automation** a potom ve výsledcích hledání vyberte **Automation and Control***.<br><br> ![Hledání a výběr Automation &amp; Control na Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
 
 4. Přečtěte si popis této nabídky a klikněte na **Vytvořit**.  
 
@@ -191,6 +189,5 @@ Po zprovoznění nabídky můžete začít vytvářet runbooky, pracovat s řeš
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete ověřit, že nový účet Automation umožňuje ověřování prostřednictvím prostředků Azure, prohlédněte si [test ověřování účtu Azure Automation Spustit jako](automation-verify-runas-authentication.md).
 * Pokud chcete začít s vytvářením runbooků, před samotným vytváření nejprve zkontrolujte podporované [Typy runbooků ve službě Automation](automation-runbook-types.md) a související důležité informace.
-
 
 

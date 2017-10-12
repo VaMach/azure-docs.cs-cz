@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexers-in-azure-search"></a>Indexery ve službě Azure Search
 > [!div class="op_single_selector"]
 >
@@ -44,7 +42,7 @@ Indexery můžete spouštět na vyžádání nebo podle pravidelného plánu akt
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Přístupy k vytváření a správě indexerů
 Všeobecně dostupné indexery jako SQL Azure nebo Azure Cosmos DB můžete vytvořit a spravovat pomocí těchto přístupů:
 
-* [Portál > Průvodce importem dat](search-get-started-portal.md)
+* [Portál &gt; Průvodce importem dat](search-get-started-portal.md)
 * [Rozhraní API služby REST](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 * [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
@@ -58,7 +56,7 @@ Indexer automatizuje některé úkoly související s příjmem dat, ale vytvá�
 Indexer získává data ze **zdroje dat**, který obsahuje informace, jako je například připojovací řetězec. Aktuálně jsou podporované tyto zdroje dat:
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Databáze Azure Cosmos](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) pro vybrané typy obsahu
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -71,9 +69,8 @@ Definice indexeru je konstrukce, která určuje index, zdroj dat a plán. Indexe
 Teď jste získali základní představu. V dalším kroku se zaměříme na požadavky a úlohy specifické pro různé typy zdrojů dat.
 
 * [Azure SQL Database nebo SQL Server na virtuálním počítači Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Databáze Azure Cosmos](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexování objektů blob CSV pomocí indexeru Azure Search Blob](search-howto-index-csv-blobs.md)
 * [Indexování objektů blob JSON pomocí indexeru Azure Search Blob](search-howto-index-json-blobs.md)
-

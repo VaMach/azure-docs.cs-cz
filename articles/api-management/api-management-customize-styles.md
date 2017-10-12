@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Přizpůsobení stylů na portálu pro vývojáře ve službě Azure API Management
 Existují tři základní způsoby, kterými jde přizpůsobit portál pro vývojáře ve službě Azure API Management:
@@ -28,7 +27,7 @@ Existují tři základní způsoby, kterými jde přizpůsobit portál pro vývo
 * [Aktualizace stylů použitých pro elementy stránek napříč portálem pro vývojáře][customize-styles] (vysvětlení obsahuje tento průvodce)
 * [Úprava šablon použitých pro stránky generované portálem][portal-templates] (dokumentace rozhraní API, produkty, ověřování uživatelů atd.)
 
-## <a name="change-headers-styling"> </a>Změna stylu prvků na stránce
+## <a name="change-headers-styling"></a>Změna stylu prvků na stránce
 
 Barvy, písma, velikosti, mezery a další související prvky stylu libovolné stránky na portálu se definují pomocí pravidel stylu. 
 
@@ -67,7 +66,7 @@ Změny se zobrazují v reálném čase, jak je provádíte, ale jsou viditelné 
 > 
 
 
-## <a name="next-steps"> </a>Další kroky
+## <a name="next-steps"></a>Další kroky
 * Zjistěte, jak můžete přizpůsobit obsah stránek portálu pro vývojáře pomocí [šablon portálu pro vývojáře](api-management-developer-portal-templates.md).
 
 [Change the styling of the headers]: #change-headers-styling
@@ -88,4 +87,3 @@ Změny se zobrazují v reálném čase, jak je provádíte, ale jsou viditelné 
 
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
-

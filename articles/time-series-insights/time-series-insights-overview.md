@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>Co je Azure Time Series Insights
 
 Azure Time Series Insights je spravovaná cloudová služba, která díky komponentám pro úložiště, analýzu a vizualizaci zjednodušuje ingestování, ukládání, prozkoumávání a analýzu miliard událostí současně. Time Series Insights poskytuje globální přehled o datech a umožňuje rychle ověřit vaše řešení IoT a vyhnout se nákladným prostojům zařízení, protože pomáhá odhalovat skryté trendy a anomálie a provádět analýzy hlavních příčin téměř v reálném čase. Time Series Insights ingestuje data časových řad ze zprostředkovatelů událostí (např. služby IoT Hub nebo Event Hubs) a následně je indexuje a vyřazuje na základě konfigurovatelných zásad uchovávání informací. Uživatelé tato data využívají prostřednictvím intuitivního uživatelského rozhraní nebo rozhraní REST API pro dotazy.
@@ -51,4 +49,3 @@ Azure Time Series Insights je spravovaná cloudová služba, která díky kompon
 * **Prostředí:** Prostředí je prostředek Azure s kapacitou úložiště a příchozího přenosu dat.  Zákazníci zřizují prostředí s požadovanou kapacitou přes Azure Portal.
 * **Zdroj událostí:** Zdroj událostí je odvozený od zprostředkovatele událostí, jako je například služba Azure Event Hubs.  Time Series Insights se připojuje přímo ke zdrojům událostí a ingestuje datový proud bez nutnosti psát kód. V současné době Time Series Insights podporuje Azure Event Hubs a Azure IoT Hubs.
 * **Referenční data:** Time Series Insights umožňuje spojit data časových řad s referenčními daty.  Referenčními daty můžou být metadata o zařízeních nebo jiná statická data, která se mění poměrně málo často. Time Series Insights spojí referenční data s datovými proudy a umožní tak vizualizaci a analýzu těchto dat téměř v reálném čase.
-

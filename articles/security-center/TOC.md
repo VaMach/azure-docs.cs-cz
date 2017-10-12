@@ -19,6 +19,7 @@
 # Postup
 
 ## Zásady zabezpečení
+### [Přehled](security-center-policies-overview.md)
 ### [Shromažďování dat](security-center-enable-data-collection.md)
 ### [Zásady zabezpečení](security-center-policies.md)
 ### [E-mailová oznámení](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Instalace Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Restartování po aktualizacích systému](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Náprava ohrožení zabezpečení operačního systému](security-center-remediate-os-vulnerabilities.md)
-#### [Vyřešení výstrah stavu služby Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Aktualizace verze operačního systému](security-center-update-os-version.md)
 #### [Není nainstalováno posouzení ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorování stavu zabezpečení](security-center-monitoring.md)

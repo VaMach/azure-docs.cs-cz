@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
-ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mobile-engagement-documentation"></a>Dokumentace ke službě Mobile Engagement
 
 Naučte se zvýšit využití, uchovávání informací a finanční zhodnocení mobilních aplikací s použitím služby Mobile Engagement. V kurzech, sadách SDK a další dokumentaci se dozvíte, jak získat přehled o využití mobilních aplikací a segmentaci uživatelů v reálném čase a aktivovat kontextová nabízená oznámení a zasílání zpráv v aplikacích.
@@ -208,6 +206,5 @@ Naučte se zvýšit využití, uchovávání informací a finanční zhodnocení
 </ul>
 
 ---
-
 
 

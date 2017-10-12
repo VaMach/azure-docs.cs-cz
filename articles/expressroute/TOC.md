@@ -35,6 +35,7 @@
 ## Konfigurace filtrů směrování pro partnerský vztah Microsoftu
 ### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
 ## [Migrace přidružených virtuálních sítí z modelu nasazení Classic do Resource Manageru](expressroute-migration-classic-resource-manager.md)
 ## Konfigurace směrovače pro ExpressRoute
@@ -45,7 +46,7 @@
 ### [Osvědčené postupy pro zabezpečení sítě a cloudové služby](../best-practices-network-security.md)
 ### [Optimalizace směrování](expressroute-optimize-routing.md)
 ### [Asymetrické směrování](expressroute-asymmetric-routing.md)
-### [NAT pro ExpressRoute](expressroute-routing-nat.md)
+### [NAT pro ExpressRoute](expressroute-nat.md)
 
 ## Řešení potíží
 ### [Ověření připojení ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

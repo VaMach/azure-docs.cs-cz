@@ -15,10 +15,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Sledování synchronizace Azure AD Connect pomocí služby Azure AD Connect Health
 Následující dokumentace se věnuje sledování služby Azure AD Connect (Sync) pomocí služby Azure AD Connect Health.  Informace o sledování služby AD FS pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD FS](active-directory-aadconnect-health-adfs.md). Informace o sledování služby Active Directory Domain Services pomocí služby Azure AD Connect Health najdete v článku [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md).
@@ -67,8 +67,7 @@ Tato funkce poskytuje sestavu chyb synchronizace, ke kterým může dojít při 
 * Sestava obsahuje chyby zaznamenané klientem synchronizace (Azure AD Connect verze 1.1.281.0 nebo vyšší).
 * Zahrnuje chyby, ke kterým došlo při poslední operaci synchronizace u synchronizačního modulu. (Export v konektoru Azure AD)
 * Agent služby Azure AD Connect Health pro synchronizaci musí mít odchozí připojení k požadovaným koncovým bodům, aby se v sestavě mohla promítnout nejnovější data.
-* Sestava se **aktualizuje každých 30 minut** pomocí dat nahraných agentem služby Azure AD Connect Health pro synchronizaci.
-  Poskytuje následující klíčové funkce:
+* Sestava se **aktualizuje každých 30 minut** pomocí dat nahraných agentem služby Azure AD Connect Health pro synchronizaci. Poskytuje následující klíčové funkce:
 
   * Kategorizace chyb
   * Seznam chybných objektů podle kategorie

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Začínáme používat R Server ve službě HDInsight
 
@@ -613,7 +612,7 @@ Akce skriptů jsou skripty Bash, které se používají k provádění změn kon
 
    * **Název:** Popisný název k identifikaci tohoto skriptu.
 
-   * **Identifikátor URI skriptu Bash:** `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
+   * **Identifikátor URI skriptu Bash:**`http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
 
    * **Hlavní:** Tato položka by měla být **nezaškrtnutá**.
 
@@ -788,4 +787,3 @@ Nyní byste měli chápat, jak vytvořit nový cluster HDInsight obsahující R 
 * [Přidání RStudio Serveru do služby HDInsight (pokud nebyl nainstalován během vytváření clusteru)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Možnosti výpočetního kontextu pro R Server ve službě HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Možnosti služby Azure Storage pro R Server ve službě HDInsight](hdinsight-hadoop-r-server-storage.md)
-
