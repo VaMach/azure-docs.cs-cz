@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: f93298e6483fd8c9dfda835964aeebd1a430af69
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/15/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Vytvoření první aplikace spolehlivé stavové služby Service Fabric v jazyce C#
 
 Zjistěte, jak nasadit první aplikaci Service Fabric pro .NET v systému Windows během několika minut. Jakmile budete hotovi, budete mít funkční místní cluster s aplikací spolehlivé služby.
@@ -148,4 +146,3 @@ Další informace o [spolehlivých službách](service-fabric-reliable-services-
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
-

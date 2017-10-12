@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 6c7f52fc3998b0b29301206ffbc6a5a0c4134f6a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Sledování dostupnosti a odezvy libovolných webů
 Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit testy ke sledování dostupnosti a odezvy. [Azure Application Insights](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
@@ -27,7 +26,7 @@ Testy dostupnosti můžete nastavit pro libovolný koncový bod HTTP nebo HTTPS,
 
 Existují dva typy testů dostupnosti:
 
-* [Testování ping adresy URL](#create): jednoduchý test, který můžete vytvořit na portálu Azure Portal.
+* [Testování ping adresy URL](#create): jednoduchý test, který můžete vytvořit na portálu Azure.
 * [Vícekrokový webový test](#multi-step-web-tests): který můžete vytvořit v sadě Visual Studio Enterprise a odeslat na portál.
 
 Pro každý prostředek aplikace můžete vytvořit až 25 testů dostupnosti.
@@ -304,4 +303,3 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

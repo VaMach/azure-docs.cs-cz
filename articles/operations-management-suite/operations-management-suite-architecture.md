@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oms-architecture"></a>Architektura OMS
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) je kolekce cloudových služeb pro správu vašich místních a cloudových prostředí.  Tento článek popisuje různé místní a cloudové komponenty OMS a jejich základní cloudovou výpočetní architekturu.  Další podrobnosti najdete v dokumentaci k jednotlivým službám.
@@ -84,5 +83,4 @@ Azure Site Recovery obsahuje tři základní scénáře replikace.
 * Další informace o [Azure Automation](https://azure.microsoft.com/documentation/services/automation).
 * Další informace o [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * Další informace o [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
 

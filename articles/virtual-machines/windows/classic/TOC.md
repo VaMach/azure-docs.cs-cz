@@ -1,5 +1,5 @@
 # Přehled
-## [O virtuálních počítačích](../../virtual-machines-windows-about.md)
+## [O virtuálních počítačích](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Disky a virtuální pevné disky (VHD)](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtuální sítě](../../../virtual-network/virtual-networks-overview.md)
 ## [Nejčastější dotazy](faq.md)

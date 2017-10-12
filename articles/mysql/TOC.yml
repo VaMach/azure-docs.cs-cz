@@ -111,6 +111,8 @@
       items:
         - name: portál Azure
           href: howto-server-parameters.md
+        - name: Azure CLI
+          href: howto-configure-server-parameters-using-cli.md
 - name: Referenční informace
   items:
     - name: Azure CLI
@@ -119,6 +121,8 @@
       href: /rest/api/mysql
 - name: Zdroje
   items:
+    - name: Šablony nasazení
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Ceny

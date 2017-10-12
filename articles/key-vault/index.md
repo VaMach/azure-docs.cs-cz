@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 41db3ea23bc1e9895893201078b1ada3297418cb
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="key-vault-documentation"></a>Dokumentace ke službě Key Vault
 
 Naučte se využívat službu Azure Key Vault k ochraně kryptografických a tajných klíčů používaných cloudovými aplikacemi a službami. Kurzy, reference k rozhraní API a další dokumentace ukazují postupy vytváření a správy klíčů, které umožňují přístup k vašim prostředkům a řešením a jejich šifrování.
@@ -175,5 +173,4 @@ Naučte se využívat službu Azure Key Vault k ochraně kryptografických a taj
 </ul>
 
 ---
-
 

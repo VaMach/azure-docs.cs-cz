@@ -17,10 +17,10 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 24ed2d8bad3090e378acf2a42fb909dee0a8517b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-sql-data-warehouse"></a>Vytvoření Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Na začátek budete potřebovat:
    * **Název databáze:** Název, který se použije k odkazování na SQL Data Warehouse.  Musí být pro server jedinečný.
    * **Výkon:** Doporučujeme začít se 400 [DWU][DWU]. Výkon datového skladu můžete upravit posunutím jezdce doleva nebo doprava, případně pak můžete vertikálně navýšit nebo snížit kapacitu i po jeho vytvoření.  Pokud vás zajímají další informace o DWU, projděte si naši dokumentaci ke [škálování](sql-data-warehouse-manage-compute-overview.md) nebo [stránku s cenami][SQL Data Warehouse pricing].
    * **Předplatné:** Vyberte [předplatné], na které se bude tuto službu SQL Data Warehouse fakturovat.
-   * **Skupina prostředků:** [Skupiny prostředků][Resource group] jsou kontejnery, které jsou navržené tak, aby vám pomohly při správě kolekce prostředků Azure. Další informace o [skupinách prostředků](../azure-resource-manager/resource-group-overview.md).
+   * **Skupina prostředků:**[Skupiny prostředků][Resource group] jsou kontejnery, které jsou navržené tak, aby vám pomohly při správě kolekce prostředků Azure. Další informace o [skupinách prostředků](../azure-resource-manager/resource-group-overview.md).
    * **Zvolit zdroj:** Klikněte na **Zvolit zdroj** > **Ukázka**. Azure automaticky vyplní možnost **Vyberte vzorek** s možností AdventureWorksDW.
 
    > [!NOTE]

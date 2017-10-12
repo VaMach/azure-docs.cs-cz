@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Přehledné znázornění dat z Azure Security Center v řešení Power BI
 [Řídicí panel Power BI](http://aka.ms/azure-security-center-power-bi) pro Azure Security Center umožňuje zobrazovat, analyzovat a filtrovat doporučení a výstrahy zabezpečení odkudkoli, třeba i z vašeho mobilního zařízení. Pomocí řídicího panelu Power BI můžete odhalovat trendy a vzorce útoků – stačí zobrazit výstrahy zabezpečení podle prostředku nebo zdrojové IP adresy a nevyřešená rizika zabezpečení podle prostředku nebo stáří.
@@ -120,4 +119,3 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 * [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů
-

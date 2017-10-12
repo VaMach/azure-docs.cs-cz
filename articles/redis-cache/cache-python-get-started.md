@@ -14,12 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
 ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-python"></a>Použití Azure Redis Cache s Pythonem
 > [!div class="op_single_selector"]
@@ -62,4 +61,3 @@ Nahraďte `<name>` názvem vaší mezipaměti a `key` vaším přístupovým kl�
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-rest-apis"></a>Začínáme se službou Azure Data Lake Analytics pomocí rozhraní REST API
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -44,7 +43,7 @@ Pokud chcete zavést interaktivní ověřování, postupujte následovně:
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
-   > \<REDIRECT-URI> musí být zakódovaný, aby se dal použít jako adresa URL. Pro adresu https://localhost proto použijte zápis `https%3A%2F%2Flocalhost`).
+   > \<REDIRECT-URI&gt; musí být zakódovaný, aby se dal použít jako adresa URL. Pro adresu https://localhost proto použijte zápis `https%3A%2F%2Flocalhost`).
    > 
    > 
    
@@ -346,5 +345,4 @@ Výstup je podobný tomuto:
 * Informace týkající se úloh správy najdete v tématu [Správa služby Azure Data Lake Analytics pomocí webu Azure Portal](data-lake-analytics-manage-use-portal.md).
 * Přehled Data Lake Analytics najdete v tématu [Přehled Azure Data Lake Analytics](data-lake-analytics-overview.md).
 * Pokud chcete použít jiné podporované nástroje a zobrazit stejný kurz, klikněte na selektory karet v horní části stránky.
-
 

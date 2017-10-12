@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Ukázka sady Operations Management Suite (OMS) vlastním tempem – Service Map
 Tato ukázka vlastním tempem vás provede použitím [řešení Service Map](operations-management-suite-service-map.md) v sadě Operations Management Suite (OMS) a umožní vám identifikovat a diagnostikovat simulovaný problém ve webové aplikaci.  Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami.  Také konsoliduje data shromážděná ostatními službami OMS a pomáhá analyzovat výkon a identifikovat případné potíže.  Můžete také využít [prohledávání protokolu ve službě Log Analytics](../log-analytics/log-analytics-log-searches.md) a přejít k podrobnostem shromážděných dat s cílem identifikovat hlavní problém.
@@ -107,7 +107,7 @@ V tomto případě vidíme, že proces zálohování konzistentně využívá p�
 
 
 ## <a name="summary-points"></a>Souhrn v bodech
-- [Service Map](operations-management-suite-service-map.md) poskytuje přehled celé aplikace i v případě, že nevíte o všech serverech a závislostech.
+- [Mapa služeb](operations-management-suite-service-map.md) poskytuje přehled celé aplikace i v případě, že nevíte o všech serverech a závislostech.
 - Service Map poskytuje informace o datech, která shromáždila ostatní řešení OMS, a pomáhá odhalit potíže s aplikací a její podpůrnou infrastrukturou.
 - [Prohledávání protokolu](../log-analytics/log-analytics-log-searches.md) umožňuje přejít k podrobnostem specifických dat shromážděných v úložišti Log Analytics.    
 

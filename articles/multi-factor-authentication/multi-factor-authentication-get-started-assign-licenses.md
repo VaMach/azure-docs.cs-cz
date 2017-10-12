@@ -16,12 +16,11 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/15/2017
-
+ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Přiřazení licence Azure MFA, Azure AD Premium nebo Enterprise Mobility uživatelům
 Pokud jste zakoupili licence ověřování Azure Multi-Factor Authentication, Azure AD Premium nebo sady Enterprise Mobility, nemusíte vytvářet poskytovatele vícefaktorového ověřování. Poté, co uživatelům přiřadíte licence, můžete je začít povolovat pro MFA.
@@ -44,4 +43,3 @@ Pokud jste zakoupili licence ověřování Azure Multi-Factor Authentication, Az
 ## <a name="next-steps"></a>Další kroky
 
 - Další informace najdete v tématu věnovaném [licencování Microsoft Azure Active Directory](../active-directory/active-directory-licensing-what-is.md).
-

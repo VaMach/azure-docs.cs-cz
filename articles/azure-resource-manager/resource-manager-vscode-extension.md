@@ -13,14 +13,12 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fbc0fd12999c9085c3c364f0d7115eb1ab1ddd74
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Použití rozšíření Visual Studio Code k vytvoření šablony Azure Resource Manageru
 Tento článek ukazuje výhody instalace a používání rozšíření Nástroje Azure Resource Manageru v editoru Visual Studio Code. Šablony Resource Manageru můžete ve VS Code vytvářet i bez tohoto rozšíření, poskytuje však možnosti automatického dokončování, které vývoj šablon zjednodušují. Navrhuje funkce šablon, parametry a proměnné, které jsou v šabloně dostupné.
 
@@ -300,4 +298,3 @@ az group delete --name examplegroup
 * Další informace o struktuře šablon najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
 * Informace o vlastnostech pro účet úložiště najdete na stránce s [referenčními informacemi k šablonám pro účty úložiště](/azure/templates/microsoft.storage/storageaccounts).
 * Hotové šablony pro mnoho různých typů řešení najdete na stránce [Šablony Azure pro rychlý start](https://azure.microsoft.com/documentation/templates/).
-

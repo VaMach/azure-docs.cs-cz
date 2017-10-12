@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
+ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Ověření runbooků pomocí nasazení Azure Classic a Resource Manager
 Tento článek popisuje kroky, které musíte provést při konfiguraci uživatelského účtu Azure AD pro runbooky Azure Automation, které běží s modelem nasazení Azure Classic nebo prostředky Azure Resource Manageru.  I když toto zůstává podporovanou identitou ověřování pro runbooky založené na Azure Resource Manageru, doporučujeme používat účet Azure Spustit jako.       
@@ -91,5 +90,4 @@ Tyto řádky byste měli v runbooku opakovat po všech [kontrolních bodech](htt
 
 ## <a name="next-steps"></a>Další kroky
 * O různých typech runbooků a krocích k vytvoření vlastních runbooků si můžete přečíst v článku [Typy runbooků v Azure Automation](automation-runbook-types.md)
-
 

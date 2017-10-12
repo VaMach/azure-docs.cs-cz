@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrana rozhraní API omezením četnosti pomocí Azure API Management
 Tento průvodce vám ukáže, jak snadno můžete pomocí služby Azure API Management přidat ochranu rozhraní API vašeho back-endu tím, že nakonfigurujete zásady omezení četnosti a zásady kvót.
@@ -28,7 +27,7 @@ V tomto kurzu vytvoříte „bezplatnou zkušební verzi“ produktu s rozhraní
 
 Pokud se zajímáte o pokročilejší scénáře omezování pomocí zásad [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) a [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), podívejte se na článek [Pokročilé omezování požadavků pomocí Azure API Management](api-management-sample-flexible-throttling.md).
 
-## <a name="create-product"> </a>Vytvoření produktu
+## <a name="create-product"></a>Vytvoření produktu
 V tomto kroku vytvoříte bezplatnou zkušební verzi produktu, který nevyžaduje schválení předplatného.
 
 > [!NOTE]
@@ -76,7 +75,7 @@ Ve výchozím nastavení jsou nové produkty viditelné pro uživatele ve skupin
 
 Zaškrtněte políčko **Vývojáři** a potom klikněte na **Uložit**.
 
-## <a name="add-api"> </a>Přidání rozhraní API do produktu
+## <a name="add-api"></a>Přidání rozhraní API do produktu
 V tomto kroku kurzu přidáme rozhraní API v programu Echo do nového produktu v bezplatné zkušební verzi.
 
 > Každá instance služby API Management je vybavená předem nakonfigurovaným rozhraním API programu Echo, které můžete použít k experimentování a seznámení se službou API Management. Další informace najdete v článku [Správa vašeho prvního rozhraní API ve službě Azure API Management][Manage your first API in Azure API Management].
@@ -95,7 +94,7 @@ Vyberte **Rozhraní API v programu Echo** a potom klikněte na **Uložit**.
 
 ![Přidání rozhraní API v programu Echo][api-management-add-echo-api]
 
-## <a name="policies"> </a>Konfigurace zásad kvót a zásad omezení četnosti volání
+## <a name="policies"></a>Konfigurace zásad kvót a zásad omezení četnosti volání
 Omezení četnosti a kvóty se konfigurují v editoru zásad. Dvě zásady, které v tomto kurzu budeme přidávat, jsou [Omezení četnosti volání podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) a [Nastavení kvóty využití podle předplatného](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Tyto zásady se musí použít na obor produktu.
 
 V nabídce **API Management** na levé straně klikněte na **Zásady**. V seznamu **Produkt** klikněte na položku **Bezplatná zkušební verze**.
@@ -197,7 +196,7 @@ Po nakonfigurování požadovaných zásad klikněte na **Uložit**.
 
 ![Uložení zásad][api-management-policy-save]
 
-## <a name="publish-product"> </a> Publikování produktu
+## <a name="publish-product"></a> Publikování produktu
 Když jste přidali rozhraní API a nakonfigurovali zásady, je třeba produkt publikovat, aby ho vývojáři mohli začít používat. V nabídce **API Management** na levé straně klikněte na **Produkty**, potom na **Bezplatná zkušební verze** a nakonfigurujte produkt.
 
 ![Konfigurace produktu][api-management-configure-product]
@@ -206,7 +205,7 @@ Klikněte na **Publikovat** a potvrďte kliknutím na **Ano, publikovat**.
 
 ![Publikování produktu][api-management-publish-product]
 
-## <a name="subscribe-account"> </a>Přihlášení vývojářského účtu k odběru produktu
+## <a name="subscribe-account"></a>Přihlášení vývojářského účtu k odběru produktu
 Teď, když je produkt publikovaný, se vývojáři můžou přihlásit k jeho odběru a můžou ho začít používat.
 
 > Správci instance API Management se automaticky přihlašují k odběru každého produktu. V tomto kroku kurzu přihlásíme jeden vývojářský účet bez oprávnění správce k odběru bezplatné zkušební verze produktu. Pokud je vývojářský účet součástí role správců, můžete tímto krokem projít i v případě, že už jste k odběru přihlášeni.
@@ -236,7 +235,7 @@ Po kliknutí na **Přihlásit k odběru** se produkt zobrazí v uživatelském s
 
 ![Předplatné přidáno][api-management-subscription-added]
 
-## <a name="test-rate-limit"> </a>Volání operace a testování omezení četnosti
+## <a name="test-rate-limit"></a>Volání operace a testování omezení četnosti
 Když už máte bezplatnou zkušební verzi produktu nakonfigurovanou a publikovanou, můžete začít volat operace a testovat omezení četnosti.
 Kliknutím na **Portál pro vývojáře** v pravé horní nabídce přejděte na portál pro vývojáře.
 
@@ -271,7 +270,7 @@ Klikněte na **Odeslat** víckrát, než dovolují zásady omezení četnosti (1
 
 Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, následná volání nebudou úspěšná, dokud neuplyne 60 sekund od prvních 10 úspěšných volání produktu před překročením omezení četnosti volání. V tomto příkladu je zbývající délka intervalu 54 sekund.
 
-## <a name="next-steps"> </a>Další kroky
+## <a name="next-steps"></a>Další kroky
 * V následujícím videu si pusťte ukázku nastavení kvót a omezení četnosti.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
@@ -326,4 +325,3 @@ Pokud platí zásady omezení četnosti v počtu 10 volání za minutu, násled
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-

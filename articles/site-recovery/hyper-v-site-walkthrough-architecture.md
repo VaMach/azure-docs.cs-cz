@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Krok 1: Kontrola architektury pro replikaci Hyper-V do Azure
 
 
@@ -116,4 +113,3 @@ Pokud dojde k chybě replikace, je předdefinován opakovaný pokus. Tuto logiku
 ## <a name="next-steps"></a>Další kroky
 
 Přejděte na [Krok 2: Kontrola požadavků pro nasazení](hyper-v-site-walkthrough-prerequisites.md)
-
