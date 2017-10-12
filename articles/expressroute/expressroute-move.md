@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Přesun okruhů ExpressRoute z modelu nasazení Classic do Resource Manager
 Tento článek obsahuje přehled toho, co znamená přesun okruhu Azure ExpressRoute z modelu nasazení Classic do Azure Resource Manager.
@@ -105,5 +104,4 @@ Postupujte podle pokynů uvedených v tématu [Přesun okruhu ExpressRoute z mod
   * [Vytvoření okruhu ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Konfigurace směrování](expressroute-howto-routing-arm.md)
   * [Propojení virtuální sítě k okruhu ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
 

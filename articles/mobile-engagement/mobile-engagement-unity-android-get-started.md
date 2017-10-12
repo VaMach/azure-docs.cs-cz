@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Začínáme s Azure Mobile Engagementem pro nasazení Unity Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -37,10 +37,10 @@ V tomto kurzu budete potřebovat následující:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
+## <a id="setup-azme"></a>Nastavení Mobile Engagementu pro vaši aplikaci pro Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
+## <a id="connecting-app"></a>Připojení aplikace k back-endu Mobile Engagementu
 ### <a name="import-the-unity-package"></a>Import balíčku Unity
 1. Stáhněte si [balíček Mobile Engagement Unity](https://aka.ms/azmeunitysdk) a uložte jej do místního počítače. 
 2. Přejděte na stránku **Assets (Prostředky) -> Import Package (Importovat balíček) -> Custom Package (Vlastní balíček)** a vyberte balíček, který jste stáhli v předchozím kroku. 
@@ -98,10 +98,10 @@ Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítač
 6. Můžete být vyzváni k zadání názvu složky, do které se uloží balíček Android. 
 7. Pokud všechno půjde dobře, balíček se nasadí v připojeném zařízení a v telefonu by se měla zobrazit vaše hra Unity. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
+## <a id="monitor"></a>Připojení aplikace se sledováním v reálném čase
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
+## <a id="integrate-push"></a>Povolení nabízených oznámení a zasílání zpráv v aplikaci
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ### <a name="update-the-engagementconfiguration"></a>Aktualizace EngagementConfiguration
@@ -134,9 +134,3 @@ Před nasazením aplikace Unity do zařízení zkontrolujte, zda je v počítač
 [52]: ./media/mobile-engagement-unity-android-get-started/52.png
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

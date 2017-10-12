@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Úvod do Azure HDInsight, technologie a clusterů Hadoop
  Tento článek obsahuje úvod do Azure HDInsight, cloudové distribuce založené na technologii Hadoop. Také se v něm dozvíte, co je cluster Hadoop a kdy ho můžete použít. 
@@ -84,7 +83,7 @@ Clustery prostředí HDInsight obsahují následující součásti a nástroje:
 
 * **[Ambari](#ambari)**: zřizování, správa, monitorování a nástroje clusterů.
 * **[Avro](#avro)** (knihovna Microsoft .NET pro Avro): serializaci dat pro prostředí Microsoft .NET. 
-* **[Hive & HCatalog](#hive)**: Dotazování typu strukturovaného dotazovacího jazyka (SQL) a vrstva správy tabulek a ukládání.
+* **[Hive &amp; HCatalog](#hive)**: Dotazování typu strukturovaného dotazovacího jazyka (SQL) a vrstva správy tabulek a ukládání.
 * **[Mahout](#mahout)**: pro škálovatelné aplikace strojového učení.
 * **[MapReduce](#mapreduce)**: starší verze rozhraní pro distribuované zpracování a správu prostředků systému Hadoop. Viz [YARN](#yarn).
 * **[Oozie](#oozie)**: řízení pracovních postupů.
@@ -110,7 +109,7 @@ V knihovně Microsoft .NET pro Avro implementuje Apache Avro kompaktní binárn�
 ### <a name="hdfs"></a>HDFS
 Distribuovaný souborů systém Hadoop (HDFS) je spolu s nástroji YARN a MapReduce základem technologie Hadoop. Jde o standardní systém souborů pro clustery Hadoop v HDInsight. Přečtěte si téma [Dotazování dat z úložiště kompatibilního se systémem HDFS](hdinsight-hadoop-use-blob-storage.md).
 
-### <a name="hive"></a>Hive & HCatalog
+### <a name="hive"></a>Hive &amp; HCatalog
 <a target="_blank" href="http://hive.apache.org/">Apache Hive</a> je software datového skladu postavený na platformě Hadoop, který umožňuje dotazování a správu rozsáhlých datových sad v distribuovaném úložišti pomocí jazyka typu SQL nazývaného HiveQL. Hive je stejně jako Pig abstrakce vycházející z nástroje MapReduce a překládá dotazy do řady úloh MapReduce. Hive má blíže k systému pro správu relačních databází a používá se u strukturovanějších dat. Pro nestrukturovaná data je vhodnější Pig. Viz [Použití nástroje Hive se systémem Hadoop v prostředí HDInsight](hdinsight-use-hive.md).
 
 <a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> je vrstva správy úložiště a tabulek pro systém Hadoop, která poskytuje relační zobrazení dat. V HCatalogu můžete číst a zapisovat soubory v libovolném formátu, který je použitelný pro Hive SerDe (serializátor-deserializátor).

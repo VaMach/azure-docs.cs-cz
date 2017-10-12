@@ -3,7 +3,7 @@ title: "Začínáme se službou Azure Batch pomocí příkazového řádku Azure
 description: "Rychlý úvod k příkazům Batch v rozhraní příkazového řádku Azure CLI pro správu prostředků služby Azure Batch"
 services: batch
 documentationcenter: 
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Správa prostředků služby Batch pomocí Azure CLI
 
@@ -32,7 +31,7 @@ Společnost Microsoft doporučuje používat nejnovější verzi rozhraní pří
 
 ## <a name="set-up-the-azure-cli"></a>Instalace rozhraní příkazového řádku Azure CLI
 
-Pokud chcete nainstalovat rozhraní příkazového řádku Azure CLI, postupujte podle kroků uvedených v článku [Instalace rozhraní příkazového řádku Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
+Pokud chcete nainstalovat rozhraní příkazového řádku Azure CLI, postupujte podle kroků uvedených v článku [Instalace rozhraní příkazového řádku Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Instalaci rozhraní příkazového řádku Azure CLI doporučujeme často aktualizovat, abyste mohli využívat výhody, které vám přinášejí aktualizace a vylepšení služby.
@@ -97,9 +96,7 @@ Máte dvě možnosti ověření proti účtu Batch:
 
     Výhoda služby Azure AD je, že nabízí řízení přístupu na základě role (RBAC). Při řízení přístupu na základě role (RBAC) závisí přístup uživatelů na jejich přiřazené roli, a ne na tom, jestli mají nebo nemají klíče účtu. Místo správy klíčů účtu můžete spravovat role RBAC a nechat řízení přístupu a ověřování na službě Azure AD.  
 
-    Ověřování pomocí služby Azure AD je vyžadováno, pokud jste při vytvoření účtu služby Azure Batch nastavili pro Režim přidělování fondů možnost Předplatné uživatele. 
-
-    Pokud se chcete přihlásit k účtu Batch pomocí služby Azure AD, použijte volání příkazu [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
+        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -196,4 +193,3 @@ Následující tipy mohou pomoci při řešení potíží s rozhraním příkazo
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-

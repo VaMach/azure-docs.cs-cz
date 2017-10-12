@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="getting-started"> </a>Používám Mobile Services, jak mi pomůže App Service?
+# <a name="getting-started"></a>Používám Mobile Services, jak mi pomůže App Service?
 ## <a name="overview"></a>Přehled
 Vaše stávající služba Mobile Service je v bezpečí a bude i nadále podporována. Je však několik výhod, které vaší mobilní aplikaci poskytuje platforma *Azure App Service* a které dnes v Mobile Services nejsou k dispozici:
 

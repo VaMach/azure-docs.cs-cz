@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.contentlocale: cs-cz
-ms.lasthandoff: 01/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-management-in-azure"></a>Správa zabezpečení v Azure
 Předplatitelé služby Azure mohou svoje cloudová prostředí spravovat z více zařízení. Můžou k tomu využívat pracovní stanice, počítače vývojářů a dokonce i privilegovaná zařízení koncových uživatelů, která mají oprávnění ke konkrétním úlohám. V některých případech se funkce správy provádějí prostřednictvím webových konzol, například [portálu Azure](https://azure.microsoft.com/features/azure-portal/). V ostatních případech můžou existovat přímá připojení k Azure z místních systémů prostřednictvím virtuálních privátních sítí (VPN), terminálových služeb, protokolů klientských aplikací nebo (v kódu) rozhraní API pro správu služby Azure (SMAPI). Kromě toho můžou být koncové body klienta buď připojené k doménám nebo izolované a nespravované, jako například tablety nebo smartphony.
@@ -233,4 +232,3 @@ Následující prostředky vám poskytnou další obecné informace o Azure a so
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
-

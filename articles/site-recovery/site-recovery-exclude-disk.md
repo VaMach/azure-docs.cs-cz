@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Vyloučení disků z replikace
 Tento článek popisuje, jak vyloučit disky z replikace. Takové vyloučení může optimalizovat jak využití šířky pásma potřebné pro replikaci, tak i prostředků využívaných na cílové straně těmito disky. Tato funkce je podporovaná ve scénářích VMware do Azure a Hyper-V do Azure.
@@ -270,4 +269,3 @@ Tady je nastavení stránkovacího souboru na virtuálním počítači Azure:
 
 ## <a name="next-steps"></a>Další kroky
 Po nasazení a zprovoznění nasazení si můžete přečíst [další informace](site-recovery-failover.md) o různých typech převzetí služeb při selhání.
-

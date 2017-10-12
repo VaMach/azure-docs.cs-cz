@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 841257fe74dad05d6a25ec35a62e415d6c1917b4
-ms.lasthandoff: 04/18/2017
-
-
+ms.openlocfilehash: a302f8cb2555eef469a24da2523fdd9b97cc5730
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Řešení bezpečnostních incidentů v Azure Security Center
 Třídění a prošetřování výstrah zabezpečení může být časově náročné i pro nejzkušenější analytiky zabezpečení, a mnoho z nich dokonce ani pořádně neví, kde začít. Služba Security Center pomocí [analýzy](security-center-detection-capabilities.md) spojuje informace mezi odlišnými [výstrahami zabezpečení](security-center-managing-and-responding-alerts.md) a dokáže vám tak poskytnout ucelený přehled o útočné kampani a všech souvisejících výstrahách. Vy tak rychle porozumíte, jaké akce útočník podniká a které prostředky byly zasaženy.
@@ -62,4 +61,3 @@ V tomto dokumentu jste zjistili, jak ve službě Azure Security Center používa
 * [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
-

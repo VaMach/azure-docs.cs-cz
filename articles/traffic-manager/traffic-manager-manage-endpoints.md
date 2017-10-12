@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Přidávání, zakazování, povolování nebo odstraňování koncových bodů
 
 Funkce Web Apps v rámci služby Azure App Service již poskytuje funkce směrování provozu s převzetím služeb při selhání a s kruhovým dotazováním pro weby v datovém centru bez ohledu na režim příslušného webu. Azure Traffic Manager umožňuje určit směrování provozu s převzetím služeb při selhání a s kruhovým dotazováním pro weby a služby Cloud Services v různých datových centrech. Jako první krok pro poskytnutí těchto funkcí je třeba přidat příslušný koncový bod služby Cloud Services nebo webu do Traffic Manageru.
@@ -85,5 +83,4 @@ Můžete také zakázat jednotlivé koncové body, které jsou součástí profi
 * [Řešení potíží při sníženém výkonu Traffic Manageru](traffic-manager-troubleshooting-degraded.md)
 * [Důležité informace o výkonu nástroje Traffic Manager](traffic-manager-performance-considerations.md)
 * [Operace v Traffic Manageru (referenční informace k rozhraní API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Vytváření nových experimentů se strojovým učením na základě kopírování příkladů experimentů
 Zjistěte, jak začít s příklady experimentů z [Galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/) místo vytváření experimentů se strojovým učením od začátku. Příklady můžete použít k sestavení vlastních řešení strojového učení.
@@ -69,4 +68,3 @@ V pracovním prostoru Machine Learning Studio se vytvoří nový experiment s vy
 * [Import dat z různých zdrojů](import-data.md)
 * [Stručný úvodní kurz k jazyku R ve službě Machine Learning](r-quickstart.md)
 * [Nasazení webové služby Machine Learning](publish-a-machine-learning-web-service.md)
-

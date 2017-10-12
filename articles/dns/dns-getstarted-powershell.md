@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.contentlocale: cs-cz
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-powershell"></a>Začínáme s DNS Azure pomocí PowerShellu
 
 > [!div class="op_single_selector"]
@@ -108,5 +106,4 @@ Další informace o DNS Azure najdete v tématu [Přehled DNS Azure](dns-overvie
 Další informace o správě zón DNS v DNS Azure najdete v tématu [Správa zón DNS v DNS Azure pomocí PowerShellu](dns-operations-dnszones.md).
 
 Další informace o správě záznamů DNS v DNS Azure najdete v tématu [Správa záznamů a sad záznamů DNS v DNS Azure pomocí PowerShellu](dns-operations-recordsets.md).
-
 

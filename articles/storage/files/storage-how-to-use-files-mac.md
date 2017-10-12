@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Připojení sdílené složky Azure přes protokol SMB v systému macOS
 [Soubory Azure](storage-files-introduction.md) je služba Microsoftu, která umožňuje vytváření a používání sdílených složek souborů sítě v Azure s využitím oborových standardů. Sdílené složky Azure je možné připojit v systémech macOS Sierra (10.12) a El Capitan (10.11). Tento článek ukazuje dva různé způsoby připojení sdílené složky Azure v systému macOS – pomocí uživatelského rozhraní Finder a pomocí Terminálu.
 

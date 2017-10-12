@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
 ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Úprava obsahu a rozložení stránek na portálu pro vývojáře ve službě Azure API Management
 Existují tři základní způsoby, kterými jde přizpůsobit portál pro vývojáře ve službě Azure API Management:
@@ -27,7 +27,7 @@ Existují tři základní způsoby, kterými jde přizpůsobit portál pro vývo
 * [Aktualizace stylů použitých pro elementy stránek napříč portálem pro vývojáře][customize-styles]
 * [Úprava šablon použitých pro stránky generované portálem][portal-templates] (dokumentace rozhraní API, produkty, ověřování uživatelů atd.)
 
-## <a name="page-structure"> </a>Struktura stránek portálu pro vývojáře
+## <a name="page-structure"></a>Struktura stránek portálu pro vývojáře
 
 Portál pro vývojáře je založený na systému CMS (Content Management System). Rozložení jednotlivých stránek je založené na základě sady malých elementů stránek, které se označují jako widgety:
 
@@ -39,7 +39,7 @@ Všechny widgety se dají upravovat.
 
 Při běžných úpravách stránek se obvykle mění jenom widget Content, který má pro každou jednotlivou stránku jiný obsah.
 
-## <a name="modify-layout-widget"> </a>Změně obsahu widgetu rozložení
+## <a name="modify-layout-widget"></a>Změně obsahu widgetu rozložení
 
 Obsah portálu pro vývojáře se mění prostřednictvím portálu vydavatele, který je přístupný z webu Azure Portal. Otevřete jej tak, že na panelu nástrojů služby svojí instance služby API Management kliknete na **Portál vydavatele**.
 
@@ -57,7 +57,7 @@ Nové záhlaví by se teď mělo zobrazovat na každé stránce portálu pro vý
 > 
 > 
 
-## <a name="edit-page-contents"> </a>Úprava obsahu stránky
+## <a name="edit-page-contents"></a>Úprava obsahu stránky
 
 Pokud chcete zobrazit seznam všech existujících stránek s obsahem, klikněte v nabídce **Portál pro vývojáře** (na portálu vydavatele) na **Obsah**.
 
@@ -69,7 +69,7 @@ Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývoj�
 > 
 > 
 
-## <a name="next-steps"> </a>Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Aktualizace stylů použitých pro elementy stránek napříč portálem pro vývojáře][customize-styles]
 * [Úprava šablon použitých pro stránky generované portálem][portal-templates] (dokumentace rozhraní API, produkty, ověřování uživatelů atd.)
 

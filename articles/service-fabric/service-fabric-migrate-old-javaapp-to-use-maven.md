@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aktualizace předchozí aplikace Java Service Fabric pro načtení knihoven Javy z Mavenu
 Nedávno jsme přesunuli binární soubory Service Fabric Java ze sady Service Fabric Java SDK do hostování v Mavenu. Momentálně můžete k načtení nejnovějších závislostí Service Fabric Java využít **mavencentral**. Tento rychlý start vám pomůže aktualizovat stávající aplikace v Javě, které jste dříve vytvořili pro použití se sadou Service Fabric Java SDK, a to pomocí šablony Yeoman nebo Eclipse, aby byly kompatibilní se sestavením založeným na Mavenu.
@@ -478,4 +477,3 @@ task copyDeps<< {
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí Yeomana](service-fabric-create-your-first-linux-application-with-java.md)
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí modulu plug-in Service Fabric pro Eclipse](service-fabric-get-started-eclipse.md)
 * [Komunikace s clustery Service Fabric pomocí rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
-

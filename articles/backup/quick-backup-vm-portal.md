@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
 ms.openlocfilehash: 9e486e2e4ff2a08b161db44f9cc4785c5d174954
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-a-virtual-machine-in-azure"></a>Zálohování virtuálního počítače v Azure
 Zálohy Azure je možné vytvářet na webu Azure Portal. Tato metoda poskytuje uživatelské rozhraní v prohlížeči, pomocí kterého můžete vytvářet a konfigurovat zálohy Azure a všechny související prostředky. Svá data můžete chránit prováděním záloh v pravidelných intervalech. Azure Backup vytváří body obnovení, které je možné uchovávat v geograficky redundantních trezorech obnovení. Tento článek podrobně popisuje, jak zálohovat virtuální počítač pomocí webu Azure Portal. 
 
@@ -99,4 +97,3 @@ V tomto rychlém startu jste vytvořili trezor služby Recovery Services, povoli
 
 > [!div class="nextstepaction"]
 > [Zálohování několika virtuálních počítačů Azure](./tutorial-backup-vm-at-scale.md)
-

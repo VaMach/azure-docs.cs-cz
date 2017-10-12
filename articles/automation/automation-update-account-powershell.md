@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: fb23b3ea41910687fd586f80e5dd327344991e0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-automation-run-as-account-using-powershell"></a>Aktualizace účtu Automation Spustit jako pomocí PowerShellu
 Účet Automation můžete aktualizovat pomocí PowerShellu, pokud jste postupovali takto:
 
@@ -272,4 +270,3 @@ Po úspěšném spuštění skriptu je třeba počítat s následujícím:
 ## <a name="next-steps"></a>Další kroky
 * Další informace o objektech služby najdete v článku [Objekty aplikací a hlavní objekty služeb](../active-directory/active-directory-application-objects.md).
 * Další informace o certifikátech a službách Azure najdete v článku [Přehled certifikátů pro Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-

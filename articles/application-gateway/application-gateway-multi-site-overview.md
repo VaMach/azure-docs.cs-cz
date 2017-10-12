@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostování více webů ve službě Application Gateway
 
@@ -130,5 +129,4 @@ V pravidle směrování není požadována žádná změna. Stále byste měli v
 ## <a name="next-steps"></a>Další kroky
 
 Po získání informací o hostování více webů přejděte k tématu [Vytvoření služby Application Gateway používající hostování více webů](application-gateway-create-multisite-azureresourcemanager-powershell.md) a vytvořte službu Application Gateway se schopností podporovat více než jednu webovou aplikaci.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Vytvoření sdílené složky ve službě Soubory Azure
 Sdílené složky Azure můžete vytvářet pomocí webu [Azure Portal](https://portal.azure.com/), rutin PowerShellu pro Azure Storage, klientských knihoven Azure Storage nebo rozhraní REST API pro Azure Storage. V tomto kurzu se dozvíte:
@@ -40,11 +39,11 @@ Pokud chcete vytvořit sdílenou složku Azure, můžete použít už existujíc
 3. **Zadejte název a kvótu. Aktuálně může být kvóta maximálně 5 TiB:**    
     ![Zadání názvu a požadované kvóty pro novou sdílenou složku](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **Zobrazte novou sdílenou složku:** ![Zobrazení nové sdílené složky](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **Zobrazte novou sdílenou složku:**![Zobrazení nové sdílené složky](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **Nahrajte soubor:** ![Nahrání souboru](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **Nahrajte soubor:**![Nahrání souboru](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **Přejděte do sdílené složky a spravujte adresáře a soubory:** ![Procházení sdílené složky](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **Přejděte do sdílené složky a spravujte adresáře a soubory:**![Procházení sdílené složky](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>Vytvoření sdílené složky prostřednictvím PowerShellu

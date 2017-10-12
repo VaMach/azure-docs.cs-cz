@@ -8,15 +8,12 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a5bbb1ecd3886a1453986c2deadb7b35e54b67b
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="overview-of-batch-apis-and-tools"></a>Přehled rozhraní API a nástrojů služby Batch
 
 Zpracování paralelních úloh službou Azure Batch se obvykle provádí programově pomocí jednoho z [rozhraní API služby Batch](#batch-development-apis). Vaše klientská aplikace nebo služba může používat rozhraní API služby Batch ke komunikaci se službou Batch. Pomocí rozhraní API služby Batch můžete vytvořit a spravovat fondy výpočetních uzlů – virtuální počítače nebo cloudové služby. Pak můžete plánovat úlohy a úkoly, které se mají v těchto uzlech spouštět. 
@@ -108,4 +105,3 @@ Tady je několik dalších nástrojů, které můžou být užitečné při sest
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com
-

@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: bwren
 ms.openlocfilehash: 4b9f8c618a69c4c157dafeb7f726aae24efad428
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Ruční konfigurace služby Application Insights pro aplikace .NET
 
@@ -89,14 +89,14 @@ Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložt
 
 * Nastavte v kódu klíč instrumentace, například v metodě `main()`: 
   
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *váš klíč* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*váš klíč*`";` 
 * [Napište si vlastní telemetrii pomocí rozhraní API](app-insights-api-custom-events-metrics.md#ikey).
 
 **Pokud jste nainstalovali jiné balíčky Application Insights**, můžete k nastavení klíče instrumentace použít soubor .config, pokud tomu dáváte přednost:
 
 * Upravit soubor ApplicationInsights.config (který byl nainstalován nástrojem NuGet). Vložte tuto položku těsně před uzavírací značku:
   
-    `<InstrumentationKey>` *zkopírovaný klíč instrumentace* `</InstrumentationKey>`
+    `<InstrumentationKey>`*zkopírovaný klíč instrumentace*`</InstrumentationKey>`
 * Ujistěte se, že jsou vlastnosti souboru ApplicationInsights.config v Průzkumníku řešení nastavené na: **Build Action = Content, Copy to Output Directory = Copy**.
 
 Nastavení klíče instrumentace v kódu je užitečné v případě, že chcete [přepínat mezi klíči pro různé konfigurace sestavení](app-insights-separate-resources.md). Pokud klíč nastavíte v kódu, nemusíte ho nastavovat v souboru `.config`.

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Vytvoření zdroje událostí pro prostředí Time Series Insights pomocí portálu Ibiza
 
 Zdroj událostí Time Series Insights je odvozený od zprostředkovatele událostí, jako je například služba Azure Event Hubs. Time Series Insights se připojuje přímo ke zdrojům událostí a ingestuje datový proud, aniž by uživatelé museli psát jediný řádek kódu. V současné době Time Series Insights podporuje Azure Event Hubs a Azure IoT Hubs. Další zdroje událostí budou přidány později.
@@ -55,4 +53,3 @@ Po vytvoření zdroje událostí začne Time Series Insights automaticky streamo
 
 * [Odesílání událostí](time-series-insights-send-events.md) do zdroje událostí
 * Zobrazení prostředí na [portálu Time Series Insights](https://insights.timeseries.azure.com)
-

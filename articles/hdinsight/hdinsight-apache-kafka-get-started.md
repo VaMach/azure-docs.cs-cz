@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Začínáme s Apache Kafka (Preview) v prostředí HDInsight
 
@@ -382,4 +381,3 @@ V tomto dokumentu jste se naučili základy práce s platformou Apache Kafka v H
 * [Použití strukturovaného streamování Apache Sparku se systémem Kafka ve službě HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Použití Apache Stormu se systémem Kafka ve službě HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Připojení k systému Kafka přes virtuální síť Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
-

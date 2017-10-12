@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>Správa profilu Azure Traffic Manageru
 
 Profily Traffic Manageru využívají metody směrování provozu k řízení provozu do vašich cloudových služeb nebo na koncové body webů. Tento článek vysvětluje, jak tyto profily vytvořit a spravovat.
@@ -76,4 +74,3 @@ Existující profil můžete zakázat, aby Traffic Manager neodkazoval požadavk
 * [Konfigurace metody geografického směrování](traffic-manager-configure-geographic-routing-method.md) 
 * [Konfigurace metody váženého směrování](traffic-manager-configure-weighted-routing-method.md)
 * [Konfigurace metody směrování podle výkonu](traffic-manager-configure-performance-routing-method.md)
-

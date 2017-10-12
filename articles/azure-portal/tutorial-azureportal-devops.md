@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Kurz: DevOps s portálem Azure
 Platforma Azure je plná flexibilních pracovních postupů DevOps. V tomto kurzu poznáte, jak můžete využít možnosti portálu Azure pro vývoj, testování, nasazení, ladění, sledování a správu běžících aplikací. Tento kurz se zaměřuje na:
@@ -335,4 +334,3 @@ V tomto kurzu jsme vám ukázali některé schopnosti platformy Azure – rychl�
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
