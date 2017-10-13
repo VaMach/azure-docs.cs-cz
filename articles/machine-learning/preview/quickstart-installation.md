@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Vytvoření účtů služby Azure Machine Learning verze Preview a instalace aplikace Azure Machine Learning Workbench
 Služby Azure Machine Learning představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
 
@@ -27,7 +25,13 @@ V tomto stručném průvodci se dozvíte, jak ve službě Azure Machine Learning
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 ## <a name="prerequisites"></a>Požadavky
-V současné době se dá aplikace Azure Machine Learning Workbench instalovat jenom do těchto operačních systémů: Windows 10, Windows Server 2016 a macOS Sierra.
+V současné době se aplikace Azure Machine Learning Workbench dá instalovat jenom do těchto operačních systémů: 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra
+
+>[!NOTE]
+>macOS High Sierra se ještě nepodporuje.
 
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
@@ -48,7 +52,7 @@ Ke zřízení účtů služby Azure Machine Learning použijte portál Azure.
 
    Nastavení|Navrhovaná hodnota|Popis
    ---|---|---
-   Název účtu služby Experimentování | _Jedinečný název_ |Vyberte jedinečný název, který identifikuje váš účet. Můžete použít své jméno nebo třeba název oddělení nebo projektu, který experiment nejlépe identifikuje. Název musí mít délku od 2 do 32 znaků a smí obsahovat jenom alfanumerické znaky a znak spojovníku „-“. 
+   Název účtu služby Experimentování | _Jedinečný název_ |Vyberte jedinečný název, který identifikuje váš účet. Můžete použít své jméno nebo třeba název oddělení nebo projektu, který experiment nejlépe identifikuje. Název musí mít délku od 2 do 32 znaků a smí obsahovat jenom alfanumerické znaky a znak spojovníku (-). 
    Předplatné | _Vaše předplatné_ |Předplatné Azure, které chcete pro experiment použít. Pokud máte více předplatných, vyberte odpovídající předplatné, ve kterém se prostředek účtuje.
    Skupina prostředků | _Vaše skupina prostředků_ | Můžete vytvořit nový název skupiny prostředků nebo použít některý ze stávajících ve vašem předplatném.
    Umístění | _Oblast nejbližší vašim uživatelům_ | Zvolte umístění co nejblíže vašim uživatelům a datovým prostředkům.
@@ -118,7 +122,7 @@ Aplikaci Azure Machine Learning Workbench můžete nainstalovat do počítače s
 
 5. Aplikace Azure Machine Learning Workbench je teď nainstalovaná v tomto adresáři: 
 
-   _/Applications/AmlWorkbench.app_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>Spuštění aplikace Azure Machine Learning Workbench a první přihlášení
 1. Po dokončení procesu instalace klikněte na poslední obrazovce instalačního programu na tlačítko pro **spuštění aplikace Workbench**. Pokud jste instalační program zavřeli, na ploše nebo v nabídce Start najdete zástupce aplikace Machine Learning Workbench s názvem **Azure Machine Learning Workbench**, pomocí kterého můžete aplikaci spustit.
@@ -184,4 +188,3 @@ Podrobnější poznatky o tomto pracovním postupu, včetně postupu nasazení m
 
 > [!div class="nextstepaction"]
 > [Kurz Klasifikace Iris](tutorial-classifying-iris-part-1.md)
-
