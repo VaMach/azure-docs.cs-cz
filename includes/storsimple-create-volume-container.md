@@ -16,12 +16,7 @@
    
    Nově vytvořený kontejner svazků bude uvedený na stránce **Volume containers** (Kontejnery svazků).
 
-![Dostupné video](./media/storsimple-create-volume-container/Video_icon.png) **Dostupné video**
+![Dostupné video](./media/storsimple-create-volume-container/Video_icon.png)**Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak v řešení StorSimple vytvořit kontejner svazků, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -48,10 +48,6 @@ Určit přesnou propustnost tunelových propojení sítí VPN je obtížné. IPs
 
 Ne. Pro SSTP můžete použít jenom nativního klienta VPN v systému Windows a pro IKEv2 nativního klienta VPN v systému Mac. Podrobnosti najdete v seznamu podporovaných klientských operačních systémů.
 
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>Je možné přistupovat k internetu během připojení přes P2S VPN?
-
-Ano, můžete přistupovat k internetu během připojení přes P2S VPN.
-
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Podporuje Azure IKEv2 VPN s Windows?
 
 Uživatelé se mohou připojit k Azure pomocí integrovaného klienta Windows VPN, který podporuje IKEv2. Ale připojení IKEv2 ze zařízení s Windows nebudou fungovat v následujícím scénáři:

@@ -15,8 +15,3 @@ Název kontejneru musí být platný název DNS, který odpovídá následujíc�
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

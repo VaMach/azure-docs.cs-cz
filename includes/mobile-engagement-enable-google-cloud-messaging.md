@@ -12,8 +12,3 @@
 5. Klikněte na kartu **Cloud Messaging** v horní části. 
 6. Poznamenejte si **Klíč serveru** a **ID odesílatele**, použijete je později v *souboru manifest v Androidu*.  
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

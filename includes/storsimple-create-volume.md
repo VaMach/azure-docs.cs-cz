@@ -26,12 +26,7 @@
         ![Přidání svazku](./media/storsimple-create-volume/AddVolume2-include.png)
 4. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Vytvoří se svazek se zadaným nastavením.
 
-![Dostupné video](./media/storsimple-create-volume/Video_icon.png) **Dostupné video**
+![Dostupné video](./media/storsimple-create-volume/Video_icon.png)**Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit svazek StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
