@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
 ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Vytvoření oboru názvů přenosu pomocí webu Azure Portal
 Obor názvů je společný kontejner pro všechny součásti Azure Relay. Součástí jednoho oboru názvů může být několik přenosů, přičemž obory názvů často slouží jako kontejnery aplikací. Obory názvů přenosu je v současnosti možné vytvořit dvěma způsoby.

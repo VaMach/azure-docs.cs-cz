@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitorujte místní infrastrukturu identity a synchronizačních služeb v cloudu.
 Služba Azure Active Directory (Azure AD) Connect Health pomáhá monitorovat místní infrastrukturu identity a synchronizační služby a lépe proniknout do jejich funkce. Umožňuje udržovat spolehlivé propojení s Office 365 a službami Microsoft Online Services tím, že zajišťuje monitorování klíčových komponent identity, jako jsou servery služby Active Directory Federation Services (AD FS), servery služby Azure AD Connect (neboli synchronizační stroj), řadiče domény služby Active Directory atd. Také udržuje klíčové datové body těchto komponent dobře přístupné, takže můžete snadno získat přehled o jejich používání a dalších důležitých statistikách, abyste se mohli kvalifikovaně rozhodnout.
@@ -125,4 +124,3 @@ Portál služby Azure AD Connect Health umožňuje zobrazovat upozornění, moni
 * [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

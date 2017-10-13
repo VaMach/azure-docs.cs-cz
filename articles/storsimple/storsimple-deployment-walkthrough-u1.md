@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Nasazení místního zařízení StorSimple (Update 1)
 > [!div class="op_single_selector"]
@@ -267,5 +266,4 @@ Pokyny k instalaci a konfiguraci funkce MPIO pro zařízení StorSimple připoje
 ## <a name="next-steps"></a>Další kroky
 * Konfigurace [virtuálního zařízení](storsimple-virtual-device-u2.md)
 * Použití [služby StorSimple Manager](storsimple-manager-service-administration.md) ke správě zařízení StorSimple
-
 

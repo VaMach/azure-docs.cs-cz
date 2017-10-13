@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 544b11d74a926fe62b8ceca51570ce9d2ee7e6e7
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-preview-storage-tiers"></a>Azure Blob Storage: Horká, studená a archivní (Preview) vrstva úložiště
 
@@ -117,8 +116,8 @@ V následující tabulce najdete porovnání studené a horké vrstvy úložišt
 | **Dostupnost** | 99,9 % | 99 % |
 | **Dostupnost** <br> **(přístupy pro čtení RA-GRS)**| 99,99 % | 99,9 % |
 | **Poplatky za využití** | Vyšší poplatky za úložiště, nižší poplatky za přístup a transakce | Nižší poplatky za úložiště, vyšší poplatky za přístup a transakce |
-| **Minimální velikost objektu** | – | – |
-| **Minimální doba uložení** | – | – |
+| **Minimální velikost objektu** | Není k dispozici | Není k dispozici |
+| **Minimální doba uložení** | Není k dispozici | Není k dispozici |
 | **Latence** <br> **(čas do prvního bajtu)** | milisekundy | milisekundy |
 | **Škálovatelnost a cíle výkonnosti** | Stejné jako u účtů úložiště pro obecné účely | Stejné jako u účtů úložiště pro obecné účely |
 

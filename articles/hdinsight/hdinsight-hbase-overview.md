@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 62b2700c368c4b0c66df140e8961408840beb626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: c8857076faa37f5b0d7c70f40b494465b3b99af2
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Co je HBase v HDInsight: Databáze NoSQL, která poskytuje pro Hadoop funkce podobné BigTable
 Apache HBase je NoSQL databáze typu open source, která je založena na Hadoop a modelována podle Google BigTable. HBase poskytuje náhodný přístup a silnou konzistenci pro velké objemy nestrukturovaných a částečně strukturovaných dat v databázi schemaless uspořádané podle rodin sloupců.
@@ -61,7 +60,6 @@ Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (
 * [Začínáme používat HBase s Hadoopem ve službě HDInsight][hbase-get-started]
 * [Vytváření clusterů HDInsight v síti Azure Virtual Network][hbase-provision-vnet]
 * [Konfigurace replikace HBase v HDInsight](hdinsight-hbase-replication.md)
-* [Analýza sentimentu Twitter s HBase v HDInsight][hbase-twitter-sentiment]
 * [Použití Mavenu k vytváření aplikací v Javě, které používají HBase s HDInsight (Hadoop)][hbase-build-java-maven]
 
 ## <a name="see-also"></a>Viz také
@@ -69,8 +67,6 @@ Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (
 * [Bigtable: Systém distribuovaného úložiště pro strukturovaná data](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
@@ -87,4 +83,3 @@ Byl vytvořen případ použití Canonical, pro které je vytvořené BigTable (
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-

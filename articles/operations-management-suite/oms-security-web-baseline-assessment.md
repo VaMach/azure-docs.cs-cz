@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Vyhodnocování standardních hodnot webu v řešení Zabezpečení a audit pro Operations Management Suite
 Tento dokument vám pomůže s použitím schopností vyhodnocování standardních hodnot webu v řešení OMS Security and Audit pro přístup ke stavu zabezpečení monitorovaných prostředků.
@@ -79,5 +78,4 @@ V tomto dokumentu jste se dozvěděli o vyhodnocování standardních hodnot web
 * [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
-
 

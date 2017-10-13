@@ -44,8 +44,3 @@
 6. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Poté úspěšném vytvoření účtu úložiště se zobrazí oznámení.
 7. Nově vytvořený účet úložiště se zobrazí na stránce **Konfigurace** v části **Účty úložiště**. Uložte nově vytvořený účet úložiště kliknutím na **Uložit**. Po zobrazení výzvy k potvrzení klikněte na **OK**.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

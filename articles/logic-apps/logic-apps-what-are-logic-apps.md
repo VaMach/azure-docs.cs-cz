@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Co jsou Logic Apps?
 Logic Apps umožňují zjednodušení a implementaci škálovatelných integrací a pracovních postupů v cloudu. Nabízejí vizuálního návrháře pro modelování a automatizaci procesů jako řadu kroků, které nazýváme pracovním postupem.  Existuje mnoho cloudových i místních [konektorů](../connectors/apis-list.md), které můžete rychle integrovat do všech služeb a protokolů.  Aplikace logiky začíná triggerem (například „Když je přidán účet do aplikace Dynamics CRM“) a po jeho spuštění může začít mnoho kombinací akcí, převodů a podmíněné logiky.
@@ -78,4 +77,3 @@ Následující pojmy představují některé z klíčových součástí, které 
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

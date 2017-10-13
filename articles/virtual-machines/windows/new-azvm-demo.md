@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/21/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
+ms.openlocfilehash: 3be46c8c02ad136edb1936fbb39560d479b27277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c303235ead2af7cfaa368a5b5f00567ae44cfb86
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-new-azvm-preview-in-cloud-shell"></a>Vytvoření virtuálního počítače Windows pomocí rutiny New-AzVM (Preview) ve službě Cloud Shell 
 
 Rutina New-AzVM (Preview) nabízí zjednodušený způsob vytvoření nového virtuálního počítače pomocí PowerShellu. Tato příručka podrobně popisuje použití PowerShellu ve službě Azure Cloud Shell s předinstalovanou rutinou New-AzVM k vytvoření nového virtuálního počítače Azure s Windows Serverem 2016. Po dokončení nasazení se připojíme k serveru pomocí protokolu RDP.  
@@ -83,4 +81,3 @@ V tomto tématu jsme nasadili jednoduchý virtuální počítač pomocí rutiny 
 
 > [!div class="nextstepaction"]
 > [Kurzy pro virtuální počítače Azure s Windows](./tutorial-manage-vm.md)
-

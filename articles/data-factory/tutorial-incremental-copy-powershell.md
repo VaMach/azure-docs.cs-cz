@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 91b632b6d2c2917acf17e9d89c1b5a4b0f8b1c33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 6a73e7818edfb796b7294f6794d2652c5feedf5c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Přírůstkové načtení dat z Azure SQL Database do Azure Blob Storage
 Azure Data Factory je cloudová služba pro integraci dat umožňující vytváření pracovních postupů řízených daty v cloudu za účelem orchestrace a automatizace přesunu a transformace dat. Pomocí služby Azure Data Factory můžete vytvářet a plánovat pracovní postupy řízené daty (nazývané kanály) se schopností ingestovat data z různorodých úložišť dat, zpracovat a transformovat tato data pomocí výpočetních služeb, jako je Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics a Azure Machine Learning, a publikovat výstupní data do úložišť dat, jako je Azure SQL Data Warehouse, aby je mohly využívat aplikace business intelligence (BI). 
 
@@ -727,7 +725,6 @@ Pokud se chcete dozvědět víc o transformaci dat pomocí clusteru Spark v Azur
 
 > [!div class="nextstepaction"]
 >[Transformace dat pomocí clusteru Spark v cloudu](tutorial-transform-data-spark-powershell.md)
-
 
 
 

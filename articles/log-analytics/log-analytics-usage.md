@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analýza využití dat v Log Analytics
 Log Analytics obsahuje informace o objemu shromážděných dat, počítačích odesílajících data a různých typech odesílaných dat.  Pomocí řídicího panelu **Využití Log Analytics** můžete zobrazit objem dat odesílaných do služby Log Analytics. Řídicí panel ukazuje, kolik dat shromažďují jednotlivá řešení a kolik dat odesílají vaše počítače.
@@ -173,4 +172,3 @@ Použijte [cílení na řešení](../operations-management-suite/operations-mana
 * Změňte [konfiguraci čítačů výkonu](log-analytics-data-sources-performance-counters.md).
 * Změňte [konfiguraci protokolů událostí](log-analytics-data-sources-windows-events.md).
 * Změňte [konfiguraci syslogu](log-analytics-data-sources-syslog.md).
-

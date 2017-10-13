@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Přidání ukládání do mezipaměti ke zlepšení výkonu služby Azure API Management
 Operace ve službě API Management můžete nakonfigurovat tak, aby odpovědi ukládaly do mezipaměti. Ukládání odpovědí do mezipaměti může v případě dat, která se často nemění, výrazně zlepšit latenci rozhraní API, využití šířky pásma a načítání webových služeb.
@@ -33,7 +33,7 @@ Tento průvodce vám ukáže, jak přidat ukládání odpovědí do mezipaměti 
 ## <a name="prerequisites"></a>Požadavky
 Než začnete provádět kroky podle této příručky, musíte mít instanci služby API Management s nakonfigurovaným rozhraním API a produktem. Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si článek [Vytvoření instance API Management][Create an API Management service instance] v kurzu [Začínáme se službou Azure API Management][Get started with Azure API Management].
 
-## <a name="configure-caching"> </a>Konfigurace operace pro ukládání do mezipaměti
+## <a name="configure-caching"></a>Konfigurace operace pro ukládání do mezipaměti
 V tomto kroku zkontrolujete nastavení ukládání do mezipaměti operace **GET Resource (cached)** v ukázkovém rozhraní Echo API.
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Každá odpověď operace se ukládá do klíčů na základě hodnot v polích 
 
 Když v tomto příkladu použijeme konfiguraci ukládání do mezipaměti, první požadavek na operaci **GET Resource (cached)** vrátí odpověď z back-endové služby. Tato odpověď se uloží do mezipaměti, kam bude zadaná podle určených hlaviček a parametrů řetězce dotazu. Následující volání operace (s odpovídající parametry) bude vracet odpověď uloženou v mezipaměti až do okamžiku vypršení doby uložení v mezipaměti.
 
-## <a name="caching-policies"> </a>Kontrola zásad ukládání do mezipaměti
+## <a name="caching-policies"></a>Kontrola zásad ukládání do mezipaměti
 V tomto kroku zkontrolujete nastavení ukládání do mezipaměti operace **GET Resource (cached)** v ukázkovém rozhraní Echo API.
 
 Pokud jsou na kartě **Ukládání do mezipaměti** nakonfigurovaná nastavení pro ukládání operace do mezipaměti, budou k operaci přidány zásady ukládání do mezipaměti. Tyto zásady můžete zobrazit a upravit v editoru zásad.
@@ -102,7 +102,7 @@ Definice zásad této operace obsahuje zásady, které definují konfiguraci ukl
 > 
 > 
 
-## <a name="test-operation"> </a>Volání operace a testování ukládání do mezipaměti
+## <a name="test-operation"></a>Volání operace a testování ukládání do mezipaměti
 Abyste viděli ukládání do mezipaměti v akci, můžete operaci volat z portálu pro vývojáře. Klikněte na **Portál pro vývojáře** v pravé horní nabídce.
 
 ![portálu pro vývojáře][api-management-developer-portal-menu]
@@ -139,7 +139,7 @@ Do pole **param2** zadejte hodnotu **25** a potom klikněte na **HTTP Get**.
 
 Všimněte si, že hodnota **sampleheader** je teď v odpovědi **value2**. Protože výsledky operace se ukládají do klíčů pomocí řetězce dotazu, předchozí odpověď uložená v mezipaměti se ne vrátila.
 
-## <a name="next-steps"> </a>Další kroky
+## <a name="next-steps"></a>Další kroky
 * Další informace o zásadách ukládání do mezipaměti najdete v části [Zásady ukládání do mezipaměti][Caching policies] v článku [Zásady API managementu][API Management policy reference].
 * Informace o ukládání položek do mezipaměti podle klíče pomocí výrazů zásad najdete v článku [Vlastní ukládání do mezipaměti ve službě Azure API Management](api-management-sample-cache-by-key.md).
 

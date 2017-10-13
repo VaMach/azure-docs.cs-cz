@@ -15,12 +15,11 @@ ms.date: 06/06/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 7e6384ea8fea686b5cad1a3bc3007252b9cfcd65
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Ověření Windows a server Azure Multi-Factor Authentication
 Část ověření Windows serveru Azure Multi-Factor Authentication umožňuje povolit a konfigurovat ověřování Windows pro aplikace. Před nastavením ověřování Windows mějte na paměti následující seznam:
@@ -51,4 +50,3 @@ ms.lasthandoff: 02/07/2017
 - [Konfigurace zařízení sítě VPN třetích stran pro Azure MFA Server](multi-factor-authentication-advanced-vpn-configurations.md)
 
 - [Posílení vaší stávající infrastruktury pro ověřování pomocí rozšíření NPS pro Azure MFA](multi-factor-authentication-nps-extension.md)
-

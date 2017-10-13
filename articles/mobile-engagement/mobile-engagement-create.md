@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.contentlocale: cs-cz
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Vytvoření aplikace Azure Mobile Engagement
 Tento článek ukazuje, jak metodou **Rychlé vytvoření** vytvořit novou aplikaci **Azure Mobile Engagement**. Také se zde dozvíte, jak se orientovat na portálu **Mobile Engagement**, když chcete spustit sledování a správu aplikací. 
@@ -48,5 +47,4 @@ Jakmile budete na portálu Mobile Engagement, můžete analyzovat, vytvářet a 
 [Definování strategie Mobile Engagementu](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Začínáme s Azure Mobile Engagementem](mobile-engagement-windows-store-dotnet-get-started.md) (v horní části stránky můžete vybrat jiné mobilní platformy)
-
 

@@ -107,6 +107,8 @@
       href: /rest/api/postgresql
 - name: Zdroje
   items:
+    - name: Šablony nasazení
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Ceny
@@ -124,4 +126,4 @@
     - name: Možnosti podpory
       href: 'https://azure.microsoft.com/support/options/'
     - name: Příběhy zákazníků
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL%20"'
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Začínáme se zpracováním dat ze zařízení IoT pomocí služby Azure Stream Analytics
 V tomto kurzu se naučíte vytvořit logiku zpracování datového proudu ke shromáždění dat ze zařízení s platformou IoT (Internet věcí). Na skutečném případu použití platformy IoT si budete moci prohlédnout postup rychlého a ekonomického sestavení potřebného řešení.
@@ -119,5 +118,4 @@ V dotazu se používá příkaz **LEFT OUTER JOIN** na stejný datový proud (sp
 
 ## <a name="conclusion"></a>Závěr
 Účelem tohoto kurzu je předvést způsob psaní různých dotazů v jazyku Stream Analytics Query Language a zobrazení výsledků v prohlížeči. Je to však jenom začátek. Pomocí Stream Analytics toho můžete dělat mnohem víc. Stream Analytics podporuje celou řadu vstupů a výstupů a může dokonce využít i funkce ve službě Azure Machine Learning. To z něj dělá robustní nástroj pro analýzu datových proudů. Můžete začít s bližším prozkoumáváním Stream Analytics pomocí našich [výukových materiálů](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Další informace o tom, jak psát dotazy, najdete v článku o [běžných vzorech dotazů](stream-analytics-stream-analytics-query-patterns.md).
-
 

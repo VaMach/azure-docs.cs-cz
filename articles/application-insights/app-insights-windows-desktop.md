@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: bwren
 ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Monitorování využití a výkonu desktopových aplikací pro Windows
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/18/2017
 3. V sadě Visual Studio upravte balíčky NuGet projektu aplikace a přidejte Microsoft.ApplicationInsights.WindowsServer. (Nebo zvolte Microsoft.ApplicationInsights, pokud chcete prosté rozhraní API bez standardních modulů kolekce telemetrie.)
 4. Nastavte klíč instrumentace, buď ve vašem kódu:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *váš klíč* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*váš klíč*`";` 
    
     nebo v souboru ApplicationInsights.config (pokud jste nainstalovali jeden ze standardních balíčků telemetrie):
    

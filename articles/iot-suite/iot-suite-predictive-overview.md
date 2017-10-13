@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Přehled řešení předkonfigurované prediktivní údržby
 
-[Předkonfigurované řešení][lnk_preconfigured_solutions] *prediktivní údržby* je jedním z předkonfigurovaných řešení sady [Microsoft Azure IoT Suite][lnk_iot_suite]. Toto řešení integruje sběr telemetrických dat ze zařízení v reálném čase s prediktivním modelem vytvořeným pomocí služby [Azure Machine Learning][lnk-machine-learning].
+[Předkonfigurované řešení][lnk_preconfigured_solutions]*prediktivní údržby* je jedním z předkonfigurovaných řešení sady [Microsoft Azure IoT Suite][lnk_iot_suite]. Toto řešení integruje sběr telemetrických dat ze zařízení v reálném čase s prediktivním modelem vytvořeným pomocí služby [Azure Machine Learning][lnk-machine-learning].
 
 Pomocí sady Azure IoT Suite se můžete rychle a snadno připojit k prostředkům, monitorovat je a v reálném čase analyzovat telemetrii na řídicích panelech a ve vizualizacích. Řídicí panely a vizualizace v řešení prediktivní údržby poskytují nové informace, které vám můžou pomoci zvýšit efektivitu a výnosy.
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
+ms.openlocfilehash: 66afcf703a5b6270569f36ca1663cd778ed6f495
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Začínáme vytvářet internetový nástroj pro vyrovnávání zatížení (Classic) v prostředí PowerShell
 
 > [!div class="op_single_selector"]
@@ -75,4 +73,3 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 Můžete také [začít vytvářet interní nástroj pro vyrovnávání zatížení](load-balancer-get-started-ilb-classic-ps.md) a nakonfigurovat, jaký typ [distribučního režimu](load-balancer-distribution-mode.md) se má použít pro konkrétní chování nástroje pro vyrovnávání zatížení síťového provozu.
 
 Pokud vaše aplikace potřebuje udržovat aktivní připojení serverů, které jsou za nástrojem pro vyrovnávání zatížení, můžete zjistit více o [nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md). Pomůže vám to pochopit chování nečinného připojení při používání služby Azure Load Balancer.
-

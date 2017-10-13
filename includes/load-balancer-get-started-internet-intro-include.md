@@ -5,8 +5,3 @@ Nástroj pro vyrovnávání zatížení můžete konfigurovat k těmto činnoste
 * Vyrovnávání zatížení příchozích přenosů z internetu do virtuálních počítačů. Nástroj pro vyrovnávání zatížení v tomto scénáři označujeme jako [internetový nástroj pro vyrovnávání zatížení](../articles/load-balancer/load-balancer-internet-overview.md).
 * Vyrovnávání zatížení přenosů mezi virtuálními počítači ve virtuální síti, mezi virtuálními počítači v cloudových službách nebo mezi místními počítači a virtuálními počítači ve virtuální síti mezi různými místy. Nástroj pro vyrovnávání zatížení v tomto scénáři označujeme jako [interní nástroj pro vyrovnávání zatížení](../articles/load-balancer/load-balancer-internal-overview.md).
 * Předávání externích přenosů konkrétní instanci virtuálního počítače
-
-
-<!--HONumber=Nov16_HO2-->
-
-

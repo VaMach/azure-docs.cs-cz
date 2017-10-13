@@ -16,12 +16,7 @@
 > 
 > 
 
-![Dostupné video](./media/storsimple-get-service-registration-key/Video_icon.png) **Dostupné video**
+![Dostupné video](./media/storsimple-get-service-registration-key/Video_icon.png)**Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak získat registrační klíč služby, klikněte [sem](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

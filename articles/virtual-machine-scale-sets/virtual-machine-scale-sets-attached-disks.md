@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Škálovací sady virtuálních počítačů Azure a připojené datové disky
 [Škálovací sady virtuálních počítačů](/azure/virtual-machine-scale-sets/) Azure teď podporují virtuální počítače s připojenými datovými disky. Datové disky můžete definovat v profilu úložiště pro škálovací sady vytvořené pomocí služby Azure Managed Disks. Dříve byly u virtuálních počítačů ve škálovacích sadách jedinou dostupnou možností přímo připojeného úložiště jednotka operačního systému a dočasné jednotky.
@@ -128,6 +127,5 @@ Podpora služby Azure Managed Disks a připojených datových disků škálovac�
 Během počáteční implementace podpory připojených disků pro škálovací sady nelze datové disky připojit k jednotlivým virtuálním počítačům ve škálovací sadě, ani je od nich odpojit.
 
 Podpora připojených datových disků ve škálovacích sadách je na webu Azure Portal zpočátku omezená. V závislosti na požadavcích můžete ke správě připojených disků použít šablony Azure, rozhraní příkazového řádku, PowerShell, sady SDK nebo rozhraní REST API.
-
 
 

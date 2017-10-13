@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrace System Center Configuration Manageru s OMS Update Managementem [Preview]
 
 Zákazníci, kteří investovali do System Center Configuration Manageru pro správu počítačů, serverů a mobilních zařízení využívají jeho odolnost a další přednosti také při správě aktualizací softwaru jako součást cyklu správy softwarových aktualizací (SUM).  
@@ -56,5 +54,4 @@ Po dokončení nasazení aktualizace s využitím řešení OMS cílové počít
 Pokud chcete spravovat aktualizace pro virtuální počítače s Windows Serverem, které jsou klienty Configuration Manageru, musíte nakonfigurovat zásady klienta tak, aby funkce správy softwarových aktualizací byla zakázaná pro všechny klienty spravované tímto řešením.  Nastavení klienta standardně cílí na všechna zařízení v hierarchii.  Další informace o tomto nastavení zásad a jeho konfiguraci najdete v tématu věnovaném [postupu při konfigurace nastavení klienta v System Center Configuration Manageru](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 Po provedení této změny konfigurace pomocí kroků popsaných v tématu [Vytvoření nasazení aktualizace](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) vytvořte nové nasazení a v rozevíracím seznamu vyberte příslušnou kolekci Configuration Manageru reprezentovanou jako skupina počítačů OMS. 
-
 

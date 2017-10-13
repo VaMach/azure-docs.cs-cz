@@ -19,14 +19,9 @@
     3. Zvolte velikost alokační jednotky 64 kB. Tato velikost alokační jednotky dobře funguje s algoritmy pro odstranění duplicit, které používá řešení StorSimple.
     4. Proveďte rychlé formátování.
 
-![Dostupné video](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Dostupné video**
+![Dostupné video](./media/storsimple-mount-initialize-format-volume/Video_icon.png)**Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak připojit, inicializovat a naformátovat svazek StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-<!--HONumber=Nov16_HO2-->
-
-

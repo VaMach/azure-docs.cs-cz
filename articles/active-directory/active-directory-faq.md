@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: HT
-ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
 ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-faq"></a>Nejčastější dotazy ke službě Azure Active Directory
 Azure Active Directory (Azure AD) je komplexní řešení Identity jako služby (IDaaS), které pokrývá všechny prvky identity, řízení přístupu a zabezpečení.
@@ -213,4 +212,3 @@ Další informace najdete v tématu [Automatizace zřizování uživatelů a jeh
 **Otázka: Je možné vytvořit zabezpečené připojení LDAP se službou Azure Active Directory?**
 
 **Odpověď:** Ne. Azure AD nepodporuje protokol LDAP.
-

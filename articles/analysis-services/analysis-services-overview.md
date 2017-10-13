@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co je služba Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -128,4 +127,3 @@ Máte návrhy týkající se dokumentace? Komentáře můžete přidávat pomoc�
 
 ## <a name="next-steps"></a>Další kroky
 Teď, když už víte o Azure Analysis Services víc, je čas začít. Zjistěte, jak [vytvořit server](analysis-services-create-server.md) v Azure. Když už je váš server připravený, projděte si [kurz Adventure Works](tutorials/aas-adventure-works-tutorial.md), ve kterém se dozvíte, jak vytvořit plně funkční tabulkový model a nasadit ho na váš server.
-
