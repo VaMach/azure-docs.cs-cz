@@ -247,6 +247,7 @@
             - name: Instalace ovladačů NVIDIA GPU
               href: n-series-driver-setup.md
     - name: Správa úložiště
+      href: about-disks-and-vhds.md
       items:
         - name: Další informace o službě Managed Disks
           href: managed-disks-overview.md
