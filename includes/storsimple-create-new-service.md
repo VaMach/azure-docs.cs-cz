@@ -21,7 +21,7 @@
    
    ![Vytvoření služby](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Dostupné video](./media/storsimple-create-new-service/Video_icon.png) **Dostupné video**
+![Dostupné video](./media/storsimple-create-new-service/Video_icon.png)**Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak vytvořit novou službu StorSimple Manager, klikněte [sem](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 

@@ -17,7 +17,7 @@ Služba Table Storage obsahuje následující komponenty:
   http://`<storage account>`.table.core.windows.net/`<table>`  
   
   Tabulky Azure můžete adresovat přímo pomocí této adresy s protokolem OData. Další informace najdete na webu [OData.org][OData.org].
-* **Účet úložiště:** Veškerý přístup k úložišti Azure se provádí prostřednictvím účtu úložiště. Podrobné informace o kapacitě účtu úložiště najdete v článku [Škálovatelnost a cíle výkonnosti služby Azure Storage](../articles/storage/common/storage-scalability-targets.md).
+* **Účet úložiště:** Veškerý přístup ke službě Azure Storage se provádí prostřednictvím účtu úložiště. Podrobné informace o kapacitě účtu úložiště najdete v článku [Škálovatelnost a cíle výkonnosti služby Azure Storage](../articles/storage/common/storage-scalability-targets.md).
 * **Tabulka**: Tabulka je kolekcí entit. Tabulky nevynucují u entit schéma, což znamená, že jedna tabulka může obsahovat entity s různými sadami vlastností. Počet tabulek, které může účet úložiště obsahovat, je omezený pouze limitem kapacity účtu úložiště.
 * **Entita**: Entita je sada vlastností, která se podobá řádku databáze. Entita může mít velikost až 1 MB.
 * **Vlastnosti**: Vlastnost je pár název-hodnota. Každá entita může obsahovat až 252 vlastností pro ukládání dat. Každá entita má také tři systémové vlastnosti, které určují klíč oddílu, klíč řádku a časové razítko. Entity se stejným klíčem oddílu můžete dotazovat rychleji a můžete je vkládat nebo aktualizovat v atomických operacích. Klíč řádku entity je jedinečným identifikátorem v rámci oddílu.

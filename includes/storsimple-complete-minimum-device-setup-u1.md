@@ -16,7 +16,7 @@
 
     ![Síťová rozhraní pro minimální instalaci zařízení StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-    Pevné IP adresy řadiče se používají k doručování aktualizací do zařízení, takže musí být směrovatelné a musí umožňovat připojení k internetu. Směrovatelnost pevných IP adres pomocí rutiny [Test-HcsmConnection][Test]. Následující příklad ukazuje, že pevné IP adresy řadiče jsou směrovány na internet a mohou přistupovat k serverům služby Microsoft Update. 
+    Pevné IP adresy řadiče se používají k doručování aktualizací do zařízení, takže musí být směrovatelné a musí umožňovat připojení k internetu. Směrovatelnost pevných IP adres řadiče můžete zkontrolovat pomocí rutiny [Test-HcsmConnection][Test]. Následující příklad ukazuje, že pevné IP adresy řadiče jsou směrovány na internet a mohou přistupovat k serverům služby Microsoft Update. 
 
      ![Rutina Test-HcsmConnection zobrazující směrovatelné IP adresy](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
 
@@ -30,7 +30,3 @@
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -9,7 +9,7 @@
   
 3. Kliknutím na **Vytvořit** otevřete nové okno SQL Server (logický server).
 
-   <kbd>![otevřete okno logického serveru](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd> ![okno logického serveru](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
+   <kbd>![otevření okna logického serveru](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png)</kbd><kbd>![okno logického serveru](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
   
 3. Do pole pro název serveru v okně SQL Server (logický server) zadejte platný název pro nový logický server. Zelená značka zaškrtnutí označuje, že jste zadali platný název.
     

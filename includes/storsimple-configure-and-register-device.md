@@ -70,7 +70,7 @@
 
 Pokud zařízení po úspěšné registraci nepřejde do stavu Online, můžete pomocí rutiny `Test-HcsmConnection -Verbose` ověřit, jestli je v pořádku síťové připojení. Podrobné informace o použití této rutiny najdete v článku [Rutina Test-HcsmConnection – reference](https://technet.microsoft.com/library/dn715782.aspx).
 
-![Dostupné video](./media/storsimple-configure-and-register-device/Video_icon.png) **Dostupné video**
+![Dostupné video](./media/storsimple-configure-and-register-device/Video_icon.png)**Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje postup konfigurace a registrace zařízení pomocí rozhraní Windows PowerShell pro zařízení StorSimple, klikněte [sem](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 

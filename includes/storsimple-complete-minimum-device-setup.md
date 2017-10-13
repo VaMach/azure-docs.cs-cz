@@ -33,7 +33,7 @@
    > 
    > 
 
-![Dostupné video](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Dostupné video**
+![Dostupné video](./media/storsimple-complete-minimum-device-setup/Video_icon.png)**Dostupné video**
 
 Pokud si chcete přehrát video, které ukazuje, jak provést minimální nastavení zařízení, klikněte [sem](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
