@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+ms.openlocfilehash: 3c0327ebb4cb8d6ee66d019326ade4f4bcb258ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 473cb9709421f853cb78853b54682adb3e48d372
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-lake-store-documentation"></a>Dokumentace ke službě Data Lake Store
 
@@ -216,5 +215,4 @@ Naučte se použít Data Lake Store k vytvoření úložiště ve velkém měř�
         </div>
     </li>
 </ul>
-
 

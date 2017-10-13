@@ -1,4 +1,4 @@
---- 
+---
 title: "Dokumentace ke službě Azure Time Series Insights – kurzy, reference k rozhraní API | Dokumentace Microsoftu"
 description: "Naučte se spouštět analýzy IoT v cloudu s plně spravovaným zpracováním událostí. Analyzujte data v reálném čase z aplikací, senzorů, zařízení a dalších zdrojů."
 services: time-series-insights
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: d22a3f0484da78d03dbe8411e74eb408185b1f30
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/03/2017
-
---- 
+ms.openlocfilehash: ca41dab4f1488c0d172513e61b1960f236c7ebf0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
+---
 # <a name="azure-time-series-insights-documentation"></a>Dokumentace ke službě Azure Time Series Insights 
  
 Nastavení prostředí služby Time Series Insights, prozkoumání a analýza dat časové řady řešení IoT nebo připojených věcí. Dokumentace obsahuje požadavky, návody, odkazy na rozhraní API a další dokumentaci, která vám pomůže začít práci v řádu minut. 

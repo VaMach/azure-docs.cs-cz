@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.contentlocale: cs-cz
-ms.lasthandoff: 03/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Použití Storage Exploreru (Preview) se službou Azure File Storage
 
 Azure File Storage je služba, která nabízí sdílené složky v cloudu přes standardní protokol SMB (Server Message Block). Podporují se SMB 2.1 i SMB 3.0. S Azure File Storage můžete rychle a bez nákladných přepisů migrovat starší aplikace, které spoléhají na sdílené složky, do Azure. Službu File Storage můžete používat ke zveřejňování dat pro celý svět, nebo k soukromému ukládání dat aplikací. V tomto článku se dozvíte, jak pomocí Storage Exploreru (Preview) pracovat se sdílenými složkami a soubory.
@@ -263,4 +261,3 @@ Následující postup ukazuje, jak spravovat soubory (a složky) v rámci sdíle
 - Podívejte se na [nejnovější poznámky k verzi a videa pro Storage Explorer (Preview)](http://www.storageexplorer.com/).
 
 - Zjistěte, jak [vytvářet aplikace pomocí objektů blob, tabulek, dotazů a souborů Azure](https://azure.microsoft.com/documentation/services/storage/).
-

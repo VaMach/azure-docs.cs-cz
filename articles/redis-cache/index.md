@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
-ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
-ms.contentlocale: cs-cz
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="redis-cache-documentation"></a>Dokumentace ke službě Redis Cache
 
@@ -196,6 +195,5 @@ Naučte se využívat službu Azure Redis Cache. Tento zprostředkovatel zasíl�
         </div>
     </li>
 </ul>
-
 
 
