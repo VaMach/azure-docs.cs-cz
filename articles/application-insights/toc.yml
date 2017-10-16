@@ -117,8 +117,6 @@
               href: app-insights-snapshot-debugger.md
         - name: J2EE
           items:
-            - name: Eclipse
-              href: app-insights-java-eclipse.md
             - name: Trasování protokolů
               href: app-insights-java-trace-logs.md
             - name: Unixové metriky
@@ -140,8 +138,6 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Anomálie výkonu
               href: app-insights-proactive-performance-diagnostics.md
-        - name: Dynamics CRM
-          href: app-insights-sample-mscrm.md
         - name: Vytvoření prostředku
           href: app-insights-create-new-resource.md
     - name: Analýza
@@ -188,14 +184,8 @@
           items:
             - name: Přehled
               href: app-insights-analytics.md
-            - name: Prohlídka
-              href: app-insights-analytics-tour.md
-            - name: Použití
-              href: app-insights-analytics-using.md
-            - name: Import
+            - name: Import vlastních protokolů
               href: app-insights-analytics-import.md
-            - name: Diagnostika
-              href: app-insights-analytics-diagnostics.md
     - name: Automatizace
       items:
         - name: Konfigurace Azure PowerShellu
@@ -259,7 +249,7 @@
           href: app-insights-java-troubleshoot.md
 - name: Referenční informace
   items:
-    - name: Analýza
+    - name: Analytický dotazovací jazyk
       href: 'https://docs.loganalytics.io/'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'

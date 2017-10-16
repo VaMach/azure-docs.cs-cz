@@ -7,6 +7,7 @@
 ## [Nejčastější dotazy](active-directory-faq.md)
 
 # Začínáme
+## [Začínáme s Azure AD](get-started-azure-ad.md)
 ## [Registrace do Azure AD Premium](active-directory-get-started-premium.md)
 ## [Přidání vlastního názvu domény](add-custom-domain.md)
 ## [Konfigurace značky společnosti](customize-branding.md)

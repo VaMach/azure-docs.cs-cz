@@ -1,6 +1,7 @@
 - name: Dokumentace k virtuálním počítačům pro datové vědy
   items: null
 - name: Přehled
+  expanded: true
   items:
     - name: Co je virtuální počítač pro datové vědy?
       href: overview.md
@@ -25,7 +26,10 @@
     - name: Použití virtuálního počítače pro hloubkové učení
       href: use-deep-learning-dsvm.md
 - name: Referenční informace
+  expanded: true
   items:
+    - name: Seznámení s virtuálním počítačem pro datové vědy
+      href: dsvm-tools-overview.md
     - name: Architektura AI a hloubkového učení
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Nástroje pro datové vědy a ML

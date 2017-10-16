@@ -40,6 +40,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Nastavení samoobslužného resetování hesla](active-directory-b2c-reference-sspr.md)
+## [Přizpůsobení uživatelského rozhraní](active-directory-b2c-reference-ui-customization.md)
+### [Pomocný nástroj pro přizpůsobení](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Použití rozhraní Graph API v Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Získání přístupových tokenů](active-directory-b2c-access-tokens.md)
 ## [Zakázání ověření e-mailu](active-directory-b2c-reference-disable-ev.md)
@@ -47,30 +50,34 @@
 ## [Povolení MFA](active-directory-b2c-reference-mfa.md)
 ## [Použití vlastních atributů](active-directory-b2c-reference-custom-attr.md)
 ## [Přizpůsobení hesla](active-directory-b2c-reference-password-complexity.md)
-## [Přizpůsobení uživatelského rozhraní](active-directory-b2c-reference-ui-customization.md)
-### [Pomocný nástroj pro přizpůsobení](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Vlastní nastavení jazyka](active-directory-b2c-reference-language-customization.md)
 ## [Použití rozhraní API pro vytváření sestav](active-directory-b2c-reference-usage-reporting-api.md)
-## [Nastavení samoobslužného resetování hesla](active-directory-b2c-reference-sspr.md)
+## [Migrace uživatelů](active-directory-b2c-user-migration.md)
 
 # Architektura prostředí identit
 ## [Vlastní zásady](active-directory-b2c-overview-custom.md)
 ## Průvodci
 ### [Začínáme](active-directory-b2c-get-started-custom.md)
-### Konfigurace zprostředkovatelů OIDC/OAUTH2
+### Konfigurace zprostředkovatelů OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Účet Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### Konfigurace zprostředkovatelů SAML
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrace rozhraní RESTful API
 #### [Ověření vstupu uživatele](active-directory-b2c-rest-api-validation-custom.md)
 #### [Získání dalších deklarací identity](active-directory-b2c-rest-api-step-custom.md)
+#### [Přidání vlastního rozhraní RESTful API](active-directory-b2c-custom-rest-api-netfw.md)
+#### [Zabezpečení rozhraní RESTful API pomocí základního ověřování](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [Zabezpečení rozhraní RESTful API pomocí ověřování certifikátů](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### Toky uživatele
 #### [Konfigurace uživatelského vstupu](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Vlastní atributy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom.md)
+#### [Dynamické přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Přizpůsobení tokenů](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Složitost hesel](active-directory-b2c-reference-password-complexity-custom.md)
 

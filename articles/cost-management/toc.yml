@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: Zdroje
   items:
+    - name: Videa ke správě nákladů
+      href: ref-videos.md
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Ceny

@@ -7,6 +7,8 @@
 ## [Instalace SAP HANA](hana-installation.md)
 ## [Vysoká dostupnost a zotavení po havárii](hana-overview-high-availability-disaster-recovery.md)
 ## [Řešení potíží a monitorování](troubleshooting-monitoring.md)
+## Postup
+### [Nastavení vysoké dostupnosti s využitím techniky STONITH](ha-setup-with-stonith.md)
 # SAP HANA ve službě Azure Virtual Machines
 ## [Jedna instance SAP HANA](hana-get-started.md)
 ## [Průvodce nasazením S/4 HANA nebo BW/4 HANA SAP CAL](cal-s4h.md)

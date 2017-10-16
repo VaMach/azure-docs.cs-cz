@@ -11,11 +11,17 @@
 ## [Jenkins a rozhraní příkazového řádku Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
 # Návody
 ## [Zabezpečení Jenkinse v Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
+## [Nasazení do App Service](deploy-jenkins-app-service-plugin.md)
 ## [Publikování artefaktů do Azure Storage](/azure/storage/common/storage-java-jenkins-continuous-integration-solution)
 ## [Použití Jenkinse s využitím VSTS](https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins)
 # Zdroje
+## Moduly plug-in
+### [Modul plug-in služby App Service](https://plugins.jenkins.io/azure-app-service)
+### [Modul plug-in Azure Container Agents](https://plugins.jenkins.io/azure-container-agents)
+### [Modul plug-in Azure Credential](https://plugins.jenkins.io/azure-credentials)
+### [Modul plug-in Azure Function](https://plugins.jenkins.io/azure-function)
+### [Plug-in Azure Storage](https://plugins.jenkins.io/windows-azure-storage)
+### [Plug-in Azure VM Agents](https://plugins.jenkins.io/azure-vm-agents)
+### [Modul plug-in služby Container Service](https://plugins.jenkins.io/azure-acs)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
-## [Modul plug-in služby App Service](https://plugins.jenkins.io/azure-app-service)
-## [Plug-in Azure Storage](https://plugins.jenkins.io/windows-azure-storage)
-## [Plug-in Azure VM Agents](https://plugins.jenkins.io/azure-vm-agents)
 ## [Domovská stránka Jenkinse](https://jenkins.io/)
