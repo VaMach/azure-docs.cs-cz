@@ -145,7 +145,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: Použití generalizované image
           href: create-vm-generalized-managed.md
-        - name: Použití specializované image
+        - name: Použití specializovaného disku
           href: create-vm-specialized.md
         - name: Zachycení virtuálního počítače v imagi
           href: capture-image-resource.md

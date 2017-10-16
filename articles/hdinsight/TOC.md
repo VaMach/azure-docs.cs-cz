@@ -88,7 +88,6 @@
 ### [ScaleR a SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Použití HBase
 ### [Použití Phoenixu a SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
-### [Analýza tweetů v reálném čase](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Vytvoření clusterů ve virtuální síti](hdinsight-hbase-provision-vnet.md)
 ### [Konfigurace replikace HBase](hdinsight-hbase-replication.md)
 ### [Vývoj aplikace v Javě](hdinsight-hbase-build-java-maven-linux.md)
@@ -100,7 +99,7 @@
 #### [Vývoj topologií založených na Javě pomocí Mavenu](hdinsight-storm-develop-java-topology.md)
 #### [Vývoj topologií C# pomocí nástrojů Hadoop](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Zpracování událostí pomocí topologií C#](hdinsight-storm-develop-csharp-event-hub-topology.md)
-#### [Zpracování událostí pomocí topologií Java](hdinsight-storm-develop-java-event-hub-topology.md)
+#### [Zpracování událostí pomocí topologií Java](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 #### [Analýza dat snímače v reálném čase](hdinsight-storm-sensor-data-analysis.md)
 #### [Korelace událostí v průběhu času](hdinsight-storm-correlation-topology.md)
 #### [Vývoj topologií pomocí Pythonu](hdinsight-storm-develop-python-topology.md)

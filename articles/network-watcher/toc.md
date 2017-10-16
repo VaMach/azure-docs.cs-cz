@@ -59,17 +59,20 @@
 # Postup
 ## [Monitorování VPN Gateway s využitím Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnostika místního připojení prostřednictvím VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
-## [Analýza zachytávání paketů ke zjištění anomálií](network-watcher-deep-packet-inspection.md)
-## [Použití zachytávání paketů k proaktivnímu monitorování sítě s využitím Azure Functions](network-watcher-alert-triggered-packet-capture.md)
-## [Vizualizace protokolů toku s využitím Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [Vizualizace protokolů toku s využitím opensourcových nástrojů](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [Vizualizace protokolů toku v Azure s využitím Graylogu](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [Vizualizace provozu sítě s využitím opensourcových nástrojů](network-watcher-using-open-source-tools.md)
 ## [Audit a kontrola dodržování předpisů ve vaší síti pomocí PowerShellu](network-watcher-nsg-auditing-powershell.md)
-## [Čtení protokolů toku NSG](network-watcher-read-nsg-flow-logs.md)
-## [detekce neoprávněných vniknutí pomocí opensourcových nástrojů](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analýza protokolů Application Gateway v Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Analýza protokolů toku s využitím Network Watcheru a Grafany](network-watcher-nsg-grafana.md)
+## Zachytávání paketů
+### [Vyhledání anomálií](network-watcher-deep-packet-inspection.md)
+### [Proaktivní monitorování sítě s využitím Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+### [detekce neoprávněných vniknutí pomocí opensourcových nástrojů](network-watcher-intrusion-detection-open-source-tools.md)
+### [Vizualizace provozu sítě s využitím opensourcových nástrojů](network-watcher-using-open-source-tools.md)
+## Analýza protokolů toku NSG
+### [Čtení protokolů toku NSG](network-watcher-read-nsg-flow-logs.md)
+### [Použití Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [Použití Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [Použití Grafana](network-watcher-nsg-grafana.md)
+### [Použití Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # Referenční informace
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)

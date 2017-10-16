@@ -18,7 +18,6 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Portál Azure Classic](vpn-gateway-site-to-site-create.md)
 
 ## Konfigurace připojení typu Point-to-Site – nativní ověřování certifikátů Azure
 ### Konfigurace P2S VPN
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Konfigurace BGP pro bránu VPN
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [Azure CLI](bgp-how-to-cli.md)
 ## Konfigurace vynuceného tunelování
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (Classic)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [Problémy s připojením typu Point-to-Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Připojení typu Site-to-Site se přerušovaně odpojuje](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Připojení typu Site-to-Site se nemůže připojit](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Problémy se spřažením relace ve službě Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [Konfigurace a ověření připojení VPN nebo virtuální sítě](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referenční informace
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

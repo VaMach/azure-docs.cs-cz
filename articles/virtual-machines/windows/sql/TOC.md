@@ -1,5 +1,5 @@
 # Přehled
-## [Co je SQL Server na virtuálních počítačích Azure?](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [Virtuální počítače s Windows a SQL Serverem](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Ceny](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Nejčastější dotazy](virtual-machines-windows-sql-server-iaas-faq.md)
  

@@ -114,6 +114,7 @@
 #### [Back-end Node.js / zařízení Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end .NET / zařízení Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Spravovat
 ### Vytvoření centra IoT 
 #### [Použití webu Azure Portal](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Použití webu Azure Portal](iot-hub-configure-file-upload.md)
 #### [Použití Azure Powershellu](iot-hub-configure-file-upload-powershell.md)
 #### [Použití rozhraní příkazového řádku Azure](iot-hub-configure-file-upload-cli.md)
-### [Hromadná správa zařízení IoT](iot-hub-bulk-identity-mgmt.md)
+### [Monitorování s diagnostikou](iot-hub-monitor-resource-health.md)
+#### [Migrace do nastavení diagnostiky](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Monitorování operací](iot-hub-operations-monitoring.md)
 ### [Metriky využití](iot-hub-metrics.md)
-### [Monitorování operací](iot-hub-operations-monitoring.md)
+### [Hromadná správa zařízení IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Konfigurace filtrování IP](iot-hub-ip-filtering.md)
+
 ## Zabezpečení
 ### [Zabezpečení od počátku](iot-hub-security-ground-up.md)
 ### [Osvědčené postupy zabezpečení](iot-hub-security-best-practices.md)
 ### [Architektura zabezpečení](iot-hub-security-architecture.md)
 ### [Zabezpečení nasazení IoT](iot-hub-security-deployment.md)
+### Zabezpečení pomocí certifikátů webu X.509
+#### [Přehled zabezpečení pomocí certifikátu webu X.509](iot-hub-x509ca-overview.md)
+##### [Koncepty zabezpečení pomocí certifikátu webu X.509](iot-hub-x509ca-concept.md)
+#### [Začínáme se zabezpečením pomocí certifikátu webu X.509](iot-hub-security-x509-get-started.md)
+##### [Vytvoření certifikátů – PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Přehled](iot-hub-iot-edge-overview.md)
 ### Začínáme
