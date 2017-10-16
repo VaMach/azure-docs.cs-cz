@@ -72,9 +72,9 @@
 ## [Java](/java/api)
 ## [Tvorba šablon Resource Manageru](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Komunitní šablony](https://azure.microsoft.com/documentation/templates)
-## [Rozhraní REST pro Compute](/rest/api/compute)
-## [Rozhraní REST pro službu Network](/rest/api)
-## [Rozhraní REST pro Storage](/rest/api/storageservices)
+## [Rozhraní REST pro Compute](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Rozhraní REST pro službu Network](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Rozhraní REST pro Storage](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Zdroje a prostředky
