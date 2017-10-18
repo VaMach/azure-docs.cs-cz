@@ -101,6 +101,7 @@
 ##### [Správa kontejnerů svazků](storsimple-8000-manage-volume-containers.md)
 ##### [Správa svazků – aktuální](storsimple-8000-manage-volumes-u2.md)
 ###### [Nejčastější dotazy: Místně připojené svazky](storsimple-8000-local-volume-faq.md)
+##### [Řízení přístupu na základě role](storsimple-8000-role-based-access-control.md)
 ##### [Správa záznamů ACR](storsimple-8000-manage-acrs.md)
 ##### [Správa šablon šířky pásma](storsimple-8000-manage-bandwidth-templates.md)
 ##### [Zobrazení a správa úloh](storsimple-8000-manage-jobs-u2.md)
@@ -118,6 +119,7 @@
 ##### [Konfigurace webového proxy serveru](storsimple-8000-configure-web-proxy.md)
 ##### [Úprava nastavení DATA 0](storsimple-8000-modify-data-0.md)
 
+#### [Použití ukázkových skriptů Azure PowerShellu](storsimple-8000-automation-azurerm-scripts.md)
 
 #### [Použití StorSimple Snapshot Manageru](storsimple-snapshot-manager-admin.md)
 ##### [Co je StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
@@ -187,7 +189,7 @@
 #### [Vydání – GA](storsimple-july-2014-release-notes.md)
 
 ## Referenční informace
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Rutiny prostředí Windows PowerShell pro StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # Řada StorSimple 8000 (portál Classic)

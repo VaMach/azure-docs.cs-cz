@@ -27,23 +27,23 @@
       href: overview-general-concepts.md
 - name: Návody
   items:
-    - name: Použití aplikace Machine Learning Workbench
+    - name: Použití aplikace Workbench
       items:
         - name: Práce s integrovanými vývojovými prostředími Pythonu
           href: how-to-configure-your-IDE.md
         - name: Použití poznámkových bloků Jupyter
           href: how-to-use-jupyter-notebooks.md
-        - name: Integrace s úložištěm Git
+        - name: Integrace s úložišti Git
           href: using-git-ml-project.md
-        - name: Strukturování projektu s TDSP
+        - name: Strukturování projektů s TDSP
           href: how-to-use-tdsp-in-azure-ml.md
-        - name: Postupy při roamingu a spolupráci
+        - name: Roaming a spolupráce
           href: roaming-and-collaboration.md
-    - name: Použití nástrojů sady Visual Studio
+    - name: Použití sady Visual Studio Code Tools pro AI
       href: quickstart-visual-studio-tools.md
     - name: Konfigurace výpočetního prostředí
       items:
-        - name: Konfigurace cílů spouštění
+        - name: Konfigurace experimentování
           href: experiment-execution-configuration.md
         - name: Vytvoření clusteru DSVM a HDI Spark
           href: how-to-create-dsvm-hdi.md
@@ -51,13 +51,14 @@
           href: how-to-use-gpu.md
     - name: Získání dat a jejich pochopení
       items:
-        - name: Přístup k datům s využitím Průvodce zdrojem dat
+        - name: Přidání zdroje dat
           href: data-source-wizard.md
-        - name: Začínáme s přípravou dat
-          href: data-prep-getting-started.md
         - name: Průvodce přípravou dat
+          href: data-prep-getting-started.md
+        - name: Pokročilá příprava dat
           href: data-prep-user-guide.md
         - name: Transformace při přípravě dat
+          href: data-prep-appendix3-supported-transforms.md
           items:
             - name: Sloučení sloupců podle příkladu
               href: data-prep-combine-columns-by-example.md
@@ -73,22 +74,26 @@
           href: tutorial-iris-azure-cli.md
         - name: Sledování historie spuštění a metrik modelů
           href: how-to-use-run-history-model-metrics.md
-        - name: Jak najít spuštění s největší přesností a nejkratší dobou trvání
+        - name: Vyhledání spuštění s největší přesností
           href: how-to-find-best-accuracy-cli.md
         - name: Čtení a zápis souborů
           href: how-to-read-write-files.md
-        - name: Knihovna MMLSpark
+        - name: Použití knihovny MMLSpark
           href: how-to-use-mmlspark.md
-    - name: Modely nasazení
+    - name: Zprovoznění modelů
       items:
         - name: Nastavení správy modelů
           href: deployment-setup-configuration.md
+        - name: Škálování clusterů a služeb
+          href: how-to-scale-clusters.md
         - name: Nasazení webové služby
           href: model-management-service-deploy.md
         - name: Využívání webové služby
           href: model-management-consumption.md
-        - name: Jak používat shromažďování dat modelů
+        - name: Shromažďování dat modelů
           href: how-to-use-model-data-collection.md
+        - name: Průvodce řešením problémů s nasazením
+          href: how-to-deploy-troubleshooting-guide.md
     - name: Příklady z reálného světa
       items:
         - name: Analýza kolekce dokumentů
@@ -121,8 +126,6 @@
           href: data-prep-python-extensibility-overview.md
         - name: Podporované zdroje dat
           href: data-prep-appendix2-supported-data-sources.md
-        - name: Podporované transformace
-          href: data-prep-appendix3-supported-transforms.md
         - name: Podporované kontroly
           href: data-prep-appendix4-supported-inspectors.md
         - name: Podporované datové cíle
@@ -131,7 +134,7 @@
           href: data-prep-supported-runtime-data-environments.md
         - name: Ukázka výrazu filtru v Pythonu
           href: data-prep-appendix6-sample-filter-expressions-python.md
-        - name: Ukázka vlastních transformací DataFlow v Pythonu
+        - name: Ukázka vlastních transformací toku dat v Pythonu
           href: data-prep-appendix7-sample-transform-data-flow-python.md
         - name: Ukázka připojení zdroje v Pythonu
           href: data-prep-appendix8-sample-source-connections-python.md
@@ -143,7 +146,7 @@
           href: data-prep-python-execution-api.md
     - name: Experimentování
       items:
-        - name: Konfigurace spuštění
+        - name: Konfigurace služby Experimentování
           href: experiment-execution-configuration-reference.md
         - name: Protokolování rozhraní API
           href: reference-logging-api.md
@@ -155,11 +158,15 @@
           href: model-management-cli-reference.md
         - name: Rozhraní API pro shromažďování dat modelů
           href: model-data-collection-api-reference.md
+    - name: "Poznámky k\_verzi"
+      items:
+        - name: Sprint 0 – říjen 2017
+          href: release-notes-sprint-0.md
 - name: Zdroje
   items:
     - name: Nejčastější dotazy
       href: frequently-asked-questions.md
-    - name: Známé problémy a průvodce odstraňováním potíží
+    - name: Známé problémy a řešení potíží
       href: known-issues-and-troubleshooting-guide.md
     - name: Dokumentace k vědeckému zpracování týmových dat
       href: ../team-data-science-process/overview.md
@@ -170,7 +177,7 @@
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Videa
