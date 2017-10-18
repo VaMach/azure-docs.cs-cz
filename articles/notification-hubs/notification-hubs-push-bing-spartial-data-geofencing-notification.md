@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Nabízená oznámení v monitorované geografické zóně s Azure Notification Hubs a Bing Spatial Data
 > [!NOTE]
@@ -123,7 +122,7 @@ Protože schopnost zjišťovat polohu je teď deklarována, vytvořte v řešen�
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-Třída `LocationHelper` je v tuto chvíli vcelku jednoduchá – umožňuje nám pouze získat polohu uživatele přes systémové rozhraní API.
+Třída `LocationHelper` je v tuto chvíli vcelku jednoduchá – umožňuje nám pouze získat polohu uživatele přes systémové rozhraní API:
 
     using System;
     using System.Threading.Tasks;
@@ -179,7 +178,7 @@ Implementace obslužné rutiny události bude následující:
         }
     }
 
-Povšimněte si, že jsme obslužnou rutinu deklarovali jako asynchronní, protože `GetCurrentLocation` může používat await, a vyžaduje tudíž spouštění v asynchronním kontextu. Navíc vzhledem k tomu, že za určitých okolností můžeme získat nulovou polohu (např. když je vypnuto zjišťování polohy nebo aplikaci byl zamítnut přístup k poloze), potřebujeme zajistit správné zpracování kontrolou hodnoty null.
+Povšimněte si, že jsme obslužnou rutinu deklarovali jako asynchronní, protože `GetCurrentLocation` může používat await, a vyžaduje tudíž spouštění v asynchronním kontextu. Navíc vzhledem k tomu, že za určitých okolností můžeme získat nulovou polohu (například když je vypnuto zjišťování polohy nebo aplikaci byl zamítnut přístup k poloze), potřebujeme zajistit správné zpracování kontrolou hodnoty null.
 
 Spusťte aplikaci. Nezapomeňte povolit přístup k poloze:
 
@@ -381,7 +380,7 @@ Jelikož nepředáváme skutečné souřadnice (které by v tuto chvíli nemusel
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>Co dále?
+## <a name="next-steps"></a>Další kroky
 Pokud si chcete být jisti, že je řešení připravené na reálný provoz, může být zapotřebí podniknout ještě několik dalších kroků.
 
 Nejprve je nezbytné zajistit, že monitorovaná geografická zóna je dynamická. To bude vyžadovat další práci s rozhraním API služby Bing, aby bylo možné nahrávat nové hranice do existujícího zdroje dat. Další podrobnosti k tomuto tématu najdete v [dokumentaci rozhraní API pro Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx).
@@ -391,5 +390,4 @@ Abyste zajistili doručování správným účastníkům, můžete požadovat c�
 Řešení uvedené výše popisuje scénář, při kterém můžete mít širokou škálu cílových platforem, proto jsme neomezovali monitorování geografické zóny schopnostmi specifickými pro daný systém. Je ale nutné dodat, že Univerzální platforma Windows nabízí integrované možnosti pro [detekci monitorované geografické zóny](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Další podrobnosti týkající se schopností Notification Hubs najdete na [portálu dokumentace](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
 

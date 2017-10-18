@@ -12,45 +12,45 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/30/2017
+ms.date: 09/18/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 947ea3c9d789ecf5a754001aafcda6f8bcd41047
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: fb5e1e6f03c47afc8eba5f469a985a38c0e542d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Povolení synchronizace hesel do služby Azure Active Directory Domain Services
 V předchozích úlohách jste povolili službu Azure Active Directory Domain Services pro tenanta služby Azure Active Directory (Azure AD). Další úlohou je povolení synchronizace hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NT LAN Manager (NTLM) a Kerberos do služby Azure AD Domain Services. Po nastavení synchronizace přihlašovacích údajů se uživatelé mohou přihlásit ke spravované doméně s použitím podnikových přihlašovacích údajů.
 
-Potřebný postup se liší pro uživatelské účty jenom cloudu a uživatelské účty synchronizované z místního adresáře pomocí služby Azure AD Connect. Pokud je ve vašem tenantovi služby Azure AD kombinace uživatelů jenom cloudu a uživatelů z místní služby AD, musíte provést oba kroky.
+Potřebný postup se liší pro uživatelské účty jenom cloudu a uživatelské účty synchronizované z místního adresáře pomocí služby Azure AD Connect.
 
 <br>
-
-> [!div class="op_single_selector"]
-> * **Uživatelské účty jenom cloudu:** [Synchronizujte hesla pro uživatelské účty jenom cloudu do spravované domény](active-directory-ds-getting-started-password-sync.md).
-> * **Místní uživatelské účty:** [Synchronizujte hesla pro uživatelské účty synchronizované z místní služby AD do spravované domény](active-directory-ds-getting-started-password-sync-synced-tenant.md).
->
->
-
+| **Typ uživatelského účtu** | **Požadovaný postup** |
+| --- | --- |
+| **Uživatelské účty synchronizované z místního adresáře** |**&#x2713;** [Postupujte podle pokynů v tomto článku](active-directory-ds-getting-started-password-sync-synced-tenant.md#task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad) | 
+| **Cloudové uživatelské účty vytvořené ve službě Azure AD** |**&#x2713;** [Synchronizujte hesla pro uživatelské účty jenom cloudu do spravované domény](active-directory-ds-getting-started-password-sync.md) |
 <br>
+
+> [!TIP]
+> **Možná bude nutné dokončit oba postupy.**
+> Pokud je ve vašem tenantovi služby Azure AD kombinace uživatelů jenom cloudu a uživatelů z místní služby AD, musíte dokončit oba postupy.
+>
 
 ## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad"></a>Úkol 5: Povolení synchronizace hesel do spravované domény pro uživatelské účty synchronizované s místní službou AD
 Synchronizovaný tenant služby Azure AD je nastavený na synchronizaci s místním adresářem vaší organizace pomocí služby Azure AD Connect. Azure AD Connect ve výchozím nastavení do služby Azure AD nesynchronizuje hodnoty hash přihlašovacích údajů protokolů NTLM a Kerberos. Chcete-li použít službu Azure AD Domain Services, je potřeba nakonfigurovat službu Azure AD Connect na synchronizaci hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos. Následujícím postupem povolíte synchronizaci požadovaných hodnot hash přihlašovacích údajů z místního adresáře do tenanta služby Azure AD.
 
 > [!NOTE]
-> Pokud jsou ve vaší organizaci uživatelské účty synchronizované z místního adresáře, musíte povolit synchronizaci hodnot hash protokolů NTLM a Kerberos, abyste mohli používat spravovanou doménu. Synchronizovaný uživatelský účet je účet vytvořený v místním adresáři a synchronizovaný do tenanta služby Azure AD pomocí služby Azure AD Connect.
+> **Pokud jsou ve vaší organizaci uživatelské účty synchronizované z místního adresáře, musíte povolit synchronizaci hodnot hash protokolů NTLM a Kerberos, abyste mohli používat spravovanou doménu.** Synchronizovaný uživatelský účet je účet vytvořený v místním adresáři a synchronizovaný do tenanta služby Azure AD pomocí služby Azure AD Connect.
 >
 >
 
 ### <a name="install-or-update-azure-ad-connect"></a>Instalace nebo aktualizace služby Azure AD Connect
-Na počítač připojený k doméně nainstalujte nejnovější doporučenou verzi služby Azure AD Connect. Máte-li existující instanci instalace služby Azure AD Connect, je nutné ji aktualizovat tak, aby používala nejnovější verzi služby Azure AD Connect. Ujistěte se, že vždy používáte nejnovější verzi služby Azure AD Connect – předejdete tak známým problémům nebo chybám, které už pravděpodobně byly opraveny.
+Na počítač připojený k doméně nainstalujte nejnovější doporučenou verzi služby Azure AD Connect. Máte-li existující instanci instalace služby Azure AD Connect, je nutné ji aktualizovat tak, aby používala nejnovější verzi služby Azure AD Connect. Vždy používejte nejnovější verzi služby Azure AD Connect – předejdete tak známým problémům nebo chybám, které už pravděpodobně byly opraveny.
 
 **[Stažení služby Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Doporučená verze: **1.1.553.0** – publikováno 27. června 2017.
+Doporučená verze: **1.1.614.0** – publikováno 5. září 2017.
 
 > [!WARNING]
 > Chcete-li povolit synchronizaci starších verzí přihlašovacích hesel (požadovaných pro ověřování protokolů NTLM a Kerberos) do svého tenanta služby Azure AD, JE NUTNÉ nainstalovat nejnovější doporučenou verzi služby Azure AD Connect. V předchozích verzích služby Azure AD Connect ani u starší verze nástroje DirSync není tato funkce dostupná.
@@ -60,7 +60,7 @@ Doporučená verze: **1.1.553.0** – publikováno 27. června 2017.
 Pokyny k instalaci služby Azure AD Connect jsou dostupné v následujícím článku – [Začínáme se službou Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
 ### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>Povolení synchronizace hodnot hash přihlašovacích údajů protokolů NTLM a Kerberos do služby Azure AD
-Chcete-li vynutit úplnou synchronizaci hesel a povolit synchronizaci hodnot hash přihlašovacích údajů všech místních uživatelů do svého tenanta služby Azure AD, spusťte následující skript prostředí PowerShell v každé doménové struktuře služby AD. Tímto skriptem povolíte synchronizaci hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NTLM a Kerberos do svého tenanta služby Azure AD.
+Pro každou doménovou strukturu služby AD spusťte následující skript PowerShellu. Tento skript povolí synchronizaci místních hodnot hash uživatelských hesel protokolů NTLM a Kerberos do tenanta služby Azure AD. Skript také zahájí úplnou synchronizaci ve službě Azure AD Connect.
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
@@ -85,4 +85,3 @@ Synchronizace hodnot hash přihlašovacích údajů do služby Azure AD bude v z
 * [Správa spravované domény služby Azure AD Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 * [Připojení virtuálního počítače s Windows k spravované doméně služby Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Připojení virtuálního počítače se systémem Red Hat Enterprise Linux k spravované doméně služby Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

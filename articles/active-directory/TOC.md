@@ -44,6 +44,7 @@
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
+#### [Referenční informace k produktům a plánům služeb v Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
 ### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
 ### [Správa pracovních informací uživatelů](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [Migrace jednotlivě licencovaných uživatelů na licencování na základě skupin](active-directory-licensing-group-migration-azure-portal.md)
 #### [Další scénáře pro licencování na základě skupin](active-directory-licensing-group-advanced.md)
 #### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
+#### [Referenční informace k produktům a plánům služeb v Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Nastavení vypršení platnosti skupin Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
 ### [Povolení vyhrazených skupin](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### Úlohy
 #### [Nastavení zařízení s Windows 10 registrovaných v Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Nastavení zařízení připojených k Azure AD](device-management-azuread-joined-devices-setup.md)
-#### [Nastavení hybridních zařízení připojených k Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Nastavení hybridních zařízení připojených k Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Nasazení na místě](active-directory-device-registration-on-premises-setup.md)
 #### [Připojení k Azure AD během prvního spuštění Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Řešení potíží
@@ -204,6 +206,7 @@
 #### [Správa zřizování uživatelských účtů](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Správa jednotného přihlašování pro podnikové aplikace](active-directory-enterprise-apps-manage-sso.md)
 #### [Pokročilé podepisování certifikátů pro aplikace SAML](active-directory-enterprise-apps-advance-certificate-options.md)
+####[Skrytí uživatelského prostředí v Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)

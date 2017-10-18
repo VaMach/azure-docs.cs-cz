@@ -15,11 +15,11 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
 ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Odesílání nabízených oznámení do systému iOS pomocí Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -172,7 +172,7 @@ Pokud chcete zasílat nabízená oznámení z aplikace, tato část poskytuje p�
 
 1. V Xcode otevřete `Main.storyboard` a přidejte následující součásti uživatelského rozhraní z objektu knihovny a povolte uživatelům zasílání nabízených oznámení v aplikaci:
    
-   * Popisek bez textu popisku. Použije se k nahlášení chyb v odesílání oznámení.  Vlastnost **Řádky** musí být nastavena na **0** tak, aby automaticky použila velikost omezenou na pravý a levý okraj a horní část zobrazení.
+   * Popisek bez textu popisku. Použije se k nahlášení chyb v odesílání oznámení. Vlastnost **Řádky** musí být nastavena na **0** tak, aby automaticky použila velikost omezenou na pravý a levý okraj a horní část zobrazení.
    * Textové pole s textem **Zástupný symbol** je nastaveno na hodnotu **Zadejte zprávu oznámení**. Omezte pole přímo pod popiskem, jak je uvedeno níže. Nastavte řadič zobrazení jako delegáta výstupu.
    * Tlačítko s názvem **Odeslat oznámení** omezené pod textové pole a ve vodorovném centru.
      
@@ -482,9 +482,3 @@ Obecné informace o centrech oznámení naleznete v tématu [Průvodce centry oz
 
 [Průvodci programováním místních a nabízených oznámení]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

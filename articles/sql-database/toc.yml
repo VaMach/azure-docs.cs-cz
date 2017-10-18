@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Provedení postupu zotavení
           href: sql-database-disaster-recovery-drills.md
-    - name: Načítání a přesun dat
+    - name: Migrace do služby SQL Database
       items:
         - name: Migrace databáze SQL Serveru
           href: sql-database-cloud-migrate.md
         - name: Změny T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Správa databáze po migraci
+          href: sql-database-manage-after-migration.md
+    - name: Načítání a přesun dat
+      items:
         - name: Kopírování databáze
           href: sql-database-copy.md
         - name: Import databáze

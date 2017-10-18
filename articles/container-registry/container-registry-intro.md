@@ -1,5 +1,5 @@
 ---
-title: "Registry kontejnerů pro Private Docker v Azure | Dokumentace Microsoftu"
+title: "Soukromé registry kontejnerů Dockeru v Azure"
 description: "Úvod do služby Azure Container Registry poskytující cloudové, spravované, privátní registry Dockeru."
 services: container-registry
 documentationcenter: 
@@ -14,27 +14,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 09/11/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 664696d2f355609c76477765c2238c6d62253482
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fd0356286be46f99fd9ab8eabc53256103038407
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-private-docker-container-registries"></a>Úvod k registrům kontejnerů pro Private Docker
-
+# <a name="introduction-to-private-docker-container-registries-in-azure"></a>Seznámení se soukromými registry kontejnerů Dockeru v Azure
 
 Azure Container Registry je spravovaná služba [registrů Dockeru](https://docs.docker.com/registry/) založená na opensourcovém nástroji Docker Registry 2.0. Vytvořte a udržujte registry kontejnerů Azure za účelem ukládání a správy privátních imagí [kontejneru Dockeru](https://www.docker.com/what-docker). Použijte registry kontejnerů v Azure se svými stávajícími kanály vývoje a nasazení kontejnerů a čerpejte z odborných znalostí komunity Dockeru.
 
-Související informace o Dockeru a kontejnerech najdete v tématech:
-
-* [Uživatelská příručka Dockeru](https://docs.docker.com/engine/userguide/)
-
-
-
+Související informace o Dockeru a kontejnerech najdete v [uživatelská příručce Dockeru](https://docs.docker.com/engine/userguide/).
 
 ## <a name="use-cases"></a>Případy použití
 Stažení imagí z registru kontejnerů Azure na různé cíle nasazení:
@@ -44,34 +37,25 @@ Stažení imagí z registru kontejnerů Azure na různé cíle nasazení:
 
 Vývojáři mohou nahrávat do registru kontejnerů také jako součást pracovního postupu vývoje kontejneru. Mohou například určit registr kontejnerů jako cíl v nástroji pro nasazení a nástroji průběžné integrace, jako je například [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) nebo [Jenkins](https://jenkins.io/).
 
-
-
-
-
 ## <a name="key-concepts"></a>Klíčové koncepty
 * **Registr** – Vytvořte jeden nebo více registrů kontejnerů ve svém předplatném Azure. Každý registr je zajišťován standardním [účtem úložiště](../storage/common/storage-introduction.md) Azure ve stejném umístění. Využijte místní úložiště imagí kontejnerů v síťové blízkosti vytvořením registru ve stejném umístění Azure, jako jsou vaše nasazení. Plně kvalifikovaný název registru má formát `myregistry.azurecr.io`.
 
   [Přístup k registru kontejnerů řídíte](container-registry-authentication.md) pomocí [instančního objektu](../active-directory/active-directory-application-objects.md) zajištěného službou Azure Active Directory nebo poskytnutého účtu správce. Spusťte standardní příkaz `docker login` k ověření pomocí registru.
 
-* **Spravovaný registr** – Vrstva, která nabízí další možnosti pro registry ve třech skladových položkách (SKU) – Basic, Standard a Premium. Image těchto SKU se ukládají v účtech služby Storage spravovaných službou Azure Container Registry, což zvyšuje spolehlivost a umožňuje nové funkce. Nové možnosti zahrnují integraci webhooků, ověřování úložiště pomocí Azure Active Directory a podporu funkce odstraňování. Uživatelé mají možnost výběru mezi spravovanými registry a vytvořením registru, jehož vytvoření zajišťuje vlastní účet služby Storage.
+* **Spravovaný registr** – Při vytváření registru můžete zvolit vytvoření spravovaného registru nebo registru zajištěného vaším vlastním účtem úložiště. Spravované registry nabízejí další možnosti ve třech skladových položkách (SKU): Basic, Standard a Premium. Image těchto SKU se ukládají v účtech Azure Storage spravovaných službou Azure Container Registry, což zvyšuje spolehlivost a umožňuje nové funkce. Nové možnosti zahrnují integraci webhooků, ověřování úložiště pomocí Azure Active Directory a podporu funkce odstraňování.
 
-* **Úložiště** – Registr obsahuje jedno nebo několik úložišť, což jsou skupiny imagí kontejnerů. Azure Container Registry podporuje víceúrovňové obory názvů úložiště. Tato funkce umožňuje seskupovat kolekce imagí souvisejících s konkrétní aplikací nebo kolekcí aplikací pro konkrétní vývojové nebo provozní týmy. Například:
+* **Úložiště** – Registr obsahuje jedno nebo několik úložišť, což jsou skupiny imagí kontejnerů. Azure Container Registry podporuje víceúrovňové obory názvů úložiště. S víceúrovňovými obory názvů můžete seskupovat kolekce imagí souvisejících s konkrétní aplikací nebo kolekcí aplikací pro konkrétní vývojové nebo provozní týmy. Například:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` představuje image pro celý podnik.
   * `myregistry.azurecr.io/warrantydept/dotnet-build` představuje image sloužící k vytváření aplikací .NET, která je sdílená v rámci záručního oddělení.
-  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` představuje webovou image seskupenou v zákaznické aplikaci pro odesílání a vlastněnou záručním oddělením.
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` představuje webovou image seskupenou v zákaznické aplikaci pro odesílání a vlastněnou záručním oddělením.
 
 * **Image** – Každá image uložená v úložišti je snímkem kontejneru Dockeru jen pro čtení. Registry kontejnerů Azure mohou zahrnovat image systémů Windows i Linux. Názvy imagí pro všechna nasazení kontejnerů určujete vy. Pomocí standardních [příkazů Dockeru](https://docs.docker.com/engine/reference/commandline/) můžete nahrávat image do úložiště nebo si z úložiště image stáhnout.
 
-* **Kontejner** – Kontejner definuje softwarovou aplikaci a její závislosti zabalené do kompletního systému souborů, včetně kódu, modulu runtime, systémových nástrojů a knihoven. Spouštějte kontejnery Dockeru na základě imagí systémů Windows nebo Linux, které si stáhnete z registru kontejnerů. Kontejnery běžící na jednom počítači sdílí jádro operačního systému. Kontejnery Dockeru jsou plně přenositelné na všechny hlavní distribuce Linuxu, Mac i Windows.
-
-
-
+* **Kontejner** – Kontejner definuje softwarovou aplikaci a její závislosti zabalené do kompletního systému souborů, včetně kódu, modulu runtime, systémových nástrojů a knihoven. Spouštějte kontejnery Dockeru na základě imagí systémů Windows nebo Linux, které si stáhnete z registru kontejnerů. Kontejnery běžící na jednom počítači sdílí jádro operačního systému. Kontejnery Dockeru jsou plně přenositelné na všechny hlavní distribuce Linuxu, macOS i Windows.
 
 ## <a name="next-steps"></a>Další kroky
 * [Vytvoření registru kontejnerů pomocí webu Azure Portal](container-registry-get-started-portal.md)
 * [Vytvoření registru kontejnerů pomocí Azure CLI](container-registry-get-started-azure-cli.md)
 * [Nahrání první image pomocí rozhraní příkazového řádku Dockeru](container-registry-get-started-docker-cli.md)
-* Informace o sestavení pracovního postupu průběžné integrace a nasazení pomocí Visual Studio Team Services, Azure Container Service a Azure Container Registry, najdete v [tomto kurzu](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
-* Pokud chcete v Azure nastavit vlastní privátní registr Dockeru (bez veřejného koncového bodu), přečtěte si téma [Nasazení vlastního privátního registru Dockeru v Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
-
+* Informace o sestavení pracovního postupu průběžné integrace a nasazování pomocí Visual Studio Team Services, Azure Container Service a Azure Container Registry, najdete v tématu [Průběžná integrace a doručování s využitím Dockeru Swarm a VSTS](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
-
-
+ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Správa vašeho prvního rozhraní API ve službě Azure API Management
-## <a name="overview"> </a>Přehled
+## <a name="overview"></a>Přehled
 Tento průvodce vám pomůže rychle začít s používáním služby Azure API Management a provést první volání rozhraní API.
 
-## <a name="concepts"> </a>Co je Azure API Management?
+## <a name="concepts"></a>Co je Azure API Management?
 S pomocí služby Azure API Management můžete vzít jakýkoli back-end a na jeho základě spustit plnohodnotný program s rozhraním API.
 
 Mezi obvyklé scénáře patří:
@@ -57,7 +57,7 @@ Systém se skládá z následujících součástí:
   * Vytvořit účet a přihlásit se k odběru za účelem získání klíčů rozhraní API.
   * Přistupovat k analýzám jejich využití.
 
-## <a name="create-service-instance"> </a>Vytvoření instance API Managementu
+## <a name="create-service-instance"></a>Vytvoření instance API Managementu
 > [!NOTE]
 > K dokončení tohoto kurzu potřebujete mít účet Azure. Pokud účet nemáte, můžete si během několika minut vytvořit bezplatný účet. Podrobnosti najdete v článku [Bezplatná zkušební verze Azure][Azure Free Trial].
 > 
@@ -71,7 +71,7 @@ Do pole **Název** zadejte název jedinečné subdomény, kterou chcete použít
 
 Vyberte požadované **Předplatné**, **Skupinu prostředků** a **Oblast** pro instanci služby.
 
-Zadejte text **Contoso Ltd.** jako **Název organizace** a potom zadejte svou e-mailovou adresu do pole **E-mail správce**.
+Jako **Název organizace** zadejte **Contoso Ltd.** a pak zadejte svou e-mailovou adresu do pole **E-mail správce**.
 
 > [!NOTE]
 > Tato e-mailová adresa se bude používat pro zasílání oznámení ze systému API Management. Další informace najdete v článku [Konfigurace oznámení a e-mailových šablon ve službě Azure API Management][How to configure notifications and email templates in Azure API Management].
@@ -93,7 +93,7 @@ Kliknutím na **vytvořit** zahájíte zřizování instance služby.
 
 Po vytvoření instance služby je dalším krokem vytvoření nebo import rozhraní API.
 
-## <a name="create-api"> </a>Import rozhraní API
+## <a name="create-api"></a>Import rozhraní API
 Rozhraní API se skládá ze sady operací, které můžete vyvolat z klientské aplikace. Operace rozhraní API se odesílají přes proxy servery do existujících webových služeb.
 
 Rozhraní API můžete vytvořit (a operace přidat) ručně, nebo je můžete importovat. V tomto kurzu naimportujeme rozhraní API pro ukázkovou webovou službu kalkulačky, kterou poskytuje Microsoft a hostuje ji na Azure.
@@ -140,7 +140,7 @@ V tomto kurzu bylo rozhraní API základní kalkulačky k produktu Starter přid
 
 Aby bylo možné rozhraní API volat, musí se vývojáři nejdřív přihlásit k odběru produktu, který jim poskytne k rozhraní přístup. Vývojáři se můžou přihlásit k odběru produktů na portálu pro vývojáře, popřípadě můžou správci přihlásit vývojáře k odběru produktů na portálu vydavatele. Vzhledem k tomu, že jste v předchozích krocích tohoto kurzu vytvořili instanci služby API Management, stali se z vás správci a jste ve výchozím nastavení přihlášeni k odběru všech produktů.
 
-## <a name="call-operation"> </a>Volání operace z portálu pro vývojáře
+## <a name="call-operation"></a>Volání operace z portálu pro vývojáře
 Operaci můžete volat přímo z portálu pro vývojáře, který nabízí pohodlný způsob pro zobrazení a testování operací v rozhraní API. V tomto kroku kurzu budete v rozhraní API základní kalkulačky volat operaci **Add two integers** (Sečíst dvě celá čísla). V nabídce v pravé horní části portálu vydavatele klikněte na **Portál pro vývojáře**.
 
 ![portálu pro vývojáře][api-management-developer-portal-menu]
@@ -163,7 +163,7 @@ Po vyvolání operace portál pro vývojáře zobrazí **Stav odpovědi**, **Hla
 
 ![Odpověď][api-management-invoke-get-response]
 
-## <a name="view-analytics"> </a>Zobrazení analýzy
+## <a name="view-analytics"></a>Zobrazení analýzy
 Pokud chcete zobrazit analýzu základní kalkulačky, výběrem možnosti **Spravovat** v nabídce v pravé horní části portálu pro vývojáře přepněte zpět na portál vydavatele.
 
 ![Spravovat][api-management-manage-menu]
@@ -196,7 +196,7 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 * **Stav** se zaměřuje na stavové kódy, úspěšnost mezipaměti, doby odezvy a doby odezvy rozhraní API a služby.
 * **Aktivita** obsahuje sestavy, které podrobně uvádějí konkrétní aktivitu podle vývojáře, produktu, rozhraní API a operace.
 
-## <a name="next-steps"> </a>Další kroky
+## <a name="next-steps"></a>Další kroky
 * Zjistěte, jak můžete [chránit rozhraní API omezením četnosti ](api-management-howto-product-with-rules.md).
 
 [Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
@@ -254,9 +254,3 @@ Podrobné metriky a sestavy zobrazíte kliknutím na tlačítko **Analýza**, kt
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

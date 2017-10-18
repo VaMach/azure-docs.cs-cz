@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/17-->
+<!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Dokončení minimální instalace zařízení StorSimple
 
@@ -21,7 +21,7 @@
 
             ![Síťová rozhraní pro minimální instalaci zařízení StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            Pevné IP adresy pro řadič slouží k doručování aktualizací do zařízení. Pevné IP adresy proto musí být směrovatelné a schopné připojení k internetu. Směrovatelnost pevných IP adres řadiče můžete zkontrolovat pomocí rutiny [Test-HcsmConnection][Test]. Následující příklad ukazuje, že pevné IP adresy řadiče jsou směrovány na internet a mohou přistupovat k serverům služby Microsoft Update.
+            Pevné IP adresy pro řadič slouží k doručování aktualizací do zařízení a uvolňování paměti. Pevné IP adresy proto musí být směrovatelné a schopné připojení k internetu. Směrovatelnost pevných IP adres řadiče můžete zkontrolovat pomocí rutiny [Test-HcsmConnection][Test]. Následující příklad ukazuje, že pevné IP adresy řadiče jsou směrovány na internet a mohou přistupovat k serverům služby Microsoft Update.
 
             ![Rutina Test-HcsmConnection zobrazující směrovatelné IP adresy](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 

@@ -57,6 +57,8 @@
           href: concepts-servers.md
         - name: Podporované verze
           href: concepts-supported-versions.md
+        - name: Protokoly serveru
+          href: concepts-server-logs.md
     - name: Zdroje a prostředky
       items:
         - name: Cenové úrovně
@@ -113,6 +115,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: Přístup k protokolům serveru
+      items:
+        - name: Azure CLI
+          href: howto-configure-server-logs-in-cli.md
 - name: Referenční informace
   items:
     - name: Azure CLI

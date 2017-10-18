@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Připojení zařízení ke službě IoT Hub pomocí .NET
 
@@ -200,7 +200,7 @@ V této části vytvoříte konzolovou aplikaci .NET, která simuluje zařízen�
     Console.ReadLine();
     ```
 
-    Ve výchozím nastavení metoda **Create** v aplikaci .NET Framework vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol MQTT nebo HTTP, použijte přepis metody **Create**, který umožňuje určit protokol. Klienti UPW a PCL ve výchozím nastavení používají protokol HTTP. Pokud používáte protokol HTTP, měli byste do svého projektu přidat také balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
+    Ve výchozím nastavení metoda **Create** v aplikaci .NET Framework vytvoří instanci **DeviceClient**, která se službou IoT Hub komunikuje pomocí protokolu AMQP. Pokud chcete používat protokol MQTT nebo HTTPS, použijte přepis metody **Create**, který umožňuje určit protokol. Klienti UPW a PCL ve výchozím nastavení používají protokol HTTPS. Pokud používáte protokol HTTPS, měli byste také přidat balíček NuGet **Microsoft.AspNet.WebApi.Client**, aby projekt zahrnoval obor názvů **System.Net.Http.Formatting**.
 
 Tento kurz vás provede postupem vytvoření aplikace pro zařízení služby IoT Hub. K přidání nezbytného kódu do aplikace zařízení můžete také použít rozšíření [Připojená služba pro službu Azure IoT Hub][lnk-connected-service] sady Visual Studio.
 

@@ -1,6 +1,6 @@
 ---
-title: "Přehled Linux virtuálního počítače | Microsoft Docs"
-description: "Nápovědu pro přehled Linux virtuálních počítačů v rámci portálu Azure"
+title: "Přehled virtuálních počítačů s Linuxem | Dokumentace Microsoftu"
+description: "Přehled obsahu nápovědy pro virtuální počítače s Linuxem na webu Azure Portal"
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 0de3fc4cab53564d7d131666e4a8c0ace8a64fb8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="linux-virtual-machines-documentation"></a>Dokumentace k virtuálním počítačům s Linuxem
 
@@ -28,7 +28,7 @@ Podívejte se, jak nasadit webový server NGINX ve virtuálním počítači se s
 
 ## <a name="step-by-step-tutorials"></a>Podrobné kurzy
 
-Zjistěte, jak nasadit, spravovat a škálování virtuální počítače s Linuxem v Azure.
+Zjistěte, jak nasadit, spravovat a škálovat virtuální počítače s Linuxem v Azure.
 
 - [Vytvoření a správa virtuálních počítačů s Linuxem](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Vytvoření a správa disků virtuálního počítače](/azure/virtual-machines/linux/tutorial-manage-disks)
@@ -58,5 +58,5 @@ Nasazení první aplikace do Azure
 
 ## <a name="more"></a>Víc
 
-- [Najdete v dokumentaci k další informace](/azure/virtual-machines/linux/index)
-- [Další informace o všech služeb Azure](https://aka.ms/j3wr7y)
+- [Další informace najdete v dokumentaci](/azure/virtual-machines/linux/index)
+- [Informace o všech službách Azure](https://aka.ms/j3wr7y)

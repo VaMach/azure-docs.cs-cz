@@ -1,29 +1,27 @@
 ---
 title: "Rychlý start Azure – Zálohování virtuálního počítače pomocí Azure CLI | Dokumentace Microsoftu"
 description: "Zjistěte, jak zálohovat virtuální počítače pomocí Azure CLI."
-services: virtual-machines-linux, azure-backup
+services: backup, virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines-linux, azure-backup
+ms.service: backup, virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.workload: storage-backup-recovery
+ms.date: 10/02/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: b0820613e5b08895148391837c1d7b28cb207128
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
-ms.openlocfilehash: b01916516d15ffee46f135e175ee4136f79acbe5
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Zálohování virtuálního počítače v Azure pomocí rozhraní příkazového řádku
 Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Svá data můžete chránit prováděním záloh v pravidelných intervalech. Azure Backup vytváří body obnovení, které je možné uchovávat v geograficky redundantních trezorech obnovení. Tento článek podrobně popisuje, jak zálohovat virtuální počítač v Azure pomocí Azure CLI. K provedení těchto kroků můžete také využít [Azure PowerShell](quick-backup-vm-powershell.md) nebo [Azure Portal](quick-backup-vm-portal.md).
 
@@ -31,21 +29,17 @@ V tomto rychlém startu se povolí zálohování na existujícím virtuálním p
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít Azure CLI verze 2.0.18 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli). 
-
-
-## <a name="register-the-azure-backup-resource-provider"></a>Registrace poskytovatele prostředků Azure Backup
-Při prvním použití služby Azure Backup musíte ve svém předplatném zaregistrovat poskytovatele služby Azure Recovery Services pomocí příkazu [az provider register](/cli/azure/provider?view=azure-cli-latest#az_provider_register).
-
-```azurecli-interactive
-az provider register --namespace Microsoft.RecoveryServices
-```
+Pokud chcete rozhraní příkazového řádku nainstalovat a používat místně, musíte použít Azure CLI verze 2.0.18 nebo novější. Verzi rozhraní příkazového řádku zjistíte spuštěním ༖༗. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-recovery-services-vault"></a>Vytvoření trezoru služby Recovery Services
 Trezor služby Recovery Services je logický kontejner, který uchovává zálohovaná data pro každý chráněný prostředek, například virtuální počítače Azure. Úloha zálohování pro chráněný prostředek při spuštění vytvoří uvnitř trezoru služby Recovery Services bod obnovení. Pomocí některého z těchto bodů obnovení pak můžete obnovit data k danému bodu v čase.
 
-Vytvořte trezor služby Recovery Services pomocí příkazu **az backup vault create**. Zadejte stejnou skupinu prostředků a umístění, jako má virtuální počítač, který chcete chránit. Pokud jste k vytvoření virtuálního počítače použili [rychlý úvod k virtuálním počítačům](../virtual-machines/linux/quick-create-cli.md), skupina prostředků má název *myResourceGroup*, virtuální počítač má název *myVM* a prostředky jsou v umístění *eastus*.
+Vytvořte trezor služby Recovery Services pomocí příkazu [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az_backup_vault_create). Zadejte stejnou skupinu prostředků a umístění, jako má virtuální počítač, který chcete chránit. Pokud jste použili [rychlý úvod k virtuálním počítačům](../virtual-machines/linux/quick-create-cli.md), pak jste vytvořili:
+
+- skupinu prostředků *myResourceGroup*,
+- virtuální počítač *myVM*,
+- prostředky v umístění *eastus*.
 
 ```azurecli-interactive 
 az backup vault create --resource-group myResourceGroup \
@@ -53,11 +47,11 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Ve výchozím nastavení je trezor nastavený pro geograficky redundantní úložiště. Tato úroveň redundance úložiště vaše data chrání ještě více tím, že zajišťuje replikaci zálohovaných dat do sekundární oblasti Azure, která je od primární oblasti vzdálená stovky kilometrů.
+Ve výchozím nastavení je trezor služby Recovery Services nastavený pro geograficky redundantní úložiště. Geograficky redundantní úložiště zajišťuje replikaci vašich zálohovaných dat do sekundární oblasti Azure, která je od primární oblasti vzdálená stovky kilometrů.
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Povolení zálohování pro virtuální počítač Azure
-K definování, kdy se spouští úloha zálohování a jak dlouho se uchovávají body obnovení, vytváříte a používáte zásady. Výchozí zásada ochrany spouští úlohu zálohování každý den a uchovává body obnovení po dobu 30 dnů. Tyto výchozí hodnoty zásady můžete použít k rychlému zajištění ochrany vašeho virtuálního počítače. Pokud chcete pro virtuální počítač povolit ochranu zálohováním, použijte příkaz **az backup protection enable-for-vm**. Zadejte skupinu prostředků a virtuální počítač, který chcete chránit, a pak zásadu, která se má použít:
+Vytvořte zásadu ochrany, která bude definovat, kdy se spouští úloha zálohování a jak dlouho se uchovávají body obnovení. Výchozí zásada ochrany spouští úlohu zálohování každý den a uchovává body obnovení po dobu 30 dnů. Tyto výchozí hodnoty zásady můžete použít k rychlému zajištění ochrany vašeho virtuálního počítače. Pokud chcete pro virtuální počítač povolit ochranu zálohováním, použijte příkaz [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Zadejte skupinu prostředků a virtuální počítač, který chcete chránit, a pak zásadu, která se má použít:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -69,7 +63,7 @@ az backup protection enable-for-vm \
 
 
 ## <a name="start-a-backup-job"></a>Spuštění úlohy zálohování
-Pokud chcete spustit zálohování ihned a nečekat na spuštění úlohy výchozí zásadou v naplánovaném čase, použijte příkaz **az backup protection backup-now**. Tato první úloha zálohování vytvoří úplný bod obnovení. Každá úloha zálohování po tomto prvotním zálohování vytváří přírůstkové body obnovení. Přírůstkové body obnovení jsou efektivní z hlediska úložiště a času, protože přenášejí pouze změny provedené od posledního zálohování.
+Pokud chcete spustit zálohování ihned a nečekat na spuštění úlohy výchozí zásadou v naplánovaném čase, použijte příkaz [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now). Tato první úloha zálohování vytvoří úplný bod obnovení. Každá úloha zálohování po tomto prvotním zálohování vytváří přírůstkové body obnovení. Přírůstkové body obnovení jsou efektivní z hlediska úložiště a času, protože přenášejí pouze změny provedené od posledního zálohování.
 
 Pro zálohování virtuálního počítače se používají následující parametry:
 
@@ -88,11 +82,9 @@ az backup protection backup-now \
     --retain-until 18-10-2017
 ```
 
-Vzhledem k tomu, že první úloha zálohování vytváří úplný bod obnovení, může tento proces trvat až 20 minut.
-
 
 ## <a name="monitor-the-backup-job"></a>Monitorování úlohy zálohování
-Pokud chcete monitorovat stav úloh zálohování, použijte příkaz **az backup job list**:
+Pokud chcete monitorovat stav úloh zálohování, použijte příkaz [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az_backup_job_list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -116,7 +108,7 @@ Když se *Status* (Stav) úlohy zálohovaní změní na *Completed* (Dokončeno)
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení
 Pokud už ochrana virtuálního počítače není potřeba, můžete ji vypnout, odebrat body obnovení a trezor služby Recovery Services a pak odstranit skupinu prostředků a související prostředky virtuálního počítače. Pokud jste použili existující virtuální počítač, můžete vynechat poslední příkaz [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete), aby se zachovala skupina prostředků a virtuální počítač.
 
-Pokud se chystáte pokračovat ke kurzu služby Backup, který vysvětluje postup obnovení dat virtuálního počítače, přeskočte kroky v této části a přejděte na [Další kroky](#next-steps). 
+Pokud chcete vyzkoušet kurz služby Backup, který vysvětluje postup obnovení dat virtuálního počítače, přejděte na [Další kroky](#next-steps). 
 
 ```azurecli-interactive 
 az backup protection disable \
@@ -137,4 +129,3 @@ V tomto rychlém startu jste vytvořili trezor služby Recovery Services, povoli
 
 > [!div class="nextstepaction"]
 > [Zálohování několika virtuálních počítačů Azure](./tutorial-backup-vm-at-scale.md)
-

@@ -3,7 +3,7 @@ title: "Správa účtu Azure Automation | Dokumentace Microsoftu"
 description: "Tento článek popisuje, jak spravovat konfiguraci vašeho účtu Automation, jako je chybná konfigurace, odstranění nebo obnovení certifikátu."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.contentlocale: cs-cz
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-automation-account"></a>Správa účtu Azure Automation
 V určitém okamžiku před vypršením platnosti účtu Automation musíte obnovit certifikát. Pokud se domníváte, že zabezpečení účtu Spustit jako je ohrožené, můžete ho odstranit a vytvořit znovu. Tato část popisuje, jak tyto operace provést.
 
@@ -35,12 +33,13 @@ Pokud chcete certifikát obnovit, postupujte takto:
 
 1. Na webu Azure Portal otevřete účet Automation.
 
-2. V okně **Účet Automation** v podokně **Vlastnosti účtu** v části **Nastavení účtů** vyberte **Účty Spustit jako**.
+2. V okně **Účet Automation** 
+3. v podokně **Vlastnosti účtu** v části **Nastavení účtu** vyberte **Účty Spustit jako**.
 
     ![Podokno vlastností účtu Automation](media/automation-manage-account/automation-account-properties-pane.png)
-3. V okně vlastností **Účty Spustit jako** vyberte účet Spustit jako nebo účet Spustit jako pro Classic, pro který chcete obnovit certifikát.
+3. Na stránce vlastností **Účty Spustit jako** vyberte účet Spustit jako nebo účet Spustit jako pro Classic, pro který chcete obnovit certifikát.
 
-4. V okně **Vlastnosti** vybraného účtu klikněte na **Obnovit certifikát**.
+4. V podokně **Vlastnosti** vybraného účtu klikněte na **Obnovit certifikát**.
 
     ![Obnovení certifikátu pro účet Spustit jako](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
@@ -51,15 +50,15 @@ Tato část popisuje, jak odstranit a znovu vytvořit účet Spustit jako nebo �
 
 1. Na webu Azure Portal otevřete účet Automation.
 
-2. V okně **Účet Automation** v podokně vlastností účtu vyberte **Účty Spustit jako**.
+2. Na stránce **Účet Automation** vyberte **Účty Spustit jako**.
 
-3. V okně vlastností **Účty Spustit jako** vyberte účet Spustit jako nebo účet Spustit jako pro Classic, který chcete odstranit. Potom v okně **Vlastnosti** vybraného účtu klikněte na **Odstranit**.
+3. Na stránce vlastností **Účty Spustit jako** vyberte účet Spustit jako nebo účet Spustit jako pro Classic, který chcete odstranit. Potom v podokně **Vlastnosti** vybraného účtu klikněte na **Odstranit**.
 
  ![Odstranění účtu Spustit jako](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. Zatímco se účet odstraňuje, můžete průběh sledovat v nabídce v části **Oznámení**.
 
-5. Účet po odstranění můžete znovu vytvořit v okně vlastností **Účty Spustit jako** výběrem možnosti Vytvořit v části **Účet Spustit jako**.
+5. Účet po odstranění můžete znovu vytvořit na stránce vlastností **Účty Spustit jako** výběrem možnosti Vytvořit v části **Účet Spustit jako pro Azure**.
 
  ![Znovuvytvoření účtu Automation Spustit jako](media/automation-manage-account/automation-account-create-runas.png)
 
@@ -71,7 +70,7 @@ Může se stát, že se během prvotního nastavení nesprávně vytvoří nebo 
 * Účet Spustit jako byl odebrán z role přispěvatele
 * Instanční objekt nebo aplikace v Azure AD
 
-V předchozí a dalších instancích chybné konfigurace účet Automation zjistí změny a v okně vlastností *Účty Spustit jako* příslušného účtu zobrazí stav **Nedokončeno**.
+V předchozí a dalších instancích chybné konfigurace účet Automation zjistí změny a v podokně vlastností **Účty Spustit jako** příslušného účtu zobrazí stav *Nedokončeno*.
 
 ![Nedokončená konfigurace účtu Spustit jako](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 

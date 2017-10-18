@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Lekce 2: Získání dat
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 V této lekci se pomocí funkce Získání dat v SSDT připojíte k ukázkové databázi AdventureWorksDW2014, vyberete data, zobrazíte jejich náhled, použijete filtr a potom je naimportujete do pracovního prostoru modelu.  
   
 Pomocí funkce Získání dat můžete importovat data z celé řady zdrojů: Azure SQL Database, Oracle, Sybase, kanál OData, Teradata, soubory a další. Data umožňují také dotazy pomocí výrazu se vzorci Power Query M.
+
+> [!NOTE]
+> Úlohy a obrázky v tomto kurzu ukazují připojení k databázi AdventureWorksDW2014 na místním serveru. V některých případech se databáze AdventureWorksDW2014 v Azure může lišit.
   
 Odhadovaný čas dokončení této lekce: **10 minut**  
   
@@ -71,13 +72,19 @@ Tabulky v ukázkové databázi AdventureWorksDW2014 obsahují data, která není
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Filtrování tabulkových dat před importem  
   
-1.  V Editoru dotazů vyberte tabulku **DimCustomer**. Otevře se zobrazení tabulky DimCustomer ve zdroji dat (vaše ukázková databáze AdventureWorksDWQ2014). 
+1.  V Editoru dotazů vyberte tabulku **DimCustomer**. Otevře se zobrazení tabulky DimCustomer ve zdroji dat (vaše ukázková databáze AdventureWorksDW2014). 
   
 2.  Vyberte (Ctrl + kliknutí) sloupce **SpanishEducation**, **FrenchEducation**, **SpanishOccupation** a **FrenchOccupation**, klikněte pravým tlačítkem a potom klikněte na **Odebrat sloupce**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Vzhledem k tomu, že tyto sloupce nejsou pro analýzu prodejů přes internet relevantní, není nutné je importovat. Díky odstranění nepotřebných sloupců bude váš model menší a efektivnější.  
+
+    > [!TIP]
+    > Pokud uděláte chybu, můžete se vrátit odstraněním kroku v části **POUŽITÝ POSTUP**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Filtrujte zbývající tabulky odebráním následujících sloupců v každé z nich:  
     
@@ -85,7 +92,7 @@ Tabulky v ukázkové databázi AdventureWorksDW2014 obsahují data, která není
     
       |Sloupec|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ Tabulky v ukázkové databázi AdventureWorksDW2014 obsahují data, která není
   
     **FactInternetSales**
   
-      |Sloupec|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Neodebírejte žádné sloupce.
   
 ## <a name="Import"></a>Import vybraných tabulek a dat sloupců  
 Teď, když jste zobrazili náhled a vyfiltrovali nepotřebná data, můžete importovat zbývající požadovaná data. Průvodce importuje kromě tabulkových dat také případné relace mezi tabulkami. V modelu se vytvoří nové tabulky a sloupce a data, která jste vyfiltrovali, se neimportují.  
@@ -160,4 +163,3 @@ Je důležité projekt s modelem často ukládat.
 
   
   
-

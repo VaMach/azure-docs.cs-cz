@@ -13,20 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: dbfaf3b791dd44a43a2cf862819e6292b94d958a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>Lekce 9: Vytvoření hierarchií
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-V této lekci vytvoříte hierarchie. Hierarchie jsou skupiny sloupců uspořádané do úrovní, například hierarchie Geografie může mít podúrovně pro zemi, stát, kraj a město. Hierarchie se může zobrazit odděleně od ostatních sloupců v seznamu polí klientských aplikací pro vytváření sestav. Další informace najdete v tématu [Hierarchie](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular).
+V této lekci vytvoříte hierarchie. Hierarchie jsou skupiny sloupců uspořádané do úrovní. Například hierarchie Geography může mít dílčí úrovně pro zemi, stát, kraj a město. Hierarchie se může zobrazit odděleně od ostatních sloupců v seznamu polí klientských aplikací pro vytváření sestav. Další informace najdete v tématu [Hierarchie](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular).
   
 K vytvoření hierarchií použijte návrháře modelů v *zobrazení diagramu*. Vytváření a správa hierarchií se v zobrazení dat nepodporuje.  
   
@@ -43,7 +42,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
   
 2.  Klikněte na sloupec **ProductCategoryName** a přetáhněte ho do nové hierarchie **Category**.  
   
-3.  V hierarchii **Category** klikněte pravým tlačítkem myši na **ProductCategoryName** > **Přejmenovat**a pak zadejte **Category**.  
+3.  V hierarchii **Category** klikněte pravým tlačítkem na **ProductCategoryName** > **Přejmenovat** a pak zadejte **Category**.  
   
     > [!NOTE]  
     > Přejmenováním sloupce v hierarchii nedojde k přejmenování tohoto sloupce v tabulce. Sloupec v hierarchii je pouze reprezentací sloupce v tabulce.  
@@ -85,4 +84,3 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
 [Lekce 10: Vytvoření oddílů](../tutorials/aas-lesson-10-create-partitions.md) 
   
   
-

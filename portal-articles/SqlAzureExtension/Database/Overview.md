@@ -1,6 +1,6 @@
 ---
-title: "Databáze SQL – přehled | Microsoft Docs"
-description: "Nápovědu pro přehled databáze SQL v rámci portálu Azure"
+title: "Přehled databází SQL | Dokumentace Microsoftu"
+description: "Přehled obsahu nápovědy pro databáze SQL na webu Azure Portal"
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: b41b4b7d302b0f3c528fa424627b4446a5e2c0ca
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-documentation"></a>Dokumentace ke službě SQL Database
 
@@ -28,7 +28,7 @@ Naučte se vytvořit SQL Database, ke správě použít SQL Management Studio a 
 
 ## <a name="step-by-step-tutorials"></a>Podrobné kurzy
 
-Naučte se vytvářet, spravovat a migraci databáze pomocí databáze SQL.
+Zjistěte, jak vytvářet, spravovat a migrovat databáze s využitím databáze SQL.
 
 - [Vytvoření a návrh schématu pro novou službu SQL Database](/azure/sql-database/sql-database-design-first-database)
 - [Migrace existující databáze SQL Serveru a použití Azure SQL Database](/azure/sql-database/sql-database-migrate-your-sql-server-database)
@@ -49,5 +49,5 @@ Vyhledání skriptů pro správu běžných úkolů
 
 ## <a name="more"></a>Víc
 
-- [Najdete v dokumentaci k další informace](/azure/sql-database/index)
-- [Další informace o všech služeb Azure](https://aka.ms/j3wr7y)
+- [Další informace najdete v dokumentaci](/azure/sql-database/index)
+- [Informace o všech službách Azure](https://aka.ms/j3wr7y)

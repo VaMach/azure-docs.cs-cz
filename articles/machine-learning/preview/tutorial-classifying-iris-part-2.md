@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Klasifikace Iris, část 2: Sestavení modelu
 Služby Azure Machine Learning (verze Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
 
@@ -38,6 +36,10 @@ Tento kurz používá kvůli zjednodušení nadčasovou [datovou sadu Iris](http
 
 ## <a name="prerequisites"></a>Požadavky
 Měli byste si nejdříve projít první kurz z této série. Před zahájením kroků v tomto kurzu vytvořte na základě [kurzu přípravy dat](tutorial-classifying-iris-part-1.md) prostředky služby Azure Machine Learning a nainstalujte aplikaci Azure Machine Learning Workbench.
+
+Volitelně můžete experimentovat se spouštěním skriptů proti místnímu kontejneru Dockeru. V takovém případě budete potřebovat nainstalovaný modul Docker (Community Edition je dostačující) spuštěný místně na počítači s Windows nebo macOS. Další informace o [pokynech k instalaci Dockeru](https://docs.docker.com/engine/installation/).
+
+Pokud chcete experimentovat s odesláním skriptu ke spuštění v kontejneru Dockeru na vzdáleném virtuálním počítači Azure nebo v clusteru HDInsight Spark, můžete postupovat podle [pokynů k vytvoření virtuálního počítače Azure pro datové vědy založeného na Ubuntu nebo clusteru HDInsight](how-to-create-dsvm-hdi.md).
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>Kontrola skriptu iris_sklearn.py a konfiguračních souborů
 1. Spusťte aplikaci **Azure Machine Learning Workbench** a otevřete projekt **myIris**, který jste vytvořili v předchozí části této série kurzů.
@@ -102,7 +104,7 @@ Teď se připravíme na první spuštění skriptu **iris_sklearn.py**. Tento sk
 
 8. V textu stavu úlohy na panelu Úlohy klikněte na slovo **Dokončeno**. Zobrazí se automaticky otevírané okno s textem standardního výstupu (stdout) spuštěného skriptu. Pokud chcete text standardního výstupu zavřít, klikněte na tlačítko **X** v pravém horním rohu automaticky otevíraného okna.
 
-9. Ve stejném stavu úlohy na panelu Úlohy klikněte na modrý text **iris_sklearn.py [1]** hned nad stavem **Dokončeno** a časem spuštění. Otevře se stránka **vlastností spuštění** a zobrazí se informace o vlastnostech spuštění, **výstupní** soubory, všechny **vizualizace** a **protokoly** z tohoto konkrétního spuštění. 
+9. Ve stejném stavu úlohy na panelu Úlohy klikněte na modrý text **iris_sklearn.py [n]** (_n_ je číslo spuštění) hned nad stavem **Dokončeno** a časem spuštění. Otevře se stránka **vlastností spuštění** a zobrazí se informace o vlastnostech spuštění, **výstupní** soubory, všechny **vizualizace** a **protokoly** z tohoto konkrétního spuštění. 
 
    Když se spuštění dokončí, v automaticky otevíraném okně se zobrazí tyto výsledky:
 
@@ -367,4 +369,3 @@ Teď můžete přejít ke třetí části série kurzů. Vytvořili jste logisti
 
 > [!div class="nextstepaction"]
 > [Nasazení modelu](tutorial-classifying-iris-part-3.md)
-

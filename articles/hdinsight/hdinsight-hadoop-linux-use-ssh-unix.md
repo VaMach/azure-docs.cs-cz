@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Připojení k HDInsightu (Hadoop) pomocí protokolu SSH
 
@@ -45,6 +44,11 @@ HDInsight může pro uzly v clusteru Hadoop jako operační systém využívat L
 > Pokud cluster obsahuje hraniční uzel, doporučujeme vám __připojovat se k hraničnímu uzlu vždy__ pomocí příkazu SSH. Hlavní uzly hostují služby, které jsou pro stav clusteru Hadoop klíčové. Na hraničním uzlu se spustí jenom to, co na něj umístíte.
 >
 > Další informace o použití hraničních uzlů najdete v tématu věnovaném [použití hraničních uzlů v HDInsightu](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+
+> [!TIP]
+> Když se poprvé připojíte ke službě HDInsight, ve vašem klientovi SSH se může zobrazit upozornění na nemožnost potvrzení pravosti hostitele. Po zobrazení výzvy vyberte yes (ano) a hostitel se přidá na seznam důvěryhodných serverů vašeho klienta SSH.
+>
+> Pokud jste se dříve připojili k serveru se stejným názvem, může se zobrazit upozornění na neshodu uloženého klíče hostitele s klíčem hostitele serveru. Pokud k tomu dojde, klient SSH může odmítnout připojení ke clusteru. Postup pro odebrání existující položky pro název serveru najdete v dokumentaci k vašemu klientovi SSH.
 
 ## <a name="ssh-clients"></a>Klienti SSH
 

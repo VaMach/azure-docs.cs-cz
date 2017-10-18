@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
 ms.author: ryanwi
+ms.openlocfilehash: c7625a5670aca5d105601432fedfd0d7a78bb53c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 68f9492231d367b1ede6ab032ec1c66c75150957
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Vytvoření první aplikace Service Fabric Reliable Actors v Javě v Linuxu
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ Tento rychlý start vám pomůže během několika minut vytvořit první aplika
 ## <a name="prerequisites"></a>Požadavky
 Než začnete, nainstalujte sadu Service SDK a Service Fabric CLI a nastavte vývojový cluster ve svém [linuxovém vývojovém prostředí](service-fabric-get-started-linux.md). Pokud používáte Mac OS X, můžete k [nastavení linuxového vývojového prostředí ve virtuálním počítači použít Vagrant](service-fabric-get-started-mac.md).
 
-Budete také chtít nainstalovat [Service Fabric CLI](service-fabric-cli.md).
+Nainstalujte také [Service Fabric CLI](service-fabric-cli.md).
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>Instalace a nastavení generátorů pro Javu
 Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric Java z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman pro Javu.
@@ -49,11 +48,28 @@ Service Fabric nabízí nástroje pro generování uživatelského rozhraní, kt
   ```bash
   sudo npm install -g yo
   ```
-3. Instalace generátoru aplikací Service Fabric Yeo Java z NPM
+3. Instalace generátoru aplikací v Javě Service Fabric Yeoman z NPM
 
   ```bash
   sudo npm install -g generator-azuresfjava
   ```
+
+## <a name="basic-concepts"></a>Základní koncepty
+K tomu, abyste mohli začít s Reliable Actors, vám stačí pochopit pár základních konceptů:
+
+* **Služba objektu actor**. Služby Reliable Actors jsou zabalené ve službách Reliable Services, které je možné nasadit v infrastruktuře Service Fabric. Instance objektu actor se aktivují v pojmenované instanci služby.
+* **Registrace objektu actor**. Stejně jako Reliable Services musí být i služba Reliable Actors zaregistrovaná v modulu runtime Service Fabric. Kromě toho musí být typ actor zaregistrovaný v modulu runtime Actor.
+* **Rozhraní objektu actor**. Rozhraní objektu actor se používá k definování veřejného rozhraní objektu actor silného typu. V terminologii modelu Reliable Actors rozhraní objektu actor definuje typ zpráv, kterým objekt actor rozumí a může je zpracovat. Rozhraní objektu actor používají ostatní objekty actor a klientské aplikace k (asynchronnímu) odesílání zpráv do objektu actor. Reliable Actors můžou implementovat více rozhraní.
+* **Třída ActorProxy**. Třídu ActorProxy používají klientské aplikace k vyvolání metod zveřejněných přes rozhraní objektu actor. Třída ActorProxy zajišťuje dvě důležité funkce:
+  
+  * Překlad názvů: Dokáže vyhledat objekt actor v clusteru (najít uzel clusteru, který je jeho hostitelem).
+  * Zpracování selhání: Dokáže opakovat vyvolání metod a znovu přeložit umístění objektu actor například po selhání, které vyžaduje přemístění objektu actor do jiného uzlu v clusteru.
+
+Za zmínku stojí následující pravidla týkající se rozhraní objektů actor:
+
+* Metody rozhraní objektu actor není možné přetížit.
+* Metody rozhraní objektu actor nesmí obsahovat vnější, referenční ani volitelné parametry.
+* Obecná rozhraní se nepodporují.
 
 ## <a name="create-the-application"></a>Vytvoření aplikace
 Aplikace Service Fabric obsahuje jednu nebo víc služeb, z nichž každá má určitou roli při poskytování funkcí aplikace. Generátor, který jste nainstalovali v poslední části, vám usnadní vytvoření první služby a případná další rozšíření později.  Vytvořit, sestavit a nasadit aplikace Service Fabric v Javě můžete také pomocí modulu plug-in pro Eclipse. Viz [Vytvoření a nasazení první aplikace v Javě pomocí Eclipse](service-fabric-get-started-eclipse.md). Pro účely tohoto rychlého startu použijte Yeoman k vytvoření aplikace s jednou službou, která ukládá a získává hodnotu čítače.
@@ -62,6 +78,118 @@ Aplikace Service Fabric obsahuje jednu nebo víc služeb, z nichž každá má u
 2. Pojmenujte svoji aplikaci.
 3. Vyberte typ první služby a pojmenujte ji. Pro účely tohoto kurzu zvolte službu Reliable Actor. Další informace o ostatních typech služeb najdete v tématu [Přehled programovacího modelu Service Fabric](service-fabric-choose-framework.md).
    ![Generátor Service Fabric Yeoman pro Javu][sf-yeoman]
+
+Pokud pojmenujete aplikaci HelloWorldActorApplication a objekt actor HelloWorldActor, vytvoří se následující kostra aplikace:
+
+```bash
+HelloWorldActorApplication/
+├── build.gradle
+├── HelloWorldActor
+│   ├── build.gradle
+│   ├── settings.gradle
+│   └── src
+│       └── reliableactor
+│           ├── HelloWorldActorHost.java
+│           └── HelloWorldActorImpl.java
+├── HelloWorldActorApplication
+│   ├── ApplicationManifest.xml
+│   └── HelloWorldActorPkg
+│       ├── Code
+│       │   ├── entryPoint.sh
+│       │   └── _readme.txt
+│       ├── Config
+│       │   ├── _readme.txt
+│       │   └── Settings.xml
+│       ├── Data
+│       │   └── _readme.txt
+│       └── ServiceManifest.xml
+├── HelloWorldActorInterface
+│   ├── build.gradle
+│   └── src
+│       └── reliableactor
+│           └── HelloWorldActor.java
+├── HelloWorldActorTestClient
+│   ├── build.gradle
+│   ├── settings.gradle
+│   ├── src
+│   │   └── reliableactor
+│   │       └── test
+│   │           └── HelloWorldActorTestClient.java
+│   └── testclient.sh
+├── install.sh
+├── settings.gradle
+└── uninstall.sh
+```
+## <a name="reliable-actors-basic-building-blocks"></a>Základní stavební bloky Reliable Actors
+Základní koncepty popsané dříve se převedou na základní stavební bloky služby Reliable Actors.
+
+### <a name="actor-interface"></a>Rozhraní objektu actor
+Tady se nachází definice rozhraní pro objekt actor. Toto rozhraní definuje kontrakt objektu actor sdílený mezi implementací objektu actor a klienty, kteří objekt actor volají. Proto je obvykle vhodné jej definovat na odděleném místě od implementace objektu actor, které může sdílet několik dalších služeb nebo klientských aplikací.
+
+`HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
+
+```java
+public interface HelloWorldActor extends Actor {
+    @Readonly   
+    CompletableFuture<Integer> getCountAsync();
+
+    CompletableFuture<?> setCountAsync(int count);
+}
+```
+
+### <a name="actor-service"></a>Služba objektu actor
+Tady se nachází implementace objektu actor a jeho registrační kód. Třída actor implementuje rozhraní objektu actor. Tady objekt actor provádí veškerou svou činnost.
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
+
+```java
+@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
+    protected CompletableFuture<?> onActivateAsync() {
+        logger.log(Level.INFO, "onActivateAsync");
+
+        return this.stateManager().tryAddStateAsync("count", 0);
+    }
+
+    @Override
+    public CompletableFuture<Integer> getCountAsync() {
+        logger.log(Level.INFO, "Getting current count value");
+        return this.stateManager().getStateAsync("count");
+    }
+
+    @Override
+    public CompletableFuture<?> setCountAsync(int count) {
+        logger.log(Level.INFO, "Setting current count value {0}", count);
+        return this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value);
+    }
+}
+```
+
+### <a name="actor-registration"></a>Registrace objektu actor
+Služba objektu actor musí být zaregistrovaná s typem služby v modulu runtime Service Fabric. Aby služba objektu actor mohla spouštět instance objektu actor, musí v ní být zaregistrovaný také typ actor. Pro objekty actor tuto práci provádí metoda registrace `ActorRuntime`.
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
+
+```java
+public class HelloWorldActorHost {
+
+    public static void main(String[] args) throws Exception {
+
+        try {
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
+
+            Thread.sleep(Long.MAX_VALUE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+}
+```
 
 ## <a name="build-the-application"></a>Sestavení aplikace
 Šablony Service Fabric Yeoman zahrnují skript sestavení pro [Gradle](https://gradle.org/), který můžete použít k sestavení aplikace z terminálu.
@@ -229,4 +357,3 @@ Nedávno jsme přesunuli knihovny Service Fabric Java ze sady Service Fabric Jav
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-

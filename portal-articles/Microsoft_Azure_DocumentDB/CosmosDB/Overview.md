@@ -1,6 +1,6 @@
 ---
-title: "Přehled služby Azure Cosmos DB | Microsoft Docs"
-description: "Nápovědu pro Azure Cosmos DB přehled portálu Azure"
+title: "Přehled služby Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Přehled obsahu nápovědy pro službu Azure Cosmos DB na webu Azure Portal"
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Dokumentace k databázi Azure Cosmos
 
@@ -48,12 +48,12 @@ Zjistěte, jak pomocí služby Azure Cosmos DB vytvořit globálně distribuovan
 
 ## <a name="step-by-step-tutorials"></a>Podrobné kurzy
 
-Další informace jak vyvíjet aplikace pomocí Azure Cosmos DB:
+Zjistěte, jak vyvíjet aplikace s využitím služby Azure Cosmos DB:
 
-- Vývoj aplikace s Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [tabulky](/azure/cosmos-db/tutorial-develop-table-dotnet) | [grafu](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Importovat data do databáze Cosmos [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Dotaz na data s Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [tabulky](/azure/cosmos-db/tutorial-query-table) | [grafu](/azure/cosmos-db/tutorial-query-graph)
-- Globální databáze replikace s Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tabulka] (/ azure nebo cosmos – db nebo kurzu – globální distribuční tabulka | [Grafu](/azure/cosmos-db/tutorial-global-distribution-graph)
+- Vývoj aplikace s využitím služby Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Import dat do služby Cosmos DB: [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
+- Dotazování dat pomocí služby Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
+- Globální replikace databáze pomocí služby Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table) | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
 - [Lokální vývoj aplikace pomocí emulátoru](/azure/documentdb/documentdb-nosql-local-emulator)
 
 ## <a name="samples"></a>Ukázky
@@ -65,5 +65,5 @@ Vyhledání skriptů pro správu běžných úkolů
 
 ## <a name="more"></a>Víc
 
-- [Najdete v dokumentaci k další informace](/azure/cosmos-db/index)
-- [Další informace o všech služeb Azure](https://aka.ms/j3wr7y)
+- [Další informace najdete v dokumentaci](/azure/cosmos-db/index)
+- [Informace o všech službách Azure](https://aka.ms/j3wr7y)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 2073948d44ccc4b9b83e4eaf4f250dc272e46292
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Úvod do Azure Cosmos DB: API tabulka
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 09/08/2017
 * Záruka vysoké dostupnosti.
 * [Automatické sekundární indexování](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Pomocí rozhraní API tabulky je možné tyto aplikace beze změn kódu migrovat na službu Azure Cosmos DB a využít tak prémiové funkce.
+Pomocí rozhraní API tabulky je možné tyto aplikace beze změn kódu migrovat na službu Azure Cosmos DB a využít tak prémiové funkce. Rozhraní API tabulky je k dispozici pro .NET a Python.
 
 Doporučujeme vám zhlédnout následující video, ve kterém Aravind Ramachandran vysvětluje, jak začít s rozhraním API tabulky pro službu Azure Cosmos DB:
 
@@ -64,5 +63,6 @@ Tady jsou odkazy na informace, které vám pomůžou začít:
 * [Vývoj pomocí rozhraní API tabulky v .NET](tutorial-develop-table-dotnet.md)
 * [Dotazování tabulkových dat pomocí rozhraní API tabulky](tutorial-query-table.md)
 * [Informace o nastavení globální distribuce služby Azure Cosmos DB pomocí rozhraní API tabulky](tutorial-global-distribution-table.md)
-* [Sada SDK rozhraní API tabulky Azure Cosmos DB pro .NET](table-sdk-dotnet.md)
+* [Rozhraní .NET API tabulky Azure Cosmos DB](table-sdk-dotnet.md)
+* [Sada SDK tabulky Azure Cosmos DB pro Python](table-sdk-python.md)
 

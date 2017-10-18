@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrace místních adresářů do služby Azure Active Directory
 Azure AD Connect integruje vaše místní adresáře do služby Azure Active Directory. To umožní poskytovat společnou identitu pro uživatele pro aplikace Office 365, Azure a SaaS integrované s Azure AD. V tomto tématu vás provedeme kroky plánování, nasazení a provozu. Jedná se o kolekci odkazů na témata, která souvisejí s touto oblastí.
@@ -127,6 +126,15 @@ Model konfigurace v synchronizaci se označuje [deklarativní zřizování](acti
 |Změna výchozí konfigurace | [Osvědčené postupy pro změnu výchozí konfigurace](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Konfigurace funkcí federace
+
+Azure AD Connect poskytuje několik funkcí, které zjednodušují federaci se službou Azure AD pomocí AD FS a správu důvěryhodnosti federace. Azure AD Connect podporuje AD FS na Windows Serveru 2012R2 nebo novějším.
+
+[Nahrajte certifikát SSL farmy služby AD FS](active-directory-aadconnectfed-ssl-update.md) i v případě, že ke správě důvěryhodnosti federace nepoužíváte Azure AD Connect.
+
+Podle potřeby můžete svou farmu rozšířit [přidáním serveru AD FS](active-directory-aadconnect-federation-management.md#addadfsserver).
+
+[Opravit důvěryhodnost](active-directory-aadconnect-federation-management.md#repairthetrust) s Azure AD můžete pár kliknutími.
+
 Služba AD FS se dá nakonfigurovat tak, aby podporovala [více domén](active-directory-aadconnect-multiple-domains.md). Můžete mít například více hlavních domén, které potřebujete použít pro federaci.
 
 Pokud váš server služby AD FS není nakonfigurován pro automatické aktualizace certifikátů z Azure AD nebo pokud používáte jiné řešení než AD FS, budete upozorněni, když bude třeba [aktualizovat certifikáty](active-directory-aadconnect-o365-certs.md).
@@ -157,5 +165,4 @@ Prezentace Ignite 2015 na rozšíření místních adresářů do cloudu.
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

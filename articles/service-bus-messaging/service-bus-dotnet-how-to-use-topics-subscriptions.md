@@ -12,20 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Začínáme s tématy služby Service Bus
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>Co všechno zvládneme
 
 Tento kurz se zabývá následujícími kroky:
 
@@ -83,7 +80,7 @@ Spusťte sadu Visual Studio a vytvořte nový projekt **Aplikace konzoly (.NET F
 ### <a name="add-the-service-bus-nuget-package"></a>Přidání balíčku Service Bus NuGet
 
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
-2. Klikněte na kartu **Procházet**, vyhledejte **Microsoft Azure Service Bus** a pak vyberte položku **WindowsAzure.ServiceBus**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
+2. Klikněte na kartu **Procházet**, vyhledejte **WindowsAzure.ServiceBus** a pak vyberte položku **WindowsAzure.ServiceBus**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
    
     ![Výběr balíčku NuGet][nuget-pkg]
 
@@ -157,7 +154,7 @@ Spusťte sadu Visual Studio a vytvořte nový projekt **Aplikace konzoly (.NET F
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Do metody `Main` přidejte následující kód. Nastavte proměnnou `connectionString` na připojovací řetězec, který jste získali při vytváření oboru názvů, a proměnnou `topicName` nastavte na název, který jste použili při vytváření tématu.
+3. Do metody `Main` přidejte následující kód. Nastavte proměnnou `connectionString` na připojovací řetězec, který jste získali při vytváření oboru názvů, a proměnnou `topicName` nastavte na název, který jste použili při vytváření tématu. Nezapomeňte také nahradit položku `<your subscription name>` názvem odběru, který jste vytvořili v kroku 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -225,4 +222,3 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

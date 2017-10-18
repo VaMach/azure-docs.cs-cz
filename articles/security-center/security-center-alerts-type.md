@@ -12,21 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Principy výstrah zabezpečení ve službě Azure Security Center
 Tento článek vám pomůže porozumět různým typům výstrah zabezpečení a souvisejícím přehledům, které jsou dostupné ve službě Azure Security Center. Další informace o správě těchto výstrah a incidentů najdete v tématu [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md).
 
+Pokud chcete nastavit rozšířené detekce, upgradujte na Azure Security Center Standard. K dispozici je bezplatná 60denní zkušební verze. Pokud chcete provést upgrade, v [zásadách zabezpečení](security-center-policies.md) vyberte **cenovou úroveň**. Další informace najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> Pokud chcete nastavit rozšířené detekce, upgradujte na Azure Security Center Standard. K dispozici je bezplatná 60denní zkušební verze. Pokud chcete provést upgrade, v [zásadách zabezpečení](security-center-policies.md) vyberte **cenovou úroveň**. Další informace najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Ve službě Security Center byla vydána ve verzi Limited Preview nová sada detekcí, které využívají záznamy auditu, což je běžný auditní rámec, k detekci škodlivého chování na počítačích s Linuxem. Pokud se chcete připojit k verzi Preview, zašlete [nám](mailto:ASC_linuxdetections@microsoft.com) e-mail s ID vašich předplatných.
 
 ## <a name="what-type-of-alerts-are-available"></a>Jaké typy výstrah jsou k dispozici?
 Azure Security Center používá celou řadu různých [možností detekce](security-center-detection-capabilities.md) k upozornění zákazníků na potenciální útoky namířené proti jejich prostředím. Tyto výstrahy obsahují cenné informace o tom, co výstrahu aktivovalo, o prostředcích na které cílí, a o zdroji útoku. Informace obsažené ve výstrahách se liší podle typu analýzy použité k rozpoznání příslušné hrozby. Incidenty mohou obsahovat také další kontextové informace, které mohou být užitečné při dalším zkoumání hrozeb.  Tento článek obsahuje informace o následujících typech výstrah:
@@ -44,9 +44,9 @@ Azure Security Center může pomocí analýzy chování identifikovat ohrožené
 >
 
 ### <a name="crash-analysis"></a>Analýza stavu systému
-Metoda analýzy paměti ve výpisu stavu systému slouží ke zjištění sofistikovaného malwaru, který je schopný se vyhnout běžným řešením zabezpečení. Různé formy malwaru se snaží snížit pravděpodobnost svého zjištění antivirovými produkty tím, že nikdy nezapisují na disk nebo softwarové komponenty ukládané na disk šifruje. Takový malware je jen obtížně zjistitelný pomocí obvyklých antimalwarových postupů. Tento typ malwaru lze ale zjistit pomocí analýzy paměti, protože aby malware mohl fungovat, musí v paměti zanechat stopy.
+Metoda analýzy paměti ve výpisu stavu systému slouží ke zjištění sofistikovaného malwaru, který je schopný se vyhnout běžným řešením zabezpečení. Různé formy malwaru se snaží snížit pravděpodobnost svého zjištění antivirovými produkty tím, že nikdy nezapisují na disk nebo softwarové komponenty ukládané na disk šifruje. Kvůli této technice je malware jen obtížně zjistitelný pomocí obvyklých antimalwarových postupů. Tento typ malwaru lze ale zjistit pomocí analýzy paměti, protože aby malware mohl fungovat, musí v paměti zanechat stopy.
 
-Pokud dojde k chybě softwaru, ve výpisu stavu systému se zaznamená část paměti v době selhání. Taková chyba může být způsobena malwarem, běžnou aplikací nebo systémovým problémem. Díky analýze paměti ve výpisu stavu systému dokáže služba Security Center zjišťovat techniky, které využívají zranitelností softwaru, získávají přístup k důvěrným datům a nenápadně přetrvávají v napadeném počítači. Díky tomu, že se tato analýza provádí v back-endu služby Security Center, má minimální dopad na výkon hostitele.
+Pokud dojde k chybě softwaru, ve výpisu stavu systému se zaznamená část paměti v době selhání. Taková chyba může být způsobena malwarem, běžnou aplikací nebo systémovými problémem. Díky analýze paměti ve výpisu stavu systému dokáže služba Security Center zjišťovat techniky, které využívají zranitelností softwaru, získávají přístup k důvěrným datům a nenápadně přetrvávají v napadeném počítači. Díky tomu, že se tato analýza provádí v back-endu služby Security Center, má minimální dopad na výkon hostitele.
 
 Následující pole jsou společná pro příklady výstrah na stav systému, které se objevují dále v tomto článku:
 
@@ -61,7 +61,7 @@ Příklad výstrahy na skrytý spustitelný kód navíc obsahuje následující 
 
 * ADDRESS: Umístění skrytého spustitelného kódu v paměti.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Výstraha na skrytý spustitelný kód](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -77,7 +77,7 @@ Kromě společných polí popsaných výše v části „Zjištěn skrytý spust
 * HIJACKEDMODULEPATH: Cesta k napadenému modulu systému Windows.
 * HIJACKINGMODULEPATH: Cesta k napadajícímu modulu.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Výstraha na napadení modulu](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -96,7 +96,7 @@ Kromě společných polí popsaných výše v části „Zjištěn skrytý spust
 
 Tato výstraha také extrahuje a zobrazuje určitá pole ze záhlaví PE modulu, např. pole CHECKSUM a TIMESTAMP. Tato pole se zobrazí, pouze pokud se v modulu nacházejí. Podrobnosti o těchto polích naleznete ve [specifikaci formátů Microsoft PE a COFF](https://msdn.microsoft.com/windows/hardware/gg463119.aspx).
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Výstraha na maskování za modul systému Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -110,21 +110,21 @@ Kromě společných polí popsaných výše v části „Zjištěn skrytý spust
 * MODULENAME: Název upraveného binárního systémového souboru.
 * MODULEVERSION: Verze upraveného binárního systémového souboru.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Výstraha na upravený binární systémový soubor](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Spuštění podezřelého procesu
 Security Center identifikuje spouštění podezřelého procesu na cílovém virtuálním počítači a potom aktivuje výstrahu. Detekce nevyhledává konkrétní název procesu, ale parametry spustitelného souboru. Proto je služba Security Center schopna zjistit spustitelný soubor i v případě, že jej útočník přejmenuje.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Výstraha na spuštění podezřelého procesu](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Dotazování více doménových účtů
+### <a name="multiple-domains-accounts-queried"></a>Dotazování více doménových účtů
 Security Center dokáže zjistit vícenásobné pokusy o dotazování doménových účtů služby Active Directory, což obvykle provádějí útočníci během sondování sítě. Útočníci můžou tuto techniku využít k dotazování domény na identifikaci uživatelů, účtů správců domény, počítačů, které jsou řadiče domény a také potenciálního vztahu důvěryhodnosti s dalšími doménami.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Výstraha na dotazování více doménových účtů](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -132,15 +132,15 @@ Příklad tohoto typu výstrahy:
 
 Security Center aktivuje výstrahu, když se v systému Windows Server 2016 a Windows 10 aktivuje událost zabezpečení 4798. To se stane, když dojde k výpisu členů skupin místních správců, což obvykle provádí útočníci během rekognoskace sítě. Útočníci mohou využívat tuto techniku k dotazování na identitu uživatelů s oprávněními správce.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Místní správce](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
 ### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Neobvyklá kombinace velkých a malých písmen
 
-Security Center aktivuje výstrahu, když zjistí použití kombinace velkých a malých písmen na příkazovém řádku. Některé útočníci mohou používat tuto techniku ke skrytí před pravidly počítače pro velká a malá písmena nebo hodnoty hash.
+Security Center aktivuje výstrahu, když zjistí použití kombinace velkých a malých písmen na příkazovém řádku. Některé útočníci můžou používat tuto techniku ke skrytí před pravidly počítače pro velká a malá písmena nebo hodnoty hash.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Neobvyklá kombinace](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -151,7 +151,7 @@ Prozrazený klíč [krbtgt](https://technet.microsoft.com/library/dn745899.aspx)
 > [!NOTE] 
 > Další informace o zlatém lístku protokolu Kerberos najdete v [průvodci zmírněním následků krádeže přihlašovacích údajů Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Zlatý lístek](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -159,7 +159,7 @@ Příklad tohoto typu výstrahy:
 
 Security Center aktivuje výstrahu při vytvoření účtu, který se nápadně podobá existujícímu integrovanému účtu s oprávněním správce. Tento postup můžou použít útočníci k vytvoření podvodného účtu, aby se vyhnuli jeho zaznamenání při lidském ověření.
  
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Podezřelý účet](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -167,7 +167,7 @@ Příklad tohoto typu výstrahy:
 
 Útočníci se můžou pokusit obejít zabezpečení hostitele vytvořením vlastních pravidel brány firewall, která umožňují škodlivým aplikacím komunikaci s příkazy a ovládáním nebo spuštění útoků prostřednictvím sítě přes napadeného hostitele. Security Center aktivuje výstrahu, když zjistí, že bylo vytvořeno nové pravidlo brány firewall ze spustitelného souboru v podezřelém umístění.
  
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Pravidlo brány firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -175,7 +175,7 @@ Příklad tohoto typu výstrahy:
 
 Security Center aktivuje výstrahu, když zjistí, že Microsoft HTML Application Host (HTA) spouští příkazy PowerShellu. Jde o techniku používanou útočníky ke spuštění škodlivých skriptů PowerShellu.
  
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![HTA a PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -188,7 +188,7 @@ Síťová zařízení lze zjistit a profilovat velmi podobně jako jiné typy sy
 
 ![Výstraha na podezřelý odchozí provoz](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Tato výstraha poskytuje informace, pomocí kterých můžete identifikovat prostředek použitý k zahájení útoku. Tato výstraha vám také pomůže identifikovat ohrožený počítač, čas detekce a použitý protokol a port. V tomto okně se zobrazuje taky seznam nápravných kroků, kterými můžete problém zmírnit.
+Tato výstraha poskytuje informace, pomocí kterých můžete identifikovat prostředek použitý k zahájení útoku. Tato výstraha vám také pomůže identifikovat ohrožený počítač, čas detekce a použitý protokol a port. Na této stránce se zobrazuje také seznam nápravných kroků, kterými můžete problém zmírnit.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Síťová komunikace se škodlivým počítačem
 Azure Security Center může pomocí informačních kanálů analýzy hrozeb Microsoft rozpoznat ohrožené počítače, které komunikují se škodlivými IP adresami. V mnoha případech jde o adresy řídicího centra. V tomto případě služba Security Center rozpoznala komunikaci provedenou pomocí malwaru Pony Loader (známého také pod názvem [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -205,7 +205,7 @@ Tato výstraha vám pomůže identifikovat prostředek použitý k provedení ú
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Zjištění možného odchozího útoku DoS
 Neobvyklý síťový provoz pocházející z jednoho virtuálního počítače může vést ve službě Security Center k aktivaci výstrahy na potenciální útok DoS.
 
-Příklad tohoto typu výstrahy:
+Tady je příklad tohoto typu výstrahy:
 
 ![Odchozí útok DoS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -253,4 +253,3 @@ V tomto článku jste se dozvěděli o různých typech výstrah zabezpečení v
 * [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Časté otázky k Azure Security Center](security-center-faq.md): Přečtěte si nejčastější dotazy k používání této služby.
 * [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/) – Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
-

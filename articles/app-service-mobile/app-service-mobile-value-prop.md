@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="getting-started"> </a>Informace o funkci Mobile Apps v Azure App Service
+# <a name="getting-started"></a>Informace o funkci Mobile Apps v Azure App Service
 Azure App Service nabízí plně spravovanou [platformu jako službu](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pro profesionální vývojáře. Tato služba přináší bohatou sadu možností pro webové, mobilní a integrační scénáře. 
 
 Funkce Mobile Apps služby Azure App Service nabízí podnikovým vývojářům a systémovým integrátorům vysoce škálovatelnou a globálně dostupnou platformu pro vývoj mobilních aplikací.
@@ -68,7 +67,7 @@ U systémů pro mobilní zařízení v provozním prostředí jsou užitečné n
 
 * **Průběžné nasazování:** App Service umožňuje integraci s běžnými systémy správy dodavatelského řetězce (SCM), takže můžete automaticky nasadit novou verzi back-endu formou větvení tohoto systému.
 
-  Projděte si další informace o [možnostech nasazení].
+  Projděte si další informace o [možnostech nasazení](../app-service/app-service-deploy-local-git.md).
 
 * **Virtuální sítě:** App Service umožňuje připojení k místním prostředkům přes virtuální síť, Azure ExpressRoute nebo hybridní připojení.
 
@@ -87,7 +86,6 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [úvodní]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 [Xamarin.iOS a Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[automatickém škálování]: ../app-service-web/web-sites-scale.md
-[přípravná prostředí]: ../app-service-web/web-sites-staged-publishing.md
-[možnostech nasazení]: ../app-service-web/web-sites-deploy.md
+[automatickém škálování]: ../app-service/web-sites-scale.md
+[přípravná prostředí]: ../app-service/web-sites-staged-publishing.md
 [hybridní připojení]: ../biztalk-services/integration-hybrid-connection-overview.md
-[virtuální sítě]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[prostředích App Service]: ../app-service-web/app-service-app-service-environment-intro.md
+[virtuální sítě]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[prostředích App Service]: ../app-service/environment/intro.md
 [mapu kurzů]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

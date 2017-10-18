@@ -2,23 +2,24 @@
 title: "Vykreslování v cloudu pomocí služby Azure Batch Rendering | Dokumentace Microsoftu"
 description: "Úlohy vykreslování na virtuálních počítačích Azure přímo z aplikace Maya a s platbami za použití."
 services: batch
-author: tamram
+author: v-dotren
 manager: timlt
 ms.service: batch
 ms.topic: hero-article
-ms.date: 07/31/2017
-ms.author: tamram
+ms.date: 09/14/2017
+ms.author: danlep
+ms.openlocfilehash: 47ccbd89d5abf04034196ab735c6740d57099023
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4d22f92cafdbceee5213361d6d2b2f38904d12c6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-the-batch-rendering-service"></a>Začínáme se službou Batch Rendering
 
-Služba Azure Batch Rendering nabízí možnosti vykreslování škálované na cloud a s platbami za použití. Služba Batch Rendering zajišťuje plánování úloh a jejich zařazování do fronty, správu chyb a opakování a automatické škálování úloh vykreslování. Služba Batch Rendering podporuje aplikace Autodesk Maya, 3ds Max a Arnold a podpora dalších se připravuje. Modul plug-in služby Batch pro aplikaci Maya 2017 umožňuje snadné spouštění úloh vykreslování v Azure přímo z plochy. 
+Služba Azure Batch Rendering nabízí možnosti vykreslování škálované na cloud a s platbami za použití. Služba Batch Rendering zajišťuje plánování úloh a jejich zařazování do fronty, správu chyb a opakování a automatické škálování úloh vykreslování. Služba Batch Rendering podporuje aplikace [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) a [V-Ray](https://www.chaosgroup.com/vray/maya). Modul plug-in služby Batch pro aplikaci Maya 2017 umožňuje snadné spouštění úloh vykreslování v Azure přímo z plochy.
+
+V případě aplikací Maya a 3ds Max můžete úlohy spouštět pomocí desktopové aplikace [Batch Labs](https://github.com/Azure/BatchLabs) nebo [šablon rozhraní příkazového řádku služby Batch](batch-cli-templates.md). Pomocí rozhraní příkazového řádku služby Azure Batch můžete spouštět úlohy Batch bez psaní kódu. Místo toho můžete k vytvoření úkolů, úloh a fondů Batch použít šablony. Další informace najdete v tématu [Použití šablon rozhraní příkazového řádku služby Azure Batch a přenos souborů](batch-cli-templates.md).
+
 
 ## <a name="supported-applications"></a>Podporované aplikace
 
@@ -26,22 +27,23 @@ Služba Batch Rendering aktuálně podporuje následující aplikace:
 
 - Autodesk Maya
 - Autodesk 3ds Max
-- Autodesk Arnold
+- Autodesk Arnold pro Maya
+- Autodesk Arnold pro 3ds Max
+- Chaos Group V-Ray pro Maya
+- Chaos Group V-Ray pro 3ds Max
 
 ## <a name="prerequisites"></a>Požadavky
 
 Pokud chcete používat službu Batch Rendering, potřebujete:
 
-- [Účet Azure](https://azure.microsoft.com/free/). 
+- [Účet Azure](https://azure.microsoft.com/free/).
 - **Účet Azure Batch.** Pokyny k vytvoření účtu Batch na webu Azure Portal najdete v tématu [Vytvoření účtu Batch pomocí webu Azure Portal](batch-account-create-portal.md).
 - **Účet služby Azure Storage.** Ve službě Azure Storage se ukládají prostředky používané pro vaši úlohu vykreslování. Účet úložiště můžete vytvořit automaticky při nastavování účtu Batch. Můžete také použít existující účet úložiště. Další informace o účtech služby Storage najdete v tématu [Vytvoření, správa nebo odstranění účtu úložiště na webu Azure Portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 Pokud chcete používat modul plug-in služby Batch pro aplikaci Maya, potřebujete:
 
-- **Maya 2017**
-- **Arnold pro Maya**
-
-Pomocí webu [Azure Portal](https://portal.azure.com) můžete také vytvořit fondy virtuálních počítačů s předem nakonfigurovanými aplikacemi Maya, 3ds Max a Arnold. Pomocí portálu můžete monitorovat úlohy a diagnostikovat úkoly, které selhaly, stažením aplikačních protokolů a vzdáleným připojením k jednotlivým virtuálním počítačům pomocí protokolu RDP nebo SSH.
+- [Autodesk Maya 2017](https://www.autodesk.com/products/maya/overview).
+- Podporovaný renderer, například Arnold pro Maya nebo V-Ray pro Maya.
 
 ## <a name="basic-batch-concepts"></a>Koncepty služby Batch úrovně Basic
 
@@ -57,13 +59,68 @@ Další informace o fondech a výpočetních uzlech služby Batch najdete v čá
 
 **Úloha** služby Batch je kolekce úkolů, které se spouštějí na výpočetních uzlech ve fondu. Když odešlete úlohu vykreslování, služba Batch úlohu rozdělí na úkoly a ty distribuuje ke spuštění do výpočetních uzlů ve fondu.
 
+Pomocí webu [Azure Portal](https://ms.portal.azure.com/) můžete monitorovat úlohy a diagnostikovat úkoly, které selhaly, stažením aplikačních protokolů a vzdáleným připojením k jednotlivým virtuálním počítačům přes RDP nebo SSH. Správu, monitorování a ladění můžete provádět také pomocí [klienta Batch Labs](https://github.com/Azure/BatchLabs).
+
 Další informace o úlohách služby Batch najdete v části [Úloha](batch-api-basics.md#job) v tématu [Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch](batch-api-basics.md).
+
+## <a name="options-for-provisioning-required-applications"></a>Možnosti zřízení požadovaných aplikací
+
+V případě potřeby je možné pro vykreslení úlohy vyžádat více aplikací, například kombinaci Maya a Arnold nebo 3ds Max a V-Ray, stejně jako další moduly plug-in třetích stran. Zákazníci si navíc můžou vyžádat konkrétní verze těchto aplikací. Proto je k dispozici několik metod pro zřizování požadovaných aplikací a softwaru:
+
+### <a name="pre-configured-vm-images"></a>Předkonfigurované image virtuálních počítačů
+
+Azure poskytuje image Windows a Linuxu s předinstalovanými samostatnými verzemi aplikací Maya, 3ds Max, Arnold a V-Ray připravenými k použití. Tyto image můžete vybrat při vytváření fondu na webu [Azure Portal](https://portal.azure.com), v modulu plug-in Maya nebo v aplikaci [Batch Labs](https://github.com/Azure/BatchLabs).
+
+Na webu Azure Portal a v aplikaci Batch Labs můžete některou k imagí virtuálních počítačů s předinstalovanými aplikacemi nainstalovat následujícím způsobem: V části Fondy vašeho účtu Batch vyberte **Nový** a pak v části **Přidat fond** z rozevíracího seznamu **Typ image** vyberte **Grafika a Vykreslování (Linux/Windows)**:
+
+![Výběr typu image pro účet Batch](./media/batch-rendering-service/add-pool.png)
+
+Přejděte dolů, kliknutím na **Licencování grafiky a vykreslování** otevřete okno **Zvolte licence** a vyberte jednu nebo více licencí na software:
+
+![Výběr licence na grafiku a vykreslování pro fond](./media/batch-rendering-service/graphics-licensing.png)
+
+Tady jsou konkrétní zadané verze licencí:
+
+- Maya 2017
+- 3ds Max 2018
+- Arnold pro Maya 5.0.1.1
+- Arnold pro 3ds Max 1.0.836
+- V-Ray pro Maya 3.52.03
+- V-Ray pro 3ds Max 3.60.01
+
+### <a name="custom-images"></a>Vlastní image
+
+Azure Batch umožňuje zadání vlastní image. Pomocí této možnosti můžete na virtuálním počítači nakonfigurovat konkrétní aplikace a verze, které požadujete. Další informace najdete v tématu popisujícím [použití vlastní image k vytvoření fondu virtuálních počítačů](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images). Poznámka: Společnosti Autodesk a Chaos Group nakonfigurovaly aplikace Arnold a V-Ray k ověření u naší vlastní licenční služby. Budete muset zajistit, že máte verze těchto aplikací s touto podporou, jinak licencování s platbami za použití nebude fungovat. U aplikací Maya a 3ds Max toto ověření licencí není nutné, protože aktuální publikované verze při bezobslužném spouštění (v dávkovém režimu nebo v režimu příkazového řádku) nevyžadují licenční server. Pokud si u této možnosti nejste jisti dalším postupem, kontaktujte podporu Azure.
+
+## <a name="options-for-submitting-a-render-job"></a>Možnosti odeslání úlohy vykreslování
+
+V závislosti na 3D aplikaci, kterou používáte, existují pro odeslání úloh vykreslování do služby různé možnosti:
+
+### <a name="maya"></a>Maya
+
+V případě aplikace Maya můžete použít:
+
+- [Modul plug-in služby Batch pro Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- Desktopovou aplikaci [Batch Labs](https://github.com/Azure/BatchLabs)
+- [Šablony rozhraní příkazového řádku služby Batch](batch-cli-templates.md)
+
+### <a name="3ds-max"></a>3ds Max
+
+V případě aplikace 3ds Max můžete použít:
+
+- Desktopovou aplikaci [Batch Labs](https://github.com/Azure/BatchLabs) (pokyny k použití šablon Batch Labs pro 3ds Max najdete v úložišti [Batch Labs Data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) na GitHubu)
+- [Šablony rozhraní příkazového řádku služby Batch](batch-cli-templates.md)
+
+Šablony Batch Labs pro 3ds Max umožňují pomocí služby Azure Batch Rendering vykreslovat scény VRay a Arnold. Existují dvě varianty šablon pro VRay a Arnold, jedna pro standardní scény a jedna pro složitější scény, které vyžadují soubor cest 3ds Max k prostředkům a texturám (soubor .mxp). Další informace o šablonách Batch Labs pro 3ds Max najdete v úložišti [Batch Labs Data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) na GitHubu.
+
+Kromě toho můžete pomocí sady [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) integrovat službu vykreslování do svého existujícího kanálu.
+
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Odeslání úlohy vykreslování pomocí modulu plug-in služby Batch pro aplikaci Maya
 
 S modulem plug-in služby Batch pro aplikaci Maya můžete úlohu odeslat do služby Batch Rendering přímo z aplikace Maya. Následující části popisují, jak v modulu plug-in nakonfigurovat úlohu a pak ji odeslat. 
 
-### <a name="load-the-batch-plug-in-in-maya"></a>Načtení modulu plug-in služby Batch v aplikaci Maya
+### <a name="load-the-batch-plug-in-for-maya"></a>Načtení modulu plug-in služby Batch pro Maya
 
 Modul plug-in služby Batch je k dispozici na [GitHubu](https://github.com/Azure/azure-batch-maya/releases). Rozbalte archiv do libovolného adresáře. Modul plug-in můžete načíst přímo z adresáře *azure_batch_maya*.
 

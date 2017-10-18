@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Využití Azure Security Center při reakci na incidenty
 Mnoho organizací se naučí reagovat na incidenty zabezpečení teprve když se stanou obětí útoku. Kvůli snížení nákladů a minimalizaci škod je důležité mít hotový plán reakce na incidenty ještě před tím, než k útoku dojde. Azure Security Center můžete využít v různých fázích reakce na incidenty.
@@ -83,7 +83,7 @@ Judy se přihlásila k portálu Azure Portal a pracuje v konzole Security Center
    > Pro účely tohoto scénáře provede Judy vyhodnocení výstrahy Škodlivá aktivita SQL, jak je znázorněno na předchozím obrázku.
    >
    >
-2. Klikněte na tlačítko **škodlivý SQL aktivity** výstrahy a zkontrolujte attacked prostředky v **škodlivý SQL aktivity** okno: ![podrobnosti incidentu](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Klikněte na výstrahu **Škodlivá aktivita SQL** a zkontrolujte napadené prostředky v okně **Škodlivá aktivita SQL**: ![Podrobnosti o incidentu](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     V tomto okně si Judy může dělat poznámky týkající se napadených prostředků, četnosti útoku a době jeho zjištění.
 3. Kliknutím na **napadený prostředek** získáte další informace o daném útoku.

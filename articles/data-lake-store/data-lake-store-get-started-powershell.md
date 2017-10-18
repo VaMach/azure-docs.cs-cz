@@ -12,32 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: f78385e8ce96567f5a1e669ecf4a6c2efce3aaeb
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 3428c3852f156df850f4b9e8833d15f4ae32729d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Začínáme s Azure Data Lake Store pomocí Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
 >
 >
 
 Naučte se používat Azure PowerShell k vytvoření účtu Azure Data Lake Store a provádění základních operací, jako je vytváření složek, nahrávání a stahování datových souborů, odstranění účtu atd. Další informace týkající se Data Lake Store najdete v tématu [Přehled Data Lake Store](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Požadavky
-Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 nebo vyšší**. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
@@ -46,7 +39,7 @@ Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 Tento článek používá jednodušší přístup k ověřování ve službě Data Lake Store, kdy jste vyzváni k zadání svých pověření pro účet Azure. Úroveň přístupu k účtu služby Data Lake Store a systému souborů se pak řídí úrovní přístupu přihlášeného uživatele. Existují však i jiné přístupy k ověřování ve službě Data Lake Store. Je to **ověřování koncového uživatele** nebo **ověřování služba-služba**. Pokyny a další informace o ověřování najdete v tématu [Ověřování koncových uživatelů](data-lake-store-end-user-authenticate-using-active-directory.md) nebo [Ověřování služba-služba](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Vytvoření účtu Azure Data Lake Store
-1. Otevřete na ploše nové okno Windows PowerShellu, zadejte následující fragment kódu a přihlaste se tak k účtu Azure. Nastavte předplatné a zaregistrujte poskytovatele Data Lake Store. Po zobrazení výzvy k přihlášení se nezapomeňte přihlásit jako jeden ze správců / vlastník předplatného:
+1. Otevřete na ploše nové okno Windows PowerShellu. Zadejte následující fragment kódu a přihlaste se tak k účtu Azure. Nastavte předplatné a zaregistrujte poskytovatele Data Lake Store. Po zobrazení výzvy k přihlášení se nezapomeňte přihlásit jako jeden ze správců / vlastník předplatného:
 
         # Log in to your Azure account
         Login-AzureRmAccount
@@ -75,7 +68,7 @@ Tento článek používá jednodušší přístup k ověřování ve službě Da
 
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-    Výstup této položky musí být **True** (pravda).
+    Výstup této rutiny by měl být **True** (pravda).
 
 ## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Vytváření struktur adresářů v Azure Data Lake Store
 V rámci účtu Azure Data Lake Store můžete vytvářet adresáře, které slouží ke správě a ukládání dat.
@@ -90,12 +83,12 @@ V rámci účtu Azure Data Lake Store můžete vytvářet adresáře, které slo
 
         Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -Path $myrootdir
 
-    Zobrazený výstup by měl vypadat asi takto:
+    Měl by se zobrazit výstup jako na následujícím snímku obrazovky:
 
     ![Ověření adresáře](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Ověření adresáře")
 
 ## <a name="upload-data-to-your-azure-data-lake-store"></a>Nahrání dat do Azure Data Lake Store
-Data můžete do Data Lake Store nahrát přímo na úrovni kořenového adresáře nebo do adresáře, který jste v rámci účtu vytvořili. Níže zobrazené fragmenty kódu ukazují, jak nahrát ukázková data do adresáře (**mynewdirectory**), který jste vytvořili v předchozí části.
+Data můžete do služby Data Lake Store nahrát přímo na úrovni kořenového adresáře nebo do adresáře, který jste v rámci účtu vytvořili. Fragmenty kódu v této části ukazují, jak nahrát ukázková data do adresáře (**mynewdirectory**), který jste vytvořili v předchozí části.
 
 Pokud hledáte ukázková data, která byste mohli nahrát, můžete použít složku **Ambulance Data** z [úložiště Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Stáhněte si tento soubor a uložte ho do místního adresáře v počítači, například C:\sampledata\.
 
@@ -126,81 +119,9 @@ Následujícím příkazem odstraňte účet Data Lake Store.
 
 Po zobrazení výzvy zadejte **Y**, a účet tak odstraňte.
 
-## <a name="performance-guidance-while-using-powershell"></a>Průvodce výkonem při použití prostředí PowerShell
-
-V následující tabulce jsou nejdůležitější nastavení, která můžete ladit pro získání nejlepšího výkonu při práci se službou Data Lake Store pomocí prostředí PowerShell:
-
-| Vlastnost            | Výchozí | Popis |
-|---------------------|---------|-------------|
-| PerFileThreadCount  | 10      | Pomocí tohoto parametru můžete zvolit počet paralelních vláken pro nahrávání nebo stahování jednotlivých souborů. Toto číslo představuje maximální počet vláken, která lze přidělit pro jednotlivé soubory, ale v závislosti na vašem scénáři můžete dostat méně vláken (například pokud nahráváte soubor o velikosti 1 kB, dostanete jedno vlákno, a to i když požadujete třeba 20 vláken).  |
-| ConcurrentFileCount | 10      | Tento parametr je určený zejména pro nahrávání nebo stahování složek. Tento parametr určuje počet souborů, které lze souběžně nahrávat nebo stahovat. Toto číslo představuje maximální počet souborů, které lze souběžně v jednu chvíli nahrávat nebo stahovat, ale v závislosti na vašem scénáři můžete dostat nižší souběžnost (například pokud nahráváte dva soubory, dostanete dvě souběžná nahrávání souborů, a to i když požadujete třeba 15). |
-
-**Příklad**
-
-Tento příkaz stáhne soubory z Azure Data Lake Store na místní jednotku a použije k tomu 20 vláken na soubor a 100 souběžných souborů.
-
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
-
-### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Jak určím hodnotu, kterou mám těmto parametrům nastavit?
-
-Tady je několik rad, kterými se můžete řídit.
-
-* **Krok 1: Určení celkového počtu vláken** – Měli byste začít výpočtem celkového počtu vláken, která se mají použít. Podle obecných pokynů byste měli použít 6 vláken na každé fyzické jádro.
-
-        Total thread count = total physical cores * 6
-
-    **Příklad**
-
-    Předpokládejme, že spouštíte příkazy prostředí PowerShell z virtuálního počítače D14, který má 16 jader.
-
-        Total thread count = 16 cores * 6 = 96 threads
-
-
-* **Krok 2: Výpočet hodnoty PerFileThreadCount** – Hodnotu PerFileThreadCount vypočítáme na základě velikosti souborů. Pro soubory menší než 2,5 GB není nutné tento parametr měnit, výchozí hodnota 10 je postačující. Pro soubory větší než 2,5 GB byste měli použít jako základ 10 vláken pro prvních 2,5 GB a přidat 1 vlákno za každý další nárůst velikosti souboru o 256 MB. Pokud kopírujete složku se soubory velmi rozdílných velikostí, zvažte jejich seskupení podle podobných velikostí. Velmi rozdílné velikosti souborů mohou způsobit, že výkon nebude optimální. Pokud není možné seskupit soubory podle podobných velikostí, měli byste hodnotu PerFileThreadCount nastavit podle největší velikosti souboru.
-
-        PerFileThreadCount = 10 threads for the first 2.5GB + 1 thread for each additional 256MB increase in file size
-
-    **Příklad**
-
-    Předpokládejme, že máte 100 souborů o velikosti od 1 GB až do 10 GB. Použijeme tedy 10GB jako největší velikost souboru a dosadíme ji do rovnice, která bude vypadat nějak takto.
-
-        PerFileThreadCount = 10 + ((10GB - 2.5GB) / 256MB) = 40 threads
-
-* **Krok 3: Výpočet hodnoty ConcurrentFilecount** – Vypočítejte hodnotu ConcurrentFileCount pomocí celkového počtu vláken a hodnoty PerFileThreadCount, které dosadíte do následující rovnice.
-
-        Total thread count = PerFileThreadCount * ConcurrentFileCount
-
-    **Příklad**
-
-    Podle ukázkových hodnot, které používáme:
-
-        96 = 40 * ConcurrentFileCount
-
-    Takže hodnota **ConcurrentFileCount** je **2.4**, což můžeme zaokrouhlit na **2**.
-
-### <a name="further-tuning"></a>Další ladění
-
-Možná budete vyžadovat další ladění, protože existuje velká škála velikostí souborů, se kterými můžete pracovat. Předchozí výpočty dobře fungují v případě, že se velikost všech nebo většiny souborů pohybuje okolo 10 GB. Pokud ale bude existovat mnoho různých velikostí souborů a mnoho jich bude menších, mohli byste hodnotu PerFileThreadCount snížit. Díky snížení hodnoty PerFileThreadCount můžeme zvýšit hodnotu ConcurrentFileCount. Takže pokud předpokládáme, že většina našich souborů je menších a pohybuje se okolo 5 GB, můžeme znovu provést výpočet:
-
-    PerFileThreadCount = 10 + ((5GB - 2.5GB) / 256MB) = 20
-
-Hodnota **ConcurrentFileCount** nyní tedy bude 96/20, což je 4,8 a po zaokrouhlení **4**.
-
-Tato nastavení můžete dále ladit zvýšením nebo snížením hodnoty **PerFileThreadCount** v závislosti na rozložení velikostí souborů.
-
-### <a name="limitation"></a>Omezení
-
-* **Počet souborů je menší než hodnota ConcurrentFileCount**: Pokud je počet souborů, které nahráváte, menší než hodnota **ConcurrentFileCount**, kterou jste vypočítali, měli byste snížit hodnotu **ConcurrentFileCount** tak, aby se rovnala počtu souborů. Zbývající vlákna můžete použít ke zvýšení hodnoty **PerFileThreadCount**.
-
-* **Příliš mnoho vláken**: Pokud příliš zvýšíte počet vláken a nezvětšíte velikost clusteru, riskujete tím snížení výkonu. Může docházet ke kolizím při přepínání kontextu na procesoru.
-
-* **Nedostatečná souběžnost**: Pokud souběžnost není dostatečná, může to být způsobeno malou velikostí clusteru. Můžete zvýšit počet uzlů v clusteru a získat tak větší souběžnost.
-
-* **Chyby omezování**: Pokud je souběžnost příliš vysoká, může docházet k chybám omezování. Pokud dochází k chybám omezování, měli byste buď snížit souběžnost, nebo nás kontaktovat.
-
 ## <a name="next-steps"></a>Další kroky
+* [Průvodce laděním výkonu pro použití PowerShellu se službou Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
+* [Použití Azure Data Lake Store pro potřeby velkého objemu dat](data-lake-store-data-scenarios.md) 
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Použití Azure HDInsight se službou Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-

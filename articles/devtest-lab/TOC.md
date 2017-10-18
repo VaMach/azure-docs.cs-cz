@@ -16,6 +16,7 @@
 ### [Vytvoření virtuálních počítačů](devtest-lab-add-vm.md)
 ### [Vytvoření virtuálního počítače s možností deklarace identity](devtest-lab-add-claimable-vm.md)
 ### [Vytvoření a správa virtuálních počítačů pomocí Azure CLI](devtest-lab-vmcli.md)
+### [Restartování virtuálního počítače](devtest-lab-restart-vm.md)
 
 ## Použití prostředí v testovacím prostředí
 ### [Vytvoření prostředí](devtest-lab-create-environment-from-arm.md)
@@ -57,8 +58,8 @@
 ## [Škálování testovacího prostředí](devtest-lab-scale-lab.md)
 
 # Referenční informace
-## [Azure CLI](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Automatická tvorba a úpravy testovacích prostředí](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Šablony Resource Manageru](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

@@ -22,6 +22,7 @@
 
 # Postup
 ## Plánování a návrh
+### [Geografické zotavení po havárii a geografická replikace](event-hubs-geo-dr.md)
 ### [Vyhrazené služby Event Hubs](event-hubs-dedicated-overview.md)
 ### [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)
 ### [Dostupnost a konzistence](event-hubs-availability-and-consistency.md)
