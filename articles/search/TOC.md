@@ -68,7 +68,7 @@
 ### [Návrhy](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Fasetová navigace](search-faceted-navigation.md)
 ### [Náhled synonym](search-synonyms.md)
-
+### [Filtry zabezpečení](search-security-trimming-for-azure-search.md)
 # Referenční informace
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)

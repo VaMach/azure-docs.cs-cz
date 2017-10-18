@@ -44,41 +44,49 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurace MSI pro virtuální počítač Azure
       items:
-        - name: S využitím webu Azure Portal
+        - name: Pomocí webu Azure Portal
           href: msi-qs-configure-portal-windows-vm.md
-        - name: S využitím PowerShellu
+        - name: Pomocí prostředí PowerShell
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: S využitím rozhraní příkazového řádku Azure
+        - name: Použití Azure CLI
           href: msi-qs-configure-cli-windows-vm.md
-        - name: S využitím šablon Azure Resource Manageru
+        - name: Pomocí šablony Azure Resource Manageru
           href: msi-qs-configure-template-windows-vm.md
-        - name: S využitím Azure SDK
+        - name: Pomocí sady Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Přiřazení přístupu MSI k prostředku Azure
+    - name: Udělení přístupu MSI virtuálního počítače k Resource Manageru
       items:
-        - name: S využitím webu Azure Portal
+        - name: Pomocí webu Azure Portal
           href: msi-howto-assign-access-portal.md
-        - name: S využitím PowerShellu
+        - name: Pomocí prostředí PowerShell
           href: msi-howto-assign-access-powershell.md
-        - name: S využitím rozhraní příkazového řádku Azure
+        - name: Použití Azure CLI
           href: msi-howto-assign-access-cli.md
-    - name: Použití MSI pro přístup k Azure Resource Manageru
+    - name: Použití MSI virtuálního počítače pro přístup k Azure Resource Manageru
       items:
-        - name: Virtuální počítač s Windows
+        - name: Z virtuálního počítače s Windows
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Virtuální počítač s Linuxem
+        - name: Z virtuálního počítače s Linuxem
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Použití MSI pro přístup k úložišti Azure
+    - name: Použití MSI virtuálního počítače pro přístup k Azure SQL
       items:
-        - name: Virtuální počítač s Windows
+        - name: Z virtuálního počítače s Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Použití MSI virtuálního počítače pro přístup k úložišti Azure
+      items:
+        - name: Z virtuálního počítače s Windows pomocí přístupového klíče
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Virtuální počítač s Linuxem
+        - name: Z virtuálního počítače s Windows pomocí SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Z virtuálního počítače s Linuxem pomocí přístupového klíče
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Použití MSI pro přístup k prostředku AD mimo Azure
+        - name: Z virtuálního počítače s Linuxem pomocí SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Použití MSI virtuálního počítače pro přístup ke službě Azure Key Vault
       items:
-        - name: Virtuální počítač s Windows
+        - name: Z virtuálního počítače s Windows
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Virtuální počítač s Linuxem
+        - name: Z virtuálního počítače s Linuxem
           href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Nejčastější dotazy a známé problémy
       href: msi-known-issues.md

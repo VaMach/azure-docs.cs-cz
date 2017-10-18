@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Architektura replikace z Hyper-V do sekundární lokality
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Systém podpory replikace z Azure do Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: Systém podpory replikace z místního prostředí do Azure
       href: site-recovery-support-matrix-to-azure.md
     - name: Systém podpory replikace z místního prostředí do sekundární lokality

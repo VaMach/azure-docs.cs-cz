@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: Dokumentace k Microsoft Azure
 description: "Naučte se vytvářet a spravovat výkonné aplikace pomocí cloudových služeb Microsoft Azure. Získejte dokumentaci, ukázkový kód, výukové kurzy a další materiály."
-ms.openlocfilehash: 05a288bf8ccbc70bb5ce5c52b0e85e0f784c7f3e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e87391e9662991a542ad58eafd9b4c2714f30d66
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -159,8 +159,7 @@ ms.lasthandoff: 10/11/2017
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Funkce bez serveru</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Kontejnery s Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Kontejnery</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Mikroslužby se Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -635,7 +634,7 @@ ms.lasthandoff: 10/11/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-spell-check/proof-text">
+                                            <a href="/azure/cognitive-services/bing-spell-check/">
                                                 <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
                                                 <p>Kontrola pravopisu Bingu</p>
                                             </a>
@@ -671,31 +670,31 @@ ms.lasthandoff: 10/11/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-news-search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-news-Search/search-the-web">
                                                 <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
                                                 <p>Zprávy Bingu</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-video-search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
                                                 <img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />
                                                 <p>Vyhledávání videí Bingu</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-web-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-web-search/">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Webové vyhledávání Bingu</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms">
+                                            <a href="/azure/cognitive-services/Bing-Autosuggest">
                                                 <img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />
                                                 <p>Automatické návrhy Bingu</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-custom-search/overview">
+                                            <a href="/azure/cognitive-services/bing-custom-search">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Vlastní vyhledávání Bingu</p>
                                             </a>
@@ -707,7 +706,7 @@ ms.lasthandoff: 10/11/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-image-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-image-search">
                                                 <img src="media/index/API_Sear_BingImageSearch.svg" alt="" />
                                                 <p>Vyhledávání obrázků Bingu</p>
                                             </a>
@@ -2613,7 +2612,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                         <h3>Jazyk</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/proof-text"><img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />Kontrola pravopisu Bingu</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />Kontrola pravopisu Bingu</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" /><span>Služba LUIS (Language Understanding Intelligent Services)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
@@ -2678,22 +2677,21 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />Zprávy Bingu</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-video-search/search-the-web"><img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />Vyhledávání videí Bingu</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />Vyhledávání videí Bingu</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" />Webové vyhledávání Bingu</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Sear_BingSearch.svg" alt="" />Webové vyhledávání Bingu</a>
+                                                            </li>
+                                                            <li>                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Automatické návrhy Bingu</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Automatické návrhy Bingu</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Vlastní vyhledávání Bingu</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Vlastní vyhledávání Bingu</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Vyhledávání entit Bingu&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Vyhledávání entit Bingu</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search/search-the-web"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Vyhledávání obrázků Bingu</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Vyhledávání obrázků Bingu</a>
                                                             </li>
                                                         </ul>
                                                     </div>

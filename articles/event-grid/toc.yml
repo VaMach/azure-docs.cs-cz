@@ -6,8 +6,12 @@
       href: overview.md
 - name: Šablony Rychlý start
   items:
-    - name: Vytváření a směrování vlastních událostí
+    - name: Vytvoření vlastní události – Azure CLI
       href: custom-event-quickstart.md
+    - name: Vytvoření vlastní události – Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Vytvoření vlastní události – Azure Portal
+      href: custom-event-quickstart-portal.md
 - name: Kurzy
   items:
     - name: Monitorování změn virtuálních počítačů pomocí aplikací logiky

@@ -13,15 +13,13 @@
 ## [Plánování a provoz](security-center-planning-and-operations-guide.md)
 ## [Oprávnění](security-center-permissions.md)
 ## [Podporované platformy](security-center-os-coverage.md)
-## [Integrace partnerských řešení](security-center-partner-integration.md)
 ## [Nejčastější dotazy](security-center-faq.md)
 
 # Postup
-
-## Zásady zabezpečení
-### [Přehled](security-center-policies-overview.md)
+## [Zásady zabezpečení](security-center-policies-overview.md)
 ### [Shromažďování dat](security-center-enable-data-collection.md)
 ### [Zásady zabezpečení](security-center-policies.md)
+### [Zásady zabezpečení s využitím zásad Azure](security-center-azure-policy.md)
 ### [E-mailová oznámení](security-center-provide-security-contact-details.md)
 ### [Cenová úroveň](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Search](security-center-search.md)
 
 ## Prevence
+### [Řešení zabezpečení](security-center-partner-integration.md)
+#### [Monitorování připojených řešení](security-center-partner-solutions.md)
+#### [Připojení Microsoft ATA](security-center-ata-integration.md)
+#### [Připojení Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implementace doporučení pro zabezpečení](security-center-recommendations.md)
 ### [Doporučení pro aplikace](security-center-application-recommendations.md)
 #### [Přidání brány firewall webových aplikací](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [Aktualizace verze operačního systému](security-center-update-os-version.md)
 #### [Není nainstalováno posouzení ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorování stavu zabezpečení](security-center-monitoring.md)
-### [Monitorování partnerských řešení](security-center-partner-solutions.md)
 ### [Identita a přístup](security-center-identity-access.md)
 
 ## Rozpoznání a odezva

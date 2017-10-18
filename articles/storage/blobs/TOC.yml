@@ -28,6 +28,8 @@
           href: storage-secure-access-application.md
         - name: 4. Monitorování a odstraňování potíží s úložištěm
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Prohledávání nestrukturovaných dat v cloudovém úložišti
+      href: storage-unstructured-search.md
 - name: Ukázky
   items:
     - name: Azure PowerShell

@@ -21,6 +21,12 @@
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Koncepty
+  items:
+    - name: Skladové položky služby Container Registry
+      href: container-registry-skus.md
+    - name: Geografická replikace (Preview)
+      href: container-registry-geo-replication.md
 - name: Návody
   items:
     - name: Nabízená a vyžádaná instalace image
@@ -43,8 +49,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: Zdroje
   items:
-    - name: Plány Azure do budoucna
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Plán
+      href: 'https://aka.ms/acr/roadmap'
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Dostupnost v oblastech
