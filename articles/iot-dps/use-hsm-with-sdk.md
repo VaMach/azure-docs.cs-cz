@@ -1,6 +1,6 @@
 ---
-title: "Postup pro Azure – Použití různých HSM pomocí klientské sady SDK služby Device Provisioning | Dokumentace Microsoftu"
-description: "Postup pro Azure – Použití různých HSM s fyzickými zařízeními a simulátory pomocí klientské sady SDK služby Device Provisioning"
+title: "Postup pro Azure – Použití různých modelů hardwarového zabezpečení pomocí klientské sady SDK služby Device Provisioning v Azure | Dokumentace Microsoftu"
+description: "Postup pro Azure – Použití různých modelů hardwarového zabezpečení pomocí klientské sady SDK služby Device Provisioning v Azure"
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,14 +12,12 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: a5649ab873993d20803cb01a4b0ecc278c3ce16c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Použití různých modulů hardwarového zabezpečení pomocí klientské sady SDK služby Device Provisioning
 Tyto kroky ukazují, jak použít různé [moduly hardwarového zabezpečení (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) pomocí klientské sady SDK služby Device Provisioning v jazyce C s využitím fyzického zařízení a simulátoru.  Zřizovací služba podporuje dva režimy ověřování: X**.**509 a TPM (Trusted Platform Module).
 
@@ -150,4 +148,3 @@ Po zřízení zařízení pomocí zřizovací služby se toto rozhraní API při
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

@@ -3,7 +3,7 @@ title: "Aktualizace řešení pro správu v OMS | Dokumentace Microsoftu"
 description: "Tento článek vám objasní, jak toto řešení používat ke správě aktualizací pro počítače s Windows a Linuxem."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Aktualizace řešení pro správu v OMS
 
 ![Symbol správy aktualizací](./media/oms-solution-update-management/update-management-symbol.png)
 
 Řešení Update Management v OMS umožňuje spravovat aktualizace zabezpečení operačního systému pro počítače s Windows nebo Linuxem nasazené v Azure, místních prostředích nebo u jiných poskytovatelů cloudu.  Můžete rychle vyhodnotit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro servery.
+
+## <a name="update-management-in-azure-automation"></a>Správa aktualizací ve službě Azure Automation
+
+Správu aktualizací pro virtuální počítače můžete povolit přímo ze svého účtu [Azure Automation](../automation/automation-offering-get-started.md).
+Informace o povolení správy aktualizací pro virtuální počítače z účtu Automation najdete v tématu [Správa aktualizací pro několik virtuálních počítačů](../automation/manage-update-multi.md).
 
 
 ## <a name="solution-overview"></a>Přehled řešení
@@ -307,11 +311,17 @@ V následující tabulce jsou uvedeny ukázky hledání v protokolech pro zázna
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Seznam všech balíčků pro řešení kritické chyby nebo chyby zabezpečení | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Vypsat nasazení aktualizací, která provedla úpravy počítačů | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Počítače aktualizované při této hromadné postupné aktualizaci (nahraďte hodnotu názvem vašeho nasazení aktualizací) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Seznam všech počítačů s Ubuntu s jakoukoli dostupnou aktualizací | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Seznam všech počítačů s Ubuntu s jakoukoli dostupnou aktualizací |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>Integrace se System Center Configuration Managerem
+
+Zákazníci, kteří investovali do System Center Configuration Manageru pro správu počítačů, serverů a mobilních zařízení, využívají jeho sílu a další přednosti také při správě aktualizací softwaru jako součást cyklu správy aktualizací softwaru (SUM).
+
+Informace o integraci řešení OMS Update Management se Sytem Center Configuration Managerem najdete v tématu [Integrace Sytem Center Configuration Manageru s OMS Update Managementem](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Řešení potíží
 
-Tato část obsahuje informace, které vám pomohou s řešením potíží s řešením pro správu aktualizací.  
+Tato část obsahuje informace, které vám pomohou s řešením potíží s řešením pro správu aktualizací.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Jak řešit potíže s připojováním?
 Pokud při pokusech o připojení řešení nebo virtuálního počítače dochází k potížím, zkontrolujte, jestli jsou v protokolu událostí **Protokoly aplikací a služeb\Operations Manager** události s ID události 4502 a zprávou události obsahující **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  V následující tabulce najdete konkrétní chybové zprávy a možné řešení pro každou z nich.  
@@ -333,4 +343,3 @@ Další informace najdete v tématu [Výstup a zprávy runbooku Automation](../a
 * K zobrazení podrobných údajů o aktualizaci použijte Hledání v protokolu služby [Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * [Vytvářejte vlastní řídicí panely](../log-analytics/log-analytics-dashboards.md) zobrazující shodu aktualizace pro vaše spravované počítače.
 * [Vytvářejte výstrahy](../log-analytics/log-analytics-alerts.md) při zjištění, že v počítačích chybí důležité aktualizace nebo že má počítač zakázané automatické aktualizace.  
-

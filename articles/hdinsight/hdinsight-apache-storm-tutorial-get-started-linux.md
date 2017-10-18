@@ -13,15 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: 56905a457f972d1820e56dca00c42686bcad5453
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Začínáme s Apache Storm v HDInsight pomocí příkladů topologie Storm Starter
 
@@ -44,7 +43,7 @@ Apache Storm je škálovatelný výpočetní systém v reálném čase odolný p
 
 Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
-1. Na webu [Azure Portal](https://portal.azure.com) vyberte **+ NOVÉ**, **Inteligentní funkce a analýzy** a pak **HDInsight**.
+1. Na webu [Azure Portal](https://portal.azure.com) vyberte **+ NOVÝ**, **Data a analýzy** a pak **HDInsight**.
 
     ![Vytvoření clusteru HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -57,7 +56,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
     * **Skupina prostředků:** Skupina prostředků, ve které se cluster vytváří.
     * **Umístění:** Oblast Azure, ve které se cluster vytváří.
 
-    ![Výběr předplatného](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![Výběr předplatného](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. Vyberte **Typ clusteru** a pak v okně **Konfigurace clusteru** zadejte tyto hodnoty:
 
@@ -69,7 +68,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
     * **Úroveň clusteru:** Standard
 
-    Nakonec uložte nastavení tlačítkem **Vybrat**.
+   Nakonec uložte nastavení tlačítkem **Vybrat**.
 
     ![Výběr typu clusteru](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -79,7 +78,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
     ![Nastavení účtu úložiště pro HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. V okně **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec stisknutím tlačítka Vytvořit cluster vytvořte.
+6. V okně **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec pomocí tlačítka __Vytvořit__ cluster vytvořte.
 
     ![Souhrn konfigurace clusteru](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -92,7 +91,11 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    Pokud jste použili heslo k zabezpečení uživatelského účtu SSH, zobrazí se výzva k jeho zadání. Pokud jste použili veřejný klíč, bude pravděpodobně muset použít parametr `-i` k určení odpovídajícího privátního klíče. Například, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > [!TIP]
+    > Váš klient SSH může hlásit nemožnost potvrzení pravosti hostitele. V takovém případě zadejte `yes` a pokračujte.
+
+    > [!NOTE]
+    > Pokud jste použili heslo k zabezpečení uživatelského účtu SSH, zobrazí se výzva k jeho zadání. Pokud jste použili veřejný klíč, bude pravděpodobně muset použít parametr `-i` k určení odpovídajícího privátního klíče. Například, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -118,7 +121,7 @@ Uživatelské rozhraní Storm poskytuje webové rozhraní pro práci se spuště
 
 Ke sledování topologie pomocí uživatelského rozhraní Storm použijte následující kroky:
 
-1. Pokud chcete zobrazit uživatelské rozhraní Storm, ve webovém prohlížeči otevřete stránku https://CLUSTERNAME.azurehdinsight.net/stormui. Nahraďte **CLUSTERNAME** názvem vašeho clusteru.
+1. Pokud chcete zobrazit uživatelské rozhraní Storm, otevřete ve webovém prohlížeči adresu `https://CLUSTERNAME.azurehdinsight.net/stormui`. Nahraďte **CLUSTERNAME** názvem vašeho clusteru.
 
     > [!NOTE]
     > Pokud budete vyzváni k zadání uživatelského jména a hesla, zadejte správce clusteru (admin) a heslo použité při vytvoření clusteru.
@@ -210,4 +213,3 @@ Příklady topologií, které se dají použít se systémem Storm ve službě H
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
-

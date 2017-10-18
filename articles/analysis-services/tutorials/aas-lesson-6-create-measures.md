@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-6-create-measures"></a>Lekce 6: Vytvoření měr
 
@@ -53,7 +52,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    Všimněte si, že levá horní buňka teď obsahuje název míry **DaysCurrentQuarterToDate**, za nímž následuje výsledek **92**.
+    Všimněte si, že levá horní buňka teď obsahuje název míry **DaysCurrentQuarterToDate**, za nímž následuje výsledek **92**. Výsledek v tuto chvíli není důležitý, protože se nepoužil žádný filtr uživatele.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
     |TaxAmt|InternetTotalTaxAmt|Součet|=SUMA([TaxAmt])|  
     |Freight|InternetTotalFreight|Součet|=SUMA([Freight])|  
   
-2.  Kliknutím na prázdnou buňku v mřížce měr a použitím řádku vzorců vytvořte a pojmenujte následující míry v daném pořadí:  
+2.  Kliknutím na prázdnou buňku v mřížce měr a použitím řádku vzorců vytvořte následující vlastní míry v daném pořadí:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ Míry vytvořené pro tabulku FactInternetSales slouží k analýze kritických 
 [Lekce 7: Vytvoření klíčových ukazatelů výkonu](../tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 
   
-

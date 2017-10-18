@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>Lekce 4: Vytvoření relací
 
@@ -34,7 +33,10 @@ Odhadovaný čas dokončení této lekce: **10 minut**
 Toto téma je součástí kurzu tabelárního modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 3: Označení jako tabulky kalendářních dat](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Kontrola existujících relací a přidání nových relací  
-Při importu dat pomocí funkce Získání dat jste z databáze AdventureWorksDW2014 získali sedm tabulek. Obecně platí, že při importu dat z relačního zdroje se společně s daty automaticky importují i existující relace. Přesto byste však před tím, než budete pokračovat ve vytváření modelu, měli ověřit správné vytvoření těchto relací mezi tabulkami. Pro účely tohoto kurzu přidáte tři nové relace.  
+Při importu dat pomocí funkce Získání dat jste z databáze AdventureWorksDW2014 získali sedm tabulek. Obecně platí, že při importu dat z relačního zdroje se společně s daty automaticky importují i existující relace. Aby mohla funkce Získání dat automaticky vytvořit relace v datovém modelu, musí existovat relace mezi tabulkami ve zdroji dat.
+
+Než budete pokračovat ve vytváření modelu, měli byste ověřit správné vytvoření těchto relací mezi tabulkami. Pro účely tohoto kurzu také přidáte tři nové relace.  
+
   
 #### <a name="to-review-existing-relationships"></a>Kontrola existujících relací  
   
@@ -44,7 +46,10 @@ Při importu dat pomocí funkce Získání dat jste z databáze AdventureWorksDW
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Zahrnuje co nejvíc tabulek je možné s využitím ovládacích prvků minimapy v pravém dolním rohu návrháře modelů. Můžete také kliknout na tabulky a přetáhnout je jinam, přiblížit tabulky k sobě nebo je uspořádat do určitého pořadí. Přesun tabulek nemá vliv na už existující relace mezi nimi. Pokud chcete zobrazit všechny sloupce konkrétní tabulky, klikněte na okraj tabulky a tažením ji zvětšete nebo zmenšete.  
+    > [!NOTE]
+    > Pokud nevidíte žádné relace mezi tabulkami, pravděpodobně to znamená, že mezi těmito tabulkami ve zdroji dat nejsou žádné relace.
+
+    Zahrnuje co nejvíc tabulek je možné s využitím ovládacích prvků minimapy v pravém dolním rohu návrháře modelů. Můžete také kliknout na tabulky a přetáhnout je jinam, přiblížit tabulky k sobě nebo je uspořádat do určitého pořadí. Přesun tabulek nemá vliv na relace mezi nimi. Pokud chcete zobrazit všechny sloupce konkrétní tabulky, klikněte na okraj tabulky a tažením ji zvětšete nebo zmenšete.  
   
 2.  Klikněte na plnou čáru mezi tabulkami **DimCustomer** a **DimGeography**. Plná čára mezi těmito dvěma tabulkami ukazuje, že je tato relace aktivní, tzn. že se používá ve výchozím nastavení při výpočtech vzorců DAX.  
   
@@ -63,7 +68,7 @@ Při importu dat pomocí funkce Získání dat jste z databáze AdventureWorksDW
     |Ano|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Ano|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Pokud jakákoli z těchto relací chybí, ověřte, že váš model obsahuje následující tabulky: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory a FactInternetSales. Pokud se tabulky ze stejného připojení ke zdroji dat importují v různou dobu, případné relace mezi těmito tabulkami se nevytvoří a musí být vytvořeny ručně.  
+    Pokud jakákoli z těchto relací chybí, ověřte, že váš model obsahuje následující tabulky: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory a FactInternetSales. Pokud se tabulky ze stejného připojení ke zdroji dat importují v různou dobu, případné relace mezi těmito tabulkami se nevytvoří a musí být vytvořeny ručně. Pokud se nezobrazí žádné relace, znamená to, že ve zdroji dat nejsou žádné relace. Můžete je vytvořit ručně v datovém modelu.
 
 ### <a name="take-a-closer-look"></a>Bližší prozkoumání
 V zobrazení diagramu si všimněte šipky, hvězdičky a čísla na čárách znázorňujících relace mezi tabulkami.
@@ -102,4 +107,3 @@ V některých případech můžete potřebovat vytvořit mezi tabulkami ve vaše
   
   
   
-

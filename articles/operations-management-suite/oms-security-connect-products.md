@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: cs-cz
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Připojení produktů zabezpečení k Operations Management Suite (OMS) 
 Tento dokument vám pomůže připojit vaše produkty zabezpečení k řešení Zabezpečení a audit pro OMS. Jsou podporovány následující zdroje:
@@ -64,7 +63,7 @@ Na počítači agenta se události musí odesílat z démona syslog na místní 
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Stáhněte soubor *security_events.conf* a umístěte ho do adresáře */etc/opt/microsoft/omsagent/conf/omsagent.d/* v počítači agenta OMS.
-4. Zadejte následující příkaz k restartování démona syslog:  *Pro syslog-ng spusťte:*
+4. Zadejte následující příkaz k restartování démona syslog: *Pro syslog-ng spusťte:*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ V tomto dokumentu jste se naučili připojit řešení CEF k OMS. Další inform
 * [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
-
 

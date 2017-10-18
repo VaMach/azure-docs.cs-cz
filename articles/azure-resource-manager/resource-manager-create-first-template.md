@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Vytvoření a nasazení první šablony Azure Resource Manageru
 Toto téma vás provede jednotlivými kroky k vytvoření první šablony Azure Resource Manageru. Šablony Resource Manageru jsou soubory JSON, které definují, jaké prostředky je pro řešení potřeba nasadit. Abyste porozuměli konceptům spojeným s nasazením a správou řešení Azure, podívejte se na téma [Přehled Azure Resource Manageru](resource-group-overview.md). Pokud máte existující prostředky a chcete pro ně získat šablonu, podívejte se na téma [Export šablony Azure Resource Manageru z existujících prostředků](resource-manager-export-template.md).
 
@@ -97,58 +95,21 @@ Jste připraveni k nasazení této šablony. Pomocí PowerShellu nebo Azure CLI 
 
 Jakmile se nasazení dokončí, váš účet úložiště bude existovat ve skupině prostředků.
 
-## <a name="deploy-template-from-cloud-shell"></a>Nasazení šablony ze služby Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Ke spuštění příkazů Azure CLI pro nasazení šablony můžete použít [Cloud Shell](../cloud-shell/overview.md). Nejprve je však nutné šablonu nahrát do sdílené složky pro vaši službu Cloud Shell. Pokud jste ještě službu Cloud Shell nepoužívali, přečtěte si téma [Přehled služby Azure Cloud Shell](../cloud-shell/overview.md), kde najdete informace o jejím nastavení.
+Pokud používáte Azure CLI, použijte následující příkazy:
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com).   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Vyberte vaši skupinu prostředků služby Cloud Shell. Vzor názvů je `cloud-shell-storage-<region>`.
+PowerShell je v současné době ve službě Cloud Shell k dispozici jako verze Preview. Pokud používáte PowerShell, použijte následující příkazy:
 
-   ![Výběr skupiny prostředků](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Vyberte účet úložiště pro službu Cloud Shell.
-
-   ![Výběr účtu úložiště](./media/resource-manager-create-first-template/select-storage.png)
-
-4. Vyberte **Soubory**.
-
-   ![Výběr souborů](./media/resource-manager-create-first-template/select-files.png)
-
-5. Vyberte sdílenou složku pro službu Cloud Shell. Vzor názvů je `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Výběr sdílené složky](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. Vyberte **Přidat adresář**.
-
-   ![Přidání adresáře](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. Pojmenujte ho **templates** a vyberte **OK**.
-
-   ![Pojmenování adresáře](./media/resource-manager-create-first-template/name-templates.png)
-
-8. Vyberte nový adresář.
-
-   ![Výběr adresáře](./media/resource-manager-create-first-template/select-templates.png)
-
-9. Vyberte **Nahrát**.
-
-   ![Výběr nahrání](./media/resource-manager-create-first-template/select-upload.png)
-
-10. Vyhledejte a nahrajte vaši šablonu.
-
-   ![Nahrání souboru](./media/resource-manager-create-first-template/upload-files.png)
-
-11. Otevřete příkazový řádek.
-
-   ![Otevření služby Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. Ve službě Cloud Shell zadejte následující příkazy:
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 Jakmile se nasazení dokončí, váš účet úložiště bude existovat ve skupině prostředků.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * Další informace o struktuře šablon najdete v tématu o [vytváření šablon Azure Resource Manageru](resource-group-authoring-templates.md).
 * Informace o vlastnostech pro účet úložiště najdete na stránce s [referenčními informacemi k šablonám pro účty úložiště](/azure/templates/microsoft.storage/storageaccounts).
 * Hotové šablony pro mnoho různých typů řešení najdete na stránce [Šablony Azure pro rychlý start](https://azure.microsoft.com/documentation/templates/).
-

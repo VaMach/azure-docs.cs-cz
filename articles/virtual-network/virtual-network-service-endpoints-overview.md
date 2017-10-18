@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
+ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: e2359bc6002bd5c823467a33a4660ebccd116374
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-service-endpoints-preview"></a>Koncové body služby virtuální sítě (Preview)
 
 Koncové body služby virtuální sítě rozšiřují privátní adresní prostor vaší virtuální sítě a její identitu do služeb Azure přes přímé připojení. Koncové body umožňují svázat vaše důležité prostředky služeb Azure pouze s vašimi virtuálními sítěmi. Provoz z vaší virtuální sítě do služby Azure vždy zůstává v páteřní síti Microsoft Azure.
@@ -57,8 +55,11 @@ Koncové body služby poskytují následující výhody:
 
 - Koncový bod služby virtuální sítě poskytuje službě Azure identitu vaší virtuální sítě. Jakmile budou ve vaší virtuální síti povolené koncové body služby, můžete svázat prostředky služeb Azure s virtuální sítí tím, že do prostředků přidáte pravidlo virtuální sítě.
 - Provoz služby Azure z virtuální sítě v současné době používá jako zdrojové IP adresy veřejné IP adresy. S koncovými body služby přepne provoz služby při přístupu ke službě Azure z vaší virtuální sítě na používání privátních adres virtuální sítě jako zdrojových IP adres. Toto přepnutí umožňuje přistupovat ke službám bez potřeby vyhrazených veřejných IP adres, které se používají v branách firewall protokolu IP.
-- Zabezpečení přístupu ke službám Azure z místního prostředí: Prostředky služeb Azure svázané s virtuálními sítěmi ve výchozím nastavení nejsou přístupné z místních sítí. Pokud chcete povolit provoz z místního prostředí, musíte také povolit IP adresy pro překlad adres (NAT) z místních okruhů nebo okruhů ExpressRoute. IP adresy pro překlad adres (NAT) je možné přidat prostřednictvím konfigurace brány firewall protokolu IP pro prostředky služeb Azure.
-- ExpressRoute: Pokud používáte [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) z místního prostředí, každý okruh ExpressRoute využívá dvě IP adresy pro překlad adres (NAT), které se použijí na provoz služeb Azure při jeho přijetí v páteřní síti Microsoft Azure. Pokud chcete povolit přístup k vašim prostředkům služeb, musíte také povolit tyto dvě IP adresy v nastavení brány firewall protokolu IP pro prostředek. Pokud chcete zjistit IP adresy okruhů ExpressRoute, [otevřete lístek podpory pro ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) prostřednictvím webu Azure Portal.
+- __Zabezpečení přístupu ke službám Azure z místního prostředí__:
+
+  Prostředky služeb Azure svázané s virtuálními sítěmi ve výchozím nastavení nejsou přístupné z místních sítí. Pokud chcete povolit provoz z místního prostředí, musíte také povolit veřejné IP adresy (obvykle pro překlad adres) z místních okruhů nebo okruhů ExpressRoute. Tyto IP adresy je možné přidat prostřednictvím konfigurace brány firewall protokolu IP pro prostředky služeb Azure.
+
+  ExpressRoute: Pokud používáte [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) z místního prostředí pro veřejný partnerský vztah, každý okruh ExpressRoute využívá dvě IP adresy pro překlad adres (NAT), které se použijí na provoz služeb Azure při jeho přijetí v páteřní síti Microsoft Azure. Pokud chcete povolit přístup k vašim prostředkům služeb, musíte také povolit tyto dvě veřejné IP adresy v nastavení brány firewall protokolu IP pro prostředek. Pokud chcete zjistit IP adresy okruhů ExpressRoute, [otevřete lístek podpory pro ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) prostřednictvím webu Azure Portal. Další informace o [překladu adres (NAT) pro veřejný partnerský vztah ExpressRoute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Svázání služeb Azure s virtuálními sítěmi](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -76,9 +77,9 @@ Koncové body služby poskytují následující výhody:
 
   Přepnutí IP adres ovlivní pouze provoz služeb z vaší virtuální sítě. Veškerý ostatní provoz adresovaný na veřejné IPv4 adresy přiřazené vašim virtuálním počítačům nebo z nich nebude ovlivněn. Pokud máte pro služby Azure existující pravidla brány firewall používající veřejné IP adresy Azure, tato pravidla s přepnutím na privátní adresy virtuální sítě přestanou fungovat.
 - S koncovými body služby zůstávají záznamy DNS pro služby Azure tak, jak jsou, a nadále se překládají na veřejné IP adresy přiřazené příslušné službě Azure.
-- Skupiny zabezpečení sítě s koncovými body služby:
-  - Stále umožňují odchozí internetové přenosy do Internetu, a proto také umožňují provoz z virtuální sítě na veřejné IP adresy služby Azure.
-  - Pomocí [značek služby](security-overview.md#service-tags) ve skupinách zabezpečení sítě dovolují zakázat provoz na veřejné IP adresy s výjimkou adres služeb Azure. Podporované služby Azure můžete zadat jako cíl v pravidlech skupiny zabezpečení sítě. Azure poskytne údržbu IP adres spadajících pod jednotlivé značky.
+- Skupiny zabezpečení sítě (NSG) s koncovými body služby:
+  - Skupiny zabezpečení sítě ve výchozím nastavení povolují odchozí internetový provoz a tedy povolují i provoz z virtuální sítě do služeb Azure. S koncovými body služby to nadále funguje stejným způsobem. 
+  - Pokud chcete odepřít veškerý odchozí internetový provoz a povolit pouze provoz do konkrétních služeb Azure, můžete to provést použitím __značek služeb Azure__ ve vašich skupinách zabezpečení sítě. V pravidlech NSG můžete zadat podporované služby Azure jako cíl a Azure zajistí údržbu IP adres, na které jednotlivé značky odkazují. Další informace najdete v tématu [Značky služeb Azure pro skupiny zabezpečení sítě](https://aka.ms/servicetags). 
 
 ### <a name="scenarios"></a>Scénáře
 
@@ -89,7 +90,7 @@ Koncové body služby poskytují následující výhody:
 ### <a name="logging-and-troubleshooting"></a>Protokolování a řešení potíží
 
 Jakmile jsou koncové body služby pro konkrétní službu nakonfigurované, ověřte následujícím způsobem fungování trasy koncového bodu služby: 
-
+ 
 - Ověření zdrojové IP adresy každé žádosti o služby v diagnostice služby. U všech nových žádostí pomocí koncových bodů služby se jako zdrojová IP adresa žádosti zobrazí privátní IP adresa virtuální sítě, která je přiřazená klientovi provádějícímu žádost z vaší virtuální sítě. Bez koncového bodu je tato adresa veřejnou IP adresou Azure.
 - Zobrazení efektivních tras na všech síťových rozhraních v podsíti. Trasa ke službě:
   - Ukazuje konkrétnější výchozí trasu k rozsahu předpon adresy každé služby.
@@ -121,5 +122,4 @@ Pro prostředky služeb Azure (například účet služby Azure Storage) můžou
 - Naučte se [svázat účet služby Azure Storage s virtuální sítí](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Naučte se [svázat účet služby Azure SQL Database s virtuální sítí](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Přečtěte si o [integraci služeb Azure ve virtuálních sítích](virtual-network-for-azure-services.md).
-
 

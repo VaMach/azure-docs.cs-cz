@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: Sestavení webového rozhraní API .NET
 
@@ -40,7 +39,7 @@ Dále musíte vytvořit aplikaci webového rozhraní API v adresáři B2C. Azure
 * Jste do aplikace zahrnuli **webovou aplikaci** nebo **webové rozhraní API**.
 * Použijte **Identifikátor URI pro přesměrování** `https://localhost:44332/` pro webovou aplikaci. Toto je výchozí umístění klienta webové aplikace pro tuto ukázku kódu.
 * Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. Budete ho potřebovat později.
-* Zadejte identifikátor aplikace do **Identifikátor URI ID aplikace**.
+* Zadejte identifikátor aplikace do **Identifikátor URI ID aplikace**. Zkopírujte celý **Identifikátor URI ID aplikace**. Budete ho potřebovat později.
 * Přidejte oprávnění prostřednictvím nabídky **Publikované obory**.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ Naše ukázka je nakonfigurovaná k použití zásad a ID klienta naše ukázkov
     * `ida:SignUpSignInPolicyId` názvem zásady registrace/přihlášení
     * `ida:EditProfilePolicyId` názvem zásady pro úpravu profilu
     * `ida:ResetPasswordPolicyId` názvem zásady pro resetování hesla
+    * `api:ApiIdentifier` identifikátorem URI ID aplikace
 
 
 ## <a name="secure-the-api"></a>Zabezpečení rozhraní API
@@ -212,4 +212,3 @@ Nakonec sestavte a spusťte `TaskWebApp` a `TaskService`. Vytvořte nějaké úk
 ## <a name="edit-your-policies"></a>Úprava zásad
 
 Po zabezpečení rozhraní API pomocí Azure AD B2C můžete experimentovat se zásadou registrace/přihlášení a zjistit, jaký vliv mají (nebo nemají) na rozhraní API. Můžete také manipulovat s deklaracemi identity aplikace v zásadách a změnit, jaké informace o uživateli mají být přístupné v rozhraní API. Jakékoli přidané deklarace identity budou dostupné vašemu webovému rozhraní API .NET MVC v objektu `ClaimsPrincipal`, jak je popsáno výše.
-

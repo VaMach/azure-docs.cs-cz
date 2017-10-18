@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Vizualizace dat pomocí Power BI
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Pokud chcete otevřít Power BI a připojit se ke své databázi AdventureWorksD
 3. Klikněte na tlačítko Otevřít v Power BI.
    
     ![Tlačítko Power BI][2]
-4. Teď by se vám měla zobrazit stránka pro připojení k SQL Data Warehouse s webovou adresou vaší databáze. Klikněte na tlačítko Další.
+4. Teď by se vám měla zobrazit stránka pro připojení k SQL Data Warehouse s webovou adresou vaší databáze. Klikněte na Další.
    
     ![Připojení Power BI][3]
 5. Zadejte své uživatelské jméno a heslo pro SQL Server Azure a budete plně připojení k vaší databázi SQL Data Warehouse.

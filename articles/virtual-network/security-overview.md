@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>Zabezpečení sítě
 
@@ -59,8 +58,8 @@ Skupina zabezpečení sítě nemusí obsahovat žádná pravidla nebo může pod
 
 **Důležité informace**
 
-- **Virtuální IP adresa uzlu hostitele:** Základní služby infrastruktury, například DHCP, DNS a sledování stavu, jsou poskytované prostřednictvím virtualizovaných IP adres hostitele 168.63.129.16 a 169.254.169.254. Tyto veřejné IP adresy patří společnosti Microsoft a jsou to jediné virtualizované IP adresy používané pro tento účel ve všech oblastech. Tyto IP adresy se mapují na fyzickou IP adresu počítače serveru (uzlu hostitele) hostujícího virtuální počítač. Uzel hostitele funguje jako přenos DHCP, rekurzivní překladač DNS a zdroj testů pro test stavu a zdroj testu pro test stavu nástroje pro vyrovnávání zatížení a test stavu počítače. Komunikace směřující na tyto IP adresy nepředstavuje útok. Pokud zablokujete provoz směřující na tyto IP adresy nebo z nich, virtuální počítač možná nebude fungovat správně.
-- **Licencování (Služba správy klíčů):** Image systému Windows spuštěné ve virtuálních počítačích musí být licencované. Aby se zajistilo licencování, odesílají se žádosti o licenci na hostitelské servery Služby správy klíčů, které takové dotazy zpracovávají. Požadavek odchází přes port 1688.
+- **Virtuální IP adresa uzlu hostitele:** Základní služby infrastruktury, například DHCP, DNS a sledování stavu, jsou poskytované prostřednictvím virtualizovaných IP adres hostitele 168.63.129.16 a 169.254.169.254. Tyto veřejné IP adresy patří společnosti Microsoft a jsou to jediné virtualizované IP adresy používané pro tento účel ve všech oblastech. Adresy se mapují na fyzickou IP adresu počítače serveru (uzel hostitele) hostujícího virtuální počítač. Uzel hostitele funguje jako přenos DHCP, rekurzivní překladač DNS a zdroj testů pro test stavu a zdroj testu pro test stavu nástroje pro vyrovnávání zatížení a test stavu počítače. Komunikace směřující na tyto IP adresy nepředstavuje útok. Pokud zablokujete provoz směřující na tyto IP adresy nebo z nich, virtuální počítač možná nebude fungovat správně.
+- **Licencování (Služba správy klíčů):** Image Windows spuštěné na virtuálních počítačích musí být licencované. Aby se zajistilo licencování, odesílají se žádosti o licenci na hostitelské servery Služby správy klíčů, které takové dotazy zpracovávají. Požadavek odchází přes port 1688.
 - **Virtuální počítače ve fondech s vyrovnáváním zatížení:** Použitý zdrojový port a rozsah adres odpovídá zdrojovému počítači, a nikoli nástroji pro vyrovnávání zatížení. Cílový port a rozsah adres odpovídá cílovému počítači, a nikoli nástroji pro vyrovnávání zatížení.
 - **Instance služeb Azure:** V podsítích virtuální sítě jsou nasazené instance několika služeb Azure, například HDInsight, prostředí aplikačních služeb a škálovací sady virtuálních počítačů. Před použitím skupiny zabezpečení sítě na podsíť, ve které je nasazený prostředek, se ujistěte, že znáte požadavky jednotlivých služeb na porty. Pokud odepřete porty, které služba vyžaduje, nebude správně fungovat. 
 
@@ -126,7 +125,7 @@ Výchozí pravidla nemůžete odebrat, ale můžete je přepsat vytvořením pra
 
 * **VirtualNetwork** (*Resource Manager*) (*VIRTUAL_NETWORK** v případě modelu Classic): Tato značka zahrnuje adresní prostor virtuální sítě (všechny rozsahy CIDR definované pro virtuální síť), všechny připojené místní adresní prostory a [partnerské](virtual-network-peering-overview.md) virtuální sítě nebo virtuální sítě připojené k [bráně virtuální sítě](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** v případě klasického modelu): Tato značka označuje nástroj pro vyrovnávání zatížení infrastruktury Azure. Značka se přeloží na [IP adresu datacentra Azure](https://www.microsoft.com/download/details.aspx?id=41653), kde mají původ testy stavu Azure. Pokud nepoužíváte nástroj pro vyrovnávání zatížení Azure, můžete toto pravidlo přepsat.
-* **Internet** (Resource Manager) (**INTERNET** v případě modelu Classic): Tato značka označuje adresní prostor veřejných IP adres Azure. Adresy zahrnuté v této značce jsou uvedené v pravidelně aktualizovaném dokumentu [Veřejný prostor IP adres vlastněný Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+* **Internet** (Resource Manager) (**INTERNET** v případě klasického modelu): Tato značka označuje adresní prostor IP adres, který se nachází mimo virtuální síť a je dostupný prostřednictvím veřejného internetu. Rozsah adres zahrnuje [veřejný adresní prostor IP adres vlastněný Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (pouze Resource Manager): Tato značka označuje adresní prostor IP adres pro službu Azure Traffic Manager.
 * **Storage** (pouze Resource Manager): Tato značka označuje adresní prostor IP adres pro službu Azure Storage. Pokud jako hodnotu zadáte *Storage*, provoz směřující do úložiště se povolí nebo zakáže. Pokud chcete povolit přístup k úložišti pouze v konkrétní [oblasti](https://azure.microsoft.com/regions), můžete zadat tuto oblast. Pokud například chcete povolit přístup pouze ke službě Azure Storage v oblasti Východní USA, můžete jako značku služby zadat *Storage.EastUS*. Další dostupné značky regionálních služeb: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS a Storage.WestUS2. Značka představuje službu, ale ne konkrétní instance služby. Značka například představuje službu Azure Storage, ale ne konkrétní účet služby Azure Storage.
 * **Sql** (pouze Resource Manager): Tato značka označuje předpony adres služeb Azure SQL Database a Azure SQL Data Warehouse. Pro tuto značku služby můžete zadat pouze konkrétní oblasti. Pokud například chcete povolit přístup pouze ke službě Azure SQL Database v oblasti Východní USA, můžete jako značku služby zadat *Storage.EastUS*. Pouze Sql není možné zadat pro všechny oblasti Azure, jednotlivé oblasti je potřeba zadat ručně. Další dostupné regionální značky služeb: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS a Sql.WestUS2. Značka představuje službu, ale ne konkrétní instance služby. Značka například představuje službu Azure SQL Database, ale ne konkrétní databázi SQL Azure.
@@ -152,7 +151,7 @@ Pokud jste vytvořili jiná pravidla a jako cíl jste zadali jiné skupiny zabez
  
 Další informace o omezeních při vytváření skupin zabezpečení aplikací a jejich zadávání v pravidlech zabezpečení najdete v článku o [omezeních Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Skupiny zabezpečení aplikací jsou dostupné ve verzi Preview. Před použitím skupiny zabezpečení sítě je potřeba se zaregistrovat k jejich použití dokončením kroků 1–5 v části [Vytvoření skupiny zabezpečení sítě s použitím skupin zabezpečení aplikací](create-network-security-group-preview.md#powershell) a přečíst si důležité informace v části [Funkce verze Preview](#preview-features). Během období Preview jsou skupiny zabezpečení aplikací omezené na rozsah virtuální sítě. Partnerské virtuální sítě s křížovými odkazy na skupiny zabezpečení aplikací ve skupině zabezpečení sítě se nepoužijí. 
+Skupiny zabezpečení aplikací jsou dostupné ve verzi Preview. Před použitím skupin zabezpečení aplikací je potřeba se zaregistrovat k jejich použití dokončením kroků 1–5 v části [Vytvoření skupiny zabezpečení sítě s použitím skupin zabezpečení aplikací](create-network-security-group-preview.md#powershell) a přečíst si důležité informace v části [Funkce verze Preview](#preview-features). Během období Preview jsou skupiny zabezpečení aplikací omezené na rozsah virtuální sítě. Partnerské virtuální sítě s křížovými odkazy na skupiny zabezpečení aplikací ve skupině zabezpečení sítě se nepoužijí. 
 
 Funkce ve verzi Preview nedosahují stejné úrovně dostupnosti a spolehlivosti jako služby v obecné verzi. Abyste mohli začít používat skupiny zabezpečení aplikací, musíte se nejprve zaregistrovat k jejich použití. Funkce jsou aktuálně dostupné pouze v následujících oblastech: Západní střed USA.
 
@@ -160,4 +159,3 @@ Funkce ve verzi Preview nedosahují stejné úrovně dostupnosti a spolehlivosti
 
 * Dokončení kurzu [Vytvoření skupiny zabezpečení sítě](virtual-networks-create-nsg-arm-pportal.md)
 * Dokončení kurzu [Vytvoření skupiny zabezpečení sítě s použitím skupin zabezpečení aplikací](create-network-security-group-preview.md)
-

@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Nasazení aplikace Service Fabric typu kontejner pro Windows v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
 
@@ -51,7 +49,7 @@ Vyberte **Aplikace Service Fabric**, pojmenujte ji MyFirstContainer a klikněte 
 
 Ze seznamu **šablon služeb** vyberte **Kontejner**.
 
-Do pole **Název image** zadejte nanoserver/iis, což je [základní image Windows Server 2016 Nano Serveru a služby IIS](https://hub.docker.com/r/nanoserver/iis/). 
+Do pole **Název image** zadejte microsoft/iis:nanoserver, což je [základní image Windows Server Nano Serveru a služby IIS](https://hub.docker.com/r/microsoft/iis/). 
 
 Pojmenujte službu MyContainerService a klikněte na **OK**.
 
@@ -68,6 +66,7 @@ Nakonfigurujte v kontejneru mapování portů na hostitele určením zásady `Po
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ V Průzkumníku řešení klikněte pravým tlačítkem na **MyFirstContainer** 
 
 ![Dialogové okno Publikovat](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Do pole **Koncový bod připojení** zadejte koncový bod připojení clusteru a klikněte na **Publikovat**. Při registraci party clusteru se koncový bod připojení zobrazí v prohlížeči – například `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Do pole **Koncový bod připojení** zadejte koncový bod připojení clusteru. Při registraci party clusteru se koncový bod připojení zobrazí v prohlížeči – například `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Klikněte na **Publikovat** a aplikace se nasadí.
 
 Otevřete prohlížeč a přejděte na adresu http://winh1x87d1d.westus.cloudapp.azure.com:80. Měla by se zobrazit výchozí webová stránka služby IIS: ![Výchozí webová stránka služby IIS][iis-default]
 
@@ -120,7 +119,7 @@ Tady jsou kompletní manifesty aplikace a služby použité v tomto rychlém sta
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ V tomto rychlém startu jste se naučili:
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

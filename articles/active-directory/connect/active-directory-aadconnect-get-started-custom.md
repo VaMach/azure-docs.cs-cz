@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Vlastní instalace služby Azure AD Connect
 **Vlastní nastavení** Azure AD Connect se používá, pokud chcete využít další možnosti instalace. Používá se, pokud máte víc doménových struktur, nebo pokud chcete nakonfigurovat volitelné funkce, které nejsou zahrnuty v rychlé instalaci. Používá se ve všech případech, kde možnost [**rychlá instalace**](active-directory-aadconnect-get-started-express.md) nevyhovuje nasazení nebo topologii.
@@ -71,7 +70,7 @@ Pokud má účet globálního správce povolené ověřování MFA, bude nutné 
 
 Pokud se zobrazí chyba a máte problémy s připojením, přečtěte si téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## <a name="pages-under-the-section-sync"></a>Stránky v části Synchronizace
+## <a name="pages-under-the-sync-section"></a>Stránky v části Synchronizace
 
 ### <a name="connect-your-directories"></a>Připojení adresářů
 Azure AD Connect pro připojení ke službě Active Directory Domain Services potřebuje název doménové struktury a přihlašovací údaje účtu s dostatečnými oprávněními.
@@ -232,9 +231,12 @@ Na počítači, který obsahuje Nástroje pro správu zásad skupiny:
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurace federace se službou AD FS
 Konfigurace služby AD FS se službou Azure AD Connect je jednoduchá a dá se provést několika kliknutími. Před konfigurací jsou vyžadovány následující položky.
 
-* Windows Server 2012 R2 pro federační server s povolenou vzdálenou správou
-* Windows Server 2012 R2 pro proxy server webové aplikace s povolenou vzdálenou správou
+* Windows Server 2012 R2 nebo novější pro federační server s povolenou vzdálenou správou
+* Windows Server 2012 R2 nebo novější pro proxy server webové aplikace s povolenou vzdálenou správou
 * Certifikát protokolu SSL pro název služby FS (Federation Service), který chcete použít (například sts.contoso.com)
+
+>[!NOTE]
+>Certifikát SSL pro farmu služby AD FS můžete aktualizovat pomocí služby Azure AD Connect i v případě, že ji nepoužíváte ke správě důvěryhodnosti federace.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Předpoklady konfigurace služby AD FS
 Chcete-li konfigurovat farmu služby AD FS pomocí služby Azure AD Connect, ujistěte se, že je na vzdálených serverech povolená služba WinRM. Kromě toho si projděte požadavek na porty uvedený v oddílu [Tabulka 3 – Azure AD Connect a federační servery/protokol WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -245,6 +247,9 @@ Můžete použít existující farmu služby AD FS nebo můžete vytvořit novou
 ![Farma služby AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 Pokud se rozhodnete použít existující farmu služby AD FS, přejdete přímo na obrazovku konfigurace vztahu důvěryhodnosti mezi službou AD FS a Azure AD.
+
+>[!NOTE]
+>Azure AD Connect je možné použít ke správě pouze jedné farmy služby AD FS. Pokud na vybrané farmě služby AD FS existuje nakonfigurovaná důvěryhodnost federace se službou Azure AD, služba Azure AD Connect důvěryhodnost vytvoří znovu od začátku.
 
 ### <a name="specify-the-ad-fs-servers"></a>Zadání serverů služby AD FS
 Zadejte servery, na které chcete nainstalovat službu AD FS. Podle potřeb plánování kapacity můžete přidat jeden nebo víc serverů. Před provedením této konfigurace připojte všechny servery k službě Active Directory. Společnost Microsoft doporučuje instalaci jednoho serveru služby AD FS pro zkušební a pilotní nasazení. Po počáteční konfiguraci znovu spusťte Azure AD Connect a podle potřeb škálování přidejte a nasaďte další servery.
@@ -350,4 +355,3 @@ Podrobněji se seznamte s těmito funkcemi, které byly povoleny v rámci instal
 Zjistěte více o těchto běžných tématech: [plánovač a jak aktivovat synchronizaci](active-directory-aadconnectsync-feature-scheduler.md).
 
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).
-

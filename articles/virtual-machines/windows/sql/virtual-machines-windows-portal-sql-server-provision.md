@@ -1,6 +1,6 @@
 ---
-title: "Zřízení virtuálního počítače s SQL Serverem | Dokumentace Microsoftu"
-description: "Zjistěte, jak v Azure vytvořit virtuální počítač s SQL Serverem a připojit se k němu pomocí portálu. V tomto kurzu se používá režim Resource Manageru."
+title: "Vytvoření virtuálního počítače s Windows a SQL Serverem 2017 v Azure | Dokumentace Microsoftu"
+description: "Díky tomuto kurzu se dozvíte, jak vytvořit virtuální počítač s Windows a SQL Serverem 2017 na webu Azure Portal."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Zřízení virtuálního počítače s Windows a SQL Serverem na webu Azure Portal
+
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-V tomto uceleném kurzu se dozvíte, jak pomocí webu Azure Portal zřídit virtuální počítač s SQL Serverem.
-
-Galerie virtuálních počítačů Azure obsahuje několik imagí, které obsahují Microsoft SQL Server. Několika málo kliknutími můžete z galerie vybrat jednu z imagí virtuálního počítače s SQL Serverem a zřídit virtuální počítač v prostředí Azure.
+V tomto úvodním kurzu pomocí webu Azure Portal vytvoříte virtuální počítač s Windows a nainstalovaným SQL Serverem.
 
 V tomto kurzu provedete následující:
 
-* [Výběr image virtuálního počítače s SQL Serverem z galerie](#select-a-sql-vm-image-from-the-gallery)
-* [Nakonfigurování a vytvoření virtuálního počítače](#configure-the-vm)
-* [Otevření virtuálního počítače pomocí Vzdálené plochy](#open-the-vm-with-remote-desktop)
-* [Vzdálené připojení k SQL Serveru](#connect-to-sql-server-remotely)
+* [Výběr image virtuálního počítače s SQL Serverem z galerie](#select)
+* [Nakonfigurování a vytvoření virtuálního počítače](#configure)
+* [Otevření virtuálního počítače pomocí Vzdálené plochy](#remotedesktop)
+* [Vzdálené připojení k SQL Serveru](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>Výběr image virtuálního počítače s SQL Serverem z galerie
+## <a id="select"></a>Výběr image virtuálního počítače s SQL Serverem z galerie
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého účtu.
 
    > [!NOTE]
    > Pokud účet Azure nemáte, můžete začít používat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. Na webu Azure Portal klikněte na **Nový**. Na Portálu se otevře okno **Nový**.
+1. Na webu Azure Portal klikněte na **Nový**. Na Portálu se otevře okno **Nový**.
 
-3. V okně **Nový** klikněte na **Compute** a pak klikněte na **Zobrazit všechno**.
+1. V okně **Nový** klikněte na **Compute** a pak klikněte na **Zobrazit všechno**.
 
    ![Okno Nová služba Compute](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. Do pole hledání zadejte **SQL Server** a stiskněte ENTER.
+1. Do pole hledání zadejte **SQL Server 2017** a stiskněte ENTER.
 
-5. Pak klikněte na ikonu **Filtr** a jako vydavatele vyberte **Microsoft**. Kliknutím na **Hotovo** v okně filtru vyfiltrujte z výsledků image SQL Serveru publikované Microsoftem.
+1. Pak klikněte na ikonu **Filtr**.
+
+1. V oknech Filtr zaškrtněte podkategorii **Založené na Windows** a jako vydavatele zaškrtněte **Microsoft**. Pak kliknutím na **Hotovo** vyfiltrujte z výsledků image Windows s SQL Serverem publikované Microsoftem.
 
    ![Okno Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Projděte si dostupné image SQL Serveru. U každé image je označena příslušná verze SQL Serveru a operační systém.
+1. Projděte si dostupné image SQL Serveru. U každé image je označena příslušná verze SQL Serveru a operační systém.
 
-6. Vyberte image s názvem **Bezplatná licence: SQL Server 2016 SP1 Developer v systému Windows Server 2016**.
+1. Vyberte image s názvem **Bezplatná licence SQL Serveru: SQL Server 2017 Developer v systému Windows Server 2016**.
 
    > [!TIP]
    > V tomto kurzu se používá edice Developer, protože je to plná verze SQL Serveru, která je zdarma pro účely testování vývoje. Platíte jenom náklady na provozování virtuálního počítače. Pro použití v tomto kurzu ale můžete zvolit libovolnou z imagí.
@@ -70,13 +69,13 @@ V tomto kurzu provedete následující:
    >
    > Další informace o těchto možnostech najdete v tématu [Doprovodné materiály k cenám pro virtuální počítače Azure s SQL Serverem](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-7. V části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**. U nových virtuálních počítačů se doporučuje používat model nasazení Resource Manageru. 
+1. V části **Vybrat model nasazení** ověřte, že je vybraný **Resource Manager**. U nových virtuálních počítačů se doporučuje používat model nasazení Resource Manageru. 
 
-8. Klikněte na možnost **Vytvořit**.
+1. Klikněte na možnost **Vytvořit**.
 
     ![Vytvoření virtuálního počítače s SQL Serverem pomocí Resource Manageru](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>Nakonfigurování virtuálního počítače
+## <a id="configure"></a>Konfigurace virtuálního počítače
 Pro konfiguraci virtuálního počítače s SQL Serverem se používá pět oken.
 
 | Krok | Popis |
@@ -156,7 +155,7 @@ V okně **Nastavení SQL Serveru** nakonfigurujte konkrétní nastavení a optim
 | [Automatizované opravy](#automated-patching) |
 | [Automatizované zálohování](#automated-backup) |
 | [Integrace se službou Azure Key Vault](#azure-key-vault-integration) |
-| [Služby R](#r-services) |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>Připojení
 
@@ -257,14 +256,11 @@ V následující tabulce jsou uvedeny parametry, které jsou nezbytné pro konfi
 
 Další informace najdete v tématu [Konfigurace Integrace se službou Azure Key Vault pro virtuální počítače Azure](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="r-services"></a>Služby R
+### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Services
 
-Je dostupná možnost pro povolení [služeb R na SQL Serveru](https://msdn.microsoft.com/library/mt604845.aspx). Ta umožňuje pomocí SQL Serveru 2016 provádět pokročilou analýzu. V okně **Nastavení SQL Serveru** klikněte na **Povolit**.
+Máte možnost povolit službu [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Ta umožňuje pomocí SQL Serveru 2017 provádět pokročilou analýzu. V okně **Nastavení SQL Serveru** klikněte na **Povolit**.
 
-> [!NOTE]
-> Pro SQL Server 2016 Developer Edition je tato možnost portálem nesprávně zakázaná. Pro edici Developer je potřeba služby R povolit ručně po vytvoření virtuálního počítače.
-
-![Povolení služeb R na SQL Serveru](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Povolení služby SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 Po dokončení konfigurace nastavení SQL Serveru klikněte na **OK**.
 
@@ -275,9 +271,9 @@ V okně **Souhrn** zkontrolujte souhrn a pak kliknutím na **Koupit** vytvořte 
 Nasazení můžete monitorovat z webu Azure Portal. Tlačítko **Oznámení** v horní části obrazovky zobrazuje základní stav nasazení.
 
 > [!NOTE]
-> Abyste si udělali představu o tom, jak dlouho nasazování trvá, nasadil jsem virtuální počítač s SQL Serverem pro oblast Východní USA s výchozím nastavením. Toto testovací nasazení trvalo celkem 26 minut. Na základě vaší oblasti a vybraného nastavení ale můžete zaznamenat kratší nebo delší čas nasazení.
+> Abyste si udělali představu o tom, jak dlouho nasazování trvá, nasadil jsem virtuální počítač s SQL Serverem pro oblast Východní USA s výchozím nastavením. Dokončení tohoto testovacího nasazení trvalo přibližně 12 minut. Na základě vaší oblasti a vybraného nastavení ale můžete zaznamenat kratší nebo delší čas nasazení.
 
-## <a name="open-the-vm-with-remote-desktop"></a>Otevření virtuálního počítače pomocí Vzdálené plochy
+## <a id="remotedesktop"></a>Otevření virtuálního počítače pomocí Vzdálené plochy
 
 Podle následujícího postupu se připojte k virtuálnímu počítači s SQL Serverem pomocí Vzdálené plochy:
 
@@ -295,7 +291,7 @@ V následujících krocích se k povolení protokolu TCP/IP pro edice SQL Server
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>Vzdálené připojení k SQL Serveru
+## <a id="connect"></a>Vzdálené připojení k SQL Serveru
 
 V tomto kurzu jsme pro virtuální počítač vybrali **veřejný** přístup a **ověřování SQL Serveru**. Tato nastavení automaticky nakonfigurovala virtuální počítač tak, aby povoloval připojení k SQL Serveru z libovolného klienta přes internet (za předpokladu, že má správné přihlašovací údaje SQL Serveru).
 

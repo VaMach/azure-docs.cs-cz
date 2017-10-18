@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: cs-cz
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Vytvoření databáze SQL Data Warehouse pomocí jazyka Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ V tomto článku zjistíte, jak můžete k vytvoření SQL Data Warehouse použ�
 Na začátek budete potřebovat:
 
 * **Účet Azure**: Pokud si chcete vytvořit účet, přejděte na stránku [Bezplatná zkušební verze Azure][Azure Free Trial] nebo [Kredity Azure pro předplatitele MSDN][MSDN Azure Credits].
-* **Azure SQL Server**: Přečtěte si článek [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] nebo [Vytvoření logického serveru Azure SQL Database pomocí prostředí PowerShell][Create an Azure SQL Database logical server with PowerShell], kde najdete další podrobnosti.
+* **Azure SQL Server:** Další podrobnosti najdete v článku [Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal][Vytvoření logického serveru Azure SQL Database pomocí webu Azure Portal] nebo [Vytvoření logického serveru Azure SQL Database pomocí PowerShellu][Vytvoření logického serveru Azure SQL Database pomocí PowerShellu].
 * **Skupinu prostředků**: Buď použijte stejnou skupinu prostředků jako pro Azure SQL Server, nebo zjistěte, [jak vytvořit skupinu prostředků][how to create a resource group].
 * **Prostředí ke spuštění T-SQL**: Ke spuštění T-SQL můžete použít [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] nebo [SSMS][SSMS].
 
@@ -89,4 +87,3 @@ Až se vám zřídí SQL Data Warehouse, můžete [načíst ukázková data][loa
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

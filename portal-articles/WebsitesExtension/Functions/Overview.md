@@ -1,6 +1,6 @@
 ---
-title: "Přehled Azure Functions | Microsoft Docs"
-description: "Nápovědu pro přehled Azure Functions v rámci portálu Azure"
+title: "Přehled Azure Functions | Dokumentace Microsoftu"
+description: "Přehled obsahu nápovědy pro službu Azure Functions na webu Azure Portal"
 services: functions
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: fa593eef1c01311d20216f3ab3af7ffcb54e12f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-documentation"></a>Dokumentace ke službě Azure Functions
 
@@ -20,16 +20,16 @@ Azure Functions je výpočetní služba bez serveru umožňující spouštění 
 
 ## <a name="5-minute-quickstarts"></a>Zprovoznění během 5 minut
 
-Naučte se vytvořit pomocí funkce Hello, World:
+Zjistěte, jak vytvořit funkci Hello World pomocí:
 
 - [Azure Portal](/azure/azure-functions/functions-create-first-azure-function)
 - [Azure CLI](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Podrobné kurzy
 
-Naučte se vytvářet a spravovat Azure Functions.
+Naučte se vytvářet a spravovat ve službě Azure Functions.
 
-- [Sestavení řídicího panelu bez serveru sociálních sítích](/azure/azure-functions/functions-twitter-email)
+- [Sestavení řídicího panelu sociálních médií bez serveru](/azure/azure-functions/functions-twitter-email)
 - [Vytvoření rozhraní API bez serveru pomocí služby Azure Functions](/azure/azure-functions/functions-create-serverless-api)
 
 ## <a name="samples"></a>Ukázky
@@ -40,5 +40,5 @@ Vyhledání skriptů pro správu běžných úkolů
 
 ## <a name="more"></a>Víc
 
-- [Najdete v dokumentaci k další informace](/azure/app-functions/index)
-- [Další informace o všech služeb Azure](https://aka.ms/j3wr7y)
+- [Další informace najdete v dokumentaci](/azure/app-functions/index)
+- [Informace o všech službách Azure](https://aka.ms/j3wr7y)

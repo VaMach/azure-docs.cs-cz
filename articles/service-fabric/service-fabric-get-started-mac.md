@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Nastavení vývojového prostředí v Mac OS X
 > [!div class="op_single_selector"]
@@ -107,15 +106,13 @@ Chcete-li sestavovat služby Service Fabric pomocí Javy, zkontrolujte, že mát
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli"></a>Nastavení rozhraní příkazového řádku Service Fabric
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Nastavení Service Fabric CLI (sfctl) na počítači Mac
 
-[Rozhraní příkazového řádku Service Fabric](service-fabric-cli.md) obsahuje příkazy pro komunikaci s entitami služby Service Fabric, včetně clusterů a aplikací. Je založeno na Pythonu, takže je nutné mít nainstalovaný python a pip předtím, než budete pokračovat následujícím příkazem:
+Pokud chcete nainstalovat Service Fabric CLI (`sfctl`) na svém počítači Mac, postupujte podle pokynů v tématu [Service Fabric CLI](service-fabric-cli.md#cli-mac).
+Příkazy rozhraní příkazového řádku pro komunikaci s entitami služby Service Fabric, včetně clusterů, aplikací a služeb.
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-you-mac-using-yeoman"></a>Vytvoření aplikace na počítači Mac pomocí Yeomana
 
-## <a name="create-application-on-mac-using-yeoman"></a>Vytvoření aplikace na počítači Mac pomocí Yeomanu
 Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvořit aplikaci Service Fabric z terminálu pomocí generátoru šablon Yeoman. Postupujte podle následujících kroků, abyste zkontrolovali, že máte na svém počítači funkční generátor šablon Service Fabric yeoman.
 
 1. V počítači Mac musí být instalováno Node.js a NPM. Pokud ne, můžete nainstalovat Node.js a NPM pomocí Homebrew následujícím postupem. Pokud chcete zkontrolovat verze Node.js a NPM nainstalované na počítači Mac, můžete použít možnost ``-v``.
@@ -165,4 +162,3 @@ Service Fabric poskytuje modul plug-in pro **integrovaná vývojové prostředí
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

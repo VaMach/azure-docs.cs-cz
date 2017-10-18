@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectors-list"></a>Seznam konektorů
 > [!TIP]
@@ -44,9 +43,9 @@ Pomocí těchto konektorů úspěšně zpracovávají data a informace tisíce a
 | |  |  |  |
 | --- | --- | --- | --- |
 | [![Ikona rozhraní API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Pokud chcete automatizovat jakoukoli úlohu s vaším účtem úložiště, měli byste se podívat na tento konektor. Podporuje operace CRUD (vytvoření, čtení, aktualizace a odstranění). | [![Ikona rozhraní API][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Vytvořte funkce, které spouští vlastní fragmenty kódu v jazyce C# nebo Node.js, a potom tyto funkce použijte ve svých aplikacích logiky.  |
-| [![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Toto je jeden z nejžádanějších konektorů. Obsahuje triggery a akce usnadňující automatizaci pracovních postupů pomocí vodítek a dalších možností. | [![Ikona rozhraní API][Event-hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Zpracovávejte a publikujte události v centru událostí. Můžete například pomocí služby Event Hubs získat výstup vaší aplikace logiky a pak ho odeslat poskytovateli analýz v reálném čase. |
+| [![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Toto je jeden z nejžádanějších konektorů. Obsahuje triggery a akce usnadňující automatizaci pracovních postupů pomocí vodítek a dalších možností. | [![Ikona rozhraní API][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Zpracovávejte a publikujte události v centru událostí. Můžete například pomocí služby Event Hubs získat výstup vaší aplikace logiky a pak ho odeslat poskytovateli analýz v reálném čase. |
 | [![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc] | Pokud je váš server FTP přístupný z internetu, můžete automatizovat pracovní postupy pro práci se soubory a složkami. <br/><br/>V konektoru SFTP je k dispozici i SFTP. | [![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][httpdoc] | Použijte aplikace logiky ke komunikaci s jakýmkoli koncovým bodem přes HTTP. |
-| [![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Velké množství triggerů a ještě více akcí umožňujících využití e-mailu a událostí Office 365 v rámci vašich pracovních postupů. <br/><br/>Tento konektor zahrnuje akci *e-mailu se schválením* pro schvalování žádostí o dovolenou, vyúčtování výdajů atd. <br/><br/>V konektoru Uživatelé Office 365 jsou k dispozici i uživatelé Office 365.| [![Ikona rozhraní API][HTTP-Requesticon]<br/>**Žádost a odpověď**][HTTP-Requestdoc] | Tento konektor poskytuje adresu URL HTTPS. Po přijetí žádosti na této adrese URL se spustí aplikace logiky. |
+| [![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Velké množství triggerů a ještě více akcí umožňujících využití e-mailu a událostí Office 365 v rámci vašich pracovních postupů. <br/><br/>Tento konektor zahrnuje akci *e-mailu se schválením* pro schvalování žádostí o dovolenou, vyúčtování výdajů atd. <br/><br/>V konektoru Uživatelé Office 365 jsou k dispozici i uživatelé Office 365.| [![Ikona rozhraní API][HTTP-Requesticon]<br/>**Žádost / odezva**][HTTP-Requestdoc] | Tento konektor poskytuje adresu URL HTTPS. Po přijetí žádosti na této adrese URL se spustí aplikace logiky. |
 | [![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Jednoduše se přihlaste pomocí účtu Salesforce a získejte přístup k objektům, jako jsou vodítka, a dalším. |  [![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Nejoblíbenější konektor v aplikacích logiky. Zahrnuje triggery a akce zajišťující asynchronní zasílání zpráv a publikování a přihlašování k odběru dotazů, předplatných a témat. |
 |  [![Ikona rozhraní API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Pokud SharePoint k ničemu nepoužíváte a mohli byste využít automatizaci, měli byste se podívat na tento konektor. Můžete ho použít s místní službou SharePoint nebo SharePoint Online. | [![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Jeden z nejpoužívanějších konektorů. Dokáže se připojit k místnímu SQL Serveru a ke službě Azure SQL Database. | 
 | [![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc] | Jednoduše se přihlaste pomocí účtu Twitteru a následně spouštějte pracovní postup, když se publikuje nový tweet. Pak tyto tweety uložte do databáze SQL nebo seznamu služby SharePoint. | | | 
@@ -57,9 +56,9 @@ Enterprise Integration Pack (EIP) obsahuje konektory, které jsou dobře známé
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| [![Ikona rozhraní API][as2icon]<br/>**Dekódování</br> AS2**][as2decode] | [![Ikona rozhraní API][as2icon]<br/>**Kódování</br> AS2**][as2encode] | [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> EDIFACT**][EDIFACTdecode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br> EDIFACT**][EDIFACTencode] |
-[![Ikona rozhraní API][flatfileicon]<br/>**Kódování</br> plochého souboru**][flatfiledoc] | [![Ikona rozhraní API][flatfiledecodeicon]<br/>**Dekódování</br> plochého souboru**][flatfiledecodedoc] | [![Ikona rozhraní API][integrationaccounticon]<br/>**Účet<br/>pro integraci**][integrationaccountdoc] | [![Ikona rozhraní API][xmltransformicon]<br/>**Transformace<br/>XML**][xmltransformdoc] |
-| [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br> X12**][x12decode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br> X12**][x12encode] | [![Ikona rozhraní API][xmlvalidateicon]<br/>**XML<br/>validace**][xmlvalidatedoc] | |
+| [![Ikona rozhraní API][as2icon]<br/>**Dekódování</br>AS2**][as2decode] | [![Ikona rozhraní API][as2icon]<br/>**Kódování</br>AS2**][as2encode] | [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br>EDIFACT**][EDIFACTdecode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br>EDIFACT**][EDIFACTencode] |
+[![Ikona rozhraní API][flatfileicon]<br/>**Kódování</br>plochého souboru**][flatfiledoc] | [![Ikona rozhraní API][flatfiledecodeicon]<br/>**Dekódování</br>plochého souboru**][flatfiledecodedoc] | [![Ikona rozhraní API][integrationaccounticon]<br/>**Účet<br/>integrace**][integrationaccountdoc] | [![Ikona rozhraní API][xmltransformicon]<br/>**Transformace<br/>XML**][xmltransformdoc] |
+| [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br>X12**][x12decode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br>X12**][x12encode] | [![Ikona rozhraní API][xmlvalidateicon]<br/>**Ověření<br/>XML**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>Podnikové konektory
 
@@ -315,4 +314,3 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
-

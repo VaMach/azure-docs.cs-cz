@@ -1,7 +1,7 @@
 ---
-title: "Vytvořte svůj první pracovní postup spojující cloudové aplikace a cloudové služby – Azure Logic Apps | Dokumentace Microsoftu"
-description: "Přečtěte si, jak automatizovat firemní procesy pro systémovou integraci a integraci podnikových aplikací (EAI) pomocí vytváření a spouštění pracovních postupů v Azure Logic Apps."
-author: jeffhollan
+title: "Vytvoření prvního automatizovaného pracovního postupu spojujícího systémy a cloudové služby | Dokumentace Microsoftu"
+description: "Automatizujte firemní procesy a pracovní postupy pro scénáře systémové integrace a integrace podnikových aplikací (EAI) pomocí vytváření a spouštění aplikací logiky."
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,161 +13,221 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/31/2017
-ms.author: LADocs; jehollan; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/17/2017
-
+ms.date: 09/18/2017
+ms.author: LADocs; estfan
+ms.openlocfilehash: d62255ba6e3d5bdfbd792a47f3a92d4c88876742
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-your-first-logic-app-for-automating-workflows-and-processes-through-the-azure-portal"></a>Vytvoření první aplikace logiky pro automatizaci pracovních postupů a procesů prostřednictvím webu Azure Portal
 
-# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Vytvořte svůj první pracovní postup aplikace logiky pro automatizaci procesů mezi cloudovými aplikacemi a cloudovými službami
+Systémy a služby můžete integrovat bez psaní kódu sestavováním a spouštěním automatizovaných pracovních postupů pomocí [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). V tomto kurzu se pro ukázku, jak snadno automatizovat úlohy pomocí pracovních postupů, vytvoří základní aplikace logiky, která v informačním kanálu RSS kontroluje nový obsah na webu a za každou novou položku v informačním kanálu odešle e-mail. 
 
-Bez psaní jakéhokoli kódu můžete snáze a rychleji automatizovat firemní procesy díky vytváření a spouštění pracovních postupů v [Azure Logic Apps](logic-apps-what-are-logic-apps.md). Tento první příklad ukazuje, jak vytvořit základní aplikaci logiky, která podle informačního kanálu RSS kontroluje nový obsah na webu. Jakmile se v informačním kanálu webu objeví nové položky, aplikace logiky odešle e-mailu z účtu v Outlooku nebo Gmailu.
+![Přehled – příklad první aplikace logiky](./media/logic-apps-create-a-logic-app/logic-app-overview.png)
 
-K vytvoření a spuštění aplikace logiky potřebujete tyto věci:
+V tomto kurzu se naučíte:
+
+> [!div class="checklist"]
+> * Vytvoření prázdné aplikace logiky
+> * Přidání triggeru pro spuštění aplikace logiky při publikování položky informačního kanálu RSS
+> * Přidání akce pro odesílání e-mailů s podrobnostmi o položce informačního kanálu RSS
+> * Spuštění a testování aplikace logiky
+
+## <a name="prerequisites"></a>Požadavky
 
 * Předplatné Azure. Pokud předplatné nemáte, můžete [začít s bezplatným účtem Azure](https://azure.microsoft.com/free/). Jinak si můžete [zaregistrovat předplatné s průběžnými platbami](https://azure.microsoft.com/pricing/purchase-options/).
 
-  Vaše předplatné se používá pro účtování využívání aplikace logiky. Přečtěte si, jak funguje [měření využití](../logic-apps/logic-apps-pricing.md) a jaké jsou [ceny](https://azure.microsoft.com/pricing/details/logic-apps) Azure Logic Apps.
+* E-mailový účet od [jakéhokoli poskytovatele e-mailu, kterého podporuje Azure Logic Apps](../connectors/apis-list.md), pro odesílání oznámení. Můžete použít například Office 365 Outlook, Outlook.com, Gmail nebo jiného podporovaného poskytovatele. Tento kurz používá Office 365 Outlook.
 
-Tento příklad také vyžaduje následující položky:
-
-* Účet Outlook.com, Office 365 Outlook nebo Gmail
-
-    > [!TIP]
-    > Pokud máte osobní [účet Microsoft](https://account.microsoft.com/account), máte účet Outlook.com. Pokud máte pracovní nebo školní účet Azure, máte účet **Office 365 Outlook**.
+  > [!TIP]
+  > Pokud máte osobní [účet Microsoft](https://account.microsoft.com/account), máte účet Outlook.com. Pokud máte pracovní nebo školní účet Azure, máte účet Office 365 Outlook.
 
 * Odkaz na informační kanál RSS nějakého webu. V tomto příkladu se používá [informační kanál RSS pro hlavní zprávy z webu CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-## <a name="add-a-trigger-that-starts-your-workflow"></a>Přidání triggeru, který spustí váš pracovní postup
-
-[*Trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) je událost, která spustí pracovní postup vaší aplikace logiky a je první položkou, kterou aplikace logiky potřebuje.
+## <a name="1-create-a-blank-logic-app"></a>1. Vytvoření prázdné aplikace logiky 
 
 1. Přihlaste se na web [Azure Portal](https://portal.azure.com "Azure Portal").
 
-2. V levé nabídce zvolte **Nový** > **Podniková integrace** > **Aplikace logiky**, jak vidíte na tomto obrázku:
+2. V hlavní nabídce Azure zvolte **Nový** > **Podniková integrace** > **Aplikace logiky**.
 
-     ![Azure Portal, Nový, Podniková integrace, Aplikace logiky](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
+   ![Azure Portal, Nový, Podniková integrace, Aplikace logiky](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-   > [!TIP]
-   > Můžete také zvolit **Nový**, do vyhledávacího pole zadat `logic app` a stisknout klávesu Enter. Pak zvolte **Aplikace logiky** > **Vytvořit**.
+3. Vytvořte aplikaci logiky s použitím nastavení uvedeného v tabulce.
 
-3. Pojmenujte svoji novou aplikaci logiky a vyberte své předplatné Azure. Nyní vytvořte a vyberte skupinu prostředků Azure, která vám pomůže organizovat a spravovat související prostředky Azure. Nakonec vyberte umístění datacentra pro hostování aplikace logiky. Až budete hotovi, vyberte **Připnout na řídicí panel** a pak **Vytvořit**.
+   ![Zadání podrobností o aplikaci logiky](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
-     ![Podrobnosti aplikace logiky](media/logic-apps-create-a-logic-app/logic-app-settings.png)
+   | Nastavení | Navrhovaná hodnota | Popis | 
+   | ------- | --------------- | ----------- | 
+   | **Název** | *název_vaší_aplikace_logiky* | Zadejte jedinečný název aplikace logiky. | 
+   | **Předplatné** | *vaše_předplatné_Azure* | Vyberte předplatné Azure, které chcete použít. | 
+   | **Skupina prostředků** | *vaše_skupina_prostředků_Azure* | Vytvořte nebo vyberte skupinu prostředků Azure, která vám pomůže organizovat a spravovat související prostředky Azure. | 
+   | **Umístění** | *vaše_oblast_Azure* | Vyberte oblast datového centra pro nasazení aplikace logiky. | 
+   |||| 
 
-   > [!NOTE]
-   > Když vyberte možnost **Připnout na řídicí panel**, vaše aplikace logiky se po nasazení objeví na řídicím panelu Azure a automaticky se otevře. Pokud se aplikace logiky na řídicím panelu neobjeví, na dlaždici **Všechny prostředky** zvolte **Zobrazit další** a vyberte svou aplikaci logiky. Nebo v nabídce vlevo klikněte na **Další služby**. V části **Podniková integrace** zvolte **Aplikace logiky** a vyberte svoji aplikaci logiky.
+4. Až budete připraveni, vyberte **Připnout na řídicí panel** a pak zvolte **Vytvořit**.
 
-4. Při prvním otevření aplikace logiky vám Návrhář aplikací logiky nabídne šablony, které můžete použít pro začátek. Tentokrát klikněte na **Prázdná aplikace logiky**, abyste mohli aplikaci vytvořit od začátku.
+   Právě jste vytvořili prostředek Azure pro vaši aplikaci logiky. 
+   Až Azure nasadí aplikaci logiky, v Návrháři pro Logic Apps se zobrazí šablony pro obvyklé scénáře, abyste mohli začít rychleji.
 
-    Otevře se Návrhář aplikace logiky a zobrazí dostupné služby a *triggery*, které můžete v aplikaci logiky použít.
+   > [!NOTE] 
+   > Když vyberete **Připnout na řídicí panel**, vaše aplikace logiky se po nasazení zobrazí na řídicím panelu Azure a automaticky se otevře v Návrháři pro Logic Apps. Pokud ne, může svou aplikaci logiky vyhledat a otevřít ručně.
 
-5. Do vyhledávacího pole zadejte `RSS` a vyberte trigger **RSS – když se publikuje položka informačního zdroje** . 
+5. Prozatím v části **Šablony** zvolte **Prázdná aplikace logiky**, abyste mohli sestavit zcela novou aplikaci logiky.
 
-    ![Trigger RSS](media/logic-apps-create-a-logic-app/rss-trigger.png)
+   ![Výběr šablony aplikace logiky](./media/logic-apps-create-a-logic-app/choose-logic-app-template.png)
 
-6. Zadejte odkaz na informační zdroj RSS webu, který chcete sledovat. 
+   V Návrháři pro Logic Apps se teď zobrazí dostupné [*konektory*](../connectors/apis-list.md) a jejich [*triggery*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), pomocí kterých spouštíte pracovní postup aplikace logiky.
 
-     Můžete také změnit **frekvenci** a **interval**. 
-     Tato nastavení určují, jak často má aplikace logiky kontrolovat nové položky a vracet všechny položky nalezené za určité období.
+   ![Triggery aplikace logiky](./media/logic-apps-create-a-logic-app/logic-app-triggers.png)
 
-     V našem příkladu budeme hlavní zprávy na webu CNN kontrolovat každý den.
+## <a name="2-add-a-trigger-for-starting-the-workflow"></a>2. Přidání triggeru pro spuštění pracovního postupu
 
-     ![Nastavení triggeru s informačním kanálem RSS, frekvencí a intervalem](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
+Každá aplikace logiky se musí spouštět pomocí [*triggeru*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). Trigger se aktivuje, když dojde ke konkrétní události nebo když nová data splní podmínku, kterou jste nastavili. Modul Logic Apps pak vytvoří instanci aplikace logiky pro spuštění vašeho pracovního postupu. Při každé aktivaci triggeru modul vytvoří další samostatnou instanci, ve které se spustí pracovní postup vaší aplikace logiky.
 
-7. Teď svoji práci uložte. (Na panelu příkazů Návrháře zvolte **Uložit**.)
+1. Při filtrování do pole hledání zadejte „rss“. Vyberte trigger **RSS – Při publikování položky informačního kanálu**. 
 
-   ![Uložení aplikace logiky](media/logic-apps-create-a-logic-app/save-logic-app.png)
+   ![Výběr triggeru RSS – Při publikování položky informačního kanálu](./media/logic-apps-create-a-logic-app/rss-trigger.png)
 
-   Uložením přejde aplikace logiky do aktivního provozu, ale v současné době pouze kontroluje nové položky v zadaném informačním kanálu RSS. 
-   Aby byl tento příklad o něco užitečnější, přidáme akci, kterou aplikace logiky provede po splnění triggeru.
+2. Zadejte odkaz na informační kanál RSS webu, který chcete sledovat, například `http://rss.cnn.com/rss/cnn_topstories.rss`. Nastavte interval a frekvenci opakování. V tomto příkladu nastavte vlastnosti tak, aby se informační kanál kontroloval každý den. 
 
-## <a name="add-an-action-that-responds-to-your-trigger"></a>Přidání akce, která reaguje na trigger
+   ![Nastavení triggeru s informačním kanálem RSS, frekvencí a intervalem](./media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-[*Akce*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) je úloha, kterou provádí pracovní postup vaší aplikace logiky. Když do aplikace logiky přidáte trigger, můžete přidat akci, která bude provádět určitou operaci s daty generovanými triggerem. V našem příkladu přidáme akci, která odešle e-mail, jakmile se v informačním kanálu RSS webu objeví nové položky.
+3. Teď svoji práci uložte. Na panelu nástrojů návrháře zvolte **Uložit**.
+Pokud chcete sbalit a skrýt podrobnosti triggeru, zvolte záhlaví triggeru.
 
-1. V Návrháři pod triggerem zvolte **Nový krok** > **Přidat akci**, ukazuje tento obrázek:
+   ![Uložení aplikace logiky](./media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-   ![Přidání akce](media/logic-apps-create-a-logic-app/add-new-action.png)
+   Vaše aplikace logiky je teď v provozu, ale dokud do pracovního postupu nepřidáte akce, nebude dělat nic kromě kontroly nových položek v informačním kanálu RSS. 
+
+## <a name="3-add-an-action-that-responds-to-the-trigger"></a>3. Přidání akce, která reaguje na trigger
+
+Teď přidejte [*akci*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), což je úloha, kterou provádí pracovní postup vaší aplikace logiky. V tomto příkladu přidejte akci, která odešle e-mail, když se v informačním kanálu RSS objeví nová položka.
+
+1. V Návrháři pro Logic Apps pod triggerem zvolte **+ Nový krok** > **Přidat akci**.
+
+   ![Přidání akce](./media/logic-apps-create-a-logic-app/add-new-action.png)
 
    Návrhář zobrazí [dostupné konektory](../connectors/apis-list.md), ze kterých můžete vybrat akci, která se má spustit v reakci na trigger.
 
-2. Podle typu vašeho e-mailového účtu postupujte podle kroků pro Outlook nebo Gmail.
+   ![Výběr ze seznamu akcí](./media/logic-apps-create-a-logic-app/logic-app-actions.png)
 
-   * Když chcete odeslat e-mail z účtu Outlooku, zadejte do vyhledávacího pole `outlook`. V části **Služby** zvolte **Outlook.com** pro osobní účty Microsoft nebo **Office 365 Outlook** pro pracovní nebo školní účty Azure. 
-   V části **Akce** zvolte **Odeslat e-mail**.
+2. Při filtrování do pole hledání zadejte „odeslat e-mail“. Vyhledejte a vyberte konektor odpovídající vašemu poskytovateli e-mailu. Pak pro konektor vyberte akci „odeslat e-mail“. Například: 
 
-       ![Výběr akce Outlooku „Odeslat e-mail“](media/logic-apps-create-a-logic-app/actions.png)
+   * Pro pracovní nebo školní účet Azure vyberte konektor Office 365 Outlook. 
+   * Pro osobní účty Microsoft vyberte konektor Outlook.com. 
+   * Pro účty Gmail vyberte konektor Gmail. 
 
-   * Když chcete odeslat e-mail z účtu Gmailu, zadejte do vyhledávacího pole `gmail`. 
-   V části **Akce** zvolte **Odeslat e-mail**.
+   My budeme pokračovat s konektorem Office 365 Outlook. 
+   Pokud používáte jiného poskytovatele, postup je stejný, ale vaše uživatelské rozhraní může vypadat jinak. 
 
-       ![Výběr akce Gmailu „Odeslat e-mail“](media/logic-apps-create-a-logic-app/actions-gmail.png)
+   ![Výběr akce Office 365 Outlook – Odeslat e-mail](./media/logic-apps-create-a-logic-app/actions.png)
 
 3. Když se zobrazí výzva k zadání přihlašovacích údajů, zadejte uživatelské jméno a heslo k e-mailovému účtu. 
 
-4. Zadejte podrobnosti pro tuto akci, jako je cílová e-mailová adresa, a vyberte parametry dat, která se mají do e-mailu zahrnout, například:
+4. Zadejte podrobnosti uvedené v tabulce a zvolte pole, která chcete do e-mailu zahrnout.
 
-   ![Výběr dat pro zahrnutí do e-mailu](media/logic-apps-create-a-logic-app/rss-action-setup.png)
+   | Akce | Kroky | 
+   | -- | ----- | 
+   | Výběr dostupných polí pro pracovní postup | Klikněte do textového pole, aby se otevřel seznam **Dynamický obsah**, nebo zvolte **Přidat dynamický obsah**. | 
+   | Zobrazení dalších dostupných polí | V seznamu **Dynamický obsah** u každé části zvolte **Zobrazit další**.  | 
+   | Přidání prázdných řádků do textového pole | Stiskněte Shift + Enter. | 
+   | Zavření seznamu **Dynamický obsah** | Znovu zvolte **Přidat dynamický obsah**. | 
+   ||| 
 
-    Pokud jste zvolili Outlook, vaše aplikace logiky může vypadat podobně jako v tomto příkladu:
+   ![Výběr dat pro zahrnutí do e-mailu](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-    ![Hotová aplikace logiky](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
+   | Nastavení | Navrhovaná hodnota | Popis | 
+   | ------- | --------------- | ----------- | 
+   | **Komu** | *e-mailová_adresa_příjemce* | Zadejte e-mailovou adresu příjemce. Pro účely testování můžete použít svou vlastní e-mailovou adresu. | 
+   | **Předmět** | Nový příspěvek na CNN: **Název informačního kanálu** | Zadejte obsah předmětu e-mailu. <p>Pro účely tohoto kurzu zadejte navrhovaný text a vyberte pole **Název informačního kanálu** triggeru, které zobrazí název položky informačního kanálu. | 
+   | **Text** | Název: **Název informačního kanálu** <p>Datum publikování: **Datum publikování informačního kanálu** <p>Odkaz: **Odkaz na primární informační kanál** | Zadejte obsah e-mailu. <p>Pro účely tohoto kurzu zadejte navrhovaný text a pak vyberte následující pole triggeru: <p>- **Název informačního kanálu:** znovu zobrazí název položky informačního kanálu </br>- **Datum publikování informačního kanálu:** zobrazí datum a čas publikování položky </br>- **Odkaz na primární informační kanál:** zobrazí adresu URL položky informačního kanálu | 
+   |||| 
 
-5.    Uložte provedené změny. (Na panelu příkazů Návrháře zvolte **Uložit**.)
+   > [!NOTE] 
+   > Pokud vyberete pole, které obsahuje pole položek, návrhář kolem akce odkazující na toto pole položek automaticky přidá smyčku For each. Aplikace logiky tak provede příslušnou akci pro každou položku pole.
 
-6. Nyní můžete aplikaci logiky ručně spustit a otestovat ji. Na panelu příkazů Návrháře zvolte **Spustit**. Můžete také nechat aplikaci logiky zkontrolovat zadaný informační kanál RSS podle nastaveného plánu.
+5. Jakmile budete hotovi, uložte změny. Na panelu nástrojů návrháře zvolte **Uložit**.
 
-   Pokud aplikace logiky najde nové položky, odešle e-mail obsahující požadovaná data. 
-   Když žádné nové položky nenajde, přeskočí akci, která odesílá e-mail.
+   ![Hotová aplikace logiky](./media/logic-apps-create-a-logic-app/save-complete-logic-app.png)
 
-7. Ke sledování a kontrole činnosti a historie spouštění vaší aplikaci logiky vyberte v nabídce aplikace logiky možnost **Přehled**.
+   Pokud teď chcete aplikaci logiky otestovat, pokračujte k další části.
 
-   ![Sledování a kontrola činnosti a historie spouštění aplikaci logiky](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
+## <a name="4-run-and-test-your-workflow"></a>4. Spuštění a testování pracovního postupu
+
+1. Pokud chcete aplikaci logiky ručně spustit pro účely testování, na panelu nástrojů návrháře zvolte **Spustit**. Případně můžete nechat aplikaci logiky zkontrolovat zadaný informační kanál RSS podle nastaveného plánu.
+
+   ![Spuštění aplikace logiky](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
+
+   Pokud aplikace logiky najde nové položky, odešle e-mail obsahující požadovaná data, například:
+
+   ![E-mail odeslaný za novou položku informačního kanálu RSS](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+   Pokud aplikace logiky nenajde žádné nové položky, přeskočí akci, která odesílá e-mail, a s další kontrolou počká na další interval. 
+
+2. Pokud chcete zkontrolovat historii spouštění a triggerů vaší aplikace logiky, v nabídce aplikace logiky zvolte možnost **Přehled**.
+Pokud chcete zobrazit další podrobnosti o spuštění, zvolte řádek příslušného spuštění.
+
+   ![Sledování a kontrola činnosti a historie spouštění aplikaci logiky](./media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
 
    > [!TIP]
-   > Pokud nenajdete očekávaná data, na panelu příkazů zkuste vybrat možnost **Aktualizovat**.
+   > Pokud nenajdete očekávaná data, na panelu příkazů zkuste zvolit možnost **Aktualizovat**.
 
-   Další informace o stavu a historie spouštění vaší aplikace logiky a o její diagnostice najdete v článku [Odstraňovaní potíží s aplikací logiky](logic-apps-diagnosing-failures.md).
+   Bez ohledu na úspěch nebo selhání spuštění se v zobrazení Podrobnosti o spuštění zobrazí kroky, které byly úspěšné nebo selhaly. 
 
-      > [!NOTE]
-      > Aplikace logiky se bude spouštět dál, dokud ji nevypnete. Pokud chcete aplikaci dočasně vypnout, v nabídce aplikace logiky zvolte **Přehled**. Na panelu příkazů zvolte **Zakázat**.
+   ![Zobrazení podrobností o spuštění aplikace logiky](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
 
-Gratulujeme, právě jste vytvořili a spustili svoji první základní aplikaci logiky. Také jste se naučili, jak snadno vytvořit pracovní postupy pro automatizaci procesů, jak a integrovat cloudové aplikace a cloudové služby – a všechno bez programování.
+   Další informace o stavu, historii spouštění a historii triggerů vaší aplikace logiky a o její diagnostice najdete v článku [Odstraňovaní potíží s aplikací logiky](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="manage-your-logic-app"></a>Správa aplikací logiky
+3. Pokud chcete zobrazit vstupy a výstupy jednotlivých kroků, rozbalte krok, který chcete zkontrolovat. Tyto informace vám můžou pomoct s diagnostikou a laděním problémů ve vaší aplikaci logiky. Například:
 
-Při správě své aplikace můžete provádět úkoly jako je kontrola stavu, úpravy, zobrazení historie, vypnutí nebo odstranění aplikace logiky.
+   ![Zobrazení podrobností o kroku](./media/logic-apps-create-a-logic-app/logic-app-run-details-expanded.png)
 
-1. Přihlaste se na web [Azure Portal](https://portal.azure.com "Azure Portal").
+   Další informace najdete v tématu [Monitorování aplikace logiky](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-2. V nabídce vlevo klikněte na **Další služby**. V části **Podniková integrace** zvolte **Logic Apps**. Vyberte svou aplikaci logiky. 
+Gratulujeme, právě jste vytvořili a spustili svou první základní aplikaci logiky. Tento příklad ukazuje, jak snadno vytvořit pracovní postupy, které automatizují procesy pro integraci systémů a služeb – a všechno bez kódu.
 
-   V nabídce aplikace logiky najdete tyto úkoly správy:
+> [!NOTE]
+> Aplikace logiky se bude spouštět dál, dokud ji nevypnete. Pokud chcete svou aplikaci dočasně vypnout, pokračujte k další části.
 
-   |Úkol|Kroky| 
-   |:---|:---| 
-   | Zobrazení stavu aplikace, historie spouštění a obecných informací| Zvolte **Přehled**.| 
-   | Úprava aplikace | Zvolte **Návrhář aplikace logiky**. | 
-   | Zobrazení definice JSON pracovního postupu vaší aplikace | Zvolte **Zobrazení kódu aplikace logiky**. | 
-   | Zobrazení operací, které aplikace logiky provedla | Zvolte **Protokol aktivit**. | 
-   | Zobrazení předchozích verzí aplikace logiky | Zvolte **Verze**. | 
-   | Dočasné vypnutí aplikace | Zvolte **Přehled** a pak na panelu příkazů **Zakázat**. | 
-   | Odstranění aplikace | Zvolte **Přehled** a pak na panelu příkazů **Odstranit**. Zadejte název aplikace logiky a zvolte **Odstranit**. | 
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-## <a name="get-help"></a>Podpora
+Tento kurz používá prostředky a provádí akce, za které se na vaše předplatné Azure můžou účtovat poplatky. Jakmile budete s kurzem a testováním hotovi, nezapomeňte vypnout nebo odstranit všechny prostředky, za které nechcete, aby se vám účtovaly poplatky.
 
-Klást otázky, odpovídat na ně a poučit se ze zkušeností jiných uživatelů Azure Logic Apps můžete ve [fóru Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+Aplikaci logiky můžete zakázat spouštění a odesílání e-mailů, aniž byste ji odstranili. V nabídce aplikace logiky zvolte **Přehled**. Na panelu nástrojů zvolte **Vypnout**.
 
-Pokud chcete pomoci při vylepšování Azure Logic Apps a konektorů, hlasujte nebo zanechte své nápady na [webu zpětné vazby uživatelů Azure Logic Apps](http://aka.ms/logicapps-wish).
+![Vypnutí aplikace logiky](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
+
+## <a name="faq"></a>Nejčastější dotazy
+
+**Otázka:** Co dalšího můžu dělat se svou aplikací logiky? </br>
+**Odpověď:** Můžete provádět i další úlohy, například zobrazit a upravit definici JSON, zkontrolovat protokol aktivit nebo aplikaci logiky odstranit.
+
+Další úlohy správy aplikace logiky najdete pod těmito příkazy v nabídce aplikace logiky:
+
+| Úkol | Kroky | 
+| ---- | ----- | 
+| Zobrazení stavu aplikace, historie spouštění a triggerů a obecných informací | Zvolte **Přehled**. | 
+| Úprava aplikace | Zvolte **Návrhář aplikace logiky**. | 
+| Zobrazení definice JSON pracovního postupu vaší aplikace | Zvolte **Zobrazení kódu aplikace logiky**. | 
+| Zobrazení operací, které aplikace logiky provedla | Zvolte **Protokol aktivit**. | 
+| Zobrazení předchozích verzí aplikace logiky | Zvolte **Verze**. | 
+| Dočasné vypnutí aplikace | Zvolte **Přehled** a pak na panelu nástrojů zvolte **Vypnout**. | 
+| Odstranění aplikace | Zvolte **Přehled** a pak na panelu nástrojů zvolte **Odstranit**. Zadejte název aplikace logiky a zvolte **Odstranit**. | 
+||| 
+
+## <a name="get-support"></a>Získat podporu
+
+* Pokud máte dotazy ohledně Azure Logic Apps, navštivte [fórum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+* Chcete pomoci vylepšit Azure Logic Apps a konektory? Hlasujte nebo zanechte své nápady na [webu User Voice pro Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Další kroky
 
-*  [Přidání podmínek a spuštění pracovních postupů](../logic-apps/logic-apps-use-logic-app-features.md)
-*     [Šablony pro aplikace logiky](../logic-apps/logic-apps-use-logic-app-templates.md)
-*  [Vytváření aplikací logiky ze šablon Azure Resource Manageru](../logic-apps/logic-apps-arm-provision.md)
-
+* [Vytvoření aplikace logiky pomocí sady Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Přidání podmínek a spuštění pracovních postupů](../logic-apps/logic-apps-use-logic-app-features.md)
+*   [Šablony pro aplikace logiky](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Vytváření aplikací logiky ze šablon Azure Resource Manageru](../logic-apps/logic-apps-arm-provision.md)
+* [Měření využití Logic Apps](../logic-apps/logic-apps-pricing.md) 
+* [Ceny Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps)

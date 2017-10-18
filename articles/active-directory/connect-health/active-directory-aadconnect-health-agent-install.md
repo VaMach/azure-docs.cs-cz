@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: bfdcc4aadab18091b2f57e8bc751b37d1bac4d26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalace agenta služby Azure AD Connect Health
 Tento dokument vás provede procesem instalace a konfigurace agentů služby Azure AD Connect Health. Agenty si můžete stáhnout [tady](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -37,7 +36,19 @@ Následující tabulka představuje seznam požadavků pro používání služby
 | Kontrola protokolu SSL je pro odchozí připojení filtrovaná nebo zakázaná | Krok registrace agenta nebo operace nahrávání dat můžou selhat, pokud je na síťové vrstvě povolená kontrola nebo ukončování protokolu SSL pro odchozí připojení. |
 | Porty brány firewall na serveru se spuštěným agentem. |Agent vyžaduje, aby následující porty brány firewall byly otevřené. Je to proto, aby agent mohl komunikovat s koncovými body služby Azure AD Health.</br></br><li>Port 443 protokolu TCP</li><li>Port 5671 protokolu TCP</li> |
 | Pokud je povoleno rozšířené zabezpečení Internet Exploreru, povolte následující weby |Pokud je povoleno rozšířené zabezpečení Internet Exploreru, musí být na serveru, na který budete agenta instalovat, povoleny následující weby.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Federační server vaší organizace, který je pro službu Azure Active Directory důvěryhodný. Příklad: https://sts.contoso.com</li> |
+| Ujistěte se, že je nainstalovaný PowerShell v4.0 nebo novější | <li>Windows Server 2008 R2 se dodává s PowerShellem v2.0, který pro agenta není dostačující.  Aktualizujte PowerShell, jak je popsáno níže v části [Instalace agenta na servery se systémem Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 se dodává s PowerShellem v3.0, který pro agenta není dostačující.  [Aktualizujte](http://www.microsoft.com/en-us/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 a novější se dodávají s dostatečně aktuální verzí PowerShellu.</li>|
 |Zákaz FIPS|Agenti Azure AD Connect Health nepodporují FIPS.|
+
+## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Stažení a instalace agenta služby Azure AD Connect Health
+* Ověřte, že [splňujete požadavky](active-directory-aadconnect-health-agent-install.md#requirements) pro službu Azure AD Connect Health.
+* Začínáme s využitím Azure AD Connect Health pro službu AD FS
+    * [Stažení agenta Azure AD Connect Health pro službu AD FS](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Pokyny k instalaci](#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Začínáme s využitím Azure AD Connect Health pro synchronizaci
+    * [Stažení a instalace nejnovější verze služby Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771) Agent služby Health pro synchronizaci se nainstaluje jako součást instalace služby Azure AD Connect (verze 1.0.9125.0 nebo vyšší).
+* Začínáme s využitím Azure AD Connect Health pro službu AD DS
+    * [Stažení agenta služby Azure AD Connect Health pro službu AD DS](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Pokyny k instalaci](#installing-the-azure-ad-connect-health-agent-for-ad-ds)
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalace agenta Azure AD Connect Health pro službu AD FS
 Pokud chcete spustit instalaci agenta, poklikejte na stažený soubor .exe. Na první obrazovce klikněte na Instalovat.
@@ -89,11 +100,11 @@ Aby mohla funkce analýzy využití shromažďovat a analyzovat data, potřebuje
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Povolení auditování služby AD FS v systému Windows Server 2008 R2
 1. Klikněte na **Start**, najeďte myší na **Programy**, potom na **Nástroje pro správu** a potom klikněte na **Místní zásady zabezpečení**.
-2. Přejděte do složky **Security Settings\Local Policies\User Rights Management** a poklikejte na položku Generovat audity zabezpečení.
+2. Přejděte do složky **Security Settings\Local Policies\User Rights Management** a poklikejte na položku **Generovat audity zabezpečení**.
 3. Na kartě **Místní nastavení zabezpečení** zkontrolujte, jestli je tam uvedený účet služby AD FS 2.0. Pokud tam není, klikněte na **Přidat uživatele nebo skupinu** a přidejte ho do seznamu. Potom klikněte na **OK**.
 4. Pokud chcete povolit auditování, otevřete příkazový řádek se zvýšenými oprávněními a spusťte následující příkaz: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Zavřete místní zásady zabezpečení a potom otevřete snap-in Správa. Pokud chcete otevřít snap-in Správa, klikněte na tlačítko **Start**, najeďte myší na **Programy**, potom na **Nástroje pro správu** a potom klikněte na Správa služby AD FS 2.0.
-6. V podokně Akce klikněte na tlačítko Upravit vlastnosti služby FS (Federation Service).
+5. Zavřete **Místní zásady zabezpečení** a potom otevřete snap-in **Správa služby AD FS**. Pokud chcete otevřít snap-in Správa služby AD FS, klikněte na **Start**, najeďte myší na **Programy**, potom na **Nástroje pro správu** a potom klikněte na **Správa služby AD FS 2.0**.
+6. V podokně **Akce** klikněte na **Upravit vlastnosti služby FS (Federation Service)**.
 7. V dialogovém okně **Vlastnosti služby FS (Federation Service)** klikněte na kartu **Události**.
 8. Zaškrtněte políčka **Úspěšné audity** a **Neúspěšné audity**.
 9. Klikněte na tlačítko **OK**.
@@ -303,4 +314,3 @@ Pokud chcete zobrazit podrobné protokoly, použijte v příkazu příznak - Sho
 * [Používání služby Azure AD Connect Health se službou AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 * [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

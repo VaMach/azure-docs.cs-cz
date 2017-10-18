@@ -12,36 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/30/2017
+ms.date: 09/18/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4b6da997f44860dccb2aa2571ce099ab2d0231f3
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: c0cd24e03c24655adfe851bc85b721c0b617efcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Povolení synchronizace hesel do služby Azure Active Directory Domain Services
 V předchozích úlohách jste povolili službu Azure Active Directory Domain Services pro tenanta služby Azure Active Directory (Azure AD). Další úlohou je povolení synchronizace hodnot hash přihlašovacích údajů požadovaných pro ověřování protokolů NT LAN Manager (NTLM) a Kerberos do služby Azure AD Domain Services. Po nastavení synchronizace přihlašovacích údajů se uživatelé mohou přihlásit ke spravované doméně s použitím podnikových přihlašovacích údajů.
 
-Potřebný postup se liší pro uživatelské účty jenom cloudu a uživatelské účty synchronizované z místního adresáře pomocí služby Azure AD Connect.  Pokud je ve vašem tenantovi služby Azure AD kombinace uživatelů jenom cloudu a uživatelů z místní služby AD, musíte provést oba kroky.
+Potřebný postup se liší pro uživatelské účty jenom cloudu a uživatelské účty synchronizované z místního adresáře pomocí služby Azure AD Connect. 
+
+<br>
+| **Typ uživatelského účtu** | **Požadovaný postup** |
+| --- |---|
+| **Cloudové uživatelské účty vytvořené ve službě Azure AD** |**&#x2713;** [Postupujte podle pokynů v tomto článku](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
+| **Uživatelské účty synchronizované z místního adresáře** |**&#x2713;** [Synchronizujte hesla pro uživatelské účty synchronizované z místní služby AD do spravované domény](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
-> [!div class="op_single_selector"]
-> * **Uživatelské účty jenom cloudu:** [Synchronizujte hesla pro uživatelské účty jenom cloudu do spravované domény](active-directory-ds-getting-started-password-sync.md).
-> * **Místní uživatelské účty:** [Synchronizujte hesla pro uživatelské účty synchronizované z místní služby AD do spravované domény](active-directory-ds-getting-started-password-sync-synced-tenant.md).
+> [!TIP]
+> **Možná bude nutné dokončit oba postupy.**
+> Pokud je ve vašem tenantovi služby Azure AD kombinace uživatelů jenom cloudu a uživatelů z místní služby AD, musíte dokončit oba postupy.
 >
->
-
-<br>
 
 ## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts"></a>Úkol 5: Povolení synchronizace hesel do spravované domény pro uživatelské účty jenom cloudu
 K ověřování uživatelů ve spravované doméně služba Azure Active Directory Domain Services potřebuje hodnoty hash přihlašovacích údajů ve formátu vhodném pro ověřování pomocí protokolů NTLM a Kerberos. Azure AD nebude generovat ani ukládat hodnoty hash přihlašovacích údajů ve formátu požadovaném pro ověřování pomocí protokolů NTLM a Kerberos, dokud u svého tenanta nepovolíte službu Azure Active Directory Domain Services. Ze zřejmých bezpečnostních důvodů Azure AD také neukládá přihlašovací hesla jako nešifrovaný text. Proto v Azure AD neexistuje způsob, jak automaticky vygenerovat tyto hodnoty hash přihlašovacích údajů protokolů NTLM nebo Kerberos na základě stávajících přihlašovacích údajů uživatelů.
 
 > [!NOTE]
-> Pokud má vaše organizace výhradně uživatelské účty jenom cloudu, uživatelé, kteří potřebují používat službu Azure Active Directory Domain Services, si musí změnit heslo. Uživatelský účet jenom cloudu je účet vytvořený v adresáři služby Azure AD pomocí webu Azure Portal nebo rutin Azure AD PowerShellu. Takové uživatelské účty se nesynchronizují z místního adresáře.
+> **Pokud má vaše organizace výhradně uživatelské účty jenom cloudu, všichni uživatelé, kteří potřebují používat službu Azure Active Directory Domain Services, si musí změnit heslo.** Uživatelský účet jenom cloudu je účet vytvořený v adresáři služby Azure AD pomocí webu Azure Portal nebo rutin Azure AD PowerShellu. Takové uživatelské účty se nesynchronizují z místního adresáře.
 >
 >
 
@@ -62,7 +63,7 @@ Tyto pokyny je nutné poskytnout uživatelům, aby si mohli změnit hesla:
 
     ![Kliknutí na Změnit heslo](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-   > [!NOTE]
+   > [!TIP]
    > Pokud se v okně s přístupovým panelem možnost **Změnit heslo** nezobrazí, ujistěte se, že je ve vaší organizaci nakonfigurovaná [správa hesel v Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
@@ -72,7 +73,7 @@ Tyto pokyny je nutné poskytnout uživatelům, aby si mohli změnit hesla:
 
 5. Klikněte na **Odeslat**.
 
-Několik minut poté, co si změníte heslo, je možné používat ve službě Azure Active Directory Domain Services nové heslo. Po několika dalších minutách (obvykle přibližně 20 minut) se můžete přihlašovat k počítačům připojeným k spravované doméně s použitím nově změněného hesla.
+Několik minut poté, co si změníte heslo, je možné používat ve službě Azure Active Directory Domain Services nové heslo. Po přibližně 20 minutách se můžete přihlašovat k počítačům připojeným k spravované doméně pomocí nově změněného hesla.
 
 ## <a name="related-content"></a>Související obsah
 * [Postup aktualizace vlastního hesla](../active-directory/active-directory-passwords-update-your-own-password.md)
@@ -81,4 +82,3 @@ Několik minut poté, co si změníte heslo, je možné používat ve službě A
 * [Správa spravované domény služby Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 * [Připojení virtuálního počítače s Windows k spravované doméně služby Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Připojení virtuálního počítače se systémem Red Hat Enterprise Linux k spravované doméně služby Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

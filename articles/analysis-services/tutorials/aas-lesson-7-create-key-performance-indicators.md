@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Lekce 7: Vytvoření klíčových ukazatelů výkonu
 
@@ -49,7 +48,7 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
 
     Tato míra slouží jako základní míra klíčového ukazatele výkonu.  
   
-4.  Pravým tlačítkem myši klikněte na **InternetCurrentQuarterSalesPerformance** > **Vytvořit klíčový ukazatel výkonu**.   
+4.  V mřížce měr klikněte pravým tlačítkem na **InternetCurrentQuarterSalesPerformance** > **Vytvořit klíčový ukazatel výkonu**.   
   
 5.  V dialogovém okně Klíčový ukazatel výkonu (KPI) v části **Cíl** vyberte **Absolutní hodnota**a pak zadejte **1,1**.  
   
@@ -88,4 +87,3 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
 [Lekce 8: Vytvoření perspektiv](../tutorials/aas-lesson-8-create-perspectives.md)
   
   
-

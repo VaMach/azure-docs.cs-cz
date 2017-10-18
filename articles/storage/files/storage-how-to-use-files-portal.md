@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-files-from-the-azure-portal"></a>Použití služby Soubory Azure z webu Azure Portal
 [Azure Portal](https://portal.azure.com) nabízí uživatelské rozhraní pro správu služby Soubory Azure. Z webového prohlížeče můžete provádět následující akce:
 
@@ -66,7 +64,7 @@ ms.lasthandoff: 09/25/2017
 -  Klikněte na **Připojit** a zobrazí se příkazový řádek pro připojení sdílené složky z Windows a Linuxu. Pokud jste uživatelem Linuxu, další informace o připojení pro jiné distribuce Linuxu najdete v tématu [Jak používat Soubory Azure s Linuxem](../storage-how-to-use-files-linux.md).
 
     ![Snímek obrazovky, který ukazuje připojení sdílené složky.](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  Můžete zkopírovat příkazy pro připojení sdílené složky v systému Windows nebo Linux a spustit je z virtuálního počítače Azure nebo místního počítače.
+-  Můžete zkopírovat příkazy pro připojení sdílené složky ve Windows nebo Linuxu a spustit je z virtuálního počítače Azure nebo místního počítače.
 
     ![Snímek obrazovky, který ukazuje příkazy pro připojení pro Windows a Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 

@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 09/29/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.contentlocale: cs-cz
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 91a437345858cf3a9b00b6b4e8e72cd253f8f069
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Jak se připojit a přihlásit k virtuálnímu počítači s Windows v Azure
 Pomocí tlačítka **Připojit** na webu Azure Portal spustíte z počítače s Windows relaci Vzdálené plochy (protokol RDP). Nejdřív se k virtuálnímu počítači připojíte a pak se k němu přihlásíte.
@@ -29,9 +28,9 @@ Pokud se pokoušíte připojit k virtuálnímu počítači s Windows z Macu, bud
 
 ## <a name="connect-to-the-virtual-machine"></a>Připojení k virtuálnímu počítači
 1. Pokud jste to ještě neudělali, přihlaste se k [Portálu Azure](https://portal.azure.com/).
-2. V nabídce centra klikněte na **Virtuální počítače**.
+2. V nabídce vlevo klikněte na **Virtual Machines**.
 3. Ze seznamu vyberte virtuální počítač.
-4. V okně pro virtuální počítač klikněte na **Připojit**.
+4. Na stránce pro virtuální počítač klikněte na **Připojit**.
    
     ![Snímek obrazovky Portálu Azure znázorňující způsob připojení k virtuálnímu počítači](./media/connect-logon/connect.png)
    
@@ -45,5 +44,4 @@ Pokud se pokoušíte připojit k virtuálnímu počítači s Windows z Macu, bud
 
 ## <a name="next-steps"></a>Další kroky
 Pokud při připojování nastanou problémy, přečtěte si článek [Řešení problémů s připojením ke Vzdálené ploše](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tento článek vás provede diagnostikou a řešením běžných problémů.
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Vyhodnocování standardních hodnot v řešení Zabezpečení a audit pro Operations Management Suite
 Tento dokument vám pomůže s použitím schopností vyhodnocování standardních hodnot v [řešení Zabezpečení a audit pro Operations Management Suite (OMS)](operations-management-suite-overview.md) pro přístup ke stavu zabezpečení monitorovaných prostředků.
@@ -40,7 +39,7 @@ Existují tři typy pravidel:
 > 
 
 ## <a name="security-baseline-assessment"></a>Vyhodnocování standardních hodnot zabezpečení
-Můžete zkontrolovat aktuální stav vyhodnocení standardních hodnot zabezpečení pro všechny počítače monitorované řešením Zabezpečení a audit v OMS pomocí řídicího panelu.  Provedením následujících kroků otevřete řídicí panel vyhodnocování standardních hodnot zabezpečení:
+Můžete zkontrolovat aktuální stav vyhodnocení standardních hodnot zabezpečení pro všechny počítače monitorované řešením Zabezpečení a audit v OMS pomocí řídicího panelu. Provedením následujících kroků otevřete řídicí panel vyhodnocování standardních hodnot zabezpečení:
 
 1. Na hlavním řídicím panelu **Microsoft Operations Management Suite** klikněte na dlaždici **Zabezpečení a audit**.
 2. Na řídicím panelu **Zabezpečení a audit** klikněte na **Vyhodnocování standardních hodnot** v části **Domény zabezpečení**. Zobrazí se řídicí panel **Vyhodnocování standardních hodnot zabezpečení**, jak je znázorněno na následujícím obrázku:
@@ -85,5 +84,4 @@ V tomto dokumentu jste se dozvěděli o vyhodnocování standardních hodnot v �
 * [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorování a reagování na výstrahy zabezpečení v řešení Zabezpečení a audit v Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorování prostředků v řešení Zabezpečení a audit v Operations Management Suite](oms-security-monitoring-resources.md)
-
 

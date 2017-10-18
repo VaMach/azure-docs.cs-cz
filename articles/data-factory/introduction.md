@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Úvod do Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,10 +57,10 @@ Jakmile budou data v centralizovaném úložišti dat v cloudu, budete chtít sh
 Nezpracovaná data jsou teď převedená do podoby, která umožňuje využití v rámci podniku. Tato data načtete do služby Azure Data Warehouse, Azure SQL DB, Azure CosmosDB nebo jiného analytického nástroje, na který se mohou vaši obchodní uživatelé nasměrovat ze svých nástrojů business intelligence.
 
 ### <a name="monitor"></a>Monitorování
-Jakmile úspěšně sestavíte a nasadíte kanál integrace dat, který ze zpracovaných dat získává obchodní hodnotu, budete chtít monitorovat naplánované aktivity a kanály a jejich míru úspěšnosti a chyb. Služba Azure Data Factory obsahuje integrovanou podporu monitorování kanálů prostřednictvím služby Azure Monitor, rozhraní API, prostředí PowerShell, OMS a panelů stavu na portálu Azure.
+Jakmile úspěšně sestavíte a nasadíte kanál integrace dat, který ze zpracovaných dat získává obchodní hodnotu, budete chtít monitorovat naplánované aktivity a kanály a jejich míru úspěšnosti a chyb. Azure Data Factory obsahuje integrovanou podporu monitorování kanálů prostřednictvím služby Azure Monitor, rozhraní API, PowerShellu, Microsoft Operations Management Suite (OMS) a panelů stavu na webu Azure Portal.
 
 ## <a name="whats-different-in-version-2"></a>Co je nového ve verzi 2?
-Služba Azure Data Factory verze 2 staví na původní službě pro přesouvání a transformaci dat Azure Data Factory a rozšiřuje ji pro pestřejší škálu scénářů integrace dat s upřednostněním cloudu. Služba Azure Data Factory verze 2 nabízí tyto funkce:
+Služba Azure Data Factory verze 2 staví na původní službě pro přesouvání a transformaci dat Azure Data Factory a rozšiřuje ji pro pestřejší škálu scénářů integrace dat s upřednostněním cloudu. Azure Data Factory verze 2 nabízí tyto funkce:
 
 - Tok řízení a škálování
 - Nasazení a spouštění balíčků služby SSIS v Azure
@@ -98,17 +97,21 @@ Další informace najdete v článku [Kurz: Tok řízení](tutorial-control-flow
 Pokud chcete přesunout úlohy služby SSIS, můžete vytvořit službu Data Factory verze 2 a zřídit prostředí Azure-SSIS Integration Runtime (IR). Prostředí Azure-SSIS IR je plně spravovaný cluster virtuálních počítačů Azure (uzlů) vyhrazených ke spouštění balíčků služby SSIS v cloudu. Podrobné pokyny najdete v tomto kurzu: [Nasazení balíčků služby SSIS do Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## <a name="rich-cross-platform-sdks"></a>Bohaté sady SDK pro více platforem
+### <a name="sdks"></a>Sady SDK
 Pokud jste pokročilý uživatel a hledáte programové rozhraní, verze 2 poskytuje pestrou nabídku sad SDK, které slouží k vytváření, správy a monitorování kanálů pomocí vašeho oblíbeného integrovaného vývojového prostředí (IDE).
 
-- .NET SDK
-- PowerShell
-- Python SDK
+- .NET SDK – Sada .NET SDK je aktualizovaná pro verzi 2. 
+- PowerShell – Rutiny PowerShellu jsou aktualizované pro verzi 2. Rutiny verze 2 mají v názvu **DataFactoryV2**. Například: Get-AzureRmDataFactoryV2. 
+- Python SDK – Tato sada SDK je ve verzi 2 nová.
+- REST API – Rozhraní REST API je aktualizováno pro verzi 2.  
 
-K vytváření datových továren můžete používat také rozhraní REST API. 
+Sady SDK aktualizované pro verzi 2 nejsou zpětně kompatibilní s klienty verze 1. 
+
+### <a name="monitoring"></a>Monitorování
+Verze 2 v současné době podporuje monitorování datových továren pouze pomocí sad SDK. Portál ještě monitorování datových továren verze 2 nepodporuje. 
 
 ## <a name="load-the-data-into-a-lake"></a>Načtení dat do jezera
-Služba Data Factory má přes 30 konektorů, které umožňují načítat data z hybridních a heterogenních prostředí do Azure.  V článku [Průvodce výkonem a laděním](copy-activity-performance.md) najdete nejnovější výsledky výkonu z interního testování a návrhy pro ladění. Kromě toho jsme nedávno povolili vysokou dostupnost a škálovatelnost prostředí Integration Runtime v místním prostředí, které nainstalujete v privátním síťovém prostředí za účelem plnění požadavků velkých podnikových zákazníků na nejvyšší úrovni a které poskytuje vyšší dostupnost a lepší škálovatelnost.
+Služba Data Factory má více než 30 konektorů, které umožňují načítat data z hybridních a heterogenních prostředí do Azure.  V článku [Průvodce výkonem a laděním](copy-activity-performance.md) najdete nejnovější výsledky výkonu z interního testování a návrhy pro ladění. Kromě toho jsme nedávno povolili vysokou dostupnost a škálovatelnost prostředí Integration Runtime v místním prostředí, které nainstalujete v privátním síťovém prostředí za účelem plnění požadavků velkých podnikových zákazníků na nejvyšší úrovni a které poskytuje vyšší dostupnost a lepší škálovatelnost.
 
 ## <a name="top-level-concepts-in-version-2"></a>Koncepty nejvyšší úrovně ve verzi 2
 Předplatné Azure může obsahovat jednu nebo více instancí služby Azure Data Factory (neboli datových továren). Azure Data Factory se skládá ze čtyř klíčových komponent, které společně poskytují platformu, na které můžete vytvářet pracovní postupy řízené daty s kroky pro přesun a transformaci dat.
@@ -165,4 +168,3 @@ Předpokládejme například, že vaše výpočetní prostředí, jako je cluste
 
 ## <a name="next-steps"></a>Další kroky
 Naučte se vytvořit datovou továrnu na základě podrobných pokynů v následujících průvodcích pro rychlý start: [prostředí PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) a portál Azure. 
-

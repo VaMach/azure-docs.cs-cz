@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Koncepty, terminologie a hierarchie entit Scheduleru
 ## <a name="scheduler-entity-hierarchy"></a>Hierarchie entit Scheduleru
@@ -176,7 +176,7 @@ Pro případ, že úloha Scheduleru selže, se můžou zadat zásady opakovanýc
 
 Pokud chcete nastavit zásady opakovaných pokusů, můžete nastavit další dvě nastavení: interval opakovaných pokusů (**retryInterval**) a počet opakovaných pokusů (**retryCount**).
 
-Interval opakovaných pokusů zadaný v objektu **retryInterval** je interval mezi opakovanými pokusy. Výchozí hodnota je 30 sekund, minimální nastavitelná hodnota je 15 sekund a maximální hodnota je 18 měsíců. Pro úlohy v kolekcích úloh Free je minimální nastavitelná hodnota 1 hodina.  Definuje se ve formátu ISO 8601. Podobně je to s hodnotou počtu opakovaných pokusů nastavených v objektu **retryCount** – je to počet, kolikrát se má pokus opakovat. Výchozí hodnota je 4 a maximální hodnota je 20\. Obě **retryInterval** a **retryCount** jsou volitelné. Pokud je objekt **retryType** nastavený na **fixed** a nejsou explicitně zadané žádné konkrétní hodnoty, použijí se výchozí hodnoty.
+Interval opakovaných pokusů zadaný v objektu **retryInterval** je interval mezi opakovanými pokusy. Výchozí hodnota je 30 sekund, minimální nastavitelná hodnota je 15 sekund a maximální hodnota je 18 měsíců. Pro úlohy v kolekcích úloh Free je minimální nastavitelná hodnota 1 hodina.  Definuje se ve formátu ISO 8601. Podobně je to s hodnotou počtu opakovaných pokusů nastavených v objektu **retryCount** – je to počet, kolikrát se má pokus opakovat. Výchozí hodnota je 4 a maximální hodnota je 20. Oba objekty **retryInterval** a **retryCount** jsou volitelné. Pokud je objekt **retryType** nastavený na **fixed** a nejsou explicitně zadané žádné konkrétní hodnoty, použijí se výchozí hodnoty.
 
 ## <a name="see-also"></a>Viz také
  [Co je Scheduler?](scheduler-intro.md)

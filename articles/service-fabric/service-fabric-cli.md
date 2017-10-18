@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -25,11 +24,28 @@ Rozhraní příkazového řádku (CLI) Azure Service Fabric je nástroj příkaz
 
 Před instalací se ujistěte, že je ve vašem prostředí nainstalovaný Python a pip. Další informace najdete v [úvodní dokumentaci nástroje pip](https://pip.pypa.io/en/latest/quickstart/) a oficiální [dokumentaci k instalaci Pythonu](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-I když je podporovaný Python 2.7 i 3.6, doporučujeme používat Python 3.6. Následující část popisuje, jak nainstalovat všechny požadované součásti a rozhraní příkazového řádku.
+Rozhraní příkazového řádku podporuje Python verze 2.7, 3.5 a 3.6. Doporučená verze je Python 3.6, protože podpora Pythonu 2.7 brzy skončí.
+
+### <a name="service-fabric-target-runtime"></a>Cílový modul runtime Service Fabric
+
+Smyslem Service Fabric CLI je podpora nejnovější verze modulu runtime sady Service Fabric SDK. Pomocí následující tabulky určete, jakou verzi rozhraní příkazového řádku máte nainstalovat:
+
+| Verze rozhraní příkazového řádku   | Podporovaná verze modulu runtime |
+|---------------|---------------------------|
+| Nejnovější (~=2)  | Nejnovější (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+Volitelně můžete zadat cílovou verzi rozhraní příkazového řádku, která se má nainstalovat, přidáním přípony `==<version>` k příkazu `pip install`. Například pro verzi 1.1.0 by syntax byla následující:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+V případě potřeby nahraďte následující příkaz `pip install` dříve popsaným příkazem.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Instalace nástroje pip, Pythonu a Service Fabric CLI
 
- Na své platformě můžete pip a Python nainstalovat mnoha způsoby. Tady je několik kroků, pomocí kterých můžete rychle nastavit Python 3.6 a pip na hlavních operačních systémech.
+Na své platformě můžete pip a Python nainstalovat mnoha způsoby. Tady je několik kroků, pomocí kterých můžete rychle nastavit Python 3 a pip na hlavních operačních systémech.
 
 ### <a name="windows"></a>Windows
 
@@ -52,47 +68,45 @@ pip --version
 
 Potom spusťte následující příkaz a nainstalujte Service Fabric CLI:
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-V případě chyby nenalezení `sfctl` spusťte následující příkazy:
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Ubuntu a subsystém Windows pro Linux
+
+Pokud chcete nainstalovat Service Fabric CLI, spusťte následující příkazy:
 
 ```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-### <a name="ubuntu"></a>Ubuntu
-
-V systému Ubuntu 16.04 Desktop můžete Python 3.6 nainstalovat pomocí osobního archivu balíčků (PPA) třetí strany.
-
-Z terminálu spusťte následující příkazy:
-
-```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-Potom spusťte následující příkaz, pokud chcete nainstalovat Service Fabric CLI pouze pro vaši instalaci Pythonu 3.6:
+Instalaci pak můžete otestovat pomocí:
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-V případě chyby nenalezení `sfctl` spusťte následující příkazy:
+Pokud se zobrazí chyba typu příkaz nenalezen, například:
+
+`sfctl: command not found`
+
+Ujistěte se, že `$PATH` má přístup k `~/.local/bin`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-Tyto kroky nemají vliv na systémovou instalaci Pythonu 3.5 a 2.7. Nepokoušejte se upravovat tyto instalace, pokud dobře neznáte Ubuntu.
+Pokud instalace na subsystému Windows pro Linux selže kvůli nesprávným oprávněním ke složce, možná bude nutné pokus opakovat se zvýšenými oprávněními:
 
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 V systému MacOS doporučujeme použít [správce balíčků HomeBrew](https://brew.sh). Pokud HomeBrew ještě není nainstalovaný, nainstalujte ho spuštěním následujícího příkazu:
@@ -108,17 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-
-V případě chyby nenalezení `sfctl` spusťte následující příkazy:
-
-```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-
-Tyto kroky neupravují systémovou instalaci Pythonu 2.7.
 
 ## <a name="cli-syntax"></a>Syntaxe rozhraní příkazového řádku
 
@@ -239,13 +242,11 @@ sfctl application create -h
 Pokud chcete aktualizovat rozhraní příkazového řádku Service Fabric, spusťte následující příkazy (podle volby provedené během původní instalace nahraďte `pip` pomocí `pip3`):
 
 ```bash
-pip uninstall sfctl 
-pip install sfctl 
+pip uninstall sfctl
+pip install sfctl
 ```
-
 
 ## <a name="next-steps"></a>Další kroky
 
 * [Nasazení aplikace pomocí Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Začínáme se Service Fabric v Linuxu](service-fabric-get-started-linux.md)
-
