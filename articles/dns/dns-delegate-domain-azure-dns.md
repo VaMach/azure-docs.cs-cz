@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.contentlocale: cs-cz
+ms.lasthandoff: 06/16/2017
+
 ---
+
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegování domény do Azure DNS
 
 Azure DNS vám umožňuje hostovat zónu DNS a spravovat záznamy DNS pro doménu v Azure. Mají-li se dotazy DNS pro doménu dostat k Azure DNS, musí doména být delegovaná z nadřazené domény do Azure DNS. Pamatujte, že Azure DNS není doménový registrátor. Tento článek vysvětluje, jak delegovat doménu do Azure DNS.
@@ -85,7 +87,7 @@ Metadata          :
 ### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
-az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
+az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
 Dalším příkladem je tato odpověď.
@@ -306,3 +308,4 @@ Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku
 [Správa zón DNS](dns-operations-dnszones.md)
 
 [Správa záznamů DNS](dns-operations-recordsets.md)
+
