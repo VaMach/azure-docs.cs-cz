@@ -1,6 +1,6 @@
 # Přehled
 ## [Linuxové virtuální počítače s SQL Serverem](sql-server-linux-virtual-machines-overview.md)
-## [Ceny](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [Ceny](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)
 ## [Nejčastější dotazy](sql-server-linux-faq.md)
 
 # Začínáme

@@ -81,7 +81,6 @@
 ### [Problémy s připojením typu Point-to-Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Připojení typu Site-to-Site se přerušovaně odpojuje](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Připojení typu Site-to-Site se nemůže připojit](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Problémy se spřažením relace ve službě Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [Konfigurace a ověření připojení VPN nebo virtuální sítě](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referenční informace

@@ -97,6 +97,7 @@
 #### [Latence](active-directory-reporting-latencies-azure-portal.md)
 #### [Oznámení](active-directory-reporting-notifications.md)
 #### [Kódy chyb aktivit přihlašování](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Řešení potíží
 #### [Chybějící data auditu](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Chybějící data v souborech ke stažení](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -150,8 +151,7 @@
 ### [Přehled](active-directory-enable-sso-scenario.md)
 ### [Začínáme](active-directory-integrating-applications-getting-started.md)
 ### [Kurzy integrace aplikací SaaS](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Nastavení zjišťování bez agenta](cloudappdiscovery-get-started.md)
+### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [Vytvoření sestav snímků](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurace průběžného vytváření sestav](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Použití vlastního analyzátoru protokolů](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
