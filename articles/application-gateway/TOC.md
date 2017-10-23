@@ -59,6 +59,7 @@
 ## Řešení potíží
 ### [Řešení chyb ve službě Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Metriky a protokolování diagnostiky](application-gateway-diagnostics.md)
+### [Problémy se spřažením relace ve službě Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Referenční informace
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/network/application-gateway)
