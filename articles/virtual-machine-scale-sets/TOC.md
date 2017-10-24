@@ -21,19 +21,20 @@
 ### [Vytvoření pomocí sady Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Vytvoření pomocí Azure PowerShellu nebo Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Škálovací sada se spravovanými disky](virtual-machine-scale-sets-managed-disks.md)
-### [Škálovací sada pro Linux s automatickým škálováním](virtual-machine-scale-sets-linux-autoscale.md)
-### [Škálovací sada pro Windows s automatickým škálováním](virtual-machine-scale-sets-windows-autoscale.md)
+### [Automatické škálování škálovací sady](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Použití portálu Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Použití Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Použití Azure Powershellu](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Pokročilé automatické škálování](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplikace ve škálovacích sadách](virtual-machine-scale-sets-deploy-app.md)
 ### [Použití datových disků se škálovacími sadami](virtual-machine-scale-sets-attached-disks.md)
 ### [Práce s velkými škálovacími sadami](virtual-machine-scale-sets-placement-groups.md)
 ### [Převod šablony škálovací sady pro použití spravovaného disku](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Spravovat
-### [Škálovací sada pro Windows s použitím Azure PowerShellu](virtual-machine-scale-sets-windows-manage.md)
-### [Automatické škálování a škálovací sady](virtual-machine-scale-sets-autoscale-overview.md)
-### [Pokročilé automatické škálování](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Běžné úlohy správy
+#### [Použití Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Použití Azure Powershellu](virtual-machine-scale-sets-manage-powershell.md)
 ### [Vertikální škálování ve škálovací sadě](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrady pro škálovací sady](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Použití DSC a škálovacích sad](virtual-machine-scale-sets-dsc.md)

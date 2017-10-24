@@ -95,6 +95,7 @@
 ## [Program MVP pro zabezpečení Azure](azure-security-mvp.md)
 ## [Poradenství pro zabezpečení](azure-security-cyber-services.md)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
+## [Doporučení zabezpečení pro image Azure Marketplace](security-recommendations-azure-marketplace-images.md)
 ## Scénáře
 ### [Správa osobních údajů v Azure](manage-personal-data-azure.md)
 ### [Zjištění, identifikace a klasifikace osobních údajů v Azure](how-to-discover-classify-personal-data-azure.md)

@@ -20,6 +20,7 @@
 ### [Souběžné úlohy uzlu](batch-parallel-node-tasks.md)
 ### [Počet úloh podle stavu](batch-get-task-counts.md)
 ### [Vytvoření fondu s využitím vlastní image](batch-custom-images.md)
+### [Vytvoření fondu ve virtuální síti](batch-virtual-network.md)
 ### [Efektivní seznamové dotazy](batch-efficient-list-queries.md)
 ### [Příprava úlohy a dokončovací úkoly](batch-job-prep-release.md)
 ### [Výpočetní uzly s Linuxem](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Proměnné prostředí výpočetních uzlů Azure Batch](batch-compute-node-environment-variables.md)
 
 # Související
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Zpracování dat pomocí služeb Batch a Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Řešení pro Batch a prostředí HPC v cloudu Azure](batch-hpc-solutions.md)

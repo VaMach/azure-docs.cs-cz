@@ -37,7 +37,7 @@
 ## [Informace o zařízení v řešení vzdáleného monitorování](iot-suite-remote-monitoring-device-info.md)
 ## [Nasazení brány pro propojenou továrnu](iot-suite-connected-factory-gateway-deployment.md)
 ## [Přizpůsobení propojené továrny](iot-suite-connected-factory-customize.md)
-
+## [Použití vydavatele OPC pro propojenou továrnu](iot-suite-connected-factory-publisher.md)
 # Referenční informace
 ## [Architektura zabezpečení](iot-security-architecture.md)
 ## [Osvědčené postupy zabezpečení](iot-security-best-practices.md)

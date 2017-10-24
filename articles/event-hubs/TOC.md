@@ -34,6 +34,7 @@
 #### [Diagnostické protokoly](event-hubs-diagnostic-logs.md)
 ### [Průvodce protokolem AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Spravovat
+### [Monitorování Event Hubs s využitím Azure Monitoru](event-hubs-metrics-azure-monitor.md)
 ### [Knihovny pro správu služby Service Bus](event-hubs-management-libraries.md)
 ### Zachycování
 #### [Event Hubs Capture](event-hubs-capture-overview.md)

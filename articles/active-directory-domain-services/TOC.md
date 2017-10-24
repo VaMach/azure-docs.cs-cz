@@ -16,7 +16,9 @@
 # Postup
 ## Připojení ke spravované doméně
 ### [Virtuální počítač s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Virtuální počítač s Windows Serverem pomocí PowerShellu](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Virtuální počítač s Windows Serverem ze šablony](active-directory-ds-join-windows-vm-template.md)
+### [CentOS](active-directory-ds-join-centos-linux-vm.md)
+### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
 ### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Správa spravované domény

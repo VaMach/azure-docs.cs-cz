@@ -5,8 +5,8 @@
 
 # Začínáme
 ## [Vytvoření první aplikace logiky](logic-apps-create-a-logic-app.md)
-## [Šablony pro Logic Apps](logic-apps-use-logic-app-templates.md)
-## [Vytvoření aplikací logiky ze šablon](logic-apps-arm-provision.md)
+## [Vytvoření aplikací logiky ze šablon](logic-apps-create-logic-apps-from-templates.md)
+## [Vytváření aplikací logiky ze šablon Resource Manageru](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Přesun aplikací MABS do aplikací logiky](logic-apps-move-from-mabs.md)
 
 # Postup
