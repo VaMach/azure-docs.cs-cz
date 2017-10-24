@@ -10,7 +10,7 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Sdílení prostředků různého původu](cdn-cors.md)
-### [Mapování vlastní domény na CDN](cdn-map-content-to-custom-domain.md)
+### [Přidání vlastní domény do koncového bodu CDN](cdn-map-content-to-custom-domain.md)
 ### [Povolení HTTPS pro vlastní doménu](cdn-custom-ssl.md)
 ## Optimalizace obsahu
 ### [Přehled optimalizace](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## Analýza
 ### [Analýza vzorů využití Azure CDN](cdn-log-analysis.md)
 #### [Základní sestavy od Verizonu](cdn-analyze-usage-patterns.md)
+#### [Vlastní sestavy od Verizonu](cdn-verizon-custom-reports.md)
 #### [Protokoly diagnostiky Azure](cdn-azure-diagnostic-logs.md)
 ### Analytické nástroje pro Azure CDN od Verizonu
 #### [Generování pokročilých sestav HTTP](cdn-advanced-http-reports.md)

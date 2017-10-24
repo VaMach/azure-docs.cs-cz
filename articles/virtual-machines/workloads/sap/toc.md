@@ -20,9 +20,25 @@
 ## [Průvodce nasazením SAP IDES na Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver ve virtuálních počítačích Azure s Linuxem](suse-quickstart.md)
 ## [Plánování a implementace SAP NetWeaveru v Azure](planning-guide.md)
-## [Vysoká dostupnost ve Windows](high-availability-guide.md)
-## [Vysoká dostupnost v SUSE Linuxu](high-availability-guide-suse.md)
-## [Konfigurace několika identifikátorů SID](high-availability-multi-sid.md)
+## Vysoká dostupnost (HA) ve Windows a Linuxu
+### [Přehled](sap-high-availability-guide-start.md)
+### Architektura pro vysokou dostupnost
+#### [Scénáře a architektura pro vysokou dostupnost](sap-high-availability-architecture-scenarios.md)
+#### [Scénáře a architektura pro vyšší dostupnost](sap-higher-availability-architecture-scenarios.md)
+#### [HA ve Windows se sdíleným diskem pro instanci (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [HA ve Windows se sdílenou složkou SOFS pro instanci (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
+#### [HA v SUSE Linuxu pro instanci (A)SCS](high-availability-guide-suse.md)
+### Příprava infrastruktury Azure
+#### [Windows se sdíleným diskem pro instanci (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [Windows se sdílenou složkou SOFS pro instanci (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [SUSE Linux s NFS pro instanci (A)SCS](high-availability-guide-suse.md)
+### Instalace SAPu
+#### [Windows se sdíleným diskem pro instanci (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [Windows se sdílenou složkou SOFS pro instanci (A)SCS](sap-high-availability-installation-wsfc-file-share.md)
+#### [SUSE Linux s NFS pro instanci (A)SCS](high-availability-guide-suse.md)
+### SAP s několika SID
+#### [Windows se sdíleným diskem pro instanci (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [Windows se sdílenou složkou SOFS pro instanci (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [Průvodce nasazením](deployment-guide.md)
 ## [Průvodce nasazením DBMS](dbms-guide.md)
 ## [Azure Site Recovery pro zotavení po havárii SAPu](../../../site-recovery/site-recovery-workload.md#protect-sap)

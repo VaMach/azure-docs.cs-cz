@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: Shromažďování – počítač Linux
       href: log-analytics-quick-collect-linux-computer.md
+    - name: Shromažďování – počítač s Windows
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Kurzy
   items:
     - name: 1. Analýza dat
@@ -25,6 +27,8 @@
       href: powershell-samples.md
 - name: Koncepty
   items:
+    - name: Upgrade pracovního prostoru
+      href: log-analytics-log-search-upgrade.md
     - name: Nejčastější dotazy k Log Analytics
       href: log-analytics-faq.md
     - name: Využití dat
@@ -35,11 +39,11 @@
       href: log-analytics-service-providers.md
     - name: Prohledávání protokolů
       items:
-        - name: Nejčastější dotazy k prohledávání protokolů
-          href: log-analytics-log-search-faq.md
         - name: Přehled prohledávání protokolů
           href: log-analytics-log-search-new.md
-        - name: Portály pro prohledávání protokolů
+        - name: Nejčastější dotazy k prohledávání protokolů
+          href: log-analytics-log-search-faq.md
+        - name: Portály prohledávání protokolů
           href: log-analytics-log-search-portals.md
 - name: Postup
   items:
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: Dotazování dat
       items:
+        - name: Dokumentace k jazyku
+          href: 'https://docs.loganalytics.io'
+        - name: Přechod ze starší verze jazyka
+          href: log-analytics-log-search-transition.md
+        - name: Vyhledávání napříč pracovními prostory
+          href: log-analytics-cross-workspace-search.md
+        - name: Provedení akce na základě výsledků hledání
+          href: log-analytics-log-search-takeaction.md
+        - name: Použití skupin počítačů
+          href: log-analytics-computer-groups.md
+        - name: Konektor pro Flow
+          href: log-analytics-flow-tutorial.md
+    - name: Starší verze vyhledávání protokolu
+      items:
         - name: Přehled prohledávání protokolů
           href: log-analytics-log-searches.md
         - name: Reference ke službě Search
@@ -96,26 +114,18 @@
           items:
             - name: Regulární výrazy
               href: log-analytics-log-searches-regex.md
-            - name: Vyhledávání napříč pracovními prostory
-              href: log-analytics-cross-workspace-search.md
-        - name: Provedení akce na základě výsledků hledání
-          href: log-analytics-log-search-takeaction.md
-        - name: Skupiny počítačů
-          href: log-analytics-computer-groups.md
-    - name: Nové prohledávání protokolů
-      items:
-        - name: Upgrade pracovního prostoru
-          href: log-analytics-log-search-upgrade.md
-        - name: Přechod ze starší verze jazyka
-          href: log-analytics-log-search-transition.md
-        - name: Konektor pro Flow
-          href: log-analytics-flow-tutorial.md
     - name: Analýza dat
       items:
         - name: Řídicí panely
           href: log-analytics-dashboards.md
         - name: Návrhář zobrazení
-          href: log-analytics-view-designer.md
+          items:
+            - name: Přehled
+              href: log-analytics-view-designer.md
+            - name: Referenční informace k dlaždicím
+              href: log-analytics-view-designer-tiles.md
+            - name: Referenční informace k části vizualizace
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Vytváření upozornění
@@ -231,15 +241,13 @@
           href: log-analytics-api-alerts.md
 - name: Referenční informace
   items:
+    - name: Referenční informace k jazyku
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: Referenční informace k dlaždici Návrhář zobrazení
-      href: log-analytics-view-designer-tiles.md
-    - name: Referenční informace k části vizualizace Návrháře zobrazení
-      href: log-analytics-view-designer-parts.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'

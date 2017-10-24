@@ -59,7 +59,9 @@
           href: concepts-supported-versions.md
         - name: Protokoly serveru
           href: concepts-server-logs.md
-    - name: Zdroje a prostředky
+        - name: Vysoká dostupnost
+          href: concepts-high-availability.md
+    - name: Zdroje
       items:
         - name: Cenové úrovně
           href: concepts-service-tiers.md
@@ -73,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: Konfigurace SSL
           href: concepts-ssl-connection-security.md
+    - name: Monitorování
+      href: concepts-monitoring.md
     - name: Vývoj
       items:
         - name: Knihovny připojení
@@ -117,8 +121,14 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: Přístup k protokolům serveru
       items:
+        - name: portál Azure
+          href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
+    - name: Monitorování
+      items:
+        - name: Vytváření upozornění na metriky
+          href: howto-alert-on-metric.md
 - name: Referenční informace
   items:
     - name: Azure CLI
