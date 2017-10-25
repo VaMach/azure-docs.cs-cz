@@ -1,6 +1,6 @@
 Ve službě Cloud Shell pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvořte plán služby App Service.
 
-[!INCLUDE [app-service-plan](app-service-plan.md)]
+[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
 
 Následující příklad vytvoří plán služby App Service s názvem `myAppServicePlan` v cenové úrovni **Standard** a v kontejneru Linuxu:
 
