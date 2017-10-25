@@ -31,3 +31,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cost-management'
     - name: Dostupnost podle oblastí
       href: 'https://azure-staging.microsoft.com/en-us/regions/services/'
+    - name: Nejčastější dotazy
+      href: cost-mgt-faq.md
