@@ -80,16 +80,15 @@
 #### [Dynamické přizpůsobení uživatelského rozhraní](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Přizpůsobení tokenů](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Složitost hesel](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Změna hesel](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Povolení možnosti zůstat přihlášeni](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Řešení potíží
 #### [Shromažďování protokolů pomocí Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referenční informace
 ### [Poznámky k verzi](active-directory-b2c-developer-notes-custom.md)
+### [Zprostředkovatelé relace jednotného přihlašování](active-directory-b2c-reference-sso-custom.md)
 ### [Definice architektury důvěryhodnosti](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glosář

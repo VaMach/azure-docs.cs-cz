@@ -15,7 +15,7 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: 'Azure Functions je výpočetní služba bez serveru umožňující spouštění kódu na vyžádání bez nutnosti explicitně zřizovat nebo spravovat infrastrukturu. Azure Functions můžete použít ke spuštění skriptu nebo kusu kódu jako reakci na různé události. Naučte se používat službu Azure Functions prostřednictvím našich šablon Rychlý start, kurzů a ukázek.'
+  description: 'Azure Functions je výpočetní služba <a href="https://azure.microsoft.com/overview/serverless-computing/">bez serveru</a> umožňující spouštění kódu na vyžádání bez nutnosti explicitně zřizovat nebo spravovat infrastrukturu. Azure Functions můžete použít ke spuštění skriptu nebo kusu kódu jako reakci na různé události. Naučte se používat službu Azure Functions prostřednictvím našich šablon Rychlý start, kurzů a ukázek.'
   aside:
     image:
       alt: null

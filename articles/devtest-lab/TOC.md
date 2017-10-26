@@ -14,7 +14,7 @@
 # Návody
 ## Použití virtuálních počítačů v testovacím prostředí
 ### [Vytvoření virtuálních počítačů](devtest-lab-add-vm.md)
-### [Vytvoření virtuálního počítače s možností deklarace identity](devtest-lab-add-claimable-vm.md)
+### [Vytvoření a správa nárokovatelných virtuálních počítačů](devtest-lab-add-claimable-vm.md)
 ### [Vytvoření a správa virtuálních počítačů pomocí Azure CLI](devtest-lab-vmcli.md)
 ### [Restartování virtuálního počítače](devtest-lab-restart-vm.md)
 

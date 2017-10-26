@@ -21,6 +21,8 @@
 ### [Dostupná rozhraní API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Spravovat
+### [Monitorování služby Azure Relay s využitím monitorování Azure](relay-metrics-azure-monitor.md)
 
 # Referenční informace
 ## .NET

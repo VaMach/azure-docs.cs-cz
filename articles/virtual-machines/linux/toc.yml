@@ -222,11 +222,25 @@
             - name: Nasazení první aplikace
               href: cloudfoundry-deploy-your-first-app.md
         - name: OpenShift
-          href: openshift-get-started.md
+          items:
+            - name: Přehled OpenShiftu
+              href: openshift-get-started.md
+            - name: Požadavky OpenShiftu
+              href: openshift-prerequisites.md
+            - name: OpenShift Origin
+              href: openshift-origin.md
+            - name: OpenShift Container Platform
+              href: openshift-container-platform.md
+            - name: Úlohy OpenShiftu po nasazení
+              href: openshift-post-deployment.md
+            - name: Řešení potíží s nasazeními
+              href: openshift-troubleshooting.md
         - name: SAP v Azure
           href: ../workloads/sap/get-started.md
         - name: Oracle
           href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
         - name: Filtr paketů FreeBSD
           href: freebsd-pf-nat.md
         - name: Databáze
@@ -247,7 +261,6 @@
             - name: Instalace ovladačů NVIDIA GPU
               href: n-series-driver-setup.md
     - name: Správa úložiště
-      href: about-disks-and-vhds.md
       items:
         - name: Další informace o službě Managed Disks
           href: managed-disks-overview.md

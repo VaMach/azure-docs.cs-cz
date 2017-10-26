@@ -1,0 +1,35 @@
+- name: Přehled
+  items:
+    - name: Informace o Terraformu v Azure
+      href: terraform-overview.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Instalace a konfigurace Terraformu
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Vytvoření virtuálního počítače s Linuxem
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
+- name: Kurzy
+  items:
+    - name: Vytvoření clusteru virtuálních počítačů s využitím modulů Terraformu
+      href: terraform-create-vm-cluster-module.md
+    - name: Vytvoření clusteru virtuálních počítačů s využitím služby Cloud Shell
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Zřízení škálovací sady virtuálních počítačů s infrastrukturou
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+- name: Koncepty
+  items:
+    - name: Integrace služby Cloud Shell
+      href: terraform-cloud-shell.md
+- name: Ukázky
+  items:
+    - name: Šablony konfigurace
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+- name: Referenční informace
+  items:
+    - name: Registr modulů Azure
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Reference k Terraformu
+      href: 'http://aka.ms/terraform'

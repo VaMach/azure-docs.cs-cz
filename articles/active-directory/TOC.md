@@ -5,6 +5,8 @@
 ## [Volba řešení s hybridní identitou](choose-hybrid-identity-solution.md)
 ## [Přidružení předplatných Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Nejčastější dotazy](active-directory-faq.md)
+## [Co je nového](whats-new.md)
+
 
 # Začínáme
 ## [Začínáme s Azure AD](get-started-azure-ad.md)
@@ -302,6 +304,7 @@
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)
 #### Úlohy
+##### [Migrace klasických zásad](active-directory-conditional-access-migration.md)
 ##### [Nastavení podmíněného přístupu na základě zařízení](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Nastavení podmíněného přístupu na základě aplikace](active-directory-conditional-access-mam.md)
 ##### [Podmínky použití pro uživatele a aplikace](active-directory-tou.md)
