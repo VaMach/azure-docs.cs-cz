@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Vytvoření serveru Jenkins na virtuálním počítači Azure s Linuxem pomocí webu Azure Portal
 
@@ -41,7 +41,7 @@ Na kartě **Konfigurace základního nastavení** vyplňte následující pole:
 * Zadejte **Uživatelské jméno**. Uživatelské jméno musí splňovat [určité požadavky](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
 * Jako **Typ ověřování** vyberte **Heslo** a zadejte heslo. Heslo musí obsahovat velké písmeno, číslici a jeden speciální znak.
 * Jako **Skupina prostředků** použijte **myJenkinsResourceGroup**.
-* Z rozevíracího seznamu **Umístění** zvolte [Oblast Azure](https://azure.microsoft.com/regions/) **USA – východ**.
+* Z rozevíracího seznamu **Umístění** zvolte [Oblast Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) **USA – východ**.
 
 Vyberte **OK** a pokračujte na kartu **Konfigurace dalších možností**. Zadejte jedinečný název domény pro identifikaci serveru Jenkins a vyberte **OK**.
 
