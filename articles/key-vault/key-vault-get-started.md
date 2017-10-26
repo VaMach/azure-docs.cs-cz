@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
+ms.openlocfilehash: d689fc0724b613abf2b319037dbd5555372622a8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 73b4ae4b7baca434c6aed99a2e59a9102b0d96ed
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/22/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-azure-key-vault"></a>Začínáme s Azure Key Vault
 Azure Key Vault je dostupný ve většině oblastí. Další informace najdete na [stránce s cenami Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -234,4 +233,3 @@ Chcete-li mít přehled o využívání trezoru klíčů, podívejte se na kurz 
 Seznam nejnovějších rutin Azure PowerShellu pro Azure Key Vault naleznete v tématu [Rutiny Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 
 Programátorské reference najdete v [příručce pro vývojáře Azure Key Vault](key-vault-developers-guide.md).
-

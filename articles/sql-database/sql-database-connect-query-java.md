@@ -12,15 +12,14 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: andrela
+ms.openlocfilehash: 943e355ffcc6c0670585936ec2e559b7fb592ff5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: f07f49e64f107ec063bfb755dbb89644f3d00576
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Použití Javy k dotazování databáze SQL Azure
 
@@ -48,7 +47,7 @@ Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte ná
 
 Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
 3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku: Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírovat kliknutím**.  
 
@@ -161,5 +160,4 @@ Získejte informace o připojení potřebné pro připojení k databázi SQL Azu
 - [Návrh první databáze SQL Azure](sql-database-design-first-database.md)
 - [Ovladač Microsoft JDBC pro SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Hlášení problémů/kladení dotazů](https://github.com/microsoft/mssql-jdbc/issues)
-
 

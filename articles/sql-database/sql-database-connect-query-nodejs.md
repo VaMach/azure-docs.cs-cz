@@ -12,15 +12,14 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
+ms.openlocfilehash: d2765d4606bf6f926def15788ab23efd2a000ad4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Použití Node.js k dotazování databáze SQL Azure
 
@@ -145,6 +144,5 @@ Otevřete příkazový řádek a vytvořte složku *sqltest*. Přejděte do slo�
 - Informace o [návrhu první databáze SQL Azure pomocí aplikace SSMS](sql-database-design-first-database.md) nebo [návrhu první databáze SQL Azure pomocí .NET](sql-database-design-first-database-csharp.md)
 - Informace o [připojení a dotazování pomocí aplikace SSMS](sql-database-connect-query-ssms.md)
 - Informace o [připojení a dotazování pomocí Visual Studio Code](sql-database-connect-query-vscode.md)
-
 
 
