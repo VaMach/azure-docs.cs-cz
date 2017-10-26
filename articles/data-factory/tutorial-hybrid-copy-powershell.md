@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Kopírování dat mezi místním prostředím a cloudem
-Azure Data Factory je cloudová služba pro integraci dat umožňující vytváření pracovních postupů řízených daty v cloudu za účelem orchestrace a automatizace přesunu a transformace dat. Pomocí služby Azure Data Factory můžete vytvářet a plánovat pracovní postupy řízené daty (nazývané kanály) se schopností ingestovat data z různorodých úložišť dat, zpracovat a transformovat tato data pomocí výpočetních služeb, jako je Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics a Azure Machine Learning, a publikovat výstupní data do úložišť dat, jako je Azure SQL Data Warehouse, aby je mohly využívat aplikace business intelligence (BI). 
+Azure Data Factory je cloudová služba pro integraci dat umožňující vytváření pracovních postupů řízených daty v cloudu za účelem orchestrace a automatizace přesunu a transformace dat. Pomocí služby Azure Data Factory můžete vytvářet a plánovat pracovní postupy řízené daty (nazývané kanály) se schopností ingestovat data z různorodých úložišť dat, zpracovat a transformovat tato data pomocí výpočetních služeb, jako je Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics a Azure Machine Learning, a publikovat výstupní data do úložišť dat, jako je Azure SQL Data Warehouse, aby je mohly využívat aplikace business intelligence (BI).
 
-V tomto kurzu použijete Azure PowerShell k vytvoření kanálu Data Factory, který kopíruje data z místní databáze SQL Serveru do úložiště objektů blob v Azure. Vytvoříte a použijete místní prostředí Integration Runtime (IR) služby Azure Data Factory umožňující integraci místních a cloudových úložišť dat.  Další informace o vytvoření datové továrny pomocí jiných nástrojů nebo sad SDK najdete v tématu [Šablony Rychlý start](quickstart-create-data-factory-dot-net.md). 
+V tomto kurzu použijete Azure PowerShell k vytvoření kanálu Data Factory, který kopíruje data z místní databáze SQL Serveru do úložiště objektů blob v Azure. Vytvoříte a použijete místní prostředí Integration Runtime (IR) služby Azure Data Factory umožňující integraci místních a cloudových úložišť dat.  Další informace o vytvoření datové továrny pomocí jiných nástrojů nebo sad SDK najdete v tématu [Šablony Rychlý start](quickstart-create-data-factory-dot-net.md).
 
 V tomto kurzu provedete následující kroky:
 
@@ -40,7 +40,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 ## <a name="prerequisites"></a>Požadavky
 
-* **SQL Server**. V tomto kurzu použijete místní databázi SQL Serveru jako **zdrojové** úložiště dat. 
+* **SQL Server**. V tomto kurzu použijete místní databázi SQL Serveru jako **zdrojové** úložiště dat.
 * **Účet služby Azure Storage**. V tomto kurzu použijete úložiště objektů blob v Azure jako **cílové úložiště dat nebo úložiště dat jímky**. Pokud nemáte účet úložiště Azure, přečtěte si článek [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account), kde najdete kroky pro jeho vytvoření.
 * **Azure PowerShell**. Postupujte podle pokynů v tématu [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -115,13 +115,13 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Zde je ukázkový výstup: 
+   Zde je ukázkový výstup:
 
    ```json
    {
@@ -144,19 +144,19 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
    }
    ```
 
-4. Na místním počítači s Windows [stáhněte](https://www.microsoft.com/download/details.aspx?id=39717) místní prostředí Integration Runtime a pomocí ověřovacího klíče, který jste získali v předchozím kroku, toto místní prostředí Integration Runtime ručně zaregistrujte. 
+4. Na místním počítači s Windows [stáhněte](https://www.microsoft.com/download/details.aspx?id=39717) místní prostředí Integration Runtime a pomocí ověřovacího klíče, který jste získali v předchozím kroku, toto místní prostředí Integration Runtime ručně zaregistrujte.
 
    ![Registrace prostředí Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   Po úspěšném dokončení registrace místního prostředí Integration Runtime se zobrazí následující zpráva: 
+   Po úspěšném dokončení registrace místního prostředí Integration Runtime se zobrazí následující zpráva:
 
    ![Úspěšně zaregistrováno](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   Jakmile se uzel připojí ke cloudové službě, zobrazí se následující stránka: 
-    
+   Jakmile se uzel připojí ke cloudové službě, zobrazí se následující stránka:
+
    ![Uzel je připojen](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>Vytvoření propojených služeb 
+## <a name="create-linked-services"></a>Vytvoření propojených služeb
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Vytvoření propojené služby Azure Storage (cíl/jímka)
 
@@ -167,7 +167,7 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Vytvoření a šifrování propojené služby SQL Serveru (zdroj)
 
-1. Ve složce **C:\ADFv2Tutorial** vytvořte soubor JSON s názvem **SqlServerLinkedService.json** s následujícím obsahem: Než soubor uložíte, položky **&lt;servername>** (název serveru), **&lt;databasename>** (název databáze), **&lt;username>** (uživatelské jméno), **&lt;servername>** (název serveru) a **&lt;password>** (heslo) nahraďte hodnotami vašeho SQL Serveru. Položku **&lt;integration** **runtime** **name>** nahraďte názvem vašeho prostředí Integration Runtime. 
+1. Ve složce **C:\ADFv2Tutorial** vytvořte soubor JSON s názvem **SqlServerLinkedService.json** s následujícím obsahem: Než soubor uložíte, položky **&lt;servername>** (název serveru), **&lt;databasename>** (název databáze), **&lt;username>** (uživatelské jméno), **&lt;servername>** (název serveru) a **&lt;password>** (heslo) nahraďte hodnotami vašeho SQL Serveru. Položku **&lt;integration** **runtime** **name>** nahraďte názvem vašeho prostředí Integration Runtime.
 
     ```json
     {
@@ -216,7 +216,7 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
         "name": "SqlServerLinkedService"
     }
    ```
-2. Pro zajištění šifrování citlivých dat z datové části JSON v místním prostředí Integration Runtime můžeme spustit rutinu **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** a předat jí výše uvedenou datovou část JSON. Toto šifrování zajišťuje šifrování přihlašovacích údajů pomocí rozhraní Data Protection API a jejich lokální uložení v uzlu místního prostředí Integration Runtime. Výstupní datovou část je možné přesměrovat do jiného souboru JSON (v tomto případě encryptedLinkedService.json), který obsahuje zašifrované přihlašovací údaje. 
+2. Pro zajištění šifrování citlivých dat z datové části JSON v místním prostředí Integration Runtime můžeme spustit rutinu **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** a předat jí výše uvedenou datovou část JSON. Toto šifrování zajišťuje šifrování přihlašovacích údajů pomocí rozhraní Data Protection API a jejich lokální uložení v uzlu místního prostředí Integration Runtime. Výstupní datovou část je možné přesměrovat do jiného souboru JSON (v tomto případě encryptedLinkedService.json), který obsahuje zašifrované přihlašovací údaje.
 
     Před spuštěním tohoto příkazu nahraďte **&lt;integration runtime name&gt;** názvem vašeho prostředí Integration Runtime.
 
@@ -227,7 +227,7 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
 3. Spuštěním následujícího příkazu s použitím souboru JSON z předchozího kroku vytvořte propojenou službu **SqlServerLinkedService**:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ V tomto kroku vytvoříte vstupní a výstupní datové sady, které představuj
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Vytvoření datové sady pro službu Azure Blob Storage pro jímku
 
-1. Ve složce **C:\ADFv2Tutorial** vytvořte soubor JSON s názvem **AzureBlobDataset.json** s následujícím obsahem: 
+1. Ve složce **C:\ADFv2Tutorial** vytvořte soubor JSON s názvem **AzureBlobDataset.json** s následujícím obsahem:
 
     > [!IMPORTANT]
     > Tento vzorový kód předpokládá, že ve službě Azure Blob Storage máte kontejner s názvem **adftutorial**.
@@ -436,7 +436,7 @@ V tomto kroku vytvoříte vstupní a výstupní datové sady, které představuj
             $result
             break
         }
-    } 
+    }
     ```
 
     Zde je výstup tohoto ukázkového spuštění:
@@ -449,7 +449,7 @@ V tomto kroku vytvoříte vstupní a výstupní datové sady, které představuj
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ V tomto kroku vytvoříte vstupní a výstupní datové sady, které představuj
 4. Připojte se k úložišti objektů blob v Azure pro jímku a potvrďte, že se data z Azure SQL Database zkopírovala správně.
 
 ## <a name="next-steps"></a>Další kroky
-Kanál v této ukázce kopíruje data z jednoho umístění do jiného umístění v úložišti objektů blob v Azure. Naučili jste se tyto postupy: 
+Kanál v této ukázce kopíruje data z jednoho umístění do jiného umístění v úložišti objektů blob v Azure. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
 > * Vytvoření datové továrny
