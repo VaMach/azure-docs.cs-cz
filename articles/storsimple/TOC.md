@@ -119,7 +119,7 @@
 ##### [Konfigurace webového proxy serveru](storsimple-8000-configure-web-proxy.md)
 ##### [Úprava nastavení DATA 0](storsimple-8000-modify-data-0.md)
 
-#### [Použití ukázkových skriptů Azure PowerShellu](storsimple-8000-automation-azurerm-scripts.md)
+
 
 #### [Použití StorSimple Snapshot Manageru](storsimple-snapshot-manager-admin.md)
 ##### [Co je StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
@@ -131,6 +131,11 @@
 ##### [Správa úloh zálohování prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Správa svazků prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Správa akcí MMC prostřednictvím StorSimple Snapshot Manageru](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automatizace
+
+#### [Použití ukázkových skriptů Azure PowerShellu](storsimple-8000-automation-azurerm-scripts.md)
+#### [Použití runbooků Azure Automation](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Vytváření řešení
 #### [StorSimple s Veeam](storsimple-configure-backup-target-veeam.md)

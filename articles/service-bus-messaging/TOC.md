@@ -63,6 +63,7 @@
 #### [Zpracování transakcí](service-bus-transactions.md)
 #### [Implementace spárovaného oboru názvů](service-bus-paired-namespaces.md)
 ## Spravovat
+### [Monitorování služby Service Bus s využitím monitorování Azure](service-bus-metrics-azure-monitor.md)
 ### [Knihovny pro správu Service Bus](service-bus-management-libraries.md)
 ### [Diagnostické protokoly](service-bus-diagnostic-logs.md)
 ### [Pozastavení a opětovná aktivace entit zasílání zpráv](entity-suspend.md)

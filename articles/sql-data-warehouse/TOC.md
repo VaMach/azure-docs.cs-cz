@@ -2,8 +2,6 @@
 
 ## [Co je SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Úlohy datového skladu](sql-data-warehouse-overview-workload.md)
-## [Distribuovaná data](sql-data-warehouse-distributed-data.md)
-## [Nejčastější dotazy](sql-data-warehouse-overview-faq.md)
 
 # Začínáme
 
@@ -12,9 +10,13 @@
 ## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
 ## [Správa](sql-data-warehouse-overview-manage.md)
 
-
-
 # Postup
+
+## Funkce služby
+### [Architektura MPP](massively-parallel-processing-mpp-architecture.md)
+### [Úrovně výkonu](performance-tiers.md)
+### [Jednotky datového skladu](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Nejčastější dotazy](sql-data-warehouse-overview-faq.md)
 
 ## Zálohování a obnovení
 
@@ -118,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### Třídy prostředků
+#### [Pokyny](resource-classes-for-workload-management.md)
+#### [Analýza úloh](analyze-your-workload.md)
 
 ## Výkon
 
 ### [Přehled](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Komprese columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitorování](sql-data-warehouse-manage-monitor.md)
-### [Úloha](sql-data-warehouse-develop-concurrency.md)
 
 ## Zabezpečení
 

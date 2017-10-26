@@ -38,13 +38,15 @@ sections:
   - title: Podrobné kurzy
     items:
       - type: paragraph
-        text: Naučte se používat Azure Container Registry se službou Azure Container Instances a Azure Container Service.
+        text: Prostřednictvím těchto kurzů se naučíte používat službu Azure Container Registry.
       - type: list
         style: unordered
         className: spaced noBullet
         items:
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Geografická replikace služby Container Registry</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry se službou Azure Container Instances</a>
           - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry se službou Azure Container Service</a>
+          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry se Service Fabric</a>
   - title: Referenční informace
     items:
       - type: list
