@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal: Vytvoření databáze SQL | Dokumentace Microsoftu"
-description: "Naučíte se vytvářet logický server služby SQL Database, pravidlo brány firewall na úrovni serveru a databáze na webu Azure Portal. Také se naučíte dotazovat databázi SQL Azure pomocí webu Azure Portal."
+description: "Vytvořte logický server služby SQL Database, pravidlo brány firewall na úrovni serveru a databázi na webu Azure Portal a dotazujte ji."
 keywords: "kurz k sql database, vytvoření databáze sql"
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/30/2017
+ms.topic: quickstart
+ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: a97ff8cbd05eb3cd94b557b4dbeb63634a94ccf8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Vytvoření databáze SQL Azure na webu Azure Portal
 
@@ -41,7 +40,7 @@ Postupujte podle následujících kroků a vytvořte databázi SQL obsahující 
 
 1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
-2. Na stránce **Nový** vyberte **Databáze** a na stránce **Databáze** vyberte **SQL Database**.
+2. Na stránce **Nový** vyberte **Databáze** a v části **Databáze SQL** na stránce **Nový** vyberte **Vytvořit**.
 
    ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -77,17 +76,33 @@ Postupujte podle následujících kroků a vytvořte databázi SQL obsahující 
 
 5. Pokud jste formulář vyplnili, klikněte na **Vybrat**.
 
-6. Klikněte na **Cenová úroveň** a určete úroveň služby a úroveň výkonu pro novou databázi. Pomocí posuvníku vyberte **20 DTU** a **250** GB úložiště. Další informace o jednotkách DTU najdete v tématu [Co je DTU](sql-database-what-is-a-dtu.md).
+6. Klikněte na **Cenová úroveň** a zadejte úroveň služby, počet DTU a velikost úložiště. Prozkoumejte možnosti pro množství DTU a velikost úložiště, které máte k dispozici na jednotlivých úrovních služby. 
+
+   > [!IMPORTANT]
+   > \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete na stránce s [cenami služby SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: USA – východ 2, USA – západ, USA (Gov) – Virginia, Západní Evropa, Německo – střed, Jihovýchodní Asie, Japonsko – východ, Austrálie – východ, Kanada – střed a Kanada – východ. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
+
+7. Pro účely tohoto úvodního kurzu vyberte úroveň služby **Standard** a pak pomocí posuvníku vyberte **100 DTU (S3)** a **400** GB úložiště.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Po výběru množství jednotek DTU klikněte na **Použít**.  
+8. Přijměte podmínky verze Preview pro použití možnosti **Doplňkové úložiště**. 
 
-8. Po vyplnění formuláře pro SQL Database klikněte na **Vytvořit** a databázi zřiďte. Zřizování trvá několik minut. 
+   > [!IMPORTANT]
+   > \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete na stránce s [cenami služby SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: USA – východ 2, USA – západ, USA (Gov) – Virginia, Západní Evropa, Německo – střed, Jihovýchodní Asie, Japonsko – východ, Austrálie – východ, Kanada – střed a Kanada – východ. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
 
-9. Na panelu nástrojů klikněte na **Oznámení** a sledujte proces nasazení.
+9. Po výběru úrovně služby, počtu DTU a velikosti úložiště klikněte na **Použít**.  
 
-   ![oznámení](./media/sql-database-get-started-portal/notification.png)
+10. Po vyplnění formuláře pro SQL Database klikněte na **Vytvořit** a databázi zřiďte. Zřizování trvá několik minut. 
+
+11. Na panelu nástrojů klikněte na **Oznámení** a sledujte proces nasazení.
+    
+     ![oznámení](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Vytvoření pravidla brány firewall na úrovni serveru
 
@@ -97,25 +112,21 @@ Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránil
 > SQL Database komunikuje přes port 1433. Pokud se pokoušíte připojit z podnikové sítě, nemusí být odchozí provoz přes port 1433 bránou firewall vaší sítě povolený. Pokud je to tak, nebudete se moct připojit k serveru Azure SQL Database, dokud vaše IT oddělení neotevře port 1433.
 >
 
-1. Po dokončení nasazení klikněte na **Databáze SQL** z nabídky na levé straně a klikněte na **mySampleDatabase** na stránce **Databáze SQL**. Otevře se stránka s přehledem pro vaši databázi, na které se zobrazí plně kvalifikovaný název serveru (například **mynewserver20170313.database.windows.net**) a možnosti pro další konfiguraci. Tento plně kvalifikovaný název serveru zkopírujte pro pozdější použití.
+1. Po dokončení nasazení klikněte na **Databáze SQL** z nabídky na levé straně a klikněte na **mySampleDatabase** na stránce **Databáze SQL**. Otevře se stránka s přehledem pro vaši databázi, na které se zobrazí plně kvalifikovaný název serveru (například **mynewserver-20170824.database.windows.net**) a možnosti pro další konfiguraci. 
 
-   > [!IMPORTANT]
-   > Tento plně kvalifikovaný název serveru budete potřebovat pro připojení k serveru a jeho databázím v následujících rychlých startech.
-   > 
+2. Zkopírujte tento plně kvalifikovaný název serveru, abyste ho mohli použít pro připojení k serveru a jeho databázím v následujících rychlých startech. 
 
-   ![název serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![název serveru](./media/sql-database-get-started-portal/server-name.png) 
 
-2. Klikněte na **Nastavit bránu firewall serveru** na panelu nástrojů, jak je vidět na předchozím obrázku. Otevře se stránka **Nastavení brány firewall** pro server služby SQL Database. 
+3. Klikněte na **Nastavit bránu firewall serveru** na panelu nástrojů, jak je vidět na předchozím obrázku. Otevře se stránka **Nastavení brány firewall** pro server služby SQL Database. 
 
    ![pravidlo brány firewall serveru](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-3. Klikněte na **Přidat IP adresu klienta** na panelu nástrojů a přidejte svoji aktuální IP adresu do nového pravidla brány firewall. Pravidlo brány firewall může otevřít port 1433 pro jednu IP adresu nebo rozsah IP adres.
+4. Klikněte na **Přidat IP adresu klienta** na panelu nástrojů a přidejte svoji aktuální IP adresu do nového pravidla brány firewall. Pravidlo brány firewall může otevřít port 1433 pro jednu IP adresu nebo rozsah IP adres.
 
-4. Klikněte na **Uložit**. Vytvoří se pravidlo brány firewall na úrovni serveru pro vaši aktuální IP adresu, které otevře port 1433 na logickém serveru.
+5. Klikněte na **Uložit**. Vytvoří se pravidlo brány firewall na úrovni serveru pro vaši aktuální IP adresu, které otevře port 1433 na logickém serveru.
 
-   ![nastavení pravidla brány firewall serveru](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. Klikněte na **OK** a pak zavřete stránku **Nastavení brány firewall**.
+6. Klikněte na **OK** a pak zavřete stránku **Nastavení brány firewall**.
 
 Nyní se můžete z této IP adresy připojit k serveru SQL Database a jeho databázím pomocí aplikace SQL Server Management Studio nebo jiného nástroje podle vašeho výběru použitím účtu správce serveru vytvořeného dříve.
 
@@ -127,19 +138,19 @@ Nyní se můžete z této IP adresy připojit k serveru SQL Database a jeho data
 
 Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít integrovaný dotazovací nástroj na webu Azure Portal k potvrzení, že se můžete připojit k databázi a zadávat dotazy na data. 
 
-1. Na stránce služby SQL Database pro vaši databázi klikněte na panelu nástrojů na **Nástroje**. Otevře se stránka **Nástroje**.
+1. Na stránce služby SQL Database pro vaši databázi klikněte na panelu nástrojů na **Nástroje** a pak klikněte na **Editor dotazů (Preview)**.
 
    ![nabídka nástroje](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Klikněte na **Editor dotazů (Preview)**, zaškrtněte políčko **Podmínky verze Preview** a pak klikněte na **OK**. Otevře se stránka Editor dotazů.
+2. Zaškrtněte políčko **Podmínky verze Preview** a pak klikněte na **OK**. Otevře se stránka Editor dotazů.
 
-3. Klikněte na **Přihlásit**, na vyzvání vyberte **Ověřování SQL Serveru** a pak zadejte přihlašovací jméno a heslo správce serveru, které jste vytvořili dříve.
+3. Klikněte na **Přihlášení**, zkontrolujte přihlašovací údaje a pak se kliknutím na **OK** přihlaste pomocí ověřování SQL Serveru s použitím přihlašovacího jména a hesla správce serveru, které jste vytvořili dříve.
 
    ![přihlášení](./media/sql-database-get-started-portal/login.png) 
 
 4. Přihlaste se kliknutím na **OK**.
 
-5. Když jste ověřeni, do podokna editoru dotazů zadejte následující dotaz.
+5. Jakmile budete ověřeni jako **Správce serveru**, do podokna editoru dotazů zadejte následující dotaz.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -152,11 +163,11 @@ Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít inte
 
    ![výsledky editoru dotazů](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Zavřít stránku **Editoru dotazů** a stránku **Nástroje**.
+7. Zavřete stránku **Editor dotazů**, kliknutím na **OK** zahoďte neuložené úpravy a pak zavřete stránku **Nástroje**.
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud tyto prostředky nepotřebujete pro další Rychlý start nebo kurz (viz [Další kroky](#next-steps)), můžete je odstranit následujícím způsobem:
+Uložte tyto prostředky, pokud chcete přejít na [Další kroky](#next-steps) a seznámit se s několika způsoby, jak se připojit k databázi a dotazovat ji. Pokud však chcete prostředky vytvořené v rámci tohoto rychlého startu odstranit, použijte následující postup. 
 
 
 1. Na webu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak na **myResourceGroup**. 
@@ -174,4 +185,3 @@ Teď, když máte databázi, můžete se k ní připojit a provádět dotazován
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
-
