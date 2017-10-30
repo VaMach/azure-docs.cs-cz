@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch
 
@@ -75,7 +75,7 @@ Některé z následujících prostředků – účty, výpočetní uzly, fondy, 
 Můžete spustit několik dávkových úloh služby Batch v jednom účtu Batch najednou, nebo můžete úlohy rozložit mezi více účtů Batch, které jsou v jednom předplatném, ale v různých oblastech Azure.
 
 > [!NOTE]
-> Obecně byste při vytváření účtu Batch měli zvolit výchozí režim **Služba Batch**, kdy se fondy přidělují na pozadí v předplatných, která spravuje Azure. V alternativním režimu **Předplatné uživatele**, který už se nedoporučuje, se virtuální počítače a další prostředky služby Batch vytvářejí přímo ve vašem předplatném při vytvoření fondu.
+> Obecně byste při vytváření účtu Batch měli zvolit výchozí režim **Služba Batch**, kdy se fondy přidělují na pozadí v předplatných, která spravuje Azure. V alternativním režimu **Předplatné uživatele**, který už se nedoporučuje, se virtuální počítače a další prostředky služby Batch vytvářejí přímo ve vašem předplatném při vytvoření fondu. Pokud chcete vytvořit účet Batch v režimu předplatného uživatele, musíte k účtu také přidružit službu Azure Key Vault.
 >
 
 
@@ -129,7 +129,7 @@ Když vytváříte fond Batch, můžete zadat konfiguraci virtuálního počíta
 
 - **Konfigurace virtuálního počítače**, která určuje, že se fond skládá z virtuálních počítačů Azure. Tyto virtuální počítače mohou být vytvořené na základě image Linuxu nebo Windows. 
 
-    Při vytváření fondu založeného na konfiguraci virtuálního počítače je nutné zadat nejen velikost uzlů a zdroj imagí použitých pro jejich vytvoření, ale také **referenční image virtuálního počítače** a **SKU agenta uzlu** služby Batch, které se budou na uzly instalovat. Další informace o zadávání těchto vlastností fondů najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md) 
+    Při vytváření fondu založeného na konfiguraci virtuálního počítače je nutné zadat nejen velikost uzlů a zdroj imagí použitých pro jejich vytvoření, ale také **referenční image virtuálního počítače** a **SKU agenta uzlu** služby Batch, které se budou na uzly instalovat. Další informace o zadávání těchto vlastností fondů najdete v článku [Zřízení linuxových výpočetních uzlů ve fondech Azure Batch](batch-linux-nodes.md)  Volitelně můžete k virtuálním počítačům ve fondu vytvořeným z imagí z webu Marketplace připojit jeden nebo více prázdných datových disků nebo datové disky zahrnout do vlastních imagí používaných k vytvoření virtuálních počítačů.
 
 - **Konfigurace Cloud Services**, která určuje, že se fond skládá z uzlů Azure Cloud Services. Služba Cloud Services poskytuje *jenom* výpočetní uzly Windows.
 
@@ -148,9 +148,11 @@ Pokud chcete použít vlastní image, budete ji muset připravit tím, že ji zo
 
 Podrobné požadavky a kroky najdete v tématu popisujícím [použití vlastní image k vytvoření fondu virtuálních počítačů](batch-custom-images.md).
 
+#### <a name="container-support-in-virtual-machine-pools"></a>Podpora kontejnerů ve fondech virtuálních počítačů
 
+Při vytváření fondu konfigurace virtuálních počítačů pomocí rozhraní API služby Batch můžete ve fondu nastavit spouštění úloh v kontejnerech Dockeru. V současné době musíte fond vytvořit pomocí Windows Serveru 2016 Datacenter s použitím image kontejnerů z webu Azure Marketplace nebo zadat vlastní image virtuálního počítače, která obsahuje Docker Community Edition a všechny požadované ovladače. Nastavení fondu musí obsahovat [konfiguraci kontejneru](/rest/api/batchservice/pool/add#definitions_containerconfiguration), která při vytvoření fondu zkopíruje image kontejneru do virtuálních počítačů. Úlohy spouštěné ve fondu pak můžou odkazovat na image kontejneru a možnosti spuštění kontejneru.
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>Typ výpočetního uzlu a cílový počet uzlů
+## <a name="compute-node-type-and-target-number-of-nodes"></a>Typ výpočetního uzlu a cílový počet uzlů
 
 Při vytváření fondu můžete určit, které typy výpočetních uzlů chcete, a zadat jejich cílový počet. Existují dva typy výpočetních uzlů:
 
@@ -258,6 +260,7 @@ Při vytvoření úkolu můžete zadat:
 * **Proměnné prostředí**, které jsou požadovány příslušnou aplikací. Další informace najdete v části [Nastavení prostředí pro úkoly](#environment-settings-for-tasks).
 * **Omezení**, za kterých by měl být proveden úkol. Mezi omezení patří například: maximální doba, po kterou smí úkol běžet, maximální počet pokusů o opakování neúspěšného úkolu a maximální doba, po kterou jsou zachovány soubory v pracovním adresáři úkolu.
 * **Balíčky aplikací** pro nasazení do výpočetního uzlu, na kterém je naplánováno spuštění úkolu. [Balíčky aplikací](#application-packages) poskytují možnost zjednodušeného nasazení a správy verzí aplikací, které provádějí vaše úkoly. Balíčky aplikací na úrovni úkolů jsou zvláště užitečné v prostředích sdíleného fondu, kde se různé úlohy spouštějí v jednom fondu a kde se fond po dokončení úlohy neodstraňuje. Pokud má vaše úloha méně úkolů, než je uzlů ve fondu, balíčky aplikací úkolů můžou omezit přenosy dat, protože se aplikace může nasadit jen na uzly, které úkoly budou skutečně provádět.
+* Odkaz na **image kontejneru** v Docker Hubu nebo privátním registru a další nastavení pro vytvoření kontejneru Dockeru, ve kterém se bude spouštět úloha na uzlu. Tyto údaje zadáváte pouze v případě, že je ve fondu nastavená konfigurace kontejneru.
 
 Vedle úkolů, které definujete pro provádění výpočtů na uzlu, poskytuje služba Batch také následující zvláštní úkoly:
 
@@ -386,39 +389,12 @@ V případě zpracovávání proměnlivého, ale stálého zatížení se obvykl
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfigurace virtuální sítě a brány firewall 
 
-Při zřizování fondu výpočetních uzlů ve službě Batch můžete k fondu přidružit podsíť [virtuální sítě](../virtual-network/virtual-networks-overview.md) Azure. Další informace o vytváření virtuálních sítí s podsítěmi najdete v tématu [Vytvoření virtuální sítě Azure s podsítěmi](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Při zřizování fondu výpočetních uzlů ve službě Batch můžete k fondu přidružit podsíť [virtuální sítě](../virtual-network/virtual-networks-overview.md) Azure. Pokud chcete použít virtuální síť Azure klientské rozhraní API služby Batch musí používat ověřování pomocí Azure Active Directory (AD). Podpora služby Azure AD ve službě Azure Batch je zdokumentovaná v tématu [Ověřování řešení služby Batch pomocí Active Directory](batch-aad-auth.md).  
 
-Požadavky na virtuální síť:
+### <a name="vnet-requirements"></a>Požadavky na virtuální síť
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-* Virtuální síť musí být ve stejné **oblasti** a stejném **předplatném** Azure jako účet Azure Batch.
-
-* Pro fondy vytvořené s použitím konfigurace virtuálního počítače se podporují pouze virtuální sítě založené na Azure Resource Manageru (ARM). Pro fondy vytvořené s použitím konfigurace cloudových služeb se podporují virtuální sítě ARM i klasické virtuální sítě. 
-
-* Pokud chcete použít síť založenou na ARM, klientské rozhraní API služby Batch musí používat [ověřování pomocí Azure Active Directory](batch-aad-auth.md). Pokud chcete použít klasickou virtuální síť, instanční objekt MicrosoftAzureBatch musí mít pro zadanou virtuální síť roli řízení přístupu na základě role Přispěvatel klasických virtuálních počítačů. 
-
-* Zadaná podsíť musí mít dostatek volných **IP adres** k obsluze celkového počtu cílových uzlů, to znamená součtu hodnot vlastností fondu `targetDedicatedNodes` a `targetLowPriorityNodes`. Pokud podsíť nemá dostatek volných IP adres, služba Batch částečně přidělí výpočetní uzly ve fondu a vrátí chybu změny velikosti.
-
-* Určená podsíť musí umožňovat komunikaci ze služby Batch, aby mohla plánovat úlohy ve výpočetních uzlech. Pokud je komunikace s výpočetními uzly zakázána **skupinou zabezpečení sítě (NSG)** přidruženou k virtuální síti, nastaví služba Batch stav výpočetních uzlů na **nepoužitelné**.
-
-* Pokud má zadaná virtuální síť přidružené **skupiny zabezpečení sítě (NSG)** a/nebo **bránu firewall**, musí být pro několik vyhrazených systémových portů povolena příchozí komunikace:
-
-- Pro fondy vytvořené s konfigurací virtuálního počítače povolte porty 29876 a 29877 také port 22 pro Linux a port 3389 pro Windows. 
-- Pro fondy vytvořené s konfigurací cloudové služby povolte porty 10100, 20100 a 30100. 
-- Povolte odchozí připojení ke službě Azure Storage na portu 443. Také se ujistěte, že všechny vlastní servery DNS obsluhující virtuální síť dokáží přeložit váš koncový bod služby Azure Storage. Konkrétně musí být možné přeložit adresu URL ve formátu `<account>.table.core.windows.net`.
-
-    Následující tabulka popisuje příchozí porty, které je nutné povolit pro fondy vytvořené s konfigurací virtuálního počítače:
-
-    |    Cílové porty    |    Zdrojová IP adresa      |    Přidala služba Batch skupiny NSG?    |    Vyžaduje se pro využitelnost virtuálních počítačů?    |    Akce ze strany uživatele   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>Pro fondy vytvořené s konfigurací virtuálního počítače: 29876, 29877</li><li>Pro fondy vytvořené s konfigurací cloudové služby: 10100, 20100, 30100</li></ul>         |    Jenom IP adresy role služby Batch |    Ano. Batch přidá skupiny NSG na úrovni síťových rozhraní (NIC) připojených k virtuálním počítačům. Tyto skupiny zabezpečení sítě povolují přenos jenom z IP adres role služby Batch. I když tyto porty otevřete pro celý web, přenos se bude na síťové kartě blokovat. |    Ano  |  Není nutné zadávat NSG, protože Batch povoluje jenom IP adresy Batch. <br /><br /> Pokud ale NSG zadáte, nezapomeňte prosím zajistit, aby tyto porty byly otevřené pro příchozí přenos. <br /><br /> Pokud jako zdrojovou IP adresu pro NSG zadáte *, Batch přesto přidá skupiny NSG na úrovni síťové karty připojené k virtuálním počítačům. |
-    |    3389, 22               |    Počítače uživatelů používané pro účely ladění, aby byl možný vzdálený přístup k virtuálnímu počítači.    |    Ne                                    |    Ne                     |    Pokud chcete povolit vzdálený přístup (RDP/SSH) k virtuálnímu počítači, přidejte NSG.   |                 
-
-    Následující tabulka popisuje odchozí port, který je nutné povolit tak, aby byl možný přístup ke službě Azure Storage:
-
-    |    Odchozí porty    |    Cíl    |    Přidala služba Batch skupiny NSG?    |    Vyžaduje se pro využitelnost virtuálních počítačů?    |    Akce ze strany uživatele    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Azure Storage    |    Ne    |    Ano    |    Pokud jste přidali nějaké NSG, ujistěte se, že tento port je otevřený pro odchozí provoz.    |
-
+Další informace o nastavení fondu Batch ve virtuální síti najdete v tématu [Vytvoření fondu virtuálních počítačů s vlastní virtuální sítí](batch-virtual-network.md).
 
 ## <a name="scaling-compute-resources"></a>Škálování výpočetních prostředků
 Služba Batch může díky [automatickému škálování](batch-automatic-scaling.md) dynamicky upravit počet výpočetních uzlů ve fondu podle aktuálního zatížení a využití prostředků výpočetního scénáře. To umožňuje snížit celkové náklady na běh aplikace, protože se využívají pouze prostředky, které jsou nutné, a aktuálně nepotřebné se uvolňují.
@@ -525,11 +501,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 ## <a name="next-steps"></a>Další kroky
 * Další informace o dostupných [rozhraních API a nástrojích služby Batch](batch-apis-tools.md) pro sestavování řešení Batch.
 * Projděte si podrobně ukázkovou aplikaci služby Batch v tématu [Začínáme s knihovnou služby Azure Batch pro .NET](batch-dotnet-get-started.md). K dispozici je také [verze pro Python](batch-python-tutorial.md) tohoto kurzu, která spouští úlohy na výpočetních uzlech systému Linux.
-* Stáhněte si a sestavte ukázkový projekt [Batch Explorer][github_batchexplorer] pro použití při vývoji řešení Batch. Pomocí projektu Batch Explorer můžete provést následující a další akce:
-
-  * Monitorování a manipulace s fondy, úlohami a úkoly v rámci vašeho účtu Batch
-  * Stažení `stdout.txt`, `stderr.txt` a dalších souborů z uzlů
-  * Vytvořit uživatele na uzlech a stáhnout soubory protokolu RDP pro vzdálené přihlášení
+* Stáhněte a nainstalujte nástroj [BatchLabs][batch_labs], který můžete používat při vývoji svých řešení Batch. Nástroj BatchLabs vám pomůže vytvářet, ladit a monitorovat aplikace Azure Batch. 
 * Zjistěte, jak [vytvořit fondy výpočetních uzlů Linux](batch-linux-nodes.md).
 * Navštivte [fórum Azure Batch][batch_forum] na webu MSDN. Fórum je vhodné místo pro kladení dotazů, ať se teprve učíte, nebo jste odborníky na používání služby Batch.
 
@@ -541,7 +513,7 @@ V situacích, kdy některé úkoly selhávají, může klientská aplikace nebo 
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Zabezpečení sítě
 
@@ -151,7 +151,10 @@ Pokud jste vytvořili jiná pravidla a jako cíl jste zadali jiné skupiny zabez
  
 Další informace o omezeních při vytváření skupin zabezpečení aplikací a jejich zadávání v pravidlech zabezpečení najdete v článku o [omezeních Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Skupiny zabezpečení aplikací jsou dostupné ve verzi Preview. Před použitím skupin zabezpečení aplikací je potřeba se zaregistrovat k jejich použití dokončením kroků 1–5 v části [Vytvoření skupiny zabezpečení sítě s použitím skupin zabezpečení aplikací](create-network-security-group-preview.md#powershell) a přečíst si důležité informace v části [Funkce verze Preview](#preview-features). Během období Preview jsou skupiny zabezpečení aplikací omezené na rozsah virtuální sítě. Partnerské virtuální sítě s křížovými odkazy na skupiny zabezpečení aplikací ve skupině zabezpečení sítě se nepoužijí. 
+Skupiny zabezpečení aplikací jsou dostupné ve verzi Preview. Před použitím skupin zabezpečení aplikací je potřeba se zaregistrovat k jejich použití dokončením kroků 1–5 v části [Vytvoření skupiny zabezpečení sítě s použitím skupin zabezpečení aplikací](create-network-security-group-preview.md#powershell) a přečíst si důležité informace v části [Funkce verze Preview](#preview-features). Pro skupiny zabezpečení aplikací platí následující omezení:
+
+-   Všechna síťová rozhraní v rámci skupiny zabezpečení aplikace musí existovat ve stejné virtuální síti. Do stejné skupiny zabezpečení aplikace nemůžete přidat síťová rozhraní z různých virtuálních sítí. Virtuální síť, ve které je první síťové rozhraní přiřazené ke skupině zabezpečení aplikace, definuje, ve které virtuální síti musí existovat všechna další přiřazená síťová rozhraní.
+- Pokud zadáte skupiny zabezpečení aplikací jako zdroj a cíl v pravidle zabezpečení, síťová rozhraní v obou skupinách zabezpečení aplikací musí existovat ve stejné virtuální síti. Kdyby například skupina ASG1 obsahovala síťová rozhraní z virtuální sítě VNet1 a skupina ASG2 obsahovala síťová rozhraní z virtuální sítě VNet2, nemohli byste v pravidle přiřadit skupinu ASG1 jako zdroj a skupinu ASG2 jako cíl, ale všechna síťová rozhraní by musela existovat ve virtuální síti VNet1. 
 
 Funkce ve verzi Preview nedosahují stejné úrovně dostupnosti a spolehlivosti jako služby v obecné verzi. Abyste mohli začít používat skupiny zabezpečení aplikací, musíte se nejprve zaregistrovat k jejich použití. Funkce jsou aktuálně dostupné pouze v následujících oblastech: Západní střed USA.
 

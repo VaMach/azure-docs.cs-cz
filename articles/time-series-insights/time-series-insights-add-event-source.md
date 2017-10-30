@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 123ecca28f0d970851487827d0d18e244ce6d98e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Vytvoření zdroje událostí pro prostředí Time Series Insights pomocí portálu Ibiza
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Vytvoření zdroje událostí pro prostředí Time Series Insights pomocí webu Azure Portal
 
 Zdroj událostí Time Series Insights je odvozený od zprostředkovatele událostí, jako je například služba Azure Event Hubs. Time Series Insights se připojuje přímo ke zdrojům událostí a ingestuje datový proud, aniž by uživatelé museli psát jediný řádek kódu. V současné době Time Series Insights podporuje Azure Event Hubs a Azure IoT Hubs. Další zdroje událostí budou přidány později.
 
 ## <a name="steps-to-add-an-event-source-to-your-environment"></a>Postup přidání zdroje událostí do prostředí
 
-1.  Přihlaste se k [portálu Ibiza](https://portal.azure.com).
-2.  V nabídce na levé straně portálu Ibiza klikněte na Všechny prostředky.
+1.  Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2.  V nabídce na levé straně webu Azure Portal klikněte na Všechny prostředky.
 3.  Vyberte vaše prostředí Time Series Insights.
 
   ![Vytvoření zdroje událostí Time Series Insights](media/add-event-source/getstarted-create-event-source-1.png)

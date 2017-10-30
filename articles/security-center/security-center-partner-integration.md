@@ -1,5 +1,5 @@
 ---
-title: "Partnerská řešení a jejich integrace v Azure Security Center | Dokumentace Microsoftu"
+title: "Integrace řešení zabezpečení v Azure Security Center | Dokumentace Microsoftu"
 description: "Zjistěte, jak Azure Security Center umožňuje integrací s partnerskými řešeními zvýšit celkové zabezpečení vašich prostředků Azure."
 services: security-center
 documentationcenter: na
@@ -12,78 +12,50 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 10/23/2017
 ms.author: yurid
-ms.openlocfilehash: a6998c997840f1a9f349b85a4274908b611cd315
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 847a872661bea31b774814188c7707260a16e620
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="partner-and-solutions-integration-in-azure-security-center"></a>Partnerská řešení a jejich integrace v Azure Security Center
+# <a name="integrate-security-solutions-in-azure-security-center"></a>Integrace řešení zabezpečení v Azure Security Center
+Tento dokument vám pomůže se správou řešení zabezpečení již propojených s Azure Security Center a s přidáním nových řešení.
 
-V tomto článku probereme, jak Azure Security Center pomáhá integrací s partnerskými řešeními zvýšit celkové zabezpečení. Security Center nabízí integrované prostředí v Azure a využívá Azure Marketplace pro certifikaci partnerů a účtování.
+## <a name="integrated-azure-security-solutions"></a>Integrovaná řešení zabezpečení Azure
+Security Center umožňuje snadné povolení integrovaných řešení zabezpečení v Azure. Mezi výhody patří:
 
-## <a name="deploy-partner-solutions-from-security-center"></a>Nasazení partnerských řešení ze služby Security Center
+- **Zjednodušené nasazení:** Security Center nabízí zjednodušené zřízení integrovaných partnerských řešení. Pro řešení, jako jsou antimalware a hodnocení ohrožení zabezpečení, může Security Center zřídit potřebného agenta na virtuálních počítačích, a pro zařízení brány firewall může Security Center zařídit většinu požadované konfigurace sítě.
+- **Integrované detekce:** Události zabezpečení z partnerských řešení se automaticky shromažďují, agregují a zobrazují v rámci výstrah a incidentů služby Security Center. Tyto události jsou také sloučeny s detekcemi z jiných zdrojů a poskytují pokročilé možnosti detekce hrozeb.
+- **Sjednocená správa a monitorování stavu:** Zákazníci můžou využít integrované události týkající se stavu k monitorování všech partnerských řešení na první pohled. Je dostupná základní správa se snadným přístupem k pokročilému nastavení s použitím partnerského řešení.
 
-Existují čtyři hlavní důvody k používání integrace partnerských řešení ve službě Security Center:
+Mezi integrovaná řešení zabezpečení v současné době patří:
 
-- **Snadné nasazení**. Nasazení partnerských řešení podle doporučení služby Security Center je mnohem jednodušší. Proces nasazení je možné plně automatizovat využitím výchozího nastavení a topologie sítě. Alternativně můžou zákazníci zvolit možnost poloautomatického nasazení s větší flexibilitou a možnostmi přizpůsobení.
-- **Integrované detekce**. Události zabezpečení z partnerských řešení se automaticky shromažďují, agregují a zobrazují v rámci výstrah a incidentů služby Security Center. Tyto události jsou také sloučeny s detekcemi z jiných zdrojů a poskytují pokročilé možnosti detekce hrozeb.
-- **Jednotné monitorování stavu a správa**. Zákazníci můžou pomocí integrovaných událostí stavu monitorovat všechna partnerská řešení na první pohled. Je dostupná základní správa se snadným přístupem k pokročilému nastavení s použitím partnerského řešení.
-- **Export do SIEM**. Zákazníci můžou pomocí integrace protokolů Azure exportovat všechny výstrahy služby Security Center a partnerských řešení ve formátu CEF (Common Event Format) do místních systémů správy událostí a informací o zabezpečení (SIEM).
+- Ochrana koncových bodů ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [Microsoft Antimalware pro Azure Cloud Services a Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-antimalware), Windows Defender a System Center Endpoint Protection (SCEP))
+- Firewall webových aplikací ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) a [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
+- Firewall nové generace ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) a [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
+- Posouzení ohrožení zabezpečení ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
 
+## <a name="how-security-solutions-are-integrated"></a>Způsob integrace řešení zabezpečení
+Řešení zabezpečení Azure nasazená ze služby Security Center se automaticky připojí. Můžete také připojit další zdroje dat zabezpečení, včetně:
 
-## <a name="partners-that-integrate-with-security-center"></a>Partnerská řešení s možností integrace se službou Security Center
-
-Aktuálně jsou na webu Azure Marketplace k dispozici následující partnerská řešení s možností nativní integrace se službou Security Center:
-
-- **Ochrana koncových bodů**. [Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec a [Microsoft Antimalware pro Azure Cloud Services a Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-antimalware).
-- **Firewall webových aplikací**. [Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) a [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/). 
-- **Firewall nové generace**. [Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) a [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html). 
-- **Posouzení ohrožení zabezpečení**. [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/). 
-
-Postupem času bude Security Center rozšiřovat počet partnerů v těchto kategoriích a přidávat nové kategorie. 
-
-## <a name="deploy-a-partner-solution"></a>Nasazení partnerského řešení
-
-V závislosti na nastavení prostředí Azure a nadefinovaných zásadách zabezpečení může Security Center doporučit nasazení partnerského řešení. Doporučení služby Security Center vás provede procesem výběru a instalace partnerského řešení. Celkové prostředí nasazení se může lišit podle použitého typu řešení a partnera. Další informace najdete v následujících článcích:
-
-- [Instalace Endpoint Protection](security-center-install-endpoint-protection.md)
-- [Přidání brány firewall webových aplikací](security-center-add-web-application-firewall.md)
-- [Přidání brány firewall nové generace](security-center-add-next-generation-firewall.md)
-- [Není nainstalováno posouzení ohrožení zabezpečení](security-center-vulnerability-assessment-recommendations.md)
-
-## <a name="manage-partner-solutions"></a>Správa partnerských řešení
-
-Pokud po nasazení chcete zobrazit informace o stavu řešení a provádět základní úlohy správy, na řídicím panelu **Security Center** vyberte **Partnerská řešení**.
+- Azure AD Identity Protection
+- Počítače spuštěné místně nebo v jiných cloudech
+- Řešení zabezpečení s podporou formátu CEF (Common Event Format)
+- Microsoft Advanced Threat Analytics
 
 ![Integrace partnerských řešení](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
-Obsah, který se zobrazí po otevření řešení zabezpečení, se může lišit v závislosti na vaší infrastruktuře. Když jako příklad použijeme předchozí obrázek, stránka má tři části:
+## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Správa integrovaných řešení zabezpečení Azure a dalších zdrojů dat
 
-- **Připojená řešení**. Zobrazuje řešení připojená ke službě Security Center.
-- **Zjištěná řešení**. Zobrazuje řešení, která nejsou připojená ke službě Security Center. Tato řešení můžete připojit a pak se zobrazí v části **Připojená řešení**. Pokud služba Security Center nezjistí žádná nepřipojená řešení, tato část bude skrytá.
-- **Přidat zdroje dat**. Zobrazuje zdroje dat v Azure i mimo Azure, které můžete přidat do služby Security Center.
+Po nasazení můžete zobrazit informace o stavu integrovaných řešení zabezpečení Azure a provádět základní úlohy správy. Můžete také připojit další typy zdrojů dat zabezpečení, jako jsou upozornění služby Azure Active Directory Identity Protection a protokoly brány firewall ve formátu CEF (Common Event Format). Na řídicím panelu Security Center vyberte Řešení zabezpečení.
 
 ### <a name="connected-solutions"></a>Připojená řešení
 
-V části **Připojená řešení** se zobrazují všechna řešení zabezpečení, která jsou aktuálně propojená se službou Security Center. 
+Část **Připojená řešení** obsahuje řešení zabezpečení, která jsou aktuálně připojená ke službě Security Center, a informace o stavu jednotlivých řešení.  
 
 ![Připojená řešení](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
-
-Zobrazené informace se můžou lišit v závislosti na řešení. Mezi informacemi dostupnými na každé dlaždici může být:
-
-- **Ikona společnosti partnera**. Pokud služba Security Center nemá ikonu společnosti, zobrazí se první znaky názvu partnera.
-- **Typ řešení**. Zobrazí se typ řešení.
-- **Název počítače**. Zobrazí se název počítače.
-- **Stav**. Pokud se indikátor stavu neodešle, služba Security Center zobrazí datum a čas poslední přijaté události, aby indikovala, jestli se zařízení hlásí, nebo ne. Pokud služba Security Center neobdrží indikátor stavu z konkrétního řešení, dlaždice takového řešení se v této části nezobrazí.
-
-> [!NOTE]
-> Služba Security Center zobrazuje datum a čas poslední přijaté události, aby indikovala, jestli se zařízení hlásí, nebo ne. Řešení, která neodesílají indikátory stavu, se zobrazují jako připojená, pokud jsou v pohotovosti nebo pokud odeslala nějaké události během posledních 14 dní.
->  
-
-Některá z těchto řešení můžou být plně integrovaná v Azure, jiná můžou být místní. Vzhledem k tomu, že služba Security Center podporuje [formát CEF](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), může se propojit s řešeními používajícími formát CEF, jako je brána firewall s podporou formátu CEF. Po přidání tohoto řešení do služby Security Center odesílá brána firewall protokoly ve formátu CEF do služby Security Center, která je předává ke zpracování do [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). Brána firewall je prostředek mimo Azure, který odesílá události, ale ne indikátory stavu. Jediná informace, kterou má služba Security Center o stavu, je čas posledního odeslání události z tohoto zařízení. Pro všechny prostředky mimo Azure zobrazí služba Security Center na dlaždici v oblasti stavu datum a čas přijetí poslední události. Tato informace indikuje, že se prostředek mimo Azure stále hlásí.
 
 ### <a name="discovered-solutions"></a>Zjištěná řešení
 
@@ -91,30 +63,22 @@ V části **Zjištěná řešení** se zobrazují všechna řešení přidaná p
 
 ![Zjištěná řešení](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Služba Security Center se může integrovat s integrovanými řešeními Azure, jako je [Azure Active Directory (Azure AD) Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). Pokud máte licenci řešení Azure AD Identity Protection, které ale není připojené ke službě Security Center, bude řešení Azure AD Identity Protection uvedeno v části **Zjištěná řešení**. Pokud chcete toto řešení integrovat se službou Security Center, na dlaždici **Azure AD Identity Protection** vyberte **PŘIPOJIT** a zobrazí se následující stránka:
-
-![Azure AD Identity Protection](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
-
-Pro dokončení připojení Azure AD Identity Protection vyberte pracovní prostor, kde se ukládají data. Veškerá data z Azure AD Identity Protection přicházejí z oblasti pracovního prostoru vybraného v tomto kroku. Pomocí selektoru pracovního prostoru vyberte pracovní prostor a začnou do něj přicházet data.
-
-Pro připojení ke službě Security Center musíte být globálním správcem nebo správcem zabezpečení. Pokud nemáte příslušná oprávnění, tlačítko **Připojit** je neaktivní. Zobrazí se zpráva s vysvětlením, proč je tlačítko neaktivní.
-
-Upozornění Azure AD Identity Protection procházejí kanálem detekce služby Security Center. Tímto způsobem získáváte upozornění ze služby Security Center i z Azure AD Identity Protection. Služba Security Center sloučí všechna pravděpodobně důležitá upozornění a vytvoří [incident zabezpečení](https://docs.microsoft.com/azure/security-center/security-center-incident). V popisu incidentu zabezpečení najdete další informace o podezřelé aktivitě.
+Security Center automaticky zjišťuje další řešení zabezpečení provozovaná v Azure. To zahrnuje řešení Azure, jako je [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), i partnerská řešení provozovaná v Azure. Pokud chcete integrovat tato řešení se službou Security Center, vyberte **PŘIPOJIT**.
 
 ### <a name="add-data-sources"></a>Přidat zdroje dat
 
-Pro integraci se službou Security Center můžete přidat počítače Azure i počítače mimo Azure. Přidání počítačů mimo Azure znamená, že můžete přidat místní počítače nebo zařízení, které podporuje formát CEF. 
+Část **Přidat zdroje dat** obsahuje další dostupné zdroje dat, které je možné připojit. Pokyny k přidání dat z některého z těchto zdrojů získáte kliknutím na **PŘIDAT**.
 
 ![Zdroje dat](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
-## <a name="see-also"></a>Viz také
+## <a name="next-steps"></a>Další kroky
 
 V tomto článku jste se naučili integrovat partnerská řešení do služby Security Center. Další informace o službě Security Center najdete v následujících článcích:
 
 * [Průvodce plánováním a provozem služby Security Center](security-center-planning-and-operations-guide.md)
-* [Správa a reakce na výstrahy zabezpečení ve službě Security Center](security-center-managing-and-responding-alerts.md)
-* [Výstrahy zabezpečení podle typu ve službě Security Center](security-center-alerts-type.md)
+* [Propojení Microsoft Advanced Threat Analytics a Azure Security Center](security-center-ata-integration.md)
+* [Propojení Azure Active Directory Identity Protection a Azure Security Center](security-center-aadip-integration.md)
 * [Monitorování stavu zabezpečení ve službě Security Center](security-center-monitoring.md). Zjistěte, jak monitorovat stav svých prostředků Azure.
 * [Monitorování partnerských řešení pomocí služby Security Center](security-center-partner-solutions.md). Zjistěte, jak monitorovat stav partnerských řešení.
 * [Azure Security Center – nejčastější dotazy](security-center-faq.md). Získejte odpovědi na nejčastější dotazy k používání služby Security Center.

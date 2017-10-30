@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Vícevrstvá aplikace .NET, která používá fronty Azure Service Bus
-## <a name="introduction"></a>Úvod
+
 Vývoj pro Microsoft Azure je snadný při použití Visual Studia a bezplatné sady Azure SDK pro .NET. Tento kurz vás provede jednotlivými kroky při vytváření aplikace, která používá několik prostředků Azure běžících ve vašem lokálním prostředí.
 
 Naučíte se:
@@ -68,7 +68,7 @@ Než začnete s vývojem aplikací pro Azure, připravte si nástroje a vývojov
 5. Po dokončení instalace budete mít všechno, co je potřeba k vývoji aplikace. Sada SDK obsahuje nástroje, které vám umožní snadno vyvíjet aplikace pro Azure ve Visual Studiu.
 
 ## <a name="create-a-namespace"></a>Vytvoření oboru názvů
-Dál je potřeba vytvořit obor názvů služby a získat klíč sdíleného přístupového podpisu (SAS). Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém vygeneruje klíč SAS při vytvoření oboru názvů. Kombinace oboru názvů a klíče SAS poskytuje pověření, kterým služba Service Bus ověří přístup k aplikaci.
+Dalším krokem je vytvoření *oboru názvů* a získání [klíče sdíleného přístupového podpisu (SAS)](service-bus-sas.md) pro tento obor názvů. Obor názvů aplikaci poskytuje hranice pro každou aplikaci vystavenou přes službu Service Bus. Systém vygeneruje klíč SAS při vytvoření oboru názvů. Kombinace názvu oboru názvů a klíče SAS poskytuje přihlašovací údaje, pomocí kterých služba Service Bus ověří přístup k aplikaci.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Potom přidáte kód, který odesílá položky do fronty Service Bus a zobrazí
 2. V **Nainstalovaných šablonách** v části **Visual C#** klikněte na **Cloud** a pak na **Cloudová služba Azure**. Jako název projektu zadejte **MultiTierApp**. Pak klikněte na **OK**.
    
    ![][9]
-3. Z rolí **.NET Framework 4.5** poklikáním vyberte **Webovou roli ASP.NET**.
+3. V podokně **Role** dvakrát klikněte na **Webová role ASP.NET**.
    
    ![][10]
 4. Najeďte kurzorem na **WebRole1** v části **řešení Cloudové služby Azure**, klikněte na ikonu tužky a přejmenujte webovou roli na **FrontendWebRole**. Pak klikněte na **OK**. (Ujistěte se, že „Frontend“ zadáte s malým „e“ tzn. nikoli „FrontEnd“.)
@@ -92,12 +92,12 @@ Potom přidáte kód, který odesílá položky do fronty Service Bus a zobrazí
 5. V dialogovém okně **Nový projekt ASP.NET** v seznamu **Vyberte šablonu** klikněte na **MVC**.
    
    ![][12]
-6. Pořád ještě v dialogovém okně **Nový projekt ASP.NET** klikněte na tlačítko **Změna ověřování**. V dialogovém okně **Změna ověřování** klikněte na možnost **Bez ověřování** a poté klikněte na tlačítko **OK**. V tomto kurzu nasazujete aplikaci, která nepotřebuje přihlášení uživatele.
+6. Pořád ještě v dialogovém okně **Nový projekt ASP.NET** klikněte na tlačítko **Změna ověřování**. V dialogovém okně **Změnit ověřování** zkontrolujte, že je vybraná možnost **Bez ověřování**, a potom klikněte na **OK**. V tomto kurzu nasazujete aplikaci, která nepotřebuje přihlášení uživatele.
    
     ![][16]
 7. Pořád ještě v dialogovém okně **Nový projekt ASP.NET** klikněte na tlačítko **OK** a vytvořte tak projekt.
 8. V **Průzkumníku řešení** v projektu **FrontendWebRole** klikněte pravým tlačítkem na **Reference**, a pak klikněte na **Správa balíčků NuGet**.
-9. Klikněte na kartu **Procházet** a potom najděte `Microsoft Azure Service Bus`. Vyberte balíček **WindowsAzure.ServiceBus**, klikněte na **Instalovat** a přijměte podmínky použití.
+9. Klikněte na kartu **Procházet** a pak vyhledejte **WindowsAzure.ServiceBus**. Vyberte balíček **WindowsAzure.ServiceBus**, klikněte na **Instalovat** a přijměte podmínky použití.
    
    ![][13]
    
@@ -182,12 +182,12 @@ V této části vytvoříte stránky, které vaše aplikace zobrazí.
 5. Teď vytvořte zobrazení pro metodu `Submit()`, kterou jste vytvořili předtím. Klikněte pravým tlačítkem do metody `Submit()` (přetížení `Submit()`, které nepřijímá žádné parametry), a pak vyberte **Přidat zobrazení**.
    
    ![][14]
-6. Objeví se dialogové okno pro vytvoření zobrazení. V seznamu **Šablona** vyberte **Vytvořit**. V seznamu **Třída modelu** klikněte na třídu **OnlineOrder**.
+6. Objeví se dialogové okno pro vytvoření zobrazení. V seznamu **Šablona** vyberte **Vytvořit**. V seznamu **Třída modelu** vyberte třídu **OnlineOrder**.
    
    ![][15]
 7. Klikněte na tlačítko **Přidat**.
 8. Teď změňte zobrazený název vaší aplikace. V **Průzkumníku řešení** poklikejte na soubor **Views\Shared\\_Layout.cshtml** a otevře se v editoru Visual Studio.
-9. Všechny výskyty **My ASP.NET Application** změňte na **LITWARE'S Products**.
+9. Všechny výskyty **My ASP.NET Application** změňte na **Northwind Traders Products**.
 10. Odstraňte odkazy **Home**, **About** a **Contact**. Odstraňte zvýrazněný uzel:
     
     ![][28]
@@ -361,9 +361,9 @@ Teď vytvoříte roli pracovního procesu, která zpracuje odesílání objedná
 ## <a name="next-steps"></a>Další kroky
 Pokud se o službě Service Bus chcete dozvědět víc, pročtěte si následující zdroje:  
 
-* [Dokumentace ke službě Azure Service Bus][sbdocs]  
+* [Základy služby Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Začínáme používat fronty služby Service Bus][sbacomqhowto]
 * [Stránka služby Service Bus][sbacom]  
-* [Jak používat fronty Service Bus][sbacomqhowto]  
 
 Další informace o víceúrovňových scénářích najdete v:  
 
@@ -390,7 +390,6 @@ Další informace o víceúrovňových scénářích najdete v:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

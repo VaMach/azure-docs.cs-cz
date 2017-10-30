@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
-ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Požadavky na směrování služby ExpressRoute
 Pokud se chcete připojit ke cloudovým službám Microsoftu pomocí služby ExpressRoute, budete muset nastavit a spravovat směrování. Někteří poskytovatelé připojení nabízejí nastavení a správu směrování jako spravovanou službu. Zeptejte se svého poskytovatele připojení, jestli tuto službu nabízí. Pokud ne, je nutné splnit následující požadavky:
@@ -47,21 +47,33 @@ Ke konfiguraci partnerských vztahů můžete použít buď soukromé IP adresy,
 #### <a name="example-for-private-peering"></a>Příklad soukromého partnerského vztahu
 Pokud k nastavení partnerského vztahu zvolíte a.b.c.d/29, rozdělí se do dvou podsítí /30. V následujícím příkladu se podíváme na použití podsítě a.b.c.d/29. 
 
-a.b.c.d/29 se rozdělí na a.b.c.d/30 a a.b.c.d+4/30 a předá se Microsoftu prostřednictvím rozhraní API pro zřizování. Použijete a.b.c.d+1 jako IP adresu VRF pro primární PE a Microsoft spotřebuje a.b.c.d+2 jako IP adresu VRF pro primární MSEE. Použijete a.b.c.d+5 jako IP adresu VRF pro sekundární PE a Microsoft použije a.b.c.d+6 jako IP adresu VRF pro sekundární MSEE.
+a.b.c.d/29 se rozdělí na a.b.c.d/30 a a.b.c.d+4/30 a předá se Microsoftu prostřednictvím rozhraní API pro zřizování. a.b.c.d+1 použijete jako IP adresu VRF pro primární PE a Microsoft využije a.b.c.d+2 jako IP adresu VRF pro primární MSEE. a.b.c.d+5 použijete jako IP adresu VRF pro sekundární PE a Microsoft použije a.b.c.d+6 jako IP adresu VRF pro sekundární MSEE.
 
 Představte si případ, kdy k nastavení soukromého partnerského vztahu vyberete 192.168.100.128/29. 192.168.100.128/29 obsahuje adresy od 192.168.100.128 do 192.168.100.135, kde:
 
 * 192.168.100.128/30 se přiřadí pro link1, kde poskytovatel použije 192.168.100.129 a Microsoft použije 192.168.100.130.
 * 192.168.100.132/30 se přiřadí pro link2, kde poskytovatel použije 192.168.100.133 a Microsoft použije 192.168.100.134.
 
-### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>IP adresy sloužící pro veřejný partnerský vztah Azure a partnerský vztah Microsoftu
+### <a name="ip-addresses-used-for-azure-public-peering"></a>IP adresy používané pro veřejný partnerský vztah Azure
 Pro nastavení relací protokolu BGP musíte použít veřejné IP adresy, které vlastníte. Microsoft musí být schopný ověřit vlastnictví IPv4 adres v registrech RIR a IRR. 
 
 * K nastavení partnerského vztahu BGP pro každý partnerský vztah pro každý okruh ExpressRoute (pokud jich používáte víc než jeden) musíte použít jedinečnou podsíť /29 nebo dvě podsítě /30. 
-* Pokud se používá podsíť /29, rozdělí se na dvě podsítě /30. 
-  * První podsíť /30 se použije pro primární propojení a druhá podsíť /30 se použije pro sekundární propojení.
+* Pokud se použije podsíť /29, rozdělí se na dvě podsítě /30. 
+  * První podsíť /30 se používá pro primární propojení a druhá podsíť /30 se používá pro sekundární propojení.
   * Pro každou z těchto podsítí /30 musíte ve směrovači použít první IP adresu podsítě /30. Microsoft používá druhou IP adresu podsítě /30 k nastavení relace protokolu BGP.
   * Musíte nastavit obě relace protokolu BGP, aby naše [smlouva SLA o dostupnosti](https://azure.microsoft.com/support/legal/sla/) byla platná.
+
+### <a name="ip-addresses-used-for-microsoft-peering"></a>IP adresy používané pro partnerský vztah Microsoftu
+Pro nastavení relací protokolu BGP musíte použít veřejné IP adresy, které vlastníte. Microsoft musí být schopný ověřit vlastnictví IPv4 adres v registrech RIR a IRR.
+
+* K nastavení partnerského vztahu BGP pro každý partnerský vztah pro každý okruh ExpressRoute (pokud jich používáte víc než jeden) musíte použít jedinečnou podsíť /29 (protokol IPv4) nebo /125 (protokol IPv6) nebo dvě podsítě /30 (protokol IPv4) nebo /126 (protokol IPv6).
+* Pokud se použije podsíť /29, rozdělí se na dvě podsítě /30.
+* První podsíť /30 se použije pro primární propojení a druhá podsíť /30 se použije pro sekundární propojení.
+* Pro každou z těchto podsítí /30 musíte ve směrovači použít první IP adresu podsítě /30. Microsoft používá druhou IP adresu podsítě /30 k nastavení relace protokolu BGP.
+* Pokud se použije podsíť /125, rozdělí se na dvě podsítě /126.
+* První podsíť /126 se použije pro primární propojení a druhá podsíť /126 se použije pro sekundární propojení.
+* Pro každou z těchto podsítí /126 musíte ve směrovači použít první IP adresu podsítě /126. Microsoft používá druhou IP adresu podsítě /126 k nastavení relace protokolu BGP.
+* Musíte nastavit obě relace protokolu BGP, aby naše [smlouva SLA o dostupnosti](https://azure.microsoft.com/support/legal/sla/) byla platná.
 
 ## <a name="public-ip-address-requirement"></a>Požadavek veřejné IP adresy
 
@@ -80,7 +92,7 @@ Cesta veřejného partnerského vztahu Azure vám umožňuje připojení ke vše
 U veřejného partnerského vztahu je povoleno soukromé číslo AS.
 
 ### <a name="microsoft-peering"></a>Partnerský vztah Microsoftu
-Cesta partnerského vztahu Microsoftu umožňuje připojení ke všem cloudovým službám společnosti Microsoft hostovaným na veřejných IP adresách. Seznam služeb zahrnuje Office 365, Dynamics 365 a služby Microsoft Azure PaaS. Microsoft v partnerském vztahu Microsoftu podporuje obousměrné připojení. Provoz směřující do cloudových služeb společnosti Microsoft musí před vstupem do sítě Microsoftu používat platné veřejné IPv4 nebo IPv6 adresy.
+Cesta partnerského vztahu Microsoftu vám umožní připojit se ke cloudovým službám Microsoftu, které nejsou podporované prostřednictvím cesty veřejného partnerského vztahu Azure. Mezi tyto služby patří služby Office 365, jako je Exchange Online, SharePoint Online, Skype pro firmy nebo Dynamics 365. Microsoft v partnerském vztahu Microsoftu podporuje obousměrné připojení. Přenosy směřující do cloudových služeb Microsoftu musí před vstupem do služby MSN používat platné veřejné IPv4 adresy.
 
 Ujistěte se, že vaše IP adresa a číslo AS jsou registrované na vás v jednom z následujících registrů:
 
@@ -93,7 +105,7 @@ Ujistěte se, že vaše IP adresa a číslo AS jsou registrované na vás v jedn
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
 
-Pokud vám ve výše uvedených registrech nejsou přiřazeny vaše předpony a číslo AS, budete muset otevřít případ podpory pro ruční ověření předpon a čísla ASN. Podpora bude vyžadovat dokumentaci, například zplnomocnění, která prokáže vaše oprávnění používat příslušné prostředky.
+Pokud vám ve výše uvedených registrech nejsou přiřazeny vaše předpony a číslo AS, musíte otevřít případ podpory pro ruční ověření předpon a čísla ASN. Podpora vyžaduje dokumentaci, například zplnomocnění, která prokáže vaše oprávnění používat příslušné prostředky.
 
 U partnerského vztahu Microsoftu je povoleno soukromé číslo AS, které ale také vyžaduje ruční ověření.
 
@@ -106,7 +118,7 @@ U partnerského vztahu Microsoftu je povoleno soukromé číslo AS, které ale t
 Výměna směrování bude přes protokol EBGP. Relace EBGP se vytvoří mezi směrovači MSEE a vašimi směrovači. Ověřování relací BGP není povinné. V případě potřeby lze nakonfigurovat hodnotu hash MD5. Informace o konfiguraci relací BGP najdete v tématu [Konfigurace směrování](expressroute-howto-routing-classic.md) a [Pracovní postupy zřizování okruhů a stavy okruhu](expressroute-workflows.md).
 
 ## <a name="autonomous-system-numbers"></a>Čísla autonomního systému
-Microsoft pro veřejný partnerský vztah Azure, soukromý partnerský vztah Azure a partnerský vztah Microsoftu použije AS 12076. Pro interní použití jsme vyhradili čísla ASN od 65515 do 65520. Jsou podporována 16bitová a 32bitová čísla AS.
+Microsoft pro veřejný partnerský vztah Azure, soukromý partnerský vztah Azure a partnerský vztah Microsoftu používá číslo AS 12076. Pro interní použití jsme vyhradili čísla ASN od 65515 do 65520. Jsou podporována 16bitová a 32bitová čísla AS.
 
 Nejsou žádné požadavky týkající se symetrie přenosu dat. Cesty vpřed a zpět můžou procházet různými dvojicemi směrovačů. Můžou být inzerovány identické trasy z obou stran přes víc dvojic okruhů, které vám patří. Metriky tras nemusejí být identické.
 
@@ -183,7 +195,7 @@ Můžete zakoupit víc než jeden okruh ExpressRoute na geopolitickou oblast. Po
 Všechny trasy inzerované Microsoftem budou označené odpovídající hodnotou komunity. 
 
 > [!IMPORTANT]
-> Globální předpony budou označené odpovídající hodnotou komunity a budou se inzerovat, jenom když bude povolený doplněk ExpressRoute Premium.
+> Globální předpony se označují odpovídající hodnotou komunity a budou se inzerovat, jenom když bude povolený doplněk ExpressRoute Premium.
 > 
 > 
 
@@ -227,7 +239,6 @@ Kromě výše uvedeného bude Microsoft také označovat předpony podle služby
 ## <a name="next-steps"></a>Další kroky
 * Nakonfigurujte připojení ExpressRoute.
   
-  * [Vytvoření okruhu ExpressRoute pro model nasazení Classic](expressroute-howto-circuit-classic.md) nebo [Vytvoření a úprava okruhu ExpressRoute pomocí Azure Resource Manageru](expressroute-howto-circuit-arm.md)
-  * [Konfigurace směrování pro model nasazení Classic](expressroute-howto-routing-classic.md) nebo [Konfigurace směrování pro model nasazení Resource Manager](expressroute-howto-routing-arm.md)
-  * [Připojení klasické virtuální sítě k okruhu ExpressRoute](expressroute-howto-linkvnet-classic.md) nebo [Připojení virtuální sítě Resource Manageru k okruhu ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
+  * [Vytvoření a změny okruhu](expressroute-howto-circuit-arm.md)
+  * [Vytvoření a změny konfigurace partnerského vztahu](expressroute-howto-routing-arm.md)
+  * [Propojení virtuální sítě s okruhem ExpressRoute](expressroute-howto-linkvnet-arm.md)

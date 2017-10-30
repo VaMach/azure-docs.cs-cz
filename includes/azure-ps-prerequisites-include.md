@@ -1,6 +1,6 @@
-## <a name="prerequisite-install-the-azure-powershell-module"></a>Předpoklad: Instalace modulu Azure PowerShell
+## <a name="prerequisite-install-the-azure-powershell-module"></a>Požadavek: Instalace modulu Azure PowerShellu
 
-Pokud chcete provést kroky v tomto článku, budete muset [nainstalovat a nakonfigurovat prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs) a na provedením všech pokynů se přihlásit k Azure a vybrat vaše předplatné.
+Pokud chcete provést kroky v tomto článku, musíte [nainstalovat a nakonfigurovat modul Azure PowerShellu](/powershell/azureps-cmdlets-docs). Ujistěte se, že dokončíte všechny pokyny. Po dokončení instalace se přihlaste do Azure a vyberte své předplatné.
 
 > [!NOTE]
-> Pokud účet Azure nemáte, musíte si ho vytvořit. Zde si můžete zaregistrovat [bezplatnou zkušební verzi](../articles/active-directory/sign-up-organization.md).
+> Účet Azure je potřeba k dokončení těchto kroků. Pokud účet Azure nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](../articles/active-directory/sign-up-organization.md).

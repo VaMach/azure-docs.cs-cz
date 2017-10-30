@@ -1,3 +1,5 @@
+Tyto nejčastější dotazy se týkají připojení typu Point-to-Site s použitím modelu nasazení Classic.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Jaké klientské operační systémy je možné používat s připojeními typu Point-to-Site?
 
 Podporovány jsou následující operační systémy:

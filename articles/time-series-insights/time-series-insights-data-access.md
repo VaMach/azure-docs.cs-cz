@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Udělení přístupu k datům prostředí Time Series Insights pomocí webu Azure Portal
 
@@ -42,12 +42,13 @@ Tyto dva typy zásad umožňují jasné oddělení přístupu ke správě prost�
 Následující postup ukazuje, jak udělit přístup k datům objektu zabezpečení uživatele:
 
 1.  Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2.  V nabídce na levé straně webu Azure Portal klikněte na Všechny prostředky.
-3.  Vyberte vaše prostředí Time Series Insights.
+2.  V okně hledání zadejte Time Series.
+3.  Klikněte na prostředí Time Series Insights.
+4.  Ze seznamu vyberte vaše prostředí Time Series Insights.
 
   ![Správa zdroje Time Series Insights – prostředí](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Vyberte Přístup k rovině dat a klikněte na Přidat.
+4.  Vyberte Zásady přístupu k datům a pak klikněte na Přidat.
 
   ![Správa zdroje Time Series Insights – přidat](media/data-access/getstarted-grant-data-access2.png)
 
