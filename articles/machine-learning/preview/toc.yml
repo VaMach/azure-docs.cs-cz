@@ -44,7 +44,7 @@
     - name: Konfigurace výpočetního prostředí
       items:
         - name: Konfigurace experimentování
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: Vytvoření clusteru DSVM a HDI Spark
           href: how-to-create-dsvm-hdi.md
         - name: Trénování s grafickými procesory
@@ -147,7 +147,7 @@
     - name: Experimentování
       items:
         - name: Konfigurace služby Experimentování
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: Protokolování rozhraní API
           href: reference-logging-api.md
     - name: Správa modelů
@@ -175,7 +175,7 @@
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Ceny
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Fórum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
