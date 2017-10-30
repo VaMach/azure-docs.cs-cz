@@ -1,12 +1,12 @@
 ---
-title: "Nastavení zásad zabezpečení ve službě Azure Security Center | Dokumentace Microsoftu"
-description: "Tento dokument vám pomůže s konfigurací zásad zabezpečení ve službě Azure Security Center."
+title: "Integrace zásad zabezpečení ve službě Azure Security Center se službou Azure Policy | Dokumentace Microsoftu"
+description: "Tento dokument vám pomůže s konfigurací integrace zásad zabezpečení ve službě Azure Security Center se službou Azure Policy."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Nastavení zásad zabezpečení ve službě Security Center
-Tento dokument vám pomůže nakonfigurovat zásady zabezpečení v Security Center a provede vás potřebnými kroky. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Nastavení zásad zabezpečení, které používají službu Azure Policy, ve službě Security Center
+Tento dokument vám pomůže nakonfigurovat zásady zabezpečení, které používají službu Azure Policy, ve službě Security Center a provede vás potřebnými kroky. 
 
 
-## <a name="how-security-policies-work"></a>Způsob fungování zásad zabezpečení
-Security Center automaticky vytváří výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Zásady můžete upravovat ve službě Security Center, která umožňuje také monitorovat jejich dodržování. 
+## <a name="how-security-policies-work"></a>Jak fungují zásady zabezpečení?
+Security Center automaticky vytváří výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Zásady můžete upravovat ve službě Security Center nebo můžete pomocí služby [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) vytvářet nové definice zásad, přiřazovat zásady napříč skupinami pro správu (ty mohou představovat celou organizaci, obchodní jednotku atd.) a monitorovat dodržování předpisů těchto zásad.
 
 > [!NOTE]
-> Zásady služby Security Center teď můžete rozšířit použitím služby Azure Policy, která je ve verzi Limited Preview. Klikněte [sem](http://aka.ms/getpolicy) a připojte se k verzi Preview nebo se podívejte do dokumentace kliknutím [sem](security-center-azure-policy.md).
-
-Například prostředky používané pro vývoj nebo testování mohou mít jiné požadavky na zabezpečení než prostředky, které se používají v aplikacích v produkčním prostředí. Aplikace pracující s regulovanými daty, třeba s osobními údaji, zase mohou vyžadovat vyšší úroveň zabezpečení. Zásady zabezpečení povolené ve službě Azure Security Center mají vliv na doporučení zabezpečení a monitorování a pomohou vám najít potenciální nedostatky zabezpečení a zmírnit hrozby. Pro další informace o určení, která možnost je pro vás vhodná, si přečtěte [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md).
+> Zásady Azure jsou ve verzi Limited Preview. Pokud se chcete připojit, klikněte [sem](https://aka.ms/getpolicy). Další informace o zásadách Azure najdete v tématu [Vytvoření a správa zásad pro vynucování dodržování předpisů](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Upravení zásad zabezpečení
-Ve službě Security Center můžete upravit výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Pokud chcete upravit nějakou zásadu zabezpečení, musíte být vlastníkem, přispěvatelem nebo správcem zabezpečení daného předplatného. Přihlaste se na webu Azure Portal a při konfiguraci zásad zabezpečení ve službě Security Center postupujte podle následujících kroků: 
+Ve službě Security Center můžete upravit výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Pokud chcete upravit zásady zabezpečení, musíte být vlastníkem, přispěvatelem nebo správcem zabezpečení daného předplatného nebo skupiny pro správu, která je obsahuje. Přihlaste se na webu Azure Portal a postupujte podle následujících kroků pro zobrazení zásad zabezpečení ve službě Security Center:
 
-1.  Na řídicím panelu **Security Center** v části **Obecné** klikněte na **Zásady zabezpečení**.
-2.  Vyberte předplatné, pro které chcete zásady zabezpečení povolit.
-3.  V části **SOUČÁSTI ZÁSAD** klikněte na **Zásady zabezpečení**.
-4.  Toto jsou výchozí zásady přiřazené službou Security Center. Můžete zapnout nebo vypnout dostupná doporučení zabezpečení.
-5.  Jakmile budete s úpravami hotovi, klikněte na **Uložit**.
+1. Na řídicím panelu **Security Center** v části **Obecné** klikněte na **Zásady zabezpečení**.
+2. Vyberte předplatné, pro které chcete zásady zabezpečení povolit.
 
-## <a name="available-security-policy-options"></a>Dostupné možnosti zásad zabezpečení
+    ![Správa zásad](./media/security-center-policies/security-center-policies-fig10.png)
 
-Následující tabulku použijte jako referenci pro pochopení jednotlivých možností:
+3. V části **SOUČÁSTI ZÁSAD** klikněte na **Zásady zabezpečení**.
+
+    ![Součásti zásad](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Toto jsou výchozí zásady přiřazené službě Security Center prostřednictvím zásad Azure. Můžete odstranit položky, které jsou v části **ZÁSADY A PARAMETRY**, nebo přidat další definice zásad, které jsou v části **DOSTUPNÉ MOŽNOSTI**. Pokud to chcete udělat, stačí kliknout na symbol plus vedle názvu definice.
+
+    ![Definice zásad](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. Pokud chcete podrobnější vysvětlení nějaké zásady, klikněte na ni a otevře se další stránka s podrobnostmi a kódem JSON, který obsahuje strukturu [definice zásady](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure):
+
+    ![JSON](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. Jakmile budete s úpravami hotovi, klikněte na **Uložit**.
+
+
+## <a name="available-security-policy-definitions"></a>Dostupné definice zásad zabezpečení
+
+Následující tabulku můžete použít jako referenci pro pochopení definic zásad, které jsou k dispozici ve výchozích zásadách zabezpečení: 
 
 | Zásada | Pokud je nastavená možnost Zapnuto |
 | --- | --- |

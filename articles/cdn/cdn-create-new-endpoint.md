@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Začínáme s Azure CDN
-Toto téma vás provede povolením Azure CDN prostřednictvím vytvoření nového profilu a koncového bodu CDN.
+Tento článek popisuje povolení Azure CDN prostřednictvím vytvoření nového profilu a koncového bodu CDN.
 
 > [!IMPORTANT]
-> Úvod do fungování CDN a seznam funkcí najdete v tématu [Přehled CDN](cdn-overview.md).
+> Úvod do sítě CDN a seznam funkcí najdete v tématu [Přehled sítě CDN](cdn-overview.md).
 > 
 > 
 
@@ -64,7 +64,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
 4. V rozevíracím seznamu **Typ původu** vyberte typ původu.  V případě účtu Azure Storage vyberte položku **Storage**, v případě cloudové služby Azure vyberte položku **Cloudová služba**, v případě webové aplikace Azure vyberte položku **Webová aplikace** a v případě jakéhokoli jiného veřejně přístupného původu webového serveru (hostovaného v Azure nebo jinde) vyberte položku **Vlastní původ**.
    
     ![Typ původu CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. V rozevíracím seznamu **Název hostitele původu** vyberte nebo zadejte doménu původu.  Tento rozevírací seznam obsahuje všechny dostupné původy typu, který jste zadali v kroku 4.  Pokud jste jako **Typ původu** vybrali možnost *Vlastní původ*, zadáte doménu vlastního původu.
+5. V rozevíracím seznamu **Název hostitele původu** vyberte nebo zadejte doménu původu.  Tento rozevírací seznam obsahuje všechny dostupné původy typu, který jste zadali v kroku 4.  Pokud jako **Typ zdroje** vyberete *Vlastní zdroj*, zadejte doménu vlastního zdroje.
 6. Do textového pole **Cesta původu** zadejte cestu k prostředkům, které chcete uložit do mezipaměti, nebo ponechte pole prázdné, čímž povolíte, aby byl do mezipaměti uložen libovolný prostředek v doméně zadané v kroku 5.
 7. Do pole **Hlavička hostitele původu** zadejte hlavičku hostitele, kterou má CDN odeslat spolu s každou žádostí, nebo ponechte výchozí nastavení.
    
@@ -72,7 +72,7 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
    > Některé typy původu (například Azure Storage a Web Apps) vyžadují, aby se hlavička hostitele shodovala s doménou původu. Pokud nemáte původ, který vyžaduje hlavičku hostitele odlišnou od své domény, je vhodné ponechat výchozí hodnotu.
    > 
    > 
-8. V polích **Protokol** a **Port původu** určete protokoly a porty sloužící k přístupu k prostředkům v původu.  Je nutné vybrat alespoň jeden protokol (HTTP nebo HTTPS).
+8. V polích **Protokol** a **Port původu** určete protokoly a porty sloužící k přístupu k prostředkům v původu. Je nutné vybrat alespoň jeden protokol (HTTP nebo HTTPS). Pro přístup k obsahu HTTPS použijte doménu poskytnutou sítí CDN (`<endpointname>.azureedge.net`). 
    
    > [!NOTE]
    > **Port původu** má vliv pouze na port použitý koncovým bodem k načtení informací z původu.  Koncový bod jako takový je dostupný pouze koncovým klientům na výchozích portech HTTP a HTTPS (80 a 443), a to bez ohledu na **Port původu**.  
@@ -82,20 +82,18 @@ Profil CDN je kolekcí koncových bodů CDN.  Jednotlivé profily obsahují jede
    > Přístup k obsahu CDN pomocí protokolu HTTPS má tato omezení:
    > 
    > * Je nutné použít certifikát SSL poskytnutý systémem CDN. Certifikáty třetích stran nejsou podporovány.
-   > * Podpora protokolu HTTPS pro vlastní domény Azure CDN je dostupná pouze v produktech **Azure CDN od Verizonu** (Standard a Premium). V **Azure CDN od Akamai** není podporován. Další informace najdete v tématu [Povolení HTTPS pro vlastní doménu Azure CDN](cdn-custom-ssl.md).
-
-Pro přístup k obsahu HTTPS použijte doménu poskytnutou sítí CDN (`<endpointname>.azureedge.net`). U vlastních názvů domén (záznamů CNAME) není dostupná podpora protokolu HTTPS, protože CDN aktuálně nepodporuje vlastní certifikáty.
-   > 
-   > 
+   > * Podpora protokolu HTTPS pro vlastní domény Azure CDN je dostupná pouze v produktech **Azure CDN od Verizonu** (Standard a Premium). V produktech **Azure CDN od Akamai** se nepodporuje. Další informace najdete v tématu [Povolení nebo zakázání protokolu HTTPS pro vlastní doménu Azure CDN](cdn-custom-ssl.md).
+  
 9. Kliknutím na tlačítko **Přidat** vytvořte nový koncový bod.
-10. Jakmile je koncový bod vytvořený, zobrazí se v seznamu koncových bodů daného profilu. Zobrazení seznamu zobrazuje adresu URL, kterou je nutné použít k přístupu k obsahu v mezipaměti, a také doménu původu.
+   
+   Koncový bod se po vytvoření zobrazí v seznamu koncových bodů daného profilu.
     
-    ![Koncový bod CDN][cdn-endpoint-success]
+   ![Koncový bod CDN][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > Koncový bod nebude hned dostupný pro použití, protože chvíli trvá, než se registrace rozšíří v rámci CDN.  V případě profilů <b>Azure CDN společnosti Akamai</b> je šíření obvykle hotové během jedné minuty.  V případě profilů <b>Azure CDN společnosti Verizon</b> je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
+   > [!IMPORTANT]
+   > Vzhledem k tomu, že rozšíření registrace nějakou dobu trvá, koncový bod nebude hned dostupný pro použití.  V případě profilů <b>Azure CDN od Akamai</b> je šíření obvykle hotové během jedné minuty. V případě profilů <b>Azure CDN od společnosti Verizon</b> je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
     > 
-    > Pokud se uživatel pokusí použít název domény CDN dřív, než se konfigurace koncového bodu rozšíří do bodů POP, obdrží kódy odpovědí protokolu HTTP 404.  Pokud jste vytvořili koncový bod před několika hodinami, a přesto obdržíte kód odpovědi 404, prostudujte prosím téma [Řešení problémů s koncovými body CDN, které vracejí stav 404](cdn-troubleshoot-endpoint.md).
+    > Pokud se uživatel pokusí použít název domény CDN dříve, než se konfigurace koncového bodu rozšíří do bodů POP, obdrží kódy odpovědí protokolu HTTP 404.  Pokud jste vytvořili koncový bod před několika hodinami, a přesto obdržíte kód odpovědi 404, prostudujte téma [Řešení problémů s koncovými body CDN, které vracejí stav 404](cdn-troubleshoot-endpoint.md).
     > 
     > 
 

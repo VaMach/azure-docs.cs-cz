@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Začínáme s frontami služby Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ Spusťte sadu Visual Studio a vytvořte nový projekt **Aplikace konzoly (.NET F
 
 ### <a name="add-the-service-bus-nuget-package"></a>Přidání balíčku Service Bus NuGet
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
-2. Klikněte na kartu **Procházet**, vyhledejte **Microsoft Azure Service Bus** a pak vyberte položku **WindowsAzure.ServiceBus**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
+2. Klikněte na kartu **Procházet**, vyhledejte **WindowsAzure.ServiceBus** a pak vyberte položku **WindowsAzure.ServiceBus**. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
    
     ![Výběr balíčku NuGet][nuget-pkg]
 
@@ -178,7 +178,7 @@ Spusťte sadu Visual Studio a vytvořte nový projekt **Aplikace konzoly (.NET F
    
     ![Délka fronty][queue-message-receive]
 
-Blahopřejeme! Vytvořili jste frontu, zaslali jste zprávu a přijali jste zprávu.
+Blahopřejeme! Vytvořili jste frontu, do této fronty jste odeslali zprávu a ze stejné fronty jste přijali zprávu.
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -189,4 +189,4 @@ Podívejte se na naše [úložiště GitHub s ukázkami](https://github.com/Azur
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

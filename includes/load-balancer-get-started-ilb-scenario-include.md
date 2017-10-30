@@ -1,11 +1,11 @@
-## <a name="scenario"></a>Scénář
+## <a name="configuration-scenario"></a>Scénář konfigurace
 
-Vytváříte interní nástroje pro vyrovnávání zatížení podle následujícího scénáře.
+V tomto scénáři vytváříme interní nástroj pro vyrovnávání zatížení ve virtuální síti, jak je znázorněno na následujícím obrázku:
 
-![POPISEK OBRÁZKU](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![Scénář interního nástroje pro vyrovnávání zatížení](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-Interní nástroj pro vyrovnávání zatížení se konfiguruje ve virtuální síti.
+Konfigurace pro náš scénář je následující:
 
-* 2 virtuální počítače s názvy DB1 a DB2
-* Koncové body
+* Dva virtuální počítače pojmenované **DB1** a **DB2**
+* Koncové body pro interní nástroj pro vyrovnávání zatížení
 * Interní nástroj pro vyrovnávání zatížení

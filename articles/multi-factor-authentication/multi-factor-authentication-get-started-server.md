@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Začínáme s Azure Multi-Factor Authentication Serverem
 
@@ -89,26 +89,42 @@ Pokud nepoužíváte funkci Potvrzení události a vaši uživatelé nepoužíva
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Stažení Azure Multi-Factor Authentication Serveru
+## <a name="download-the-mfa-server---public-preview"></a>Stažení MFA Serveru – Public Preview
+
+Postupujte podle těchto kroků a stáhněte Azure Multi-Factor Authentication Server z webu Azure Portal:
+
+1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) jako správce.
+2. Vyberte **Active Directory** > **Multi-Factor Authentication**.
+3. Vyberte **Nastavení serveru**.
+4. Vyberte **Stáhnout** a podle pokynů na stránce pro stažení uložte instalační program. 
+
+   ![Stažení MFA Serveru](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. Ponechte tuto stránku otevřenou, protože se k ní vrátíme po spuštění instalačního programu.
+
+
+## <a name="download-the-mfa-server"></a>Stažení MFA Serveru
+
+Postupujte podle těchto kroků a stáhněte Azure Multi-Factor Authentication Server z portálu pfweb:
 
 1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) jako správce.
 2. Na levé straně vyberte **Active Directory**.
-3. Klikněte na **Uživatelé a skupiny**.
-4. Klikněte na **Všichni uživatelé**.
-5. Klikněte na **Multi-Factor Authentication**.
+3. Vyberte **Uživatelé a skupiny**.
+4. Vyberte **Všichni uživatelé**.
+5. Vyberte **Multi-Factor Authentication**.
 6. V části týkající se **vícefaktorového ověřování** klikněte na **Nastavení služby**.
 
    ![Stránka Nastavení služby](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. Dole na stránce s nastavením služby klikněte na **Přejít na portál**. Otevře se nová stránka.
-7. Klikněte na **Soubory ke stažení**.
+7. Vyberte **Stáhnout**.
 8. Klikněte na odkaz **Stáhnout** a uložte instalační program.
 
    ![Stažení MFA Serveru](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. Ponechte tuto stránku otevřenou, protože se k ní vrátíme po spuštění instalačního programu.
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Instalace a konfigurace Azure Multi-Factor Authentication Serveru
+## <a name="install-and-configure-the-mfa-server"></a>Instalace a konfigurace MFA Serveru
 
 Teď, když jste server stáhli, ho můžete nainstalovat a nastavit. Ujistěte se, že server, na kterém ho chcete nainstalovat, splňuje požadavky uvedené v části věnované plánování.
 

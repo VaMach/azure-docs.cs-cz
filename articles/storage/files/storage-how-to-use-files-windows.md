@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Připojení sdílené složky Azure a přístup k ní v systému Windows
 Služba [Soubory Azure](storage-files-introduction.md) je snadno použitelný cloudový systém souborů od Microsoftu. Sdílené složky Azure je možné připojit v systémech Windows a Windows Server. Tento článek ukazuje tři různé způsoby připojení sdílené složky Azure v systému Windows: pomocí uživatelského rozhraní Průzkumníka souborů, přes PowerShell a přes příkazový řádek. 
@@ -29,7 +29,8 @@ Sdílené složky Azure můžete připojit v instalaci Windows na virtuálním p
 
 | Verze systému Windows        | Verze protokolu SMB | Možnost připojit na virtuálním počítači Azure | Možnost připojit v místním prostředí |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Ano | Ano |
+| Pololetní kanál Windows Serveru<sup>1</sup> | SMB 3.0 | Ano | Ano |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Ano | Ano |
 | Windows Server 2016    | SMB 3.0     | Ano                   | Ano                  |
 | Windows 8.1            | SMB 3.0     | Ano                   | Ano                  |
 | Windows Server 2012 R2 | SMB 3.0     | Ano                   | Ano                  |
@@ -37,7 +38,8 @@ Sdílené složky Azure můžete připojit v instalaci Windows na virtuálním p
 | Windows 7              | SMB 2.1     | Ano                   | Ne                   |
 | Windows Server 2008 R2 | SMB 2.1     | Ano                   | Ne                   |
 
-<sup>1</sup>Windows 10 verze 1507, 1511, 1607, 1703 a 1709.
+<sup>1</sup>Windows Server verze 1709.  
+<sup>2</sup>Windows 10 verze 1507, 1607, 1703 a 1709.
 
 > [!Note]  
 > Vždy doporučujeme získat nejnovější aktualizaci KB pro vaši verzi systému Windows.

@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Dotazování indexu Azure Search
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ Nejlepším způsobem, jak porozumět rozdílům v syntaxi, je odesílat dotazy 
 
 + Použijte [Průzkumníka služby Search](search-explorer.md) na webu Azure Portal. Po nasazení [ukázkového indexu](search-get-started-portal.md) můžete pomocí nástrojů v portálu dávat dotazy na index během pár minut.
 
-+ K zadávání dotazů na index, který jste odeslali do služby vyhledávání, použijte [Fiddler](search-fiddler.md) nebo Chrome Postman. Oba nástroje podporují volání REST pro koncový bod HTTP. 
++ K zadávání dotazů na index, který jste odeslali do služby vyhledávání, použijte Telerik Fiddler nebo Chrome Postman. Oba nástroje podporují volání REST pro koncový bod HTTP. 

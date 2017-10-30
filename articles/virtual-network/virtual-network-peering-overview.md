@@ -14,42 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="virtual-network-peering"></a>Partnerské vztahy virtuálních sítí
 
-[Virtuální síť Azure](virtual-networks-overview.md) je váš vlastní privátní síťový prostor v Azure, který umožňuje zabezpečené propojení prostředků Azure mezi sebou.
-
-Partnerské vztahy virtuálních sítí umožňují bezproblémové propojení virtuálních sítí. Po navázání partnerského vztahu se virtuální sítě pro účely připojení jeví jako jedna síť. Virtuální počítače v partnerských virtuálních sítích mezi sebou můžou přímo komunikovat.
-Provoz mezi virtuálními počítači v partnerských virtuálních sítích je směrován přes páteřní infrastrukturu Microsoftu v zásadě stejně jako mezi virtuálními počítači ve stejné virtuální síti pouze přes *privátní* IP adresy.
-
->[!IMPORTANT]
-> Partnerský vztah můžete navázat mezi virtuálními sítěmi v různých oblastech Azure. Tato funkce je aktuálně ve verzi Preview. Můžete [zaregistrovat své předplatné pro verzi Preview](virtual-network-create-peering.md). Vytváření partnerských vztahů virtuálních sítí ve stejných oblastech je všeobecně dostupné.
->
+Partnerské vztahy virtuálních sítí umožňují bezproblémové propojení dvou [virtuálních sítí](virtual-networks-overview.md) Azure. Po navázání partnerského vztahu se virtuální sítě pro účely připojení jeví jako jedna síť. Provoz mezi virtuálními počítači v partnerských virtuálních sítích je směrován přes páteřní infrastrukturu Microsoftu v zásadě stejně jako mezi virtuálními počítači ve stejné virtuální síti pouze přes *privátní* IP adresy. 
 
 Mezi výhody použití partnerských vztahů virtuálních sítí patří:
 
-* Provoz procházející partnerskými vztahy virtuálních sítí je naprosto privátní. Prochází přes páteřní síť Microsoftu a nepoužívá se přitom veřejný internet ani brány.
+* Provoz mezi partnerskými virtuálními sítěmi je privátní. Provoz mezi virtuálními sítěmi probíhá na páteřní síti Microsoftu. Komunikace mezi partnerskými virtuálními sítěmi nevyžaduje veřejný internet, brány ani šifrování.
 * Nízká latence a velká šířka pásma při propojení prostředků v různých virtuálních sítích.
-* Možnost po navázání partnerského vztahu používat ve virtuální síti prostředky z jiné virtuální sítě.
-* Partnerský vztah virtuálních sítí pomáhá s přenosem dat mezi předplatnými Azure, modely nasazení a oblastmi Azure (Preview).
-* Možnost navázání partnerského vztahu mezi virtuálními sítěmi vytvořenými prostřednictvím modelu nasazení Azure Resource Manager, nebo mezi jednou virtuální sítí vytvořenou prostřednictvím modelu nasazení Resource Manager a druhou vytvořenou prostřednictvím modelu nasazení Classic. Další informace o rozdílech mezi těmito dvěma modely nasazení Azure najdete v článku [Vysvětlení modelů nasazení Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Možnost komunikace prostředků v jedné virtuální síti s prostředky v jiné virtuální síti, jakmile je vytvořený partnerský vztah těchto virtuálních sítí.
+* Možnost přenášet data mezi předplatnými Azure, modely nasazení a oblastmi Azure (Preview).
+* Možnost navázání partnerského vztahu mezi virtuálními sítěmi vytvořenými prostřednictvím modelu nasazení Azure Resource Manager, nebo mezi jednou virtuální sítí vytvořenou prostřednictvím modelu nasazení Resource Manager a druhou vytvořenou prostřednictvím modelu nasazení Classic. Další informace o modelech nasazení Azure najdete v článku [Vysvětlení modelů nasazení Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Žádný výpadek prostředků ve virtuálních sítích při vytváření partnerského vztahu ani po jeho vytvoření.
 
 ## <a name="requirements-constraints"></a>Požadavky a omezení
 
-* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Můžete [zaregistrovat své předplatné pro verzi Preview](virtual-network-create-peering.md).
+* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Můžete [zaregistrovat své předplatné](virtual-network-create-peering.md) pro verzi Preview.
     > [!WARNING]
-    > Partnerské vztahy virtuálních sítí vytvořené v tomto scénáři nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako scénáře ve verzi všeobecné dostupnosti. Partnerské vztahy virtuálních sítí můžou mít omezené možnosti a nemusí být dostupné ve všech oblastech Azure. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
+    > Partnerské vztahy virtuálních sítí vytvořené mezi oblastmi nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako partnerské vztahy ve verzi všeobecné dostupnosti. Partnerské vztahy virtuálních sítí můžou mít omezené možnosti a nemusí být dostupné ve všech oblastech Azure. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
 * Adresní prostory IP adres partnerských virtuálních sítí se nesmí překrývat.
-* Adresní prostory nelze do virtuálních sítí přidávat ani je z nich odstraňovat, jakmile je mezi dvěma virtuálními sítěmi vytvořen partnerský vztah.
+* Rozsahy adres nelze do adresních prostorů virtuálních sítí přidávat ani je z něj odstraňovat, jakmile je mezi dvěma virtuálními sítěmi vytvořen partnerský vztah. Pokud potřebujete přidat rozsahy adres do adresního prostoru partnerské virtuální sítě, musíte odebrat partnerský vztah, přidat adresní prostor a pak znovu přidat partnerský vztah.
 * Partnerský vztah virtuálních sítí se navazuje mezi dvěma virtuálními sítěmi. Nevzniká žádný odvozený tranzitivní vztah přes partnerské vztahy. Pokud je například virtuální síť A v partnerském vztahu s virtuální sítí B a virtuální síť B v partnerském vztahu s virtuální sítí C, pak virtuální síť A *není* v partnerském vztahu s virtuální sítí C.
 * Partnerský vztah lze navázat mezi virtuálními sítěmi ve dvou různých předplatných za předpokladu, že navázání tohoto vztahu u obou předplatných autorizuje uživatel s oprávněním správce (viz [konkrétní oprávnění](create-peering-different-deployment-models-subscriptions.md#permissions)) a že předplatná jsou přidružená ke stejnému tenantovi Azure Active Directory. K propojení virtuálních sítí v předplatných přidružených k různým tenantům Active Directory můžete použít [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
-* Mezi virtuálními sítěmi lze navázat partnerský vztah, pokud jsou obě vytvořené prostřednictvím modelu nasazení Resource Manager, nebo pokud je jedna virtuální síť vytvořena prostřednictvím modelu nasazení Resource Manager a druhá prostřednictvím modelu nasazení Classic. Nejde ale navázat partnerský vztah mezi virtuálními sítěmi, které obě používají model nasazení Classic. K propojení virtuálních sítí vytvořených prostřednictvím modelu nasazení Classic můžete použít službu [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
+* Mezi virtuálními sítěmi lze navázat partnerský vztah, pokud jsou obě vytvořené prostřednictvím modelu nasazení Resource Manager, nebo pokud je jedna virtuální síť vytvořena prostřednictvím modelu nasazení Resource Manager a druhá prostřednictvím modelu nasazení Classic. Nejde ale navázat partnerský vztah mezi virtuálními sítěmi vytvořenými prostřednictvím modelu nasazení Classic. K propojení virtuálních sítí vytvořených prostřednictvím modelu nasazení Classic můžete použít službu [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
 * Ačkoli komunikace mezi virtuálními počítači ve virtuálních sítích propojených partnerským vztahem nemá žádná další omezení šířky pásma, stále platí omezení šířky pásma na základě velikosti virtuálního počítače. Další informace o maximální šířce pásma pro různé velikosti virtuálních počítačů najdete v článcích o velikosti virtuálních počítačů pro [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
      ![Základní partnerské vztahy virtuálních sítí](./media/virtual-networks-peering-overview/figure03.png)
@@ -62,16 +56,16 @@ Latence sítě mezi virtuálními počítači v partnerských virtuálních sít
 
 Provoz mezi virtuálními počítači v partnerských virtuálních sítích je směrován přímo přes páteřní infrastrukturu Microsoftu, ne prostřednictvím brány ani přes veřejný internet.
 
-Virtuální počítače ve virtuální síti mají přístup k internímu nástroji pro vyrovnávání zatížení v partnerské virtuální síti ve stejné oblasti. Podpora interního nástroje pro vyrovnávání zatížení se ve verzi Preview nevztahuje na virtuální sítě v globálním partnerském vztahu. Všeobecně dostupná verze globálních partnerských vztahů virtuálních sítí bude zahrnovat podporu interního nástroje pro vyrovnávání zatížení.
+Virtuální počítače ve virtuální síti mají přístup k internímu nástroji pro vyrovnávání zatížení v partnerské virtuální síti ve stejné oblasti. Podpora interního nástroje pro vyrovnávání zatížení se nevztahuje na virtuální sítě v globálním partnerském vztahu (Preview). Všeobecně dostupná verze globálních partnerských vztahů virtuálních sítí bude zahrnovat podporu interního nástroje pro vyrovnávání zatížení.
 
 Skupiny zabezpečení sítě je možné v obou virtuálních sítích v případě potřeby použít k blokování přístupu do jiných virtuálních sítí nebo podsítí.
-Při konfiguraci partnerského vztahu virtuálních sítí můžete otevřít nebo zavřít pravidla skupiny zabezpečení sítě mezi virtuálními sítěmi. Pokud otevřete úplné propojení mezi partnerskými virtuálními sítěmi (výchozí možnost), můžete pomocí skupin zabezpečení sítě u konkrétních podsítí nebo virtuálních počítačů blokovat nebo odepřít specifický přístup. Další informace o skupinách zabezpečení sítě najdete v článku [Přehled skupin zabezpečení sítě](virtual-networks-nsg.md).
+Při konfiguraci partnerského vztahu virtuálních sítí můžete otevřít nebo zavřít pravidla skupiny zabezpečení sítě mezi virtuálními sítěmi. Pokud otevřete úplné propojení mezi partnerskými virtuálními sítěmi (výchozí volba), můžete pomocí skupin zabezpečení sítě u konkrétních podsítí nebo virtuálních počítačů blokovat nebo odepřít specifický přístup. Další informace o skupinách zabezpečení sítě najdete v tématu [Přehled skupin zabezpečení sítě](virtual-networks-nsg.md).
 
 ## <a name="service-chaining"></a>Řetězení služeb
 
 Můžete nakonfigurovat uživatelsky definované trasy, které jsou směrované na virtuální počítače v partnerských virtuálních sítích jako na IP adresy pro další směrování, a povolit tak řetězení služeb. Řetězení služeb vám umožní směrovat přenos dat z jedné virtuální sítě do virtuálního zařízení v partnerské virtuální síti s použitím uživatelsky definovaných tras.
 
-Můžete také fakticky vytvářet prostředí hvězdicovitého typu, kde centrální síť může být hostitelem komponent infrastruktury, například síťového virtuálního zařízení. Všechny uvedené virtuální sítě pak můžou vytvořit partnerský vztah s centrální virtuální sítí. Provoz může probíhat přes virtuální síťová zařízení, která běží v centrální virtuální síti. Partnerské vztahy virtuálních sítí tedy umožňují, aby IP adresou dalšího směrování v uživatelsky definované trase byla IP adresa virtuálního počítače v partnerské virtuální síti. Další informace o trasách definovaných uživatelem najdete v článku s [přehledem tras definovaných uživatelem](virtual-networks-udr-overview.md). Zjistěte, jak vytvořit [hvězdicovou síťovou topologii](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+Můžete také fakticky vytvářet prostředí hvězdicovitého typu, kde centrální síť může být hostitelem komponent infrastruktury, například síťového virtuálního zařízení. Všechny uvedené virtuální sítě pak můžou vytvořit partnerský vztah s centrální virtuální sítí. Provoz může probíhat přes virtuální síťová zařízení, která běží v centrální virtuální síti. Partnerské vztahy virtuálních sítí tedy umožňují, aby IP adresou dalšího směrování v uživatelsky definované trase byla IP adresa virtuálního počítače v partnerské virtuální síti. Další informace o uživatelem definovaných trasách najdete v tématu s [přehledem uživatelem definovaných tras](virtual-networks-udr-overview.md). Informace o vytvoření hvězdicové síťové topologie najdete v tématu věnovaném [hvězdicové síťové topologii](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Brány a místní připojení
 
@@ -93,13 +87,13 @@ Navázání partnerského vztahu virtuální sítě je privilegovaná operace. J
 
 Uživatel, který je buď správcem nebo privilegovaným uživatelem pro navázání partnerských vztahů, může iniciovat operaci navázání partnerství s jinou virtuální sítí. Minimální úroveň požadovaných oprávnění je Přispěvatel sítě. Pokud i na druhé straně existuje odpovídající požadavek a jsou splněny i další podmínky, partnerský vztah bude navázán.
 
-Pokud jste například navazovali partnerský vztah mezi virtuálními sítěmi myvirtual networkA a myvirtual networkB, váš účet musí mít pro každou virtuální síť přiřazenou minimálně následující roli nebo oprávnění:
+Pokud jste například navazovali partnerský vztah mezi virtuálními sítěmi moje_virtuální_síť_A a moje_virtuální_síť_B, váš účet musí mít pro každou virtuální síť přiřazenou minimálně následující roli nebo oprávnění:
 
 |Virtuální síť|Model nasazení|Role|Oprávnění|
 |---|---|---|---|
-|myvirtual networkA|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|moje_virtuální_síť_A|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Není k dispozici|
-|myvirtual networkB|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|moje_virtuální_síť_B|Resource Manager|[Přispěvatel sítě](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classic|[Přispěvatel klasických sítí](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 ## <a name="monitor"></a>Monitorování
@@ -121,7 +115,7 @@ Pomocí [kontroly připojení](../network-watcher/network-watcher-connectivity-p
 
 ## <a name="limits"></a>Omezení
 
-Existují omezení týkající se počtu partnerských vztahů, které lze vytvořit pro jednu virtuální síť. Výchozí počet partnerských vztahů je 50. Počet partnerských vztahů můžete zvýšit. Další informace najdete v tématu [Omezení pro sítě v Azure](../azure-subscription-service-limits.md#networking-limits).
+Existují omezení týkající se počtu partnerských vztahů, které lze vytvořit pro jednu virtuální síť. Podrobnosti najdete v tématu [Omezení pro sítě v Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="pricing"></a>Ceny
 

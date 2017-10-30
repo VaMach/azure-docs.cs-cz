@@ -1,6 +1,6 @@
 ---
 title: Konektory pro Azure Logic Apps | Dokumentace Microsoftu
-description: "Vyberte si ze všech dostupných konektorů spravovaných Microsoftem konektor pro sestavování a vytváření aplikací logiky"
+description: "Vyberte si ze všech dostupných konektorů Microsoftu pro sestavování a vytváření aplikací logiky"
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -15,19 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="connectors-list"></a>Seznam konektorů
-> [!TIP]
-> [Úplný seznam A–Z](#az) (v tomto tématu) obsahuje seznam všech dostupných konektorů, které můžete použít ve vašich aplikacích Logic Apps. [Podrobnosti o konektoru](/connectors/) uvádějí všechny aktivační události a akce definované ve swaggeru a také všechny limity pro jednotlivé konektory.
+Triggery a akce definované v popisu Swaggeru každého konektoru a všechna omezení konektoru najdete v [podrobnostech o konektoru](/connectors/).
 
-Konektory jsou nedílnou součástí vytváření aplikací logiky. Pomocí těchto konektorů můžete naplno využít svoje místní a cloudové aplikace k provádění nejrůznějších operací s daty, která vytváříte, a daty, která už máte. Konektory jsou dostupné v následujících kategoriích: 
+Konektory jsou nedílnou součástí vytváření aplikací logiky. Pomocí těchto konektorů můžete naplno využít svoje místní a cloudové aplikace k provádění nejrůznějších operací s daty, která vytváříte, a daty, která už máte. Konektory jsou dostupné buď jako integrované akce, nebo jako spravované konektory.
 
-* **Standardní konektory:** Jsou automaticky dostupné a zahrnuté při používání aplikací logiky. Mezi příklady patří Service Bus, Power BI, Oracle Database, OneDrive a mnoho dalších.
+**Integrované akce:** Samotný modul Logic Apps poskytuje integrované akce pro komunikaci s koncovými body a provádění úloh. Tyto akce můžete použít například k volání koncových bodů HTTP, služby Azure Functions a operací služby Azure API Management nebo k manipulaci se zprávami pomocí operací s daty a proměnných.
+
+**Spravované konektory:** Poskytují různým službám přístup k rozhraním API tím, že vytváří připojení rozhraní API, která hostuje a spravuje služba Logic Apps. Spravované konektory spadají do následujících kategorií:
+
+* **Standardní konektory:** Jsou automaticky dostupné a zahrnuté při používání aplikací logiky. Mezi příklady patří Service Bus, Power BI, OneDrive a mnoho dalších.
+
+* **Místní konektory:** Připojují se k místním serverovým aplikacím pomocí [místní brány dat][gatewaydoc]. Místní konektory zahrnují možnosti připojení k serverovým aplikacím, jako jsou SharePoint Server, SQL Server, Oracle DB, sdílené složky a další.
 
 * **Konektory účtu pro integraci:** Jsou dostupné po zakoupení účtu pro integraci. Pomocí těchto konektorů můžete transformovat a ověřovat XML, zpracovávat zprávy typu business-to-business pomocí AS2, X12 nebo EDIFACT a kódovat a dekódovat ploché soubory. Pokud pracujete s BizTalk Serverem, tyto konektory jsou ideální k rozšíření pracovních postupů BizTalk do Azure.  
 
@@ -35,22 +40,41 @@ Konektory jsou nedílnou součástí vytváření aplikací logiky. Pomocí těc
 
 * **Podnikové konektory:** Zahrnují MQ a SAP. Dostupné za další poplatek. 
 
-Další informace o poplatcích najdete v tématech [Ceny Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) a [Cenový model Logic Apps](../logic-apps/logic-apps-pricing.md). 
+Další informace o cenách najdete v [podrobnostech o cenách](https://azure.microsoft.com/pricing/details/logic-apps/) a [cenovém modelu](../logic-apps/logic-apps-pricing.md) pro Logic Apps. 
 
 ## <a name="popular-connectors"></a>Oblíbené konektory
-Pomocí těchto konektorů úspěšně zpracovávají data a informace tisíce aplikací s miliony spuštění. Následující tabulka uvádí nejoblíbenější konektory našich uživatelů:
+Pomocí těchto konektorů úspěšně zpracovávají data a informace tisíce aplikací s miliony spuštění. 
+
+### <a name="built-in-actions"></a>Integrované akce
+Modul Logic Apps poskytuje akce umožňující manipulaci s daty, komunikaci přes protokol HTTP a řízení toku definice aplikace logiky. Mezi tyto akce patří:
 
 | |  |  |  |
 | --- | --- | --- | --- |
-| [![Ikona rozhraní API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Pokud chcete automatizovat jakoukoli úlohu s vaším účtem úložiště, měli byste se podívat na tento konektor. Podporuje operace CRUD (vytvoření, čtení, aktualizace a odstranění). | [![Ikona rozhraní API][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Vytvořte funkce, které spouští vlastní fragmenty kódu v jazyce C# nebo Node.js, a potom tyto funkce použijte ve svých aplikacích logiky.  |
-| [![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Toto je jeden z nejžádanějších konektorů. Obsahuje triggery a akce usnadňující automatizaci pracovních postupů pomocí vodítek a dalších možností. | [![Ikona rozhraní API][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Zpracovávejte a publikujte události v centru událostí. Můžete například pomocí služby Event Hubs získat výstup vaší aplikace logiky a pak ho odeslat poskytovateli analýz v reálném čase. |
-| [![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc] | Pokud je váš server FTP přístupný z internetu, můžete automatizovat pracovní postupy pro práci se soubory a složkami. <br/><br/>V konektoru SFTP je k dispozici i SFTP. | [![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][httpdoc] | Použijte aplikace logiky ke komunikaci s jakýmkoli koncovým bodem přes HTTP. |
-| [![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Velké množství triggerů a ještě více akcí umožňujících využití e-mailu a událostí Office 365 v rámci vašich pracovních postupů. <br/><br/>Tento konektor zahrnuje akci *e-mailu se schválením* pro schvalování žádostí o dovolenou, vyúčtování výdajů atd. <br/><br/>V konektoru Uživatelé Office 365 jsou k dispozici i uživatelé Office 365.| [![Ikona rozhraní API][HTTP-Requesticon]<br/>**Žádost / odezva**][HTTP-Requestdoc] | Tento konektor poskytuje adresu URL HTTPS. Po přijetí žádosti na této adrese URL se spustí aplikace logiky. |
-| [![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Jednoduše se přihlaste pomocí účtu Salesforce a získejte přístup k objektům, jako jsou vodítka, a dalším. |  [![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Nejoblíbenější konektor v aplikacích logiky. Zahrnuje triggery a akce zajišťující asynchronní zasílání zpráv a publikování a přihlašování k odběru dotazů, předplatných a témat. |
-|  [![Ikona rozhraní API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Pokud SharePoint k ničemu nepoužíváte a mohli byste využít automatizaci, měli byste se podívat na tento konektor. Můžete ho použít s místní službou SharePoint nebo SharePoint Online. | [![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Jeden z nejpoužívanějších konektorů. Dokáže se připojit k místnímu SQL Serveru a ke službě Azure SQL Database. | 
-| [![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc] | Jednoduše se přihlaste pomocí účtu Twitteru a následně spouštějte pracovní postup, když se publikuje nový tweet. Pak tyto tweety uložte do databáze SQL nebo seznamu služby SharePoint. | | | 
+| [![Ikona rozhraní API][HTTPicon]<br/>**HTTP**][httpdoc] | Použijte aplikace logiky ke komunikaci s jakýmkoli koncovým bodem přes HTTP.| [![Ikona rozhraní API][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Vytvořte funkce, které spouští vlastní fragmenty kódu v jazyce C# nebo Node.js, a potom tyto funkce použijte ve svých aplikacích logiky.  |
+| [![Ikona rozhraní API][HTTP-Requesticon]<br/>**Žádost**][HTTP-Requestdoc] | Poskytuje volatelnou adresu URL HTTPS, která se obvykle používá jako webhook v ostatních aplikacích. Po přijetí žádosti na této adrese URL se spustí aplikace logiky. | [![Ikona rozhraní API][Recurrenceicon]<br/>**Plán**][recurrencedoc] | Spouštějte aplikace logiky na základě jednoduchých nebo složitých plánů opakování. Můžete vytvářet jednoduché plány, které se opakují každý den, i složité plány, které se opakují poslední pátek v měsíci každou hodinu mezi 9:00 a 17:00. |
+| [![Ikona rozhraní API][CallLogicApp-icon]<br/>**Volání<br/>aplikace logiky**][nested-logic-appdoc] | Zavolejte vnořenou aplikaci logiky. Jako vnořenou aplikaci logiky můžete volat každou aplikaci logiky s triggerem požadavku.| [![Ikona rozhraní API][API/Web-Appicon]<br/>**Aplikace API**][api/web-appdoc] | Zavolejte aplikaci API App Service. Funkce API Apps se Swaggerem se vykresluje stejně jako ostatní aplikace první třídy.|
 
-## <a name="integration-account-connectors"></a>Konektory účtu pro integraci 
+### <a name="standard-connectors"></a>Standardní konektory
+Následující tabulka uvádí nejoblíbenější konektory našich uživatelů:
+
+| |  |  |  |
+| --- | --- | --- | --- |
+| [![Ikona rozhraní API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Pokud chcete automatizovat jakoukoli úlohu s vaším účtem úložiště, měli byste se podívat na tento konektor. Podporuje operace CRUD (vytvoření, čtení, aktualizace a odstranění). | [![Ikona rozhraní API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Toto je jeden z nejžádanějších konektorů. Obsahuje triggery a akce usnadňující automatizaci pracovních postupů pomocí vodítek a dalších možností. |
+| [![Ikona rozhraní API][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Zpracovávejte a publikujte události v centru událostí. Můžete například pomocí služby Event Hubs získat výstup vaší aplikace logiky a pak ho odeslat poskytovateli analýz v reálném čase. | [![Ikona rozhraní API][FTPicon]<br/>**FTP**][FTPdoc] | Pokud je váš server FTP přístupný z internetu, můžete automatizovat pracovní postupy pro práci se soubory a složkami. <br/><br/>V konektoru SFTP je k dispozici i SFTP. |
+| [![Ikona rozhraní API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Velké množství triggerů a ještě více akcí umožňujících využití e-mailu a událostí Office 365 v rámci vašich pracovních postupů. <br/><br/>Tento konektor zahrnuje akci *e-mailu se schválením* pro schvalování žádostí o dovolenou, vyúčtování výdajů atd. <br/><br/>V konektoru Uživatelé Office 365 jsou k dispozici i uživatelé Office 365.| [![Ikona rozhraní API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Jednoduše se přihlaste pomocí účtu Salesforce a získejte přístup k objektům, jako jsou vodítka, a dalším. | 
+| [![Ikona rozhraní API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Nejoblíbenější konektor v aplikacích logiky. Zahrnuje triggery a akce zajišťující asynchronní zasílání zpráv a publikování a přihlašování k odběru dotazů, předplatných a témat. |  [![Ikona rozhraní API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Pokud SharePoint k ničemu nepoužíváte a mohli byste využít automatizaci, měli byste se podívat na tento konektor. Můžete ho použít s místní službou SharePoint nebo SharePoint Online. |
+| [![Ikona rozhraní API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Jeden z nejpoužívanějších konektorů. Dokáže se připojit k místnímu SQL Serveru a ke službě Azure SQL Database. | [![Ikona rozhraní API][Twittericon]<br/>**Twitter**][Twitterdoc] | Jednoduše se přihlaste pomocí účtu Twitteru a následně spouštějte pracovní postup, když se publikuje nový tweet. Pak tyto tweety uložte do databáze SQL nebo seznamu služby SharePoint. | 
+
+### <a name="on-premises-connectors"></a>Místní konektory 
+
+Místní konektory poskytují přístup k datům na místních serverech.  Vytvoření připojení k místnímu serveru vyžaduje [místní bránu dat][gatewaydoc], která zajišťuje zabezpečený komunikační kanál bez nutnosti konfigurovat síťovou infrastrukturu.  Mezi tyto konektory patří:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| [![Ikona rozhraní API][db2icon]<br/>**DB2**][db2doc] | [![Ikona rozhraní API][oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc] | [![Ikona rozhraní API][sharepointicon]<br/>**SharePoint</br>Server**][sharepointserver] | [![Ikona rozhraní API][filesystem-icon]<br/>**Systém</br>Souborů**][filesystemdoc] |
+[![Ikona rozhraní API][sql-servericon]<br/>**SQL</br>Server**][sql-serverdoc] | ![Ikona rozhraní API][Biztalk-Servericon]<br/>**BizTalk</br>Server**| |
+
+### <a name="integration-account-connectors"></a>Konektory účtu pro integraci 
 
 Enterprise Integration Pack (EIP) obsahuje konektory, které jsou dobře známé komunitě BizTalk Serveru. Po zakoupení [účtu pro integraci](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) obdržíte také následující konektory: 
 
@@ -60,27 +84,13 @@ Enterprise Integration Pack (EIP) obsahuje konektory, které jsou dobře známé
 [![Ikona rozhraní API][flatfileicon]<br/>**Kódování</br>plochého souboru**][flatfiledoc] | [![Ikona rozhraní API][flatfiledecodeicon]<br/>**Dekódování</br>plochého souboru**][flatfiledecodedoc] | [![Ikona rozhraní API][integrationaccounticon]<br/>**Účet<br/>integrace**][integrationaccountdoc] | [![Ikona rozhraní API][xmltransformicon]<br/>**Transformace<br/>XML**][xmltransformdoc] |
 | [![Ikona rozhraní API][x12icon]<br/>**Dekódování</br>X12**][x12decode] | [![Ikona rozhraní API][x12icon]<br/>**Kódování</br>X12**][x12encode] | [![Ikona rozhraní API][xmlvalidateicon]<br/>**Ověření<br/>XML**][xmlvalidatedoc] | |
 
-## <a name="enterprise-connectors"></a>Podnikové konektory
+### <a name="enterprise-connectors"></a>Podnikové konektory
 
 Připojte s podnikovým aplikacím v rámci vašich aplikací logiky.
 
 |  |  |
 | --- | --- |
 |[![Ikona rozhraní API][MQicon]<br/>**MQ**][mqdoc]|[![Ikona rozhraní API][SAPicon]<br/>**SAP**][sapconnector]|
-
-
-## <a name="az"></a>Úplný seznam A-Z
-
-[Podrobnosti o konektoru](/connectors/) uvádějí všechny aktivační události a akce definované ve swaggeru a také všechny limity pro jednotlivé konektory.
-
-| | | | | | | | | | | | | |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| [**1**](#1) | [**A**](#a) | [**B**](#b) | [**C**](#c) | [**D**](#d) | [**E**](#e) | [**F**](#f) | [**G**](#g) | [**H**](#h) | [**I**](#i) | [**J**](#j) | [**L**](#l) | [**M**](#m) |
-| [**N**](#n) | [**O**](#o) | [**P**](#p) | [**R**](#r) | [**S**](#s) | [**T**](#t) | [**U**](#u) | [**V**](#v) | [**W**](#w) | [**X**](#x) | [**Y**](#y) | [**Z**](#z) | | 
-
-| | |
-|---|---|
-|<a name="1"></a>Plánování schůzek 10to8<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory (AD)<br/>Azure API Management<br/>Azure App Services<br/>Azure Application<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB (Cosmos DB)<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Fronty Azure<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>Benchmark Email<br/>Vyhledávání pomocí služby Bing<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>Rozhraní API služeb Cognitive Services pro počítačové zpracování obrazu<br/>Rozhraní API služeb Cognitive Services pro rozpoznávání tváře<br/>Cognitive Services LUIS<br/>Analýza textu služeb Cognitive Services<br/>Common Data Service<br/>Převod obsahu<br/>Control-Terminate<br/>[Vlastní rozhraní API / webové aplikace][api/web-appdoc]<br/><br/><a name="d"></a>Operace s daty<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[Systém souborů][filesystemdoc]<br/>[Plochý soubor][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>Freshservice<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Kalendář Google<br/>Kontakty Google<br/>Disk Google<br/>Tabulky Google<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Účet pro integraci<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Střednědobé používání<br/>Microsoft Forms<br/>Microsoft Teams<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN Počasí<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Uživatelé Office 365<br/>Office 365 Video<br/>OneDrive<br/>OneDrive pro firmy<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer Manager<br/>Úkoly v aplikaci Outlook<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Žádost a odpověď][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[Aplikační server SAP][sapconnector]<br/>[Server zpráv SAP][sapconnector]<br/>[Plán][recurrencedoc]<br/>Rozsah<br/>SendGrid<br/>Zasílání zpráv do dávky<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointserver]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork Projects<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[Transformace XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Proměnné<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[Ověření XML][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > Pokud chcete začít s Azure Logic Apps, ještě než si zaregistrujete účet Azure, přejděte k [možnosti vyzkoušet si Logic Apps](https://tryappservice.azure.com/?appservice=logic). Ihned si můžete vytvořit krátkodobou úvodní aplikaci logiky. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
@@ -120,9 +130,9 @@ Aplikace logiky zahrnují integrované akce, které můžou měnit datové čás
 
 ## <a name="custom-connectors-and-azure-certification"></a>Vlastní konektory a certifikace Azure 
 
-Chcete-li volat rozhraní API, která spouští vlastní kód nebo nejsou k dispozici jako konektory, můžete rozšířit platformu Logic Apps [vytvořením funkcí API Apps založených na REST jako vlastních konektorů](../logic-apps/logic-apps-create-api-app.md). 
+Pokud chcete volat rozhraní API, která spouští vlastní kód nebo nejsou k dispozici jako konektory, můžete rozšířit platformu Logic Apps [vytvořením funkcí API Apps založených na REST](../logic-apps/logic-apps-create-api-app.md). Můžete vytvořit také [vlastní konektory](../logic-apps/custom-connector-overview.md), které je možné zpřístupnit pro všechny aplikace logiky ve vašem předplatném.
 
-Pokud chcete, aby byly vaše vlastní funkce API Apps veřejné a k dispozici pro použití v Azure, odešlete své kandidáty do [programu Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Pokud chcete, aby byly vaše vlastní funkce API Apps veřejné a k dispozici pro použití v Azure, můžete [své konektory odeslat k ověření Microsoftem](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="get-help"></a>Podpora
 
@@ -139,6 +149,7 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 
 <!--Connectors Documentation-->
 
+[gatewaydoc]: ../logic-apps/logic-apps-gateway-connection.md "Připojení k místním zdrojům dat z aplikací logiky pomocí místní brány dat"
 [api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrace aplikací logiky s funkcí App Service API Apps"
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Správa souborů v kontejneru objektů blob pomocí konektoru služby Blob Storage"
 [azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrace aplikací logiky se službou Azure Functions"
@@ -160,7 +171,7 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Připojení k místnímu systému SAP"
 [service-busdoc]: ./connectors-create-api-servicebus.md "Odesílání zpráv z front a témat služby Service Bus a příjem zpráv z front a odběrů služby Service Bus"
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "Připojení k SharePointu Online. Správa dokumentů, vypisování položek a provádění dalších akcí"
-[sharepointserver]: ./connectors-create-api-sharepointserver.md "Přípojení k místnímu serveru SharePoint Server. Správa dokumentů, vypisování položek a provádění dalších akcí"
+[sharepointserver]: ./connectors-create-api-sharepointserver.md "Přípojení k místnímu serveru SharePoint. Správa dokumentů, vypisování položek a provádění dalších akcí"
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Připojení ke službě Azure SQL Database nebo serveru SQL. Vytváření, aktualizace, získávání a odstraňování položek v tabulce databáze SQL."
 [twitterdoc]: ./connectors-create-api-twitter.md "Připojení k Twitteru. Získávání časových os, odesílání tweetů a provádění dalších akcí"
 [webhookdoc]: ./connectors-native-webhook.md "Přidávání akcí a aktivačních událostí webhooků do aplikací logiky"
@@ -216,6 +227,7 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
+[AppServices-icon]: ./media/apis-list/AppServices.png
 [Asanaicon]: ./media/apis-list/asana.png
 [Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
@@ -240,6 +252,8 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
 [Event-Hubs-icon]: ./media/apis-list/eventhubs.png
 [Facebookicon]: ./media/apis-list/facebook.png
+[FileSystem-icon]: ./media/apis-list/filesystem.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png
 [Google-Calendaricon]: ./media/apis-list/googlecalendar.png
@@ -293,10 +307,10 @@ Chybí tu nějaké téma věnované konektorům nebo podrobnosti, které považu
 [YouTubeicon]: ./media/apis-list/youtube.png
 
 <!-- Primitive Icons -->
-[API/Web-Appicon]: ./media/apis-list/api.png
+[API/Web-Appicon]: ./media/apis-list/appservices.png
 [Azure-Functionsicon]: ./media/apis-list/function.png
+[CallLogicApp-icon]: ./media/apis-list/calllogicapp.png
 [Delayicon]: ./media/apis-list/delay.png
-[FileSystemIcon]: ./media/apis-list/filesystem.png
 [HTTPicon]: ./media/apis-list/http.png
 [HTTP-Requesticon]: ./media/apis-list/request.png
 [HTTP-Responseicon]: ./media/apis-list/response.png

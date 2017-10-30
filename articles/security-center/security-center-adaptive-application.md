@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Adaptivní řízení aplikací v Azure Security Center (Preview)
 Pomocí tohoto názorného postupu zjistíte, jak nakonfigurovat řízení aplikací v Azure Security Center.
@@ -37,7 +37,7 @@ Adaptivní řízení aplikací pomáhá řídit, které aplikace se můžou spou
 > Adaptivní řízení aplikací je dostupné jako omezená verze Public Preview pro zákazníky využívající Azure Security Center Standard. Pokud se chcete připojit k verzi Preview, zašlete [nám](mailto:ASC_appcontrol@microsoft.com) e-mail s ID vašich předplatných.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Jak povolit adaptivní řízení aplikací?
-Adaptivní řízení aplikací pomáhá definovat sadu aplikací, které mají povoleno spouštění v nakonfigurovaných skupinách prostředků. Tato funkce je dostupná pouze pro počítače s Windows (všechny verze, Classic nebo Azure Resource Manager). Pokud chcete ve službě Security Center nakonfigurovat přidávání aplikací na seznam povolených, postupujte podle následujících kroků:
+Adaptivní řízení aplikací pomáhá definovat sadu aplikací, které mají povoleno spouštění v nakonfigurovaných skupinách prostředků. Tato funkce je dostupná pouze pro počítače s Windows (všechny verze, Classic nebo Azure Resource Manager). Pokud chcete ve službě Security Center nakonfigurovat přidávání aplikací na seznam povolených, můžete postupovat podle následujících kroků:
 
 1.  Otevřete řídicí panel **Security Center** a klikněte na **Přehled**.
 2.  V části **Pokročilá obrana cloudu** se na dlaždici **Adaptivní řízení aplikací** zobrazí počet už kontrolovaných virtuálních počítačů v porovnání se všemi virtuálními počítači. Zobrazuje také počet nalezených problémů za poslední týden: 
@@ -52,8 +52,6 @@ Adaptivní řízení aplikací pomáhá definovat sadu aplikací, které mají p
     * **Doporučené:** Seznam skupin prostředků, pro které se doporučuje řízení aplikací. Služba Security Center pomocí strojového učení identifikuje virtuální počítače, které jsou vhodnými kandidáty pro řízení aplikací, na základě toho, jestli virtuální počítače spouštějí stále stejné aplikace.
     * **Nakonfigurované:** Seznam skupin prostředků obsahujících virtuální počítače s nakonfigurovaným řízením aplikací. 
     * **Žádné doporučení:** Seznam skupin prostředků obsahujících virtuální počítače bez jakýchkoli doporučených řízení aplikací. Například virtuální počítače, na kterých se neustále mění aplikace a které se ještě nedostaly do stabilního stavu.
-
-Následující části se budou podrobněji zabývat jednotlivými možnostmi a jejich použitím.
 
 ### <a name="configure-a-new-application-control-policy"></a>Konfigurace nové zásady řízení aplikací
 Kliknutím na kartu **Doporučené** zobrazte seznam skupin prostředků s doporučenými řízeními aplikací:
@@ -75,9 +73,11 @@ V části **Vybrat virtuální počítače** zkontrolujte seznam doporučených 
 - **NÁZEV:** Úplná cesta aplikace.
 - **PROCESY:** Počet aplikací, které se nacházejí v jednotlivých cestách.
 - **BĚŽNÉ:** Hodnota true značí, že se tyto procesy spustily na většině virtuálních počítačů v této skupině prostředků.
-- **ZNEUŽITELNÉ:** Ikona upozornění bude značit, jestli by útočník mohl aplikace využít k obejití seznamu povolených aplikací. Důrazně se doporučuje takové aplikace před schválením zkontrolovat. 
+- **ZNEUŽITELNÉ:** Ikona upozornění značí, jestli by útočník mohl aplikace využít k obejití seznamu povolených aplikací. Tyto aplikace doporučujeme před schválením zkontrolovat. 
 
 Jakmile budete s výběry hotovi, klikněte na tlačítko **Vytvořit**. Služba Security Center ve výchozím nastavení vždy povoluje řízení aplikací v režimu *Audit*. Až zkontrolujete, že seznam povolených aplikací nemá žádný nepříznivý vliv na vaši sadu funkcí, můžete režim změnit na *Vynucení*.
+
+Služba Security Center spoléhá na minimálně dva týdny dat, aby mohla vytvořit základní hodnoty a doplnit jedinečná doporučení pro skupinu virtuálních počítačů. Noví zákazníci služby Security Center úrovně Standard by měli počítat s chováním, kdy se jejich skupiny virtuálních počítačů zpočátku zobrazí na kartě *Žádné doporučení*.
 
 > [!NOTE]
 > Jako osvědčený postup zabezpečení se služba Security Center vždy pokusí pro aplikace, které by se měly přidat na seznam povolených, vytvořit pravidlo vydavatele, a pouze v případě, že aplikace neobsahuje informace o vydavateli (tj. není podepsaná), se vytvoří pravidlo cesty pro úplnou cestu konkrétního souboru EXE.
@@ -147,7 +147,7 @@ Seznam obsahuje:
 - **NÁZEV:** Název předplatného a skupiny prostředků.
 - **VIRTUÁLNÍ POČÍTAČE:** Počet virtuálních počítačů ve skupině prostředků.
 
-## <a name="see-also"></a>Viz také
+## <a name="next-steps"></a>Další kroky
 V tomto dokumentu jste zjistili, jak použít adaptivní řízení aplikací v Azure Security Center k přidávání aplikací spuštěných na virtuálních počítačích Azure na seznam povolených aplikací. Pokud se o službě Azure Security Center chcete dozvědět víc, pročtěte si tato témata:
 
 * [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Zjistěte, jak spravovat výstrahy a reagovat na incidenty zabezpečení ve službě Security Center.
