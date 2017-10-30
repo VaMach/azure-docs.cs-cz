@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 10/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: facb9643e0bb848f0ea9aadf447f05af218fdd0f
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Vytvoření vašeho prvního clusteru Service Fabric v Azure
 [Cluster Service Fabric](service-fabric-deploy-anywhere.md) je síťově propojená sada virtuálních nebo fyzických počítačů, ve které se nasazují a spravují mikroslužby. Tento Rychlý start vám pomůže během několika minut vytvořit cluster s pěti uzly běžící ve Windows nebo Linuxu, a to prostřednictvím [Azure PowerShellu](https://msdn.microsoft.com/library/dn135248) nebo webu [Azure Portal](http://portal.azure.com).  
@@ -33,7 +33,7 @@ Přihlaste se k webu Azure Portal na adrese [http://portal.azure.com](http://por
 ### <a name="create-the-cluster"></a>Vytvoření clusteru
 
 1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
-2. V okně **Nový** vyberte **Compute** a potom v okně **Compute** vyberte **Cluster Service Fabric**.
+2. Vyhledejte **Service Fabric** a v části **Cluster Service Fabric** v navrácených výsledcích vyberte **Cluster Service Fabric**.  Klikněte na možnost **Vytvořit**.
 3. Pro Service Fabric vyplňte formulář **Základy**. V poli **Operační systém** vyberte verzi systému Windows nebo Linux, na které chcete spouštět uzly clusteru. Uživatelské jméno a heslo, které tady zadáte, se používá k přihlášení k virtuálnímu počítači. V části **Skupina prostředků** vytvořte novou. Skupina prostředků je logický kontejner, ve kterém se vytváří a hromadně spravují prostředky Azure. Jakmile budete hotovi, klikněte na **OK**.
 
     ![Výstup po instalaci clusteru][cluster-setup-basics]
@@ -98,83 +98,83 @@ Odstranění skupiny prostředků na webu Azure Portal:
     ![Odstranění skupiny prostředků][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Nasazení zabezpečeného clusteru s Windows pomocí Azure PowerShellu
+## <a name="use-azure-powershell"></a>Použití Azure PowerShellu
 1. Stáhněte si na počítač [modul Azure PowerShell verze 4.0 nebo vyšší](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-2. Otevřete okno Windows PowerShellu a spusťte následující příkaz. 
-    
-    ```powershell
-
-    Get-Command -Module AzureRM.ServiceFabric 
-    ```
-
-    Zobrazený výstup by měl vypadat přibližně takto:
-
-    ![ps-list][ps-list]
-
-3. Přihlaste se k Azure a vyberte předplatné, pro které chcete vytvořit cluster.
+2. Spusťte rutinu [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) a vytvořte cluster Service Fabric s pěti uzly zabezpečený pomocí certifikátu X.509. Příkaz vytvoří certifikát podepsaný svým držitelem a nahraje ho do nového trezoru klíčů. Certifikát se také zkopíruje do místního adresáře. Nastavením parametru *-OS* zvolte verzi Windows nebo Linuxu, která se používá na uzlech clusteru. Podle potřeby upravte parametry. 
 
     ```powershell
+    #Provide the subscription Id
+    $subscriptionId = 'yourSubscriptionId'
 
-    Login-AzureRmAccount
-
-    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
-    ```
-
-4. Nyní vytvořte zabezpečený cluster spuštěním následujícího příkazu. Nezapomeňte upravit parametry. 
-
-    ```powershell
+    # Certificate variables.
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-    $RDPuser="vmadmin"
-    $RGname="mycluster" # this is also the name of your cluster
-    $clusterloc="SouthCentralUS"
-    $subname="$RGname.$clusterloc.cloudapp.azure.com"
     $certfolder="c:\mycertificates\"
-    $clustersize=1 # can take values 1, 3-99
 
-    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    # Variables for VM admin.
+    $adminuser="vmadmin"
+    $adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+
+    # Variables for common values
+    $clusterloc="SouthCentralUS"
+    $clustername = "mysfcluster"
+    $groupname="mysfclustergroup"       
+    $vmsku = "Standard_D2_v2"
+    $vaultname = "mykeyvault"
+    $subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+    # Set the number of cluster nodes. Possible values: 1, 3-99
+    $clustersize=5 
+
+    # Set the context to the subscription ID where the cluster will be created
+    Login-AzureRmAccount
+    Get-AzureRmSubscription
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+    # Create the Service Fabric cluster.
+    New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+    -ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
+    -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+    -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    Dokončení příkazu může trvat 10–30 minut a pak by se měl zobrazit výstup podobný následujícímu. Výstup obsahuje informace o certifikátu, službě KeyVault, do které se nahrál, a místní složce, do které se certifikát zkopíroval. 
+    Dokončení příkazu může trvat 10–30 minut a pak by se měl zobrazit výstup podobný následujícímu. Výstup obsahuje informace o certifikátu, službě KeyVault, do které se nahrál, a místní složce, do které se certifikát zkopíroval.     
 
-    ![ps-out][ps-out]
+3. Celý výstup zkopírujte a uložte do textového souboru, protože se k němu budeme odkazovat. Z výstupu si poznamenejte následující informace. 
 
-5. Celý výstup zkopírujte a uložte do textového souboru, protože se k němu budeme odkazovat. Z výstupu si poznamenejte následující informace. 
-
-    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-    - **ClientConnectionEndpointPort** : 19000
+    - CertificateSavedLocalPath
+    - CertificateThumbprint
+    - ManagementEndpoint
+    - ClientConnectionEndpointPort
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Instalace certifikátu na místním počítači
   
 Aby bylo možné připojení ke clusteru, je potřeba nainstalovat certifikát do osobního úložiště (Moje) aktuálního uživatele. 
 
-Spusťte následující příkaz PowerShellu:
+Spusťte následující příkazy:
 
 ```powershell
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\the name of the cert.pfx `
-        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+        -FilePath C:\mycertificates\<certificatename>.pfx `
+        -Password $certpwd
 ```
 
 Nyní jste připraveni připojit se ke svému zabezpečenému clusteru.
 
 ### <a name="connect-to-a-secure-cluster"></a>Připojení k zabezpečenému clusteru 
 
-Spuštěním následujícího příkazu PowerShellu se připojte k zabezpečenému clusteru. Podrobnosti o certifikátu se musí shodovat s certifikátem použitým k nastavení clusteru. 
+Spusťte rutinu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) a připojte se k zabezpečenému clusteru. Podrobnosti o certifikátu se musí shodovat s certifikátem použitým k nastavení clusteru. 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint <ManagementEndpoint>:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -X509Credential -ServerCertThumbprint <CertificateThumbprint> `
+          -FindType FindByThumbprint -FindValue <CertificateThumbprint> `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-
-Následující příklad ukazuje vyplněné parametry: 
+Následující příklad ukazuje ukázkové parametry: 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
@@ -195,11 +195,10 @@ Get-ServiceFabricClusterHealth
 Cluster se kromě vlastního prostředku clusteru skládá z dalších prostředků Azure. Nejjednodušší způsob, jak odstranit cluster a všechny prostředky, které využívá, je odstranit příslušnou skupinu prostředků. 
 
 ```powershell
-
-Remove-AzureRmResourceGroup -Name $RGname -Force
-
+$groupname="mysfclustergroup"
+Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
-## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Nasazení zabezpečeného clusteru s Linuxem pomocí Azure CLI
+## <a name="use-azure-cli"></a>Použití Azure CLI
 
 1. Nainstalujte na svém počítači [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 2. Přihlaste se k Azure a vyberte předplatné, ve kterém chcete cluster vytvořit.
@@ -207,7 +206,7 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
    az login
    az account set --subscription <GUID>
    ```
-3. Spuštěním příkazu [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) vytvořte zabezpečený cluster.
+3. Spusťte příkaz [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) a vytvořte cluster Service Fabric s pěti uzly zabezpečený pomocí certifikátu X.509. Příkaz vytvoří certifikát podepsaný svým držitelem a nahraje ho do nového trezoru klíčů. Certifikát se také zkopíruje do místního adresáře. Nastavením parametru *-os* zvolte verzi Windows nebo Linuxu, která se používá na uzlech clusteru. Podle potřeby upravte parametry.
 
     ```azurecli
     #!/bin/bash
@@ -260,6 +259,14 @@ ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
 ```
 
+### <a name="remove-the-cluster"></a>Odebrání clusteru
+Cluster se kromě vlastního prostředku clusteru skládá z dalších prostředků Azure. Nejjednodušší způsob, jak odstranit cluster a všechny prostředky, které využívá, je odstranit příslušnou skupinu prostředků. 
+
+```azurecli
+ResourceGroupName = "aztestclustergroup"
+az group delete --name $ResourceGroupName
+```
+
 ## <a name="next-steps"></a>Další kroky
 Teď, když jste nastavili vývojový cluster, zkuste provést následující kroky:
 * [Vizualizace clusteru pomocí nástroje Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
@@ -273,5 +280,3 @@ Teď, když jste nastavili vývojový cluster, zkuste provést následující kr
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
-[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
-[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG

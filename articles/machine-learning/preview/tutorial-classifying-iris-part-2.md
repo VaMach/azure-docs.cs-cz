@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Klasifikace Iris, část 2: Sestavení modelu
 Služby Azure Machine Learning (verze Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -58,7 +58,7 @@ Pokud chcete experimentovat s odesláním skriptu ke spuštění v kontejneru Do
    - Načte přípravný datový balíček **iris.dprep** pro vytvoření struktury [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). 
 
         >[!NOTE]
-        >Používáme přípravný datový balíček `iris.dprep` dodaný v rámci ukázkového projektu, který by měl být totožný se souborem `iris-1.dprep` vytvořeným v 1. části tohoto kurzu.
+        >Používáme přípravný datový balíček `iris.dprep`, který je součástí ukázkového projektu a který by měl být totožný se souborem `iris-1.dprep` vytvořeným v 1. části tohoto kurzu.
 
    - Přidá náhodné funkce, aby bylo obtížnější problém vyřešit. (Náhodnost je potřeba, protože Iris je malá datová sada, která se dá snadno klasifikovat s téměř 100% přesností.)
 

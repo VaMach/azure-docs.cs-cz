@@ -6,13 +6,13 @@ author: samedder
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -32,7 +32,7 @@ Smyslem Service Fabric CLI je podpora nejnovější verze modulu runtime sady Se
 
 | Verze rozhraní příkazového řádku   | Podporovaná verze modulu runtime |
 |---------------|---------------------------|
-| Nejnovější (~=2)  | Nejnovější (~=6.0)            |
+| Nejnovější (~=3)  | Nejnovější (~=6.0)            |
 | 1.1.0         | 5.6, 5.7                  |
 
 Volitelně můžete zadat cílovou verzi rozhraní příkazového řádku, která se má nainstalovat, přidáním přípony `==<version>` k příkazu `pip install`. Například pro verzi 1.1.0 by syntax byla následující:
@@ -42,6 +42,8 @@ pip install -I sfctl==1.1.0
 ```
 
 V případě potřeby nahraďte následující příkaz `pip install` dříve popsaným příkazem.
+
+Další informace o vydaných verzích Service Fabric CLI najdete v [dokumentaci na GitHubu](https://github.com/Azure/service-fabric-cli/releases).
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Instalace nástroje pip, Pythonu a Service Fabric CLI
 

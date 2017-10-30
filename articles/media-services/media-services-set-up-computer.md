@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 10/24/2017
 ms.author: juliako
-ms.openlocfilehash: 9144407ed530921904458a7249473eaea26c66b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c28ccb10f5b2e52fd4dd5d5b99683b7d78d1bb6
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Nastavení vývojového prostředí Media Services
 
@@ -41,7 +41,10 @@ Pokud chcete nastavit vývojové prostředí REST, přečtěte si [toto téma](m
 
 Pokud se chcete připojit k rozhraní API služby Azure Media Services, přečtěte si článek popisující [přístup k rozhraní API služby Azure Media Services pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md).  
 
-## <a name="next-steps-azure-media-services-learning-paths"></a>Další kroky: Mapy kurzů k Azure Media Services
+## <a name="next-steps"></a>Další kroky
+
+V galerii **vzorových kódů Azure** najdete několik vzorových kódů: [Vzorové kódy pro Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Poskytnutí zpětné vazby

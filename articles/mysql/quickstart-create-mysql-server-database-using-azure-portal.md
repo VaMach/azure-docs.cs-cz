@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/15/2017
-ms.openlocfilehash: 46aee37a00a923addc08dd185ce0326a64ccb48c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/16/2017
+ms.openlocfilehash: 73785cf8c4f1539cb52254ba316ed7d888b683aa
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Vytvoření serveru Azure Database for MySQL pomocí webu Azure Portal
 Azure Database for MySQL je spravovaná služba, která slouží k provozu, správě a škálování vysoce dostupných databází MySQL v cloudu. V tomto rychlém startu se dozvíte, jak přibližně během pěti minut vytvořit server Azure Database for MySQL pomocí webu Azure Portal.  
@@ -39,16 +39,16 @@ Server Azure Database for MySQL vytvoříte pomocí tohoto postupu:
 
     **Nastavení** | **Navrhovaná hodnota** | **Popis pole** 
     ---|---|---
-    Název serveru | myserver4demo | Jedinečný název, který identifikuje váš server Azure Database for MySQL. K zadanému názvu serveru se připojí název domény *mysql.database.azure.com*. Název serveru může obsahovat pouze malá písmena, číslice a znak spojovníku (-). Musí se skládat ze 3 až 63 znaků.
-    Předplatné | Vaše předplatné | Předplatné Azure, které chcete použít pro váš server. Pokud máte více předplatných, zvolte předplatné, ve kterém se vám prostředek účtuje.
-    Skupina prostředků | myresourcegroup | Název nové nebo existující skupiny prostředků.
+    Název serveru | Jedinečný název serveru | Zvolte jedinečný název serveru, který identifikuje váš server Azure Database for MySQL. Například myserver4demo. K zadanému názvu serveru se připojí název domény *mysql.database.azure.com*. Název serveru může obsahovat pouze malá písmena, číslice a znak spojovníku (-). Musí se skládat ze 3 až 63 znaků.
+    Předplatné | Vaše předplatné | Vyberte předplatné Azure, které chcete použít pro váš server. Pokud máte více předplatných, zvolte předplatné, ve kterém se vám prostředek účtuje.
+    Skupina prostředků | myresourcegroup | Zadejte název nové nebo existující skupiny prostředků.
     Přihlašovací jméno správce serveru | myadmin | Přihlašovací účet, který budete používat při připojování k serveru. Přihlašovací jméno správce nemůže být **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
-    Heslo | *Nějaké si zvolte* | Nové heslo pro účet správce serveru. Musí se skládat z 8 až 128 znaků. Heslo musí obsahovat znaky ze tří z těchto kategorií: velká písmena anglické abecedy, malá písmena anglické abecedy, číslice (0–9) a jiné než alfanumerické znaky (!, $, #, % apod.).
-    Potvrzení hesla | *Nějaké si zvolte*| Potvrzené heslo účtu správce.
-    Umístění | *Oblast nejbližší vašim uživatelům*| Umístění co nejblíže vašim uživatelům nebo dalším aplikacím Azure.
+    Heslo | *Nějaké si zvolte* | Zadejte nové heslo pro účet správce serveru. Musí se skládat z 8 až 128 znaků. Heslo musí obsahovat znaky ze tří z těchto kategorií: velká písmena anglické abecedy, malá písmena anglické abecedy, číslice (0–9) a jiné než alfanumerické znaky (!, $, #, % apod.).
+    Potvrzení hesla | *Nějaké si zvolte*| Potvrďte heslo účtu správce.
+    Umístění | *Oblast nejbližší vašim uživatelům*| Vyberte umístění co nejblíže vašim uživatelům nebo dalším aplikacím Azure.
     Verze | *Nejnovější verze*| Nejnovější verze (pokud nemáte specifické požadavky vyžadující jinou verzi).
-    Cenová úroveň | **Basic**, **50 výpočetních jednotek**, **50 GB** | Úroveň služby a výkonu nové databáze. Na kartě v horní části vyberte **Úroveň Basic**. Vyberte levý konec posuvníku **Výpočetní jednotky** a pro účely tohoto rychlého startu upravte hodnotu na nejnižší dostupné množství. Vyberte **OK** a uložte výběr cenové úrovně. Další informace najdete na následujícím snímku obrazovky.
-    Připnutí na řídicí panel | Zaškrtnout | Umožňuje snadné sledování vašeho serveru na úvodní stránce řídicího panelu na webu Azure Portal.
+    Cenová úroveň | **Basic**, **50 výpočetních jednotek**, **50 GB** | Zvolte úroveň služby a výkonu nové databáze. Na kartě v horní části vyberte **Úroveň Basic**. Vyberte levý konec posuvníku **Výpočetní jednotky** a pro účely tohoto rychlého startu upravte hodnotu na nejnižší dostupné množství. Vyberte **OK** a uložte výběr cenové úrovně. Další informace najdete na následujícím snímku obrazovky.
+    Připnutí na řídicí panel | Zaškrtnout | Zaškrtněte tuto možnost, pokud chcete umožnit snadné sledování vašeho serveru na úvodní stránce řídicího panelu na webu Azure Portal.
 
     > [!IMPORTANT]
     > Zde zadané přihlašovací jméno a heslo správce serveru se vyžadují pro přihlášení k serveru a jeho databázím dále v tomto rychlém startu. Tyto informace si zapamatujte nebo poznamenejte pro pozdější použití.
@@ -75,6 +75,8 @@ Služba Azure Database for MySQL vytváří bránu firewall na úrovni serveru. 
     Název pravidla | Počáteční IP adresa | Koncová IP adresa 
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
+    
+    Povolení všech IP adres není bezpečné. Tento příklad je uvedený pro zjednodušení, ale ve skutečném scénáři musíte znát přesné rozsahy IP adres, které máte přidat pro své aplikace a uživatele. 
 
 4. Na horním panelu nástrojů na stránce **Zabezpečení připojení** vyberte **Uložit**. Než budete pokračovat, počkejte na zobrazení oznámení o úspěšném dokončení aktualizace. 
 
@@ -109,20 +111,20 @@ Nejprve si ukážeme, jak se k serveru připojit pomocí nástroje pro příkazo
     Pro připojení k serveru Azure Database for MySQL pomocí nástroje mysql použijte následující formát:
 
     ```bash
-    mysql --host <yourserver> --user <server admin login> --password
+    mysql --host <fully qualified servername> --user <serveradminlogin@servername> -p
     ```
 
     Například následující příkaz se připojí k našemu ukázkovému serveru:
 
     ```azurecli-interactive
-    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo --password
+    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo -p
     ```
 
     Parametr mysql |Navrhovaná hodnota|Popis
     ---|---|---
     --host | *Název serveru* | Hodnota názvu serveru, kterou jste použili dříve při vytváření serveru Azure Database for MySQL. Server v našem příkladu je **myserver4demo.mysql.database.azure.com**. Použijte plně kvalifikovaný název domény (**\*.mysql.database.azure.com**), jak je znázorněno v příkladu. Pokud si název vašeho serveru nepamatujete, získejte informace o připojení pomocí postupu v předchozí části. 
     --user | *Přihlašovací jméno správce serveru* |Přihlašovací uživatelské jméno správce serveru, které jste zadali dříve při vytváření serveru Azure Database for MySQL. Pokud si uživatelské jméno nepamatujete, získejte informace o připojení pomocí postupu v předchozí části. Formát je *username@servername*.
-    --password | *Počkejte na zobrazení výzvy* |Stejné heslo, které jste zadali při vytváření serveru. Poznámka: Při zadávání hesla se na příkazovém řádku Bash nezobrazují zadávané znaky. Po zadání hesla stiskněte **Enter**.
+    -p | *Počkejte na zobrazení výzvy* |Po zobrazení výzvy zadejte stejné heslo, které jste zadali při vytváření serveru. Poznámka: Při zadávání hesla se na příkazovém řádku Bash nezobrazují zadávané znaky. Po zadání hesla stiskněte **Enter**.
 
    Jakmile bude nástroj mysql připojený, zobrazí příkazový řádek `mysql>`, na kterém můžete zadávat příkazy. 
 
@@ -182,7 +184,9 @@ Pokud se chcete připojit k serveru pomocí nástroje s grafickým uživatelský
 
 1.  Na klientském počítači otevřete aplikaci MySQL Workbench. MySQL Workbench můžete stáhnout a nainstalovat ze [stránky pro stažení nástroje MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2.  V dialogovém okně pro **nastavení nového připojení** zadejte na kartě **Parametry** následující informace:
+2. Vytvořte nové připojení. Klikněte na ikonu se symbolem plus (+) vedle záhlaví **Připojení k MySQL**.
+
+3. V dialogovém okně pro **nastavení nového připojení** zadejte na kartě **Parametry** informace o připojení k vašemu serveru. Jako příklad jsou zobrazeny zástupné hodnoty. Nahraďte Název hostitele, Uživatelské jméno a Heslo vlastními hodnotami.
 
     ![Nastavení nového připojení](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
@@ -195,7 +199,7 @@ Pokud se chcete připojit k serveru pomocí nástroje s grafickým uživatelský
     Uživatelské jméno |  *Přihlašovací jméno správce serveru* | Přihlašovací údaje správce serveru, které jste zadali dříve při vytváření serveru Azure Database for MySQL. Uživatelské jméno v našem příkladu je **myadmin@myserver4demo**. Pokud si uživatelské jméno nepamatujete, získejte informace o připojení pomocí postupu v předchozí části. Formát je *username@servername*.
     Heslo | *Vaše heslo* | Výběrem tlačítka **Uložit v trezoru...** heslo uložte. |
 
-3. Pokud chcete otestovat, jestli jsou všechny parametry správně nakonfigurované, vyberte **Test připojení**. Potom vyberte **OK** a uložte připojení. 
+4. Pokud chcete otestovat, jestli jsou všechny parametry správně nakonfigurované, vyberte **Test připojení**. Potom vyberte **OK** a uložte připojení. 
 
     > [!NOTE]
     > Ve výchozím nastavení se na vašem serveru vynucuje SSL, což vyžaduje další konfiguraci pro úspěšné připojení. Další informace najdete v tématu [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md). Pokud chcete pro tento rychlý start zakázat SSL, přejděte na web Azure Portal. Potom vyberte stránku Zabezpečení připojení a deaktivujte přepínací tlačítko **Vynucení připojení SSL**.

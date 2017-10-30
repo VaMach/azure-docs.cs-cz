@@ -3,7 +3,7 @@ title: "Začínáme s poskytovatelem ověřování Azure Multi-Factor Auth | Dok
 description: "Naučte se vytvářet poskytovatele ověřování Azure Multi-Factor Auth."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: a7dd5030-7d40-4654-8fbd-88e53ddc1ef5
 ms.service: multi-factor-authentication
@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.date: 10/02/2017
+ms.author: joflore
+ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: ed14a5a762bab20a1ccde699504dd21f25009b52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4c267bf3f5cc7f25ac049028aa6ad9317409230
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
-# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Začínáme s poskytovatelem ověřování Azure Multi-Factor Auth
+# <a name="getting-started-with-an-azure-multi-factor-authentication-provider"></a>Začínáme s poskytovatelem služby Azure Multi-Factor Authentication
 Dvoustupňové ověřování je k dispozici ve výchozím nastavení pro globální správce, kteří mají uživatele služeb Azure Active Directory a Office 365. Pokud ale budete chtít využívat výhod [pokročilých funkcí](multi-factor-authentication-whats-next.md) měli byste si zakoupit plnou verzi Azure Multi-Factor Authentication (MFA).
 
 Poskytovatel ověřování Azure Multi-Factor Auth umožňuje využít výhod funkcí poskytovaných plnou verzí Azure MFA. Je určený pro uživatele, kteří **nemají licence prostřednictvím Azure MFA, Azure AD Premium nebo Enterprise Mobility + Security (EMS)**.  Azure MFA, Azure AD Premium a EMS zahrnují plnou verzi Azure MFA ve výchozím nastavení. Pokud máte licence, nepotřebujete poskytovatele Azure Multi-Factor Auth.
@@ -31,14 +31,33 @@ Pokud si chcete stáhnout sadu SDK, budete potřebovat poskytovatele Azure Multi
 > [!IMPORTANT]
 > Pokud si chcete stáhnout sadu SDK, je třeba vytvořit poskytovatele Azure Multi-Factor Auth i v případě, že máte licence Azure MFA, AAD Premium nebo EMS.  Pokud vytvoříte poskytovatele Azure Multi-Factor Auth pro tento účel a máte už licence, nezapomeňte poskytovatele vytvořit podle modelu **Na povoleného uživatele**. Potom propojte poskytovatele s adresářem, ve kterém jsou uložené licence Azure MFA, Azure AD Premium nebo EMS. Tato konfigurace zajistí, že nebudete dostávat faktury, pokud nemáte více jedinečných uživatelů provádějících dvoustupňové ověřování než počet vlastněných licencí.
 
-## <a name="what-is-an-azure-multi-factor-auth-provider"></a>Co je poskytovatele ověřování Azure Multi-Factor Auth?
+## <a name="what-is-an-mfa-provider"></a>Co je poskytovatel MFA?
 
 Pokud nemáte licence pro Azure Multi-Factor Authentication, můžete vytvořit poskytovatele ověřování tak, aby pro vaše uživatele vyžadoval dvoustupňové ověření. Pokud vyvíjíte vlastní aplikaci a chcete povolit Azure MFA, vytvořte poskytovatele ověřování a [stáhněte sadu SDK](multi-factor-authentication-sdk.md).
 
 Existují dva typy poskytovatelů ověřování. Rozdíl mezi nimi spočívá v tom, jak se účtuje předplatné Azure. Možnost podle ověření zjišťuje počet ověření za měsíc v rámci vašeho tenanta. Tato možnost je vhodná, pokud máte řadu uživatelů, kteří se ověřují jenom občas, například pokud vícefaktorové ověřování vyžadujete pro vlastní aplikaci. Možnost podle uživatelů zjišťuje počet jednotlivců za měsíc, kteří ve vašem tenantovi provedli dvoustupňové ověření. Tato možnost je vhodná, pokud máte uživatelé s licencemi, ale potřebujete rozšířit vícefaktorového ověřování pro další uživatele nad rámec licenčních omezení.
 
-## <a name="create-a-multi-factor-auth-provider"></a>Vytvoření poskytovatele Multi-Factor Auth
-K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte následující postup. Poskytovatele Azure Multi-Factor Auth je možné vytvořit pouze na portálu Azure Classic. Pokud se nemůžete přihlásit k portálu Azure Classic, zkontrolujte, že je tenant Azure AD [přidružený k předplatnému Azure](../active-directory/active-directory-how-subscriptions-associated-directory.md). 
+## <a name="create-an-mfa-provider---public-preview"></a>Vytvoření poskytovatele MFA – Public Preview
+
+Pomocí následujícího postupu vytvoříte poskytovatele služby Azure Multi-Factor Authentication na webu Azure Portal:
+
+1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) jako správce. 
+2. Vyberte **Azure Active Directory** > **MFA Server**.
+3. Vyberte **Poskytovatelé**.
+4. Vyberte **Přidat**.
+5. Vyplňte následující pole a pak vyberte **Přidat**.
+   - **Název** – Název poskytovatele.
+   - **Model použití** – Zvolte jednu ze dvou možností:
+      * Za ověření – nákupní model, který účtuje za ověření. Obvykle se používá pro scénáře, které používají Azure Multi-Factor Authentication v aplikaci zaměřené na spotřebitele.
+      * Pro povolené uživatele – nákupní model, který účtuje za povoleného uživatele. Obvykle se používá pro přístup zaměstnanců k aplikacím, například Office 365. Tuto možnost vyberte, pokud máte uživatele, kteří už mají licence na Azure MFA.
+   - **Předplatné** – Předplatné Azure, na které se budou účtovat aktivity dvoustupňového ověřování prostřednictvím poskytovatele. 
+   - **Adresář** – Tenant služby Azure Active Directory, ke kterému je poskytovatel přidružený. Uvědomte si následující skutečnosti:
+      * K vytvoření poskytovatele nepotřebujete adresář Azure AD. Pokud plánujete stažení pouze Azure Multi-Factor Authentication Serveru nebo sady SDK, ponechte toto pole prázdné.
+      * Poskytovatel musí být přidružený k adresáři Azure AD, aby mohl využívat výhod pokročilých funkcí.
+      * Ke každému adresáři Azure AD může být přidružený pouze jeden poskytovatel.
+
+## <a name="create-an-mfa-provider"></a>Vytvoření poskytovatele MFA
+Pomocí následujícího postupu vytvoříte poskytovatele služby Azure Multi-Factor Authentication na portálu Classic:
 
 1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
 2. Vlevo vyberte možnost **Active Directory**.
@@ -59,21 +78,21 @@ K vytvoření poskytovatele ověřování Azure Multi-Factor Auth použijte nás
    ![Vytvoření poskytovatele MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 
 7. Vyplňte následující pole a vyberte možnost **Vytvořit**.
-   1. **Název** – název poskytovatele Multi-Factor Auth.
+   1. **Název** – Název poskytovatele.
    2. **Model použití** – Zvolte jednu ze dvou možností:
       * Za ověření – nákupní model, který účtuje za ověření. Obvykle se používá pro scénáře, které používají Azure Multi-Factor Authentication v aplikaci zaměřené na spotřebitele.
       * Pro povolené uživatele – nákupní model, který účtuje za povoleného uživatele. Obvykle se používá pro přístup zaměstnanců k aplikacím, například Office 365. Tuto možnost vyberte, pokud máte uživatele, kteří už mají licence na Azure MFA.
-   3. **Adresář** – klient Azure Active Directory, ke kterému je přidružen poskytovatel Multi-Factor Authentication. Uvědomte si následující skutečnosti:
-      * Pro vytvoření poskytovatele Multi-Factor Auth nepotřebujete adresář Azure AD. Pokud plánujete stažení pouze Azure Multi-Factor Authentication Serveru nebo sady SDK, ponechte toto pole prázdné.
-      * Poskytovatel Multi-Factor Auth musí být přidružen k adresáři služby Azure AD, aby mohl využívat výhod pokročilých funkcí.
-      * Ke každému adresáři Azure AD může být přidružený pouze jeden poskytovatel Multi-Factor Auth.  
+   3. **Adresář** – Tenant služby Azure Active Directory, ke kterému je poskytovatel přidružený. Uvědomte si následující skutečnosti:
+      * K vytvoření poskytovatele nepotřebujete adresář Azure AD. Pokud plánujete stažení pouze Azure Multi-Factor Authentication Serveru nebo sady SDK, ponechte toto pole prázdné.
+      * Poskytovatel musí být přidružený k adresáři Azure AD, aby mohl využívat výhod pokročilých funkcí.
+      * Ke každému adresáři Azure AD může být přidružený pouze jeden poskytovatel.  
       ![Vytvoření poskytovatele MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 
 8. Po kliknutí na tlačítko vytvořit se vytvoří poskytovatel MFA a měla by se zobrazit zpráva s oznámením: **Poskytovatel Multi-Factor Authentication byl úspěšně vytvořen**. Klikněte na tlačítko **OK**.  
    
    ![Vytvoření poskytovatele MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)  
 
-## <a name="manage-your-multi-factor-auth-provider"></a>Správa poskytovatele Multi-Factor Auth
+## <a name="manage-your-mfa-provider"></a>Správa poskytovatele MFA
 
 Po vytvoření poskytovatele MFA není možné změnit model použití (na povoleného uživatele nebo na ověření). Můžete však poskytovatele MFA odstranit a potom vytvořit nového s jiným modelem použití.
 

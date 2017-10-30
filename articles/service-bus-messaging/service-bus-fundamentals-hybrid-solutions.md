@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -58,15 +58,15 @@ Tento proces je prostý: Odesílatel odešle zprávu do fronty Service Bus a př
 
 Každá zpráva má dvě části: skupinu vlastností ve formě dvojice klíč+hodnota a tělo zprávy. Tělo zprávy může mít formát binární, textový nebo i XML. Jejich použití závisí na tom, co se vaše aplikace snaží udělat. Například jedna aplikace odešle zprávu o nedávném prodeji, která může obsahovat třeba tyto údaje: **Seller="Ava"** a **Amount=10000**. Tělo zprávy může obsahovat naskenovaný snímek podepsané smlouvy o prodeji nebo nemusí obsahovat nic a může zůstat prázdné.
 
-Příjemce může zprávu načíst z fronty Service Bus dvěma různými způsoby. První možnost se jmenuje *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)* (přijmout a odstranit) – odebere zprávu z fronty a okamžitě ji odstraní. Tento způsob je velmi jednoduchý, ale pokud příjemce spadne, než se mu podaří zprávu zpracovat, zprávu ztratí. A protože se už odstranila z fronty, nemůže ji získat ani žádný jiný příjemce. 
+Příjemce může zprávu načíst z fronty Service Bus dvěma různými způsoby. První možnost se jmenuje *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)* (přijmout a odstranit) – přijme zprávu z fronty a okamžitě ji odstraní. Tento způsob je velmi jednoduchý, ale pokud příjemce spadne, než se mu podaří zprávu zpracovat, zprávu ztratí. A protože se už odstranila z fronty, nemůže ji získat ani žádný jiný příjemce. 
 
-Druhá možnost se jmenuje *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)* (uzamknout pro zpracování) a jejím smyslem je vyřešit právě tento problém. Stejně jako v případě **ReceiveAndDelete** se při čtení **PeekLock** zpráva odebere z fronty. Jenže se při tom neodstraní úplně. Místo toho se zpráva jen uzamkne, aby nebyla vidět pro ostatní příjemce, a pak čeká na jednu ze tří událostí:
+Druhá možnost se jmenuje *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)* (uzamknout pro zpracování) a jejím smyslem je vyřešit právě tento problém. Stejně jako v případě **ReceiveAndDelete** se při čtení **PeekLock** zpráva odebere z fronty. Jenže se při tom neodstraní úplně. Místo toho se zpráva jen uzamkne, aby nebyla vidět pro ostatní příjemce, a pak čeká na jednu ze tří událostí:
 
-* Pokud příjemce zprávu úspěšně zpracuje, zavolá [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) a fronta zprávu odstraní. 
-* Pokud se příjemce rozhodne, že nedokáže zprávu úspěšně zpracovat, zavolá [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). Fronta pak zruší zámek zprávy a ta je pak znovu dostupná pro ostatní příjemce.
+* Pokud příjemce zprávu úspěšně zpracuje, zavolá [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) a fronta zprávu odstraní. 
+* Pokud se příjemce rozhodne, že nedokáže zprávu úspěšně zpracovat, zavolá [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync). Fronta pak zruší zámek zprávy a ta je pak znovu dostupná pro ostatní příjemce.
 * Pokud příjemce v nastaveném časovém limitu nezavolá ani jednu z těchto metod (ve výchozím nastavení je to 60 sekund), fronta předpokládá, že příjemce selhal. V takovém případě se fronta chová jako kdyby příjemce zavolal **Abandon** a zpřístupní zprávu dalším příjemcům.
 
-Všimněte si, co se tu může stát: Stejná zpráva se může dodat dvakrát, třeba i dvěma různým příjemcům. Aplikace, které používají fronty Service Bus, na tuto možnost musí být připravené. Pro usnadnění detekce duplicitních zpráv má každá zpráva jedinečnou vlastnost [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId), která ve výchozím nastavení zůstává pro danou zprávu vždy stejná bez ohledu na to, kolikrát se přečte z fronty. 
+Všimněte si, co se tu může stát: Stejná zpráva se může dodat dvakrát, třeba i dvěma různým příjemcům. Aplikace, které používají fronty Service Bus, na tuto možnost musí být připravené. Pro usnadnění detekce duplicitních zpráv má každá zpráva jedinečnou vlastnost [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId), která ve výchozím nastavení zůstává pro danou zprávu vždy stejná bez ohledu na to, kolikrát se přečte z fronty. 
 
 Fronty jsou užitečné v mnoha situacích. Umožňují aplikacím komunikovat, i když nejsou spuštěné ve stejnou dobu – to se hodí především pro dávkové a mobilní aplikace. Fronta s několika příjemci taky poskytuje automatické vyvažování zátěže, protože odeslané zprávy se rozdělují mezi jednotlivé příjemce.
 
@@ -84,7 +84,7 @@ Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepš
 * Odběratel 2 přijímá zprávy, které mají vlastnost *Seller="Ruby"* a/nebo mají vlastnost *Amount* s hodnotou vyšší než 100 000. Možná je Ruby manažerka prodeje, takže chce vidět svoje prodeje a všechny velké prodeje bez ohledu na to, čí jsou.
 * Odběratel 3 má nastavený filtr *True* – to znamená, že přijímá všechny zprávy. Tato aplikace může mít například na starost udržování auditní stopy a proto potřebuje vidět všechny zprávy.
 
-Stejně jako v případě front můžou odběratelé tématu načítat zprávy buď způsobem [ReceiveAndDelete, nebo PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k více odběratelům předplatných. Tomuto přístupu se obvykle říká *publikování a odběr* (nebo *pub/sub*)a je vhodný v každé situaci, kde se o stejné zprávy zajímá několik aplikací. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
+Stejně jako v případě front můžou odběratelé tématu načítat zprávy buď způsobem [ReceiveAndDelete, nebo PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k více odběratelům předplatných. Tomuto přístupu se obvykle říká *publikování a odběr* (nebo *pub/sub*)a je vhodný v každé situaci, kde se o stejné zprávy zajímá několik aplikací. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
 
 ## <a name="relays"></a>Předávání
 

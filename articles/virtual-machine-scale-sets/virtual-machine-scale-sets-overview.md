@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co jsou škálovací sady virtuálních počítačů v Azure?
 Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. Protože jsou všechny virtuální počítače ve škálovací sadě nakonfigurované stejně, podporují tyto sady skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Je proto snadné vytvářet rozsáhlé služby zaměřené na vysoký výpočetní výkon, velké objemy dat a kontejnerizované úlohy.
@@ -33,7 +33,7 @@ Více se o škálovacích sadách dozvíte také v těchto videích:
 * [Guy Bowerman provádí škálovacími sadami virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Vytváření a správa škálovacích sad
-Škálovací sadu můžete vytvořit na webu [Azure Portal](https://portal.azure.com) – vyberte položku **Nový** a zadejte text **škálovací** na vyhledávacím panelu. Ve výsledcích se objeví **Škálovací sada virtuálních počítačů**. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. Máte také možnost nastavit základní pravidla automatického škálování v závislosti na využití procesoru. 
+Škálovací sadu můžete vytvořit na webu [Azure Portal](https://portal.azure.com) – vyberte položku **Nový** a zadejte text **škálovací** na vyhledávacím panelu. Ve výsledcích se objeví **Škálovací sada virtuálních počítačů**. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. Máte také možnost nastavit základní pravidla automatického škálování v závislosti na využití procesoru. Ke správě škálovací sady můžete použít Azure Portal, [rutiny Azure PowerShellu](virtual-machine-scale-sets-windows-manage.md) nebo Azure CLI 2.0.
 
 Škálovací sady je možné nasadit do [zóny dostupnosti](../availability-zones/az-overview.md).
 
@@ -46,8 +46,23 @@ Sadu ukázkových šablon škálovacích sad virtuálních počítačů můžete
 
 V příkladech šablon pro rychlý začátek odkazuje tlačítko Nasazení do Azure v souboru readme k jednotlivým šablonám na funkce nasazení na portálu. Pokud chcete nasadit škálovací sadu, klikněte na toto tlačítko a potom na portálu vyplňte požadované parametry. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Horizontální navyšování a snižování kapacity škálovací sady
-Kapacitu škálovací sady můžete změnit na webu Azure Portal kliknutím na **Škálování** v části **Nastavení**. 
+
+## <a name="autoscale"></a>Automatické škálování
+Pokud chcete udržovat konstantní výkon aplikace, můžete automaticky zvyšovat nebo snižovat počet instancí virtuálních počítačů ve škálovací sadě. Tato možnost automatického škálování snižuje režii spojenou se správou, monitorováním a laděním škálovací sady s ohledem na měnící se požadavky zákazníků v průběhu času. Nadefinujete pravidla založená na metrikách výkonu, odezvě aplikace nebo pevném plánu a vaše škálovací sada se bude automaticky škálovat podle potřeby.
+
+Jako základní pravidla automatického škálování můžete použít metriky výkonu hostitele, jako je využití procesoru nebo vstupně-výstupní operace disku. Tyto metriky hostitele jsou k dispozici hned po spuštění bez nutnosti instalace nebo konfigurace jakýchkoli dalších agentů nebo rozšíření. Pravidla automatického škálování využívající metriky hostitele je možné vytvořit pomocí některého z následujících nástrojů:
+
+- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+Pokud chcete použít podrobnější metriky výkonu, můžete v instancích virtuálních počítačů ve škálovací sadě nainstalovat a nakonfigurovat diagnostické rozšíření Azure. Diagnostické rozšíření Azure umožňuje z každé instance virtuálního počítače shromažďovat dodatečné metriky výkonu, jako je například využití paměti. Tyto metriky výkonu se streamují do účtu úložiště Azure a vy můžete vytvořit pravidla automatického škálování, která budou tato data využívat. Další informace najdete v článcích popisujících povolení diagnostického rozšíření Azure na [virtuálním počítači s Linuxem](../virtual-machines/linux/diagnostic-extension.md) nebo [virtuálním počítači s Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
+
+Pokud chcete monitorovat samotný výkon aplikace, můžete ve své aplikaci nainstalovat a nakonfigurovat malý instrumentační balíček pro službu App Insights. Z vaší aplikace se následně můžou streamovat zpět podrobné metriky výkonu pro dobu odezvy aplikace nebo počet relací. Pak můžete vytvořit pravidla automatického škálování s definovanými prahovými hodnotami pro výkon na úrovni samotné aplikace. Další informace o službě App Insights najdete v tématu [Co je Application Insights](../application-insights/app-insights-overview.md).
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>Ruční horizontální navyšování a snižování kapacity škálovací sady
+Kapacitu škálovací sady můžete ručně změnit na webu Azure Portal kliknutím na **Škálování** v části **Nastavení**. 
 
 Pokud chcete změnit kapacitu škálovací sady z příkazového řádku, použijte v [Azure CLI](https://github.com/Azure/azure-cli) příkaz **scale**. Například pokud chcete nastavit kapacitu škálovací sady na 10 virtuálních počítačů, zadejte příkaz:
 
@@ -67,26 +82,6 @@ Pokud chcete zvýšit nebo snížit počet virtuálních počítačů ve škálo
 
 Pokud šablonu Azure Resource Manageru znovu nasazujete s cílem změnit kapacitu, stačí definovat mnohem menší šablonu, která bude obsahovat pouze paket vlastnosti **SKU** s aktualizovanou kapacitou. [Tady je příklad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Automatické škálování
-
-Škálovací sadu můžete při vytváření na webu Azure Portal volitelně nakonfigurovat s nastavením automatického škálování. Umožníte tak navyšování nebo snižování počtu virtuálních počítačů v závislosti na průměrném využití procesoru. 
-
-Mnoho šablon škálovacích sad v [šablonách Azure pro rychlý začátek](https://github.com/Azure/azure-quickstart-templates) definuje nastavení automatického škálování. Nastavení automatického škálování můžete také přidat do stávající škálovací sady. Tady je pro ukázku skript Azure PowerShellu, který do škálovací sady přidá automatické škálování v závislosti na využití procesoru:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-Seznam platných metrik, na základě kterých je možné škálovat, najdete v tématu [Podporované metriky ve službě Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) v části Microsoft.Compute/virtualMachineScaleSets. K dispozici jsou také pokročilejší možnosti automatického škálování, včetně automatického škálování na základě plánu nebo integrace se systémy pro výstrahy pomocí webhooků.
 
 ## <a name="monitoring-your-scale-set"></a>Monitorování škálovací sady
 Na webu [Azure Portal](https://portal.azure.com) můžete najít seznam škálovacích sad a jejich vlastností. Portál také podporuje operace správy. Operace správy můžete provádět se škálovacími sadami nebo s jednotlivými virtuálními počítači v rámci škálovací sady. Na portálu najdete také přizpůsobitelný graf využití prostředků. 

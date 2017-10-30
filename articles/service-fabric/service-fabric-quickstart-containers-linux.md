@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Nasazení aplikace Azure Service Fabric typu kontejner pro Linux v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -29,7 +29,7 @@ Tento rychlý start ukazuje, jak nasadit kontejnery Linuxu do clusteru Service F
 
 V tomto rychlém startu se naučíte:
 > [!div class="checklist"]
-> * Nasazení kontejnerů Linuxu do Service Fabric
+> * Nasazení kontejnerů do clusteru Service Fabric s Linuxem v Azure
 > * Škálování a převzetí služeb při selhání kontejnerů v Service Fabric
 
 ## <a name="prerequisite"></a>Požadavek
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Nasazení kontejnerů do clusteru Service Fabric v Azure
 Pokud chcete nasadit aplikaci do clusteru v Azure, použijte vlastní cluster nebo cluster Party.
+
+> [!Note]
+> Aplikace se musí nasadit do clusteru v Azure, a ne do clusteru Service Fabric na místním počítači pro vývoj. 
+>
 
 Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Jsou udržované týmem Service Fabric a kdokoli na nich může nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k clusteru Party, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
 

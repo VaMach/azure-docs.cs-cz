@@ -13,30 +13,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/08/2017
+ms.date: 10/13/2017
 ms.author: samacha
-ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57437875da80bb5eece650063b7c5c2b0ffd65f7
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="what-is-stream-analytics"></a>Co je služba Stream Analytics?
 
-Azure Stream Analytics je plně spravovaný modul na zpracování událostí, který umožňuje nastavit a provádět analytické výpočty streamovaných dat v reálném čase. Data můžou pocházet ze zařízení, senzorů, webů, informačních kanálů sociálních médií, aplikací, systémů infrastruktury a dalších zdrojů. 
+Azure Stream Analytics je spravovaný modul pro zpracování událostí nastavený na provádění analytických výpočtů streamovaných dat v reálném čase. Data můžou pocházet ze zařízení, senzorů, webů, informačních kanálů sociálních médií, aplikací, systémů infrastruktury a dalších zdrojů. 
 
-## <a name="what-can-i-do-with-stream-analytics"></a>Co se dá se službou Stream Analytics dělat?
+Pomocí Stream Analytics můžete zkoumat velké objemy dat streamovaných ze zařízení nebo procesů, extrahovat z tohoto datového proudu informace a identifikovat vzory, trendy a vztahy. S využitím těchto vzorů můžete aktivovat další procesy nebo akce, jako jsou upozornění, pracovní postupy automatizace, odesílání informací do nástrojů pro generování sestav, nebo je můžete uložit a prozkoumat později. 
 
-Pomocí Stream Analytics můžete zkoumat velké objemy dat odesílaných ze zařízení nebo procesů, extrahovat informace z datových proudů a vyhledávat vzory, trendy a vztahy. Podle povahy zkoumaných dat pak můžete provádět různé úlohy aplikací. Můžete například vyvolávat výstrahy, spouštět automatizované pracovní postupy, odesílat informace do nástrojů na vytváření sestav, jako je Power BI, nebo ukládat data pro pozdější analýzu. 
+Několik příkladů:
 
-Příklady:
-
-* Personalizované analýzy obchodování na burze a výstrahy v reálném čase nabízené finančními institucemi
-* Odhalování podvodů v reálném čase prověřováním dat transakcí 
-* Služby ochrany dat a identity
-* Analýza dat generovaných senzory a poháněcími zařízeními ve fyzických objektech (Internet věcí nebo IoT)
+* Analýzy obchodování na burze a výstrahy.
+* Odhalování podvodů, data a identifikace ochrany. 
+* Vložené analýzy snímačů a ovladačů.
 * Analýza navštívených webových stránek
-* Aplikace řízení vztahů se zákazníky (CRM), například vydání výstrahy, když se v určitém časovém rámci sníží kvalita zákaznických služeb
 
 ## <a name="how-does-stream-analytics-work"></a>Jak funguje Stream Analytics?
 
@@ -46,30 +42,28 @@ Tento diagram znázorňuje kanál Stream Analytics a ukazuje, jak jsou data inge
 
 Stream Analytics začíná zdrojem streamovaných dat. Dat je možné ingestovat v Azure ze zařízení pomocí centra událostí Azure nebo centra IoT. Data je také možné získávat z úložišť dat, například z Blob Storage. 
 
-Pokud chcete prozkoumat datový proud, vytvořte *úlohu* Stream Analytics, která bude určovat, odkud data pocházejí. Úloha také definuje *transformaci*&mdash; – to, jak se mají vyhledávat data, vzory nebo vztahy. Stream Analytics podporuje pro tuto úlohu dotazovací jazyk typu SQL, který umožňuje filtrovat, řadit, agregovat a spojovat streamovaná data za určité časové období.
+Pokud chcete prozkoumat datový proud, vytvořte *úlohu* Stream Analytics, která bude určovat, odkud data pocházejí. Úloha také definuje *transformaci* – to, jak se mají vyhledávat data, vzory nebo vztahy. Stream Analytics podporuje pro tuto úlohu dotazovací jazyk typu SQL, který umožňuje filtrovat, řadit, agregovat a spojovat streamovaná data za určité časové období.
 
-Úloha pak také definuje výstup, kam se mají transformovaná data odesílat. Tak můžete řídit, jaké akce se mají provádět v návaznosti na informace, které jste analyzovali. V návaznosti na analýzu můžete například:
+Úloha pak také definuje výstup těchto transformovaných dat. Můžete řídit, jaké akce se mají provádět v návaznosti na informace, které jste analyzovali. V návaznosti na analýzu můžete například:
 
-* Poslat příkaz, který změní nastavení zařízení 
-* Poslat data do fronty monitorované procesem, který provede akci závislou na zjištěných informacích 
-* Poslat data na řídicí panel Power BI za účelem generování sestav
-* Poslat data do úložiště, jako je Data Lake Store, databáze SQL Serveru nebo úložiště objektů blob nebo tabulek Azure
+* Poslat příkaz, který změní nastavení zařízení. 
+* Odeslat data do monitorované fronty pro provedení další akce v závislosti na zjištěních. 
+* Odeslat data na řídicí panel Power BI.
+* Odeslat data do úložiště, jako je Data Lake Store, Azure SQL Database nebo Azure Blob Storage.
 
-Probíhající úlohu můžete monitorovat a upravovat počet událostí, které zpracovává za sekundu. Úlohy můžou také vytvářet diagnostické protokoly k řešení potíží.
+Za běhu úlohy můžete upravovat počet zpracovaných událostí za sekundu. Můžete také vytvářet diagnostické protokoly pro účely řešení potíží.
 
 ## <a name="key-capabilities-and-benefits"></a>Klíčové funkce a výhody
 
-Služba Stream Analytics byla navržena jako snadno použitelný, flexibilní a ekonomický nástroj, škálovatelný na libovolnou velikost úlohy.
+Služba Stream Analytics byla navržena jako snadno použitelná, flexibilní a škálovatelná na libovolnou velikost úlohy.
 
-### <a name="connectivity-to-many-inputs-and-outputs"></a>Připojení k mnoha vstupům a výstupům
+### <a name="connect-inputs-and-outputs"></a>Propojení vstupů a výstupů
 
-Služba Stream Analytics se za účelem ingestování datových proudů připojuje přímo ke službám [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) a [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) a za účelem ingestování historických dat přímo ke [službě Azure Blob Storage](https://docs.microsoft.com/azure/storage/storage-introduction#blob-storage-accounts). Když získáte data z center událostí, můžete Stream Analytics zkombinovat s dalšími zdroji dat a moduly na zpracování událostí.
+Služba Stream Analytics se za účelem ingestování datových proudů připojuje přímo ke službám [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) a [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) a za účelem ingestování historických dat přímo ke [službě Azure Blob Storage](https://docs.microsoft.com/azure/storage/storage-introduction#blob-storage-accounts). Pomocí služby Stream Analytics můžete kombinovat data z center událostí s dalšími zdroji dat a moduly pro zpracování. Vstup úlohy může také zahrnovat referenční data (statická nebo pomalu se měnící data). K těmto referenčním datům můžete připojit streamovaná data, abyste mohli provádět operace vyhledávání stejně jako u databázových dotazů.
 
-Vstup úlohy může také zahrnovat referenční data (statická nebo pomalu se měnící data). K těmto referenčním datům můžete připojit streamovaná data, abyste mohli provádět operace vyhledávání stejně jako u databázových dotazů.
+Výstup úlohy Stream Analytics můžete směrovat mnoha směry. Můžete ho zapsat do úložiště, jako je Azure Blob, Azure SQL Database, Azure Data Lake Store nebo Azure Cosmos DB. Odtud můžete spouštět dávkové analýzy pomocí služby Azure HDInsight. Případně můžete výstup odeslat do jiné služby ke zpracování jiným procesem, například do center událostí, služby Azure Service Bus, front nebo Power BI za účelem vizualizace.
 
-Výstup úlohy Stream Analytics můžete směrovat mnoha směry. Můžete ho zapsat do úložiště, například do objektů blob nebo tabulek ve službě Azure Storage, Azure SQL Database, Azure Data Lake Store nebo Azure Cosmos DB. Odtud můžou být data předávána k analýze dávky prostřednictvím Azure HDInsight. Výstupy můžete odesílat do jiných služeb ke zpracování jiným procesem, například do center událostí, front nebo témat Sběrnice Azure. Můžete je také posílat do Power BI, pokud je chcete vizualizovat.
-
-### <a name="ease-of-use"></a>Snadné používání
+### <a name="easy-to-use"></a>Snadné použití
 
 K definování transformací slouží jednoduchý deklarativní [dotazovací jazyk Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx), který umožňuje vytvářet sofistikované analýzy bez znalosti programování. Vstupem pro dotazovací jazyk jsou streamovaná data. Data pak můžete filtrovat, řadit a spojovat (v datovém proudu nebo s referenčními daty), můžete agregovat hodnoty, provádět výpočty a používat geoprostorové funkce. Dotazy můžete na portálu upravovat pomocí IntelliSense a kontroly syntaxe a můžete je testovat pomocí ukázkových dat, která se dají extrahovat z živého datového proudu.
 
@@ -94,7 +88,5 @@ Stream Analytics je spravovaná služba v cloudu, což pomáhá předcházet ztr
 * Začněte [experimentovat se vstupy a dotazy ze zařízení IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Sestavte [ucelené řešení Stream Analytics](stream-analytics-real-time-fraud-detection.md), které bude zkoumat telefonní metadata a hledat podvodná volání.
 * Seznamte se s dotazovacím jazykem typu SQL pro Stream Analytics a s jedinečnými koncepty, jako jsou [oddílové funkce](stream-analytics-window-functions.md).
-* Zjistěte, jak [škálovat úlohy Stream Analytics](stream-analytics-scale-jobs.md). 
-* Zjistěte, jak [integrovat Stream Analytics a Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 * Najděte odpovědi na své dotazy ke službě Stream Analytics ve [fóru Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
