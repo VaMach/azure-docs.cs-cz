@@ -42,7 +42,7 @@ sections:
       - type: paragraph
         text: 'Jak nasadit, spravovat a monitorovat zabezpečené webové aplikace v Azure'
       - type: list
-        style: ordered
+        style: unordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Nasazení aplikace .NET</a>
           - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Kontejnerizace existující aplikace .NET</a>
@@ -96,7 +96,7 @@ sections:
         className: cardsD
         items:
           - title: Příkazový řádek
-            html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+            html: '<p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Jazyky
             html: <p><a href="/java/api/overview/azure/servicefabric">Rozhraní API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
           - title: REST

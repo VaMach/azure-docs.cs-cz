@@ -139,6 +139,7 @@
     - name: Vývoj
       items:
         - name: Rozhraní DocumentDB API
+          href: documentdb-index.md
           items:
             - name: Zdroje a prostředky
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'Vyřazení S1, S2, S3'
                   href: performance-levels.md
         - name: Rozhraní MongoDB API
+          href: mongodb-index.md
           items:
             - name: Připojení k účtu MongoDB
               href: connect-mongodb-account.md
