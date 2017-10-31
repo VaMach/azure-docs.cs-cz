@@ -45,8 +45,10 @@
           href: log-analytics-log-search-faq.md
         - name: Portály prohledávání protokolů
           href: log-analytics-log-search-portals.md
-- name: Postup
+- name: Návody
   items:
+    - name: Vytvoření pracovního prostoru Log Analytics
+      href: log-analytics-quick-create-workspace.md
     - name: Shromažďování dat
       items:
         - name: Připojené zdroje
@@ -154,7 +156,7 @@
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Activity Log Analytics
           href: log-analytics-activity.md
-        - name: Posouzení AD
+        - name: Kontrola stavu AD
           href: log-analytics-ad-assessment.md
         - name: Stav replikace AD
           href: log-analytics-ad-replication-status.md
@@ -197,7 +199,7 @@
           href: log-analytics-network-performance-monitor.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Posouzení SCOM
+        - name: Kontrola stavu SCOM
           href: log-analytics-scom-assessment.md
         - name: Audit zabezpečení
           href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -208,7 +210,7 @@
               href: log-analytics-service-fabric-azure-resource-manager.md
         - name: Mapa služeb
           href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Posouzení SQL
+        - name: Kontrola stavu SQL
           href: log-analytics-sql-assessment.md
         - name: Surface Hub
           href: log-analytics-surface-hubs.md

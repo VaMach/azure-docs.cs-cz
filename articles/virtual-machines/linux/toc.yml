@@ -205,6 +205,17 @@
               href: terraform-install-configure.md
             - name: Vytvoření kompletního virtuálního počítače
               href: terraform-create-complete-vm.md
+        - name: Jenkins
+          href: ../../jenkins/overview.md
+          items:
+            - name: Vytvoření serveru Jenkins
+              href: ../../jenkins/install-jenkins-solution-template.md
+            - name: Škálování pomocí agentů virtuálních počítačů
+              href: ../../jenkins/jenkins-azure-vm-agents.md
+            - name: Publikování artefaktů do Storage
+              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+            - name: Zabezpečení Jenkinse
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Spuštění kontejnerů
       items:
         - name: Vytvoření hostitele Docker

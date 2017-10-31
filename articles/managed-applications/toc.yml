@@ -1,0 +1,88 @@
+- name: Spravované aplikace Azure
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Informace o spravovaných aplikacích
+      href: overview.md
+- name: Šablony Rychlý start
+  items:
+    - name: Vytvoření spravované aplikace pomocí rozhraní příkazového řádku Azure
+      href: managed-apps-quickstart-cli.md
+- name: Kurzy
+  items:
+    - name: Vytvoření aplikace katalogu služeb
+      href: publish-service-catalog-app.md
+    - name: Vytvoření aplikace Marketplace
+      href: publish-marketplace-app.md
+- name: Ukázky
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+    - name: Řešení spravovaných aplikací
+      href: sample-projects.md
+- name: Návody
+  items:
+    - name: Definování uživatelského rozhraní
+      href: create-uidefinition-overview.md
+    - name: Aktualizace spravovaných prostředků
+      href: update-managed-resources.md
+    - name: Publikování aplikace katalogu služeb – portál
+      href: publish-portal.md
+- name: Referenční informace
+  items:
+    - name: Azure CLI
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Funkce uživatelského rozhraní
+      href: create-uidefinition-functions.md
+    - name: Prvky uživatelského rozhraní
+      href: create-uidefinition-elements.md
+      items:
+        - name: Společné
+          items:
+            - name: DropDown
+              href: microsoft-common-dropdown.md
+            - name: FileUpload
+              href: microsoft-common-fileupload.md
+            - name: OptionsGroup
+              href: microsoft-common-optionsgroup.md
+            - name: PasswordBox
+              href: microsoft-common-passwordbox.md
+            - name: Sekce
+              href: microsoft-common-section.md
+            - name: TextBox
+              href: microsoft-common-textbox.md
+        - name: Compute
+          items:
+            - name: CredentialsCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SizeSelector
+              href: microsoft-compute-sizeselector.md
+            - name: UserNameTextBox
+              href: microsoft-compute-usernametextbox.md
+        - name: Síť
+          items:
+            - name: PublicIPAddressCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtualNetworkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Úložiště
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
+- name: Zdroje
+  items:
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Cenová kalkulačka
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'
