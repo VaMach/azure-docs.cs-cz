@@ -3,7 +3,6 @@
 ## [Poskytovatelé a typy prostředků](resource-manager-supported-services.md)
 ## [Resource Manager a klasické nasazení](resource-manager-deployment-model.md)
 ## [Zásady správného řízení pro předplatná](resource-manager-subscription-governance.md)
-## [Spravované aplikace](managed-application-overview.md)
 
 # Začínáme
 ## [Vytvoření šablony nasazení](resource-manager-create-first-template.md)
@@ -60,6 +59,7 @@
 ### [Přesunutí prostředků do nové skupiny nebo předplatného](resource-group-move-resources.md)
 ### [Uspořádání předplatných s využitím skupin pro správu](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Příklady zásad správného řízení](resource-manager-subscription-examples.md)
+### [Spravované aplikace](../managed-applications/overview.md)
 
 ## Řízení přístupu
 ### Vytvoření instančního objektu
@@ -80,13 +80,6 @@
 #### [Storage](resource-manager-policy-storage.md)
 #### [Virtuální počítač s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Virtuální počítač s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Použití spravovaných aplikací
-### [Publikování aplikace katalogu služeb](managed-application-publishing.md)
-### [Využití aplikace katalogu služeb](managed-application-consumption.md)
-### [Publikování aplikace Marketplace](managed-application-author-marketplace.md)
-### [Využití aplikace Marketplace](managed-application-consume-marketplace.md)
-### [Vytvoření definic uživatelského rozhraní](managed-application-createuidefinition-overview.md)
 
 ## Auditování
 ### [Zobrazení protokolů aktivit](resource-group-audit.md)
@@ -124,21 +117,6 @@
 ### [Numerické funkce](resource-group-template-functions-numeric.md)
 ### [Funkce prostředků](resource-group-template-functions-resource.md)
 ### [Funkce řetězců](resource-group-template-functions-string.md)
-## [Funkce definic uživatelského rozhraní](managed-application-createuidefinition-functions.md)
-## [Definiční prvky uživatelského rozhraní](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

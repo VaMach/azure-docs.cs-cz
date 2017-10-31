@@ -358,8 +358,9 @@
 ## [Rozhraní API Javy](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
+## [Schéma XML modelu služeb](service-fabric-service-model-schema.md)
 
-# Zdroje a prostředky
+# Zdroje
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Časté dotazy](service-fabric-common-questions.md)
 ## [Postup výuky](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
