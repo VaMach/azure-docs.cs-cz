@@ -19,6 +19,7 @@
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
+      href: powershell-samples.md
     - name: Řešení spravovaných aplikací
       href: sample-projects.md
 - name: Návody
