@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: Kurzy
   items:
-    - name: Geografická replikace
+    - name: Geografická replikace (Preview)
       items:
         - name: 1. Příprava registru kontejneru
           href: container-registry-tutorial-prepare-registry.md
