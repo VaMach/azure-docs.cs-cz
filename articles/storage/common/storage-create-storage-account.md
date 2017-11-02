@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Informace o účtech Azure Storage
 
@@ -79,7 +79,7 @@ Můžete také nakonfigurovat vlastní název domény, který budete chtít se s
 
 5. Vyberte typ účtu úložiště: **pro obecné účely** nebo **Blob Storage**. Ve výchozím nastavení je vybraný účet **pro obecné účely**.
    
-    Pokud je vybraný typ **pro obecné účely**, zadejte úroveň výkonu: **Standard** nebo **Premium**. Výchozí nastavení je **Standard**. Další podrobnosti o účtech úložiště úrovně Standard a Premium najdete v tématu [Úvod do Microsoft Azure Storage](storage-introduction.md) a [Storage úrovně Premium: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](storage-premium-storage.md).
+    Pokud je vybraný typ **pro obecné účely**, zadejte úroveň výkonu: **Standard** nebo **Premium**. Výchozí nastavení je **Standard**. Další podrobnosti o účtech úložiště úrovně Standard a Premium najdete v tématu [Úvod do Microsoft Azure Storage](storage-introduction.md) a [Storage úrovně Premium: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../../virtual-machines/windows/premium-storage.md).
    
     Pokud bylo vybráno úložiště **Blob Storage**, zadejte úrovně přístupu: **Hot** nebo **Cool**. Výchozí hodnota je **Hot**. Další podrobnosti najdete v tématu [Azure Blob Storage: úrovně Cool a Hot](../blobs/storage-blob-storage-tiers.md).
 6. Vyberte možnost replikace pro účet úložiště: **LRS**, **GRS**, **RA-GRS** nebo **ZRS**. Výchozí hodnota je **RA-GRS**. Další informace o možnostech replikace pro Azure Storage najdete v tématu [Replikace Azure Storage](storage-redundancy.md).

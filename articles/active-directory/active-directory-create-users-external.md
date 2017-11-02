@@ -16,12 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
+ms.openlocfilehash: c2e748d5b7ce958600d4da549bc4f2b085df83d8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Přidávání uživatelů z dalších adresářů nebo partnerských společností ve službě Azure Active Directory
 
@@ -47,7 +46,7 @@ Přidaní uživatelé nemají ve výchozím nastavení oprávnění správce, al
 > Pokud vaše organizace používá více než jednu doménu, měli byste vědět o následujících problémech týkajících se přidávání uživatelských účtů:
 >
 > * Pokud chcete přidat uživatelské účty s totožným hlavním názvem uživatele (UPN) pro všechny domény, přidejte například geoffgrisso@contoso.onmicrosoft.com **jako první** a **až potom** geoffgrisso@contoso.com.
-> * **Nepřidávejte** geoffgrisso@contoso.com předtím, než přidáte geoffgrisso@contoso.onmicrosoft.com.
+> * **Nepřidávejte**geoffgrisso@contoso.com předtím, než přidáte geoffgrisso@contoso.onmicrosoft.com.
 >
 
 Pokud chcete měnit informace u uživatele, jehož identita je synchronizována s místní službou Active Directory, nemůžete k tomu použít portál Azure Classic. Ke změně informací o uživateli použijte nástroje pro správu vaší místní služby Active Directory.
@@ -80,4 +79,3 @@ Externí uživatel ve vašem adresáři zůstane i v případě, že bude odstra
 * [Správa služby Azure AD](active-directory-administer.md)
 * [Správa hesel ve službě Azure AD](active-directory-manage-passwords.md)
 * [Správa skupin ve službě Azure AD](active-directory-manage-groups.md)
-
