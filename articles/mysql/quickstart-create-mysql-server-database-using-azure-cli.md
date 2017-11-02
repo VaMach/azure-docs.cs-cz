@@ -11,14 +11,12 @@ ms.devlang: azure-cli
 ms.topic: hero-article
 ms.date: 06/13/2017
 ms.custom: mvc
+ms.openlocfilehash: 0da8e52ae568e1e471cb5556cfde063bdd94911c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 3d66efa6935150c665a3f568e60c35ddbd70e8be
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/30/2017
 ---
-
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Vytvoření serveru Azure Database for MySQL pomocí Azure CLI
 Tento rychlý start popisuje, jak za pět minut vytvořit pomocí Azure CLI server Azure Database for MySQL ve skupině prostředků Azure. Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech.
 
@@ -190,4 +188,3 @@ az group delete --name myresourcegroup
 
 > [!div class="nextstepaction"]
 > [Návrh databáze MySQL pomocí rozhraní příkazového řádku Azure](./tutorial-design-database-using-cli.md)
-

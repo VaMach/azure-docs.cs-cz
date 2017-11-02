@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Nasazení a správa virtuálního zařízení StorSimple v Azure
 ## <a name="overview"></a>Přehled
@@ -33,7 +33,7 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 | **Virtuální počítač Azure** |Standard_A3 (4 jádra, 7 GB paměti) |Standard_DS3 (4 jádra, 14 GB paměti) |
 | **Kompatibilita verzí** |Verze používající software před Update 2 nebo novější |Verze používající software Update 2 nebo novější |
 | **Dostupnost v oblastech** |Všechny oblasti Azure |Všechny oblasti Azure, které podporují službu Storage úrovně Premium a virtuální počítače Azure DS3<br></br> Použijte [tento seznam](https://azure.microsoft.com/en-us/regions/services), abyste zjistili, jestli jsou ve vaší oblasti dostupné obě možnosti *Virtuální počítače > DS-series* a *Úložiště > Diskové úložiště*. |
-| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/common/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/common/storage-premium-storage.md) |
+| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/common/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../virtual-machines/windows/premium-storage.md) |
 | **Pokyny týkající se úloh** |Načítání souborů ze zálohy na úrovni položek |Scénáře vývoje a testování v cloudu, nízká latence, náročnější úlohy <br></br>Sekundární zařízení pro zotavení po havárii |
 
 <sup>1</sup>*Dříve označované jako 1100*.
@@ -82,7 +82,7 @@ Než zřídíte virtuální zařízení, je třeba provést následující pří
 Před vytvořením virtuálního zařízení aktualizujte svoji službu Azure StorSimple následujícím způsobem:
 
 * Přidejte [záznamy řízení přístupu](storsimple-manage-acrs.md) pro virtuální počítače, které budou představovat hostitelské servery pro virtuální zařízení.
-* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Standard Storage](../storage/common/storage-create-storage-account.md) nebo [účet služby Premium Storage](../storage/common/storage-premium-storage.md)
+* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Standard Storage](../storage/common/storage-create-storage-account.md) nebo [účet služby Premium Storage](../virtual-machines/windows/premium-storage.md)
 * Pro vytvoření virtuálního zařízení použijte jiný účet úložiště, než jaký se používá pro vaše data. Použití stejného účtu úložiště může vést k nižšímu výkonu.
 
 Před zahájením se ujistěte, že máte k dispozici následující informace:

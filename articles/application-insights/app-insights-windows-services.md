@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: mbullwin
+ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e7b78907fafcee99c807bfe8f7b311986ba7ffcc
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Ruční konfigurace služby Application Insights pro aplikace .NET
 
@@ -90,14 +89,14 @@ Pokud jste provedli jakékoli úpravy souboru ApplicationInsights.config, uložt
 
 * Nastavte v kódu klíč instrumentace, například v metodě `main()`: 
   
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *váš klíč* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*váš klíč*`";` 
 * [Napište si vlastní telemetrii pomocí rozhraní API](app-insights-api-custom-events-metrics.md#ikey).
 
 **Pokud jste nainstalovali jiné balíčky Application Insights**, můžete k nastavení klíče instrumentace použít soubor .config, pokud tomu dáváte přednost:
 
 * Upravit soubor ApplicationInsights.config (který byl nainstalován nástrojem NuGet). Vložte tuto položku těsně před uzavírací značku:
   
-    `<InstrumentationKey>` *zkopírovaný klíč instrumentace* `</InstrumentationKey>`
+    `<InstrumentationKey>`*zkopírovaný klíč instrumentace*`</InstrumentationKey>`
 * Ujistěte se, že jsou vlastnosti souboru ApplicationInsights.config v Průzkumníku řešení nastavené na: **Build Action = Content, Copy to Output Directory = Copy**.
 
 Nastavení klíče instrumentace v kódu je užitečné v případě, že chcete [přepínat mezi klíči pro různé konfigurace sestavení](app-insights-separate-resources.md). Pokud klíč nastavíte v kódu, nemusíte ho nastavovat v souboru `.config`.
@@ -149,5 +148,4 @@ Podívejte se na [tuto položku Řešení potíží](app-insights-asp-net-troubl
 
 ## <a name="next-steps"></a>Další kroky
 * [Přidejte více telemetrie](app-insights-asp-net-more.md) a získejte komplexní náhled na svoji aplikaci.
-
 
