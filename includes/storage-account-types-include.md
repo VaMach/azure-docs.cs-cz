@@ -4,7 +4,7 @@ Jsou dva druhy účtů úložiště:
 Účet úložiště pro obecné účely poskytuje přístup ke službám Azure Storage, například k tabulkám, frontám, souborům, objektům blob a diskům virtuálních počítačů Azure v rámci jednoho účtu. Tento typ účtu úložiště má dvě úrovně výkonu:
 
 * Úroveň výkonu standardního úložiště, které umožňuje ukládání tabulek, front, souborů, objektů blob a disků virtuálních počítačů Azure.
-* Úroveň výkonu prémiového úložiště, která aktuálně podporuje jenom disky virtuálních počítačů Azure. Podrobný popis služby Premium Storage najdete v článku [Úložiště Premium: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../articles/storage/common/storage-premium-storage.md).
+* Úroveň výkonu prémiového úložiště, která aktuálně podporuje jenom disky virtuálních počítačů Azure. Podrobný popis služby Premium Storage najdete v článku [Úložiště Premium: vysoce výkonné úložiště pro úlohy virtuálních počítačů Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="blob-storage-accounts"></a>Účty služby Blob Storage
 Účet služby Blob Storage je specializovaný účet úložiště pro ukládání nestrukturovaných dat v podobě objektů blob do služby Azure Storage. Účty služby Blob Storage jsou podobné účtům služby Storage pro obecné účely a mají stejně vysokou odolnost, dostupnost, škálovatelnost a výkonnost, a navíc mají 100% konzistentnost rozhraní API pro objekty blob bloků a doplňovací objekty blob. V případě aplikací, které vyžadují jenom úložiště objektů blob bloku nebo objektů blob doporučujeme používat účty úložiště objektů blob.

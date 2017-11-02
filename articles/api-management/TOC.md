@@ -50,6 +50,7 @@
 ### [Konfigurace pomocí Git](api-management-configuration-repository-git.md)
 ### [Monitorování pomocí Azure Monitoru](api-management-howto-use-azure-monitor.md)
 ### [Řízení přístupu na základě rolí](api-management-role-based-access-control.md)
+### [Použití služby Managed Service Identity](api-management-howto-use-managed-service-identity.md)
 ### Integrace se Service Fabric
 #### [Přehled](../service-fabric/service-fabric-api-management-overview.md)
 #### [Rychlý start](../service-fabric/service-fabric-api-management-quick-start.md)
