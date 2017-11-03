@@ -4,106 +4,106 @@ sql-database-elastic-pool.md
 -->
 
  
-### <a name="basic-elastic-pool-limits"></a>Basic elastic pool limits
+### <a name="basic-elastic-pool-limits"></a>Základní limity elastického fondu
 
-| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
+| Počet eDTU na fond | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Included storage per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max storage choices per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
-| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
-| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Min eDTUs choices per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Max eDTUs choices per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
-| Max storage per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
+| Zahrnuté úložiště na jeden fond (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Maximální počet možností úložiště na jeden fond (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Maximální počet OLTP v paměti úložiště na jeden fond (GB) | Není k dispozici | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. |
+| Maximální počet databází pro každý fond | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Maximální počet souběžných pracovních procesů (požadavků) na fond | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Maximální počet souběžných přihlášení na fond | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Možnosti min Edtu na databázi | 0,5 | 0,5 | 0,5 | 0,5 | 0,5 | 0,5 | 0,5 | 0,5 |
+| Možnosti Max Edtu na databázi | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Maximální velikost úložiště na databázi (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits"></a>Standard elastic pool limits
+### <a name="standard-elastic-pool-limits"></a>Standardní limity elastického fondu
 
-| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800**| 
+| Počet eDTU na fond | **50** | **100** | **200** | **300** | **400** | **800**| 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
-| Included storage per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
-| Max storage choices per pool (GB)* | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
-| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
-| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs choices per database** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Max eDTUs choices per database** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
-| Max storage per database (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
+| Zahrnuté úložiště na jeden fond (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
+| Maximální počet možností úložiště na jeden fond (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
+| Maximální počet OLTP v paměti úložiště na jeden fond (GB) | Není k dispozici | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | 
+| Maximální počet databází pro každý fond | 100 | 200 | 500 | 500 | 500 | 500 | 
+| Maximální počet souběžných pracovních procesů (požadavků) na fond | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Maximální počet souběžných přihlášení na fond | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Možnosti min Edtu na databázi ** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Možnosti Max Edtu na databázi ** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Maximální velikost úložiště na databázi (GB) * | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued"></a>Standard elastic pool limits (continued) 
+### <a name="standard-elastic-pool-limits-continued"></a>Limity elastického fondu úrovně Standard (pokračování) 
 
-| eDTUs per pool | **1200** | **1600** | **2000** | **2500** | **3000** |
+| Počet eDTU na fond | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Included storage per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
-| Max storage choices per pool (GB)* | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
-| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 
-| Max concurrent workers (requests) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Max concurrent logins per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs choices per database** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Max eDTUs choices per database** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
-| Max storage choices per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+| Zahrnuté úložiště na jeden fond (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
+| Maximální počet možností úložiště na jeden fond (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
+| Maximální počet OLTP v paměti úložiště na jeden fond (GB) | Není k dispozici | Není dostupné. | Není dostupné. | Není dostupné. | Není dostupné. | 
+| Maximální počet databází pro každý fond | 500 | 500 | 500 | 500 | 500 | 
+| Maximální počet souběžných pracovních procesů (požadavků) na fond | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Maximální počet souběžných přihlášení na fond | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Možnosti min Edtu na databázi ** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1 200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600, 2 000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600, 2 000, 2 500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600, 2 000, 2 500, 3 000 |
+| Možnosti Max Edtu na databázi ** | 10, 20, 50, 100, 200, 300, 400, 800, 1 200 | 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600 | 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600, 2 000 | 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600, 2 000, 2 500 | 10, 20, 50, 100, 200, 300, 400, 800, 1 200, 1 600, 2 000, 2 500, 3 000 | 
+| Maximální počet možností úložiště na databázi (GB) * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits"></a>Premium elastic pool limits
+### <a name="premium-elastic-pool-limits"></a>Prémiové limity elastického fondu
 
-| eDTUs per pool | **125** | **250** | **500** | **1000** | **1500**| 
+| Počet eDTU na fond | **125** | **250** | **500** | **1000** | **1500**| 
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 250 | 500 | 750 | 1024 | 1536 | 
-| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
-| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
-| Max number DBs per pool | 50 | 100 | 100 | 100 | 100 | 
-| Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 | 2400 | 
-| Max concurrent logins per pool | 200 | 400 | 800 | 1600 | 2400 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
-| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
-| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+| Zahrnuté úložiště na jeden fond (GB) | 250 | 500 | 750 | 1024 | 1536 | 
+| Maximální počet možností úložiště na jeden fond (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
+| Maximální počet OLTP v paměti úložiště na jeden fond (GB) | 1 | 2 | 4 | 10 | 12 | 
+| Maximální počet databází pro každý fond | 50 | 100 | 100 | 100 | 100 | 
+| Maximální počet souběžných pracovních procesů na fond (požadavky) | 200 | 400 | 800 | 1600 | 2400 | 
+| Maximální počet souběžných přihlášení na fond | 200 | 400 | 800 | 1600 | 2400 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Minimální počet eDTU na databázi | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1 000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
+| Maximální počet eDTU na databázi | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1 000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Maximální velikost úložiště na databázi (GB) * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued"></a>Premium elastic pool limits (continued) 
+### <a name="premium-elastic-pool-limits-continued"></a>Limity elastického fondu úrovně Premium (pokračování) 
 
-| eDTUs per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
+| Počet eDTU na fond | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
-| Max storage choices per pool (GB)* | 2048 | 2560 | 3072 | 3548 | 4096|
-| Max In-Memory OLTP storage per pool (GB) | 16 | 20 | 24 | 28 | 32 |
-| Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
-| Max concurrent workers (requests) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Max concurrent logins per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs choices per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Max eDTUs choices per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+| Zahrnuté úložiště na jeden fond (GB) | 2 048 | 2560 | 3072 | 3548 | 4 096 |
+| Maximální počet možností úložiště na jeden fond (GB) * | 2 048 | 2560 | 3072 | 3548 | 4 096|
+| Maximální počet OLTP v paměti úložiště na jeden fond (GB) | 16 | 20 | 24 | 28 | 32 |
+| Maximální počet databází pro každý fond | 100 | 100 | 100 | 100 | 100 | 
+| Maximální počet souběžných pracovních procesů (požadavků) na fond | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Maximální počet souběžných přihlášení na fond | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Možnosti min Edtu na databázi | 0, 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 0, 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 0, 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 0, 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 0, 25, 50, 75, 125, 250, 500, 1 000, 1 750, 4 000 | 
+| Možnosti Max Edtu na databázi | 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 25, 50, 75, 125, 250, 500, 1 000, 1 750 | 25, 50, 75, 125, 250, 500, 1 000, 1 750, 4 000 | 
+| Maximální velikost úložiště na databázi (GB) * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Premium RS elastic pool limits
+### <a name="premium-rs-elastic-pool-limits"></a>Omezení elastického fondu Premium RS
 
-| eDTUs per pool | **125** | **250** | **500** | **1000** |
+| Počet eDTU na fond | **125** | **250** | **500** | **1000** |
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 250 | 500 | 750 | 750 |
-| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 |
-| Max number DBs per pool | 50 | 100 | 100 | 100 |
-| Max concurrent workers (requests) per pool | 200 | 400 | 800 | 1600 |
-| Max concurrent logins per pool | 200 | 400 | 800 | 1600 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs choices per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Max eDTUs choices per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
+| Zahrnuté úložiště na jeden fond (GB) | 250 | 500 | 750 | 750 |
+| Maximální počet možností úložiště na jeden fond (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
+| Maximální počet OLTP v paměti úložiště na jeden fond (GB) | 1 | 2 | 4 | 10 |
+| Maximální počet databází pro každý fond | 50 | 100 | 100 | 100 |
+| Maximální počet souběžných pracovních procesů (požadavků) na fond | 200 | 400 | 800 | 1600 |
+| Maximální počet souběžných přihlášení na fond | 200 | 400 | 800 | 1600 |
+| Maximální počet souběžných relací na fond | 30000 | 30000 | 30000 | 30000 |
+| Možnosti min Edtu na databázi | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1 000 |
+| Možnosti Max Edtu na databázi | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1 000 | 
+| Maximální velikost úložiště na databázi (GB) * | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 > [!IMPORTANT]
-> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
+> \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete v tématu [SQL Database stránce s cenami](https://azure.microsoft.com/pricing/details/sql-database/). Úložiště velikosti větší než velikost zahrnuté úložiště jsou ve verzi preview a poplatkům použít. Podrobnosti najdete v tématu [SQL Database stránce s cenami](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
+> \* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: USA – východ 2, USA – západ, USA (Gov) – Virginia, Západní Evropa, Německo – střed, Jihovýchodní Asie, Japonsko – východ, Austrálie – východ, Kanada – střed a Kanada – východ. 
 >
->\*\* Min/max eDTUs per database starting at 200 eDTUs and higher in **Standard** pools are in preview.
+>\*\*Minimální nebo maximální počet jednotek Edtu na databázi počínaje na 200 Edtu a vyšší **standardní** fondy jsou ve verzi preview.
 >

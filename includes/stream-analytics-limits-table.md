@@ -1,11 +1,11 @@
 ---
-| Limit identifier | Limit | Comments |
+| Identifikátor omezení | Omezení | Komentáře |
 | --- | --- | --- |
-| Maximum number of Streaming Units per subscription per region |200 |A request to increase streaming units for your subscription beyond 200 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
-| Maximum number of inputs per job |60 |There is a hard limit of 60 inputs per Stream Analytics job. |
-| Maximum number of outputs per job |60 |There is a hard limit of 60 outputs per Stream Analytics job. |
-| Maximum number of functions per job |60 |There is a hard limit of 60 functions per Stream Analytics job. |
-| Maximum number of Streaming Units per job |120 |There is a hard limit of 120 Streaming Units per Stream Analytics job. |
-| Maximum number of jobs per region |1500 |Each subscription may have up to 1500 jobs per geographical region. |
-| Reference data blob MB | 100 | Reference data blobs cannot be larger than 100 MB each. |
+| Maximální počet jednotek streamování na předplatné a oblast |200 |Žádost o zvýšení jednotek streamování pro vaše předplatné nad 200 můžete provedeny kontaktováním [Microsoft Support](https://support.microsoft.com/en-us). |
+| Maximální počet vstupů na úlohu |60 |Platí vynucené omezení 60 vstupů na úlohu Stream Analytics. |
+| Maximální počet výstupů na úlohu |60 |Platí vynucené omezení 60 výstupů na úlohu Stream Analytics. |
+| Maximální počet funkcí na úlohu |60 |Platí vynucené omezení 60 funkcí na úlohu Stream Analytics. |
+| Maximální počet jednotek streamování na úlohu |120 |Není k dispozici pevný limit 120 jednotek streamování na úlohy služby Stream Analytics. |
+| Maximální počet úloh na oblast |1 500 |Každé předplatné může mít až 1 500 úloh na geografickou oblast. |
+| Velikost objektu blob referenčních dat v MB | 100 | Jednotlivé objekty blob referenčních dat nemohou být větší než 100 MB. |
 
