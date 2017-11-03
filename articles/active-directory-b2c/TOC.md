@@ -1,6 +1,9 @@
 # [Přehled](active-directory-b2c-overview.md)
 
 # Začínáme
+## [Testovací verze webové aplikace Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
+## [Testovací verze desktopové aplikace Azure AD B2C](active-directory-b2c-quickstarts-desktop-app.md)
+## [Testovací verze jednostránkové aplikace Azure AD B2C](active-directory-b2c-quickstarts-spa.md)
 ## [Vytvoření adresáře Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registrace vaší aplikace](active-directory-b2c-app-registration.md)
 ## [Předdefinované zásady](active-directory-b2c-reference-policies.md)

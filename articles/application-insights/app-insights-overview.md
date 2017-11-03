@@ -3,25 +3,25 @@ title: Co je Azure Application Insights? | Dokumentace Microsoftu
 description: "Správa výkonu aplikací a monitorování využití živých webových aplikací.  Rozpoznávání, třídění a diagnostika problémů a náhled na to, jak ostatní využívají vaše aplikace."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
+ms.custom: mvc
 ms.date: 05/14/2017
-ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: d06bb37ba38ad7bc2b9b3c5c09b45be6c7fd17bb
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/17/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-application-insights"></a>Co je Application Insights?
-Application Insights je rozšiřitelná služba pro správu výkonu aplikací (APM). Je určena webovým vývojářům na více platformách. Slouží k monitorování živé webové aplikace. Automaticky zjišťuje anomálie ve výkonu. Obsahuje výkonné analytické nástroje pro diagnostiku problémů a pomáhá porozumět, jak vlastně uživatelé vaši aplikaci používají.  Je navržená tak, aby pomáhala průběžně vylepšovat výkon a možnosti využití. Funguje u aplikací na široké škále platforem, jako jsou .NET, Node.js a J2EE, a to hostovaných lokálně i v cloudu. Integruje se s vaším procesem DevOps a má spojovací body s celou řadou dalších vývojářských nástrojů.
+Application Insights je rozšiřitelná služba pro správu výkonu aplikací (APM). Je určena webovým vývojářům na více platformách. Slouží k monitorování živé webové aplikace. Automaticky zjišťuje anomálie ve výkonu. Obsahuje výkonné analytické nástroje pro diagnostiku problémů a pomáhá porozumět, jak vlastně uživatelé vaši aplikaci používají.  Je navržená tak, aby pomáhala průběžně vylepšovat výkon a možnosti využití. Funguje u aplikací na široké škále platforem, jako jsou .NET, Node.js a J2EE, a to hostovaných lokálně i v cloudu. Se integruje s váš proces DevOps a má spojovací body na celou řadu nástrojů pro vývoj. Je-li monitorovat a analyzovat telemetrická data z mobilních aplikací integrací s Visual Studio Mobile Center a HockeyApp.
 
 ![Vytvořte statistický graf uživatelských aktivit nebo se na konkrétní události podívejte podrobněji.](./media/app-insights-overview/00-sample.png)
 
@@ -117,7 +117,8 @@ Existuje několik způsobů, jak začít. Použijte ten, který vám nejvíce vy
   * [Node.js](app-insights-nodejs.md)
   * [Jiné platformy](app-insights-platforms.md)
 * **[Instrumentace webových stránek](app-insights-javascript.md)** pro zobrazení stránek, AJAX a další telemetrii na straně klienta.
-* **[Testy dostupnosti](app-insights-monitor-web-app-availability.md)**  – Příkazem ping z našich serverů pravidelně testujte váš web.
+* **[Analýza využití mobilní aplikace](app-insights-mobile-center-quickstart.md)**  integrací s Visual Studio Mobile Center.
+* **[Testy dostupnosti](app-insights-monitor-web-app-availability.md)** – Příkazem ping z našich serverů pravidelně testujte váš web.
 
 
 ## <a name="next-steps"></a>Další kroky
@@ -163,4 +164,3 @@ Začínáme při vývoji:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-

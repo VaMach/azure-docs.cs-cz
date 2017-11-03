@@ -59,6 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Zotavení po havárii pro úlohy
       href: site-recovery-workload.md
+    - name: Migrace s využitím Azure Site Recovery
+      href: site-recovery-migrate-to-azure.md
     - name: Síťové propojení z Azure do Azure (Preview)
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Připojení virtuálních počítačů po převzetí služeb při selhání do Azure
@@ -104,9 +106,9 @@
         - name: Plánovač nasazení pro replikaci VMware do Azure
           href: site-recovery-deployment-planner.md
         - name: Plánování kapacity pro replikaci Hyper-V do Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
-        - name: Plánování kapacity pro replikaci Hyper-V do Azure
           href: site-recovery-capacity-planner.md
+        - name: Plánování kapacity pro replikaci Hyper-V do Azure
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
         - name: Horizontální navýšení kapacity procesních serverů pro replikaci VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: Testy škálování výkonu pro replikaci Hyper-V mezi místními lokalitami
@@ -181,7 +183,9 @@
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
     - name: Migrace
       items:
-        - name: Replikace migrovaných počítačů do jiné oblasti Azure
+        - name: Migrace virtuálních počítačů Azure do jiné oblasti Azure
+          href: site-recovery-migrate-azure-to-azure.md
+        - name: Replikace počítačů do jiné oblasti Azure po migraci
           href: site-recovery-azure-to-azure-after-migration.md
     - name: Úlohy
       items:

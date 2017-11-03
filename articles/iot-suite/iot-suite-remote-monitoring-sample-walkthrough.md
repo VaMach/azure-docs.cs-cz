@@ -1,6 +1,6 @@
 ---
-title: "Návod pro předkonfigurované řešení vzdáleného monitorování | Dokumentace Microsoftu"
-description: "Popis předkonfigurovaného řešení Azure IoT pro vzdálené monitorování a jeho architektura."
+title: "Architektura řešení vzdáleného monitorování - Azure | Microsoft Docs"
+description: "Návod architektura předkonfigurovaného řešení vzdáleného monitorování."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -10,275 +10,136 @@ editor:
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Návod pro předkonfigurované řešení vzdáleného monitorování
+# <a name="remote-monitoring-preconfigured-solution-architecture"></a>Předkonfigurované architektury řešení vzdáleného monitorování
 
-[Předkonfigurované řešení][lnk-preconfigured-solutions] vzdáleného monitorování sady IoT Suite je implementace uceleného monitorovacího řešení pro více počítačů spuštěných ve vzdálených umístěních. Řešení kombinuje klíčové služby Azure a poskytuje obecnou implementaci obchodního scénáře. Můžete ho použít jako výchozí bod pro vlastní implementaci a [přizpůsobit][lnk-customize] si ho tak, aby splňovalo vaše konkrétní obchodní požadavky.
+Vzdálené sady IoT Suite monitorování [předkonfigurované řešení](iot-suite-what-are-preconfigured-solutions.md) implementuje řešení monitorování v začátku do konce pro víc počítačů ve vzdálených umístěních. Řešení kombinuje klíčové služby Azure a poskytuje obecnou implementaci obchodního scénáře. Řešení můžete použít jako výchozí bod pro vlastní implementaci a [přizpůsobit](iot-suite-remote-monitoring-customize.md) ho podle konkrétních podnikových požadavků.
 
 Tento článek vás provede některými z klíčových prvků řešení vzdáleného monitorování, aby vám pomohl pochopit, jak toto řešení funguje. Díky tomu budete moct:
 
 * Odstraňovat potíže v řešení.
-* Naplánujte, jak řešení přizpůsobit podle konkrétních požadavků. 
+* Naplánujte, jak řešení přizpůsobit podle konkrétních požadavků.
 * Navrhněte vlastní řešení IoT, které používá služby Azure.
 
 ## <a name="logical-architecture"></a>Logická architektura
 
-Následující diagram popisuje logické součásti tohoto předkonfigurovaného řešení:
+Následující diagram popisuje logické součásti tohoto řešení vzdáleného monitorování předkonfigurované překrývajícím [architektuře IoT](iot-suite-what-is-azure-iot.md):
 
 ![Logická architektura](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## <a name="simulated-devices"></a>Simulovaná zařízení
+## <a name="why-microservices"></a>Proč mikroslužeb?
 
-V předkonfigurovaných řešeních představuje simulované zařízení chladící zařízení (například klimatizační jednotku v budově nebo vzduchovod). Při nasazení předkonfigurovaných řešení dojde také automaticky ke zřízení čtyř simulovaných zařízení, která běží ve [webových úlohách Azure][lnk-webjobs]. Simulovaná zařízení umožňují snadno zkoumat chování řešení, aniž by bylo nutné nasazovat fyzická zařízení. Pokud chcete nasadit skutečné fyzické zařízení, přečtěte si kurz [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování][lnk-connect-rm].
+Architektura Cloud má vyvinuly vzhledem k tomu, že společnost Microsoft vydala první předkonfigurovaných řešení. [Mikroslužeb](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) této služby jako osvědčené postupy pro zajištění škálování a flexibilitu, aniž by došlo ke ztrátě vývoj rychlostí. Tento vzor architektury několika služeb Microsoft interně použít s skvělé spolehlivosti a škálovatelnosti výsledky. Aktualizované předkonfigurovaná řešení uveďte tyto learnings do praxe, mohou také těžit z nich.
 
-### <a name="device-to-cloud-messages"></a>Zprávy typu zařízení-cloud
+> [!TIP]
+> Další informace o architektury mikroslužby najdete v tématu [Architektura aplikace .NET](https://www.microsoft.com/net/learn/architecture) a [Mikroslužeb: revolution aplikace používá technologii cloudu](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-Každé simulované zařízení může odesílat do služby IoT Hub následující typy zpráv:
+## <a name="device-connectivity"></a>Připojení zařízení
 
-| Zpráva | Popis |
-| --- | --- |
-| Spuštění |Při spuštění zařízení odešle zprávu **device-info** s informace o sobě na back-end. Tato data obsahují ID zařízení a seznam příkazů a metod, které zařízení podporuje. |
-| Přítomnost |Zařízení pravidelně odesílá zprávu o **presence**, která oznamuje, jestli zařízení rozpoznává přítomnost senzoru. |
-| Telemetrická data |Zařízení pravidelně odesílá zprávu **telemetry**, která hlásí simulované hodnoty teploty a vlhkosti získané ze simulovaných senzorů zařízení. |
+Řešení obsahuje následující součásti v části připojení k zařízení Logická architektura:
 
-> [!NOTE]
-> Řešení ukládá seznam příkazů, které zařízení podporuje, v databázi Cosmos DB a nikoli ve dvojčeti zařízení.
+### <a name="simulated-devices"></a>Simulovaná zařízení
 
-### <a name="properties-and-device-twins"></a>Vlastnosti a dvojčata zařízení
+Řešení obsahuje mikroslužbu, která umožňuje spravovat fond Simulovaná zařízení k testování začátku do konce toku v řešení. Simulovaná zařízení:
 
-Simulovaná zařízení odesílají následující vlastnosti zařízení do [dvojčete][lnk-device-twins] ve službě IoT Hub jako *ohlášené vlastnosti*. Zařízení odesílá ohlášené vlastnosti při spuštění a jako reakci na metodu nebo příkaz **Change Device State** (Změnit stav zařízení).
+* Generování telemetrie zařízení cloud.
+* Reagovat na volání metod cloud zařízení ze služby IoT Hub.
 
-| Vlastnost | Účel |
-| --- | --- |
-| Config.TelemetryInterval | Frekvence (v sekundách) odesílání telemetrie ze zařízení |
-| Config.TemperatureMeanValue | Určuje střední hodnotu telemetrie simulované teploty |
-| Device.DeviceID |ID, které je zadáno nebo přiřazeno při vytvoření zařízení v řešení |
-| Device.DeviceState | Stav hlášený zařízením |
-| Device.CreatedTime |Čas vytvoření zařízení v řešení |
-| Device.StartupTime |Čas spuštění zařízení |
-| Device.LastDesiredPropertyChange |Číslo verze poslední změny požadované vlastnosti |
-| Device.Location.Latitude |Zeměpisná šířka umístění zařízení |
-| Device.Location.Longitude |Zeměpisná délka umístění zařízení |
-| System.Manufacturer |Výrobce zařízení |
-| System.ModelNumber |Číslo modelu zařízení |
-| System.SerialNumber |Sériové číslo zařízení |
-| System.FirmwareVersion |Aktuální verzi firmwaru v zařízení |
-| System.Platform |Architektura platformy zařízení |
-| System.Processor |Procesor použitý v zařízení |
-| System.InstalledRAM |Velikost paměti RAM nainstalované v zařízení |
+Mikroslužbu poskytuje RESTful koncový bod pro k vytvoření, spuštění a zastavení simulace. Každý simulace se skládá z sadu různých typů, které odesílat telemetrická data a reagovat na volání metod virtuální zařízení.
 
-Simulátor doplňuje pro tyto vlastnosti v simulovaném zařízení vzorové hodnoty. Pokaždé, když simulátor inicializuje simulované zařízení, ohlásí toto zařízení do služby IoT Hub předdefinovaná metadata jako ohlášené vlastnosti. Ohlášené vlastnosti může aktualizovat pouze zařízení. Pokud chcete změnit ohlášenou vlastnost, musíte na portálu řešení nastavit požadovanou vlastnost. Zařízení je zodpovědné za:
+Simulovaná zařízení na řídicím panelu portálu řešení můžete zřídit.
 
-1. Pravidelné načítání požadovaných vlastností ze služby IoT Hub.
-2. Aktualizaci vlastní konfigurace s použitím hodnot požadovaných vlastností.
-3. Odesílání nových hodnot zpět do služby IoT Hub jako ohlášených vlastností.
+### <a name="physical-devices"></a>Fyzické zařízení
 
-Na řídicím panelu řešení můžete použít *požadované vlastnosti* k nastavení vlastností v zařízení pomocí [dvojčete zařízení][lnk-device-twins]. Zařízení obvykle načítá hodnotu požadované vlastnosti ze služby IoT Hub a aktualizuje svůj interní stav, a změny hlásí zpět jako ohlášené vlastnosti.
+Fyzické zařízení můžete připojit k řešení. Můžete implementovat chování Simulovaná zařízení pomocí sady SDK zařízení Azure IoT.
 
-> [!NOTE]
-> Kód simulovaného zařízení k aktualizaci ohlášených vlastností odeslaných zpět do služby IoT Hub využívá pouze požadované vlastnosti **Desired.Config.TemperatureMeanValue** a **Desired.Config.TelemetryInterval**. Všechny ostatní žádosti o změnu požadované vlastnosti se v simulovaném zařízení ignorují.
+Můžete zřídit fyzické zařízení na řídicím panelu portálu řešení.
 
-### <a name="methods"></a>Metody
+### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub a mikroslužbu manager IoT
 
-Simulovaná zařízení můžou zpracovávat následující metody ([přímé metody][lnk-direct-methods]) vyvolané z portálu řešení prostřednictvím služby IoT Hub:
-
-| Metoda | Popis |
-| --- | --- |
-| InitiateFirmwareUpdate |Dá zařízení pokyn k provedení aktualizace firmwaru |
-| Restartování |Dá zařízení pokyn k restartování |
-| FactoryReset |Dá zařízení pokyn k provedení obnovení do výrobního nastavení |
-
-Některé metody používají ohlášené vlastnosti k podávání zpráv o průběhu. Například metoda **InitiateFirmwareUpdate** simuluje asynchronní spuštění aktualizace v zařízení. Metoda se v zařízení vykoná okamžitě, zatímco asynchronní úloha pomocí ohlášených vlastností stále odesílá aktualizace stavu zpět do řídicího panelu řešení.
-
-### <a name="commands"></a>Příkazy
-
-Simulovaná zařízení můžou zpracovávat následující příkazy (zprávy typu cloud-zařízení) odeslané z portálu řešení prostřednictvím služby IoT Hub:
-
-| Příkaz | Popis |
-| --- | --- |
-| PingDevice |Odešle do zařízení *ping* pro účely kontroly, jestli je dané zařízení aktivní. |
-| StartTelemetry |Spustí odesílání telemetrických dat ze zařízení |
-| StopTelemetry |Zastaví odesílání telemetrických dat zařízením |
-| ChangeSetPointTemp |Změní hodnotu bodu, na jehož základě se vytvářejí náhodná data |
-| DiagnosticTelemetry |Aktivuje v simulátoru zařízení odesílání další telemetrické hodnoty (externalTemp) |
-| ChangeDeviceState |Změní rozšířené stavové vlastnosti zařízení a odešle z něj zprávu s informacemi o zařízení |
-
-> [!NOTE]
-> Porovnání těchto příkazů (zpráv typu cloud-zařízení) a metod (přímých metod) najdete v [doprovodných materiálech ke komunikaci typu cloud-zařízení][lnk-c2d-guidance].
-
-## <a name="iot-hub"></a>IoT Hub
-
-Služba [IoT Hub][lnk-iothub] přijímá data odesílaná ze zařízení do cloudu a zpřístupňuje je úlohám Azure Stream Analytics (ASA). Každá úloha datového proudu ASA používá ke čtení streamu zpráv ze zařízení samostatnou skupinu příjemců IoT Hub.
+[Služby IoT hub](../iot-hub/index.md) ingestuje dat odesílaných ze zařízení do cloudu a můžete ho `telemetry-agent` mikroslužby.
 
 Služba IoT Hub v řešení také:
 
-- Udržuje registr identit, ve kterém jsou uloženy identifikátory a ověřovací klíče všech zařízení s povolením připojit se k portálu. Prostřednictvím registru identit můžete zařízení povolit nebo zakázat.
-- Jménem portálu řešení odesílá příkazy do zařízení.
-- Jménem portálu řešení vyvolává metody v zařízeních.
-- Udržuje dvojčata zařízení pro všechna registrovaná zařízení. Dvojče zařízení ukládá hodnoty vlastností ohlášené zařízením. Dvojče zařízení také ukládá požadované vlastnosti nastavené na portálu řešení, aby si je zařízení při dalším připojení mohlo načíst.
-- Plánuje úlohy, které nastaví vlastnosti pro více zařízení, nebo vyvolává metody ve více zařízeních.
+* Udržuje registru identit, která ukládá ID a ověřovací klíče všech zařízení lze připojit k portálu. Prostřednictvím registru identit můžete zařízení povolit nebo zakázat.
+* Jménem portálu řešení vyvolává metody v zařízeních.
+* Udržuje dvojčata zařízení pro všechna registrovaná zařízení. Dvojče zařízení ukládá hodnoty vlastností ohlášené zařízením. Dvojče zařízení také ukládá požadované vlastnosti nastavené na portálu řešení, aby si je zařízení při dalším připojení mohlo načíst.
+* Plánuje úlohy, které nastaví vlastnosti pro více zařízení, nebo vyvolává metody ve více zařízeních.
 
-## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+Řešení obsahuje `iot-manager` mikroslužbu pro zpracování interakce s služby IoT hub, jako:
 
-V řešení vzdáleného monitorování [Azure Stream Analytics][lnk-asa] (ASA) odesílá zprávy zařízení přijaté službou IoT Hub do dalších back-endových komponent ke zpracování nebo uložení. Různé úlohy ASA provádějí konkrétní funkce na základě obsahu zpráv.
+* Vytváření a správa zařízení IoT.
+* Správa dvojčata zařízení.
+* Volání metod na zařízení.
+* Správa přihlašovacích údajů IoT.
 
-**Úloha 1: Informace o zařízení** filtruje z příchozího datového proudu zprávy s informacemi o zařízení a odesílá je do koncového bodu Centra událostí. Zařízení odesílá zprávy s informacemi o zařízení při spuštění a jako odezvu na příkaz **SendDeviceInfo**. Tato úloha používá následující definici dotazu k identifikaci zpráv **device-info**:
+Tato služba také spouští služby IoT Hub dotazy k načtení zařízení patřící do uživatelské skupiny.
 
-```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
-```
+Mikroslužbu poskytuje RESTful koncový bod pro správu zařízení a dvojčata zařízení, volat metody a spouštět dotazy IoT Hub.
 
-Tato úloha odesílá svůj výstup do služby Event Hub k dalšímu zpracování.
+## <a name="data-processing-and-analytics"></a>Zpracování a analýza dat
 
-**Úloha 2: Pravidla** vyhodnotí příchozí telemetrická data o teplotě a vlhkosti v porovnání s mezními hodnotami na daném zařízení. Mezní hodnoty se nastavují v editoru pravidel, který je dostupný na portálu řešení. Každý pár zařízení/hodnota se ukládá pomocí časového razítka v objektu blob, který služba Stream Analytics načítá jako **referenční data**. Úloha porovná všechny neprázdné hodnoty s nastavenými mezními hodnotami v zařízení. Při překročení podmínky ' >' bude výstupem úlohy událost **alarmu**, která signalizuje, že je překročena mezní hodnota, a její součástí budou informace o zařízení, zjištěné hodnotě a časovém razítku. Tato úloha používá následující definice dotazu k identifikaci telemetrických zpráv, které mohou aktivovat alarm:
+Řešení obsahuje následující součásti v zpracování dat a analýzy součástí Logická architektura:
 
-```
-WITH AlarmsData AS 
-(
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Temperature' as ReadingType,
-     Stream.Temperature as Reading,
-     Ref.Temperature as Threshold,
-     Ref.TemperatureRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+### <a name="device-telemetry"></a>Zařízení telemetrie
 
-UNION ALL
+Řešení obsahuje dva mikroslužeb pro zpracování telemetrie zařízení.
 
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Humidity' as ReadingType,
-     Stream.Humidity as Reading,
-     Ref.Humidity as Threshold,
-     Ref.HumidityRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-)
+[Telemetrie agenta](https://github.com/Azure/telemetry-agent-dotnet) mikroslužbu:
 
-SELECT *
-INTO DeviceRulesMonitoring
-FROM AlarmsData
+* Ukládá telemetrická data do databáze. Cosmos.
+* Analyzuje datový proud telemetrie ze zařízení.
+* Generuje výstrahy podle definovaná pravidla.
 
-SELECT *
-INTO DeviceRulesHub
-FROM AlarmsData
-```
+Signály jsou uloženy v databázi Cosmos.
 
-Úloha odesílá svůj výstup do centra událostí k dalšímu zpracování a ukládá podrobnosti jednotlivých upozornění do úložiště objektů blob, odkud může informace o upozorněních přečíst portál řešení.
+`telemetry-agent` Mikroslužbu umožňuje portálu řešení číst telemetrická data odesílaná ze zařízení. Portál řešení používá také této služby:
 
-**Úloha 3: Telemetrická** má v příchozím datovém proudu telemetrických dat dvě funkce. Za prvé odeslání všech telemetrických zpráv ze zařízení do trvalého úložiště objektů blob k dlouhodobému uložení. Za druhé výpočet průměrné, minimální a maximální hodnoty vlhkosti v pětiminutovém posuvném okně a odeslání těchto dat do úložiště objektu blob. Portál řešení načítá telemetrická data z úložiště objektů blob a vytváří z nich grafy. Tato úloha používá následující definici dotazu:
+* Definovat pravidla monitorování, například prahové hodnoty, které aktivují výstrahy
+* Načtení seznamu posledních výstrahy.
 
-```
-WITH 
-    [StreamData]
-AS (
-    SELECT
-        *
-    FROM [IoTHubStream]
-    WHERE
-        [ObjectType] IS NULL -- Filter out device info and command responses
-) 
+RESTful koncový bod poskytl tento mikroslužbu použijte ke správě telemetrie, pravidla a nastavení upozornění.
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    Temperature,
-    Humidity,
-    ExternalTemperature,
-    EventProcessedUtcTime,
-    PartitionId,
-    EventEnqueuedUtcTime,
-    * 
-INTO
-    [Telemetry]
-FROM
-    [StreamData]
+### <a name="storage"></a>Úložiště
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    AVG (Humidity) AS [AverageHumidity],
-    MIN(Humidity) AS [MinimumHumidity],
-    MAX(Humidity) AS [MaxHumidity],
-    5.0 AS TimeframeMinutes 
-INTO
-    [TelemetrySummary]
-FROM [StreamData]
-WHERE
-    [Humidity] IS NOT NULL
-GROUP BY
-    IoTHub.ConnectionDeviceId,
-    SlidingWindow (mi, 5)
-```
+[Adaptéru úložiště](https://github.com/Azure/pcs-storage-adapter-dotnet) mikroslužbu je adaptér před službu hlavní úložiště používá pro předkonfigurované řešení. Poskytuje jednoduché kolekce a klíč hodnota úložiště.
 
-## <a name="event-hubs"></a>Event Hubs
+Standardní nasazení předkonfigurované řešení používá Cosmos DB jako jeho hlavní úložiště služby.
 
-Úlohy služby ASA **informace o zařízení** a **pravidla** odesílají výstupní data do služby Event Hubs, aby bylo zajištěno spolehlivé předání do **Procesoru událostí** spuštěném ve webové úloze.
+Databázi Cosmos DB ukládá data do předkonfigurovaného řešení. **Adaptéru úložiště** mikroslužbu funguje jako adaptér pro ostatní mikroslužeb v řešení pro přístup ke službě úložiště.
 
-## <a name="azure-storage"></a>Úložiště Azure
+## <a name="presentation"></a>Prezentace
 
-Toto řešení využívá službu Azure Blob Storage k trvalému uchování všech nezpracovaných a souhrnných telemetrických dat ze zařízení v řešení. Portál načítá telemetrická data z úložiště objektů blob a vytváří z nich grafy. Za účelem zobrazení upozornění portál načítá z úložiště objektů blob data, která zaznamenává, když hodnoty telemetrie překračují nakonfigurované prahové hodnoty. Řešení také využívá úložiště objektů blob pro záznam prahových hodnot, které nastavíte na portálu řešení.
+Řešení obsahuje následující součásti v části prezentace Logická architektura:
 
-## <a name="webjobs"></a>Webové úlohy
+[Webové uživatelské rozhraní je aplikace React Javascript](https://github.com/Azure/pcs-remote-monitoring-webui). Aplikace:
 
-Webové úlohy v řešení kromě hostování simulátorů zařízení také hostují **Procesor událostí** spuštěný ve webové úloze Azure, který zpracovává odezvy na příkazy. Zprávy s odezvami na příkazy používá k aktualizaci historie příkazů zařízení (uložené v databázi Cosmos DB).
+* Pouze používá reagovat, Javascript a spustí zcela v prohlížeči.
+* Je navržen s šablon stylů CSS.
+* Komunikuje s veřejné mikroslužeb přístupných prostřednictvím volání AJAX.
 
-## <a name="cosmos-db"></a>Cosmos DB
+Uživatelské rozhraní uvede všechny funkce předkonfigurované řešení a komunikuje s dalšími službami, jako například:
 
-Řešení používá k ukládání informací o zařízeních připojených k řešení databázi Cosmos DB. Tyto informace zahrnují historii příkazů odeslaných do zařízení z portálu řešení a metod vyvolaných z portálu řešení.
+* [Ověřování](https://github.com/Azure/pcs-auth-dotnet) mikroslužbu pro ochranu dat uživatele.
+* [Iothub-manager](https://github.com/Azure/iothub-manager-dotnet) mikroslužbu seznamu a správa zařízení IoT.
 
-## <a name="solution-portal"></a>Portál řešení
-
-Portál řešení je webová aplikace nasazená jako součást předkonfigurovaného řešení. Klíčové stránky na portálu řešení jsou Řídicí panel a Seznam zařízení.
-
-### <a name="dashboard"></a>Řídicí panel
-
-Tato stránka ve webové aplikaci používá ovládací prvky PowerBI v jazyce JavaScript (viz [Úložiště vizuálních prvků PowerBI](https://www.github.com/Microsoft/PowerBI-visuals)) k vizualizaci telemetrických dat ze zařízení. Řešení využívá telemetrickou úlohu ASA k zápisu telemetrických dat do úložiště objektů blob.
-
-### <a name="device-list"></a>Seznam zařízení
-
-Na této stránce portálu řešení můžete provádět následující akce:
-
-* Zřízení nového zařízení. Tato akce nastaví jedinečné ID zařízení a vygeneruje klíč pro ověřování. Zapisuje informace o zařízení do registru identity služby IoT Hub a databáze Cosmos DB specifické pro řešení.
-* Správa vlastností zařízení. Tato akce zahrnuje zobrazení existujících vlastností a aktualizaci novými vlastnostmi.
-* Odesílat příkazy do zařízení.
-* Zobrazit historii příkazů pro zařízení.
-* Povolení a zákaz zařízení.
+[Uživatelského rozhraní config](https://github.com/Azure/pcs-config-dotnet) mikroslužbu umožňuje uživatelské rozhraní pro ukládání a načítání nastavení konfigurace.
 
 ## <a name="next-steps"></a>Další kroky
 
-Následující příspěvky na blogu TechNet poskytují další podrobnosti o předkonfigurovaném řešení pro vzdálené monitorování:
+Pokud chcete prozkoumat zdrojový kód a vývojáře dokumentaci, začněte s jedním dva hlavní úložišť GitHub:
 
-* [Sada IoT Suite - Pod pokličkou - Vzdálené monitorování](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [Sada IoT Suite - Vzdálené monitorování - Přidávání skutečných a simulovaných zařízení](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [Předkonfigurované řešení pro vzdálené monitorování s Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Předkonfigurované řešení pro vzdálené monitorování s Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-Další informace o sadě IoT Suite najdete v následujících článcích:
-
-* [Připojení zařízení k předkonfigurovanému řešení vzdáleného monitorování][lnk-connect-rm]
-* [Oprávnění na webu azureiotsuite.com][lnk-permissions]
-
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+Další koncepční informace o předkonfigurovaného řešení vzdáleného monitorování najdete v tématu [přizpůsobení předkonfigurovaného řešení](iot-suite-remote-monitoring-customize.md).

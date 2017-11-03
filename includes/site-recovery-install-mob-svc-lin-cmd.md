@@ -1,35 +1,35 @@
-1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
+1. Zkopírujte instalační službu do místní složky (například TMP) na serveru, který chcete chránit. V terminálu spusťte následující příkazy:
   ```
   cd /tmp
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
-2. To install Mobility Service, run the following command:
+2. Pro instalaci služby Mobility, spusťte následující příkaz:
 
   ```
   sudo ./install -d <Install Location> -r MS -v VmWare -q
   ```
-3. Once installation is complete, the Mobility Service needs to get registered to the configuration server. Run the following command to register the Mobility Service with Configuration server.
+3. Po dokončení instalace služby Mobility je potřeba získat zaregistrovaný na konfiguračním serveru. Spusťte následující příkaz pro registraci služba Mobility se konfigurační server.
 
   ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line"></a>Mobility Service installer command-line
+#### <a name="mobility-service-installer-command-line"></a>Instalátoru služby mobility příkazového řádku
 
 ```
 Usage:
 ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 ```
 
-|Parameter|Type|Description|Possible values|
+|Parametr|Typ|Popis|Možné hodnoty|
 |-|-|-|-|
-|-r |Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
-|-d |Optional|Location where Mobility Service will be installed|/usr/local/ASR|
-|-v|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
-|-q|Optional|Specifies to run installer in silent mode| N/A|
+|-r |Povinné|Určuje, zda by měly být nainstalovány služby Mobility (MS) nebo MasterTarget(MT) by měly být nainstalovány.|MS </br> MT –|
+|-d |Nepovinné|Umístění, kde bude nainstalován služba Mobility|/usr/local/ASR|
+|-v|Povinné|Určuje platformu, na kterém služba Mobility je získávání nainstalovaná </br> </br>- **VMware** : tuto hodnotu použijte, pokud k instalaci služby mobility na virtuálním počítači systémem *VMware vSphere hostitelích ESXi*, *hostitelů Hyper-V* a *Phsyical servery* </br> - **Azure** : tuto hodnotu použijte, pokud instalujete agenta na virtuálním počítači Azure IaaS| VMware </br> Azure|
+|-q|Nepovinné|Určuje, ke spuštění instalačního programu v bezobslužném režimu| Není k dispozici|
 
 
-#### <a name="mobility-service-configuration-command-line"></a>Mobility Service configuration command-line
+#### <a name="mobility-service-configuration-command-line"></a>Konfigurace služby mobility příkazového řádku
 
 ```
 Usage:
@@ -37,7 +37,7 @@ cd /usr/local/ASR/Vx/bin
 UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
 
-|Parameter|Type|Description|Possible values|
+|Parametr|Typ|Popis|Možné hodnoty|
 |-|-|-|-|
-|-i |Mandatory|IP of the Configuration Server|Any valid IP Address|
-|-P |Mandatory|Full file path the file where the connection passphrase is saved|Any valid folder|
+|-i |Povinné|IP konfigurace serveru|Libovolná platná IP adresa|
+|-P |Povinné|Úplná cesta k souboru, kde je uloží heslo připojení|Všechny platné složce.|

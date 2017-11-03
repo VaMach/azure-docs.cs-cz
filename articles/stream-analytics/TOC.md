@@ -24,6 +24,7 @@
 ### [Využití referenčních dat](stream-analytics-use-reference-data.md)
 ### [Testování dotazů](stream-analytics-test-query.md)
 ### [Integrace funkcí UDF JavaScriptu](stream-analytics-javascript-user-defined-functions.md)
+### [Integrace funkcí UDA JavaScriptu](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integrace REST API a Machine Learningu](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Vytváření výstupů](stream-analytics-define-outputs.md)
 ### [Výstup do Data Lake Store](stream-analytics-data-lake-output.md)

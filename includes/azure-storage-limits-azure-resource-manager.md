@@ -1,8 +1,8 @@
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
+Následující omezení se použijí při provádění operace správy pomocí Azure Resource Manager jenom.
 
-| Resource | Default Limit |
+| Prostředek | Výchozí omezení |
 | --- | --- |
-| Storage account management operations (read) |800 per 5 minutes |
-| Storage account management operations (write) |200 per hour |
-| Storage account management operations (list) |100 per 5 minutes |
+| Operace správy účtů úložiště (přečíst) |800 za 5 minut |
+| Operace správy účtů úložiště (zápisu) |200 za hodinu |
+| Operace správy účtů úložiště (list) |100 za 5 minut |
 

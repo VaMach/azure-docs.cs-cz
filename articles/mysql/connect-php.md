@@ -6,20 +6,18 @@ author: mswutao
 ms.author: wuta
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: hero-article
-ms.date: 07/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 59da1ab9e76685d7ed0c4415ef99578c982e956c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/14/2017
-
+ms.topic: quickstart
+ms.date: 09/22/2017
+ms.openlocfilehash: 2af5871e8bf67070c83b5faebc1f9e44b0de609e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL: Připojení a dotazování dat pomocí PHP
-Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for MySQL pomocí aplikace v [PHP](http://php.net/manual/intro-whatis.php). Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. V tomto článku se předpokládá, že máte zkušenosti s vývojem pomocí PHP, ale teprve začínáte pracovat se službou Azure Database for MySQL.
+Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for MySQL pomocí aplikace v [PHP](http://php.net/manual/intro-whatis.php). Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. Toto téma předpokládá, že jste obeznámeni s vývojem pomocí PHP a že jste novou práce s Azure Database pro databázi MySQL.
 
 ## <a name="prerequisites"></a>Požadavky
 Tento rychlý start jako výchozí bod využívá prostředky vytvořené v některém z těchto průvodců:
@@ -27,19 +25,19 @@ Tento rychlý start jako výchozí bod využívá prostředky vytvořené v něk
 - [Vytvoření serveru Azure Database for MySQL pomocí Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>Instalace PHP
-Nainstalujte PHP na vlastní server nebo vytvořte [webovou aplikaci](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) Azure, která zahrnuje PHP.
+Nainstalujte PHP na vlastní server nebo vytvořte [webovou aplikaci](../app-service/app-service-web-overview.md) Azure, která zahrnuje PHP.
 
 ### <a name="macos"></a>MacOS
-- Stáhněte [verzi PHP 7.1.4](http://php.net/downloads.php).
-- Nainstalujte PHP a další konfiguraci vyhledejte v [příručce k PHP](http://php.net/manual/install.macosx.php).
+- Stáhněte si [PHP 7.1.4 verze](http://php.net/downloads.php).
+- Instalace PHP a odkazovat [PHP ručně](http://php.net/manual/install.macosx.php) pro další konfiguraci.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Stáhněte [verzi PHP 7.1.4 Non-Thread Safe (x64)](http://php.net/downloads.php).
-- Nainstalujte PHP a další konfiguraci vyhledejte v [příručce k PHP](http://php.net/manual/install.unix.php).
+- Stáhněte si [PHP 7.1.4 jiné vlákno bezpečné (x64) verze](http://php.net/downloads.php).
+- Instalace PHP a odkazovat [PHP ručně](http://php.net/manual/install.unix.php) pro další konfiguraci.
 
 ### <a name="windows"></a>Windows
-- Stáhněte [verzi PHP 7.1.4 Non-Thread Safe (x64)](http://windows.php.net/download#php-7.1).
-- Nainstalujte PHP a další konfiguraci vyhledejte v [příručce k PHP](http://php.net/manual/install.windows.php).
+- Stáhněte si [PHP 7.1.4 jiné vlákno bezpečné (x64) verze](http://windows.php.net/download#php-7.1).
+- Instalace PHP a odkazovat [PHP ručně](http://php.net/manual/install.windows.php) pro další konfiguraci.
 
 ## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for MySQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
@@ -47,12 +45,12 @@ Získejte informace o připojení potřebné pro připojení ke službě Azure D
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V levém podokně klikněte na **Všechny prostředky** a potom vyhledejte server, který jste vytvořili (například **myserver4demo**).
 3. Klikněte na název serveru.
-4. Vyberte stránku **Vlastnosti** serveru. Poznamenejte si **Název serveru** a **Přihlašovací jméno správce serveru**.
+4. Vyberte server, na **vlastnosti** stránky a poté si poznamenejte **název serveru** a **přihlašovací jméno pro Server správce**.
  ![Název serveru Azure Database for MySQL](./media/connect-php/1_server-properties-name-login.png)
-5. Pokud zapomenete přihlašovací údaje pro váš server, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby obnovit heslo.
+5. Pokud zapomenete vaše přihlašovací údaje serveru, přejděte na **přehled** stránky zobrazíte přihlašovací jméno správce serveru a v případě potřeby obnovení hesla.
 
 ## <a name="connect-and-create-a-table"></a>Připojení a vytvoření tabulky
-Pomocí následujícího kódu se připojte a vytvořte tabulku s využitím příkazu **CREATE TABLE** jazyka SQL. 
+Použít následující kód k připojení a vytvořte tabulku s použitím **CREATE TABLE** příkaz jazyka SQL. 
 
 Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód volá metody [mysqli_init](http://php.net/manual/mysqli.init.php) a [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) pro připojení k MySQL. Potom volá metodu [mysqli_query](http://php.net/manual/mysqli.query.php) pro spuštění dotazu. Potom volá metodu [mysqli_close](http://php.net/manual/mysqli.close.php) pro ukončení připojení.
 
@@ -91,9 +89,9 @@ mysqli_close($conn);
 ```
 
 ## <a name="insert-data"></a>Vložení dat
-Pomocí následujícího kódu se připojte a vložte data s využitím příkazu **SELECT** jazyka SQL.
+Použít následující kód k připojení a vkládání dat pomocí **vložit** příkaz jazyka SQL.
 
-Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód využívá metodu [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) k vytvoření připraveného příkazu Insert a potom vytvoří vazbu parametrů pro každou vloženou hodnotu sloupce pomocí metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kód spustí tento příkaz pomocí metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) a potom tento příkaz zavře pomocí metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód využívá metodu [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) k vytvoření připraveného příkazu Insert a potom vytvoří vazbu parametrů pro každou vloženou hodnotu sloupce pomocí metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Příkaz spuštění kódu pomocí metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) a později zavře příkaz pomocí metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Parametry host (hostitel), username (uživatelské jméno), password (heslo) a db_name (název databáze) nahraďte vlastními hodnotami. 
 
@@ -128,7 +126,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>Čtení dat
-Pomocí následujícího kódu se připojte a načtěte data s využitím příkazu **SELECT** jazyka SQL.  Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód používá metodu [mysqli_query](http://php.net/manual/mysqli.query.php) k provedení dotazu sql query a metodu [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) k načtení výsledných řádků.
+Použít následující kód k připojení a číst data pomocí **vyberte** příkaz jazyka SQL.  Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód používá metodu [mysqli_query](http://php.net/manual/mysqli.query.php) provádění dotazu sql a metoda [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) načíst výsledné řádky.
 
 Parametry host (hostitel), username (uživatelské jméno), password (heslo) a db_name (název databáze) nahraďte vlastními hodnotami. 
 
@@ -159,9 +157,9 @@ mysqli_close($conn);
 ```
 
 ## <a name="update-data"></a>Aktualizace dat
-Pomocí následujícího kódu se připojte a aktualizujte data s využitím příkazu **UPDATE** jazyka SQL.
+Použít následující kód k připojení a aktualizovat data pomocí **aktualizace** příkaz jazyka SQL.
 
-Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód využívá metodu [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) k vytvoření připraveného příkazu Update a potom vytvoří vazbu parametrů pro každou aktualizovanou hodnotu sloupce pomocí metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kód spustí tento příkaz pomocí metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) a potom tento příkaz zavře pomocí metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód využívá metodu [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) k vytvoření připraveného příkazu Update a potom vytvoří vazbu parametrů pro každou aktualizovanou hodnotu sloupce pomocí metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Příkaz spuštění kódu pomocí metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) a později zavře příkaz pomocí metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Parametry host (hostitel), username (uživatelské jméno), password (heslo) a db_name (název databáze) nahraďte vlastními hodnotami. 
 
@@ -197,9 +195,9 @@ mysqli_close($conn);
 
 
 ## <a name="delete-data"></a>Odstranění dat
-Pomocí následujícího kódu se připojte a načtěte data s využitím příkazu **DELETE** jazyka SQL. 
+Použít následující kód k připojení a číst data pomocí **odstranit** příkaz jazyka SQL. 
 
-Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód využívá metodu [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) k vytvoření připraveného příkazu Delete a potom vytvoří vazbu parametrů pro klauzuli Where v tomto příkazu pomocí metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kód spustí tento příkaz pomocí metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) a potom tento příkaz zavře pomocí metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Tento kód využívá třídu **rozšíření MySQL Improved** (mysqli), která je zahrnutá v PHP. Kód využívá metodu [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) k vytvoření připraveného příkazu Delete a potom vytvoří vazbu parametrů pro klauzuli Where v tomto příkazu pomocí metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Příkaz spuštění kódu pomocí metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) a později zavře příkaz pomocí metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Parametry host (hostitel), username (uživatelské jméno), password (heslo) a db_name (název databáze) nahraďte vlastními hodnotami. 
 
@@ -233,5 +231,4 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
-> [Vytvoření webové aplikace PHP a MySQL v Azure](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
-
+> [Vytvoření webové aplikace PHP a MySQL v Azure](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)

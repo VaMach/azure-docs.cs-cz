@@ -20,7 +20,7 @@ Zřizování virtuálních počítačů v Azure zahrnuje přesunutí více čás
 * **Virtuální počítač:** Virtuální počítač můžete zřídit ze seznamu publikovaných imagí nebo ze souboru virtuálního pevného disku (VHD), který nahrajete do Azure Blob Storage.
 * **Disk s operačním systémem:** Disk s operačním systémem je a VHD uložený ve službě [Azure Storage][azure-storage]. To znamená, že jeho obsah se zachová, i když se hostitelský počítač vypne. Disk s operačním systémem je `/dev/sda1`.
 * **Dočasný disk:** Virtuální počítač se vytvoří s dočasným diskem. Tento disk je uložený na fyzické jednotce hostitelského počítače. *Neukládá se* v Azure Storage a při restartování nebo jiných událostech životního cyklu virtuálního počítače může dojít k jeho odstranění. Tento disk používejte jenom pro dočasná data, jako jsou stránkovací nebo odkládací soubory. Dočasný disk je `/dev/sdb1` a je připojený k `/mnt/resource` nebo `/mnt`.
-* **Datové disky:** [Datový disk] [data-disk] je trvalý virtuální pevný disk, který se používá pro data aplikací. Datové disky se stejně jako disk s operačním systémem ukládají ve službě Azure Storage.
+* **Datové disky:** [Datový disk][data-disk] je trvalý virtuální pevný disk, který se používá pro data aplikací. Datové disky se stejně jako disk s operačním systémem ukládají ve službě Azure Storage.
 * **Virtuální síť a podsíť:** Každý virtuální počítač v Azure je nasazený do virtuální sítě, která se dál dělí na podsítě.
 * **Veřejná IP adresa:** Veřejná IP adresa je potřeba ke komunikaci s virtuálním počítačem, třeba přes protokol SSH.
 * **Síťové rozhraní (NIC):** Síťové rozhraní umožňuje virtuálnímu počítači komunikovat s virtuální sítí.
@@ -155,7 +155,7 @@ Nasazení pro tuto referenční architekturu je dostupné na [GitHubu][github-fo
    * Název **skupiny prostředků** už je v souboru parametrů definovaný. Proto vyberte **Vytvořit nový** a do textového pole zadejte `ra-single-vm-rg`.
    * V rozevíracím seznamu **Umístění** vyberte příslušnou oblast.
    * Obsah textových polí s **kořenovým URI pro šablony** a **kořenovým URI pro parametry** neupravujte.
-.   * V rozevíracím seznamu **Typ operačního systému*** vyberte **Linux*.
+.   * Vyberte **linux** v **typ operačního systému** rozevíracího pole.
    * Přečtěte si podmínky a ujednání a potom klikněte na zaškrtávací políčko **Souhlasím s podmínkami a ujednáními uvedenými nahoře**.
    * Klikněte na tlačítko **Koupit**.
 3. Počkejte, než se nasazení dokončí.
@@ -188,7 +188,7 @@ Pro zajištění vyšší dostupnosti nasaďte dva nebo víc virtuálních poč�
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]:../articles/storage/common/storage-premium-storage.md
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user

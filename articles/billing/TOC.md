@@ -35,9 +35,9 @@
 ### [Propojení tenanta Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Úhrada předplatných pomocí faktury](billing-how-to-pay-by-invoice.md)
 ## Řešení potíží
-### [Problémy s registrací](billing-troubleshoot-azure-sign-up-issues.md)
-### [Odmítnutá karta](billing-credit-card-fails-during-azure-sign-up.md)
-### [Problémy s přihlašováním](billing-cannot-login-subscription.md)
+### [Problémy s registrací](https://support.microsoft.com/en-us/help/4042959)
+### [Odmítnutá karta](https://support.microsoft.com/en-us/help/4042960)
+### [Problémy s přihlašováním](https://support.microsoft.com/en-us/help/4042961)
 ### [Nenalezena žádná předplatná](billing-no-subscriptions-found.md)
 ### [Zákaz zobrazení firemních nákladů](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

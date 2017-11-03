@@ -112,24 +112,23 @@
 #### [Ukázky přihlašování](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Použití certifikátů](active-directory-reporting-api-with-certificates.md)
 
-## [Správa hesel](active-directory-passwords-overview.md)
+## Správa hesel
+### [Přehled hesel](active-directory-passwords-overview.md)
 ### Dokumenty uživatele
 #### [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
 #### [Osvědčené postupy pro hesla](active-directory-secure-passwords.md)
 #### [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
-### [Samoobslužné resetování hesla licence](active-directory-passwords-licensing.md)
-### [Nasazení samoobslužného resetování hesla](active-directory-passwords-best-practices.md)
+### [Jak funguje SSPR](active-directory-passwords-how-it-works.md)
+### [Průvodce nasazením SSPR](active-directory-passwords-best-practices.md)
+### [Zásady SSPR](active-directory-passwords-policy.md)
+### [Přizpůsobení SSPR](active-directory-passwords-customize.md)
+### [Požadavky SSPR na data](active-directory-passwords-data.md)
+### [Vytváření sestav SSPR](active-directory-passwords-reporting.md)
 ### Správci IT: Resetování hesel
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Portál Azure Classic](active-directory-create-users-reset-password.md)
-### [Pochopení zásad samoobslužného resetování hesla ](active-directory-passwords-policy.md)
-### [Pochopení resetování hesla](active-directory-passwords-how-it-works.md)
-### [Přizpůsobení samoobslužného resetování hesla](active-directory-passwords-customize.md)
-### [Data používaná samoobslužným resetováním hesla](active-directory-passwords-data.md)
-### [Vytváření sestav o samoobslužném resetování hesla](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Samoobslužné resetování hesla licence](active-directory-passwords-licensing.md)
 ### [Zpětný zápis hesla](active-directory-passwords-writeback.md)
-### [Synchronizace hodnoty hash hesel](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Řešení problémů](active-directory-passwords-troubleshoot.md)
 ### [Nejčastější dotazy](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [Nápravy](active-directory-conditional-access-device-remediation.md)
 #### [Technické referenční informace](active-directory-conditional-access-technical-reference.md)
 #### [Nejčastější dotazy](active-directory-conditional-faqs.md)
-#### [Portál Classic](active-directory-conditional-access.md)
-##### [Začínáme](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Ověření bez hesla](active-directory-azureadjoin-passport.md)

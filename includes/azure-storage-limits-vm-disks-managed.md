@@ -1,24 +1,24 @@
-**Standard managed virtual machine disks**
+**Spravované disky virtuálních počítačů typu Standard**
 
-| Standard Disk Type  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
+| Disk typu Standard  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| Disk size           | 32 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| IOPS per disk       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
-| Throughput per disk | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 
+| Velikost disku           | 32 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2 048 GB (2TB)    | 4095 GB (4 TB)   | 
+| Vstupně-výstupní operace za sekundu / disk       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
+| Propustnost / disk | 60 MB/s | 60 MB/s | 60 MB/s | 60 MB/s | 60 MB/s | 60 MB/s | 60 MB/s | 
 
-**Premium managed virtual machine disks: per disk limits**
+**Spravované disky virtuálních počítačů typu Premium: omezení na jeden disk**
 
-| Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+| Disky typu Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Disk size           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Throughput per disk | 25 MB/sec | 50 MB/sec  | 100 MB/sec | 150 MB/sec | 200 MB/sec | 250 MB/sec | 250 MB/sec |
+| Velikost disku           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2 048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Vstupně-výstupní operace za sekundu / disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
+| Propustnost / disk | 25 MB/s | 50 MB/s  | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
-**Premium managed virtual machine disks: per VM limits**
+**Spravované disky virtuálních počítačů typu Premium: omezení na jeden virtuální počítač**
 
-| Resource | Default Limit |
+| Prostředek | Výchozí omezení |
 | --- | --- |
-| Max IOPS Per VM |80,000 IOPS with GS5 VM<sup>1</sup> |
-| Max throughput per VM |2,000 MB/s with GS5 VM<sup>1</sup> |
+| Maximum vstupně-výstupních operací za sekundu (IOPS) na virtuální počítač |80 000 IOPS s virtuálním počítačem GS5<sup>1</sup> |
+| Maximální propustnost na virtuální počítač |2 000 MB/s s virtuálním počítačem GS5<sup>1</sup> |
 
-<sup>1</sup>Refer to [VM Size](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for limits on other VM sizes. 
+<sup>1</sup>Omezení pro ostatní velikosti virtuálních počítačů najdete v části [Velikost virtuálních počítačů](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
