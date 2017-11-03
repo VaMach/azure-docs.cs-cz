@@ -3,7 +3,7 @@
 | --- | --- | --- | --- |
 | Volání rozhraní API |500 KB |1.5 M / jednotka |15 M / jednotka |
 | Aktivní zařízení |500 |Unlimited |Unlimited |
-| Měřítko |– |Až 6 jednotky |Neomezený počet jednotek |
+| Měřítko |Není k dispozici |Až 6 jednotky |Neomezený počet jednotek |
 | Nabízená oznámení |Notification Hubs úroveň Free zahrnuty, až 1 milion nabízených oznámení |Notification Hubs základní úroveň zahrnuty, až 10 M nabízených oznámení |Notification Hubs úrovně Standard zahrnuty, až 10 M nabízených oznámení |
 | Zasílání zpráv v reálném čase nebo<br/>Webové sokety |Omezená |350 / mobilní služby |Unlimited |
 | Offline synchronizace |Omezená |Zahrnuje |Zahrnuje |

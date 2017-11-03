@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/23/2017
-
-
+ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: Vytvoření aplikace .NET pomocí rozhraní API tabulky
 
@@ -88,18 +86,23 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     table.CreateIfNotExists();
     ```
 
-* Vytvoří se nový kontejner tabulky. Všimněte si, že tento kód se velmi podobá sadě Azure Table Storage SDK. 
+* Sérii kroků, které jsou spouštěny na tabulky pomocí `TableOperation` třídy.
 
-    ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
-    ```
+   ```csharp
+   TableOperation insertOperation = TableOperation.Insert(item);
+   table.Execute(insertOperation);
+   ```
+   
+   ```csharp
+   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+   table.Execute(retrieveOperation);
+   ```
+   
+   ```csharp
+   TableOperation deleteOperation = TableOperation.Delete(items[i]);
+   table.Execute(deleteOperation);
+   ```
+
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
@@ -120,7 +123,7 @@ Nyní aktualizujeme informace připojovacího řetězce, aby vaše aplikace mohl
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
-## <a name="run-the-web-app"></a>Spuštění webové aplikace
+## <a name="run-the-console-app"></a>Spuštění aplikace konzoly
 
 1. V sadě Visual Studio klikněte v **Průzkumníku řešení** pravým tlačítkem myši na projekt **PremiumTableGetStarted** a potom klikněte na možnost **Spravovat balíčky NuGet**. 
 
@@ -159,5 +162,4 @@ V tomto rychlém startu jste se seznámili s postupem vytvoření databázové
 
 > [!div class="nextstepaction"]
 > [Dotazy pomocí rozhraní API tabulky](tutorial-query-table.md)
-
 

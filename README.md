@@ -1,94 +1,54 @@
-# Technická dokumentace k Azure – příručka přispěvatele
-Našli jste úložiště GitHubu, ve kterém je uložený zdroj technické dokumentace publikované v Centru dokumentace Azure na adrese [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation).
+## <a name="microsoft-open-source-code-of-conduct"></a>Otevřete Microsoft zdrojový kód chování
 
-Toto úložiště obsahuje také pokyny, které vám pomohou přispívat do naší technické dokumentace.  Seznam článků v příručce pro přispěvatele najdete v [rejstříku](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
+Tento projekt přijal [pravidla chování pro Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).
+Další informace najdete v článku [chování](https://opensource.microsoft.com/codeofconduct/faq/) nebo se obraťte na [ opencode@microsoft.com ](mailto:opencode@microsoft.com) s případnými dalšími dotazy nebo připomínkami.
 
-## Přispívání do dokumentace k Azure
-Děkujeme vám za váš zájem o dokumentaci k Azure!
+## <a name="contribute-to-azure-technical-documentation"></a>Přispívání do technické dokumentace k Azure
+Vítáme příspěvky naší komunity (uživatelé, zákazníky, partnery, zaměstnanci MSFT mimo core jednotky Azure produktu, atd.), a také zaměstnanci pracující v jednotkách Azure produktu jádra. Jak přispívat, závisí na kdo jste:
 
-* [Způsoby přispívání](#ways-to-contribute)
-* [Pravidla chování](#code-of-conduct)
-* [Obsah příspěvků k obsahu Azure](#about-your-contributions-to-azure-content)
-* [Uspořádání úložiště](#repository-organization)
-* [Použití GitHubu, Gitu a tohoto úložiště](#use-github-git-and-this-repository)
-* [Využití formátu Markdown k formátování témat](#how-to-use-markdown-to-format-your-topic)
-* [Zpětná vazba, komentáře a podpora](./contributor-guide/feedback-and-comments.md)
-* [Další zdroje informací](#more-resources)
-* [Rejstřík všech článků příručky pro přispěvatele](./contributor-guide/contributor-guide-index.md) (otevře novou stránku)
+* **Komunita – dílčími aktualizacemi**: Pokud přispíváte dílčími aktualizacemi mimo přesnosti vaše srdce, můžete vyhledejte požadovaný článek v tomto úložišti, nebo článek navštivte na [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) a klikněte na tlačítko **Upravit** odkaz v článku na Githubu zdroj článku. Chcete-li vaše aktualizace použijte pak uživatelského rozhraní Githubu. Nebo, jsou Vítá vás rozvětvení úložiště a odeslat aktualizace z vaší větve.
 
-## Způsoby přispívání
-Do [dokumentace k Azure](http://azure.microsoft.com/documentation/) můžete přispívat několika různými způsoby:
+* **Komunita – nové články**: Pokud jste součástí komunitou Azure a chcete vytvořit nový článek, potřebujete k práci s zaměstnanec tak aby tohoto nového obsahu v pomocí kombinace pracovní veřejné a privátní úložiště.
 
-* Můžete přispět k [diskuzi na fóru](http://social.msdn.microsoft.com/Forums/windowsazure/home).
-* Můžete odeslat komentáře Disqus v dolní části článků.
-* Pro zadání příspěvku k technickým článkům můžete snadno využít uživatelské rozhraní GitHubu. Vyhledejte požadovaný článek v tomto úložišti nebo tento článek navštivte na webu [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) a klikněte na odkaz, kterým přejdete ke zdroji tohoto článku na GitHubu.
-* Pokud provádíte podstatné změny existujícího článku, přidáváte nebo měníte obrázky nebo přispíváte novým článkem, budete muset toto úložiště rozvětvit, nainstalovat Git Bash a Markdown Pad naučit se některé příkazy Gitu.
+* **Zaměstnanci**: Pokud jste technické zapisovače, program Správce nebo vývojáře od týmu produktu pro služby Azure a je úlohu můžete přispět k nebo vytvářet technické články, měli byste použít privátní úložiště (https://github.com/ MicrosoftDocs/azure-docs-pr). Pokud provádíte podstatné změny existujícího článku, přidávání nebo měníte obrázky nebo přispíváte novým článkem, budete muset toto úložiště rozvětvit, nainstalovat Git Bash a markdown editor a další některé příkazy gitu. V tématu [interní Přispěvatel průvodce](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) Další informace.
 
-## Pravidla chování
-Tento projekt přijal [pravidla chování pro Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/). Další informace najdete v [nejčastějších dotazech k pravidlům chování](https://opensource.microsoft.com/codeofconduct/faq/). S případnými dalšími dotazy nebo připomínkami se obraťte na adresu [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
-## Vaše příspěvky k obsahu Azure
-### Menší opravy
-Na menší opravy nebo objasnění, která odešlete k dokumentaci a ukázkám kódu v tomto úložišti, se vztahují [Podmínky užívání webu Azure](http://azure.microsoft.com/support/legal/website-terms-of-use/).
+## <a name="about-your-contributions-to-azure-content"></a>Vaše příspěvky k obsahu Azure
+### <a name="minor-corrections"></a>Menší opravy
+Menší opravy nebo objasnění, která odešlete k dokumentaci a ukázkám kódu v tomto úložišti, se vztahují [docs.microsoft.com podmínky použití](https://docs.microsoft.com/legal/termsofuse).
 
-### Větší úpravy
-Pokud odešlete žádost o přijetí změn s novými nebo důležitými změnami dokumentace a ukázek kódu a patříte do jedné z následujících skupin, odešleme vám v GitHubu komentář s výzvou k odeslání online smlouvy CLA (Contribution License Agreement):
+### <a name="larger-submissions"></a>Větší úpravy
+Pokud odešlete žádost o přijetí změn s novými nebo důležitými změnami dokumentace a ukázky kódu, pošleme komentář v Githubu výzvou k odeslání online příspěvku licenční smlouvy CLA (), pokud není zaměstnanec společnosti Microsoft. Potřebujeme, abyste tento online formulář vyplnili. Teprve potom můžeme přijmout vaši žádost o přijetí změn.
 
-* Členové skupiny Microsoft Open Technologies.
-* Přispěvatelé, kteří nepracují pro Microsoft.
+## <a name="tools-and-setup"></a>Nástroje a nastavení
+Přispěvatelé komunit můžete pomocí uživatelského rozhraní Githubu nebo rozvětvit úložišti přispívat. Zaměstnanci měli navštívit [interní Přispěvatel průvodce](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) Další informace o postupu při přispívání do technické dokumentace nastavit.
 
-Potřebujeme, abyste tento online formulář vyplnili. Teprve potom můžeme přijmout vaši žádost o přijetí změn.
+## <a name="repository-organization"></a>Uspořádání úložiště
+Obsah v úložišti dokumentace azure odpovídá uspořádání dokumentace na https://docs.microsoft.com/azure. Toto úložiště obsahuje dvě kořenové složky:
 
-Všechny podrobnosti jsou dostupné na adrese [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
+### <a name="articles"></a>\articles
+Složka *\articles* obsahuje články dokumentace naformátované jako soubory Markdown s příponou *.md*. Články jsou obvykle seskupené podle služby Azure.
 
-## Uspořádání úložiště
-Uspořádání obsahu v úložišti obsahu Azure odpovídá uspořádání dokumentace na webu [Azure.Microsoft.com](http://azure.microsoft.com). Toto úložiště obsahuje dvě kořenové složky:
+*\Articles* složka obsahuje *\media* složku pro soubory článků kořenového adresáře média, která obsahuje podsložky pro obrázky jednotlivých článků.  Složky služeb obsahují samostatnou složku médií pro články, které jsou v nich obsažené. Složky pro obrázky článků mají stejný název jako příslušný článek, ale bez přípony *.md*.
 
-### \articles
-Složka *\articles* obsahuje články dokumentace naformátované jako soubory Markdown s příponou *.md*.
+### <a name="includes"></a>\includes
+Je možné vytvořit opakovaně použitelný obsah, který bude zahrnutý v jednom nebo několika článcích. 
 
-Články v kořenovém adresáři jsou na webu Azure.Microsoft.com publikované v cestě *http://azure.microsoft.com/documentation/articles/{název-článku-bez-md}/*.
-
-* **Názvy souborů článků:** Přečtěte si [naše pokyny pro pojmenování souborů](./contributor-guide/file-names-and-locations.md).
-
-Články ve vlastní složce služby jsou na webu Azure.Microsoft.com publikované v cestě *http://azure.microsoft.com/documentation/articles/service-folder/{název-článku-bez-md}/*.
-
-* **Podsložky médií:** Složka *\articles* obsahuje složku *\media* pro mediální soubory článků kořenového adresáře, která obsahuje podsložky pro obrázky jednotlivých článků.  Složky služeb obsahují samostatnou složku médií pro články, které jsou v nich obsažené. Složky pro obrázky článků mají stejný název jako příslušný článek, ale bez přípony *.md*.
-
-### \includes
-Je možné vytvořit opakovaně použitelný obsah, který bude zahrnutý v jednom nebo několika článcích. Další informace najdete v tématu věnovaném [vlastním rozšířením, která se používají v našem technickém obsahu](./contributor-guide/custom-markdown-extensions.md).
-
-### \markdown templates
-Tato složka obsahuje naši standardní šablonu Markdown se základními formáty, které jsou v článcích potřeba.
-
-### \contributor-guide
-Tato složka obsahuje články, které jsou součástí naší příručky pro přispěvatele.  
-
-## Použití GitHubu, Gitu a tohoto úložiště
-Informace o tom, jak přispívat, jak pomocí uživatelského rozhraní GitHubu navrhovat menší změny a jak rozvětvovat a klonovat úložiště v případě větších příspěvků, najdete v tématu [Instalace a nastavení nástrojů pro vytváření příspěvků v GitHubu](./contributor-guide/tools-and-setup.md).
-
-Pokud jste si nainstalovali Git Bash a rozhodli se pracovat místně, kroky pro vytvoření nové místní pracovní větve, provedení změn a odeslání změn zpět do hlavní větve najdete v tématu [Příkazy Gitu pro vytvoření nového článku nebo aktualizaci existujícího článku](./contributor-guide/git-commands-for-master.md)
-
-### Větve
-Doporučujeme, abyste si vytvořili místní pracovní větve, které cílí na konkrétní rozsah změn. Každá větev by měla být omezená na jeden koncept/článek, a to jak kvůli zjednodušení pracovního postupu, tak kvůli omezení případných konfliktů při slučování.  Vytvoření nové větve je vhodné v následujících situacích:
-
-* Nový článek (a přidružené obrázky)
-* Pravopisné a gramatické úpravy článku
-* Použití jedné formátovací změny napříč velkou sadou článků (například nové zápatí s copyrightem)
-
-## Využití formátu Markdown k formátování témat
+## <a name="how-to-use-markdown-to-format-your-topic"></a>Využití formátu Markdown k formátování témat
 Všechny články v tomto úložišti využívají formát Markdown specifický pro GitHub.  Tady je seznam informačních materiálů.
 
-* [Základy formátu Markdown](https://help.github.com/articles/markdown-basics/)
-* [Stručný přehled formátu Markdown k vytištění](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
-* Seznam editorů formátu Markdown najdete v [tématu věnovaném nástrojům a nastavení](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+* [Základy markdownu](https://help.github.com/articles/markdown-basics/)
+* ["Tahák" k markdownu tisknutelná](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-## Metadata článků
-Metadata článků umožňují využití určitých funkcí na webu azure.microsoft.com, jako je třeba uvedení autora a přispěvatele, popisy cest, popisy článků a optimalizace SEO a také vytváření sestav, které Microsoft využívá k vyhodnocení výkonu příslušného obsahu. Metadata jsou proto důležitá! [Tady najdete pokyny, abyste mohli zkontrolovat, že s metadaty pracujete správně](./contributor-guide/article-metadata.md).
 
-## Další zdroje informací
-Všechna témata s našimi pokyny najdete v [rejstříku příručky pro přispěvatele](./contributor-guide/contributor-guide-index.md).
+## <a name="labels"></a>Popisky
+V úložišti veřejný azure dokumentace automatizované popisky přiřazené k žádosti o Pomozte nám spravovat pracovní postup žádosti o přijetí změn, abyste mohli umožňují vědět, co se děje s vaší žádosti o přijetí změn pro vyžádání obsahu:
 
-<!--HONumber=Aug16_HO1-->
+* Související s příspěvkem licenční smlouvy
+  * cla není nutné: změna je relativně malé a nevyžaduje přihlášení CLA.
+  * požadované smlouvy cla: rozsahem prováděných změn je relativně velké a vyžaduje přihlášení CLA.
+  * podepsané smlouvy cla: Přispěvatel podepsané smlouvy CLA, takže žádost o přijetí změn teď můžou přesouvat dál ke kontrole.
+* Změnu odeslané vytvářet: Autor ohlášení žádosti čekající na vyžádání.
+* připravené sloučení: připravené k revizi náš tým zkontrolujte žádost o přijetí změn.
 
 

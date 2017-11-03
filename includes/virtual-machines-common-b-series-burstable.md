@@ -1,23 +1,23 @@
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> This preview is limited to the following regions:
-> - US - West 2
-> - US - East
-> - Europe - West
-> - Asia Pacific - Southeast
+> Verze Preview jsou k dispozici pro vás, za předpokladu, že souhlasíte s podmínkami použití. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Tato předběžná verze je omezená na následující oblasti:
+> - USA – západ 2
+> - USA – východ
+> - Evropa – západ
+> - Asie a Tichomoří – jihovýchod
 
 
-The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance up to 100% of an Intel® Broadwell E5-2673 v4 2.3GHz, or an Intel® Haswell 2.4 GHz E5-2673 v3 processor vCPU.
+Počítač B-series rodiny umožňuje zvolit, které velikost virtuálního počítače poskytuje nezbytné základní úroveň výkonu pro úlohy, možnost burst výkonu procesoru až o 100 % Intel® Broadwell E5-2673 v4 2.3 GHz nebo procesor Intel® Haswell 2.4 GHz E5-2673 v3 virtuální procesory.
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, it VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
+Virtuální počítače B-series jsou ideální pro úlohy, které nemají potřebovat úplný výkon procesoru nepřetržitě, jako jsou webové servery, malé databáze a vývoj a testovací prostředí. Tyto úlohy mají obvykle burstable výkonu požadavky. B-series poskytuje možnost zakoupit velikost virtuálního počítače se základní výkon a instance virtuálního počítače vytvoří kredity při je nižší než jeho základní použití. Když virtuální počítač nahromadění platební, můžete virtuální počítač burst nad účaří použití až o 100 % virtuální procesor, když vaše aplikace vyžaduje vyšší výkon procesoru.
 
-The B-series comes in the following six VM sizes:
+B-series se dodává v následujících šesti velikosti virtuálních počítačů:
 
-| Size          | vCPU's | Memory: GiB | Local SSD: GiB | Base CPU Perf of VM | Max CPU Perf of VM | Credits Banked / Hour | Max Banked Credits |
+| Velikost          | pro virtuální procesory | Paměť: GiB | Místní SSD: GiB | Základní výkonu procesoru virtuálního počítače | Maximální počet výkonu procesoru virtuálního počítače | Kredity bankovních / hodinu | Maximální počet bankovních kredity |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
-| Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
-| Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
+| Standard_B1s  | 1      | 1           | 4              | 10 %                            | 100%                      | 6                     | 144                |
+| Standard_B1ms | 1      | 2           | 4              | 20 %                            | 100%                      | 12                    | 288                |
 | Standard_B2s  | 2      | 4           | 8              | 40%                            | 200%                      | 24                    | 576                |
 | Standard_B2ms | 2      | 8           | 16             | 60%                            | 200%                      | 36                    | 864                |
 | Standard_B4ms | 4      | 16          | 32             | 90%                            | 400%                      | 54                    | 1296               |
@@ -26,46 +26,46 @@ The B-series comes in the following six VM sizes:
 
 
 
-## <a name="q--a-about-this-preview"></a>Q & A about this preview
+## <a name="q--a-about-this-preview"></a>Otázky a odpovědi o této verzi preview
 
-### <a name="q-how-can-i-participate-in-this-preview"></a>Q: How can I participate in this preview?
-**A**: Request quota for the B-series in one of the supported regions.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+### <a name="q-how-can-i-participate-in-this-preview"></a>Otázka: jak můžete účast v této verzi preview?
+**A**: žádost o kvótu pro B-series v jednom z podporovaných oblastí.  Po schválení vaší kvóty můžete použít na portálu nebo by za normálních okolností provedete nasazení podle rozhraní API. Další informace najdete v tématu [základní kvóta správce prostředků zvýšit požadavky](../articles/azure-supportability/resource-manager-core-quotas-request.md).
 
-### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: How do you get 135% baseline performance from a VM?
-**A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application leverages 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
+### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Otázka: Jak získat 135 % standardních hodnot výkonu z virtuálního počítače?
+**A**: 135 % je sdílená mezi 8 virtuálních procesorů na který tvoří velikost virtuálního počítače. Například pokud aplikace využívá 4 s 8 jádry pracující na dávkové zpracování a každý z těchto 4 virtuální procesory jsou spuštěné v 30 % využití celkový objem výkonu procesoru virtuálního počítače by roven 120 %.  Znamená, že virtuální počítač by vytváření platební čas podle rozdílů 15 % z základní výkon.  Můžete ale také znamená, že pokud máte kredity, které jsou k dispozici, stejného virtuálního počítače můžete použít 100 % všechny 8 virtuálních procesorů je udělení tohoto virtuálního počítače výkonu procesoru maximální 800 %.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Q: Is there a discount on price during the preview?
-**A**: Yes, the preview prices can be viewed on our [pricing page](http://aka.ms/vmsizes).
+### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Otázka: je slevu na ceny ve verzi Preview?
+**A**: Ano, můžete zobrazit ceny náhled v naší [stránce s cenami](http://aka.ms/vmsizes).
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: How can I monitor my credit balance and consumption
-**A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Otázka: jak můžete monitorovat Moje kredit a spotřeba
+**A**: jsme představení 2 nové metriky v následujících týdnech **platební** metrika vám umožní zobrazit kolik kredity má bankovních virtuálního počítače a **ConsumedCredit** metrika se zobrazí kolik Virtuální počítač spotřebovala z banky kredity procesoru.    Bude moct zobrazit tyto metriky z podokna metriky na portálu nebo programově pomocí rozhraní API Azure monitorování.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Další informace o tom, jak získat přístup k datům metriky pro Azure najdete v tématu [přehled metriky v Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="q-how-are-credits-accumulated"></a>Q: How are credits accumulated?
-**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level.
+### <a name="q-how-are-credits-accumulated"></a>Otázka: jak počítají kredity?
+**A**: sazby akumulace a využití virtuálního počítače jsou nastavené tak, aby virtuálního počítače s úrovni přesně jeho základní výkon bude mít ani net akumulace nebo spotřeby bursting kredity.  Virtuální počítač bude mít zvýšení kredity vždy, když je spuštěna pod úrovní jeho základní výkon a bude mít snížení kredity vždy, když virtuální počítač je využití procesoru více než úroveň jeho základní výkonu.
 
-**Example**:  I deploy a VM using the B1ms size for my small time and attendance database application. This size allows my application to use up to 20% of a vCPU as my baseline, which is .2 credits per minute I can use or bank. 
+**Příklad**: nasadit virtuální počítač pomocí velikosti B1ms své malé čas a návštěvnosti aplikaci databáze. Tato velikost umožňuje Moje aplikace pro použití jako můj směrného plánu, který je.2 kredity za minutu, kterou můžete použít nebo bank až 20 % virtuální procesory. 
 
-My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours I earn 0.2 credits per minute but only consume 0.l credits per minute, so my VM will bank .1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
+Moje aplikace je nyní začátek a konec pracovního Moje zaměstnanci dne 7:00-9:00:00 až 4:00 – 18:00:00. Během dalších 20 hodin dne, Moje aplikace je obvykle v nečinnosti, jenom pomocí 10 % virtuální procesory. Pro dobu mimo špičku I vám 0,2 kredity za minutu, ale jenom využívat kredity 0.l za minutu, aby virtuální počítač bude bankovní.1 x 60 = 6 kredity za hodinu.  20 hodin, které jsem mimo špičku I bude bankovní 120 kredity.  
 
-During peak hours my application averages 60% vCPU utilization, I still earn 0.2 credits per minute but I consume 0.6 credits per minute, for a net cost of .4 credits a minute or .4 x 60 = 24 credits per hour. I have 4 hours per day of peak usage, so it costs 4 x 24 = 96 credits for my peak usage.
+Během hodiny špičky Moje aplikace zobrazí průměr využití virtuálních procesorů 60 %, I přesto vám 0,2 kredity za minutu, ale I využívat 0,6 kredity za minutu, net náklady na.4 kredity minutu nebo.4 x 60 = 24 kredity za hodinu. Mám 4 hodiny denně špičkové využití, tak náklady na něj 4 x 24 = 96 kredity u mého používání ve špičce.
 
-If I take the 120 credits I earned off-peak and subtract the 96 credits I used for my peak times, I bank an additional 24 credits per day that I can use for other bursts of activity.
+Pokud I trvat 120 kredity, které I vytvořené mimo špičku a odečtena 96 kredity, které lze použít pro moje špičky, I bankovní další 24 kredity za den, který lze použít pro jiné shluky aktivity.
 
 
-### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q: Does the B-Series support Premium Storage data disks?
-**A**: Yes, all B-Series sizes support Premium Storage data disks.   
+### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Otázka: B-Series podporuje úložiště Premium datové disky?
+**A**: Ano, všech velikostí B-Series podporují Storage úrovně Premium datových disků.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>Q: Which regions can I access the preview from?
-**A**:  The B-series preview will be available in the following regions:
-- US - West 2
-- US - East
-- Europe - West
-- Asia Pacific - Southeast
+### <a name="q-which-regions-can-i-access-the-preview-from"></a>Otázka: které oblasti mohou lze získat přístup z verze preview?
+**A**: verze preview B-series bude k dispozici v následujících oblastech:
+- USA – západ 2
+- USA – východ
+- Evropa – západ
+- Asie a Tichomoří – jihovýchod
 
-After the preview has completed we will release the B-series to all remaining regions.
+Po dokončení ve verzi preview vydáváme B-series pro všechny zbývající oblasti.
     
 
     

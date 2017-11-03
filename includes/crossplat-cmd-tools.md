@@ -59,7 +59,7 @@ Dále soubor `.publishsettings` naimportujte spuštěním následujícího pří
 
     azure account import {path to .publishsettings file}
 
-Všechny informace uložené příkazem <code>import</code> můžete odebrat pomocí příkazu <code>account clear</code>:
+Můžete odebrat všechny informace uložené <code>import</code> příkaz s použitím <code>account clear</code> příkaz:
 
     azure account clear
 

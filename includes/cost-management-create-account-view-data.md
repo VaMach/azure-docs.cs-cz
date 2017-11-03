@@ -31,3 +31,5 @@ Následující obrázek ukazuje náklady na prostředky Azure účtované spole�
 Klikněte pravým tlačítkem na typ prostředku a výběrem možnosti **Cost entities** (Entity nákladů) zobrazte entity nákladů a služby, které spotřebovaly tyto prostředky. Virtuální počítače a služby Worker v DevOps v tomto příkladu spotřebovaly 486,60 USD a 435,71 USD. Celkové náklady na obojí jsou 922 USD.
 
 ![entity nákladů a služby](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Podívejte se na kurz video o zobrazení vašeho cloudu fakturace data, najdete v tématu [analýza cloudu fakturace dat pomocí Azure náklady na správu Cloudyn](https://youtu.be/G0pvI3iLH-Y).

@@ -3,23 +3,22 @@ title: "Začínáme se Storage Explorerem (Preview) | Dokumentace Microsoftu"
 description: "Správa prostředků úložiště Azure Storage pomocí Storage Exploreru (Preview)"
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.date: 07/17/2017
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Začínáme se Storage Explorerem (Preview)
 ## <a name="overview"></a>Přehled
@@ -43,6 +42,7 @@ Kromě toho můžete pracovat s účty úložiště v globálním i národním A
 * [Připojení k externímu úložišti:](#attach-or-detach-an-external-storage-account) Umožňuje spravovat prostředky úložiště, které patří do jiného předplatného Azure nebo jiného národního cloudu Azure, pomocí názvu, klíče a koncových bodů účtu úložiště.
 * [Připojení účtu úložiště pomocí SAS:](#attach-storage-account-using-sas) Umožňuje spravovat prostředky úložiště, které patří do jiného předplatného Azure pomocí sdíleného přístupového podpisu (SAS).
 * [Připojení služby pomocí SAS:](#attach-service-using-sas) Umožňuje spravovat konkrétní službu úložiště (kontejner objektů blob, fronty nebo tabulky), která patří do jiného předplatného Azure, pomocí sdíleného přístupového podpisu (SAS).
+* [Připojení k účtu Azure Cosmos DB pomocí připojovacího řetězce](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Správa DB Cosmos účtu pomocí připojovacího řetězce.
 
 ## <a name="connect-to-an-azure-subscription"></a>Připojení k předplatnému Azure
 > [!NOTE]
@@ -68,7 +68,7 @@ Kromě toho můžete pracovat s účty úložiště v globálním i národním A
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Připojení k předplatnému Azure Stack
 
-Informace o připojení k předplatnému Azure Stack najdete v tématu [Připojení Storage Exploreru k předplatnému Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
+Informace o připojení k předplatnému Azure Stack najdete v tématu [Připojení Storage Exploreru k předplatnému Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Práce s místním vývojovým úložištěm
 Storage Explorer (Preview) umožňuje pracovat s místním úložištěm pomocí emulátoru úložiště Azure. Můžete tak psát kód pro místní úložiště a otestovat ho, aniž byste museli mít nasazený účet úložiště v Azure, protože účet úložiště je emulovaných emulátorem úložiště Azure.
@@ -223,6 +223,17 @@ V tomto kontextu může být službou kontejner objektů blob, fronta nebo tabul
 
     ![Výsledek připojení ke sdílené službě pomocí sdíleného přístupového podpisu (SAS)][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Připojení k účtu Azure Cosmos DB pomocí připojovacího řetězce
+Kromě spravovat účty pro Azure Cosmos DB prostřednictvím předplatné Azure, je alternativní způsob připojení k databázi Azure Cosmos použít připojovací řetězec. Pomocí následujících kroků pro připojení pomocí připojovacího řetězce.
+
+1. Najít **místní a připojené** ve stromu vlevo, klikněte pravým tlačítkem na **Azure Cosmos DB účty**, zvolte **připojit k databázi Cosmos Azure...**
+
+    ![Připojte se k Azure Cosmos databázi pomocí připojovacího řetězce][33]
+
+2. Zvolte rozhraní API služby Azure Cosmos DB, vložte vaší **připojovací řetězec**a potom klikněte na **OK** pro připojení účet Azure Cosmos DB. Informace o načítání připojovací řetězec najdete v tématu [získat připojovací řetězec](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## <a name="search-for-storage-accounts"></a>Vyhledávání účtů úložiště
 Pokud máte dlouhý seznam účtů úložiště, můžete rychle vyhledat konkrétní účet úložiště pomocí vyhledávacího pole v horní části levého podokna.
 
@@ -232,6 +243,7 @@ Při psaní do vyhledávacího pole se v levém podokně zobrazí pouze účty �
 
 ## <a name="next-steps"></a>Další kroky
 * [Správa prostředků služby Azure Blob Storage pomocí Storage Exploreru (Preview)](vs-azure-tools-storage-explorer-blobs.md)
+* [Správa Azure Cosmos DB v Azure Storage Explorer (Preview)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ Při psaní do vyhledávacího pole se v levém podokně zobrazí pouze účty �
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

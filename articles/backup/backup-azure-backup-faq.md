@@ -1,4 +1,3 @@
-
 ---
 title: "Nejčastější dotazy k Azure Backup | Dokumentace Microsoftu"
 description: "Odpovědi na běžné dotazy týkající se funkcí služby Azure Backup, včetně trezorů služby Recovery Services, co může zálohovat, jak to funguje, šifrování a omezení. "
@@ -13,15 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/09/2017
-
+ms.author: markgal;arunak;trinadhk;sogup;
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Dotazy týkající se služby Azure Backup
 Tento článek obsahuje odpovědi na běžné dotazy, které vám pomůžou rychle porozumět komponentám služby Azure Backup. Některé odpovědi zahrnují odkazy na články obsahující komplexní informace. Můžete klást otázky týkající se Azure Backup kliknutím na **Komentáře** (napravo). Komentáře se zobrazují v dolní části tohoto článku. Pro komentáře je potřeba účet Livefyre. Otázky týkající se služby Azure Backup můžete také publikovat na [diskusním fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -47,7 +45,7 @@ Ne. Trezor je vytvořený na úrovni předplatného a po vytvoření ho nelze p�
 Všechny existující trezory služby Backup na [portálu Azure Classic](https://manage.windowsazure.com) jsou podporovány i nadále. Portál Azure Classic však již nelze použít k nasazení nových trezorů služby Backup. Společnost Microsoft doporučuje pro všechna nasazení používat trezory služby Recovery Services, protože všechna budoucí vylepšení se budou vztahovat výhradně na trezory služby Recovery Services. Pokud se pokusíte vytvořit trezor služby Backup na portálu Azure Classic, budete přesměrováni na web [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Můžu migrovat trezor Backup do trezoru Služeb zotavení? <br/>
-Bohužel ne. Obsah trezoru služby Backup nelze migrovat do trezoru služby Recovery Services. Na přidání této funkce pracujeme, zatím ale není dostupná.
+Ano, teď můžete upgradovat svůj trezor Backup do trezoru služeb zotavení. Podrobnosti najdete v článku [Upgrade trezor Backup do trezoru služeb zotavení](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Svoje klasické virtuální počítače jsem zálohoval do trezoru služby Backup. Můžu migrovat svoje virtuální počítače z klasického režimu do režimu Resource Manageru a chránit je pomocí trezoru služby Recovery Services?
 Při převádění virtuálních počítačů z klasického režimu do režimu Resource Manageru Body neproběhne automatická migrace bodů obnovení klasických virtuálních počítačů do trezoru služby Recovery Services. Při převedení záloh virtuálních počítačů použijte tento postup:
@@ -185,4 +183,3 @@ Pokud používáte agenta Azure Backup, šifrovací klíč by měl obsahovat ale
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Co se stane, když ztratím šifrovací klíč? Mohu obnovit data (nebo) může Microsoft obnovit data? <br/>
 Klíč, pomocí kterého se šifrují zálohovaná data, je přítomen pouze u zákazníka. Microsoft neudržuje jeho kopii v Azure a nemá ke klíči žádný přístup. Pokud zákazník klíč ztratí, Microsoft nemůže zálohovaná data obnovit.
-

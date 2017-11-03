@@ -1,2 +1,2 @@
-If you do not already have a Traffic Manager profile, use the information in [Create a Traffic Manager profile using Quick Create](../articles/traffic-manager/traffic-manager-manage-profiles.md) to create one. Note the **.trafficmanager.net** domain name associated with your Traffic Manager profile, as this will be used later by later steps in this document.
+Pokud jste již nemají profil Traffic Manageru, použijte informace v [vytvořit profil Traffic Manageru pomocí metody rychlého vytvoření](../articles/traffic-manager/traffic-manager-manage-profiles.md) k jeho vytvoření. Poznámka: **. trafficmanager.net** název domény přidružený vašeho profilu Traffic Manageru, jak bude se používat novější pozdější kroky v tomto dokumentu.
 

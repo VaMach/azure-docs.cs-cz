@@ -1,55 +1,55 @@
-Geo-redundant storage (GRS) replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable.
+Geograficky redundantní úložiště (GRS) replikuje data do sekundární oblasti, která je stovky miles od primární oblasti. Pokud má váš účet úložiště GRS povoleno, vaše data byla odolná i v případě výpadku dokončení místní nebo havárii, ve kterém není použitelná pro obnovení primární oblasti.
 
-For a storage account with GRS enabled, an update is first committed to the primary region, where it is replicated three times. Then the update is replicated asynchronously to the secondary region, where it is also replicated three times.
+Účet úložiště GRS povolena je nejprve aktualizace potvrzena pro primární oblasti, kde se replikují třikrát. Aktualizace se pak replikují asynchronně sekundární oblast, kde se také replikují třikrát.
 
-With GRS, both the primary and secondary regions manage replicas across separate fault domains and upgrade domains within a storage scale unit as described with LRS.
+S GRS primární a sekundární oblasti spravovat repliky v rámci domén samostatné selhání a upgradu domén v rámci jednotce škálování úložiště, jak je popsáno s LRS.
 
-Considerations:
+Aspekty:
 
-* Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](../articles/storage/common/storage-disaster-recovery-guidance.md). 
-* If an application wants to read from the secondary region, the user should enable RA-GRS.
+* Vzhledem k tomu, že asynchronní replikaci zahrnuje zpoždění, v případě havárie regionální je možné, že od primární oblasti nelze obnovit data budou ztracena změny, které ještě nebyla replikována do sekundární oblasti.
+* Replika není k dispozici, pokud Microsoft zahájí převzetí služeb při selhání pro sekundární oblast. Pokud Microsoft zahájit převzetí služeb při selhání pro sekundární oblast, budete mít ke čtení a zápis do dat po převzetí služeb po dokončení. Další informace najdete v tématu [pokyny pro zotavení po havárii](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+* Pokud aplikace chce číst ze sekundární oblasti, uživatel by měl povolit RA-GRS.
 
-When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
+Pokud vytvoříte účet úložiště, vyberte primární oblasti pro účet. Sekundární oblast je určen na základě primární oblasti a nelze změnit. V následující tabulce jsou uvedeny dvojice primární a sekundární oblast.
 
-| Primary | Secondary |
+| Primární | Sekundární |
 | --- | --- |
-| North Central US | South Central US |
-| South Central US | North Central US |
-| East US | West US |
-| West US | East US |
-| US East 2 | Central US |
-| Central US | US East 2 |
-| North Europe | West Europe |
-| West Europe | North Europe |
-| South East Asia | East Asia |
-| East Asia | South East Asia |
-| East China | North China |
-| North China | East China |
-| Japan East | Japan West |
-| Japan West | Japan East |
-| Brazil South | South Central US |
-| Australia East | Australia Southeast |
-| Australia Southeast | Australia East |
-| India South | India Central |
-| India Central | India South |
-| India West | India South |
-| US Gov Iowa | US Gov Virginia |
-| US Gov Virginia | US Gov Texas |
-| US Gov Texas | US Gov Arizona |
-| US Gov Arizona | US Gov Texas |
-| Canada Central | Canada East |
-| Canada East | Canada Central |
-| UK West | UK South |
-| UK South | UK West |
-| Germany Central | Germany Northeast |
-| Germany Northeast | Germany Central |
-| West US 2 | West Central US |
-| West Central US | West US 2 |
+| Střed USA – sever | Střed USA – jih |
+| Střed USA – jih | Střed USA – sever |
+| Východ USA | Západní USA |
+| Západní USA | Východ USA |
+| USA – východ 2 | Střed USA |
+| Střed USA | USA – východ 2 |
+| Severní Evropa | Západní Evropa |
+| Západní Evropa | Severní Evropa |
+| Jihovýchodní Asie | Východní Asie |
+| Východní Asie | Jihovýchodní Asie |
+| Východní Čína | Severní Čína |
+| Severní Čína | Východní Čína |
+| Japonsko – východ | Japonsko – západ |
+| Japonsko – západ | Japonsko – východ |
+| Brazílie – jih | Střed USA – jih |
+| Austrálie – východ | Austrálie – jihovýchod |
+| Austrálie – jihovýchod | Austrálie – východ |
+| Indie – jih | Indie – střed |
+| Indie – střed | Indie – jih |
+| Indie – západ | Indie – jih |
+| USA (Gov) – Iowa | USA (Gov) – Virginia |
+| USA (Gov) – Virginia | USA (Gov) – Texas |
+| USA (Gov) – Texas | USA (Gov) – Arizona |
+| USA (Gov) – Arizona | USA (Gov) – Texas |
+| Střední Kanada | Východní Kanada |
+| Východní Kanada | Střední Kanada |
+| Spojené království – západ | Spojené království – jih |
+| Spojené království – jih | Spojené království – západ |
+| Německo – střed | Německo – severovýchod |
+| Německo – severovýchod | Německo – střed |
+| Západní USA 2 | Západní střed USA |
+| Západní střed USA | Západní USA 2 |
 
-For up-to-date information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/regions/).
+Aktuální informace o oblastech podporovaných v Azure najdete v tématu [oblastí Azure](https://azure.microsoft.com/regions/).
 
 >[!NOTE]  
-> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region. 
+> USA – verze pro státní správu Virginia sekundární oblast je Texas nám verze pro státní správu. Dříve nám verze pro státní správu Virginia využité nám verze pro státní správu Iowa jako sekundární oblasti. Účty úložiště stále využití nám verze pro státní správu Iowa jako sekundární oblasti se migruje nám verze pro státní správu Texas jako sekundární oblast. 
 > 
 > 

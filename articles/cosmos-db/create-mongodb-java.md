@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Databáze Azure Cosmos: Sestavení aplikace konzoly v jazyce Java s rozhraním API MongoDB na webu Azure Portal
 
@@ -31,11 +29,12 @@ Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, 
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Než budete moct tuto ukázku spustit, je potřeba splnit následující požadavky:
-   * JDK 1.7+ (pokud nemáte JDK, spusťte `apt-get install default-jdk`)
-   * Maven (pokud nemáte Maven, spusťte `apt-get install maven`)
+Než budete moct tuto ukázku spustit, je potřeba splnit následující požadavky:
+* JDK 1.7+ (pokud nemáte JDK, spusťte `apt-get install default-jdk`)
+* Maven (pokud nemáte Maven, spusťte `apt-get install maven`)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
@@ -45,7 +44,7 @@ Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, 
 
 Novou databázi pojmenujte **db** a novou kolekci **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
 
 ## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
@@ -128,6 +127,5 @@ V tomto rychlém startu jste se seznámili s postupem vytvoření účtu služ
 
 > [!div class="nextstepaction"]
 > [Importování dat MongoDB do databáze Azure Cosmos](mongodb-migrate.md)
-
 
 

@@ -1,5 +1,5 @@
 > [!NOTE]
-> **Custom policies are in public preview.**
+> **Vlastní zásady jsou ve verzi public preview.**
 
-> [Custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend that you use Azure Active Directory B2C [built-in policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Built-in policies are easier to set up for your configuration. You can use built-in and custom policies in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
+> [Vlastní zásady](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) slouží především pro identity v oblasti IT, kteří potřebují k vyřešení komplexní scénáře. Pro většinu scénářů, doporučujeme použít Azure Active Directory B2C [integrovaných zásad](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Předdefinované zásady jsou snadněji nastavit pro vaši konfiguraci. Ve stejném klientovi Azure Active Directory B2C můžete použít předdefinované a vlastní zásady. Další informace najdete v tématu [Přehled vlastních zásad](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
 

@@ -54,7 +54,7 @@ Ne. Virtuální počítače v nastavení dostupnosti musí používat disky vše
 
 **Spravované disků je výchozí možnost na portálu Azure?**
 
-Není v současné době ale výchozí hodnota se stane v budoucnu.
+Ano. 
 
 **Můžete vytvořit prázdný disk spravované?**
 

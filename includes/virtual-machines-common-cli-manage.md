@@ -1,46 +1,46 @@
-The Azure CLI 2.0 allows you to create and manage your Azure resources on macOS, Linux, and Windows. This article details some of the most common commands to create and manage virtual machines (VMs).
+Azure CLI 2.0 umožňuje vytvořit a spravovat prostředky Azure v systému macOS, Linux a Windows. Tento článek podrobně popisuje některé z nejběžnějších příkazů vytvářet a spravovat virtuální počítače (VM).
 
-This article requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+Tento článek vyžaduje Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli). Můžete také použít [cloudové prostředí](/azure/cloud-shell/quickstart) z prohlížeče.
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basic Azure Resource Manager commands in Azure CLI
-For more detailed help with specific command line switches and options, you can use the online command help and options by typing `az <command> <subcommand> --help`.
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Základní příkazy Azure Resource Manageru v Azure CLI
+Další pomoc s přepínače konkrétní příkazového řádku a možnosti, můžete použít možnosti online příkaz nápovědy a zadáním `az <command> <subcommand> --help`.
 
-### <a name="create-vms"></a>Create VMs
-| Task | Azure CLI commands |
+### <a name="create-vms"></a>Vytvoření virtuálních počítačů
+| Úkol | Příkazy Azure CLI |
 | --- | --- |
-| Create a resource group | `az group create --name myResourceGroup --location eastus` |
-| Create a Linux VM | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
-| Create a Windows VM | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
+| Vytvoření skupiny prostředků | `az group create --name myResourceGroup --location eastus` |
+| Vytvoření virtuálního počítače s Linuxem | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
+| Vytvoření virtuálního počítače s Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
-### <a name="manage-vm-state"></a>Manage VM state
-| Task | Azure CLI commands |
+### <a name="manage-vm-state"></a>Spravovat stav virtuálního počítače
+| Úkol | Příkazy Azure CLI |
 | --- | --- |
-| Start a VM | `az vm start --resource-group myResourceGroup --name myVM` |
-| Stop a VM | `az vm stop --resource-group myResourceGroup --name myVM` |
-| Deallocate a VM | `az vm deallocate --resource-group myResourceGroup --name myVM` |
-| Restart a VM | `az vm restart --resource-group myResourceGroup --name myVM` |
-| Redeploy a VM | `az vm redeploy --resource-group myResourceGroup --name myVM` |
-| Delete a VM | `az vm delete --resource-group myResourceGroup --name myVM` |
+| Spuštění virtuálního počítače | `az vm start --resource-group myResourceGroup --name myVM` |
+| Zastavení virtuálního počítače | `az vm stop --resource-group myResourceGroup --name myVM` |
+| Uvolnění virtuálního počítače | `az vm deallocate --resource-group myResourceGroup --name myVM` |
+| Restartování virtuálního počítače | `az vm restart --resource-group myResourceGroup --name myVM` |
+| Znovunasazení virtuálního počítače | `az vm redeploy --resource-group myResourceGroup --name myVM` |
+| Odstranění virtuálního počítače | `az vm delete --resource-group myResourceGroup --name myVM` |
 
-### <a name="get-vm-info"></a>Get VM info
-| Task | Azure CLI commands |
+### <a name="get-vm-info"></a>Získání informací o virtuálních počítačů
+| Úkol | Příkazy Azure CLI |
 | --- | --- |
-| List VMs | `az vm list` |
-| Get information about a VM | `az vm show --resource-group myResourceGroup --name myVM` |
-| Get usage of VM resources | `az vm list-usage --location eastus` |
-| Get all available VM sizes | `az vm list-sizes --location eastus` |
+| Výpis virtuálních počítačů | `az vm list` |
+| Získání informací o virtuálním počítači | `az vm show --resource-group myResourceGroup --name myVM` |
+| Získání využití prostředků virtuálního počítače | `az vm list-usage --location eastus` |
+| Získání všech dostupných velikostí virtuálních počítačů | `az vm list-sizes --location eastus` |
 
-## <a name="disks-and-images"></a>Disks and images
-| Task | Azure CLI commands |
+## <a name="disks-and-images"></a>Disky a obrázků
+| Úkol | Příkazy Azure CLI |
 | --- | --- |
-| Add a data disk to a VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
-| Remove a data disk from a VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
-| Resize a disk | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
-| Snapshot a disk | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
-| Create image of a VM | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
-| Create VM from image | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
+| Přidání datového disku k virtuálnímu počítači | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Odebrání datového disku z virtuálního počítače | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
+| Změna velikosti disku | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
+| Pořízení snímku disku | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
+| Vytvoření bitové kopie virtuálního počítače | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
+| Vytvořit virtuální počítač z bitové kopie | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 
 
-## <a name="next-steps"></a>Next steps
-For additional examples of the CLI commands, see the [Create and Manage Linux VMs with the Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md) tutorial.
+## <a name="next-steps"></a>Další kroky
+Další příklady příkazů rozhraní příkazového řádku najdete v tématu [vytvořit a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure](../articles/virtual-machines/linux/tutorial-manage-vm.md) kurzu.
 

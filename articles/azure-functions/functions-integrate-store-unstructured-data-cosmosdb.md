@@ -1,30 +1,29 @@
 ---
-title: "Ukládání nestrukturovaných dat pomocí Azure Functions a databáze Cosmos DB"
+title: "Ukládání nestrukturovaných dat pomocí Azure Cosmos DB a funkce | Microsoft Docs"
 description: "Ukládání nestrukturovaných dat pomocí Azure Functions a databáze Cosmos DB"
 services: functions
 documentationcenter: functions
-author: rachelappel
-manager: erikre
+author: ggailey777
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, zpracování událostí, Cosmos DB, dynamické výpočty, architektura bez serverů"
 ms.assetid: 
 ms.service: functions
 ms.devlang: csharp
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
-ms.author: rachelap, glenga
+ms.date: 09/19/2017
+ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Ukládání nestrukturovaných dat pomocí Azure Functions a databáze Cosmos DB
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Ukládání nestrukturovaných dat pomocí funkce Azure a Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) nabízí skvělou možnost pro ukládání nestrukturovaných dat a dat JSON. Spolu s Azure Functions urychluje a zjednodušuje ukládání dat – ve srovnání s ukládáním dat v relační databáze budete potřebovat méně kódování.
 
@@ -54,10 +53,10 @@ Pro absolvování tohoto kurzu potřebujete:
     | ------------ | ---------------- | ------------------------------------------ |
     | **Název parametru dokumentu** | taskDocument | Název, který odkazuje na objekt Cosmos DB v kódu. |
     | **Název databáze** | taskDatabase | Název databáze pro uložení dokumentů. |
-    | **Název kolekce** | TaskCollection | Název kolekce databází Cosmos DB. |
+    | **Název kolekce** | TaskCollection | Název databáze kolekce. |
     | **Je-li nastavená hodnota true, vytvoří se databáze a kolekce Cosmos DB** | Zaškrtnuté | Kolekce ještě neexistuje, takže ji vytvořte. |
 
-4. Vedle popisku **Připojení dokumentu Cosmos DB** vyberte **Nové** a potom vyberte **+ Vytvořit nové**. 
+4. Vyberte **nový** vedle **připojení dokumentu Azure Cosmos DB** label a vyberte **+ vytvořit nový**. 
 
 5. Použijte nastavení pro **Nový účet** uvedená v tabulce: 
 
@@ -65,13 +64,13 @@ Pro absolvování tohoto kurzu potřebujete:
 
     | Nastavení      | Navrhovaná hodnota  | Popis                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Název databáze | Jedinečné ID databáze Cosmos DB  |
+    | **ID** | Název databáze | Jedinečné ID pro databázi Azure Cosmos DB  |
     | **Rozhraní API** | SQL (DocumentDB) | Vyberte rozhraní API databáze dokumentů.  |
     | **Předplatné** | předplatné Azure | předplatné Azure  |
     | **Skupina prostředků** | myResourceGroup |  Použijte existující skupinu prostředků, která obsahuje vaši aplikací funkcí. |
     | **Umístění**  | WestEurope | Vyberte umístění blízko vaší aplikaci funkcí nebo jiným aplikacím, které používají uložené dokumenty.  |
 
-6. Kliknutím na **OK** vytvořte databázi. Vytvoření databáze může trvat několik minut. Po vytvoření databáze se připojovací řetězec databáze uloží jako nastavení aplikace funkcí. Název tohoto nastavení aplikace se vloží do **Připojení účtu Cosmos DB**. 
+6. Kliknutím na **OK** vytvořte databázi. Vytvoření databáze může trvat několik minut. Po vytvoření databáze se připojovací řetězec databáze uloží jako nastavení aplikace funkcí. Název nastavení této aplikace je vložen do **připojení účtu Azure Cosmos DB**. 
  
 8. Po nastavení připojovacího řetězce vyberte **Uložit** a vytvořte vazbu.
 
@@ -129,11 +128,13 @@ Tento vzorový kód přečte řetězce dotazů požadavků HTTP a přiřadí je 
 
     ![Vyhledání služby Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Vyberte databázi, kterou jste vytvořili a potom vyberte **Průzkumník dat**. Rozbalte uzly **Kolekce**, vyberte nový dokument a potvrďte, že dokument obsahuje vaše hodnoty řetězce dotazu spolu s dalšími metadaty. 
+2. Zvolte účet Azure Cosmos DB a potom vyberte **Průzkumníku dat**. 
+
+3. Rozbalte uzly **Kolekce**, vyberte nový dokument a potvrďte, že dokument obsahuje vaše hodnoty řetězce dotazu spolu s dalšími metadaty. 
 
     ![Kontrola záznamu v databázi Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-Úspěšně jste přidali vazbu na váš trigger HTTP, který ukládá nestrukturovaná data v databázi Cosmos DB.
+Vazba jste úspěšně přidali do vaší triggeru protokolu HTTP, která ukládá Nestrukturovaná data v Azure Cosmos DB.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
@@ -142,4 +143,3 @@ Tento vzorový kód přečte řetězce dotazů požadavků HTTP a přiřadí je 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
 Další informace o vazbách na databázi Cosmos DB najdete v tématu [Vazby Cosmos DB ve službě Azure Functions](functions-bindings-documentdb.md).
-

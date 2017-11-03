@@ -1,18 +1,18 @@
-## <a name="deployment-considerations"></a>Deployment considerations
+## <a name="deployment-considerations"></a>Aspekty nasazování
 
-* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
+* Dostupnost virtuálních počítačů N-series, najdete v části [produkty podle oblasti](https://azure.microsoft.com/en-us/regions/services/).
 
-* N-series VMs can only be deployed in the Resource Manager deployment model.
+* N-series virtuálních počítačů lze nasadit pouze v modelu nasazení Resource Manager.
 
-* When creating an N-series VM using the Azure portal, on the **Basics** blade, select a **VM disk type** of **HDD**. To choose an available N-series size, on the **Size** blade, click **View all**.
+* Při vytváření virtuálních počítačů N-series, pomocí webu Azure portal na **Základy** vyberte **typ disku virtuálního počítače** z **HDD**. Zvolte dostupné velikosti N-series v **velikost** okně klikněte na tlačítko **zobrazit všechny**.
 
-* N-series VMs do not support VM disks that are backed by Azure Premium storage.
+* N-series virtuálních počítačů nepodporují disky virtuálních počítačů, které jsou zajišťované Azure Premium storage.
 
-* If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+* Pokud chcete nasadit víc než několik virtuálních počítačů N-series, zvažte průběžnými platbami předplatné nebo jiné možnosti nákupu. Pokud používáte [bezplatný účet Azure](https://azure.microsoft.com/free/), můžete použít pouze omezený počet výpočetních jader Azure.
 
-* You might need to increase the cores quota (per region) in your Azure subscription, and increase the separate quota for NC or NV cores. To request a quota increase, [open an online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
+* Může být nutné zvýšíte kvóty jader (podle oblasti) ve vašem předplatném Azure a samostatné kvóty pro počet jader NC nebo vs. Požádat o zvýšení kvóty, [otevřete žádosti o podporu online zákazníka](../articles/azure-supportability/how-to-create-azure-support-request.md) zdarma. Výchozí omezení se může lišit v závislosti na vaše předplatné kategorii.
 
-* One VM image you can deploy on N-series VMs is the [Azure Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md). The Data Science Virtual Machine preinstalls and configures many popular data science and deep learning tools. It also preinstalls NVIDIA Tesla GPU drivers for NC instances.
+* Můžete nasadit na virtuálních počítačích N-series jeden image virtuálního počítače je [virtuální počítač Azure datové vědy](../articles/machine-learning/data-science-virtual-machine/overview.md). Virtuální počítač datové vědy provede předinstalaci a nakonfiguruje mnoha oblíbených datové vědy a přímý výukové nástroje. Provede také předinstalaci NVIDIA tesla – měrná GPU ovladače pro instance názvového kontextu.
 
 
 

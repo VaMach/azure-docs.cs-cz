@@ -1,0 +1,1 @@
+dočasného souboru

@@ -1,18 +1,18 @@
-| Resource | Default limit | Note |
+| Prostředek | Výchozí omezení | Poznámka |
 | --- | --- | --- |
-| Application Gateway |50 per subscription | Maximum 100 |
-| Frontend IP Configurations |2 |1 public and 1 private |
-| Frontend Ports |20 | |
-| Backend Address Pools |20 | |
-| Backend Servers per pool |100 | |
-| HTTP Listeners |20 | |
-| HTTP load balancing rules |200 |# of HTTP Listeners * n, n=10 Default |
-| Backend HTTP settings |20 |1 per Backend Address Pool |
-| Instances per gateway |10 | |
-| SSL certificates |20 |1 per HTTP Listeners |
-| Authentication certificates |5 | Maximum 10 |
-| Request time out min |1 second | |
-| Request time out max |24 hrs | |
-| Number of sites |20 |1 per HTTP Listeners |
-| URL Maps per listener |1 | |
+| Application Gateway |50 na předplatné | Maximální 100 |
+| IP konfigurace front-endu |2 |1 veřejný a 1 privátní |
+| Porty front-endu |20 | |
+| Fondy adres back-endu |20 | |
+| Servery back-end na fond |100 | |
+| Naslouchací procesy HTTP |20 | |
+| Pravidla vyrovnávání zatížení HTTP |200 |počet naslouchací procesy HTTP * n, n = 10 výchozí |
+| Nastavení HTTP back-endu |20 |1 na fond adres back-endu |
+| Instance na jednu bránu |10 | |
+| Certifikáty SSL |20 |1 na naslouchací proces HTTP |
+| Certifikáty pro ověřování |5 | Max. 10 |
+| Minimální časový limit požadavku |1 sekunda | |
+| Maximální časový limit požadavku |24 hodin | |
+| Počet webů |20 |1 na naslouchací proces HTTP |
+| Map URL na naslouchací proces |1 | |
 

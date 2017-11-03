@@ -1,48 +1,48 @@
-# <a name="persist-files-in-azure-cloud-shell"></a>Persist files in Azure Cloud Shell
-Cloud Shell utilizes Azure File storage to persist files across sessions.
+# <a name="persist-files-in-azure-cloud-shell"></a>Zachovat soubory v prostředí cloudu Azure
+Cloudové prostředí využívá Azure File storage pro soubory zachová napříč relacemi.
 
-## <a name="set-up-a-clouddrive-file-share"></a>Set up a clouddrive file share
-On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
+## <a name="set-up-a-clouddrive-file-share"></a>Nastavení sdílené složky clouddrive
+Při počáteční spuštění prostředí cloudu vás vyzve k přidružit nové nebo existující sdílenou složku souborů zachová napříč relacemi.
 
 > [!NOTE]
-> Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.
+> Bash a prostředí PowerShell sdílet stejné sdílené složky. Pouze jedné sdílené složce může být přidružen automatické připojování v prostředí cloudu.
 
-### <a name="create-new-storage"></a>Create new storage
+### <a name="create-new-storage"></a>Vytvoření nového úložiště
 
-When you use basic settings and select only a subscription, Cloud Shell creates three resources on your behalf in the supported region that's nearest to you:
-* Resource group: `cloud-shell-storage-<region>`
-* Storage account: `cs<uniqueGuid>`
-* File share: `cs-<user>-<domain>-com-<uniqueGuid>`
+Když používáte základní nastavení a vyberte pouze předplatné, cloudové prostředí vytvoří tři zdroje vaším jménem v podporované oblasti, které je nejblíže můžete:
+* Skupina prostředků:`cloud-shell-storage-<region>`
+* Účet úložiště:`cs<uniqueGuid>`
+* Sdílené složky:`cs-<user>-<domain>-com-<uniqueGuid>`
 
-![The Subscription setting](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
+![Nastavení předplatného](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
 
-The file share mounts as `clouddrive` in your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions. 
+Sdílené složky připojí jako `clouddrive` ve vaší `$Home` adresáře. Toto je jednorázová akce a sdílené složky automaticky připojí v následné relace. 
 
-In Bash, the file share also contains a 5-GB image that is created for you which automatically persists data in your `$Home` directory. 
+V Bash, sdílené složky také obsahuje bitovou kopii 5 GB, který je vytvořen který automaticky dál data ve vaší `$Home` adresáře. 
 
-### <a name="use-existing-resources"></a>Use existing resources
+### <a name="use-existing-resources"></a>Používat existující prostředky
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
+Pomocí pokročilé možnosti můžete přidružit existující prostředky. Po zobrazení výzvy se instalační program úložiště, vyberte **zobrazit upřesňující nastavení** zobrazíte další možnosti. Rozevíracích nabídek jsou filtrovány pro vaši oblast přiřazené cloudové prostředí a místně redundantního úložiště a účty geograficky redundantní úložiště.
 
-In Bash, existing file shares receive a 5-GB image created for you to persist your `$Home` directory.
+V Bash, existující sdílené složky zobrazí bitovou kopii 5 GB, abyste mohli zachovat vaše `$Home` adresáře.
 
-![The Resource group setting](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
+![Nastavení skupiny prostředků](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restrict resource creation with an Azure resource policy
-Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) that are triggered by this specific tag.
+### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Omezit vytvoření prostředku zásadami prostředků Azure.
+Účty úložiště, které vytvoříte v prostředí cloudu jsou označené `ms-resource-usage:azure-cloud-shell`. Pokud chcete zakázat uživatelům ve vytváření účtů úložiště v prostředí cloudu, vytvořte [zásad prostředků Azure pro značky](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) jsou aktivovány tato konkrétní značka.
 
-## <a name="supported-storage-regions"></a>Supported storage regions
-Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to.
+## <a name="supported-storage-regions"></a>Oblasti podporované úložiště
+Související úložiště Azure, které účty se musí nacházet ve stejné oblasti jako počítač cloudové prostředí, které jste jim připojení.
 
-To find your assigned region you may:
-* View the note on the "Advanced storage settings" dialog
-* Refer to the name of the storage account created for you (ex: `cloud-shell-storage-westus`)
-* Run `env` and locate the variable `ACC_LOCATION`
+Vyhledání vašeho přiřazené oblasti, které jste se:
+* V dialogovém okně "rozšířené úložiště nastavení" Zobrazit Poznámka
+* Odkaz na název účtu úložiště vytvořeném pro vás (např: `cloud-shell-storage-westus`)
+* Spustit `env` a vyhledejte proměnné`ACC_LOCATION`
 
-Cloud Shell machine exist in the following regions:
-|Area|Region|
+Počítač prostředí cloudu neexistuje v následujících oblastech:
+|Oblast|Oblast|
 |---|---|
-|Americas|East US, South Central US, West US|
-|Europe|North Europe, West Europe|
-|Asia Pacific|India Central, Southeast Asia|
+|Amerika|Východ USA, střed USA – Jih, západ USA|
+|Evropa|Severní Evropa, Západní Evropa|
+|Asie a Tichomoří|Indie centrální, jihovýchodní Asie|
 

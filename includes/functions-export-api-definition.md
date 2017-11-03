@@ -1,26 +1,26 @@
-## <a name="export-an-api-definition"></a>Export an API definition
-You have an OpenAPI definition for your function, from [Create an OpenAPI definition for a function](../articles/azure-functions/functions-openapi-definition.md). The next step in this process is to export the API definition so that PowerApps and Microsoft Flow can use it in a custom API.
+## <a name="export-an-api-definition"></a>Export definice rozhraní API.
+Máte definici OpenAPI pro funkci, z [vytvořit definici OpenAPI pro funkci](../articles/azure-functions/functions-openapi-definition.md). Další krok v tomto procesu je exportovat definice rozhraní API, tak, aby PowerApps a Flow Microsoft můžete použít v vlastní rozhraní API.
 
 > [!IMPORTANT]
-> Remember that you must be signed into Azure with the same credentials that you use for your PowerApps and Microsoft Flow tenants. This enables Azure to create the custom API and make it available for both PowerApps and Microsoft Flow.
+> Mějte na paměti, že jste přihlášení do Azure se stejnými pověřeními, které používáte pro vaše PowerApps a Microsoft Flow klienty. To umožňuje Azure a vytvořte vlastní rozhraní API a zpřístupní ji pro PowerApps a Flow společnosti Microsoft.
 
-1. In the [Azure portal](https://portal.azure.com), click your function app name (like **function-demo-energy**) > **Platform features** > **API definition**.
+1. V [portál Azure](https://portal.azure.com), klikněte na název aplikace – funkce (jako **funkce. ukázku energie**) > **funkce** > **definice rozhraní API** .
 
-    ![API definition](media/functions-export-api-definition/api-definition.png)
+    ![Definice rozhraní API.](media/functions-export-api-definition/api-definition.png)
 
-1. Click **Export to PowerApps + Flow**.
+1. Klikněte na tlačítko **exportovat do PowerApps + toku**.
 
-    ![API definition source](media/functions-export-api-definition/export-api-1.png)
+    ![Zdroj definice rozhraní API](media/functions-export-api-definition/export-api-1.png)
 
-1. In the right pane, use the settings as specified in the table.
+1. V pravém podokně používejte nastavení zadané v tabulce.
 
-    |Setting|Description|
+    |Nastavení|Popis|
     |--------|------------|
-    |**Export Mode**|Select **Express** to automatically generate the custom API. Selecting **Manual** exports the API definition, but then you must import it into PowerApps and Microsoft Flow manually. For more information, see [Export to PowerApps and Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
-    |**Environment**|Select the environment that the custom API should be saved to. For more information, see [Environments overview (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) or [Environments overview (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
-    |**Custom API Name**|Enter a name, like `Turbine Repair`.|
-    |**API Key Name**|Enter the name that app and flow builders should see in the custom API UI. Note that the example includes helpful information.|
+    |**Export režimu**|Vyberte **Express** automaticky generovat vlastní rozhraní API. Výběr **ruční** definice exportuje rozhraní API, ale pak musí ho naimportovat do PowerApps a Microsoft Flow ručně. Další informace najdete v tématu [exportovat do PowerApps a Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
+    |**Prostředí**|Vyberte prostředí, ve kterém by měl být uložen vlastního rozhraní API. Další informace najdete v tématu [Přehled prostředí (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) nebo [Přehled prostředí (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
+    |**Název vlastního rozhraní API**|Zadejte název, jako je třeba `Turbine Repair`.|
+    |**Název klíče rozhraní API**|Zadejte název, který aplikaci a toku počítačů by se měla zobrazit v uživatelském rozhraní pro vlastní rozhraní API. Všimněte si, že v příkladu obsahuje užitečné informace.|
  
-    ![Export to PowerApps and Microsoft Flow](media/functions-export-api-definition/export-api-2.png)
+    ![Export do PowerApps a Microsoft Flow](media/functions-export-api-definition/export-api-2.png)
 
-1. Click **OK**. The custom API is now built and added to the environment you specified.
+1. Klikněte na **OK**. Vlastní rozhraní API je teď vytvořené a přidat do prostředí, které zadáte.

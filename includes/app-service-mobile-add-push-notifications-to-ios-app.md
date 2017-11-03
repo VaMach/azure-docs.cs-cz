@@ -1,16 +1,16 @@
 
-**Objective-C**:
+**Jazyka Objective-C**:
 
-1. In **QSAppDelegate.m**, import the iOS SDK and **QSTodoService.h**:
+1. V **QSAppDelegate.m**, import sada SDK iOS a **QSTodoService.h**:
    
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
-2. In `didFinishLaunchingWithOptions` in **QSAppDelegate.m**, insert the following lines right before `return YES;`:
+2. V `didFinishLaunchingWithOptions` v **QSAppDelegate.m**, vložení řádků následující bezprostředně před `return YES;`:
    
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. In **QSAppDelegate.m**, add the following handler methods. Your app is now updated to support push notifications. 
+3. V **QSAppDelegate.m**, přidejte následující metody obslužné rutiny. Aplikace je nyní aktualizovat o podporu nabízených oznámení. 
    
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
@@ -77,17 +77,17 @@
    
         }
 
-**Swift**:
+**Kód SWIFT**:
 
-1. Add file **ClientManager.swift** with the following contents. Replace *%AppUrl%* with the URL of the Azure Mobile App backend.
+1. Přidejte soubor **ClientManager.swift** s tímto obsahem. Nahraďte *AppUrl %* s adresou URL back-end mobilní aplikace Azure.
    
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
         }
-2. In **ToDoTableViewController.swift**, replace the `let client` line that initializes an `MSClient` with this line:
+2. V **ToDoTableViewController.swift**, nahraďte `let client` řádek, který inicializuje `MSClient` tento řádek:
    
         let client = ClientManager.sharedClient
-3. In **AppDelegate.swift**, replace the body of `func application` as follows:
+3. V **AppDelegate.swift**, nahraďte text `func application` následujícím způsobem:
    
         func application(application: UIApplication,
           didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -97,7 +97,7 @@
            application.registerForRemoteNotifications()
            return true
         }
-4. In **AppDelegate.swift**, add the following handler methods. Your app is now updated to support push notifications.
+4. V **AppDelegate.swift**, přidejte následující metody obslužné rutiny. Aplikace je nyní aktualizovat o podporu nabízených oznámení.
    
         func application(application: UIApplication,
            didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

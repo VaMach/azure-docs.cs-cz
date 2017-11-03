@@ -1,17 +1,17 @@
-You can now use the Data Explorer tool in the Azure portal to create a graph database. 
+Teď můžete pomocí nástroje Průzkumník dat na webu Azure Portal vytvořit databázi grafu. 
 
-1. In the Azure portal, in the menu on the left, select **Data Explorer (Preview)**.
+1. Na portálu Azure, v nabídce na levé straně vyberte **Data Explorer (Preview)**.
 
-2. Under **Data Explorer (Preview)**, select **New Graph**. Then fill in the page by using the following information:
+2. V části **Data Explorer (Preview)**, vyberte **nový graf**. Pak zadejte na stránce pomocí následující informace:
 
-    ![Data Explorer in the Azure portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Průzkumník dat na webu Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
-    Setting|Suggested value|Description
+    Nastavení|Navrhovaná hodnota|Popis
     ---|---|---
-    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters and can't contain `/ \ # ?` or a trailing space.
-    Graph id|sample-graph|The ID for your new graph. Graph names have the same character requirements as database IDs.
-    Storage capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant graph. For more information, see [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    ID databáze|sample-database|ID vaší nové databáze. Názvy databází musí být v rozmezí 1 až 255 znaků a nesmí obsahovat `/ \ # ?` nebo koncové mezery.
+    ID grafu|sample-graph|ID vašeho nového grafu. Názvy grafu mají stejné požadavky znak jako ID databáze.
+    Kapacita úložiště| 10 GB|Nechte zadanou výchozí hodnotu. Tohle je kapacita úložiště databáze.
+    Propustnost|400 RU/s|Nechte zadanou výchozí hodnotu. Propustnost můžete později navýšit, pokud budete chtít snížit latenci.
+    Klíč oddílu|/FirstName|Klíč oddílu, který rovnoměrně distribuuje data do jednotlivých oddílů. Výběr klíč správné oddílu je důležité při vytváření původce grafu. Další informace najdete v tématu [návrh a vytváření oddílů](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
-3. After the form is filled out, select **OK**.
+3. Když je formulář vyplnit, vyberte **OK**.

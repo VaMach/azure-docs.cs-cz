@@ -1,0 +1,208 @@
+---
+title: "Kopírování dat z DB2 pomocí Azure Data Factory | Microsoft Docs"
+description: "Zjistěte, jak zkopírovat data z DB2 do úložiště dat podporovaných podřízený pomocí aktivity kopírování v kanál služby Azure Data Factory."
+services: data-factory
+documentationcenter: 
+author: linda33wj
+manager: jhubbard
+editor: spelluru
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/18/2017
+ms.author: jingwang
+ms.openlocfilehash: aef796aa4f2604e6cd06452f3d3c6f648850aa38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
+---
+# <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopírování dat z DB2 pomocí Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Verze 1 – GA](v1/data-factory-onprem-db2-connector.md)
+> * [Verze 2 – Preview](connector-db2.md)
+
+Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z databáze DB2. Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
+
+> [!NOTE]
+> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [DB2 konektoru V1](v1/data-factory-onprem-db2-connector.md).
+
+## <a name="supported-scenarios"></a>Podporované scénáře
+
+Do úložiště dat žádné podporované podřízený může kopírovat data z databáze DB2. Seznam úložišť dat, které jsou podporovány jako zdroje nebo jímky aktivitě kopírování najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) tabulky.
+
+Konkrétně tento konektor DB2 podporuje tyto platformy IBM DB2 a verzí s distribuované relační databáze architektura (DRDA) SQL přístup správce (SQLAM) verze 9, 10 a 11:
+
+* IBM DB2 pro z 11.1 operačního systému
+* IBM DB2 pro z 10.1 operačního systému
+* IBM DB2 pro i 7.2
+* IBM DB2 pro i 7.1
+* IBM DB2 pro LUW 11
+* IBM DB2 pro LUW 10.5
+* IBM DB2 pro LUW 10.1
+
+> [!TIP]
+> Pokud se zobrazí chybová zpráva s oznámením "nebyl nalezen balíček odpovídající žádost o provedení příkazu SQL. SQLSTATE = 51002 SQLCODE =-805 ", z důvodu je potřebný balíček není vytvořena pro běžné uživatele na tyto operačního systému. Postupujte podle těchto pokynů podle typu DB2 serveru:
+> - DB2 pro i (AS400): umožní vytvoření kolekce pro přihlášení uživatele před použitím aktivity kopírování power users. Příkaz:`create collection <username>`
+> - DB2 pro z/OS nebo LUW: Po spuštění aktivity kopírování pomocí účtu s vysokou úrovní oprávnění - power users nebo správce s balíček autority a vazby, BINDADD, UDĚLTE provést na veřejná oprávnění - a potom potřebné balíček je automaticky vytvořen během kopírování. Později můžete přepnout zpět na normální pro vaše další kopie spustí.
+
+## <a name="prerequisites"></a>Požadavky
+
+Chcete-li použít kopírování dat z databáze DB2, která není veřejně přístupný, nastavení modulu Runtime Self-hosted integrace. Další informace o vlastním hostováním integrační moduly Runtime najdete v tématu [Self-hosted integrace Runtime](create-self-hosted-integration-runtime.md) článku. Modul Runtime integrace poskytuje integrované ovladače DB2, proto nemusíte ručně nainstalovat všechny ovladače při kopírování dat z databáze DB2.
+
+## <a name="getting-started"></a>Začínáme
+Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
+
+Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke konektoru DB2.
+
+## <a name="linked-service-properties"></a>Vlastnosti propojené služby
+
+Pro DB2 propojené služby jsou podporovány následující vlastnosti:
+
+| Vlastnost | Popis | Požaduje se |
+|:--- |:--- |:--- |
+| type | Vlastnost typu musí být nastavena na: **Db2** | Ano |
+| server |Název serveru DB2. |Ano |
+| Databáze |Název databáze DB2. |Ano |
+| Schéma |Název schématu v databázi. Název schématu rozlišuje velká a malá písmena. |Ne |
+| authenticationType. |Typ ověřování používaný pro připojení k databázi DB2.<br/>Povolená hodnota je: **základní**. |Ano |
+| uživatelské jméno |Zadejte uživatelské jméno pro připojení k databázi DB2. |Ano |
+| heslo |Zadejte heslo pro uživatelský účet, který jste zadali pro uživatelské jméno. Toto pole můžete označte jako SecureString. |Ano |
+| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
+
+**Příklad:**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "server": "<servername>",
+            "database": "<dbname>",
+            "authenticationType": "Basic",
+            "username": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Vlastnosti datové sady
+
+Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování datové sady najdete v článku datové sady. Tato část obsahuje seznam vlastností nepodporuje datovou sadu DB2.
+
+Ke zkopírování dat z DB2, nastavte vlastnost typu datové sady, která **RelationalTable**. Podporovány jsou následující vlastnosti:
+
+| Vlastnost | Popis | Požaduje se |
+|:--- |:--- |:--- |
+| type | Vlastnost typu datové sady musí být nastavena na: **RelationalTable** | Ano |
+| tableName | Název tabulky v databázi DB2. | Ne (když je zadán zdroj aktivity "dotaz") |
+
+**Příklad**
+
+```json
+{
+    "name": "DB2Dataset",
+    "properties":
+    {
+        "type": "RelationalTable",
+        "linkedServiceName": {
+            "referenceName": "<DB2 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {}
+    }
+}
+```
+
+## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
+
+Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje zdroj DB2.
+
+### <a name="db2-as-source"></a>DB2 jako zdroj
+
+Ke zkopírování dat z DB2, nastavte typ zdroje v aktivitě kopírování do **RelationalSource**. Následující vlastnosti jsou podporovány v aktivitě kopírování **zdroj** části:
+
+| Vlastnost | Popis | Požaduje se |
+|:--- |:--- |:--- |
+| type | Vlastnost typ zdroje kopie aktivity musí být nastavena na: **RelationalSource** | Ano |
+| query | Čtení dat pomocí vlastního dotazu SQL. Například: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Ne (když je určena "tableName" v datové sadě) |
+
+**Příklad:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromDB2",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<DB2 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RelationalSource",
+                "query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+## <a name="data-type-mapping-for-db2"></a>Datový typ mapování pro DB2
+
+Při kopírování dat z DB2, se používají následující mapování z DB2 datové typy k Azure Data Factory dočasné datové typy. V tématu [schéma a data zadejte mapování](copy-activity-schema-and-type-mapping.md) a zjistěte, jak aktivity kopírování mapuje zdroje schéma a data typ jímky.
+
+| Typ databáze DB2 | Typ průběžných dat objektu pro vytváření dat |
+|:--- |:--- |
+| BigInt |Int64 |
+| Binární |Byte] |
+| Objekt blob |Byte] |
+| Char |Řetězec |
+| Datový typ CLOB |Řetězec |
+| Datum |Data a času |
+| DB2DynArray |Řetězec |
+| DbClob |Řetězec |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Plovoucí desetinná čárka |Double |
+| Obrázek |Řetězec |
+| Integer |Int32 |
+| LongVarBinary |Byte] |
+| LongVarChar |Řetězec |
+| LongVarGraphic |Řetězec |
+| číselné |Decimal |
+| Real |Jeden |
+| SmallInt |Int16 |
+| Čas |Časový interval |
+| časové razítko |Data a času |
+| VarBinary |Byte] |
+| VarChar |Řetězec |
+| VarGraphic |Řetězec |
+| XML |Byte] |
+
+
+## <a name="next-steps"></a>Další kroky
+Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

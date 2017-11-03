@@ -1,0 +1,115 @@
+---
+title: "Vytvářet a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí rozhraní příkazového řádku Azure | Microsoft Docs"
+description: "Tento článek popisuje postup vytvoření a správě Azure databáze MySQL pravidla brány firewall pomocí příkazového řádku Azure CLI."
+services: mysql
+author: v-chenyh
+ms.author: v-chenyh
+manager: jhubbard
+editor: jasonwhowell
+ms.service: mysql-database
+ms.devlang: azure-cli
+ms.topic: article
+ms.date: 09/15/2017
+ms.openlocfilehash: 66d192287eeaaaa82c0f61f8aa13b8bf7bf8cd47
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/26/2017
+---
+# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Vytvářet a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí rozhraní příkazového řádku Azure
+Pravidla brány firewall na úrovni serveru umožňují správcům řídit přístup k databázi Azure pro Server databáze MySQL z konkrétní IP adresu nebo rozsah IP adres. Pomocí vhodného rozhraní příkazového řádku Azure, můžete vytvořit, aktualizovat, odstranit, seznamu a zobrazit pravidla brány firewall ke správě serveru. Přehled informací o Azure databáze MySQL brány firewall, najdete v článku [databáze Azure pro pravidla brány firewall serveru MySQL](./concepts-firewall-rules.md)
+
+## <a name="prerequisites"></a>Požadavky
+* [Instalace rozhraní příkazového řádku Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Instalace Azure Python SDK for PostgreSQL a MySQL služby.
+* Nainstalujte součást příkazového řádku Azure CLI pro služby PostgreSQL a databáze MySQL.
+* Vytvoření databáze Azure pro server databáze MySQL.
+
+## <a name="firewall-rule-commands"></a>Příkazy pravidlo brány firewall:
+**Az mysql pravidla brány firewall-** příkaz z příkazového řádku Azure slouží k vytvoření, odstranění, seznam, zobrazit a aktualizovat pravidla brány firewall.
+
+Příkazy:
+- **vytvoření**: vytvoření pravidla brány firewall serveru Azure MySQL.
+- **Odstranit**: odstranění pravidla brány firewall serveru Azure MySQL.
+- **seznam**: seznam pravidla brány firewall serveru Azure MySQL.
+- **Zobrazit**: Zobrazit podrobnosti o serveru databáze MySQL Azure pravidlo brány firewall.
+- **Aktualizovat**: aktualizovat pravidlo brány firewall serveru Azure MySQL.
+
+## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Seznam vaší databázi Azure pro servery, MySQL a přihlaste se k Azure
+Bezpečně připojit pomocí rozhraní příkazového řádku Azure s vaším účtem Azure **az přihlášení** příkaz.
+
+1. Z příkazového řádku spusťte následující příkaz:
+```azurecli
+az login
+```
+Tento příkaz vypíše kódu pro použití v dalším kroku.
+
+2. Použít webový prohlížeč otevře se stránka [https://aka.ms/devicelogin](https://aka.ms/devicelogin)a pak zadejte kód.
+
+3. V příkazovém řádku se přihlaste pomocí vašich přihlašovacích údajů Azure.
+
+4. Po vaše přihlášení oprávnění, seznam předplatného je vytištěna v konzole. Zkopírujte ID požadované předplatné nastavte aktuální předplatné použít.
+   ```azurecli-interactive
+   az account set --subscription {your subscription id}
+   ```
+
+5. Zobrazí seznam Azure databáze MySQL serverů pro vaše předplatné nebo skupině prostředků, pokud si nejste jistí názvy.
+
+   ```azurecli-interactive
+   az mysql server list --resource-group myResourceGroup
+   ```
+
+   Poznámka: v seznamu, který je třeba zadat server MySQL pro práci na atribut názvu. V případě potřeby potvrďte podrobnosti pro tento server a ujistěte se, že je správně pomocí atribut názvu:
+
+   ```azurecli-interactive
+   az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
+   ```
+
+## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Seznam pravidel brány firewall v databázi Azure pro Server databáze MySQL 
+Pomocí názvu serveru a název skupiny prostředků, seznamu existující pravidla brány firewall serveru na serveru. Všimněte si, že je atribut název serveru zadaný v **– server** přepínače a nikoli v **– název** přepínače.
+```azurecli-interactive
+az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo
+```
+Výstup obsahuje pravidla, pokud existuje, ve formátu JSON formátu (ve výchozím nastavení). Můžete použít **– výstupní tabulku** přepínače k vypsání výsledků v přehlednějším tvaru tabulky.
+```azurecli-interactive
+az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo --output table
+```
+## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>Vytvořte pravidlo brány firewall v databázi Azure pro Server databáze MySQL
+Pomocí Azure MySQL název serveru a název skupiny prostředků, vytvořte nové pravidlo brány firewall na serveru. Zadejte název pravidla a také počáteční IP adresa a koncovou IP (pro poskytování přístupu k rozsahu IP adres) pro pravidlo.
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myResourceGroup  --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+```
+Povolit přístup pro jednu IP adresu, zadejte stejnou IP adresu jako počáteční IP a koncové IP adresy, jako v následujícím příkladu.
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myResourceGroup  
+--server mysql --name "Firewall Rule with a Single Address" --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
+```
+Po úspěšné výstupu příkazu jsou uvedeny podrobnosti o pravidlo brány firewall, které jste vytvořili, ve formátu JSON (ve výchozím nastavení). Pokud dojde k selhání, ukazuje výstup text chybové zprávy.
+
+## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Aktualizace databáze Azure pravidlo brány firewall pro server databáze MySQL 
+Pomocí Azure MySQL název serveru a název skupiny prostředků, aktualizujte existující pravidlo brány firewall na serveru. Zadejte název existující pravidla brány firewall jako vstup, jakož i spuštění IP adresy a koncové IP atributů k aktualizaci.
+```azurecli-interactive
+az mysql server firewall-rule update --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+```
+Po úspěšné výstupu příkazu jsou uvedeny podrobnosti o pravidlo brány firewall, které byly aktualizovány, ve formátu JSON (ve výchozím nastavení). Pokud dojde k selhání, ukazuje výstup text chybové zprávy.
+
+> [!NOTE]
+> Pokud pravidlo brány firewall neexistuje, vytvoří se pravidlo příkaz aktualizace.
+
+## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Zobrazit brány firewall podrobnosti pravidla na databázi Azure pro Server databáze MySQL
+Pomocí Azure MySQL název serveru a název skupiny prostředků, zobrazit existující brány firewall pravidla podrobnosti ze serveru. Zadejte název existující pravidla brány firewall jako vstup.
+```azurecli-interactive
+az mysql server firewall-rule show --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
+```
+Po úspěšné výstupu příkazu jsou uvedeny podrobnosti o pravidlo brány firewall, které jste zadali, ve formátu JSON (ve výchozím nastavení). Pokud dojde k selhání, ukazuje výstup text chybové zprávy.
+
+## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>Odstranit pravidlo brány firewall databáze Azure pro Server databáze MySQL
+Pomocí Azure MySQL název serveru a název skupiny prostředků, odeberte existující pravidlo brány firewall ze serveru. Zadejte název existující pravidlo brány firewall.
+```azurecli-interactive
+az mysql server firewall-rule delete --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
+```
+Po úspěšné neexistuje žádný výstup. Při selhání zobrazí text chybové zprávy.
+
+## <a name="next-steps"></a>Další kroky
+- Lépe porozumět o [databáze Azure pro pravidla brány firewall serveru MySQL](./concepts-firewall-rules.md).
+- [Vytvářet a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí portálu Azure](./howto-manage-firewall-using-portal.md).
