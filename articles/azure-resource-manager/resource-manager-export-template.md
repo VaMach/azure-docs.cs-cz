@@ -11,16 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1801ef47e5b182e0bcd5b23970a2999633b4a852
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Vyexportování šablony Azure Resource Manageru z existujících prostředků
 V tomto článku se naučíte, jak exportovat šablonu Resource Manageru z existujících prostředků ve vašem předplatném. Tuto vygenerovanou šablonu můžete použít k lepšímu pochopení syntaxe šablon.
@@ -177,5 +175,4 @@ Naučili jste se, jak vyexportovat šablonu z prostředků, které jste vytvoři
 * Šablonu můžete nasadit pomocí těchto možností: [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md) nebo [REST API](resource-group-template-deploy-rest.md).
 * Informace o tom, jak vyexportovat šablonu prostřednictvím PowerShellu, najdete v tématu [Použití Azure PowerShellu s Azure Resource Managerem](powershell-azure-resource-manager.md).
 * Informace o tom, jak vyexportovat šablonu prostřednictvím rozhraní příkazového řádku Azure CLI, najdete v tématu věnovaném [Použití rozhraní příkazového řádku Azure CLI pro Mac, Linux a Windows pomocí Azure Resource Manageru](xplat-cli-azure-resource-manager.md).
-
 

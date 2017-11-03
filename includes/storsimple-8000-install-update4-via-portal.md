@@ -1,46 +1,46 @@
 <!--author=alkohli last changed: 07/07/17-->
 
-#### <a name="to-install-an-update-from-the-azure-portal"></a>To install an update from the Azure portal
+#### <a name="to-install-an-update-from-the-azure-portal"></a>Instalace aktualizace z webu Azure Portal
 
-1. On the StorSimple service page, select your device.
+1. Na stránce služby StorSimple vyberte zařízení.
 
-    ![Select device](./media/storsimple-8000-install-update4-via-portal/update1.png)
+    ![Vyberte zařízení](./media/storsimple-8000-install-update4-via-portal/update1.png)
 
-2. Navigate to **Device settings** > **Device updates**.
+2. Přejděte na **nastavení zařízení** > **aktualizace zařízení**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update4-via-portal/update2.png)
+    ![Klikněte na tlačítko aktualizace zařízení](./media/storsimple-8000-install-update4-via-portal/update2.png)
 
-2. A notification appears if new updates are available. Alternatively, in the **Device updates** blade, click **Scan Updates**. A job is created to scan for available updates. You are notified when the job completes successfully.
+2. Zobrazí se upozornění, pokud jsou k dispozici nové aktualizace. Můžete taky v **aktualizace zařízení** okně klikněte na tlačítko **kontrolovat aktualizace**. Vytvoří se úloha vyhledávání dostupných aktualizací. Po úspěšném dokončení úlohy se zobrazí zpráva.
 
-    ![Click Device updates](./media/storsimple-8000-install-update4-via-portal/update3.png)
+    ![Klikněte na tlačítko aktualizace zařízení](./media/storsimple-8000-install-update4-via-portal/update3.png)
 
-3. We recommend that you review the release notes before you apply an update on your device. To apply updates, click **Install updates**. In the **Confirm regular updates** blade, review the prerequisites to complete before you apply updates. Select the checkbox to indicate that you are ready to update the device and then click **Install**.
+3. Doporučujeme, abyste si před instalací aktualizace na zařízení prošli poznámky k verzi. Chcete-li použít aktualizace, klikněte na tlačítko **nainstalovat aktualizace**. V **potvrďte pravidelné aktualizace** okno, přečtěte si požadavky pro provedení úkolu před použití aktualizací. Zaškrtněte políčko s informací, že budete chtít aktualizovat zařízení a potom klikněte na o **nainstalovat**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update4-via-portal/update4.png)
+    ![Klikněte na tlačítko aktualizace zařízení](./media/storsimple-8000-install-update4-via-portal/update4.png)
 
-6. A set of prerequisite checks starts. These checks include:
+6. Spustí se sada kontrol požadavků. Mezi tyto kontroly patří:
    
-   * **Controller health checks** to verify that both the device controllers are healthy and online.
-   * **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
-   * **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you must enable it and then retry.
+   * **Kontroly stavu kontrolerů** pro ověření, že oba kontrolery zařízení jsou v pořádku a online.
+   * **Kontroly stavu hardwarových komponent** pro ověření, že všechny hardwarové komponenty v zařízení StorSimple jsou v pořádku.
+   * **Kontroly rozhraní DATA 0** pro ověření, že je na zařízení povolené rozhraní DATA 0. Pokud toto rozhraní není povolené, musíte jej povolit a poté to zkusit znovu.
 
-    The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    Aktualizace je stažen a nainstalován pouze v případě, že jsou všechny kontroly úspěšně dokončeny. Na probíhání kontrol budete upozorněni. Pokud prechecks selže, pak vám bude poskytnuta s příčiny chyby. Vyřešit tyto problémy a poté operaci opakujte. Pokud si s těmito problémy neporadíte sami, bude muset kontaktovat podporu Microsoftu.
 
-7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
+7. Po úspěšném dokončení prechecks se vytvoří úloha aktualizace. Po úspěšném vytvoření úlohy aktualizace se zobrazí upozornění.
    
-    ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update6.png)
+    ![Vytvoření úlohy aktualizace](./media/storsimple-8000-install-update4-via-portal/update6.png)
    
-    The update is then applied on your device.
+    Aktualizace se potom nainstaluje na vašem zařízení.
 
-9. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+9. Dokončení aktualizace trvá několik hodin. Podrobnosti o úloze můžete kdykoli zobrazit výběrem úlohy aktualizace a kliknutím na **Podrobnosti**.
 
-    ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update8.png)
+    ![Vytvoření úlohy aktualizace](./media/storsimple-8000-install-update4-via-portal/update8.png)
 
-     You can also monitor the progress of the update job from **Device settings > Jobs**. On the **Jobs** blade, you can see the update progress.
+     Můžete také sledovat průběh úlohy aktualizace z **nastavení zařízení > úlohy**. Na **úlohy** okně uvidíte průběh aktualizace.
 
-     ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update7.png)
+     ![Vytvoření úlohy aktualizace](./media/storsimple-8000-install-update4-via-portal/update7.png)
 
-10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
+10. Po dokončení úlohy, přejděte na **nastavení zařízení > aktualizace zařízení**. Nyní je třeba aktualizovat verze softwaru.
 
-    ![Update job creation](./media/storsimple-8000-install-update4-via-portal/update9.png)
+    ![Vytvoření úlohy aktualizace](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

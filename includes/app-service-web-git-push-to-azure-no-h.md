@@ -1,4 +1,4 @@
-V okně místního terminálu přidejte vzdálené úložiště Azure do místního úložiště Gitu.
+V okně místního terminálu přidejte vzdálené úložiště Azure do místního úložiště Gitu. Tato Azure vzdálené byl vytvořen pro vás v [vytvořit webovou aplikaci](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

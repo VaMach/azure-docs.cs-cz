@@ -4,24 +4,23 @@ description: "Pomocí služby Azure Functions vytvoříte funkci bez serveru, kt
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Vytvoření funkce aktivované službou Azure Blob Storage
 
@@ -114,4 +113,3 @@ Vytvořili jste funkci, která se spustí při přidání nebo aktualizaci objek
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Další informace o aktivačních událostech služby Blob Storage najdete v tématu [Vazby služby Azure Functions Blob Storage](functions-bindings-storage-blob.md).
-

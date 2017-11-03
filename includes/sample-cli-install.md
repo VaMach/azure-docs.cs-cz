@@ -1,5 +1,5 @@
 
 
-To run this sample, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run `az login` to create a connection with Azure.
+Chcete-li tuto ukázku spustit, ujistěte se, jste nainstalovali nejnovější [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Chcete-li spustit, spusťte `az login` vytvořit připojení s Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../articles/virtual-machines/windows/cli-options.md).
+Tato ukázka funguje v prostředí Bash. Možnosti na spouštění skriptů rozhraní příkazového řádku Azure v klientovi Windows najdete v tématu [běžící ve Windows Azure CLI](../articles/virtual-machines/windows/cli-options.md).

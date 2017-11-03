@@ -1,18 +1,18 @@
 > [!div class="op_single_selector"]
-> * [Device: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Device: Node.js Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
-> * [Device: C# Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [Device: Java Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Zařízení: Node.js Služba: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [Zařízení: Node.js Služba: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
+> * [Zařízení: Služba C#: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Zařízení: Služba Java: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 
-Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod], to remotely start and monitor device management actions on devices. This tutorial shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub.
+Back-end aplikace můžete použít Azure IoT Hub primitiv, jako například [dvojče zařízení] [ lnk-devtwin] a [přímé metody][lnk-c2dmethod], abyste mohli vzdáleně spuštění a monitorování zařízení akce správy na zařízeních. Tento kurz ukazuje, jak back-end aplikace a aplikace na zařízení vzájemně spolupracují na zahájení a monitorování restartování vzdáleného zařízení pomocí služby IoT Hub.
 
-Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
+Přímá metoda používají k navázání akce správy zařízení (například restartování, obnovení továrního nastavení a aktualizaci firmwaru) z back-end aplikace v cloudu. Zařízení je zodpovědná za:
 
-* Handling the method request sent from IoT Hub.
-* Initiating the corresponding device-specific action on the device.
-* Providing status updates through *reported properties* to IoT Hub.
+* Zpracování metoda požadavek odeslaný ze služby IoT Hub.
+* Probíhá inicializace odpovídající akci konkrétní zařízení na zařízení.
+* Poskytuje stav aktualizací prostřednictvím *hlášené vlastnosti* do služby IoT Hub.
 
-You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
+Back-end aplikačním v cloudu můžete použít ke spouštění dotazů twin zařízení hlásit průběh vaše akce správy zařízení.
 
 [lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

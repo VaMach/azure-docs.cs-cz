@@ -1,27 +1,26 @@
 ---
 title: "Vytvoření funkce aktivované webhookem GitHubu v Azure | Dokumentace Microsoftu"
 description: "Pomocí služby Azure Functions vytvoříte funkci bez serveru, která je vyvolána webhookem GitHubu."
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Vytvoření funkce aktivované webhookem GitHubu
 
@@ -52,7 +51,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Stručný úvod do služby Functions na webu Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Vyberte šablonu **GitHubWebHook** pro vámi požadovaný jazyk. **Pojmenujte funkci** a pak vyberte **Vytvořit**.
+2. Vyberte **WebHook Githubu** šablonu pro požadovaný jazyk. **Pojmenujte funkci** a pak vyberte **Vytvořit**.
 
      ![Vytvoření funkce aktivované webhookem GitHubu na webu Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
@@ -109,4 +108,3 @@ Vytvořili jste funkci, která se spustí při přijetí požadavku z webhooku G
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Další informace o aktivačních událostech webhooků najdete v tématu [Vazby protokolu HTTP služby Azure Functions a vazby webhooku](functions-bindings-http-webhook.md).
-

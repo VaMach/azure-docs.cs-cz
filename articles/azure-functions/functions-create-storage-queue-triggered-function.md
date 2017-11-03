@@ -4,24 +4,23 @@ description: "Pomocí služby Azure Functions vytvoříte funkci bez serveru, kt
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Vytvoření funkce aktivované službou Azure Queue Storage
 
@@ -59,9 +58,9 @@ Dál vytvoříte v nové aplikaci Function App funkci.
     
     | Nastavení | Navrhovaná hodnota | Popis |
     |---|---|---|
-    | **Název fronty**   | myqueue-items    | Název fronty, ke které se připojíte ve svém účtu úložiště. |
-    | **Připojení k účtu úložiště** | AzureWebJobStorage | Můžete použít připojení k účtu úložiště, které už používá vaše aplikace Function App, nebo můžete vytvořit nové.  |
     | **Pojmenujte svoji funkci** | Jedinečný název v rámci aplikace Function App | Název této funkce aktivované frontou. |
+    | **Název fronty**   | myqueue-items    | Název fronty, ke které se připojíte ve svém účtu úložiště. |
+    | **Připojení k účtu úložiště** | AzureWebJobStorage | Můžete použít připojení k účtu úložiště, které už používá vaše aplikace Function App, nebo můžete vytvořit nové.  |    
 
 3. Funkci vytvoříte kliknutím na **Vytvořit**.
 
@@ -69,9 +68,9 @@ Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte frontu 
 
 ## <a name="create-the-queue"></a>Vytvoření fronty
 
-1. Ve funkci klikněte na **Integrace**, rozbalte položku **Dokumentace**a zkopírujte údaje **Název účtu** a **Klíč účtu**. Tyto přihlašovací údaje použijte k připojení k účtu úložiště. Pokud jste se už ke svému účtu úložiště připojili, přejděte ke kroku 4.
+1. Ve funkci klikněte na **Integrace**, rozbalte položku **Dokumentace**a zkopírujte údaje **Název účtu** a **Klíč účtu**. Použít tyto přihlašovací údaje pro připojení k účtu úložiště v Azure Storage Explorer. Pokud jste se už ke svému účtu úložiště připojili, přejděte ke kroku 4.
 
-    ![Získejte přihlašovací údaje účtu úložiště.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
+    ![Získejte přihlašovací údaje účtu úložiště.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
 1. Spusťte nástroj [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vlevo klikněte na ikonu připojení, zvolte **Use a storage account name and key** (Použít název a klíč účtu úložiště) a klikněte na **Next** (Další).
 
@@ -81,7 +80,7 @@ Teď se připojíte ke svému účtu služby Azure Storage a vytvoříte frontu 
 
     ![Zadejte přihlašovací údaje úložiště a připojte se.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Rozbalte připojený účet úložiště, klikněte pravým tlačítkem na **Fronty**, klikněte na **Vytvořit frontu**, zadejte`myqueue-items` a potom stiskněte Enter.
+1. Rozbalte účet připojené úložiště, klikněte pravým tlačítkem na **fronty**, klikněte na tlačítko **vytvořit frontu**, typ `myqueue-items`, a potom stiskněte klávesu enter.
 
     ![Vytvořte frontu úložiště.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -89,7 +88,7 @@ Teď máte frontu úložiště a můžete funkci otestovat přidáním zprávy d
 
 ## <a name="test-the-function"></a>Testování funkce
 
-1. Zpátky na webu Azure Portal přejděte na svoji funkci, ve spodní části stránky rozbalte **Protokoly** a ujistěte se, že není pozastavené streamování protokolů.
+1. Zpět na portálu Azure přejděte do funkce, rozbalte **protokoly** v dolní části stránky a ujistěte se, že není pozastavená této protokolů streamování.
 
 1. V Storage Exploreru rozbalte svůj účet úložiště, možnosti **Queues** (Fornty), a **myqueue-items** a potom klikněte na **Add message** (Přidat zprávu).
 

@@ -1,12 +1,12 @@
-For more information about the Azure toolkits for Java IDEs, see the following links:
+Další informace o Azure sad nástrojů pro integrovaného vývojového prostředí Java najdete v následujících tématech:
 
-* [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse)
-  * [What's new in the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-whats-new)
-  * [Installing the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation)
-  * [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-sign-in-instructions)
-* [Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij)
-  * [What's new in the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-whats-new)
-  * [Installing the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-installation)
-  * [Sign-in instructions for the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-sign-in-instructions)
+* [Azure nástrojů pro Eclipse](/azure/azure-toolkit-for-eclipse)
+  * [Co je nového v sadě nástrojů Azure pro Eclipse](/azure/azure-toolkit-for-eclipse-whats-new)
+  * [Instalace sady Azure Toolkit pro Eclipse](/azure/azure-toolkit-for-eclipse-installation)
+  * [Pokyny přihlášení k Azure nástrojů pro Eclipse](/azure/azure-toolkit-for-eclipse-sign-in-instructions)
+* [Sada Azure Toolkit pro IntelliJ](/azure/azure-toolkit-for-intellij)
+  * [Co je nového v sadě nástrojů Azure pro IntelliJ](/azure/azure-toolkit-for-intellij-whats-new)
+  * [Instalace sady Azure Toolkit pro IntelliJ](/azure/azure-toolkit-for-intellij-installation)
+  * [Přihlášení pokyny pro Azure Toolkit IntelliJ](/azure/azure-toolkit-for-intellij-sign-in-instructions)
 
-For more information about using Java with Azure, see the [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) and the [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).
+Další informace o používání Javy v Azure najdete v tématu [Azure střediska pro vývojáře Java](https://azure.microsoft.com/develop/java/) a [Java nástrojů pro Visual Studio Team Services](https://java.visualstudio.com/).

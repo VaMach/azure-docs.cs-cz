@@ -1,6 +1,8 @@
 # Přehled
 ## [Co je služba Azure Active Directory Domain Services?](active-directory-ds-overview.md)
-## [Hodí se pro vás?](active-directory-ds-comparison.md)
+## Hodí se pro vás?
+### [Porovnání s AD na Windows Serveru](active-directory-ds-comparison.md)
+### [Porovnání se službou Azure AD Join](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Funkce](active-directory-ds-features.md)
 ## [Scénáře](active-directory-ds-scenarios.md)
 ## [Jak funguje synchronizace](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [Konfigurace podpory pro synchronizaci profilu pro SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Konfigurace omezeného delegování Kerberos](active-directory-ds-enable-kcd.md)
 ### [Nasazení proxy aplikace služby Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
+## [Odstranění spravované domény](active-directory-ds-disable-aadds.md)
 ## Řešení potíží
 ### [Nejčastější dotazy](active-directory-ds-faqs.md)
 ### [Průvodce řešením problémů](active-directory-ds-troubleshooting.md)

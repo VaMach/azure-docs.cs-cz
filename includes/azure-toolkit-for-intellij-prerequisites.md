@@ -1,17 +1,17 @@
-## <a name="prerequisites"></a>Prerequisites
-The Azure Toolkit for IntelliJ requires the following software components:
+## <a name="prerequisites"></a>Požadavky
+Sada nástrojů Azure pro IntelliJ vyžaduje následující softwarové komponenty:
 
-* IntelliJ IDEA Ultimate Edition, which can be downloaded from the [JetBrains website](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA Ultimate Edition, který si můžete stáhnout z [JetBrains webu](https://www.jetbrains.com/idea/download/).
 
-* A Java Developer Kit (JDK), version 1.8 or later.
+* Java Developer Kit (JDK), verze 1,8 nebo novější.
 
-* An Azure subscription, which can be acquired from <https://azure.microsoft.com/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
+* Předplatné Azure, který můžete získat z <https://azure.microsoft.com/free/> nebo <http://azure.microsoft.com/pricing/purchase-options/>.
 
-* An operating system. The Azure Toolkit for IntelliJ has been tested on the following operating systems:
+* Operační systém. Sada nástrojů Azure pro IntelliJ byl otestován v následujících operačních systémů:
   
-  * Windows 10, Windows 8.1, Windows 8, and Windows 7
-  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2008
-  * [Mac OS X](http://www.apple.com/osx) version "Yosemite" or later
-  * [Ubuntu Linux](http://www.ubuntu.com) version 14, 15, and 16
+  * Windows 10, Windows 8.1, Windows 8 a Windows 7
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 a Windows Server 2008
+  * [Mac OS X](http://www.apple.com/osx) verze "Yosemite" nebo novější
+  * [Ubuntu Linux](http://www.ubuntu.com) verzi 14, 15 a 16
 
-For more information, see the [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) page at the JetBrains Plugin Repository.
+Další informace najdete v tématu [nástrojů Azure pro IntelliJ](https://plugins.jetbrains.com/plugin/8053) stránky v úložišti JetBrains modulu plug-in.

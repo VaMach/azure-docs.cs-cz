@@ -1,3 +1,3 @@
-If you're unfamiliar with MSI, check out the [Managed Service Identity overview](../articles/active-directory/msi-overview.md).
+Pokud jste obeznámeni s MSI, podívejte se [identita spravované služby přehled](../articles/active-directory/msi-overview.md).
 
-If you don't already have an Azure account, be sure to [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+Pokud ještě nemáte účet Azure [si zaregistrovat bezplatný účet](https://azure.microsoft.com/free/) než budete pokračovat.

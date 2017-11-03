@@ -1,0 +1,123 @@
+---
+title: "Azure Active Directory, vytváření sestav – nejčastější dotazy | Microsoft Docs"
+description: "Nejčastější dotazy týkající se vytváření sestav Azure Active Directory."
+services: active-directory
+documentationcenter: 
+author: MarkusVi
+manager: femila
+ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/12/2017
+ms.author: markvi
+ms.reviewer: dhanyahk
+ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/13/2017
+---
+# <a name="azure-active-directory-reporting-faq"></a>Nejčastější dotazy týkající se vytváření sestav Azure Active Directory.
+
+Tento článek obsahuje odpovědi na nejčastější dotazy k Azure Active Directory (Azure AD), vytváření sestav. Další informace najdete v článku [Generování sestav ve službě Azure Active Directory](active-directory-reporting-azure-portal.md). 
+
+**Otázka: je použito https://graph.windows.net/&lt;název klienta&gt;/reports/ koncový bod rozhraní API pro audit vyžádání Azure AD a využití integrované aplikace sestavy do našich reporting systémů prostřednictvím kódu programu. Co je měli přepnout do?**
+
+**Odpověď:** vyhledat naše [referenční dokumentace rozhraní API](https://developer.microsoft.com/graph/) zobrazíte použití nových rozhraní API pro přístup k [sestavy aktivit](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Tento koncový bod má dva podřízené (auditu a přihlášení), které poskytují všechna data, která jste získali v původním koncový bod rozhraní API. Tento nový koncový bod má také sestavy přihlášení s licencí Azure AD Premium, který můžete použít k získání využití aplikací, využití zařízení a přihlašovací údaje uživatele.
+
+
+--- 
+
+**Otázka: je použito https://graph.windows.net/&lt;název klienta&gt;/reports/ koncový bod rozhraní API pro vyžádání obsahu sestavy zabezpečení Azure AD (specifické typy detekce, třeba uniklé přihlašovací údaje nebo přihlášení z anonymních IP adres) našich systémy Reporting prostřednictvím kódu programu. Co je měli přepnout do?**
+
+**Odpověď:** můžete použít [Identity Protection rizikových událostech rozhraní API](active-directory-identityprotection-graph-getting-started.md) k zjištění zabezpečení přístup prostřednictvím Microsoft Graph. Tento nový formát, poskytují větší flexibilitu v tom, jak můžete dát dotaz na data s pokročilé filtrování, výběr pole a další a standardizuje rizikových událostí do jednoho typu pro snazší integrace do systémů Siem a dalších nástrojů pro shromažďování dat. Protože data jsou v jiném formátu, nelze je nový dotaz nahradit své staré dotazy. Ale [nového rozhraní API používá Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), což je standard Microsoft pro takové rozhraní API jako O365 nebo Azure AD. Takže práce potřebné, můžete buď rozšířit vaše investice do aktuální MS Graph nebo nápovědy začnete přecházíte na tuto novou standardní platformu.
+
+--- 
+
+**Otázka: co je uchovávání dat protokoly aktivity (auditu a přihlášení) na portálu Azure?** 
+
+**Odpověď:** poskytujeme 7 dnů dat pro naše zákazníky volné nebo se zobrazí data po dobu 30 dnů po nákupu Azure AD Premium 1 nebo Premium 2 licenci. Další informace o uchovávání dat sestav, naleznete v části [zásady uchování sestav Azure Active Directory](active-directory-reporting-retention.md).
+
+--- 
+
+**Otázka: jak dlouho trvá až po dokončení Moje úloh data aktivit uvidí?**
+
+**Odpověď:** protokoly auditu aktivity, jejichž latence od 15 minut až hodinu. Protokoly přihlašovací aktivity může trvat od 15 minut až 2 hodiny pro některé záznamy.
+
+---
+
+**Otázka: Potřebuji jako globální správce najdete v části přihlášení aktivity portálu Azure a získat data prostřednictvím rozhraní API?**
+
+**Odpověď:** Ne. Musí být **zabezpečení čtečky**, **správce zabezpečení**, nebo **globálního správce** na získat data na portálu Azure nebo prostřednictvím rozhraní API pro vytváření sestav.
+
+---
+
+**Otázka: je možné získat informace o protokolu činnosti Office 365 prostřednictvím portálu Azure?**
+
+**Odpověď:** i když aktivita Office 365 a Azure AD aktivity protokoly sdílení velké množství prostředků adresáře, pokud chcete, aby ucelený pohled na protokoly aktivity Office 365, by měl přejdete do do centra pro správu Office 365 se získat informace o protokolu Office 365 aktivity.
+
+---
+
+
+**Otázka: které rozhraní API se používá k načtení informací o protokoly aktivity Office 365?**
+
+**Odpověď:** používat pro přístup k rozhraní API pro správu Office 365 [Office 365 aktivity protokoly prostřednictvím rozhraní API](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview).
+
+---
+
+**Otázka: počet záznamů, můžete stáhnout z portálu Azure?**
+
+**Odpověď:** až 120 kB záznamy si můžete stáhnout z portálu Azure. Záznamy jsou seřazené podle *nejnovější* a ve výchozím nastavení, můžete získat nejnovější záznamy 120 kB. 
+
+---
+
+**Otázka: počet záznamů, můžete dotazovat pomocí aktivity rozhraní API?**
+
+**Odpověď:** můžete dát dotaz na záznamy až 1 milion (Pokud nechcete použít operátor top, která seřadí záznam většina poslední). Pokud používáte operátor "top", se můžete dotazovat až 500 kB záznamy. Můžete najít ukázkové dotazy týkající se používání rozhraní API zde [zde](active-directory-reporting-api-getting-started.md).
+
+---
+
+**Otázka: jak lze získat licenci premium?**
+
+**Odpověď:** najdete v části [Začínáme s Azure Active Directory Premium](active-directory-get-started-premium.md) pro odpověď na tuto otázku.
+
+---
+
+**Otázka: jak brzy by měl zobrazit data aktivity po získání licence premium?**
+
+**Odpověď:** Pokud již máte data aktivity, jako volné licenci, pak můžete zobrazit stejná data. Pokud nemáte k dispozici žádná data, pak bude trvat jeden nebo dva dny.
+
+---
+
+**Otázka: Po získání licenci Azure AD premium zobrazit data poslední měsíc?**
+
+**Odpověď:** Pokud Přepnuli jste nedávno na verzi Premium (včetně zkušební verzi), zobrazí se data až do 7 dnů původně. Když se data hromadí, zobrazí se až 30 dnů.
+
+---
+
+**Otázka: je riziko událostí v ochrany identit, ale nejsou zobrazeny odpovídající přihlášení v všechny přihlášení. Je to očekávané?**
+
+**Odpověď:** Ano, Identity Protection vyhodnotí riziko pro všechny toky ověřování jestli-li být interaktivní nebo neinteraktivní. Ale všechny přihlášení pouze sestava zobrazí jenom interaktivní přihlášení.
+
+---
+
+**Otázka: jak můžete stáhnout "Uživatelé označení příznakem rizik" sestav na portálu Azure?**
+
+**Odpověď:** možnost stažení *uživatelé označení příznakem rizik* sestavy přidá brzy.
+
+---
+
+**Otázka: Jak poznám, proč přihlášení, nebo pro uživatele byla příznakem rizikové na portálu Azure?**
+
+**Odpověď:** Premium edition zákazníkům další informace o základní rizikových událostech kliknutím na uživatele v "Uživatelé označení příznakem rizik" nebo kliknutím na "rizikové přihlášení". Zákazníci volné a Základní edice získat zobrazíte rizikové uživatele a přihlášení bez základní informace o události riziko.
+
+---
+
+**Otázka: jak jsou vypočítávány IP adresy v sestavě rizikové přihlášení a přihlášení?**
+
+**Odpověď:** IP adresy vydávají tak, že není spolehlivý připojení mezi IP adresu a kde se fyzicky nacházejí počítači s touto adresou. To ztěžuje faktorech například mobilní poskytovatelů a vydání z Centrální fondy IP adres velmi často daleko od skutečně použití klientské zařízení sítě VPN. Z výše uvedených převodu IP adresu na fyzické umístění je nejlepší úsilí na základě trasování, data registru, zpětné vyhledání a další informace. 
+
+---

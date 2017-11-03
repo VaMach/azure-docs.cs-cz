@@ -1,28 +1,28 @@
-If you want a domain, you can buy domains on [Azure Management Portal](https://portal.azure.com) directly. Use the following steps to buy domain names and assign to your web app.
+Pokud chcete k doméně, můžete koupit domén na [portálu pro správu Azure](https://portal.azure.com) přímo. Pomocí následujících kroků můžete koupit názvy domén a přiřadit do vaší webové aplikace.
 
-1. In your browser, open the [Azure Management Portal](https://portal.azure.com).
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
+1. V prohlížeči otevřete [portálu pro správu Azure](https://portal.azure.com).
+2. V **webové aplikace** , klikněte na název vaší webové aplikaci, vyberte **nastavení**a potom vyberte **vlastní domény a SSL**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. In the **Custom domains and SSL** blade, click **Buy domains**.
+3. V **vlastní domény a SSL** okně klikněte na tlačítko **koupit domény**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-1.png)
-4. In the **Buy Domains** blade, use the text box to enter the domain name you want to buy. The suggested available domains will be shown just blow the text box. Select what domain you want to buy.
+4. V **koupit domén** okně pomocí textového pole zadejte název domény, které chcete koupit. Navržené domény k dispozici se zobrazí právě vyfoukalo textového pole. Vyberte, jaké domény, které chcete koupit.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-2.png)
-5. Click the **Contact Information** and fill the domain's contact information form.
+5. Klikněte **kontaktní údaje** a vyplnění formuláře domény kontaktní informace.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-3.png)
-6. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**.
+6. Klikněte na tlačítko **vyberte** na **koupit domén** okna a pak se zobrazí informace o nákupu na **potvrzení nákupní** okno. Přijměte právní podmínky a klikněte na tlačítko **koupit**, bude možné odeslat vaši objednávku a procesu nákupu můžete sledovat na **oznámení**.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-4.png)
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-5.png)
-7. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade.
+7. Pokud jste úspěšně seřazené domény, můžete spravovat domény a přiřadit k vaší webové aplikace. Klikněte **"..."** na pravé straně vaší domény. Pak můžete **zrušit nákup** nebo **spravovat domény**. Klikněte na tlačítko **spravovat domény**, pak lze vázat jsme **subdomény** do vaší webové aplikace na **spravovat domény** okno.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-6.png)
    
-    Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+    Po dokončení konfigurace nebude uvedené vlastní název domény **vazby názvů hostitelů** část vaší webové aplikace.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+V tomto okamžiku by měl být zadejte vlastní název domény v prohlížeči a zobrazit tak, že je úspěšně přejdete do vaší webové aplikace.
 

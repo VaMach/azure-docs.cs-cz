@@ -1,26 +1,26 @@
-## <a name="create-a-device-identity"></a>Create a device identity
+## <a name="create-a-device-identity"></a>Vytvoření identity zařízení
 
-In this section, you use a Node.js tool called [iothub-explorer][iot-hub-explorer] to create a device identity for this tutorial. Device IDs are case sensitive.
+V této části můžete použít nástroj Node.js názvem [iothub-explorer] [ iot-hub-explorer] k vytvoření identity zařízení pro účely tohoto kurzu. V ID zařízení se rozlišují malá a velká písmena.
 
-1. Run the following in your command-line environment:
+1. Spusťte následující příkazy v prostředí příkazového řádku:
 
     `npm install -g iothub-explorer@latest`
 
-1. Then, run the following command to login to your hub. Substitute `{iot hub connection string}` with the IoT Hub connection string you previously copied:
+1. Potom spusťte následující příkaz k přihlášení do vašeho centra. SUBSTITUTE `{iot hub connection string}` jste dříve zkopírovali připojovacím řetězcem IoT Hub:
 
     `iothub-explorer login "{iot hub connection string}"`
 
-1. Finally, create a new device identity called `myDeviceId` with the command:
+1. Nakonec vytvořte novou identitu zařízení s názvem `myDeviceId` pomocí příkazu:
 
     `iothub-explorer create myDeviceId --connection-string`
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-Make a note of the device connection string from the result. This device connection string is used by the device app to connect to your IoT Hub as a device.
+Poznamenejte si řetězec připojení zařízení od výsledku. Toto zařízení připojovací řetězec se používá aplikace zařízení pro připojení do služby IoT Hub jako zařízení.
 
 ![][img-identity]
 
-Refer to [Getting started with IoT Hub][lnk-getstarted] to programmatically create device identities.
+Odkazovat na [Začínáme se službou IoT Hub] [ lnk-getstarted] k vytváření identit zařízení prostřednictvím kódu programu.
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png

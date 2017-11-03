@@ -1,7 +1,7 @@
-1. Open a web browser and browse to [http://www.windowsazure.com][].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
+1. Otevřete webový prohlížeč a přejděte do [] – [http://www.windowsazure.com].
+2. Chcete-li začít pracovat s bezplatný účet, klikněte na tlačítko **bezplatné zkušební verze** v pravém horním rohu a postupujte podle pokynů. Budete potřebovat číslo platební karty a číslo mobilního telefonu pro ověření identity, ale nebudou platit.
    
-   ![Azure Web Site][0]
+   ![Web Azure][0]
 
 [0]: ./media/create-azure-account/freetrialonwindowsazurehomepage.png
 

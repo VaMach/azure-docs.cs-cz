@@ -1,26 +1,26 @@
 <!--author=alkohli last changed: 09/02/16 -->
 
-#### <a name="to-install-updates-via-the-azure-classic-portal"></a>To install updates via the Azure classic portal
-1. On the **Devices** page, select the device on which you want to install updates.
-2. Navigate to **Devices > Maintenance > Software Updates**.
+#### <a name="to-install-updates-via-the-azure-classic-portal"></a>K instalaci aktualizací prostřednictvím portálu Azure classic
+1. Na **zařízení** vyberte zařízení, na kterém chcete nainstalovat aktualizace.
+2. Přejděte na **zařízení > údržby > aktualizací softwaru**.
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
-3. You see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
+    ![aktualizace zařízení](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
+3. Pokud jsou k dispozici aktualizace softwaru, zobrazí se zpráva. Vyhledávat aktualizace, můžete také kliknout na **kontrolovat aktualizace** v dolní části stránky.
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
-4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click the check icon to launch a job to download the available updates. 
+    ![aktualizace zařízení](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
+4. V dolní části stránky klikněte na tlačítko **stáhnout aktualizace**. Zobrazí se dialogové okno upozorní uživatele, že aktualizace je rušivý. Zadané pole virtuální zařízení StorSimple je jeden uzel zařízení, se zařízení restartuje po aktualizaci. To naruší běh všech probíhajících V/V. Klikněte na ikonu zaškrtnutí spustíte úlohu ke stažení dostupné aktualizace. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
-5. You are notified when the updates are downloaded. 
+    ![aktualizace zařízení](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
+5. Upozornění se zobrazí při stahování aktualizací. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
-6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog is presented to you again. Click the check icon to start a job to install the updates. 
+    ![aktualizace zařízení](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
+6. V dolní části stránky klikněte na tlačítko **instalovat aktualizace** zahájíte aktualizace zařízení. Dialogové okno se zobrazují znovu. Klikněte na ikonu zaškrtnutí při spuštění úlohy k instalaci aktualizací. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png) 
-7. You are notified after the job is created. 
+    ![aktualizace zařízení](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png) 
+7. Upozornění se zobrazí po vytvoření úlohy. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
-8. Click **View Job** link to go to the Jobs page and monitor the install status. You can click **Details** at any time to get detailed information about the update job. 
+    ![aktualizace zařízení](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
+8. Klikněte na tlačítko **zobrazit úlohy** odkazu přejděte na stránku úlohy a monitorovat stav instalace. Můžete kliknout na **podrobnosti** kdykoli chcete získat podrobné informace o úloze aktualizace. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
+    ![aktualizace zařízení](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
 

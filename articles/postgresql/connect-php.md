@@ -6,29 +6,27 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/29/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 009cc7941dc5d60153f1ab27adb9b86866b9a3f2
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 20dbc4bbe66ec311afcc238b25a6c1f6f6a40829
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití PHP k připojení a dotazování dat
-Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí aplikace v [PHP](http://php.net/manual/intro-whatis.php). Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. V tomto článku se předpokládá, že máte zkušenosti s vývojem pomocí PHP, ale teprve začínáte pracovat se službou Azure Database for PostgreSQL.
+Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí aplikace v [PHP](http://php.net/manual/intro-whatis.php). Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. Kroky v tomto článku předpokládají, že jste obeznámeni s vývojem pomocí PHP a začínáte s databází Azure pro PostgreSQL.
 
 ## <a name="prerequisites"></a>Požadavky
-Tento rychlý start jako výchozí bod využívá prostředky vytvořené v některém z těchto průvodců:
+Tento rychlý start využívá jako výchozí bod prostředky vytvořené v některém z těchto průvodců:
 - [Vytvoření databáze – portál](quickstart-create-server-database-portal.md)
 - [Vytvoření databáze – rozhraní příkazového řádku Azure](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>Instalace PHP
-Nainstalujte PHP na vlastní server nebo vytvořte [webovou aplikaci](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) Azure, která zahrnuje PHP.
+Nainstalujte PHP na vlastní server nebo vytvořte [webovou aplikaci](../app-service/app-service-web-overview.md) Azure, která zahrnuje PHP.
 
 ### <a name="windows"></a>Windows
 - Stáhněte [verzi PHP 7.1.4 Non-Thread Safe (x64)](http://windows.php.net/download#php-7.1).
@@ -49,11 +47,11 @@ Nainstalujte PHP na vlastní server nebo vytvořte [webovou aplikaci](https://do
 ## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. V nabídce vlevo na webu Azure Portal klikněte na **Všechny prostředky** a vyhledejte vytvořený server, například **mypgserver-20170401**.
 3. Klikněte na název serveru **mypgserver-20170401**.
 4. Vyberte stránku **Přehled** serveru. Poznamenejte si **Název serveru** a **Přihlašovací jméno správce serveru**.
- ![Azure Database for PostgreSQL – přihlášení správce serveru](./media/connect-php/1-connection-string.png)
+ ![Azure Database for PostgreSQL – přihlašovací jméno správce serveru](./media/connect-php/1-connection-string.png)
 5. Pokud zapomenete přihlašovací údaje pro váš server, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby obnovit heslo.
 
 ## <a name="connect-and-create-a-table"></a>Připojení a vytvoření tabulky
@@ -223,4 +221,3 @@ Nahraďte parametry `$host`, `$database`, `$user` a `$password` vlastními hodno
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
 > [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
-

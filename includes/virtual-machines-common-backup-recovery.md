@@ -1,31 +1,31 @@
 
 ## <a name="azure-backup"></a>Azure Backup
 
-For backing up Azure VMs running production workloads, use Azure Backup. Azure Backup supports application-consistent backups for both Windows and Linux VMs. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. 
+Pro zálohování Azure virtuální počítače spuštěné úlohy v produkčním prostředí, pomocí Azure Backup. Azure Backup podporuje zálohování konzistentní s aplikací pro Windows a virtuální počítače s Linuxem. Zálohování Azure vytvoří body obnovení, které jsou uložené v geograficky redundantní obnovení trezorů. Při obnovení z bodu obnovení můžete obnovit celý virtuální počítač nebo jenom určité soubory. 
 
-For a simple, hands-on introduction to Azure Backup for Azure VMs, see the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+Jednoduché praktických Úvod do Azure Backup pro virtuální počítače Azure, najdete v části "Záložní kurzu virtuální počítače Windows" pro [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) nebo [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
 
-For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../articles/backup/backup-azure-vms-introduction.md)
+Další informace o tom, jak Azure Backup funguje, najdete v části [plánování vaší infrastruktury zálohování virtuálních počítačů v Azure](../articles/backup/backup-azure-vms-introduction.md)
 
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Azure Site Recovery protects your VMs from a major disaster scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to an Azure region of your choice, it is not restricted to paired regions. 
+Azure Site Recovery chrání virtuální počítače z hlavní havárii, když dojde výpadku způsobeného hlavní přírodní katastrofě nebo přerušení služeb rozšířeným celou oblast. Azure Site Recovery pro virtuální počítače můžete nakonfigurovat tak, aby vaše aplikace s jedním kliknutím v několika minut můžete obnovit. Můžete replikovat do oblasti Azure podle vaší volby, není omezen na spárované oblasti. 
 
-You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure automation runbooks.
+Můžete spustit Nácvik zotavení po havárii s na vyžádání testovací převzetí služeb při selhání, aniž by to ovlivňovalo produkční zatížení nebo probíhající replikace. Vytvořte plány obnovení pro orchestraci převzetí služeb při selhání a navrácení služeb po obnovení celé aplikace běžící na několika virtuálních počítačích. Funkce plánu obnovení je integrovaná s runbooky služby Azure automation.
 
-You can get started by [replicating your virtual machines](https://aka.ms/a2a-getting-started). 
+Abyste mohli začít podle [replikaci virtuálních počítačů](https://aka.ms/a2a-getting-started). 
 
-## <a name="managed-snapshots"></a>Managed snapshots 
+## <a name="managed-snapshots"></a>Spravované snímky 
 
-In development and test environments, snapshots provide a quick and simple option for backing up VMs that use Managed Disks. A managed snapshot is a read-only full copy of a managed disk. Snapshots exist independent of the source disk and can be used to create new managed disks for rebuilding a VM. They are billed based on the used portion of the disk. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
+V vývojová a testovací prostředí poskytují snímky rychlá a jednoduchá možnost pro zálohování virtuálních počítačů, které používají spravovaný disky. Spravované snímek je jen pro čtení úplnou kopii se spravovaným diskem. Snímky existují nezávisle na zdrojový disk a slouží k vytvoření nové spravované disky pro virtuální počítač znovu sestavit. Se fakturují, v závislosti na používané části disku. Například pokud vytvoříte snímek se spravovaným diskem s zřízená kapacita 64 GB a skutečná data použité velikosti 10 GB, bude účtován snímku pouze pro velikost dat používaných 10 GB.  
 
-For more information on creating snapshots, see:
+Další informace o vytváření snímků najdete v tématu:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Vytvoření kopie VHD uložené jako spravovaný disk pomocí snímků ve Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Vytvoření kopie VHD uložené jako spravovaný disk pomocí snímků v Linuxu](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 
-## <a name="next-steps"></a>Next steps
-You can try out Azure Backup by following the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+## <a name="next-steps"></a>Další kroky
+Můžete vyzkoušet Azure Backup pomocí následujících "Záložní kurzu virtuální počítače Windows" pro [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) nebo [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

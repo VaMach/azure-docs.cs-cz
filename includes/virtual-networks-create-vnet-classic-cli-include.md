@@ -1,12 +1,12 @@
-## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>How to create a classic VNet using Azure CLI
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Postup vytvoření klasické virtuální sítě pomocí rozhraní příkazového řádku Azure
+Pomocí rozhraní příkazového řádku Azure můžete spravovat svoje prostředky Azure z příkazového řádku jakéhokoliv počítače se systémem Windows, Linux a OS X. Pokud chcete vytvořit síť VNet pomocí rozhraní příkazového řádku Azure, postupujte následujícím způsobem.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../articles/cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. The list shown after the output explains the parameters used.
+1. Pokud jste rozhraní příkazového řádku Azure nikdy nepoužívali, přejděte na téma [Instalace a konfigurace rozhraní příkazového řádku Azure](../articles/cli-install-nodejs.md) a postupujte podle pokynů až do chvíle, kdy můžete vybrat svůj účet a předplatné Azure.
+2. Spuštěním příkazu **azure network vnet create** vytvořte síť VNet a podsíť, jak vidíte níže. Seznam uvedený za výstupem vysvětluje použité parametry.
    
             azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
    
-    Expected output:
+    Očekávaný výstup:
    
             info:    Executing command network vnet create
             + Looking up network configuration
@@ -14,18 +14,18 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
             + Setting network configuration
             info:    network vnet create command OK
    
-   * **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
-   * **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
-   * **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
-   * **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
-   * **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
-   * **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
-   * **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
-3. Run the **azure network vnet subnet create** command to create a subnet as shown below. The list shown after the output explains the parameters used.
+   * **--vnet**. Název sítě VNet, která se má vytvořit. V našem scénáři je to *TestVNet*.
+   * **-e (nebo--adresní prostor)**. Adresní prostor sítě VNet. Pro náš scénář *192.168.0.0*
+   * **-i (nebo - cidr)**. Maska sítě ve formátu CIDR. Pro náš scénář *16*.
+   * **-n (nebo--název podsítě**). Název první podsíť. V našem scénáři je to *FrontEnd*.
+   * **-p (nebo--IP adresu podsítě start)**. Počáteční IP adresa pro podsíť nebo adresního prostoru podsítě. Pro náš scénář *192.168.1.0*.
+   * **-r (nebo--podsítě cidr)**. Maska sítě ve formátu CIDR podsítě. Pro náš scénář *24*.
+   * **-l (nebo --location)**. Oblast Azure, ve které bude síť VNet vytvořena. Pro náš scénář *střed USA*.
+3. Spuštěním příkazu **azure network vnet subnet create** vytvořte podsíť, jak vidíte níže. Seznam uvedený za výstupem vysvětluje použité parametry.
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
    
-    Here is the expected output for the command above:
+    Toto je očekávaný výstup výše uvedeného příkazu:
    
             info:    Executing command network vnet subnet create
             + Looking up network configuration
@@ -37,14 +37,14 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
             data:    Address prefix                  : 192.168.2.0/24
             info:    network vnet subnet create command OK
    
-   * **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-   * **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
-   * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+   * **-t (nebo--vnet-name**. Název sítě VNet, ve které se vytvoří podsíť. V našem scénáři je to *TestVNet*.
+   * **-n (nebo --name)**. Název nové podsítě. Pro náš scénář *back-end*.
+   * **-a (nebo --address-prefixes)**. Blok CIDR podsítě. Čtyři našem scénáři *192.168.2.0/24*.
+4. Spuštěním příkazu **azure network vnet show** zobrazíte vlastnosti nové sítě VNet, jak vidíte níže.
    
             azure network vnet show
    
-    Here is the expected output for the command above:
+    Toto je očekávaný výstup výše uvedeného příkazu:
    
             info:    Executing command network vnet show
             Virtual network name: TestVNet

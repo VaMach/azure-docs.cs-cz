@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6c9a50c1f3dcd55cd03a694c7d4e13b8a55c3cd4
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: fdd83f2386055fa9fac1ad50f4b01bf4419342b5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Vytvoření virtuálního počítače s Linuxem pomocí PowerShellu
 
 Modul Azure PowerShell slouží k vytváření a správě prostředků Azure z příkazového řádku PowerShellu nebo ve skriptech. Tento průvodce podrobně popisuje nasazení virtuálního počítače se serverem Ubuntu pomocí modulu Azure PowerShell. Po nasazení serveru se vytvoří připojení SSH a nainstaluje se webový server NGINX.
@@ -33,6 +31,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 Tento Rychlý start vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zjistíte spuštěním příkazu ` Get-Module -ListAvailable AzureRM`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 Veřejný klíč SSH s názvem *id_rsa.pub* musí být nakonec uložen v adresáři *.ssh* vašeho profilu uživatele Windows. Podrobné informace o vytváření klíčů SSH pro Azure najdete v tématu popisujícím [vytvoření klíčů SSH pro Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
@@ -140,16 +139,14 @@ Po zobrazení výzvy zadejte uživatelské jméno *azureuser*. Pokud jste při v
 
 ## <a name="install-nginx"></a>Instalace serveru NGINX
 
-Pomocí následujícího skriptu bash provedete aktualizaci zdrojů balíčku a nainstalujete nejnovější balíček NGINX. 
+Použijte následující příkazy k aktualizaci zdroje balíčků a instalovat nejnovější balíček NGINX. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-ngix-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
@@ -172,4 +169,3 @@ V tomto Rychlém startu jste nasadili jednoduchý virtuální počítač a pravi
 
 > [!div class="nextstepaction"]
 > [Kurzy pro virtuální počítače Azure s Linuxem](./tutorial-manage-vm.md)
-

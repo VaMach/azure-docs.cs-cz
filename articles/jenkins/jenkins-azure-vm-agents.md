@@ -1,113 +1,148 @@
 ---
-title: "Použití agentů virtuálních počítačů Azure pro průběžnou integraci pomocí Jenkinse"
-description: "Agenti virtuálních počítačů Azure jako podřízené servery Jenkinse"
+title: "Škálování volaných nasazení s agenty, virtuální počítač Azure."
+description: "Přidáte dodatečnou kapacitu pro kanály volaných virtuální počítače Azure pomocí agenta virtuálního počítače Azure volaných modulu plug-in."
 services: multiple
 documentationcenter: 
-author: mlearned
-manager: douge
-editor: 
-ms.assetid: 
+author: rloutlaw
+manager: justhe
 ms.service: multiple
 ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 6/7/2017
+ms.topic: article
+ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 5f2df414b4d0e8798b7ed6d90d0ea0fb79d42fc2
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="use-azure-vm-agents-for-continuous-integration-with-jenkins"></a>Použití agentů virtuálních počítačů Azure pro průběžnou integraci pomocí Jenkinse
+# <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Škálování vašeho nasazení volaných potřeby s agenty, virtuální počítač Azure
 
-Tento rychlý start předvádí, jak pomocí modulu plug-in Jenkins Azure VM Agents vytvořit v Azure linuxového (Ubuntu) agenta na vyžádání.
+Tento kurz ukazuje, jak používat volaných [modul plug-in Azure virtuálních počítačů agentů](https://plugins.jenkins.io/azure-vm-agents) přidat kapacity na vyžádání s Linuxové virtuální počítače běžící v Azure.
+
+V tomto kurzu provedete následující:
+
+> [!div class="checklist"]
+> * Instalace modulu plug-in agenty virtuálních počítačů Azure
+> * Konfigurace modulu plug-in vytvořit prostředky ve vašem předplatném Azure
+> * Nastavte výpočetní prostředky, které jsou k dispozici na každého agenta
+> * Nastavení operačního systému a nástroje nainstalované na každého agenta
+> * Vytvořit novou úlohu volaných volný styl
+> * Spustit úlohu v agenta virtuálního počítače Azure
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
 ## <a name="prerequisites"></a>Požadavky
 
-K dokončení tohoto rychlého startu je potřeba:
+* Předplatné Azure
+* Volaných hlavní server. Pokud nemáte, zobrazit [rychlý Start](install-jenkins-solution-template.md) nastavit jeden v Azure.
 
-* Pokud ještě nemáte hlavní server Jenkinse, můžete začít s využitím [šablony řešení](install-jenkins-solution-template.md). 
-* Pokud ještě nemáte instanční objekt Azure, přečtěte si téma [Vytvoření instančního objektu Azure pomocí Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="install-azure-vm-agents-plugin"></a>Instalace modulu plug-in Azure VM Agents
 
-Pokud začínáte z [šablony řešení](install-jenkins-solution-template.md), modul plug-in Azure VM Agents je nainstalovaný na hlavním serveru Jenkinse.
+> [!TIP]
+> Pokud jste nasadili volaných na Azure pomocí [šablona řešení](install-jenkins-solution-template.md), modul plug-in agenta virtuálního počítače Azure je již nainstalován.
 
-Jinak nainstalujte modul plug-in **Azure VM Agents** z řídicího panelu Jenkinse.
+1. Na řídicím panelu volaných vyberte **spravovat volaných**, pak vyberte **Správa modulů plug-in**.
+2. Vyberte **dostupné** a potom vyhledejte **agenti virtuálních počítačů Azure**. Zaškrtněte políčko vedle položky pro modul plug-in a vyberte **nainstalovat bez restartování** v dolní části řídicího panelu.
 
-## <a name="configure-the-plugin"></a>Konfigurace modulu plug-in
+## <a name="configure-the-azure-vm-agents-plugin"></a>Konfigurace modulu plug-in agenty virtuálních počítačů Azure
 
-* Na řídicím panelu Jenkinse klikněte na **Manage Jenkins (Správa Jenkinse) -> Configure System (Konfigurace systému)**. Přejděte do dolní části stránky a vyhledejte část s rozevíracím seznamem **Add new cloud** (Přidat nový cloud). Z nabídky vyberte **Microsoft Azure VM Agents**.
-* Vyberte existující účet z rozevíracího seznamu Azure Credentials (Přihlašovací údaje Azure).  Pokud chcete přidat nový **Microsoft Azure Service Principal** (Instanční objekt Microsoft Azure), zadejte následující hodnoty: Subscription ID (ID předplatného), Client ID (ID klienta), Client Secret (Tajný klíč klienta) a OAuth 2.0 Token Endpoint (Koncový bod tokenu OAuth 2.0).
+1. Na řídicím panelu volaných vyberte **spravovat volaných**, pak **nakonfigurujte systém**.
+2. Přejděte do dolní části stránky a najít **cloudu** část s **přidat nové cloudové** rozevírací seznam a vyberte **agenti virtuálního počítače Microsoft Azure**.
+3. Vyberte existující objekt zabezpečení služby z **přidat** rozevírací seznam v **přihlašovací údaje Azure** části. Pokud je uvedena žádná, proveďte následující postup [vytvořit objekt služby](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) pro Azure. váš účet a přidat jej do vaší konfigurace volaných:   
 
-![Přihlašovací údaje Azure](./media/jenkins-azure-vm-agents/service-principal.png)
+    a. Vyberte **přidat** vedle **přihlašovací údaje Azure** a zvolte **volaných**.   
+    b. V **přidat přihlašovací údaje** dialogovém okně, vyberte **Microsoft Azure Service Principal** z **druh** rozevíracího seznamu.   
+    c. Vytvořit objekt Active Directory Service z příkazového řádku Azure nebo [cloudové prostředí](/azure/cloud-shell/overview).
+    
+    ```azurecli-interactive
+    az ad sp create-for-rbac --name jenkins_sp --password secure_password
+    ```
 
-* Klikněte na **Verify configuration** (Ověřit konfiguraci) a zkontrolujte správnost konfigurace profilu.
-* Uložte konfiguraci a pokračujte k dalšímu kroku.
+    ```json
+    {
+        "appId": "BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBB",
+        "displayName": "jenkins_sp",
+        "name": "http://jenkins_sp",
+        "password": "secure_password",
+        "tenant": "CCCCCCCC-CCCC-CCCC-CCCCCCCCCCC"
+    }
+    ```
+    d. Zadejte přihlašovací údaje z hlavní do služby **přidejte pověření** dialogové okno. Pokud si nejste jisti svoje ID předplatného Azure, můžete zadat dotaz z rozhraní příkazového řádku:
+     
+     ```azurecli-interactive
+     az account list
+     ```
 
-## <a name="template-configuration"></a>Konfigurace šablony
+     ```json
+        {
+            "cloudName": "AzureCloud",
+            "id": "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA",
+            "isDefault": true,
+            "name": "Visual Studio Enterprise",
+            "state": "Enabled",
+            "tenantId": "CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCC",
+            "user": {
+            "name": "raisa@fabrikam.com",
+            "type": "user"
+            }
+     ```
 
-### <a name="general-configuration"></a>Obecná konfigurace
-Dále nakonfigurujte šablonu, která se použije k definování agenta virtuálního počítače Azure. 
+    Dokončený instanční objekt by měl používat `id` pole pro **ID předplatného**, `appId` hodnota **ID klienta**, `password` pro **tajný klíč klienta**a adresu URL pro **koncový bod tokenu OAuth 2.0** z `https://login.windows.net/<tenant_value>`. Vyberte **přidat** přidat objekt služby a potom nakonfigurovat modul plug-in používat nově vytvořené pověření.
 
-* Kliknutím na **Add** (Přidat) přidejte šablonu. 
-* Zadejte název nové šablony. 
-* Jako popisek zadejte ubuntu. Tento popisek se používá během konfigurace úlohy.
-* V poli se seznamem vyberte požadovanou oblast.
-* Vyberte požadovanou velikost virtuálního počítače.
-* Zadejte název účtu Azure Storage. Pokud pole ponecháte prázdné, použije se výchozí název jenkinsarmst.
-* Zadejte dobu uchování v minutách. Toto nastavení definuje počet minut, po které může Jenkins čekat před automatickým odstraněním nečinného agenta. Pokud nechcete, aby se nečinní agenti automaticky odstraňovali, zadejte 0.
+    ![Konfigurace Azure instančního objektu](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
-![Obecná konfigurace](./media/jenkins-azure-vm-agents/general-config.png)
+    
 
-### <a name="image-configuration"></a>Konfigurace image
+4. V **název skupiny prostředků** část, nechte **vytvořit nový** vybrané a zadejte `myJenkinsAgentGroup`.
+5. Vyberte **ověřte konfiguraci** pro připojení k Azure k otestování nastavení profilu.
+6. Vyberte **použít** aktualizace konfigurace modulu plug-in.
 
-Pokud chcete vytvořit linuxového (Ubuntu) agenta, vyberte **Image reference** (Odkaz na image) a použijte následující konfiguraci jako příklad. Nejnovější podporované image Azure najdete na webu [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1).
+## <a name="configure-agent-resources"></a>Konfigurace agenta prostředků
 
-* Image Publisher (Vydavatel image): Canonical
-* Image Offer (Nabídka image): UbuntuServer
-* Image Sku (Skladová jednotka image): 14.04.5-LTS
-* Image version (Verze image): latest (nejnovější)
-* OS Type (Typ operačního systému): Linux
-* Launch method (Metoda spuštění): SSH
-* Zadejte přihlašovací údaje správce
-* Jako skript pro inicializaci virtuálního počítače zadejte:
-```
-# Install Java
-sudo apt-get -y update
-sudo apt-get install -y openjdk-7-jdk
-sudo apt-get -y update --fix-missing
-sudo apt-get install -y openjdk-7-jdk
-```
-![Konfigurace image](./media/jenkins-azure-vm-agents/image-config.png)
+Nakonfigurujte šablonu pro použití k definování agenta virtuálního počítače Azure. Tato šablona určuje výpočetní prostředky, které každý agent, je při vytvoření.
 
-* Kliknutím na **Verify Template** (Ověřit šablonu) ověřte konfiguraci.
-* Klikněte na **Uložit**.
+1. Vyberte **přidat** vedle **přidat šablonu virtuálního počítače Azure**.
+2. Zadejte `defaulttemplate` pro **název**
+3. Zadejte `ubuntu` pro **popisek**
+4. Vyberte požadovanou [oblast Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) z pole se seznamem.
+5. Vyberte [velikost virtuálního počítače](/azure/virtual-machines/linux/sizes) z rozevíracího seznamu v části **velikost virtuálního počítače**. Pro obecné účely `Standard_DS1_v2` velikost je vhodná pro tento kurz.   
+6. Ponechte **dobu uchování** v `60`. Toto nastavení určuje počet minut, po které volaných můžete počkat, než ho navrácena nečinnosti agenty. Pokud nechcete, aby nečinnosti agenty bylo odstraněno automaticky, zadejte 0.
+
+   ![Konfigurace virtuálního počítače obecné](./media/jenkins-azure-vm-agents/general-config.png)
+
+## <a name="configure-agent-operating-system-and-tools"></a>Konfigurace agenta operačního systému a nástroje
+
+V **bitové kopie konfigurace** oddílu konfigurace modulu plug-in, vyberte **Ubuntu 16.04 LTS**. Zaškrtněte políčka vedle **nainstalovat Git (nejnovější)**, **nainstalovat Maven (V3.5.0)**, a **nainstalovat Docker** instalace těchto nástrojů na nově vytvořený agenty.
+
+![Konfigurace operačního systému virtuálního počítače a nástroje](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
+
+Vyberte **přidat** vedle **přihlašovací údaje správce**, pak vyberte **volaných**. Zadejte uživatelské jméno a heslo použité k přihlášení do agentů a ujistěte se, že splňují [uživatelské jméno a heslo zásad](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) pro účty pro správu na virtuálních počítačích Azure.
+
+Vyberte **ověřte šablony** ověřte konfiguraci a potom vyberte **Uložit** uložte změny a vrátit na řídicí panel volaných.
 
 ## <a name="create-a-job-in-jenkins"></a>Vytvoření úlohy v Jenkinsu
 
-* Na řídicím panelu Jenkinse klikněte na **New Item** (Nová položka). 
-* Zadejte název, vyberte **Freestyle project** (Volný projekt) a klikněte na **OK**.
-* Na kartě **General** (Obecné) vyberte možnost „Restrict where project can be run“ (Omezit, kde je možné projekt spustit) a do pole Label Expression (Výraz popisku) zadejte ubuntu. V rozevíracím seznamu se teď zobrazí ubuntu.
-* Klikněte na **Uložit**.
+1. Na řídicím panelu Jenkinse klikněte na **New Item** (Nová položka). 
+2. Zadejte `demoproject1` pro název a vyberte **volný styl projektu**, pak vyberte **OK**.
+3. V **Obecné** , zvolte **omezit, kde je možné spustit projekt** a typ `ubuntu` v **výraz popisku**. Zobrazí výzvu k potvrzení, že popisek obsloužených konfigurace cloudu vytvořili v předchozím kroku. 
+   ![Nastavení úloh](./media/jenkins-azure-vm-agents/job-config.png)
+4. V **správu zdrojového kódu** vyberte **Git** a přidejte následující adresu URL do **adresu URL úložiště** pole:`https://github.com/spring-projects/spring-petclinic.git`
+5. V **sestavení** vyberte **přidat krok sestavení**, pak **vyvolání nejvyšší úrovně cíle Maven**. Zadejte `package` v **cíle** pole.
+6. Vyberte **Uložit** Uložit definici úlohy.
 
-![Nastavení úlohy](./media/jenkins-azure-vm-agents/job-config.png)
+## <a name="build-the-new-job-on-an-azure-vm-agent"></a>Vytvoření nové úlohy ve agenta virtuálního počítače Azure
 
-## <a name="build-your-new-project"></a>Sestavení nového projektu
-
-* Vraťte se na řídicí panel Jenkinse.
-* Klikněte pravým tlačítkem na novou úlohu, kterou jste vytvořili, a pak klikněte na **Build now** (Sestavit). Spustí se sestavování. 
-* Jakmile bude sestavování dokončeno, přejděte na **Console output** (Výstup konzoly). Uvidíte, že se sestavení provedlo vzdáleně v Azure.
+1. Vraťte se na řídicí panel Jenkinse.
+2. Vybrat úlohy, které jste vytvořili v předchozím kroku a pak klikněte na **sestavení teď**. Nové sestavení je zařadit do fronty, ale nespustí, dokud nebude vytvořen agenta virtuálního počítače ve vašem předplatném Azure.
+3. Jakmile bude sestavování dokončeno, přejděte na **Console output** (Výstup konzoly). Uvidíte, že sestavení byla provedena vzdáleně na Azure agenta.
 
 ![Výstup konzoly](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="reference"></a>Referenční informace
+## <a name="next-steps"></a>Další kroky
 
-* Video Azure Friday: [Průběžná integrace pomocí Jenkinse s využitím agentů virtuálních počítačů Azure](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents)
-* Informace o podpoře a možnosti konfigurace: [Wikiweb modulu plug-in Azure VM Agent pro Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 
-
-
+> [!div class="nextstepaction"]
+> [CI/CD do Azure App Service](java-deploy-webapp-tutorial.md)

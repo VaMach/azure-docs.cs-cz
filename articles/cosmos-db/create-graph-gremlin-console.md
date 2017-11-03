@@ -10,15 +10,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/27/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Služba Azure Cosmos DB: Vytváření, zadávání dotazů a procházení grafu v konzole Gremlin
 
@@ -28,7 +27,7 @@ Tento rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB 
 
 ![Služba Azure Cosmos DB z konzoly Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Konzola Gremlin je založena na technologii Groovy nebo Java a běží v systémech Linux, Mac a Windows. Můžete si ji stáhnout z [webu Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
+Konzola Gremlin je založena na technologii Groovy nebo Java a běží v systémech Linux, Mac a Windows. Můžete si ji stáhnout z [webu Apache TinkerPop](http://tinkerpop.apache.org/downloads.html).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -47,7 +46,7 @@ Musíte si také nainstalovat [konzolu Gremlin](http://tinkerpop.apache.org/). P
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Připojení ke službě aplikace
-1. Než začnete používat konzolu Gremlin, vytvořte nebo upravte v adresáři apache-tinkerpop-gremlin-console-3.2.5/conf konfigurační soubor remote-secure.yaml.
+1. Než začnete používat konzoli Gremlin, vytvoření nebo úpravě vzdálené secure.yaml konfiguračního souboru v `apache-tinkerpop-gremlin-console-3.2.5/conf` adresáře.
 2. Vyplňte parametry *Hostitel*, *Port*, *Uživatelské jméno*, *Heslo*, *Fond připojení* a *Serializátor*:
 
     Nastavení|Navrhovaná hodnota|Popis
@@ -63,6 +62,18 @@ Musíte si také nainstalovat [konzolu Gremlin](http://tinkerpop.apache.org/). P
 
     Pro hodnotu heslo zkopírujte **Primární klíč** ze stránky **Klíče**: ![Zobrazení a zkopírování primárního klíče na stránce Klíče na webu Azure Portal](./media/create-graph-gremlin-console/keys.png)
 
+Váš soubor vzdálené secure.yaml by měl vypadat takto:
+
+```
+hosts: [your_database_server.graphs.azure.com]
+port: 443
+username: /dbs/your_database_account/colls/your_collection
+password: your_primary_key
+connectionPool: {
+  enableSsl: true
+}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+```
 
 3. V terminálu spuštěním příkazu `bin/gremlin.bat` nebo `bin/gremlin.sh` spusťte [konzolu Gremlin](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. V terminálu se spuštěním příkazu `:remote connect tinkerpop.server conf/remote-secure.yaml` připojte k aplikační službě.
@@ -307,4 +318,3 @@ V tomto rychlém startu jste se seznámili se způsobem vytvoření účtu slu�
 
 > [!div class="nextstepaction"]
 > [Dotazování pomocí konzoly Gremlin](tutorial-query-graph.md)
-

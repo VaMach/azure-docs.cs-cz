@@ -7,19 +7,17 @@ author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 08/22/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-function-using-the-azure-cli"></a>Vytvoření první funkce pomocí Azure CLI
 
 Tento rychlý start vám ukáže, jak používat Azure Functions k vytvoření první funkce. Pomocí Azure CLI vytvoříte aplikaci Function App, což je infrastruktura bez serveru, která je hostitelem funkce. Samotný kód funkce se nasadí z ukázkového úložiště Githubu.    
@@ -37,7 +35,7 @@ Před spuštěním této ukázky musíte mít následující:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, v tomto tématu vyžaduje Azure CLI verze 2.0 nebo novější. Spustit `az --version` najít verzi máte. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
@@ -45,7 +43,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
 Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure, jako například aplikace Function App, databáze a účty úložiště.
 
 Následující příklad vytvoří skupinu prostředků s názvem `myResourceGroup`.  
-Pokud nepoužíváte cloudové prostředí, musíte se nejdřív přihlásit pomocí `az login`.
+Pokud nepoužíváte cloudové prostředí, přihlaste se pomocí první `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
@@ -56,7 +54,7 @@ az group create --name myResourceGroup --location westeurope
 
 Aplikace Functions používá účet Azure Storage k zachování stavu a dalších informací o vašich funkcích. Ve skupině prostředků, kterou jste vytvořili vytvořte účet úložiště pomocí příkazu [az storage account create](/cli/azure/storage/account#create).
 
-V následujícím příkazu nahraďte zástupný symbol `<storage_name>` vlastním globálním jedinečným názvem účtu úložiště. Názvy účtů úložiště musí mít od 3 do 24 znaků a můžou obsahovat jenom číslice a malá písmena.
+V následujícím příkazu nahraďte název účtu globálně jedinečný úložiště, kde uvidíte `<storage_name>` zástupný symbol. Názvy účtů úložiště musí mít od 3 do 24 znaků a můžou obsahovat jenom číslice a malá písmena.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
@@ -86,7 +84,7 @@ Po vytvoření účtu úložiště se v rozhraní Azure CLI zobrazí podobné in
 
 K hostování provádění funkcí musíte mít aplikaci Function App. Function App poskytuje prostředí pro provádění kódu funkce bez serveru. Umožňuje seskupit funkce jako logickou jednotku pro snadnější správu, nasazování a sdílení prostředků. Aplikaci Function App vytvoříte pomocí příkazu [az functionapp create](/cli/azure/functionapp#create). 
 
-V následujícím příkazu nahraďte zástupný symbol `<app_name>` a účet úložiště pro `<storage_name>` vlastním jedinečným názvem aplikace Function App. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. 
+V následujícím příkazu nahraďte název jedinečné funkce aplikace, kde uvidíte `<app_name>` zástupný symbol a účet úložiště název pro `<storage_name>`. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -125,7 +123,7 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-Po nastavení zdroje nasazení zobrazí Azure CLI informace podobně jako v následujícím příkladu (hodnoty null byly odebrány pro zachování přehlednosti):
+Po nastavení zdroj nasazení, rozhraní příkazového řádku Azure uvádí informace podobně jako v následujícím příkladu (hodnoty null Odebrat čitelnější):
 
 ```json
 {
@@ -170,4 +168,3 @@ Po zobrazení výzvy zadejte `y`.
 ## <a name="next-steps"></a>Další kroky
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

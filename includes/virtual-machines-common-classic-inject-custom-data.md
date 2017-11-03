@@ -1,19 +1,19 @@
 
 
 
-This topic describes how to:
+Toto téma popisuje postup:
 
-* Inject data into an Azure virtual machine (VM) when it is being provisioned.
-* Retrieve it for both Windows and Linux.
-* Use special tools available on some systems to detect and handle custom data automatically.
+* Vložení dat do Azure virtuální počítač (VM) při jeho zřizování.
+* Načíst ho pro systém Windows a Linux.
+* Použijte speciální nástrojů dostupných v některé systémy ke zjišťování a automaticky zpracovávat vlastní data.
 
 > [!NOTE]
-> This article describes how custom data can be injected by using a VM created with the Azure Service Management API. To see how to use the Azure Resource Management API, see [the example template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> Tento článek popisuje, jak vlastních dat může pomocí virtuálního počítače vytvořené pomocí Azure Service Management API vložit. Jak používat rozhraní API pro správu prostředků Azure, najdete v sekci [příklad šablony](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 > 
 > 
 
-## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Injecting custom data into your Azure virtual machine
-This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Here we create a `custom-data.txt` file that contains our data, then inject that in to the VM during provisioning. Although you may use any of the options for the `azure vm create` command, the following demonstrates one very basic approach:
+## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Vložení vlastní data do virtuálního počítače Azure
+Tato funkce v současné době podporuje pouze v [rozhraní příkazového řádku Azure](https://github.com/Azure/azure-xplat-cli). Tady vytváříme `custom-data.txt` soubor, který obsahuje naše data pak vložit v k virtuálnímu počítači při zřizování. I když můžete použít libovolnou z možností pro `azure vm create` příkaz následující ukazuje jeden ze způsobů velmi základní:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
@@ -22,33 +22,33 @@ This feature is currently supported only in the [Azure Command-Line Interface](h
 ```
 
 
-## <a name="using-custom-data-in-the-virtual-machine"></a>Using custom data in the virtual machine
-* If your Azure VM is a Windows-based VM, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Although it was base64-encoded to transfer from the local computer to the new VM, it is automatically decoded and can be opened or used immediately.
+## <a name="using-custom-data-in-the-virtual-machine"></a>Pomocí vlastních dat ve virtuálním počítači.
+* Pokud je virtuální počítač Azure virtuálních počítačů na bázi Windows, pak uložení souboru vlastních dat do `%SYSTEMDRIVE%\AzureData\CustomData.bin`. I když byl kódováním Base 64 přenos z místního počítače do nového virtuálního počítače, je automaticky dekódované a může být otevřít nebo použít okamžitě.
   
   > [!NOTE]
-  > If the file exists, it is overwritten. The security on the directory is set to **System:Full Control** and **Administrators:Full Control**.
+  > Pokud soubor existuje, se přepíše. Zabezpečení v adresáři je nastaveno na **systému: Úplné řízení** a **Administrators: Úplné řízení**.
   > 
   > 
-* If your Azure VM is a Linux-based VM, then the custom data file will be located in one of the following places depending on your distro. The data may be base64-encoded, so you may need to decode the data first:
+* Pokud virtuální počítač Azure je počítač se systémem Linux, budou v jednom z následujících míst v závislosti na vaší distro umístěny vlastní datový soubor. Data mohou být kódováním base64, takže je třeba nejprve dekódování dat:
   
   * `/var/lib/waagent/ovf-env.xml`
   * `/var/lib/waagent/CustomData`
   * `/var/lib/cloud/instance/user-data.txt` 
 
-## <a name="cloud-init-on-azure"></a>Cloud-init on Azure
-If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. Or if your custom data file is a script, then cloud-init can simply execute it.
+## <a name="cloud-init-on-azure"></a>Init cloudu v Azure
+Pokud virtuální počítač Azure z image Ubuntu nebo CoreOS CustomData můžete použít k odeslání do cloudu init cloudu config. Nebo pokud vlastní datový soubor skriptu, pak cloudu init jednoduše ho provést.
 
-### <a name="ubuntu-cloud-images"></a>Ubuntu Cloud Images
-In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information.
+### <a name="ubuntu-cloud-images"></a>Ubuntu cloudu obrázků
+Ve většině Image Azure Linux, by upravit "/ etc/waagent.conf" ke konfiguraci disku dočasných prostředků a odkládacího souboru. V tématu [Azure Linux Agent uživatelská příručka](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Další informace.
 
-However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition. See the following page on the Ubuntu wiki for more details: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+Však do bitové kopie Ubuntu cloudu, je potřeba použít cloudové init nakonfigurovat disk prostředků (tedy "dočasné" disk) a Prohodit oddílu. Na stránkách wiki Ubuntu další podrobnosti najdete na následující stránce: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps-using-cloud-init"></a>Next steps: Using cloud-init
-For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
+## <a name="next-steps-using-cloud-init"></a>Další kroky: pomocí init cloudu
+Další informace najdete v tématu [cloudu init dokumentaci Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
-[Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
+[Přidání Role referenční dokumentace rozhraní API REST služby správy](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)
+[Rozhraní příkazového řádku Azure](https://github.com/Azure/azure-xplat-cli)
 

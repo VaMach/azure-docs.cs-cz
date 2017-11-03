@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/04/2017
-
+ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Služba Azure Cosmos DB: Migrace stávající webové aplikace MongoDB s podporou Node.js 
 
@@ -28,7 +27,7 @@ Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro
 
 Tento rychlý start popisuje způsob použití stávající aplikace [MongoDB](mongodb-introduction.md) napsané v Node.js a připojení ke službě Azure Cosmos DB, která podporuje připojení klienta MongoDB. Jinými slovy: aplikace Node.js ví pouze to, že se připojuje k databázi pomocí rozhraní API MongoDB. V aplikaci se transparentně zobrazuje, že data jsou uložena ve službě Azure Cosmos DB.
 
-Po dokončení budete mít ve službě [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) spuštěnou aplikaci MEAN (MongoDB, Express, AngularJS a Node.js). 
+Až skončíte, budete mít střední (MongoDB, Express, úhlová a Node.js) je spuštěna aplikace na [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
 ![Aplikace MEAN.js spuštěná v rámci služby Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
@@ -38,6 +37,9 @@ Po dokončení budete mít ve službě [Azure Cosmos DB](https://azure.microsoft
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prerequisites"></a>Požadavky 
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete. 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 Abyste mohli spustit příkazy `npm` a `git`, musíte mít kromě rozhraní příkazového řádku Azure místně nainstalovaný [Node.js](https://nodejs.org/) a [Git](http://www.git-scm.com/downloads).
 
 Měli byste mít praktickou znalost Node.js. Tento rychlý start není určen jako pomůcka pro všeobecný vývoj aplikací v Node.js.
@@ -61,6 +63,7 @@ cd mean
 npm install
 npm start
 ```
+Aplikace se pokusí připojit ke zdroji MongoDB a selhání, pokračujte a ukončete aplikaci, když se vrátí výstup "[MongoError: připojit ECONNREFUSED 127.0.0.1:27017]".
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
@@ -241,4 +244,3 @@ V tomto rychlém startu jste se seznámili s postupem vytvoření účtu datab
 
 > [!div class="nextstepaction"]
 > [Importování dat MongoDB do služby Azure Cosmos DB](mongodb-migrate.md)
-

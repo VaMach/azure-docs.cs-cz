@@ -6,21 +6,19 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
-ms.topic: hero-article
-ms.date: 07/18/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/24/2017
-
+ms.topic: quickstart
+ms.date: 09/22/2017
+ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database for MySQL: Připojení a dotazování dat pomocí jazyka Go
-Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for MySQL pomocí kódu napsaného v jazyce [Go](https://golang.org/) z platforem Windows, Ubuntu Linux a Apple macOS. Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. V tomto článku se předpokládá, že máte zkušenosti s vývojem pomocí jazyka Go, ale teprve začínáte pracovat se službou Azure Database for MySQL.
+Tento rychlý start předvádí, jak se připojit k databázi Azure pro databázi MySQL z platformy Windows, Ubuntu Linux a Apple systému macOS pomocí kód napsaný v [přejděte](https://golang.org/) jazyk. Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. Toto téma předpokládá, že jste obeznámeni s vývojem pomocí přejděte a že jste novou práce s Azure Database pro databázi MySQL.
 
 ## <a name="prerequisites"></a>Požadavky
 Tento rychlý start jako výchozí bod využívá prostředky vytvořené v některém z těchto průvodců:
@@ -28,7 +26,7 @@ Tento rychlý start jako výchozí bod využívá prostředky vytvořené v něk
 - [Vytvoření serveru Azure Database for MySQL pomocí Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Instalace jazyka Go a konektoru MySQL
-Nainstalujte na svém počítači jazyk [Go](https://golang.org/doc/install) a ovladač [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation). V závislosti na vaší platformě postupujte podle příslušných kroků:
+Nainstalujte [přejděte](https://golang.org/doc/install) a [přejděte ovladače sql pro databázi MySQL](https://github.com/go-sql-driver/mysql#installation) ve vašem počítači. V závislosti na platformě postupujte podle kroků v příslušné části:
 
 ### <a name="windows"></a>Windows
 1. [Stáhněte](https://golang.org/dl/) a nainstalujte jazyk Go pro Microsoft Windows podle [pokynů k instalaci](https://golang.org/doc/install).
@@ -51,7 +49,7 @@ Nainstalujte na svém počítači jazyk [Go](https://golang.org/doc/install) a o
 2. Nainstalujte jazyk Go spuštěním příkazu `sudo apt-get install golang-go`.
 3. Ve svém domovském adresáři vytvořte složku pro projekt, například `mkdir -p ~/go/src/mysqlgo/`.
 4. Změňte adresář na tuto složku, například `cd ~/go/src/mysqlgo/`.
-5. Nastavte proměnnou prostředí GOPATH tak, aby odkazovala na platný zdrojový adresář, jako je například aktuální složka go ve vašem domovském adresáři. Spuštěním příkazu `export GOPATH=~/go` v prostředí Bash přidejte adresář go jako hodnotu proměnné GOPATH pro aktuální relaci prostředí.
+5. Nastavte proměnnou prostředí GOPATH tak, aby odkazovala na platný zdrojový adresář, jako je například aktuální složka go ve vašem domovském adresáři. V prostředí Bash, spusťte `export GOPATH=~/go` přidáte přejděte adresář jako GOPATH pro aktuální relaci prostředí.
 6. Nainstalujte ovladač [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) spuštěním příkazu`go get github.com/go-sql-driver/mysql`.
 
    Stručně řečeno, spusťte tyto příkazy Bash:
@@ -64,11 +62,11 @@ Nainstalujte na svém počítači jazyk [Go](https://golang.org/doc/install) a o
    ```
 
 ### <a name="apple-macos"></a>Apple macOS
-1. Stáhněte a nainstalujte jazyk Go podle [pokynů k instalaci](https://golang.org/doc/install) odpovídajících vaší platformě. 
-2. Spusťte prostředí Bash. 
+1. Stáhněte a nainstalujte přejděte podle požadavků [pokyny k instalaci](https://golang.org/doc/install) odpovídající vaši platformu. 
+2. Spusťte prostředí Bash.
 3. Ve svém domovském adresáři vytvořte složku pro projekt, například `mkdir -p ~/go/src/mysqlgo/`.
 4. Změňte adresář na tuto složku, například `cd ~/go/src/mysqlgo/`.
-5. Nastavte proměnnou prostředí GOPATH tak, aby odkazovala na platný zdrojový adresář, jako je například aktuální složka go ve vašem domovském adresáři. Spuštěním příkazu `export GOPATH=~/go` v prostředí Bash přidejte adresář go jako hodnotu proměnné GOPATH pro aktuální relaci prostředí.
+5. Nastavte proměnnou prostředí GOPATH tak, aby odkazovala na platný zdrojový adresář, jako je například aktuální složka go ve vašem domovském adresáři. V prostředí Bash, spusťte `export GOPATH=~/go` přidáte přejděte adresář jako GOPATH pro aktuální relaci prostředí.
 6. Nainstalujte ovladač [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) spuštěním příkazu`go get github.com/go-sql-driver/mysql`.
 
    Stručně řečeno, nainstalujte jazyk Go a potom spusťte tyto příkazy Bash:
@@ -82,28 +80,28 @@ Nainstalujte na svém počítači jazyk [Go](https://golang.org/doc/install) a o
 ## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for MySQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
-2. V nabídce vlevo na webu Azure Portal klikněte na **Všechny prostředky** a vyhledejte vytvořený server, například **myserver4demo**.
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
+2. Z nabídky na levé straně na portálu Azure, klikněte na tlačítko **všechny prostředky** a poté vyhledejte serveru mají pokrčené (například **myserver4demo**).
 3. Klikněte na název serveru **myserver4demo**.
-4. Vyberte stránku **Vlastnosti** serveru. Poznamenejte si **Název serveru** a **Přihlašovací jméno správce serveru**.
+4. Vyberte server, na **vlastnosti** stránky a poté si poznamenejte **název serveru** a **přihlašovací jméno pro Server správce**.
  ![Azure Database for MySQL – přihlašovací jméno správce serveru](./media/connect-go/1_server-properties-name-login.png)
-5. Pokud zapomenete přihlašovací údaje k serveru, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby resetovat heslo.
+5. Pokud zapomenete vaše přihlašovací údaje serveru, přejděte na **přehled** stránky zobrazíte přihlašovací jméno správce serveru a v případě potřeby obnovení hesla.
    
 
 ## <a name="build-and-run-go-code"></a>Sestavení a spuštění kódu jazyka Go 
-1. K psaní kódu jazyka Go můžete použít jednoduchý textový editor, jako je Poznámkový blok v systému Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) nebo [Nano](https://www.nano-editor.org/) v systému Ubuntu nebo TextEdit v systému macOS. Pokud dáváte přednost bohatšímu integrovanému vývojovému prostředí (IDE), vyzkoušejte [Gogland](https://www.jetbrains.com/go/) od JetBrains, [Visual Studio Code](https://code.visualstudio.com/) od Microsoftu nebo [Atom](https://atom.io/).
-2. Kód jazyka Go z dalších částí vložte do textových souborů a tyto soubory uložte do složky vašeho projektu s příponou \*.go, například `%USERPROFILE%\go\src\mysqlgo\createtable.go` (cesta ve Windows) nebo `~/go/src/mysqlgo/createtable.go` (cesta v Linuxu).
-3. V kódu vyhledejte konstanty `HOST`, `DATABASE`, `USER` a `PASSWORD` a příklady hodnot nahraďte vlastními hodnotami. 
+1. K psaní kódu jazyka Go můžete použít jednoduchý textový editor, jako je Poznámkový blok v systému Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) nebo [Nano](https://www.nano-editor.org/) v systému Ubuntu nebo TextEdit v systému macOS. Pokud dáváte přednost bohatší interaktivní vývojové prostředí (IDE), zkuste [Gogland](https://www.jetbrains.com/go/) podle Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) společností Microsoft nebo [Atom](https://atom.io/).
+2. Vložte kód přejít z části níže do textových souborů a uložit je do složky projektu s příponou \*.go (například Windows – cesta `%USERPROFILE%\go\src\mysqlgo\createtable.go` nebo Linux cestu `~/go/src/mysqlgo/createtable.go`).
+3. Vyhledejte `HOST`, `DATABASE`, `USER`, a `PASSWORD` konstanty v editoru kódu a poté nahraďte hodnoty v příkladu s vlastními hodnotami. 
 4. Spusťte příkazový řádek nebo prostředí Bash. Změňte adresář na složku vašeho projektu. Například ve Windows pomocí příkazu `cd %USERPROFILE%\go\src\mysqlgo\`. V Linuxu pomocí příkazu `cd ~/go/src/mysqlgo/`.  Některá ze zmíněných integrovaných vývojových prostředí (IDE) nabízejí možnosti ladění a modulu runtime, které nevyžadují příkazy prostředí.
 5. Spusťte kód zadáním příkazu `go run createtable.go`, který aplikaci zkompiluje a spustí. 
 6. Alternativně, pokud z kódu chcete sestavit nativní aplikaci, spusťte příkaz `go build createtable.go` a pak aplikaci spusťte pomocí souboru `createtable.exe`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Připojení, vytvoření tabulky a vložení dat
-Pomocí následujícího kódu se připojte k serveru, vytvořte tabulku a nahrajte data s využitím příkazu **INSERT** jazyka SQL. 
+Použít následující kód k připojení k serveru, vytvořit tabulku a načtení dat pomocí **vložit** příkaz jazyka SQL. 
 
 Kód importuje tři balíčky: [balíček sql](https://golang.org/pkg/database/sql/), balíček [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) jako ovladač pro komunikaci se službou Azure Database for MySQL a [balíček fmt](https://golang.org/pkg/fmt/) pro tisk vstupů a výstupů na příkazovém řádku.
 
-Kód volá metodu [sql.Open()](http://go-database-sql.org/accessing.html) pro připojení ke službě Azure Database for MySQL a pomocí metody [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) zkontroluje stav připojení. Po celou dobu se používá [popisovač databáze](https://golang.org/pkg/database/sql/#DB), který uchovává fond připojení pro databázový server. Kód několikrát volá metodu [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) pro spuštění několika příkazů jazyka DDL. Kód také pomocí metod [Prepare()](http://go-database-sql.org/prepared.html) a Exec() spouští připravené příkazy s různými parametry pro vložení tří řádků. Pokaždé se pomocí vlastní metody checkError() zkontroluje, jestli nedošlo k chybě, a pokud k nějaké dojde, kód se nouzově ukončí.
+Kód zavolá metodu [sql. Open()](http://go-database-sql.org/accessing.html) pro připojení k Azure databázi MySQL, a ověří připojení pomocí metody [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Po celou dobu se používá [popisovač databáze](https://golang.org/pkg/database/sql/#DB), který uchovává fond připojení pro databázový server. Kód několikrát volá metodu [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) pro spuštění několika příkazů jazyka DDL. Kód také používá [Prepare()](http://go-database-sql.org/prepared.html) a Exec() ke spuštění připravených příkazů s odlišnými parametry vložit tři řádky. Pokaždé, když, vlastní checkError() metoda se používá ke kontrole, pokud došlo k chybě a mít obavy ukončíte.
 
 Nahraďte konstanty `host`, `database`, `user` a `password` vlastními hodnotami. 
 
@@ -176,7 +174,7 @@ func main() {
 ```
 
 ## <a name="read-data"></a>Čtení dat
-Pomocí následujícího kódu se připojte a načtěte data s využitím příkazu **SELECT** jazyka SQL. 
+Použít následující kód k připojení a číst data pomocí **vyberte** příkaz jazyka SQL. 
 
 Kód importuje tři balíčky: [balíček sql](https://golang.org/pkg/database/sql/), balíček [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) jako ovladač pro komunikaci se službou Azure Database for MySQL a [balíček fmt](https://golang.org/pkg/fmt/) pro tisk vstupů a výstupů na příkazovém řádku.
 
@@ -356,4 +354,3 @@ func main() {
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
 > [Migrace vaší databáze pomocí exportu a importu](./concepts-migrate-import-export.md)
-

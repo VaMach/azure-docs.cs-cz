@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Development Kit
+title: "Azure rychlý start zásobníku Development Kit nasazení | Microsoft Docs"
+description: "Zjistěte, jak nasadit Azure zásobníku Development Kit"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -11,30 +11,30 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 81b6282addd1e88e4146367c4dd9a2ee7b8c84bf
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit deployment quickstart
+# <a name="azure-stack-development-kit-deployment-quickstart"></a>Rychlý úvod k nasazení vývojové sady pro Azure Stack
 
-The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
+*Platí pro: Azure zásobníku Development Kit*
 
-1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
+[Azure zásobníku Development Kit](azure-stack-poc.md) je testovací a vývojové prostředí, které můžete nasadit k vyhodnocení a předvedení funkcí Azure zásobníku a služby. Se dá stáhnout spuštěná, musíte připravit prostředí hardwaru a spustit některé skripty (bude to trvat i několik hodin). Potom můžete se přihlásit na portály správců a uživatelů ke správě Azure zásobníku a otestovat nabídky. 
 
-2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+1. [**Plánování hardwaru, softwaru a síti**](azure-stack-deploy.md). Počítač, který je hostitelem development kit (hostitel development kit) musí splňovat požadavky na hardware, software a síť. Také musí zvolit pomocí Azure Active Directory nebo Active Directory Federation Services. Ujistěte se, že jste před spuštěním nasazení tak, aby proces instalace plynule v souladu se tyto požadavky. 
 
-3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by using the installer. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
+2. [**Stažení a extrakci balíčku pro nasazení**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Balíček pro nasazení můžete stáhnout na development kit hostitele nebo do jiného počítače. Soubory extrahované nasazení trvat až 60 GB volného místa na disku, aby pomocí jiného počítače může pomoct snížit požadavky na hardware pro hostitele development kit.
 
-4. [**Deploy the development kit**](azure-stack-run-powershell-script.md#deploy-the-development-kit) on the development kit host.
+3. [**Příprava hostitele development kit** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) pomocí Instalační služby. Po provedení tohoto kroku se development kit hostitele spustí Cloudbuilder.vhdx (virtuálního pevného disku, který obsahuje spouštěcí operačního systému a zásobník Azure instalaci souborů).
 
-5. If your Azure Stack deployment uses Azure Active Directory, you must [register Azure Stack with Azure](azure-stack-register.md) so that you can [download Azure marketplace items](azure-stack-download-azure-marketplace-item.md) to Azure Stack.
+4. [**Nasazení development kit** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) na hostiteli development kit.
 
-After completing these steps, you’ll have a development kit environment with both administrator and tenant portals. Next, you can [connect and sign in](azure-stack-connect-azure-stack.md) to the portal. You can then start deploying resource providers, creating [offers](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions), and populating the Azure Stack [marketplace](azure-stack-marketplace.md).
+5. Pokud vaše nasazení zásobník Azure používá Azure Active Directory, je nutné [zaregistrovat zásobník Azure s Azure](azure-stack-register.md) , aby bylo možné [stažení položky Azure marketplace](azure-stack-download-azure-marketplace-item.md) do protokolů Azure.
 
+Po dokončení těchto kroků, budete mít vývojovém prostředí sady s portály pro správce i uživatele. Dále můžete [připojit a přihlásit](azure-stack-connect-azure-stack.md) na portál. Potom můžete spustit nasazení poskytovatelů prostředků, vytváření [nabízí](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions)a naplnění zásobník Azure [marketplace](azure-stack-marketplace.md).

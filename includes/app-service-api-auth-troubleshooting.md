@@ -1,21 +1,21 @@
-Most of the time authentication errors result from incorrect or inconsistent configuration settings. Here are some specific suggestions for things to check.
+Většinu času chyby ověřování v důsledku nastavení konfigurace nesprávné nebo jsou nekonzistentní. Tady jsou některé konkrétní návrhy pro co je potřeba zkontrolovat.
 
-* Make sure that you didn't miss the **Save** button anywhere. This is often easy to do, and the result is that you'll be looking at the correct values on a portal page but they haven't actually been saved in the Azure environment or Azure AD application.
-* For settings configured in the **Application Settings** blade of the Azure portal, make sure that the correct API app or web app was selected when the settings were entered.  Also make sure that the settings were entered as **App settings** and not **Connection strings**, as the format of the two sections is similar.
-* For authentication to a JavaScript front end, download the manifest again to verify that `oauth2AllowImplicitFlow` was successfully changed to `true`.
-* Verify that you used HTTPS wherever you configured URLs:
+* Ujistěte se, že nebyla byste zapomněli **Uložit** tlačítko odkudkoli. Obvykle je snadné provést a výsledkem je, že je budete vidí správné hodnoty na stránky portálu, ale ve skutečnosti se nebyly uloženy v prostředí Azure nebo aplikaci Azure AD.
+* Pro nastavení nakonfigurovaná v **nastavení aplikace** okno portálu Azure, ujistěte se, že správné rozhraní API aplikaci nebo webové aplikaci byl vybrán při nastavení byla zadána.  Také se ujistěte, že nastavení byla zadána jako **nastavení aplikace** a není **připojovací řetězce**, jako je podobný formát dvě části.
+* Pro ověřování JavaScript front-endu, stáhněte manifest znovu a ověřte, že `oauth2AllowImplicitFlow` byla úspěšně změněna na `true`.
+* Ověřte, používá protokol HTTPS, bez ohledu na nakonfigurované adresy URL:
   
-  * In project code
-  * In CORS
-  * In Azure environment App settings for each API app and web app
-  * In Azure AD application settings.
+  * V projektu kódu
+  * V CORS
+  * V prostředí Azure nastavení aplikace pro každou aplikaci API a webové aplikace
+  * V nastavení aplikace služby Azure AD.
     
-    Note that if you copy an API app's URL from the portal, it often has `http://` and you have to manually change it to `https://`.
-* Make sure that any code changes were successfully deployed. For example, in a multiple-project solution it's possible to change a project's code and accidentally choose one of the others when you intend to deploy the change.
-* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs. By default, Visual Studio creates publish profiles with HTTP URLs, and that's what opens in the browser after you deploy a project.
-* For authentication to a JavaScript front end, make sure that CORS is correctly configured on the API app that the JavaScript code calls. If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. 
-* For a JavaScript front end, open your browser's Developer Tools Console tab to get more error information, and examine HTTP requests on the Network. However, Console error messages may be misleading. If you get a message indicating a CORS error, the real issue may be authentication. You can check if this is the case by running the app with authentication temporarily temporarily disabled.
-* For a .NET API app, make sure you are getting as much information in error messages as possible by setting [customErrors mode to Off](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
-* For a .NET API app, start a [remote debugging session](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), and examine the values of the variables that are passed to code that uses ADAL to acquire a bearer token, or code that checks claims against the expected service principal ID. Note that your code can pick up configuration values from many different sources, so it's possible to find surprises this way. For example, if you mistype `ida:ClientId` as `ida:ClientID` when configuring Azure App Service environment settings, the code might get the `ida:ClientId` value that it's looking for from the Web.config file, ignoring the Azure App Service setting. 
-* If things don't work in a normal Internet Explorer window, an existing log-in may be interfering; try InPrivate and try Chrome or Firefox.
+    Všimněte si, že pokud zkopírujete adresu URL aplikace API z portálu, často má `http://` a vy musíte ručně změnit jeho `https://`.
+* Ujistěte se, že byly úspěšně nasazeny změny kódu. Například v řešení více projekty je možné změnit kód projekt a vyberte jednu z jiné omylem, pokud máte v úmyslu nasazení příslušné změny.
+* Ujistěte se, že se chystáte adresy URL typu HTTPS v prohlížeči není adres URL protokolu HTTP. Ve výchozím nastavení, Visual Studio vytvoří publikovat profily pomocí adres URL protokolu HTTP, a který je co otevře v prohlížeči po nasazení projektu.
+* Pro ověřování JavaScript front-endu Ujistěte se, zda CORS správně nakonfigurovaná na aplikaci API, který volá kód jazyka JavaScript. Pokud máte pochybnosti, zda je problém související se sdílením CORS, zkuste "*" jako adresu URL povolený původ. 
+* Pro JavaScript front-end otevřete kartu konzoly vývojářských nástrojů prohlížeče získat další informace o chybě a prozkoumat požadavků HTTP v síti. Konzole chybové zprávy však může být zavádějící. Pokud se zobrazí zprávu s upozorněním na chybu CORS, skutečné problém může být ověřování. Můžete se podívat, pokud je tomu tak, že spustíte aplikaci pomocí ověřování dočasně dočasně zakázána.
+* Pro aplikace .NET API, ujistěte se, co nejvíce informací se zobrazuje v chybových zprávách nejdříve nastavením [customErrors režim vypnutém](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
+* Pro aplikace .NET API, spusťte [vzdálené relace ladění](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)a zkontrolujte hodnoty proměnných, které se budou předávat kód, který využívá ADAL k získání tokenu nosiče nebo kód, který kontroluje deklarace identity s očekávanou službu hlavní ID. Všimněte si, že váš kód můžete vyzvednutí hodnoty konfigurace z mnoha různých zdrojů, takže je možné najít výskyt nečekaných událostí tímto způsobem. Například, pokud jste překlep `ida:ClientId` jako `ida:ClientID` při konfiguraci nastavení prostředí Azure App Service, může získat kód `ida:ClientId` hodnotu, která hledá ze souboru Web.config nastavení služby Azure App Service je ignorována. 
+* Pokud věcí nefungují v normálním okně Internet Exploreru, existující protokolu v může vadit; Zkuste InPrivate a zkuste to Chrome nebo Firefox.
 

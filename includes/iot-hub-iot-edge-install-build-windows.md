@@ -1,34 +1,34 @@
-## <a name="install-the-prerequisites"></a>Install the prerequisites
+## <a name="install-the-prerequisites"></a>Nainstalujte součásti
 
-1. Install [Visual Studio 2015 or 2017](https://www.visualstudio.com). You can use the free Community Edition if you meet the licensing requirements. Be sure to include Visual C++ and NuGet Package Manager.
+1. Nainstalujte [Visual Studio 2015 nebo 2017](https://www.visualstudio.com). Bezplatná edice Community můžete použít, pokud splňují požadavky na licencování. Nezapomeňte zahrnout Visual C++ a Správce balíčků NuGet.
 
-1. Install [git](http://www.git-scm.com) and make sure you can run git.exe from the command line.
+1. Nainstalujte [git](http://www.git-scm.com) a zajistěte, aby git.exe můžete spustit z příkazového řádku.
 
-1. Install [CMake](https://cmake.org/download/) and make sure you can run cmake.exe from the command line. CMake version 3.7.2 or later is recommended. The **.msi** installer is the easiest option on Windows. Add CMake to the PATH for at least the current user when the installer prompts you.
+1. Nainstalujte [CMake](https://cmake.org/download/) a zajistěte, aby cmake.exe můžete spustit z příkazového řádku. CMake verze 3.7.2 nebo novější je doporučené. **.Msi** instalační program je nejjednodušší možnost v systému Windows. Přidání softwaru CMake k CESTĚ pro alespoň aktuálního uživatele, když instalační program zobrazí výzvu.
 
-1. Install [Python 2.7](https://www.python.org/downloads/release/python-27). Make sure you add Python to your `PATH` environment variable in **Control Panel -> System -> Advanced system settings -> Environment Variables**.
+1. Nainstalujte [Python 2.7](https://www.python.org/downloads/release/python-27). Ověřte, že je přidat Python pro vaše `PATH` proměnné prostředí. Přejděte na **ovládací panely** > **systém a zabezpečení** > **systému** > **Upřesnit nastavení systému**  >  **Proměnné prostředí**. Přidat `C:\Python27` pro vaši cestu. 
 
-1. At a command prompt, run the following command to clone the Azure IoT Edge GitHub repository to your local machine:
+1. Na příkazovém řádku spusťte následující příkaz, který naklonujte úložiště Azure IoT Edge GitHub do místního počítače:
 
     ```cmd
     git clone https://github.com/Azure/iot-edge.git
     ```
 
-## <a name="how-to-build-the-sample"></a>How to build the sample
+## <a name="how-to-build-the-sample"></a>Postup pro sestavení ukázky
 
-You can now build the IoT Edge runtime and samples on your local machine:
+Teď můžete sestavit IoT Edge runtime a ukázky na místním počítači:
 
-1. Open a **Developer Command Prompt for VS 2015** or **Developer Command Prompt for VS 2017** command prompt.
+1. Otevřete **příkazový řádek vývojáře pro VS 2015** nebo **příkazový řádek vývojáře pro VS 2017**, v závislosti na vaší verzi.
 
-1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+1. Přejděte do kořenové složky místní kopie úložiště **iot-edge**.
 
-1. Run the build script as follows:
+1. Spusťte skript sestavení následujícím způsobem:
 
     ```cmd
     tools\build.cmd --disable-native-remote-modules
     ```
 
-This script creates a Visual Studio solution file and builds the solution. You can find the Visual Studio solution in the **build** folder in your local copy of the **iot-edge** repository. If you want to build and run the unit tests, add the `--run-unittests` parameter. If you want to build and run the end to end tests, add the `--run-e2e-tests`.
+Tento skript vytvoří soubor řešení sady Visual Studio a vytvoří řešení. Můžete najít řešení v sadě Visual Studio **sestavení** složky ve vaší místní kopii **iot hranou** úložiště. Pokud chcete vytvořit a spouštění testování částí, přidat `--run-unittests` parametr. Pokud chcete sestavit a spustit testy koncová, přidat `--run-e2e-tests`.
 
 > [!NOTE]
-> Every time you run the **build.cmd** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **iot-edge** repository.
+> Pokaždé, když spustíte **build.cmd** skriptu, se odstraní a potom znovu vytvoří **sestavení** složky v kořenové složce místní kopii **iot hranou** úložiště.

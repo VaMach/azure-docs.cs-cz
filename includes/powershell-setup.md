@@ -1,6 +1,6 @@
 ---
 services: virtual-machines
-title: Setting up PowerShell
+title: "Nastavení prostředí PowerShell"
 author: JoeDavies-MSFT
 solutions: 
 manager: timlt
@@ -12,22 +12,21 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
 ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.contentlocale: cs-cz
-ms.lasthandoff: 01/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-## <a name="setting-up-powershell"></a>Setting up PowerShell
-Before you can use Azure PowerShell, follow these steps.
+## <a name="setting-up-powershell"></a>Nastavení prostředí PowerShell
+Než budete moct použít Azure PowerShell, postupujte podle těchto kroků.
 
-### <a name="verify-powershell-versions"></a>Verify PowerShell versions
-Before you can use Windows PowerShell, you must have Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.
+### <a name="verify-powershell-versions"></a>Ověření verze prostředí PowerShell
+Než budete moct použít prostředí Windows PowerShell, musíte mít Windows PowerShell, verze 3.0 nebo 4.0. Pokud chcete vyhledat verzi prostředí Windows PowerShell, zadejte tento příkaz na příkazovém řádku prostředí Windows PowerShell.
 
     $PSVersionTable
 
-You should see something like this.
+Měli byste vidět zhruba takhle.
 
     Name                           Value
     ----                           -----
@@ -39,32 +38,32 @@ You should see something like this.
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-Verify that the value of **PSVersion** is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Ověřte, zda hodnota **PSVersion** je 3.0 nebo 4.0. K instalaci kompatibilní verze, najdete v části [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) nebo [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-You should also have Azure PowerShell version 0.8.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
+Měli byste také mít prostředí Azure PowerShell verze 0.8.0 nebo novější. Můžete zkontrolovat verzi prostředí Azure PowerShell, který jste nainstalovali pomocí tohoto příkazu na příkazovém řádku prostředí Azure PowerShell.
 
     Get-Module azure | format-table version
 
-You should see something like this.
+Měli byste vidět zhruba takhle.
 
     Version
     -------
     0.8.16.1
 
-For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Pokyny a odkaz na nejnovější verzi naleznete v tématu [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### <a name="set-your-azure-account-and-subscription"></a>Set your Azure account and subscription
-If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+### <a name="set-your-azure-account-and-subscription"></a>Nastavení předplatného a účtu Azure
+Pokud nemáte předplatné Azure, můžete si aktivovat vaší [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) nebo si zaregistrovat [bezplatnou zkušební verzi](https://azure.microsoft.com/pricing/free-trial/).
 
-Open an Azure PowerShell command prompt and log on to Azure with this command.
+Otevřete příkazový řádek prostředí Azure PowerShell a přihlaste se k Azure pomocí tohoto příkazu.
 
     Add-AzureAccount
 
-If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.
+Pokud máte víc předplatných Azure, můžete seznam vašich předplatných Azure pomocí tohoto příkazu.
 
     Get-AzureSubscription
 
-You will receive the following type of information:
+Získáte tento typ informací:
 
     SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
     SubscriptionName          : Visual Studio Ultimate with MSDN
@@ -77,11 +76,10 @@ You will receive the following type of information:
     CurrentStorageAccountName : 
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
+Aktuální předplatné Azure můžete nastavit tak, že spustíte tyto příkazy v příkazovém řádku prostředí Azure PowerShell. Nahraďte všechna data v uvozovkách, včetně < a > znaků, se správným názvem.
 
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](/powershell/azureps-cmdlets-docs#Connect).
-
+Další informace o předplatných Azure a účty, najdete v části [postupy: připojení k vašemu předplatnému](/powershell/azureps-cmdlets-docs#Connect).
 

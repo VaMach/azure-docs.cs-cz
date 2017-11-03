@@ -4,7 +4,7 @@ title: Dokumentace operátora k Azure Stacku
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Dokumentace operátora k Azure Stacku – kurzy, reference k rozhraní API'
-  description: Naučte se používat Azure Stack Preview k doručování služeb Azure z vašeho datového centra. Podívejte se na předvedení funkcí z prostředí pro testování konceptu.
+  description: Naučte se používat Azure zásobníku k poskytování služeb Azure z vašeho datového centra. Další informace a předvedení funkcí z Development Kit nebo v prostředí integrované systémy.
   services: azure-stack
   author: czeumault
   manager: carolz
@@ -12,32 +12,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: 'Microsoft Azure Stack je hybridní cloudová platforma, která umožňuje zřizovat služby Azure z vašeho datového centra. Pomocí našich šablon Rychlý start a kurzů se naučíte, jak nasadit Azure Stack a nabízet služby.'
+  description: 'Microsoft Azure Stack je hybridní cloudová platforma, která umožňuje zřizovat služby Azure z vašeho datového centra. Zjistěte, jak nasadit Azure zásobníku Development Kit, jak spravovat infrastrukturu pro integrované systémy a sadě pro vývoj a jak nabízet služby s naše kurzy a quickstarts.<br/><br/>Pokud jste zásobník Azure uživatele, který používá služby nebo sestavení aplikací pro Azure zásobníku, přečtěte si naše <a href="/azure/azure-stack/user">dokumentaci pro uživatele</a>.'
 sections:
-  - title: Zprovoznění během 5 minut
+  - title: Rychlý start
     items:
       - type: paragraph
-        text: 'Nastavení hardwaru a nasazení Azure Stacku:'
+        text: Nastavení hardwaru a nasazení Azure zásobníku Development Kit.
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Nasazení Azure Stacku
+            text: Nasazení Azure zásobníku Development Kit
             href: azure-stack-deploy-overview.md
   - title: Podrobné kurzy
     items:
       - type: paragraph
-        text: 'Naučte se, jak přidat služby do vašeho nasazení Azure Stacku:'
+        text: 'Zjistěte, jak na přidání služeb do vašeho nasazení Azure zásobníku.'
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Povolení Virtual Machines v Azure Stacku</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Povolení SQL Database v Azure Stacku</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Povolení Web Apps v Azure Stacku</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Nabízí virtuální počítače v Azure zásobníku</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Nabízejí databází SQL v Azure zásobníku</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Nabízejí webové aplikace v Azure zásobníku</a>
   - title: Bezplatné školicí video od Pluralsightu
     items:
       - type: list
@@ -56,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: Příkazový řádek
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

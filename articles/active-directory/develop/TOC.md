@@ -108,5 +108,6 @@
 #### [Přihlašovací údaje ve formě certifikátu](active-directory-certificate-credentials.md)
 ### [Obory](active-directory-v2-scopes.md)
 # Zdroje
+## [Získání nápovědy](active-directory-develop-help-support.md)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

@@ -6,22 +6,17 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/29/2017
-
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Směrování událostí služby Blob Storage do vlastního webového koncového bodu (Preview)
 
 Azure Event Grid je služba zpracování událostí pro cloud. V tomto článku se pomocí Azure CLI přihlásíte k odběru událostí služby Blob Storage a aktivujete událost, abyste viděli výsledek. 
-
-> [!IMPORTANT]
-> K absolvování tohoto kurzu musíte být zaregistrováni pro události služby Blob Storage ve verzi Preview.  Další informace o programu Preview najdete [tady](storage-blob-event-overview.md#join-the-preview).
 
 Obvykle odesíláte události do koncového bodu, který na událost reaguje například webhookem nebo funkcí Azure Functions. Pro zjednodušení příkladu v tomto článku budeme události odesílat na adresu URL, která jenom shromažďuje zprávy. Tuto adresu URL vytvoříte pomocí open source nástroje třetí strany [RequestBin](https://requestb.in/).
 
@@ -57,7 +52,7 @@ Pokud chcete vyzkoušet službu Azure Storage, potřebujete účet úložiště.
 Účet služby Blob Storage je specializovaný účet úložiště pro ukládání nestrukturovaných dat v podobě objektů blob do služby Azure Storage. Účty služby Blob Storage jsou podobné účtům služby Storage pro obecné účely a mají stejně vysokou odolnost, dostupnost, škálovatelnost a výkonnost, a navíc mají 100% konzistentnost rozhraní API pro objekty blob bloků a doplňovací objekty blob. V případě aplikací, které vyžadují jenom úložiště objektů blob bloku nebo objektů blob doporučujeme používat účty úložiště objektů blob.
 
 > [!NOTE]
-> Ve verzi Preview jsou události služby Blob Storage dostupné pouze pro účty úložiště v umístění **westcentralus**.
+> Mřížky událostí je aktuálně ve verzi preview a k dispozici pouze pro účty úložiště ve **westcentralus** a **westus2** oblasti.
 
 Nahraďte `<storage_account_name>` jedinečným názvem vašeho účtu úložiště a `<resource_group_name>` skupinou prostředků, kterou jste vytvořili dříve.
 
@@ -145,4 +140,3 @@ Když teď víte, jak vytvářet témata a odběry událostí, zjistěte více o
 
 - [Reakce na události služby Blob Storage](storage-blob-event-overview.md)
 - [Informace o službě Event Grid](../../event-grid/overview.md)
-
