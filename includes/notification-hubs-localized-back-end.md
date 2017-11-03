@@ -2,7 +2,7 @@
 
 
 
-When you send template notifications you only need to provide a set of properties, in our case we will send the set of properties containing the localized version of the current news, for instance:
+Při odesílání oznámení šablony, která potřebujete poskytovat sadu vlastností v našem případě zašleme sada vlastností obsahující lokalizované verzi aktuální novinky, například:
 
     {
         "News_English": "World News in English!",
@@ -11,12 +11,12 @@ When you send template notifications you only need to provide a set of propertie
     }
 
 
-This section shows how to send notifications using a console app
+V této části ukazuje, jak k odeslání oznámení pomocí konzolové aplikace
 
-The included code broadcasts to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices.
+Vzhledem k tomu, že back-end může všesměrové vysílání pro žádné z podporovaných zařízení, všesměrově kód zahrnuté na zařízeních s Windows Store a iOS.
 
-### <a name="to-send-notifications-using-a-c-console-app"></a>To send notifications using a C# console app
-Modify the `SendTemplateNotificationAsync` method in the console app you previously created with the following code. Notice how in this case there is no need to send multiple notifications for different locales and platforms.
+### <a name="to-send-notifications-using-a-c-console-app"></a>K odeslání oznámení pomocí konzolové aplikace jazyka C#
+Změnit `SendTemplateNotificationAsync` metoda v konzolové aplikace, které jste dříve vytvořili následujícím kódem. Všimněte si, jak v tomto případě není třeba odesílání několika oznámení pro různá národní prostředí a platformy.
 
         private static async void SendTemplateNotificationAsync()
         {
@@ -52,10 +52,10 @@ Modify the `SendTemplateNotificationAsync` method in the console app you previou
         }
 
 
-Note that this simple call will deliver the localized piece of news to **all** your devices, irrespective of the platform, as your Notification Hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
+Všimněte si, že toto jednoduché volání dodá lokalizované část příspěvků na **všechny** zařízení, bez ohledu na platformě, jak vaše Centrum oznámení sestavení a doručí správné nativní datové části pro všechna zařízení odběru na konkrétní značka.
 
-### <a name="sending-the-notification-with-mobile-services"></a>Sending the notification with Mobile Services
-In your Mobile Service scheduler, you can use the following script:
+### <a name="sending-the-notification-with-mobile-services"></a>Odesílání oznámení pomocí mobilní služby
+V Plánovač mobilních služeb můžete použít následující skript:
 
     var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');

@@ -1,55 +1,55 @@
 
 
-## <a name="multi-and-single-instance-vms"></a>Multi and Single Instance VMs
-Many customers running on Azure count it critical that they can schedule when their VMs undergo planned maintenance due to the downtime--about 15 minutes--that occurs during maintenance. You can use availability sets to help control when provisioned VMs receive planned maintenance.
+## <a name="multi-and-single-instance-vms"></a>Více a jedna Instance virtuálních počítačů
+Mnoho zákazníků systémem Azure počet je důležité, aby můžete naplánovat při jejich virtuální počítače podstoupit plánované údržby kvůli výpadku – asi 15 minut – k tomu dojde během údržby. Aby se usnadnilo řízení, když virtuální počítače zřízené obdrží plánované údržbě, můžete použít skupiny dostupnosti.
 
-There are two possible configurations for VMs running on Azure. VMs are either configured as multi-instance or single-instance. If VMs are in an availability set, then they are configured as multi-instance. Note, even single VMs can be deployed in an availability set, so that they are treated as multi-instance. If VMs are NOT in an availability set, then they are configured as single-instance.  For details on availability sets, see [Manage the Availability of your Windows Virtual Machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the Availability of your Linux Virtual Machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Existují dvě možné konfigurace pro virtuální počítače spuštěné v Azure. Virtuální počítače jsou buď nakonfigurovány jako s více instancemi nebo s jednou instancí. Pokud jsou virtuální počítače v nastavení dostupnosti, pak jsou nakonfigurované jako s více instancemi. Všimněte si, i jeden virtuálních počítačů je možné nasadit v nastavení dostupnosti, takže jsou považovány za s více instancemi. Pokud virtuální počítače nejsou v nastavení dostupnosti, pak jsou nakonfigurované jako jedné instance.  Podrobnosti o dostupnosti sadách najdete v tématu [Správa dostupnosti virtuálních počítačů z Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nebo [Správa dostupnosti virtuálních počítačů systému Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Planned maintenance updates to single-instance and multi-instance VMs happen separately. By reconfiguring your VMs to be single-instance (if they are multi-instance) or to be multi-instance (if they are single-instance), you can control when their VMs receive the planned maintenance. See [Planned maintenance for Azure Linux virtual machines](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Planned maintenance for Azure Windows virtual machines](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on planned maintenance for Azure VMs.
+Plánovaná údržba aktualizace jedné instance a s více instancemi virtuálních počítačů dojít samostatně. Změnou virtuální počítače do jedné instance (pokud jsou s více instancemi) nebo na více instancemi (pokud jde o jednoduchou) můžete řídit, pokud jejich virtuální počítače přijímat plánované údržby. V tématu [plánované údržby pro virtuální počítače s Linuxem Azure](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nebo [plánované údržby pro virtuální počítače s Azure Windows](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) podrobnosti o plánované údržby pro virtuální počítače Azure.
 
-## <a name="for-multi-instance-configuration"></a>For Multi-instance Configuration
-You can select the time planned maintenance impacts your VMs that are deployed in an Availability Set configuration by removing these VMs from availability sets.
+## <a name="for-multi-instance-configuration"></a>Pro konfiguraci s více instancemi
+Můžete vybrat čas plánované údržby ovlivní vaše virtuální počítače, které jsou nasazeny v konfiguraci skupiny dostupnosti odebráním těchto virtuálních počítačů ze skupiny dostupnosti.
 
-1. An email is sent to you seven calendar days before the planned maintenance to your VMs in a Multi-instance configuration. The subscription IDs and names of the affected Multi-instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instances are updated by removing your multi-instance VMs in that region from their availability set. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. You can remove the VM from its availability set in the Azure portal.
+1. E-mail je odeslán vám sedm dní kalendáře před plánované údržby pro virtuální počítače v konfiguraci s více instancemi. ID předplatného a názvy ovlivněných virtuálních počítačů s více instancemi jsou zahrnuty v textu e-mailu.
+2. Během těchto sedm dní které můžete vybrat dobu, kterou vaše instance jsou aktualizovány odebráním virtuální počítače s více instancemi v této oblasti z jejich sady dostupnosti. Tato změna konfigurace způsobí, že k restartování, jako virtuální počítač je přechod z jednoho fyzického hostitele, určený pro údržby jiného fyzického hostitele, který není cílová pro údržbu.
+3. Virtuální počítač můžete odebrat z její dostupnosti na portálu Azure.
 
-   1. In the portal, select the VM to remove from the Availability Set.  
+   1. Na portálu vyberte virtuální počítač odebrat ze skupiny dostupnosti.  
 
-   2. Under **settings**, click **Availability set**.
+   2. V části **nastavení**, klikněte na tlačítko **sadu dostupnosti**.
 
-      ![Availability Set Selection](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+      ![Výběr skupiny dostupnosti](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
 
-   3. In the availability set dropdown menu, select “Not part of an availability set.”
+   3. V dostupnost nastavte rozevírací nabídce, vyberte "Není součástí skupiny dostupnosti."
 
-      ![Remove from Set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
+      ![Odebrat ze sady](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
 
-   4. At the top, click **Save**. Click **Yes** to acknowledge that this action restarts the VM.
+   4. V horní části, klikněte na tlačítko **Uložit**. Klikněte na tlačítko **Ano** aby vzali na vědomí, že tato akce restartuje virtuální počítač.
 
    >[!TIP]
-   >You can reconfigure the VM to multi-instance later by selecting one of the listed availability sets.
+   >Je možné změnit konfiguraci virtuálního počítače s více instancemi později tak, že vyberete jednu z uvedených dostupnosti sad.
 
-4. VMs removed from availability sets are moved to Single-Instance hosts and are not updated during the planned maintenance to Availability Set Configurations.
-5. Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should add the VMs back into their availability sets. Becoming part of an Availability set reconfigures the VMs as multi-instance, and results in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
+4. Virtuální počítače odebrat ze skupiny dostupnosti přesunou do jedné Instance hostitele a neaktualizují během plánované údržby dostupnosti nastavení konfigurace.
+5. Po dokončení (podle plánu uvedených v původního e-mailu) aktualizaci, kterou chcete virtuální počítače nastavení dostupnosti, měli byste přidat virtuální počítače zpět do jejich skupiny dostupnosti. Stane součástí skupiny dostupnosti jako s více instancemi změní konfiguraci virtuálních počítačů a má za následek restart. Obvykle po dokončení všech aktualizací s více instancemi napříč celou prostředí Azure, odpovídá jedné instance údržby.
 
-Removing a VM from an availability set can also be achieved using Azure PowerShell:
+Odebrání virtuálního počítače ze skupiny dostupnosti můžete také dosáhnout pomocí Azure PowerShell:
 
 ```
 Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
 ```
 
-## <a name="for-single-instance-configuration"></a>For Single-instance Configuration
-You can select the time planned maintenance impacts you VMs in a Single-instance configuration by adding these VMs into availability sets.
+## <a name="for-single-instance-configuration"></a>Pro konfiguraci s jednou instancí
+Můžete vybrat čas plánované údržby ovlivňuje můžete virtuální počítače v konfiguraci s jednou instancí přidáním těchto virtuálních počítačů do skupiny dostupnosti.
 
-Step-by-step
+Podrobný postup
 
-1. An email is sent to you seven calendar days before the planned maintenance to VMs in a Single-instance configuration. The subscription IDs and names of the affected Single-Instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instance reboots by adding your Single-instance VMs to an availability set in that same region. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. Follow instructions here to add existing VMs into availability sets using the Azure portal and Azure PowerShell. (See the Azure PowerShell sample that follows these steps.)
-4. Once these VMs are reconfigured as Multi-instance, they are excluded from the planned maintenance to Single-instance VMs.
-5. Once the single-instance VM update completes (according to schedule in the original email), you can return the VMs to single-instance by removing the VMs from their availability sets.
+1. E-mail je odeslán vám sedm dní před plánované údržby pro virtuální počítače v konfiguraci s jednou instancí. ID předplatného a názvy virtuálních počítačů ovlivněných jedné Instance jsou zahrnuty v textu e-mailu.
+2. Během těchto sedm dní které můžete vybrat dobu, kterou instanci restartuje přidáním jedné instance virtuálních počítačů v této oblasti stejnou sadu dostupnosti. Tato změna konfigurace způsobí, že k restartování, jako virtuální počítač je přechod z jednoho fyzického hostitele, určený pro údržby jiného fyzického hostitele, který není cílová pro údržbu.
+3. Postupujte podle pokynů pro přidání existujících virtuálních počítačů do skupiny dostupnosti pomocí portálu Azure a prostředí Azure PowerShell. (Viz prostředí Azure PowerShell vzorku, který zahrnuje následující kroky.)
+4. Jakmile tyto virtuální počítače jsou překonfigurovat jako s více instancemi, jsou vyloučeny ze plánované údržby k virtuálním počítačům jedné instance.
+5. Po dokončení aktualizace jedné instance virtuálního počítače (podle plánu v původního e-mailu), může vrátit virtuální počítače do jedné instance odebráním virtuální počítače z jejich skupiny dostupnosti.
 
-Adding a VM to an availability set also can be achieved using Azure PowerShell:
+Přidání virtuálního počítače do také sadu dostupnosti můžete dosáhnout pomocí Azure PowerShell:
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 

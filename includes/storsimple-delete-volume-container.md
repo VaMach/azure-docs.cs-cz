@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### <a name="to-delete-a-volume-container"></a>To delete a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. Select the volume container you want to delete.
-3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
+#### <a name="to-delete-a-volume-container"></a>Chcete-li odstranit kontejner svazků
+1. Na **zařízení** vyberte zařízení, na ni dvakrát kliknete a pak klikněte na tlačítko **kontejnery svazků** kartě.
+2. Vyberte kontejner svazků, které chcete odstranit.
+3. Pokud kontejner svazků má žádné přidružené svazky, pak mohl být odstraněn. Klikněte na tlačítko **odstranit** v dolní části stránky k odstranění tohoto kontejneru. Po zobrazení výzvy k potvrzení klikněte na **Ano**. Tato akce odstraní kontejner svazků.
 
-If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
+Pokud kontejner svazků má přidružené svazky, bude nejprve nutné provádět tyto svazky v režimu offline pomocí následujících kroků v [do offline režimu svazku](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Jakmile jsou tyto svazky v režimu offline, můžete je odstranit. Po kontejner svazků má žádné přidružené svazky, odstraňte kontejner svazků, jak je popsáno výše.
 

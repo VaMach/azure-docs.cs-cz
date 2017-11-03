@@ -1,40 +1,40 @@
-1. Run the Unified Setup installation file.
-2. In **Before You Begin**, select **Install the configuration server and process server**.
+1. Spusťte instalační soubor sjednocené instalace.
+2. V **než začnete**, vyberte **nainstalujte konfigurační server a procesový server**.
 
-    ![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
+    ![Než začnete](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
-3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
+3. Na stránce **Licence k softwaru jiného výrobce** vyberte **Souhlasím** pro stažení a instalaci MySQL.
 
-    ![Third-party software](./media/site-recovery-add-configuration-server/combined-wiz2.png)
-4. In **Registration**, select the registration key you downloaded from the vault.
+    ![Software jiných výrobců](./media/site-recovery-add-configuration-server/combined-wiz2.png)
+4. Na stránce **Registrace** vyberte registrační klíč, který jste si stáhli z trezoru.
 
-    ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet. Make sure you've allowed the required URLs.
+    ![Registrace](./media/site-recovery-add-configuration-server/combined-wiz3.png)
+5. Na stránce **Nastavení internetu** určete, jak se zprostředkovatel, který běží na konfiguračním serveru, připojí k Azure Site Recovery přes internet. Ujistěte se, že jste povolené požadované adresy URL.
 
-    - If you want to connect with the proxy that's currently set up on the machine, select **Connect to Azure Site Recovery using a proxy server**.
-    - If you want the Provider to connect directly, select **Connect directly to Azure Site Recovery without a proxy server**.
-    - If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**, and specify the address, port, and credentials.
-     ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
-6. In **Prerequisites Check**, Setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
+    - Pokud se chcete připojit s proxy serverem, který je aktuálně nastavený na počítač, vyberte **připojit k Azure Site Recovery pomocí proxy serveru**.
+    - Pokud chcete, aby zprostředkovatel připojil přímo, vyberte **připojit se přímo k Azure Site Recovery bez serveru proxy**.
+    - Pokud stávající proxy server vyžaduje ověřování, nebo pokud chcete používat vlastní proxy server pro připojení poskytovatele, vyberte **Connect s vlastním nastavením proxy**a zadejte adresu, port a přihlašovací údaje.
+     ![Brána firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
+6. Na stránce **Kontrola předpokladů** instalační program provede kontrolu a ověří, že lze spustit instalaci. Pokud se zobrazí varování u položky **Kontrola synchronizace globálního času**, ověřte, že čas na systémových hodinách (nastavení **Datum a čas**) je stejný jako časové pásmo.
 
-    ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
-7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.
+    ![Požadavky](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+7. Na stránce **Konfigurace MySQL** vytvořte přihlašovací údaje pro přihlašování k nainstalované instanci serveru MySQL.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then Setup checks that PowerCLI 6.0 is installed.
+8. Na stránce **Podrobnosti o prostředí** vyberte, zda se chystáte replikovat virtuální počítače VMware. Pokud jste, potom instalační program kontroluje, že je nainstalována PowerCLI 6.0.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 
-9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
+9. Na stránce **Umístění instalace** vyberte, kam chcete nainstalovat binární soubory a ukládat mezipaměť. Vybraná jednotka musí mít minimálně 5 GB dostupného místa na disku, ale pro mezipaměť doporučujeme jednotku alespoň s 600 GB volného místa.
 
-    ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use port 443 for sending or receiving replication traffic.
+    ![Umístění instalace](./media/site-recovery-add-configuration-server/combined-wiz8.png)
+10. Na stránce **Výběr sítě** zadejte naslouchací proces (síťový adaptér a port SSL), na kterém konfigurační server odesílá a přijímá data replikace. Výchozím portem pro odesílání a příjem přenosů replikace je port 9443, ale toto číslo portu můžete změnit podle potřeb vašeho prostředí. Kromě portu 9443 otevíráme také port 443, který používá webový server k orchestraci operací replikace. Nepoužívejte port 443 pro odesílání nebo přijímání provoz replikace.
 
-    ![Network selection](./media/site-recovery-add-configuration-server/combined-wiz9.png)
+    ![Výběr sítě](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
-11. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need this when you enable replication, so copy it and keep it in a secure location.
+11. Na stránce **Souhrn** zkontrolujte informace a klikněte na **Nainstalovat**. Po dokončení instalace se vygeneruje heslo. Budete ho potřebovat k povolení replikace, proto si ho zkopírujte a uložte na bezpečném místě.
 
-    ![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+    ![Souhrn](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.
+Po dokončení registrace se server zobrazí v okně **Nastavení** > **Servery** v trezoru.

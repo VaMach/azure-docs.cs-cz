@@ -5,47 +5,46 @@ keywords: kurz k sql database
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
-ms.contentlocale: cs-cz
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 14912df26074b525585594cc1b5d32c85ce9094f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wtp-saas-application"></a>Správa schématu pro více tenantů v SaaS aplikaci WTP
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Správa schématu pro více tenantů v aplikaci s více tenanty využívající službu Azure SQL Database
 
-Úvodní kurz o aplikaci WTP ukazuje, jak aplikace WTP zřizuje databázi tenanta i s počátečním schématem a registrací databáze v katalogu. Jako každá aplikace i aplikace WTP se v čase vyvíjí, a proto bude občas potřeba provést v databázi změny. Změny se mohou týkat nového nebo změněného schématu, nových nebo změněných referenčních dat a úloh spojených s pravidelnou údržbou databáze, které zajišťují optimální výkon aplikace. U SaaS aplikace musí být tyto změny nasazeny koordinovaně u potenciálně velkého počtu klientských databází. Změny také musí být zahrnuty do procesu zřizování budoucích databází tenantů.
+[První kurz Wingtip SaaS](sql-database-saas-tutorial.md) ukazuje, jak zřídit databázi klienta a zaregistrovat v katalogu aplikací. Všechny aplikace, jako je aplikace Wingtip SaaS bude v průběhu času vyvíjejí a v některých případech bude vyžadovat změny databáze. Změny se mohou týkat nového nebo změněného schématu, nových nebo změněných referenčních dat a úloh spojených s pravidelnou údržbou databáze, které zajišťují optimální výkon aplikace. U SaaS aplikace musí být tyto změny nasazeny koordinovaně u potenciálně velkého počtu klientských databází. Pro tyto změny se v budoucnu klienta databáze musí být součástí procesu zřizování.
 
-Tento kurz zkoumá dva scénáře: nasazení aktualizací referenčních dat u všech tenantů a opětovné ladění indexu u tabulky, která obsahuje referenční data. K provádění těchto operací u všech tenantů se používá funkce [elastických úloh](sql-database-elastic-jobs-overview.md) a *zlatá* databáze tenanta, která se používá jako šablona nových databází.
+Tento kurz zkoumá dva scénáře: nasazení aktualizací referenčních dat u všech tenantů a opětovné ladění indexu u tabulky, která obsahuje referenční data. [Elastické úlohy](sql-database-elastic-jobs-overview.md) funkce se používá k provedení těchto operací napříč všech klientů a *zlaté* klienta databáze, která se používá jako šablonu pro nové databáze.
 
-Co se v tomto kurzu naučíte:
+V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 
-> * Vytvořit účet úlohy pro dotazy do více tenantů
+> * Vytvoření účtu úlohy
+> * Dotazování mezi několik klientů
 > * Aktualizovat data ve všech databázích tenantů
 > * Vytvořit index tabulky ve všech databázích tenantů
 
 
 Předpokladem dokončení tohoto kurzu je splnění následujících požadavků:
 
-* Je nasazená aplikace WTP. Informace o nasazení, které netrvá ani pět minut, najdete v článku [Nasazení SaaS aplikace WTP a seznámení s ní](sql-database-saas-tutorial.md).
-* Prostředí Azure PowerShell je nainstalované. Podrobnosti najdete v článku [Začínáme s prostředím Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Adresář Wingtip SaaS aplikace je nasazená. Nasazení za méně než pět minut najdete v tématu [nasazení a seznamte se s Wingtip SaaS aplikace](sql-database-saas-tutorial.md)
+* Je nainstalované prostředí Azure PowerShell. Podrobnosti najdete v článku [Začínáme s prostředím Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Je nainstalovaná nejnovější verze SQL Server Management Studia (SSMS). [Stažení a instalace SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Tento kurz používá funkce služby SQL Database, které fungují ve verzi Limited Preview (úlohy služby Elastic Database). Pokud chcete tento kurz absolvovat, pošlete ID svého předplatného na SaaSFeedback@microsoft.com. Jako předmět uveďte Elastic Jobs Preview. Jakmile dostanete potvrzení o aktivaci vašeho předplatného, [stáhněte a nainstalujte si nejnovější předběžnou verzi rutin úloh](https://github.com/jaredmoo/azure-powershell/releases). Jedná se o verzi Limited Preview. Pokud se k ní chcete na něco zeptat, nebo potřebujete podporu, kontaktujte nás na adrese SaaSFeedback@microsoft.com.*
+*Tento kurz používá funkce služby SQL Database, které fungují ve verzi Limited Preview (úlohy služby Elastic Database). Pokud chcete tento kurz absolvovat, pošlete ID svého předplatného na SaaSFeedback@microsoft.com. Jako předmět uveďte Elastic Jobs Preview. Jakmile dostanete potvrzení o aktivaci vašeho předplatného, [stáhněte a nainstalujte si nejnovější předběžnou verzi rutin úloh](https://github.com/jaredmoo/azure-powershell/releases). Tato předběžná verze je omezená, takže obraťte se na SaaSFeedback@microsoft.com pro dotazy související s ani nepodporuje.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Úvod do principu správy schématu SaaS
@@ -60,11 +59,11 @@ Princip jednoho tenanta na databázi SaaS má řadu výhod, které vyplývají z
 K dispozici je nová verze služby Elastic Jobs. Jde o integrovanou funkci Azure SQL Database, která nevyžaduje další služby ani součásti. Tato nová verze služby Elastic Jobs je v současnosti ve verzi Limited Preview. Verze Limited Preview v současnosti podporuje prostředí PowerShell, které umožňuje vytvářet účty úloh, a příkazy T-SQL, které umožňují vytvářet a spravovat úlohy.
 
 > [!NOTE]
-> *Tento kurz používá funkce služby SQL Database, které fungují ve verzi Limited Preview (úlohy služby Elastic Database). Pokud chcete tento kurz absolvovat, pošlete ID svého předplatného na SaaSFeedback@microsoft.com. Jako předmět uveďte Elastic Jobs Preview. Jakmile dostanete potvrzení o aktivaci vašeho předplatného, [stáhněte a nainstalujte si nejnovější předběžnou verzi rutin úloh](https://github.com/jaredmoo/azure-powershell/releases). Jedná se o verzi Limited Preview. Pokud se k ní chcete na něco zeptat, nebo potřebujete podporu, kontaktujte nás na adrese SaaSFeedback@microsoft.com.*
+> *Tento kurz používá funkce služby SQL Database, které fungují ve verzi Limited Preview (úlohy služby Elastic Database). Pokud chcete tento kurz absolvovat, pošlete ID svého předplatného na SaaSFeedback@microsoft.com. Jako předmět uveďte Elastic Jobs Preview. Jakmile dostanete potvrzení o aktivaci vašeho předplatného, [stáhněte a nainstalujte si nejnovější předběžnou verzi rutin úloh](https://github.com/jaredmoo/azure-powershell/releases). Tato předběžná verze je omezená, takže obraťte se na SaaSFeedback@microsoft.com pro dotazy související s ani nepodporuje.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>Získání skriptů aplikace Wingtip
 
-Skripty a zdrojový kód aplikace Wingtip Tickets jsou k dispozici v úložišti GitHubu [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Soubory se skripty jsou ve [složce Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Stáhněte si složku **Learning Modules** do svého místního počítače. Dejte pozor, abyste zachovali strukturu složky.
+Adresář Wingtip SaaS skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) úložiště github. [Postup stažení skripty Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Vytvoření databáze účtu úlohy a nového účtu úlohy
 
@@ -89,14 +88,14 @@ K vytvoření nové úlohy použijeme sadu uložených systémových procedur ú
 1. Připojte se také k serveru tenanta: tenants1-\<uživatel\>.database.windows.net
 1. Přejděte k databázi *contosoconcerthall* na serveru *tenants1* a zadejte dotaz do tabulky *VenueTypes*, abyste si potvrdili, že v seznamu výsledků **není** *Motorcycle Racing* ani *Swimming Club*.
 1. Otevřete soubor …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Změňte hodnotu \<user\>. Na všech třech místech ve skriptu použijte uživatelské jméno, které jste použili při nasazení aplikace WTP.
+1. Upravit příkaz: nastavte @wtpUser = &lt;uživatele&gt; a nahraďte hodnotu uživatele použít při nasazení aplikace Wingtip
 1. Zkontrolujte, že jste připojeni k databázi jobaccount, a stisknutím klávesy **F5** spusťte skript.
 
 * **sp\_add\_target\_group** vytvoří cílovou skupinu s názvem DemoServerGroup. Teď potřebujeme přidat cílové členy.
-* **sp\_add\_target\_group\_member** přidá typ cílového člena *server*, který předpokládá, že všechny databáze na daném serveru (jedná se o server customer1-&lt;WtpUser&gt;, který obsahuje klientské databáze) budou v okamžiku spuštění úlohy do této úlohy zahrnuté. Jako druhý se přidá typ cílového člena *database*, konkrétně se jedná o zlatou databázi baseTenantDB, která je na serveru catalog-&lt;WtpUser&gt;. A konečně ještě jeden typ skupinového cílového člena *database* pro zahrnutí databáze adhocanalytics, která se používá v další části tohoto kurzu.
+* **SP\_přidat\_cíl\_skupiny\_člen** přidá *server* cíle typ člena, které považuje za všechny databáze v rámci tohoto serveru (Poznámka: Toto je tenants1-&lt; Uživatel&gt; server obsahující databáze klienta) v čase úlohy spuštění by měl být součástí úlohy, je přidání druhý *databáze* cíle typ člena, konkrétně "zlatá" databáze (basetenantdb) která se nachází v katalogu -&lt;uživatele&gt; serveru a nakonec jiné *databáze* cíle typ člena skupiny zahrnout adhocanalytics databázi, která se používá novější kurzu.
 * **sp\_add\_job** vytvoří úlohu s názvem „Reference Data Deployment“.
-* **sp\_add\_jobstep** vytvoří krok úlohy obsahující příkaz T-SQL, který aktualizuje referenční tabulku VenueTypes.
-* Zbývající pohledy ve skriptu zobrazují existující objekty a monitorují provádění úlohy. Zkontrolujte stavovou hodnotu ze sloupce **lifecycle**. Úloha byla úspěšně dokončena ve všech databázích tenantů i ve dvou dalších databázích obsahujících referenční tabulku.
+* **SP\_přidat\_krok úlohy** vytvoří krok úlohy obsahující text příkazů T-SQL aktualizovat na referenční tabulku VenueTypes
+* Zbývající pohledy ve skriptu zobrazují existující objekty a monitorují provádění úlohy. Ke kontrole hodnota stavu v použijte tyto dotazy **životního cyklu** sloupec k určení, kdy úloha úspěšně dokončil všechny databáze klienta a dva další databáze, které obsahují na referenční tabulku.
 
 1. V SSMS přejděte k databázi *contosoconcerthall* na serveru *tenants1* a zadejte dotaz do tabulky *VenueTypes*, abyste si potvrdili, že v seznamu výsledků teď **je** *Motorcycle Racing* i *Swimming Club*.
 
@@ -107,9 +106,9 @@ Jde o podobné cvičení, jako bylo to předchozí. V tomto cvičení vytvořím
 
 K vytvoření úlohy použijeme stejné úlohy uložených procedur „system“.
 
-1. Otevřete SSMS a připojte se k serveru catalog-&lt;WtpUser&gt;.database.windows.net.
+1. Otevřete aplikaci SSMS a připojte se k katalogu -&lt;uživatele&gt;. database.windows.net serveru
 1. Otevřete soubor …\\Learning Modules\\Schema Management\\OnlineReindex.sql.
-1. Klikněte pravým tlačítkem, vyberte Connection (Připojení) a připojte se k serveru catalog-&lt;WtpUser&gt;.database.windows.net, pokud jste se k němu ještě nepřipojili.
+1. Klikněte pravým tlačítkem, vyberte připojení a připojení ke katalogu -&lt;uživatele&gt;. database.windows.net serveru, pokud ještě není připojen.
 1. Zkontrolujte, že jste připojeni k databázi jobaccount, a stisknutím klávesy F5 spusťte skript.
 
 * sp\_add\_job vytvoří novou úlohu s názvem „Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885“.
@@ -133,6 +132,6 @@ V tomto kurzu jste se naučili:
 
 ## <a name="additional-resources"></a>Další zdroje
 
-* [Další kurzy, které vycházejí z původně nasazené aplikace WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Další kurzy, které stavět na adresář Wingtip SaaS nasazení aplikace](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Správa cloudových databází s horizontálním navýšením kapacity](sql-database-elastic-jobs-overview.md)
 * [Vytvoření a správa databází s horizontálním navýšením kapacity](sql-database-elastic-jobs-create-and-manage.md)

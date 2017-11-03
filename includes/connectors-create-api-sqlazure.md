@@ -1,42 +1,42 @@
-### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) with its connection information, including the server name, database name, and username/password. This information is included in the SQL Database connection string:
+### <a name="prerequisites"></a>Požadavky
+* Účet Azure; můžete vytvořit [bezplatný účet](https://azure.microsoft.com/free)
+* [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) se svými informacemi o připojení, včetně názvu serveru, názvu databáze a uživatelského jména a hesla. Tato informace je obsažena v připojovacím řetězci SQL Database:
   
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    Server = tcp:*yoursqlservername*. database.windows.net,1433;Initial katalogu =*yourqldbname*; Zachovat bezpečnostní údaje = False; ID uživatele = {your_username}; Heslo = {your_password}; MultipleActiveResultSets = False; Šifrování = True; TrustServerCertificate = False; Časový limit připojení = 30;
   
-    Read more about [Azure SQL Databases](https://azure.microsoft.com/services/sql-database).
+    Další informace o [databází SQL Azure](https://azure.microsoft.com/services/sql-database).
 
 > [!NOTE]
-> When you create an Azure SQL Database, you can also create the sample databases included with SQL. 
+> Při vytváření databáze SQL Azure, můžete také vytvořit ukázkové databáze součástí SQL. 
 > 
 > 
 
-Before using your Azure SQL Database in a logic app, connect to your SQL Database. You can do this easily within your logic app on the Azure portal.  
+Před použitím vaší databázi SQL Azure v aplikaci logiky se připojte k vaší databázi SQL. Můžete k tomu snadno v rámci aplikace logiky na portálu Azure.  
 
-Connect to your Azure SQL Database using the following steps:  
+Připojte k vaší databázi SQL Azure pomocí následujících kroků:  
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "sql" in the search box. Select one of the actions:  
+1. Vytvoření aplikace logiky. V Návrháři Logic Apps přidejte aktivační událost a potom přidat akci. Vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu a potom zadejte do vyhledávacího pole "sql". Vyberte jednu z akcí:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. If you haven't previously created any connections to SQL Database, you are prompted for the connection details:  
+    ![Krok vytvoření připojení SQL Azure](./media/connectors-create-api-sqlazure/sql-actions.png)
+2. Pokud jste dosud nevytvořili žádné připojení k databázi SQL, budete vyzváni k podrobnosti připojení:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Enter the SQL Database details. Properties with an asterisk are required.
+    ![Krok vytvoření připojení SQL Azure](./media/connectors-create-api-sqlazure/connection-details.png) 
+3. Zadejte podrobnosti databáze SQL. Vyžadují se vlastnosti s hvězdičkou.
    
-   | Property | Details |
+   | Vlastnost | Podrobnosti |
    | --- | --- |
-   | Connect via Gateway |Leave this unchecked. This is used when connecting to an on-premises SQL Server. |
-   | Connection Name * |Enter any name for your connection. |
-   | SQL Server Name * |Enter the server name; which is something like *servername.database.windows.net*. The server name is displayed in the SQL Database properties in the Azure portal, and also displayed in the connection string. |
-   | SQL Database Name * |Enter the name you gave your SQL Database. This is listed in the SQL Database properties in the connection string: Initial Catalog=*yoursqldbname*. |
-   | Username * |Enter the username you created when the SQL Database was created. This is listed in the SQL Database properties in the Azure portal. |
-   | Password * |Enter the password you created when the SQL Database was created. |
+   | Připojit prostřednictvím brány |Nechte zaškrtnuté políčko. Používá se při připojování k serveru SQL na místě. |
+   | Název připojení * |Zadejte libovolný název pro připojení. |
+   | Název systému SQL Server * |Zadejte název serveru; což je něco podobného jako *servername.database.windows.net*. Název serveru se zobrazí ve vlastnostech SQL Database na portálu Azure a zobrazí také v připojovacím řetězci. |
+   | Název databáze SQL * |Zadejte název dáte vaší databázi SQL. Položka je uvedena ve vlastnostech SQL Database v připojovacím řetězci: Initial Catalog =*yoursqldbname*. |
+   | Uživatelské jméno * |Zadejte uživatelské jméno, které jste vytvořili při vytvoření databáze SQL. Položka je uvedena ve vlastnostech SQL Database na portálu Azure. |
+   | Heslo * |Zadejte heslo, které jste vytvořili při vytvoření databáze SQL. |
    
-    These credentials are used to authorize your logic app to connect, and access your SQL data. Once complete, your connection details look similar to the following:  
+    Tyto přihlašovací údaje se používají k autorizaci aplikace logiky připojení a přístup k datům SQL. Po dokončení podrobné informace o připojení vypadat nějak takto:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Select **Create**. 
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+    ![Krok vytvoření připojení SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png) 
+4. Vyberte **Vytvořit**. 
+5. Všimněte si, že existuje připojení. Nyní pokračujte další kroky v aplikaci logiky: 
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/table.png)
+    ![Krok vytvoření připojení SQL Azure](./media/connectors-create-api-sqlazure/table.png)
 

@@ -1,56 +1,56 @@
-You can easily [automatically scale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
+Můžete snadno [automaticky škálovat](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) vaše [virtuální počítače (VM)](../articles/virtual-machines/windows/overview.md) při použití [sady škálování virtuálního počítače](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) a [funkci Automatické škálování aplikace Azure Monitorování](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Virtuální počítače musí být členy škálování nastaven na automaticky škálovat. Tento článek obsahuje informace, které umožňuje lépe pochopit, jak škálování virtuálních počítačů vertikálně a horizontálně pomocí automatické i ruční metody.
 
-## <a name="horizontal-or-vertical-scaling"></a>Horizontal or vertical scaling
+## <a name="horizontal-or-vertical-scaling"></a>Vodorovné nebo svislé škálování
 
-The autoscale feature of Azure Monitor only scales horizontally, which is an increase ("out") or decrease ("in") of the number of VMs. Horizontal scaling is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. You scale horizontally by either automatically or manually changing the capacity (or instance count) of the the scale set. 
+Funkce škálování Azure monitorování pouze škáluje vodorovně, která je zvýšení ("na") nebo snížení počtu virtuálních počítačů ("v"). Vodorovné škálování je flexibilnější v situaci, cloud jako umožňuje spustit potenciálně tisíce virtuálních počítačů pro zpracování zátěže. Můžete škálovat horizontálně automaticky nebo ručně změnou kapacity (nebo počet instancí) z sadě škálování. 
 
-Vertical scaling keeps the same number of VMs, but makes the VMs more ("up") or less ("down") powerful. Power is measured in attributes such as memory, CPU speed, or disk space. Vertical scaling is dependent on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a VM to stop and restart. You scale vertically by setting a new size in the configuration of the VMs in the scale set.
+Svislé škálování udržuje stejný počet virtuálních počítačů, ale umožňuje virtuální počítače, další ("nahoru") nebo méně ("dolů") výkonné. Výkon se měří v atributy, jako je například paměť, rychlost procesoru nebo místa na disku. Svislé škálování je závislý na dostupnosti větší hardware, který rychle dotkne horní limit a můžete se liší podle oblasti. Svislé škálování také obvykle vyžaduje virtuální počítač zastavit a restartovat. Můžete škálovat svisle nastavením novou velikost v konfiguraci virtuálních počítačů v sadě škálování.
 
-Using runbooks in [Azure Automation](../articles/automation/automation-intro.md), you can easily [scale VMs in a scale set](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) up or down.
+Používání sad runbook v [Azure Automation](../articles/automation/automation-intro.md), můžete snadno [škálování virtuální počítače ve škálovací sadě](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) nahoru nebo dolů.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Create a virtual machine scale set
+## <a name="create-a-virtual-machine-scale-set"></a>Vytvoření sady škálování virtuálního počítače
 
-Scale sets make it easy for you to deploy and manage identical VMs as a set. You can create Linux or Windows scale sets using the [Azure portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), or the [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). You can also create and manage scale sets with SDKs such as [Python](/develop/python) or [Node.js](/nodejs/azure), or directly with the [REST APIs](/rest/api/compute/virtualmachinescalesets). Automatic scaling of VMs is accomplished by applying metrics and rules to the scale set.
+Sady škálování usnadnit nasadit a spravovat virtuální počítače stejná jako sada. Můžete vytvořit Linux nebo Windows škálování nastaví pomocí [portál Azure](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [prostředí Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), nebo [rozhraní příkazového řádku Azure](../articles/virtual-machines/linux/tutorial-create-vmss.md). Můžete také vytvořit a spravovat sady škálování s sady SDK, jako [Python](/develop/python) nebo [Node.js](/nodejs/azure), nebo přímo pomocí [rozhraní REST API](/rest/api/compute/virtualmachinescalesets). Použitím metriky a pravidla do sady škálování se provádí automatické škálování virtuálních počítačů.
 
-## <a name="configure-autoscale-for-a-scale-set"></a>Configure autoscale for a scale set
+## <a name="configure-autoscale-for-a-scale-set"></a>Konfigurace automatického škálování pro sadu škálování
 
-Automatic scaling provides the right number of VMs to handle the load on your application. It enables you to add VMs to handle increases in load and save money by removing VMs that are sitting idle. You specify a minimum and maximum number of VMs to run based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum value limits your total possible hourly cost.
+Automatické škálování poskytuje správný počet virtuálních počítačů pro zpracování zátěže ve vaší aplikaci. Umožňuje přidat virtuální počítače a zpracovat nárůst zatížení ušetřit peníze odebráním virtuálních počítačů, které jsou uložený nečinnosti. Můžete zadat minimální a maximální počet virtuálních počítačů ke spuštění na základě na sadu pravidel. S minimální díky, že aplikace je vždy spuštěna ani v žádné zatížení. S maximální hodnotu, která omezuje vaše náklady možné každou hodinu.
 
-You can enable autoscale when you create the scale set using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). You can also enable it after the scale set is created. You can create a scale set, install the extension, and configure autoscale using an [Azure Resource Manager template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). In the Azure portal, enable autoscale from Azure Monitor, or enable autoscale from the scale set settings.
+Můžete povolit škálování, když vytvoříte pomocí sad škálování [prostředí Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) nebo [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Můžete také ho povolit po se vytvoří sada škálování. Můžete vytvořit sadu škálování, nainstalujte rozšíření a nakonfigurovat automatické škálování [šablony Azure Resource Manageru](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Na portálu Azure povolit škálování z monitorování Azure nebo povolit škálování z nastavení sady škálování.
 
-![Enable autoscale](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Povolit automatické škálování](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Metrics
+### <a name="metrics"></a>Metriky
 
-The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
+Funkce škálování Azure monitorování umožňuje škálovat počet spuštěných virtuálních počítačů nebo dolů na základě [metriky](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Virtuální počítače ve výchozím nastavení, poskytují základní metriky na úrovni hostitele pro disk, síť a využití procesoru. Když nakonfigurujete shromažďování dat diagnostiky pomocí diagnostiky rozšíření, čítače výkonu další hostovaného operačního systému k dispozici pro disk, procesoru a paměti.
 
-![Metric criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
+![Metriky kritéria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
-If your application needs to scale based on metrics that are not available through the host, then the VMs in the scale set need to have either the [Linux diagnostic extension](../articles/virtual-machines/linux/diagnostic-extension.md) or [Windows diagnostics extension](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) installed. If you create a scale set using the Azure portal, you need to also use Azure PowerShell or the Azure CLI to install the extension with the diagnostics configuration that you need.
+Pokud aplikace potřebuje škálovat podle metriky, které nejsou k dispozici prostřednictvím hostitele a potom virtuální počítače ve škálovací sadě musí mít buď [rozšíření diagnostiky Linux](../articles/virtual-machines/linux/diagnostic-extension.md) nebo [rozšíření diagnostiky Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)nainstalována. Pokud vytvoříte škálování nastavit pomocí portálu Azure, budete muset použít také prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure k instalaci rozšíření se konfigurace diagnostiky, které potřebujete.
  
-### <a name="rules"></a>Rules
+### <a name="rules"></a>Pravidla
 
-[Rules](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) combine a metric with an action to be performed. When rule conditions are met, one or more autoscale actions are triggered. For example, you might have a rule defined that increases the number of VMs by 1 if the average CPU usage goes above 85 percent.
+[Pravidla](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) kombinovat metriky s akci, kterou chcete provést. Pokud jsou splněny podmínky pravidla, vyvolají se jeden nebo víc akcí škálování. Například můžete mít definováno pravidlo, které zvýší počet virtuálních počítačů pomocí 1, pokud průměrné využití procesoru překročí 85 procent.
 
-![Autoscale actions](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
+![Akce škálování](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
  
-### <a name="notifications"></a>Notifications
+### <a name="notifications"></a>Oznámení
 
-You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
+Můžete [nastavit aktivace](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) tak, aby konkrétní webové adresy URL se nazývají nebo e-mailů jsou zasílány pomocí pravidel automatického škálování, které vytvoříte. Webhooky umožňují směrovat Azure oznámení výstrah do jiných systémů pro následné zpracování nebo vlastních oznámení.
 
-## <a name="manually-scale-vms-in-a-scale-set"></a>Manually scale VMs in a scale set
+## <a name="manually-scale-vms-in-a-scale-set"></a>Ručně škálovat, virtuální počítače ve škálovací sadě
 
-### <a name="horizontal"></a>Horizontal
+### <a name="horizontal"></a>vodorovné
 
-You can add or remove VMs by changing the capacity of the scale set. In the Azure portal, you can decrease or increase the number of VMs (shown as **instance count**) in the scale set by sliding the Override condition bar on the Scaling screen left or right.
+Můžete přidat nebo odebrat tak, že změníte kapacitu škálovací sady virtuálních počítačů. Na portálu Azure, můžete snížit nebo zvýšit počet virtuálních počítačů (zobrazené jako **instance počet**) v škálování, která nastavuje klouzavé panelu podmínku přepsání na obrazovce škálování doleva nebo doprava.
 
-Using Azure PowerShell, you need to get the scale set object using [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) command.
+Pomocí Azure PowerShell, které je potřeba získat objekt nastavení škálování pomocí [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Pak můžete nastavit **sku.capacity** vlastnosti tak, aby počet virtuálních počítačů, které chcete a aktualizace měřítka nastavit s [aktualizace AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Použití Azure CLI, změníte kapacitu s **– nové kapacity** parametr pro [az vmss škálování](https://docs.microsoft.com/cli/azure/vmss#scale) příkaz.
 
-### <a name="vertical"></a>Vertical
+### <a name="vertical"></a>Svislý
 
-You can manually change the size of the VMs in the Azure portal on the Size screen for the scale set. You can use Azure PowerShell with Get-AzureRmVmss, setting the image reference sku property, and then using [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) and [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Můžete ručně změnit velikost na portálu Azure na velikost obrazovky pro škálovací sadu virtuálních počítačů. Můžete použít Azure PowerShell s Get-AzureRmVmss, vlastnost sku referenční bitové kopie a používat [aktualizace AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) a [aktualizace AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-- Learn more about scale sets in [Design Considerations for Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
+- Další informace o sadách škálování v [aspekty návrhu pro sadách škálování](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
 

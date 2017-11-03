@@ -43,11 +43,11 @@ Pro každý orchestrátor dostupný ve službě Azure Container Service platí s
 
 Další informace o zabezpečení specifické pro orchestrátor najdete v následujících zdrojích:
 
-* **Kubernetes:** [Security Best Practices for Kubernetes Deployment](http://blog.kubernetes.io/2016/08/security-best-practices-kubernetes-deployment.html) (Osvědčené postupy zabezpečení pro nasazení Kubernetes)
+* **Kubernetes:**[Security Best Practices for Kubernetes Deployment](http://blog.kubernetes.io/2016/08/security-best-practices-kubernetes-deployment.html) (Osvědčené postupy zabezpečení pro nasazení Kubernetes)
 
-* **DC/OS:** [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (Zabezpečení clusteru)
+* **DC/OS:**[Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (Zabezpečení clusteru)
 
-* **Docker Swarm:** [Docker Security](https://www.docker.com/docker-security) (Zabezpečení Dockeru)
+* **Docker Swarm:**[Docker Security](https://www.docker.com/docker-security) (Zabezpečení Dockeru)
 
 ## <a name="next-steps"></a>Další kroky
 

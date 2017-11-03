@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Požadavky
+* [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) účtu  
 
-Before you can use your FTP account in a logic app, you must authorize the logic app to connect to your FTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Než v aplikaci logiky můžete použít účet na serveru FTP, musíte je nejdříve autorizovat aplikaci logiky pro připojení k účtu FTP. Naštěstí můžete k tomu snadno z v rámci aplikace logiky na portálu Azure.  
 
-Here are the steps to authorize your logic app to connect to your FTP account:  
+Tady jsou kroky k autorizaci aplikace logiky pro připojení k účtu FTP:  
 
-1. To create a connection to FTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *FTP* in the search box. Select the trigger or action you'll like to use:  
-   ![FTP connection creation step](./media/connectors-create-api-ftp/ftp-1.png)  
-2. If you haven't created any connections to FTP before, you'll get prompted to provide your FTP credentials. These credentials will be used to authorize your logic app to connect to, and access your FTP account's data:  
-   ![FTP connection creation step](./media/connectors-create-api-ftp/ftp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
-   ![FTP connection creation step](./media/connectors-create-api-ftp/ftp-3.png)  
+1. Chcete-li vytvořit připojení k serveru FTP, v návrháři aplikace logiky, vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu zadejte *FTP* do vyhledávacího pole. Vyberte aktivační události nebo akci, kterou budete chtít použít:  
+   ![Krok vytvoření připojení FTP](./media/connectors-create-api-ftp/ftp-1.png)  
+2. Pokud jste nevytvořili žádné připojení k serveru FTP před, budete získat zobrazí výzva k zadání přihlašovacích údajů vaší FTP. Tyto přihlašovací údaje se použije k autorizaci aplikace logiky pro připojení k a přístup k datům účtu FTP:  
+   ![Krok vytvoření připojení FTP](./media/connectors-create-api-ftp/ftp-2.png)  
+3. Všimněte si vytvořil připojení a je nyní můžete pokračovat v dalších krocích v aplikaci logiky:  
+   ![Krok vytvoření připojení FTP](./media/connectors-create-api-ftp/ftp-3.png)  
 

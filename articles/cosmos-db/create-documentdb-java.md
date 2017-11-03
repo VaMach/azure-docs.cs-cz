@@ -8,27 +8,31 @@ manager: jhubbard
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
-ms.date: 08/02/2017
+ms.topic: quickstart
+ms.date: 10/30/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze dokumentů pomocí Javy a webu Azure Portal
 
-Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
+Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Pomocí Azure Cosmos DB, můžete rychle vytvořit a dotaz spravovaného dokumentu, tabulku a graf databáze.
 
-V tomto rychlém startu se vytvoří databáze dokumentů pomocí nástrojů pro Azure Cosmos DB na webu Azure Portal. V tomto rychlém startu se také dozvíte, jak rychle vytvořit konzolovou aplikaci Java pomocí [rozhraní API Java DocumentDB](documentdb-sdk-java.md). Pokyny v tomto rychlém startu platí pro všechny operační systémy, které podporují Javu. Po dokončení tohoto rychlého startu budete vědět, jak vytvořit a upravit prostředky databáze dokumentů v uživatelském rozhraní nebo programově podle toho, čemu dáváte přednost.
+V tomto rychlém startu se vytvoří databáze dokumentů pomocí nástrojů pro Azure Cosmos DB na webu Azure Portal. V tomto rychlém startu se také dozvíte, jak rychle vytvořit konzolovou aplikaci Java pomocí [rozhraní API Java DocumentDB](documentdb-sdk-java.md). Pokyny v tomto rychlém startu platí pro všechny operační systémy, které podporují Javu. Po dokončení tento rychlý start budete zkušenosti s vytvářením a úpravy dokumentu databáze prostředků v uživatelského rozhraní nebo prostřednictvím kódu programu, podle toho, co je vaši volbu.
 
 ## <a name="prerequisites"></a>Požadavky
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+Navíc platí: 
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * Na Ubuntu nainstalujte sadu JDK spuštěním příkazu `apt-get install default-jdk`.
@@ -37,8 +41,6 @@ V tomto rychlém startu se vytvoří databáze dokumentů pomocí nástrojů pro
     * Na Ubuntu můžete Maven nainstalovat spuštěním příkazu `apt-get install maven`.
 * [Git](https://www.git-scm.com/)
     * Na Ubuntu můžete Git nainstalovat spuštěním příkazu `sudo apt-get install git`.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
@@ -55,11 +57,11 @@ Než budete moct vytvořit databázi dokumentů, je potřeba pomocí služby Azu
 
 Teď můžete do nové kolekce přidávat data pomocí Průzkumníka dat.
 
-1. V Průzkumníku dat se nová databáze zobrazí v podokně Kolekce. Rozbalte databázi **Tasks**, rozbalte kolekci **Items**, klikněte na **Dokumenty** a potom klikněte na **Nové dokumenty**. 
+1. Rozbalte **položky** kolekce, klikněte na tlačítko **dokumenty** > **nový dokument**.
 
-   ![Vytváření nových dokumentů v Průzkumníku dat na portálu Azure Portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![Vytváření nových dokumentů v Průzkumníku dat na portálu Azure Portal](./media/create-documentdb-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Teď do kolekce přidejte dokument s následující strukturou.
+2. Nyní přidejte dokumentu do kolekce s následující strukturou a klikněte na tlačítko **Uložit**.
 
      ```json
      {
@@ -71,23 +73,37 @@ Teď můžete do nové kolekce přidávat data pomocí Průzkumníka dat.
      }
      ```
 
-3. Po přidání formátu json na kartu **Dokumenty** klikněte na **Uložit**.
+    ![Zkopírujte data json a v Průzkumníku dat na webu Azure Portal klikněte na Uložit.](./media/create-documentdb-java/azure-cosmosdb-data-explorer-save-document.png)
 
-    ![Zkopírujte data json a v Průzkumníku dat na webu Azure Portal klikněte na Uložit.](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+3.  Vytvořte a uložte jeden další dokument, kde můžete změnit `id` 2 a změnit ostatní vlastnosti, jak můžete vidět přizpůsobit. Nové dokumenty můžou mít jakoukoli strukturu, protože Azure Cosmos DB neuplatňuje pro data žádné schéma.
 
-4.  Vytvořte a uložte ještě jeden dokument, ve kterém vložíte jedinečnou hodnotu pro vlastnost `id` a změníte ostatní vlastnosti podle svých potřeb. Nové dokumenty můžou mít jakoukoli strukturu, protože Azure Cosmos DB neuplatňuje pro data žádné schéma.
+## <a name="query-your-data"></a>Dotazování na data
 
-     Teď můžete svá data načíst pomocí dotazů v Průzkumníku dat kliknutím na tlačítka **Upravit filtr** a **Použít filtr**. Ve výchozím nastavení používá Průzkumník dat pro načtení všech dokumentů v kolekci příkaz `SELECT * FROM c`. Ten však můžete změnit na jiný [příkaz jazyka SQL](documentdb-sql-query.md), například `SELECT * FROM c ORDER BY c._ts DESC`, který vrátí všechny dokumenty v sestupném pořadí podle časového razítka. 
- 
-     Průzkumník dat můžete použít také pro vytváření uložených procedur, funkcí UDF a triggerů pro provádění obchodní logiky a také propustnosti škálování na straně serveru. Průzkumník dat zpřístupní všechna integrovaná programová data v rozhraních API, ale zajistí jednoduchý přístup k vašim datům na portálu Azure Portal.
+Teď můžete použít dotazy v Průzkumníku dat k načtení a filtrovat data.
+
+1. Že ve výchozím nastavení, dotazu nastavena na `SELECT * FROM c`. Tento výchozí dotaz načte a zobrazí všechny dokumenty v kolekci. 
+
+    ![Výchozí dotaz v Průzkumníku dat je "vybrat * z c.](./media/create-documentdb-java/azure-cosmosdb-data-explorer-query.png)
+
+2. Změnit dotaz kliknutím **upravit filtr** tlačítko přidání `ORDER BY c._ts DESC` predikátem pole dotazu a následným kliknutím na položku **použít filtr**.
+
+    ![Změňte výchozí dotaz přidáním ORDER BY c._ts DESC a kliknutím na tlačítko použít filtr](./media/create-documentdb-java/azure-cosmosdb-data-explorer-edit-query.png)
+
+Toto nastavení upravit dotaz seznamy dokumentů v sestupném pořadí podle jejich časové razítko, takže teď druhého dokumentu je uvedená jako první. Pokud jste obeznámeni se syntaxí SQL, můžete zadat libovolný z podporovaném [dotazy SQL](documentdb-sql-query.md) v tomto poli. 
+
+Tím končí naše práci v Průzkumníku dat. Před můžeme přesunout k práce s kódem, vezměte na vědomí, že můžete taky Průzkumníku dat k vytvoření uložené procedury, funkce UDF a aktivačních událostí, provádět serverovou obchodní logiku a také škálování propustnost. Průzkumník dat zpřístupní všechna integrovaná programová data v rozhraních API, ale zajistí jednoduchý přístup k vašim datům na portálu Azure Portal.
 
 ## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
-Teď přejděme k práci s kódem. Naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Uvidíte, jak snadno se pracuje s daty prostřednictvím kódu programu. 
+Teď přejděme k práci s kódem. Naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu Git, jako je třeba Git Bash, a pomocí `CD` přejděte do pracovního adresáře.  
+1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace. 
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. 
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -95,9 +111,9 @@ Teď přejděme k práci s kódem. Naklonujeme aplikaci s rozhraním API Documen
 
 ## <a name="review-the-code"></a>Kontrola kódu
 
-Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor `Program.java` ze složky \src\GetStarted a vyhledejte tyto řádky kódu, které vytvářejí prostředky služby Azure Cosmos DB. 
+Tento krok je volitelný. Pokud vás zajímá učení vytváření databázových prostředků v kódu, můžete zkontrolovat následující fragmenty kódu. Fragmenty kódu jsou převzaty z `Program.java` nainstalován ve složce C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted souboru. Jinak, můžete přeskočit na [aktualizovat připojovací řetězec](#update-your-connection-string). 
 
-* Inicializuje se `DocumentClient`.
+* `DocumentClient`Inicializace. [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) poskytuje logické zastoupení straně klienta pro službu Azure Cosmos DB databáze. Tohoto klienta se používá ke konfiguraci a spuštění požadavků na službu.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -106,7 +122,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
             ConsistencyLevel.Session);
     ```
 
-* Vytvoří se nová databáze.
+* [Databáze](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database) vytvoření.
 
     ```java
     Database database = new Database();
@@ -115,7 +131,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     this.client.createDatabase(database, null);
     ```
 
-* Vytvoří se nová kolekce.
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection) vytvoření.
 
     ```java
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -126,7 +142,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
 
-* Vytvoří se některé dokumenty.
+* Vytváření dokumentů pomocí [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) metoda.
 
     ```java
     // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
@@ -139,7 +155,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     this.client.createDocument(collectionLink, family, new RequestOptions(), true);
     ```
 
-* Provede se dotaz SQL přes JSON.
+* Dotazy SQL za JSON se provádí pomocí [dokumenty dotazu](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) metoda.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
@@ -159,29 +175,51 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
-Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. Tím aplikaci umožníte komunikovat s hostovanou databází.
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. To umožňuje aplikaci ke komunikaci s vaší hostované databází.
 
-1. Na webu [Azure Portal](http://portal.azure.com/) klikněte v účtu databáze Azure Cosmos v levém navigačním panelu na možnost **Klíče** a potom klikněte na **Klíče pro čtení i zápis**. V dalším kroku zkopírujete pomocí tlačítek kopírování na pravé straně obrazovky identifikátor URI a PRIMÁRNÍ KLÍČ do souboru `Program.java`.
+1. V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **klíče**. 
 
-    ![Zobrazení a zkopírování přístupového klíče na webu Azure Portal v okně Klíče](./media/create-documentdb-dotnet/keys.png)
+    Pomocí tlačítek kopírovat na pravé straně obrazovky zkopírujte nejvyšší hodnotu identifikátoru URI.
 
-2. V otevřeném souboru `Program.java` zkopírujte z portálu hodnotu identifikátoru URI (pomocí tlačítka kopírování) a nastavte ji jako hodnotu koncového bodu konstruktoru DocumentClient v souboru `Program.java`. 
+    ![Zobrazení a zkopírování přístupového klíče v Azure stránky portálu, klíče](./media/create-documentdb-java/keys.png)
 
-    `"https://FILLME.documents.azure.com"`
+2. Otevřete `Program.java` soubor ze složky C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. 
 
-4. Potom z portálu zkopírujte hodnotu PRIMÁRNÍHO KLÍČE a nahraďte jí parametr FILLME. Tím z ní uděláte druhý parametr v konstruktoru DocumentClient. Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
+3. Vložit hodnotu URI z portálu přes `https://FILLME.documents.azure.com` na řádku 45.
+
+4. Přejděte zpět na portál a zkopírujte hodnotu PRIMÁRNÍHO klíče, jak je znázorněno na snímku obrazovky. Vložit hodnotu primární klíč z portálu přes `FILLME` na řádku 46.
+
+    Metoda getStartedDemo by teď měl vypadat podobně jako tento: 
     
+    ```java
+    private void getStartedDemo() throws DocumentClientException, IOException {
+        this.client = new DocumentClient("https://youraccountname.documents.azure.com:443/",
+                "your-primary-key...RJhQrqQ5QQ==", 
+                new ConnectionPolicy(),
+                ConsistencyLevel.Session);
+    ```
+
+5. Uložte soubor Program.java.
+
 ## <a name="run-the-app"></a>Spuštění aplikace
 
 1. V okně terminálu Git přejděte příkazem `cd` do složky azure-cosmos-db-documentdb-java-getting-started.
 
+    ```git
+    cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
+    ```
+
 2. V okně terminálu Git zadejte `mvn package`, aby se nainstalovaly požadované balíčky Java.
 
-3. V okně terminálu Git spuštěním příkazu `mvn exec:java -D exec.mainClass=GetStarted.Program` spusťte svoji aplikaci Java.
+3. V okně terminálu git spustit `mvn exec:java -D exec.mainClass=GetStarted.Program` -li spustit aplikaci Java.
 
-    V okně terminálu se zobrazí oznámení o vytvoření databáze FamilyDB a výzva ke stisknutí klávesy a pokračování. Stisknutím libovolné klávesy vytvořte databázi, potom přejděte do Průzkumníku dat a uvidíte, že teď obsahuje databázi FamilyDB. Pokračujte a stiskem kláves vytvořte kolekci a dokumenty a potom proveďte dotaz. Po dokončení projektu se prostředky odstraní z vašeho účtu. 
+    Okno terminálu zobrazí oznámení, že FamilyDB databáze byla vytvořena. Stisknutím klávesy k vytvoření této kolekce, pak přejděte do Průzkumníku dat a uvidíte, že teď obsahuje FamilyDB databáze.
+    
+    Pokračujte stisknutím kláves vytvářet dokumenty a potom spustit dotaz.
+    
+    Na konci tohoto programu se odstraní všechny prostředky v této aplikaci z vašeho účtu tak, aby vám zbytečně nenabíhaly žádné poplatky. 
 
-    ![Zobrazení a zkopírování přístupového klíče na webu Azure Portal v okně Klíče](./media/create-documentdb-java/console-output.png)
+    ![Výstup konzoly](./media/create-documentdb-java/console-output.png)
 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
@@ -190,17 +228,13 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud nebudete tuto aplikace nadále používat, odstraňte na základě následujícího postupu z portálu Azure Portal všechny prostředky vytvořené podle tohoto rychlého startu:
-
-1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku. 
-2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto rychlém startu jste se seznámili s postupem vytvoření účtu Azure Cosmos DB, databáze dokumentů a kolekce pomocí Průzkumníku dat a spuštění aplikace, která to samé udělá programově. Teď můžete do účtu databáze Cosmos importovat další data. 
+V tomto rychlém startu jste se seznámili s postupem vytvoření účtu Azure Cosmos DB, databáze dokumentů a kolekce pomocí Průzkumníku dat a spuštění aplikace, která to samé udělá programově. Nyní můžete importovat další data do Azure Cosmos DB kolekce. 
 
 > [!div class="nextstepaction"]
 > [Importování dat do služby Azure Cosmos DB](import-data.md)
-
 
 
