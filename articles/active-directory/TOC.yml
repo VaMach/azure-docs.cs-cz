@@ -62,6 +62,12 @@
           href: msi-howto-assign-access-powershell.md
         - name: Použití Azure CLI
           href: msi-howto-assign-access-cli.md
+    - name: Použití MSI virtuálního počítače pro přístup ke službě Azure Data Lake Store
+      items:
+        - name: Z virtuálního počítače s Windows
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Z virtuálního počítače s Linuxem
+          href: msi-tutorial-linux-vm-access-datalake.md
     - name: Použití MSI virtuálního počítače pro přístup k Azure Resource Manageru
       items:
         - name: Z virtuálního počítače s Windows

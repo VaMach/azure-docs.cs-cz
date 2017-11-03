@@ -1,40 +1,40 @@
-## <a name="view-device-telemetry-in-the-dashboard"></a>Zobrazení telemetrie zařízení na řídicím panelu
-Řídicí panel řešení vzdáleného monitorování umožňuje zobrazit telemetrická data, která vaše zařízení odesílají do IoT Hubu.
+## <a name="view-device-telemetry"></a>Zobrazení telemetrie zařízení
 
-1. V prohlížeči se vraťte na řídicí panel řešení vzdáleného monitorování a kliknutím na **Zařízení** na levém panelu přejděte k **seznamu zařízení**.
-2. V **seznamu zařízení** by se mělo zobrazit, že zařízení je ve stavu **Spuštěno**. Pokud ne, na panelu **Podrobnosti o zařízení** klikněte na **Povolit zařízení**.
-   
-    ![Zobrazení stavu zařízení][18]
-3. Kliknutím na **Řídicí panel** se vraťte na řídicí panel a v rozevíracím seznamu **Zobrazit zařízení** vyberte požadované zařízení. Zobrazí se jeho telemetrická data. Telemetrická data z ukázkové aplikace odpovídají 50 jednotkám pro vnitřní teplotu, 55 jednotkám pro venkovní teplotu a 50 jednotkám pro vlhkost.
-   
-    ![Zobrazení telemetrie zařízení][img-telemetry]
+Můžete zobrazit telemetrická data odesílaná ze zařízení **zařízení** stránky v řešení.
 
-## <a name="invoke-a-method-on-your-device"></a>Volání metody na zařízení
-Řídicí panel řešení vzdáleného monitorování umožňuje vyvolat na zařízení metody prostřednictvím IoT Hubu. V řešení vzdáleného monitorování můžete třeba vyvolat metodu pro simulaci restartování zařízení.
+1. Vyberte zařízení, které jsou zřízené v seznamu zařízení na **zařízení** stránky. Panelu se zobrazí informace o vašem zařízení, včetně vykreslení telemetrie zařízení:
 
-1. Na řídicím panelu řešení vzdáleného monitorování klikněte na **Zařízení** na levém panelu a přejděte k **seznamu zařízení**.
-2. V **seznamu zařízení** klikněte na požadované **ID zařízení**.
-3. Na panelu **Podrobnosti o zařízení** klikněte na **Metody**.
-   
-    ![Metody zařízení][13]
-4. V rozevíracím seznamu **Metoda** vyberte **InitiateFirmwareUpdate** a potom do **FWPACKAGEURI** zadejte fiktivní adresu URL. Kliknutím na **Vyvolat metodu** vyvoláte tuto metodu na příslušném zařízení.
-   
-    ![Vyvolání metody zařízení][14]
-   
+    ![Najdete v části Podrobnosti o zařízení](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-5. Když zařízení zpracovává tuto metodu, zobrazí se zpráva na konzole, kde je spuštěný kód vašeho zařízení. Výsledky metody se přidají do historie na portálu řešení:
+1. Zvolte **přetížení** ke změně zobrazení telemetrie:
 
-    ![Zobrazení historie metod][img-method-history]
+    ![Zobrazení telemetrie přetížení](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. Chcete-li zobrazit diagnostické informace o vašem zařízení, přejděte dolů na **diagnostiky**:
+
+    ![Zobrazení zařízení diagnostiky](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## <a name="act-on-your-device"></a>Fungovat na zařízení
+
+Chcete-li volat metody na zařízení, použijte **zařízení** stránky v řešení vzdáleného monitorování. Například v řešení vzdáleného monitorování **chladič** zařízení implementovat **restartovat** metoda.
+
+1. Zvolte **zařízení** přejděte na **zařízení** stránky v řešení.
+
+1. Vyberte zařízení, které jsou zřízené v seznamu zařízení na **zařízení** stránky:
+
+    ![Vyberte fyzické zařízení](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. Chcete-li zobrazit seznam metod, můžete volat na vašem zařízení, zvolte **plán**. Při plánování metodu pro spuštění na několika zařízeních, můžete vybrat více zařízení v seznamu. **Plán** panelu zobrazí požadované typy metoda společné pro všechny vámi vybraná zařízení.
+
+1. Zvolte **restartovat**, nastavte název úlohy na **RebootPhysicalChiller**a zvolte **použít**:
+
+    ![Plánování restartování](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. Zobrazí se zpráva v konzole pro spuštění kódu vašeho zařízení, když zařízení zpracovává metodu.
+
+> [!NOTE]
+> Chcete-li sledovat stav úlohy v řešení, zvolte **zobrazení**.
 
 ## <a name="next-steps"></a>Další kroky
-Článek [Přizpůsobení předkonfigurovaných řešení][lnk-customize] popisuje některé způsoby, kterými jde tuto ukázku rozšířit. Mezi možná rozšíření patří skutečné senzory a implementace dalších příkazů.
 
-Další informace o [oprávněních najdete na webu azureiotsuite.com][lnk-permissions].
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+Článek [přizpůsobení předkonfigurovaného řešení vzdáleného monitorování](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) popisuje několik způsobů, jak přizpůsobit předkonfigurovaného řešení.

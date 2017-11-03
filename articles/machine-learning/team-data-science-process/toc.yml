@@ -31,7 +31,7 @@
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Spuštění projektu
   href: project-execution.md
-- name: Kurzy
+- name: Příklady
   href: walkthroughs.md
   items:
     - name: Azure Machine Learning
@@ -60,6 +60,12 @@
       href: walkthroughs-sql-server.md
     - name: T-SQL a Python s SQL DW
       href: walkthroughs-sql-data-warehouse.md
+- name: Školení
+  items:
+    - name: TDSP pro odborníky na data
+      href: team-data-science-process-for-data-scientists.md
+    - name: TDSP pro DevOps
+      href: team-data-science-process-for-devops.md
 - name: Postup
   items:
     - name: Použití TDSP v Azure ML

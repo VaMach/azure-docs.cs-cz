@@ -19,6 +19,8 @@
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Zřízení škálovací sady virtuálních počítačů s infrastrukturou
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Zřízení škálovací sady virtuálních počítačů z vlastní image Packeru
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Koncepty
   items:
     - name: Integrace služby Cloud Shell
