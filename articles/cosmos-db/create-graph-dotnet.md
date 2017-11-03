@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření aplikace .NET databáze Azure Cosmos využívající rozhraní Graph API | Dokumentace Microsoftu"
-description: "Obsahuje ukázku kódu .NET, kterou můžete použít pro připojení a dotazování databáze Azure Cosmos."
+title: "Vytvoření aplikace Azure Cosmos DB rozhraní .NET Framework nebo Core pomocí rozhraní Graph API | Microsoft Docs"
+description: "Uvede ukázka kódu rozhraní .NET Framework nebo jádra, které můžete použít k připojení k a dotaz na databázi Azure Cosmos"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -12,17 +12,16 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 07/28/2017
+ms.topic: quickstart
+ms.date: 10/06/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Databáze Azure Cosmos: Vytvoření aplikace .NET využívající rozhraní Graph API
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Sestavení rozhraní .NET Framework nebo základní aplikace pomocí rozhraní Graph API
 
 Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
@@ -31,6 +30,8 @@ Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, 
 ## <a name="prerequisites"></a>Požadavky
 
 Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
+
+Pokud již máte Visual Studio 2017 nainstalována, ujistěte se, až instalaci [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,6 +46,10 @@ Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout
 ## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
 Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
+
+Tento ukázkový projekt používá formát projektu .NET Core a nakonfigurován, aby tyto architektury cíle:
+ - netcoreapp2.0
+ - net461
 
 1. Otevřete okno terminálu Git, jako je třeba Git Bash, a pomocí `cd` přejděte do pracovního adresáře.  
 
@@ -103,35 +108,37 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
 
 Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace.
 
-1. V sadě Visual Studio 2017 otevřete soubor App.config. 
+1. V aplikaci Visual Studio 2017 otevřete soubor appSettings.JSON určený. 
 
 2. Na webu Azure Portal v účtu služby Azure Cosmos DB klikněte v levém navigačním panelu na **Klíče**. 
 
     ![Zobrazení a zkopírování primárního klíče na webu Azure Portal na stránce Klíče](./media/create-graph-dotnet/keys.png)
 
-3. Z portálu zkopírujte hodnotu identifikátoru **URI** a nastavte ji jako hodnotu klíče koncového bodu v souboru App.config. Hodnotu můžete zkopírovat pomocí tlačítka Kopírovat, jak ukazuje předchozí snímek obrazovky.
+3. Kopie vašeho **URI** hodnoty z portálu a nastavit jej jako hodnotu klíče koncového bodu v appSettings.JSON určený. Hodnotu můžete zkopírovat pomocí tlačítka Kopírovat, jak ukazuje předchozí snímek obrazovky.
 
-    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+    `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
 4. Z portálu zkopírujte hodnotu **PRIMÁRNÍHO KLÍČE**, nastavte ji jako hodnotu klíče AuthKey v souboru App.config a potom uložte změny. 
 
-    `<add key="AuthKey" value="FILLME" />`
+    `"authkey": "FILLME"`
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Spuštění aplikace konzoly
 
+Než spustíte aplikaci, se doporučuje aktualizovat *Microsoft.Azure.Graphs* balíčku na nejnovější verzi.
+
 1. V sadě Visual Studio klikněte v **Průzkumníku řešení** pravým tlačítkem myši na projekt **GraphGetStarted** a potom klikněte na možnost **Spravovat balíčky NuGet**. 
 
-2. Do pole **Procházet** v NuGetu zadejte *WindowsAzure.Graphs* a zaškrtněte políčko **Zahrnout předběžné verze**. 
+2. Správce balíčků NuGet **aktualizace** , zadejte *Microsoft.Azure.Graphs* a zkontrolujte **zahrnuje předběžné verze** pole. 
 
-3. Z výsledků nainstalujte knihovnu **Microsoft.Azure.Graphs**. Tím se nainstaluje balíček knihovny rozšíření grafů databáze Azure Cosmos a všechny závislosti.
+3. Ve výsledcích aktualizovat **Microsoft.Azure.Graphs** knihovny na nejnovější verzi balíčku. Tím se nainstaluje balíček knihovny rozšíření grafů databáze Azure Cosmos a všechny závislosti.
 
     Pokud se vám zobrazí zpráva týkající se kontroly změn řešení, klikněte na **OK**. Pokud se vám zobrazí zpráva týkající se přijetí licence, klikněte na **Souhlasím**.
 
 4. Spusťte aplikaci stisknutím CTRL+F5.
 
-   V okně konzoly se zobrazí vrcholy a hrany, které se přidávají do grafu. Po dokončení skriptu dvojím stisknutím klávesy ENTER zavřete okno konzoly. 
+   V okně konzoly se zobrazí vrcholy a hrany, které se přidávají do grafu. Po dokončení skriptu dvojím stisknutím klávesy ENTER zavřete okno konzoly.
 
 ## <a name="browse-using-the-data-explorer"></a>Procházení pomocí Průzkumníku dat
 
@@ -162,5 +169,4 @@ V tomto rychlém startu jste se seznámili s postupem vytvoření účtu datab
 
 > [!div class="nextstepaction"]
 > [Dotazování pomocí konzoly Gremlin](tutorial-query-graph.md)
-
 

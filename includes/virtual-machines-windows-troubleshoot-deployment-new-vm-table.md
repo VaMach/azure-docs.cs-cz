@@ -1,7 +1,7 @@
-The following table lists the possible upload and capture combinations of Windows generalized (gen.) and specialized (spec.) OS images. The combinations that will process without any errors are indicated by a Y, and those that will throw errors are indicated by an N. The causes and resolutions for the different errors you will run into are given below the table.
+Následující tabulka uvádí možné nahrávání a zachycení kombinace Windows zobecněn (Obecné) a specializuje (specifikace.) Bitové kopie operačního systému. Kombinace, které bude zpracovávat bez chyb jsou vypsány y, a ty, které vyvolá výjimku chyby jsou označeny N. Příčiny a řešení pro různé chyby, na které se spustí do jsou uvedeny níže v tabulce.
 
-| OS | Upload spec. | Upload gen. | Capture spec. | Capture gen. |
+| Operační systém | Nahrajte specifikace. | Nahrajte. generace. | Zaznamenejte specifikace. | Zaznamenejte. generace. |
 | --- | --- | --- | --- | --- |
-| Windows gen. |N<sup>1</sup> |Y |N<sup>3</sup> |Y |
-| Windows spec. |Y |N<sup>2</sup> |Y |N<sup>4</sup> |
+| Gen systému Windows. |N<sup>1</sup> |Ano |N<sup>3</sup> |Ano |
+| Specifikace systému Windows. |Ano |N<sup>2</sup> |Ano |N<sup>4</sup> |
 

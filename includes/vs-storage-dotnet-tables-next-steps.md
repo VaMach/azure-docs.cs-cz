@@ -1,9 +1,9 @@
-Now that you've learned the basics of Azure Table storage, follow these links to learn about more complex storage tasks.
+Teď, když jste se naučili základy používání služby Azure Table storage, postupujte podle následujících odkazech na další informace o složitějších úlohách úložiště.
 
-* View the Table Service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-* To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-* View more feature guides to learn about additional options for storing data in Azure.
-  * To work with Azure Storage Blobs, see [Get Started with Azure Blob storage using .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
-  * To work with Azure Storage Queues, [Get started with Azure Queue storage using .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+* Zobrazení v referenční dokumentaci služby Table [Klientská knihovna pro úložiště Azure pro .NET](http://go.microsoft.com/fwlink/?LinkID=390731) odkaz kompletní informace o dostupných rozhraních API.
+* Chcete-li se dozvědět, jak můžete zjednodušit kód, který vytváříte, aby fungoval s Azure Storage, podívejte se na [co je Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Projděte si další průvodce funkcemi, kde najdete další informace o dalších možnostech pro ukládání dat v Azure.
+  * Chcete-li pracovat s Azure Storage Blobs, přečtěte si téma [Začínáme s Azure Blob storage pomocí rozhraní .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
+  * Pro práci s front úložiště Azure, [Začínáme s Azure Queue storage pomocí rozhraní .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
+  * Pro ukládání relačních dat, najdete v části [připojit k databázi SQL s použitím rozhraní .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

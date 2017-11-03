@@ -6,20 +6,19 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 08/10/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/10/2017
-
+ms.topic: quickstart
+ms.date: 08/15/2017
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití Pythonu k připojení a dotazování dat
-Tento Rychlý start ukazuje použití jazyka [Python](https://python.org) pro připojení k Azure Database for PostgreSQL a následné použití příkazů jazyka SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem Mac OS, Ubuntu Linux a Windows. Kroky v tomto článku předpokládají, že máte zkušenosti s vývojem pomocí Pythonu a teprve začínáte pracovat se službou Azure Database for PostgreSQL.
+Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí [Pythonu](https://python.org). Předvádí také použití příkazů jazyka SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem macOS, Ubuntu Linux a Windows. Kroky v tomto článku předpokládají, že máte zkušenosti s vývojem pomocí Pythonu a teprve začínáte pracovat se službou Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Požadavky
 Tento rychlý start využívá jako výchozí bod prostředky vytvořené v některém z těchto průvodců:
@@ -28,32 +27,46 @@ Tento rychlý start využívá jako výchozí bod prostředky vytvořené v něk
 
 Budete také muset:
 - Nainstalovat [Python](https://www.python.org/downloads/)
-- Nainstalovat balíček [PIP](https://pip.pypa.io/en/stable/installing/) (pokud používáte binární soubory Pythonu 2 >=2.7.9 nebo Pythonu 3 >=3.4 stažené z webu [python.org](https://python.org), balíček pip už máte nainstalovaný, musíte ho ale upgradovat)
+- Nainstalovat balíček [pip](https://pip.pypa.io/en/stable/installing/) (pokud pracujete s binárními soubory Pythonu 2 >= 2.7.9 nebo Pythonu 3 >= 3.4 stažené z webu [python.org](https://python.org), balíček pip už máte nainstalovaný).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>Instalace knihoven připojení Pythonu pro PostgreSQL
-Nainstalujte balíček [psycopg2](http://initd.org/psycopg/docs/install.html) umožňující připojení a dotazování databáze. psycopg2 je [k dispozici v PyPI](https://pypi.python.org/pypi/psycopg2/) ve formě balíčků [wheel](http://pythonwheels.com/) pro nejběžnější platformy (Linux, OSX, Windows), takže můžete prostřednictvím instalace pip získat binární verzi modulu včetně všech závislostí:
+Nainstalujte balíček [psycopg2](http://initd.org/psycopg/docs/install.html) umožňující připojení a dotazování databáze. Balíček psycopg2 je [dostupný na webu PyPI](https://pypi.python.org/pypi/psycopg2/) ve formě balíčků [wheel](http://pythonwheels.com/) pro většinu běžných platforem (Linux, OSX, Windows). Pomocí příkazu pip install získejte binární verzi modulu včetně všech závislostí.
 
-```cmd
-pip install psycopg2
-```
-Nezapomeňte použít aktuální verzi pip (můžete ji upgradovat pomocí příkazu podobného tomuto: `pip install -U pip`).
+1. Na vlastním počítači spusťte rozhraní příkazového řádku:
+    - V Linuxu spusťte prostředí Bash.
+    - V systému macOS spusťte Terminál.
+    - Ve Windows spusťte Příkazový řádek z nabídky Start.
+2. Ujistěte se, že používáte nejaktuálnější verzi pip, spuštěním příkazu jako:
+    ```cmd
+    pip install -U pip
+    ```
+
+3. Spuštěním následujícího příkazu nainstalujte balíček psycopg2:
+    ```cmd
+    pip install psycopg2
+    ```
 
 ## <a name="get-connection-information"></a>Získání informací o připojení
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. V nabídce na levé straně na portálu Azure Portal klikněte na **Všechny prostředky** a vyhledejte právě vytvořený server **mypgserver-20170401**.
+2. V nabídce na levé straně webu Azure Portal klikněte na **Všechny prostředky** a vyhledejte **mypgserver-20170401** (právě vytvořený server).
 3. Klikněte na název serveru **mypgserver-20170401**.
-4. Vyberte stránku **Přehled** serveru. Poznamenejte si **Název serveru** a **Přihlašovací jméno správce serveru**.
- ![Azure Database for PostgreSQL – přihlašovací jméno správce serveru](./media/connect-python/1-connection-string.png)
+4. Vyberte stránku **Přehled** serveru a potom si poznamenejte **Název serveru** a **Přihlašovací jméno správce serveru**.
+ ![Azure Database for PostgreSQL – přihlášení správce serveru](./media/connect-python/1-connection-string.png)
 5. Pokud zapomenete přihlašovací údaje k serveru, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby resetovat heslo.
 
 ## <a name="how-to-run-python-code"></a>Spuštění kódu Pythonu
-- Pomocí oblíbeného textového editoru vytvořte nový soubor postgres.py a uložte ho do složky projektu. Zkopírujte vzorový kód uvedený níže a vložte ho do textového souboru. Nahraďte parametry host (hostitel), dbname (název databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření serveru a databáze. Pak soubor uložte. Pokud soubor ukládáte v operačním systému Windows, nezapomeňte vybrat kódování UTF-8. 
-- Pokud chcete kód spustit, spusťte příkazový řádek nebo prostředí Bash. Změňte adresář na složku vašeho projektu, například `cd postgresql`. Potom zadejte příkaz python následovaný názvem souboru, například `python postgres.py`.
+Toto téma obsahuje celkem čtyři vzorové kódy, z nichž každý provádí konkrétní funkci. Následující pokyny uvádějí, jak vytvořit textový soubor, vložit do něj blok kódu a pak ho uložit, abyste ho mohli spustit později. Nezapomeňte vytvořit čtyři samostatné soubory – pro každý blok kódu jeden.
+
+- Pomocí oblíbeného textového editoru vytvořte nový soubor.
+- Zkopírujte a vložte do textového souboru jeden ze vzorových kódů v následujících částech. Nahraďte parametry **host** (hostitel), **dbname** (název databáze), **user** (uživatel) a **password** (heslo) hodnotami, které jste zadali při vytváření serveru a databáze.
+- Uložte soubor s příponou .py (třeba postgres.py) do složky vašeho projektu. Pokud používáte v systému Windows, je nutné vybrat kódování UTF-8 při ukládání souboru. 
+- Spusťte prostředí shell příkazového řádku, Terminálové nebo Bash a potom změňte adresář na složky projektu, například `cd postgres`.
+-  Pokud chcete spustit kód, zadejte příkaz Python následovaný názvem souboru, například `Python postgres.py`.
 
 > [!NOTE]
-> Od Pythonu verze 3 se při spouštění níže uvedených bloků kódu může zobrazit chyba `SyntaxError: Missing parentheses in call to 'print'`. Pokud k tomu dojde, nahraďte všechna volání příkazu `print "string"` za volání funkce použitím závorek, například `print("string")`.
+> Od Pythonu verze 3 se při spouštění následujících bloků kódu může zobrazit chyba `SyntaxError: Missing parentheses in call to 'print'`. Pokud k tomu dojde, nahraďte všechna volání příkazu `print "string"` za volání funkce použitím závorek, například `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Připojení, vytvoření tabulky a vložení dat
 Pomocí následujícího kódu se připojte a načtěte data s využitím funkce [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) a příkazu **INSERT** jazyka SQL. Funkce [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) se používá k provedení dotazu SQL na databázi PostgreSQL. Nahraďte parametry host (hostitel), dbname (název databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření serveru a databáze.
@@ -94,6 +107,10 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
+Po úspěšném spuštění kódu se zobrazí následující výstup:
+
+![Výstup příkazového řádku](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Čtení dat
 Pomocí následujícího kódu přečtěte data vložená pomocí funkce [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) a příkazu **SELECT** jazyka SQL. Tato funkce přijme dotaz a vrátí sadu výsledků, u které můžete provést iteraci pomocí funkce [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Nahraďte parametry host (hostitel), dbname (název databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření serveru a databáze.
@@ -192,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
 > [Migrace vaší databáze pomocí exportu a importu](./howto-migrate-using-export-and-import.md)
-

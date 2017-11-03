@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: compare
-ms.workload: data-management
+ms.custom: DBs & servers
+ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 48e95d51cb9414fb5ff50e587645ee6fd46abd5b
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Volba cloudového řešení systému SQL Server: Azure SQL (PaaS) Database nebo SQL Server na virtuálních počítačích Azure (IaaS)
 Azure nabízí pro hostování úloh SQL Serveru v Microsoft Azure dvě možnosti:
@@ -64,13 +63,12 @@ Následující tabulka shrnuje hlavní vlastnosti SQL Database a SQL Serveru na 
 | --- | --- | --- |
 |  |Nové aplikace navržené pro cloud, které mají časová omezení z hlediska vývoje a marketingu. |Existující aplikace, které vyžadují rychlou migraci do cloudu s minimálními změnami. Scénáře rychlého vývoje a testování, když si nechcete koupit hardware pro místní neprodukční SQL Server. |
 |  | Týmy, které potřebují integrovanou vysokou dostupnost, možnost zotavení po havárii a možnost upgradu databáze. |Týmy, které mohou konfigurovat a spravovat vysokou dostupnost, zotavení po havárii a použití dílčích oprav systému SQL Server. Některé poskytované automatizované funkce to značně zjednodušují. | |
-|  | Týmy, které nechtějí spravovat příslušný operační systém a nastavení konfigurace. |Potřebujete-li přizpůsobené prostředí s úplnými právy správce. | |
-|  | Databáze o velikosti až 1 TB nebo větší databáze, které lze [horizontálně nebo vertikálně dělit](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) pomocí principu škálování na více systémů. |Instance systému SQL Server s úložištěm o velikosti až 64 TB. Instance může podporovat tolik databází, kolik je potřeba. | |
-|  | [Sestavování aplikací s modelem SaaS (Software-as-a-Service)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrace a sestavování podnikových a hybridních aplikací. | |
+|  | Týmy, které nechtějí spravovat příslušný operační systém a nastavení konfigurace. |Budete potřebovat přizpůsobené prostředí s plná práva pro správu. | |
+|  | Databáze až 4 TB nebo větší databáze, které může být [vodorovně nebo svisle na oddíly](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) pomocí vzoru Škálováním na více systémů. |Instance systému SQL Server s úložištěm o velikosti až 64 TB. Instance může podporovat tolik databází, kolik je potřeba. | |
 |  | | |
 | **Zdroje a prostředky:** |Nechcete využívat prostředky IT ke konfiguraci a správě základní infrastruktury, ale chcete se soustředit na aplikační vrstvu. |Máte některé prostředky IT ke konfiguraci a správě. Některé poskytované automatizované funkce to značně zjednodušují. |
 | **Celkové náklady na vlastnictví:** |Eliminuje náklady na hardware a snižuje náklady na správu. |Eliminuje náklady na hardware. |
-| **Kontinuita podnikových procesů:** |Kromě předdefinovaných funkcí infrastruktury s odolností proti chybám poskytuje Azure SQL Database funkce pro zvýšení kontinuity podnikových procesů, jako je [automatické zálohování](sql-database-automated-backups.md), [obnovení bodu v čase](sql-database-recovery-using-backups.md#point-in-time-restore), [geografické obnovení](sql-database-recovery-using-backups.md#geo-restore) a [aktivní geografická replikace](sql-database-geo-replication-overview.md). Další informace najdete v tématu [Databáze SQL – kontinuita podnikových procesů (přehled)](sql-database-business-continuity.md). |SQL Server na virtuálních počítačích Azure umožňuje nastavit vysoce dostupné řešení s možností zotavení po havárii pro konkrétní potřeby vaší databáze. Můžete tak mít systém, který je vysoce optimalizovaný pro vaši aplikaci. Sami podle potřeby můžete otestovat a spustit převzetí služeb při selhání. Další informace najdete v tématu [Vysoká dostupnost a zotavení po havárii pro SQL Server v Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **Kontinuita podnikových procesů:** |Kromě funkcí infrastruktury s integrovanou odolnost proti chybám Azure SQL Database nabízí funkce, jako například [automatizované zálohování](sql-database-automated-backups.md), [v daném okamžiku obnovení](sql-database-recovery-using-backups.md#point-in-time-restore), [geografické obnovení](sql-database-recovery-using-backups.md#geo-restore), a [aktivní geografickou replikací](sql-database-geo-replication-overview.md) pro zvýšení kontinuity podnikových procesů. Další informace najdete v tématu [Databáze SQL – kontinuita podnikových procesů (přehled)](sql-database-business-continuity.md). |SQL Server na virtuálních počítačích Azure umožňuje nastavit vysoce dostupné řešení s možností zotavení po havárii pro konkrétní potřeby vaší databáze. Můžete tak mít systém, který je vysoce optimalizovaný pro vaši aplikaci. Sami podle potřeby můžete otestovat a spustit převzetí služeb při selhání. Další informace najdete v tématu [Vysoká dostupnost a zotavení po havárii pro SQL Server v Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Hybridní cloud:** |Vaše místní aplikace mohou přistupovat k datům v Azure SQL Database. |V případě SQL Serveru na virtuálních počítačích Azure můžete mít aplikace, které běží částečně v cloudu a částečně místně. Můžete si například rozšířit místní síť a služby Active Directory Domain do cloudu přes [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Kromě toho můžete uložit místní datové soubory v úložišti Azure pomocí [datových souborů SQL Serveru v Azure](http://msdn.microsoft.com/library/dn385720.aspx). Další informace najdete v tématu [Úvod do hybridního cloudu SQL Serveru 2014](http://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Podporuje [transakční replikaci systému SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) jako předplatitel k replikaci dat. |Plně podporuje [transakční replikaci systému SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [skupiny dostupnosti AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), integrační služby a přesouvání protokolu k replikaci dat. Navíc jsou plně podporované tradiční zálohy systému SQL Server. | |
 |  | | |
@@ -139,12 +137,11 @@ Tento článek se věnoval SQL Database a SQL Serveru na virtuálních počíta�
 
 **SQL Server na virtuálních počítačích Azure** zvolte, pokud:
 
-* Máte stávající místní aplikace, které chcete migrovat nebo rozšířit do cloudu nebo pokud chcete sestavovat podnikové aplikace větší než 1 TB. Tento přístup přináší výhody v podobě 100% kompatibility jazyka SQL, velké kapacity databáze, plné kontroly nad systémem SQL Server a Windows a zabezpečené tunelové propojení s místními aplikacemi. Tento přístup minimalizuje náklady na vývoj a úpravy stávajících aplikací.
+* Máte stávající místní aplikace, které chcete migrovat nebo rozšířit do cloudu, nebo pokud chcete vytvořit podnikové aplikace, které jsou větší než 4 TB. Tento přístup přináší výhody v podobě 100% kompatibility jazyka SQL, velké kapacity databáze, plné kontroly nad systémem SQL Server a Windows a zabezpečené tunelové propojení s místními aplikacemi. Tento přístup minimalizuje náklady na vývoj a úpravy stávajících aplikací.
 * Máte stávající prostředky IT a zvládnete zajistit použití dílčích oprav, zálohování a vysokou dostupnost databáze. Všimněte si, že některé automatizované funkce tyto operace značně zjednodušují. 
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud začínáte se službou SQL Database, přečtěte si téma [První Azure SQL Database](sql-database-get-started-portal.md).
 * Viz [SQL Database – ceny](https://azure.microsoft.com/pricing/details/sql-database/)
 * Informace o tom, jak začít s SQL Serverem na virtuálních počítačích Azure, najdete v tématu věnovaném [zřízení virtuálního počítače s SQL Serverem v Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
-
 

@@ -25,7 +25,8 @@
 #### [Zabezpečení konektorů pomocí Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Popis rozhraní API pomocí nástroje Postman](custom-connector-api-postman-collection.md)
 #### [Rozšíření OpenAPI pro vlastní konektory](custom-connector-openapi-extensions.md)
-#### [Registrace vašeho konektoru](logic-apps-custom-connector-register.md)
+#### [Vytvoření a registrace konektoru OpenAPI](logic-apps-custom-connector-register.md)
+#### [Vytvoření a registrace konektoru SOAP](logic-apps-soap-connector-create-register.md)
 #### [Certifikace vašeho konektoru](custom-connector-submit-certification.md)
 #### [Nejčastější dotazy k vlastním konektorům](custom-connector-faq.md)
 ### Vývoj vlastních rozhraní API

@@ -4,34 +4,34 @@
 > 
 > 
 
-This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Edge][lnk-iot-edge] architecture. The sample uses the Azure IoT Edge to build a simple gateway that logs a "hello world" message to a file every five seconds.
+Tento článek poskytuje podrobný návod k [ukázkovému kódu Hello World][lnk-helloworld-sample] pro ilustraci základních komponent architektury [Azure IoT Edge][lnk-iot-edge]. Ukázka používá Azure IoT Edge k vytvoření jednoduché brány, která každých pět sekund zaznamená do souboru zprávu „hello world“.
 
-This walkthrough covers:
+Tento návod ilustruje:
 
-* **Hello World sample architecture**: Describes how [Azure IoT Edge architectural concepts][lnk-edge-concepts] apply to the Hello World sample and how the components fit together.
-* **How to build the sample**: The steps required to build the sample.
-* **How to run the sample**: The steps required to run the sample. 
-* **Typical output**: An example of the output to expect when you run the sample.
-* **Code snippets**: A collection of code snippets to show how the Hello World sample implements key IoT Edge gateway components.
+* **Hello World ukázková architektura**: Popisuje, jak [architektury koncepty Azure IoT Edge] [ lnk-edge-concepts] týkají Hello, World vzorek a jak součásti zapadají.
+* **Postup k vytvoření ukázky**: kroky potřebné k vytvoření ukázkového kódu.
+* **Postup spuštění ukázky**: kroky potřebné ke spuštění ukázkového kódu. 
+* **Příklad typického výstupu**: příklad výstupu, jaký můžete očekávat při spuštění ukázky.
+* **Fragmenty kódu**: kolekce fragmenty kódu zobrazit, jak Hello, World vzorek implementuje klíčové komponenty IoT hraniční brány.
 
 
-## <a name="hello-world-sample-architecture"></a>Hello World sample architecture
-The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a IoT Edge gateway that has a pipeline made up of two IoT Edge modules:
+## <a name="hello-world-sample-architecture"></a>Architektura ukázky Hello World
+Ukázka Hello World ilustruje koncepty popsané v předchozí části. Hello World vzorek implementuje IoT hraniční bránu, která se skládá ze dvou IoT Edge moduly kanál:
 
-* The *hello world* module creates a message every five seconds and passes it to the logger module.
-* The *logger* module writes the messages it receives to a file.
+* Modul *hello world* vytvoří každých pět sekund zprávu a předá ji do modulu logger.
+* Modul *logger* zapíše přijatou zprávu do souboru.
 
-![Architecture of Hello World sample built with Azure IoT Edge][4]
+![Architektura ukázky Hello World vytvořené s použitím služby Azure IoT Edge][4]
 
-As described in the previous section, the Hello World module does not pass messages directly to the logger module every five seconds. Instead, it publishes a message to the broker every five seconds.
+Jak je popsáno v předchozí části, modul Hello World nepředává každých pět sekund zprávu přímo do modulu logger. Místo toho ji každých pět sekund publikuje do zprostředkovatele.
 
-The logger module receives the message from the broker and acts upon it, writing the contents of the message to a file.
+Protokolovací modul obdrží od zprostředkovatele zprávu a postupuje podle ní, zatímco zapisuje obsah zprávy do souboru.
 
-The logger module only consumes messages from the broker, it never publishes new messages to the broker.
+Protokolovací modul od zprostředkovatele zprávy pouze přijímá, nikdy žádné sám nepublikuje.
 
-![How the broker routes messages between modules in Azure IoT Edge][5]
+![Způsob, jakým zprostředkovatel provádí směrování zpráv mezi moduly ve službě Azure IoT Edge][5]
 
-The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-iot-edge]. Explore the code on your own, or use the code snippets below as a guide.
+Předchozí obrázek znázorňuje architekturu Hello, World vzorek a relativní cesty ke zdrojovým souborům, které implementují různé části vzorku v [úložiště][lnk-iot-edge]. Prozkoumejte kód vlastní, nebo použijte jako vodítko fragmenty kódu v tomto článku.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

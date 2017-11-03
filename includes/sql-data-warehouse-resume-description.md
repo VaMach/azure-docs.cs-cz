@@ -10,10 +10,10 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-powershell
 articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 -->
-When you resume a database:
+Při obnovení databáze:
 
-* SQL Data Warehouse acquires compute and memory resources for your DWU setting.
-* Compute charges for your DWUs resume.
-* Your data will be available.
-* You will need to restart your workload queries.
+* SQL Data Warehouse zakoupí paměťovou a výpočetní prostředky pro vaše nastavení DWU.
+* Výpočetní poplatky za počet Dwu obnovit.
+* Vaše data budou k dispozici.
+* Musíte restartovat své dotazy zatížení.
 

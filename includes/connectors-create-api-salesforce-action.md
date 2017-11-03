@@ -21,7 +21,7 @@ Ke konfiguraci této akce, budete muset zadat následující informace. Si všim
    ![Obrázek akce Salesforce 4](./media/connectors-create-api-salesforce/action-4.png)     
 9. Všimněte si, že token vést ID je nyní v ovládacím prvku ID objektu indikující akce objekt Get bude hledat realizace s ID, které se rovná realizace ID realizace, která aktivuje tuto aplikaci logiky.  
    ![Obrázek akce Salesforce 5](./media/connectors-create-api-salesforce/action-5.png)  
-10. Uložte práci. Je to, jste přidali do aplikace logiky akce objekt Get. Ovládací prvek objekt Get by měl vypadat takto:    
+10. Uložte svou práci. Je to, jste přidali do aplikace logiky akce objekt Get. Ovládací prvek objekt Get by měl vypadat takto:    
     ![Obrázek akce Salesforce 6](./media/connectors-create-api-salesforce/action-6.png)  
 
 Teď, když jste přidali akci, kterou chcete získat zájemce, můžete provést něčeho zajímavého s nově vytvořený realizace. V podniku můžete odeslat e-mail s oznámením distribuční seznam vytvořený nové zájemce. Odeslat e-mail s některé důležité informace z nového objektu realizace v Salesforce použijeme konektor Office 365.  

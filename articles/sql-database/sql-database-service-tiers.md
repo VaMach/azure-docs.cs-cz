@@ -1,7 +1,7 @@
 ---
-title: "Výkon služby SQL Database: úrovně služeb | Dokumentace Microsoftu"
-description: "Porovnání úrovní služeb SQL Database."
-keywords: "možnosti databáze, výkon databáze"
+title: "Služba Azure SQL Database | Microsoft Docs"
+description: "Další informace o úrovních služeb pro jeden a zadejte velikost úložiště a úrovně výkonu databáze fondu."
+keywords: 
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -9,80 +9,74 @@ manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: DBs & servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 01/11/2017
-ms.author: carlrab; janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
-ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
-
-
+ms.workload: Active
+ms.date: 08/20/2017
+ms.author: carlrab
+ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Možnosti a výkon služby Azure SQL Database: co je dostupné na jednotlivých úrovních služby
-[Azure SQL Database](sql-database-technical-overview.md) nabízí tři úrovně služby (**Basic**, **Standard** a **Premium**) s několika úrovněmi výkonu pro zpracování různých úloh. Vyšší úrovně výkonu poskytují větší objem prostředků navržených tak, aby poskytovaly stále větší propustnost. [Úrovně služby a úrovně výkonu můžete dynamicky](sql-database-scale-up.md) měnit, a to bez výpadků. Úrovně služeb Basic, Standard a Premium mají všechny dostupnost SLA 99,99 % a nabízejí flexibilní možnosti provozní kontinuity, funkce zabezpečení a fakturaci po hodinách. 
+# <a name="what-are-azure-sql-database-service-tiers"></a>Co je Azure SQL Database úrovně služeb
 
-Můžete vytvořit izolované databáze s vyhrazeným prostředkem s vybranou [úrovní výkonu](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Můžete ale také spravovat několik databází v [elastickém fondu](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus), ve kterém se prostředky sdílejí napříč databázemi. Prostředky dostupné pro izolované databáze se uvádějí v jednotkách DTU (Database Transaction Unit); prostředky dostupné pro elastické fondy se uvádějí v elastických jednotkách DTU (eDTU). Další informace o jednotkách DTU a eDTU najdete v tématu [Co je DTU](sql-database-what-is-a-dtu.md). 
-
-V obou případech jsou dostupné úrovně služby **Basic**, **Standard** a **Premium**. 
+[Azure SQL Database](sql-database-technical-overview.md) nabízí **základní**, **standardní**, **Premium**, a **Premium RS** úrovních pro obě služeb[jedna databáze](sql-database-single-database-resources.md) a [elastické fondy](sql-database-elastic-pool.md). Úrovně služeb jsou primárně rozlišené pomocí celou řadu úroveň výkonu a možnosti velikosti úložiště a ceny.  Všechny úrovně služeb poskytují flexibilitu při změně velikosti výkonu úroveň a úložiště.  Izolované databáze i elastické fondy se fakturuje po hodinách podle úrovně služby, úroveň výkonu a velikost úložiště.   
 
 ## <a name="choosing-a-service-tier"></a>Výběr úrovně služeb
-Následující tabulka obsahuje příklady úrovní služeb vhodných pro různé zátěže a aplikace.
 
-| Úroveň služeb | Cílová zátěž |
-| :--- | --- |
-| **Basic** | Nejvhodnější pro malé databáze provádějící obvykle jednu aktivní operaci najednou. Patří sem například databáze používané pro vývoj a testování nebo méně rozsáhlé a zřídka používané aplikace. |
-| **Standard** |Základní možnost pro cloudové aplikace s nízkými až středními požadavky na výkon V/V. Podporuje více současných dotazů. Příkladem mohou být webové aplikace nebo aplikace pro pracovní týmy. |
-| **Premium** | Tato varianta je určená pro vysoké objemy transakcí s vysokými požadavky na výkon V/V. Podporuje více souběžných uživatelů. Příkladem mohou být databáze podporující kritické podnikové procesy. |
+Volba úrovně služby závisí hlavně na kontinuity podnikových procesů, úložiště a požadavky na výkon.
+| | **Basic** | **Standard** |**Premium** |**Premium RS** |
+| :-- | --: |--:| --:| --:| 
+|Cíl pracovního vytížení|Vývoj a výroby|Vývoj a výroby|Vývoj a výroby|Úlohy, které může tolerovat ztráty dat až 5 minut z důvodu selhání služby|
+|Smlouva SLA o provozuschopnosti|99,99 %|99,99 %|99,99 %|Není k dispozici při ve verzi preview|
+|Uchování záloh|7 dní|35 dní|35 dní|35 dní|
+|Procesor|Nízký|Nízká, střední, vysoká|Střední, vysoká|Střednědobé používání|
+|Propustnost vstupně-výstupní operace|Nízký  | Střednědobé používání | O řád vyšší než Standard|Stejné jako Premium|
+|Latence vstupně-výstupní operace|Vyšší než Premium|Vyšší než Premium|Nižší než Basic a Standard|Stejné jako Premium|
+|Indexu Columnstore a OLTP v paměti|Není k dispozici|Není k dispozici|Podporuje se|Podporuje se|
+|||||
 
-Nejdřív se rozhodněte, jestli chcete provozovat izolovanou databázi nebo jestli chcete seskupit databáze, které sdílejí prostředky. Přečtěte si, co je [potřeba vzít v úvahu u elastických fondů](sql-database-elastic-pool-guidance.md). Při rozhodování o úrovni služeb začněte tak, že určíte minimální databázové funkce, které budete potřebovat:
+## <a name="performance-level-and-storage-size-limits"></a>Omezení velikosti úroveň výkonu a úložiště
 
-* Maximální velikost pro jednotlivé databáze (max. 2 GB pro Basic, max. 250 GB pro Standard a max. 500 GB až 1 TB pro Premium u špičkových úrovní výkonu)
-* Maximální celková velikost úložiště v případě fondu elastické databáze (117 GB pro Basic, 1200 GB pro Standard a 750 GB pro Premium)
-* Maximální počet databází na fond (400 pro Basic, 400 pro Standard a 50 pro Premium)
-* Období uchovávání záloh databáze (7 dní pro Basic, 35 dní pro Standard a Premium)
+Úrovně výkonu jsou vyjádřeny z hlediska jednotky transakcí databáze (Dtu) pro izolované databáze a transakčních jednotkách elastické databáze (Edtu) pro elastické fondy. Další informace o Dtu a Edtu najdete v tématu [co jsou Dtu a Edtu?](sql-database-what-is-a-dtu.md).
 
-Jakmile určíte minimální úroveň služeb, jste připraveni k určení úrovně výkonu databáze (počet DTU). Dobrým výchozím bodem jsou v řadě případů standardní úrovně výkonu S2 a S3. U databází s vysokými požadavky na V/V nebo procesor jsou tím správným výchozím bodem úrovně výkonu Premium. Úroveň Premium nabízí větší kapacitu procesoru a v porovnání s nejvyšší úrovní výkonu Standard začíná na 10násobku V/V operací.
+### <a name="single-databases"></a>Izolované databáze
 
-Po počátečním výběru úrovně výkonu můžete později dynamicky horizontálně navyšovat nebo snižovat kapacitu [jednotlivých databází](sql-database-scale-up.md) nebo [elastického fondu](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) na základě aktuálních zkušeností. U migračních scénářů můžete k odhadu počtu potřebných DTU také použít [Kalkulačku DTU](http://dtucalculator.azurewebsites.net/). 
+|  | **Basic** | **Standard** | **Premium** | **Premium RS**|
+| :-- | --: | --: | --: | --: |
+| Maximální velikost úložiště velikost * | 2 GB | 1 TB | 4 TB  | 1 TB  |
+| Maximální počet jednotek Dtu | 5 | 3000 | 4000 | 1000 |
+||||||
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+### <a name="elastic-pools"></a>Elastické fondy
+
+| | **Basic** | **Standard** | **Premium** | **Premium RS**|
+| :-- | --: | --: | --: | --: |
+| Maximální velikost úložiště pro databázi *  | 2 GB | 1 TB | 1 TB | 1 TB |
+| Maximální velikost úložiště pro fond * | 156 GB | 4 TB | 4 TB | 1 TB |
+| Maximální počet jednotek Edtu na databázi | 5 | 3000 | 4000 | 1000 |
+| Maximální počet jednotek Edtu na fond | 1600 | 3000 | 4000 | 1000 |
+| Maximální počet databází na každý fond | 500  | 500 | 100 | 100 |
+||||||
+
+> [!IMPORTANT]
+> \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete na stránce s [cenami služby SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-
-## <a name="single-database-service-tiers-and-performance-levels"></a>Úrovně služeb a úrovně výkonu pro izolované databáze
-Pro izolované databáze jsou v každé úrovni služeb dostupné různé úrovně výkonu. Máte možnost zvolit si úroveň, která nejlépe vyhovuje vašim požadavkům na výkon. Pokud potřebujete škálování směrem nahoru nebo dolů, můžete snadno změnit úroveň služeb vaší databáze. Podrobnosti viz [Změna úrovně služeb a úrovně výkonu databáze](sql-database-scale-up.md).
-
-Bez ohledu na počet hostovaných databází, bude mít vaše databáze zaručenou sadu prostředků a očekávaný výkon databáze nebude ovlivněn.
-
-[!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
-
-> [!NOTE]
-> Podrobné vysvětlení všech ostatních řádků v této tabulce úrovní služeb najdete v části [Možnosti a omezení úrovní služeb](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+> \* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: USA – východ 2, USA – západ, USA (Gov) – Virginia, Západní Evropa, Německo – střed, Jihovýchodní Asie, Japonsko – východ, Austrálie – východ, Kanada – střed a Kanada – východ. Viz [Aktuální omezení pro P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
-## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Úrovně služeb elastických fondů a měření výkonu pomocí eDTU
-
-Fondy umožňují databázím sdílet a využívat prostředky (měřené v jednotkách eDTU), aniž by bylo nutné všem databázím ve fondu přiřazovat konkrétní úroveň výkonu. Například izolovaná databáze ve fondu, který má úroveň Standard, může přecházet od využívání 0 eDTU až k maximální hodnotě eDTU, kterou jste pro danou databázi ve fondu nastavili. Fondy umožňují více databázím s různou zátěží efektivně využívat prostředky eDTU, které jsou dostupné pro celý fond. Podrobnosti viz [Cenové a výkonové požadavky fondu elastické databáze](sql-database-elastic-pool-guidance.md).
-
-V následující tabulce jsou popsané charakteristiky úrovní služeb fondů.
-
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Každá databáze ve fondu současně dodržuje pravidla pro izolované databáze určená danou úrovní. Například fond s úrovní Basic má omezení maximálního počtu relací na fond 4800 – 28800, ale jednotlivé databáze ve fondu Basic mají omezení 300 relací.
+Podrobnosti o konkrétní úrovně výkonu a možnosti velikosti úložiště k dispozici v tématu [limitů prostředků databáze SQL](sql-database-resource-limits.md).
 
 
 ## <a name="next-steps"></a>Další kroky
 
-* Přečtěte si další podrobnosti o [elastických fondech](sql-database-elastic-pool-guidance.md) a o [cenových a výkonových požadavcích elastických fondů](sql-database-elastic-pool-guidance.md).
-* Zjistěte, jak [monitorovat, spravovat a měnit velikost elastických fondů](sql-database-elastic-pool-manage-portal.md) a jak [sledovat výkon izolovaných databází](sql-database-single-database-monitor.md).
-* Teď, když už máte přehled o úrovních služeb SQL Database, můžete si je vyzkoušet s [bezplatným účtem](https://azure.microsoft.com/pricing/free-trial/) a můžete si také [vytvořit svoji první databázi SQL](sql-database-get-started.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+- Další informace o [jedna databáze prostředků](sql-database-single-database-resources.md).
+- Další informace o elastické fondy najdete v tématu [elastické fondy](sql-database-elastic-pool.md).
+- Další informace o [předplatného Azure a omezení služby, kvóty a omezení](../azure-subscription-service-limits.md)
+* Další informace o [Dtu a Edtu](sql-database-what-is-a-dtu.md).
+* Další informace o sledování využití v jednotkách DTU najdete v tématu [monitorování a optimalizace výkonu](sql-database-troubleshoot-performance.md).
 

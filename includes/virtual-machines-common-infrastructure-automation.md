@@ -1,131 +1,131 @@
-# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Use infrastructure automation tools with virtual machines in Azure
-To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
+# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Použití infrastruktury automatizace nástroje s virtuálními počítači v Azure
+Chcete-li vytvořit a spravovat virtuální počítače Azure (VM) konzistentním způsobem v měřítku, je obvykle potřeby nějaký způsob automatizace. Existuje mnoho nástroje a řešení, které umožňují automatizovat nasazení kompletní infrastrukturu Azure a správu životního cyklu. Tento článek představuje některé nástroje automatizace infrastruktury, které můžete použít v Azure. Tyto nástroje běžně nevešla do jedné z následujících postupů:
 
-- Automate the configuration of VMs
-    - Tools include [Ansible](#ansible), [Chef](#chef), and [Puppet](#puppet).
-    - Tools specific to VM customization include [cloud-init](#cloud-init) for Linux VMs, [PowerShell Desired State Configuration (DSC)](#powershell-dsc), and the [Azure Custom Script Extension](#azure-custom-script-extension) for all Azure VMs.
+- Automatizovat konfiguraci virtuálních počítačů.
+    - Nástroje zahrnují [Ansible](#ansible), [Chef](#chef), a [Puppet](#puppet).
+    - Nástroje, které jsou specifické pro přizpůsobení virtuálního počítače patří [cloudu init](#cloud-init) pro virtuální počítače s Linuxem, [prostředí PowerShell požadovaného stavu konfigurace (DSC)](#powershell-dsc)a [rozšíření vlastních skriptů Azure](#azure-custom-script-extension) pro všechny Virtuální počítače Azure.
  
-- Automate infrastructure management
-    - Tools include [Packer](#packer) to automate custom VM image builds, and [Terraform](#terraform) to automate the infrastructure build process.
-    - [Azure Automation](#azure-automation) can perform actions across your Azure and on-prem infrastructure.
+- Automatizovat správu infrastruktury
+    - Nástroje zahrnují [balírna](#packer) pro automatizaci vlastní virtuální sestavení bitové kopie, a [Terraform](#terraform) automatizovat proces sestavení infrastrukturu.
+    - [Služby Azure Automation](#azure-automation) lze provádět akce v rámci vaší infrastruktury Azure a místní.
 
-- Automate application deployment and delivery
-    - Examples include [Visual Studio Team Services](#visual-studio-team-services) and [Jenkins](#jenkins).
+- Automatizovat nasazení aplikace a doručení
+    - Mezi příklady patří [Visual Studio Team Services](#visual-studio-team-services) a [volaných](#jenkins).
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in runbooks, with a number of Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) je modul automatizace pro správu konfigurace, vytvoření virtuálního počítače nebo nasazení aplikace. Ansible používá model bez agenta, obvykle pomocí klíče SSH k ověření a správu cílových počítačů. Úlohy konfigurace jsou definovány v sadách runbook s počtem Ansible moduly k provádění specifických úloh k dispozici. Další informace najdete v tématu [funguje jak Ansible](https://www.ansible.com/how-ansible-works).
 
-Learn how to:
+Naučte se:
 
-- [Install and configure Ansible on Linux for use with Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Create a basic VM](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Create a complete VM environment including supporting resources](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Instalace a konfigurace Ansible v systému Linux pro použití s Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
+- [Vytvoření virtuálního počítače základní](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Vytvořte prostředí dokončení virtuálních počítačů, včetně podpora prostředky](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
 
 
 ## <a name="chef"></a>Chef
-[Chef](https://www.chef.io/) is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Additional components included Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
+[Chef](https://www.chef.io/) je platformu automatizace, která pomáhá definovat konfiguraci infrastruktury, nasazují a spravují. Další součásti obsaženy Chef prostředí pro automatizace životního cyklu aplikací, nikoli infrastrukturu a Chef InSpec která pomáhá automatizovat splnění požadavků zásad a zabezpečení. Chef klienti jsou instalováni na cílových počítačích s jeden nebo více centrální Chef serverů, které ukládají a spravovat konfigurace. Další informace najdete v tématu [přehled Chef](https://docs.chef.io/chef_overview.html).
 
-Learn how to:
+Naučte se:
 
-- [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Install Chef on Windows and create Azure VMs](../articles/virtual-machines/windows/chef-automation.md).
+- [Nasazení Chef automatizovat z Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
+- [Nainstalujte Chef v systému Windows a vytvořte virtuální počítače Azure](../articles/virtual-machines/windows/chef-automation.md).
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com) is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improved devops workflow. For more information, see [How Puppet works](https://puppet.com/product/how-puppet-works).
+[Puppet](https://www.puppet.com) je připravené pro podniky automatizace platforma, která zpracovává proces doručení a nasazení aplikace. Jsou agenti nainstalovaní na cílových počítačích povolit hlavní Puppet ke spuštění manifesty, které definují požadovanou konfiguraci infrastruktury Azure a virtuálních počítačů. Puppet můžete integrovat s jinými řešeními například volaných a GitHub pro pracovní postup lepší devops. Další informace najdete v tématu [funguje jak Puppet](https://puppet.com/product/how-puppet-works).
 
-Learn how to:
+Naučte se:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
+- [Nasazení Puppet z Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
 
 
-## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
+## <a name="cloud-init"></a>init cloudu
+[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Init cloudu běží během úvodního spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.
 
-Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead, you define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
+Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
 
-We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
+Pracujeme s našimi partnery získat cloudu init zahrnuté a práci v bitové kopie, které poskytují do Azure. Následující tabulka popisuje aktuální dostupnosti cloudu init Image platformy Azure:
 
-| Alias | Publisher | Offer | SKU | Version |
+| Alias | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
-| CoreOS |CoreOS |CoreOS |Stable |latest |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |nejnovější |
+| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |nejnovější |
+| CoreOS |CoreOS |CoreOS |Stable |nejnovější |
 
-Learn how to:
+Naučte se:
 
-- [Customize a Linux VM with cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
-
-
-## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
-
-DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
-
-Learn how to:
-
-- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstart).
-- [Configure a DSC pull server](https://msdn.microsoft.com/powershell/dsc/pullserver).
-- [Use DSC for Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
+- [Přizpůsobení virtuálního počítače s Linuxem s inicializací cloudu](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
-## <a name="azure-custom-script-extension"></a>Azure Custom Script Extension
-The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use. 
+## <a name="powershell-dsc"></a>Prostředí PowerShell DSC
+[Prostředí PowerShell požadovaného stavu konfigurace (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) je platforma pro správu k definování konfigurace cílových počítačů. DSC lze také v systému Linux pomocí [serveru infrastruktury OMI (Open Management Infrastructure)](https://collaboration.opengroup.org/omi/).
 
-Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM. These scripts can be used to install applications or configure the VM as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration. These credentials are only decrypted inside the VM.
+Konfigurace DSC definovat, co je potřeba nainstalovat na počítači a postup konfigurace hostitele. Modul Místní Configuration Manager (LCM) běží na každý cílový uzel, který zpracovává požadovaná akce na základě stisknutí konfigurací. Server vyžádání obsahu je webová služba, která běží na hostiteli centrální k uložení konfigurace DSC a přidružených prostředků. Načítacího serveru komunikuje s modulem LCM na každém cílovém hostiteli a zadejte požadované konfigurace a tvorba sestav o dodržování předpisů.
 
-Learn how to:
+Naučte se:
 
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Vytvořte základní konfigurace DSC](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Nakonfigurujte server DSC za](https://msdn.microsoft.com/powershell/dsc/pullserver).
+- [Pro Linux pomocí DSC](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 
 
-## <a name="packer"></a>Packer
-[Packer](https://www.packer.io) automates the build process when you create a custom VM image in Azure. You use Packer to define the OS and run post-configuration scripts that customize the VM for your specific needs. Once configured, the VM is then captured as a Managed Disk image. Packer automates the process to create the source VM, network and storage resources, run configuration scripts, and then create the VM image.
+## <a name="azure-custom-script-extension"></a>Rozšíření Azure vlastních skriptů
+Rozšíření vlastních skriptů Azure pro [Linux](../articles/virtual-machines/linux/extensions-customscript.md) nebo [Windows](../articles/virtual-machines/windows/extensions-customscript.md) stahuje a spouští skripty na virtuálních počítačích Azure. Při vytvoření virtuálního počítače nebo kdykoli po virtuální počítač se používá, můžete použít rozšíření. 
 
-Learn how to:
+Skripty si můžete stáhnout z úložiště Azure nebo všechny veřejné umístění, jako je například úložiště GitHub. Díky rozšíření vlastních skriptů můžete vytvořit skripty v libovolném jazyce, který běží na zdrojového virtuálního počítače. Tyto skripty můžete použít k instalaci aplikací nebo podle potřeby nakonfigurujte virtuální počítač. K zabezpečení přihlašovacích údajů, mohou být uloženy citlivé informace, jako jsou hesla v chráněném konfiguraci. Tyto přihlašovací údaje jsou dešifrovat jenom ve virtuálním počítači.
 
-- [Use Packer to create a Linux VM image in Azure](../articles/virtual-machines/linux/build-image-with-packer.md).
-- [Use Packer to create a Windows VM image in Azure](../articles/virtual-machines/windows/build-image-with-packer.md).
+Naučte se:
+
+- [Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku Azure a používat rozšíření vlastních skriptů](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
+- [Vytvoření virtuálního počítače s Windows v prostředí Azure PowerShell a použít rozšíření vlastních skriptů](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+
+
+## <a name="packer"></a>Balírna
+[Balírna](https://www.packer.io) automatizuje proces vytváření při vytváření vlastní image virtuálního počítače v Azure. Balírna můžete použít k definování operačního systému a spustit skripty po konfiguraci, které přizpůsobení virtuálního počítače svých konkrétních potřeb. Po nakonfigurování virtuální počítač se pak zaznamená jako image spravované disku. Balírna automatizuje proces vytvoření zdroje virtuálního počítače, sítě a prostředky úložiště, spusťte konfigurační skripty a poté vytvořit bitovou kopii virtuálního počítače.
+
+Naučte se:
+
+- [Vytvořte bitovou kopii virtuálního počítače s Linuxem v Azure pomocí balírna](../articles/virtual-machines/linux/build-image-with-packer.md).
+- [Vytvořte bitovou kopii virtuálního počítače s Windows v Azure pomocí balírna](../articles/virtual-machines/windows/build-image-with-packer.md).
 
 
 ## <a name="terraform"></a>Terraform
-[Terraform](https://www.terraform.io) is an automation tool that allows you to define and create an entire Azure infrastructure with a single template format language - the HashiCorp Configuration Language (HCL). With Terraform, you define templates that automate the process to create network, storage, and VM resources for a given application solution. You can use your existing Terraform templates for other platforms with Azure to ensure consistency and simplify the infrastructure deployment without needing to convert to an Azure Resource Manager template.
+[Terraform](https://www.terraform.io) je nástroj pro automatizaci, která umožňuje definovat a vytvořit celé infrastruktury Azure s jednou šablonou jazyk formátu – jazyk kompatibilního (HashiCorp konfigurace hardwaru). Terraform můžete definovat šablony, které automatizují proces vytvoření sítě, úložiště a prostředky virtuálních počítačů pro řešení dané aplikaci. Vaše stávající šablony Terraform pro jiné platformy s Azure můžete použít k zajištění konzistence a zjednodušit nasazení infrastruktury bez nutnosti převést na šablonu Azure Resource Manager.
 
-Learn how to:
+Naučte se:
 
-- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Create an Azure infrastructure with Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Instalace a konfigurace Terraform s Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
+- [Vytvoření infrastruktury Azure s Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
 
 
 ## <a name="azure-automation"></a>Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, as well as on-prem virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub. These runbooks can then run manually or on a defined schedule.
+[Služby Azure Automation](https://azure.microsoft.com/services/automation/) ke zpracování sadu úloh na virtuálních počítačích můžete zacílit používá sady runbook. Služby Azure Automation se používá ke správě existujících virtuálních počítačů, a nikoli k vytvoření infrastruktury. Automatizace Azure můžete spustit v systému Linux a virtuálních počítačů Windows, jak místní virtuální nebo fyzické počítače s hybridní pracovní proces runbooku. Sady Runbook mohou být uloženy ve úložiště řízení zdrojů, jako je například Githubu. Tyto sady runbook pak spustíte ručně nebo podle definovaného plánu.
 
-Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured. DSC then ensures that the required configuration is applied and the VM stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
+Azure Automation nabízí taky služba Konfigurace požadovaného stavu (DSC), která vám umožní vytvořit definice pro konfigurace danou sadu virtuálních počítačů. DSC pak zajišťuje, že se použije požadované konfigurace a virtuální počítač zůstane konzistentní. Azure Automation DSC se spustí na počítačích s Windows a Linux.
 
-Learn how to:
+Naučte se:
 
-- [Create a PowerShell runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md).
-- [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
+- [Vytvoření sady runbook PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
+- [Hybridní pracovní proces Runbooku použít ke správě prostředků místní](../articles/automation/automation-hybrid-runbook-worker.md).
+- [Pomocí služby Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
 ## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Team Services integrates with Visual Studio and other editors to simplify usage. Team Services can also create and configure Azure VMs and then deploy code to them.
+[Tým služby](https://www.visualstudio.com/team-services/) je sada nástrojů, které vám pomůžou sdílené složky a sledovat kódu, použijte automatizovaných sestaveních a vytvořit úplný průběžnou integraci a vývoj (CI/CD) kanálu. Týmové služby se integruje s Visual Studio a dalšími editory zjednodušit využití. Týmové služby můžete také vytvořit a nakonfigurovat virtuální počítače Azure a pak nasadíte kód do nich.
 
-Learn how to:
+Naučte se:
 
-- [Create a continuous integration pipeline with Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Vytvoření kanálu průběžnou integraci s Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io) is a continuous integration server that helps deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and you can also integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
+[Volaných](https://www.jenkins.io) průběžnou integraci serverem, který pomáhá nasazení a testování aplikací a vytvořit automatizované kanály pro doručení kódu. Používají stovky modulů plug-in rozšířit možnosti základní platformy volaných a můžete také integrovat s mnoha dalších produktů a řešení prostřednictvím webhooky. Můžete ručně nainstalovat volaných na virtuální počítač Azure, spustit volaných z v rámci kontejner Docker nebo použít předem připravené image Azure Marketplace.
 
-Learn how to:
+Naučte se:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Vytvoření vývoj infrastruktury na virtuální počítač s Linuxem v Azure pomocí volaných Githubu a Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
 
 
-## <a name="next-steps"></a>Next steps
-There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) or [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.
+## <a name="next-steps"></a>Další kroky
+Existuje mnoho různých možností použití nástrojů infrastruktury automation v Azure. Máte možnost používat tato zařízení používat řešení, které nejlépe vyhovuje potřebám a prostředí. Začínáme a vyzkoušejte některé z nástrojů, které jsou integrované v Azure najdete v tématu Jak automatizovat možnosti vlastního nastavení [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) nebo [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) virtuálních počítačů.

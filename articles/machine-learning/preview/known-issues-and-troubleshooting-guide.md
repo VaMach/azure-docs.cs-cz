@@ -1,0 +1,191 @@
+---
+title: "Známé problémy a Průvodci odstraňováním potíží | Microsoft Docs"
+description: "Příručka k řešení a seznam známých problémů"
+services: machine-learning
+author: svankam
+ms.author: svankam
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.topic: article
+ms.date: 09/20/2017
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/23/2017
+---
+# <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
+Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
+
+> [!IMPORTANT]
+> Při komunikaci s tým podpory, je důležité mít číslo sestavení. Můžete získat kliknutím na číslo sestavení aplikace **pomoci** nabídky. Kliknutím na číslo sestavení zkopíruje do schránky. Můžete ho vložte do e-mailů nebo fóra vám pomůže sestavy problémy podpory.
+
+![Zkontrolujte číslo verze](media/known-issues-and-troubleshooting-guide/buildno.png)
+
+## <a name="machine-learning-msdn-forum"></a>Strojového učení fórum MSDN
+Máme fóru MSDN, že můžete účtovat otázky. Produktový tým aktivně sleduje na fóru. Fórum je adresa URL [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+
+## <a name="gather-diagnostics-information"></a>Shromážděte diagnostické informace
+V některých případech může být užitečné, pokud zajistíte diagnostické informace, žádostí o pomoc. Tady je bydlišti soubory protokolů:
+
+### <a name="installer"></a>Instalační program
+Pokud narazíte na problém během instalace, instalační soubory protokolu jsou tady:
+
+```
+# Windows:
+%TEMP%\amlinstaller\logs\*
+
+# macOS:
+/tmp/amlinstaller/logs/*
+```
+Můžete si obsah tyto adresáře zip a odeslat do us pro diagnostiku.
+
+### <a name="workbench-desktop-app"></a>Aplikace na ploše Workbench
+Pokud dojde k chybě plochy Workbench, najdete tady soubory protokolu:
+```
+# Windows
+%APPDATA%\AmlWorkbench
+
+# macOS
+~/Library/Application Support/AmlWorkbench
+``` 
+Můžete si obsah tyto adresáře zip a odeslat do us pro diagnostiku.
+
+### <a name="experiment-execution"></a>Spuštění experimentu
+Pokud konkrétní skript selže při odeslání z plochy aplikace, zkuste odeslat znovu ji prostřednictvím rozhraní příkazového řádku `az ml experiment submit` příkaz. To měl dát celý text chybové zprávy ve formátu JSON a co je nejdůležitější obsahuje **ID operace** hodnotu. Pošlete nám, včetně soubor JSON **ID operace** a jsme může pomoci diagnostikovat. 
+
+Pokud konkrétní skript v odesílání úspěšné, ale v provádění selže, by měl vytiskněte **spustit ID** k identifikaci této konkrétní spustit. Můžete zabalit příslušných protokolových souborů pomocí následujícího příkazu:
+
+```azurecli
+# Create a ZIP file that contains all the diagnostics information
+$ az ml experiment diagnostics -r <run_id> -t <target_name>
+```
+
+`az ml experiment diagnostics` Příkaz generuje `diagnostics.zip` souboru v kořenové složce projektu. Balíček ZIP obsahuje složku celý projekt ve stavu v době, kdy byla spuštěna, a informace o protokolování. Nezapomeňte odebrat všechny citlivé informace, které nechcete zahrnout před odesláním nám soubor diagnostiky.
+
+## <a name="send-us-a-frown-or-a-smile"></a>Pošlete nám zamračeného smajlíka (nebo smajlíka)
+
+Když pracujete v Azure ML Workbench, můžete také odeslat nám zamračeného smajlíka (nebo smajlíka) kliknutím na ikonu emotikona řez v levém dolním rohu okna aplikace. Volitelně můžete zahrnout e-mailovou adresu (takže jsme můžete získat zpět vám) nebo snímek aktuálního stavu. 
+
+## <a name="known-service-limits"></a>Omezení známé služby
+- Maximální povolená velikost složky projektu: 25 MB.
+    >[!NOTE]
+    >Toto omezení se nevztahuje na `.git`, `docs` a `outputs` složek. Názvy těchto složek rozlišují velká a malá písmena. Pokud pracujete s velkými soubory, podívejte se na [uložením změn a pozornosti s velkými soubory](how-to-read-write-files.md).
+
+- Maximální povolená doba spuštění experimentu: sedm dní
+- Maximální velikost souboru sledovaných v `outputs` složka po spuštění: 512 MB
+  - To znamená, že pokud váš skript vytvoří soubor větší než 512 MB ve složce výstupy, pokud nejsou zjištěny existuje. Pokud pracujete s velkými soubory, podívejte se na [uložením změn a pozornosti s velkými soubory](how-to-read-write-files.md).
+
+- Klíče SSH nejsou podporovány při připojování ke vzdálenému počítači nebo clusteru Spark přes protokol SSH. Aktuálně je podporována pouze uživatelské jméno a heslo režimu.
+
+- Text, který clustering transformací nejsou podporovány na macu.
+
+- Knihovna RevoScalePy je podporována pouze v systému Windows a Linux (v kontejnerech Docker). Není podporována v systému macOS.
+
+## <a name="file-name-too-long-on-windows"></a>Název souboru příliš dlouho v systému Windows
+Pokud jste v systému Windows používá Workbench, můžete narazit na výchozí maximální souboru 260 znaků názvu limit délky, která by mohla surface jako poněkud oklamání chybu "systém nemůže najít zadanou cestu". Můžete upravit nastavení klíče registru a povolit mnohem delší cestu název souboru. Zkontrolujte [v tomto článku](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) další podrobnosti o tom, jak nastavit _hodnotou MAX_PATH_ klíč registru.
+
+## <a name="docker-error-read-connection-refused"></a>Chyba docker "číst: odmítl připojení"
+Při provádění proti místní kontejner Docker, v některých případech může zobrazit chybová zpráva: 
+```
+Get https://registry-1.docker.io/v2/: 
+dial tcp: 
+lookup registry-1.docker.io on [::1]:53: read udp [::1]:49385->[::1]:53: 
+read: connection refused
+```
+
+Můžete je vyřešit ho změnou Docker serveru DNS z `automatic` na pevnou hodnotu `8.8.8.8`.
+
+## <a name="remove-vm-execution-error-no-tty-present"></a>Odebrat virtuální počítač při provádění "nenachází žádné tty"
+Při provádění proti kontejner Docker ve vzdáleném počítači systému Linux, můžete se setkat se následující chybová zpráva:
+```
+sudo: no tty present and no askpass program specified.
+``` 
+To může nastat, když změníte kořenové heslo virtuálního počítače s Ubuntu Linux pomocí portálu Azure. 
+
+Azure Machine Learning Workbench vyžaduje heslo bez sudoers přístup ke spuštění na vzdáleného hostitele. Nejjednodušší způsob, jak to udělat, je použití _visudo_ upravte následující soubor (soubor může vytvořit Pokud neexistuje):
+
+```
+$ sudo visudo -f /etc/sudoers
+```
+
+>[!IMPORTANT]
+>Je potřeba upravit soubor s _visudo_ a není jiného příkazu. _visudo_ automaticky syntaxe kontroluje všechny konfigurační soubory sudo a nepodařilo se vytvořit soubor syntakticky správnou sudoers můžete zablokování sudo.
+
+Na konci souboru vložte následující řádek:
+
+```
+username ALL=(ALL) NOPASSWD:ALL
+```
+
+Kde _uživatelské jméno_ je název Azure Machine Learning Workbench bude používat k přihlášení do vzdáleného hostitele.
+
+Na řádku musí být umístěny po #includedir "/ etc/sudoers.d", v opačném případě může být přepsána jiné pravidlo.
+
+Pokud máte složitější konfigurace sudo, můžete chtít dokumentaci sudo Ubuntu k dispozici zde: https://help.ubuntu.com/community/Sudoers
+
+Výše uvedené chyby může také dojít, pokud nepoužíváte Ubuntu Linux virtuálních počítačů na bázi v Azure jako cíl provádění. Virtuálních počítačů na bázi Ubuntu Linux podporujeme jenom pro vzdálené spuštění. 
+
+## <a name="vm-disk-is-full"></a>Virtuální počítač disk je plný.
+Ve výchozím nastavení při vytváření nového virtuálního počítače s Linuxem v Azure, získáte 30 GB disk pro operační systém. Modul docker ve výchozím nastavení používá stejný disk pro stahování dolů bitové kopie a spuštěných kontejnerů. To může zaplnit disk operačního systému a zobrazí chybu "Virtuální počítač Disk je plný", pokud se odehrává se.
+
+Chcete-li odebrat všechny Docker Image, které už používáte je rychlou opravu. Příkaz Docker neobsahuje právě který. (Samozřejmě budete muset SSH do virtuálního počítače Chcete-li spustit příkaz Docker z prostředí bash.)
+
+```
+$ docker system prune -a
+```
+
+Můžete také přidat datový disk a nakonfigurovat modul Docker použít datový disk pro ukládání bitových kopií. Tady je [jak přidat datový disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Pak můžete [změnu kde Docker ukládá bitové kopie](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+
+Případně můžete rozšířit disk operačního systému a nemáte přístup ke konfiguraci modulu Docker. Tady je [jak můžete rozšířit disk operačního systému](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+
+## <a name="sharing-c-drive-on-windows"></a>Sdílení jednotka C v systému Windows
+Pokud jsou prováděny v místní kontejner Docker v systému Windows, nastavení `sharedVolumes` k `true` v `docker.compute` souboru pod `aml_config` může zlepšit výkon provádění. To však vyžaduje sdílet jednotce C _Docker pro nástroj Windows_. Pokud si nejste moci sdílet jednotku C, zkuste následující tipy:
+
+* Kontrola sdílení na jednotce C pomocí Průzkumníka souborů
+* Otevřete nastavení síťového adaptéru a odinstalace a přeinstalace "Souborů a tiskáren sdílení v sítích Microsoft" pro vEthernet
+* Otevřete nastavení docker a sdílet C jednotku z v rámci nastavení docker
+* Změny heslo pro Windows ovlivní sdílení. Otevřete Průzkumníka souborů, dál sdílet. jednotka C a zadejte nové heslo.
+* Brány firewall problému může dojít také při pokusu o sdílení jednotce C s Docker. To [Stack Overflow post](http://stackoverflow.com/questions/42203488/settings-to-windows-firewall-to-allow-docker-for-windows-to-share-drive/43904051) může být užitečné.
+* Při sdílení jednotka C pomocí přihlašovacích údajů do domény, sdílení může přestat pracovat v sítích, kde je řadič domény není dostupný (pro například domácí sítě, veřejnou Wi-Fi atd.). Další informace najdete v tématu [tento příspěvek](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
+
+Také se můžete vyhnout sdílení problém, na malé výkonu náklady, nastavení `sharedVolumne` k `false` v `docker.compute` souboru.
+
+## <a name="some-useful-docker-commands"></a>Některé užitečné příkazy Docker
+
+Zde jsou některé užitečné příkazy Docker:
+
+```sh
+# display all running containers
+$ docker ps
+
+# dislplay all containers (running or stopped)
+$ docke ps -a
+
+# display all images
+$ docker images
+
+# show Docker logs of a container
+$ docker logs <container_id>
+
+# create a new container and launch into a bash shell
+$ docker run <image_id> /bin/bash
+
+# launch into a bash shell on a running container
+$ docker exec -it <container_id> /bin/bash
+
+# stop an running container
+$ docker stop <container_id>
+
+# delete a container
+$ docker rm <container_id>
+
+# delete an image
+$ docker rmi <image_id>
+
+# delete all unussed Docker images 
+$ docker system prune -a
+
+```

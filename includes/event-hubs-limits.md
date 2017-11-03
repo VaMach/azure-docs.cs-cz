@@ -1,14 +1,14 @@
-The following table lists quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+Následující tabulka uvádí kvóty a omezení specifické pro [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Informace o cenách služby Event Hubs naleznete v tématu [cenách služby Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Limit | Scope | Type | Behavior when exceeded | Value |
+| Omezení | Rozsah | Typ | Chování při překročení | Hodnota |
 | --- | --- | --- | --- | --- |
-| Number of event hubs per namespace |Namespace |Static |Subsequent requests for creation of a new event hub will be rejected. |10 |
-| Number of partitions per event hub |Entity |Static |- |32 |
-| Number of consumer groups per event hub |Entity |Static |- |20 |
-| Number of AMQP connections per namespace |Namespace |Static |Subsequent requests for additional connections will be rejected and an exception is received by the calling code. |5,000 |
-| Maximum size of Event Hubs event|System-wide |Static |- |256 KB |
-| Maximum size of an event hub name |Entity |Static |- |50 characters |
-| Number of non-epoch receivers per consumer group |Entity |Static |- |5 |
-| Maximum retention period of event data |Entity |Static |- |1-7 days |
-| Maximum throughput units |Namespace |Static |Exceeding the throughput unit limit causes your data to be throttled and generates a **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. You can request a larger number of throughput units for a Standard tier by filing a [support request](/azure/azure-supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
-| Number of authorization rules per namespace |Namespace|Static |Subsequent requests for authorization rule creation will be rejected.|12 |
+| Počet služby event hubs na obor názvů |obor názvů |Statická |Odeslání dalších žádostí o vytvoření nového centra událostí budou odmítnuty. |10 |
+| Počet oddílů na Centrum událostí |Entita |Statická |- |32 |
+| Počet skupin uživatelů na Centrum událostí |Entita |Statická |- |20 |
+| Počet připojení protokolu AMQP na obor názvů |obor názvů |Statická |Odeslání dalších žádostí o další připojení se odmítne a volající kód přijme výjimku. |5,000 |
+| Maximální velikost události Event Hubs|Systémové |Statická |- |256 kB |
+| Maximální velikost název centra událostí |Entita |Statická |- |50 znaků |
+| Počet příjemců bez epoch na skupiny uživatelů |Entita |Statická |- |5 |
+| Maximální dobou uchování dat událostí |Entita |Statická |- |1-7 dní |
+| Maximální počet jednotek propustnosti |obor názvů |Statická |Překročení omezení jednotek propustnosti způsobí, že data omezeny a generuje  **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. Můžete vyžádat větší počet jednotek propustnosti pro standardní vrstvy a podání [žádost o podporu](/azure/azure-supportability/how-to-create-azure-support-request). [Jednotky propustnosti Další](../articles/event-hubs/event-hubs-auto-inflate.md) jsou k dispozici v blocích po 20 na základě potvrdit nákupu. |20 |
+| Počet pravidel autorizace na obor názvů |obor názvů|Statická |Odeslání dalších žádostí o vytvoření pravidla autorizace budou odmítnuty.|12 |

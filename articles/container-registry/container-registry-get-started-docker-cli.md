@@ -11,17 +11,17 @@ keywords:
 ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: b6c26f28aa1e574ba3aabe53eda359cb6bf2edcc
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 10f01e4e8c86bbbfa17cf2559caca645ff13bdcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Nahrání první image do soukromého registru kontejnerů Dockeru pomocí rozhraní příkazového řádku Dockeru
 Registr kontejnerů Azure uchovává a spravuje privátní image kontejnerů [Dockeru](http://hub.docker.com) podobným způsobem, jakým [Docker Hub](https://hub.docker.com/) uchovává veřejné image Dockeru. K [přihlášení](https://docs.docker.com/engine/reference/commandline/login/), [nahrávání](https://docs.docker.com/engine/reference/commandline/push/), [stahování](https://docs.docker.com/engine/reference/commandline/pull/) a dalším operacím nad svým registrem kontejnerů použijete [rozhraní příkazového řádku Dockeru](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI).
@@ -116,4 +116,3 @@ V některých scénářích provádění volání současně může vést k chyb
 
 ## <a name="next-steps"></a>Další kroky
 Nyní již znáte základy a jste připraveni používat svůj registr! Můžete například začít nasazovat image kontejnerů do clusteru [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/).
-

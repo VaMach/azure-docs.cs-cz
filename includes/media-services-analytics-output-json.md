@@ -12,7 +12,7 @@ Výstup JSON obsahuje následující atributy:
 | fragmenty |Metadata se blokové až do různých segmentů názvem fragmenty. Každý fragment obsahuje počáteční, doba trvání, číslo intervalu a událostí. |
 | start |Čas zahájení první událost v 'rysky'. |
 | Doba trvání |Délka fragment v "rysky". |
-| Interval |Interval každý záznam události v rámci fragment v "rysky". |
+| interval |Interval každý záznam události v rámci fragment v "rysky". |
 | stránka events |Každá událost obsahuje řezy zjištěn a sledují v rámci této doby trvání. Jde pole událostí. Vnější pole představuje jeden časový interval. Vnitřní pole se skládá z 0 nebo více událostí, které bylo provedeno v tomto bodě v čase. Prázdný závorky [] znamená, že nebyly zjištěny žádné řezy. |
 | id |ID řez, který je sledován. Toto číslo může nechtěně změnit, pokud se stane nezjištěné řez. Daný individuální by mělo mít stejné ID v rámci celkového video, ale to nemůže zaručit z důvodu omezení v algoritmus detekce (NF pásmová atd.) |
 | x, y |Vlevo nahoře X a Y souřadnice ohraničujícího pole Normalizovaný rozsahu 0,0 až 1,0 písmo. <br/>-X a Y souřadnice jsou relativní na šířku vždycky, takže pokud máte na výšku video (nebo obráceným v případě iOS), budete muset transponuje souřadnice odpovídajícím způsobem. |

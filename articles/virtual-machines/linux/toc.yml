@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: Velikosti a typy virtuálních počítačů
       href: sizes.md
+      items:
+        - name: Obecné účely
+          href: sizes-general.md
+          items:
+            - name: B-Series s možností zvládání výkonových špiček
+              href: b-series-burstable.md
+        - name: Optimalizované z hlediska výpočetních služeb
+          href: sizes-compute.md
+        - name: Optimalizované z hlediska paměti
+          href: sizes-memory.md
+        - name: Optimalizované z hlediska úložiště
+          href: sizes-storage.md
+        - name: Optimalizované z hlediska GPU
+          href: sizes-gpu.md
+          items:
+            - name: Nastavení ovladačů GPU
+              href: n-series-driver-setup.md
+        - name: Vysokovýkonné výpočetní prostředí
+          href: sizes-hpc.md
+        - name: Výpočetní jednotky Azure (ACU)
+          href: sizes-general.md
     - name: Schválené distribuce
       href: endorsed-distros.md
     - name: Údržba a aktualizace

@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Služba Azure Cosmos DB: Sestavení webové aplikace s rozhraním .NET a ověřením přes Xamarin a Facebook
 
@@ -34,6 +32,7 @@ Tento rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB,
 Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
@@ -108,7 +107,7 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
 4. Otevřete projekt Xamarin a přejděte do souboru TodoItemManager.cs. Zadejte hodnoty parametrů accountURL, collectionId, databaseId a také resourceTokenBrokerURL jako základní adresu https url pro webovou stránku zprostředkovatele tokenu prostředku.
 
-5. Absolvujte kurz [Konfigurace aplikace App Service pro použití přihlášení k Facebooku](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) pro nastavení ověřování přes síť Facebook a konfiguraci webové stránky ResourceTokenBroker.
+5. Absolvujte kurz [Konfigurace aplikace App Service pro použití přihlášení k Facebooku](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) pro nastavení ověřování přes síť Facebook a konfiguraci webové stránky ResourceTokenBroker.
 
     Spusťte aplikaci Xamarin.
 
@@ -129,4 +128,3 @@ V tomto rychlém startu jste se seznámili s postupem vytvoření účtu služ
 
 > [!div class="nextstepaction"]
 > [Importování dat do služby Azure Cosmos DB](import-data.md)
-
