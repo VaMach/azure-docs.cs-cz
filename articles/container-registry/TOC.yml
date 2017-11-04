@@ -35,6 +35,8 @@
       href: container-registry-skus.md
     - name: Geografická replikace (Preview)
       href: container-registry-geo-replication.md
+    - name: Osvědčené postupy registru
+      href: container-registry-best-practices.md
 - name: Návody
   items:
     - name: Nabízená a vyžádaná instalace image

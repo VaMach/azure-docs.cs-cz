@@ -1,28 +1,28 @@
 
-In this section, you send breaking news as tagged template notifications from a .NET console app.
+V této části můžete odesílání novinek jako s příznakem šablony oznámení z konzolové aplikace .NET.
 
-If you are using the Mobile Apps feature of Microsoft Azure App Service, refer to the [Add push notifications for Mobile Apps] tutorial, and select your platform at the top.
+Pokud používáte funkci Microsoft Azure App Service Mobile Apps, podívejte se na [přidat nabízená oznámení pro Mobile Apps] kurzu a vyberte platformu v horní části.
 
-If you want to use Java or PHP, refer to [How to use Notification Hubs from Java or PHP]. You can send notifications from any back end by using the [Notification Hubs REST interface].
+Pokud chcete použít Java nebo PHP, podívejte se na [jak používat centra oznámení z Java nebo PHP]. Odesílání oznámení z jakékoli back-end pomocí [rozhraní REST centra oznámení].
 
-If you created the console app for sending notifications when you completed [Get started with Notification Hubs], skip steps 1-3.
+Pokud jste vytvořili konzolovou aplikaci pro odesílání oznámení, když jste dokončili [Začínáme s Notification Hubs], přeskočte kroky 1 – 3.
 
-1. In Visual Studio, create a new Visual C# console application:
+1. Ve Visual Studiu vytvořte novou konzolovou aplikaci Visual C#:
    
-      ![The Console Application link][13]
+      ![Odkaz konzolové aplikace][13]
 
-2. On the Visual Studio main menu, select **Tools** > **Library Package Manager** > **Package Manager Console** and then, in the console window, enter the following string:
+2. V hlavní nabídce sady Visual Studio, vyberte **nástroje** > **Správce balíčků knihoven** > **Konzola správce balíčků** a potom v konzole okno, zadejte následující řetězec:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-3. Select **Enter**.  
-    This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.Notification Hubs NuGet package].
+3. Vyberte **zadejte**.  
+    Tato akce přidá referenci na sadu SDK služby Azure Notification Hubs pomocí [balíčku NuGet Microsoft.Azure.Notification Hubs].
 
-4. Open the Program.cs file, and add the following `using` statement:
+4. Otevřete soubor Program.cs a přidejte následující `using` příkaz:
    
         using Microsoft.Azure.NotificationHubs;
 
-5. In the `Program` class, add the following method, or replace it if it already exists:
+5. V `Program` třídy, přidejte následující metodu nebo ho nahradit, pokud již existuje:
    
         private static async void SendTemplateNotificationAsync()
         {
@@ -48,23 +48,23 @@ If you created the console app for sending notifications when you completed [Get
             }
          }
    
-    This code sends a template notification for each of the six tags in the string array. The use of tags ensures that devices receive notifications only for the registered categories.
+    Tento kód odešle šablony oznámení pro každou z šesti značky v poli řetězců. Použití značek zajistí, že zařízení obdrží oznámení pouze pro registrované kategorie.
 
-5. In the preceding code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* from the dashboard of your notification hub.
+5. V předchozím kódu, nahraďte `<hub name>` a `<connection string with full access>` zástupné symboly pomocí názvu centra oznámení a připojovacího řetězce pro *DefaultFullSharedAccessSignature* na řídicím panelu Centra oznámení.
 
-6. In the **Main** method, add the following lines:
+6. Do metody **Main** přidejte následující řádky:
    
          SendTemplateNotificationAsync();
          Console.ReadLine();
 
-7. Build the console app.
+7. Vytvoření konzolové aplikace.
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
-[How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[Microsoft.Azure.Notification Hubs NuGet package]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Začínáme s Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[rozhraní REST centra oznámení]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[přidat nabízená oznámení pro Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[jak používat centra oznámení z Java nebo PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
+[balíčku NuGet Microsoft.Azure.Notification Hubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

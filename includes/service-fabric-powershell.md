@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Existují dva moduly Powershellu používají k interakci se Service Fabric. [Prostředí Azure PowerShell](/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) slouží ke správě prostředků Azure, jako je například clusteru služby hostované Azure Service Fabric. [Azure Service Fabric SDK](../articles/service-fabric/service-fabric-get-started.md) se používá k přímo připojit ke clusteru Service Fabric (bez ohledu na to, který je hostitelem) a spravovat cluster, aplikace a služby. 

@@ -1,8 +1,8 @@
 
-1. In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end. Under **Settings**, click **App Service Push**, and then click your notification hub name.
-2. Go to **Google (GCM)**, enter the FCM server key you obtained from the Firebase console, and then click **Save**.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **Procházet vše** > **App Services**a klikněte na vaše mobilní aplikace back-end. V části **nastavení**, klikněte na tlačítko **aplikace služby Push**a potom klikněte na název vašeho centra oznámení.
+2. Přejděte na **Google (GCM)**, zadejte klíč serveru FCM jste získali z konzoly Firebase a pak klikněte na tlačítko **Uložit**.
 
-Your service is now configured to work with Firebase Cloud Messaging.
+Služby je nyní nakonfigurováno pro práci s Firebase Cloud Messaging.
 
 <!-- URLs. -->
 

@@ -1,4 +1,3 @@
-# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Škálování uzlů agentů v clusteru Container Service
 Po [nasazení clusteru Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md) možná budete potřebovat změnit počet uzlů agentů. Například můžete potřebovat přidat více agentů, abyste mohli spouštět více instancí nebo aplikací typu kontejner. 
 
 Počet uzlů agentů v clusteru DC/OS, Docker Swarm nebo Kubernetes můžete změnit na webu Azure Portal nebo pomocí Azure CLI 2.0. 

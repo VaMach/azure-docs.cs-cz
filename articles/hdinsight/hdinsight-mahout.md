@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 934de9ca2df48b29ef7a56d5729d59d77875ea7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 569aeef58e601174aa9f28dc3ba39ebae17c17f8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generování doporučení pomocí Apache Mahout s Hadoop v HDInsight (PowerShell)
 
@@ -42,7 +42,7 @@ Další informace o použití [Apache Mahout](http://mahout.apache.org) knihovny
 > [!WARNING]
 > Úlohy v této části funguje tak, že pomocí Azure PowerShell. Řadu třídy součástí Mahout nefungují aktuálně s prostředím Azure PowerShell. Seznam tříd, které nefungují s prostředím Azure PowerShell najdete v tématu [Poradce při potížích s](#troubleshooting) části.
 >
-> Příklad použití SSH se připojit k HDInsight a spuštění příklady Mahout přímo na clusteru, naleznete v části [generování doporučení pomocí Mahout a HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
+> Příklad použití SSH se připojit k HDInsight a spuštění příklady Mahout přímo na clusteru, naleznete v části [generování doporučení pomocí Mahout a HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 Jednou z funkcí, které zajišťuje Mahout je modul doporučení. Tento modul přijímá data ve formátu `userID`, `itemId`, a `prefValue` (předvolba uživatele pro položku). Mahout data používá k určení uživatelů s předvolby jako položky, které se dají použít tak, aby doporučení.
 
@@ -208,21 +208,21 @@ Mahout úlohy, které používají následující třídy vrátit různé chybov
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-Ke spuštění úloh, které používají tyto třídy, připojte se ke clusteru HDInsight pomocí protokolu SSH a spuštění úloh z příkazového řádku. Příklad použití SSH ke spuštění úloh Mahout, naleznete v části [generování doporučení pomocí Mahout a HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
+Ke spuštění úloh, které používají tyto třídy, připojte se ke clusteru HDInsight pomocí protokolu SSH a spuštění úloh z příkazového řádku. Příklad použití SSH ke spuštění úloh Mahout, naleznete v části [generování doporučení pomocí Mahout a HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Další kroky
 
 Teď, když jste se naučili použití Mahout, zjišťovat další způsoby, jak pracovat s daty v HDInsight:
 
-* [Hive s HDInsight](hdinsight-use-hive.md)
-* [Pig s HDInsight](hdinsight-use-pig.md)
-* [MapReduce s HDInsight](hdinsight-use-mapreduce.md)
+* [Hive s HDInsight](hadoop/hdinsight-use-hive.md)
+* [Pig s HDInsight](hadoop/hdinsight-use-pig.md)
+* [MapReduce s HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
+[getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest

@@ -1,18 +1,18 @@
-In this example, I will show you how to use the **SharePoint Online - When a new item is created** trigger to initiate a logic app workflow when a new item is created in a SharePoint Online list.
+V tomto příkladu I vám ukáže, jak používat **SharePoint Online - při vytvoření nové položky** aktivační událost zahájíte pracovní postup aplikace logiky při vytvoření nové položky v seznamu SharePoint Online.
 
 > [!NOTE]
-> You will get prompted to sign into your SharePoint account if you have not already created a *connection* to SharePoint Online.  
+> Zobrazí získat výzva k přihlášení k účtu služby SharePoint, pokud jste ještě nevytvořili *připojení* ke službě SharePoint Online.  
 > 
 > 
 
-1. Enter *sharepoint* in the search box on the logic apps designer then select the **SharePoint Online - When a new item is created**  trigger.  
-   ![SharePoint online trigger image ](./media/connectors-create-api-sharepointonline/trigger-1.png)  
-2. The **When a new item is created** control is displayed.  
-   ![SharePoint online trigger image 2](./media/connectors-create-api-sharepointonline/trigger-2.png)   
-3. Select a **Site URL**. This is the SharePoint online site you want to monitor for new items to trigger your workflow.  
-   ![SharePoint online trigger image 3](./media/connectors-create-api-sharepointonline/trigger-3.png)   
-4. Select a **List name**. This is the list on the SharePoint Online site you want to monitor for new items that will trigger your workflow.  
-   ![SharePoint online trigger image 4](./media/connectors-create-api-sharepointonline/trigger-4.png)   
+1. Zadejte *sharepoint* do vyhledávacího pole v designeru aplikace logiky zvolte **SharePoint Online - při vytvoření nové položky** aktivační události.  
+   ![SharePoint online aktivace image](./media/connectors-create-api-sharepointonline/trigger-1.png)  
+2. **Při vytvoření nové položky** ovládací prvek je zobrazen.  
+   ![SharePoint online aktivace obrázek 2](./media/connectors-create-api-sharepointonline/trigger-2.png)   
+3. Vyberte **URL webu**. Toto je web služby SharePoint online, kterou chcete sledovat pro nové položky se spustit pracovní postup.  
+   ![SharePoint online aktivace image 3](./media/connectors-create-api-sharepointonline/trigger-3.png)   
+4. Vyberte **název seznamu**. Toto je seznam na webu služby SharePoint Online, které chcete sledovat pro nové položky, které aktivují pracovní postup.  
+   ![SharePoint online aktivace obrázek 4](./media/connectors-create-api-sharepointonline/trigger-4.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow. This will take place each time a new item is created in SharePoint Online list you selected.  
+Aplikace logiky v tomto okamžiku je nakonfigurovaná s aktivační událost, která zahájí spuštění ostatních triggery a akce v pracovním postupu. Bude to trvat místní pokaždé, když se vytvoří novou položku v seznamu SharePoint Online, které jste vybrali.  
 

@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Stack storage accounts  | Microsoft Docs
-description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
+title: "Správa účtů úložiště Azure zásobníku | Microsoft Docs"
+description: "Zjistěte, jak hledat, spravovat, obnovit a získat účty úložiště Azure zásobníku"
 services: azure-stack
 documentationcenter: 
 author: AniAnirudh
@@ -14,202 +14,201 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/6/2017
 ms.author: anirudha
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Manage Storage Accounts in Azure Stack
-Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.
+# <a name="manage-storage-accounts-in-azure-stack"></a>Správa účtů úložiště v Azure zásobníku
+Zjistěte, jak chcete spravovat účty úložiště v Azure zásobníku najít, obnovit a opětovné využití kapacity úložiště na základě obchodních potřeb.
 
-## <a name="find"></a>Find a storage account
-The list of storage accounts in the region can be viewed in Azure Stack by:
+## <a name="find"></a>Najít účet úložiště
+Seznam účtů úložiště v oblasti lze zobrazit v zásobníku Azure podle:
 
-1. In an Internet browser, navigate to https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore. For example **(local**).
+1. V internetovém prohlížeči přejděte do https://adminportal.local.azurestack.external.
+2. Přihlaste se k portálu pro správu Azure zásobníku jako operátor cloudu (pomocí přihlašovacích údajů, které jste zadali při nasazení)
+3. Na řídicím panelu Výchozí – najít **oblast správy** seznamu a klikněte na tlačítko oblasti, které chcete prozkoumat. Například **(místní**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Select **Storage** from the **Resource Providers** list.
+4. Vyberte **úložiště** z **zprostředkovatelé prostředků** seznamu.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Now, on the storage Resource Provider administrator blade – scroll down to the **Storage accounts** tab and click it.
+5. Nyní, v okně Správce poskytovatele prostředků úložiště – přejděte dolů na **účty úložiště** kartě a klikněte na něj.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
-   The resulting page is the list of storage accounts in that region.
+   Výsledná stránka je seznam účtů úložiště v této oblasti.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
-By default, the first 10 accounts are displayed. You can choose to fetch more by clicking the  **Load more** link at the bottom of the list.
+Ve výchozím nastavení se zobrazí prvních 10 účtů. Můžete načíst informace kliknutím **načtěte více** odkaz v dolní části seznamu.
 
-OR
+NEBO
 
-If you are interested in a particular storage account – you can **filter and fetch the relevant accounts** only.
+Pokud vás zajímají konkrétní účet úložiště – můžete **filtrovat a načtení příslušné účty** pouze.
 
 
-**To filter for accounts:**
+**Chcete-li filtrovat účty:**
 
-1. Click **Filter** at the top of the blade.
-2. On the Filter blade, it allows you to specify **account name**, **subscription ID** or **status** to fine-tune the list of storage accounts to be displayed. Use them as appropriate.
-3. Click **Update**. The list should refresh accordingly.
+1. Klikněte na tlačítko **filtru** v horní části okna.
+2. V okně filtru umožňuje, abyste zadali **název účtu**, **ID předplatného** nebo **stav** a systém doladit seznam účtů úložiště, který se má zobrazit. Použijte je podle potřeby.
+3. Klikněte na tlačítko **aktualizace**. V seznamu by měl aktualizovat odpovídajícím způsobem.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. To reset the filter: click **Filter**, clear out the  selections and update.
+4. Chcete-li obnovit filtr: klikněte na tlačítko **filtru**, vymažte výběr a aktualizovat.
 
-The search text box (on the top of the storage accounts list blade) lets you highlight the selected text in the list of accounts. This is really handy in the case when the full name or id is not easily available.
+Do vyhledávacího pole text (nahoře v okně seznam účtů úložiště) umožňuje zvýrazněte v seznamu účtů vybraný text. To je opravdu užitečné v případě, když úplný název nebo id není snadno dostupné.
 
-You can use free text here to help find the account you are interested in.
+Můžete zde volné vám pomohou najít účet, který vás zajímá.
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
-## <a name="look-at-account-details"></a>Look at account details
-Once you have located the accounts you are interested in viewing, you can click the particular account to view certain details. A new blade opens with the account details such as: the type of the account, creation time, location, etc.
+## <a name="look-at-account-details"></a>Podívejte se na podrobnosti o účtu
+Po vyhledání účty, že máte zájem zobrazení, klikněte na tlačítko konkrétní účet, který chcete zobrazit některé podrobnosti. Otevře se nové okno s podrobnostmi o účtu, jako: typ účtu, čas vytvoření, umístění atd.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
-## <a name="recover-a-deleted-account"></a>Recover a deleted account
-You may be in a situation where you need to recover a deleted account.
+## <a name="recover-a-deleted-account"></a>Obnovení odstraněného účtu
+Může být v situaci, kdy potřebujete obnovit odstraněného účtu.
 
-In Azure Stack there is a very simple way to do that:
+V zásobníku Azure je velmi jednoduchý způsob, jak to udělat:
 
-1. Browse to the storage accounts list. See [Find a storage account](#find) in this topic for more information.
-2. Locate that particular account in the list. You may need to filter.
-3. Check the *state* of the account. It should say **Deleted**.
-4. Click the account which opens the account details blade.
-5. On top of this blade, locate the **Recover** button and click it.
-6. Click **Yes** to confirm.
+1. Přejděte do seznamu účtů úložiště. V tématu [Najít účet úložiště](#find) v tomto tématu pro další informace.
+2. V seznamu vyhledejte konkrétního účtu. Můžete filtrovat.
+3. Zkontrolujte *stavu* účtu. By mělo být uvedeno **odstraněné**.
+4. Klikněte na účet, který se otevře okno Podrobnosti účtu.
+5. V tomto okně vyhledejte **obnovit** tlačítko a klikněte na něj.
+6. Pro potvrzení klikněte na tlačítko **Ano**.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
-7. The recovery is now in *process…wait* for an indication that it was successful.
-   You can also click the “bell” icon at the top of the portal to view progress indications.
+7. Obnovení je teď ve *zpracovat... Počkejte* pro indikaci, že byla úspěšná.
+   Můžete také kliknutím na ikonu "zvonku" v horní části portálu zobrazíte průběh označení.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
-   Once the recovered account is successfully synchronized, it can be used again.
+   Po úspěšné synchronizaci obnovené účet můžete znovu použít.
 
-### <a name="some-gotchas"></a>Some Gotchas
-* Your deleted account shows state as **out of retention**.
+### <a name="some-gotchas"></a>Některé Gotchas
+* Odstraněného účtu ukazuje stav jako **mimo uchování**.
   
-  This means that the deleted account has exceeded the retention period and may not be recoverable.
-* Your deleted account does not show in the accounts list.
+  To znamená, že byla překročena doba uchování odstraněného účtu a pravděpodobně nebude použitelná pro obnovení.
+* Odstraněného účtu se nezobrazuje v seznamu účtů.
   
-  This could mean that the deleted account has already been garbage collected. In this case it cannot be recovered. See [Reclaim capacity](#reclaim) in this topic.
+  To může znamenat, že odstraněného účtu je již uvolnění z paměti. V tomto případě nelze obnovit. V tématu [opětovné využití kapacity](#reclaim) v tomto tématu.
 
-## <a name="set-the-retention-period"></a>Set the retention period
-The retention period setting allows a cloud operator to specify a time period in days (between 0 and 9999 days) during which any deleted account can potentially be recovered. The default retention period is set to 15 days. Setting the value to “0” means that any deleted account is immediately out of retention and marked for periodic garbage collection.
+## <a name="set-the-retention-period"></a>Nastavit dobu uchování.
+Nastavení doby uchování umožňuje operátor cloudu k zadejte časové období ve dnech (0 až 9 999 dnů), během které potenciálně lze obnovit všechny odstraněné účtu. Výchozí dobu uchování nastavena do 15 dnů. Nastavení hodnoty "0" znamená, že všechny odstraněné účet je okamžitě mimo uchovávání a označen pro pravidelné uvolňování paměti.
 
-**To change the retention period:**
+**Chcete-li změnit dobu uchování:**
 
-1. In an internet browser, navigate to https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore – for example **(local**).
-4. Select **Storage** from the **Resource Providers** list.
-5. Click **Settings** at the top to open the setting blade.
-6. Click **Configuration** then edit the retention period value.
+1. V internetovém prohlížeči přejděte do https://adminportal.local.azurestack.external.
+2. Přihlaste se k portálu pro správu Azure zásobníku jako operátor cloudu (pomocí přihlašovacích údajů, které jste zadali při nasazení)
+3. Na řídicím panelu Výchozí – najít **oblast správy** seznamu a klikněte na tlačítko oblasti, které chcete prozkoumat – například **(místní**).
+4. Vyberte **úložiště** z **zprostředkovatelé prostředků** seznamu.
+5. Klikněte na tlačítko **nastavení** v horní části otevřete okno nastavení.
+6. Klikněte na tlačítko **konfigurace** pak upravte hodnotu doby uchování.
 
-   Set the number of days and then save it.
+   Nastavte počet dní a pak ho uložte.
    
-   This value is immediately effective and is set for your entire region.
+   Tato hodnota je hned platná a je nastaven pro vaši celou oblast.
 
    ![](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Reclaim capacity
-One of the side effects of having a retention period is that a deleted account continues to consume capacity until it comes out of the retention period. As a cloud operator you may need a way to reclaim the deleted account space even though the retention period has not yet expired.
+## <a name="reclaim"></a>Opětovné využití kapacity
+Jedním z důsledky straně s dobou uchování je, že odstraněného účtu nadále spotřebovávají kapacitu, dokud pochází mimo dobu uchování. Jako operátor cloudu může být nutné způsob, jak uvolnění místa odstraněného účtu, i když ještě nevypršela dobu uchování.
 
-You can reclaim capacity using either the portal or PowerShell.
+Můžete získat kapacity buď pomocí portálu nebo pomocí prostředí PowerShell.
 
-**To reclaim capacity using the portal:**
-1. Navigate to the storage accounts blade. See [Find a storage account](#find).
-2. Click **Reclaim space** at the top of the blade.
-3. Read the message and then click **OK**.
+**Pro opětovné využití kapacity pomocí portálu:**
+1. Přejděte do okna účty úložiště. V tématu [Najít účet úložiště](#find).
+2. Klikněte na tlačítko **uvolnění místa** v horní části okna.
+3. Tuto zprávu přečíst a pak klikněte na **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
-4. Wait for success notification See the bell icon on the portal.
+4. Počkejte, než pro úspěch oznámení najdete na ikonu zvonku na portálu.
 
     ![](media/azure-stack-manage-storage-accounts/image12.png)
-5. Refresh the Storage accounts page. The deleted accounts are no longer shown in the list because they have been purged.
+5. Aktualizujte stránku účty úložiště. Odstraněné účty jsou už uvedené v seznamu, protože byla odstraněna.
 
-You can also use PowerShell to explicitly override the retention period and immediately reclaim capacity.
+Můžete také pomocí prostředí PowerShell explicitně přepsat dobu uchování a okamžitě opětovné využití kapacity.
 
-**To reclaim capacity using PowerShell:**   
+**Pro opětovné využití kapacity pomocí prostředí PowerShell:**   
 
-1. Confirm that you have Azure PowerShell installed and configured. If not, use the following instructions: 
-   * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Run the following cmdlet:
+1. Potvrďte, že máte Azure PowerShell nainstalovaný a nakonfigurovaný. Pokud ne, postupujte podle následujících pokynů: 
+   * Nainstalujte nejnovější verzi prostředí Azure PowerShell a přidružit ho ke svému předplatnému Azure, najdete v tématu [postup instalace a konfigurace prostředí Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Další informace o rutinách Azure Resource Manager najdete v tématu [použití Azure Powershellu s Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+2. Spusťte následující rutinu:
 
 > [!NOTE]
-> If you run this cmdlet you permanently delete the account and its contents. It is not recoverable. Use this with care.
+> Pokud spustíte tuto rutinu je trvale odstranit účet a její obsah. Není použitelná pro obnovení. Použijte dát pozor.
 
 
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-For more details, refer to [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+Další podrobnosti najdete v části [zásobník Azure powershell dokumentaci.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
-## <a name="migrate-a-container"></a>Migrate a container
-Due to uneven storage use by tenants, an cloud operator may find one or more underlying tenant shares using more space than others. If this occurs, the cloud operator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
+## <a name="migrate-a-container"></a>Migrace kontejner
+Z důvodu nerovnoměrné úložiště používané klienty operátor cloudu může být jeden nebo více základní klienta sdílených složek pomocí více místa než jiné. Pokud k tomu dojde, operátor cloudu se může pokusit uvolněte místo na disku ve sdílené složce přízvukový ručně migrací některé kontejnery objektů blob do jiné složky. 
 
-You must use PowerShell to migrate containers.
+Musíte použít PowerShell k migraci kontejnery.
 > [!NOTE]
->Blob container migration does not support live migration and currently is an offline operation. During migration and until it is complete the underlying blobs in that container cannot be used and are “offline”. 
+>Migrace kontejneru objektů BLOB nepodporuje migraci za provozu a aktuálně je offline operace. Během migrace a dokud se nedokončí základní objektů BLOB v kontejneru nelze použít a jsou "offline". 
 
-**To migrate containers using PowerShell:**
+**Pokud chcete migrovat kontejnery pomocí prostředí PowerShell:**
 
-1. Confirm that you have Azure PowerShell installed and configured. If not, use the following instructions:
-    * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Get the farm name: 
+1. Potvrďte, že máte Azure PowerShell nainstalovaný a nakonfigurovaný. Pokud ne, postupujte podle následujících pokynů:
+    * Nainstalujte nejnovější verzi prostředí Azure PowerShell a přidružit ho ke svému předplatnému Azure, najdete v tématu [postup instalace a konfigurace prostředí Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Další informace o rutinách Azure Resource Manager najdete v tématu [použití Azure Powershellu s Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+2. Získáte název farmy: 
       
       `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Get the shares: 
+3. Získáte sdílené složky: 
 
    `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
 
-4. Get the containers for a given share. Note that count and intent are optional parameters:
+4. Získáte kontejnery pro danou sdílenou složku. Všimněte si, že počet a záměr jsou volitelné parametry:
             
    `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
 
-   Then examine $containers:
+   Potom si prohlédněte $containers:
 
    `$containers`
 
     ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Get the best destination shares for the container migration:
+5. Získáte nejlepší cílové složky pro migraci kontejneru:
 
     `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
 
-    Then examine $destinationshares:
+    Potom si prohlédněte $destinationshares:
 
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job id.
+6. Ji migrace pro kontejner, Všimněte si, že toto je implementaci asynchronní, takže jeden cykly všechny kontejnery ve sdílené složce a sledovat stav pomocí id vrácený úlohy.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
-    Then examine $jobId:
+    Potom si prohlédněte $jobId:
 
    ```
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Check status of the migration job by its job id. When the container migration finishes, MigrationStatus is set to “Completed”.
+7. Zkontrolujte stav úlohy migrace pomocí jejího id úlohy. Po dokončení migrace kontejneru MigrationStatus nastavena na "Dokončeno".
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
     ![](media/azure-stack-manage-storage-accounts/image15.png)
 
-8. You can cancel an in-progress migration job. This again is an async operation and can be tracked using $jobid:
+8. Můžete zrušit úlohu v průběhu migrace. Toto znovu je asynchronní operace a lze sledovat pomocí $jobid:
 
     `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    You can check the status of the migration cancel again:
+    Můžete znovu zkontrolujte stav Storno migrace:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

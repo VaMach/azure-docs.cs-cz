@@ -1,6 +1,6 @@
 ---
-title: Azure Stack plan, offer, quota, and subscription overview | Microsoft Docs
-description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
+title: "Přehled plán, nabídka, kvóty a předplatné Azure zásobníku | Microsoft Docs"
+description: "Jako operátor cloudu chcete pochopit plány, nabídky, kvóty a předplatná Azure zásobníku."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,69 +14,67 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="plan-offer-quota-and-subscription-overview"></a>Plan, offer, quota, and subscription overview
+# <a name="plan-offer-quota-and-subscription-overview"></a>Přehled plánů, nabídek, kvót a předplatných
 
-*Applies to: Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-[Azure Stack](azure-stack-poc.md) lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As a cloud operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+[Azure zásobníku](azure-stack-poc.md) umožňuje poskytovat širokou škálu služeb databáze systému SQL Server, SharePoint, Exchange, jako jsou virtuální počítače a dokonce i [položky Azure Marketplace](azure-stack-marketplace-azure-items.md). Jako operátor zásobník Azure konfiguraci a poskytování těchto služeb v zásobníku Azure pomocí plánů, nabídky a kvóty.
 
-Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you control
-- which services and resources users can access
-- the amount of those resources that users can consume
-- which regions have access to the resources
+Nabízí obsahovat jeden nebo více plánů a každý plán zahrnuje jednu nebo více služeb. Vytvořením plány a jejich kombinace do jiné nabídky, řízení
+- které službám a prostředkům uživatelé mají přístup k
+- množství těchto prostředků, které uživatelé můžou využívat.
+- oblasti, které mají přístup k prostředkům
 
-When you deliver a service, you'll follow these high-level steps:
+Při předvádění služby budete postupovat podle těchto kroků:
 
-1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
-3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
+1. Přidáte službu, kterou chcete poskytovat uživatelům.
+2. Vytvořte plán, který obsahuje jeden nebo více služeb. Při vytváření plánu, bude vyberte nebo vytvořte kvóty, které definují omezení prostředků každé služby v plánu.
+3. Vytvořte nabídku, který obsahuje jeden nebo více plány (včetně základní a plány volitelné rozšíření).
 
-After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
+Po vytvoření nabídky mohou vaši uživatelé přihlásit k službám a prostředkům, které poskytuje přístup. Uživatelé se mohou přihlásit k tolik nabídky požadovaným způsobem. Následující diagram ukazuje jednoduchý příklad uživatele, který se připojila ke dvěma nabídky. Každý nabídka má plán nebo dva a každý plán uděluje uživateli přístup ke službám.
 
 ![](media/azure-stack-key-features/image4.png)
 
-## <a name="plans"></a>Plans
+## <a name="plans"></a>Plány
 
-Plans are groupings of one or more services. As a cloud operator, you [create plans](azure-stack-create-plan.md) to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. When creating plans, make sure to set your quotas, define your base plans, and consider including optional add-on plans.
+Plány jsou seskupení jednu nebo více služeb. Jako operátor zásobník Azure můžete [vytvářet plány](azure-stack-create-plan.md) a nabídnout uživatelům. Pak vaši uživatelé přihlásit k vaší nabídky pro plány a službách, které obsahují. Při vytváření plánů, nezapomeňte nastavit vaší kvóty, definovat základní plánu a zvážit, včetně plánů volitelné rozšíření.
 
-### <a name="quotas"></a>Quotas
+### <a name="quotas"></a>Kvóty
 
-To help you manage your cloud capacity, you select or create a quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can limit a variety of resources, like virtual machines, RAM, and CPU limits.
+Ke správě vašeho kapacitu cloudu, vyberte nebo vytvořte kvóty pro každou službu v plánu. Kvóty definovat limity horní prostředků, které uživatel předplatné můžete zřizovat nebo využívat. Například kvótu, mohou povolovat uživatel vytvoří až pět virtuálních počítačů. Kvóty můžete omezit přístup k celé řadě prostředků, jako jsou virtuální počítače, paměti RAM a procesoru omezení.
 
-Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. In the Azure Stack Development Kit, only one region (named *local*) is available.
+Kvóty lze nakonfigurovat podle oblasti. Plán obsahující výpočetní služby z oblasti A může mít například kvótu dva virtuální počítače, 4 GB paměti RAM a 10 jader procesoru. V Development Kit zásobník Azure, pouze jedna oblast (s názvem *místní*) je k dispozici.
 
-### <a name="base-plan"></a>Base plan
+### <a name="base-plan"></a>Základní plán
 
-When creating an offer, the service administrator can include a base plan. These base plans are included by default when a user subscribes to that offer. When a user subscribes, they have access to all the resource providers specified in those base plans (with the corresponding quotas).
+Při vytváření nabídky, Správce služeb můžete zahrnout základního plánu. Tyto základní plány jsou zahrnuté ve výchozím nastavení, pokud se uživatel přihlásí na tuto nabídku. Pokud se uživatel přihlásí, kterým mají přístup všichni zprostředkovatelé prostředků zadaný v těchto plánech základní (s odpovídající kvóty).
 
-### <a name="add-on-plans"></a>Add-on plans
+### <a name="add-on-plans"></a>Rozšíření schémat
 
-You can also include optional add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+Můžete zahrnout také plány volitelné rozšíření nabídku. Plány rozšíření nejsou zahrnuté ve výchozím nastavení v rámci předplatného. Rozšíření plány jsou další plány (s kvóty) k dispozici v nabídku, můžete k jejich odběry přidat odběratele. Například můžete nabízet základní plán s prostředků omezené zkušební verzi a plán rozšíření s více značné prostředky pro zákazníky, kteří se rozhodnete přijmout službu.
 
-## <a name="offers"></a>Offers
+## <a name="offers"></a>Nabídky
 
-Offers are groups of one or more plans that you create so that users can subscribe to them. For example, Offer Alpha can contain Plan A containing a set of compute services and Plan B containing a set of storage and network services. 
+Nabídky jsou skupiny jeden nebo více plánů, které vytvoříte tak, aby uživatelé se mohou přihlásit k nim. Nabízejí Alpha může například obsahovat plán A obsahující sadu výpočetní služby a plánování B obsahující sadu úložiště a síťové služby. 
 
-When you [create an offer](azure-stack-create-offer.md), you must include at least one base plan, but you can also create add-on plans that users can add to their subscription.
-
-
-## <a name="subscriptions"></a>Subscriptions
-
-A subscription is how users access your offers. If you’re a cloud operator at a service provider, your users (tenants) buy your services by subscribing to your offers. If you’re a cloud operator at an organization, your users (employees) can subscribe to the services you offer without paying. Each combination of a user with an offer is a unique subscription. Thus, a user can have subscriptions to multiple offers, but each subscription applies to only one offer. Plans, offers, and quotas apply only to each unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+Pokud jste [vytvořit nabídku](azure-stack-create-offer.md), musí obsahovat alespoň jeden základního plánu, ale můžete vytvořit také plány rozšíření, které uživatele můžete přidat do své předplatné.
 
 
-### <a name="default-provider-subscription"></a>Default provider subscription
+## <a name="subscriptions"></a>Předplatná
 
-The Default Provider Subscription is automatically created when you deploy the Azure Stack Development Kit. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for users. For security and licensing reasons, it should not be used to run customer workloads and applications. 
+Předplatné je, jak uživatelé přistupovat k vaší nabídky. Pokud jste Azure zásobníku operátor u poskytovatele služeb, uživatelé (klienty) koupit vašim službám prostřednictvím registrace k vaší nabídky. Pokud jste Azure zásobníku operátor v organizaci, uživatelé (zaměstnanci) může přihlásit k služby, které nabízejí bez placení. Každé kombinaci uživatele s nabídku je jedinečný předplatné. Proto uživatel může mít odběry více nabídky, ale každý odběr platí jenom jednu nabídku. Plány, nabídky a kvóty platí pouze pro každé předplatné jedinečné – nemohou být sdíleny mezi předplatnými. Každý prostředek, který uživatel vytvoří je přidružen jeden odběr.
 
-## <a name="next-steps"></a>Next steps
 
-[Create a plan](azure-stack-create-plan.md)
+### <a name="default-provider-subscription"></a>Výchozí zprostředkovatel předplatné
 
+Výchozí zprostředkovatel předplatné se automaticky vytvoří při nasazení Azure zásobníku Development Kit. Toto předplatné slouží ke správě Azure zásobníku, nasadit další zprostředkovatelé prostředků a vytvořte plány a nabízí pro uživatele. Zabezpečení a licencování z důvodů by neměl lze použít ke spuštění úloh zákazníka a aplikace. 
+
+## <a name="next-steps"></a>Další kroky
+
+[Vytvoření plánu](azure-stack-create-plan.md)

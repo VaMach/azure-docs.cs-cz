@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Vytváření tabulek Hive a načtení dat z Azure Blob Storage
 Toto téma představuje obecné dotazů Hive, které vytváření tabulek Hive a načtení dat z Azure blob storage. Některé pokyny jsou tu taky o dělení tabulek Hive a o používání optimalizované řádek sloupcovém (ORC) formátování pro zlepšení výkonu dotazů.
@@ -120,7 +120,7 @@ Pokud otevřete výchozí kontejner clusteru Hadoop pomocí Průzkumníka úlož
 Můžete také použít konzolu dotazu (Hive Editor) tak, že zadáte adresu URL ve formátu *https://&#60; Název clusteru Hadoop >.azurehdinsight.net/Home/HiveEditor* do webového prohlížeče. Musí být zaznamenána v najdete v této konzoly a proto je třeba zde pověření clusteru Hadoop.
 
 ### <a name="ps"></a> 3. Odesílání dotazů Hive pomocí příkazů prostředí PowerShell Azure
-Můžete také použít PowerShell k odesílání dotazů Hive. Pokyny najdete v tématu [úlohy odeslání Hive pomocí prostředí PowerShell](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+Můžete také použít PowerShell k odesílání dotazů Hive. Pokyny najdete v tématu [úlohy odeslání Hive pomocí prostředí PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Vytvoření databáze Hive a tabulky
 Sdílené dotazy Hive v [úložiště GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) a z ní si můžete stáhnout.

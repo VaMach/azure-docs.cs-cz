@@ -1,6 +1,6 @@
 ---
-title: Connect Storage Explorer to an Azure Stack subscription
-description: Learn how to connect Storage Exporer to an  Azure Stack subscription
+title: "Storage Explorer připojení k předplatnému Azure zásobníku"
+description: "Zjistěte, jak se připojit k předplatnému Azure zásobníku úložiště Exporer"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,97 +14,96 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/12/2017
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Connect Storage Explorer to an Azure Stack subscription
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Storage Explorer připojení k předplatnému Azure zásobníku
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
+Azure Storage Explorer (Preview) je samostatná aplikace, která umožňuje snadno pracovat s daty Azure zásobníku úložiště v systému Windows, systému macOS a Linux. Existuje několik nástrojů zohledněním pro přesun dat do a z zásobník úložiště Azure. Další informace najdete v tématu [přenos dat nástrojů pro úložiště Azure zásobníku](azure-stack-storage-transfer.md).
 
-In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
+V tomto článku zjistěte, jak se připojit k Azure zásobníku účtů úložiště pomocí Průzkumníka úložiště. 
 
-If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
+Pokud jste ještě nenainstalovali Storage Explorer [Stáhnout](http://www.storageexplorer.com/) a a nainstalujte ji.
 
-After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
+Když se připojíte ke svému předplatnému Azure zásobníku, můžete použít [Azure Storage Explorer články](../../vs-azure-tools-storage-manage-with-storage-explorer.md) pro práci s daty Azure zásobníku. 
 
-## <a name="prepare-an-azure-stack-subscription"></a>Prepare an Azure Stack subscription
+## <a name="prepare-an-azure-stack-subscription"></a>Příprava předplatné Azure zásobníku
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Je nutné použít na hostitelském počítači Azure zásobníku plocha nebo připojení k síti VPN pro Storage Explorer přístup k předplatnému Azure zásobníku. Další informace o tom, jak nastavit připojení VPN ke službě Azure Stack, najdete v tématu [Připojení ke službě Azure Stack pomocí sítě VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+Pro Azure Development Kit zásobníku musíte exportovat certifikát od kořenové autority zásobník Azure.
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>To export and then import the Azure Stack certificate
+### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Chcete-li exportovat a importovat certifikát Azure zásobníku
 
-1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
+1. Otevřete `mmc.exe` na hostitelském počítači služby Azure zásobníku nebo místního počítače pomocí připojení VPN do protokolů Azure. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
-
-
-
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
-
-    ![Load the Azure Stack root certificate through mmc.exe][25]
-
-4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
-
-    The exported certificate will be used in the next step.
-5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
-
-6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
-
-    After importing, you are prompted to restart Storage Explorer.
-
-    ![Import the certificate into Storage Explorer (Preview)][27]
-
-Now you are ready to connect Storage Explorer to an Azure Stack subscription.
-
-### <a name="to-connect-an-azure-stack-subscription"></a>To connect an Azure Stack subscription
+2. V **soubor**, vyberte **přidat nebo odebrat modul Snap-in**a poté přidejte **certifikáty** ke správě **uživatelským účtem**.
 
 
-1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
-    ![Ensure Target Azure Stack is selected][28]
+3. V části **Root\Certificated konzoly (místní počítač) \Trusted Root Certification Authorities\Certificates** najít **AzureStackSelfSignedRootCert**.
 
-7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts that you are signed in to are displayed.
+    ![Načtení kořenového certifikátu služby Azure Stack pomocí mmc.exe][25]
 
-8. To connect to the Azure Stack account, select **Add an account**.
+4. Pravým tlačítkem na certifikát, vyberte **všechny úlohy** > **exportovat**a pak postupujte podle pokynů pro export certifikátu s **X.509 s kódováním Base-64 (. CER)**.  
 
-    ![Add an Azure Stack account][29]
+    Vyexportovaný certifikát se použije v dalším kroku.
+5. Otevřete Storage Explorer (Preview), a pokud se zobrazí **připojit k Azure Storage** dialogové okno pole, zrušte ji.
 
-9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Use Azure Stack Environment**, and then click **Next**.
+6. Na **upravit** nabídky, přejděte na příkaz **certifikáty SSL**a potom klikněte na **importu certifikátů**. Pomocí dialogového okna pro výběr souborů najděte a otevřete certifikát, který jste exportovali v předchozím kroku.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to Azure Stack Environment** dialog box.  
+    Po dokončení importu se zobrazí výzva k restartování Storage Exploreru.
 
-    The details for each field are as follows:
+    ![Import certifikátu do Storage Exploreru (Preview)][27]
 
-    * **Environment name**: The field can be customized by user.
-    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
+Nyní jste připraveni k připojení k předplatnému zásobník Azure Storage Explorer.
 
-        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
-        * For tenant:<br> https://management.local.azurestack.external
+### <a name="to-connect-an-azure-stack-subscription"></a>Pro připojení k předplatnému Azure zásobníku
+
+
+1. Po restartování Storage Exploreru (Preview) vyberte nabídku **Úpravy** a ujistěte se, že je vybraná možnost **Target Azure Stack** (Cíl – Azure Stack). Pokud není, vyberte ji a restartujte Storage Explorer, aby se tato změna projevila. Tato konfigurace je nutná pro kompatibilitu s vaším prostředím Azure Stack.
+
+    ![Kontrola, že položka Target Azure Stack je vybraná][28]
+
+7. V levém podokně vyberte **Spravovat účty**.  
+    Zobrazí se všechny účty Microsoft, ke kterým jste přihlášeni.
+
+8. Pokud se chcete připojit k účtu Azure Stack, vyberte **Přidat účet**.
+
+    ![Přidání účtu Azure Stack][29]
+
+9. V **připojit k Azure Storage** dialogovém **prostředí Azure**, vyberte **prostředí zásobníku Azure použijte**a pak klikněte na tlačítko **Další**.
+
+10. Přihlaste se pomocí účtu Azure zásobníku, který je spojen s minimálně jedno aktivní předplatné Azure zásobníku, vyplňte **přihlášení k prostředí Azure zásobníku** dialogové okno.  
+
+    Podrobnosti k jednotlivým polím:
+
+    * **Environment name** (Název prostředí): Toto pole může uživatel přizpůsobit.
+    * **ARM resource endpoint** (Koncový bod prostředku ARM): Toto jsou ukázky koncových bodů prostředků Azure Resource Manageru:
+
+        * Pro operátor cloudu:<br> https://adminmanagement.Local.azurestack.external   
+        * Pro klienta:<br> https://Management.Local.azurestack.external
  
-    * **Tenant Id**: Optional. The value is given only when the directory must be specified.
+    * **Id klienta**: volitelné. Hodnota je uvedená jenom v případě, že musí být zadaný adresář.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
+12. Po úspěšném přihlášení pomocí účtu Azure Stack se v levém podokně zobrazí předplatná Azure Stack přidružená k tomuto účtu. Vyberte předplatná Azure Stack, se kterými chcete pracovat, a pak vyberte **Apply** (Použít). (Zaškrtnutím nebo zrušením zaškrtnutí políčka **All subscriptions** (Všechna předplatná) přepínáte výběr všech nebo žádných z uvedených předplatných Azure Stack.)
 
-    ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
-    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+    ![Výběr předplatných Azure Stack po vyplnění dialogového okna Custom Cloud Environment][30]  
+    V levém podokně se zobrazí všechny účty úložišť přidružené k vybraným předplatným Azure Stack.
 
-    ![List of storage accounts including Azure Stack subscription accounts][31]
+    ![Seznam účtů úložiště, včetně účtů předplatného Azure Stack][31]
 
-## <a name="next-steps"></a>Next steps
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
+## <a name="next-steps"></a>Další kroky
+* [Začínáme se Storage Explorerem (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Zásobník úložiště Azure: rozdíly a aspekty](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* Další informace o službě Azure Storage najdete v tématu [Úvod do Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
@@ -113,4 +112,3 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 [29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-

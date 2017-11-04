@@ -1,79 +1,79 @@
-The availability group listener is an IP address and network name that the SQL Server availability group listens on. To create the availability group listener, do the following:
+Naslouchací proces skupiny dostupnosti je IP adresy a síťového názvu objektu který skupiny dostupnosti systému SQL Server naslouchá na. Pokud chcete vytvořit naslouchací proces skupiny dostupnosti, postupujte takto:
 
-1. <a name="getnet"></a>Get the name of the cluster network resource.
+1. <a name="getnet"></a>Získání názvu síťovému prostředku clusteru.
 
-    a. Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
+    a. Pomocí protokolu RDP pro připojení k virtuální počítač Azure, který je hostitelem primární repliky. 
 
-    b. Open Failover Cluster Manager.
+    b. Otevřete Správce clusteru převzetí služeb při selhání.
 
-    c. Select the **Networks** node, and note the cluster network name. Use this name in the `$ClusterNetworkName` variable in the PowerShell script. In the following image the cluster network name is **Cluster Network 1**:
+    c. Vyberte **sítě** uzlu a poznamenejte si název sítě s clustery. Tento název v používat `$ClusterNetworkName` proměnné ve skriptu prostředí PowerShell. Na následujícím obrázku je název sítě s clustery **clusteru sítě 1**:
 
-   ![Cluster Network Name](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
+   ![Název sítě s clustery](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-2. <a name="addcap"></a>Add the client access point.  
-    The client access point is the network name that applications use to connect to the databases in an availability group. Create the client access point in Failover Cluster Manager.
+2. <a name="addcap"></a>Přidáte klientský přístupový bod.  
+    Klientský přístupový bod je název sítě, kterou aplikace použít pro připojení k databázím ve skupině dostupnosti. Vytvořte klientský přístupový bod, ve Správci clusteru převzetí služeb při selhání.
 
-    a. Expand the cluster name, and then click **Roles**.
+    a. Rozbalte název clusteru a pak klikněte na tlačítko **role**.
 
-    b. In the **Roles** pane, right-click the availability group name, and then select **Add Resource** > **Client Access Point**.
+    b. V **role** podokně klikněte pravým tlačítkem na název skupiny dostupnosti a potom vyberte **přidat prostředek** > **klientský přístupový bod**.
 
-   ![Client Access Point](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Klientský přístupový bod](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
-    c. In the **Name** box, create a name for this new listener. 
-   The name for the new listener is the network name that applications use to connect to databases in the SQL Server availability group.
+    c. V **název** pole, vytvořte název pro tento nový naslouchací proces. 
+   Název pro nový naslouchací proces je název sítě, kterou aplikace použít pro připojení k databázím ve skupině dostupnosti systému SQL Server.
    
-    d. To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
+    d. Vytváření naslouchací proces dokončíte, klikněte na tlačítko **Další** dvakrát a potom klikněte na **Dokončit**. Nelze zobrazit naslouchací proces nebo prostředek do online režimu v tomto okamžiku.
 
-3. <a name="congroup"></a>Configure the IP resource for the availability group.
+3. <a name="congroup"></a>Nakonfigurujte IP prostředků pro skupiny dostupnosti.
 
-    a. Click the **Resources** tab, and then expand the client access point you created.  
-    The client access point is offline.
+    a. Klikněte **prostředky** kartě a potom rozbalte klientský přístupový bod jste vytvořili.  
+    Klientský přístupový bod je offline.
 
-   ![Client Access Point](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
+   ![Klientský přístupový bod](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
 
-    b. Right-click the IP resource, and then click properties. Note the name of the IP address, and use it in the `$IPResourceName` variable in the PowerShell script.
+    b. Klikněte pravým tlačítkem na prostředek IP a potom klikněte na položku Vlastnosti. Poznamenejte si název IP adresu a použít ho v `$IPResourceName` proměnné ve skriptu prostředí PowerShell.
 
-    c. Under **IP Address**, click **Static IP Address**. Set the IP address as the same address that you used when you set the load balancer address on the Azure portal.
+    c. V části **IP adresu**, klikněte na tlačítko **statickou IP adresu**. Nastavte adresu IP jako stejnou adresu, který jste použili při nastavení adresa služby Vyrovnávání zatížení na portálu Azure.
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![Prostředek IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-4. <a name = "dependencyGroup"></a>Make the SQL Server availability group resource dependent on the client access point.
+4. <a name = "dependencyGroup"></a>Vytvořte prostředek skupiny dostupnosti systému SQL Server závislost na klientský přístupový bod.
 
-    a. In Failover Cluster Manager, click **Roles**, and then click your availability group.
+    a. Ve Správci clusteru převzetí služeb při selhání, klikněte na tlačítko **role**a potom klikněte na vaší skupiny dostupnosti.
 
-    b. On the **Resources** tab, under **Other Resources**, right-click the availability resource group, and then click **Properties**. 
+    b. Na **prostředky** v části **další prostředky**, klikněte pravým tlačítkem na skupinu dostupnosti prostředků a pak klikněte na tlačítko **vlastnosti**. 
 
-    c. On the dependencies tab, add the name of the client access point (the listener) resource.
+    c. Na kartě závislosti přidejte název klienta prostředku přístup k bodu (naslouchací proces).
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![Prostředek IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
-    d. Click **OK**.
+    d. Klikněte na **OK**.
 
-5. <a name="listname"></a>Make the client access point resource dependent on the IP address.
+5. <a name="listname"></a>Zkontrolujte bodu prostředků přístupu klienta závislá na IP adresu.
 
-    a. In Failover Cluster Manager, click **Roles**, and then click your availability group. 
+    a. Ve Správci clusteru převzetí služeb při selhání, klikněte na tlačítko **role**a potom klikněte na vaší skupiny dostupnosti. 
 
-    b. On the **Resources** tab, right-click the client access point resource under **Server Name**, and then click **Properties**. 
+    b. Na **prostředky** kartě, klikněte pravým tlačítkem na prostředek bodu přístupu klienta pod **název serveru**a potom klikněte na **vlastnosti**. 
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![Prostředek IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Click the **Dependencies** tab. Verify that the IP address is a dependency. If it is not, set a dependency on the IP address. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
+    c. Klikněte **závislosti** kartě. Ověřte, že IP adresa je závislost. Pokud není, nastavte závislost na IP adresu. Pokud uvedený více prostředků, ověřte, že IP adresy nebo Ne a závislosti. Klikněte na **OK**. 
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
+   ![Prostředek IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
-    d. Right-click the listener name, and then click **Bring Online**. 
+    d. Klikněte pravým tlačítkem na název naslouchacího procesu a pak klikněte na **přepnout do režimu Online**. 
 
     >[!TIP]
-    >You can validate that the dependencies are correctly configured. In Failover Cluster Manager, go to Roles, right-click the availability group, click **More Actions**, and then click  **Show Dependency Report**. When the dependencies are correctly configured, the availability group is dependent on the network name, and the network name is dependent on the IP address. 
+    >Můžete ověřit, zda jsou správně nakonfigurovány závislosti. Přejděte ve Správci clusteru převzetí služeb při selhání pro role, klikněte pravým tlačítkem na skupinu dostupnosti, klikněte na tlačítko **další akce**a potom klikněte na **zobrazit sestavu závislostí**. Pokud jsou správně nakonfigurovány závislosti, skupina dostupnosti je závislá na název sítě a síťový název je závislá na IP adresu. 
 
 
-6. <a name="setparam"></a>Set the cluster parameters in PowerShell.
+6. <a name="setparam"></a>Nastavení parametrů clusteru v prostředí PowerShell.
     
-    a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.     
+    a. Zkopírujte následující skript prostředí PowerShell vaší instance systému SQL Server. Aktualizujte proměnné pro vaše prostředí.     
     
     ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -86,7 +86,7 @@ The availability group listener is an IP address and network name that the SQL S
     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
     ```
 
-    b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
+    b. Nastavení parametrů clusteru spuštěním skriptu prostředí PowerShell na jednom z uzlů clusteru.  
 
     > [!NOTE]
-    > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name and the cluster IP resource name are the same. 
+    > Pokud vaše instance systému SQL Server v oblastech, musíte spustit skript prostředí PowerShell dvakrát. Při prvním použití `$ILBIP` a `$ProbePort` z první oblasti. Při druhém použít `$ILBIP` a `$ProbePort` z oblasti druhý. Název sítě clusteru a název prostředku IP clusteru jsou stejné. 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack Storage: Differences and considerations'
-description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
+title: "Zásobník úložiště Azure: Rozdíly a aspekty"
+description: "Porozumějte rozdílům mezi zásobník úložiště Azure a Azure Storage, společně s aspekty nasazení Azure zásobníku."
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,52 +14,51 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Zásobník úložiště Azure: Rozdíly a aspekty
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Azure zásobníku úložiště je sada cloudových služeb úložiště v Microsoft Azure zásobníku. Úložiště Azure zásobníku obsahuje objekt blob, tabulky, fronty a funkce správy účet s Azure konzistentní sémantiku.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+Tento článek shrnuje známé rozdíly zásobník úložiště Azure z úložiště Azure. Shrnuje také další důležité informace, třeba vzít v úvahu při nasazování Azure zásobníku. Další informace o nejvýraznějších rozdílů mezi zásobník Azure a Azure, najdete v článku [klíčové aspekty](azure-stack-considerations.md) tématu.
 
-## <a name="cheat-sheet-storage-differences"></a>Cheat sheet: Storage differences
+## <a name="cheat-sheet-storage-differences"></a>Tahák: rozdíly úložiště
 
-| Feature | Azure (global) | Azure Stack |
+| Funkce | Azure (globální) | Azure Stack |
 | --- | --- | --- |
-|File storage|Cloud-based SMB file shares supported|Not yet supported
-|Data at rest encryption|256-bit AES encryption|Not yet supported
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
-|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
-|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee
-|Managed disks|Premium and standard supported|Not yet supported
-|Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
-|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
-|Page blob max size|8 TB|1 TB
-|Page blob page size|512 bytes|4 KB
-|Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
+|File Storage|Cloudové sdílené složky SMB podporované|Není dosud podporován.
+|Data šifrování neaktivních dat|šifrování AES 256 bitů|Není dosud podporován.
+|Typ účtu úložiště|Účty úložiště Blob pro obecné účely a Azure|Pro obecné účely pouze
+|Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště s přístupem pro čtení a zónově redundantní úložiště|Místně redundantní úložiště
+|Storage úrovně Premium|Plně podporovány.|Může být zřízen, ale žádné omezení výkonu nebo záruk
+|Managed Disks|Premium a standard podporováno|Není dosud podporován.
+|Název objektu BLOB|1 024 znaků (2 048 bajtů)|880 znaků (1,760 bajty)
+|Maximální velikost objektu blob bloku|4.75 TB (100 MB × 50 000 bloků)|50 000 × 4 MB (poli 195 GB)
+|Kopie snímků objekt blob stránky|Zálohování nespravované virtuální počítač disky Azure připojené k spuštění virtuálního počítače podporované|Není dosud podporován.
+|Kopie přírůstkový snímek objekt blob stránky|Premium a objekty BLOB stránky standardní Azure podporován|Není dosud podporován.
+|Maximální velikost stránky objektu blob|8 TB|1 TB
+|Velikost stránky objektu blob stránky|512 bajtů|4 KB
+|Velikost klíče tabulky klíč oddílu a řádku|1 024 znaků (2 048 bajtů)|400 znaků (800 bajtů)
 
-### <a name="metrics"></a>Metrics
-There are also some differences with storage metrics:
-* The transaction data in storage metrics does not differentiate internal or external network bandwidth.
-* The transaction data in storage metrics does not include virtual machine access to the mounted disks.
+### <a name="metrics"></a>Metriky
+Existují také některé rozdíly mezi metriky úložiště:
+* Data transakce v úložiště metriky nerozlišuje interních nebo externích šířku pásma sítě.
+* Data transakce v úložiště metriky nezahrnuje virtuálnímu počítači přístup k připojené disky.
 
-## <a name="api-version"></a>API version
-The following versions are supported with Azure Stack Storage:
+## <a name="api-version"></a>Verze rozhraní API
+S Azure zásobníku úložiště jsou podporovány následující verze:
 
-* Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+* Data služby Azure Storage: [verze 2015-04-05 rozhraní REST API](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
+* Správa služby Azure Storage: [2015-05-01-preview, 2015-06-15 a 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-* [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
-* [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)
-
+* [Začínáme s Azure Storage zásobníku nástroje pro vývoj](azure-stack-storage-dev.md)
+* [Úvod do Azure zásobník úložiště](azure-stack-storage-overview.md)
 

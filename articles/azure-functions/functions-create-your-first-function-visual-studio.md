@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Vytvoření první funkce pomocí sady Visual Studio
 
@@ -35,12 +35,10 @@ V tomto tématu se dozvíte, jak používat nástroje Visual Studio 2017 pro Azu
 
 Pro absolvování tohoto kurzu nainstalujte:
 
-* [Visual Studio 2017 verze 15.3](https://www.visualstudio.com/vs/preview/) nebo novější verze, včetně **Azure development** zatížení.
+* [Visual Studio 2017 verzi 15.4](https://www.visualstudio.com/vs/) nebo novější verze, včetně **Azure development** zatížení.
 
     ![Instalace sady Visual Studio 2017 se sadou funkcí Vývoj pro Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Vytvoření projektu Azure Functions v sadě Visual Studio
@@ -51,9 +49,9 @@ Teď, když jste vytvořili projekt, můžete vytvořit svou první funkci.
 
 ## <a name="create-the-function"></a>Vytvoření funkce
 
-1. V **Průzkumníku řešení** klikněte pravým tlačítkem na uzel projektu a vyberte **Přidat** > **Nová položka**. Vyberte **Funkce Azure Functions** a klikněte na **Přidat**.
+1. V **Průzkumníku řešení** klikněte pravým tlačítkem na uzel projektu a vyberte **Přidat** > **Nová položka**. Vyberte **funkce Azure**, zadejte `HttpTriggerCSharp.cs` pro **název**a klikněte na tlačítko **přidat**.
 
-2. Vyberte **HttpTrigger**, zadejte **Název funkce**, jako **Přístupová práva** vyberte **Anonymní** a klikněte na **Vytvořit**. Vytvořená funkce je přístupná prostřednictvím požadavku HTTP z jakéhokoli klienta. 
+2. Vyberte **HttpTrigger**, vyberte **anonymní** pro **přístupová práva**a klikněte na tlačítko **OK**. Vytvořená funkce je přístupná prostřednictvím požadavku HTTP z jakéhokoli klienta. 
 
     ![Vytvoření nové funkce Azure Functions](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 

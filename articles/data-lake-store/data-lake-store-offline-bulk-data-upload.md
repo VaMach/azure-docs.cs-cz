@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Používat službu Azure Import/Export pro offline kopii dat do Data Lake Store
 V tomto článku se dozvíte kopírování obrovských sad dat (> 200 GB) do Azure Data Lake Store pomocí metod kopii offline, jako je třeba [služba Azure Import/Export](../storage/common/storage-import-export-service.md). Soubor používá jako příklad v tomto článku je konkrétně 339,420,860,416 bajtů nebo přibližně 319 GB na disku. Umožňuje volání 319GB.tsv tento soubor.
@@ -58,7 +58,7 @@ Postupujte podle pokynů v [pomocí služby Azure Import/Export](../storage/comm
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     V tématu [pomocí služby Azure Import/Export](../storage/common/storage-import-export-service.md) pro další fragmenty ukázka.
-4. Předchozí příkaz vytvoří soubor deníku do zadaného umístění. Tento soubor deníku použít k vytvoření úlohy importu z [portál Azure classic](https://manage.windowsazure.com).
+4. Předchozí příkaz vytvoří soubor deníku do zadaného umístění. Tento soubor deníku použít k vytvoření úlohy importu z [portál Azure](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Vytvoření úlohy importu
 Nyní můžete vytvořit úlohy importu pomocí pokynů uvedených v [pomocí služby Azure Import/Export](../storage/common/storage-import-export-service.md) (v části **vytvořit úlohy importu** části). Pro tuto úlohu importu s další podrobnosti, také poskytněte soubor deníku vytvořili při přípravě na pevných discích.

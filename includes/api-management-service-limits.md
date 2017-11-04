@@ -1,10 +1,10 @@
-| Resource | Limit |
+| Prostředek | Omezení |
 | --- | --- |
-| API Calls (per unit of scale) |32 million per day<sup>1</sup> |
-| Data transfer (per unit of scale) |161 GB per day<sup>1</sup> |
-| Cache |5 GB<sup>1</sup> |
-| Units of scale |Unlimited<sup>1</sup> |
-| Azure Active Directory Integration |Unlimited User Accounts<sup>1</sup> |
+| Volání rozhraní API (na jednotku škálování) |32 milionů za den<sup>1</sup> |
+| Přenos dat (na jednotku měřítka) |161 GB denně<sup>1</sup> |
+| Mezipaměť |5 GB<sup>1</sup> |
+| Jednotky škálování |Neomezená<sup>1</sup> |
+| Integrace Azure Active Directory |Neomezená uživatelské účty<sup>1</sup> |
 
-<sup>1</sup>API Management limits are different for each pricing tier. To see the pricing tiers and their associated limits and scaling options, see [API Management Pricing](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>omezení API Management se liší u jednotlivých cenových úrovní. Cenové úrovně a jejich přidružené omezení a škálování možnosti najdete v tématu [ceny služby API Management](https://azure.microsoft.com/pricing/details/api-management/).
 

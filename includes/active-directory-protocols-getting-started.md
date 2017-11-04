@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
-ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
-
+ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-## <a name="register-your-application-with-your-ad-tenant"></a>Registrace aplikace pomocí tenanta AD
+## Registrace aplikace pomocí tenanta AD
 Nejdřív si musíte zaregistrovat svoji aplikaci v tenantovi Azure Active Directory (Azure AD). Pro svou aplikaci tak získáte ID a umožníte jí přijímat tokeny.
 
 * Přihlaste se k [portálu Azure](https://portal.azure.com).
@@ -30,9 +31,3 @@ Nejdřív si musíte zaregistrovat svoji aplikaci v tenantovi Azure Active Direc
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Pro nativní aplikace zadejte **identifikátor URI pro přesměrování**, který Azure AD použije k vrácení odpovědí týkajících se tokenu. Zadejte konkrétní hodnotu pro vaši aplikace, např. `http://MyFirstAADApp`.
 * Po dokončení registrace Azure AD vaší aplikaci přiřadí jedinečný klientský identifikátor – ID aplikace. Tuto hodnotu budete potřebovat v následujících částech, proto si ji ze stránky aplikace zkopírujte.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

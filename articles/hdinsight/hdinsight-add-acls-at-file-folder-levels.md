@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Správa oprávnění uživatele na úrovni souborů a složek
 
-[Clustery HDInsight připojený k doméně](hdinsight-domain-joined-introduction.md) použití silné ověřování s uživateli Azure Active Directory (Azure AD) a také *řízení přístupu na základě role* (RBAC) zásady pro různé služby, jako je například YARN a Hive. Pokud výchozí úložiště dat pro váš cluster je úložiště Azure, nebo služby Windows Azure úložiště objektů BLOB (WASB), může také vynucovat souboru a oprávnění na úrovni složky. Apache škálu můžete použít k řízení přístupu k souborům clusteru pro vaše synchronizované Azure AD Uživatelé a skupiny.
+[Clustery HDInsight připojený k doméně](./domain-joined/apache-domain-joined-introduction.md) použití silné ověřování s uživateli Azure Active Directory (Azure AD) a také *řízení přístupu na základě role* (RBAC) zásady pro různé služby, jako je například YARN a Hive. Pokud výchozí úložiště dat pro váš cluster je úložiště Azure, nebo služby Windows Azure úložiště objektů BLOB (WASB), může také vynucovat souboru a oprávnění na úrovni složky. Apache škálu můžete použít k řízení přístupu k souborům clusteru pro vaše synchronizované Azure AD Uživatelé a skupiny.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 Apache škálu instance pro clustery služby HDInsight připojený k doméně je vybavená předem nakonfigurovaným službou škálu WASB. Služba škálu WASB je modul správy zásad, který je podobný škálu-HDFS, ale s jinou vynucení zásad přístupu pro škálu. Ve službě škálu WASB Pokud příchozí požadavek na prostředek nemá odpovídající zásadu škálu výchozí odpověď je zakázat. Službu škálu nepředává kontrole WASB oprávnění.
@@ -69,7 +69,7 @@ Když zástupný znak (`*`) se nachází v cestě pro zásadu zástupného se vz
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Správa souborů a oprávnění na úrovni složky s Apache škálu
 
-Pokud jste tak již neučinili, postupujte podle [tyto pokyny](hdinsight-domain-joined-configure.md) ke zřízení nového clusteru, který je připojený k doméně.
+Pokud jste tak již neučinili, postupujte podle [tyto pokyny](./domain-joined/apache-domain-joined-configure.md) ke zřízení nového clusteru, který je připojený k doméně.
 
 Otevřete škálu WASB procházením `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Zadejte uživatelské jméno správce clusteru a heslo, které jste definovali při vytváření clusteru.
 
@@ -117,8 +117,8 @@ Apache škálu [toku vyhodnocení zásad](#permission-and-policy-model) umožňu
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Nakonfigurovat zásady Hive v HDInsight připojený k doméně](hdinsight-domain-joined-run-hive.md)
-* [Správa clusterů HDInsight připojený k doméně](hdinsight-domain-joined-manage.md)
+* [Nakonfigurovat zásady Hive v HDInsight připojený k doméně](./domain-joined/apache-domain-joined-run-hive.md)
+* [Správa clusterů HDInsight připojený k doméně](./domain-joined/apache-domain-joined-manage.md)
 * [Správa Ambari – autorizace uživatelům Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

@@ -1,4 +1,4 @@
-Setting a custom domain name on a web app in Azure App Service that is load balanced by Traffic Manager is only available for **Standard** mode websites. Before switching a web app from the Free App Service plan mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your App Service subscription. 
+Nastavení vlastní název domény ve webové aplikaci ve službě Azure App Service, který je správcem provoz skupinu s vyrovnáváním zatížení je k dispozici pouze **standardní** režimu weby. Před přepnutím webovou aplikaci z režimu plán volné aplikační služby na režim sdílené, Basic nebo Standard, musíte nejprve odebrat útraty CAP k vzdálené ploše na místě pro vaše předplatné služby App Service. 
 
-For more information on the App Service plan modes, including how to change the mode of your site, see [How to scale web sites](../articles/app-service/web-sites-scale.md).
+Další informace o režimech plán služby App Service, včetně toho, jak změnit režim webu, najdete v části [postup škálování webových stránek](../articles/app-service/web-sites-scale.md).
 

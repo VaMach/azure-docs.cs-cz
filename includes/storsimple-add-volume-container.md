@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-add-a-volume-container"></a>To add a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. Click **Add** at the bottom of the page. In the **Create volume container** dialog box, do the following:
+#### <a name="to-add-a-volume-container"></a>Chcete-li přidat kontejner svazků
+1. Na **zařízení** vyberte zařízení, na ni dvakrát kliknete a pak klikněte na tlačítko **kontejnery svazků** kartě.
+2. Klikněte na tlačítko **přidat** v dolní části stránky. V **vytvořit kontejner svazků** dialogové okno pole, postupujte takto:
    
-   1. Supply a unique **Name** for your volume container. This name can contain a maximum of 32 characters.
-   2. Select a **Storage Account** to be associated with this volume container. You can choose from an existing storage account within the same subscription or select **Add more** to select a storage account from another subscription. You can also choose the storage account that was first generated when the service was created.
-   3. Specify bandwidth as **Unlimited** if you want to consume all available bandwidth, or **Custom** to employ bandwidth controls. For a custom bandwidth, supply a value between 1 and 1000 Mbps. To allocate bandwidth based on a schedule, you can **Select a bandwidth template**.
-   4. We recommend that you keep **Enable Cloud Storage Encryption** selected to encrypt the data that is going to the cloud. Disable encryption only if you are employing other means to encrypt your data. You cannot modify the encryption setting once the volume container has been created.
-   5. Provide a **Cloud Storage Encryption Key** that contains between 8 and 32 characters. The device uses this key to access the encrypted data. In the **Confirm Cloud Storage Encryption Key** field, enter the cloud storage encryption key again to confirm it. 
-   6. Click the arrow to proceed to the next page.
+   1. Zadejte jedinečný **název** kontejneru svazků. Tento název může obsahovat maximálně 32 znaků.
+   2. Vyberte **účet úložiště** mají být spojeny s tímto kontejnerem svazků. Můžete si vybrat z existující účet úložiště v rámci stejného předplatného nebo vyberte **přidat další** a vyberte účet úložiště z jiné předplatné. Můžete také účet úložiště, který byl nejprve generovaný při vytvoření služby.
+   3. Zadejte šířku pásma jako **neomezený** Pokud chcete využívat všechny dostupné šířky pásma, nebo **vlastní** využívat řízení šířky pásma. Pro vlastní šířky pásma zadejte hodnotu mezi 1 a 1000 Mb/s. Chcete-li přidělení šířky pásma podle plánu, můžete **vybrat šablonu šířky pásma**.
+   4. Doporučujeme, abyste **povolit šifrování úložiště cloudu** vybrané k šifrování dat, která přechází do cloudu. Pouze v případě, že jsou zaměstnávající jiným způsobem k šifrování dat, zakažte šifrování. Nelze změnit nastavení šifrování, po vytvoření kontejneru svazků.
+   5. Zadejte **šifrovací klíč cloudového úložiště** obsahující 8 až 32 znaků. Zařízení používá tento klíč k přístupu k zašifrovaným datům. V **potvrďte cloudové úložiště šifrovací klíč** zadejte šifrovací klíč cloudového úložiště znovu pro potvrzení. 
+   6. Klikněte na šipku pokračovat na další stránku.
       
-      ![Create volume container with bandwidth template 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
-3. If you specified **Select a bandwidth template**, choose from the dropdown list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+      ![Vytvoření kontejneru svazků s šablony šířky pásma 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
+3. Pokud jste zadali **vybrat šablonu šířky pásma**, vyberte z rozevíracího seznamu existujících šablon šířky pásma. Zkontrolujte nastavení plánu a klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
    
-    ![Create volume container with bandwidth template 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
+    ![Vytvoření kontejneru svazků s šablony šířky pásma 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
 
-The volume container will be saved and the newly created volume container will be listed on the **Volume container** page.
+Kontejner svazků bude uložena a nově vytvořený kontejner svazků bude uvedený na **kontejneru svazků** stránky.
 

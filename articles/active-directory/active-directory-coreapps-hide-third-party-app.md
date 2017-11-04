@@ -15,20 +15,20 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 28b6885e7e74a44f4d00f4a804a93e74f6eec685
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Skrýt aplikace třetích stran z možnosti pro uživatele v Azure Active Directory
 
 Pokud máte aplikaci třetí strany (aplikace, které zveřejnil jiné než Microsoft), že nechcete zobrazovat ve panelů přístup uživatele nebo Spouštěč oken Office 365, je k dispozici možnost ke skrytí tuto dlaždici aplikace. Skrytím uživatelům aplikací stále mít oprávnění k aplikaci, ale nezobrazí je zobrazit na jejich Spouštěč aplikace oken. Musí mít příslušná oprávnění ke správě firemní aplikace a musí být globální správce adresáře.
 
-## <a name="hiding-a-users-access-panel"></a>Skrytí panel přístupu uživatele
-Použijte následující postup ke skrytí Spouštěč oken aplikace Office 365 a panel přístupu uživatele
+## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Skrytí aplikace třetích stran ze zkušeností uživatele
+Použijte následující postup ke skrytí aplikace třetích stran z přístupového panelu a Spouštěč oken aplikace Office 365 uživatele
 
-### <a name="how-do-i-hide-an-app-from-users-access-panel-and-o365-app-launchers"></a>Jak skrýt aplikace z panel přístupu uživatele a Spouštěč oken aplikace O365?
+### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Jak skrýt aplikace třetích stran z přístupového panelu a Spouštěč oken aplikace O365 uživatele?
 
 1.  Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
 2.  Vyberte **další služby**, zadejte **Azure Active Directory** v textovém poli a potom vyberte **Enter**.

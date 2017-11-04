@@ -1,6 +1,6 @@
 ---
-title: Add the default VM image to the Azure Stack marketplace | Microsoft Docs
-description: Add the Windows Server 2016 VM default image to the Azure Stack marketplace.
+title: "Přidat výchozí image virtuálních počítačů do Azure Marketplace zásobníku | Microsoft Docs"
+description: "Přidejte výchozí image virtuálního počítače Windows serveru 2016 do Azure Marketplace zásobníku."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,143 +14,141 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 62f467f1dae5a2cb04e5230ed43b77ec3ec8c1a1
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: e5e7ab55800eccea98cbd71ae32bdc611ee3e961
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Add the Windows Server 2016 VM image to the Azure Stack marketplace
+# <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Přidat bitovou kopii virtuálního počítače Windows serveru 2016 do Azure Marketplace zásobníku
 
-By default, there aren’t any virtual machine images available in the Azure Stack marketplace. The Azure Stack operator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
+Ve výchozím nastavení se žádné Image virtuálního počítače jsou k dispozici v Azure Marketplace zásobníku. Operátor zásobník Azure musíte přidat bitovou kopii na Marketplace s cílem pro přístup k uživatelům. Můžete přidat bitovou kopii systému Windows Server 2016 pro Azure Marketplace zásobníku pomocí jedné z následujících metod:
 
-* [Add the image by downloading it from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace) - Use this option if you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure.
+* [Stáhnout bitovou kopii z Azure Marketplace](#add-the-image-by-downloading-it-from-the-azure-marketplace). Tuto možnost použijte, pokud pracujete v připojených scénář a zaregistrovali vaší instanci Azure zásobník Azure.
 
-* [Add the image by using PowerShell](#add-the-image-by-using-powershell) - Use this option if you have deployed Azure Stack in a disconnected scenario or in scenarios with limited connectivity.
+* [Přidejte bitovou kopii pomocí prostředí PowerShell](#add-the-image-by-using-powershell). Tuto možnost použijte, pokud jste nasadili zásobník Azure ve scénáři odpojené, nebo ve scénářích s omezené připojení.
 
-## <a name="add-the-image-by-downloading-it-from-the-azure-marketplace"></a>Add the image by downloading it from the Azure Marketplace
+## <a name="add-the-image-by-downloading-it-from-the-azure-marketplace"></a>Přidání bitové kopie stažením z Azure Marketplace
 
-1. After deploying Azure Stack, sign in to your Azure Stack Development Kit.
+1. Nasaďte zásobník Azure a pak se přihlaste k vaší Azure zásobníku Development Kit.
 
-2. click **More services** > **Marketplace Management** > **Add from Azure** 
+2. Vyberte **další služby** > **Marketplace správu** > **přidat z Azure**. 
 
-3. Find or search for the **Windows Server 2016 Datacenter – Eval** image > click **Download**
+3. Hledání nebo nalezení **Windows Server 2016 Datacenter – Eval** bitovou kopii a potom vyberte **Stáhnout**.
 
-   ![Download image from Azure](media/azure-stack-add-default-image/download-image.png)
+   ![Stáhnout bitovou kopii z Azure](media/azure-stack-add-default-image/download-image.png)
 
-After the download completes, the image is added to the **Marketplace Management** blade and it is also made available from the **Virtual Machines** blade.
+Po dokončení stahování bitová kopie je k dispozici v části **Marketplace správu**. Obrázek je také k dispozici v části **virtuální počítače**.
 
-## <a name="add-the-image-by-using-powershell"></a>Add the image by using PowerShell
+## <a name="add-the-image-by-using-powershell"></a>Přidejte bitovou kopii pomocí prostředí PowerShell
 
-### <a name="prerequisites"></a>Prerequisites 
+### <a name="prerequisites"></a>Požadavky 
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+Spusťte následující předpoklady, buď z [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) nebo externí klienta se systémem Windows, pokud jste [připojení prostřednictvím VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
+1. Nainstalujte [modulů prostředí Azure PowerShell kompatibilní s Azure zásobníku](azure-stack-powershell-install.md).  
 
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+2. Stažení [nástroje potřebné pro práci s Azure zásobníku](azure-stack-powershell-download.md).  
 
-* Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.  
+3. Na stránce hodnocení serveru Windows [stažení zkušební verze systému Windows Server 2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Po zobrazení výzvy vyberte verzi ISO stahování. Poznamenejte si cestu k umístění stahování, který je používán později kroků popsaných v tomto článku. Tento krok vyžaduje připojení k Internetu.  
 
-Now run the following steps to add the image to the Azure Stack marketplace:
+### <a name="add-the-image-to-the-azure-stack-marketplace"></a>Přidání bitové kopie do Azure Marketplace zásobníku
    
-1. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
+1. Naimportujte moduly Azure připojit zásobníku a ComputeAdmin pomocí následujících příkazů:
 
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
-   # import the Connect and ComputeAdmin modules   
+   # Import the Connect and ComputeAdmin modules.   
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
 
    ```
 
-2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration):  
+2. Přihlaste se do prostředí Azure zásobníku. Spusťte jeden z následujících skriptů, v závislosti na tom, jestli jste nasadili prostředí zásobníku Azure pomocí Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS). (Nahraďte Azure AD `tenantName`, `GraphAudience` koncovému bodu, a `ArmEndpoint` hodnoty tak, aby odrážela konfiguraci prostředí.)  
 
-   a. **Azure Active Directory**, use the following cmdlet:
+   * **Azure Active Directory**. Použijte následující rutinu:
 
-   ```PowerShell
-   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+    ```PowerShell
+    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-   # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-   $GraphAudience = "<GraphAuidence endpoint for your environment>"
-   
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint $ArmEndpoint
-
-   Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience $GraphAudience
-
-   $TenantID = Get-AzsDirectoryTenantId `
-     -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-     -EnvironmentName AzureStackAdmin
-
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
-
-   b. **Active Directory Federation Services**, use the following cmdlet:
+    # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+    $GraphAudience = "<GraphAuidence endpoint for your environment>"
     
-   ```PowerShell
-   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
 
-   # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience
 
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint $ArmEndpoint
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
-   Set-AzureRmEnvironment `
-     -Name "AzureStackAdmin" `
-     -GraphAudience $GraphAudience `
-     -EnableAdfsAuthentication:$true
+    Login-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID 
+    ```
+
+   * **Služba Active Directory Federation Services**. Použijte následující rutinu:
+    
+    ```PowerShell
+    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+    # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+    $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
+
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience `
+      -EnableAdfsAuthentication:$true
 
    $TenantID = Get-AzsDirectoryTenantId `
-     -ADFS 
-     -EnvironmentName AzureStackAdmin 
+     -ADFS `
+     -EnvironmentName "AzureStackAdmin" 
 
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
+    Login-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID 
+    ```
    
-3. Add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):
+3. Přidejte bitovou kopii systému Windows Server 2016 do Azure Marketplace zásobníku. (Nahraďte *fully_qualified_path_to_ISO* cestou k Windows serveru 2016 ISO, který jste si stáhli.)
 
-   ```PowerShell
-   $ISOPath = "<Fully_Qualified_Path_to_ISO>"
+    ```PowerShell
+    $ISOPath = "<fully_qualified_path_to_ISO>"
 
-   # Add a Windows Server 2016 Evaluation VM Image.
-   New-AzsServer2016VMImage `
-     -ISOPath $ISOPath
+    # Add a Windows Server 2016 Evaluation VM image.
+    New-AzsServer2016VMImage `
+      -ISOPath $ISOPath
 
-   ```
+    ```
 
-To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the `New-AzsServer2016VMImage` cmdlet. See the [Parameters](#parameters) section for information about allowed parameters for the `New-AzsServer2016VMImage` cmdlet. It takes about an hour to publish the image to the Azure Stack marketplace. 
+Zajistěte, aby bitovou kopii virtuálního počítače Windows serveru 2016 nejnovější kumulativní aktualizace, zahrňte `IncludeLatestCU` parametr při spuštění `New-AzsServer2016VMImage` rutiny. Informace o povolených parametry `New-AzsServer2016VMImage` rutiny, najdete v části [parametry](#parameters). Jak dlouho trvá přibližně jednu hodinu publikovat bitovou kopii do Azure Marketplace zásobníku. 
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>Parametry
 
-|New-AzsServer2016VMImage parameters|Required?|Description|
+|Nové AzsServer2016VMImage parametry|Povinné?|Popis|
 |-----|-----|------|
-|ISOPath|Yes|The fully qualified path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL and MYSQL resource providers. |
-|Version|No|This parameter allows you to choose whether to add a **Core** or **Full** or **Both** Windows Server 2016 images. By default, this value is set to "Full."|
-|VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. By default, this value is set to 40960 MB.|
-|CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
-|location |No |Specifies the location to which the Windows Server 2016 image should be published.|
-|IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
-|CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
-|CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed the Azure Stack instance in a disconnected environment.|
+|ISOPath|Ano|Úplná cesta k stažené ISO systému Windows Server 2016.|
+|Net35|Ne|Modul runtime rozhraní .NET 3.5 nainstaluje bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
+|Verze|Ne|Určuje **základní**, **úplné**, nebo **i** bitové kopie systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **úplné**.|
+|VHDSizeInMB|Ne|Nastaví velikost image virtuálního pevného disku, které mají být přidány do prostředí Azure zásobníku (v MB). Ve výchozím nastavení je tato hodnota nastavena na 40 960 MB.|
+|CreateGalleryItem|Ne|Určuje, jestli musíte vytvořit položku Marketplace pro bitovou kopii systému Windows Server 2016. Ve výchozím nastavení je tato hodnota nastavena **true**.|
+|location |Ne |Určuje umístění, ke které je nutné ji publikovat bitovou kopii systému Windows Server 2016.|
+|IncludeLatestCU|Ne|Nejnovější kumulativní aktualizaci Windows Server 2016 se vztahuje na nový virtuální pevný disk.|
+|CUUri |Ne |Sady Windows Server 2016 kumulativní aktualizace pro spouštění z konkrétní identifikátoru URI. |
+|CUPath |Ne |Sady Windows Server 2016 kumulativní aktualizace pro spouštění z místní cestu. Tato možnost je užitečná, pokud jste nasadili instanci Azure zásobníku v odpojeném prostředí.|
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-[Provision a virtual machine](azure-stack-provision-vm.md)
-
+[Zřízení virtuálního počítače](azure-stack-provision-vm.md)

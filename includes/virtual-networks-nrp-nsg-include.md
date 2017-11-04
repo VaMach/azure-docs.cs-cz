@@ -1,30 +1,30 @@
-## <a name="network-security-group"></a>Network Security Group
-An NSG resource enables the creation of security boundary for workloads, by implementing allow and deny rules. Such rules can be applied to a VM, a NIC, or a subnet.
+## <a name="network-security-group"></a>Skupina zabezpečení sítě
+Prostředek NSG umožňuje vytvoření hranice zabezpečení pro úlohy, implementací povolit a zakázat pravidla. Tato pravidla lze použít pro virtuální počítač, síťový adaptér nebo podsíť.
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **subnets** |List of subnet ids the NSG is applied to. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
-| **securityRules** |List of security rules that make up the NSG |See [Security rule](#Security-rule) below |
-| **defaultSecurityRules** |List of default security rules present in every NSG |See [Default security rules](#Default-security-rules) below |
+| **podsítě** |Seznam ID podsítě, NSG se použije na. |/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
+| **securityRules** |Seznam pravidel zabezpečení, které tvoří NSG |V tématu [pravidlo zabezpečení](#Security-rule) níže |
+| **defaultSecurityRules** |Seznam výchozích pravidel zabezpečení, které jsou v každé skupiny NSG |V tématu [výchozí pravidla zabezpečení](#Default-security-rules) níže |
 
-* **Security rule** - An NSG can have multiple security rules defined. Each rule can allow or deny different types of traffic.
+* **Pravidlo zabezpečení** -NSG můžete mít je definováno více pravidel zabezpečení. Každé pravidlo můžete povolit nebo odepřít různé typy provozu.
 
-### <a name="security-rule"></a>Security rule
-A security rule is a child resource of an NSG containing the properties below.
+### <a name="security-rule"></a>Pravidlo zabezpečení
+Pravidlo zabezpečení je prostředkem podřízenou skupinu NSG obsahující vlastnosti níže.
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **description** |Description for the rule |Allow inbound traffic for all VMs in subnet X |
-| **protocol** |Protocol to match for the rule |TCP, UDP, or * |
-| **sourcePortRange** |Source port range to match for the rule |80, 100-200, * |
-| **destinationPortRange** |Destination port range to match for the rule |80, 100-200, * |
-| **sourceAddressPrefix** |Source address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **destinationAddressPrefix** |Destination address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **direction** |Direction of traffic to match for the rule |inbound or outbound |
-| **priority** |Priority for the rule. Rules are checked int he order of priority, once a rule applies, no more rules are tested for matching. |10, 100, 65000 |
-| **access** |Type of access to apply if the rule matches |allow or deny |
+| **Popis** |Popis pravidla |Povolí příchozí komunikaci pro všechny virtuální počítače v podsíti X |
+| **protokol** |Protokol, který je nutné u pravidla splnit |TCP, UDP nebo * |
+| **sourcePortRange** |Rozsah zdrojových portů, který je nutné u pravidla splnit |80, 100-200, * |
+| **destinationPortRange** |Rozsah cílových portů, který je nutné u pravidla splnit |80, 100-200, * |
+| **sourceAddressPrefix** |Předpona zdrojové adresy tak, aby odpovídaly pro pravidlo |10.10.10.1 10.10.10.0/24, virtuální síť |
+| **destinationAddressPrefix** |Předpona cílové adresy tak, aby odpovídaly pro pravidlo |10.10.10.1 10.10.10.0/24, virtuální síť |
+| **směr** |Směr provozu, který je nutné u pravidla splnit |Příchozí nebo odchozí |
+| **Priorita** |Priorita pravidla. Pravidla se kontrolují v pořadí podle priority, jakmile se pravidlo vztahuje, žádná další pravidla se již nekontrolují. |10, 100, 65000 |
+| **přístup** |Typ přístupu, který se použije v případě splnění pravidla |Povolit nebo odepřít |
 
-Sample NSG in JSON format:
+Ukázka NSG ve formátu JSON:
 
     {
         "name": "NSG-BackEnd",
@@ -67,11 +67,11 @@ Sample NSG in JSON format:
         }
     }
 
-### <a name="default-security-rules"></a>Default security rules
+### <a name="default-security-rules"></a>Výchozí pravidla zabezpečení
 
-Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#default-rules) exist.
+Výchozí zabezpečení pravidla mají stejné vlastnosti, které jsou k dispozici v pravidla zabezpečení. Existují poskytují základní připojení mezi prostředky, které mají skupiny Nsg na ně použity. Ujistěte se, které znáte [výchozí pravidla zabezpečení](../articles/virtual-network/virtual-networks-nsg.md#default-rules) neexistuje.
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163615.aspx) for NSGs.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163580.aspx) for security rules.
+### <a name="additional-resources"></a>Další zdroje
+* Přečtěte si další informace o [skupiny Nsg](../articles/virtual-network/virtual-networks-nsg.md).
+* Pro čtení [referenční dokumentace rozhraní API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) pro skupiny Nsg.
+* Pro čtení [referenční dokumentace rozhraní API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) pro pravidla zabezpečení.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: e779aab97a1b96d4a0e327865e957ecd0d97a278
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Další informace o automatické zálohování databáze SQL
 
@@ -43,7 +43,7 @@ Můžete použít tyto zálohy na:
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Kolik úložiště zálohy je zahrnuté zdarma?
-Databáze SQL poskytuje až 200 % maximální zřízené databáze úložiště jako úložiště pro zálohu bez dalších poplatků. Například pokud máte standardní DB instance s zřízené DB velikosti 250 GB, máte 500 GB úložiště zálohování bez dalších poplatků. Pokud vaše databáze překročí zadané úložiště záloh, můžete zkrátit dobu uchování, že se obrátíte na podporu Azure. Další možností je platit za velmi zálohování úložiště, které se fakturuje standardní sazbou přístup pro čtení geograficky redundantní úložiště (RA-GRS). 
+Databáze SQL poskytuje až 200 % maximální zřízené databáze úložiště jako úložiště pro zálohu bez dalších poplatků. Například pokud máte standardní DB instance s zřízené DB velikosti 250 GB, máte 500 GB úložiště zálohování bez dalších poplatků. 
 
 ## <a name="how-often-do-backups-happen"></a>Jak často zálohám?
 Úplná databáze zálohám týdně, rozdílové databáze obvykle zálohám každých několik hodin a transakčního protokolu, které se obecně zálohám každých 5 až 10 minut. První úplné zálohování je naplánováno ihned po vytvoření databáze. Obvykle dokončení do 30 minut, ale může trvat déle, pokud je databáze značné velikosti. Například prvotní zálohování může trvat déle na obnovené databáze nebo kopii databáze. Po první úplné zálohování jsou všechny další zálohy naplánované automaticky a bezobslužně spravovat na pozadí. Služba SQL Database je určena přesné načasování všechny zálohy databáze při vyvažování celkové zatížení systému. 

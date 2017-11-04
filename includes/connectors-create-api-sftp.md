@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Požadavky
+* [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) účtu  
 
-Before you can use your SFTP account in a logic app, you must authorize the logic app to connect to your SFTP account. Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Než v aplikaci logiky můžete použít váš účet pomocí protokolu SFTP, musíte je nejdříve autorizovat aplikaci logiky pro připojení k účtu pomocí protokolu SFTP. Naštěstí můžete k tomu snadno z v rámci aplikace logiky na portálu Azure.  
 
-Here are the steps to authorize your logic app to connect to your SFTP account:  
+Tady jsou kroky k autorizaci aplikace logiky pro připojení k účtu pomocí protokolu SFTP:  
 
-1. To create a connection to SFTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SFTP* in the search box. Select the **SFTP - When a file is added or modified** trigger:  
-   ![SFTP online connection image 1](./media/connectors-create-api-sftp/sftp-1.png)  
-2. If you haven't created any connections to SFTP before, you'll get prompted to provide your SFTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SFTP account's data:  
-   ![SFTP online connection image 2](./media/connectors-create-api-sftp/sftp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:   
-   ![SFTP online connection image 3](./media/connectors-create-api-sftp/sftp-3.png) 
+1. Chcete-li vytvořit připojení k protokolu SFTP, v návrháři aplikace logiky, vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu zadejte *SFTP* do vyhledávacího pole. Vyberte **SFTP – Pokud je soubor přidat ani upravit** aktivační události:  
+   ![Obrázek online připojení pomocí protokolu SFTP 1](./media/connectors-create-api-sftp/sftp-1.png)  
+2. Pokud jste nevytvořili žádné připojení k protokolu SFTP před, budete získat zobrazí výzva k zadání přihlašovacích údajů vaší SFTP. Tyto přihlašovací údaje se použije k autorizaci aplikace logiky pro připojení k a přístup k datům pomocí protokolu SFTP účtu:  
+   ![Obrázek online připojení pomocí protokolu SFTP 2](./media/connectors-create-api-sftp/sftp-2.png)  
+3. Všimněte si vytvořil připojení a je nyní můžete pokračovat v dalších krocích v aplikaci logiky:   
+   ![Obrázek online připojení pomocí protokolu SFTP 3](./media/connectors-create-api-sftp/sftp-3.png) 
 

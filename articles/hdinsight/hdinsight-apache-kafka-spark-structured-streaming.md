@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Použít Spark strukturovaných streamování s Kafka (preview) v HDInsight
 
@@ -158,4 +158,4 @@ Na domovské stránce poznámkového bloku Jupyter, vyberte __Spark-strukturovan
 Teď, když jste se naučili použití Spark strukturovaných streamování, najdete v následujících dokumentech Další informace o práci s Spark a Kafka:
 
 * [Jak používat Spark streamování (DStream) s Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Začněte s Poznámkový blok Jupyter a Spark v HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [Začněte s Poznámkový blok Jupyter a Spark v HDInsight](spark/apache-spark-jupyter-spark-sql.md)

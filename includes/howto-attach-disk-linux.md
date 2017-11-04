@@ -1,23 +1,23 @@
 
-For more information about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Další informace o discích najdete v tématu věnovaném [diskům a virtuálním pevným diskům pro virtuální počítače](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
-## <a name="attach-an-empty-disk"></a>Attach an empty disk
-1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
-2. Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following example. Replace *myVM* with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is *100GB* in this example:
+## <a name="attach-an-empty-disk"></a>Připojení prázdného disku
+1. Otevřete Azure CLI 1.0 a [připojte se k předplatnému Azure](../articles/xplat-cli-connect.md). Zkontrolujte, že jste v režimu Azure Service Management (`azure config mode asm`).
+2. Zadáním příkazu `azure vm disk attach-new` vytvořte a připojte nový disk, jak ukazuje následující příklad. Místo *myVM* použijte názve vašeho linuxového virtuálního počítače a zadejte velikost v GB (v tomto příkladu je to *100 GB*):
 
     ```azurecli
     azure vm disk attach-new myVM 100
     ```
 
-3. After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following example:
+3. Jakmile se datový disk vytvoří a připojí, zobrazí se ve výstupu příkazu `azure vm disk list <virtual-machine-name>`, jak ukazuje následující příklad:
    
     ```azurecli
     azure vm disk list TestVM
     ```
 
-    The output is similar to the following example:
+    Výstup se podobá následujícímu příkladu:
 
     ```bash
     info:    Executing command vm disk list
@@ -34,17 +34,17 @@ For more information about disks, see [About Disks and VHDs for Virtual Machines
 
 <a id="attachexisting"></a>
 
-## <a name="attach-an-existing-disk"></a>Attach an existing disk
-Attaching an existing disk requires that you have a .vhd available in a storage account.
+## <a name="attach-an-existing-disk"></a>Připojení stávajícího disku
+Připojení stávajícího disku vyžaduje, aby v účtu úložiště byl dostupný soubor .vhd.
 
-1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
-2. Check if the VHD you want to attach is already uploaded to your Azure subscription:
+1. Otevřete Azure CLI 1.0 a [připojte se k předplatnému Azure](../articles/xplat-cli-connect.md). Zkontrolujte, že jste v režimu Azure Service Management (`azure config mode asm`).
+2. Zkontrolujte, jestli virtuální pevný disk, který chcete připojit, už je nahraný v předplatném Azure:
    
     ```azurecli
     azure vm disk list
     ```
 
-    The output is similar to the following example:
+    Výstup se podobá následujícímu příkladu:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -58,13 +58,13 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
      info:    vm disk list command OK
     ```
 
-3. If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following example:
+3. Pokud se nepodařilo najít disk, který chcete použít, můžete k nahrání místního virtuálního pevného disku do předplatného použít `azure vm disk create` nebo `azure vm disk upload`. Použití příkazu `disk create` se bude podobat následujícímu příkladu:
    
     ```azurecli
     azure vm disk create myVhd .\TempDisk\test.VHD -l "East US" -o Linux
     ```
 
-    The output is similar to the following example:
+    Výstup se podobá následujícímu příkladu:
 
     ```azurecli
     info:    Executing command vm disk create
@@ -78,23 +78,23 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     info:    vm disk create command OK
     ```
    
-   You may also use `azure vm disk upload` to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+   Můžete také použít `azure vm disk upload` a virtuální pevný disk nahrát do konkrétního účtu úložiště. Víc si o příkazech pro správu datových disků virtuálních počítačů Azure můžete přečíst [tady](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-4. Now you attach the desired VHD to your virtual machine:
+4. Teď připojíte požadovaný virtuální pevný disk k virtuálnímu počítači:
    
     ```azurecli
     azure vm disk attach myVM myVhd
     ```
    
-   Make sure to replace *myVM* with the name of your virtual machine, and *myVHD* with your desired VHD.
+   Nezapomeňte nahradit *myVM* názvem virtuálního počítače a *myVHD* požadovaným virtuálním pevným diskem.
 
-5. You can verify the disk is attached to the virtual machine with `azure vm disk list <virtual-machine-name>`:
+5. K ověření toho, že disk je připojený k virtuálnímu počítači, můžete použít příkaz `azure vm disk list <virtual-machine-name>`:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    The output is similar to the following example:
+    Výstup se podobá následujícímu příkladu:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -111,7 +111,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     ```
 
 > [!NOTE]
-> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the following steps for more information on how to do initialize the disk).
+> Po přidání datového disku se musíte přihlásit k virtuálnímu počítači a disk inicializovat, aby ho virtuální počítač mohl využívat jako úložiště (další informace o postupu při inicializaci disku najdete v následujících krocích).
 > 
 > 
 

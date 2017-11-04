@@ -1,6 +1,6 @@
 ---
-title: Deploy a virtual machine with a securely stored certificate on Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
+title: "Nasazení virtuálního počítače s certifikátem bezpečně uložené v zásobníku Azure | Microsoft Docs"
+description: "Postup nasazení virtuálního počítače a vložit do jeho certifikát pomocí trezoru klíčů v Azure zásobníku"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,36 +14,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Create a virtual machine and include certificate retrieved from a key vault
+# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Vytvoření virtuálního počítače a obsahují certifikát načíst z trezoru klíčů
 
-This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
+Tento článek vám pomůže vytvořit virtuální počítač v Azure zásobníku a nabízených certifikáty na něj. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Požadavky
 
-* You must must subscribe to an offer that includes the Key Vault service. 
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+* Musí se musíte přihlásit k nabídku obsahující službu Key Vault. 
+* [Instalace prostředí PowerShell pro Azure zásobníku.](azure-stack-powershell-install.md)  
+* [Konfigurace prostředí PowerShell Azure zásobník uživatele](azure-stack-powershell-configure-user.md)
 
-A key vault in Azure Stack is used to store certificates. Certificates are helpful in many different scenarios. For example, consider a scenario where you have a virtual machine in Azure Stack that is running an application that needs a certificate. This certificate can be used for encrypting, for authenticating to Active Directory, or for SSL on a website. Having the certificate in a key vault helps make sure that it's secure.
+Trezor klíčů v zásobníku Azure se používá k ukládání certifikátů. Certifikáty jsou užitečné v mnoha různých případech. Představte si třeba situaci, kdy máte virtuální počítač v zásobníku Azure, které běží aplikace, která potřebuje certifikát. Tento certifikát slouží k šifrování pro ověřování služby Active Directory nebo pro protokol SSL na webu. Certifikát v trezoru klíčů pomáhá, ujistěte se, že je to zabezpečené.
 
-In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+V tomto článku jsme vás provede kroky potřebné k nabízení certifikát do virtuálního počítače s Windows v Azure zásobníku. Pokud jste připojení prostřednictvím sítě VPN můžete použít tyto kroky z Development Kit zásobník Azure nebo z externí klienta se systémem Windows.
 
-The following steps describe the process required to push a certificate onto the virtual machine:
+Následující kroky popisují proces nutný k nabízení certifikát do virtuálního počítače:
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template
+1. Vytvořte tajný klíč trezoru.
+2. Aktualizujte soubor azuredeploy.parameters.json.
+3. Nasazení šablony
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>Vytvoření tajný klíč trezoru
 
-The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+Tento skript vytvoří certifikát ve formátu .pfx, vytvoří trezoru klíčů a certifikát uloží v trezoru klíčů jako tajný klíč. Je nutné použít `-EnabledForDeployment` parametr při vytváření trezoru klíčů. Tento parametr je zajištěno, že trezor klíčů můžete na něj odkazovat z šablon Azure Resource Manageru.
 
 ```powershell
 
@@ -106,13 +105,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Push certificate to Windows Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download the [vm-push-certificate-windows template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+Když spustíte předchozí skript, zahrnuje tajný identifikátor URI. Poznamenejte si tento identifikátor URI. Máte na něj v odkazovat [nabízený certifikát do šablony správce prostředků Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stažení [šablona virtuálního počítače nabízené certifikát windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) složka na vývojovém počítači. Tato složka obsahuje `azuredeploy.json` a `azuredeploy.parameters.json` soubory, které budete potřebovat v dalších krocích.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+Změnit `azuredeploy.parameters.json` soubor na základě hodnoty prostředí. Parametry zajímají jsou název trezoru, skupině prostředků úložiště a tajný klíč identifikátor URI (generovaná předchozí skript). Následující soubor je příklad souboru parametrů:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizovat soubor azuredeploy.parameters.json
 
-Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmName, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
+Aktualizujte soubor azuredeploy.parameters.json vaultName, tajný URI, VmName a jiné hodnoty, podle vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony: 
 
 ```json
 {
@@ -147,9 +146,9 @@ Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmNa
 }
 ```
 
-## <a name="deploy-the-template"></a>Deploy the template
+## <a name="deploy-the-template"></a>Nasazení šablony
 
-Now deploy the template by using the following PowerShell script:
+Nyní nasazení šablony pomocí následujícího skriptu prostředí PowerShell:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -160,24 +159,23 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-When the template is deployed successfully, it results in the following output:
+Při nasazení šablony úspěšně výsledkem následující výstup:
 
-![Deployment output](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Výstup nasazení](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-When this virtual machine is deployed, Azure Stack pushes the certificate onto the virtual machine. In Windows, the certificate is added to the LocalMachine certificate location, with the certificate store that the user provided. In Linux, the certificate is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for the private key.
+Při nasazení tohoto virtuálního počítače Azure zásobníku nabízených oznámení do virtuálního počítače certifikát. V systému Windows je certifikát přidat do umístění certifikátu LocalMachine s úložiště certifikátů, které uživatele. V systému Linux, certifikát je umístěn v adresáři /var/lib/waagent s názvem souboru &lt;UppercaseThumbprint&gt;.crt pro X509 soubor certifikátu a &lt;UppercaseThumbprint&gt;.prv pro privátní klíč .
 
-## <a name="retire-certificates"></a>Retire certificates
+## <a name="retire-certificates"></a>Vyřadit certifikáty
 
-In the preceding section, we showed you how to push a new certificate onto a virtual machine. Your old certificate is still on the virtual machine, and it can't be removed. However, you can disable the older version of the secret by using the `Set-AzureKeyVaultSecretAttribute` cmdlet. The following is an example usage of this cmdlet. Make sure to replace the vault name, secret name, and version values according to your environment:
+V předchozí části jsme ukázal, jak push nový certifikát na virtuální počítač. Starý certifikát je stále ve virtuálním počítači a nelze ji odebrat. Starší verzi tajného klíče však můžete zakázat pomocí `Set-AzureKeyVaultSecretAttribute` rutiny. Toto je příklady použití této rutiny. Nezapomeňte nahradit název trezoru, tajný název a hodnoty verze podle vašeho prostředí:
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-* [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-* [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
-
+* [Nasazení virtuálního počítače s heslem Key Vaultu](azure-stack-kv-deploy-vm-with-secret.md)
+* [Povolit aplikaci přístup k Key Vault](azure-stack-kv-sample-app.md)
 
 

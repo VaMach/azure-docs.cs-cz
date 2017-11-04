@@ -9,17 +9,16 @@ editor:
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 08/23/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 71e3d130f22515d22dc7f486f3dede936b874049
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: d9870fafab3df3ab0ec72305e76a4d3547cc5b2c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Sestavování a nasazování linuxových aplikací v Javě pomocí Jenkinse
 Jenkins je oblíbený nástroj pro průběžnou integraci a nasazování aplikací. Tady je postup, kterým můžete sestavit a nasadit aplikaci Azure Service Fabric s využitím Jenkinse.
@@ -30,7 +29,7 @@ Jenkins je oblíbený nástroj pro průběžnou integraci a nasazování aplikac
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Nastavení Jenkinse uvnitř clusteru Service Fabric
 
-Jenkinse můžete nastavit uvnitř clusteru Service Fabric nebo mimo něj. Následující části vysvětlují, jak ho nastavit v clusteru.
+Jenkinse můžete nastavit uvnitř clusteru Service Fabric nebo mimo něj. Následující části vysvětlují, jak nastavit je uvnitř clusteru při použití účtu úložiště Azure pro uložení stavu instance kontejneru.
 
 ### <a name="prerequisites"></a>Požadavky
 1. Máte připravený cluster Service Fabric s Linuxem. Na clusteru Service Fabric vytvořeném z webu Azure Portal je už nainstalovaný Docker. Pokud cluster spouštíte místně, můžete ke kontrole, jestli je Docker nainstalovaný, použít příkaz ``docker info``. Pokud není nainstalovaný, nainstalujte ho pomocí následujících příkazů:
@@ -38,40 +37,65 @@ Jenkinse můžete nastavit uvnitř clusteru Service Fabric nebo mimo něj. Násl
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. Máte nasazenou aplikaci Service Fabric typu kontejner v clusteru pomocí následujícího postupu:
+  ``` 
+
+   > [!NOTE]
+   > Zajistěte, aby byl 8081 port jako vlastní koncový bod v clusteru.
+   >
+2. Klonování aplikace, pomocí následujících kroků:
 
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```
+
+3. Zachování stavu kontejneru volaných ve sdílené složce:
+  * Vytvoření účtu úložiště Azure v **stejné oblasti** jako cluster s názvem, jako ``sfjenkinsstorage1``.
+  * Vytvoření **sdílené složky** v části úložiště účet s názvem, jako ``sfjenkins``.
+  * Klikněte na **připojit** pro sdílené složky a Poznámka hodnoty zobrazuje v části **připojení z Linux**, hodnota by měla vypadat podobná té následující:
+```sh
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+```
+
+> [!NOTE]
+> Pro sdílené složky cifs připojení musíte mít cifs utils balíček nainstalován v uzlu clusteru.         
+>
+
+4. Aktualizujte zástupný symbol hodnoty v ```setupentrypoint.sh``` skriptu s podrobnostmi úložiště azure od kroku 3.
+```sh
+vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
+```
+  * Nahraďte ``[REMOTE_FILE_SHARE_LOCATION]`` s hodnotou ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` z výstupu connect v kroku 3 výše.
+  * Nahraďte ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` s hodnotou ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` z kroku 3 výše.
+
+5. Připojte se ke clusteru a nainstalujte aplikaci kontejneru.
+```sh
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 Tím se do clusteru nainstaluje kontejner s Jenkinsem, který můžete monitorovat pomocí Service Fabric Exploreru.
 
-### <a name="steps"></a>Kroky
-1. V prohlížeči přejděte na ``http://PublicIPorFQDN:8081``. Najdete tam cestu k počátečnímu heslu správce vyžadovanému k přihlášení. Můžete Jenkinse dál používat jako uživatel s oprávněními správce. Nebo můžete po přihlášení pomocí počátečního účtu správce vytvořit a změnit uživatele.
-
    > [!NOTE]
-   > Zajistěte, aby během vytváření clusteru byl jako koncový bod aplikace zadaný port 8081.
+   > Může trvat několik minut pro bitovou kopii volaných ke stažení v clusteru.
    >
 
-2. Získejte ID instance kontejneru pomocí příkazu ``docker ps -a``.
-3. Přihlaste se přes SSH (Secure Shell) ke kontejneru a vložte cestu, která se zobrazila na portálu Jenkinse. Pokud se na portálu zobrazila například cesta `PATH_TO_INITIAL_ADMIN_PASSWORD`, spusťte:
+### <a name="steps"></a>Kroky
+1. V prohlížeči přejděte na ``http://PublicIPorFQDN:8081``. Najdete tam cestu k počátečnímu heslu správce vyžadovanému k přihlášení. 
+2. Podívejte se na Service Fabric Explorer k určení, na který uzel kontejneru volaných běží. Secure Shell (SSH) přihlášení pro tento uzel.
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. Získejte ID instance kontejneru pomocí příkazu ``docker ps -a``.
+4. Přihlaste se přes SSH (Secure Shell) ke kontejneru a vložte cestu, která se zobrazila na portálu Jenkinse. Pokud se na portálu zobrazila například cesta `PATH_TO_INITIAL_ADMIN_PASSWORD`, spusťte:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. Nastavte GitHub pro práci s Jenkinsem, a to pomocí kroků uvedených v tématu věnovaném [vygenerování nového klíče SSH a jeho přidání k agentovi SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-    * Pomocí pokynů z GitHubu vygenerujte klíč SSH a přidejte ho do účtu GitHubu, který je hostitelem vašeho úložiště.
-    * Příkazy popsané u předchozího odkazu spusťte v prostředí Jenkins Dockeru (ne na hostiteli).
-    * Pokud se chcete k prostředí Jenkinse přihlásit z hostitele, použijte následující příkaz:
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. Na stránce volaných získávání spuštění vyberte vyberte modulů plug-in pro instalaci možnost vyberte **žádné** zaškrtávací políčko a klikněte na tlačítko nainstalovat.
+6. Vytvořte uživatele nebo vyberte, chcete-li pokračovat, protože správce.
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Nastavení Jenkinse mimo cluster Service Fabric
 
@@ -102,7 +126,7 @@ Když teď v terminálu spustíte příkaz ``docker info``, na výstupu by se m�
   5. Nastavte GitHub pro práci s Jenkinsem, a to pomocí kroků uvedených v tématu věnovaném [vygenerování nového klíče SSH a jeho přidání k agentovi SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
         * Pomocí pokynů z GitHubu vygenerujte klíč SSH a přidejte ho do účtu GitHubu, který je hostitelem úložiště.
         * Příkazy popsané u předchozího odkazu spusťte v prostředí Jenkins Dockeru (ne na hostiteli).
-        * Pokud se chcete k prostředí Jenkinse přihlásit z hostitele, použijte následující příkazy:
+      * Pokud se chcete k prostředí Jenkinse přihlásit z hostitele, použijte následující příkazy:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
@@ -114,7 +138,7 @@ Zkontrolujte, že cluster nebo počítač, ve kterém se hostuje image kontejner
 
 1. Přejděte na ``http://PublicIPorFQDN:8081``.
 2. Na řídicím panelu vyberte **Manage Jenkins** (Správa Jenkinse) > **Manage Plugins** (Správa modulů plug-in) > **Advanced** (Rozšířené).
-Tady můžete nahrát modul plug-in. Vyberte **Choose file** (Zvolit soubor) a potom vyberte soubor **serviceFabric.hpi**, který jste si stáhli v části Požadavky. Jakmile vyberete **Upload** (Nahrát), Jenkins modul plug-in automaticky nainstaluje. Pokud je vyžadováno restartování, povolte ho.
+Tady můžete nahrát modul plug-in. Vyberte **zvolte soubor**a pak vyberte **serviceFabric.hpi** souboru, který jste stáhli v části požadavky, nebo můžete stáhnout [zde](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Jakmile vyberete **Upload** (Nahrát), Jenkins modul plug-in automaticky nainstaluje. Pokud je vyžadováno restartování, povolte ho.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Vytvoření a konfigurace úlohy Jenkinse
 
@@ -122,7 +146,7 @@ Tady můžete nahrát modul plug-in. Vyberte **Choose file** (Zvolit soubor) a p
 2. Zadejte název položky (třeba **MyJob**). Vyberte **free-style project** (volný styl projektu) a klikněte na **OK**.
 3. Přejděte na stránku úlohy a klikněte na **Configure** (Konfigurovat).
 
-   a. V sekci obecných informací v části **GitHub project** (Projekt GitHub) zadejte adresu URL projektu. Tato adresa je hostitelem aplikace Service Fabric v Javě, kterou chcete integrovat s postupy průběžného nasazování a integrace (CI/CD) Jenkinse (např. ``https://github.com/sayantancs/SFJenkins``).
+   a. V části Obecné zaškrtněte políčko **Githubu projektu**, a zadejte svoji adresu URL projektu Githubu. Tato adresa je hostitelem aplikace Service Fabric v Javě, kterou chcete integrovat s postupy průběžného nasazování a integrace (CI/CD) Jenkinse (např. ``https://github.com/sayantancs/SFJenkins``).
 
    b. V části **Source Code Management** (Správa zdrojového kódu) vyberte **Git**. Zadejte adresu URL úložiště, které je hostitelem aplikace Service Fabric v Javě, kterou chcete integrovat s postupy CI/CD Jenkinse (např. ``https://github.com/sayantancs/SFJenkins.git``). V této části můžete také zadat, jaká větev se má sestavit (například **/master**).
 4. Nakonfigurujte *GitHub* (který je hostitelem úložiště) tak, aby mohl komunikovat s Jenkinsem. Použijte k tomu následující postup:
@@ -137,7 +161,7 @@ Tady můžete nahrát modul plug-in. Vyberte **Choose file** (Zvolit soubor) a p
 
    e. V části **Build Triggers** (Triggery sestavení) vyberte požadovanou možnost sestavení. V tomto příkladě použití chcete aktivovat sestavení při každém vložení metodou Push do úložiště. Proto vyberete **GitHub hook trigger for GITScm polling** (Trigger webhooku GitHubu pro cyklické dotazování GitHubu). (Dřív se tato možnost nazývala **Build when a change is pushed to GitHub** (Sestavit při vložení změny metodou Push do GitHubu).
 
-   f. V části **Build** (Sestavení) z rozevírací nabídky **Add build step** (Přidat krok sestavení) vyberte možnost **Invoke Gradle Script** (Vyvolání skriptu Gradle). Ve widgetu, který se zobrazí, zadejte do pole **Root build script** (Kořenový skript sestavení) cestu ke kořenovému skriptu sestavení pro vaši aplikaci. Sestavení si ze zadané cesty vezme soubor build.gradle a bude pracovat odpovídajícím způsobem. Pokud vytvoříte projekt ``MyActor`` (pomocí modulu plug-in Eclipse nebo generátoru Yeoman), pole pro kořenový skript sestavení by mělo obsahovat ``${WORKSPACE}/MyActor``. Příklad toho, jak by to mělo vypadat, najdete na následujícím snímku:
+   f. V části **Build** (Sestavení) z rozevírací nabídky **Add build step** (Přidat krok sestavení) vyberte možnost **Invoke Gradle Script** (Vyvolání skriptu Gradle). Ve widgetu, která se dodává otevření nabídky Rozšířené, zadejte cestu k **kořenové sestavení skriptu** pro vaši aplikaci. To převezme build.gradle ze zadané cesty a odpovídajícím způsobem funguje. Pokud vytvoříte projekt ``MyActor`` (pomocí modulu plug-in Eclipse nebo generátoru Yeoman), pole pro kořenový skript sestavení by mělo obsahovat ``${WORKSPACE}/MyActor``. Příklad toho, jak by to mělo vypadat, najdete na následujícím snímku:
 
     ![Akce sestavení v Jenkinsu pro Service Fabric][build-step]
 
@@ -155,4 +179,3 @@ GitHub a Jenkins jsou teď nakonfigurované. Můžete provést nějaké ukázkov
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

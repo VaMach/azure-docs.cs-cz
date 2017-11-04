@@ -1,14 +1,14 @@
-### <a name="azure-storage-linked-service"></a>Azure Storage Linked Service
-The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**, which provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
+### <a name="azure-storage-linked-service"></a>Propojená služba Azure Storage
+**Propojená služba Azure Storage** umožňuje propojení účtu úložiště Azure s objektem pro vytváření dat Azure pomocí **klíč účtu**, který poskytuje objekt pro vytváření dat s globálním přístupem do úložiště Azure. Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro propojenou službu úložiště Azure.
 
-| Property | Description | Required |
+| Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| type |The type property must be set to: **AzureStorage** |Yes |
-| connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
+| type |Vlastnost typu musí být nastavena na: **azurestorage.** |Ano |
+| připojovací řetězec |Zadejte informace potřebné pro připojení k úložišti Azure pro vlastnost connectionString. |Ano |
 
-See the following article for steps to view/copy the account key for an Azure Storage: [View, copy, and regenerate storage access keys](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Najdete v následujícím článku postup zobrazení nebo zkopírování klíč účtu pro Azure Storage: [zobrazení, kopírování a opětovné vytváření úložiště přístupové klíče](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-**Example:**  
+**Příklad:**  
 
 ```json
 {  
@@ -22,21 +22,21 @@ See the following article for steps to view/copy the account key for an Azure St
 }  
 ```
 
-### <a name="azure-storage-sas-linked-service"></a>Azure Storage Sas Linked Service
-A shared access signature (SAS) provides delegated access to resources in your storage account. It allows you to grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For detailed information about SAS, see [Shared Access Signatures: Understanding the SAS Model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
+### <a name="azure-storage-sas-linked-service"></a>Propojená služba úložiště Azure Sas
+Sdílený přístupový podpis (SAS) poskytuje Delegovaný přístup k prostředkům ve vašem účtu úložiště. Umožňuje udělit, že klient omezené oprávnění k objektům v účtu úložiště v zadaném časovém intervalu a zadanou sadu oprávnění, aniž by museli sdílet klíče pro přístup k účtu. SAS je identifikátor URI, který zahrnuje všechny informace potřebné pro ověřený přístup k prostředku úložiště v jeho parametry dotazu. Pro přístup k prostředkům úložiště s SAS, klient pouze musí předat SAS metodu, nebo odpovídající konstruktor. Podrobné informace o tokenu SAS naleznete v tématu [sdílené přístupové podpisy: vysvětlení modelu SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 > [!IMPORTANT]
-> Azure Data Factory now only supports **Service SAS** but not Account SAS. See [Types of Shared Access Signatures](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types and how to construct. Note the SAS URL generable from Azure portal or Storage Explorer is an Account SAS, which is not supported.
+> Azure Data Factory podporuje nyní pouze **SAS služby** , ale není SAS účtu. V tématu [typy z sdílené přístupové podpisy](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) podrobné informace o těchto dvou typů a postup vytvoření. Poznamenejte si adresu SAS URL generable z portálu Azure nebo Storage Explorer je SAS účtu, který není podporován.
 > 
 
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service. 
+Služba Azure úložiště SAS propojené umožňuje propojení účet úložiště Azure do Azure data factory pomocí sdíleného přístupového podpisu (SAS). Poskytuje objekt pro vytváření dat omezený nebo časově vázaných přístup k prostředkům všechna nebo konkrétní (kontejner nebo objektů blob) v úložišti. Následující tabulka obsahuje popis JSON elementy, které jsou specifické pro SAS úložiště Azure, propojené služby. 
 
-| Property | Description | Required |
+| Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| type |The type property must be set to: **AzureStorageSas** |Yes |
-| sasUri |Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table.  |Yes |
+| type |Vlastnost typu musí být nastavena na: **AzureStorageSas** |Ano |
+| sasUri |Zadejte identifikátor URI podpis sdíleného přístupu k prostředkům Azure Storage jako objekt blob, kontejneru nebo tabulky.  |Ano |
 
-**Example:**
+**Příklad:**
 
 ```json
 {  
@@ -50,9 +50,9 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 }  
 ```
 
-When creating an **SAS URI**, considering the following:  
+Při vytváření **identifikátor URI pro SAS**, vzhledem k tomu následující:  
 
-* Set appropriate read/write **permissions** on objects based on how the linked service (read, write, read/write) is used in your data factory.
-* Set **Expiry time** appropriately. Make sure that the access to Azure Storage objects does not expire within the active period of the pipeline.
-* Uri should be created at the right container/blob or Table level based on the need. A SAS Uri to an Azure blob allows the Data Factory service to access that particular blob. A SAS Uri to an Azure blob container allows the Data Factory service to iterate through blobs in that container. If you need to provide access more/fewer objects later, or update the SAS URI, remember to update the linked service with the new URI.   
+* Nastavit vhodné pro čtení a zápis **oprávnění** na objekty podle použití propojené služby (pro čtení, zápisu, čtení/zápis) ve službě data factory.
+* Nastavit **čas vypršení platnosti** správně. Ujistěte se, že přístup k objektům Azure Storage, nemá prošlou platnost do aktivního období kanálu.
+* Identifikátor URI by měl být vytvořen na úrovni tabulky podle potřeby nebo správné kontejner nebo objekt blob. Identifikátor Uri SAS do objektu blob Azure umožňuje služba Data Factory pro přístup k tomuto konkrétní objektu blob. Identifikátor Uri SAS pro kontejner objektů blob v Azure umožňuje služba Data Factory k iteraci v rámci objektů BLOB v kontejneru. Pokud potřebujete poskytovat přístup více nebo méně objektů později, nebo aktualizovat identifikátor URI SAS, nezapomeňte aktualizovat propojenou službu s nový identifikátor URI.   
 

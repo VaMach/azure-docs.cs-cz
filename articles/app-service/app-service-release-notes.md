@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a422b02623a18ac6a1eef460bbada681672e69f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Poznámky k verzi sady Azure SDK pro .NET 2.5.1
 Tento dokument obsahuje poznámky k verzi sady Azure SDK pro .NET 2.5.1 verzi. 
@@ -33,18 +33,18 @@ Následující části jsou nové funkce a aktualizace v sadě Azure SDK pro .NE
   * Uzel weby v Průzkumníku serveru se už nepoužívá místo uzlu Azure App Service, která obsahuje podporu pro prostředek skupiny založené seskupení aplikace Azure API, mobilní aplikace a webové aplikace.
   * Byla přidána podpora Azure Mobile Apps (Preview) tak, aby zákazníci vytvářet nové projekty Mobile Apps, přidejte řadiče Mobile Apps, publikování projektů a vzdáleně ladit aplikace.
   * Přidat > gesto klienta aplikace API Azure nyní podporuje místní soubory JSON pro Swagger, takže webového rozhraní API mohou vývojáři NuGets třetích stran, jako je Swashbuckle generovat Swagger nebo ho ručně vytvořit. Tímto způsobem klienta mohou vývojáři funkce generování kódu využívat všechny koncového bodu Swaggeru v projektů C#. 
-  * Vylepšené webové aplikace a publikování dialogová okna aplikace API pro podporu Azure Portal konceptu seskupení prostředků a výběr nebo vytvoření skupiny prostředků Azure a plány služby App Service jsou reprezentována v nové webové aplikace a aplikace API zřizování dialogu. 
+  * Webová aplikace a aplikace API, které vylepšily publikování dialogová okna pro podporu Azure portálu koncept seskupení prostředků a výběr nebo vytvoření skupiny prostředků Azure a plány služby App Service jsou reprezentované v nové webové aplikace a aplikace API zřizování dialogu. 
   * Uzlů Azure Průzkumníka serveru aplikace API poskytují odkazy na přímý odkaz na aplikace API v portálu Azure a také další funkce, například vysílání datového proudu protokolu a vzdálené ladění.
     
     Známé problémy a aktuální omezení v Azure SDK .NET 2.5.1 [to](app-service-release-notes.md#known_issues_2_5_1) části níže.
 * Nové features\scenarios související s **nástroje HDInsight** v sadě Visual Studio, které jsou povolené v této verzi. 
   
   * Místní ověření hive skriptů. Klikněte na tlačítko Ověřit skriptu na panelu nástrojů. Pokud jsou k dispozici žádné chyby ve vašem skriptu. 
-  * Vylepšení ladění úloh Hive. Nyní můžete ladit úlohy Hive díky přístupu k protokoly Yarn v sadě Visual Studio. Pokud vaše aplikace má problémy s výkonem, bude na odstranění příčin protokoly YARN poskytují užitečné informace...
+  * Vylepšení ladění úloh Hive. Nyní můžete ladit úlohy Hive díky přístupu k protokoly Yarn v sadě Visual Studio. Pokud vaše aplikace má problémy s výkonem, zkoumání protokoly YARN poskytují užitečné informace...
   * (Verze public Preview) Automatické dokončování – klíčové slovo a IntelliSense podpora Hive. Můžete vytvářet skripty Hive, nástroje HDInsight pro Visual Studio přidat podporu automatické dokončování – klíčové slovo a IntelliSense pro Hive.
   * Podpora Storm. Nyní můžete nástroje HDInsight pro Visual Studio pro vývoj Storm topologie/funkcích Spouts nebo funkce Bolts v jazyce C#. Můžete odeslat vyvinuté topologie ke clusteru Storm a zobrazit stav topologie/bolt/spout. Chcete-li vyřešit vaše Storm topologie nebo funkce Bolts nebo funkcích Spouts můžete zákazníka protokoly a protokoly systému. Můžete také použít existující prostředky JAVA v Storm v HDInsight.
     
-    Další informace najdete v tématu [Začínáme pomocí nástrojů Hadoop HDInsight pro Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+    Další informace najdete v tématu [Začínáme pomocí nástrojů Hadoop HDInsight pro Visual Studio](../hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## <a id="known_issues_2_5_1"></a>Azure SDK pro .NET 2.5.1 – známé problémy a omezení
 * Aplikace API Azure se zobrazí jako cíl nasazení pro mobilní aplikace. Webové aplikace musí být pouze cíl pro Mobile Apps až další verze. 

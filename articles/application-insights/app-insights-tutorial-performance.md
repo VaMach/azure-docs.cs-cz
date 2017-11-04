@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 1176e6ac33db5b9428a323c3a6271818807afc72
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Najít a diagnostikovat problémy s výkonem pomocí služby Azure Application Insights
 
@@ -35,7 +35,7 @@ K provedení kroků v tomto kurzu je potřeba:
     - Vývoj pro ASP.NET a web
     - Vývoj pro Azure
 - Nasazení aplikace .NET do Azure a [povolit Application Insights SDK](app-insights-asp-net.md).
-- [Povolit profileru Application Insights](app-insights-profiler.md#enable-the-profiler) pro vaši aplikaci.
+- [Povolit profileru Application Insights](app-insights-profiler.md#installation) pro vaši aplikaci.
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 Přihlaste se k portálu Azure v [https://portal.azure.com](https://portal.azure.com).

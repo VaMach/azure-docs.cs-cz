@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Monitorování a řešení ochrany pro virtuální počítače a fyzické servery
 Tato příručka monitorování a řešení potíží se umožňuje zjistěte, jak sledovat stav replikace a řešení potíží s techniky Azure Site Recovery.
@@ -55,7 +55,7 @@ Podrobnosti o chybě vám pomůže identifikovat možná příčina a doporučen
 
 ![Okno, které zobrazuje podrobnosti o chybě pro určité úlohy](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-V předchozím příkladu jiná operace, která je v průběhu zdá být příčinou selhání konfigurace ochrany. Vyřešte problém podle doporučení a pak klikněte na tlačítko **RESART** zahájíte operaci opakujte.
+V předchozím příkladu jiná operace, která je v průběhu zdá být příčinou selhání konfigurace ochrany. Vyřešte problém podle doporučení a pak klikněte na tlačítko **RESTARTUJTE** zahájíte operaci opakujte.
 
 ![Tlačítko RESTARTOVÁNÍ na kartě úlohy v](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 

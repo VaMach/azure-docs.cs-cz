@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault introduction | Microsoft Docs
-description: Learn how Azure Stack Key Vault manages keys and secrets
+title: "Azure Key Vault zásobníku Úvod | Microsoft Docs"
+description: "Zjistěte, jak Azure zásobníku Key Vault spravuje klíče a tajné klíče"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+# <a name="introduction-to-key-vault-in-azure-stack"></a>Úvod do trezoru klíčů v Azure zásobníku
 
-## <a name="before-you-start"></a>Before you start
-This article assumes the following:
+## <a name="prerequisites"></a>Požadavky 
 
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
+* Musí se přihlásíte k nabídku, která zahrnuje službu Azure Key Vault.  
+* [Prostředí PowerShell je nakonfigurována pro použití s Azure zásobníku](azure-stack-powershell-configure-user.md).
  
-## <a name="key-vault-basics"></a>Key Vault basics
-Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
+## <a name="key-vault-basics"></a>Základy Key Vault
+V zásobníku Azure Key Vault pomáhá chránit kryptografické klíče a tajné klíče, které cloudové aplikace a služby používat. Pomocí Key Vault můžete šifrovat klíče a tajné klíče, jako například:
+   * Ověřovací klíče 
+   * Klíče účtu úložiště
+   * Šifrovací klíče dat
+   * soubory .pfx
+   * Hesla
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+Key Vault zjednodušuje proces správy klíčů a zajišťuje vám kontrolu nad klíči, které se používají k přístupu a šifrování dat. Vývojáři můžou během pár minut vytvořit klíče pro vývoj a testování a potom je bez problémů migrovat na produkční klíče. Správci zabezpečení můžou klíčům podle potřeby udělovat (a odvolávat) oprávnění.
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Každý, kdo má předplatné Azure zásobníku můžete vytvořit a použít trezorů klíčů. I když Key Vault přínosný vývojářů a správců zabezpečení, operátor, který spravuje jinými službami Azure zásobníku v organizaci, můžete implementovat a spravovat ji. Například zásobník Azure operátor se můžete přihlásit pomocí předplatného služby Azure zásobníku vytvořit trezor pro organizaci, do kterého chcete ukládat klíče a potom je zodpovědná za tyto provozní úlohy:
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
+* Vytvoření nebo import klíče nebo tajného klíče.
+* Odvolání nebo odstranění klíče nebo tajného klíče.
+* Autorizace uživatelů nebo aplikace pro přístup k trezoru klíčů, takže se potom mohli spravovat nebo používat jeho klíče a tajné klíče.
+* Konfigurace použití klíče (například podepisování nebo šifrování).
 
-The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+Operátor může potom poskytne vývojářům identifikátory Uniform Resource (Identifier) volat ze svých aplikací. Operátory můžete také poskytnout informace o protokolování použití klíče pro správce zabezpečení.
 
-Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
+Vývojáři také mohou spravovat klíče přímo, pomocí rozhraní API. Další informace naleznete v příručce pro vývojáře Key Vault.
 
-## <a name="scenarios"></a>Scenarios
-The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
+## <a name="scenarios"></a>Scénáře
+Následující scénáře popisují, jak může Key Vault pomoci splnit potřeby vývojářů a správců zabezpečení.
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
-**Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
+### <a name="developer-for-an-azure-stack-application"></a>Vývojář aplikace Azure zásobníku
+**Problém:** chci napsat aplikaci pro Azure zásobníku, která používá klíče pro podepisování a šifrování. Chci, aby tyto klíče být mimo aplikaci, tak, aby je vhodný pro aplikaci, která je geograficky distribuovanou řešení.
 
-**Statement**: Keys are stored in a vault and invoked by URI when needed.
+**Příkaz:** klíče jsou uložené v trezoru a v případě potřeby vyvolat identifikátoru URI.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
-**Problem:** I don’t want the responsibility or potential liability for my customer's keys and secrets.
+### <a name="developer-for-software-as-a-service-saas"></a>Vývojář softwaru jako služby (SaaS)
+**Problém:** nechci odpovědnost nebo potenciální odpovědnosti pro klíče a tajné klíče tohoto zákazníka. Chci, aby zákazníci sami vlastnili a spravovali svoje klíče, aby mi umožní soustředit se na to, co umím nejlépe, která poskytuje základní funkce softwaru.
 
-**Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
+**Příkaz:** zákazníci můžou svoje klíče importovat do zásobníku Azure a následně spravovat je. 
 
-### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
-**Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
+### <a name="chief-security-officer-cso"></a>Ředitel zabezpečení (CSO)
+**Problém:** chcete Ujistěte se, že Moje organizace má kontrolu nad životním cyklem klíče a můžete sledovat použití klíče.
 
-**Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
+**Příkaz:** Key Vault je navržený tak, aby Microsoft neznala ani neextrahovala klíče. Pokud aplikace potřebuje provést kryptografické operace pomocí klíčů zákazníků, Key Vault používá klíče jménem aplikace. Aplikace klíče zákazníků nezná. Přestože používáme více služeb Azure zásobníku a prostředků, můžete spravovat klíče z jednoho místa v zásobníku Azure. Trezor poskytuje jednotné rozhraní – bez ohledu na to, kolik trezorů máte v zásobníku Azure, které oblasti jejich podporu a které aplikace je používají.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Další kroky
 
-* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+* [Spravovat Key Vault v zásobníku Azure pomocí portálu](azure-stack-kv-manage-portal.md)  
+* [Správa Key Vault v zásobníku Azure pomocí prostředí PowerShell](azure-stack-kv-manage-powershell.md)
 

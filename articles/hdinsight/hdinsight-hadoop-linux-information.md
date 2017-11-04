@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informace o používání HDInsight v Linuxu
 
@@ -39,9 +39,9 @@ Azure clustery HDInsight poskytují Hadoop na známém prostředí Linux, běž�
 
 ## <a name="users"></a>Uživatelé
 
-Pokud [připojený k doméně](hdinsight-domain-joined-introduction.md), měli byste zvážit HDInsight **jednoho uživatele** systému. Jeden uživatelský účet SSH je vytvořen s clusteru s úrovně oprávnění správce. Můžete vytvořit další účty SSH, ale také mají přístup správce ke clusteru.
+Pokud [připojený k doméně](./domain-joined/apache-domain-joined-introduction.md), měli byste zvážit HDInsight **jednoho uživatele** systému. Jeden uživatelský účet SSH je vytvořen s clusteru s úrovně oprávnění správce. Můžete vytvořit další účty SSH, ale také mají přístup správce ke clusteru.
 
-Připojené k doméně HDInsight podporuje více uživatelů a podrobnější nastavení oprávnění a role. Další informace najdete v tématu [clustery HDInsight spravovat doméně](hdinsight-domain-joined-manage.md).
+Připojené k doméně HDInsight podporuje více uživatelů a podrobnější nastavení oprávnění a role. Další informace najdete v tématu [clustery HDInsight spravovat doméně](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="domain-names"></a>Názvy domén
 
@@ -277,6 +277,6 @@ Použití jiné verze součásti, nahrajte verze potřebujete a použít v úloh
 ## <a name="next-steps"></a>Další kroky
 
 * [Migrace z HDInsight se systémem Windows do systémem Linux](hdinsight-migrate-from-windows-to-linux.md)
-* [Použití Hivu se službou HDInsight](hdinsight-use-hive.md)
-* [Použití Pigu se službou HDInsight](hdinsight-use-pig.md)
-* [Použití úloh MapReduce se službou HDInsight](hdinsight-use-mapreduce.md)
+* [Použití Hivu se službou HDInsight](hadoop/hdinsight-use-hive.md)
+* [Použití Pigu se službou HDInsight](hadoop/hdinsight-use-pig.md)
+* [Použití úloh MapReduce se službou HDInsight](hadoop/hdinsight-use-mapreduce.md)

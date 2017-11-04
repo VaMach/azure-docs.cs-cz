@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: kgremban
-ms.openlocfilehash: cacb027fad4127072e542f554373881932870841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 159e56c7ba1e0c27cd854f7d835611d5707c7a23
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Jak získat Azure Multi-Factor Authentication
 
 Pokud jde o ochranu svých účtů, musí být dvoustupňové ověření standardní celé organizaci. Tato funkce je obzvláště důležité pro účty pro správu, které mají privilegovaný přístup k prostředkům. Z tohoto důvodu společnost Microsoft nabízí funkce základní dvoustupňové ověření do služeb Office 365 a Azure správci nejsou zpoplatněné. Pokud chcete upgradovat funkce pro vaši správci nebo rozšířit dvoustupňové ověřování s ostatními uživatelů, si můžete zakoupit Azure Multi-Factor Authentication. 
 
 Tento článek vysvětluje rozdíly mezi verzemi, které nabízí pro správce a na plnou verzi Azure MFA. Pokud jste připravení nasadit kompletní Azure MFA nabídka, v oddílu popisuje možnosti implementace a jak Microsoft vypočítá spotřeby.
+
 
 >[!IMPORTANT]
 >Tento článek slouží jako průvodce vám pomůžou pochopit různé způsoby, jak zakoupit Azure Multi-Factor Authentication. Pro konkrétní podrobnosti o cenách a fakturace, by měla vždycky odkazujete [Multi-Factor Authentication stránce s cenami](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
@@ -55,6 +56,7 @@ Následující tabulka obsahuje seznam funkcí, které jsou k dispozici v různ�
 | Služby SMS jako druhý faktor |● |● |● |
 | Hesla aplikací pro klienty, kteří nepodporují MFA |● |● |● |
 | Správce kontrolu nad metody ověření |● |● |● |
+| Chránit bez oprávnění správce. účty s MFA | | |● |
 | Režim kódu PIN | | |● |
 | Výstraha podvodů | | |● |
 | Sestavy MFA | | |● |
@@ -87,7 +89,7 @@ Vytvořte poskytovatele Azure Multi-Factor Authentication v rámci předplatnéh
 
 Pokud používáte poskytovatele Azure Multi-Factor Authentication, existují dva modely využití k dispozici, který se účtují prostřednictvím vašeho předplatného Azure:  
 
-1. **Na uživatele** – podnikům, které chcete zapnout dvoustupňové ověřování pro pevný počet uživatelů, kteří potřebují pravidelně ověřování. Uživatelská fakturace vychází počet uživatelů v klientovi Azure AD a Azure MFA serveru povolené pro MFA. Pokud uživatelé jsou povolené pro MFA v obou Azure AD a Azure MFA serveru a je povolená synchronizace domény (Azure AD Connect) a potom jsme počet větší sadu uživatelů systému. Pokud není povolená synchronizace domény, pak jsme počet součet všechny uživatele s povoleným vícefaktorového ověřování ve službě Azure AD a Azure MFA serveru. Fakturace je účtovány poměrnou částí a obchodu Spojených států systému denně. 
+1. **Per Enabled User** – podnikům, které chcete zapnout dvoustupňové ověřování pro pevný počet uživatelů, kteří potřebují pravidelně ověřování. Uživatelská fakturace vychází počet uživatelů v klientovi Azure AD a Azure MFA serveru povolené pro MFA. Pokud uživatelé jsou povolené pro MFA v obou Azure AD a Azure MFA serveru a je povolená synchronizace domény (Azure AD Connect) a potom jsme počet větší sadu uživatelů systému. Pokud není povolená synchronizace domény, pak jsme počet součet všechny uživatele s povoleným vícefaktorového ověřování ve službě Azure AD a Azure MFA serveru. Fakturace je účtovány poměrnou částí a obchodu Spojených států systému denně. 
 
   > [!NOTE]
   > Fakturace Příklad 1: máte 5 000 uživatele s povoleným MFA ještě dnes. Systém MFA vydělí toto číslo 31 a 161.29 uživatelé sestavy pro daný den. Je potřeba povolit 15 více uživatelů, aby systém MFA sestav 161.77 uživatelů pro daný den zítra. Na konci fakturačního cyklu celkový počet uživatelů, na které se účtují u vašeho předplatného Azure až přidá přibližně 5 000. 

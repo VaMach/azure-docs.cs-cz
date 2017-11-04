@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 53db03029ffca724638871b22a12dfa7f160fc64
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Pomocí nástroje Azure Data Lake pro Visual Studio s Hortonworks karanténě
 
@@ -29,7 +29,7 @@ Pomocí Hortonworks karanténě umožňuje pracovat s Hadoop místně na vašem 
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Hortonworks karanténě spuštěných ve virtuálním počítači na vývojového prostředí. Tento dokument byl zapsán a testovány s izolovaného prostoru spuštěné v Oracle VirtualBox. Informace o nastavení izolovaný prostor najdete v tématu [začít pracovat s Hortonworks karanténě.](hdinsight-hadoop-emulator-get-started.md) dokument.
+* Hortonworks karanténě spuštěných ve virtuálním počítači na vývojového prostředí. Tento dokument byl zapsán a testovány s izolovaného prostoru spuštěné v Oracle VirtualBox. Informace o nastavení izolovaný prostor najdete v tématu [začít pracovat s Hortonworks karanténě.](hadoop/apache-hadoop-emulator-get-started.md) dokument.
 
 * Visual Studio 2013, Visual Studio 2015 nebo Visual Studio 2017 (všechny edice).
 
@@ -39,7 +39,7 @@ Pomocí Hortonworks karanténě umožňuje pracovat s Hadoop místně na vašem 
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Konfigurace hesla pro izolovaný prostor
 
-Ujistěte se, zda je spuštěna Hortonworks karanténě. Potom postupujte podle kroků v [Začínáme v Hortonworks karanténě](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) dokumentu. Tyto kroky konfigurace heslo SSH `root` účet a Ambari `admin` účtu. Tato hesla se používají při připojování k izolovanému prostoru ze sady Visual Studio.
+Ujistěte se, zda je spuštěna Hortonworks karanténě. Potom postupujte podle kroků v [Začínáme v Hortonworks karanténě](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) dokumentu. Tyto kroky konfigurace heslo SSH `root` účet a Ambari `admin` účtu. Tato hesla se používají při připojování k izolovanému prostoru ze sady Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Nástroje pro připojení k izolovanému prostoru
 

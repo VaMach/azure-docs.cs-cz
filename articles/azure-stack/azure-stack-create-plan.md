@@ -1,6 +1,6 @@
 ---
-title: Create a plan in Azure Stack | Microsoft Docs
-description: As a cloud administrator, create a plan that lets subscribers provision virtual machines.
+title: "Vytvoření plánu v zásobníku Azure | Microsoft Docs"
+description: "Jako správce cloudu vytvořte plán, který umožňuje odběratelům zřizování virtuálních počítačů."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,58 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ddd69acaed4d56211092866571350d855b14e8b3
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 30759dca746fd7fd02653556cb105f419f5bf854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-plan-in-azure-stack"></a>Create a plan in Azure Stack
+# <a name="create-a-plan-in-azure-stack"></a>Vytvoření plánu ve službě Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-[Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
+[Plány](azure-stack-key-features.md) představují seskupení jedné nebo více služeb. Jako zprostředkovatele můžete vytvořit plány, které nabízejí uživatelům. Pak vaši uživatelé přihlásit k vaší nabídky pro plány a službách, které obsahují. Tento příklad ukazuje, jak vytvořit plán, který obsahuje výpočty, síť a zprostředkovatelé prostředků služby storage. Tento plán poskytuje odběratele umožňuje zřizovat virtuální počítače.
 
-1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external). Enter the credentials for the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section.
+1. Přihlaste se k portálu správce Azure zásobníku (https://adminportal.local.azurestack.external). Zadejte pověření pro účet, který jste vytvořili během kroku 5 tohoto [spustit skript prostředí PowerShell](azure-stack-run-powershell-script.md) části.
 
-2. To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
+2. Chcete-li vytvořit plán a nabídka, která uživatelé mohou přihlásit k odběru, klikněte na tlačítko **nový** > **klienta nabízí + plány** > **plán**.
 
    ![](media/azure-stack-create-plan/image01.png)
-3. In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
+3. V **nový plán** okno vyplňte **zobrazovaný název** a **název prostředku**. Zobrazovaný název je popisný název plánu, který uživatelé uvidí. Název prostředku může vidět jenom správce. Je název, který správci používat pro práci s plánem jako prostředek Azure Resource Manager.
 
    ![](media/azure-stack-create-plan/image02.png)
-4. Create a new **Resource Group**, or select an existing one, as a container for the plan.
+4. Vytvořte novou **skupiny prostředků**, nebo vyberte existující jako kontejner pro plán.
 
    ![](media/azure-stack-create-plan/image02a.png)
-5. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
+5. Klikněte na tlačítko **služby**, vyberte **Microsoft.Compute**, **Microsoft.Network**, a **Microsoft.Storage**a potom klikněte na **Vyberte**.
 
    ![](media/azure-stack-create-plan/image03.png)
-6. Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+6. Klikněte na tlačítko **kvóty**, klikněte na tlačítko **Microsoft.Storage (místní)**a pak vyberte výchozí kvótu, nebo klikněte na tlačítko **vytvořit nové kvóty** přizpůsobit kvótu.
 
    ![](media/azure-stack-create-plan/image04.png)
-7. If you're creating a new quota, enter a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+7. Pokud vytváříte novou kvótu, zadejte název pro kvótu > nastavte hodnoty kvóty > klikněte na tlačítko **OK** > klikněte na název nové kvóty.
 
    ![](media/azure-stack-create-plan/image06.png)
-8. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+8. Klikněte na tlačítko **Microsoft.Network (místní)**a pak vyberte výchozí kvótu, nebo klikněte na tlačítko **vytvořit nové kvóty** přizpůsobit kvótu.
 
     ![](media/azure-stack-create-plan/image07.png)
-9. If you're creating a new quota, type a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+9. Pokud vytváříte novou kvótu, zadejte název pro kvótu > nastavte hodnoty kvóty > klikněte na tlačítko **OK** > klikněte na název nové kvóty.
 
     ![](media/azure-stack-create-plan/image08.png)
-10. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+10. Klikněte na tlačítko **Microsoft.Compute (místní)**a pak vyberte výchozí kvótu, nebo klikněte na tlačítko **vytvořit nové kvóty** přizpůsobit kvótu.
 
     ![](media/azure-stack-create-plan/image09.png)
-11. If you're creating a new quota, type a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+11. Pokud vytváříte novou kvótu, zadejte název pro kvótu > nastavte hodnoty kvóty > klikněte na tlačítko **OK** > klikněte na název nové kvóty.
 
     ![](media/azure-stack-create-plan/image10.png)
-12. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
+12. V **kvóty** okně klikněte na tlačítko **OK**a potom v **nový plán** okně klikněte na tlačítko **vytvořit** vytvořte plán.
 
     ![](media/azure-stack-create-plan/image11.png)
-13. To see your new plan, click **All resources**, then search for the plan and click its name.
+13. Chcete-li zobrazit nový plán, klikněte na tlačítko **všechny prostředky**, vyhledejte plán a klikněte na jeho název.
 
     ![](media/azure-stack-create-plan/image12.png)
 
-### <a name="next-steps"></a>Next steps
-[Create an offer](azure-stack-create-offer.md)
-
+### <a name="next-steps"></a>Další kroky
+[Vytvoření nabídky](azure-stack-create-offer.md)

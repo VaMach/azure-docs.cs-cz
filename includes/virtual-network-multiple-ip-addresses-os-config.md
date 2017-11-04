@@ -1,67 +1,67 @@
-## <a name="os-config"></a>Add IP addresses to a VM operating system
+## <a name="os-config"></a>Přidání IP adres do operačního systému virtuálního počítače
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
+Připojte a přihlaste se k virtuálnímu počítači, který jste vytvořili s více privátními IP adresami. Je třeba ručně přidat všechny privátní IP adresy (včetně primární), které jste přidali do virtuálního počítače. Proveďte následující kroky pro operační systém vašeho virtuálního počítače:
 
 ### <a name="windows"></a>Windows
 
-1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
-2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
-3. Open the properties for the appropriate adapter: **Local Area Connection**.
-4. Double-click Internet Protocol version 4 (IPv4).
-5. Select **Use the following IP address** and enter the following values:
+1. Na příkazovém řádku zadejte *ipconfig /all*.  Zobrazí se pouze *primární* privátní IP adresa (prostřednictvím protokolu DHCP).
+2. Zadáním *ncpa.cpl* na příkazovém řádku otevřete okno **Síťová připojení**.
+3. Otevřete vlastnosti pro příslušný adaptér: **Připojení k místní síti**.
+4. Dvakrát klikněte na Protokol IPv4 (Internet Protocol verze 4).
+5. Vyberte **Použít následující IP adresu** a zadejte tyto hodnoty:
 
-    * **IP address**: Enter the *Primary* private IP address
-    * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
-    * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-    * Click **Use the following DNS server addresses** and enter the following values:
-        * **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
-    * Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
+    * **IP adresa:** Zadejte *primární* privátní IP adresu.
+    * **Maska podsítě:** Nastavte podle vaší podsítě. Pokud je podsíť například /24, maska podsítě bude 255.255.255.0.
+    * **Výchozí brána:** První IP adresa v podsíti. Pokud je vaše podsíť 10.0.0.0/24, IP adresa brány bude 10.0.0.1.
+    * Klikněte na **Použít následující adresu serveru DNS** a zadejte tyto hodnoty:
+        * **Upřednostňovaný server DNS:** Pokud nepoužíváte vlastní server DNS, zadejte 168.63.129.16.  Pokud používáte vlastní server DNS, zadejte IP adresu pro váš server.
+    * Klikněte na tlačítko **Upřesnit** a přidejte další IP adresy. Přidejte všechny sekundární privátní IP adresy uvedené v kroku 8 k síťovému adaptéru, který má zadanou stejnou podsíť pro primární IP adresu.
         >[!WARNING] 
-        >If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
+        >Pokud nebudete správně postupovat podle výše uvedených kroků, můžete ztratit připojení k virtuálnímu počítači. Než budete pokračovat, ujistěte se, že informace zadané v kroku 5 jsou správné.
 
-    * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
+    * Kliknutím na **OK** zavřete nastavení protokolu TCP/IP a pak znovu kliknutím na **OK** zavřete nastavení adaptéru. Vaše připojení RDP je obnoveno.
 
-6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
+6. Na příkazovém řádku zadejte *ipconfig /all*. Zobrazí se všechny IP adresy, které jste přidali, a protokol DHCP je vypnutý.
 
 
-### <a name="validation-windows"></a>Validation (Windows)
+### <a name="validation-windows"></a>Ověření (Windows)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
+Abyste se ujistili, že se můžete připojit k internetu ze sekundární konfigurace IP adresy přes přidruženou veřejnou IP adresu, po jejím přidání pomocí výše uvedených kroků použijte následující příkaz:
 
 ```bash
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>Pro sekundární konfigurace IP pouze připojíte k Internetu Pokud konfigurace má veřejnou IP adresu s ním spojená. Pro primární konfigurace protokolu IP není potřeba veřejnou IP adresu na příkaz ping k Internetu.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Otevřete okno terminálu.
+2. Ujistěte se, že jste uživatel root. Pokud ne, zadejte následující příkaz:
 
     ```bash
     sudo -i
     ```
 
-3. Update the configuration file of the network interface (assuming ‘eth0’).
+3. Aktualizujte konfigurační soubor síťového rozhraní (předpokládejme, že je to „eth0“).
 
-    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
-    * Add a configuration for an additional static IP address with the following commands:
+    * Ponechejte stávající položku řádku pro protokol DHCP. Primární IP adresa bude nakonfigurována stejně jako dříve.
+    * Přidejte konfiguraci pro další statickou IP adresu pomocí následujících příkazů:
 
         ```bash
         cd /etc/network/interfaces.d/
         ls
         ```
 
-    You should see a .cfg file.
-4. Open the file. You should see the following lines at the end of the file:
+    Měl by se zobrazit soubor .cfg.
+4. Otevřete tento soubor. Na konci souboru by se měly zobrazit tyto řádky:
 
     ```bash
     auto eth0
     iface eth0 inet dhcp
     ```
 
-5. Add the following lines after the lines that exist in this file:
+5. Následující řádky přidejte za všechny řádky v tomto souboru:
 
     ```bash
     iface eth0 inet static
@@ -69,66 +69,66 @@ ping -S 10.0.0.5 hotmail.com
     netmask <your subnet mask>
     ```
 
-6. Save the file by using the following command:
+6. Uložte soubor pomocí tohoto příkazu:
 
     ```bash
     :wq
     ```
 
-7. Reset the network interface with the following command:
+7. Resetujte síťové rozhraní pomocí tohoto příkazu:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
     > [!IMPORTANT]
-    > Run both ifdown and ifup in the same line if using a remote connection.
+    > Pokud používáte vzdálené připojení, spusťte ifdown a ifup na stejném řádku.
     >
 
-8. Verify the IP address is added to the network interface with the following command:
+8. Ověřte přidání IP adresy k síťovému rozhraní pomocí následujícího příkazu:
 
     ```bash
     ip addr list eth0
     ```
 
-    You should see the IP address you added as part of the list.
+    V seznamu by se měla zobrazit IP adresa, kterou jste přidali.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS, and others)
+### <a name="linux-redhat-centos-and-others"></a>Linux (Red Hat, CentOS a další)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Otevřete okno terminálu.
+2. Ujistěte se, že jste uživatel root. Pokud ne, zadejte následující příkaz:
 
     ```bash
     sudo -i
     ```
 
-3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
+3. Zadejte své heslo a postupujte podle zobrazených pokynů. Jakmile budete uživatel root, přejděte do složky se síťovými skripty pomocí následujícího příkazu:
 
     ```bash
     cd /etc/sysconfig/network-scripts
     ```
 
-4. List the related ifcfg files using the following command:
+4. Zobrazte seznam souvisejících souborů ifcfg pomocí následujícího příkazu:
 
     ```bash
     ls ifcfg-*
     ```
 
-    You should see *ifcfg-eth0* as one of the files.
+    Mezi soubory by se měl zobrazit soubor *ifcfg-eth0*.
 
-5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
+5. Pokud chcete přidat IP adresu, vytvořte pro ni konfigurační soubor, jak je znázorněno níže. Pro každou konfiguraci IP adresy se musí vytvořit jeden soubor.
 
     ```bash
     touch ifcfg-eth0:0
     ```
 
-6. Open the *ifcfg-eth0:0* file with the following command:
+6. Otevřete soubor *ifcfg-eth0:0* pomocí tohoto příkazu:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
+7. Přidejte obsah do souboru, v tomto případě *eth0:0*, pomocí následujícího příkazu. Nezapomeňte aktualizovat informace podle vaší IP adresy.
 
     ```bash
     DEVICE=eth0:0
@@ -138,32 +138,32 @@ ping -S 10.0.0.5 hotmail.com
     NETMASK=255.255.255.0
     ```
 
-8. Save the file with the following command:
+8. Uložte soubor pomocí tohoto příkazu:
 
     ```bash
     :wq
     ```
 
-9. Restart the network services and make sure the changes are successful by running the following commands:
+9. Restartujte síťové služby a ověřte úspěšné provedení změn spuštěním následujících příkazů:
 
     ```bash
     /etc/init.d/network restart
     ifconfig
     ```
 
-    You should see the IP address you added, *eth0:0*, in the list returned.
+    V navráceném seznamu by se měla zobrazit IP adresa, kterou jste přidali – *eth0:0*.
 
-### <a name="validation-linux"></a>Validation (Linux)
+### <a name="validation-linux"></a>Ověření (Linux)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+Abyste se ujistili, že se můžete připojit k internetu ze sekundární konfigurace IP adresy přes přidruženou veřejnou IP adresu, použijte následující příkaz:
 
 ```bash
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>Pro sekundární konfigurace IP pouze připojíte k Internetu Pokud konfigurace má veřejnou IP adresu s ním spojená. Pro primární konfigurace protokolu IP není potřeba veřejnou IP adresu na příkaz ping k Internetu.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+Pokud ověřujete odchozí připojení ze sekundárního síťového rozhraní na virtuálním počítači s Linuxem, možná bude nutné přidat odpovídající trasy. To lze provést několika způsoby. Další informace najdete v odpovídající dokumentaci k vaší distribuci Linuxu. Toto je jedna z metod, jak to provést:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -172,7 +172,7 @@ ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
-- Be sure to replace:
-    - **10.0.0.5** with the private IP address that has a public IP address associated to it
-    - **10.0.0.1** to your default gateway
-    - **eth2** to the name of your secondary NIC
+- Nezapomeňte nahradit:
+    - **10.0.0.5** za privátní IP adresu, ke které je přidružená veřejná IP adresa,
+    - **10.0.0.1** za vaši výchozí bránu,
+    - **eth2** za název sekundárního síťového rozhraní.

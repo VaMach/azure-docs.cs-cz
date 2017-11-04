@@ -1,7 +1,7 @@
 
-1. Open the project in Android Studio.
+1. Otevřete projekt v Android Studio.
 
-2. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements:
+2. V **Project Exploreru** v nástroji Android Studio otevřete soubor ToDoActivity.java a přidejte následující příkazy pro import:
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,7 +13,7 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-3. Add the following method to the **ToDoActivity** class:
+3. Přidejte následující metodu do **ToDoActivity** třídy:
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
@@ -43,18 +43,18 @@
             }
         }
 
-    This code creates a method to handle the Google authentication process. A dialog displays the ID of the authenticated user. You can only proceed on a successful authentication.
+    Tento kód vytvoří metodu pro zpracování procesu ověřování Google. Zobrazí se dialogové okno zobrazí ID ověřeného uživatele. Pouze můžete přejít na úspěšné ověření.
 
     > [!NOTE]
-    > If you are using an identity provider other than Google, change the value passed to the **login** method to one of the following values: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
+    > Pokud používáte zprostředkovatele identity než Google, změňte hodnotu předaný **přihlášení** metodu pro jednu z následujících hodnot: _MicrosoftAccount_, _Facebook_, _Twitter_, nebo _windowsazureactivedirectory_.
 
-4. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
+4. V **onCreate** metoda, přidejte následující řádek kódu po kód, který vytvoří instanci `MobileServiceClient` objektu.
 
         authenticate();
 
-    This call starts the authentication process.
+    Toto volání zahájí proces ověřování.
 
-5. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method:
+5. Přesunout kód zbývající po `authenticate();` v **onCreate** metoda na nový **createTable** metoda:
 
         private void createTable() {
 
@@ -72,7 +72,7 @@
             refreshItemsFromTable();
         }
 
-6. To ensure redirection works as expected, add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_:
+6. Aby přesměrování funguje podle očekávání, přidejte následující fragment _RedirectUrlActivity_ k _AndroidManifest.xml_:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
@@ -84,7 +84,7 @@
             </intent-filter>
         </activity>
 
-7. Add redirectUriScheme to _build.gradle_ of your Android application.
+7. Přidat redirectUriScheme k _build.gradle_ vaší aplikace Android.
 
         android {
             buildTypes {
@@ -99,13 +99,13 @@
             }
         }
 
-8. Add com.android.support:customtabs:23.0.1 to the dependencies in your build.gradle:
+8. Přidejte com.android.support:customtabs:23.0.1 závislosti ve vaší build.gradle:
 
-      dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
+      závislosti {/ / … zkompilovat 'com.android.support:customtabs:23.0.1'}
 
-9. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
+9. Z **spustit** nabídky, klikněte na tlačítko **spuštění aplikace** spusťte aplikaci a přihlaste se pomocí zprostředkovatele identity vybrané.
 
 > [!WARNING]
-> The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` use the same case.
+> Schéma adresy URL uvedené rozlišuje velká a malá písmena.  Ujistěte se, že všechny výskyty `{url_scheme_of_you_app}` velká a malá písmena.
 
-When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
+Pokud jste úspěšně přihlášeni, aplikace se budou spouštět bez chyby a nyní byste měli mít provést aktualizace dat a zadat dotaz na back-end službu.

@@ -1,59 +1,59 @@
 
 
 
-## <a name="attach-an-empty-disk"></a>Attach an empty disk
-Attaching an empty disk is a simple way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
+## <a name="attach-an-empty-disk"></a>Připojení prázdného disku
+Prázdný disk se připojuje je jednoduchý způsob, jak přidat datový disk, protože Azure pro vás vytvoří soubor VHD a ukládá je v účtu úložiště.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate VM.
+1. Klikněte na tlačítko **virtuálních počítačů (klasické)**a pak vyberte příslušný virtuální počítač.
 
-2. In the Settings menu, click **Disks**.
+2. V nabídce nastavení, klikněte na tlačítko **disky**.
 
-   ![Attach a new empty disk](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
+   ![Připojit nový prázdný disk](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
 
-3. On the command bar, click **Attach new**.  
-    The **Attach new disk** dialog box appears.
+3. Na panelu příkazů klikněte na tlačítko **připojit nový**.  
+    **Připojit nový disk** zobrazí se dialogové okno.
 
-    ![Attach a new disk](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
+    ![Připojit nový disk](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
 
-    Fill in the following information:
-    - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
-    - Select the **Type** of the data disk. All virtual machines support standard disks. Many virtual machines also support premium disks.
-    - Select the **Size (GB)** of the data disk.
-    - For **Host caching**, choose none or Read Only.
-    - Click OK to finish.
+    Zadejte následující informace:
+    - V **název souboru**, přijměte výchozí název nebo zadejte jinou pro soubor VHD. Datový disk používá automaticky vygenerovaným názvem, pokud zadáte jiný název souboru VHD.
+    - Vyberte **typ** disku data. Všechny virtuální počítače podporují standardní disky. Mnoho virtuálních počítačů také nepodporují prémiové disky.
+    - Vyberte **velikost (GB)** disku data.
+    - Pro **použití mezipaměti u hostitele**, zvolte Žádný, nebo jen pro čtení.
+    - Kliknutím na tlačítko OK dokončit.
 
-4. After the data disk is created and attached, it's listed in the disks section of the VM.
+4. Jakmile datový disk se vytvoří a připojené, je uvedena v části disky virtuálního počítače.
 
-   ![New and empty data disk successfully attached](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
+   ![Nové a prázdný datový disk se úspěšně připojil](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
 
 > [!NOTE]
-> After you add a data disk, you need to log on to the VM and initialize the disk so that it can be used.
+> Po přidání datový disk, musíte se přihlásit k virtuálnímu počítači a inicializujte disk, aby ho bylo možné použít.
 
-## <a name="how-to-attach-an-existing-disk"></a>How to: Attach an existing disk
-Attaching an existing disk requires that you have a .vhd available in a storage account. Use the [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the .vhd file to the storage account. After you've created and uploaded the .vhd file, you can attach it to a VM.
+## <a name="how-to-attach-an-existing-disk"></a>Postupy: připojit stávající disk
+Připojení stávajícího disku vyžaduje, aby v účtu úložiště byl dostupný soubor .vhd. Použití [přidat AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) rutiny k nahrání souboru VHD do účtu úložiště. Po vytvoření a nahrát soubor VHD, můžete se připojit k virtuálnímu počítači.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate virtual machine.
+1. Klikněte na tlačítko **virtuálních počítačů (klasické)**a pak vyberte příslušný virtuální počítač.
 
-2. In the Settings menu, click **Disks**.
+2. V nabídce nastavení, klikněte na tlačítko **disky**.
 
-3. On the command bar, click **Attach existing**.
+3. Na panelu příkazů klikněte na tlačítko **připojit existující**.
 
-    ![Attach data disk](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
+    ![Připojení datového disku](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
 
-4. Click **Location**. The available storage accounts display. Next, select an appropriate storage account from those listed.
+4. Klikněte na tlačítko **umístění**. Zobrazí se účty úložiště k dispozici. Potom vyberte účet odpovídající úložiště ze seznamu.
 
-    ![Provide disk storage account](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
+    ![Zadejte účet úložiště disku](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
 
-5. A **Storage account** holds one or more containers that contain disk drives (vhds). Select the appropriate container from those listed.
+5. A **účet úložiště** obsahuje jeden nebo více kontejnerů, které obsahují disky (VHD). Vyberte odpovídajícího kontejneru ze seznamu.
 
-    ![Provide container of virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
+    ![Zadejte kontejner virtuálního počítače windows](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
 
-6. The **vhds** panel lists the disk drives held in the container. Click one of the disks, and then click Select.
+6. **Virtuální pevné disky** panel uvádí diskové jednotky uchovávat v kontejneru. Klikněte na jeden z disků a pak klikněte na vybrat.
 
-    ![Provide disk image for virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
+    ![Zadejte bitovou kopii disku pro virtuální počítače windows](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
 
-7. The **Attach existing disk** panel displays again, with the location containing the storage account, container, and selected hard disk (vhd) to add to the virtual machine.
+7. **Připojit stávající disk** panel znovu, zobrazí se umístění obsahující účet úložiště, kontejneru a vybrané pevný disk (vhd) přidáte do virtuálního počítače.
 
-  Set **Host caching** to none or Read only, then click OK.
+  Nastavit **použití mezipaměti u hostitele** na hodnotu none nebo pro čtení, klikněte na tlačítko OK.
 
-    ![Data disk successfully attached](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)
+    ![Datový disk se úspěšně připojil](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

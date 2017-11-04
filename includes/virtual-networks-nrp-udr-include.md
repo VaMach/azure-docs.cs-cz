@@ -1,25 +1,25 @@
-## <a name="route-tables"></a>Route tables
-Route table resources contains routes used to define how traffic flows within your Azure infrastructure. You can use user defined routes (UDR) to send all traffic from a given subnet to a virtual appliance, such as a firewall or intrusion detection system (IDS). You can associate a route table to subnets. 
+## <a name="route-tables"></a>Směrovací tabulky
+Prostředky tabulky trasy obsahuje trasy používá k definování tok provozu v rámci infrastruktury Azure. Trasy definované uživatelem (UDR) můžete použít k odesílání veškerý provoz z dané podsíti do virtuální zařízení, například Brána firewall nebo neoprávněných vniknutí systém detekce (ID). Můžete přidružit směrovací tabulku k podsítím. 
 
-Route tables contain the following properties.
+Směrovací tabulky obsahují následující vlastnosti.
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **routes** |Collection of user defined routes in the route table |see [user defined routes](#User-defined-routes) |
-| **subnets** |Collection of subnets the route table is applied to |see [subnets](#Subnets) |
+| **trasy** |Kolekce uživatelem definovaných tras ve směrovací tabulce |v tématu [trasy definované uživatelem](#User-defined-routes) |
+| **podsítě** |Kolekce podsítě, směrovací tabulka se použije na |v tématu [podsítě](#Subnets) |
 
-### <a name="user-defined-routes"></a>User defined routes
-You can create UDRs to specify where traffic should be sent to, based on its destination address. You can think of a route as the default gateway definition based on the destination address of a network packet.
+### <a name="user-defined-routes"></a>Trasy definované uživatelem
+Udr k určení, kde má být odeslán provoz, můžete vytvořit na základě jeho cílové adresy. Trasu si můžete představit jako výchozí definici brány na základě cílové adresy síťového paketu.
 
-UDRs contain the following properties. 
+Udr obsahují následující vlastnosti. 
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **addressPrefix** |Address prefix, or full IP address for the destination |192.168.1.0/24, 192.168.1.101 |
-| **nextHopType** |Type of device the traffic will be sent to |VirtualAppliance, VPN Gateway, Internet |
-| **nextHopIpAddress** |IP address for the next hop |192.168.1.4 |
+| **addressPrefix** |Předpona adresy nebo úplné IP adresu pro cíl |192.168.1.0/24, 192.168.1.101 |
+| **nextHopType** |Typ zařízení, které bude odeslán provoz |VirtualAppliance, brány sítě VPN, Internet |
+| **nextHopIpAddress** |IP adresa dalšího směrování |192.168.1.4 |
 
-Sample route table in JSON format:
+Ukázka směrovací tabulku ve formátu JSON:
 
     {
         "name": "UDR-BackEnd",
@@ -50,8 +50,8 @@ Sample route table in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) for route tables.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) for user defined routes (UDRs).
+### <a name="additional-resources"></a>Další zdroje
+* Přečtěte si další informace o [udr](../articles/virtual-network/virtual-networks-udr-overview.md).
+* Pro čtení [referenční dokumentace rozhraní API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) pro směrovací tabulky.
+* Pro čtení [referenční dokumentace rozhraní API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) pro uživatele definované trasy (udr).
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 00eb9f6e13035ba5827b70e911be4afeafd442a2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Vytvoření neinteraktivního ověřování aplikace .NET HDInsight
 Můžete spustit aplikace Microsoft .NET Azure HDInsight s identitou aplikace vlastní (neinteraktivní) nebo v části identita přihlášeného uživatele (interaktivní) aplikace. Tento článek ukazuje, jak vytvořit neinteraktivního ověřování aplikace .NET pro připojení k Azure a spravovat HDInsight. Ukázka interaktivní aplikace, najdete v části [připojit k Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -32,7 +32,7 @@ Ze neinteraktivní aplikace .NET potřebujete:
 * Aplikace Azure AD tajný klíč. V tématu [Get aplikace ověřovací klíč](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Požadavky
-* Cluster služby HDInsight. Najdete v článku [kurz Začínáme](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Cluster služby HDInsight. Najdete v článku [kurz Začínáme](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Přiřazení role aplikace Azure AD
 Přiřaďte aplikaci Azure AD [role](../active-directory/role-based-access-built-in-roles.md), jí udělit oprávnění k provádění akcí. Rozsah můžete nastavit na úrovni předplatné, skupinu prostředků nebo prostředek. Oprávnění jsou děděné na nižších úrovních oboru. (Například přidání aplikace do role Čtenář pro skupinu prostředků znamená, že aplikace může číst skupina prostředků a na něm žádné prostředky.) V tomto kurzu nastavit obor na úrovni skupiny prostředků. Další informace najdete v tématu [použití přiřazení rolí ke správě přístupu k prostředkům předplatného Azure](../active-directory/role-based-access-control-configure.md).

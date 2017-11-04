@@ -1,25 +1,25 @@
-## <a name="create-a-simulated-device-app"></a>Create a simulated device app
-In this section, you:
+## <a name="create-a-simulated-device-app"></a>Vytvoření aplikace simulovaného zařízení
+V této části:
 
-* Create a Node.js console app that responds to a direct method called by the cloud
-* Trigger a simulated firmware update
-* Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
+* Vytvoříte konzolovou aplikaci Node.js, která bude reagovat na přímou metodu volanou cloudem.
+* Aktivujete simulovanou aktualizaci firmwaru.
+* Pomocí ohlášených vlastností umožníte dotazům na dvojčata zařízení identifikovat zařízení a čas jejich poslední dokončené aktualizace firmwaru.
 
-Step 1: Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Vytvořte prázdnou složku s názvem **manageddevice**.  Ve složce **manageddevice** vytvořte soubor package.json pomocí následujícího příkazu na příkazovém řádku. Přijměte všechny výchozí hodnoty:
    
     ```
     npm init
     ```
 
-Step 2: At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:
+2. Na příkazovém řádku ve složce **manageddevice** spusťte následující příkaz k instalaci balíčků sady SDK pro zařízení **azure-iot-device** a **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-Step 3: Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
+3. Pomocí textového editoru vytvořte ve složce **manageddevice** soubor **dmpatterns_fwupdate_device.js**.
 
-Step 4: Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
+4. Přidejte následující příkazy „require“ na začátek souboru **dmpatterns_fwupdate_device.js**:
    
     ```
     'use strict';
@@ -27,14 +27,14 @@ Step 4: Add the following 'require' statements at the start of the **dmpatterns_
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-Step 5: Add a **connectionString** variable and use it to create a **Client** instance. Replace the `{yourdeviceconnectionstring}` placeholder with the connection string you previously made a note of in the "Create a device identity" section previously:
+5. Přidejte proměnnou **connectionString** a použijte ji k vytvoření instance **klienta**. Nahraďte zástupný text `{yourdeviceconnectionstring}` připojovacím řetězcem, který jste si zaznamenali dříve v části Vytvoření identity zařízení:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-Step 6: Add the following function that is used to update reported properties:
+6. Přidejte následující funkci, která slouží k aktualizaci ohlášených vlastností:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -51,7 +51,7 @@ Step 6: Add the following function that is used to update reported properties:
     };
     ```
 
-Step 7: Add the following functions that simulate downloading and applying the firmware image:
+7. Přidejte následující funkce, které simulují stahování a použití image firmwaru:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -74,7 +74,7 @@ Step 7: Add the following functions that simulate downloading and applying the f
     }
     ```
 
-Step 8: Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample waits for four seconds before proceeding to download the firmware image:
+8. Přidejte následující funkci, která prostřednictvím ohlášených vlastností aktualizuje stav aktualizace firmwaru na **waiting** (Čekání). Zařízení jsou obvykle informována o dostupné aktualizaci a správcem definovaná zásada způsobí, že začnou stahovat a aplikovat aktualizaci firmwaru. V této funkci by měla běžet logika, která povoluje tuto zásadu. Pro jednoduchost ukázky čeká čtyři sekund, než budete pokračovat stáhnout do firmwaru:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -90,7 +90,7 @@ Step 8: Add the following function that updates the firmware update status throu
     };
     ```
 
-Step 9: Add the following function that updates the firmware update status through the reported properties to **downloading**. The function then simulates a firmware download and finally updates the firmware update status to either **downloadFailed** or **downloadComplete**:
+9. Přidejte následující funkci, která prostřednictvím ohlášených vlastností aktualizuje stav aktualizace firmwaru na **downloading** (Stahování). Funkce pak simuluje stahování firmwaru a nakonec aktualizuje stav aktualizace firmwaru buď na **downloadFailed** (Stahování selhalo), nebo **downloadComplete** (Stahování dokončeno):
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -128,7 +128,7 @@ Step 9: Add the following function that updates the firmware update status throu
     }
     ```
 
-Step 10: Add the following function that updates the firmware update status through the reported properties to **applying**. The function then simulates applying the firmware image and finally updates the firmware update status to either **applyFailed** or **applyComplete**:
+10. Přidejte následující funkci, která prostřednictvím ohlášených vlastností aktualizuje stav aktualizace firmwaru na **applying** (Aplikování). Funkce pak simuluje aplikování image firmwaru a nakonec aktualizuje stav aktualizace firmwaru buď na **applyFailed** (Aplikování selhalo), nebo **applyComplete** (Aplikování dokončeno):
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -166,7 +166,7 @@ Step 10: Add the following function that updates the firmware update status thro
     }
     ```
 
-Step 11: Add the following function that handles the **firmwareUpdate** direct method and initiates the multi-stage firmware update process:
+11. Přidejte následující funkci, která zpracuje přímou metodu **firmwareUpdate** a zahájí vícefázový proces aktualizace firmwaru:
     
     ```
     var onFirmwareUpdate = function(request, response) {
@@ -202,7 +202,7 @@ Step 11: Add the following function that handles the **firmwareUpdate** direct m
     }
     ```
 
-Step 12: Finally, add the following code that connects to your IoT hub:
+12. Nakonec přidejte následující kód, který se připojí k vaší službě IoT Hub:
     
     ```
     client.open(function(err) {
@@ -217,6 +217,6 @@ Step 12: Finally, add the following code that connects to your IoT hub:
     ```
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling](https://msdn.microsoft.com/library/hh675232.aspx).
+> Za účelem zjednodušení tento kurz neimplementuje žádné zásady opakování. V produkčním kódu, měli byste implementovat zásady opakování (například exponenciální zdvojnásobení) dle pokynů v článku na webu MSDN [přechodných chyb](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 

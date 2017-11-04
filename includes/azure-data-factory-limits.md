@@ -1,28 +1,53 @@
-Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each other's workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support.
+Objekt pro vytváření dat je víceklientské služby, který má následující výchozí omezení na místě a ujistěte se, že předplatná zákazníka jsou chráněny z druhé strany úlohy. Mnoho omezení lze snadno zvýšit pro vaše předplatné až do maximálního limitu kontaktováním podpory.
 
-| **Resource** | **Default Limit** | **Maximum Limit** |
+### <a name="version-2"></a>Verze 2
+
+| Prostředek | Výchozí omezení | Maximální omezení | 
+| -------- | ------------- | ------------- | 
+| datové továrny v předplatné Azure | 50 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| kanály v rámci objekt pro vytváření dat | 2500 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| datové sady v rámci objekt pro vytváření dat | 2500 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Aktivační události v rámci objekt pro vytváření dat | 2500 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Propojené služby v rámci objekt pro vytváření dat | 2500 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Integrační moduly Runtime v rámci služby data factory <sup>4</sup> | 2500 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Souběžné kanál spustí na každou kanálu | 20 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Maximální počet aktivit na kanálu | 20 | 30 |
+| Parametry maximální za kanálu | 20 | 30 |
+| počet bajtů za objektu pro objekty kanálu <sup>1</sup> | 200 KB | 200 KB |
+| počet bajtů za pro datovou sadu a propojené služby objekty <sup>1</sup> | 100 KB | 2000 KB |
+| Jednotky přesun dat v cloudu <sup>3</sup> | 32 | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Pro běh aktivit kanálu počet opakování | 1 day(timeout) | 1 den (časový limit) |
+| Zápis volání rozhraní API | 2 500/hod.<br/><br/> Toto omezení je dáno pomocí Azure Resource Manager, není Azure Data Factory. | [Obraťte se na podporu](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Volání rozhraní API pro čtení | 12 500/hod.<br/><br/> Toto omezení je dáno pomocí Azure Resource Manager, není Azure Data Factory. | [Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+
+
+### <a name="version-1"></a>Verze 1
+
+| **Prostředek** | **Výchozí omezení** | **Maximální omezení** |
 | --- | --- | --- |
-| data factories in an Azure subscription |50 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| pipelines within a data factory |2500 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| datasets within a data factory |5000 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| concurrent slices per dataset |10 |10 |
-| bytes per object for pipeline objects <sup>1</sup> |200 KB |200 KB |
-| bytes per object for dataset and linked service objects <sup>1</sup> |100 KB |2000 KB |
-| HDInsight on-demand cluster cores within a subscription <sup>2</sup> |60 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Cloud data movement unit <sup>3</sup> |32 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Retry count for pipeline activity runs |1000 |MaxInt (32 bit) |
+| datové továrny v předplatné Azure |50 |[Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| kanály v rámci objekt pro vytváření dat |2500 |[Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| datové sady v rámci objekt pro vytváření dat |5000 |[Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| souběžné řezy za datové sady |10 |10 |
+| počet bajtů za objektu pro objekty kanálu <sup>1</sup> |200 KB |200 KB |
+| počet bajtů za pro datovou sadu a propojené služby objekty <sup>1</sup> |100 KB |2000 KB |
+| HDInsight na vyžádání clusteru jader v rámci předplatného <sup>2</sup> |60 |[Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Jednotky přesun dat v cloudu <sup>3</sup> |32 |[Kontaktování podpory](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Pro běh aktivit kanálu počet opakování |1000 |MaxInt (32 bitů) |
 
-<sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.
+<sup>1</sup> kanálu, datové sady a propojené služby objekty představují logické seskupení vašich úloh. Limity pro tyto objekty se nevztahují k množství dat, můžete přesunout a zpracovat služby Azure Data Factory. Objekt pro vytváření dat je navržena tak, aby pro manipulaci s petabajty dat.
 
-<sup>2</sup> On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
+<sup>2</sup> jader na vyžádání HDInsight jsou přiděleny mimo odběr, který obsahuje data factory. V důsledku toho tohoto limitu je objektu pro vytváření dat vynucené základní limit pro počet jader na vyžádání HDInsight a se liší od základní limit spojený s předplatným Azure.
 
-<sup>3</sup> Cloud data movement unit (DMU) is being used in a cloud-to-cloud copy operation. It is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. You can achieve higher copy throughput by leveraging more DMUs for some scenarios. Refer to [Cloud data movement units](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) section on details.
+<sup>3</sup> jednotky přesun dat cloudu (DMU) se používá v rámci cloudu cloudové kopírování operace. Se jedná o míru, která reprezentuje výkon (kombinaci procesoru, paměti a přidělení prostředků sítě) na jednu jednotku v datové továrně. Pomocí další DMUs v některých případech můžete dosáhnout vyšší propustnost kopírování. Odkazovat na [jednotky přesun dat v cloudu](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) části na podrobnosti.
 
-| **Resource** | **Default lower limit** | **Minimum limit** |
+<sup>4</sup> integrace modulu Runtime (IR) je na výpočetní infrastruktuře používá k zajištění následující funkce integrace dat různých prostředích sítě Azure Data Factory: Přesun dat, odeslání aktivity a výpočetní služby spouštění balíčků SSIS. Další informace najdete v tématu [Přehled integrace modulu Runtime](../articles/data-factory/concepts-integration-runtime.md).
+
+| **Prostředek** | **Výchozí limit nižší** | **Minimální omezení** |
 | --- | --- | --- |
-| Scheduling interval |15 minutes |15 minutes |
-| Interval between retry attempts |1 second |1 second |
-| Retry timeout value |1 second |1 second |
+| Plánování intervalu |15 minut |15 minut |
+| Interval mezi pokusy o opakování |1 sekunda |1 sekunda |
+| Opakujte hodnotu časového limitu |1 sekunda |1 sekunda |
 
-### <a name="web-service-call-limits"></a>Web service call limits
-Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-subscription-service-limits.md#resource-group-limits).
+#### <a name="web-service-call-limits"></a>Omezení volání webové služby
+Azure Resource Manager má omezení pro volání rozhraní API. Můžete provádět volání rozhraní API s rychlostí v rámci [rozhraní API Správce prostředků Azure omezuje](../articles/azure-subscription-service-limits.md#resource-group-limits).

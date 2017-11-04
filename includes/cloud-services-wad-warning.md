@@ -1,15 +1,15 @@
 > [!WARNING]
-> When you enable diagnostics on an existing role, any extensions you have enabled will be disabled when the package is deployed. These include:
+> Když povolíte diagnostiku pro existující roli, jsou libovolná rozšíření, která jste už nastavili zakázáno, pokud je balíček nasazen. Mezi ně patří:
 >
-> * Microsoft Monitoring Agent Diagnostics
-> * Microsoft Azure Security Monitoring
-> * Microsoft Antimalware                 
+> * Microsoft Monitoring Agent diagnostiky
+> * Sledování zabezpečení Microsoft Azure
+> * Antimalware od Microsoftu                 
 > * Microsoft Monitoring Agent
-> * Microsoft Service Profiler Agent      
-> * Windows Azure Domain Extension        
-> * Windows Azure Diagnostics Extension   
-> * Windows Azure Remote Desktop Extension
-> * Windows Azure Log Collector
+> * Agent služby Microsoft profileru      
+> * Rozšíření Azure domény systému Windows        
+> * Windows Azure Diagnostics rozšíření   
+> * Windows Azure vzdálené plochy rozšíření
+> * Kolektor protokolů Azure Windows
 >
-> You may re-enable your extensions via the Azure Portal or PowerShell after you have deployed the updated role.
+> Poté, co nasadíte roli aktualizované, můžete resetovat rozšíření prostřednictvím portálu Azure nebo prostředí PowerShell.
 >

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ladění výkonu dotazů s Azure Cosmos DB
 Poskytuje Azure Cosmos DB [SQL rozhraní API pro dotazování na data](documentdb-sql-query.md), aniž byste museli schématu nebo sekundární indexy. Tento článek obsahuje následující informace pro vývojáře:
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milisekundy | Čas strávený v nahrávání dokumentů  | 
 | `systemFunctionExecuteTimeInMs` | milisekundy | Celkový čas strávený provádění (Předdefinované) funkce systému v milisekundách  | 
 | `userFunctionExecuteTimeInMs` | milisekundy | Celkový čas strávený spouštění uživatelsky definované funkce v milisekundách | 
-| `retrievedDocumentCount` | milisekundy | Celkový počet načtených dokumentů  | 
+| `retrievedDocumentCount` | Počet | Celkový počet načtených dokumentů  | 
 | `retrievedDocumentSize` | Bajty | Celková velikost načtené dokumenty v bajtech  | 
 | `outputDocumentCount` | Počet | Počet výstupních dokumentů | 
 | `writeOutputTimeInMs` | milisekundy | Doba provádění dotazu v milisekundách | 

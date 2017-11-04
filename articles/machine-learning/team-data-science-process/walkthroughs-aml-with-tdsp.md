@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Týmové projekty strukturovaná vědecké zpracování dat v nástroji Azure Machine Learning Workbench
 
-Tyto kurzy a ukázky ukazují, jak k vytváření projektů strukturovaná Team vědecké zpracování dat pomocí Azure Machine Learning Workbench. Přehled procesu Team dat vědecké účely, najdete v tématu [proces vědecké účely dat](overview.md). Přehled Spark v HDInsight, naleznete v části [Úvod do Spark v HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).
+Tyto kurzy a ukázky ukazují, jak k vytváření projektů strukturovaná Team vědecké zpracování dat pomocí Azure Machine Learning Workbench. Přehled procesu Team dat vědecké účely, najdete v tématu [proces vědecké účely dat](overview.md). Přehled Spark v HDInsight, naleznete v části [Úvod do Spark v HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
 Návody vědecké účely další data, které se spouští proces vědecké účely Team dat jsou seskupené podle **platformy** , které používají. V tématu [návody spouštění procesu tým datové vědy](walkthroughs.md) pro rozpis těchto příkladech.
 

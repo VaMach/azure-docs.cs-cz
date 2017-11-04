@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/17/2017
 ms.author: jgao
-ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f9885a9c99288208445d661e1c29ce680c245b43
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Vytvořit clustery se systémem Linux v HDInsight pomocí sady .NET SDK
 
@@ -379,29 +379,29 @@ Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se 
 Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte následující informace o práci s vašeho clusteru. 
 
 ### <a name="hadoop-clusters"></a>Clustery Hadoop
-* [Použití Hivu se službou HDInsight](hdinsight-use-hive.md)
-* [Použití Pigu se službou HDInsight](hdinsight-use-pig.md)
-* [Používání nástroje MapReduce s HDInsight](hdinsight-use-mapreduce.md)
+* [Použití Hivu se službou HDInsight](hadoop/hdinsight-use-hive.md)
+* [Použití Pigu se službou HDInsight](hadoop/hdinsight-use-pig.md)
+* [Používání nástroje MapReduce s HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Clustery HBase
-* [Začínáme s HBase v HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Začínáme s HBase v HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clustery Storm
-* [Vývoj topologie Java pro Storm v HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Použití komponent, Python v Storm v HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Nasazení a monitorování topologie se Storm v HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Vývoj topologie Java pro Storm v HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Použití komponent, Python v Storm v HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Nasazení a monitorování topologie se Storm v HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Clustery Spark
-* [Vytvoření samostatné aplikace pomocí Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Vzdálené spouštění úloh na clusteru Sparku pomocí Livy](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](hdinsight-apache-spark-eventhub-streaming.md)
+* [Vytvoření samostatné aplikace pomocí Scala](spark/apache-spark-create-standalone-application.md)
+* [Vzdálené spouštění úloh na clusteru Sparku pomocí Livy](spark/apache-spark-livy-rest-interface.md)
+* [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](spark/apache-spark-use-bi-tools.md)
+* [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](spark/apache-spark-eventhub-streaming.md)
 
 ### <a name="run-jobs"></a>Spouštění úloh
-* [Spouštět úlohy Hive v HDInsight pomocí sady .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [Spuštění úlohy Pig v HDInsight pomocí sady .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-* [Spuštění úloh Sqoop v HDInsight pomocí sady .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+* [Spouštět úlohy Hive v HDInsight pomocí sady .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Spuštění úlohy Pig v HDInsight pomocí sady .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [Spuštění úloh Sqoop v HDInsight pomocí sady .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Spuštění úloh Oozie v HDInsight](hdinsight-use-oozie.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scénáře nasazení a případy použití
 V této části se podíváme na několik scénářů a případy použití využívající Azure Active Directory (AD) Domain Services.
@@ -85,4 +85,4 @@ Další informace o tomto scénáři nasazení najdete v tématu Jak [integrovat
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Clustery HDInsight připojený k doméně (Preview)
 Můžete nastavit cluster služby Azure HDInsight, který je připojen k spravované doméně služby Azure AD Domain Services s Apache škálu povolena. Vytvořit a použít zásady Hive prostřednictvím Apache škálu a povolit uživatelům (například datových vědců) pro připojení k Hive pomocí rozhraní ODBC nástrojů, například aplikace Excel, Tableau atd. Společnost Microsoft pracuje na přidávání dalších úloh, jako jsou HBase, Spark a Storm, k doméně HDInsight brzy.
 
-Další informace o tomto scénáři nasazení najdete v tématu Jak [konfigurace clusterů HDInsight připojený k doméně](../hdinsight/hdinsight-domain-joined-configure.md)
+Další informace o tomto scénáři nasazení najdete v tématu Jak [konfigurace clusterů HDInsight připojený k doméně](../hdinsight/domain-joined/apache-domain-joined-configure.md)

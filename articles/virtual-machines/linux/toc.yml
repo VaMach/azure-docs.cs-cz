@@ -90,6 +90,13 @@
       href: maintenance-and-updates.md
     - name: Úložiště
       href: azure-vm-storage-overview.md
+      items:
+        - name: Storage úrovně Premium
+          href: premium-storage.md
+        - name: Výkon Storage úrovně Premium
+          href: premium-storage-performance.md
+        - name: Storage úrovně Standard
+          href: standard-storage.md
     - name: Sítě
       href: network-overview.md
     - name: Automatické škálování aplikací
@@ -310,6 +317,8 @@
           href: expand-disks.md
         - name: Pořízení snímku disku
           href: snapshot-copy-managed-disk.md
+        - name: Zálohování a zotavení po havárii pro disky
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Zálohování nespravovaných disků
           href: incremental-snapshots.md
         - name: Převod na Managed Disks
@@ -318,6 +327,8 @@
           href: convert-disk-storage.md
         - name: Kopírování souborů do virtuálního počítače
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Migrace na Storage úrovně Premium s Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Použití úložiště souborů
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Nasazení disků pomocí šablony

@@ -1,90 +1,90 @@
 # <a name="azure-service-bus"></a>Azure Service Bus
-Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
+Ať už aplikace nebo služba běží v cloudu nebo lokálně, často potřebuje komunikovat s jinými aplikacemi nebo službami. Pokud chcete zadat široce vhodný způsob, jak to udělat, Azure nabízí Service Bus. V tom to článku se podíváme na tuto technologii a na to, proč byste ji mohli chtít používat.
 
-## <a name="service-bus-fundamentals"></a>Service Bus fundamentals
-Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. And in some cases, all that's really needed is a connection between applications&#151;queues aren't required. Service Bus provides all three options, letting your applications interact in several different ways.
+## <a name="service-bus-fundamentals"></a>Základy služby Service Bus
+Různé situace potřebují různé styly komunikace. Někdy je pro aplikace nejlepším řešením zprávy odesílat a přijímat přes jednoduchou frontu. V jiných situacích běžná fronta nestačí a je lepší použít frontu s publikováním a odběrem. A v některých případech všechno, co je skutečně potřeba je připojení mezi aplikací &#151; fronty nejsou požadované. Service Bus poskytuje všechny tři možnosti, když necháte aplikací pracovat několika různými způsoby.
 
-Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. [Figure 1](#Fig1) shows how this looks.
+Service Bus je víceklientská cloudová služba – to znamená, že ji může sdílet několik uživatelů. Každý uživatel, jako třeba vývojář aplikací, vytvoří *obor názvů*, a pak definuje komunikační mechanizmy, které potřebuje v daném oboru názvů. [Obrázek 1](#Fig1) ukazuje, jak to vypadá.
 
-<a name="Fig1"></a>![Diagram of Azure Service Bus][svc-bus]
+<a name="Fig1"></a>![Diagram Azure Service Bus][svc-bus]
 
-**Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
+**Obrázek 1: Service Bus poskytuje víceklientské služby pro připojení aplikací přes cloud.**
 
-Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
+V oboru názvů můžete použít jednu nebo víc instancí čtyř různých komunikačních mechanizmů, každý z nich spojuje aplikace jiným způsobem. Na výběr jsou:
 
-* *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
-* *Topics*, which provide one-directional communication using *subscriptions*-a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
-* *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages-it's not a broker. Instead, it just passes them on to the destination application.
-* *Event Hubs*, which provide event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
+* *Fronty*, které umožňují jednosměrnou komunikaci. Každá fronta slouží jako prostředník (někdy se tomu říká *zprostředkovatel*), který ukládá odeslané zprávy, dokud nedorazí k příjemci. Každou zprávu přijme jeden příjemce.
+* *Témata*, která nabízejí jednosměrnou komunikaci pomocí *odběrů* – jedno téma může mít několik odběrů. Podobně jako u front je téma něco jako zprostředkovatel, ale každý odběr může volitelně používat filtr a přijímat jen zprávy, které odpovídají konkrétním kritériím.
+* *Předávání*, které umožňuje jednosměrnou komunikaci. Na rozdíl od front a témat se při předávání neukládají žádné zprávy, takže se nejedná o zprostředkování. Naopak se zprávy jednoduše předají k cílové aplikaci.
+* *Event Hubs* – centra událostí, která poskytují vstup pro události a telemetrii do cloudu v obrovském měřítku s nízkou latencí a vysokou spolehlivostí.
 
-When you create a queue, topic, relay, or Event Hub, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, relay, or Event Hub to communicate with one another. 
+Když vytvoříte frontu, téma, předávání nebo Event Hub, musíte ho pojmenovat. Kombinace tohoto názvu a vašeho oboru názvů vytváří jedinečný identifikátor objektu. Aplikace můžou tento název poskytnout službě Service Bus, a pak pomocí této fronty, tématu, předávání nebo Event Hubu mezi sebou komunikovat. 
 
-To use any of these objects, Windows applications can use Windows Communication Foundation (WCF). For queues, topics, and Event Hubs Windows applications can also use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues, topics, and Event Hubs using REST APIs over HTTP. 
+Pokud aplikace Windows chtějí tyto objekty používat, můžou využít WCF (Windows Communication Foundation). Pro fronty, témata a Event Hubs můžou aplikace Windows použít taky API pro přenos zpráv, které definuje služba Service Bus. Pro snadnější použití těchto objektů z aplikací pro jinou platformu než Windows uvolnil Microsoft sady SDK pro Javu, Node.js a další jazyky. Přístup k frontám, tématům a Event Hubs se může získat i pomocí REST API přes HTTP. 
 
-It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a generic communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
+Je důležité pochopit, že i když služba Service Bus samotná běží v cloudu (to znamená v datových centrech Microsoftu pro Azure), aplikace, které ji využívají, můžou běžet kdekoli. Service Bus můžete použít třeba k připojení aplikací běžících v Azure nebo aplikací běžících ve vašem vlastním datovém centru. Můžete ji použít i k připojení aplikace běžící v Azure nebo jiné cloudové službě k lokální službě nebo k mobilním zařízením,jako jsou tablety a telefony. Dokonce s ní můžete připojit domácí spotřebiče, senzory a jiná zařízení k centrální aplikaci nebo k jiným zařízením. Service Bus je obecný komunikační mechanizmus v cloudu, který je přístupný prakticky odkudkoli. To, jakým způsobem ho budete využívat, záleží jen na tom, co vaše aplikace potřebují dělat.
 
-## <a name="queues"></a>Queues
-Suppose you decide to connect two applications using a Service Bus queue. [Figure 2](#Fig2) illustrates this situation.
+## <a name="queues"></a>Fronty
+Řekněme, že jste se rozhodli spojit dvě aplikace pomocí fronty Service Bus. [Obrázek 2](#Fig2) je taková situace.
 
-<a name="Fig2"></a>![Diagram of Service Bus Queues][queues]
+<a name="Fig2"></a>![Diagram fronty služby Service Bus][queues]
 
-**Figure 2: Service Bus queues provide one-way asynchronous queuing.**
+**Obrázek 2: Fronty Service Bus poskytují jednosměrné asynchronní řízení front zpráv.**
 
-The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as [Figure 2](#Fig2) shows, or multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver-for a multi-cast service you should use a topic instead.
+Tento proces je prostý: Odesílatel odešle zprávu do fronty Service Bus a příjemce si ji z fronty vyzvedne později. Fronta může mít jen jednoho příjemce, jako [na obrázku 2](#Fig2) ukazuje nebo více aplikací může číst ze stejné fronty. V této druhé situaci každou zprávu přečte jen jeden příjemce – pokud chcete zprávu zpřístupnit víc příjemcům, je lepší místo fronty použít téma.
 
-Each message has two parts: a set of properties, each a key/value pair, and a binary message body. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
+každá zpráva má dvě části: skupinu vlastností ve formě dvojic klíčů+hodnot a tělo zprávy v binární podobě. Jejich použití závisí na tom, co se vaše aplikace snaží udělat. Například jedna aplikace odešle zprávu o nedávném prodeji, která může obsahovat třeba tyto údaje: *Seller="Ava"* a *Amount=10000*. Tělo zprávy může obsahovat naskenovaný snímek podepsané smlouvy o prodeji nebo nemusí obsahovat nic a může zůstat prázdné.
 
-A receiver can read a message from a Service Bus queue in two different ways. The first option, called *ReceiveAndDelete*, removes a message from the queue and immediately deletes it. This is simple, but if the receiver crashes before it finishes processing the message, the message will be lost. Because it's been removed from the queue, no other receiver can access it. 
+Příjemce může zprávu načíst z fronty Service Bus dvěma různými způsoby. První možnost se jmenuje *ReceiveAndDelete* (přijmout a odstranit) – odebere zprávu z fronty a okamžitě ji odstraní. Tento způsob je velice jednoduchý, ale pokud příjemce spadne, než se mu podaří zprávu zpracovat, zprávu ztratí. A protože se už odstranila z fronty, nemůže ji získat ani žádný jiný příjemce. 
 
-The second option, *PeekLock*, is meant to help with this problem. Like ReceiveAndDelete, a PeekLock read removes a message from the queue. It doesn't delete the message, however. Instead, it locks the message, making it invisible to other receivers, then waits for one of three events:
+Druhá možnost se jmenuje *PeekLock* (uzamknout pro zpracování) a jejím smyslem je vyřešit práv tento problém. Čtení PeekLock jako ReceiveAndDelete, odebere zprávu z fronty. Jenže se při tom neodstraní úplně. Místo toho se zpráva jen uzamkne, aby nebyla vidět pro ostatní příjemce, a pak čeká na jednu ze tří událostí:
 
-* If the receiver processes the message successfully, it calls *Complete*, and the queue deletes the message. 
-* If the receiver decides that it can't process the message successfully, it calls *Abandon*. The queue then removes the lock from the message and makes it available to other receivers.
-* If the receiver calls neither of these within a configurable period of time (by default, 60 seconds), the queue assumes the receiver has failed. In this case, it behaves as if the receiver had called Abandon, making the message available to other receivers.
+* Pokud příjemce zprávu úspěšně zpracuje, zavolá zpátky *Complete* (hotovo) a fronta zprávu odstraní. 
+* Pokud se příjemce rozhodne, že nedokáže zprávy úspěšně zpracovat, zavolá *Abandon* (opustit). Fronta pak zruší zámek zprávy a ta je pak znovu dostupná pro ostatní příjemce.
+* Pokud příjemce v nastaveném časovém limitu nepošle ani jedno z těchto volání (ve výchozím nastavení je to 60 sekund), fronta předpokládá, že příjemce selhal. V takovém případě se chová jako kdyby příjemce zavolal Abandon, zpřístupní zprávu pro ostatní příjemce.
 
-Notice what can happen here: The same message might be delivered twice, perhaps to two different receivers. Applications using Service Bus queues must be prepared for this. To make duplicate detection easier, each message has a unique MessageID property that by default stays the same no matter how many times the message is read from a queue. 
+Všimněte si, co se tu může stát: Stejná zpráva se může dodat dvakrát, třeba i dvěma různým příjemcům. Aplikace, které používají fronty Service Bus, na tuto možnost musí být připravené. Pro usnadnění detekce duplicitních, že každá zpráva má jedinečný MessageID vlastnost, která ve výchozím nastavení zůstává stejný bez ohledu na to, jak tolikrát, kolikrát je pro čtení zprávy z fronty. 
 
-Queues are useful in quite a few situations. They let applications communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
+Fronty jsou užitečné v mnoha situacích. Umožňují aplikacím komunikovat, i když nejsou spuštěné ve stejnou dobu – to se hodí především pro dávkové a mobilní aplikace. Fronta s několika příjemci taky poskytuje automatické vyvažování zátěže, protože odeslané zprávy se rozdělují mezi jednotlivé příjemce.
 
-## <a name="topics"></a>Topics
-Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. [Figure 3](#Fig3) illustrates this idea.
+## <a name="topics"></a>Témata
+Přestože jsou fronty velice užitečné, nemusí se vždy jednat o to nejlepší řešení. Někdy je lepší použít témata Service Bus. [Obrázek 3](#Fig3) je taková situace.
 
-<a name="Fig3"></a>![Diagram of Service Bus Topics and Subscriptions][topics-subs]
+<a name="Fig3"></a>![Diagram témata služby Service Bus a odběrů][topics-subs]
 
-**Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
+**Obrázek 3: V závislosti na použitém filtru může odběratelská aplikace přijímat všechny nebo jen některé zprávy odeslané do tématu Service Bus.**
 
-A topic is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics let each receiving application create its own subscription by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, [Figure 3](#Fig3) shows a sender and a topic with three subscribers, each with its own filter:
+Téma se ve spoustě ohledů podobá frontě. Odesílatelé odesílají zprávy do tématu stejným způsobem jako do fronty a zprávy v tématu vypadají stejně jako zprávy ve frontě. Velký rozdíl je, že témata každá aplikace přijímající vytvořila vlastní odběr definováním *filtru*. Odběratel pak uvidí jen zprávy, které odpovídají použitému filtru. Například [obrázek 3](#Fig3) zobrazuje odesílatele a téma se třemi odběrateli a každý svůj vlastní filtr:
 
-* Subscriber 1 receives only messages that contain the property *Seller="Ava"*.
-* Subscriber 2 receives messages that contain the property *Seller="Ruby"* and/or contain an *Amount* property whose value is greater than 100,000. Perhaps Ruby is the sales manager, and so she wants to see both her own sales and all big sales regardless of who makes them.
-* Subscriber 3 has set its filter to *True*, which means that it receives all messages. For example, this application might be responsible for maintaining an audit trail and therefore it needs to see all the messages.
+* Odběratel 1 přijímá jen zprávy, které mají určitou vlastnost *Seller="Ava"*.
+* Odběratel 2 přijímá zprávy, které mají vlastnost *Seller="Ruby"* a/nebo mají vlastnost *Amount* s hodnotou vyšší než 100 000. Možná je Ruby manažerka prodeje a takže chce vidět svoje prodeje a všechny velké prodeje bez ohledu na to, čí jsou.
+* Odběratel 3 má nastavený filtr *True* – to znamená, že přijímá všechny zprávy. Tato aplikace může mít například na starost udržování auditní stopy a proto potřebuje vidět všechny zprávy.
 
-As with queues, subscribers to a topic can read messages using either ReceiveAndDelete or PeekLock. Unlike queues, however, a single message sent to a topic can be received by multiple subscribers. This approach, commonly called *publish and subscribe*, is useful whenever multiple applications might be interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
+Jako v případě front můžou Odběratelé tématu načítat zprávy způsobem ReceiveAndDelete a PeekLock. Na rozdíl od front se ale jedna zpráva odeslaná do tématu může dostat k víc odběratelům. Tento přístup, označovaného jako *publikování a odběr*, je užitečné v případě, že více aplikací může být zájem o stejné zprávy. Pokud odběratel definuje vhodný filtr, může si z proudu zpráv vytáhnout jen ty, které potřebuje.
 
-## <a name="relays"></a>Relays
-Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides relays, as [Figure 4](#Fig4) shows.
+## <a name="relays"></a>Předávání
+Fronty i témata nabízejí jednosměrnou asynchronní komunikaci přes zprostředkovatele. Zprávy proudí jen jedním směrem a mezi odesílateli a příjemci není žádné přímé spojení. Co když to ale není to, co chcete? Řekněme, že aplikace potřebují odesílat i přijímat zprávy nebo že mezi nimi třeba chcete vytvořit přímé spojení a nepotřebujete zprostředkovatele pro ukládání zpráv. Pro takovou situaci Service Bus nabízí možnost předávání, jako [obrázek 4](#Fig4) zobrazuje.
 
-<a name="Fig4"></a>![Diagram of Service Bus Relay][relay]
+<a name="Fig4"></a>![Diagram předávání přes Service Bus][relay]
 
-**Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
+**Obrázek 4: Předávání přes Service Bus nabízí synchronní obousměrnou komunikaci mezi aplikacemi.**
 
-The obvious question to ask about relays is this: Why would I use one? Even if I don't need queues, why make applications communicate via a cloud service rather than just interact directly? The answer is that talking directly can be harder than you might think.
+Asi vás napadne otázka: K čemu by se mi tohle hodilo? I když nepotřebuju fronty, proč mám nutit aplikace komunikovat přes cloudovou službu, když chci, aby komunikovaly přímo? Odpověď je taková, že přímá komunikace je někdo mnohem obtížnější, než by se mohlo zdát.
 
-Suppose you want to connect two on-premises applications, both running inside corporate datacenters. Each of these applications sits behind a firewall, and each datacenter probably uses network address translation (NAT). The firewall blocks incoming data on all but a few ports, and NAT implies that the machine each application is running on doesn't have a fixed IP address that you can reach directly from outside the datacenter. Without some extra help, connecting these applications over the public Internet is problematic.
+Řekněme, že chcete propojit dvě lokální aplikace, které obě běží ve firemních datových centrech. Každá z těchto aplikací je za firewallem a každé datové centrum pravděpodobně používá překládání adres (NAT). Firewall povoluje data jen na několika málo portech a ostatní porty blokuje, zatímco NAT naznačuje, že ani jeden z počítačů, na kterých aplikace běží, nemá pevnou IP adresu, takže z jiné zóny, než je zóna jejího datového centra, se k ní nedá dostat přímo. Bez pomoci specializovaných nástrojů půjdou tyto aplikace propojit přes internet jen těžko.
 
-A Service Bus relay provides this help. To communicate bi-directionally through a relay, each application establishes an outbound TCP connection with Service Bus, then keeps it open. All communication between the two applications will travel over these connections. Because each connection was established from inside the datacenter, the firewall will allow incoming traffic to each application without opening new ports. This approach also gets around the NAT problem, because each application has a consistent endpoint in the cloud throughout the communication. By exchanging data through the relay, the applications can avoid the problems that would otherwise make communication difficult. 
+A Service Bus je právě takový specializovaný nástroj. Aby aplikace mohly komunikovat obousměrně s předáváním, každá z nich vytvoří odchozí připojení přes TCP se službou Service Bus a udržuje ho otevřené. Veškerá komunikace mezi těmito dvěma aplikacemi bude procházet přes tato spojení. Protože se obě spojení vytvořila ze zóny datového centra, firewall povolí veškerou příchozí komunikaci pro danou aplikaci bez nutnosti otevřít nové porty. Tento přístup také obchází problém s NAT, protože každá z obou aplikací má v cloudu vlastní pevný koncový bod. Výměnou dat přes předávací službu se aplikace můžou vyhnout problémům, které by jinak takovou komunikaci výrazně ztěžovaly. 
 
-To use Service Bus relays, applications rely on Windows Communication Foundation (WCF). Service Bus provides WCF bindings that make it straightforward for Windows applications to interact via relays. Applications that already use WCF can typically just specify one of these bindings, then talk to each other through a relay. Unlike queues and topics, however, using relays from non-Windows applications, while possible, requires some programming effort; no standard libraries are provided.
+Pokud chcete používat předávací služby Service Bus, aplikací závisí na Windows Communication Foundation (WCF). Service Bus poskytuje vazby WCF, které aplikacím Windows ulehčují komunikaci přes předávací službu. Pro aplikace, které už WCF používají, obvykle stačí specifikovat jednu z těchto vazeb a potom můžou komunikovat přes předávací službu. Na rozdíl od front a témat ale komunikace přes předávací službu z aplikací na jiné platformě než Windows vyžaduje určitou míru programátorského úsilí, protože nejsou k dispozici žádné standardizované knihovny.
 
-Unlike queues and topics, applications don't explicitly create relays. Instead, when an application that wishes to receive messages establishes a TCP connection with Service Bus, a relay is created automatically. When the connection is dropped, the relay is deleted. To let an application find the relay created by a specific listener, Service Bus provides a registry that enables applications to locate a specific relay by name.
+A na rozdíl od front a témat taky aplikace nevytvářejí explicitně předávací službu. Místo toho se stane, že když aplikace chce dostávat zprávy, vytvoří spojení se službou Service Bus přes TCP a předávací služba se vytvoří automaticky. Při ukončení spojení se předávací služba odstraní. Aby mohli aplikaci najít předávací službu vytvořenou konkrétním posluchačem, Service Bus poskytuje registru, která umožňuje aplikacím najít konkrétní předávací službu podle názvu.
 
-Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
+Předávací služby jsou správným řešením v situaci, když potřebujete přímou komunikaci mezi aplikacemi. Řekněme třeba, že systém pro rezervaci letenek běží na lokálním datovém centru, ke kterému musí mít přístup prodejní místa, mobilní zařízení a další počítače. Aplikace, které běží na všech těchto systémech, by mohly ke komunikaci použít předávací služby Service Bus v cloudu, a bylo by jedno, kde běží.
 
 ## <a name="event-hubs"></a>Event Hubs
-Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. For example, you could use an Event Hub to collect live engine performance data from a fleet of cars. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster. For more information about Event Hubs, see the [Event Hubs overview][Event Hubs overview].
+Event Hubs je vysoce škálovatelná služba, která dokáže zpracovat miliony událostí za sekundu a umožňuje vaší aplikaci zpracovávat a analyzovat masivní objemy dat vytvářených zařízeními a aplikacemi připojenými k vaší síti. Službu Event Hubs můžete použít třeba ke sběru výkonnostních ukazatelů motorů vozidel firemního vozového parku v reálném čase. Když Event Hubs shromáždí data, můžete je zpracovat a uložit pomocí libovolného úložného clusteru nebo poskytovatele datové analýzy v reálném čase. Další informace o službě Event Hubs najdete v tématu [Přehled služby Event Hubs][Event Hubs overview].
 
-## <a name="summary"></a>Summary
-Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the Internet. By providing cloud-based technologies for achieving this through queues, topics, relays, and Event Hubs, Service Bus aims to make this essential function easier to implement and more broadly available.
+## <a name="summary"></a>Souhrn
+Propojení aplikací vždy patřilo k budování kompletních řešení a množství situací, ve kterých spolu aplikace a služby musí komunikovat, se s rostoucím počtem zařízení připojených k internetu bude dál zvyšovat. Service Bus používá fronty, témata, předávání a služby Event Hubs k tomu, aby tuto základní funkci aplikacím a službám umožnil, usnadnil a více zpřístupnil.
 
 [svc-bus]: ./media/hybrid-solutions/SvcBus_01_architecture.png
 [queues]: ./media/hybrid-solutions/SvcBus_02_queues.png

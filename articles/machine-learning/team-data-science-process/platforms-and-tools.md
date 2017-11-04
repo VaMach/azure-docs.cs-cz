@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Týmové projekty platformy a nástroje pro vědecké zpracování dat
 
@@ -61,7 +61,7 @@ Apache Spark je open-source paralelní zpracování rozhraní, které podporuje 
 
 Když vytvoříte cluster Spark v HDInsight, vytvoříte výpočetní prostředky Azure s nainstalovaným a nakonfigurovaným Spark. Vytvořte Spark cluster v HDInsight trvá přibližně 10 minut. Uložte data, která mají být zpracovány v Azure Blob storage. Informace o používání Azure Blob Storage s clusterem, najdete v tématu [použití HDFS kompatibilní úložiště Azure Blob s Hadoop v HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-Tým TDSP od společnosti Microsoft byla publikována dvě začátku do konce návody o tom, jak použít clustery Spark HDInsight Azure k vytvoření řešení vědecké účely data, jeden používáním Pythonu a dalších Scala. Další informace o Azure HDInsight **clustery Spark**, najdete v části [přehled: Apache Spark v HDInsight Linux](../../hdinsight/hdinsight-apache-spark-overview.md). Další informace o sestavení pomocí řešení datové vědy **Python** v clusteru Azure HDInsight Spark, najdete v části [přehled o vědecké zpracování dat pomocí Spark v Azure HDInsight](spark-overview.md). Další informace o sestavení pomocí řešení datové vědy **Scala** v clusteru Azure HDInsight Spark, najdete v části [vědecké zpracování dat pomocí Scala a Spark v Azure](scala-walkthrough.md). 
+Tým TDSP od společnosti Microsoft byla publikována dvě začátku do konce návody o tom, jak použít clustery Spark HDInsight Azure k vytvoření řešení vědecké účely data, jeden používáním Pythonu a dalších Scala. Další informace o Azure HDInsight **clustery Spark**, najdete v části [přehled: Apache Spark v HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Další informace o sestavení pomocí řešení datové vědy **Python** v clusteru Azure HDInsight Spark, najdete v části [přehled o vědecké zpracování dat pomocí Spark v Azure HDInsight](spark-overview.md). Další informace o sestavení pomocí řešení datové vědy **Scala** v clusteru Azure HDInsight Spark, najdete v části [vědecké zpracování dat pomocí Scala a Spark v Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -86,7 +86,7 @@ Hive umožňuje strukturu projektu na do značné míry Nestrukturovaná data. P
 
 Pro datových vědců Hive v dotazů Hive ke zpracování záznamů spouštět Python User-Defined funkcí (UDF). Tato schopnost rozšiřuje možnosti dotazů Hive v analýzu dat podstatně. Konkrétně umožňuje datových vědců umožňuje provádět inženýrství škálovatelné funkce v jazycích, většinou se seznámíte s: HiveQL podobné jazyku SQL a Python. 
 
-Další informace o Azure HDInsight Hive clustery najdete v tématu [použití Hive a HiveQL s Hadoop v HDInsight](../../hdinsight/hdinsight-use-hive.md). Další postupy k vytvoření řešení vědecké účely škálovatelné začátku do konce dat s clustery HDInsight Hive Azure najdete v tématu [Team datové vědy procesu v akci: pomocí clusterů systému HDInsight Hadoop](hive-walkthrough.md).
+Další informace o Azure HDInsight Hive clustery najdete v tématu [použití Hive a HiveQL s Hadoop v HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Další postupy k vytvoření řešení vědecké účely škálovatelné začátku do konce dat s clustery HDInsight Hive Azure najdete v tématu [Team datové vědy procesu v akci: pomocí clusterů systému HDInsight Hadoop](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Azure File Storage 

@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Vývoj aplikací pomocí Draft
       href: kubernetes-draft.md
+    - name: Zachování data s Azure Files
+      href: azure-files.md
     - name: Použití řídicího panelu Kubernetes
       href: kubernetes-dashboard.md
     - name: Vytvoření instančního objektu

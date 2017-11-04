@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88fd608a02364000699224f0f2df5b4df8a29e11
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Vytvoření clusterů HDInsight s Data Lake Store pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Poté, co jste nastavili jako úložiště clusteru s Data Lake Store, naleznete
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-primary-storage"></a>Spouštění dotazů Hive proti dat v Data Lake Store (jako primární úložiště)
 
-Ke spuštění dotazu Hive, použijte rozhraní Hive zobrazení Ambari portálu. Pokyny týkající se používání zobrazení Ambari Hive naleznete v tématu [použít zobrazení Hive se systémem Hadoop v HDInsight](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md).
+Ke spuštění dotazu Hive, použijte rozhraní Hive zobrazení Ambari portálu. Pokyny týkající se používání zobrazení Ambari Hive naleznete v tématu [použít zobrazení Hive se systémem Hadoop v HDInsight](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 Při práci s daty v Data Lake Store, existuje několik řetězce, chcete-li změnit.
 
@@ -199,11 +199,11 @@ Informace o tom, jak zkopírovat data z úložiště objektů Blob do Data Lake 
 * [Použít AdlCopy ke zkopírování dat z Azure úložiště objektů BLOB do Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-store-with-a-spark-cluster"></a>Použití Data Lake Store s clusterem Spark
-Spark cluster můžete použít ke spuštění úloh Spark na data, která je uložená v Data Lake Store. Další informace najdete v tématu [clusteru používejte HDInsight Spark k analýze dat v Data Lake Store](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).
+Spark cluster můžete použít ke spuštění úloh Spark na data, která je uložená v Data Lake Store. Další informace najdete v tématu [clusteru používejte HDInsight Spark k analýze dat v Data Lake Store](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Použití Data Lake Store v topologii Storm
-Data Lake Store můžete použít k zápisu dat ze topologie Storm. Pokyny o tom, jak dosáhnout tento scénář naleznete v tématu [pomocí Azure Data Lake Store s Apache Storm v prostředí HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+Data Lake Store můžete použít k zápisu dat ze topologie Storm. Pokyny o tom, jak dosáhnout tento scénář naleznete v tématu [pomocí Azure Data Lake Store s Apache Storm v prostředí HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## <a name="see-also"></a>Viz také
 * [Prostředí PowerShell: Vytvoření clusteru HDInsight používat Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Přijímat události ze služby Event Hubs pomocí Apache Storm
 
@@ -30,7 +30,7 @@ Další informace o službě Event Hubs přijímat vzory najdete [Přehled služ
 
 Tento kurz používá [HDInsight Storm] [ HDInsight Storm] instalace, která se dodává s funkcí spout Event Hubs, která je již k dispozici.
 
-1. Postupujte podle [HDInsight Storm - Začínáme](../hdinsight/hdinsight-storm-overview.md) postup pro vytvoření nového clusteru HDInsight a k nim připojit přes vzdálenou plochu.
+1. Postupujte podle [HDInsight Storm - Začínáme](../hdinsight/storm/apache-storm-overview.md) postup pro vytvoření nového clusteru HDInsight a k nim připojit přes vzdálenou plochu.
 2. Kopírování `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` soubor do místní vývojové prostředí. Tato položka obsahuje spout storm události.
 3. Použijte následující příkaz k instalaci balíčku do místního úložiště Maven. Umožňuje přidat jako odkaz v projektu Storm v pozdější fázi.
 
@@ -246,8 +246,8 @@ Další informace o službě Event Hubs najdete na následujících odkazech:
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[HDInsight senzor analysis kurzu]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
+[HDInsight senzor analysis kurzu]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
 
 <!-- Images -->
 

@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
-You must have a [Service Bus](https://azure.microsoft.com/services/service-bus/) account.  
+### <a name="prerequisites"></a>Požadavky
+Musíte mít [Service Bus](https://azure.microsoft.com/services/service-bus/) účtu.  
 
-Before you can use your Azure Service Bus account in a logic app, you must authorize the logic app to connect to your service bus account. Fortunately, you can do this easily from within your logic app on the Azure portal.  
+Než v aplikaci logiky můžete použít váš účet Azure Service Bus, je nutné autorizovat aplikaci logiky pro připojení k účtu služby service bus. Naštěstí můžete k tomu snadno z v rámci aplikace logiky na portálu Azure.  
 
-Here are the steps to authorize your logic app to connect to your Service Bus account:  
+Tady jsou kroky k autorizaci aplikace logiky pro připojení k účtu služby Service Bus:  
 
-1. To create a connection to Service Bus, in the logic app designer, select **Show Microsoft managed APIs** in the drop-down list. Then enter **service bus** in the search box. Select the trigger or action you want to use.  
-    ![Service Bus connection image 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
-2. If you haven't created any connections to Service Bus before, you'll be prompted to provide your Service Bus credentials. These credentials are used to authorize your logic app to connect to and access your Service Bus account's data. The Service Bus connector needs the connection string for the Service Bus namespace. It also requires **Manage** permissions. A good way to know if your connection string is for the namespace or a specific entity is if it contains the `EntityPath` parameter. If it does, it is not the right connection string for a logic app.  
-    ![Service Bus connection string](./media/connectors-create-api-servicebus/connectionstring.png)
-3. After you have received the connection string for the namespace, you can use it for the API connection in Logic Apps.  
-    ![Service Bus connection image 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
-4. Notice the connection has been created, and you are now free to proceed with the other steps in your logic app.  
-    ![Service Bus connection image 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
+1. Chcete-li vytvořit připojení k Service Bus v návrháři aplikace logiky, vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu. Potom zadejte **služby sběrnice** do vyhledávacího pole. Vyberte aktivační události nebo akci, kterou chcete použít.  
+    ![Obrázek připojení služby Service Bus 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
+2. Pokud jste nevytvořili žádné připojení k Service Bus před, budete vyzváni k zadání přihlašovacích údajů služby Service Bus. Tyto přihlašovací údaje se používají k autorizaci aplikace logiky připojit k a přístup k datům v účtu služby Service Bus. Konektor Service Bus je připojovací řetězec pro obor názvů sběrnice. Také budete potřebovat **spravovat** oprávnění. Dobrým způsobem, jak zjistit, pokud je připojovací řetězec pro obor názvů, nebo konkrétní entitu je, pokud obsahuje `EntityPath` parametr. Pokud ano, není pravé připojovací řetězec pro aplikace logiky.  
+    ![Připojovací řetězec sběrnice služeb](./media/connectors-create-api-servicebus/connectionstring.png)
+3. Po přijetí připojovací řetězec pro obor názvů, můžete pro připojení k rozhraní API v Logic Apps.  
+    ![Obrázek připojení služby Service Bus 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
+4. Všimněte si vytvořil připojení, a je nyní můžete pokračovat v dalších krocích v aplikaci logiky.  
+    ![Obrázek připojení služby Service Bus 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
 

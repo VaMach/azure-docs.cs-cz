@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Stack to Azure using ExpressRoute
-description: How to connect virtual networks in Azure Stack to virtual networks in Azure using ExpressRoute.
+title: "Připojit zásobník Azure do Azure pomocí služby ExpressRoute"
+description: "Postup připojení virtuální sítě v Azure zásobníku virtuálních sítí v Azure pomocí ExpressRoute."
 services: azure-stack
 documentationcenter: 
 author: victorar
@@ -14,182 +14,181 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-azure-stack-to-azure-using-expressroute"></a>Connect Azure Stack to Azure using ExpressRoute
+# <a name="connect-azure-stack-to-azure-using-expressroute"></a>Připojit zásobník Azure do Azure pomocí služby ExpressRoute
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-There are two supported methods to connect virtual networks in Azure Stack to virtual networks in Azure:
+Existují dvě podporované metody pro připojení virtuálních sítí v Azure zásobníku virtuálních sítí v Azure:
    * **Site-to-Site**
 
-     A VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Connect Azure Stack to Azure using VPN](azure-stack-connect-vpn.md).
+     Připojení k síti VPN prostřednictvím protokolu IPsec (IKE v1 a IKE v2). Tento typ připojení vyžaduje zařízení VPN nebo službu RRAS. Další informace najdete v tématu [připojit zásobník Azure do Azure pomocí sítě VPN](azure-stack-connect-vpn.md).
    * **ExpressRoute**
 
-     A direct connection to Azure from your Azure Stack deployment. ExpressRoute is **not** a VPN connection over the public Internet. For more information about Azure ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).
+     Přímé připojení k Azure z vašeho nasazení Azure zásobníku. ExpressRoute je **není** připojení VPN prostřednictvím veřejného Internetu. Další informace o Azure ExpressRoute najdete v tématu [přehled ExpressRoute](../expressroute/expressroute-introduction.md).
 
-This article shows an example using ExpressRoute to connect Azure Stack to Azure.
-## <a name="requirements"></a>Requirements
-The following are specific requirements to connect Azure Stack and Azure using ExpressRoute:
-* An Azure subscription to create an ExpressRoute circuit and VNets in Azure.
-* A provisioned ExpressRoute circuit through a [connectivity provider](../expressroute/expressroute-locations.md).
-* A router that has the ExpressRoute circuit connected to its WAN ports.
-* The LAN side of the router is linked to the Azure Stack Multitenant Gateway.
-* The router must support Site-to-Site VPN connections between its LAN interface and Azure Stack Multitenant Gateway.
-* If more than one tenant is added in your Azure Stack deployment, the router must be able to create multiple VRFs (Virtual Routing and Forwarding).
+Tento článek ukazuje příklad pomocí ExpressRoute připojit zásobník Azure do Azure.
+## <a name="requirements"></a>Požadavky
+Tady jsou konkrétní požadavky na připojení zásobník Azure a Azure pomocí ExpressRoute:
+* Předplatné Azure k vytvoření okruhu ExpressRoute a virtuálních sítí v Azure.
+* A zřídit okruh ExpressRoute prostřednictvím [poskytovatele připojení](../expressroute/expressroute-locations.md).
+* Směrovač, který je připojen k jeho WAN porty okruh ExpressRoute.
+* Na straně LAN směrovače se propojí víceklientské bráně Azure zásobníku.
+* Směrovači musí podporovat připojení Site-to-Site VPN mezi jeho rozhraní LAN a Azure zásobníku víceklientské brány.
+* Pokud ve vašem nasazení zásobník Azure přidáte více než jednoho klienta, musí být možné vytvořit více VRFs (virtuální směrování a předávání) směrovači.
 
-The following diagram shows a conceptual networking view after you complete the configuration:
+Následující diagram znázorňuje koncepční sítě zobrazení po dokončení konfigurace:
 
-![Conceptual diagram](media/azure-stack-connect-expressroute/Conceptual.png)
+![Koncepční diagram](media/azure-stack-connect-expressroute/Conceptual.png)
 
 **Diagram 1**
 
-The following architecture diagram shows how multiple tenants connect from the Azure Stack infrastructure through the ExpressRoute router to Azure at the Microsoft edge:
+Následující diagram architektury ukazuje, jak více klientů připojení z infrastruktury zásobník Azure prostřednictvím ExpressRoute směrovače k Azure v Microsoft edge:
 
-![Architecture diagram](media/azure-stack-connect-expressroute/Architecture.png)
+![Diagram architektury](media/azure-stack-connect-expressroute/Architecture.png)
 
 **Diagram 2**
 
-The example shown in this article uses the same architecture to connect to Azure via ExpressRoute private peering. It is done using a Site-to-Site VPN connection from the virtual network gateway in Azure Stack to an ExpressRoute router. The following steps in this article show how to create an end-to-end connection between two VNets from two different tenants in Azure Stack to their respective VNets in Azure. You can choose to add as many tenant VNets and replicate the steps for each tenant or use this example to deploy just a single tenant VNet.
+Z příkladu v tomto článku používá stejnou architekturu pro připojení k Azure prostřednictvím soukromého partnerského vztahu ExpressRoute. Se provádí pomocí připojení Site-to-Site VPN z brány virtuální sítě v Azure zásobníku do směrovače ExpressRoute. Následující kroky v tomto článku ukazují, jak vytvořit připojení klient server mezi oběma virtuálními sítěmi z dva různé klienty v zásobníku Azure jejich odpovídajících virtuálních sítí v Azure. Můžete přidat, protože mnoho klienta virtuálních sítí a replikaci podle kroků pro každého klienta nebo použijte tento příklad k nasazení jednoho klienta virtuální sítě.
 
-## <a name="configure-azure-stack"></a>Configure Azure Stack
-Now you create the resources you need to set up your Azure Stack environment as a tenant. The following steps illustrate what you need to do. These instructions show how to create resources using the Azure Stack portal, but you can also use PowerShell.
+## <a name="configure-azure-stack"></a>Konfigurace Azure zásobníku
+Nyní můžete vytvořit z prostředků, které je nutné nastavit prostředí zásobníku Azure jako klient. Následující kroky popisují, co musíte udělat. Tyto pokyny ukazují, jak vytvářet prostředky pomocí portálu Azure zásobníku, ale můžete také pomocí prostředí PowerShell.
 
-![Network resource steps](media/azure-stack-connect-expressroute/image2.png)
-### <a name="before-you-begin"></a>Before you begin
-Before you start the configuration, you need:
-* An Azure Stack deployment.
+![Kroky síťových prostředků](media/azure-stack-connect-expressroute/image2.png)
+### <a name="before-you-begin"></a>Než začnete
+Před zahájením konfigurace, potřebujete:
+* Nasazení služby Azure zásobníku.
 
-   For information about deploying Azure Stack Development Kit, see [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md).
-* An offer on Azure Stack that your user can subscribe to.
+   Informace o nasazení Azure zásobníku Development Kit najdete v tématu [rychlý start Azure zásobníku Development Kit nasazení](azure-stack-deploy-overview.md).
+* Nabídku v zásobníku Azure, který uživatel může přihlásit k odběru.
 
-  For instructions, see [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md).
+  Pokyny najdete v tématu [virtuální počítače zpřístupnit uživatelům Azure zásobníku](azure-stack-tutorial-tenant-vm.md).
 
-### <a name="create-network-resources-in-azure-stack"></a>Create network resources in Azure Stack
+### <a name="create-network-resources-in-azure-stack"></a>Vytvoření síťovým prostředkům v Azure zásobníku
 
-Use the following procedures to create the required network resources in Azure Stack for each tenant:
+Chcete-li vytvořit k požadovaným síťovým zdrojům v zásobníku Azure pro každého klienta pomocí následujících postupů:
 
-#### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
-1. Sign in the user portal with a user (tenant) account.
+#### <a name="create-the-virtual-network-and-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
+1. Přihlaste se na portálu pro uživatele s účtem uživatele (klientů).
 
-2. In the portal, click **New**.
+2. Na portálu, klikněte na tlačítko **nový**.
 
    ![](media/azure-stack-connect-expressroute/MAS-new.png)
 
-3. Select **Networking** from the Marketplace menu.
+3. V nabídce Marketplace vyberte **Síť**.
 
-4. Click **Virtual network** on the menu.
+4. V nabídce klikněte na **Virtuální síť**.
 
-5. Type the values into the appropriate fields using the following table:
+5. Zadejte hodnoty do příslušných polí v následující tabulce:
 
-   |Field  |Value  |
+   |Pole  |Hodnota  |
    |---------|---------|
-   |Name     |Tenant1VNet1         |
-   |Address space     |10.1.0.0/16|
-   |Subnet name     |Tenant1-Sub1|
-   |Subnet address range     |10.1.1.0/24|
+   |Name (Název)     |Tenant1VNet1         |
+   |Adresní prostor     |10.1.0.0/16|
+   |Název podsítě     |Tenant1 Sub1|
+   |Rozsah adres podsítě     |10.1.1.0/24|
 
-6. You should see the Subscription you created earlier populated in the **Subscription** field.
+6. V poli **Předplatné** by se mělo zobrazovat předplatné, které jste vytvořili dřív.
 
-    a. For Resource Group, you can either create a Resource Group or if you already have one, select **Use existing**.
+    a. Pro skupinu prostředků, můžete buď vytvořit skupinu prostředků nebo pokud již účet máte, vyberte **použít existující**.
 
-    b. Verify the default location.
+    b. Ověřte výchozí umístění.
 
-    c. Click **Pin to dashboard**.
+    c. Klikněte na tlačítko **připnout na řídicí panel**.
 
-    d. Click **Create**.
+    d. Klikněte na možnost **Vytvořit**.
 
 
 
-#### <a name="create-the-gateway-subnet"></a>Create the gateway subnet
-1. Open the Virtual Network resource you created (Tenant1VNet1) from the dashboard.
-2. On the Settings section, select **Subnets**.
-3. Click **Gateway Subnet** to add a gateway subnet to the virtual network.
+#### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
+1. Otevřete prostředek virtuální sítě vytvořené (Tenant1VNet1) z řídicího panelu.
+2. V části Nastavení vyberte **podsítě**.
+3. Kliknutím na **Podsíť brány** přidejte k virtuální síti podsíť brány.
    
     ![](media/azure-stack-connect-expressroute/gatewaysubnet.png)
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.1.0.0/24**.
-6. Click **OK** to create the gateway subnet.
+4. Ve výchozím nastavení je název této podsítě nastavený na **GatewaySubnet**.
+   Podsítě brány jsou speciální a musí mít tento konkrétní název, aby fungovaly správně.
+5. V **rozsahu adres** pole, ověřte adresu **10.1.0.0/24**.
+6. Klikněte na tlačítko **OK** vytvořit podsíť brány.
 
-#### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure Stack user portal, click **New**.
+#### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
+1. V portálu user portal zásobník Azure, klikněte na tlačítko **nový**.
    
-2. Select **Networking** from the Marketplace menu.
-3. Select **Virtual network gateway** from the list of network resources.
-4. In the **Name** field type **GW1**.
-5. Click the **Virtual network** item to choose a virtual network.
-   Select **Tenant1VNet1** from the list.
-6. Click the **Public IP address** menu item. When the **Choose public IP address** section opens click **Create new**.
-7. In the **Name** field, type **GW1-PiP** and click **OK**.
-8. The **VPN type** should have **Route-based** selected by default.
-    Keep this setting.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the Dashboard if you want. Click **Create**.
+2. V nabídce Marketplace vyberte **Síť**.
+3. V seznamu síťových prostředků vyberte **bránu virtuální sítě**.
+4. Do pole **Název** zadejte **GW1**.
+5. Pro výběr virtuální sítě klikněte na položku **Virtuální síť**.
+   Vyberte **Tenant1VNet1** ze seznamu.
+6. Klikněte na položku nabídky **Veřejná IP adresa**. Když **zvolte veřejnou IP adresu** části otevře, klikněte na tlačítko **vytvořit nový**.
+7. Do pole **Název** zadejte **GW1-PiP** a klikněte na **OK**.
+8. Jako **Typ VPN** by ve výchozím nastavení měla být vybraná možnost **Založená na trasách**.
+    Toto nastavení zachovejte.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Pokud chcete, můžete připnout prostředků na řídicí panel. Klikněte na možnost **Vytvořit**.
 
-#### <a name="create-the-local-network-gateway"></a>Create the local network gateway
+#### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
-The purpose of the Local network gateway resource is to indicate the remote gateway at the other end of the VPN connection. For this example, the remote side is the LAN subinterface of the ExpressRoute router. For Tenant 1 in this example, the remote address is 10.60.3.255 as shown in Diagram 2.
+Účelem prostředku brány místní sítě je k označení služby Brána vzdálené na druhém konci připojení k síti VPN. V tomto příkladu je na vzdálené straně podrozhraní LAN směrovače ExpressRoute. Pro klienta 1 v tomto příkladu Vzdálená adresa je 10.60.3.255, jak znázorňuje obrázek 2.
 
-1. Log in to the Azure Stack physical machine.
-2. Sign in to the user portal with your user account and click **New**.
-3. Select **Networking** from the Marketplace menu.
-4. Select **local network gateway** from the list of resources.
-5. In the **Name** field type **ER-Router-GW**.
-6. For the **IP address** field, refer to Diagram 2. The IP address of the ExpressRoute router's LAN subinterface for Tenant 1 is 10.60.3.255. For your own environment, type the IP address of your router's corresponding interface.
-7. In the **Address Space** field, type the address space of the VNets that you want to connect to in Azure. For this example, refer to Diagram 2. For Tenant 1, notice that the required subnets are **192.168.2.0/24** (this is the Hub Vnet in Azure) and **10.100.0.0/16** (this is the Spoke VNet in Azure). Type the corresponding subnets for your own environment.
+1. Přihlaste se k fyzickému počítači Azure Stack.
+2. Přihlaste se k portálu user portal s vaším uživatelským účtem a klikněte na tlačítko **nový**.
+3. V nabídce Marketplace vyberte **Síť**.
+4. V seznamu prostředků vyberte **bránu místní sítě**.
+5. V **název** pole typu **ER-směrovač-GW**.
+6. Pro **IP adresu** pole, použijte Diagram 2. IP adresa směrovače ExpressRoute LAN podrozhraní pro klienta 1 je 10.60.3.255. Pro vlastní prostředí zadejte IP adresu odpovídající rozhraní směrovače.
+7. V **adresní prostor** zadejte adresní prostor virtuální sítě, které se chcete připojit v Azure. Tento příklad najdete v části Diagram 2. Pro klienta 1, Všimněte si, že požadovaná podsítě jsou **192.168.2.0/24** (to je rozbočovače virtuální sítě v Azure) a **10.100.0.0/16** (to je příčkou virtuální sítě v Azure). Zadejte odpovídající podsítě pro vaše vlastní prostředí.
    > [!IMPORTANT]
-   > This example assumes you are using static routes for the Site-to-Site VPN connection between the Azure Stack gateway and the ExpressRoute router.
+   > Tento příklad předpokládá, že používáte statické trasy pro připojení Site-to-Site VPN mezi Azure zásobníku bránu a směrovač ExpressRoute.
 
-8. Verify that your **Subscription**, **Resource Group**, and **Location** are all correct and click **Create**.
+8. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** správně a klikněte na tlačítko **vytvořit**.
 
-#### <a name="create-the-connection"></a>Create the connection
-1. In the Azure Stack user portal, click **New**.
-2. Select **Networking** from the Marketplace menu.
-3. Select **Connection** from the list of resources.
-4. In the **Basics** settings section, choose **Site-to-site (IPSec)** as the **Connection type**.
-5. Select the **Subscription**, **Resource Group**, and **Location** and click **OK**.
-6. In the **Settings** section,  click **Virtual network gateway** click **GW1**.
-7. Click **Local network gateway**, and click **ER Router GW**.
-8. In the **Connection Name** field, type **ConnectToAzure**.
-9. In the **Shared key (PSK)** field, type **abc123** and click **OK**.
-10. On the **Summary** section, click **OK**.
+#### <a name="create-the-connection"></a>Vytvoření připojení
+1. V portálu user portal zásobník Azure, klikněte na tlačítko **nový**.
+2. V nabídce Marketplace vyberte **Síť**.
+3. V seznamu prostředků vyberte **Připojení**.
+4. V **Základy** v oddílu nastavení, vyberte **Site-to-site (IPSec)** jako **typ připojení**.
+5. Vyberte **předplatné**, **skupiny prostředků**, a **umístění** a klikněte na tlačítko **OK**.
+6. V **nastavení** klikněte na tlačítko **Brána virtuální sítě** klikněte na tlačítko **GW1**.
+7. Klikněte na tlačítko **brány místní sítě**a klikněte na tlačítko **ER směrovač GW**.
+8. V **název připojení** zadejte **ConnectToAzure**.
+9. V **sdílený klíč (PSK)** zadejte **abc123** a klikněte na tlačítko **OK**.
+10. Na **Souhrn** klikněte na tlačítko **OK**.
 
-    After the connection is created, you can see the public IP address used by the virtual network gateway. To find the address in the Azure Stack portal, browse to your Virtual network gateway. In **Overview**, find the **Public IP address**. Note this address; you will use it as the *Internal IP address* in the next section (if applicable for your deployment).
+    Po vytvoření připojení, uvidíte veřejnou IP adresu použitou bránou virtuální sítě. Pokud chcete vyhledat adresu na portálu Azure zásobníku, vyhledejte bránu virtuální sítě. V **přehled**, Najít **veřejnou IP adresu**. Poznámka: Tato adresa; Použijete jej jako *interní IP adresu* v další části (Pokud je k dispozici pro vaše nasazení).
 
     ![](media/azure-stack-connect-expressroute/GWPublicIP.png)
 
-#### <a name="create-a-virtual-machine"></a>Create a virtual machine
-To validate data traveling through the VPN Connection, you need virtual machines to send and receive data in the Azure Stack Vnet. Create a virtual machine now and put it in your VM subnet in your virtual network.
+#### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+Pro ověření dat při přenosu prostřednictvím připojení VPN, musíte virtuální počítače k odesílání a příjmu dat ve virtuální síti Azure zásobníku. Vytvoření virtuálního počítače teď a umístí jej v podsíť virtuálních počítačů ve virtuální síti.
 
-1. In the Azure Stack user portal, click **New**.
-2. Select **Virtual Machines** from the Marketplace menu.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image and click **Create**.
-4. On the **Basics** section, in the **Name** field type **VM01**.
-5. Type a valid user name and password. You’ll use this account to log in to the VM after it has been created.
-6. Provide a **Subscription**, **Resource Group**, and **Location** and then click **OK**.
-7. On the **Size** section, click a virtual machine size for this instance and then click **Select**.
-8. On the **Settings** section, you can accept the defaults. But ensure the virtual network selected is **Tenant1VNet1** and the subnet is set to **10.1.1.0/24**. Click **OK**.
-9. Review the settings on the **Summary** section and click **OK**.
+1. V portálu user portal zásobník Azure, klikněte na tlačítko **nový**.
+2. V nabídce Marketplace vyberte **Virtual Machines**.
+3. Vyberte v seznamu bitové kopie virtuálních počítačů, **Windows Server 2016 Datacenter Eval** bitovou kopii a klikněte na tlačítko **vytvořit**.
+4. Na **Základy** v části **název** pole typu **VM01**.
+5. Zadejte platné uživatelské jméno a heslo. Tento účet použijete pro přihlášení k virtuálnímu počítači, až se vytvoří.
+6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění** a pak klikněte na **OK**.
+7. Na **velikost** části, klikněte na velikost virtuálního počítače pro tuto instanci a pak klikněte na tlačítko **vyberte**.
+8. Na **nastavení** části můžete přijmout výchozí hodnoty. Ale zajistit vybranou virtuální síť **Tenant1VNet1** a podsíť je nastavena na **10.1.1.0/24**. Klikněte na **OK**.
+9. Zkontrolujte nastavení na **Souhrn** části a klikněte na tlačítko **OK**.
 
-For each tenant VNet you want to connect, repeat the previous steps from **Create the virtual network and VM subnet** through **Create a virtual machine** sections.
+Pro každého klienta se chcete připojit virtuální síť, opakujte předchozí kroky z **vytvořit virtuální síť a podsíť virtuálních počítačů** prostřednictvím **vytvoření virtuálního počítače** oddíly.
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Configure the NAT virtual machine for gateway traversal
+### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Nakonfigurujte virtuální počítač NAT pro bránu traversal
 > [!IMPORTANT]
-> This section is for Azure Stack Development Kit deployments only. The NAT is not needed for multi-node deployments.
+> Tato část se týká jenom nasazení Azure zásobníku Development Kit. Překlad síťových adres není vyžadován pro nasazení na víc uzlů.
 
-The Azure Stack Development Kit is self-contained and isolated from the network on which the physical host is deployed. So, the “External” VIP network that the gateways are connected to is not external, but instead is hidden behind a router doing Network Address Translation (NAT).
+Azure zásobníku Development Kit je úplný a samostatný a izolované od sítě, na kterém je nasazený na fyzickém hostiteli. Ano síť "Externí" VIP, která brány jsou připojené k není externí, ale místo toho je skrytý za směrovačem provádění překlad adres (NAT).
  
-The router is a Windows Server virtual machine (**AzS-BGPNAT01**) running the Routing and Remote Access Services (RRAS) role in the Azure Stack Development Kit infrastructure. You must configure NAT on the AzS-BGPNAT01 virtual machine to allow the Site-to-Site VPN Connection to connect on both ends.
+Směrovači je virtuálního počítače s Windows serverem (**AzS BGPNAT01**) spuštěná směrování a služby vzdálený přístup (RRAS) role v infrastruktuře Azure zásobníku Development Kit. NAT musíte nakonfigurovat na virtuálním počítači AzS BGPNAT01 umožňující připojení Site-to-Site VPN na obou koncích připojení.
 
-#### <a name="configure-the-nat"></a>Configure the NAT
+#### <a name="configure-the-nat"></a>Nakonfigurujte zařízení NAT.
 
-1. Log in to the Azure Stack physical machine with your administrator account.
-2. Copy and edit the following PowerShell script and run in an elevated Windows PowerShell ISE. Replace your administrator password. The address returned is your *External BGPNAT address*.
+1. Přihlaste se k Azure zásobníku fyzický počítač pomocí účtu správce.
+2. Zkopírujte a upravte následující skript prostředí PowerShell a spusťte v zvýšenými ISE Windows PowerShell. Nahraďte heslo správce. Vrácená adresu vaší *BGPNAT externí adresu*.
 
    ```
    cd \AzureStack-Tools-master\connect
@@ -201,9 +200,9 @@ The router is a Windows Server virtual machine (**AzS-BGPNAT01**) running the Ro
     -HostComputer "azs-bgpnat01" `
     -Password $Password
    ```
-4. To configure the NAT, copy and edit the following PowerShell script and run in an elevated Windows PowerShell ISE. Edit the script to replace the *External BGPNAT address* and *Internal IP address* (which you noted previously in the **Create the Connection** section).
+4. Ke konfiguraci překladu síťových adres, zkopírujte a upravte následující skript prostředí PowerShell a spusťte v zvýšenými ISE Windows PowerShell. Upravte skript, který chcete nahradit *BGPNAT externí adresu* a *interní IP adresu* (který jste si poznamenali dříve v **vytvoření připojení** části).
 
-   In the example diagrams, the *External BGPNAT address* is 10.10.0.62 and the *Internal IP address* is 192.168.102.1.
+   V příkladu diagramy *adresu externího BGPNAT* je 10.10.0.62 a *interní IP adresu* je 192.168.102.1.
 
    ```
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -245,71 +244,71 @@ The router is a Windows Server virtual machine (**AzS-BGPNAT01**) running the Ro
       -InternalPort 4500}
    ```
 
-## <a name="configure-azure"></a>Configure Azure
-Now that you have completed the Azure Stack configuration, you can deploy some Azure resources. The following diagram shows a sample tenant virtual network in Azure. You can use any name and addressing scheme for your VNet in Azure. However, the address range of the VNets in Azure and Azure Stack must be unique and not overlap.
+## <a name="configure-azure"></a>Konfigurace Azure
+Teď, když jste dokončili konfigurace protokolů Azure, můžete nasadit některé prostředky Azure. Následující diagram znázorňuje klienta ukázka virtuální sítě v Azure. Můžete použít libovolný název a schéma adresování pro vaši virtuální síť v Azure. Rozsah adres virtuální sítě v Azure a Azure zásobníku však musí být jedinečné a není překrývat.
 
-![Azure Vnets](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Virtuálních sítí Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 **Diagram 3**
 
-The resources you deploy in Azure are similar to the resources you deployed in Azure Stack. Similarly, you deploy:
-* Virtual networks and subnets
-* A gateway subnet
-* A virtual network gateway
-* A connection
-* An ExpressRoute circuit
+Prostředky, které můžete nasadit v Azure jsou podobné prostředky, které jste nasadili v zásobníku Azure. Podobně můžete nasadit:
+* Virtuální sítě a podsítě
+* Podsíť brány
+* Brána virtuální sítě
+* Připojení
+* Okruh ExpressRoute
 
-The example Azure network infrastructure is configured in the following way:
-* A standard hub (192.168.2.0/24) and spoke (10.100.0.0./16) VNet model is used.
-* The workloads are deployed in the spoke Vnet and the ExpressRoute circuit is connected to the hub VNet.
-* The two VNets are linked using the VNet peering feature.
+Příklad Azure síťové infrastruktury je nakonfigurovat následujícím způsobem:
+* Standardní hub (192.168.2.0/24) a ramenem (10.100.0.0./16) modelu virtuální síť se používá.
+* Úlohy jsou nasazeny v ramenem virtuální sítě a okruh ExpressRoute je připojené k rozbočovači virtuální sítě.
+* Dvě virtuální sítě jsou propojeny pomocí funkce partnerského vztahu virtuální sítě.
 
-### <a name="configure-vnets"></a>Configure Vnets
-1. Sign in to the Azure portal with your Azure credentials.
-2. Create the hub VNet using the 192.168.2.0/24 address space. Create a subnet using the 192.168.2.0/25 address range, and add a gateway subnet using the 192.168.2.128/27 address range.
-3. Create the spoke VNet and subnet using the 10.100.0.0/16 address range.
+### <a name="configure-vnets"></a>Konfigurace virtuální sítě
+1. Přihlaste se k portálu Azure pomocí svých přihlašovacích údajů Azure.
+2. Vytvoření centra pomocí 192.168.2.0/24 adresní prostor virtuální sítě. Vytvořte podsíť pomocí rozsah adres 192.168.2.0/25 a přidat podsíť brány pomocí 192.168.2.128/27 rozsah adres.
+3. Vytvořte ramenem virtuální síť a podsíť pomocí zápisu 10.100.0.0/16 rozsahu adres.
 
 
-For more information about creating virtual networks in Azure, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Další informace o vytváření virtuálních sítí v Azure najdete v tématu [vytvořit virtuální síť s více podsítěmi](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
-### <a name="configure-an-expressroute-circuit"></a>Configure an ExpressRoute circuit
+### <a name="configure-an-expressroute-circuit"></a>Nakonfigurujte okruh ExpressRoute
 
-1. Review the ExpressRoute prerequisites in [ExpressRoute prerequisites & checklist](../expressroute/expressroute-prerequisites.md).
-2. Follow the steps in [Create and modify an ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) to create an ExpressRoute circuit using your Azure subscription.
-3. Share the service key from the previous step with your hoster/provider to provision your ExpressRoute circuit at their end.
-4. Follow the steps in [Create and modify peering for an ExpressRoute circuit](../expressroute/expressroute-howto-routing-portal-resource-manager.md) to configure private peering on the ExpressRoute circuit.
+1. Přečtěte si požadavky ExpressRoute v [ExpressRoute požadavky a kontrolní seznam](../expressroute/expressroute-prerequisites.md).
+2. Postupujte podle kroků v [vytvoření a úprava okruhu ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) k vytvoření okruhu ExpressRoute pomocí vašeho předplatného Azure.
+3. U svého poskytovatele/hostitel zřídit váš okruh ExpressRoute na jejich konci sdílet klíč služby z předchozího kroku.
+4. Postupujte podle kroků v [vytvořit a upravit partnerský vztah pro okruh ExpressRoute](../expressroute/expressroute-howto-routing-portal-resource-manager.md) nakonfigurovat soukromý partnerský vztah v okruhu ExpressRoute.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
+### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
 
-* Follow the steps in [Configure a virtual network gateway for ExpressRoute using PowerShell](../expressroute/expressroute-howto-add-gateway-resource-manager.md) to create a virtual network gateway for ExpressRoute in the hub VNet.
+* Postupujte podle kroků v [nakonfigurovat bránu virtuální sítě pro ExpressRoute pomocí prostředí PowerShell](../expressroute/expressroute-howto-add-gateway-resource-manager.md) vytvořit bránu virtuální sítě pro ExpressRoute v centru virtuální sítě.
 
-### <a name="create-the-connection"></a>Create the connection
+### <a name="create-the-connection"></a>Vytvoření připojení
 
-* To link the ExpressRoute circuit to the hub VNet, follow the steps in [Connect a virtual network to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+* Propojení okruhu ExpressRoute do centra virtuální sítě, postupujte podle kroků v [připojení virtuální sítě k okruhu ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-### <a name="peer-the-vnets"></a>Peer the Vnets
+### <a name="peer-the-vnets"></a>Peer virtuální sítě
 
-* Peer the Hub and Spoke VNets using the steps in [Create a virtual network peering using the Azure portal](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). When configuring VNet peering, ensure you select the following options:
-   * From hub to spoke: **Allow gateway transit**
-   * From spoke to hub: **Use remote gateway**
+* Peer rozbočovače a příčkou virtuální sítě pomocí kroků v [vytvořit virtuální síť partnerský vztah pomocí portálu Azure](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). Při konfiguraci virtuální sítě partnerský vztah, ujistěte se, že jste vybrali následující možnosti:
+   * Z centra pro ramenem: **povolit brány přenosu**
+   * Z ramenem do centra: **Brána vzdálené použití**
 
-### <a name="create-a-virtual-machine"></a>Create a virtual machine
+### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
-* Deploy your workload virtual machines into the spoke VNet.
+* Nasaďte virtuální počítače zatížení do ramenem virtuální sítě.
 
-Repeat these steps for any additional tenant VNets you want to connect in Azure through their respective ExpressRoute circuits.
+Tento postup opakujte pro všechny další klienta virtuální sítě se chcete připojit v Azure prostřednictvím jejich odpovídajících okruhy ExpressRoute.
 
-## <a name="configure-the-router"></a>Configure the router
+## <a name="configure-the-router"></a>Nastavení směrovače
 
-You can use the following end-to-end infrastructure diagram to guide the configuration of your ExpressRoute Router. This diagram shows two tenants (Tenant 1 and Tenant 2) with their respective Express Route circuits. Each is linked to their own VRF (Virtual Routing and Forwarding) in the LAN and WAN side of the ExpressRoute router to ensure end-to-end isolation between the two tenants. Note the IP addresses used in the router interfaces as you follow the sample configuration.
+Následující diagram začátku do konce infrastruktury můžete Průvodce konfigurace směrovače ExpressRoute. Tento diagram zobrazuje dva klienty (klienta 1 a 2 klienta) s jejich příslušné okruhy Expressroute. Každý souvisí vlastní VRF (virtuální směrování a předávání) na straně LAN a WAN ExpressRoute směrovače k zajištění izolace začátku do konce mezi dvěma klienty. Všimněte si, používá rozhraní směrovače, jak budete postupovat podle ukázkové konfiguraci IP adresy.
 
-![End to end diagram](media/azure-stack-connect-expressroute/EndToEnd.png)
+![End na konec diagram](media/azure-stack-connect-expressroute/EndToEnd.png)
 
 **Diagram 4**
 
-You can use any router that supports IKEv2 VPN and BGP to terminate the Site-to-Site VPN connection from Azure Stack. The same router is used to connect to Azure using an ExpressRoute circuit. 
+Můžete použít všechny směrovač, který podporuje IKEv2 VPN a BGP ukončit připojení Site-to-Site VPN od Azure zásobníku. Stejné směrovač slouží k připojení do Azure pomocí okruhu ExpressRoute. 
 
-Here is a sample configuration from a Cisco ASR 1000 that supports the network infrastructure shown in Diagram 4:
+Zde je ukázka konfigurace od 1000 Cisco automatické obnovení systému, který podporuje infrastrukturu rozhraní sítě znázorňuje ho obrázek 4:
 
 ```
 ip vrf Tenant 1
@@ -528,14 +527,14 @@ route-map VNET-ONLY permit 10
 !
 ```
 
-## <a name="test-the-connection"></a>Test the connection
+## <a name="test-the-connection"></a>Otestování připojení
 
-Test your connection after establishing the Site-to-Site connection and the ExpressRoute circuit. This task is simple.  Log on to one of the virtual machines you created in your Azure VNet and ping the virtual machine you created in the Azure Stack environment, or vice versa. 
+Vyzkoušejte připojení po navázání připojení Site-to-Site a ExpressRoute s okruhem expressroute. Tato úloha je jednoduché.  Přihlaste se do jednoho z virtuálních počítačů, které jste vytvořili ve vaší virtuální síti Azure a pomocí příkazu ping virtuálnímu počítači, který jste vytvořili v prostředí Azure zásobníku nebo naopak. 
 
-To ensure you are sending the traffic through the Site-to-Site and ExpressRoute connections, you must ping the dedicated IP (DIP) address of the virtual machine at both ends and not the VIP address of the virtual machine. So, you must find and note the address on the other end of the connection.
+K zajištění, že při odesílání provoz prostřednictvím připojení ExpressRoute a Site-to-Site, musíte odeslat příkaz ping vyhrazenou IP (DIP) adresu virtuálního počítače na obou koncích a ne VIP adresy virtuálního počítače. Ano je nutné vyhledat a poznamenejte si adresu na druhém konci připojení.
 
-### <a name="allow-icmp-in-through-the-firewall"></a>Allow ICMP in through the firewall
-By default, Windows Server 2016 does not allow ICMP packets in through the firewall. So, for every virtual machine you use in the test, run the following cmdlet in an elevated PowerShell window:
+### <a name="allow-icmp-in-through-the-firewall"></a>Povolí protokol ICMP v přes bránu firewall
+Ve výchozím nastavení Windows Server 2016 neumožňuje pakety protokolu ICMP v přes bránu firewall. Ano pro každý virtuální počítač, které můžete použít v testu, spusťte následující rutinu v okně Powershellu se zvýšenými oprávněními:
 
 
    ```
@@ -544,26 +543,26 @@ By default, Windows Server 2016 does not allow ICMP packets in through the firew
     –Protocol ICMPv4
    ```
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>Ping the Azure Stack virtual machine
+### <a name="ping-the-azure-stack-virtual-machine"></a>Příkaz ping virtuální počítač Azure zásobníku
 
-1. Sign in to the Azure Stack user portal using a tenant account.
-2. Click **Virtual Machines** in the left navigation bar.
-3. Find the virtual machine that you previously created and click it.
-4. On the section for the virtual machine, click **Connect**.
-5. Open an elevated PowerShell window, and type **ipconfig /all**.
-6. Find the IPv4 Address in the output and note it. Ping this address from the virtual machine in the Azure VNet. In the example environment, the address is from the 10.1.1.x/24 subnet. In your environment, the address might be different. However, it should be within the subnet you created for the Tenant VNet subnet.
+1. Přihlaste se k portálu user portal zásobník Azure pomocí účtu klienta.
+2. V levém navigačním panelu klikněte na **Virtual Machines**.
+3. Najít virtuální počítač, který jste dříve vytvořili a klikněte na něj.
+4. V části pro virtuální počítač, klikněte na tlačítko **Connect**.
+5. Prostředí PowerShell se zvýšenými oprávněními otevřete okno a zadejte **ipconfig/all**.
+6. Vyhledejte adresu IPv4 ve výstupu a poznamenejte si ho. Odeslat příkaz ping tuto adresu z virtuálního počítače ve virtuální síti Azure. V příkladu prostředí je adresu z podsítě 10.1.1.x/24. Ve vašem prostředí může být jinou adresu. Ale musí být v rámci podsítě, kterou jste vytvořili pro podsíť virtuální sítě klienta.
 
 
-### <a name="view-data-transfer-statistics"></a>View data transfer statistics
+### <a name="view-data-transfer-statistics"></a>Statistika přenosu dat zobrazení
 
-If you want to know how much traffic is passing through your connection, you can find this information on the Connection section in the Azure Stack user portal. This information is also another good way to verify that the ping you just sent actually went through the VPN and ExpressRoute connections.
+Pokud budete chtít vědět, kolik provozu je předávání přes připojení, můžete najít tyto informace v části připojení prostřednictvím uživatelského portálu Azure zásobníku. Tyto informace jsou také jiné dobrý způsob, jak ověřit, že příkazem ping, které jste poslali ve skutečnosti se prostřednictvím připojení VPN a ExpressRoute.
 
-1. Sign in to the Microsoft Azure Stack user portal using your tenant account.
-2. Navigate to the resource group where your VPN Gateway was created and select the **Connections** object type.
-3. Click the **ConnectToAzure** connection in the list.
-4. On the **Connection** section, you can see statistics for **Data in** and **Data out**. You should see some non-zero values there.
+1. Přihlaste se k portálu user portal zásobníku Microsoft Azure pomocí svého účtu klienta.
+2. Přejděte do skupiny prostředků, které bylo vytvořeno vaší brány sítě VPN a vyberte **připojení** typ objektu.
+3. Klikněte **ConnectToAzure** připojení v seznamu.
+4. Na **připojení** části lze zobrazit statistiku pro **Data v** a **Data**. Měly by se tady zobrazovat nenulové hodnoty.
 
-   ![Data In Data Out](media/azure-stack-connect-expressroute/DataInDataOut.png)
+   ![Data v Data](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>Next steps
-[Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+## <a name="next-steps"></a>Další kroky
+[Nasazení aplikací do Azure a Azure zásobníku](azure-stack-solution-pipeline.md)

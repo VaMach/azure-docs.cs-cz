@@ -2,7 +2,7 @@
 
 V Azure DNS se záznamy zadávají pomocí relativních názvů. „Plně kvalifikovaný“ *název* domény (FQDN) obsahuje název zóny, zatímco „relativní“ název ho *neobsahuje.* Například relativní název záznamu „www“ v zóně „contoso.com“ dává plně kvalifikovaný název záznamu www.contoso.com.
 
-Záznam**** „vrcholu“ je záznam DNS v kořeni (nebo „vrcholu“) zóny DNS. Například v zóně DNS nazvané „contoso.com“ má název vrcholu také plně kvalifikovaný název „contoso.com“ (někdy se označuje jako *základní* doména).  Podle konvence se k vyjádření záznamů vrcholu používá relativní název '@'.
+Záznam *„vrcholu“* je záznam DNS v kořeni (nebo *„vrcholu“*) zóny DNS. Například v zóně DNS nazvané „contoso.com“ má název vrcholu také plně kvalifikovaný název „contoso.com“ (někdy se označuje jako *základní* doména).  Podle konvence se k vyjádření záznamů vrcholu používá relativní název '@'.
 
 ### <a name="record-types"></a>Typy záznamů
 

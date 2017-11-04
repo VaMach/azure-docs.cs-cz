@@ -1,10 +1,10 @@
-This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps); for Cloud Services, see [Configuring a custom domain name for an Azure cloud service](../articles/cloud-services/cloud-services-custom-domain-name.md).
+Tento článek je pro službu Azure App Service (webové aplikace, aplikace API, mobilní aplikace, Logic Apps); cloudové služby, najdete v části [konfigurace vlastního názvu domény pro cloudové služby Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]
-> If you app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), click the selector at the top of this article to get specific steps.
+> Pokud je aplikace Vyrovnávání zatížení sítě ve [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), klikněte na výběr v horní části tohoto článku, chcete-li získat konkrétní kroky.
 > 
-> **Custom domain names are not enabled for Free tier**. You must [scale up to a higher pricing tier](../articles/app-service/web-sites-scale.md), which may change how much you are billed for your subscription. 
-> See [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) for more information.
+> **Vlastní doménu názvy nejsou povolené zdarma vrstvy**. Je nutné [škálování až používat vyšší cenová úroveň](../articles/app-service/web-sites-scale.md), což může změnit, kolik se účtují pro vaše předplatné. 
+> V tématu [App Service – ceny](https://azure.microsoft.com/pricing/details/app-service/) Další informace.
 > 
 > 
 

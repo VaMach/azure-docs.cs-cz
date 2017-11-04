@@ -1,29 +1,29 @@
 
 
-## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Use the portal to move a VM to a different subscription
-You can move a VM and it's associated resources to a different subscription using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Přesunout virtuální počítač do jiného předplatného pomocí portálu
+Můžete přesunout virtuální počítač a je přiřazen prostředky do jiného předplatného pomocí portálu.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. Otevřete web [Azure Portal](https://portal.azure.com).
+2. Klikněte na tlačítko **Procházet** > **virtuální počítače** a vyberte virtuální počítač, který chcete přesunout ze seznamu.
    
-    ![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+    ![Snímek obrazovky oddílu Essentials, kde klikněte na ikonu tužky a otevřete okno přesunout prostředky.](./media/virtual-machines-common-move-vm/move-button.png)
+3. V **Essentials** části, klikněte na **změnit předplatné** ikonu tužky vedle název odběru. **Přesunout prostředky** se otevře okno.
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+    ![Snímek obrazovky okna přesunout prostředky.](./media/virtual-machines-common-move-vm/move.png)
+4. Vyberte jednotlivé prostředky přesunout. Ve většině případů byste měli přesunout všechny prostředky uvedené volitelné.
+5. Vyberte **předplatné** místo, kam chcete virtuální počítač přesunout.
+6. Vyberte existující **skupiny prostředků** nebo zadejte název, který jste vytvořili novou skupinu prostředků.
+7. Až skončíte, vyberte, které je pochopit, že je potřeba použít s virtuálním Počítačem, jakmile se přesune, ID bude vytvořen nový prostředek a ty pak klikněte na tlačítko **OK**.
 
-## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Use the portal to move a VM to another resource group
-You can move a VM and it's associated resources to another resource group using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Použití portálu k přesunutí virtuálního počítače do jiné skupiny prostředků
+Můžete přesunout virtuální počítač a je přiřazen prostředků do jiné skupiny prostředků pomocí portálu.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Resource groups** and select the resource group that contains the VM.
-3. In the **Resource group** blade, select **Move** from the menu.
+1. Otevřete web [Azure Portal](https://portal.azure.com).
+2. Klikněte na tlačítko **Procházet** > **skupiny prostředků** a vyberte skupinu prostředků, která obsahuje virtuální počítač.
+3. V **skupiny prostředků** vyberte **přesunout** z nabídky.
    
-    ![Screenshot of the Move button on the Resource groups menu.](./media/virtual-machines-common-move-vm/move-rg.png)
-4. In the **Move resources** blade, select the resources to be moved and then either type an existing resource group name or choose to create a new resource group. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**
+    ![Snímek obrazovky tlačítko přesunout v nabídce skupiny prostředků.](./media/virtual-machines-common-move-vm/move-rg.png)
+4. V **přesunout prostředky** okně vyberte zdroje, které chcete přesunout a pak buď zadejte existující prostředek název skupiny nebo můžete vytvořit novou skupinu prostředků. Až skončíte, vyberte, které je pochopit, že je potřeba použít s virtuálním Počítačem, jakmile se přesune, ID bude vytvořen nový prostředek a ty pak klikněte na tlačítko **OK**
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move-rg-list.png)
+    ![Snímek obrazovky okna přesunout prostředky.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 

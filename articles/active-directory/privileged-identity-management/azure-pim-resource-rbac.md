@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM pro prostředky Azure (Preview)
 
@@ -43,11 +43,12 @@ Azure AD PIM můžete spravovat předdefinované role prostředků Azure, jakož
 - Správce zabezpečení a další
 
 >[!NOTE]
-Uživatelé nebo skupiny, se přiřadila role vlastníka nebo správce přístupu uživatelů a globální správci, které umožňují správy předplatného ve službě Azure AD jsou správci prostředků. Tyto správce může přiřadit role, nakonfigurujte nastavení role a kontrolujte přístup pomocí PIM pro prostředky Azure. Zobrazení seznamu [předdefinované role pro prostředky Azure](../role-based-access-built-in-roles.md)
+Uživatelé nebo skupiny, se přiřadila role vlastníka nebo správce přístupu uživatelů a globální správci, které umožňují správy předplatného ve službě Azure AD jsou správci prostředků. Tyto správce může přiřadit role, nakonfigurujte nastavení role a kontrolujte přístup pomocí PIM pro prostředky Azure. Zobrazení seznamu [předdefinované role pro prostředky Azure](../role-based-access-built-in-roles.md).
 
 ## <a name="tasks"></a>Úlohy
 
 PIM poskytuje pohodlné přístup k aktivaci rolí, zobrazení čekajících aktivací nebo požadavků, čeká na schválení (pro [role adresář Azure AD](azure-ad-pim-approval-workflow.md)) a kontroluje čekající na vaši odpověď z části úlohy levé navigační nabídce.
+
 Při přístupu k některou z položek nabídky úlohy ze vstupního bodu přehled, výsledné zobrazení obsahuje výsledky pro role adresář Azure AD i role prostředků Azure (Preview). 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ Moje rolí obsahuje seznam vaše přiřazení role active a vhodné role adresá
 
 ## <a name="activate-roles"></a>Aktivace role
 
-Aktivace role pro prostředky Azure (Preview) přináší nové prostředí, které umožňuje členům role vhodné naplánovat aktivace pro budoucí datum a čas a vyberte dobu trvání konkrétní aktivace v rámci maximální (nakonfiguroval správce). Další informace o [aktivace zde role Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)
+Aktivace role pro prostředky Azure (Preview) přináší nové prostředí, které umožňuje členům role vhodné naplánovat aktivace pro budoucí datum a čas a vyberte dobu trvání konkrétní aktivace v rámci maximální (nakonfiguroval správce). Další informace o [aktivace role Azure AD zde](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

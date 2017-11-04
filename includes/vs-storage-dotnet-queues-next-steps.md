@@ -1,11 +1,11 @@
 
-Now that you've learned the basics of Azure queue storage, follow these links to learn about more complex storage tasks.
+Teď, když jste se naučili základy používání služby Azure queue storage, postupujte podle následujících odkazech na další informace o složitějších úlohách úložiště.
 
-* View the Queue service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-* Learn more about using Queue storage at [Get started with Azure Queue storage using .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md)
-* To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-* View more feature guides to learn about additional options for storing data in Azure.
-  * To work with Azure Storage Tables, see [Get Started with Azure Table storage using .NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
-  * To work with Azure Storage Blobs, [Get started with Azure Blob storage using .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+* Fronty služby referenční dokumentaci v zobrazení [Klientská knihovna pro úložiště Azure pro .NET](http://go.microsoft.com/fwlink/?LinkID=390731) odkaz kompletní informace o dostupných rozhraních API.
+* Další informace o používání úložiště Queue v [Začínáme s Azure Queue storage pomocí rozhraní .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md)
+* Chcete-li se dozvědět, jak můžete zjednodušit kód, který vytváříte, aby fungoval s Azure Storage, podívejte se na [co je Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Projděte si další průvodce funkcemi, kde najdete další informace o dalších možnostech pro ukládání dat v Azure.
+  * Práce s tabulkami úložiště Azure, najdete v části [Začínáme s Azure Table storage pomocí rozhraní .NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
+  * Pro práci s Azure Storage Blobs [Začínáme s Azure Blob storage pomocí rozhraní .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
+  * Pro ukládání relačních dat, najdete v části [připojit k databázi SQL s použitím rozhraní .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

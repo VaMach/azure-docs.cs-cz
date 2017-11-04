@@ -134,6 +134,8 @@
       items:
         - name: Archiv
           href: monitoring-archive-diagnostic-logs.md
+        - name: Odeslání do Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Streamování do Event Hubs
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Povolení diagnostických nastavení pomocí šablon Resource Manageru

@@ -1,5 +1,5 @@
 
-* In Xcode, press **Run** and start the app on an iOS device (note that push will not work on simulators). Click **OK** to accept push notifications; this request occurs the first time the app runs.
-* In the app, add a new item and click **+**.
-* Verify that a notification is received, then click **OK** to dismiss the notification. You have now successfully completed this tutorial.
+* V Xcode, stiskněte klávesu **spustit** a spustit aplikaci na zařízení se systémem iOS (Všimněte si, že nabízené nebudou fungovat na simulátorů). Klikněte na tlačítko **OK** přijímat nabízená oznámení; tento požadavek dojde při prvním spuštění aplikace.
+* V aplikaci přidat novou položku a klikněte na tlačítko  **+** .
+* Ověřte, že přijetí oznámení a pak klikněte na **OK** k zavření oznámení. Teď úspěšně jste dokončili tento kurz.
 

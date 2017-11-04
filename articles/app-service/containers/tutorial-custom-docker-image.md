@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Použít vlastní image Docker pro webovou aplikaci pro kontejnery
 
@@ -48,7 +48,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Sestavení bitové kopie ze souboru Docker
 
-V úložišti Git, podívejte se na _soubor Docker_. Tento soubor popisuje prostředí Python, která je pro spuštění aplikace. Kromě toho nastaví bitovou kopii [SSH](https://www.ssh.com/ssh/protocol/) server pro zabezpečenou komunikaci mezi hostiteli a kontejneru.
+V úložišti Git, podívejte se na _soubor Docker_. Tento soubor popisuje prostředí Python, který je potřeba spustit svoji aplikaci. Kromě toho nastaví bitovou kopii [SSH](https://www.ssh.com/ssh/protocol/) server pro zabezpečenou komunikaci mezi hostiteli a kontejneru.
 
 ```docker
 FROM python:3.4
@@ -279,7 +279,7 @@ SSH umožňuje zabezpečenou komunikaci mezi kontejner a klienta. Aby pro vlastn
     > [!NOTE]
     > Tato konfigurace neumožňuje externí připojení ke kontejneru. SSH je k dispozici pouze prostřednictvím webu Kudu/SCM. Kudu/SCM lokality je ověření pomocí přihlašovací údaje pro publikování.
 
-* A [kopie](https://docs.docker.com/engine/reference/builder/#copy) pokyn, dá pokyn modulu Docker zkopírovat [sshd_config](http://man.openbsd.org/sshd_config) do souboru */atd/ssh/* adresáře. Konfigurační soubor by měla být založena na [tento soubor sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* A [kopie](https://docs.docker.com/engine/reference/builder/#copy) pokyn, dá pokyn modulu Docker zkopírovat [sshd_config](http://man.openbsd.org/sshd_config) do souboru */atd/ssh/* adresáře. Konfigurační soubor by měla být založena na [tento soubor sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -329,7 +329,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Blahopřejeme! Vlastní image Docker jste nakonfigurovali pro webové aplikace pro kontejnery.
+Blahopřejeme! Vlastní image Docker jste nakonfigurovali pro webovou aplikaci pro kontejnery.
 
 ## <a name="use-a-private-image-from-docker-hub-optional"></a>Použít privátní bitovou kopii z úložiště Docker Hub (volitelné)
 
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-V prostředí cloudu, spusťte [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container#az_webapp_config_container_set) příkazu přiřaďte vlastní image Docker do webové aplikace. Nahraďte  *\<app_name >*,  *\<docker registru server-url >*, _< registru uživatelské jméno >_, a  _<password>_ . Pro kontejner registru Azure  *\<docker registru server-url >* je ve formátu `https://<azure-container-registry-name>.azurecr.io`. 
+V prostředí cloudu, spusťte [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container#az_webapp_config_container_set) příkazu přiřaďte vlastní image Docker do webové aplikace. Nahraďte  *\<app_name >*,  *\<docker registru server-url >*,  _\<registru username >_a  _\<heslo >_. Pro kontejner registru Azure  *\<docker registru server-url >* je ve formátu `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ Příkaz zobrazí se výstup podobný následující řetězce formátu JSON, zo
 
 ## <a name="next-steps"></a>Další kroky
 
-[V systému Linux nejčastější dotazy týkající se služby Azure App Service](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Vytvoření webové aplikace Docker Python a PostgreSQL v Azure](tutorial-docker-python-postgresql-app.md)

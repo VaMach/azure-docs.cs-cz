@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrace z clusteru HDInsight se systémem Windows do clusteru se systémem Linux
 
@@ -188,8 +188,8 @@ Pig a MapReduce úlohy jsou podobné v clusterech se systémem Linux. Ale cluste
 HDInsight se systémem Linux neposkytuje funkce vzdálené plochy. Místo toho můžete SSH vzdálené připojení k hlavnímu uzlu clusteru. Další informace najdete v následujících dokumentech:
 
 * [Použijte Hive pomocí protokolu SSH](hdinsight-hadoop-use-hive-ssh.md)
-* [Použijte Pig s SSH](hdinsight-hadoop-use-pig-ssh.md)
-* [Používání nástroje MapReduce pomocí protokolu SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [Použijte Pig s SSH](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Používání nástroje MapReduce pomocí protokolu SSH](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -200,11 +200,11 @@ Následující graf obsahuje pokyny k migraci vašich úloh Hive.
 
 | V systému Windows použít... | Na základě Linux... |
 | --- | --- |
-| **Hive Editor** |[Zobrazení Ambari Hive](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive Editor** |[Zobrazení Ambari Hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;`Chcete-li povolit Tez |Tez je výchozí modul provádění pro clustery se systémem Linux, takže příkaz set již není potřeba. |
 | Uživatelem definované funkce jazyka C# | Informace o ověřování součásti C# s HDInsight se systémem Linux najdete v tématu [řešení migrovat .NET HDInsight se systémem Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD soubory nebo skripty na serveru vyvolána jako součást úlohy Hive |pomocí skriptů Bash |
-| `hive`příkaz z vzdálené plochy |Použití [Beeline](hdinsight-hadoop-use-hive-beeline.md) nebo [Hive z relace SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive`příkaz z vzdálené plochy |Použití [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) nebo [Hive z relace SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -233,7 +233,7 @@ Pokud máte pracovní postup, který používá aplikace v jazyce C#, ověřte t
 
 | V systému Windows použít... | Na základě Linux... |
 | --- | --- |
-| Řídicí panel Storm |Řídicí panel Storm není k dispozici. V tématu [topologií nasazení a správa Storm v HDInsight se systémem Linux](hdinsight-storm-deploy-monitor-topology-linux.md) pro způsoby, jak odeslat topologie |
+| Řídicí panel Storm |Řídicí panel Storm není k dispozici. V tématu [topologií nasazení a správa Storm v HDInsight se systémem Linux](storm/apache-storm-deploy-monitor-topology-linux.md) pro způsoby, jak odeslat topologie |
 | Storm uživatelského rozhraní |Uživatelské rozhraní Storm je k dispozici na https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio k vytvoření, nasazení a správě jazyka C# nebo hybridní topologie |Visual Studio můžete použít k vytvoření, nasazení a správě jazyka C# (SCP.NET) nebo hybridní topologie na Storm v HDInsight se systémem Linux. Je možné použít jenom s clustery vytvořené po 10/28/2016. |
 

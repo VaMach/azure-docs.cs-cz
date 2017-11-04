@@ -1,11 +1,11 @@
-Locally redundant storage (LRS) replicates your data three times within a storage scale unit, which is hosted in a datacenter in the region in which you created your storage account. A write request returns successfully only once it has been written to all three replicas. These three replicas each reside in separate fault domains and upgrade domains within one storage scale unit.
+Místně redundantní úložiště (LRS) replikuje data třikrát v rámci jednotky škálování úložiště, který je hostován v datacentru v oblasti, ve které jste vytvořili účet úložiště. Žádost o zápis vrátí úspěšně pouze po jeho byla zapsána na všechny tři repliky. Tyto tři repliky každý nacházet v domén samostatné selhání a upgradu domén v rámci jedné škálovací jednotky úložiště.
 
-A storage scale unit is a collection of racks of storage nodes. A fault domain (FD) is a group of nodes that represent a physical unit of failure and can be considered as nodes belonging to the same physical rack. An upgrade domain (UD) is a group of nodes that are upgraded together during the process of a service upgrade (rollout). The three replicas are spread across UDs and FDs within one storage scale unit to ensure that data is available even if hardware failure impacts a single rack or when nodes are upgraded during a rollout.
+Jednotka škálování úložiště je kolekce stojany uzlů úložiště. (FD) domény selhání je skupina uzlů, které představují fyzická jednotka selhání a lze považovat za uzly, které patří do stejné fyzické racku. Upgradovací doméně (UD) je skupina uzlů, které jsou upgradovány společně během procesu upgradu služby (zavedení). Tři repliky jsou rozloženy UDs a FDs v rámci jedné jednotky škálování úložiště zajistit, že data je k dispozici i v případě selhání hardwaru má dopad na jednom racku, nebo když jsou uzly upgradován během zavedení.
 
-LRS is the lowest cost option and offers least durability compared to other options. In the event of a datacenter level disaster (fire, flooding etc.) all three replicas might be lost or unrecoverable. To mitigate this risk, Geo Redundant Storage (GRS) is recommended for most applications.
+LRS je nejnižší náklady na možnost a nabízí minimálně odolnost ve srovnání s dalšími možnostmi. V případě havárie úrovně datového centra (aktivuje, zahlcení atd.) může být všechny tři repliky ztracena nebo neopravitelné. Chcete-li toto riziko snížilo, geograficky redundantní úložiště (GRS) se doporučuje pro většinu aplikací.
 
-Locally redundant storage may still be desirable in certain scenarios:
+Místně redundantní úložiště, stále může být žádoucí v některých scénářích:
 
-* Provides highest maximum bandwidth of Azure Storage replication options.
-* If your application stores data that can be easily reconstructed, you may opt for LRS.
-* Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country. For more information on region pairs, see [Azure regions](https://azure.microsoft.com/regions/).
+* Poskytuje nejvyšší maximální šířka pásma možnosti replikace Azure Storage.
+* Pokud aplikace ukládá data, která může být snadno znovu vytvořena, můžete zvolit LRS.
+* Některé aplikace jsou omezeny na replikaci dat pouze v rámci země z důvodu požadavky zásad správného řízení data. Spárované oblast může být v jiné zemi. Další informace o páry oblast, najdete v části [oblastí Azure](https://azure.microsoft.com/regions/).

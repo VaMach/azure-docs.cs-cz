@@ -1,16 +1,16 @@
-## <a name="favorite-functions-in-the-portal"></a>Favorite Functions in the portal 
+## <a name="favorite-functions-in-the-portal"></a>Oblíbené funkce na portálu 
 
-If you haven't already done so, add Function Apps to your favorites in the Azure portal. This makes it easier to find your function apps. If you have already done this, skip to the next section. 
+Pokud jste to ještě neudělali, přidejte si aplikace Function App mezi oblíbené položky na webu Azure Portal. Díky tomu pak svoje aplikace Function App snadněji najdete. Pokud jste to už udělali, přejděte k další části. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Přihlaste se k [portálu Azure](https://portal.azure.com/).
 
-2. Click the arrow at the bottom left to expand all services, type `Functions` in the **Filter** field, and then click the star next to **Function Apps**.  
+2. Kliknutím na šipku vlevo dole rozbalte všechny služby, do pole **Filtr** zadejte `Functions` a potom klikněte na hvězdičku vedle možnosti **Aplikace Function App**.  
  
-    ![Create function app in the Azure portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
+    ![Vytvoření aplikace Function App na webu Azure Portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
 
-    This adds the Functions icon to the menu on the left of the portal.
+    Tím přidáte do nabídky na levé straně portálu ikonu Funkce.
 
-3. Close the menu, then scroll down to the bottom to see the Functions icon. Click this icon to see a list of all your function apps. Click your function app to work with functions in this app. 
+3. Zavřete nabídku a potom přejděte úplně dolů, kde uvidíte ikonu Funkce. Kliknutím na tuto ikonu zobrazíte seznam všech aplikací Function App. Po kliknutí na určitou aplikaci Function App můžete pracovat s funkcemi této aplikace. 
  
     ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  

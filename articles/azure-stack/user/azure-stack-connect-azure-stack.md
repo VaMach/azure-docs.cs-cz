@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Stack | Microsoft Docs
-description: Learn how to connect Azure Stack
+title: "Připojení k Azure zásobníku | Microsoft Docs"
+description: "Zjistěte, jak připojit Azure zásobníku"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,45 +14,44 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+# <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
 
-To manage resources, you must connect to the Azure Stack Development Kit. This topic details the steps required to connect to the development kit. You can use either of the following connection options:
+Ke správě prostředků, musíte se připojit k Azure zásobníku Development Kit. Toto téma podrobnosti kroky potřebné k připojení k sadě pro vývoj. Můžete použít některý z následujících možností připojení:
 
-* [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
+* [Vzdálená plocha](#connect-with-remote-desktop): umožňuje, aby uživatel s jednotným souběžných rychle připojit z development kit.
+* [Virtuální privátní sítě (VPN)](#connect-with-vpn): umožňuje více souběžným uživatelům připojení od klientů mimo infrastruktury Azure zásobníku (vyžaduje konfiguraci).
 
-## <a name="connect-to-azure-stack-with-remote-desktop"></a>Connect to Azure Stack with Remote Desktop
-With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources.
+## <a name="connect-to-azure-stack-with-remote-desktop"></a>Připojení k Azure zásobníku pomocí vzdálené plochy
+Pomocí připojení vzdálené plochy může uživatel s jednotným souběžných práci s portálem ke správě prostředků.
 
-1. Open a Remote Desktop Connection and connect to the development kit. Enter **AzureStack\AzureStackAdmin** as the username, and the administrative password that you provided during Azure Stack setup.  
+1. Otevřete připojení ke vzdálené ploše a připojte development Kit. Zadejte **AzureStack\AzureStackAdmin** jako uživatelského jména a hesla pro správu, který jste zadali při instalaci Azure zásobníku.  
 
-2. From the development kit computer, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and then close Server Manager.
+2. Z počítače development kit, otevřete Správce serveru, klikněte na tlačítko **místní Server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a zavřete Správce serveru.
 
-3. To open the  portal, navigate to (https://portal.local.azurestack.external/) and sign in using user credentials.
+3. Chcete-li otevřít na portálu, přejděte do (https://portal.local.azurestack.external/) a přihlaste se pomocí uživatelských přihlašovacích údajů.
 
 
-## <a name="connect-to-azure-stack-with-vpn"></a>Connect to Azure Stack with VPN
+## <a name="connect-to-azure-stack-with-vpn"></a>Připojení k Azure zásobník sítě VPN
 
-You can establish a split tunnel Virtual Private Network (VPN) connection to an Azure Stack Development Kit. Through the VPN connection, you can access the administrator portal, user portal, and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources. VPN connectivity is supported in both Azure Active Directory(AAD) and Active Directory Federation Services(AD FS) based deployments. VPN connections enable multiple clients to connect to Azure Stack at the same time. 
+Můžete vytvořit děleného tunelového připojení virtuální privátní sítě (VPN) Azure zásobníku Development Kit. Prostřednictvím připojení VPN získat přístup k portálu správce portálu user portal a místně nainstalován nástroje, jako je Visual Studio a prostředí PowerShell ke správě prostředků Azure zásobníku. Připojení k síti VPN je podporován v obou Active Directory(AAD) Azure a Active Directory Federation Services(AD FS) na základě nasazení. Připojení k síti VPN povolit více klientům připojení k Azure zásobníku ve stejnou dobu. 
 
 > [!NOTE] 
-> This VPN connection does not provide connectivity to Azure Stack infrastructure VMs. 
+> Toto připojení VPN neposkytuje připojení k Azure zásobníku infrastruktury virtuálních počítačů. 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Požadavky
 
-* Install [Azure Stack compatible Azure PowerShell](azure-stack-powershell-install.md) on your local computer.  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+* Nainstalujte [zásobník Azure kompatibilní Azure PowerShell](azure-stack-powershell-install.md) v místním počítači.  
+* Stažení [nástroje potřebné pro práci s Azure zásobníku](azure-stack-powershell-download.md). 
 
-### <a name="configure-vpn-connectivity"></a>Configure VPN connectivity
+### <a name="configure-vpn-connectivity"></a>Konfigurace připojení k síti VPN
 
-To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the the IP address and password values for your environment):
+Chcete-li vytvořit připojení k síti VPN development Kit, otevřete relaci prostředí PowerShell zvýšenými z místního počítače založené na Windows a spusťte následující skript (Nezapomeňte aktualizovat IP adresu a heslo hodnoty pro vaše prostředí):
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -83,31 +82,30 @@ Add-AzsVpnConnection `
 
 ```
 
-If the set up succeeds, you should see **azurestack** in your list of VPN connections.
+Pokud nastavení úspěšné, měli byste vidět **azurestack** v seznamu připojení VPN.
 
-![Network connections](media/azure-stack-connect-azure-stack/image3.png)  
+![Připojení k síti](media/azure-stack-connect-azure-stack/image3.png)  
 
-### <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+### <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
 
-Connect to the Azure Stack instance by using either of the following two methods:  
+Připojte se k instanci Azure zásobníku pomocí některé z následujících dvou metod:  
 
-* By using the `Connect-AzsVpn ` command: 
+* Pomocí `Connect-AzsVpn ` příkaz: 
     
   ```PowerShell
   Connect-AzsVpn `
     -Password $Password
   ```
 
-  When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** onto your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
+  Po zobrazení výzvy důvěryhodnosti hostitele zásobník Azure a nainstalujte certifikát z **AzureStackCertificateAuthority** do úložiště certifikátů místního počítače. (řádku tento příkaz může vypadat za okno relace prostředí PowerShell). 
 
-* Open your local computer’s **Network Settings** > **VPN** > click **azurestack** > **connect**. At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password.
+* Otevřete místního počítače **nastavení sítě** > **VPN** > klikněte na tlačítko **azurestack** > **připojit**. Do příkazového řádku přihlášení zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
 
-### <a name="test-the-vpn-connectivity"></a>Test the VPN connectivity
+### <a name="test-the-vpn-connectivity"></a>Test připojení VPN
 
-To test the portal connection, open an Internet browser and navigate to the user portal (https://portal.local.azurestack.external/), sign in and create resources.  
+K otestování připojení k portálu, otevřete internetový prohlížeč a přejděte na portál user Portal (https://portal.local.azurestack.external/), přihlaste se a vytvářet prostředky.  
 
-## <a name="next-steps"></a>Next steps
-
+## <a name="next-steps"></a>Další kroky
 
 
 

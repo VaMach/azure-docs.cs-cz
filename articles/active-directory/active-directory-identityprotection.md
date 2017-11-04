@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4473f25fefd65de75996240955302abb08762da
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -34,7 +34,7 @@ Azure Active Directory ochrany identit je funkce služby Azure AD Premium P2 edi
 
 ## <a name="getting-started"></a>Začínáme
 
-Microsoft zabezpečuje cloudové identity pro více než deset. S Azure Active Directory Identity Protection ve vašem prostředí, můžete použít stejné ochrany systémů, které společnost Microsoft používá k zabezpečení identity.
+Microsoft má zabezpečené cloudové identity pro více než deset. S Azure Active Directory Identity Protection ve vašem prostředí, můžete použít stejné ochrany systémů, které společnost Microsoft používá k zabezpečení identity.
 
 Velká většina narušení zabezpečení se provede při útočník přístupu do prostředí tak, že krádež identity uživatele. V průběhu let se staly útočníci stále efektivní využívání narušení třetích stran a za použití útoky phishing sofistikované. Jakmile útočník získá přístup k i nízkou privilegované uživatelských účtů, je pro ně k získání přístupu k prostředkům společnosti důležité prostřednictvím laterální pohyb je poměrně snadné.
 
@@ -67,7 +67,7 @@ Azure Active Directory Identity Protection je větší než monitorování a vyt
 
 **Zásady podmíněného přístupu na základě rizika:**
 
-* Zásady pro zmírnění rizikové přihlášení blokování přihlášení nebo že vyřeší problémy spojené služby Multi-Factor authentication.
+* Zásady pro zmírnění rizikové přihlášení blokování přihlášení nebo že vyřeší problémy spojené vícefaktorového ověřování
 * Zásady na blokování nebo zabezpečený rizikové uživatelské účty
 * Zásady budou muset uživatelé zaregistrovat u služby Multi-Factor authentication
 
@@ -81,7 +81,7 @@ Pro vyrovnávání zatížení činnosti správy kolem implementaci Identity Pro
 | :--                          | ---                                |  ---   |
 | Globální správce         | Úplný přístup k ochraně Identity, zařadit ochranu Identity| |
 | Správce zabezpečení       | Úplný přístup k Identity Protection | Zařadit Identity Protection resetovat hesla pro uživatele |
-| Čtenář zabezpečení              | Přístup jen připravené k Identity Protection | Zařadit Identity Protection, uživatelé remidiate, nakonfigurovat zásady, resetování hesla |
+| Čtenář zabezpečení              | Přístup jen pro čtení k Identity Protection | Zařadit Identity Protection, uživatelé remidiate, nakonfigurovat zásady, resetování hesla |
 
 
 

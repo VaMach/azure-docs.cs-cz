@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Co jsou komponent systému Hadoop a verze, které jsou k dispozici v prostředí HDInsight?
 
@@ -174,7 +174,7 @@ Azure HDInsight nabízí cloud nabídky velkých objemů dat ve dvou kategoriíc
 
 | Funkce HDInsight Premium | Popis |
 | --- | --- |
-| Clustery HDInsight připojený k doméně |Clustery HDInsight připojení do domény Azure Active Directory (Azure AD) pro zabezpečení na úrovni podniku. V HDInsight Premium můžete nakonfigurovat seznam zaměstnanci z vaší organizace, který může ověřit prostřednictvím služby Azure AD pro připojení ke clusteru HDInsight. Správce podnikové sítě můžete nakonfigurovat pomocí řízení přístupu na základě rolí pro zabezpečení Hive [Apache škálu](http://hortonworks.com/apache/ranger/) a omezit přístup k datům používat jenom tolik, kolik potřeby. Nakonec správce můžete auditovat datům, zaměstnanci a změny zásad řízení, a tím dosáhnout vysoký stupeň podnikovým prostředkům zásady správného řízení přístupu. Další informace najdete v tématu [nakonfigurovat připojený k doméně clusterů HDInsight](hdinsight-domain-joined-configure.md). |
+| Clustery HDInsight připojený k doméně |Clustery HDInsight připojení do domény Azure Active Directory (Azure AD) pro zabezpečení na úrovni podniku. V HDInsight Premium můžete nakonfigurovat seznam zaměstnanci z vaší organizace, který může ověřit prostřednictvím služby Azure AD pro připojení ke clusteru HDInsight. Správce podnikové sítě můžete nakonfigurovat pomocí řízení přístupu na základě rolí pro zabezpečení Hive [Apache škálu](http://hortonworks.com/apache/ranger/) a omezit přístup k datům používat jenom tolik, kolik potřeby. Nakonec správce můžete auditovat datům, zaměstnanci a změny zásad řízení, a tím dosáhnout vysoký stupeň podnikovým prostředkům zásady správného řízení přístupu. Další informace najdete v tématu [nakonfigurovat připojený k doméně clusterů HDInsight](./domain-joined/apache-domain-joined-configure.md). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Typy clusterů v HDInsight Premium podporované
 Následující tabulka uvádí typy clusteru, které jsou podporovány v HDInsight Premium.

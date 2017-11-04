@@ -1,43 +1,43 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### <a name="to-attach-the-sas-cables"></a>To attach the SAS cables
-1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at their respective back planes. See the following image for guidance. 
+#### <a name="to-attach-the-sas-cables"></a>Připojit SAS kabely
+1. Určete primární a skříně EBOD. Dva skříně lze identifikovat podle jejich odpovídajících back roviny. Viz následující obrázek pokyny. 
    
-    ![Back plane of primary and EBOD enclosures](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
+    ![Zálohovat roviny primární a EBOD skříně](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
    
-    **Back view of primary and EBOD enclosures**
+    **Back – primární a EBOD skříně**
    
-   | Label | Description |
+   | Štítek | Popis |
    |:--- |:--- |
-   | 1 |Primary enclosure |
-   | 2 |EBOD enclosure |
-2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
+   | 1 |Primární skříň |
+   | 2 |EBOD skříň |
+2. Vyhledejte sériových čísel na primárním serverem a skříně EBOD. Sériové číslo štítku je opatřen back vymazat z každé skříně. Sériová čísla musí být stejná na obou skříně. [Kontaktujte Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) okamžitě, pokud sériová čísla se neshodují. Viz následující obrázek najít sériová čísla.
    
-    ![Rear view of enclosure showing serial number](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+    ![Zpětná zobrazení skříň zobrazující sériové číslo](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
-    **Location of serial number sticker**
+    **Umístění štítku sériové číslo**
    
-   | Label | Description |
+   | Štítek | Popis |
    |:--- |:--- |
-   | 1 |Ear of the enclosure |
-3. Use the provided SAS cables to connect the EBOD enclosure to the primary enclosure as follows:
+   | 1 |Vymazat skříni |
+3. Použijte zadaný SAS kabely připojení skříni EBOD ke skříni primární následujícím způsobem:
    
-   1. Identify the four SAS ports on the primary enclosure and the EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and correspond to port A on the EBOD enclosure, as shown in the SAS cabling illustration, below.
-   2. Use the provided SAS cables to connect the EBOD port to port A.
-   3. The EBOD port on controller 0 should be connected to the port A on EBOD controller 0. The EBOD port on controller 1 should be connected to the port A on EBOD controller 1. See the following illustration for guidance. 
+   1. Identifikujte čtyři SAS portů na skříni primární a EBOD skříň. SAS porty jsou označeny jako EBOD na primární skříni a odpovídají A portů na skříni EBOD, jak je znázorněno v SAS kabelů obrázku níže.
+   2. Použít pro připojení A. portu k portu EBOD zadaný SAS kabely
+   3. Port EBOD na řadič 0 musí být připojené k portu A na řadiči EBOD 0. Port EBOD na řadiči 1 musí být připojené k portu A na řadiči EBOD 1. Viz následující obrázek pokyny. 
       
-      ![SAS cabling for your device](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+      ![SAS kabelů pro vaše zařízení](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
-      **SAS cabling**
+      **SAS kabelů**
       
-      | Label | Description |
+      | Štítek | Popis |
       |:--- |:--- |
-      | A |Primary enclosure |
-      | B |EBOD enclosure |
-      | 1 |Controller 0 |
-      | 2 |Controller 1 |
-      | 3 |EBOD Controller 0 |
-      | 4 |EBOD Controller 1 |
-      | 5, 6 |SAS ports on primary enclosure (labeled EBOD) |
-      | 7, 8 |SAS ports on EBOD enclosure (Port A) |
+      | A |Primární skříň |
+      | B |EBOD skříň |
+      | 1 |Řadič 0 |
+      | 2 |Řadič 1 |
+      | 3 |EBOD řadič 0 |
+      | 4 |EBOD řadiči 1 |
+      | 5, 6 |SAS porty na primární skříň (s popiskem EBOD) |
+      | 7, 8 |SAS portů na skříni EBOD (Port A) |
 

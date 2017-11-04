@@ -1,6 +1,6 @@
 ---
-title: Create a test VM in Azure Stack | Microsoft Docs
-description: Learn how to provision a test VM in Azure Stack as a cloud operator.
+title: "Vytvořit testovací virtuální počítač v Azure zásobníku | Microsoft Docs"
+description: "Zjistěte, jak zřídit testovací virtuální počítač v Azure zásobníku jako operátor cloudu."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 98770945d5cccc27bfce971491e6ea30fee2460a
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Create a test virtual machine in Azure Stack
+# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Vytvoření testovacího virtuálního počítače v Azure zásobníku
 
-*Applies to: Azure Stack Development Kit*
+*Platí pro: Azure zásobníku Development Kit*
 
-As a cloud operator, you can create a test virtual machine to validate your [Azure Stack](azure-stack-poc.md) deployment.
+Jako operátor zásobník Azure, můžete vytvořit testovací virtuální počítač k ověření vaší [zásobník Azure](azure-stack-poc.md) nasazení sady pro vývojáře.
 
 > [!NOTE]
-> Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> Než zřídíte virtuální počítače, musíte [přidat bitovou kopii zkušební verze Windows serveru 2016 do zásobníku Azure marketplace](azure-stack-add-default-image.md).
 > 
 > 
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**.  
-2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
-3. In the **Choose a size** blade, click **A1 Standard**, and then click **Select**.  
-4. In the **Settings** blade, accept the defaults and click **OK**
-5. In the **Summary** blade, click **OK** to create the virtual machine.  
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+1. Na hostiteli Azure zásobníku Development Kit [přihlášení](azure-stack-connect-azure-stack.md) k portálu správce (`https://adminportal.local.azurestack.external`) a potom klikněte na **nový** > **výpočetní**  >  **Zkušební verze systému Windows Server 2016 Datacenter** > **vytvořit**.  
+2. V **Základy** okno, zadejte **název**, **uživatelské jméno**, a **heslo**. Vyberte **předplatné**. Vytvoření **skupiny prostředků**, nebo vyberte existující šablonu a pak klikněte na tlačítko **OK**.  
+3. V **zvolte velikost** okně klikněte na tlačítko **A1 standardní**a potom klikněte na **vyberte**.  
+4. V **nastavení** , přijměte výchozí hodnoty a klikněte na tlačítko **OK**
+5. V okně **Shrnutí** klikněte na **OK** a vytvořte virtuální počítač.  
+6. Chcete-li zobrazit nový virtuální počítač, klikněte na tlačítko **všechny prostředky**, vyhledejte virtuální počítač a klikněte na jeho název.
     ![](media/azure-stack-provision-vm/image06.png)
 
 
-## <a name="next-steps"></a>Next steps
-[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
-
+## <a name="next-steps"></a>Další kroky
+[Používání portálů správce a uživatele v Azure zásobníku](azure-stack-manage-portals.md)
