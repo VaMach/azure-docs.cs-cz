@@ -1,0 +1,181 @@
+---
+title: "Zobrazení v řešení pro správu Operations Management Suite (OMS) | Microsoft Docs"
+description: "Řešení pro správu v Operations Management Suite (OMS) bude obvykle obsahovat jedno nebo více zobrazení, která bude vizualizovat data.  Tento článek popisuje, jak exportovat zobrazení vytvořené pomocí návrháře zobrazení a její zahrnutí do řešení pro správu. "
+services: operations-management-suite
+documentationcenter: 
+author: bwren
+manager: jwhit
+editor: tysonn
+ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 04/11/2017
+ms.author: bwren
+ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
+---
+# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Zobrazení v řešení pro správu Operations Management Suite (OMS) (Preview)
+> [!NOTE]
+> Toto je předběžná dokumentace pro vytváření řešení pro správu v OMS, které jsou aktuálně ve verzi preview. Žádné schéma popsané níže se mohou změnit.    
+>
+>
+
+[Řešení pro správu v Operations Management Suite (OMS)](operations-management-suite-solutions.md) bude obvykle obsahovat jedno nebo více zobrazení, která bude vizualizovat data.  Tento článek popisuje, jak exportovat zobrazení vytvořené [Návrhář zobrazení](../log-analytics/log-analytics-view-designer.md) a její zahrnutí do řešení pro správu.  
+
+> [!NOTE]
+> Ukázky v tomto článku použít parametry a proměnné, které jsou nutné nebo společné pro řešení pro správu a jsou popsány v [vytváření řešení pro správu v Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)
+>
+>
+
+## <a name="prerequisites"></a>Požadavky
+Tento článek předpokládá, že jste již obeznámeni s postupy [vytvoření řešení správy](operations-management-suite-solutions-creating.md) a struktura soubor řešení.
+
+## <a name="overview"></a>Přehled
+Chcete-li zahrnout zobrazení v rámci řešení pro správu, musíte vytvořit **prostředků** pro něj v [soubor řešení](operations-management-suite-solutions-creating.md).  Formátu JSON, který popisuje konfiguraci podrobné zobrazení je obvykle komplexní ale a není něco Autor typické řešení bude moci vytvořit ručně.  Nejběžnější metodou je vytvoření zobrazení pomocí [Návrhář zobrazení](../log-analytics/log-analytics-view-designer.md), ho exportovat a poté přidejte jeho podrobnou konfiguraci k řešení.
+
+Základní postup se zobrazení přidat do řešení se následujícím způsobem.  Každý krok je podrobně popsán dále v následujících částech.
+
+1. Zobrazení exportujte do souboru.
+2. Vytvořte prostředek zobrazení v řešení.
+3. Přidáte zobrazení podrobností.
+
+## <a name="export-the-view-to-a-file"></a>Zobrazení exportovat do souboru
+Postupujte podle pokynů v [Návrhář zobrazení Log Analytics](../log-analytics/log-analytics-view-designer.md) zobrazení exportovat do souboru.  Exportovaný soubor bude ve formátu JSON se stejným [elementy jako soubor řešení](operations-management-suite-solutions-solution-file.md).  
+
+**Prostředky** prvek zobrazení souboru bude mít prostředek s typem **Microsoft.OperationalInsights/workspaces** představující pracovním prostorem OMS.  Tento prvek bude mít dílčí prvek s typem **zobrazení** , představuje zobrazení a obsahuje podrobné konfiguraci.  Bude kopírovat podrobnosti tohoto elementu a zkopírujte jej do řešení.
+
+## <a name="create-the-view-resource-in-the-solution"></a>Vytvořte prostředek zobrazení v řešení
+Přidejte následující zobrazení prostředek, který **prostředky** element souboru řešení.  Tato služba využívá proměnné, které jsou popsané níže, musíte taky přidat.  Všimněte si, že **řídicí panel** a **OverviewTile** vlastnosti jsou zástupné symboly, které bude přepsat odpovídající vlastnosti ze zobrazení exportovaného souboru.
+
+    {
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+        "name": "[concat(parameters('workspaceName'), '/', variables('ViewName'))]",
+        "type": "Microsoft.OperationalInsights/workspaces/views",
+        "location": "[parameters('workspaceregionId')]",
+        "id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/', variables('ViewName'))]",
+        "dependson": [
+            ],
+        "properties": {
+            "Id": "[variables('ViewName')]",
+            "Name": "[variables('ViewName')]",
+            "DisplayName": "[variables('ViewName')]",
+            "Description": "",
+            "Author": "[variables('ViewAuthor')]",
+            "Source": "Local",
+            "Dashboard": ,
+            "OverviewTile":
+        }
+    }
+
+Přidejte následující proměnné na prvek proměnné soubor řešení a nahraďte hodnoty, které se pro vaše řešení.
+
+    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "ViewAuthor": "Your name."
+    "ViewDescription": "Optional description of the view."
+    "ViewName": "Provide a name for the view here."
+
+
+Všimněte si, že může kopírovat prostředek celého zobrazení z exportovaného zobrazení souboru, ale budete muset provést následující změny pro ho na spolupráci ve vašem řešení.  
+
+* **Typ** pro zobrazení prostředků je potřeba změnit z **zobrazení** k **Microsoft.OperationalInsights/workspaces**.
+* **Název** vlastnost pro prostředek zobrazení musí změnit tak, aby patří název pracovního prostoru.
+* Závislost na pracovním prostoru musí odebrat, protože prostředek prostoru není definován v řešení.
+* **DisplayName** vlastnost musí být přidán do zobrazení.  **Id**, **název**, a **DisplayName** musí všechny shodovat.
+* Názvy parametrů musí změnit tak, aby odpovídaly vyžaduje sadu parametrů.
+* Proměnné by měl definovaný v řešení a použít v příslušné vlastnosti.
+
+## <a name="add-the-view-details"></a>Přidání zobrazení podrobností
+Zobrazení prostředků v souboru exportovaný zobrazení bude obsahovat dva elementy v **vlastnosti** element s názvem **řídicí panel** a **OverviewTile** obsahující podrobnou konfiguraci zobrazení.  Zkopírujte tyto dva prvky a jejich obsah do **vlastnosti** element zobrazení prostředku v souboru řešení.
+
+## <a name="example"></a>Příklad
+Například následující příklad ukazuje soubor simple řešení se zobrazením.  Výpustky (...) se zobrazují pro **řídicí panel** a **OverviewTile** obsah z důvodů místa.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "workspaceName": {
+                "type": "string"
+            },
+            "accountName": {
+                "type": "string"
+            },
+            "workspaceRegionId": {
+                "type": "string"
+            },
+            "regionId": {
+                "type": "string"
+            },
+            "pricingTier": {
+                "type": "string"
+            }
+        },
+        "variables": {
+            "SolutionVersion": "1.1",
+            "SolutionPublisher": "Contoso",
+            "SolutionName": "Contoso Solution",
+            "LogAnalyticsApiVersion": "2015-11-01-preview",
+            "ViewAuthor":  "user@contoso.com",
+            "ViewDescription":  "This is a sample view.",
+            "ViewName":  "Contoso View"
+        },
+        "resources": [
+            {
+                "name": "[concat(variables('SolutionName'), '(' ,parameters('workspacename'), ')')]",
+                "location": "[parameters('workspaceRegionId')]",
+                "tags": { },
+                "type": "Microsoft.OperationsManagement/solutions",
+                "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspacename'), '/views/', variables('ViewName'))]"
+                ],
+                "properties": {
+                    "workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspacename'))]",
+                    "referencedResources": [
+                    ],
+                    "containedResources": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
+                    ]
+                },
+                "plan": {
+                    "name": "[concat(variables('SolutionName'), '(' ,parameters('workspaceName'), ')')]",
+                    "Version": "[variables('SolutionVersion')]",
+                    "product": "ContosoSolution",
+                    "publisher": "[variables('SolutionPublisher')]",
+                    "promotionCode": ""
+                }
+            },
+            {
+                "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+                "name": "[concat(parameters('workspaceName'), '/', variables('ViewName'))]",
+                "type": "Microsoft.OperationalInsights/workspaces/views",
+                "location": "[parameters('workspaceregionId')]",
+                "id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/', variables('ViewName'))]",
+                "dependson": [
+                ],
+                "properties": {
+                    "Id": "[variables('ViewName')]",
+                    "Name": "[variables('ViewName')]",
+                    "DisplayName": "[variables('ViewName')]",
+                    "Description": "[variables('ViewDescription')]",
+                    "Author": "[variables('ViewAuthor')]",
+                    "Source": "Local",
+                    "Dashboard": ...,
+                    "OverviewTile": ...
+                }
+            }
+          ]
+    }
+
+
+
+
+## <a name="next-steps"></a>Další kroky
+* Další podrobné informace o vytváření [řešení pro správu](operations-management-suite-solutions-creating.md).
+* Zahrnout [runbooků služeb automatizace ve vašem řešení správy](operations-management-suite-solutions-resources-automation.md).

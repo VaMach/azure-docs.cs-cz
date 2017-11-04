@@ -1,46 +1,46 @@
-## <a name="typical-output"></a>Typical output
+## <a name="typical-output"></a>Příklad typického výstupu
 
-The following example shows the output written to the log file by the Hello World sample. The output is formatted for legibility:
+Následující příklad ukazuje výstup do souboru protokolu zapíše Hello, World vzorek. Výstup je z důvodů lepší čitelnosti formátovaný:
 
 ```json
 [{
-    "time": "Mon Apr 11 13:48:07 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "content": "Log started"
 }, {
-    "time": "Mon Apr 11 13:48:48 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:48:55 2016",
+    "time": "Mon Apr 11 13:42:55 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:01 2016",
+    "time": "Mon Apr 11 13:43:00 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:04 2016",
+    "time": "Mon Apr 11 13:45:00 2016",
     "content": "Log stopped"
 }]
 ```
 
-## <a name="code-snippets"></a>Code snippets
+## <a name="code-snippets"></a>Fragmenty kódu
 
-This section discusses some key sections of the code in the hello\_world sample.
+Tato část popisuje některé klíčové části kódu v ukázce hello\_world.
 
-### <a name="iot-edge-gateway-creation"></a>IoT Edge gateway creation
+### <a name="iot-edge-gateway-creation"></a>Vytvoření brány IoT Edge
 
-You must implement a *gateway process*. This program creates the internal infrastructure (the broker), loads the IoT Edge modules, and configures the gateway process. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, pass it the path to a JSON file that specifies the IoT Edge modules to load.
+Chcete-li vytvořit bránu, implementujte *procesu gateway*. Tento program vytvoří interní infrastruktury (zprostředkovatel), načte moduly IoT okraj a nakonfiguruje proces brány. IoT Edge poskytuje funkci **Gateway\_Create\_From\_JSON**, která umožňuje spustit bránu ze souboru JSON. Použít **brány\_vytvořit\_z\_JSON** fungovat, předejte ji do souboru JSON, který určuje moduly IoT Edge se načíst cestu.
 
-You can find the code for the gateway process in the *Hello World* sample in the [main.c][lnk-main-c] file. For legibility, the following snippet shows an abbreviated version of the gateway process code. This example program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway.
+Můžete najít kód pro proces brány v *Hello, World* ukázku v [main.c] [ lnk-main-c] souboru. Následující fragment kódu ukazuje v zájmu čitelnosti zkrácenou verzi kódu pro proces brány. Tento ukázkový program vytvoří bránu a potom počká, až uživatel stiskne klávesu **ENTER**, a bránu zruší.
 
-```c
+```C
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -59,16 +59,16 @@ int main(int argc, char** argv)
 }
 ```
 
-The JSON settings file contains a list of IoT Edge modules to load and the links between the modules. Each IoT Edge module must specify a:
+Nastavení souboru JSON obsahuje seznam modulů IoT Edge načíst a odkazů mezi moduly. Každý modul IoT Edge musíte zadat a:
 
-* **name**: a unique name for the module.
-* **loader**: a loader that knows how to load the desired module. Loaders are an extension point for loading different types of modules. IoT Edge provides loaders for use with modules written in native C, Node.js, Java, and .NET. The Hello World sample only uses the native C loader because all the modules in this sample are dynamic libraries written in C. For more information about how to use IoT Edge modules written in different languages, see the [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), or [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) samples.
-    * **name**: the name of the loader used to load the module.
-    * **entrypoint**: the path to the library containing the module. On Linux this library is a .so file, on Windows this library is a .dll file. The entry point is specific to the type of loader being used. The Node.js loader entry point is a .js file. The Java loader entry point is a classpath and a class name. The .NET loader entry point is an assembly name and a class name.
+* **name**: jedinečný název modulu.
+* **loader:** zavaděč, který umí načíst požadovaný modul. Zavaděče jsou rozšiřovacím bodem pro načítání různých typů modulů. Okraj IoT poskytuje zavaděče pro použití s moduly, které jsou napsané v nativní C, Node.js, Java a rozhraní .NET. Hello World vzorek pouze používá nativní zavaděč C, protože všechny moduly, které jsou v této ukázce jsou dynamické knihovny, které jsou napsané v C. Další informace o tom, jak používat moduly IoT Edge napsané v různých jazycích, najdete v článku [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), nebo [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) ukázky.
+    * **název**: název zavaděč používá k načtení modulu.
+    * **entrypoint**: cesta ke knihovně obsahující modul. V systému Linux Tato knihovna je soubor .so, v systému Windows tato knihovna je soubor s příponou DLL. Vstupní bod se odvíjí od typu použitého zavaděče. Vstupní bod zavaděč Node.js je soubor .js. Vstupní bod Java zavaděč je cestu pro třídy a název třídy. Vstupní bod zavaděč .NET je název sestavení a název třídy.
 
-* **args**: any configuration information the module needs.
+* **args**: libovolné konfigurační informace, které modul vyžaduje.
 
-The following code shows the JSON used to declare all the IoT Edge modules for the Hello World sample on Linux. Whether a module requires any arguments depends on the design of the module. In this example, the logger module takes an argument that is the path to the output file and the hello\_world module has no arguments.
+Následující kód ukazuje JSON používá k deklaraci levého okraje IoT moduly pro ukázku Hello World v systému Linux. Jestli modul vyžaduje nějaké argumenty, závisí na návrhu modulu. V tomto příkladu protokolovací modul přebírá argument, který určuje cestu k výstupnímu souboru, a modul hello\_world nemá žádné argumenty.
 
 ```json
 "modules" :
@@ -96,14 +96,14 @@ The following code shows the JSON used to declare all the IoT Edge modules for t
 ]
 ```
 
-The JSON file also contains the links between the modules that are passed to the broker. A link has two properties:
+Soubor JSON obsahuje také propojení mezi moduly, která se předávají do zprostředkovatele. Propojení má dvě vlastnosti:
 
-* **source**: a module name from the `modules` section, or `\*`.
-* **sink**: a module name from the `modules` section.
+* **Zdroj**: název modulu z `modules` části nebo `\*`.
+* **sink**: název modulu z části `modules`
 
-Each link defines a message route and direction. Messages from the **source** module are delivered to the **sink** module. You can set the **source** module to `\*`, which indicates that the **sink** module receives messages from any module.
+Každé propojení definuje trasu a směr zpráv. Zprávy z **zdroj** modulu budou doručeny do **podřízený** modulu. Můžete nastavit **zdroj** modulu `\*`, což znamená, že **podřízený** modul přijímá zprávy od libovolný modul.
 
-The following code shows the JSON used to configure links between the modules used in the hello\_world sample on Linux. Every message produced by the `hello_world` module is consumed by the `logger` module.
+Následující kód ukazuje kód JSON, který konfiguruje propojení mezi moduly použitými v ukázce hello\_world na Linuxu. Všechny zprávy vytvořené modulem `hello_world` využívá modul `logger`.
 
 ```json
 "links":
@@ -115,11 +115,11 @@ The following code shows the JSON used to configure links between the modules us
 ]
 ```
 
-### <a name="helloworld-module-message-publishing"></a>Hello\_world module message publishing
+### <a name="helloworld-module-message-publishing"></a>Publikování zpráv modulu hello\_world
 
-You can find the code used by the hello\_world module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The following snippet shows an amended version of the code with comments added and some error handling code removed for legibility:
+Kód, který používá modul hello\_world k publikování zpráv, najdete v souboru [hello_world.c][lnk-helloworld-c]. Následující fragment kódu ukazuje upravenou verzi kódu s přidanými komentáři a v zájmu čitelnosti je odstraněné ošetření některých chyb:
 
-```c
+```C
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -165,24 +165,22 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="helloworld-module-message-processing"></a>Hello\_world module message processing
+Hello\_world modul nikdy zpracovává zprávy, které z ostatních modulů IoT Edge publikování pro zprostředkovatele. Proto implementace zpětného volání zpráv v modulu hello\_world je funkcí no-op.
 
-The hello\_world module never processes messages that other IoT Edge modules publish to the broker. Therefore, the implementation of the message callback in the hello\_world module is a no-op function.
-
-```c
+```C
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
 }
 ```
 
-### <a name="logger-module-message-publishing-and-processing"></a>Logger module message publishing and processing
+### <a name="logger-module-message-processing"></a>Zpracování zpráv modulu protokolovacího nástroje
 
-The logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
+Protokolovací modul přijímá zprávy od zprostředkovatele a zapisuje je do souboru. Nikdy publikuje žádné zprávy. Z toho důvodu protokolovací modul nikdy nevolá funkci **Broker_Publish**.
 
-The **Logger_Receive** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The following snippet shows an amended version with comments added and some error handling code removed for legibility:
+**Logger_Receive** v fungovat [logger.c] [ lnk-logger-c] soubor je zpětné volání zprostředkovatele vyvolá pro doručení zprávy do modulu protokolovacího nástroje. Následující fragment kódu ukazuje upravenou verzi kódu s přidanými komentáři. V zájmu čitelnosti je odstraněné ošetření některých chyb:
 
-```c
+```C
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -221,9 +219,12 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-In this article, you ran a simple IoT Edge gateway that writes messages to a log file. To run a sample that sends messages to IoT Hub, see [IoT Edge – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated-linux] or [IoT Edge – send device-to-cloud messages with a simulated device using Windows][lnk-gateway-simulated-windows].
+V tomto článku jste spustili jednoduché IoT hraniční bránu, která zapisuje zprávy do souboru protokolu. Pokud chcete spustit ukázku, která odesílá zprávy do služby IoT Hub, najdete v části:
+
+- [Okraj IoT – odesílání zpráv typu zařízení cloud s simulované zařízení pomocí Linux][lnk-gateway-simulated-linux] 
+- [Okraj IoT – odesílání zpráv typu zařízení cloud s simulované zařízení pomocí Windows][lnk-gateway-simulated-windows].
 
 
 <!-- Links -->

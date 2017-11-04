@@ -1,20 +1,20 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [GoogleDrive](https://www.google.com/drive/) account  
+### <a name="prerequisites"></a>Požadavky
+* A [Googledrivu](https://www.google.com/drive/) účtu  
 
-Before you can use your GoogleDrive account in a Logic app, you must authorize the Logic app to connect to your GoogleDrive account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Než v aplikaci logiky můžete použít váš účet Googledrivu, musíte je nejdříve autorizovat aplikaci logiky se připojit ke svému účtu Googledrivu. Naštěstí můžete k tomu snadno z v rámci aplikace logiky na portálu Azure.  
 
-Here are the steps to authorize your Logic app to connect to your GoogleDrive account:  
+Tady jsou kroky k autorizaci aplikace logiky pro připojení k účtu Googledrivu:  
 
-1. To create a connection to GoogleDrive, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *GoogleDrive* in the search box. Select the trigger or action you'll like to use:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-1.png)  
-2. If you haven't created any connections to GoogleDrive before, you'll get prompted to provide your GoogleDrive credentials. These credentials will be used to authorize your Logic app to connect to, and access your GoogleDrive account's data:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-2.png)  
-3. Provide your GoogleDrive email address:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-3.png)  
-4. Provide your GoogleDrive password to authorize your Logic app:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-4.png)
-5. Allow the connection to GoogleDrive  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-5.png)  
-6. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-6.png)  
+1. Chcete-li vytvořit připojení ke Googledrivu, v návrháři aplikace logiky, vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu zadejte *Googledrivu* do vyhledávacího pole. Vyberte aktivační události nebo akci, kterou budete chtít použít:  
+   ![Krok vytvoření Googledrivu připojení](./media/connectors-create-api-googledrive/googledrive-1.png)  
+2. Pokud jste nevytvořili žádné připojení ke Googledrivu před, budete získat zobrazí výzva k zadání přihlašovacích údajů vaší Googledrivu. Tyto přihlašovací údaje se použije k autorizaci aplikace logiky pro připojení k a přístup k datům účtu Googledrivu:  
+   ![Krok vytvoření Googledrivu připojení](./media/connectors-create-api-googledrive/googledrive-2.png)  
+3. Zadejte e-mailovou adresu Googledrivu:  
+   ![Krok vytvoření Googledrivu připojení](./media/connectors-create-api-googledrive/googledrive-3.png)  
+4. Zadejte heslo Googledrivu k autorizaci aplikace logiky:  
+   ![Krok vytvoření Googledrivu připojení](./media/connectors-create-api-googledrive/googledrive-4.png)
+5. Povolit připojení ke Googledrivu  
+   ![Krok vytvoření Googledrivu připojení](./media/connectors-create-api-googledrive/googledrive-5.png)  
+6. Všimněte si vytvořil připojení a je nyní můžete pokračovat v dalších krocích v aplikaci logiky:  
+   ![Krok vytvoření Googledrivu připojení](./media/connectors-create-api-googledrive/googledrive-6.png)  
 

@@ -1,13 +1,13 @@
-## <a name="scenario"></a>Scenario
-A VM with a single NIC is created and connected to a virtual network. The VM requires three different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
+## <a name="scenario"></a>Scénář
+Virtuální počítač s jednu síťovou kartu se vytvoří a připojené k virtuální síti. Virtuální počítač vyžaduje tři různé *privátní* IP adresy a dvě *veřejné* IP adresy. IP adresy přiřazené k následující konfigurace protokolu IP:
 
-* **IPConfig-1:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-2:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-3:** Assigns a *static* private IP address and no public IP address.
+* **IPConfig-1:** přiřadí *statické* privátní IP adresu a *statické* veřejnou IP adresu.
+* **IPConfig-2:** přiřadí *statické* privátní IP adresu a *statické* veřejnou IP adresu.
+* **IPConfig – 3:** přiřadí *statické* privátní IP adresu a žádné veřejnou IP adresu.
   
-    ![Multiple IP addresses](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
+    ![Několik IP adres](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 
-The IP configurations are associated to the NIC when the NIC is created and the NIC is attached to the VM when the VM is created. The types of IP addresses used for the scenario are for illustration. You can assign whatever IP address and assignment types you require.
+Konfigurace protokolu IP jsou přidruženy ke síťový adaptér, je-li síťový adaptér na síťový adaptér je připojen k virtuálnímu počítači při vytvoření virtuálního počítače. Typy adres IP použitých pro tento scénář jsou pro obrázek. Můžete přiřadit libovolnou IP adresy a přiřazení typy budete potřebovat.
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) article.
+> I když kroky v tomto článku přiřadí všechny konfigurace protokolu IP pro jednu síťovou kartu, můžete také přiřadit víc konfigurací IP adres na všechny síťové adaptéry ve virtuálním počítači více síťovými Kartami. Naučte se vytvořit virtuální počítač s více síťovými kartami, přečtěte si téma [vytvoření virtuálního počítače s více síťovými kartami](../articles/virtual-machines/windows/multiple-nics.md) článku.

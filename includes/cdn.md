@@ -1,112 +1,112 @@
-# <a name="using-cdn-for-azure"></a>Using CDN for Azure
-The Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America. For a current list of CDN node locations, see [Azure CDN Node Locations].
+# <a name="using-cdn-for-azure"></a>Pomocí Azure CDN
+Sítě doručování obsahu (CDN) Azure nabízí vývojářům globální řešení pro doručování širokopásmového obsahu pomocí ukládání do mezipaměti objektů BLOB a statického obsahu výpočetní instance na fyzických uzlech v USA, Evropa, Asie, Austrálie a Jižní Ameriky. Aktuální seznam umístění uzlů CDN, naleznete v části [umístění uzlů CDN Azure].
 
-This task includes the following steps:
+Tato úloha zahrnuje následující kroky:
 
-* [Step 1: Create a storage account](#Step1)
-* [Step 2: Create a new CDN endpoint for your storage account](#Step2)
-* [Step 3: Access your CDN content](#Step3)
-* [Step 4: Remove your CDN content](#Step4)
+* [Krok 1: Vytvoření účtu úložiště](#Step1)
+* [Krok 2: Vytvoření nového koncového bodu CDN pro váš účet úložiště](#Step2)
+* [Krok 3: Přístup k vašemu obsahu CDN](#Step3)
+* [Krok 4: Odebrání obsahu CDN](#Step4)
 
-The benefits of using CDN to cache Azure data include:
+Mezi výhody používání CDN Azure data do mezipaměti patří:
 
-* Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content
-* Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
+* Lepší výkon a uživatelské prostředí pro koncové uživatele, kteří jsou daleko od zdroj obsahu a používají aplikace, kde jsou k načtení obsahu vyžadují mnoho internet cest
+* Velkých distribuovaných škálování pro lepší zvládání náhlého vysokého zatížení, můžete na začátku události například spuštění produktu
 
-Existing CDN customers can now use the Azure CDN in the [Azure classic portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
+Stávající zákazníky služby CDN teď můžete použít Azure CDN v [portál Azure classic]. CDN je funkce rozšíření k vašemu předplatnému a má samostatné [fakturační plán].
 
 <a id="Step1"> </a>
 
-<h2>Step 1: Create a storage account</h2>
+<h2>Krok 1: Vytvoření účtu úložiště</h2>
 
-Use the following procedure to create a new storage account for a Azure subscription. A storage account gives access to Azure storage services. The storage account represents the highest level of the namespace for accessing each of the Azure storage service components: Blob services, Queue services, and Table services. For more information about the Azure storage services, see [Using the Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+Použijte následující postup k vytvoření nového účtu úložiště pro předplatné Azure. Účet úložiště poskytuje přístup ke službám úložiště Azure. Účet úložiště představuje nejvyšší úroveň oboru názvů pro přístup k jednotlivých součástí služby Azure storage: objektu Blob služby, služba fronty a tabulky služby. Další informace o službách Azure storage najdete v tématu [pomocí služby Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 
-To create a storage account, you must be either the service administrator or a co-administrator for the associated subscription.
+Pokud chcete vytvořit účet úložiště, musí být buď správce služby správce nebo spolusprávce pro předplatné přidružený.
 
 > [!NOTE]
-> For information about performing this operation by using the Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
+> Informace o provedení této operace pomocí Azure Service Management API najdete v tématu [vytvořit účet úložiště](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) referenční téma.
 > 
 > 
 
-**To create a storage account for an Azure subscription**
+**Chcete-li vytvořit účet úložiště pro předplatné Azure**
 
-1. Log into the [Azure classic portal].
-2. In the lower left corner, click **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
+1. Přihlaste se na [portál Azure classic].
+2. V levém dolním rohu klikněte na **nový**. V **nový** vyberte **datové služby**, pak klikněte na tlačítko **úložiště**, pak **rychle vytvořit**.
    
-   The **Create Storage Account** dialog appears.
+   **Vytvořit účet úložiště** otevře se dialogové okno.
    
-   ![Create Storage Account][create-new-storage-account]
-3. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
+   ![Vytvořit účet úložiště][create-new-storage-account]
+3. V **URL** pole, zadejte název subdomény. Tato položka může obsahovat od 3 až 24 malých písmen a číslic.
    
-    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, you would use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you typed in **Enter a URL**:
+    Tato hodnota se změní na název hostitele v rámci identifikátoru URI, který slouží k adresování objektů Blob, fronty nebo tabulky prostředky pro předplatné. Chcete-li vyřešit prostředek kontejneru ve službě Blob, použijte identifikátor URI v následujícím formátu, kde  *&lt;StorageAccountLabel&gt;*  odkazuje na hodnotu, která jste zadali v **zadejte adresu URL**:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;můj_kontejner&gt;*
    
-    **Important:** The URL label forms the subdomain of the storage  account URI and must be unique among all hosted services in  Azure.
+    **Důležité:** adresy URL popisku forms subdoméně účtu úložiště URI a musí být jedinečný mezi všechny hostované služby v Azure.
    
-    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
-4. From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
+    Tato hodnota se používá jako název tohoto účtu úložiště na portálu, nebo při přístupu k tomuto účtu prostřednictvím kódu programu.
+4. Z **oblast/skupině vztahů** rozevíracím seznamu vyberte oblast nebo vztahů skupiny pro účet úložiště. Vyberte skupinu vztahů místo oblast, pokud chcete vaší služby úložiště ve stejném datovém centru s jinými službami Windows Azure, které používáte. Tím lze vylepšit výkon a žádné poplatky se vám neúčtují odchozí.  
    
-   **Note:** To create an affinity group, open the **Settings** area of the Management Portal, click **Affinity Groups**, and then click either **Add an affinity group** or **Add**. You can also create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups].
-5. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
-6. Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
-7. To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
+   **Poznámka:** Pokud chcete vytvořit skupinu vztahů, otevřete **nastavení** oblasti portálu pro správu, klikněte na možnost **skupiny vztahů**a pak klikněte buď **přidat skupinu vztahů** nebo **přidat**. Můžete také vytvořit a spravovat skupiny vztahů pomocí rozhraní API správy služby Windows Azure. Další informace najdete v tématu [operace pro skupiny vztahů].
+5. Z **předplatné** rozevíracího seznamu vyberte odběr, který se použije účet úložiště s.
+6. Klikněte na **Vytvořit účet úložiště**. Proces vytvoření účtu úložiště může trvat několik minut na dokončení.
+7. Pokud chcete ověřit, zda byl úspěšně vytvořen účet úložiště, ověřte, že účet zobrazuje v položkách uvedené pro **úložiště** se stavem **Online**.
 
 <a id="Step2"> </a>
 
-<h2>Step 2: Create a new CDN endpoint for your storage account</h2>
+<h2>Krok 2: Vytvoření nového koncového bodu CDN pro váš účet úložiště</h2>
 
-Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+Jakmile povolíte CDN přístup k účtu úložiště nebo hostované služby, jsou způsobilé pro ukládání do mezipaměti CDN edge všechny veřejně dostupné objekty. Pokud upravíte objekt, který je aktuálně uložené do mezipaměti v CDN, nový obsah nebudete mít k dispozici prostřednictvím CDN, dokud CDN aktualizuje jeho obsah, když vyprší platnost mezipaměti obsahu time to live období.
 
-**To create a new CDN endpoint for your storage account**
+**Chcete-li vytvořit nový koncový bod CDN pro váš účet úložiště**
 
-1. In the [Azure classic portal], in the navigation pane, click **CDN**.
-2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
-3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts. 
-4. Click the **Create** button to create the new endpoint.
-5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
+1. V [portál Azure classic], v navigačním podokně klikněte na tlačítko **CDN**.
+2. Na pásu karet klikněte na tlačítko **nový**. V **nový** dialogovém okně, vyberte **App Services**, pak **CDN**, pak **rychle vytvořit**.
+3. V **doménu původu** rozevíracího seznamu, vyberte úložiště účet, kterou jste vytvořili v předchozí části ze seznamu účtů úložiště k dispozici. 
+4. Klikněte **vytvořit** tlačítko vytvořte nový koncový bod.
+5. Po vytvoření koncového bodu se zobrazí v seznamu koncových bodů pro předplatné. Zobrazení seznamu zobrazuje adresu URL, kterou je nutné použít k přístupu k obsahu v mezipaměti, a také doménu původu. 
    
-    The origin domain is the location from which the CDN caches content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
+    Doménu původu je umístění, ze kterého CDN ukládá do mezipaměti obsah. Doménu původu může být účet úložiště nebo Cloudová služba; účet úložiště se používá pro účely tohoto příkladu. Úložiště obsahu do mezipaměti. to servery edge podle nastavení cache-control, které určíte, nebo výchozí heuristiky ukládání do mezipaměti sítě. 
 
-    > [AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE]Konfigurace vytvořili pro koncový bod nebude hned dostupný; může trvat až 60 minut, než se registrace rozšíří v síti CDN. Uživatelé, kteří se pokusí použít název domény CDN okamžitě obdržet stavový kód 400 (Chybný požadavek), dokud nebude obsah k dispozici prostřednictvím CDN.
 
 <a id="Step3"> </a>
 
-<h2>Step 3: Access CDN content</h2> 
+<h2>Krok 3: Přístup k obsahu CDN</h2> 
 
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
+Chcete-li získat přístup k obsahu v mezipaměti na CDN, použijte CDN adresy URL poskytnuté na portálu. Adresa pro uložené v mezipaměti objektů blob bude podobný následujícímu:
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*\>.vo.msecnd.net/ <*myPublicContainer*\>/<*BlobName*\>
 
 <a id="Step4"> </a>
 
-<h2>Step 4: Remove content from the CDN</h2>
+<h2>Krok 4: Odebrat obsah z CDN</h2>
 
-If you no longer wish to cache an object in the Azure Content Delivery Network (CDN), you can take one of the following steps:
+Pokud již nechcete ukládat do mezipaměti objekt v Content Delivery Network (CDN) Azure, můžete provést jednu z následujících kroků:
 
-* For an Azure blob, you can delete the blob from the public container.
-* You can make the container private instead of public. See [Restrict Access to Containers and Blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
-* You can disable or delete the CDN endpoint using the Management Portal.
-* You can modify your hosted service to no longer respond to requests for the object.
+* Pro Azure blob můžete odstranit objekt blob z veřejného kontejneru.
+* Můžete provést kontejner privátní místo veřejné. V tématu [omezit přístup ke kontejnerům a objektům blob](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) Další informace.
+* Můžete zakázat nebo odstranit koncový bod CDN pomocí portálu pro správu.
+* Můžete upravit vaší hostované služby už reagovat na požadavky pro objekt.
 
-An object already cached in the CDN will remain cached until the time-to-live period for the object expires. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+Objekt již uložené v mezipaměti v CDN zůstane v mezipaměti, dokud neuplyne období time to live pro objekt. Po vypršení doby time to live CDN bude zkontrolujte, jestli je stále platný koncový bod CDN a objekt anonymně přístupné. Pokud není, bude mezipaměti už tento objekt.
 
-The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](https://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
+Možnost hned vymazat obsah není aktuálně podporována na portálu pro správu Azure. Obraťte se na [podporu Azure](https://azure.microsoft.com/support/options/) Pokud potřebujete hned vymazat obsah. 
 
-## <a name="additional-resources"></a>Additional resources
-* [How to Create an Affinity Group in Azure]
-* [How to: Manage Storage Accounts for an Azure Subscription]
-* [About the Service Management API]
-* [How to Map CDN Content to a Custom Domain]
+## <a name="additional-resources"></a>Další zdroje
+* [Jak vytvořit skupinu vztahů v Azure]
+* [Postupy: Správa účtů úložiště pro předplatné Azure]
+* [O rozhraní API správy služby]
+* [Postup mapování obsahu CDN do vlastní domény]
 
 [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
-[Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-[Azure classic portal]: https://manage.windowsazure.com/
-[billing plan]: /pricing/calculator/?scenario=full
-[How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+[umístění uzlů CDN Azure]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
+[portál Azure classic]: https://manage.windowsazure.com/
+[fakturační plán]: /pricing/calculator/?scenario=full
+[Jak vytvořit skupinu vztahů v Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
-[About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
-[How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
+[O rozhraní API správy služby]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
+[Postup mapování obsahu CDN do vlastní domény]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png

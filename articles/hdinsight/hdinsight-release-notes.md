@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Poznámky k verzi pro komponent systému Hadoop v Azure HDInsight
 
@@ -61,7 +61,7 @@ Tento článek obsahuje informace o **nejnovější** Azure HDInsight verze aktu
 
 * **Nové funkce v podregistru**. V tématu [Hortonworks dokumentaci](https://hortonworks.com/apache/hive/#section_4).
 
-* **Hive rozhraní příkazového řádku vyřazení**: Hive rozhraní příkazového řádku je zastaralá a je místo toho používají Beeline zákazníků. Další informace najdete v tématu [dokumentaci Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Pokyny týkající se používání Beeline s HDInsight naleznete v tématu [použít Beeline s HDInsight Hadoop clusterů](hdinsight-hadoop-use-hive-beeline.md).
+* **Hive rozhraní příkazového řádku vyřazení**: Hive rozhraní příkazového řádku je zastaralá a je místo toho používají Beeline zákazníků. Další informace najdete v tématu [dokumentaci Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Pokyny týkající se používání Beeline s HDInsight naleznete v tématu [použít Beeline s HDInsight Hadoop clusterů](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Nové funkce v Apache Phoenix a HBase**.
     * Podpora kvótu úložiště: běžně používá v prostředích s více klienty umožňuje omezené úložný prostor na na každou tabulku a na úrovni oboru názvů.

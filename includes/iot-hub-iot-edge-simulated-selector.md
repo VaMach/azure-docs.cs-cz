@@ -2,84 +2,84 @@
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
 > * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 
-This walkthrough of the [Simulated Device Cloud Upload sample] shows you how to use [Azure IoT Edge][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
+Tento návod [simulované zařízení cloudu nahrát ukázková] ukazuje, jak používat [Azure IoT Edge] [ lnk-sdk] k odesílání telemetrie zařízení cloud do služby IoT Hub ze simulovaného zařízení .
 
-This walkthrough covers:
+Tento návod ilustruje:
 
-* **Architecture**: architectural information about the [Simulated Device Cloud Upload sample].
-* **Build and run**: the steps required to build and run the sample.
+* **Architektura**: architektury informace o [simulované zařízení cloudu nahrát ukázková].
+* **Sestavení a spuštění:** Kroky potřebné k sestavení a spuštění ukázky.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architektura
 
-The [Simulated Device Cloud Upload sample] shows how to create a gateway that sends telemetry from simulated devices to an IoT hub. A device may not be able to connect directly to IoT Hub because the device:
+[simulované zařízení cloudu nahrát ukázková] ukazuje, jak vytvořit bránu, která odesílá telemetrii z Simulovaná zařízení do služby IoT hub. Zařízení nemusí být schopni připojit přímo do služby IoT Hub, protože zařízení:
 
-* Does not use a communications protocol understood by IoT Hub.
-* Is not smart enough to remember the identity assigned to it by IoT Hub.
+* Nepoužívá komunikační protokol podporovaných službou IoT Hub.
+* Není dostatečně inteligentní pamatovat identity přiřazené službou IoT Hub.
 
-An IoT Edge gateway can solve these problems in the following ways:
+IoT vstupní brána může vyřešit tyto problémy následujícími způsoby:
 
-* The gateway understands the protocol used by the device, receives device-to-cloud telemetry from the device, and forwards those messages to IoT Hub using a protocol understood by the IoT hub.
+* Brána rozumí protokol zařízení, použije získává telemetrická data zařízení cloud ze zařízení a předá tyto zprávy do služby IoT Hub použití protokolu podporovaných službou IoT hub.
 
-* The gateway maps IoT Hub identities to devices and acts as a proxy when a device sends messages to IoT Hub.
+* Brána mapuje identit služby IoT Hub na zařízení a funguje jako proxy server, když zařízení odesílá zprávy do služby IoT Hub.
 
-The following diagram shows the main components of the sample, including the IoT Edge modules:
+Následující diagram znázorňuje hlavní komponenty ukázku, včetně modulů hraniční IoT:
 
-![Diagram - simulated device message goes through gateway to IoT Hub][1]
+![Diagram – zpráva simulované zařízení projde brány do služby IoT Hub][1]
 
-This sample contains three modules that make up the gateway:
-1. Protocol ingestion module
-1. MAC &lt;-&gt; IoT Hub ID module
-1. IoT Hub communication module
+Tato ukázka obsahuje tři moduly, které tvoří bránu:
+1. Modul ingestování protokolu
+1. Adresa MAC &lt; - &gt; Modul ID služby IoT Hub
+1. Komunikační modul služby IoT Hub
 
-The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism. For more information, see [Get started with Azure IoT Edge][lnk-gw-getstarted].
+Moduly si mezi sebou nepředávají zprávy přímo. Moduly publikování zpráv interní zprostředkovatele, který doručí zpráv na jiné moduly pomocí mechanismu předplatného. Další informace najdete v tématu [Začínáme s Azure IoT Edge][lnk-gw-getstarted].
 
-![Diagram - gateway modules communicate with broker][2]
+![Diagram – modulů brány komunikují zprostředkovatele][2]
 
-### <a name="protocol-ingestion-module"></a>Protocol ingestion module
+### <a name="protocol-ingestion-module"></a>Modul ingestování protokolu
 
-The protocol ingestion module is the starting point for process of taking data from devices, through the gateway, and into the cloud. 
+Modul přijímání protokol je výchozím bodem pro proces pořízení data ze zařízení, prostřednictvím brány a do cloudu. 
 
-In the sample, this module:
+V ukázce tento modul:
 
-1. Creates simulated temperature data. If you use physical devices, the module reads data from those physical devices.
-1. Creates a message.
-1. Places the simulated temperature data into the message content.
-1. Adds a property with a fake MAC address to the message.
-1. Makes the message available to the next module in the chain.
+1. Vytvoří simulované teplotní data. Pokud používáte fyzické zařízení, modul čte data z těchto fyzických zařízení.
+1. Vytvoří zprávu.
+1. Simulované teplotní data umístí do obsahu zprávy.
+1. Přidá vlastnost s falešných adresu MAC na zprávu.
+1. Zpráva zpřístupňuje další modul v řetězu.
 
-The protocol ingestion module is **simulated_device.c** in the source code.
+Modul přijímání protokol je **simulated_device.c** ve zdrojovém kódu.
 
-### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
+### <a name="mac-lt-gt-iot-hub-id-module"></a>Adresa MAC &lt; - &gt; Modul ID služby IoT Hub
 
-The MAC &lt;-&gt; IoT Hub ID module works as a translator. This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, your devices may have unique serial numbers or the telemetry data may include a unique embedded device name.
+MAC &lt; - &gt; IoT Hub ID modulu funguje jako převaděče. Tato ukázka používá jako jedinečný identifikátor zařízení adresu MAC a koreluje ji s identitou zařízení služby IoT Hub. Můžete si ale napsat vlastní modul, který bude používat jiný jedinečný identifikátor. Například zařízení může mít jedinečné sériová čísla nebo telemetrická data může zahrnovat název jedinečný vložená zařízení.
 
-In the sample, this module:
+V ukázce tento modul:
 
-1. Scans for messages that have a MAC address property.
-1. If there is a MAC address, adds another property with an IoT Hub device key to the message. 
-1. Makes the message available to the next module in the chain.
+1. Hledá zprávy, které mají vlastnost adresu MAC.
+1. Pokud je adresa MAC, přidá jinou vlastnost s klíčem zařízení IoT Hub ke zprávě. 
+1. Zpráva zpřístupňuje další modul v řetězu.
 
-The developer sets up a mapping between MAC addresses and IoT Hub identities to associate the simulated devices with IoT Hub device identities. The developer adds the mapping manually as part of the module configuration.
+Vývojář nastaví mapování mezi adresy MAC i identit služby IoT Hub tak, aby Simulovaná zařízení přidružit identit zařízení IoT Hub. Vývojář přidá mapování ručně jako součást konfigurace modulu.
 
-The MAC &lt;-&gt; IoT Hub ID module is **identitymap.c** in the source code. 
+MAC &lt; - &gt; IoT Hub ID modulu je **identitymap.c** ve zdrojovém kódu. 
 
-### <a name="iot-hub-communication-module"></a>IoT Hub communication module
+### <a name="iot-hub-communication-module"></a>Komunikační modul služby IoT Hub
 
-The IoT Hub communication module opens a single HTTP connection from the gateway to the IoT Hub. HTTP is one of the three protocols understood by IoT Hub. This module keeps you from having to open a connection for each device by multiplexing connections from all the devices over the one connection. This approach enables a single gateway to connect many devices. 
+Modul služby IoT Hub komunikace otevře jednoho připojení HTTPS z brány do služby IoT Hub. Protokol HTTPS je jedním ze tří protokolů podporovaných službou IoT Hub. Tento modul nebude nutné otevřít připojení pro každé zařízení tak, že multiplexní připojení ze všech zařízení prostřednictvím jednoho připojení. Tento přístup umožňuje jednu bránu pro připojení více zařízení. 
 
-In the sample, this module:
+V ukázce tento modul:
 
-1. Takes messages with an IoT Hub device key property that was assigned by the previous module. 
-1. Sends the message content to IoT Hub using the HTTP protocol. 
+1. Přijímá zprávy službou IoT Hub zařízení klíčovou vlastnost, kterému byla přiřazena předchozí modulem. 
+1. Odešle obsah zprávy do služby IoT Hub pomocí protokolu HTTPS. 
 
-The IoT Hub communication module is **iothub.c** in the source code.
+Modul komunikace služby IoT Hub je **iothub.c** ve zdrojovém kódu.
 
-## <a name="before-you-get-started"></a>Before you get started
+## <a name="before-you-get-started"></a>Než začnete
 
-Before you get started, you must:
+Než začnete, musíte provést tyto akce:
 
-* [Create an IoT hub][lnk-create-hub] in your Azure subscription. You need the name of your hub for this sample walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* Add two devices to your IoT hub and make a note of their IDs and device keys. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tools to add devices to the IoT hub and retrieve their keys.
+* [Vytvoření služby IoT hub] [ lnk-create-hub] ve vašem předplatném Azure. Název centra je třeba pro tento ukázkový postup. Pokud účet nemáte, můžete si během několika minut vytvořit [bezplatný účet][lnk-free-trial].
+* Přidejte dva zařízení do služby IoT hub a poznamenejte si jeho ID a klíče zařízení. Můžete použít [explorer zařízení] [ lnk-device-explorer] nebo [iothub-explorer] [ lnk-iothub-explorer] nástroje pro přidání zařízení do služby IoT hub a načtení jejich klíče.
 
 
 <!-- Images -->
@@ -87,7 +87,7 @@ Before you get started, you must:
 [2]: media/iot-hub-iot-edge-simulated-selector/image2.png
 
 <!-- Links -->
-[Simulated Device Cloud Upload sample]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
+[simulované zařízení cloudu nahrát ukázková]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
 [lnk-sdk]: https://github.com/Azure/iot-edge
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

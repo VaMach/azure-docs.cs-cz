@@ -1,150 +1,163 @@
 ---
-title: "Vytvoření soukromého registru kontejnerů Dockeru – Azure CLI | Dokumentace Microsoftu"
-description: "Začínáme vytvářet a spravovat soukromé registry kontejnerů Dockeru pomocí Azure CLI 2.0"
+title: "Rychlý start - vytvořit privátní registru Docker v Azure pomocí rozhraní příkazového řádku Azure"
+description: "Rychle se Naučte se vytvořit privátní registru kontejner Docker pomocí Azure CLI."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Vytvoření soukromého registru kontejnerů Dockeru pomocí Azure CLI 2.0
-Pomocí příkazů na stránce [Azure CLI 2.0](https://github.com/Azure/azure-cli) můžete vytvořit registr kontejnerů a spravovat jeho nastavení z počítače se systémem Linux, Mac nebo Windows. Vytvořit a spravovat registry kontejnerů můžete také pomocí webu [Azure Portal](container-registry-get-started-portal.md) nebo programově pomocí rozhraní [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) služby Container Registry.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Vytvoření registru kontejnerů pomocí Azure CLI
 
+Azure Container Registry je spravovaná služba registru kontejnerů Dockeru sloužící k ukládání privátních imagí kontejnerů Dockeru. Tato příručka údaje vytvoření instance registru kontejner Azure pomocí rozhraní příkazového řádku Azure.
 
-* Související informace a koncepty najdete v tématu [s přehledem](container-registry-intro.md).
-* Nápovědu k příkazům rozhraní příkazového řádku služby Container Registry (příkazy `az acr`) získáte předáním parametru `-h` příslušnému příkazu.
+Tento rychlý start vyžaduje, že používáte Azure CLI verze 2.0.20 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli).
 
+Je také nutné mít Docker nainstalovány místně. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-## <a name="prerequisites"></a>Požadavky
-* **Azure CLI 2.0:** Chcete-li nainstalovat a začít používat Azure CLI 2.0, přečtěte si [pokyny k instalaci](/cli/azure/install-azure-cli). Přihlaste se ke svému předplatnému Azure spuštěním příkazu `az login`. Další informace najdete v článku [Začínáme s Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
-* **Skupina prostředků:** Než vytvoříte registr kontejnerů, vytvořte [skupinu prostředků](../azure-resource-manager/resource-group-overview.md#resource-groups) nebo použijte existující skupinu prostředků. Ujistěte se, že je skupina prostředků v umístění, kde je služba Container Registry [dostupná](https://azure.microsoft.com/regions/services/). Chcete-li vytvořit skupinu prostředků pomocí Azure CLI 2.0, podívejte se na [referenční informace k Azure CLI 2.0](/cli/azure/group).
-* **Účet úložiště** (volitelné): Pro účely zálohování registru kontejnerů vytvořte standardní [účet úložiště](../storage/common/storage-introduction.md) Azure ve stejném umístění. Pokud při vytváření registru pomocí příkazu `az acr create` nezadáte účet úložiště, příkaz ho vytvoří za vás. Chcete-li vytvořit účet úložiště pomocí Azure CLI 2.0, podívejte se na [referenční informace k Azure CLI 2.0](/cli/azure/storage/account). Storage úrovně Premium se v tuto chvíli nepodporuje.
-* **Instanční objekt** (volitelné): Pokud vytvoříte registr pomocí rozhraní příkazového řádku, ve výchozím nastavení nebude nastavený pro přístup. Podle potřeby můžete k registru přiřadit existující instanční objekt Azure Active Directory (nebo vytvořit a přiřadit nový) nebo povolit uživatelský účet s právy pro správu registru. Pokyny najdete v dalších částech tohoto článku. Další informace o přístupu k registru najdete v tématu [Ověřování pomocí registru kontejnerů](container-registry-authentication.md).
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
-Spuštěním příkazu `az acr create` vytvořte registr kontejnerů.
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure.
 
-> [!TIP]
-> Při vytváření registru zadejte globálně jedinečný název domény nejvyšší úrovně obsahující pouze písmena a číslice. V tomto příkladu je název registru `myRegistry1`, ale nahraďte jej vlastním jedinečným názvem.
->
->
+Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
 
-Následující příkaz vytvoří pomocí minimálního počtu parametrů registr kontejnerů `myRegistry1` ve skupině prostředků `myResourceGroup` použitím *základní* SKU:
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* Parametr `--storage-account-name` je volitelný. Pokud není zadán, vytvoří se v zadané skupině prostředků účet úložiště s názvem, který se skládá z názvu registru a časového razítka.
+## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
+
+V tento rychlý start, vytvoříme *základní* registru. Azure kontejneru registru je k dispozici v několika různých SKU stručně popsány v následující tabulce. Rozšířené informace o jednotlivých v [kontejneru registru SKU](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+
+Pomocí příkazu [az acr create](/cli/azure/acr#create) vytvořte instanci služby ACR.
+
+Název registru **musí být jedinečné**. V následujícím příkladu *myContainerRegistry007* se používá. Aktualizujte na jedinečnou hodnotu.
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+```
 
 Po vytvoření registru je výstup podobný tomuto:
 
-```azurecli
+```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+Po celý zbytek tento rychlý start, používáme `<acrname>` jako zástupný symbol pro název kontejneru registru.
 
-Všimněte si zejména těchto hodnot:
+## <a name="log-in-to-acr"></a>Přihlaste se k ACR
 
-* `id` – Identifikátor registru v rámci vašeho předplatného, který budete potřebovat, pokud budete chtít registru přiřadit instanční objekt.
-* `loginServer` – Plně kvalifikovaný název, který budete muset zadat pro [přihlášení k registru](container-registry-authentication.md). V tomto příkladu je název `myregistry1.exp.azurecr.io` (malými písmeny).
-
-## <a name="assign-a-service-principal"></a>Přiřazení instančního objektu
-Pomocí příkazů Azure CLI 2.0 přiřaďte registru instanční objekt Azure Active Directory. Instančnímu objektu v těchto příkladech je přiřazena role vlastníka, ale pokud chcete, můžete mu přiřadit [jiné role](../active-directory/role-based-access-control-configure.md).
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Vytvoření instančního objektu a přiřazení přístupu k registru
-V následujícím příkazu se novému instančnímu objektu přiřadí přístup role vlastníka k identifikátoru registru předanému v parametru `--scopes`. V parametru `--password` zadejte silné heslo.
+Před odesíláním a vyžadováním imagí kontejnerů se musíte přihlásit k instanci služby ACR. K tomu použijte příkaz [az acr login](/cli/azure/acr#login).
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+az acr login --name <acrname>
 ```
 
+Příkaz po dokončení vrátí zprávu Login Succeeded (Přihlášení proběhlo úspěšně).
 
+## <a name="push-image-to-acr"></a>Nabízená ACR bitové kopie
 
-### <a name="assign-an-existing-service-principal"></a>Přiřazení existujícího instančního objektu
-Pokud již máte instanční objekt, kterému chcete přiřadit přístup role vlastníka k registru, spusťte podobný příkaz jako v následujícím příkladu. ID aplikace instančního objektu předáte pomocí parametru `--assignee`:
+Tak, aby nabízel bitovou kopii registru kontejneru Azure, musíte nejprve mít bitovou kopii. V případě potřeby spusťte následující příkaz načítat z úložiště Docker Hub předem vytvořené bitové kopie.
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+Obrázek musí být označené název ACR přihlášení serveru. Spusťte následující příkaz, který vrátí název serveru přihlášení instance ACR.
 
-
-## <a name="manage-admin-credentials"></a>Správa přihlašovacích údajů správce
-Účet správce se automaticky vytvoří pro každý registr kontejnerů a ve výchozím nastavení je vypnutý. Následující příklady ukazují příkazy rozhraní příkazového řádku `az acr`, které slouží ke správě přihlašovacích údajů správce pro registr kontejnerů.
-
-### <a name="obtain-admin-user-credentials"></a>Získání přihlašovacích údajů uživatele s právy pro správu
 ```azurecli
-az acr credential show -n myRegistry1
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Povolení uživatele s právy pro správu pro existující registr
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+Značka pomocí bitové kopie [docker značky](https://docs.docker.com/engine/reference/commandline/tag/) příkaz. Nahraďte  *<acrLoginServer>*  s přihlašovacím jménem serveru vaší instance ACR.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Zakázání uživatele s právy pro správu pro existující registr
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+Nakonec použijte [docker nabízené](https://docs.docker.com/engine/reference/commandline/push/) tak, aby nabízel bitovou kopii k instanci ACR. Nahraďte  *<acrLoginServer>*  s přihlašovacím jménem serveru vaší instance ACR.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>Výpis obrázků a značek
-Pomocí příkazů rozhraní příkazového řádku `az acr` se můžete dotazovat na obrázky a značky v úložišti.
+## <a name="list-container-images"></a>Výpis imagí kontejnerů
 
-> [!NOTE]
-> Container Registry v současné době nepodporuje použití příkazu `docker search` k dotazování obrázků a značek.
-
-
-### <a name="list-repositories"></a>Výpis úložišť
-Následující příklad zobrazí seznam úložišť v registru ve formátu JSON (JavaScript Object Notation):
+Následující příklad uvádí úložiště v registru:
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>Výpis značek
-Následující příklad zobrazí seznam značek na úložišti **samples/nginx** ve formátu JSON:
+Výstup:
+
+```bash
+Result
+----------------
+aci-helloworld
+```
+
+Následující příklad vypíše značky na **aci helloworld** úložiště.
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+Výstup:
+
+```bash
+Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>Vyčištění prostředků
+
+Pokud již nepotřebujete, můžete použít [odstranění skupiny az](/cli/azure/group#delete) příkaz k odebrání skupiny prostředků, ACR instanci a všechny Image kontejneru.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Další kroky
-* [Nahrání první image pomocí rozhraní příkazového řádku Dockeru](container-registry-get-started-docker-cli.md)
 
+V tento rychlý start vytvořili kontejner registru Azure pomocí Azure CLI. Pokud chcete používat registru kontejner Azure s Azure kontejner instancí, nadále kurzu instancí kontejnerů Azure.
+
+> [!div class="nextstepaction"]
+> [Kurz pro Azure instancí kontejnerů](../container-instances/container-instances-tutorial-prepare-app.md)

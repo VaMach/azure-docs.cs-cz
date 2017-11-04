@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c48c0931ede6d17078c64cbb1e1dacd21098f792
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Požadavky na velkých objemů dat pomocí Azure Data Lake Store
 Existují čtyři fáze klíče v zpracování velkých objemů dat:
@@ -49,7 +49,7 @@ Reprezentuje data, která může být generována různých zdrojů, jako je nap
 Toto jsou nástroje, které můžete použít:
 
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) -události požity do centra událostí je možné zapsat do Azure Data Lake pomocí Azure Data Lake Store výstup.
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) -zápisu dat do Data Lake Store přímo z clusteru Storm.
+* [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) -zápisu dat do Data Lake Store přímo z clusteru Storm.
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – může přijímat události ze služby Event Hubs a pak zapsat pomocí Data Lake Store [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Relačních dat

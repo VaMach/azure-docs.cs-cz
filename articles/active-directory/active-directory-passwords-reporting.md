@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Možnosti zasílání zpráv o správou hesel Azure AD
 
@@ -31,7 +31,7 @@ Po nasazení mnoho organizací bude chtít vědět, jak nebo pokud SSPR je doopr
 Sestavy, které existují v [portál Azure] může odpovědět na následující otázky (https://portal.azure.com/).
 
 > [!NOTE]
-> Musí být [globální správce](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) a musí výslovný souhlas pro tato data shromáždit jménem vaší organizace, navštivte reporting kartě nebo auditu protokoly alespoň jednou. Až to uděláte, nebudou shromažďovány dat pro vaši organizaci
+> Musí být [globální správce](active-directory-assign-admin-roles.md) a musí výslovný souhlas pro tato data shromáždit jménem vaší organizace, navštivte reporting kartě nebo auditu protokoly alespoň jednou. Až to uděláte, nebudou shromažďovány dat pro vaši organizaci
 
 * Kolik lidí registrovali pro resetování hesla?
 * Kdo má zaregistrovat pro resetování hesla?

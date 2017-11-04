@@ -8,20 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 05/13/2017
+ms.topic: quickstart
+ms.date: 10/16/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 08d467ea27484e7d1d07d6c21b2e04b6525fbcd8
-ms.contentlocale: cs-cz
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 8a5c9b7861e63ef76ec338072eafcd7905c258f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Databáze Azure Cosmos: Sestavení aplikace s rozhraním API DocumentDB pomocí kódu Python a webu Azure Portal
 
@@ -32,11 +30,12 @@ Tento rychlý start popisuje způsob vytvoření účtu databáze Azure Cosmos, 
 ## <a name="prerequisites"></a>Požadavky
 
 * Než budete moct tuto ukázku spustit, je potřeba splnit následující požadavky:
-    * [Visual Studio 2015](http://www.visualstudio.com/) nebo vyšší.
+    * Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
     * Python Tools for Visual Studio z [GitHubu](http://microsoft.github.io/PTVS/). V tomto kurzu se používá Python Tools for VS 2015.
     * Python 2.7 z webu [python.org](https://www.python.org/downloads/release/python-2712/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
@@ -132,11 +131,11 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 3. Z portálu zkopírujte hodnotu identifikátoru URI (pomocí tlačítka kopírování) a nastavte ji jako hodnotu klíče koncového bodu v souboru `DocumentDBGetStarted.py`. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Potom z portálu zkopírujte hodnotu PRIMÁRNÍHO KLÍČE a nastavte ji jako hodnotu `config.MASTERKEY` v souboru `DocumentDBGetStarted.py`. Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s databází Azure Cosmos. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## <a name="run-the-app"></a>Spuštění aplikace
 1. V sadě Visual Studio klikněte pravým tlačítkem na projekt v **Průzkumníku řešení**,vyberte aktuální prostředí Python a potom klikněte pravým tlačítkem myši.
@@ -164,6 +163,5 @@ V tomto rychlém startu jsme se seznámili s postupem vytvoření účtu datab
 
 > [!div class="nextstepaction"]
 > [Import dat do databáze Azure Cosmos pro rozhraní API DocumentDB](import-data.md)
-
 
 

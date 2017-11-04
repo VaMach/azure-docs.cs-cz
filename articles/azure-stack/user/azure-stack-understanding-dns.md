@@ -1,6 +1,6 @@
 ---
-title: Understanding DNS in Azure Stack | Microsoft Docs
-description: Understanding DNS features and capabilities in Azure Stack
+title: "Seznámení s DNS v Azure zásobníku | Microsoft Docs"
+description: "Princip funkce služby DNS a funkce v zásobníku Azure"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introducing-idns-for-azure-stack"></a>Introducing iDNS for Azure Stack
+# <a name="introducing-idns-for-azure-stack"></a>Představení IDN pro Azure zásobníku
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-iDNS is a feature in Azure Stack that allows you to resolve external DNS names (such as http://www.bing.com).
-It also allows you to register internal virtual network names. By doing so, you can resolve VMs on the same virtual network by name rather than IP address, without having to provide custom DNS server entries.
+IDN je funkce v zásobníku Azure, která umožňuje překládat externí názvy DNS (například http://www.bing.com).
+Také umožňuje registraci názvů interní virtuální síť. Díky tomu můžete vyřešit virtuální počítače ve stejné virtuální síti název místo IP adresy, bez nutnosti poskytnout vlastní položky serveru DNS.
 
-It’s something that’s always been there in Azure, but it's available in Windows Server 2016 and Azure Stack too.
+Je něco, co byla vždy existuje v Azure, ale je k dispozici v systému Windows Server 2016 a zásobník Azure příliš.
 
-## <a name="what-does-idns-do"></a>What does iDNS do?
-With iDNS in Azure Stack, you get the following capabilities, without having to specify custom DNS server entries.
+## <a name="what-does-idns-do"></a>Jakým způsobem IDN?
+S IDN v zásobníku Azure získáte následující možnosti, aniž byste museli zadat vlastní položky serveru DNS.
 
-* Shared DNS name resolution services for tenant workloads.
-* Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
-* Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
+* Sdílené služby překladu názvů DNS pro úlohy klientů.
+* Autoritativní služby DNS pro rozlišení názvů a registraci DNS v rámci virtuální sítě klienta.
+* Služba DNS rekurzivní pro překlad názvů v síti Internet z klientské virtuální počítače. Klienti se již muset zadat vlastní záznamy DNS pro překlad názvů v Internetu (například www.bing.com).
 
-You can still bring your own DNS and use custom DNS servers if you want. But now, if you just want to be able to resolve Internet DNS names and be able to connect to other virtual machines in the same virtual network, you don’t need to specify anything and it will just work.
+Můžete stále přineste si vlastní DNS a pokud chcete použít vlastní servery DNS. Ale nyní, pokud jste právě chcete umět překládat názvy DNS pro Internet a být schopni se připojit k jiné virtuální počítače ve stejné virtuální síti, nemusíte nic zadejte a bude prostě fungovat.
 
-## <a name="what-does-idns-not-do"></a>What does iDNS not do?
-What iDNS does not allow you to do is create a DNS record for a name that can be resolved from outside the virtual network.
+## <a name="what-does-idns-not-do"></a>Co IDN neprovádí?
+Jaké IDN neumožňuje musíte udělat, je vytvořit záznam DNS pro název, který lze vyřešit z mimo virtuální síť.
 
-In Azure, you have the option of specifying a DNS name label that can be associated with a public IP address. You can choose the label (prefix), but Azure chooses the suffix, which is based on the region in which you create the public IP address.
+V Azure máte možnost zadat popisek názvu DNS, který může být spojen s veřejnou IP adresu. Můžete zvolit popisek (předpona), ale Azure vybere příponu, která je založena na oblast, ve kterém vytvoříte veřejnou IP adresu.
 
-![Screenshot of DNS name label](media/azure-stack-understanding-dns-in-tp2/image3.png)
+![Popisek názvu DNS z snímek obrazovky](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-In the image above, Azure will create an “A” record in DNS for the DNS name label specified under the zone **westus.cloudapp.azure.com**. The prefix and the suffix together compose a Fully Qualified Domain Name (FQDN) that can be resolved from anywhere on the public Internet.
+Na předchozím obrázku, Azure vytvoří "A" záznamu DNS pro popisek názvu DNS, který je zadán v rámci zóny **westus.cloudapp.azure.com**. Předpona a přípona společně tvoří plně kvalifikovaný domény název (FQDN), můžete vyřešit kdekoli na veřejného Internetu.
 
-Azure Stack only supports iDNS for internal name registration, so it cannot do the following.
+Azure zásobníku IDN podporuje pouze pro interní název registraci, proto nelze provést následující.
 
-* Create a DNS record under an existing hosted DNS zone (for example, local.azurestack.external).
-* Create a DNS zone (such as Contoso.com).
-* Create a record under your own custom DNS zone.
-* Support the purchase of domain names.
-
+* Vytvořte záznam DNS v rámci stávající hostované zónu DNS (například local.azurestack.external).
+* Vytvoření zóny DNS (například Contoso.com).
+* Vytvořte záznam v části vlastní zónu DNS.
+* Podpora nákupu názvů domén.
 

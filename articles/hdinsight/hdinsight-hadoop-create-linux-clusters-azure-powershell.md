@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 079a3d1c7f91477d641dbc65fe0f04e86a0dcd30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dab42d736745d268ae0bc15957c49a5e147f7c28
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Vytvořit clustery se systémem Linux v HDInsight pomocí Azure PowerShell
 
@@ -98,26 +98,26 @@ Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte v 
 
 ### <a name="hadoop-clusters"></a>Clustery Hadoop
 
-* [Použití Hivu se službou HDInsight](hdinsight-use-hive.md)
-* [Použití Pigu se službou HDInsight](hdinsight-use-pig.md)
-* [Používání nástroje MapReduce s HDInsight](hdinsight-use-mapreduce.md)
+* [Použití Hivu se službou HDInsight](hadoop/hdinsight-use-hive.md)
+* [Použití Pigu se službou HDInsight](hadoop/hdinsight-use-pig.md)
+* [Používání nástroje MapReduce s HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Clustery HBase
 
-* [Začínáme s HBase v HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Začínáme s HBase v HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clustery Storm
 
-* [Vývoj topologie Java pro Storm v HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Použití komponent, Python v Storm v HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Nasazení a monitorování topologie se Storm v HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Vývoj topologie Java pro Storm v HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Použití komponent, Python v Storm v HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Nasazení a monitorování topologie se Storm v HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Clustery Spark
 
-* [Vytvoření samostatné aplikace pomocí Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Vzdálené spouštění úloh na clusteru Sparku pomocí Livy](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](hdinsight-apache-spark-eventhub-streaming.md)
+* [Vytvoření samostatné aplikace pomocí Scala](spark/apache-spark-create-standalone-application.md)
+* [Vzdálené spouštění úloh na clusteru Sparku pomocí Livy](spark/apache-spark-livy-rest-interface.md)
+* [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](spark/apache-spark-use-bi-tools.md)
+* [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](spark/apache-spark-eventhub-streaming.md)
 

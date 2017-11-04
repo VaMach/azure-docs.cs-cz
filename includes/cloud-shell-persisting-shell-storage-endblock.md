@@ -1,19 +1,19 @@
-## <a name="transfer-local-files-to-cloud-shell"></a>Transfer local files to Cloud Shell
-The `clouddrive` directory syncs with the Azure portal storage blade. Use this blade to transfer local files to or from your file share. Updating files from within Cloud Shell is reflected in the file storage GUI when you refresh the blade.
+## <a name="transfer-local-files-to-cloud-shell"></a>Přenos místních souborů do prostředí cloudu
+`clouddrive` Synchronizace adresáře se v okně portálu úložiště Azure. Pomocí tohoto okna pro přenos místní soubory do nebo ze sdílené složky. Aktualizace soubory z prostředí cloudu se projeví v úložišti file grafického uživatelského rozhraní při aktualizaci okna.
 
-### <a name="download-files"></a>Download files
+### <a name="download-files"></a>Stažení souborů
 
-![List of local files](../articles/cloud-shell/media/persisting-shell-storage/download.png)
-1. In the Azure portal, go to the mounted file share.
-2. Select the target file.
-3. Select the **Download** button.
+![Seznam místních souborů](../articles/cloud-shell/media/persisting-shell-storage/download.png)
+1. Na portálu Azure přejděte do sdílené složky připojeného souboru.
+2. Vyberte cílový soubor.
+3. Vyberte **Stáhnout** tlačítko.
 
-### <a name="upload-files"></a>Upload files
+### <a name="upload-files"></a>Nahrání souborů
 
-![Local files to be uploaded](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
-1. Go to your mounted file share.
-2. Select the **Upload** button.
-3. Select the file or files that you want to upload.
-4. Confirm the upload.
+![Místní soubory k odeslání](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
+1. Přejděte do sdílené složky připojeného souboru.
+2. Vyberte **nahrát** tlačítko.
+3. Vyberte soubor nebo soubory, které chcete nahrát.
+4. Potvrďte nahrávání.
 
-You should now see the files that are accessible in your `clouddrive` directory in Cloud Shell.
+Teď byste měli vidět soubory, které jsou dostupné ve vaší `clouddrive` adresář v prostředí cloudu.

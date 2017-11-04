@@ -1,15 +1,16 @@
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
-1. Click **Compute** > **Function App**, select your **Subscription**. Then, use the function app settings as specified in the table.
+1. Klikněte na tlačítko **výpočetní** > **aplikace funkce**. Potom použijte nastavení aplikace Function App uvedené v tabulce.
 
-    ![Create function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
+    ![Vytvoření aplikace Function App na webu Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-    | Setting      | Suggested value  | Description                                        |
+    | Nastavení      | Navrhovaná hodnota  | Popis                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | Globally unique name | Name that identifies your new function app. | 
-    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. | 
-    | **[Hosting plan](../articles/azure-functions/functions-scale.md)** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. You only pay for the time your functions run.   |
-    | **Location** | West Europe | Choose a location near you or near other services your functions will access. |
-    | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account. |
+    | **Název aplikace** | Globálně jedinečný název | Název identifikující novou aplikaci Function App. Platnými znaky jsou `a-z`, `0-9`, a `-`.  | 
+    | **Předplatné** | Vaše předplatné | Předplatné, ve kterém se vytvoří tuto novou aplikaci funkce. | 
+    | **[Skupina prostředků](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Název nové skupiny prostředků, ve které chcete vytvořit aplikaci Function App. | 
+    | **[Plán hostování](../articles/azure-functions/functions-scale.md)** |   Plán Consumption | Plán hostování, který určuje způsob přidělování prostředků aplikaci Function App. Ve výchozím **plánu Consumption** se prostředky přidávají dynamicky podle požadavků příslušných funkcí. Platíte jenom dobu, kdy jsou funkce spuštěné.   |
+    | **Umístění** | Západní Evropa | Vyberte umístění ve vaší blízkosti nebo v blízkosti jiných služeb, ke kterým budou funkce získávat přístup. |
+    | **[Účet úložiště](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globálně jedinečný název |  Název nového účtu úložiště, který bude aplikace Function App používat. Názvy účtů úložiště musí mít od 3 do 24 znaků a můžou obsahovat jenom číslice a malá písmena. Můžete taky použít existující účet. |
 
-1. Click **Create** to provision and deploy the new function app.
+1. Po kliknutí na **Vytvořit** se nová aplikace Function App zřídí a nasadí.

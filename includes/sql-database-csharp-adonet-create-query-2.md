@@ -1,51 +1,51 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
 
-## <a name="c-program-example"></a>C# program example
+## <a name="c-program-example"></a>Příklad programu C#
 
-The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program performs the following actions:
+K dispozici v dalších částech tohoto článku programu C#, který používá technologii ADO.NET odeslat příkazy jazyka Transact-SQL k databázi SQL. Programu C# provede následující akce:
 
-1. [Connects to our SQL database using ADO.NET](#cs_1_connect).
-2. [Creates tables](#cs_2_createtables).
-3. [Populates the tables with data, by issuing T-SQL INSERT statements](#cs_3_insert).
-4. [Updates data by use of a join](#cs_4_updatejoin).
-5. [Deletes data by use of a join](#cs_5_deletejoin).
-6. [Selects data rows by use of a join](#cs_6_selectrows).
-7. Closes the connection (which drops any temporary tables from tempdb).
+1. [Připojí k naší SQL database pomocí ADO.NET](#cs_1_connect).
+2. [Vytvoří tabulky](#cs_2_createtables).
+3. [Naplní tabulky s daty, vydáním příkazů T-SQL vložit](#cs_3_insert).
+4. [Aktualizace dat pomocí spojení](#cs_4_updatejoin).
+5. [Odstraní data pomocí spojení](#cs_5_deletejoin).
+6. [Vybere řádky dat pomocí spojení](#cs_6_selectrows).
+7. Zavře připojení (který zahodí všechny dočasné tabulky z databáze tempdb).
 
-The C# program contains:
+Obsahuje programu C#:
 
-- C# code to connect to the database.
-- Methods that return the T-SQL source code.
-- Two methods that submit the T-SQL to the database.
+- Kód jazyka C# pro připojení k databázi.
+- Metody, které vracejí zdrojový kód T-SQL.
+- Dvě metody, které odesílají T-SQL do databáze.
 
-#### <a name="to-compile-and-run"></a>To compile and run
+#### <a name="to-compile-and-run"></a>Pro zkompilování a spuštění
 
-This C# program is logically one .cs file. But here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following:
+Tento program C# je logicky jeden soubor cs. Ale tady je program fyzicky rozdělené do několika bloky kódu, aby každý blok čtení a pochopení. Pro zkompilování a spuštění tohoto programu, postupujte takto:
 
-1. Create a C# project in Visual Studio.
-    - The project type should be a *console* application, from something like the following hierarchy: **Templates** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
-3. In the file **Program.cs**, erase the small starter lines of code.
-3. Into Program.cs, copy and paste each of the following blocks, in the same sequence they are presented here.
-4. In Program.cs, edit the following values in the **Main** method:
+1. Vytvoření projektu C# v sadě Visual Studio.
+    - Typ projektu by měla být *konzoly* aplikace z něco podobného jako u následující hierarchie: **šablony** > **Visual C#** >  **Klasický desktopový Windows** > **konzoly aplikace (rozhraní .NET Framework)**.
+3. V souboru **Program.cs**, vymazat malé starter řádků kódu.
+3. Do souboru Program.cs zkopírujte a vložte každý z následujících bloků ve stejném pořadí, které jsou zde uvedeny.
+4. V souboru Program.cs upravit následující hodnoty v **hlavní** metoda:
 
-   - **cb.DataSource**
-   - **cd.UserID**
-   - **cb.Password**
-   - **InitialCatalog**
+   - **označení CB. Zdroj dat**
+   - **CD. ID uživatele**
+   - **označení CB. Heslo**
+   - **Vlastnost InitialCatalog**
 
-5. Verify that the assembly **System.Data.dll** is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
-6. To build the program in Visual Studio, click the **Build** menu.
-7. To run the program from Visual Studio, click the **Start** button. The report output is displayed in a cmd.exe window.
+5. Ověřte, zda je sestavení **System.Data.dll** odkazuje. Chcete-li ověřit, rozbalte **odkazy** uzel v **Průzkumníku řešení** podokně.
+6. Chcete-li vytvořit program v sadě Visual Studio, klikněte na tlačítko **sestavení** nabídky.
+7. Ke spuštění programu ze sady Visual Studio, klikněte **spustit** tlačítko. Výstup sestavy se zobrazí v okně cmd.exe.
 
 > [!NOTE]
-> You have the option of editing the T-SQL to add a leading **#** to the table names, which creates them as temporary tables in **tempdb**. This can be useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically when the connection closes. Any REFERENCES for foreign keys are not enforced for temporary tables.
+> Máte možnost úprav T-SQL přidat jako úvodní  **#**  názvy tabulek, které vytvoří je jako dočasné tabulky v **databáze tempdb**. To může být užitečné pro demonstrační účely, pokud je k dispozici žádná testovací databáze. Dočasné tabulky se automaticky odstraní po ukončení připojení. Pro dočasné tabulky nejsou vynucená všechny odkazy pro cizí klíče.
 >
 
 <a name="cs_1_connect"/>
-### <a name="c-block-1-connect-by-using-adonet"></a>C# block 1: Connect by using ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>C# block 1: připojení pomocí technologie ADO.NET
 
-- [Next](#cs_2_createtables)
+- [Další](#cs_2_createtables)
 
 
 ```csharp
@@ -99,9 +99,9 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>C# block 2: T-SQL to create tables
+### <a name="c-block-2-t-sql-to-create-tables"></a>C# block 2: T-SQL pro vytvoření tabulky
 
-- [Previous](#cs_1_connect) &nbsp; / &nbsp; [Next](#cs_3_insert)
+- [Předchozí](#cs_1_connect) &nbsp;  /  &nbsp; [další](#cs_3_insert)
 
 ```csharp
       static string Build_2_Tsql_CreateTables()
@@ -131,19 +131,19 @@ CREATE TABLE tabEmployee
       }
 ```
 
-#### <a name="entity-relationship-diagram-erd"></a>Entity Relationship Diagram (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>Diagram vztah entity (opravné)
 
-The preceding CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables.  If you are using tempdb, comment out the `--REFERENCES` keyword using a pair of leading dashes.
+Předchozí příkazy CREATE TABLE zahrnují **odkazy** – klíčové slovo k vytvoření *cizí klíč* (Cizíklíč) relaci mezi dvěma tabulkami.  Pokud používáte databázi tempdb, komentář `--REFERENCES` – klíčové slovo pomocí pár úvodní pomlčky.
 
-Next is an ERD that displays the relationship between the two tables. The values in the #tabEmployee.DepartmentCode *child* column are limited to the values present in the #tabDepartment.Department *parent* column.
+Dále je opravné, zobrazující vztah mezi dvěma tabulkami. Hodnoty #tabEmployee.DepartmentCode *podřízené* sloupce jsou omezeny na hodnoty, které jsou součástí #tabDepartment.Department *nadřazené* sloupce.
 
-![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
+![Opravné zobrazující cizí klíč](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 
 <a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>C# block 3: T-SQL to insert data
+### <a name="c-block-3-t-sql-to-insert-data"></a>C# block 3: T-SQL k vkládání dat
 
-- [Previous](#cs_2_createtables) &nbsp; / &nbsp; [Next](#cs_4_updatejoin)
+- [Předchozí](#cs_2_createtables) &nbsp;  /  &nbsp; [další](#cs_4_updatejoin)
 
 
 ```csharp
@@ -173,9 +173,9 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>C# block 4: T-SQL to update-join
+### <a name="c-block-4-t-sql-to-update-join"></a>C# block 4: T-SQL aktualizace spojení
 
-- [Previous](#cs_3_insert) &nbsp; / &nbsp; [Next](#cs_5_deletejoin)
+- [Předchozí](#cs_3_insert) &nbsp;  /  &nbsp; [další](#cs_5_deletejoin)
 
 
 ```csharp
@@ -201,9 +201,9 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>C# block 5: T-SQL to delete-join
+### <a name="c-block-5-t-sql-to-delete-join"></a>C# block 5: T-SQL pro připojení k odstranění
 
-- [Previous](#cs_4_updatejoin) &nbsp; / &nbsp; [Next](#cs_6_selectrows)
+- [Předchozí](#cs_4_updatejoin) &nbsp;  /  &nbsp; [další](#cs_6_selectrows)
 
 
 ```csharp
@@ -233,9 +233,9 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>C# block 6: T-SQL to select rows
+### <a name="c-block-6-t-sql-to-select-rows"></a>C# block 6: T-SQL pro výběr řádků
 
-- [Previous](#cs_5_deletejoin) &nbsp; / &nbsp; [Next](#cs_6b_datareader)
+- [Předchozí](#cs_5_deletejoin) &nbsp;  /  &nbsp; [další](#cs_6b_datareader)
 
 
 ```csharp
@@ -263,9 +263,9 @@ SELECT
 <a name="cs_6b_datareader"/>
 ### <a name="c-block-6b-executereader"></a>C# block 6b: ExecuteReader
 
-- [Previous](#cs_6_selectrows) &nbsp; / &nbsp; [Next](#cs_7_executenonquery)
+- [Předchozí](#cs_6_selectrows) &nbsp;  /  &nbsp; [další](#cs_7_executenonquery)
 
-This method is designed to run the T-SQL SELECT statement that is built by the **Build_6_Tsql_SelectEmployees** method.
+Tato metoda je určená ke spuštění příkazu SELECT T-SQL, který je sestavena **Build_6_Tsql_SelectEmployees** metoda.
 
 
 ```csharp
@@ -299,9 +299,9 @@ This method is designed to run the T-SQL SELECT statement that is built by the *
 <a name="cs_7_executenonquery"/>
 ### <a name="c-block-7-executenonquery"></a>C# block 7: ExecuteNonQuery
 
-- [Previous](#cs_6b_datareader) &nbsp; / &nbsp; [Next](#cs_8_output)
+- [Předchozí](#cs_6b_datareader) &nbsp;  /  &nbsp; [další](#cs_8_output)
 
-This method is called for operations that modify the data content of tables without returning any data rows.
+Tato metoda je volána pro operace, které upravují data obsah tabulky bez vrátí všechny řádky data.
 
 
 ```csharp
@@ -335,11 +335,11 @@ This method is called for operations that modify the data content of tables with
 
 
 <a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>C# block 8: Actual test output to the console
+### <a name="c-block-8-actual-test-output-to-the-console"></a>C# bloku 8: skutečný testovací výstup do konzoly
 
-- [Previous](#cs_7_executenonquery)
+- [Předchozí](#cs_7_executenonquery)
 
-This section captures the output that the program sent to the console. Only the guid values vary between test runs.
+Tato část zaznamená výstup, který program odeslán do konzoly. Pouze hodnoty guid liší mezi test spustí.
 
 
 ```text

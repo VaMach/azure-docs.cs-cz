@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porty používané služby Hadoop v HDInsight
 
@@ -48,17 +48,17 @@ Všechny uzly v clusteru služby HDInsight jsou umístěny ve virtuální síti 
 | sshd |23 |SSH |Klienti se připojí k sshd na sekundární headnode. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Webovému uživatelskému rozhraní Ambari. V tématu [spravovat HDInsight pomocí Ambari webového uživatelského rozhraní](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. V tématu [spravovat HDInsight pomocí Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. V tématu [použijte Hive s Curl](hdinsight-hadoop-use-pig-curl.md), [použijte Pig s Curl](hdinsight-hadoop-use-pig-curl.md), [používání nástroje MapReduce s Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |Připojí se ke Hive pomocí ovladače ODBC. V tématu [připojení aplikace Excel do HDInsight pomocí ovladače Microsoft ODBC](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Připojí se ke Hive pomocí JDBC. V tématu [připojit k Hive v HDInsight pomocí ovladač Hive JDBC](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. V tématu [použijte Hive s Curl](hadoop/apache-hadoop-use-pig-curl.md), [použijte Pig s Curl](hadoop/apache-hadoop-use-pig-curl.md), [používání nástroje MapReduce s Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |Připojí se ke Hive pomocí ovladače ODBC. V tématu [připojení aplikace Excel do HDInsight pomocí ovladače Microsoft ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Připojí se ke Hive pomocí JDBC. V tématu [připojit k Hive v HDInsight pomocí ovladač Hive JDBC](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Tady jsou dostupné pro konkrétní cluster typy:
 
 | Služba | Port | Protocol (Protokol) | Typ clusteru | Popis |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. V tématu [Začínáme používat HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Rozhraní API REST Spark. V tématu [úlohy odeslání Spark vzdáleně pomocí Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm webového uživatelského rozhraní. V tématu [nasadit a spravovat topologie Storm v HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. V tématu [Začínáme používat HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Rozhraní API REST Spark. V tématu [úlohy odeslání Spark vzdáleně pomocí Livy](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm webového uživatelského rozhraní. V tématu [nasadit a spravovat topologie Storm v HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Authentication
 

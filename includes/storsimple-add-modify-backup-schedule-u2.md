@@ -1,28 +1,28 @@
 
 <!--author=SharS last changed: 11/04/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
-3. Under **General**, you can modify the backup policy name.
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Přidat nebo upravit plán zálohování StorSimple
+1. Na obrazovce **Rychlý start** zařízení klikněte na kartu **Zásady zálohování**. Tím přejdete na stránku **Zásady zálohování**.
+2. V tabulkovém seznam zásad, vyberte a klikněte na zásadu, kterou chcete upravit.
+3. V části **Obecné**, můžete upravit název zásady zálohování.
    
-     ![manage schedules](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
-4. Click **Manage Schedules**. 
-5. In the **Manage Schedule** dialog box, under **Add or Modify a schedule**, do the following:
+     ![Spravovat plány](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
+4. Klikněte na tlačítko **Spravovat plány**. 
+5. V **spravovat plán** dialogovém **přidat nebo změnit plán**, postupujte takto:
    
-   1. From the drop-down list, choose an existing schedule or select **Add** to create a new schedule.
-   2. Click the check icon ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
+   1. V rozevíracím seznamu vyberte existující plán nebo vyberte **přidat** k vytvoření nového plánu.
+   2. Klikněte na ikonu zaškrtnutí ![změnit plány 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
       
-       ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
-   3. Select the type of backup as local or cloud snapshot.
+       ![změnit plány 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
+   3. Vyberte typ zálohy jako místní nebo cloudový snímek.
       
-       ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
-   4. Specify the backup frequency, retention, and starting time for the schedule.
-   5. Select the check box to enable or disable the schedule.
-   6. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) to save the schedule.
-6. In the **Volumes** section, choose the volumes that this policy will be applied to.
-7. At the bottom of the page, click **Save** to save the changes to this policy.
-8. You will prompted for confirmation. Click **Yes** to save the policy.
+       ![změnit plány 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
+   4. Zadejte četnost zálohování, uchovávání a počáteční čas plánu.
+   5. Zaškrtněte políčko Povolit nebo zakázat plán.
+   6. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) o uložení plánu.
+6. V **svazky** zvolte svazky, které se aplikují tyto zásady.
+7. V dolní části stránky klikněte na tlačítko **Uložit** se uložit změny do této zásady.
+8. Zobrazí se výzva k potvrzení. Klikněte na tlačítko **Ano** zásady uložit.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+**Zásady zálohování** stránka bude aktualizována a uložte změny zásad.
 

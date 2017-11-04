@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Zjistit, identifikovat a klasifikovat osobních údajů v Microsoft Azure
 
@@ -150,13 +150,13 @@ Osobní data související s clustery systému Hadoop v prostředí Azure HDInsi
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>Použití doplňku Power Query pro Excel k importu clusterů systému Hadoop v prostředí Azure HDInsight do aplikace Excel
 
-HDInsight kurz vás provede tento celý proces. Popisuje požadavky a zahrnuje odkaz [Začínáme s Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) kurzu. Pokyny zahrnují Excel 2016 a také 2013 a 2010 (postup je mírně odlišný pro starší verze Excelu). Pokud nemáte doplňku Power Query aplikace Excel, tento kurz ukazuje, jak ji připravit. Kurz budete spustíte v aplikaci Excel a bude třeba mít účet úložiště objektů Blob Azure přidruženého k vašemu clusteru.
+HDInsight kurz vás provede tento celý proces. Popisuje požadavky a zahrnuje odkaz [Začínáme s Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) kurzu. Pokyny zahrnují Excel 2016 a také 2013 a 2010 (postup je mírně odlišný pro starší verze Excelu). Pokud nemáte doplňku Power Query aplikace Excel, tento kurz ukazuje, jak ji připravit. Kurz budete spustíte v aplikaci Excel a bude třeba mít účet úložiště objektů Blob Azure přidruženého k vašemu clusteru.
 
   ![Dotaz v aplikaci Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-Zjistěte, jak to udělat, najdete [připojit Excel k systému Hadoop pomocí Power Query](../hdinsight/hdinsight-connect-excel-power-query.md) kurzu.
+Zjistěte, jak to udělat, najdete [připojit Excel k systému Hadoop pomocí Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) kurzu.
 
-Zdroj: [připojit Excel k systému Hadoop pomocí Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
+Zdroj: [připojit Excel k systému Hadoop pomocí Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Azure Information Protection: osobní data klasifikace pro dokumenty a e-mailu
 

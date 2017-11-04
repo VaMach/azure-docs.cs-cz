@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 9fec253fbf9136cf86a84a6c7b407ea522996226
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2a4b32af3f92744fe0543d9984c4845391a6180f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrace na Azure Resource Manager vývojové nástroje založené pro clustery služby HDInsight
 
@@ -56,11 +56,11 @@ Nové příkazy, které jsou k dispozici s Azure Resource Manager jsou:
 ### <a name="deprecated-commands"></a>Nepoužívané příkazy
 Pokud použijete `azure hdinsight job` příkazy k odesílání úloh do clusteru HDInsight, tyto nejsou k dispozici prostřednictvím příkazy ARM. Pokud potřebujete prostřednictvím kódu programu odesílání úloh do HDInsight z skriptů, měli byste místo toho použít rozhraní REST API poskytovaných v HDInsight. Další informace o odesílání úloh pomocí rozhraní REST API najdete v následujících dokumentech.
 
-* [Spuštění úloh MapReduce s Hadoop v HDInsight pomocí cURL](hdinsight-hadoop-use-mapreduce-curl.md)
-* [Spouštění dotazů Hive se systémem Hadoop v HDInsight pomocí cURL](hdinsight-hadoop-use-hive-curl.md)
-* [Spuštění úlohy Pig s Hadoop v HDInsight pomocí cURL](hdinsight-hadoop-use-pig-curl.md)
+* [Spuštění úloh MapReduce s Hadoop v HDInsight pomocí cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Spouštění dotazů Hive se systémem Hadoop v HDInsight pomocí cURL](hadoop/apache-hadoop-use-hive-curl.md)
+* [Spuštění úlohy Pig s Hadoop v HDInsight pomocí cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-Informace o jiných způsobech spustit MapReduce, Hive a vepřových interaktivně, najdete v části [používání MapReduce s Hadoop v HDInsight](hdinsight-use-mapreduce.md), [používání Hive s Hadoop v HDInsight](hdinsight-use-hive.md), a [použijte Pig s Hadoop v HDInsight](hdinsight-use-pig.md).
+Informace o jiných způsobech spustit MapReduce, Hive a vepřových interaktivně, najdete v části [používání MapReduce s Hadoop v HDInsight](hadoop/hdinsight-use-mapreduce.md), [používání Hive s Hadoop v HDInsight](hadoop/hdinsight-use-hive.md), a [použijte Pig s Hadoop v HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Příklady
 **Vytvoření clusteru**
@@ -220,9 +220,9 @@ Nový příkaz (ARM):
 
 #### <a name="other-samples"></a>Další ukázky
 * [Vytvoření clusterů HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Odeslání úloh Hive](hdinsight-hadoop-use-hive-powershell.md)
-* [Odeslání úlohy Pig](hdinsight-hadoop-use-pig-powershell.md)
-* [Odesílání úloh Sqoop](hdinsight-hadoop-use-sqoop-powershell.md)
+* [Odeslání úloh Hive](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Odeslání úlohy Pig](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Odesílání úloh Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-arm-based-hdinsight-net-sdk"></a>Migrace na bázi ARM HDInsight .NET SDK
 Azure Service Management základě [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) je nyní zastaralý. Doporučujeme používat správu prostředků Azure prostřednictvím [(ARM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx). Následující balíčky HDInsight se systémem ASM jsou zastaralá.
@@ -236,11 +236,11 @@ Tato část obsahuje odkazy na další informace o tom, jak provádět určité 
 | --- | --- |
 | Vytvoření clusterů HDInsight pomocí sady .NET SDK |V tématu [Tvorba clusterů HDInsight pomocí sady .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | Přizpůsobení clusteru pomocí akce skriptu pomocí .NET SDK |V tématu [HDInsight Linux přizpůsobit clustery pomocí akce skriptu](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| Ověření aplikací interaktivně pomocí .NET SDK služby Azure Active Directory |V tématu [spouštění dotazů Hive pomocí sady .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md). Fragment kódu v tomto článku používá interaktivní ověřování přístup. |
+| Ověření aplikací interaktivně pomocí .NET SDK služby Azure Active Directory |V tématu [spouštění dotazů Hive pomocí sady .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Fragment kódu v tomto článku používá interaktivní ověřování přístup. |
 | Ověření aplikací interaktivně pomocí .NET SDK služby Azure Active Directory |V tématu [vytvořit neinteraktivní aplikace pro HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| Odeslání úlohy Hive pomocí sady .NET SDK |V tématu [úlohy odeslání Hive](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
-| Odeslat úlohu Pig pomocí sady .NET SDK |V tématu [úlohy odeslání Pig](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
-| Odeslání úlohy Sqoop pomocí sady .NET SDK |V tématu [Sqoop odeslání úlohy](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
+| Odeslání úlohy Hive pomocí sady .NET SDK |V tématu [úlohy odeslání Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
+| Odeslat úlohu Pig pomocí sady .NET SDK |V tématu [úlohy odeslání Pig](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
+| Odeslání úlohy Sqoop pomocí sady .NET SDK |V tématu [Sqoop odeslání úlohy](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | Seznam clusterů HDInsight pomocí sady .NET SDK |V tématu [clusterů HDInsight seznamu](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | Škálování clusterů HDInsight pomocí sady .NET SDK |V tématu [clusterů HDInsight škálování](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | Udělení nebo odvolání přístupu ke clusterům HDInsight pomocí sady .NET SDK |V tématu [udělení nebo odvolání přístupu ke clusterům HDInsight](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |

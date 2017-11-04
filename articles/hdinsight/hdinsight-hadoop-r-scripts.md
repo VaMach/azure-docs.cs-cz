@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5b9b793d49217acd9f0c6c518596a7afb5600d69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 666b51970bf04634708cbf65b8bca0c05412934b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Instalace a použití R na clusterech HDInsight Hadoop
 
-Zjistěte, jak pro přizpůsobení systému Windows na základě clusteru HDInsight pomocí pomocí akce skriptu R a clusterů v tom, jak používat R v HDInsight. [HDInsight nabídky](https://azure.microsoft.com/pricing/details/hdinsight/) zahrnuje R Server v rámci clusteru HDInsight. To umožňuje skripty R se použije ke spuštění distribuovaných výpočty MapReduce a Spark. Další informace naleznete v tématu [Začínáme používat R Server v HDInsight](hdinsight-hadoop-r-server-get-started.md). Informace o používání R s clusteru se systémem Linux najdete v tématu [instalací a použitím R na clusterů systému HDinsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md).
+Zjistěte, jak pro přizpůsobení systému Windows na základě clusteru HDInsight pomocí pomocí akce skriptu R a clusterů v tom, jak používat R v HDInsight. [HDInsight nabídky](https://azure.microsoft.com/pricing/details/hdinsight/) zahrnuje R Server v rámci clusteru HDInsight. To umožňuje skripty R se použije ke spuštění distribuovaných výpočty MapReduce a Spark. Další informace naleznete v tématu [Začínáme používat R Server v HDInsight](r-server/r-server-get-started.md). Informace o používání R s clusteru se systémem Linux najdete v tématu [instalací a použitím R na clusterů systému HDinsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md).
 
 R můžete nainstalovat na libovolný typ clusteru (Hadoop, Spark, HBase, Storm) v Azure HDInsight pomocí *akce skriptu*. Ukázkový skript instalace R na clusteru služby HDInsight je k dispozici z objektu blob úložiště Azure jen pro čtení v [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
@@ -112,4 +112,4 @@ V tématu [HDInsight přizpůsobit clustery pomocí akce skriptu](hdinsight-hado
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
+[hdinsight-install-spark]:spark/apache-spark-jupyter-spark-sql.md

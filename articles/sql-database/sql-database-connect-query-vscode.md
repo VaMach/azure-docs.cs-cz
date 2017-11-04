@@ -11,17 +11,17 @@ editor:
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: carlrab
-ms.openlocfilehash: cb6eefa2e1cb67d4864344d63a635def371659b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d07194d4f92b2b32b506813a4b1bb5c84e2f98ac
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Použití nástroje Visual Studio Code k připojení a dotazování dat
 
@@ -189,4 +189,5 @@ Použijte následující kód k odstranění nového produktu, který jste přid
 ## <a name="next-steps"></a>Další kroky
 
 - Informace o připojení a dotazování pomocí aplikace SQL Server Management Studio najdete v tématu [Připojení a dotazování pomocí SSMS](sql-database-connect-query-ssms.md).
+- Informace o připojení a dotazování pomocí webu Azure Portal najdete v tématu[Připojení a dotazování pomocí editoru dotazů SQL webu Azure Portal](sql-database-connect-query-portal.md).
 - Článek z časopisu MSDN o použití editoru Visual Studio Code najdete v blogovém příspěvku [Vytvoření databáze IDE s rozšířením MSSQL](https://msdn.microsoft.com/magazine/mt809115).

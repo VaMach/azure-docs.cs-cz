@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Nastavit clusterů v HDInsight Hadoop, Spark, Kafka a dalšími
 
@@ -76,13 +76,13 @@ Azure HDInsight aktuálně poskytuje následující typy clusteru, každý s sad
 
 | Typ clusteru | Funkce |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |Batch dotazu a analýzy uložených dat |
-| [HBase](hdinsight-hbase-overview.md) |Zpracování velkých objemů dat schemaless, NoSQL |
-| [Storm](hdinsight-storm-overview.md) |Zpracování událostí v reálném čase |
-| [Spark](hdinsight-apache-spark-overview.md) |Zpracování v paměti, interaktivních dotazů datového proudu micro dávkové zpracování |
-| [Kafka (Preview)](hdinsight-apache-kafka-introduction.md) | Distribuované streamování platformu, která můžete použít k sestavení v reálném čase kanálů streamování dat a aplikací |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |Různé statistiky velkých objemů dat, prediktivního modelování a strojového učení možnosti |
-| [Interaktivní dotazu](hdinsight-hadoop-use-interactive-hive.md) |Ukládání do mezipaměti v paměti pro interaktivní a rychlejší dotazů Hive |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch dotazu a analýzy uložených dat |
+| [HBase](hbase/apache-hbase-overview.md) |Zpracování velkých objemů dat schemaless, NoSQL |
+| [Storm](storm/apache-storm-overview.md) |Zpracování událostí v reálném čase |
+| [Spark](spark/apache-spark-overview.md) |Zpracování v paměti, interaktivních dotazů datového proudu micro dávkové zpracování |
+| [Kafka (Preview)](kafka/apache-kafka-introduction.md) | Distribuované streamování platformu, která můžete použít k sestavení v reálném čase kanálů streamování dat a aplikací |
+| [R Server](r-server/r-server-overview.md) |Různé statistiky velkých objemů dat, prediktivního modelování a strojového učení možnosti |
+| [Interaktivní dotazu](./interactive-query/apache-interactive-query-get-started.md) |Ukládání do mezipaměti v paměti pro interaktivní a rychlejší dotazů Hive |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Počet uzlů pro každý typ clusteru
 Každý typ clusteru má svou vlastní počet uzlů, terminologie pro uzly a výchozí velikost virtuálního počítače. V následující tabulce je počet uzlů pro každý typ uzlu v závorkách.
@@ -208,7 +208,7 @@ Většina aplikací HDInsight jsou nainstalované na prázdný hraniční uzel. 
 
 Můžete nainstalovat další součásti nebo si přizpůsobit pomocí skriptů během vytváření konfigurace clusteru. Tyto skripty jsou volány prostřednictvím **akce skriptu**, což je možnost konfigurace, které je možné z portálu Azure, rutiny prostředí Windows PowerShell HDInsight nebo sady SDK rozhraní .NET HDInsight. Další informace najdete v tématu [clusteru HDInsight přizpůsobit pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md).
 
-Některé nativní součásti Java, jako je Mahout a s možností, můžete spustit v clusteru jako soubory archivu Java (JAR). Tyto soubory JAR může distribuovat do služby Azure Storage a odeslána ke clusterům HDInsight s mechanismy odesílání úloh Hadoop. Další informace najdete v tématu [Hadoop odeslání úlohy prostřednictvím kódu programu](hdinsight-submit-hadoop-jobs-programmatically.md).
+Některé nativní součásti Java, jako je Mahout a s možností, můžete spustit v clusteru jako soubory archivu Java (JAR). Tyto soubory JAR může distribuovat do služby Azure Storage a odeslána ke clusterům HDInsight s mechanismy odesílání úloh Hadoop. Další informace najdete v tématu [Hadoop odeslání úlohy prostřednictvím kódu programu](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > Pokud máte problémy s nasazením souborů JAR ke clusterům HDInsight, nebo volání souborů JAR na clusterech HDInsight, obraťte se na [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -242,7 +242,7 @@ Pokud vaše řešení vyžaduje technologie, které jsou rozloženy více typy c
 
 Další informace o používání virtuální sítě Azure s HDInsight naleznete v tématu [rozšíření prostředí HDInsight pomocí virtuální sítě Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Příklad použití dva typy clusteru v rámci virtuální sítě Azure, naleznete v části [analýza dat snímače pomocí Storm a HBase](hdinsight-storm-sensor-data-analysis.md). Další informace o používání HDInsight s virtuální sítí, včetně určité požadavky na konfiguraci pro virtuální síť, v tématu [HDInsight rozšířit možnosti pomocí Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Příklad použití dva typy clusteru v rámci virtuální sítě Azure, naleznete v části [analýza dat snímače pomocí Storm a HBase](storm/apache-storm-sensor-data-analysis.md). Další informace o používání HDInsight s virtuální sítí, včetně určité požadavky na konfiguraci pro virtuální síť, v tématu [HDInsight rozšířit možnosti pomocí Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Odstraňování potíží s přístupem ovládací prvek
 
@@ -250,6 +250,6 @@ Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se 
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Co jsou HDInsight, ekosystému Hadoop a clusterů systému Hadoop?](hdinsight-hadoop-introduction.md)
-- [Začínáme používat Hadoop ve službě HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Co jsou HDInsight, ekosystému Hadoop a clusterů systému Hadoop?](hadoop/apache-hadoop-introduction.md)
+- [Začínáme používat Hadoop ve službě HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Práce v Hadoop v HDInsight ze systému Windows PC](hdinsight-hadoop-windows-tools.md)

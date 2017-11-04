@@ -1,6 +1,6 @@
 ---
-title: View public IP address consumption in Azure Stack | Microsoft Docs
-description: Administrators can view the consumption of public IP addresses in a region
+title: "Zobrazit veřejnou IP adresu spotřebu v zásobníku Azure | Microsoft Docs"
+description: "Správci mohou prohlížet spotřeby veřejné IP adresy v oblasti."
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,55 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>View public IP address consumption in Azure Stack
+# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Zobrazení veřejnou IP adresu energie v zásobníku Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-As a cloud administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
+Jako správce cloudu můžete zobrazit počet veřejné IP adresy, které byly přiděleny na klienty, počet veřejné IP adresy, které jsou stále k dispozici pro přidělení a procento veřejné IP adresy, které byly přiděleny v tomto umístění.
 
-The **Public IP pools usage** tile shows the total number of public IP addresses that have been consumed across all public IP address pools on the fabric, whether they have been used for tenant IaaS VM instances, fabric infrastructure services, or public IP address resources that were explicitly created by tenants.
+**Veřejnou IP adresu do fondu využití** dlaždice zobrazuje celkový počet veřejné IP adresy, které bylo spotřebováno přes všechny veřejné fondy IP adres v prostředcích architektury, zda byly použity pro instance virtuálních počítačů IaaS, klienta prostředky infrastruktury služby nebo veřejných IP adres prostředky, které byly vytvořeny explicitně klienty.
 
-The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP addresses that have been consumed in this location. This helps administrators determine whether they are running low on this resource.
+Účelem této dlaždice je a poskytuje správcům zásobník Azure představu o celkový počet veřejné IP adresy, které bylo spotřebováno v tomto umístění. To pomáhá správcům určit, zda běží nízkou u tohoto prostředku.
 
-On the **Resource providers**, **Network** blade, the **Public IP addresses** menu item under **Tenant Resources** lists only those public IP addresses that have been *explicitly created by tenants*. As such, the number of **Used** public IP addresses on the **Public IP pools usage** tile is always different from (larger than) the number on the **Public IP Addresses** tile under **Tenant Resources**.
+Na **zprostředkovatelé prostředků**, **sítě** okně **veřejné IP adresy** položky nabídky v části **prostředky klienta** uvádí jenom tyto veřejné IP adresy, které byly *explicitně vytvořené klienty*. Jako například počet **používá** veřejné IP adresy na **veřejnou IP adresu do fondu využití** dlaždice se liší od (větší než) vždy na číslo **veřejné IP adresy** dlaždici v části **klienta prostředky**.
 
-## <a name="view-the-public-ip-address-usage-information"></a>View the public IP address usage information
-To view the total number of public IP addresses that have been consumed in the region:
+## <a name="view-the-public-ip-address-usage-information"></a>Zobrazení informací o veřejné IP adresy používání
+Chcete-li zobrazit celkový počet veřejné IP adresy, které bylo spotřebováno v oblasti:
 
-1. In the Azure Stack administrator portal, click **More services**, under **Administrative Resources**, click **Resource providers**.
-2. From the list of **Resource Providers**, select **Network**.
-3. The **Network** blade displays the **Public IP pools usage** tile in the **Overview** section.
+1. Na portálu Azure zásobníku správce, klikněte na tlačítko **další služby**v části **prostředky pro správu**, klikněte na tlačítko **zprostředkovatelé prostředků**.
+2. Ze seznamu **zprostředkovatelé prostředků**, vyberte **sítě**.
+3. **Sítě** zobrazuje **veřejnou IP adresu do fondu využití** dlaždice v nástroji **přehled** části.
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Okno poskytovatele prostředků sítě](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Free** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address pools in that location.
+Mějte na paměti, že **používá** číslo představuje počet veřejných IP adres z všechny veřejné fondy IP adres v daném umístění přiřazené. **Volné** číslo představuje počet veřejných IP adres ze všech veřejných IP adres, fondy, které nebyly přiřazeny a jsou stále k dispozici. **% Používá** číslo představuje počet použít nebo přiřazené adresy jako procento z celkového počtu veřejné IP adresy v všechny veřejné fondy IP adres v daném umístění.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>View the public IP addresses that were created by tenant subscriptions
-To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, click **Public IP addresses** under **Tenant Resources**.
+## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Zobrazit veřejné IP adresy, které byly vytvořeny odběry klienta
+Chcete-li zobrazit seznam veřejné IP adresy, které byly explicitně vytvořeny odběry klienta v určité oblasti, klikněte na tlačítko **veřejné IP adresy** pod **prostředky klienta**.
 
-![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Veřejné IP adresy klienta](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-You might notice that some public IP addresses that have been dynamically allocated appear in the list but do not have an address associated with them yet. This is because the address resource has been created in the Network Resource Provider, but not in the Network Controller yet.
+Můžete si všimnout, že některé veřejné IP adresy, které byly přiděleny dynamicky zobrazí v seznamu, ale nemají adresu ještě s nimi spojených. Je to proto, že prostředek adresy zatím nebyla vytvořena v poskytovatele síťových prostředků, ale není v síťovém adaptéru.
 
-The Network Controller does not assign an address to this resource until it is actually bound to an interface, a network interface card (NIC), a load balancer, or a virtual network gateway. When the public IP address is bound to an interface, the Network Controller allocates an IP address to it, and it appears in the **Address** field.
+Síťový adaptér nepřiřazuje adresu pro tento prostředek, dokud ve skutečnosti je vázána na rozhraní, síťová karta (NIC), nástroj pro vyrovnávání zatížení nebo brány virtuální sítě. Když veřejná IP adresa je vázána na rozhraní, síťový adaptér přidělí IP adresu do něj a zobrazí se v **adresu** pole.
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>View the public IP address information summary table
-There are a number of different cases in which public IP addresses are assigned that determine whether the address appears in one list or another.
+## <a name="view-the-public-ip-address-information-summary-table"></a>Zobrazení veřejnou IP adresu informace tabulku souhrnu
+Existuje několik různých případů ve kterých jsou přiřazeny veřejné IP adresy, které určují, zda adresa se zobrazí v seznamu jednoho nebo druhého.
 
-| **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
+| **Veřejná IP adresa přiřazení případu** | **Zobrazí se v souhrnu využití** | **Zobrazí se v seznamu klienta veřejné IP adresy** |
 | --- | --- | --- |
-| Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) |No |Yes |
-| Dynamic public IP address assigned to an NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a tenant NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a fabric infrastructure service endpoint. |Yes |No |
-| Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. |Yes |No |
+| Dynamické veřejnou IP adresu dosud není přiřazen k seskupování nebo službu Vyrovnávání zatížení (dočasný) |Ne |Ano |
+| Dynamické veřejnou IP adresu přiřazené seskupování nebo službu Vyrovnávání zatížení. |Ano |Ano |
+| Statickou veřejnou IP adresu se přiřadila klienta síťový adaptér nebo službu Vyrovnávání zatížení. |Ano |Ano |
+| Statickou veřejnou IP adresu přiřadit pro koncový bod služby infrastruktury prostředků infrastruktury. |Ano |Ne |
+| Veřejná IP adresa implicitně vytvořené pro instance virtuálních počítačů IaaS a používat pro odchozí NAT ve virtuální síti. Tyto soubory jsou vytvořeny na pozadí vždy, když klient vytvoří instanci virtuálního počítače tak, aby virtuální počítače můžete odesílat informace k Internetu. |Ano |Ne |
 
-## <a name="next-steps"></a>Next steps
-[Manage Storage Accounts in Azure Stack](azure-stack-manage-storage-accounts.md)
+## <a name="next-steps"></a>Další kroky
+[Správa účtů úložiště v Azure zásobníku](azure-stack-manage-storage-accounts.md)

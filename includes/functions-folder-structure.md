@@ -1,5 +1,5 @@
 
-The code for all of the functions in a given function app lives in a root folder that contains a host configuration file and one or more subfolders, each of which contain the code for a separate function, as in the following example:
+Kód pro všechny funkce v aplikaci pro danou funkci žije v kořenové složce, která obsahuje konfigurační soubor hostitele a jeden nebo více podsložek, z nichž každý obsahuje kód pro samostatné funkce, jako v následujícím příkladu:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-The *host.json* file contains some runtime-specific configuration and sits in the root folder of the function app. For information on settings that are available, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
+*Host.json* soubor obsahuje některé konfigurace specifické pro modul runtime a nachází v kořenové složce funkce aplikace. Informace o nastaveních, které jsou k dispozici, najdete v části [host.json odkaz](../articles/azure-functions/functions-host-json.md).
 
-Each function has a folder that contains one or more code files, the function.json configuration and other dependencies.
+Jednotlivé funkce má složku, která obsahuje jeden nebo více souborů, function.json konfiguraci a další závislosti.
 

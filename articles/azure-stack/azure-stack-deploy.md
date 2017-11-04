@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
+title: "Požadavky nasazení Azure zásobníku Development Kit | Microsoft Docs"
+description: "Zobrazte prostředí a hardwarové požadavky pro Azure zásobníku Development Kit (operátor cloudu)."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,95 +14,94 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-deployment-prerequisites"></a>Azure Stack deployment prerequisites
+# <a name="azure-stack-deployment-prerequisites"></a>Požadavky nasazení Azure Stack
 
-*Applies to: Azure Stack Development Kit*
+*Platí pro: Azure zásobníku Development Kit*
 
-Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+Před nasazením [Azure zásobníku Development Kit](azure-stack-poc.md), zajistěte, aby váš počítač splňuje následující požadavky:
 
 
 ## <a name="hardware"></a>Hardware
-| Component | Minimum | Recommended |
+| Komponenta | Minimální | Doporučené |
 | --- | --- | --- |
-| Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
-| Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
-| Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
-| Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
-| Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Diskové jednotky: Operační systém |Jeden disk s operačním systémem a alespoň 200 GB místa pro systémový oddíl (SSD nebo pevný disk) |Jeden disk s operačním systémem a alespoň 200 GB místa pro systémový oddíl (SSD nebo pevný disk) |
+| Diskové jednotky: Obecné development kit dat * |Čtyři disky. Každý disk nabízí minimálně 140 GB místa (SSD nebo pevný disk). Použijí se všechny dostupné disky. |Čtyři disky. Každý disk nabízí minimálně 250 GB místa (SSD nebo pevný disk). Použijí se všechny dostupné disky. |
+| Výpočetní služby: Procesor |Duální soket: 12 fyzických jader (celkem) |Duální soket: 16 fyzických jader (celkem) |
+| Výpočetní služby: Paměť |96 GB RAM |128 GB paměti RAM (to je minimální pro podporu zprostředkovatele prostředků PaaS.)|
+| Výpočetní služby: BIOS |Povolená technologie Hyper-V (s podporou SLAT) |Povolená technologie Hyper-V (s podporou SLAT) |
+| Síť: NIC |V případě NIC se vyžaduje certifikace Windows Serveru 2012 R2. Specializované funkce se nepožadují |V případě NIC se vyžaduje certifikace Windows Serveru 2012 R2. Specializované funkce se nepožadují |
+| Hardwarová certifikace loga |[Certifikované pro systém Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifikované pro systém Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
-\*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
+\*Budete potřebovat větší, než to doporučeno kapacity, pokud chcete použít k přidání řadu [položky marketplace](azure-stack-download-azure-marketplace-item.md) z Azure.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**Konfigurace datových disků:** Všechny datové jednotky musí být stejného typu (buď všechny SAS, nebo všechny SATA) a mít stejnou kapacitu. Pokud použijete disky SAS, musí být diskové jednotky připojené pomocí jedné cesty (žádné funkce MPIO, podpora více cest je zajištěna).
 
-**HBA configuration options**
+**Možnosti konfigurace hostitelského adaptéru**
 
-* (Preferred) Simple HBA
-* RAID HBA – Adapter must be configured in “pass through” mode
-* RAID HBA – Disks should be configured as Single-Disk, RAID-0
+* (Upřednostňované) Jednoduchý adaptér HBA
+* RAID HBA – adaptér musí být konfigurovaný v režimu průchodu
+* RAID HBA – disky musí být konfigurované jako jeden disk, RAID-0
 
-**Supported bus and media type combinations**
+**Podporované sběrnice a média zadejte kombinace**
 
-* SATA HDD
-* SAS HDD
-* RAID HDD
-* RAID SSD (If the media type is unspecified/unknown\*)
-* SATA SSD + SATA HDD
-* SAS SSD + SAS HDD
+* Pevný disk SATA
+* Pevný disk SAS
+* Pevný disk RAID
+* RAID SSD (pokud je typ média neurčeno/neznámé\*)
+* SATA SSD + pevný disk SATA
+* SAS SSD + pevný disk SAS
 
-\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
+\*Řadičů RAID bez průchozí schopnosti nemůže rozpoznat typ média. Tyto řadiče označí pevný disk i SSD jako Neurčeno. V takovém případě se místo mezipaměťových zařízení použije SSD jako trvalé úložiště. Proto můžete nasadit development kit na těchto jednotkách SSD.
 
-**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
+**Příklad HBA**: LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v režimu průchodu
 
-Sample OEM configurations are available.
+Dostupné jsou ukázkové OEM konfigurace.
 
-## <a name="operating-system"></a>Operating system
-|  | **Requirements** |
+## <a name="operating-system"></a>Operační systém
+|  | **Požadavky** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
+| **Verze operačního systému** |Windows Server 2012 R2 nebo novější. Verze operačního systému není důležité před zahájením nasazení, jak budete restartovat hostitelský počítač do virtuální pevný disk, který je součástí instalace Azure zásobníku. Všechny požadované opravy a operačního systému jsou již integrované do bitové kopie. Nepoužívejte žádné klíče k aktivaci žádné instance systému Windows Server používá v sadě pro vývoj. |
 
-## <a name="deployment-requirements-check-tool"></a>Deployment requirements check tool
-After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
+## <a name="deployment-requirements-check-tool"></a>Zkontrolujte požadavky na nasazení nástroje
+Po instalaci operačního systému, můžete použít [kontrolu nasazení pro Azure zásobníku](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) potvrďte, že váš hardware splňuje všechny požadavky.
 
-## <a name="account-requirements"></a>Account requirements
-Typically, you deploy the development kit with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the development kit.
+## <a name="account-requirements"></a>Požadavky na účet
+Zpravidla nasazujete, sadě pro vývoj s připojením k Internetu, kde se můžete připojit k Microsoft Azure. V takovém případě musíte nakonfigurovat účet služby Azure Active Directory (Azure AD) k nasazení development kit.
 
-If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
+Pokud vaše prostředí není připojený k Internetu nebo nechcete používat Azure AD, můžete nasadit zásobník Azure pomocí služby Active Directory Federation Services (AD FS). Vývoj sada obsahuje vlastní instancí služby AD FS a Active Directory Domain Services. Pokud nasadíte pomocí této možnosti, nemáte vytváření účtů předem.
 
 >[!NOTE]
-If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
+Pokud nasadíte pomocí možnosti služby AD FS, je nutné znovu nasadit zásobník Azure přejděte do služby Azure AD.
 
-### <a name="azure-active-directory-accounts"></a>Azure Active Directory accounts
-To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
+### <a name="azure-active-directory-accounts"></a>Účty Azure Active Directory
+Nasazení zásobník Azure pomocí účtu Azure AD, je nutné připravit účet Azure AD, před spuštěním nasazení skript prostředí PowerShell. Tento účet se změní na globálního správce pro tenanta Azure AD. Použije se pro zajišťování a delegovat aplikací a objekty služby pro všechny služby zásobník Azure, které se s Azure Active Directory a rozhraní Graph API. Používá se také jako vlastník předplatného výchozí poskytovatele (který můžete později změnit). Na portálu správce vašeho systému Azure zásobníku se může přihlásit pomocí tohoto účtu.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
+1. Vytvořte účet Azure AD, který je správcem adresáře pro alespoň jeden Azure AD. Pokud už účet máte, můžete ho použít. Jinak, můžete jej vytvořit zdarma v [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (v Číně, navštivte <http://go.microsoft.com/fwlink/?LinkID=717821> místo). Pokud budete chtít později [zaregistrovat zásobník Azure s Azure](azure-stack-register.md), je také nutné mít předplatné v tomto nově vytvořený účet.
    
-    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
+    Uložit tyto přihlašovací údaje pro použití v kroku 6 v [nasazení development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). Tento účet *správce služby* může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu může vytvářet webové cloudy, soukromé cloudy pro virtuální počítače a plány a spravovat předplatné uživatelů.
+2. [Vytvoření](azure-stack-add-new-user-aad.md) alespoň jeden účet tak, aby se můžete přihlásit development Kit jako klient.
    
-   | **Azure Active Directory account** | **Supported?** |
+   | **Účet Azure Active Directory** | **Podporovány?** |
    | --- | --- |
-   | Work or school account with valid Public Azure Subscription |Yes |
-   | Microsoft Account with valid Public Azure Subscription |Yes |
-   | Work or school account with valid China Azure Subscription |Yes |
-   | Work or school account with valid US Government Azure Subscription |Yes |
+   | Pracovní nebo školní účet s platným předplatným veřejný Azure |Ano |
+   | Účet Microsoft s platným veřejným předplatným Azure |Ano |
+   | Pracovní nebo školní účet s platným předplatným Azure Čína |Ano |
+   | Pracovní nebo školní účet s platným US Government Azure předplatným |Ano |
 
-## <a name="network"></a>Network
-### <a name="switch"></a>Switch
-One available port on a switch for the development kit machine.  
+## <a name="network"></a>Síť
+### <a name="switch"></a>Přepínač
+Jeden dostupný port na přepínači pro počítač development kit.  
 
-The development kit machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Vývojovém počítači kit podporuje připojení k přístupu k portu přepínače nebo portu trunk. Přepínač nevyžaduje žádné specializované funkce. Pokud používáte kmenový port nebo pokud potřebujete nakonfigurovat ID sítě VLAN, musíte ID sítě VLAN zadat jako parametr nasazení. Příklady v uvidíte [seznam parametrů nasazení](azure-stack-run-powershell-script.md).
 
-### <a name="subnet"></a>Subnet
-Do not connect the development kit machine to the following subnets:
+### <a name="subnet"></a>Podsíť
+Nespojujte vývojovém počítači kit následující podsítě:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -111,35 +110,35 @@ Do not connect the development kit machine to the following subnets:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-These subnets are reserved for the internal networks within the development kit environment.
+Tyto podsítě jsou vyhrazené pro interní sítě ve vývojovém prostředí sady.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
-Only IPv4 is supported. You cannot create IPv6 networks.
+Podporovaný je jenom protokol IPv4. Nemůžete vytvořit sítě IPv6.
 
 ### <a name="dhcp"></a>DHCP
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Ověřte si dostupnost serveru DHCP v síti, do které se síťová karta připojuje. Pokud server DHCP není dostupný, připravte další statickou síť IPv4 (kromě té, kterou používá hostitel). Tuto IP adresu a bránu zadejte jako parametr nasazení. Příklady v uvidíte [seznam parametrů nasazení](azure-stack-run-powershell-script.md).
 
-### <a name="internet-access"></a>Internet access
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
+### <a name="internet-access"></a>Přístup k internetu
+Zásobník Azure vyžaduje přístup k Internetu, buď přímo nebo prostřednictvím proxy serveru transparentní. Azure zásobník nepodporuje konfiguraci webového proxy serveru pro povolení přístupu k Internetu. IP adresa hostitele a nových IP přiřazená MAS-BGPNAT01 (pomocí protokolu DHCP nebo statickou IP adresu) musí být mít přístup k Internetu. V rámci domény graph.windows.net a login.microsoftonline.com používají porty 80 a 443.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetrická data
 
-Telemetry helps us shape future versions of Azure Stack. It lets us respond quickly to feedback, provide new features, and improve quality. Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. Here are some examples of Azure Stack telemetry data:
+Telemetrie pomáhá nám utvářejí budoucích verzích zásobník Azure. Umožňuje nám rychle reagovat na připomínky, zadejte nové funkce a zlepšení kvality. Microsoft Azure Stack zahrnuje Windows Server 2016 a SQL Server 2014. Ani jeden z těchto produktů se změní oproti výchozímu nastavení a jak jsou popsány v prohlášení o ochraně osobních údajů Microsoft Enterprise. Azure zásobníku také obsahuje software s otevřeným zdrojem, který byl změněn na odeslání telemetrie do společnosti Microsoft. Tady jsou některé příklady zásobník Azure telemetrická data:
 
-- deployment registration information
-- when an alert is opened and closed
-- the number of network resources
+- informace o registraci nasazení
+- Když je výstraha otevřít a zavřít
+- počet síťových prostředků
 
-To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+Pro podporu tok dat telemetrie, musí být otevřen ve vaší síti port 443 (HTTPS). Koncovým bodem klienta je https://vortex-win.data.microsoft.com.
 
-If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host and the infrastructure virtual machines as explained below.
+Pokud nechcete, aby zajistit telemetrie pro zásobník Azure, můžete ho vypnout v hostiteli kit vývoj a infrastrukturu virtuálních počítačů, jak je popsáno níže.
 
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Turn off telemetry on the development kit host (optional)
+### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Vypnutí telemetrie na hostiteli development kit (volitelné)
 
 >[!NOTE]
-If you want to turn off telemetry for the development kit host, you must do so before you run the deployment script.
+Pokud chcete k vypnutí telemetrie pro vývoj kit hostitele, musíte tak učinit před spuštěním skriptu nasazení.
 
-Before [running the asdk-installer.ps1 script]() to deploy the development kit host, boot into the CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
+Před [skriptu asdk installer.ps1]() k nasazení hostitele development kit, přihlaste se do CloudBuilder.vhdx a v okně Powershellu se zvýšenými oprávněními spusťte následující skript:
 ```powershell
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
@@ -151,12 +150,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack deployment. Only critical security events from the operating system are sent. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur.
+Nastavení **AllowTelemetry** na 0 vypne telemetrii pro nasazení systému Windows a protokolů Azure. Jsou odesílány pouze kritické zabezpečení události z operačního systému. Nastavení řídí telemetrie Windows ve všech hostitelích a infrastrukturu virtuálních počítačů a se znovu použije na nové uzly nebo virtuální počítače při výskytu operace škálování.
 
 
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Turn off telemetry on the infrastructure virtual machines (optional)
+### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Vypnutí telemetrie na infrastrukturu virtuálních počítačů (volitelné)
 
-After the deployment is successful, run the following script in an elevated PowerShell window (as the AzureStack\AzureStackAdmin user) on the development kit host:
+Po úspěšné nasazení, spusťte následující skript v okně prostředí PowerShell se zvýšenými oprávněními (jako uživatel AzureStack\AzureStackAdmin) na hostiteli development kit:
 
 ```powershell
 $AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
@@ -170,18 +169,17 @@ invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
 "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
 ```
 
-To configure SQL Server telemetry, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
+Konfigurace systému SQL Server telemetrie najdete v tématu [jak nakonfigurovat SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
 
-### <a name="usage-reporting"></a>Usage reporting
+### <a name="usage-reporting"></a>Vytváření sestav využití
 
-Through registration, Azure Stack is also configured to forward usage information to Azure. Usage reporting is controlled independently from telemetry. You can turn off usage reporting when [registering](azure-stack-register.md) by using the script on Github. Just set the **$reportUsage** parameter to **$false**.
+Prostřednictvím registrace zásobník Azure nastaven také na informace o využití dopředného do Azure. Vytváření sestav využití je řízena nezávisle z telemetrie. Můžete vypnout využití sestav při [registrace](azure-stack-register.md) pomocí skriptu na Githubu. Stačí nastavit **$reportUsage** parametru **$false**.
 
-Usage data is formatted as detailed in the [Report Azure Stack usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure Stack Development Kit users are not actually charged. This functionality is included in the development kit so that you can test to see how usage reporting works. 
+Data o využití je naformátován jako podrobné v [zásobník Azure sestavy využití dat do Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Ve skutečnosti není účtován Azure uživatelé Development Kit zásobníku. Tato funkce je zahrnutá v sadě pro vývoj, mohli otestovat a zkontrolujte, jak funguje generování sestav o využívání. 
 
 
-## <a name="next-steps"></a>Next steps
-[Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+## <a name="next-steps"></a>Další kroky
+[Stažení balíčku pro nasazení Azure zásobníku development kit](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
-
+[Nasazení zásobník Azure development kit](azure-stack-run-powershell-script.md)
 

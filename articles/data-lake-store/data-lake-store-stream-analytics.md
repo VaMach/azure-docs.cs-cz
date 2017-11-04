@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Streamování dat z Azure Storage Blob do služby Data Lake Store pomocí Azure Stream Analytics
 V tomto článku se dozvíte, jak používat Azure Data Lake Store jako výstup pro úlohu služby Azure Stream Analytics. Tento článek ukazuje jednoduchého scénáře, který čte data z objektu blob Azure Storage (vstup) a zapisuje data do Data Lake Store (výstup).
-
-> [!NOTE]
-> V tomto okamžiku vytvoření a konfigurace Data Lake Store výstupy Stream Analytics je podporováno pouze v [portálu Azure Classic](https://manage.windowsazure.com). Proto některé části tohoto kurzu použije portál Azure Classic.
->
->
 
 ## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:

@@ -1,14 +1,14 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. At the bottom of the page, click **Add**.
-3. In the **Add Backup Policy** dialog box, do the following:
+#### <a name="to-add-a-storsimple-backup-policy"></a>Přidání zásady zálohování StorSimple
+1. Na obrazovce **Rychlý start** zařízení klikněte na kartu **Zásady zálohování**. Tím přejdete na stránku **Zásady zálohování**.
+2. V dolní části stránky klikněte na tlačítko **přidat**.
+3. V **přidáním zásady zálohování** dialogové okno pole, postupujte takto:
    
-   1. Specify a backup policy name that contains between 3 and 150 characters.
-   2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-   3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+   1. Zadejte název zásady zálohování, který obsahuje 3 až 150 znaků.
+   2. Jeden nebo více svazků přiřadíte zásady zálohování. Pokud používáte ostatní poskytovatele cloudových služeb, na základě první výběru, rozevíracím seznamu se zobrazí svazky, které patří do tohoto cloudu služby zprostředkovatele. To vám umožní do skupiny svazků, které patří do poskytovatele služeb jeden cloud pro vytvoření snímku.
+   3. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) a zásadu uložte.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+Nově přidaná zásada se zobrazí v tabulkovém zobrazení na stránce **Zásady zálohování**.
 

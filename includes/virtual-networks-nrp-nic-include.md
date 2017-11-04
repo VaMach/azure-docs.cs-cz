@@ -1,32 +1,32 @@
-## <a name="nic"></a>NIC
-A network interface card (NIC) resource provides network connectivity to an existing subnet in a VNet resource. Although you can create a NIC as a stand alone object, you need to associate it to another object to actually provide connectivity. A NIC can be used to connect a VM to a subnet, a public IP address, or a load balancer.  
+## <a name="nic"></a>SÍŤOVÝ ADAPTÉR
+Karta (NIC) prostředku síťového rozhraní poskytuje síťové připojení k existující podsíť virtuální sítě prostředku. I když můžete vytvořit síťový adaptér jako samostatný objekt, je třeba ji přidružit k jinému objektu ve skutečnosti poskytovat připojení. Síťový adaptér slouží k připojení virtuálního počítače na podsíť, veřejnou IP adresu nebo Vyrovnávání zatížení.  
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **virtualMachine** |VM the NIC is associated with. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
-| **macAddress** |MAC address for the NIC |any value between 4 and 30 |
-| **networkSecurityGroup** |NSG associated to the NIC |/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
-| **dnsSettings** |DNS settings for the NIC |see [PIP](#Public-IP-address) |
+| **virtuální počítač** |Virtuální počítač na síťový adaptér je přidružen. |/subscriptions/{GUID}/../microsoft.COMPUTE/virtualMachines/vm1 |
+| **macAddress** |Adresa MAC pro síťový adaptér |Libovolná hodnota od 4 do 30. |
+| **skupinu zabezpečení sítě** |NSG přidruženou na síťový adaptér |/subscriptions/{GUID}/../microsoft.Network/networkSecurityGroups/myNSG1 |
+| **dnsSettings** |Nastavení DNS pro síťový adaptér |v tématu [PIP](#Public-IP-address) |
 
-A Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM). A VM can have one or more NICs.
+Síťový adaptér nebo síťový adaptér představuje síťové rozhraní, které lze přidružit k virtuálnímu počítači (VM). Virtuální počítač může mít jeden nebo více síťových adaptérů.
 
-![NIC's on a single VM](./media/resource-groups-networking/Figure3.png)
+![Karty síťového rozhraní na jeden virtuální počítač](./media/resource-groups-networking/Figure3.png)
 
-### <a name="ip-configurations"></a>IP configurations
-NICs have a child object named **ipConfigurations** containing the following properties:
+### <a name="ip-configurations"></a>Konfigurace protokolu IP
+Síťové adaptéry mít podřízený objekt s názvem **ipConfigurations** obsahující následující vlastnosti:
 
-| Property | Description | Sample values |
+| Vlastnost | Popis | Ukázkové hodnoty |
 | --- | --- | --- |
-| **subnet** |Subnet the NIC is onnected to. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |IP address for the NIC in the subnet |10.0.0.8 |
-| **privateIPAllocationMethod** |IP allocation method |Dynamic or Static |
-| **enableIPForwarding** |Whether the NIC can be used for routing |true or false |
-| **primary** |Whether the NIC is the primary NIC for the VM |true or false |
-| **publicIPAddress** |PIP associated with the NIC |see [DNS Settings](#DNS-settings) |
-| **loadBalancerBackendAddressPools** |Back end address pools the NIC is associated with | |
-| **loadBalancerInboundNatRules** |Inbound load balancer NAT rules the NIC is associated with | |
+| **podsíť** |Podsíť síťového adaptéru je onnected k. |/subscriptions/{GUID}/../microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
+| **privateIPAddress** |IP adresu pro síťový adaptér v podsíti |10.0.0.8 |
+| **privateIPAllocationMethod** |Metoda přidělení IP |Dynamická nebo statická |
+| **enableIPForwarding** |Jestli se dá použít na síťový adaptér pro směrování |hodnotu true nebo false |
+| **primární** |Jestli síťový adaptér je primární síťový adaptér pro virtuální počítač. |hodnotu true nebo false |
+| **publicIPAddress** |PIP přidružené síťového adaptéru |v tématu [nastavení DNS](#DNS-settings) |
+| **pravidlo loadBalancerBackendAddressPools** |Back end fondy adres, který je přidružen síťový adaptér | |
+| **loadBalancerInboundNatRules** |Příchozí pravidla NAT nástroje pro vyrovnávání zatížení, síťový adaptér je spojené s | |
 
-Sample public IP address in JSON format:
+Ukázka veřejnou IP adresu ve formátu JSON:
 
     {
         "name": "lb-nic1-be",
@@ -72,6 +72,6 @@ Sample public IP address in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) for NICs.
+### <a name="additional-resources"></a>Další zdroje
+* Pro čtení [referenční dokumentace rozhraní API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) pro síťové adaptéry.
 

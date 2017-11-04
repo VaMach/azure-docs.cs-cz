@@ -1,10 +1,10 @@
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Using Managed Disks in Azure Resource Manager Templates
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Pomocí spravovaného disky v šablonách Azure Resource Manageru
 
-This document walks through the differences between managed and unmanaged disks when using Azure Resource Manager templates to provision virtual machines. This will help you to update existing templates that are using unmanaged Disks to managed disks. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
+Tento dokument vás provede rozdíly mezi spravovanými a nespravovanými disky při zřizování virtuálních počítačů pomocí šablony Azure Resource Manager. To vám pomůže aktualizovat existující šablony, které používají disků nespravované na spravované disky. Pro referenci používáme [101-vm jednoduché – windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) šablony jako vodítko. Můžete zobrazit šablonu pomocí obou [discích spravovaných](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) a předchozí verze pomocí [nespravované disky](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) Pokud byste chtěli přímo jejich porovnání.
 
-## <a name="unmanaged-disks-template-formatting"></a>Unmanaged Disks template formatting
+## <a name="unmanaged-disks-template-formatting"></a>Nespravované disky šablony, formátování
 
-To begin, we take a look at how unmanaged disks are deployed. When creating unmanaged disks, you need a storage account to hold the VHD files. You can create a new storage account or use one that already exists. This article will show you how to create a new storage account. To accomplish this, you need a storage account resource in the resources block as shown below.
+Pokud chcete začít, budeme se podívejte na tom, jak nespravované disky jsou nasazeny. Při vytváření nespravované disky, potřebujete účet úložiště pro soubory virtuálního pevného disku. Můžete vytvořit nový účet úložiště nebo použít jednu, která již existuje. Tento článek vám ukáže, jak vytvořit nový účet úložiště. K tomu musíte prostředek účet úložiště v bloku prostředků, jak je uvedeno níže.
 
 ```
 {
@@ -20,7 +20,7 @@ To begin, we take a look at how unmanaged disks are deployed. When creating unma
 }
 ```
 
-Within the virtual machine object, we need a dependency on the storage account to ensure that it's created before the virtual machine. Within the `storageProfile` section, we then specify the full URI of the VHD location, which references the storage account and is needed for the OS disk and any data disks. 
+V rámci objektu virtuálního počítače potřebujeme závislost na účtu úložiště a ověřte, že je vytvořen před virtuální počítač. V rámci `storageProfile` části, jsme pak zadejte úplný identifikátor URI umístění virtuálního pevného disku, který odkazuje na účet úložiště a je potřebná pro disk operačního systému a všech datových disků. 
 
 ```
 {
@@ -68,18 +68,18 @@ Within the virtual machine object, we need a dependency on the storage account t
 }
 ```
 
-## <a name="managed-disks-template-formatting"></a>Managed disks template formatting
+## <a name="managed-disks-template-formatting"></a>Spravované disky šablony formátování
 
-With Azure Managed Disks, the disk becomes a top-level resource and no longer requires a storage account to be created by the user. Managed disks were first exposed in the `2016-04-30-preview` API version, they are available in all subsequent API versions and are now the default disk type. The following sections walk through the default settings and detail how to further customize your disks.
+S Azure spravované disky disk stane nejvyšší úrovně prostředků a už vyžaduje účet úložiště, který být vytvořený uživatelem. Spravované disky nejprve byly vystaveny v `2016-04-30-preview` verze rozhraní API, jsou k dispozici ve všech dalších verzích rozhraní API a se teď výchozí typ disku. Následující části provede výchozí nastavení a jsou upřesněny postupy k dalšímu přizpůsobení vaše disky.
 
 > [!NOTE]
-> It is recommended to use an API version later than `2016-04-30-preview` as there were breaking changes between `2016-04-30-preview` and `2017-03-30`.
+> Doporučujeme použít verzi rozhraní API pozdější než `2016-04-30-preview` jako došlo k narušující změny mezi `2016-04-30-preview` a `2017-03-30`.
 >
 >
 
-### <a name="default-managed-disk-settings"></a>Default managed disk settings
+### <a name="default-managed-disk-settings"></a>Výchozí nastavení spravovaného disku
 
-To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2017-03-30` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage](../articles/storage/common/storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+Pokud chcete vytvořit virtuální počítač s spravované disky, už musíte vytvořit úložiště účtu prostředků a následujícím způsobem můžete aktualizovat prostředek virtuálního počítače. Specificky Upozorňujeme, že `apiVersion` odráží `2017-03-30` a `osDisk` a `dataDisks` nadále odkazovat na konkrétní identifikátoru URI virtuálního pevného disku. Při nasazování bez zadání dalších vlastností, bude disk používat [úložiště LRS standardní](../articles/storage/common/storage-redundancy.md). Pokud není zadán žádný název, jak dlouho trvá formát `<VMName>_OsDisk_1_<randomstring>` pro disk operačního systému a `<VMName>_disk<#>_<randomstring>` pro každý datový disk. Ve výchozím nastavení je Azure disk encryption zakázaný. ukládání do mezipaměti je pro čtení a zápis pro disk operačního systému a jeden pro datové disky. Můžete si povšimnout v následujícím příkladu, že je stále závislost účtu úložiště, i když toto je pouze pro úložiště diagnostiky a není potřeba ukládání na disk.
 
 ```
 {
@@ -118,9 +118,9 @@ To create a VM with managed disks, you no longer need to create the storage acco
 }
 ```
 
-### <a name="using-a-top-level-managed-disk-resource"></a>Using a top-level managed disk resource
+### <a name="using-a-top-level-managed-disk-resource"></a>Použití spravovaných disků na nejvyšší úrovni prostředků
 
-As an alternative to specifying the disk configuration in the virtual machine object, you can create a top-level disk resource and attach it as part of the virtual machine creation. For example, we can create a disk resource as follows to use as a data disk.
+Jako alternativu k určení konfiguraci disku v objektu virtuálního počítače můžete vytvořit nejvyšší úrovně diskový prostředek a připojte ji jako součást vytvoření virtuálního počítače. Například můžeme vytvořit prostředek disku takto chcete použít jako datový disk.
 
 ```
 {
@@ -140,7 +140,7 @@ As an alternative to specifying the disk configuration in the virtual machine ob
 }
 ```
 
-Within the VM object, we can then reference this disk object to be attached. Specifying the resource ID of the managed disk we created in the `managedDisk` property allows the attachment of the disk as the VM is created. Note that the `apiVersion` for the VM resource is set to `2017-03-30`. Also note that we've created a dependency on the disk resource to ensure it's successfully created before VM creation. 
+V rámci objekt virtuálního počítače jsme pak můžete odkazovat tento objekt disku má být přiřazena. Určení Identifikátoru zdroje spravovaného disku jsme vytvořili v `managedDisk` vlastnost umožňuje připojení disku při vytváření virtuálního počítače. Všimněte si, že `apiVersion` pro virtuální počítač zdroj je nastaven pro `2017-03-30`. Všimněte si také, že vytvořili jsme závislost na prostředku disku, ujistěte se, že je úspěšně vytvořen před vytvořením virtuálních počítačů. 
 
 ```
 {
@@ -183,9 +183,9 @@ Within the VM object, we can then reference this disk object to be attached. Spe
 }
 ```
 
-### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Create managed availability sets with VMs using managed disks
+### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Vytvoření skupiny dostupnosti spravované s virtuálními počítači pomocí spravovaných disků
 
-To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. Also note that the `apiVersion` for the availability set resource is set to `2017-03-30`.
+K vytvoření spravovaného dostupnost sady s virtuálními počítači pomocí spravovaných disků, přidejte `sku` objektu na dostupnost prostředků a nastavte a `name` vlastnost `Aligned`. Tím se zajistí disky pro jednotlivé virtuální počítače dostatečně od sebe navzájem oddělené k Vyhýbejte se jediným bodů selhání. Všimněte si také, že `apiVersion` pro dostupnost nastavení prostředku je nastaven na `2017-03-30`.
 
 ```
 {
@@ -203,17 +203,17 @@ To create managed availability sets with VMs using managed disks, add the `sku` 
 }
 ```
 
-### <a name="additional-scenarios-and-customizations"></a>Additional scenarios and customizations
+### <a name="additional-scenarios-and-customizations"></a>Další scénáře a přizpůsobení
 
-To find full information on the REST API specifications, please review the [create a managed disk REST API documentation](/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and acceptable values that can be submitted to the API through template deployments. 
+K vyhledání úplné informace o specifikacích REST API, přečtěte si [vytvoření spravovaného disku dokumentace k REST API](/rest/api/manageddisks/disks/disks-create-or-update). Zjistíte další scénáře, a také výchozí a přijatelných hodnot, které se dají odeslat do rozhraní API prostřednictvím šablony nasazení. 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-* For full templates that use managed disks visit the following Azure Quickstart Repo links.
-    * [Windows VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-    * [Linux VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [Full list of managed disk templates](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-* Visit the [Azure Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md) document to learn more about managed disks.
-* Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](/templates/microsoft.compute/virtualmachines) document.
-* Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](/templates/microsoft.compute/disks) document.
+* Pro úplnou šablony, které používají spravovaný disky získáte pomocí následujících odkazů v úložišti Azure rychlý start.
+    * [Virtuální počítač s Windows spravované disku](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+    * [Virtuální počítač s Linuxem pomocí spravovaného disku](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+    * [Úplný seznam spravovaných disků na šablony](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* Přejděte [přehled disky spravované Azure](../articles/virtual-machines/windows/managed-disks-overview.md) dokumentu další informace o spravovaných disky.
+* Zkontrolujte šablonu referenční dokumentaci pro prostředky virtuálního počítače navštivte stránky [odkaz na šablonu Microsoft.Compute/virtualMachines](/templates/microsoft.compute/virtualmachines) dokumentu.
+* Zkontrolujte šablonu referenční dokumentaci pro prostředky disku navštivte stránky [odkaz na šablonu Microsoft.Compute/disks](/templates/microsoft.compute/disks) dokumentu.
  

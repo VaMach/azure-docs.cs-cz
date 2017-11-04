@@ -10,21 +10,21 @@ keywords:
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/25/2017
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Nasazení clusteru Kubernetes pro kontejnery Windows
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tato příručka podrobně popisuje použití rozhraní příkazového řádku Azure k nasazení clusteru [Kubernetes](https://kubernetes.io/docs/home/) ve službě [Azure Container Service](../container-service-intro.md). Po nasazení clusteru se k němu připojíte pomocí nástroje pro příkazový řádek Kubernetes `kubectl` a nasadíte svůj první kontejner Windows.
 
@@ -110,7 +110,7 @@ Kontejner Dockeru můžete spustit v *podu* Kubernetes, který obsahuje jeden n
 
 Tento základní příklad používá soubor JSON k určení kontejneru se serverem služby Microsoft IIS a pak vytvoří pod pomocí příkazu `kubctl apply`. 
 
-Vytvořte místní soubor `iis.json` a zkopírujte do něj následující text. Tento soubor říká Kubernetes, aby spustil službu IIS v systému Windows Server 2016 Nano Server s použitím veřejné image kontejneru z [Docker Hubu](https://hub.docker.com/r/nanoserver/iis/). Kontejner používá port 80, ale zpočátku je přístupný pouze v rámci sítě s clustery.
+Vytvořte místní soubor `iis.json` a zkopírujte do něj následující text. Tento soubor říká Kubernetes, aby spustil službu IIS v systému Windows Server 2016 Nano Server s použitím veřejné image kontejneru z [Docker Hubu](https://hub.docker.com/r/microsoft/iis/). Kontejner používá port 80, ale zpočátku je přístupný pouze v rámci sítě s clustery.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ Vytvořte místní soubor `iis.json` a zkopírujte do něj následující text.
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80
@@ -168,7 +168,7 @@ Pokud chcete zpřístupnit pod celému světu prostřednictvím veřejné IP adr
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Tento příkaz způsobí, že Kubernetes vytvoří službu a [pravidlo nástroje pro vyrovnávání zatížení Azure](container-service-kubernetes-load-balancing.md) s veřejnou IP adresou pro tuto službu. 
+Tento příkaz vytvoří Kubernetes služby a pravidlo Vyrovnávání zatížení Azure s veřejnou IP adresu pro službu. 
 
 Spuštěním následujícího příkazu zobrazte stav služby.
 
@@ -203,4 +203,3 @@ V tomto rychlém úvodním kurzu jste nasadili cluster Kubernetes, připojili s
 
 > [!div class="nextstepaction"]
 > [Správa clusteru ACS Kubernetes](container-service-tutorial-kubernetes-prepare-app.md)
-

@@ -1,25 +1,25 @@
-#### <a name="to-install-mpio-on-the-host"></a>To install MPIO on the host
-1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If the Server Manager is not already open, click **Start > Server Manager**.
+#### <a name="to-install-mpio-on-the-host"></a>K instalaci funkce MPIO na hostiteli
+1. Otevřete správce serveru na hostiteli s Windows Server. Ve výchozím nastavení správce serveru spustí, když se člen skupiny Administrators přihlásí k počítači se systémem Windows Server 2012 R2 nebo Windows Server 2012. Pokud správce serveru už není otevřený, klikněte na tlačítko **Start > Správce serveru**.
    
-    ![Server Manager](./media/storsimple-install-mpio-windows-server/IC740997.png)
-2. Click **Server Manager > Dashboard > Add roles and features**. This starts the **Add Roles and Features** wizard.
+    ![Správce serveru](./media/storsimple-install-mpio-windows-server/IC740997.png)
+2. Klikněte na tlačítko **správce serveru > řídicí panel > Přidat role a funkce**. Tím se spustí **přidat role a funkce** průvodce.
    
-    ![Add Roles And Features Wizard 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
-3. In the **Add Roles and Features** wizard, do the following:
+    ![Přidat role a funkce Průvodce 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
+3. V **přidat role a funkce** průvodce, postupujte takto:
    
-   * On the **Before you begin** page, click **Next**.
-   * On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.
+   * Na **před zahájením** klikněte na tlačítko **Další**.
+   * Na **vybrat typ instalace** přijměte výchozí nastavení **na základě rolí nebo na základě funkcí** instalace. Klikněte na **Další**.
      
-       ![Add Roles And Features Wizard 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
-   * On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
-   * On the **Select server roles** page, click **Next**.
-   * On the **Select features** page, select **Multipath I/O**, and click **Next**.
+       ![Přidat role a funkce Průvodce 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
+   * Na **vybrat cílový server** vyberte **vyberte server z fondu serverů**. Hostitelský server by měly být zjištěny automaticky. Klikněte na **Další**.
+   * Na **vybrat role serveru** klikněte na tlačítko **Další**.
+   * Na **vyberte funkce,** vyberte **funkce Multipath I/O**a klikněte na tlačítko **Další**.
      
-       ![Add Roles And Features Wizard 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
-   * On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.
+       ![Přidat role a funkce Průvodce 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
+   * Na **potvrdit vybrané možnosti instalace** potvrďte výběr a potom vyberte **cílový server automaticky restartovat, pokud je to nutné**, jak je uvedeno níže. Klikněte na **Nainstalovat**.
      
-       ![Add Roles And Features Wizard 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
-   * You will be notified when the installation is complete. Click **Close** to close the wizard.
+       ![Přidat role a funkce Průvodce 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
+   * Po dokončení instalace, budete upozorněni. Průvodce zavřete kliknutím na **Zavřít**.
      
-       ![Add Roles And Features Wizard 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
+       ![Přidat role a funkce Průvodce 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 

@@ -41,6 +41,7 @@
 ## Konfigurace směrovače pro ExpressRoute
 ### [Konfigurace směrovače](expressroute-config-samples-routing.md)
 ### [Ukázky konfigurace směrovače pro překlad adres (NAT)](expressroute-config-samples-nat.md)
+## [Konfigurace Network Performance Monitor pro ExpressRoute](how-to-npm.md)
 
 ## Osvědčené postupy
 ### [Osvědčené postupy pro zabezpečení sítě a cloudové služby](../best-practices-network-security.md)

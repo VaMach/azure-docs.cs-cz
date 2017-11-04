@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Zabezpečená volání pro vaše vlastní rozhraní API z aplikace logiky
 
@@ -49,7 +49,7 @@ Zde jsou uvedeny základní kroky pro tuto metodu:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Část 1: Vytvoření identity aplikací Azure AD pro svou aplikaci logiky
 
-Aplikace logiky používá tuto identitu aplikace služby Azure AD k ověření služby Azure AD. Stačí nastavit tuto identitu jednou pro váš adresář. Například můžete použít stejnou identitu pro všechny aplikace logiky, i když můžete vytvořit jedinečné identity pro každou aplikaci logiky. Můžete nastavit tyto identit na portálu Azure [portál Azure classic](#app-identity-logic-classic), nebo použijte [prostředí PowerShell](#powershell).
+Aplikace logiky používá tuto identitu aplikace služby Azure AD k ověření služby Azure AD. Stačí nastavit tuto identitu jednou pro váš adresář. Například můžete použít stejnou identitu pro všechny aplikace logiky, i když můžete vytvořit jedinečné identity pro každou aplikaci logiky. Můžete nastavit tyto identit na portálu Azure nebo použít [prostředí PowerShell](#powershell).
 
 **Vytvoření identity aplikací pro svou aplikaci logiky na portálu Azure**
 
@@ -94,34 +94,6 @@ Aplikace logiky používá tuto identitu aplikace služby Azure AD k ověření 
 
    ![Zkopírujte a uložte klíč pro pozdější](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Vytvoření identity aplikací pro svou aplikaci logiky na portálu Azure classic**
-
-1. Na portálu Azure classic, vyberte [ **služby Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Vyberte stejný adresář, který používáte pro webovou aplikaci nebo aplikaci API.
-
-3. Na **aplikace** , zvolte **přidat** v dolní části stránky.
-
-4. Zadejte název vaší identity aplikace a zvolte **Další** (šipka vpravo).
-
-5. V části **vlastností aplikace**, poskytovat jedinečný řetězec formátovaný jako doménu pro **přihlašovací adresa URL** a **identifikátor ID URI aplikace**a zvolte **Complete** (zaškrtnutí).
-
-6. Na **konfigurace** kartě, zkopírujte a uložte **ID klienta** pro svou aplikaci logiky pro použití v rámci 3.
-
-7. V části **klíče**, otevřete **vyberte dobu trvání** seznamu. Vyberte dobu trvání pro váš klíč.
-
-   Klíč, který vytváříte funguje jako identita aplikace "tajný" nebo heslo pro svou aplikaci logiky.
-
-8. V dolní části stránky, zvolte **Uložit**. Můžete chtít Počkejte několik sekund.
-
-9. V části **klíče**, nezapomeňte zkopírovat a uložit klíč se nyní zobrazí. 
-
-   Při konfiguraci aplikace logiky v rámci 3, zadáte tento klíč jako "tajný klíč" nebo heslo.
-
-Další informace, zjistěte, jak [konfigurace aplikace služby App Service pomocí přihlášení Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **Vytvoření identity aplikací pro svou aplikaci logiky v prostředí PowerShell**
@@ -156,7 +128,7 @@ Pokud webovou aplikaci nebo aplikaci API je už nasazená, můžete zapnout ově
 
 4. Na **ověřování / autorizace** vyberte **Uložit**.
 
-Nyní musí najít klienta ID a ID klienta pro identitu aplikací, který je spojen s webovou aplikaci nebo aplikaci API. Použijte tyto identifikátory v části 3. Proto pokračujte postupem pro portál Azure nebo [portál Azure classic](#find-id-classic).
+Nyní musí najít klienta ID a ID klienta pro identitu aplikací, který je spojen s webovou aplikaci nebo aplikaci API. Použijte tyto identifikátory v části 3. Pokračujte tak tyto kroky na portálu Azure.
 
 **Najít ID klienta aplikace identit a ID klienta pro webovou aplikaci nebo aplikaci API na portálu Azure**
 
@@ -177,32 +149,6 @@ Nyní musí najít klienta ID a ID klienta pro identitu aplikací, který je spo
 
 5. Bez uložení změn, zavřete **nastavení Azure Active Directory** stránky.
 
-<a name="find-id-classic"></a>
-
-**Najít ID klienta aplikace identit a ID klienta pro webovou aplikaci nebo aplikaci API na portálu Azure classic**
-
-1. Na portálu Azure classic, vyberte [ **služby Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Vyberte adresář, který používáte pro webovou aplikaci nebo aplikaci API.
-
-3. V **vyhledávání** pole, najděte a vyberte identity aplikací pro webovou aplikaci nebo aplikaci API.
-
-4. Na **konfigurace** kartě, zkopírujte **ID klienta**a uložte tento identifikátor GUID pro použití v části 3.
-
-5. Po získání ID klienta v dolní části **konfigurace** , zvolte **zobrazit koncové body**.
-
-6. Zkopírujte adresu URL pro **dokument federačních metadat**a přejděte na tuto adresu URL.
-
-7. V dokumentu metadat, které se otevře, najít kořenu **EntityDescriptor ID** element, který má **entityID** atributů v této podobě:`https://sts.windows.net/{GUID}` 
-
-   Identifikátor GUID v tento atribut je GUID konkrétní klienta (ID klienta).
-
-8. Zkopírujte ID klienta a uložit toto ID pro použití v části 3 a také použití ve vaší webové aplikace nebo aplikace API šablonu nasazení, v případě potřeby.
-
-Další informace naleznete v následujících tématech:
-
-* [Ověřování a autorizace ve službě Azure App Service](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Zapnout ověřování při nasazení pomocí šablony Azure Resource Manager**
@@ -212,7 +158,7 @@ Stále je nutné vytvořit identity aplikací Azure AD pro vaši webovou aplikac
 Můžete také postupujte podle kroků v části 1, ale nezapomeňte použít vaši webovou aplikaci nebo aplikaci API skutečné `https://{URL}` pro **přihlašovací adresa URL** a **identifikátor ID URI aplikace**. Z těchto kroků budete muset uložit ID klienta a ID klienta pro použití v šabloně nasazení vaší aplikace a také pro část 3.
 
 > [!NOTE]
-> Když vytvoříte identity aplikací Azure AD pro vaši webovou aplikaci nebo aplikaci API, musíte použít na portálu Azure nebo portál Azure classic, nikoli prostředí PowerShell. Prostředí PowerShell nemá nastavit požadovaná oprávnění pro přihlášení uživatelů do webu.
+> Když vytvoříte identity aplikací Azure AD pro vaši webovou aplikaci nebo aplikaci API, musíte použít portál Azure, ne prostředí PowerShell. Prostředí PowerShell nemá nastavit požadovaná oprávnění pro přihlášení uživatelů do webu.
 
 Po získání klienta ID a ID klienta, patří tyto identifikátory jako subresource vaší webové aplikace nebo aplikace API v šabloně nasazení:
 

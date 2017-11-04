@@ -1,8 +1,8 @@
-Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources and lets you do analytics on exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. Many of the default limits can be easily raised for your subscription by contacting support. 
+Služba Data Lake Analytics zjednodušuje složité úlohy správy distribuované infrastruktury a složitého kódu. Dynamicky zřizuje prostředky a umožňuje provádět analýzu na exabajtech dat. Po dokončení úlohy prostředky automaticky ukončí a vy platíte jenom za výkon použitý ke zpracování. Při zvětšování a zmenšování objemu uložených dat nebo množství využitých výpočtů nemusíte přepisovat kód. Řadu výchozí omezení lze snadno zvýšit pro vaše předplatné kontaktováním podpory. 
 
-| **Resource** | **Default Limit** | **Comments** |
+| **Prostředek** | **Výchozí omezení** | **Komentáře** |
 | --- | --- | --- |
-| Maximum number of concurrent jobs |20 | |
-| Maximum number of Analytics Units (AUs) per account |250 | Use any combination of up to a maximum of 250 AUs across 20 jobs. |
-| Maximum script size for job submission | 3 MB | |
+| Maximální počet souběžných úloh |20 | |
+| Maximální počet jednotek Analytics (Austrálie) na účet |250 | Použít libovolnou kombinaci maximálně 250 Austrálie napříč 20 úlohy. |
+| Maximální počet skriptovacích velikost pro odeslání úlohy | 3 MB | |
 

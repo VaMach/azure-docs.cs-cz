@@ -1,6 +1,6 @@
 ---
-title: Subscribe to an offer | Microsoft Docs
-description: As a tenant, learn how to subscribe to an offer.
+title: "Přihlášení k odběru na nabídku | Microsoft Docs"
+description: "Jako uživatel zjistěte, jak k odběru na nabídku."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,35 +14,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="subscribe-to-an-offer"></a>Subscribe to an offer
-Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
+# <a name="subscribe-to-an-offer"></a>Přihlášení k odběru nabídky
 
-1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack tenant portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
+
+Teď, když jste [vytvořit nabídku](azure-stack-create-offer.md), otestovat, zda mohou uživatelé vytvářet předplatné.
+
+1. [Přihlaste se](azure-stack-connect-azure-stack.md) uživatelský portál Azure zásobníku (https://portal.local.azurestack.external) a klikněte na tlačítko **získat předplatné**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
-2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
+2. V **zobrazovaný název** pole, zadejte název pro vaše předplatné, klikněte na **nabízejí**, klikněte na jednu z nabídky v **zvolte nabídku** okna a pak klikněte na tlačítko  **Vytvoření**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
-3. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
+3. Chcete-li zobrazit předplatné, které jste vytvořili, klikněte na tlačítko **další služby**, klikněte na tlačítko **odběry**, pak klikněte na nové předplatné.  
 
-After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+Jakmile se přihlásíte k nabídku, aktualizujte portálu, abyste zjistili, služby, které jsou součástí nové předplatné.
 
-## <a name="subscribe-to-an-add-on-plan"></a>Subscribe to an add-on plan
-If the offer has an add-on plan, tenants can add them to their subscription at any time.  
+## <a name="subscribe-to-an-add-on-plan"></a>Přihlášení k odběru Plan rozšíření
+Pokud nabídku plán rozšíření, uživatelé můžete přidat do svého předplatného kdykoli.  
 
-1. In the tenant portal, select **More services** > **Subscriptions**.
+1. V portálu pro uživatele, vyberte **další služby** > **odběry**.
 
-2. Click on the subscription > **Add Plan** button, and select the add-on plan.
+2. Klikněte na předplatné > **přidat plán** tlačítko a vyberte rozšíření plán.
 
 
 
-## <a name="next-steps"></a>Next steps
-[Provision a virtual machine](azure-stack-provision-vm.md)
-
+## <a name="next-steps"></a>Další kroky
+[Zřízení virtuálního počítače](azure-stack-provision-vm.md)

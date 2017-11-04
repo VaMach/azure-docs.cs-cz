@@ -1,44 +1,44 @@
 
 
 
-## <a name="tagging-a-virtual-machine-through-templates"></a>Tagging a Virtual Machine through Templates
-First, let’s look at tagging through templates. [This template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) places tags on the following resources: Compute (Virtual Machine), Storage (Storage Account), and Network (Public IP Address, Virtual Network, and Network Interface). This template is for a Windows VM but can be adapted for Linux VMs.
+## <a name="tagging-a-virtual-machine-through-templates"></a>Označování virtuálního počítače prostřednictvím šablony
+První Podíváme se na označování prostřednictvím šablon. [Tato šablona](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) umístí značky na následující prostředky: výpočetní (virtuálním počítači), úložiště (účet úložiště) a sítě (veřejnou IP adresu, virtuální sítě a síťové rozhraní). Tato šablona je pro virtuální počítač s Windows, ale můžete přizpůsobit pro virtuální počítače s Linuxem.
 
-Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). This will navigate to the [Azure portal](https://portal.azure.com/) where you can deploy this template.
+Klikněte **nasadit do Azure** tlačítko z [odkaz šablony](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). To umožní přejít [portál Azure](https://portal.azure.com/) kde můžete nasadit tuto šablonu.
 
-![Simple deployment with Tags](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+![Jednoduché nasazení pomocí značek](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-This template includes the following tags: *Department*, *Application*, and *Created By*. You can add/edit these tags directly in the template if you would like different tag names.
+Tato šablona obsahuje následující značky: *oddělení*, *aplikace*, a *vytvořil*. Je můžete přidat či upravit tyto značky přímo v šabloně, pokud chcete názvy různých značek.
 
-![Azure tags in a template](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
+![Azure značky v šabloně](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
-As you can see, the tags are defined as key/value pairs, separated by a colon (:). The tags must be defined in this format:
+Jak vidíte, značky jsou definovány jako páry klíč/hodnota, oddělené dvojtečkou (:). Značky musí být definován v tomto formátu:
 
         “tags”: {
             “Key1” : ”Value1”,
             “Key2” : “Value2”
         }
 
-Save the template file after you finish editing it with the tags of your choice.
+Uložte soubor šablony po dokončení úprav s tagy podle svého výběru.
 
-Next, in the **Edit Parameters** section, you can fill out the values for your tags.
+Vedle **upravit parametry** části můžete vyplnit hodnoty pro značek.
 
-![Edit Tags in Azure portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+![Úprava značek na portálu Azure](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
-Click **Create** to deploy this template with your tag values.
+Klikněte na tlačítko **vytvořit** k nasazení této šablony se vaše hodnoty značky.
 
-## <a name="tagging-through-the-portal"></a>Tagging through the Portal
-After creating your resources with tags, you can view, add, and delete tags in the portal.
+## <a name="tagging-through-the-portal"></a>Označování prostřednictvím portálu
+Po vytvoření vaše prostředky pomocí značek, můžete zobrazit, přidat a odstranit značky na portálu.
 
-Select the tags icon to view your tags:
+Vyberte ikonu značky zobrazení značek:
 
-![Tags icon in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+![Ikona značky na portálu Azure](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
 
-Add a new tag through the portal by defining your own Key/Value pair, and save it.
+Přidejte novou značku přes portál tak, že definujete vlastní dvojice klíč/hodnota a uložte ho.
 
-![Add new Tag in Azure portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+![Přidat novou značku na portálu Azure](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
 
-Your new tag should now appear in the list of tags for your resource.
+Novou značku by se měla zobrazit v seznamu značky prostředku.
 
-![New Tag saved in Azure portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+![Novou značku uložit na portálu Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 

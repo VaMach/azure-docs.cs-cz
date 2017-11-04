@@ -1,16 +1,16 @@
 ## <a name="application-gateway"></a>Application Gateway
-Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing allows the use of routing rules for network traffic based on HTTP. 
+Application Gateway poskytuje vyrovnávání řešení v závislosti na Vyrovnávání zatížení vrstvy 7 Azure spravované HTTP zatížení. Vyrovnávání zatížení aplikací umožňuje použití pravidla směrování pro síťový provoz založený na protokolu HTTP. 
 <BR>
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| **backendAddressPools** |The list of IP addresses of the back end servers. The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP or private IP |
-| **backendHttpSettingsCollection** |Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool |
-| **frontendPorts** |This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers |
-| **httpListeners** |Listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload) |
-| **requestRoutingRules** |The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed. Currently works only as Round-robin |
+| **backendAddressPools** |Seznam IP adres back-end serverů. Uvedené IP adresy by měly buď patřit do podsítě virtuální sítě, nebo musí být veřejné nebo virtuálními IP Adresami nebo privátní IP |
+| **backendHttpSettingsCollection** |Každý fond má nastavení, jako je port, protokol a spřažení na základě souborů cookie. Tato nastavení se vážou na fond a jsou použity na všechny servery v rámci fondu |
+| **frontendPorts** |Toto je veřejný port otevřít ve službě application gateway. Provoz volá Tenhle port a potom se přesměruje na jeden z back-end serverů |
+| **httpListeners** |Naslouchací proces má front-end port, protokol (Http nebo Https, ty jsou malá a velká písmena) a název certifikátu SSL (Pokud se konfiguruje přesměrování zpracování SSL) |
+| **requestRoutingRules** |Pravidlo váže naslouchací proces a zadní ukončení fondu serverů a definuje, které končí zpět fondu serverů, které se mají směrovat provoz. Aktuálně lze použít pouze jako kruhového dotazování |
 
-Example of an application gateway Json template:
+Příklad šablony Json brány aplikace:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -216,6 +216,6 @@ Example of an application gateway Json template:
     }
 
 
-### <a name="additional-resources"></a>Additional resources
-Read [ application gateway REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx) for more information.
+### <a name="additional-resources"></a>Další zdroje
+Čtení [ Aplikační brána rozhraní API REST](https://msdn.microsoft.com/library/azure/mt299388.aspx) Další informace.
 

@@ -4,28 +4,27 @@ description: "Naučíte se postup vytvoření první funkce Azure Function pro p
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 10/17/2017
 ms.author: glenga
-ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: d7d3aef1e713cf080b23575f56321e00a0b4af1f
-ms.contentlocale: cs-cz
-ms.lasthandoff: 08/07/2017
-
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Vytvoření první funkce na webu Azure Portal
 
-Služba Azure Functions umožňuje spuštění kódu v prostředí bez serveru, aniž byste nejdřív museli vytvořit virtuální počítač nebo publikovat webovou aplikaci. V tomto tématu se dozvíte, jak pomocí služby Functions vytvořit na webu Azure Portal funkci Hello World.
+Azure Functions umožňuje spuštění kódu v [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) prostředí bez nutnosti nejprve vytvořit virtuální počítač nebo publikování webové aplikace. V tomto tématu se dozvíte, jak pomocí služby Functions vytvořit na webu Azure Portal funkci Hello World.
 
 ![Vytvoření aplikace Function App na webu Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -40,8 +39,6 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 K hostování provádění funkcí musíte mít aplikaci Function App. Aplikace Function App umožňuje seskupit funkce jako logickou jednotku pro snadnější správu, nasazování a sdílení prostředků. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-![Aplikace Function App byla úspěšně vytvořena.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -84,7 +81,6 @@ Vytvořili jste aplikaci Function App s jednoduchou funkcí aktivovanou protokol
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Další informace najdete v tématu [Vazby protokolu HTTP služby Azure Functions a vazby webhooku](functions-bindings-http-webhook.md).
-
 
 
 

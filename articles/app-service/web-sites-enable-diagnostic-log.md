@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Povolit protokolování diagnostiky pro webové aplikace v Azure App Service
 ## <a name="overview"></a>Přehled
@@ -180,17 +180,17 @@ Pokud chcete zobrazit seznam dostupných cesty, použijte parametr - ListPath.
 ### <a name="streaming-with-azure-command-line-interface"></a>Streamování pomocí rozhraní příkazového řádku Azure
 Stream informace o protokolování, otevřete nový příkazový řádek, prostředí PowerShell, Bash nebo relaci terminálu a zadejte následující příkaz:
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
 To bude připojení k webové aplikaci s názvem 'webappname' a začít streamování informace do okna události protokolu jsou prováděny ve webové aplikaci. Žádné informace, zapisovat do souborů končící na .txt, .log nebo htm, které jsou uložené v adresáři /LogFiles (d: nebo Domovská nebo soubory protokolů) bude Streamovat do místní konzoly.
 
 Chcete-li filtrovat konkrétní události, jako je například chyby, použijte **– filtru** parametr. Například:
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 Chcete-li filtrovat konkrétní typy, jako je například HTTP, použijte **– cesta** parametr. Například:
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > Pokud jste nenainstalovali rozhraní příkazového řádku Azure nebo nenakonfigurovali ho na používání vašeho předplatného Azure, najdete v části [postupy pro použití rozhraní příkazového řádku Azure](../cli-install-nodejs.md).

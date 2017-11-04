@@ -15,8 +15,7 @@ Nejdřív je potřeba mít [Azure Active Directory](https://azure.microsoft.com/
 
 V dalším kroku zaregistrujte aplikaci v AAD. Tím získáte účet instanční objekt, který má přístup k trezoru klíčů, který bude potřebovat virtuálního počítače. V článku Azure Key Vault, můžete najít tyto kroky v [zaregistrovat aplikaci s Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) oddílu, nebo můžete zobrazit kroky se snímky obrazovky v **získat identity pro oddílu aplikace**  z [tomto příspěvku na blogu](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Před dokončením těchto kroků, mějte na paměti, která potřebujete shromáždit tyto informace během této registrace, který je potřeba později, když povolíte na virtuální počítač SQL Azure Key Vault integrace.
 
-* Po přidání aplikace najít **ID klienta** na **konfigurace** kartě. 
-    ![ID klienta Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Po přidání aplikace najít **ID klienta** na **konfigurace** kartě.   ![ID klienta Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     ID klienta je přiřazen později **$spName** parametr (Service Principal name) ve skriptu prostředí PowerShell povolit Azure Key Vault integraci. 
 * Navíc při provádění těchto kroků při vytváření klíče zkopírujte tajný klíč pro váš klíč znázorněné na následujícím snímku obrazovky. Tento klíč tajný klíč je přiřazen později **$spSecret** parametr (Service Principal tajný klíč) ve skriptu prostředí PowerShell.  

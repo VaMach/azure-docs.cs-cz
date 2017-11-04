@@ -1,6 +1,6 @@
 ---
-title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft Docs
-description: Use a sample app to work with Azure Stack Key Vault
+title: "Povolit aplikacím načíst tajné klíče Azure zásobníku Key Vault | Microsoft Docs"
+description: "Pomocí ukázkové aplikace pro práci s Azure zásobníku Key Vault"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,28 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Ukázkovou aplikaci, která používá klíče a tajné klíče uložené v trezoru klíčů
 
-# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Sample application that uses keys and secrets stored in a key vault
+V tomto článku jsme ukazují, jak spouštět ukázkovou aplikaci (HelloKeyVault), která načte klíče a tajné klíče z trezoru klíčů v zásobníku Azure.
 
-In this article, we show you how to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
+## <a name="prerequisites"></a>Požadavky 
 
-## <a name="prerequisites"></a>Prerequisites 
+Spusťte následující předpoklady, některý z [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), nebo ze systému Windows externí klienta Pokud jste [připojení prostřednictvím VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-Run the following prerequisites either from the [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+* Nainstalujte [modulů prostředí Azure PowerShell kompatibilní s Azure zásobníku](azure-stack-powershell-install.md).  
+* Stažení [nástroje potřebné pro práci s Azure zásobníku](azure-stack-powershell-download.md). 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+## <a name="create-and-get-the-key-vault-and-application-settings"></a>Vytvoření a získat trezoru klíčů a nastavení aplikace
 
-## <a name="create-and-get-the-key-vault-and-application-settings"></a>Create and get the key vault and application settings
-
-First, you should create a key vault in Azure Stack, and register an application in Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory. However, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable, this script generates a random password. 
+Doporučujeme nejprve vytvoření trezoru klíčů v zásobníku Azure a zaregistrovat aplikaci v Azure Active Directory (Azure AD). Můžete vytvořit a registrovat trezorů klíčů, a to pomocí portálu Azure nebo Powershellu. Tento článek ukazuje způsob prostředí PowerShell k provedení úlohy. Ve výchozím nastavení tento skript prostředí PowerShell vytvoří novou aplikaci ve službě Active Directory. Však také můžete jeden z existující aplikace. Nezapomeňte zadat hodnotu pro `aadTenantName` a `applicationPassword` proměnné. Pokud nezadáte hodnotu `applicationPassword` proměnné, tento skript generuje náhodné heslo. 
 
 ```powershell
 $vaultName           = 'myVault'
@@ -126,28 +124,27 @@ Write-Host
 
 ``` 
 
-The following screenshot shows the output of the previous script:
+Následující snímek obrazovky ukazuje výstup předchozí skriptu:
 
-![App config](media/azure-stack-kv-sample-app/settingsoutput.png)
+![Konfigurace aplikace](media/azure-stack-kv-sample-app/settingsoutput.png)
 
-Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. You use these values to run the HelloKeyVault application.
+Poznamenejte si **VaultUrl**, **AuthClientId**, a **AuthClientSecret** hodnot vrácených předchozí skript. Tyto hodnoty použijete ke spuštění aplikace HelloKeyVault.
 
-## <a name="download-and-run-the-sample-application"></a>Download and run the sample application
+## <a name="download-and-run-the-sample-application"></a>Stáhněte a spusťte ukázkové aplikace
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+Stažení ukázky klíče trezoru z Azure [Key Vault klienta ukázky](https://www.microsoft.com/en-us/download/details.aspx?id=45343) stránky. Extrahujte obsah souboru .zip, který na stanici vývoje. Existují dvě ukázky ve složce Ukázky. Ukázka HellpKeyVault používáme v tomto tématu. Vyhledejte **Microsoft.Azure.KeyVault.Samples** > **ukázky** > **HelloKeyVault** složky a otevřete aplikaci HelloKeyVault v sadě Visual Studio. 
 
-Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
+Otevřete soubor HelloKeyVault\App.config a nahraďte hodnoty <appSettings> element s **VaultUrl**, **AuthClientId**, a **AuthClientSecret** hodnoty vrácená skriptem předchozí. Všimněte si, že ve výchozím nastavení souboru App.config obsahuje zástupný symbol pro *AuthCertThumbprint*, ale použít *AuthClientSecret* místo. Po nastavení nahradíte, znovu sestavte řešení a spusťte aplikaci.
 
-![App settings](media/azure-stack-kv-sample-app/appconfig.png)
+![Nastavení aplikace](media/azure-stack-kv-sample-app/appconfig.png)
  
-The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
+Aplikace přihlášení do služby Azure AD a pak používá tento token k ověření v zásobníku Azure key vault. Aplikace provede operací, jako je vytvářet, šifrování, zabalení a odstraňovat na klíčů a tajných klíčů služby key vault. Můžete také předat konkrétní parametry, jako *šifrování* a *dešifrovat* aplikaci, která zajišťuje, že aplikace provede pouze operace u trezoru. 
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+## <a name="next-steps"></a>Další kroky
+[Nasazení virtuálního počítače s heslem Key Vaultu](azure-stack-kv-deploy-vm-with-secret.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[Nasadit virtuální počítač s certifikátem Key Vault](azure-stack-kv-push-secret-into-vm.md)
 
 
 

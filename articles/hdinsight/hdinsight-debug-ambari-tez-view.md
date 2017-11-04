@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Použití zobrazení Ambari k ladění úlohách Tez v HDInsight
 
@@ -30,7 +30,7 @@ Webové uživatelské rozhraní Ambari pro HDInsight obsahuje Tez zobrazení, kt
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Cluster HDInsight se systémem Linux. Pokyny týkající se vytvoření clusteru, najdete v části [začněte používat HDInsight se systémem Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Cluster HDInsight se systémem Linux. Pokyny týkající se vytvoření clusteru, najdete v části [začněte používat HDInsight se systémem Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Moderní webový prohlížeč, který podporuje HTML5.
 
 ## <a name="understanding-tez"></a>Principy Tez
@@ -106,7 +106,7 @@ Pro spouštění dotazů Hive, který používá Tez použijte následující po
 
 ## <a name="next-steps"></a>Další kroky
 
-Teď, když jste se naučili použití Tez zobrazení, další informace o [pomocí Hive v HDInsight](hdinsight-use-hive.md).
+Teď, když jste se naučili použití Tez zobrazení, další informace o [pomocí Hive v HDInsight](hadoop/hdinsight-use-hive.md).
 
 Další podrobné technické informace o Tez naleznete v tématu [Tez stránku v Hortonworks](http://hortonworks.com/hadoop/tez/).
 

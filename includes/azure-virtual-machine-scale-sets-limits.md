@@ -1,6 +1,6 @@
-| Resource | Default Limit | Maximum Limit |
+| Prostředek | Výchozí omezení | Maximální omezení |
 | --- | --- | --- |
-| Maximum number of VMs in a scale set |1000 |1000 |
-| Maximum number of VMs based on a custom VM image in a scale set|300 |300 |
-| Maximum number of scale sets in a region |2000 |2000 |
+| Maximální počet virtuálních počítačů ve škálovací sadě |1000 |1000 |
+| Nastavit maximální počet virtuálních počítačů podle vlastní image virtuálního počítače v škálování|300 |300 |
+| Maximální počet škálovacích sad v oblasti |2000 |2000 |
 

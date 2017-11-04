@@ -1,14 +1,14 @@
-It is important to realize that there are two ways to configure an availability group listener in Azure. The ways differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
+Je důležité si uvědomit, že existují dva způsoby, jak nakonfigurovat naslouchací proces skupiny dostupnosti v Azure. Způsobů, jak se liší v typu služby Vyrovnávání zatížení Azure, kterou použijete při vytvoření naslouchacího procesu. Následující tabulka popisuje rozdíly:
 
-| Load balancer type | Implementation | Use when: |
+| Typ nástroje pro vyrovnávání zatížení | Implementace | Použijte, když: |
 | --- | --- | --- |
-| **External** |Uses the *public virtual IP address* of the cloud service that hosts the virtual machines (VMs). |You need to access the listener from outside the virtual network, including from the Internet. |
-| **Internal** |Uses an *internal load balancer* with a private address for the listener. |You can access the listener only from within the same virtual network. This access includes site-to-site VPN in hybrid scenarios. |
+| **Externí** |Používá *veřejná virtuální IP adresa* cloudové služby, který je hostitelem virtuálního počítače (VM). |Potřebujete přístup k naslouchání z mimo virtuální síť, včetně z Internetu. |
+| **Interní** |Používá *nástroj pro vyrovnávání zatížení pro vnitřní* s privátní adresou pro naslouchací proces. |Můžete přistupovat naslouchací proces pouze z v rámci stejné virtuální síti. Tento přístup zahrnuje site-to-site VPN v hybridní scénáře. |
 
 > [!IMPORTANT]
-> For a listener that uses the cloud service's public VIP (external load balancer), as long as the client, listener, and databases are in the same Azure region, you will not incur egress charges. Otherwise, any data returned through the listener is considered egress, and it is charged at normal data-transfer rates. 
+> Pro naslouchací proces, který používá cloudové službě veřejné VIP (externím vyrovnáváním zatížení), stejně dlouho jako klient naslouchací proces a databáze jsou ve stejné oblasti Azure, nebudou vám narůstat poplatky za odchozí data. Jinak hodnota žádná data vrácená prostřednictvím naslouchací proces považuje za odchozí a je účtovat normální přenosu dat tempem. 
 > 
 > 
 
-An ILB can be configured only on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use an ILB. For more information, see [Internal load balancer overview](../articles/load-balancer/load-balancer-internal-overview.md).
+ILB lze nastavit pouze na virtuální sítě s místní rozsah. Existující virtuální sítě, které byly nakonfigurovány pro skupiny vztahů nelze použít ILB. Další informace najdete v tématu [přehled nástroje pro vyrovnávání zatížení pro vnitřní](../articles/load-balancer/load-balancer-internal-overview.md).
 

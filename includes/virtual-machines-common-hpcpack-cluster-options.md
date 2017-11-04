@@ -1,4 +1,4 @@
-Create and manage a cloud-based high-performance computing (HPC) cluster by taking advantage of [Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) and Azure compute and infrastructure services. HPC Pack, available for free download, is built on Microsoft Azure and Windows Server technologies and supports a wide range of HPC workloads.
+Vytvořit a spravovat cluster cloudové vysoce výkonné výpočty (HPC) díky [Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) a výpočty a infrastruktura služby Azure. HPC Pack, která je k dispozici zdarma stáhnout, je založen na technologiích Microsoft Azure a Windows Server a podporuje úlohy HPC široký rozsah.
 
-For more HPC options in Azure, see [Technical resources for batch and high-performance computing](../articles/batch/big-compute-resources.md).
+Další možnosti HPC v Azure najdete v tématu [technických prostředcích pro batch a vysoce výkonné výpočty](../articles/batch/big-compute-resources.md).
 

@@ -9,7 +9,7 @@
 #### <a name="to-remove-address-prefixes"></a>Odebrání předpon adres:
 
 1. Na bráně místní sítě prostředku v **nastavení** klikněte na tlačítko **konfigurace**.
-2. Klikněte **'...** na řádek obsahující předponu, která chcete odebrat.
+2. Klikněte **"..."** na řádek obsahující předpona, kterou chcete odebrat.
 3. Klikněte na tlačítko **odebrat**.
 4. Klikněte na tlačítko **Uložit** uložte nastavení.
 

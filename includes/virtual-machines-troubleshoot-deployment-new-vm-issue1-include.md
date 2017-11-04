@@ -1,5 +1,5 @@
-## <a name="issue-custom-image-provisioning-errors"></a>Issue: Custom image; provisioning errors
-Provisioning errors arise if you upload or capture a generalized VM image as a specialized VM image or vice versa. The former will cause a provisioning timeout error and the latter will cause a provisioning failure. To deploy your custom image without errors, you must ensure that the type of the image does not change during the capture process.
+## <a name="issue-custom-image-provisioning-errors"></a>Problém: Vlastní image; chyby zřizování
+Zřizování chyby nastat, pokud nahrát nebo přípravné zobecněný image virtuálního počítače jako specializované image virtuálního počítače nebo naopak. První způsobí vypršení časového limitu zřizování a k tomu může způsobit selhání zřizování. Pokud chcete nasadit vlastní bitovou kopii bez chyb, je nutné zajistit, že typ obrázku nezmění během procesu zachycení.
 
-The following table lists the possible combinations of generalized and specialized images, the error type you will encounter and what you need to do to fix the errors.
+Následující tabulka uvádí možné kombinace zobecněný a specializované bitové kopie, typ chyby, které mohou být zobrazeny a co je potřeba udělat, aby opravte chyby.
 

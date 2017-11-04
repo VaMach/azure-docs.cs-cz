@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Použití Azure sdílené přístupové podpisy úložiště omezit přístup k datům v HDInsight
 
 HDInsight má úplný přístup k datům v účtech úložiště Azure, který je přidružen ke clusteru. Sdílené přístupové podpisy na kontejner objektů blob můžete použít k omezení přístupu k datům. Chcete-li například zadat jen pro čtení přístup k datům. Podpisy sdíleného přístupu (SAS) jsou funkce účtů úložiště Azure, která vám umožní omezit přístup k datům. Například poskytuje přístup jen pro čtení k datům.
 
 > [!IMPORTANT]
-> Řešení pomocí Apache škálu zvažte použití HDInsight připojený k doméně. Další informace najdete v tématu [konfigurace připojený k doméně HDInsight](hdinsight-domain-joined-configure.md) dokumentu.
+> Řešení pomocí Apache škálu zvažte použití HDInsight připojený k doméně. Další informace najdete v tématu [konfigurace připojený k doméně HDInsight](./domain-joined/apache-domain-joined-configure.md) dokumentu.
 
 > [!WARNING]
 > HDInsight musí mít plný přístup k výchozí úložiště pro cluster.
@@ -304,8 +304,8 @@ Po připojení ke clusteru pomocí následujících kroků ověřte, můžete na
 
 Teď, když jste se naučili postup přidání úložiště omezený přístup ke svému clusteru HDInsight, se naučíte další způsoby, jak pracovat s daty v clusteru:
 
-* [Použití Hivu se službou HDInsight](hdinsight-use-hive.md)
-* [Použití Pigu se službou HDInsight](hdinsight-use-pig.md)
-* [Používání nástroje MapReduce s HDInsight](hdinsight-use-mapreduce.md)
+* [Použití Hivu se službou HDInsight](hadoop/hdinsight-use-hive.md)
+* [Použití Pigu se službou HDInsight](hadoop/hdinsight-use-pig.md)
+* [Používání nástroje MapReduce s HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

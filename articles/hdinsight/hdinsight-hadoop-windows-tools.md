@@ -10,11 +10,11 @@ ms.date: 05/17/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: e4f231c1f9b903d6cc7f2b062b30d2a072be8493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Práce v ekosystému Hadoop v HDInsight z počítačů s Windows
 
@@ -28,7 +28,7 @@ Prostředí Azure PowerShell je skriptovací prostředí, které můžete řídi
 Příklady úloh, které můžete provést pomocí prostředí PowerShell:
 
 * [Vytvoření clusterů pomocí prostředí PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Spouštění dotazů Hive pomocí prostředí PowerShell](hdinsight-hadoop-use-hive-powershell.md)
+* [Spouštění dotazů Hive pomocí prostředí PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
 * [Správa clusterů pomocí prostředí PowerShell](hdinsight-administer-use-powershell.md)
 
 Postupujte podle kroků [instalace a konfigurace prostředí Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) získat nejnovější verzi. Pokud máte skripty, které je potřeba upravit tak, aby používaly nové rutiny pro Azure Resource Manager, najdete v části [migrace do nástroje pro vývoj na základě Azure Resource Manageru pro clustery služby HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -38,17 +38,17 @@ Následující nástroje mají webové uživatelské rozhraní, které běží v
 * **[Cloudové prostředí Azure (preview)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  je prostředí interaktivní, příkazového řádku, který běží v prohlížeči a z portálu Azure.
 * **[Webové uživatelské rozhraní Ambari](hdinsight-hadoop-manage-ambari.md)**  správy a monitorování nástroje, které jsou k dispozici na portálu Azure, který slouží ke správě různých druhů úlohy, jako například:
     * [Pomocí Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [Zobrazení Ambari Hive](hdinsight-hadoop-use-hive-ambari-view.md)
+    * [Zobrazení Ambari Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Tez zobrazení Ambari](hdinsight-debug-ambari-tez-view.md)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Nástroje data Lake (Hadoop) pro Visual Studio
 Pomocí nástrojů Data Lake pro Visual Studio k nasazení a správě topologie Storm. Nástroje data Lake nainstaluje taky SCP.NET SDK, která umožňuje vyvíjet topologie C# Storm pomocí sady Visual Studio.
 
-Před přechodem na následující příklady [nainstalujte a nástrojů Data Lake pro Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md). 
+Před přechodem na následující příklady [nainstalujte a nástrojů Data Lake pro Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md). 
 
 Příklady úloh, které můžete provést pomocí sady Visual Studio a nástrojů Data Lake pro Visual Studio:
-* [Nasazení a správa topologií Storm ze sady Visual Studio](hdinsight-storm-deploy-monitor-topology-linux.md)
-* [Vývoj C# topologií pro Storm pomocí sady Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md). Službu bits zahrnují příklad šablony pro topologie Storm, se můžete připojit do databáze, například Azure Cosmos databáze a databáze SQL.
+* [Nasazení a správa topologií Storm ze sady Visual Studio](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Vývoj C# topologií pro Storm pomocí sady Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md). Službu bits zahrnují příklad šablony pro topologie Storm, se můžete připojit do databáze, například Azure Cosmos databáze a databáze SQL.
 
 ## <a name="visual-studio-and-the-net-sdk"></a>Visual Studio a .NET SDK 
 
@@ -56,8 +56,8 @@ Visual Studio pomocí .NET SDK služby slouží k clustery spravovat a vývoji v
 
 Příklady úloh, které můžete provést pomocí .NET SDK v sadě Visual Studio:
 * [Vytváření clusterů a práci v HDInsight z aplikace rozhraní .NET Framework](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [Spouštění dotazů Hive pomocí sady .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [Uživatelem definované funkce jazyka C# pomocí Hive a Pig streamování na Hadoop](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Spouštění dotazů Hive pomocí sady .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Uživatelem definované funkce jazyka C# pomocí Hive a Pig streamování na Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 > TIP Pokud používáte rozhraní .NET řešení s clustery HDInsight se systémem Windows, je vhodná doba pro plánování migrace do clusterech se systémem Linux. Další informace najdete v tématu [migrovat .NET řešení pro HDInsight se systémem Windows do HDInsight se systémem Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
@@ -68,15 +68,15 @@ Obě [Intellij IDEA](https://www.jetbrains.com/idea/download) a [Eclipse IDE](ht
 * Vytvořte a spusťte aplikací Scala Spark místně.
 
 Tyto články Zobrazit jak: 
-* Intellij IDEA: [Spark vytvořit aplikace s použitím nástrojů Azure pro modul plug-in Intellij a Scala SDK.](hdinsight-apache-spark-intellij-tool-plugin.md)
-* Eclipse IDE nebo Scala IDE pro Eclipse: [Spark vytvořit aplikace a sady nástrojů Azure pro Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) 
+* Intellij IDEA: [Spark vytvořit aplikace s použitím nástrojů Azure pro modul plug-in Intellij a Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
+* Eclipse IDE nebo Scala IDE pro Eclipse: [Spark vytvořit aplikace a sady nástrojů Azure pro Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Poznámkové bloky na Spark pro datových vědců 
 Clustery Apache Spark v HDInsight zahrnuje poznámkových bloků Zeppelin a jádra, které lze použít s poznámkovými bloky Jupyter. 
 
-* [Další informace o použití jádra na clustery Spark s poznámkovými bloky Jupyter pro testování aplikací Spark](hdinsight-apache-spark-zeppelin-notebook.md)
-* [Další informace o použití poznámkových bloků Zeppelin na clustery Spark ke spuštění úloh Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md) 
+* [Další informace o použití jádra na clustery Spark s poznámkovými bloky Jupyter pro testování aplikací Spark](spark/apache-spark-zeppelin-notebook.md)
+* [Další informace o použití poznámkových bloků Zeppelin na clustery Spark ke spuštění úloh Spark](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Spuštění nástrojů systémem Linux a technologií v systému Windows

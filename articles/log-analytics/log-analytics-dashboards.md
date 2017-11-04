@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Vytvořit vlastní řídicí panel pro použití v analýzy protokolů
 
->[!NOTE]
-> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak nelze vytvořit nové řídicí panely nebo upravit existující řídicí panely. 
-
 Tento průvodce vám pomůže pochopit jak řídicí panely analýzy protokolů můžete vizualizovat všechny uložený protokol hledání, budete jeden přehledu zobrazení prostředí.
+
+>[!NOTE]
+> Pokud pracovní prostor byl upgradován na verzi [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak nelze upravit stávající **vlastní řídicí panel**. Pokud pracovního prostoru nemá žádné **vlastní řídicí panel** přidali, pak se nezobrazí dlaždice **vlastní řídicí panel** v pracovním prostoru upgradovaný. 
 
 ![Příklad řídicího panelu](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

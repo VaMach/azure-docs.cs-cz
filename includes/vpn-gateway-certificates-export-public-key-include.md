@@ -1,7 +1,7 @@
-Point-to-Site connections require the certificate public key .cer file (not the private key) to be uploaded to Azure. The following steps help you export the .cer file for your self-signed root certificate:
+Připojení point-to-Site vyžadují soubor .cer veřejného klíče certifikátu (ne privátní klíč) k odeslání do Azure. Následující postup můžete exportovat soubor .cer pro podepsané svým držitelem kořenový certifikát:
 
-1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
-2. In the Wizard, click **Next**. Select **No, do not export the private key**, and then click **Next**.
-3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then click **Next**. 
-4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
-5. Click **Finish** to export the certificate. You see **The export was successful**. Click **OK** to close the wizard.
+1. Chcete-li získat soubor .cer z certifikátu, otevřete **správu uživatelských certifikátů**. Vyhledejte kořenový certifikát podepsaný svým držitelem, obvykle v Certificates - Current User\Personal\Certificates, a klikněte pravým tlačítkem myši. Klikněte na **Všechny úlohy** a potom klikněte na **Exportovat**. Otevře se **Průvodce exportem certifikátu**.
+2. V průvodci klikněte na **Další**. Vyberte **Ne, neexportovat privátní klíč** a klikněte na **Další**.
+3. Na stránce **Formát souboru pro export** vyberte **X.509, kódování Base-64 (CER)** a klikněte na **Další**. 
+4. V části **Soubor pro export** **přejděte** do umístění, do kterého chcete certifikát vyexportovat. V části **Název souboru** zadejte název souboru. Pak klikněte na **Další**.
+5. Certifikát vyexportujte kliknutím na **Dokončit**. Zobrazí **úspěšném exportu**. Kliknutím na **OK** zavřete průvodce.

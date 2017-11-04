@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie pro Azure AD Connect
 Tento článek popisuje různé místní a topologie služby Azure Active Directory (Azure AD), které využívají synchronizace Azure AD Connect jako klíče integrační řešení. Tento článek obsahuje podporované a nepodporované konfigurace.
@@ -111,7 +111,7 @@ Některé úlohy Office 365 mají určitá omezení na podporované topologie:
 
 | Úloha | Omezení |
 --------- | ---------
-| Exchange Online | Pokud existuje více než jeden organizací místního Exchange (tedy Exchange byla nasazena do více než jedné doménové struktuře), je nutné použít Exchange 2013 s aktualizací SP1 nebo novější. Další informace najdete v tématu [hybridní nasazení s více doménovými strukturami služby Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
+| Exchange Online | Další informace o hybridní topologie nepodporuje Exchange Online, najdete v části [hybridní nasazení s více doménovými strukturami služby Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype pro firmy | Pokud používáte více místními doménovými strukturami, je podporována pouze topologie doménové struktury účtu prostředku. Další informace najdete v tématu [prostředí požadavky pro Skype pro firmy Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 

@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Vytvoření fondu Azure Batch ve virtuální síti
 
@@ -62,7 +62,12 @@ Aby se zajistilo, že výpočetní uzly fondu Azure Batch fungovat ve virtuáln�
 * Služba Batch musí komunikovat s fondu výpočetních uzlů pro plánování úloh. Chcete-li povolit tuto komunikaci, přidejte trasu uživatelem definované pro každou IP adresu, používá služba Batch v oblasti, kde existuje vašeho účtu Batch. Pokud chcete získat seznam IP adres služby Batch, kontaktujte prosím podporu Azure.
 
 * Ujistěte se, že odchozí přenosy do služby Azure Storage (konkrétně adresy URL ve formátu `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, a `<account>.blob.core.windows.net`) není blokován prostřednictvím vaší místní síťové zařízení.
-    
+
+Když přidáte trasy definované uživatelem, definujte trasy pro každou relaci předponu adresy Batch IP a nastavte **typ dalšího směrování** k **Internet**. Podívejte se na následující příklad:
+
+![Trasy definované uživatelem](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>Další kroky
 
 - Podrobnější přehled služby Batch, najdete v tématu [rozsáhlé paralelní vývoj výpočetní řešení pomocí služby Batch](batch-api-basics.md).
+- Další informace o vytváření trasy definované uživatelem, naleznete v části [vytvořit trasy definované uživatelem – portál Azure](../virtual-network/create-user-defined-route-portal.md).

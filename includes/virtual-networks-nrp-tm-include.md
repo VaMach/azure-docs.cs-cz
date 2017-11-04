@@ -1,26 +1,26 @@
-## <a name="traffic-manager-profile"></a>Traffic Manager Profile
-Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
+## <a name="traffic-manager-profile"></a>Profil služby Traffic Manager
+Správce provozu a její podřízené prostředku koncového bodu povolte DNS směrování do koncových bodů v Azure a mimo Azure. Takové distribuce přenosů se řídí metody směrování zásad. Správce provozu také umožňuje koncový bod stavu pro sledování, a provoz běžnými správně založený na stav koncového bodu. 
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| **trafficRoutingMethod** |possible values are *Performance*, *Weighted*, and *Priority* |
-| **dnsConfig** |FQDN for the profile |
-| **Protocol** |monitoring protocol, possible values are *HTTP* and *HTTPS* |
-| **Port** |monitoring port |
-| **Path** |monitoring path |
-| **Endpoints** |container for endpoint resources |
+| **trafficRoutingMethod** |možné hodnoty jsou *výkonu*, *vážená*, a *s prioritou* |
+| **dnsConfig** |Plně kvalifikovaný název domény pro tento profil |
+| **Protokol** |protokol pro sledování, možné hodnoty jsou *HTTP* a *HTTPS* |
+| **Port** |monitorování portu |
+| **Cesta** |Cesta monitorování |
+| **Koncové body** |kontejner pro koncový bod prostředků |
 
-### <a name="endpoint"></a>Endpoint
-An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
+### <a name="endpoint"></a>Koncový bod
+Koncový bod je podřízený prostředek profilu Traffic Manageru. Reprezentuje služba nebo koncový bod webové, pro které uživatele se provoz rozděluje podle nakonfigurované zásady v prostředku profil služby Traffic Manager. 
 
-| Property | Description |
+| Vlastnost | Popis |
 | --- | --- |
-| **Type** |the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* |
-| **targetResourceId** |public IP address of a service or web endpoint. This can be an Azure or external endpoint. |
-| **Weight** |endpoint weight used in traffic management. |
-| **Priority** |priority of the endpoint, used to define a failover action |
+| **Typ** |Typ koncového bodu, možné hodnoty jsou *Azure koncový bod*, *externí koncový bod*, a *vnořené koncový bod* |
+| **targetResourceId** |veřejná IP adresa koncového bodu služby nebo web. To může být Azure nebo externí koncový bod. |
+| **Váha** |koncový bod váhy použít řízení provozu. |
+| **Priorita** |Priorita koncového bodu, používá k definování akce převzetí služeb při selhání |
 
-Sample of Traffic Manager in Json format: 
+Ukázka služby Traffic Manager ve formátu Json: 
 
         {
             "apiVersion": "[variables('tmApiVersion')]",
@@ -77,6 +77,6 @@ Sample of Traffic Manager in Json format:
         }
 
 
-## <a name="additional-resources"></a>Additional resources
-Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
+## <a name="additional-resources"></a>Další zdroje
+Čtení [dokumentace k REST API pro správce provozu](https://msdn.microsoft.com/library/azure/mt163664.aspx) Další informace.
 

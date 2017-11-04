@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Vytvářet na vyžádání clusterů systému Hadoop v HDInsight pomocí Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -564,7 +564,7 @@ V případě, že nechcete odstranit účet úložiště, když odstraníte skup
 ## <a name="next-steps"></a>Další kroky
 V tomto článku jste se naučili, jak používat Azure Data Factory k vytvoření clusteru HDInsight na vyžádání ke zpracování úloh Hive. Další informace:
 
-* [Kurz Hadoopu: začněte používat systémem Linux Hadoop v HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Kurz Hadoopu: začněte používat systémem Linux Hadoop v HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Vytvořit clustery se systémem Linux Hadoop v HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Dokumentace prostředí HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Dokumentace k objektu pro vytváření dat](https://azure.microsoft.com/documentation/services/data-factory/)

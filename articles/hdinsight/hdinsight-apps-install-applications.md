@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/16/2017
 ms.author: jgao
-ms.openlocfilehash: 3b3ff8d33959978ddd648e59a6a301f00c247964
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b9d55f2d1e11156c21bc4ec5652e6d7c421db2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalace aplikací Hadoop jiných výrobců v Azure HDInsight
 
@@ -42,7 +42,7 @@ Aktuálně jsou dostupné čtyři publikované aplikace:
 Pokyny uvedené v tomto článku se týkají webu Azure Portal. Šablonu Azure Resource Manageru můžete exportovat z portálu nebo získat její kopii od dodavatelů, a poté k jejímu nasazení můžete použít Azure PowerShell a rozhraní příkazového řádku Azure.  Viz článek [Vytváření clusterů Hadoop na systému Linux v HDInsight pomocí šablon Resource Manageru](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## <a name="prerequisites"></a>Požadavky
-Pokud chcete instalovat aplikace HDInsight na stávající cluster HDInsight, musí mít cluster služby HDInsight. Chcete-li jeden vytvořit, prostudujte si část [Tvorba clusterů](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). Aplikace HDInsight můžete také nainstalovat při vytváření clusteru HDInsight.
+Pokud chcete instalovat aplikace HDInsight na stávající cluster HDInsight, musí mít cluster služby HDInsight. Chcete-li jeden vytvořit, prostudujte si část [Tvorba clusterů](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Aplikace HDInsight můžete také nainstalovat při vytváření clusteru HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Instalace aplikací do existujících clusterů
 Následující postup ukazuje, jak můžete instalovat aplikace HDInsight do existujícího clusteru HDInsight.
@@ -51,7 +51,7 @@ Následující postup ukazuje, jak můžete instalovat aplikace HDInsight do exi
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **Clustery HDInsight** v levé nabídce.  Pokud ho nevidíte, klikněte na **Další služby** a pak klikněte na **Clustery HDInsight**.
-3. Klikněte na cluster HDInsight.  Pokud ho ještě nemáte, vytvořte ho.  Viz článek [Vytvoření clusterů](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+3. Klikněte na cluster HDInsight.  Pokud ho ještě nemáte, vytvořte ho.  Viz článek [Vytvoření clusterů](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Klikněte na **Aplikace** v kategorii **Konfigurace**. Zobrazí se seznam nainstalovaných aplikací. Pokud nemůžete najít aplikace, znamená to, že žádné aplikace pro tuto verzi clusteru HDInsight neexistují.
    
     ![Nabídka portálu pro aplikace HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)

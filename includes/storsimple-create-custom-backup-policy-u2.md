@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+#### <a name="to-create-a-custom-backup-policy"></a>Chcete-li vytvořit vlastní zásady zálohování
+1. Na **zařízení** klikněte na tlačítko **zásady zálohování** a pak klikněte na **přidat**.
+2. V **přidat zásadu zálohování** dialogovém **definovat zásady zálohování**:
    
-   1. Specify a backup policy name.
-   2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
-   3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
-3. Under **Define a Schedule**:
+   1. Zadejte název zásady zálohování.
+   2. Vyberte svazky, které chcete přidat do této zásady. Můžete přidat více svazků tak, že vyberete více zaškrtávacích políček.
+   3. Kliknutím na ikonu šipky ![ikona zaškrtnutí](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
+3. V části **definovat plán**:
    
-   1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
-   2. Specify the backup frequency in minutes, hours, days, or weeks.
-   3. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. 
-   4. Select the starting time and date for the policy.
-   5. Select the check box to enable the policy.
-4. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
-5. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
+   1. Vyberte **typ zálohy** (**místní snímek** nebo **Cloudový snímek**).
+   2. Zadejte četnost zálohování v minutách, hodinách, dnech nebo týdnech.
+   3. V rozevíracím seznamu vyberte plán uchovávání informací. Volby uchování závisí na požadované četnosti zálohování. 
+   4. Vyberte počáteční čas a datum pro tuto zásadu.
+   5. Zaškrtněte políčko pro povolení zásad.
+4. Klikněte na ikonu zaškrtnutí ![ikona zaškrtnutí](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) Chcete-li dokončit.
+5. Vrátíte se na **zásady zálohování** stránky. Tabulkový seznam zásady zálohování se aktualizuje a zobrazí vlastními zásadami.
 

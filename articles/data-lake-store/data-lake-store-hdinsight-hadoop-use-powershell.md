@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d601cfa6e2e89ef26d4a2d7824b239a2f6ca7a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Pomocí prostředí Azure PowerShell k vytvoření clusteru HDInsight s Data Lake Store (jako další úložiště)
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Postupujte podle těchto kroků můžete vytvořit Data Lake Store.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Nastavení ověřování pro přístup na základě rolí k Data Lake Store
-Každé předplatné služby Azure souvisí s Azure Active Directory. Uživatelů a služeb, která přistupují k prostředkům pomocí portálu Azure Classic nebo rozhraní API služby Azure Resource Manager předplatného musí nejprve ověřit pomocí této služby Azure Active Directory. Udělením přístupu k předplatných Azure a služby přiřazením příslušné role na prostředek služby Azure.  Objekt služby pro služby, identifikuje službu v Azure Active Directory (AAD). Tato část ukazuje postup udělení aplikační služba, stejně jako HDInsight, přístup k prostředku Azure (účet Azure Data Lake Store jste vytvořili dříve) vytvořením objekt služby pro aplikaci a přiřazení rolí k, pomocí prostředí Azure PowerShell.
+Každé předplatné služby Azure souvisí s Azure Active Directory. Uživatelů a služeb, která přistupují k prostředkům odběru pomocí portálu Azure nebo rozhraní API služby Azure Resource Manager, musí nejprve ověřit pomocí této služby Azure Active Directory. Udělením přístupu k předplatných Azure a služby přiřazením příslušné role na prostředek služby Azure.  Objekt služby pro služby, identifikuje službu v Azure Active Directory (AAD). Tato část ukazuje postup udělení aplikační služba, stejně jako HDInsight, přístup k prostředku Azure (účet Azure Data Lake Store jste vytvořili dříve) vytvořením objekt služby pro aplikaci a přiřazení rolí k, pomocí prostředí Azure PowerShell.
 
 Nastavení ověřování služby Active Directory pro Azure Data Lake, musíte provést následující úlohy.
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
-ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 704d76808fbc5f7bde98d2fca291ac7c2796db88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Správa clusterů systému Hadoop v HDInsight pomocí portálu Azure
 
@@ -163,7 +163,7 @@ Dopad změny v počtu uzlů dat se liší pro každý typ clusteru podporuje HDI
     >balancer
     ```
 
-    Další informace o používání prostředí HBase naleznete v části [začít pracovat s příklad Apache HBase v HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    Další informace o používání prostředí HBase naleznete v části [začít pracovat s příklad Apache HBase v HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -209,7 +209,7 @@ Existuje mnoho způsobů, které můžete naprogramovat proces:
 * Uživatel pro vytváření dat Azure. V tématu [vytvořit na vyžádání systémem Linux Hadoop clusterů v HDInsight pomocí Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) pro vytváření HDInsight na vyžádání propojené služby.
 * Použití Azure PowerShell.  V tématu [analyzovat data zpoždění letu](hdinsight-analyze-flight-delay-data.md).
 * Použití Azure CLI. V tématu [Správa clusterů HDInsight pomocí rozhraní příkazového řádku Azure](hdinsight-administer-use-command-line.md).
-* Použití sady .NET SDK HDInsight. V tématu [úloh Hadoop odeslání](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Použití sady .NET SDK HDInsight. V tématu [úloh Hadoop odeslání](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Informace o cenách najdete v části [HDInsight ceny](https://azure.microsoft.com/pricing/details/hdinsight/). Pokud chcete odstranit cluster z portálu, přečtěte si téma [odstranění clusterů](#delete-clusters)
 
@@ -341,7 +341,7 @@ Pomocí portálu Azure, můžete procházet obsah výchozí kontejner.
 
 ## <a name="connect-to-a-cluster"></a>Připojení ke clusteru
 
-* [Použití Hivu se službou HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Použití Hivu se službou HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Použití SSH s HDInsightem](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Další kroky
@@ -353,10 +353,10 @@ V tomto článku jste se naučili některé základní funkce správy. Další i
 * [Vytvoření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Další informace o používání webové uživatelské rozhraní Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Podrobnosti o použití Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Používání Hive v HDInsight](hdinsight-use-hive.md)
-* [Použijte Pig v HDInsight](hdinsight-use-pig.md)
-* [Použití nástroje Sqoop v HDInsight](hdinsight-use-sqoop.md)
-* [Začínáme s Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Používání Hive v HDInsight](hadoop/hdinsight-use-hive.md)
+* [Použijte Pig v HDInsight](hadoop/hdinsight-use-pig.md)
+* [Použití nástroje Sqoop v HDInsight](hadoop/hdinsight-use-sqoop.md)
+* [Začínáme s Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Jaká verze Hadoop je v Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

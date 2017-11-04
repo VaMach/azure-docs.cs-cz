@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Co je nového v Azure Data Catalog
 Aktualizace **Azure Data Catalog** jsou vydávány pravidelně. Ne každý verze obsahuje nové funkce zobrazující se uživatelům, jako některých vydání se zaměřuje na funkce back endové službě. Tato stránka označuje nové funkce uživatelsky orientovaný přidán do služby Azure Data Catalog.
@@ -239,7 +239,7 @@ Od září 2015 následující funkce jsou přidané do Azure Data Catalog:
 * Podpora pro registraci a zjišťování objektů Azure SQL datového skladu a databází. Další informace o Azure SQL Data Warehouse, najdete v části [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Podpora pro registraci a zjišťování servery SQL Server Reporting Services jako kontejnery a modely služby SQL Server Analysis Services. Při registraci služby SSAS a SSRS objekty, Azure Data Catalog vytvoří položku pro model služby SSAS nebo serveru služby SSRS a pro sestavy a další objekty. Kontejnery můžete zjistit a opatřeny poznámkami pomocí portálu Azure Data Catalog. Uživatelé mohou také hledání a filtrování obsahu modelu nebo server kromě vyhledávání a filtrování obsahu katalogu.
 * Podpora pro registraci a zjišťování objektů SQL Server Analysis Services přes HTTP nebo HTTPS. Uživatelé můžou teď připojit k serverům služby SSAS pomocí adresy URL (například https://servername/olap/msmdpump.dll) namísto název serveru a můžete použít základní ověřování a anonymní připojení kromě ověřování systému Windows. Další informace o připojení protokolu HTTP nebo HTTPS k SSAS najdete v tématu [HTTP konfigurovat přístup ke službě Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-* Podpora pro zdroje dat Hive v HDInsight. Uživatelé teď můžete registrovat a zjišťovat tabulek Hive pro Apache Hive v Hadoop v HDInsight datové zdroje. Další informace o Hive v HDInsight, najdete v článku [centru dokumentace HDInsight](../hdinsight/hdinsight-use-hive.md).
+* Podpora pro zdroje dat Hive v HDInsight. Uživatelé teď můžete registrovat a zjišťovat tabulek Hive pro Apache Hive v Hadoop v HDInsight datové zdroje. Další informace o Hive v HDInsight, najdete v článku [centru dokumentace HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Podpora pro registraci a zjišťování Oracle – databáze a clustery HDFS jako kontejnery. Při registraci Oracle tabulek a zobrazení nebo HDFS, Azure Data Catalog vytvoří záznam pro databáze, tabulky a zobrazení. Databáze může být zjištěn a pomocí portálu Azure Data Catalog. Uživatelé mohou také hledání a filtrování obsahu databáze nebo clusteru kromě vyhledávání a filtrování obsahu katalogu.
 * Podpora pro ruční registraci typy zdrojů dat je neznámý. Uživatele můžete ručně zadat informace o zdroji dat pomocí portálu Azure Data Catalog, aby zdroje dat nepodporuje nástroj registrace zdroje dat není explicitně mohli opatřeny poznámkami a zjistit.
 * Podpora pro registraci a zjišťování databází systému SQL Server jako kontejnery. Při registraci serveru SQL Server tabulek a zobrazení, Azure Data Catalog vytvoří záznam pro databáze, tabulky a zobrazení. Databáze může být zjištěn a pomocí portálu Azure Data Catalog. Uživatelé mohou také hledání a filtrování obsahu databáze kromě vyhledávání a filtrování obsahu katalogu.

@@ -1,16 +1,16 @@
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Specifying structure definition for rectangular datasets
-The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Zadání definice struktury obdélníková datové sady
+V části struktura v datových sadách JSON je **volitelné** část obdélníková tabulky (s řádky a sloupce) a obsahuje kolekci sloupců pro tabulku. V části struktura budete používat pro buď typ informacemi pro převody typů nebo provádění mapování sloupce. Následující části popisují tyto funkce podrobně. 
 
-Each column contains the following properties:
+Všechny sloupce obsahují následující vlastnosti:
 
-| Property | Description | Required |
+| Vlastnost | Popis | Požaduje se |
 | --- | --- | --- |
-| name |Name of the column. |Yes |
-| type |Data type of the column. See type conversions section below for more details regarding when should you specify type information |No |
-| culture |.NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”. |No |
-| format |Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. |No |
+| jméno |Název sloupce. |Ano |
+| type |Datový typ sloupce. Najdete v části převody typu níže pro další podrobnosti týkající se kdy by měl můžete určit informace o typu |Ne |
+| Jazyková verze |.NET na základě jazykové verze má být použita, pokud je zadaný typ a typ formátu .NET Datetime nebo Datetimeoffset. Výchozí hodnota je "en-us". |Ne |
+| Formát |Řetězec formátu, který se má použít, když je zadaný typ a .NET typ Datetime nebo Datetimeoffset. |Ne |
 
-The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
+Následující příklad ukazuje oddílu struktura JSON pro tabulku, která má tři sloupce ID uživatele, název a lastlogindate.
 
 ```json
 "structure": 
@@ -21,31 +21,31 @@ The following sample shows the structure section JSON for a table that has three
 ],
 ```
 
-Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+Použijte následující pokyny pro kdy "struktury" informace a co mají být zahrnuty **struktura** části.
 
-* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
+* **Pro strukturovaná data zdroje** , data schématu a zadejte informace o úložišti spolu s daty, samotné (zdrojů jako tabulky Azure SQL Server, Oracle, atd.), musíte zadat v části "struktura" pouze v případě, že chcete provádět mapování sloupců z konkrétního zdroje na konkrétní sloupce v jímka a jejich názvy sloupců nejsou stejné (viz podrobnosti v následující části mapování sloupců). 
   
-    As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
-* **For schema on read data sources (specifically Azure blob)**  you can choose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
-  * You want to do column mapping.
-  * When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) article for more information.
+    Jak je uvedeno nahoře, je v části "struktura" volitelné informace o typu. Strukturované zdroje informací o typu je již k dispozici jako součást definice datové sady v úložišti dat, proto by nemělo zahrnete informací o typu zahrnete v části "struktura".
+* **Pro schéma pro zdroje dat pro čtení (konkrétně objektů blob v Azure)** můžete k ukládání dat bez ukládání žádné schéma nebo typ informace s daty. Pro tyto typy zdrojů dat by měla obsahovat "struktura" 2 následujících případech:
+  * Chcete mapování sloupců.
+  * Pokud je datová sada zdroji v aktivitě kopírování, můžete zadat informace o typu "struktury" a objektu pro vytváření dat bude používat tento typ informace pro převod na nativní typy pro jímky. V tématu [přesun dat do a z Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) Další informace najdete v článku.
 
-### <a name="supported-net-based-types"></a>Supported .NET-based types
-Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
+### <a name="supported-net-based-types"></a>Podporováno. Na základě NET typy
+Objekt pro vytváření dat podporuje následující specifikací CLS kompatibilní .NET na základě typu hodnoty pro poskytnutí informací o typu "struktury" pro schéma na zdrojů dat čtení objektů blob v Azure.
 
 * Int16
 * Int32 
 * Int64
-* Single
+* Jeden
 * Double
 * Decimal
-* Byte[]
-* Bool
-* String 
-* Guid
-* Datetime
-* Datetimeoffset
-* Timespan 
+* Byte]
+* BOOL
+* Řetězec 
+* Identifikátor GUID
+* Data a času
+* Datový typ DateTimeOffset
+* Časový interval 
 
-For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
+Pro hodnotu Datetime a Datetimeoffset můžete volitelně specifikovat řetězec "culture" & "format" usnadňuje analýzy vaše vlastní řetězce data a času. Viz ukázka pro převod typů níže.
 

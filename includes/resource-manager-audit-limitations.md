@@ -1,4 +1,4 @@
-The activity log contains all write operations (PUT, POST, DELETE) performed on your resources. It does not include read operations (GET). You can use the audit logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+Protokol aktivit obsahuje všechny operace zápisu (PUT, POST, DELETE) provést na vašich prostředků. Operace čtení (GET) neobsahuje. Najít k chybě při odstraňování problémů s nebo k monitorování, jak upravit uživatele ve vaší organizaci prostředek, můžete protokoly auditu.
 
-Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past.
+Protokoly aktivity jsou uchovány 90 dní. Pro libovolný rozsah kalendářních dat, se můžete dotazovat, dokud počáteční datum není více než 90 dní v minulosti.
 

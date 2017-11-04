@@ -1,18 +1,18 @@
-In this step, you test the availability group listener by using a client application that's running on the same network.
+V tomto kroku otestovat naslouchacího procesu skupiny dostupnosti pomocí klientské aplikace, která běží ve stejné síti.
 
-Client connectivity has the following requirements:
+Připojení klienta má následující požadavky:
 
-* Client connections to the listener must come from machines that reside in a different cloud service than the one that hosts the Always On availability replicas.
-* If the Always On replicas are in different subnets, clients must specify *MultisubnetFailover=True* in the connection string. This condition results in parallel connection attempts to replicas in the various subnets. This scenario includes a cross-region Always On availability group deployment.
+* Připojení klientů k naslouchací proces musí pocházet z počítačů, které se nacházejí v jiné cloudové službě než ten, který je hostitelem repliky dostupnosti Always On.
+* Pokud jsou repliky Always On v různých podsítích, musí klienti zadat *MultisubnetFailover = True* v připojovacím řetězci. Tato podmínka způsobí pokusy o připojení paralelní repliky v různých podsítích. Tento scénář zahrnuje nasazení mezi oblastmi vždy na dostupnosti skupiny.
 
-One example is to connect to the listener from one of the VMs in the same Azure virtual network (but not one that hosts a replica). An easy way to complete this test is to try to connect SQL Server Management Studio to the availability group listener. Another simple method is to run [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), as follows:
+Jedním z příkladů je pro připojení k naslouchací proces z jednoho z virtuálních počítačů ve stejné virtuální síti Azure (ale není ten, který je hostitelem repliky). Snadný způsob, jak dokončit tento test je pokuste se připojit k naslouchacího procesu skupiny dostupnosti SQL Server Management Studio. Jiné jednoduše je spuštění [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), a to takto:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using Windows authentication.
+> Pokud je hodnota EndpointPort *1433*, není nutné je zadat ve volání. Předchozí volání také předpokládá, že klientský počítač připojený ke stejné doméně a že volající byla udělena oprávnění k databázi pomocí ověřování systému Windows.
 > 
 > 
 
-When you test the listener, be sure to fail over the availability group to make sure that clients can connect to the listener across failovers.
+Při testování naslouchací proces, ujistěte se, že jste převzít služby skupiny dostupnosti a ujistěte se, že klienti můžou připojit k naslouchacímu procesu napříč převzetí služeb při selhání.
 

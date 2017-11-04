@@ -1,135 +1,133 @@
 ---
-title: Introduction to Azure Stack virtual machines
-description: Learn about Azure Stack virtual machines
+title: "Úvod do Azure zásobníku virtuálních počítačů"
+description: "Další informace o virtuálních počítačích Azure zásobníku"
 services: azure-stack
 author: anjayajodha
 ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-azure-stack-virtual-machines"></a>Introduction to Azure Stack virtual machines
+# <a name="introduction-to-azure-stack-virtual-machines"></a>Úvod do Azure zásobníku virtuálních počítačů
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-## <a name="overview"></a>Overview
-An Azure Stack Virtual Machine (VM) is one type of on-demand, scalable computing resource that Azure Stack offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+## <a name="overview"></a>Přehled
+Virtuální počítač Azure zásobníku (VM) je jeden typ na vyžádání, škálovatelný výpočetní prostředek, který nabízí zásobník Azure. Obvykle zvolíte virtuální počítač, když potřebujete větší kontrolu nad výpočetním prostředí, než nabízí jiné možnosti. Tento článek obsahuje informace o tom, co byste měli zvážit před vytvořením virtuálního počítače, jak ho vytvořit a jak ho spravovat.
 
-An Azure Stack VM gives you the flexibility of virtualization without the need to manage individual clusters or machines. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
+Virtuální počítač Azure zásobníku poskytuje flexibilitu virtualizace bez nutnosti spravovat jednotlivé clustery nebo počítače. Nevyhnete se však údržbě virtuálního počítače prováděním úloh, jako jsou konfigurace, aplikování oprav chyb a instalace softwaru, který na něm běží.
 
-Azure Stack virtual machines can be used in various ways. For example:
+Virtuální počítače Azure zásobníku lze různými způsoby. Například:
 
-* **Development and test** – Azure Stack VMs offer a quick and easy way to create a computer with a specific configuration required to code and test an application.
+* **Vývoj a testování** – virtuální počítače Azure zásobníku nabízejí nějakou rychlou a jednoduchý způsob, jak vytvořit počítač s určitou konfiguraci vyžaduje kód a testování aplikací.
 
-* **Applications in the cloud** – Because demand for your application can fluctuate, it might make economic sense to run it on a VM in Azure Stack. You pay for extra VMs when you need them and shut them down when you don’t.
+* **Aplikace v cloudu** – protože vyžádání pro vaši aplikaci můžete kolísá, může mít ekonomický smysl ji spustit na virtuálním počítači v Azure zásobníku. Za další virtuální počítače platíte, když je potřebujete, a když ne, tak je vypnete.
 
-* **Extended datacenter** – Virtual machines in an Azure Stack virtual network can easily be connected to your organization’s network or Azure.
+* **Rozšířené datacenter** – virtuální počítače ve virtuální síť Azure zásobníku lze snadno připojit k síti vaší organizace nebo Azure.
 
-The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
+Počet virtuálních počítačů, které vaše aplikace používá, lze vertikálně nebo horizontálně navýšit pro splnění vašich požadavků.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>What do I need to think about before creating a VM?
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Co je třeba zvážit před vytvořením virtuálního počítače?
 
-There are always a multitude of design considerations when you build out an application infrastructure in Azure Stack. These aspects of a VM are important to think about before you start:
+Stále existují různé aspekty návrhu při sestavování na infrastruktuře aplikace v Azure zásobníku. Než začnete, je důležité zvážit následující aspekty virtuálního počítače:
 
-- The names of your application resources
-- The size of the VM
-- The maximum number of VMs that can be created
-- The operating system that the VM runs
-- The configuration of the VM after it starts 
-- The related resources that the VM needs
+- Názvy prostředků vaší aplikace
+- Velikost virtuálního počítače
+- Maximální počet virtuálních počítačů, které lze vytvořit
+- Operační systém, který běží na virtuálním počítači
+- Konfigurace virtuálního počítače po jeho spuštění 
+- Související prostředky, které virtuální počítač potřebuje
 
-### <a name="naming"></a>Naming
+### <a name="naming"></a>Pojmenování
 
-A virtual machine has a name assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
+Virtuální počítač má přiřazen název a má název počítače, který je nakonfigurovaný jako součást operačního systému. Název virtuálního může být až 15 znaků dlouhý.
 
-If you use Azure Stack to create the operating system disk, the computer name and the virtual machine name are the same. If you upload and use your own image that contains a previously configured operating system and use it to create a virtual machine, the names may be different. When you upload your own image file, make the computer name in the operating system and the virtual machine name the same as a best practice.
+Pokud použijete zásobník Azure k vytvoření disku operačního systému, název počítače a název virtuálního počítače jsou stejné. Názvy nahrát, používat vlastní image, která obsahuje dříve nakonfigurované operačního systému a použít k vytvoření virtuálního počítače, se může lišit. Při nahrávání souboru bitové kopie operačního systému zkontrolujte název počítače a název virtuálního počítače stejný jako osvědčený postup.
 
-### <a name="vm-size"></a>VM size
+### <a name="vm-size"></a>Velikost virtuálního počítače
 
-The size of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure Stack offers a wide variety of sizes to support many types of uses.
+Velikost virtuálního počítače, který používáte, je dáno se zatížením, které chcete spustit. Velikost, kterou vyberete, pak určuje další faktory, jako například výpočetní výkon, paměť a kapacitu úložiště. Zásobník Azure nabízí širokou škálu velikostí, které podporují mnoho typů použití.
 
-### <a name="vm-limits"></a>VM limits
+### <a name="vm-limits"></a>Omezení virtuálních počítačů
 
-Your subscription has default quota limits in place that can impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region.
+Vaše předplatné má výchozí kvótami v místě, ke kterému může mít vliv nasazení hodně virtuálních počítačů pro váš projekt. Aktuální limit jednoho předplatného je 20 virtuálních počítačů na oblast.
 
-### <a name="operating-system-disks-and-images"></a>Operating system disks and images
+### <a name="operating-system-disks-and-images"></a>Disky a image operačních systémů
 
-Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS.
-Azure Stack provides a marketplace to use with various versions and types of operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest).
+Virtuální počítače používají virtuální pevné disky (VHD), na které ukládají svůj operační systém (OS) a data. Virtuální pevné disky se používají i pro image, ze kterých si můžete nainstalovat operační systém.
+Zásobník Azure poskytuje marketplace používat s různými verzemi a typy operačních systémů. Image pořízené na webu Marketplace jsou identifikované vydavatelem image, nabídkou, skladovou jednotkou (SKU) a verzí (verze je obvykle uvedena jako poslední).
 
-The following table shows some ways that you can find the information for an image:
+Následující tabulka uvádí některé způsoby, abyste nalezli informace pro bitovou kopii:
 
 
-|Method|Description|
+|Metoda|Popis|
 |---------|---------|
-|Azure Stack portal|The values are automatically specified for you when you select an image to use.|
+|Portál Azure zásobníku|Hodnoty se pro vás zadají automaticky, když vyberete image, která se má použít.|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST APIs     |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[List image SKUs](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|Rozhraní REST API     |[Vypsat vydavatele imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Vypsat nabídky imagí](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Obrázek seznam SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
-You can choose to upload and use your own image. If you do, the publisher name, offer, and sku aren’t used.
+Můžete nahrát a používat vlastní image. V takovém případě se nepoužívají název vydavatele, nabídky a sku.
 
-### <a name="extensions"></a>Extensions
+### <a name="extensions"></a>Rozšíření
 
-VM extensions give your VM additional capabilities through post deployment configuration and automated tasks.
-These common tasks can be accomplished using extensions:
+Rozšíření virtuálního počítače poskytují další možnosti vašeho virtuálního počítače prostřednictvím konfigurace nasazení post a automatizované úlohy.
+Pomocí rozšíření můžete provádět tyto běžné úlohy:
 
-* Run custom scripts – The Custom Script Extension helps you configure workloads on the VM by running your script when the VM is provisioned.
-* Deploy and manage configurations – The PowerShell Desired State Configuration (DSC) Extension helps you set up DSC on a VM to manage configurations and environments.
-* Collect diagnostics data – The Azure Diagnostics Extension helps you configure the VM to collect diagnostics data that can be used to monitor the health of your application.
+* Spustit vlastní skripty – rozšíření vlastních skriptů vám pomůže nakonfigurovat úlohy na virtuálním počítači tak, že spustíte skript při zřízení virtuálního počítače.
+* Nasazení a správě konfigurace – rozšíření prostředí PowerShell požadovaného stavu konfigurace (DSC) vám pomůže nastavit DSC na virtuálním počítači ke správě konfigurace a prostředí.
+* Shromažďování diagnostická data – rozšíření diagnostiky Azure vám pomůže nakonfigurovat virtuální počítač ke shromažďování dat diagnostiky, který slouží k monitorování stavu aplikace.
 
-### <a name="related-resources"></a>Related resources
+### <a name="related-resources"></a>Související prostředky
 
-The resources in the following table are used by the VM and need to exist or be created when the VM is created.
+Prostředky v následující tabulce se používají ve virtuálním počítači a musí existovat nebo vytvořit při vytváření virtuálního počítače.
 
 
-|Resource|Required|Description|
+|Prostředek|Požaduje se|Popis|
 |---------|---------|---------|
-|Resource group|Yes|The VM must be contained in a resource group.|
-|Storage account|Yes|The VM needs the storage account to store its virtual hard disks.|
-|Virtual network|Yes|The VM must be a member of a virtual network.|
-|Public IP address|No|The VM can have a public IP address assigned to it to remotely access it.|
-|Network interface|Yes|The VM needs the network interface to communicate in the network.|
-|Data disks|No|The VM can include data disks to expand storage capabilities.|
+|Skupina prostředků|Ano|Virtuální počítač musí být součástí skupiny prostředků.|
+|Účet úložiště|Ano|Virtuální počítač potřebuje účet úložiště k ukládání svých virtuálních pevných disků.|
+|Virtuální síť|Ano|Virtuální počítač musí být členem virtuální sítě.|
+|Veřejná IP adresa|Ne|Virtuální počítač může mít přiřazenou veřejnou IP adresu pro umožnění vzdáleného přístupu.|
+|Síťové rozhraní|Ano|Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti.|
+|Datové disky|Ne|Virtuální počítač může zahrnovat datové disky pro rozšíření možností úložiště.|
 
-## <a name="how-do-i-create-my-first-vm"></a>How do I create my first VM?
+## <a name="how-do-i-create-my-first-vm"></a>Jak vytvořím svůj první virtuální počítač?
 
-You have several choices to create a VM. Your choice depends on your environment.
-The following table provides information to get you started creating your VM.
+Máte několik možností vytvoření virtuálního počítače. Výběr závisí na vašem prostředí.
+Následující tabulka obsahuje informace, které vám pomůžou spuštěna, vytvoření virtuálního počítače.
 
 
-|Method|Article|
+|Metoda|Článek|
 |---------|---------|
-|Azure Stack portal|Create a Windows virtual machine with the Azure Stack portal<br>[Create a Linux virtual machine using the Azure Stack portal](azure-stack-quick-linux-portal.md)|
-|Templates|Azure Stack Quickstart templates are located at:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
-|PowerShell|[Create a Windows virtual machine by using PowerShell in Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)<br>[Create a Linux virtual machine by using PowerShell in Azure Stack](azure-stack-quick-create-vm-linux-powershell.md)|
-|CLI|[Create a Windows virtual machine by using CLI in Azure Stack](azure-stack-quick-create-vm-windows-cli.md)<br>[Create a Linux virtual machine by using CLI in Azure Stack](azure-stack-quick-create-vm-linux-cli.md)|
+|Portál Azure zásobníku|Vytvoření virtuálního počítače s Windows pomocí portálu Azure zásobníku<br>[Vytvořit virtuální počítač s Linuxem pomocí portálu Azure zásobníku](azure-stack-quick-linux-portal.md)|
+|Šablony|Šablony Azure rychlý start zásobníku jsou umístěné na adrese:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
+|PowerShell|[Vytvoření virtuálního počítače s Windows pomocí prostředí PowerShell v Azure zásobníku](azure-stack-quick-create-vm-windows-powershell.md)<br>[Vytvořit virtuální počítač s Linuxem pomocí prostředí PowerShell v Azure zásobníku](azure-stack-quick-create-vm-linux-powershell.md)|
+|Rozhraní příkazového řádku|[Vytvoření virtuálního počítače s Windows pomocí rozhraní příkazového řádku v Azure zásobníku](azure-stack-quick-create-vm-windows-cli.md)<br>[Vytvořit virtuální počítač s Linuxem pomocí rozhraní příkazového řádku v Azure zásobníku](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>How do I manage the VM that I created?
+## <a name="how-do-i-manage-the-vm-that-i-created"></a>Jak můžu spravovat vytvořený virtuální počítač?
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through APIs. Some typical management tasks that you might perform are getting information about a VM, logging on to a VM, managing availability, and making backups.
+Virtuální počítače můžete spravovat pomocí portálu (přes prohlížeč), nástrojů příkazového řádku s podporou pro skriptování, nebo přímo prostřednictvím rozhraní API. Mezi obvyklé úlohy správy, které můžete provádět, patří získávání informací o virtuálním počítači, připojování k virtuálnímu počítači, správa dostupnosti a provádění zálohování.
 
-### <a name="get-information-about-a-vm"></a>Get information about a VM
+### <a name="get-information-about-a-vm"></a>Získání informací o virtuálním počítači
 
-The following table shows you some of the ways you can get information about a VM.
+Následující tabulka ukazuje některé způsoby, které můžete získat informace o virtuální počítač.
 
 
-|Method|Description|
+|Metoda|Popis|
 |---------|---------|
-|Azure Stack portal|On the hub menu, click Virtual Machines and then select the VM from the list. On the page for the VM, you have access to overview information, setting values, and monitoring metrics.|
-|Azure PowerShell|Managing VMs is similar in Azure and Azure Stack. For more information about using PowerShell, see the following Azure topic:<br>[Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Client SDKs|Using C# to manage VMs is similar in Azure and Azure Stack. For more information, see the following Azure topic:<br>[Create and manage Windows VMs in Azure using C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Portál Azure zásobníku|V nabídce centra klikněte na virtuální počítače a potom vyberte virtuální počítač ze seznamu. Na stránce pro virtuální počítač máte přístup k přehled informací, monitorování metriky a nastavení hodnoty.|
+|Azure PowerShell|Správa virtuálních počítačů je podobný v Azure a Azure zásobníku. Další informace o použití prostředí PowerShell najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů Windows s modulu Azure PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Klientské sady SDK|Použití jazyka C# ke správě virtuálních počítačů je podobný v Azure a Azure zásobníku. Další informace najdete v následujícím tématu Azure:<br>[Vytvářet a spravovat virtuální počítače Windows v Azure pomocí jazyka C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>Connect to the VM
+### <a name="connect-to-the-vm"></a>Připojení k virtuálnímu počítači
 
-You can use the **Connect** button in the Azure Stack portal to connect to your VM.
+Můžete použít **Connect** tlačítko na portálu Azure zásobníku se připojit k virtuálnímu počítači.
 
-## <a name="next-steps"></a>Next steps
-* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
-
+## <a name="next-steps"></a>Další kroky
+* [Důležité informace pro virtuální počítače v Azure zásobníku](azure-stack-vm-considerations.md)
 

@@ -1,49 +1,47 @@
 ---
-title: Get started with Azure Stack Storage development tools
-description: Guidance to get started with using Azure Stack Storage development tools
+title: "Začínáme s Azure Storage zásobníku nástroje pro vývoj"
+description: "Pokyny, jak začít s pomocí nástrojů pro vývoj Azure zásobník úložiště"
 services: azure-stack
 author: xiaofmao
 ms.author: xiaofmao
 ms.date: 9/25/2017
 ms.topic: get-started-article
 ms.service: azure-stack
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5b2898c64c0f1b5d804e63fa4e4e1218fa7a672c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="get-started-with-azure-stack-storage-development-tools"></a>Začínáme s Azure Storage zásobníku nástroje pro vývoj
 
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Get started with Azure Stack Storage development tools
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
-
-Microsoft Azure Stack provides a set of storage services, including Azure Blob, Table, and Queue storage.
-
-This article provides quick guidance on how to start using Azure Stack Storage development tools. You can find more detailed information and sample code in the corresponding Azure Storage tutorials.
-
-There are known differences between Azure Storage and Azure Stack Storage, including some specific requirements for each platform. For example, there are specific client libraries and specific endpoint suffix requirements for Azure Stack. For more information, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
-
-## <a name="azure-client-libraries"></a>Azure client libraries
-The supported REST API version for Azure Stack Storage is 2015-04-05. It doesn’t have full parity with the latest version of the Azure Storage REST API. So for the storage client libraries, you need to be aware of the version that is compatible with REST API 2015-04-05.
+*Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
 
-|Client library|Azure Stack supported version|Link|Endpoint specification|
+Zásobník Microsoft Azure poskytuje sadu služeb úložiště, včetně úložiště objektů Azure Blob, Table a Queue.
+
+Tento článek obsahuje rychlý pokyny o tom, jak začít používat nástroje pro vývoj zásobník úložiště Azure. Podrobnější informace a ukázkový kód můžete najít v odpovídající kurzech Azure Storage.
+
+Existují známé rozdíly mezi Azure Storage a zásobník úložiště Azure, včetně některé specifické požadavky na každou platformu. Například existují určité klientské knihovny a konkrétní koncový bod příponu požadavky pro Azure zásobníku. Další informace najdete v tématu [zásobník úložiště Azure: rozdíly a aspekty](azure-stack-acs-differences.md).
+
+## <a name="azure-client-libraries"></a>Knihovny klienta Azure
+Podporované verze rozhraní REST API pro Azure zásobníku úložiště je 2015-04-05. Nemá úplné parita s nejnovější verzi rozhraní API REST úložiště Azure. Proto pro knihovny klienta úložiště, musíte znát verze, která je kompatibilní s REST API 2015-04-05.
+
+
+|Klientská knihovna|Azure zásobníku podporovaná verze|Odkaz|Koncový bod specifikace|
 |---------|---------|---------|---------|
-|.NET     |6.2.0|Nuget package:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>GitHub release:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config file|
-|Java|4.1.0|Maven package:<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|Connection string setup|
-|Node.js     |1.1.0|NPM link:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(run: `npm install azure-storage@1.1.0)`<br><br>Github release:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Service instance declaration||C++|2.4.0|Nuget package:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub release:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Connection string setup|
-|C++|2.4.0|Nuget package:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub release:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Connection string setup|
-|PHP|0.15.0|GitHub release:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Install via Composer (see details below)|Connection string setup|
-|Python     |0.30.0|PIP package:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Run: `pip install -v azure-storage==0.30.0)`<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Service instance declaration|
-|Ruby|0.12.1<br>Preview|RubyGems package:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Connection string setup|
+|.NET     |6.2.0|Balíček Nuget:<br>[https://www.nuget.org/Packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>Verze Githubu:<br>[https://github.com/Azure/Azure-Storage-NET/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|soubor App.config|
+|Java|4.1.0|Balíček maven:<br>[http://mvnrepository.com/Artifact/com.microsoft.Azure/Azure-Storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>Verze Githubu:<br> [https://github.com/Azure/Azure-Storage-Java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|Nastavení připojení řetězce|
+|Node.js     |1.1.0|NPM odkaz:<br>[https://www.npmjs.com/Package/Azure-Storage](https://www.npmjs.com/package/azure-storage)<br>(spustit:`npm install azure-storage@1.1.0)`<br><br>Verze Githubu:<br>[https://github.com/Azure/Azure-Storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Deklarace instance služby||C++|2.4.0|Balíček Nuget:<br>[https://www.nuget.org/Packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Verze Githubu:<br>[https://github.com/Azure/Azure-Storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Nastavení připojení řetězce|
+|C++|2.4.0|Balíček Nuget:<br>[https://www.nuget.org/Packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Verze Githubu:<br>[https://github.com/Azure/Azure-Storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Nastavení připojení řetězce|
+|PHP|0.15.0|Verze Githubu:<br>[https://github.com/Azure/Azure-Storage-PHP/releases/tag/V0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Nainstalovat prostřednictvím autora (viz níže podrobnosti)|Nastavení připojení řetězce|
+|Python     |0.30.0|Balíček PIP:<br> [https://pypi.Python.org/pypi/Azure-Storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Spustit:`pip install -v azure-storage==0.30.0)`<br><br>Verze Githubu:<br> [https://github.com/Azure/Azure-Storage-Python/releases/tag/V0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Deklarace instance služby|
+|Ruby|0.12.1<br>Preview|Balíček RubyGems:<br> [https://rubygems.org/GEMS/Azure-Storage/versions/0.12.1.Preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>Verze Githubu:<br> [https://github.com/Azure/Azure-Storage-Ruby/releases/tag/V0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Nastavení připojení řetězce|
 
 > [!NOTE]
-> PHP details<br><br>
->To install via Composer:
->1. Create a file named `composer.json` in the root of the project with following code:<br>
+> Podrobnosti o PHP<br><br>
+>Chcete-li nainstalovat prostřednictvím autora:
+>1. Vytvořte soubor s názvem `composer.json` v kořenu projektu s následujícím kódem:<br>
 >
 >   ```
 >   {
@@ -53,22 +51,22 @@ The supported REST API version for Azure Stack Storage is 2015-04-05. It doesn�
 >    }
 >   ```
 >
->2. Download [composer.phar](http://getcomposer.org/composer.phar) into the project root.
->3. Run: `php composer.phar install`.
+>2. Stáhněte si [composer.phar](http://getcomposer.org/composer.phar) do kořenu projektu.
+>3. Spustit: `php composer.phar install`.
 >
 
 
-## <a name="endpoint-declaration"></a>Endpoint declaration
-An Azure Stack endpoint includes two parts: the name of a region and the Azure Stack domain.
-In the Azure Stack Development Kit, the default endpoint is **local.azurestack.external**.
-Contact your cloud administrator if you’re not sure about your endpoint.
+## <a name="endpoint-declaration"></a>Koncový bod deklarace
+Koncový bod Azure Stack zahrnuje dvě části: název, oblast a doména Azure zásobníku.
+V sadě Azure zásobníku Development Kit je výchozí koncový bod **local.azurestack.external**.
+Pokud si nejste jistí o váš koncový bod, obraťte se na správce cloudu.
 
-## <a name="examples"></a>Examples
+## <a name="examples"></a>Příklady
 
 
 ### <a name="net"></a>.NET
 
-For Azure Stack, the endpoint suffix is specified in the app.config file:
+Pro Azure zásobníku zadána přípona koncový bod v souboru app.config:
 
 ```
 <add key="StorageConnectionString" 
@@ -77,7 +75,7 @@ EndpointSuffix=local.azurestack.external;" />
 ```
 ### <a name="java"></a>Java
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+Pro Azure zásobníku zadána přípona koncového bodu v nastavení připojovacího řetězce:
 
 ```
 public static final String storageConnectionString =
@@ -89,7 +87,7 @@ public static final String storageConnectionString =
 
 ### <a name="nodejs"></a>Node.js
 
-For Azure Stack, the endpoint suffix is specified in the declaration instance:
+Pro Azure zásobníku zadána přípona koncového bodu v deklaraci instance:
 
 ```
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
@@ -97,7 +95,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 ```
 ### <a name="c"></a>C++
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+Pro Azure zásobníku zadána přípona koncového bodu v nastavení připojovacího řetězce:
 
 ```
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
@@ -108,7 +106,7 @@ EndpointSuffix=local.azurestack.external"));
 
 ### <a name="php"></a>PHP
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+Pro Azure zásobníku zadána přípona koncového bodu v nastavení připojovacího řetězce:
 
 ```
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
@@ -119,7 +117,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 ### <a name="python"></a>Python
 
-For Azure Stack, the endpoint suffix is specified in the declaration instance:
+Pro Azure zásobníku zadána přípona koncového bodu v deklaraci instance:
 
 ```
 block_blob_service = BlockBlobService(account_name='myaccount',
@@ -128,7 +126,7 @@ endpoint_suffix='local.azurestack.external')
 ```
 ### <a name="ruby"></a>Ruby
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+Pro Azure zásobníku zadána přípona koncového bodu v nastavení připojovacího řetězce:
 
 ```
 set
@@ -138,43 +136,43 @@ AccountKey=mykey;
 EndpointSuffix=local.azurestack.external
 ```
 
-## <a name="blob-storage"></a>Blob storage
+## <a name="blob-storage"></a>Blob Storage
 
-The following Azure Blob storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
+Následující kurzy úložiště objektů Blob v Azure se vztahují na Azure zásobníku. Poznámka: požadavek příponu konkrétní koncový bod Azure zásobníku popsané v předchozí [příklady](#examples) části.
 
-* [Get started with Azure Blob storage using .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [How to use Blob storage from Java](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
-* [How to use Blob storage from Node.js]../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [How to use Blob storage from C++](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [How to use Blob storage from PHP](../../storage/blobs/storage-php-how-to-use-blobs.md)
-* [How to use Azure Blob storage from Python](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
-* [How to use Blob storage from Ruby](../../storage/blobs/storage-ruby-how-to-use-blob-storage.md)
+* [Začínáme s úložištěm Azure Blob pomocí rozhraní .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Používání úložiště Blob z Javy](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
+* [Jak používat úložiště objektů Blob z Node.js]... /.. / storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Používání úložiště Blob z jazyka C++](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Používání úložiště Blob z PHP](../../storage/blobs/storage-php-how-to-use-blobs.md)
+* [Jak používat Azure Blob storage z Pythonu](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
+* [Používání úložiště Blob z Ruby](../../storage/blobs/storage-ruby-how-to-use-blob-storage.md)
 
-## <a name="queue-storage"></a>Queue storage
+## <a name="queue-storage"></a>Queue Storage
 
-The following Azure Queue storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
+Následující kurzy Azure Queue storage se vztahují na Azure zásobníku. Poznámka: požadavek příponu konkrétní koncový bod Azure zásobníku popsané v předchozí [příklady](#examples) části.
 
-* [Get started with Azure Queue storage using .NET](../../storage/queues/storage-dotnet-how-to-use-queues.md)
-* [How to use Queue storage from Java](../../storage/queues/storage-java-how-to-use-queue-storage.md)
-* [How to use Queue storage from Node.js](../../storage/queues/storage-nodejs-how-to-use-queues.md)
-* [How to use Queue storage from C++](../../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-* [How to use Queue storage from PHP](../../storage/queues/storage-php-how-to-use-queues.md)
-* [How to use Queue storage from Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
-* [How to use Queue storage from Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
+* [Začínáme s úložištěm Azure Queue pomocí rozhraní .NET](../../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [Používání úložiště Queue z Javy](../../storage/queues/storage-java-how-to-use-queue-storage.md)
+* [Používání úložiště Queue z Node.js](../../storage/queues/storage-nodejs-how-to-use-queues.md)
+* [Postup používání úložiště Queue z jazyka C++](../../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
+* [Používání úložiště Queue z PHP](../../storage/queues/storage-php-how-to-use-queues.md)
+* [Používání úložiště Queue z Pythonu](../../storage/queues/storage-python-how-to-use-queue-storage.md)
+* [Používání úložiště Queue z Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
 
 
-## <a name="table-storage"></a>Table storage
+## <a name="table-storage"></a>Úložiště Table
 
-The following Azure Table storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
+Následující kurzy úložiště Azure Table se vztahují na Azure zásobníku. Poznámka: požadavek příponu konkrétní koncový bod Azure zásobníku popsané v předchozí [příklady](#examples) části.
 
-* [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [How to use Table storage from Java](../../cosmos-db/table-storage-how-to-use-java.md)
-* [How to use Azure Table storage from Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
-* [How to use Table storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [How to use Table storage from PHP](../../cosmos-db/table-storage-how-to-use-php.md)
-* [How to use Table storage in Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [How to use Table storage from Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
+* [Začínáme s úložištěm Azure Table pomocí rozhraní .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [Používání úložiště Table z Javy](../../cosmos-db/table-storage-how-to-use-java.md)
+* [Používání úložiště Azure Table z Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+* [Postup používání úložiště Table z jazyka C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Používání úložiště Table z PHP](../../cosmos-db/table-storage-how-to-use-php.md)
+* [Postup používání úložiště Table v Pythonu](../../cosmos-db/table-storage-how-to-use-python.md)
+* [Používání úložiště Table z Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* [Úvod do Microsoft Azure Storage](../../storage/common/storage-introduction.md)

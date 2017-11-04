@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### <a name="to-cable-for-power"></a>To cable for power
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
-2. Connect the power cords to each of the PCMs in the primary enclosure.
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+#### <a name="to-cable-for-power"></a>K kabel pro napájení
+1. Ujistěte se, že napájení přepne na každém napájení a chlazení moduly (PCMs) jsou v pozici OFF.
+2. Připojte k jednotlivým PCMs ve skříni primární napájecích kabelů.
+3. Připojte napájecích kabelů k racku jednotek pro distribuci napájení (PDU), jak je znázorněno na následujícím obrázku. Ujistěte se, že dvě použití PCMs oddělit zdrojů energie.
    
    > [!IMPORTANT]
-   > To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+   > K zajištění vysoké dostupnosti pro váš systém, doporučujeme, budete striktně dodržovat power kabelů schéma vidět v následujícím diagramu. 
    > 
    > 
    
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Zapojení kabeláže 2 u zařízení pro napájení](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
-    **Power cabling on an 8100 device**
+    **Na zařízení 8100 kabeláž napájení**
    
-   | Label | Description |
+   | Štítek | Popis |
    |:--- |:--- |
    | 1 |PCM 0 |
-   | 2 |Controller 1 |
-   | 3 |Controller 0 |
+   | 2 |Řadič 1 |
+   | 3 |Řadič 0 |
    | 4 |PCM 1 |
-   | 5 |PDUs |
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+   | 5 |Jednotky PDU |
+4. Chcete-li v systému, překlopte hlavní přepínače na obou PCMs na pozici ON.
 

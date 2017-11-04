@@ -1,6 +1,6 @@
 ---
-title: Storage accounts in Azure Stack | Microsoft Docs
-description: Learn how to create an Azure Stack storage account.
+title: "Účty úložiště v Azure zásobníku | Microsoft Docs"
+description: "Zjistěte, jak vytvořit účet úložiště Azure zásobníku."
 services: azure-stack
 documentationcenter: 
 author: vhorne
@@ -14,30 +14,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/1/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 41c9ee37c43d4ad41c51ea2ed023d3b47d460dd1
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="storage-accounts-in-azure-stack"></a>Storage accounts in Azure Stack
-Storage accounts include Blob and Table services, and the unique namespace for your storage data objects. By default, the data in your account is available only to you, the storage account owner.
+# <a name="storage-accounts-in-azure-stack"></a>Účty úložiště v Azure Stack
+Účty úložiště zahrnují služby Blob a Table a unikátní obor názvů pro datové objekty úložiště. Ve výchozím nastavení jsou data ve vašem účtu dostupná pouze pro vás, vlastníka účtu úložiště.
 
-1. On the Azure Stack POC computer, log in to `https://adminportal.local.azurestack.external` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Data + Storage** > **Storage account**.
+1. V počítači, POC zásobník Azure, přihlaste se k `https://adminportal.local.azurestack.external` jako [správce](azure-stack-connect-azure-stack.md)a potom klikněte na **nový** > **Data + úložiště**  >  **Účet úložiště**.
 
    ![](media/azure-stack-provision-storage-account/image01.png)
-2. In the **Create storage account** blade, type a name for your storage account. Create a new **Resource Group**, or select an existing one, then click **Create** to create the storage account.
+2. V **vytvořit účet úložiště** okno, zadejte název účtu úložiště. Vytvořte novou **skupiny prostředků**, nebo vyberte existující šablonu a potom klikněte na tlačítko **vytvořit** k vytvoření účtu úložiště.
 
    ![](media/azure-stack-provision-storage-account/image02.png)
-3. To see your new storage account, click **All resources**, then search for the storage account and click its name.
+3. Chcete-li zobrazit váš nový účet úložiště, klikněte na tlačítko **všechny prostředky**, vyhledejte účet úložiště a klikněte na jeho název.
 
     ![](media/azure-stack-provision-storage-account/image03.png)
 
-### <a name="next-steps"></a>Next steps
-[Use Azure Resource Manager templates](user/azure-stack-arm-templates.md)
+### <a name="next-steps"></a>Další kroky
+[Použití šablon Azure Resource Manageru](user/azure-stack-arm-templates.md)
 
-[Learn about Azure storage accounts](../storage/common/storage-create-storage-account.md)
+[Další informace o účtech Azure storage](../storage/common/storage-create-storage-account.md)
 
-[Download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc)
-
+[Stáhnout příručku ověření Azure konzistentní úložiště Azure zásobníku](http://aka.ms/azurestacktp1doc)

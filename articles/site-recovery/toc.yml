@@ -79,8 +79,6 @@
   items:
     - name: Zotavení po havárii
       items:
-        - name: Virtuální počítače VMware s podporou více tenantů do Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Virtuální počítače Hyper-V do Azure
           href: tutorial-hyper-v-to-azure.md
         - name: Fyzické servery do Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Spuštění převzetí služeb při selhání a navrácení služeb po obnovení mezi místními lokalitami
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Virtuální počítače VMware s podporou více tenantů do Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Kapacita a škálování
       items:
         - name: Plánování kapacity pro replikaci VMware do Azure
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Souborový server
+          href: file-server-disaster-recovery.md
         - name: Webové aplikace založené na službě IIS
           href: site-recovery-iis.md
         - name: Citrix XenApp a XenDesktop

@@ -1,11 +1,11 @@
 
-| Resource | Default limit | Maximum limit | 
+| Prostředek | Výchozí omezení | Maximální omezení | 
 | --- | --- | --- |
-| CDN profiles |8 |25 |
-| CDN endpoints per profile |10 |25 |
-| Custom domains per endpoint |10 |25 |
+| Profily CDN |8 |25 |
+| Koncové body CDN jeden profil |10 |25 |
+| Vlastní domény na jeden koncový bod |10 |25 |
 
-A CDN subscription can contain one or more CDN profiles and a CDN profile can contain one or more CDN endpoints. You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria. 
+Předplatné CDN může obsahovat jednu nebo více profilů CDN a profil CDN může obsahovat jeden nebo více koncových bodů CDN. Můžete použít více profilů a uspořádat koncové body CDN podle internetové domény, webové aplikace nebo jiných kritérií. 
 
-To request an update to your subscription's default limits, open a support ticket. 
+Chcete-li požádat o aktualizaci svého předplatného výchozí omezení, otevřete lístek podpory. 
 

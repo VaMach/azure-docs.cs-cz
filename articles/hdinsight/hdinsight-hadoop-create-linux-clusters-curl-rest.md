@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: b2078e5f1bb1bafdf8b53ec8c8ead014773cc9f0
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d4d8e16b69ca5b4cd5c042aec54b07ae01c5706
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Vytváření clusterů systému Hadoop pomocí REST API služby Azure
 
@@ -361,17 +361,17 @@ Teď, když jste úspěšně vytvořili clusteru služby HDInsight, použijte n�
 
 ### <a name="hadoop-clusters"></a>Clustery Hadoop
 
-* [Použití Hivu se službou HDInsight](hdinsight-use-hive.md)
-* [Použití Pigu se službou HDInsight](hdinsight-use-pig.md)
-* [Používání nástroje MapReduce s HDInsight](hdinsight-use-mapreduce.md)
+* [Použití Hivu se službou HDInsight](hadoop/hdinsight-use-hive.md)
+* [Použití Pigu se službou HDInsight](hadoop/hdinsight-use-pig.md)
+* [Používání nástroje MapReduce s HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Clustery HBase
 
-* [Začínáme s HBase v HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Začínáme s HBase v HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clustery Storm
 
-* [Vývoj topologie Java pro Storm v HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Použití komponent, Python v Storm v HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Nasazení a monitorování topologie se Storm v HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Vývoj topologie Java pro Storm v HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Použití komponent, Python v Storm v HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Nasazení a monitorování topologie se Storm v HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Služba Azure Metadata: Naplánované události (Preview) pro virtuální počítače Windows
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Naplánované události je jedním z subservices v rámci služby Azure metadat. Zodpovídá za zpřístupnění informací o nadcházející události (například restartování) tak, aby vaše aplikace můžete připravit pro ně a omezit přerušení. Je k dispozici pro všechny typy virtuálního počítače Azure, včetně PaaS a IaaS. Naplánované události dává času váš virtuální počítač k provádění preventivní úloh, aby se minimalizoval vliv událost. 
 
-Naplánované události je k dispozici pro Linux a virtuální počítače Windows. Informace o naplánované události v systému Linux najdete v tématu [naplánované události pro virtuální počítače s Linuxem](../windows/scheduled-events.md).
+Naplánované události je k dispozici pro Linux a virtuální počítače Windows. Informace o naplánované události v systému Linux najdete v tématu [naplánované události pro virtuální počítače s Linuxem](../linux/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Proč naplánované události?
 

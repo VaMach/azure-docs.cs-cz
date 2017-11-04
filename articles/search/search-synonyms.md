@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Synonyma ve službě Azure Search (preview)
 
 Synonyma na vyhledávacích webech přidružit ekvivalentní podmínky, které implicitně zvětšit rozsah dotazu, aniž by uživatel musel ve skutečnosti zadejte termín. Například zadány termín "pes" a synonymum přidružení "canine" a "štěněte", všechny dokumenty obsahující "pes", "PSA" nebo "štěněte" bude spadat do rozsahu dotazu.
 
-Ve službě Azure Search synonymum rozšíření se provádí v době dotazu. Synonymum maps můžete přidat na služby s bez přerušení na existující operace. Můžete přidat **synonymMaps** vlastnost do definice pole bez nutnosti znovu sestavte index. Další informace najdete v tématu [aktualizace indexu](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Ve službě Azure Search synonymum rozšíření se provádí v době dotazu. Synonymum maps můžete přidat na služby s bez přerušení na existující operace. Můžete přidat **synonymMaps** vlastnost do definice pole bez nutnosti znovu sestavte index.
 
 ## <a name="feature-availability"></a>Dostupnost funkcí
 
@@ -78,14 +78,14 @@ Alternativně můžete použít PUT a zadejte název mapy synonymum v identifik�
 
 Formát Solr podporuje ekvivalentní a explicitní synonymum mapování. Pravidla mapování splňovat specifikaci filtru synonymum s otevřeným zdrojem Apache Solr, popsané v tomto dokumentu: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Zde je ukázka pravidla pro ekvivalentní synonyma.
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 S tímto pravidlem výše, vyhledávací dotaz rozbalte "USA" možnost "USA" nebo "USA" nebo "USA".
 
 Šipka je označený jako explicitní mapování "= >". -Li zadána, termín posloupnost vyhledávací dotaz, který odpovídá levé straně "= >" bude nahrazena adresou alternativy na pravé straně. Zadané pravidlo níže, vyhledávací dotazy "Washington", "Wash." nebo "WA" budou všechny být přepsána pro "WA". Explicitní mapování pouze platí v určeném směru a není dotaz přepište "WA" na "Washington" v tomto případě.
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Seznam synonymum mapuje v rámci služby.

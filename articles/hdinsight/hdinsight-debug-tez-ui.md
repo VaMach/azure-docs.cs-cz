@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32f6a12544c05dbf4ac65dd386cd9dea18ca79b3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Chcete-li ladit úlohách Tez na HDInsight se systémem Windows pomocí uživatelského rozhraní Tez
 Rozhraní Tez je webová stránka, která můžete použít k pochopení a ladění úlohy, které používají Tez jako modul spouštění v clusterech HDInsight se systémem Windows. Rozhraní Tez umožňuje vizualizovat úlohu jako graf připojených položek, přejdete na každou položku a načíst informace o protokolování a statistiky.
@@ -139,6 +139,6 @@ Použijte následující postup ke spuštění dotazu Hive, která se spustí po
     ![Podrobnosti úlohy](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když jste se naučili použití Tez zobrazení, další informace o [pomocí Hive v HDInsight](hdinsight-use-hive.md).
+Teď, když jste se naučili použití Tez zobrazení, další informace o [pomocí Hive v HDInsight](hadoop/hdinsight-use-hive.md).
 
 Další podrobné technické informace o Tez naleznete v tématu [Tez stránku v Hortonworks](http://hortonworks.com/hadoop/tez/).

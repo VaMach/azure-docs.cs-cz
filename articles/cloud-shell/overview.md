@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 44d2ac2fd35621ab8cd8d7584744139ee3bab5c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Přehled prostředí cloudu Azure (Preview)
 Prostředí Azure Cloud je interaktivní, přístupných prohlížeče prostředí pro správu prostředků Azure.
@@ -44,7 +44,7 @@ Cloudové prostředí předem nainstalovaný pomocí oblíbené nástroje přík
 Zobrazení seznamu úplné nástrojů pro [prostředí Bash](features.md#tools) a [prostředí PowerShell.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Automatické ověření
-Cloudové prostředí bezpečně ověřuje automaticky na každou relaci pro okamžitý přístup k prostředkům prostřednictvím Azure CLI 2.0.
+Cloudové prostředí bezpečně ověřuje automaticky na každou relaci pro okamžitý přístup k prostředkům prostřednictvím rutin prostředí PowerShell a Azure CLI 2.0.
 
 ### <a name="connect-your-azure-file-storage"></a>Připojení Azure File storage
 Cloudové prostředí počítače jsou dočasné a v důsledku vyžadují sdílenou složku Azure chcete připojit jako `clouddrive` udržení adresáře $Home.

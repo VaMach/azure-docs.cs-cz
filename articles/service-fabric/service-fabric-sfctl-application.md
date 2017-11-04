@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: dc57c813a6aecabc21ac3931b7294bce909778d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sfctl-application"></a>sfctl aplikace
 Vytvoření, odstranění a spravovali aplikace a typy aplikací.
@@ -30,25 +30,21 @@ Vytvoření, odstranění a spravovali aplikace a typy aplikací.
 | vytvoření       | Vytvoří aplikace Service Fabric pomocí zadaný popis.|
 | Odstranit       | Odstraní stávající aplikace Service Fabric.|
 | Nasazení     | Získá informace o aplikace nasazené na uzlu Service Fabric.|
-| nasazení stavu | Získá informace o stavu aplikace nasazené na služby
-                      Uzel topologie Fabric.|
+| nasazení stavu | Získá informace o stavu aplikace nasazené na uzlu Service Fabric.|
 | nasazení seznamu| Získá seznam aplikace nasazené na uzlu Service Fabric.|
 | Stav       | Získá stav aplikace service fabric.|
 | Informace o         | Získá informace o aplikace Service Fabric.|
-| seznam         | Získá seznam aplikace vytvořené v clusteru Service Fabric, které odpovídají
-                      filtry zadána jako parametr.|
+| seznam         | Získá seznam aplikace vytvořené v clusteru Service Fabric, které odpovídají filtru zadaném jako parametr.|
 | načítání | Získá načíst informace o aplikaci Service Fabric. |
 | Manifest     | Získá manifest popisující typ aplikace.|
 | Zřizování    | Zřizuje nebo zaregistruje typ aplikace Service Fabric s clusterem.|
 | Sestava stavu| Odešle zprávu o stavu na aplikace Service Fabric.|
-| type         | Získá seznam typů aplikací v odpovídajícím clusteru Service Fabric
-                      přesně zadaný název.|
+| type         | Získá seznam typů aplikací v clusteru Service Fabric odpovídající zadanému názvu.|
 | seznam typů    | Získá seznam typů aplikací v clusteru Service Fabric.|
 | Zrušení zajišťování  | Odebere nebo zrušení registrace typu aplikace Service Fabric z clusteru.|
 | upgrade      | Spustí se upgrade aplikace v clusteru Service Fabric.|
 | obnovení upgradu  | Obnoví upgrade aplikace v clusteru Service Fabric.|
-| vrácení upgradu| Spustí vrácení zpět aktuálně probíhající upgradu aplikace
-                      Cluster Service Fabric.|
+| vrácení upgradu| Spustí se vracení zpět aktuálně probíhající upgradu aplikace v clusteru Service Fabric.|
 | Stav upgradu  | Získá informace pro upgrade na nejnovější provést na tuto aplikaci.|
 | Nahrávání       | Zkopírujte balíček aplikace Service Fabric do úložiště bitové kopie.|
 
@@ -87,12 +83,9 @@ Odstraní stávající aplikace Service Fabric. Aplikace musí být vytvořeny, 
 
 |Argument|Popis|
 | --- | --- |
-| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --remove silou | Odebrání aplikace Service Fabric nebo služby vynuceně bez průchodu přes pořadí řádné vypnutí. Tento parametr slouží k vynuceně odstranit aplikace nebo služby, pro které odstranění je řádně vypršení časového limitu z důvodu problémů v kódu služby, která zabraňuje zavřete replik. | | časový limit – -t | Server časový limit v sekundách.  Výchozí: 60. |
+| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například pokud je název aplikace "fabric://myapp/app1", identita aplikace by být "Moje aplikace ~ app1" v 6.0 + a "myapp/app1" v předchozích verzích.|
+| --remove silou          | Odebrání aplikace Service Fabric nebo služby vynuceně bez průchodu přes pořadí řádné vypnutí. Tento parametr slouží k vynuceně odstranit aplikace nebo služby, pro které odstranění je řádně vypršení časového limitu z důvodu problémů v kódu služby, která zabraňuje ukončení repliky.|
+| časový limit – -t            | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
@@ -105,18 +98,15 @@ Odstraní stávající aplikace Service Fabric. Aplikace musí být vytvořeny, 
 | -verbose               | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
 ## <a name="sfctl-application-deployed"></a>sfctl aplikace nasazená
-Získá informace o aplikace nasazené na uzlu Service Fabric.|
-|     
+Získá informace o aplikace nasazené na uzlu Service Fabric.
+     
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Popis|
 | --- | --- |
-| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| – Název uzlu [vyžaduje] | Název uzlu. | | časový limit – -t | Server časový limit v sekundách.  Výchozí: 60. |
+| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například pokud je název aplikace "fabric://myapp/app1", identita aplikace by být "Moje aplikace ~ app1" v 6.0 + a "myapp/app1" v předchozích verzích.|
+| – Název uzlu [vyžaduje]| Název uzlu.|
+| časový limit – -t            | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
@@ -137,13 +127,12 @@ Vrátí stav stavu aplikace service fabric. Odpověď hlásí stav Ok, chyby neb
 
 |Argument|Popis|
 | --- | --- |
-| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0,
-                                                 hierarchical names are delimited with the "~"
-                                                 character. For example, if the application name is
-                                                 "fabric://myapp/app1", the application identity
-                                                 would be "myapp~app1" in 6.0+ and "myapp/app1" in
-                                                 previous versions.|
-| – nasazení aplikace – stavu stavu filtru | Umožňuje filtrování stavu objektů nasazené aplikace stavu vrátil ve výsledku dotazu stavu aplikace na základě jejich stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Pouze nasazené aplikace, které odpovídají filtru, bude vrácen. Všechny nasazené aplikace se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'.                        Například pokud zadaná hodnota je 6 stav nasazených aplikací s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState.                        Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů.                        Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535. | | --události stavu stavu filtru | Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky.                        Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535. | | --statistiky stavu vyloučení | Určuje, zda má být vrácen stav statistiky jako součást výsledků dotazu. Chcete-li hodnotu false ve výchozím nastavení. Statistiku zobrazit počet podřízených entit ve stavu Ok, upozornění a chyby. | | --služby stavu stavu filtru | Umožňuje filtrování stavu objektů služby stavu vrátil ve výsledku dotazu stavu služeb na základě jejich stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Vrátí se pouze služby, které odpovídají filtru. Všechny služby se používají k vyhodnocení agregovaný stav v pořádku.                        Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 pak stavu služeb s hodnotou elementu HealthState OK (2) a upozornění (4), bude vrácen. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula.                        -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535. | | časový limit – -t | Server časový limit v sekundách.  Výchozí: 60. |
+| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například pokud je název aplikace "fabric://myapp/app1", identita aplikace by být "Moje aplikace ~ app1" v 6.0 + a "myapp/app1" v předchozích verzích.|
+| – nasazení aplikace – stavu stavu filtru| Umožňuje filtrování stavu objektů nasazené aplikace stavu vrátil ve výsledku dotazu stavu aplikace na základě jejich stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Pouze nasazené aplikace, které odpovídají filtru, bude vrácen. Všechny nasazené aplikace se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 stav nasazených aplikací s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+| --události stavu stavu filtru            | Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+| --statistiky vyloučení stavu | Určuje, zda má být vrácen stav statistiky jako součást výsledků dotazu. Chcete-li hodnotu false ve výchozím nastavení. Statistiku zobrazují počet podřízených entit ve stavu Ok, upozornění a chyby.|
+| --služby stavu stavu filtru          | Umožňuje filtrování stavu objektů služby stavu vrátil ve výsledku dotazu stavu služeb na základě jejich stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Vrátí se pouze služby, které odpovídají filtru. Všechny služby se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 pak stavu služeb s hodnotou elementu HealthState OK (2) a upozornění (4), bude vrácen. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+| časový limit – -t                            | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
@@ -164,11 +153,9 @@ Vrací informace o aplikaci, která byla vytvořena nebo právě probíhá vytv�
 
 |Argument|Popis|
 | --- | --- |
-| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, jsou hierarchické oddělených středníky
-                                      with the "~" character. For example, if the application name
-                                      is "fabric://myapp/app1", the application identity would be
-                                      "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --Parametry vyloučení aplikace | Příznak, který určuje, zda aplikace parametry budou vyloučeny z výsledku. | | časový limit – -t | Server časový limit v sekundách.  Výchozí: 60. |
+| – id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například pokud je název aplikace "fabric://myapp/app1", identita aplikace by být "Moje aplikace ~ app1" v 6.0 + a "myapp/app1" v předchozích verzích.|
+| --vyloučení parametry aplikace| Příznak, který určuje, zda aplikace parametry budou vyloučeny z výsledek.|
+| časový limit – -t                 | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
@@ -189,19 +176,11 @@ Získá informace o aplikacích, které byly vytvořeny nebo právě probíhá v
 
 |Argument|Popis|
 | --- | --- |
-|--aplikace definice typ filtru| Použít k filtrování na ApplicationDefinitionKind pro
-                                          application query operations. - Default - Default value.
-                                          Filter that matches input with any
-                                          ApplicationDefinitionKind value. The value is 0. - All -
-                                          Filter that matches input with any
-                                          ApplicationDefinitionKind value. The value is 65535. -
-                                          ServiceFabricApplicationDescription - Filter that matches
-                                          input with ApplicationDefinitionKind value
-                                          ServiceFabricApplicationDescription. The value is 1. -
-                                          Compose - Filter that matches input with
-                                          ApplicationDefinitionKind value Compose. The value is 2.
-                                          Default: 65535.|
-| – Název typu aplikace | Název typu aplikace použít k filtrování aplikace, které chcete vyhledat. Tato hodnota by neměla obsahovat verze typu aplikace. | | --token pokračování | Parametr token pokračování slouží k získání další sadu výsledků. Token pokračování s hodnotou neprázdné je zahrnutý v odpovědi rozhraní API, když výsledky ze systému nelze uložit do odpověď o jedné. Pokud je tato hodnota předaná pro další volání rozhraní API, rozhraní API vrátí další sadu výsledků. Pokud nejsou žádné další výsledky, pak token pro pokračování neobsahuje hodnotu. Hodnota tohoto parametru by neměla být kódovaná adresou URL. | | --Parametry vyloučení aplikace | Příznak, který určuje, zda aplikace parametry jsou vyloučeny z výsledku. | | časový limit – -t | Server časový limit v sekundách.  Výchozí: 60. |
+|--aplikace definice typ filtru| Použít pro filtrování ApplicationDefinitionKind pro operace dotazů aplikace. -Výchozí – výchozí hodnota. Filtr, který odpovídá vstup s libovolnou hodnotou ApplicationDefinitionKind. Hodnota je 0. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou ApplicationDefinitionKind. Hodnota je 65535. -ServiceFabricApplicationDescription - filtr, který odpovídá vstup s hodnotou ApplicationDefinitionKind ServiceFabricApplicationDescription. Hodnota je 1. -Vytvářené - filtr, který odpovídá vstup s hodnotou ApplicationDefinitionKind vytvářené. Hodnota je 2. Výchozí: 65535.|
+| – Název typu aplikace      | Název typu aplikace použít k filtrování aplikace, které chcete vyhledat. Tato hodnota by neměla obsahovat verze typu aplikace.|
+| --token pokračování         | Parametr token pokračování slouží k získání další sadu výsledků. Token pokračování s hodnotou neprázdné je zahrnutý v odpovědi rozhraní API, když výsledky ze systému nelze uložit do odpověď o jedné. Pokud je tato hodnota předaná pro další volání rozhraní API, rozhraní API vrátí další sadu výsledků. Pokud nejsou žádné další výsledky, pak token pro pokračování neobsahuje hodnotu. Hodnota tohoto parametru by neměla být kódovaná adresou URL.|
+| --vyloučení parametry aplikace| Příznak, který určuje, zda aplikace parametry jsou vyloučeny z výsledek.|
+| časový limit – -t                 | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
@@ -216,32 +195,21 @@ Získá informace o aplikacích, které byly vytvořeny nebo právě probíhá v
 ## <a name="sfctl-application-load"></a>zatížení sfctl aplikace
 Získá načíst informace o aplikaci Service Fabric.
 
-        Returns the load information about the application that was created or in the process of
-        being created in the Service Fabric cluster and whose name matches the one specified as the
-        parameter. The response includes the name, minimum nodes, maximum nodes, the number of nodes
-        the app is occupying currently, and application load metric information about the
-        application.
+Vrací zatížení informace o aplikaci, která byla vytvořena nebo právě probíhá vytváření clusteru Service Fabric a jejíž název odpovídá zadanému jako parametr. Odpověď obsahuje název, uzly minimální, maximální počet uzlů, počet uzlů, ke kterému je aktuálně zabírá aplikace a aplikace zatížení metriky informace o aplikaci.
 
 ### <a name="arguments"></a>Argumenty
 |Argument|Popis|
 | --- | --- |
-|– id aplikace [vyžaduje]| Identita aplikace. To je obvykle úplný název
-                                 the application without the 'fabric:' URI scheme. Starting from
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions. |
-| časový limit – -t | Server časový limit v sekundách.  Výchozí: 60. |
+|– id aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například pokud je název aplikace "fabric://myapp/app1", identita aplikace by být "Moje aplikace ~ app1" v 6.0 + a "myapp/app1" v předchozích verzích. |
+| časový limit – -t               | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 |Argument|Popis|
 | --- | --- |
 |– ladění                    | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
     – Nápověda -h                  | Zobrazte tuto zprávu nápovědy a ukončení.|
-    --výstup -o                | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí hodnota:
-                                 JSON.|
-    --dotazu                    | Řetězec dotazu JMESPath. Další informace najdete v části http://jmespath.org/
-                                 informace a příklady.|
+    --výstup -o                | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
+    --dotazu                    | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
     -verbose                  | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
 ## <a name="sfctl-application-manifest"></a>manifest aplikace sfctl
@@ -347,10 +315,23 @@ Ověří upgradu parametry zadané aplikace a spustí upgradu aplikace, pokud js
 
 |Argument|Popis|
 | --- | --- |
-| id – aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s ' ~' znak. Pro
-        example, if the application name is 'fabric://myapp/app1', the application identity would be
-        'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
-| verze – aplikace [vyžaduje] | Cílová verze aplikací. | | --parametrů [požadovaných] | Přepsání JSON kódovaný seznam parametr aplikace má být použita při upgradu aplikace. | | --výchozí služby stavu zásady | JSON kódovaný specifikace zásad stavu, ve výchozím nastavení použit k vyhodnocení stavu typu služby. | | --selhání akce | Akce se provede při upgradu monitorované zaznamená monitorování zásad nebo stavu porušení zásad. | | --Vynutit restartování | Vynuceně restartování procesů během upgradu, i když verze kódu nebylo změněno. | | --stavu kontrola opakování limitu | Množství času opakovat hodnocení stavu, pokud je není v pořádku, než akce selhání aplikace nebo clusteru je spustit. Měří v milisekundách.  Výchozí hodnota: PT0H10M0S. | | --stavu kontrola stabilní trvání | Množství času, aby aplikace nebo clusteru musí zůstat v pořádku před upgradem k další upgradovací doméně.            Měří v milisekundách.  Výchozí hodnota: PT0H2M0S. | | --stavu kontrola čekací doba | Množství času čekání po dokončení upgradu domény před použitím zásad stavu. Měří v milisekundách.            Výchozí hodnota: 0. | | --max-není v pořádku apps | Maximální povolené procento není v pořádku nasazené aplikace. Reprezentován jako číslo mezi 0 a 100. | | --režimu | Režim použitý pro sledování stavu během postupného upgradu.            Výchozí hodnota: UnmonitoredAuto. | | --repliky set kontrola-časový limit | Maximální množství času blokovat zpracování upgradu domény a zabránit ztrátě dostupnosti po neočekávaným problémům. Měří v sekundách. | | – zásady stavu služby | JSON kódovaný mapa s zásady stavu typu služby za název typu služby. Mapy je prázdný být výchozí. | | časový limit – -t | Server časový limit v sekundách.  Výchozí: 60. | | – časový limit upgradu domény | Množství času každé upgradované domény musí dokončit před provedením FailureAction. Měří v milisekundách.  Výchozí hodnota: P10675199DT02H48M05.4775807S. | | – upgrade vypršení časového limitu | Množství času celkové upgrade musí dokončit před provedením FailureAction. Měří v milisekundách.  Výchozí hodnota: P10675199DT02H48M05.4775807S. | | --upozornění jako chyby | Vyhodnocení upozornění stavu s stejné závažnost považovat za chyby. |
+| id – aplikace [vyžaduje]| Identita aplikace. Toto je obvykle úplný název aplikace bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s ' ~' znak. Například pokud je název aplikace, fabric://myapp/app1', identita aplikace by být "Moje aplikace ~ app1 se u 6.0 + a ' myapp/app1' v předchozích verzích.|
+| verze – aplikace [vyžaduje]| Cílová verze aplikace.|
+| --parametrů [požadovaných]| Seznam JSON kódovaný aplikace parametr přepsání použijí při upgradu aplikace.|
+| --výchozí služby stavu zásady| JSON kódovaný specifikace zásad stavu, ve výchozím nastavení použit k vyhodnocení stavu typu služby.|
+| --selhání akce            | Akce se provede při upgradu monitorované zaznamená monitorování zásad nebo stavu porušení zásad.|
+| --Vynutit restartování             | Vynuceně restartování procesů během upgradu, i když verze kódu nebylo změněno.|
+| --stavu – kontrola opakování-časový limit| Množství času opakovat hodnocení stavu, pokud je není v pořádku, než akce selhání aplikace nebo clusteru je spustit. Měří v milisekundách.  Výchozí: PT0H10M0S.|
+| --stavu kontrola stabilní trvání | Množství času, aby aplikace nebo clusteru musí zůstat v pořádku před upgradem k další upgradovací doméně.            Měří v milisekundách.  Výchozí: PT0H2M0S.|
+| --stavu kontrola čekací doba| Množství času čekání po dokončení upgradu domény před použitím zásad stavu. Měří v milisekundách.            Výchozí: 0.|
+| --maximální není v pořádku aplikace        | Maximální povolené procento není v pořádku nasazené aplikace. Reprezentován jako číslo mezi 0 a 100.|
+| --režimu                      | Režim použitý pro sledování stavu během postupného upgradu.            Výchozí: UnmonitoredAuto.|
+| --repliky set kontrola-časový limit | Maximální množství času blokovat zpracování upgradu domény a zabránit ztrátě dostupnosti po neočekávaným problémům. Měří v sekundách.|
+| – zásady stavu služby     | JSON kódovaný mapa s zásady stavu typu služby za název typu služby. Mapy je prázdný být výchozí.|
+| časový limit – -t                | Server časový limit v sekundách.  Výchozí: 60.|
+| – časový limit upgradu domény    | Množství času každé upgradované domény musí dokončit před provedením FailureAction. Měří v milisekundách.  Výchozí: P10675199DT02H48M05.4775807S.|
+| – upgrade vypršení časového limitu           | Množství času celkové upgrade musí dokončit před provedením FailureAction. Měří v milisekundách.  Výchozí: P10675199DT02H48M05.4775807S.|
+| --upozornění jako chyba          | Vyhodnocení upozornění stavu s stejné závažnost považovat za chyby.|
 
 ### <a name="global-arguments"></a>Globální argumenty
 
@@ -372,8 +353,7 @@ Volitelně můžete zobrazte průběhu odesílání pro každý soubor v balíč
 |Argument|Popis|
 | --- | --- |
 | – Cesta [vyžaduje]| Cesta k balíčku místní aplikace.|
-|úložiště bitových kopií – řetězec| Cílové image úložiště pro nahrání balíčku aplikace.  Výchozí hodnota:
-                         úložiště prostředků infrastruktury: s bitových kopií.|
+|úložiště bitových kopií – řetězec| Cílové image úložiště pro nahrání balíčku aplikace.  Výchozí hodnota: úložiště bitových kopií: prostředků infrastruktury.|
 | – Zobrazí průběh  | Ukázat průběh nahrávání souboru pro velké balíčky.|
 
 ### <a name="global-arguments"></a>Globální argumenty
@@ -383,8 +363,7 @@ Volitelně můžete zobrazte průběhu odesílání pro každý soubor v balíč
 | – ladění       | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h     | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o   | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
-| --dotazu       | Řetězec dotazu JMESPath. Http://jmespath.org/ Další informace najdete v části a
-                       Příklady.|
+| --dotazu       | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
 | -verbose     | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
 ## <a name="next-steps"></a>Další kroky

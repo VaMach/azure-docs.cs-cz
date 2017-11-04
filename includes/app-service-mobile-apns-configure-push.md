@@ -1,8 +1,8 @@
 
 
-1. On your Mac, launch **Keychain Access**. On the left navigation bar, under **Category**, open **My Certificates**. Find the SSL certificate you downloaded in the previous section, and disclose its contents. Select only the certificate (do not select the private key), and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
-2. In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end. Under **Settings**, click **App Service Push**, and then click your notification hub name. Go to **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (depending on whether your client SSL certificate from earlier is production or sandbox). Save any changes.
+1. Na počítači Mac spusťte **přístup do řetězce klíčů**. V levém navigačním panelu v části **kategorie**, otevřete **Moje certifikáty**. Najděte certifikát SSL, které jste stáhli v předchozí části a zveřejnit, její obsah. Vyberte jenom certifikát (nevybírejte privátní klíč), a [ho exportovat](https://support.apple.com/kb/PH20122?locale=en_US).
+2. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **Procházet vše** > **App Services**a klikněte na vaše mobilní aplikace back-end. V části **nastavení**, klikněte na tlačítko **aplikace služby Push**a potom klikněte na název vašeho centra oznámení. Přejděte na **služeb nabízených oznámení Apple** > **nahrát certifikát**. Nahrát soubor .p12, výběr správného **režimu** (v závislosti na tom, jestli vašeho klienta SSL certifikát z dříve je produkční nebo izolovaného prostoru). Uložte změny.
 
-Your service is now configured to work with push notifications on iOS.
+Služby je nyní nakonfigurováno pro práci s nabízenými oznámeními v systému iOS.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png

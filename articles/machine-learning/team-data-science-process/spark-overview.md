@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: d9964ace6b59fa65f0f5d4caff28a4291047c8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be3bbad11632f3af257239f6b10b1b22951073f7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Přehled vědecké zpracování dat pomocí Spark v Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -29,7 +29,7 @@ Tato sada témata ukazuje způsob použití HDInsight Spark pro dokončení bě�
 [Spark](http://spark.apache.org/) zpracovává představuje rozhraní open-source paralelní zpracování, které podporuje v paměti pro zvýšení výkonu velkých objemů dat analytických aplikací. Modul zpracování Spark je vytvořené pro rychlost, snadné použití a sofistikované analytics. Možnosti v paměti distribuované výpočtů Spark díky správnou volbu pro iterativní algoritmy použité v machine learning a grafů výpočty. [MLlib](http://spark.apache.org/mllib/) je modelování Spark škálovatelné machine learning knihovny, která přináší algoritmické funkce, které tento distribuovaném prostředí. 
 
 ## <a name="hdinsight-spark"></a>Spark v HDInsight
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) je nabídku Azure hostované Spark open source. Zahrnuje taky podporu **poznámkové bloky Jupyter PySpark** na clusteru Spark, která se může spustit interaktivních dotazů Spark SQL pro transformaci, filtrování a vizualizace dat uložených v Azure BLOB (WASB). PySpark je rozhraní API jazyka Python pro Spark. Fragmenty kódu, které poskytují řešení a zobrazit relevantní pozemků k vizualizaci dat zde spustit v poznámkové bloky Jupyter nainstalovat na clusteru Spark. Modelování kroky v těchto tématech obsahovat kód, který ukazuje, jak cvičení, hodnocení, uložit a používat každý typ modelu. 
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) je nabídku Azure hostované Spark open source. Zahrnuje taky podporu **poznámkové bloky Jupyter PySpark** na clusteru Spark, která se může spustit interaktivních dotazů Spark SQL pro transformaci, filtrování a vizualizace dat uložených v Azure BLOB (WASB). PySpark je rozhraní API jazyka Python pro Spark. Fragmenty kódu, které poskytují řešení a zobrazit relevantní pozemků k vizualizaci dat zde spustit v poznámkové bloky Jupyter nainstalovat na clusteru Spark. Modelování kroky v těchto tématech obsahovat kód, který ukazuje, jak cvičení, hodnocení, uložit a používat každý typ modelu. 
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Instalační program: Clustery Spark a poznámkové bloky Jupyter
 Kroky instalace a kódu jsou uvedené v tomto názorném postupu pro používání HDInsight Spark 1.6. Ale poznámkové bloky Jupyter jsou k dispozici pro clustery HDInsight Spark 1.6 a Spark 2.0. Popis poznámkových bloků a odkazy na ně jsou součástí [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) úložiště Githubu, které je obsahují. Kromě toho kód sem a v propojených poznámkových bloků je obecný a by měla fungovat v jakémkoliv clusteru Spark. Pokud nepoužíváte HDInsight Spark, může být mírně lišit od co je tady uvedené kroky nastavení a Správa clusteru. Pro větší pohodlí si zde jsou uvedeny odkazy na poznámkové bloky Jupyter pro Spark 1.6 (musí být spuštěny v jádra pySpark Poznámkový blok Jupyter serveru) a 2.0 Spark (Chcete-li spustit v jádru pySpark3 Poznámkový blok Jupyter serveru):
@@ -75,7 +75,7 @@ Následující postupy se vztahují k Spark 1.6. Pro verzi Spark 2.0 použijte p
 
 1 musíte mít předplatné Azure. Pokud není již nemáte, přečtěte si téma [získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. budete potřebovat cluster Spark 1.6 k dokončení tohoto názorného postupu. Pokud chcete vytvořit, postupujte podle pokynů uvedených v [Začínáme: Vytvořte Apache Spark v Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Typ clusteru a verze je určené z **vybrat typ clusteru** nabídky. 
+2. budete potřebovat cluster Spark 1.6 k dokončení tohoto názorného postupu. Pokud chcete vytvořit, postupujte podle pokynů uvedených v [Začínáme: Vytvořte Apache Spark v Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Typ clusteru a verze je určené z **vybrat typ clusteru** nabídky. 
 
 ![Konfigurace clusteru](./media/spark-overview/spark-cluster-on-portal.png)
 

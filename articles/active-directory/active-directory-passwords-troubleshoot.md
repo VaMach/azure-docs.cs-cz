@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Řešení potíží s samoobslužné resetování hesla
 
@@ -102,6 +102,7 @@ Osvědčeným postupem při řešení potíží s zpětný zápis hesla je ke ko
 | Kód | Název/zprávy | Popis |
 | --- | --- | --- |
 | 6329 | NICHŽ: MMS(4924) 0x80230619 – "omezení zabrání heslo se změnil na aktuální zadanému." | K této události dojde, když se pokusí nastavení hesla na vaše místní adresář, který nesplňuje stáří hesla, historie, složitost nebo filtrování požadavky domény zpětný zápis hesla služby. <br> <br> Pokud máte nejmenší stáří hesla a v nedávné době změnili heslo v rámci dané okno času, nemůžete se moct změnit heslo znovu, dokud nedosáhne zadané stáří ve vaší doméně. Pro účely testování by měla minimální věk nastavena na hodnotu 0. <br> <br> Pokud máte požadavky na heslo historie povolena, pak je nutné vybrat heslo, které nebyl použit v posledních N krát, kde N je nastavení historie hesel. Pokud vyberete heslo, které používá se v poslední dobu N, potom můžete zobrazit informace o selhání v tomto případě. Pro účely testování historie musí být nastavená na hodnotu 0. <br> <br> Pokud máte požadavky na složitost hesla, všechny z nich se vynucují, když se uživatel pokusí o změnu nebo resetování hesla. <br> <br> Pokud máte povolené filtry heslo a uživatel vybere heslo, které splňují kritéria filtrování, pak resetovat nebo změnit operace selže. |
+| 6329 | MMS(3040): admaexport.cpp(2837): server neobsahuje ovládacího prvku LDAP heslo zásad. | K tomuto problému dochází, pokud LDAP_SERVER_POLICY_HINTS_OID řízení (1.2.840.113556.1.4.2066) není povoleno na řadičích domény. Pokud chcete používat funkce zpětného zápisu hesla, je nutné povolit ovládacího prvku. Uděláte to tak, musí být řadiče domény na Windows Server 2008 (s nejnovější SP) nebo novější. Pokud jsou vaše řadiče domény v 2008 (pre-R2), tak také musíte použít opravu hotfix [KB2386717](http://support.microsoft.com/kb/2386717). |
 | HR 8023042 | Synchronizační modul vrácena chyba hr = 80230402, zpráva = pokus o získání objektu se nezdařilo, protože existují duplicitní položky s stejné ukotvení | K této události dojde, pokud stejné id uživatele je povoleno ve více doménách. Například pokud se synchronizuje doménových struktur účtu nebo prostředků a mít stejné id uživatele existuje a povolené v každé, této chybě může dojít. <br> <br> Tato chyba může vyskytnout, pokud používáte atribut jedinečný anchor (jako alias, nebo hlavní název uživatele) a dva uživatelé sdílet tento stejný atribut ukotvení. <br> <br> K vyřešení tohoto problému, zkontrolujte, že nemáte žádné duplicitní uživatele v rámci domény a, že používáte atribut ukotvení jedinečný pro každého uživatele. |
 
 ### <a name="source-of-event-is-passwordresetservice"></a>Zdroj události je PasswordResetService

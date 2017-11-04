@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
-ms.translationtype: HT
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
 ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
-ms.contentlocale: cs-cz
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
 > [!NOTE]
 > To slouží k práci s clustery ACS založenými na DC/OS. Není nutné pro clustery ACS založené na metodě Swarm.

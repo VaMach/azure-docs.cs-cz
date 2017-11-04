@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Stack to Azure using VPN
-description: How to connect virtual networks in Azure Stack to virtual networks in Azure using VPN.
+title: "Připojit zásobník Azure do Azure pomocí sítě VPN"
+description: "Postup připojení virtuální sítě v Azure zásobníku virtuálních sítí v Azure pomocí sítě VPN."
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,220 +14,219 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.contentlocale: cs-cz
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-azure-stack-to-azure-using-vpn"></a>Connect Azure Stack to Azure using VPN
+# <a name="connect-azure-stack-to-azure-using-vpn"></a>Připojit zásobník Azure do Azure pomocí sítě VPN
 
-*Applies to: Azure Stack integrated systems*
+*Platí pro: Azure zásobníku integrované systémy*
 
-This article shows you how to create a site-to-site VPN to connect a virtual network in Azure Stack to a virtual network in Azure.
+Tento článek ukazuje, jak vytvořit síť site-to-site VPN pro připojení virtuální sítě v Azure zásobník virtuální sítě v Azure.
 
-### <a name="connection-diagram"></a>Connection diagram
-The following diagram shows what the connection configuration should look like when you’re done:
+### <a name="connection-diagram"></a>Diagram připojení
+Následující diagram znázorňuje, by měla vypadat konfigurace připojení po dokončení:
 
-![Site-to-site VPN connection configuration](media/azure-stack-connect-vpn/image2.png)
+![Konfigurace připojení Site-to-site VPN](media/azure-stack-connect-vpn/image2.png)
 
-### <a name="before-you-begin"></a>Before you begin
-To complete the connection configuration, make sure you have the following items before you begin:
+### <a name="before-you-begin"></a>Než začnete
+K dokončení konfigurace připojení, zkontrolujte, zda že máte následující položky, než začnete:
 
-* An Azure Stack integrated systems (multi-node) deployment that is directly connected to the Internet. This means that your External Public IP Address range must be directly reachable from the public Internet.
-* A valid Azure subscription.  If you don’t have an Azure subscription, you can create a [free Azure account here](https://azure.microsoft.com/free/?b=17.06).
+* Balíček Azure integrované systémy (více uzly) nasazení, který je přímo připojený k Internetu. To znamená, že vaše externí veřejná IP adresa rozsahu musí být přímo dosažitelný z veřejného Internetu.
+* Platné předplatné Azure.  Pokud nemáte předplatné Azure, můžete vytvořit [bezplatný účet Azure zde](https://azure.microsoft.com/free/?b=17.06).
 
-## <a name="network-example-values-table"></a>Network example values table
-The network example values table shows the sample values that are used in this article. You can use these values or you can refer to them to better understand the examples in this article.
+## <a name="network-example-values-table"></a>Tabulka hodnot příklad sítě
+V tabulce hodnoty příklad sítě jsou ukázkové hodnoty, které se používají v tomto článku. Můžete použít tyto hodnoty, nebo můžete se podívat do mají lépe pochopit, příklady v tomto článku.
 
-**Network example values table**
+**Tabulka hodnot příklad sítě**
 |   |Azure Stack|Azure|
 |---------|---------|---------|
-|Virtual network name     |Azs-VNet|AzureVNet |
-|Virtual network address space |10.1.0.0/16|10.100.0.0/16|
-|Subnet name     |FrontEnd|FrontEnd|
-|Subnet address range|10.1.0.0/24 |10.100.0.0/24 |
-|Gateway subnet     |10.1.1.0/24|10.100.1.0/24|
+|Název virtuální sítě     |AZS-VNet|AzureVNet |
+|Adresní prostor virtuální sítě |10.1.0.0/16|10.100.0.0/16|
+|Název podsítě     |FrontEnd|FrontEnd|
+|Rozsah adres podsítě|10.1.0.0/24 |10.100.0.0/24 |
+|Podsíť brány     |10.1.1.0/24|10.100.1.0/24|
 
-## <a name="create-the-network-resources-in-azure"></a>Create the network resources in Azure
+## <a name="create-the-network-resources-in-azure"></a>Vytvořte síťové prostředky v Azure
 
-First you create the network resources for Azure. The following instructions show how to create the resources by using the [Azure portal](http://portal.azure.com/).
+Nejdřív vytvoříte síťovým prostředkům pro Azure. Následující pokyny ukazují, jak vytvořit prostředky pomocí [portál Azure](http://portal.azure.com/).
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
+### <a name="create-the-virtual-network-and-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
 
-1. Sign in to the [Azure portal](http://portal.azure.com/) using your Azure account.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. Use the information from the network configuration table to identify the values for Azure **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
-6. For **Resource Group**, create a new resource group or, if you already have one, select **Use existing**.
-7. Select the **Location** of your VNet.  If you're using the example values, select **East US** or use another location if you prefer.
-8. Select **Pin to dashboard**.
-9. Select **Create**.
+1. Přihlaste se k [portál Azure](http://portal.azure.com/) pomocí účtu Azure.
+2. V portálu pro uživatele, vyberte **nový**.
+3. Přejděte na **Marketplace**a potom vyberte **sítě**.
+4. Vyberte **virtuální síť**.
+5. Použijte informace z tabulky konfigurace sítě a určete hodnoty pro Azure **název**, **adresní prostor**, **název podsítě**, a **adresa podsítě rozsah**.
+6. Pro **skupiny prostředků**, vytvořte novou skupinu prostředků nebo, pokud již účet máte, vyberte **použít existující**.
+7. Vyberte **umístění** sítě vnet.  Pokud používáte ukázkové hodnoty, vyberte **východní USA** nebo použijte jiné umístění, pokud dáváte přednost.
+8. Zaškrtněte **Připnout na řídicí panel**.
+9. Vyberte **Vytvořit**.
 
-### <a name="create-the-gateway-subnet"></a>Create the Gateway Subnet
-1. Open the Virtual network resource you created (**AzureVNet**) from the dashboard.
-2. On the **Settings** section, select **Subnets**.
-3. Select  **Gateway subnet** to add a gateway subnet to the virtual network.
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.100.0.0/24**.
-6. Select **OK** to create the gateway subnet.
+### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
+1. Otevřete prostředek virtuální sítě, jste vytvořili (**AzureVNet**) na řídicím panelu.
+2. Na **nastavení** vyberte **podsítě**.
+3. Vyberte **podsíť brány** přidat podsíť brány virtuální sítě.
+4. Ve výchozím nastavení je název této podsítě nastavený na **GatewaySubnet**.
+   Podsítě brány jsou speciální a musí mít tento konkrétní název, aby fungovaly správně.
+5. V **rozsahu adres** pole, ověřte adresu **10.100.0.0/24**.
+6. Vyberte **OK** vytvořit podsíť brány.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure portal, select **New**.  
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, type **Azure-GW**.
-5. To choose a virtual network, select **Virtual network**. Then select **AzureVnet** from the list.
-6. Select **Public IP address**. When the **Choose public IP address** section opens, select **Create new**.
-7. In **Name**, type **Azure-GW-PiP**, and then select **OK**.
-8. By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
+1. Na portálu Azure vyberte **nový**.  
+2. Přejděte na **Marketplace**a potom vyberte **sítě**.
+3. V seznamu síťových prostředků, vyberte **Brána virtuální sítě**.
+4. V **název**, typ **Azure-GW**.
+5. Vyberte virtuální síť, vyberte **virtuální síť**. Potom vyberte **AzureVnet** ze seznamu.
+6. Vyberte **veřejnou IP adresu**. Když **zvolte veřejnou IP adresu** části otevře, vyberte **vytvořit nový**.
+7. V **název**, typ **Azure-GW – PiP**a potom vyberte **OK**.
+8. Ve výchozím nastavení pro **typ sítě VPN**, **založené na trasách** je vybrána.
+    Zachovat **založené na trasách** typ sítě VPN.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Budete moct připnout prostředků na řídicí panel. Vyberte **Vytvořit**.
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
+### <a name="create-the-local-network-gateway-resource"></a>Vytvořte prostředek brány místní sítě
 
-1. In the Azure portal, select **New**. 
-4. Go to **Marketplace**, and then select **Networking**.
-5. From the list of resources, select **Local network gateway**.
-6. In **Name**, type **Azs-GW**.
-7. In **IP address**, type the public IP address for your Azure Stack Virtual Network Gateway that is listed earlier in the network configuration table.
-8. In **Address Space**, from Azure Stack, type the **10.0.10.0/23** address space for **AzureVNet**.
-9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
+1. Na portálu Azure vyberte **nový**. 
+4. Přejděte na **Marketplace**a potom vyberte **sítě**.
+5. V seznamu zdrojů vyberte **brány místní sítě**.
+6. V **název**, typ **Azs-GW**.
+7. V **IP adresu**, zadejte veřejnou IP adresu pro vaše zásobníku brány virtuální sítě Azure, je uvedena výše v tabulce Konfigurace sítě.
+8. V **adresní prostor**, zásobník Azure, zadejte **10.0.10.0/23** adresní prostor pro **AzureVNet**.
+9. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** jsou správné a potom vyberte **vytvořit**.
 
-## <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basic** settings section, for the **Connection type**, choose **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** section, select **Virtual network gateway**, and then select **Azure-GW**.
-7. Select **Local network gateway**, and then select **Azs-GW**.
-8. In **Connection name**, type **Azure-Azs**.
-9. In **Shared key (PSK)**, type **12345**. If you choose a different value, remember that it *must* match the value for the shared key that you create on the other end of the connection. Select **OK**.
-10. Review the **Summary** section, and then select **OK**.
+## <a name="create-the-connection"></a>Vytvoření připojení
+1. V portálu pro uživatele, vyberte **nový**. 
+2. Přejděte na **Marketplace**a potom vyberte **sítě**.
+3. V seznamu zdrojů vyberte **připojení**.
+4. Na **základní** části nastavení pro **typ připojení**, zvolte **Site-to-site (IPSec)**.
+5. Vyberte **předplatné**, **skupiny prostředků**, a **umístění**a potom vyberte **OK**.
+6. Na **nastavení** vyberte **Brána virtuální sítě**a potom vyberte **Azure-GW**.
+7. Vyberte **brány místní sítě**a potom vyberte **Azs-GW**.
+8. V **název připojení**, typ **Azure Azs**.
+9. V **sdílený klíč (PSK)**, typ **12345**. Pokud zvolíte jinou hodnotu, mějte na paměti, že IT oddělení *musí* odpovídají hodnotě pro sdílený klíč, kterou vytvoříte na druhém konci připojení. Vyberte **OK**.
+10. Zkontrolujte **Souhrn** a pak vyberte **OK**.
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-Create a virtual machine in Azure now, and put it on your VM subnet in your virtual network.
+## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+Vytvoření virtuálního počítače v Azure nyní a umístí jej podsíť virtuálních počítačů ve virtuální síti.
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** section, for **Name**, type **AzureVM**.
-5. Type a valid username and password. You use this account to sign in to the virtual machine after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** section, select a virtual machine size for this instance, and then select **Select**.
-8. On the **Settings** section, you can accept the defaults. Make sure that the **AzureVnet** virtual network is selected, and verify that the subnet is set to **10.0.20.0/24**. Select **OK**.
-9. Review the settings on the **Summary** section, and then select **OK**.
+1. Na portálu Azure vyberte **nový**.
+2. Přejděte na **Marketplace**a potom vyberte **výpočetní**.
+3. Vyberte v seznamu bitové kopie virtuálních počítačů, **Windows Server 2016 Datacenter Eval** bitové kopie.
+4. Na **Základy** části pro **název**, typ **AzureVM**.
+5. Zadejte platné uživatelské jméno a heslo. Tento účet používáte k přihlášení k virtuálnímu počítači po jeho vytvoření.
+6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a potom vyberte **OK**.
+7. Na **velikost** vyberte velikost virtuálního počítače pro tuto instanci a potom vyberte **vyberte**.
+8. Na **nastavení** části můžete přijmout výchozí hodnoty. Ujistěte se, že **AzureVnet** virtuální síť je vybrána a ověřte, že podsíť je nastavena na **10.0.20.0/24**. Vyberte **OK**.
+9. Zkontrolujte nastavení na **Souhrn** a pak vyberte **OK**.
 
-## <a name="create-the-network-resources-in-azure-stack"></a>Create the network resources in Azure Stack
-Next you create the network resources in Azure Stack.
+## <a name="create-the-network-resources-in-azure-stack"></a>Vytvoření síťové prostředky v Azure zásobníku
+Dále vytvoříte síťové prostředky v Azure zásobníku.
 
-### <a name="sign-in-as-a-user"></a>Sign in as a user
-A service administrator can sign in as a user to test the plans, offers, and subscriptions that their users might use. If you don’t already have one, [create a user account](azure-stack-add-new-user-aad.md) before you sign in.
+### <a name="sign-in-as-a-user"></a>Přihlaste se jako uživatel
+Správce služeb můžete přihlásit jako uživatel a testovací plány, nabídky a odběry, které uživatelé můžou používat. Pokud jste ještě nemáte, [vytvoření uživatelského účtu](azure-stack-add-new-user-aad.md) před přihlášením.
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
-1. Use a user account to sign in to the user portal.
-2. In the user portal, select **New**.
+### <a name="create-the-virtual-network-and-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
+1. Použijte uživatelský účet pro přihlášení k portálu user portal.
+2. V portálu pro uživatele, vyberte **nový**.
 
-    ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![Vytvořit novou virtuální síť](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values from the network configuration table.
-6. In **Subscription**, the subscription that you created earlier appears.
-7. For **Resource Group**, you can either create a resource group or if you already have one, select **Use existing**.
-8. Verify the default location.
-9. Select **Pin to dashboard**.
-10. Select **Create**.
+3. Přejděte na **Marketplace**a potom vyberte **sítě**.
+4. Vyberte **virtuální síť**.
+5. Pro **název**, **adresní prostor**, **název podsítě**, a **rozsah adres podsítě**, použijte hodnoty z tabulky konfigurace sítě.
+6. V **předplatné**, zobrazí se předplatné, které jste vytvořili dříve.
+7. Pro **skupiny prostředků**, můžete vytvořit skupinu prostředků nebo pokud již účet máte, vyberte **použít existující**.
+8. Ověřte výchozí umístění.
+9. Zaškrtněte **Připnout na řídicí panel**.
+10. Vyberte **Vytvořit**.
 
-### <a name="create-the-gateway-subnet"></a>Create the gateway subnet
-1. On the dashboard, open the Azs-VNet virtual network resource you created.
-2. On the **Settings** section, select **Subnets**.
-3. To add a gateway subnet to the virtual network, select **Gateway Subnet**.
+### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
+1. Na řídicím panelu otevřete prostředek Azs-VNet virtuální síť, kterou jste vytvořili.
+2. Na **nastavení** vyberte **podsítě**.
+3. Chcete-li přidat podsíť brány virtuální sítě, vyberte **podsíť brány**.
    
-    ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![Přidání podsítě brány](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
-4. By default, the subnet name is set to **GatewaySubnet**.
-   Gateway subnets are special. To function properly, they must use the *GatewaySubnet* name.
-5. In **Address range**, verify that the address is **10.1.1.0/24**.
-6. Select **OK** to create the gateway subnet.
+4. Ve výchozím nastavení, je název podsítě hodnotu **GatewaySubnet**.
+   Podsítě brány jsou speciální. Chcete-li správně fungoval, musíte použít *GatewaySubnet* název.
+5. V **rozsahu adres**, ověřte, že adresa je **10.1.1.0/24**.
+6. Vyberte **OK** vytvořit podsíť brány.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure Stack portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, type **Azs-GW**.
-5. Select the **Virtual network** item to choose a virtual network.
-   Select **Azs-VNet** from the list.
-6. Select the **Public IP address** menu item. When the **Choose public IP address** section opens, select **Create new**.
-7. In **Name**, type **Azs-GW-PiP**, and then select **OK**.
-8.  By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
+1. Na portálu Azure zásobníku vyberte **nový**. 
+2. Přejděte na **Marketplace**a potom vyberte **sítě**.
+3. V seznamu síťových prostředků, vyberte **Brána virtuální sítě**.
+4. V **název**, typ **Azs-GW**.
+5. Vyberte **virtuální síť** položky vyberte virtuální síť.
+   Vyberte **Azs-VNet** ze seznamu.
+6. Vyberte **veřejnou IP adresu** položku nabídky. Když **zvolte veřejnou IP adresu** části otevře, vyberte **vytvořit nový**.
+7. V **název**, typ **Azs-GW – PiP**a potom vyberte **OK**.
+8.  Ve výchozím nastavení pro **typ sítě VPN**, **založené na trasách** je vybrána.
+    Zachovat **založené na trasách** typ sítě VPN.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Budete moct připnout prostředků na řídicí panel. Vyberte **Vytvořit**.
 
-### <a name="create-the-local-network-gateway"></a>Create the local network gateway
-The notion of a *local network gateway* in Azure Stack is a bit different than in an Azure deployment.
+### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
+Znalost problematicky *brány místní sítě* v zásobníku Azure je trochu jiná než v nasazení služby Azure.
 
-In an Azure deployment, a local network gateway represents an on-premises (at the user location) physical device, that you use to connect to a virtual network gateway in Azure. In Azure Stack, both ends of the connection are virtual network gateways!
+V nasazení služby Azure představuje bránu místní sítě fyzického zařízení místní (na umístění uživatele), který používáte pro připojení k bráně virtuální sítě v Azure. V zásobníku Azure jsou obou konců připojení brány virtuální sítě!
 
-A way to think about this more generically is that the local network gateway resource always indicates the remote gateway at the other end of the connection. 
+Způsob, jak více obecně myslíte o této je, že prostředek brány místní sítě vždycky uvádí služby Brána vzdálené na druhém konci připojení. 
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
-1. Sign in to the Azure Stack portal.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. From the list of resources, select **local network gateway**.
-5. In **Name**, type **Azure-GW**.
-6. In **IP address**, type the Public IP Address for the virtual network gateway in Azure **Azure-GW-PiP**. This address appears earlier in the network configuration table.
-7. In **Address Space**, for the address space of the Azure VNET that you created, type **10.0.20.0/23**.
-8. Verify that your **Subscription**, **Resource Group**, and **location** are correct, and then select **Create**.
+### <a name="create-the-local-network-gateway-resource"></a>Vytvořte prostředek brány místní sítě
+1. Přihlaste se k portálu Azure zásobníku.
+2. V portálu pro uživatele, vyberte **nový**.
+3. Přejděte na **Marketplace**a potom vyberte **sítě**.
+4. V seznamu zdrojů vyberte **brány místní sítě**.
+5. V **název**, typ **Azure-GW**.
+6. V **IP adresu**, zadejte veřejné IP adresy pro bránu virtuální sítě v Azure **Azure-GW – PiP**. Tato adresa se zobrazí dříve v tabulce Konfigurace sítě.
+7. V **adresní prostor**, adresní prostor sítě vnet Azure, kterou jste vytvořili, zadejte **10.0.20.0/23**.
+8. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** jsou správné a potom vyberte **vytvořit**.
 
-### <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**.
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basics** settings section, for the **Connection type**, select **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** section,  select **Virtual network gateway**, and then select **Azs-GW**.
-7. Select **Local network gateway**, and then select **Azure-GW**.
-8. In **Connection Name**, type **Azs-Azure**.
-9. In **Shared key (PSK)**, type **12345**, and then select **OK**.
-10. On the **Summary** section, select **OK**.
+### <a name="create-the-connection"></a>Vytvoření připojení
+1. V portálu pro uživatele, vyberte **nový**.
+2. Přejděte na **Marketplace**a potom vyberte **sítě**.
+3. V seznamu zdrojů vyberte **připojení**.
+4. Na **Základy** části nastavení pro **typ připojení**, vyberte **Site-to-site (IPSec)**.
+5. Vyberte **předplatné**, **skupiny prostředků**, a **umístění**a potom vyberte **OK**.
+6. Na **nastavení** vyberte **Brána virtuální sítě**a potom vyberte **Azs-GW**.
+7. Vyberte **brány místní sítě**a potom vyberte **Azure-GW**.
+8. V **název připojení**, typ **Azs Azure**.
+9. V **sdílený klíč (PSK)**, typ **12345**a potom vyberte **OK**.
+10. Na **Souhrn** vyberte **OK**.
 
-### <a name="create-a-vm"></a>Create a VM
-To validate the data that travels through the VPN connection, you need to create virtual machines on each end to send and receive data through the VPN tunnel. 
+### <a name="create-a-vm"></a>Vytvoření virtuálního počítače
+Pro ověření dat, který se přenáší prostřednictvím připojení VPN, musíte vytvořit virtuální počítače na obou koncích odesílat a přijímat data prostřednictvím tunelu VPN. 
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** section, in **Name**, type **Azs-VM**.
-5. Type a valid username and password. You use this account to sign in to the VM after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** section, for this instance, select a virtual machine size, and then select **Select**.
-8. On the **Settings** section, accept the defaults. Make sure that the **Azs-VNet** virtual network is selected. Verify that the subnet is set to **10.1.0.0/24**. Then select **OK**.
-9. On the **Summary** section, review the settings, and then select **OK**.
+1. Na portálu Azure vyberte **nový**.
+2. Přejděte na **Marketplace**a potom vyberte **výpočetní**.
+3. Vyberte v seznamu bitové kopie virtuálních počítačů, **Windows Server 2016 Datacenter Eval** bitové kopie.
+4. Na **Základy** v části **název**, typ **Azs-VM**.
+5. Zadejte platné uživatelské jméno a heslo. Tento účet používáte k přihlášení k virtuálnímu počítači po jeho vytvoření.
+6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a potom vyberte **OK**.
+7. Na **velikost** části pro tuto instanci, vyberte velikost virtuálního počítače a potom vyberte **vyberte**.
+8. Na **nastavení** část, přijměte výchozí hodnoty. Ujistěte se, že **Azs-VNet** virtuální síť je vybrána. Ověřte, že podsíť je nastavena na **10.1.0.0/24**. Potom vyberte **OK**.
+9. Na **Souhrn** část, zkontrolujte nastavení a pak vyberte **OK**.
 
 
-## <a name="test-the-connection"></a>Test the connection
-Now that the site-to-site connection is established, you should validate that you can get traffic flowing through it. To validate, sign in to one of the virtual machines that you created in Azure Stack. Then, ping the virtual machine that you created in Azure. 
+## <a name="test-the-connection"></a>Otestování připojení
+Teď, když připojení site-to-site je třeba ověřit, získáte provoz přes něj. K ověření, přihlaste se do jednoho z virtuálních počítačů, které jste vytvořili v zásobníku Azure. Pak odeslat příkaz ping virtuální počítač, který jste vytvořili v Azure. 
 
-To make sure that you send the traffic through the site-to-site connection, ping the Direct IP (DIP) address of the virtual machine on the remote subnet, not the VIP. To do this, find the DIP address on the other end of the connection. Save the address for later use.
+Abyste měli jistotu, že je přenos odesílat přes připojení site-to-site, odeslat příkaz ping na přímé IP (DIP) adresu virtuálního počítače ve vzdálené podsíti, není VIP. K tomuto účelu najít adresu vyhrazené IP adresy na druhém konci připojení. Uložte adresu pro pozdější použití.
 
-### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Sign in to the user VM in Azure Stack
-1. Sign in to the Azure Stack portal.
-2. In the left navigation bar, select **Virtual Machines**.
-3. In the list of VMs, find **Azs-VM** that you created previously, and then select it.
-4. On the section for the virtual machine, click **Connect**, and then open the Azs-VM.rdp file.
+### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Přihlaste se k uživatele virtuálního počítače v Azure zásobníku
+1. Přihlaste se k portálu Azure zásobníku.
+2. V levém navigačním panelu, vyberte **virtuální počítače**.
+3. V seznamu virtuálních počítačů, Najít **Azs-VM** který jste vytvořili dříve a pak ho vyberte.
+4. V části pro virtuální počítač, klikněte na tlačítko **Connect**a pak otevřete soubor Azs VM.rdp.
    
-     ![Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Type **ipconfig /all**.
-8. In the output, find the **IPv4 Address**, and then save the address for later use. This is the address that you will ping from Azure. In the example environment, the address is **10.0.10.4**, but in your environment it might be different. It should fall within the **10.0.10.0/24** subnet that you created previously.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+     ![Tlačítko pro připojení](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+5. Přihlaste se pomocí účtu, který se konfiguruje při vytváření virtuálního počítače.
+6. Otevřít se zvýšenými oprávněními **prostředí Windows PowerShell** okno.
+7. Zadejte **ipconfig /all**.
+8. Ve výstupu najít **IPv4 adresu**a potom uložte adresu pro pozdější použití. Toto je adresa, která provede testování ping z Azure. V našem ukázkovém prostředí je touto adresou **10.0.10.4**, ale ve vašem prostředí tato hodnota může být jiná. Musí spadat do **10.0.10.0/24** podsíť, kterou jste vytvořili dříve.
+9. Pokud chcete vytvořit pravidlo brány firewall, která umožňuje virtuálního počítače, které neodpovídají na ověřování aktivity, spusťte následující příkaz prostředí PowerShell:
 
    ```powershell
    New-NetFirewallRule `
@@ -235,16 +234,16 @@ To make sure that you send the traffic through the site-to-site connection, ping
     –Protocol ICMPv4
    ```
 
-### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Sign in to the tenant VM in Azure
-1. Sign in to the Azure portal.
-2. In the left navigation bar, click **Virtual Machines**.
-3. From the list of virtual machines, find **Azure-VM** that you created previously, and then select it.
-4. On the section for the virtual machine, click **Connect**.
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Type **ipconfig /all**.
-8. You should see an IPv4 address that falls within **10.0.20.0/24**. In the example environment, the address is **10.0.20.4**, but your address might be different.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Přihlaste se k klienta virtuálního počítače v Azure
+1. Přihlaste se k portálu Azure.
+2. V levém navigačním panelu klikněte na **virtuální počítače**.
+3. Ze seznamu virtuálních počítačů, Najít **virtuálního počítače Azure** který jste vytvořili dříve a pak ho vyberte.
+4. V části pro virtuální počítač, klikněte na tlačítko **Connect**.
+5. Přihlaste se pomocí účtu, který se konfiguruje při vytváření virtuálního počítače.
+6. Otevřít se zvýšenými oprávněními **prostředí Windows PowerShell** okno.
+7. Zadejte **ipconfig /all**.
+8. Měli byste vidět IPv4 adresu, která spadá do **10.0.20.0/24**. V příkladu prostředí, je na adresu **10.0.20.4**, ale vaše adresa může být odlišné.
+9. Pokud chcete vytvořit pravidlo brány firewall, která umožňuje virtuálního počítače, které neodpovídají na ověřování aktivity, spusťte následující příkaz prostředí PowerShell:
 
    ```powershell
    New-NetFirewallRule `
@@ -252,21 +251,21 @@ To make sure that you send the traffic through the site-to-site connection, ping
     –Protocol ICMPv4
    ```
 
-10. From the virtual machine in Azure, ping the virtual machine in Azure Stack, through the tunnel. To do this, you ping the DIP that you recorded from Azs-VM.
-   In the example environment, this is **10.0.10.4**, but be sure to ping the address you noted in your lab. You should see a result that looks like the following screenshot:
+10. Z virtuálního počítače v Azure zadejte příkaz ping v zásobníku Azure prostřednictvím tunelu virtuálního počítače. K tomuto účelu odeslat příkaz ping vyhrazené IP adresy, které jste si poznamenali ze Azs-VM.
+   V příkladu prostředí, je to **10.0.10.4**, ale ujistěte se, na příkaz ping na adresu, které jste si poznamenali ve svém testovacím prostředí. Měli byste vidět výsledek, který vypadá jako na následujícím snímku obrazovky:
    
-    ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. A reply from the remote virtual machine indicates a successful test! You can close the virtual machine window. To test your connection, you can try other kinds of data transfers like a file copy.
+    ![Úspěšný příkaz ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+11. Odpověď od vzdáleného virtuálního počítače označuje testu úspěšné! Můžete zavřít okno virtuálního počítače. Chcete-li otestovat připojení, můžete se pokusit jinými druhy přenosů dat, jako je kopírování souborů.
 
-### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Viewing data transfer statistics through the gateway connection
-If you want to know how much data passes through your site-to-site connection, this information is available on the **Connection** section. This test is also another way to verify that the ping you just sent actually went through the VPN connection.
+### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Zobrazení statistiky přenosu dat prostřednictvím připojení brány
+Pokud chcete vědět, kolik dat prochází připojení site-to-site, tyto informace jsou k dispozici na **připojení** části. Tento test je také jiný způsob, jak ověřit, že příkazem ping, které jste poslali ve skutečnosti se prostřednictvím připojení VPN.
 
-1. While you're signed in to the user virtual machine in Azure Stack, use your user account to sign in to the user portal.
-2. Go to **All resources**, and then select the **Azs-Azure** connection. **Connections** appears.
-4. On the **Connection** section, the statistics for **Data in** and **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
+1. Když jste přihlášení k virtuálnímu počítači uživatele v zásobníku Azure, pomocí účtu uživatele k přihlášení k portálu user portal.
+2. Přejděte na **všechny prostředky**a pak vyberte **Azs Azure** připojení. **Připojení** se zobrazí.
+4. Na **připojení** části statistiku **Data v** a **Data** zobrazí. Na následujícím snímku obrazovky jsou velké počty přičítat přenos dalších souborů. Měli byste vidět některé nenulové hodnoty.
    
-    ![Data in and out](media/azure-stack-connect-vpn/Connection.png)
+    ![Data vstup a výstup](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Další kroky
 
-[Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+[Nasazení aplikací do Azure a Azure zásobníku](azure-stack-solution-pipeline.md)

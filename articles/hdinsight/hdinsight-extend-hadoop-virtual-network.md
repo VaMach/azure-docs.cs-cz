@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5835d4ac83b54648b4f7885de577f90008018baa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Rozšíření Azure HDInsight pomocí virtuální síť Azure
 
@@ -671,8 +671,8 @@ Po dokončení těchto kroků se můžete připojit k prostředkům ve virtuáln
 ## <a name="next-steps"></a>Další kroky
 
 * Příklad začátku do konce konfigurace HDInsight pro připojení k místní síti, najdete v části [HDInsight připojit k místní síti](./connect-on-premises-network.md).
-* Konfigurace clustery Hbase v Azure virtuální sítě, naleznete v části [clusterů vytvořte HBase v HDInsight v Azure Virtual Network](./hdinsight-hbase-provision-vnet.md).
-* Konfigurace geografická replikace HBase, najdete v části [nastavení HBase clusteru replikace v virtuálních sítí Azure](./hdinsight-hbase-replication.md).
+* Konfigurace clustery Hbase v Azure virtuální sítě, naleznete v části [clusterů vytvořte HBase v HDInsight v Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Konfigurace geografická replikace HBase, najdete v části [nastavení HBase clusteru replikace v virtuálních sítí Azure](hbase/apache-hbase-replication.md).
 * Další informace o virtuálních sítí Azure, najdete v článku [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
 
 * Další informace o skupinách zabezpečení sítě najdete v tématu [skupin zabezpečení sítě](../virtual-network/virtual-networks-nsg.md).

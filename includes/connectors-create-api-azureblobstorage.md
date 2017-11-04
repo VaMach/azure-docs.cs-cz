@@ -1,28 +1,28 @@
-### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure Blob Storage account](../articles/storage/common/storage-create-storage-account.md) including the storage account name, and its access key. This information is listed in the properties of the storage account in the Azure portal. Read more about [Azure Storage](../articles/storage/common/storage-introduction.md).
+### <a name="prerequisites"></a>Požadavky
+* Účet Azure; můžete vytvořit [bezplatný účet](https://azure.microsoft.com/free)
+* [Účtu úložiště objektů Blob Azure](../articles/storage/common/storage-create-storage-account.md) včetně název účtu úložiště a jeho přístupový klíč. Tyto informace je uvedena v okně vlastností účtu úložiště na portálu Azure. Další informace o [Azure Storage](../articles/storage/common/storage-introduction.md).
 
-Before using your Azure Blob Storage account in a logic app, connect to your Azure Blob Storage account. You can do this easily within your logic app on the Azure  portal.  
+Před použitím svého účtu úložiště objektů Blob Azure v aplikaci logiky se připojte k účtu úložiště objektů Blob Azure. Můžete k tomu snadno v rámci aplikace logiky na portálu Azure.  
 
-Connect to your Azure Blob Storage account using the following steps:  
+Připojte k účtu Azure Blob Storage pomocí následujících kroků:  
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "blob" in the search box. Select one of the actions:  
+1. Vytvoření aplikace logiky. V Návrháři Logic Apps přidejte aktivační událost a potom přidat akci. Vyberte **zobrazit Microsoft spravované rozhraní API** v rozevíracím seznamu a potom zadejte do vyhledávacího pole "blob". Vyberte jednu z akcí:  
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
-2. If you haven't previously created any connections to Azure storage, you are prompted for the connection details:   
+    ![Azure Blob Storage – krok vytvoření připojení](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
+2. Pokud jste dosud nevytvořili žádné připojení k úložišti Azure, budete vyzváni k podrobnosti připojení:   
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-3. Enter the storage account details. Properties with an asterisk are required.
+    ![Azure Blob Storage – krok vytvoření připojení](./media/connectors-create-api-azureblobstorage/connection-details.png)  
+3. Zadejte podrobnosti o účtu úložiště. Vyžadují se vlastnosti s hvězdičkou.
    
-   | Property | Details |
+   | Vlastnost | Podrobnosti |
    | --- | --- |
-   | Connection Name * |Enter any name for your connection. |
-   | Azure Storage Account Name * |Enter the storage account name. The storage account name is displayed in the storage properties in the Azure portal. |
-   | Azure Storage Account Access Key * |Enter the storage account key. The access keys are displayed in the storage properties in the Azure portal. |
+   | Název připojení * |Zadejte libovolný název pro připojení. |
+   | Název účtu úložiště Azure * |Zadejte název účtu úložiště. Název účtu úložiště se zobrazí ve vlastnostech úložiště na portálu Azure. |
+   | Přístupový klíč účtu úložiště Azure * |Zadejte klíč účtu úložiště. Přístupové klíče se zobrazí ve vlastnostech úložiště na portálu Azure. |
    
-    These credentials are used to authorize your logic app to connect, and access your data. 
-4. Select **Create**.
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+    Tyto přihlašovací údaje se používají k autorizaci aplikace logiky připojení a přístup k datům. 
+4. Vyberte **Vytvořit**.
+5. Všimněte si, že existuje připojení. Nyní pokračujte další kroky v aplikaci logiky: 
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+    ![Azure Blob Storage – krok vytvoření připojení](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 

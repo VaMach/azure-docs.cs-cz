@@ -11,17 +11,17 @@ editor:
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.openlocfilehash: fd72faf6c3a410242fd36a1abf4c556712c6beaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f67ba82c3aaf312662096964b7b7942efa108607
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Připojení a dotazování dat pomocí aplikace SQL Server Management Studio
 
@@ -164,6 +164,7 @@ Použijte následující kód k odstranění nového produktu, který jste přid
 
 - Další informace o vytváření a správě serverů a databází pomocí jazyka Transact-SQL najdete v tématu [Další informace o serverech a databázích Azure SQL Database](sql-database-servers-databases.md).
 - Další informace o aplikaci SSMS najdete v tématu [Použití aplikace SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- Informace o připojení a dotazování pomocí webu Azure Portal najdete v tématu[Připojení a dotazování pomocí editoru dotazů SQL webu Azure Portal](sql-database-connect-query-portal.md).
 - Informace o připojení a dotazování pomocí Visual Studio Code najdete v tématu [Připojení a dotazování pomocí Visual Studio Code](sql-database-connect-query-vscode.md).
 - Informace o připojení a dotazování pomocí .NET najdete v tématu [Připojení a dotazování pomocí .NET](sql-database-connect-query-dotnet.md).
 - Informace o připojení a dotazování pomocí PHP najdete v tématu [Připojení a dotazování pomocí PHP](sql-database-connect-query-php.md).

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/02/2017
 ms.author: twooley
-ms.openlocfilehash: d91a23ae4eb5aee14d3d2fef74467e7f33c458cc
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: a66c7dddab1a2246dd0a9fa3c7533063140d2f01
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Aktualizace zásobníku Azure 1710 (sestavení 20171020.1)
 
@@ -113,6 +113,7 @@ Tato část obsahuje známé problémy s sestavení 20171020.1 po instalaci.
 **Síť**
 - Nástroj pro vyrovnávání zatížení s veřejnou IP adresu nelze vytvořit pomocí portálu. Jako alternativní řešení můžete použít PowerShell k vytvoření nástroje pro vyrovnávání zatížení.
 - Když vytvoříte Vyrovnávání zatížení sítě, musíte vytvořit pravidlo překladu adres sítě. Pokud to neuděláte, obdržíte chybu při pokusu přidat pravidlo NAT po vytvoření nástroje pro vyrovnávání zatížení.
+- Veřejnou IP adresu z virtuálního počítače (VM) nelze zrušit přidružení, po virtuálního počítače byla vytvořena a související s touto adresou IP. Zrušení přidružení se zobrazí postup, ale pořád přidruženy původní virtuální počítač dříve přiřazenou veřejnou IP adresu. K tomuto chování dochází i v případě, že je přiřadit IP adresu na nový virtuální počítač (obvykle označuje jako *prohození*). Všechny budoucí pokusy o připojení přes tuto IP adresu povede připojení do původně přidružený virtuální počítač a ne do nového. V současné době je nutné pouze použít nové veřejné IP adresy pro vytvoření nového virtuálního počítače.
  
 ### <a name="field-replaceable-unit-fru-procedures"></a>Postupy pole replaceable jednotka (FRU)
 

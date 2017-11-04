@@ -53,9 +53,9 @@ Po vyřešení všech chyb odpojte existující virtuální pevný disk od virtu
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Vytvoření virtuálního počítače z původního pevného disku
 
-K vytvoření virtuálního počítače ze svého původního virtuálního pevného disku použijte [portál Azure Classic](https://manage.windowsazure.com).
+Chcete-li vytvořit virtuální počítač z původní virtuální pevný disk, použijte [portál Azure](https://portal.azure.com).
 
-1. Přihlaste se k [portálu Azure Classic](https://manage.windowsazure.com).
-2. V dolní části portálu vyberte **Nový** > **Compute** > **Virtuální počítač** > **Z galerie**.
+1. Přihlaste se na [portál Azure](https://portal.azure.com).
+2. V levém horním portálu, vyberte **nový** > **výpočetní** > **virtuálního počítače** > **z Galerie**.
 3. V části **Zvolit image** vyberte **Moje disky** a potom vyberte původní virtuální pevný disk. Zkontrolujte informace o umístění. To je oblast, ve které musí být virtuální počítač nasazen. Klikněte na tlačítko Další.
 4. V části **Konfigurace virtuálního počítače** zadejte název virtuálního počítače a vyberte jeho velikost.

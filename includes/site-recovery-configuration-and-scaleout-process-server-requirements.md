@@ -6,10 +6,12 @@
 | Volné místo na disku (mezipaměť procesového serveru) | 600 GB
 | Volné místo na disku (disk pro uchování) | 600 GB|
 | **Software** | |
-| Verze operačního systému | Windows Server 2012 R2 |
+| Verze operačního systému | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Národní prostředí operačního systému | Angličtina (en-us)|
 | Verze VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Role Windows Serveru | Nepovolujte následující role: <br> – Active Directory Domain Services <br>– Internet Information Service <br> – Hyper-V |
+| Zásady skupiny| Tyto zásady skupiny, nemělo by být povolené na serveru <br> -Zabránit přístupu do příkazového řádku <br> -Zabránit přístupu do nástroje pro úpravy registru <br> -Důvěřovat logiku pro přílohy souborů <br> -Zapnout provádění skriptu <br> **Poznámka:** naleznete další informace o těchto zásadách skupiny [sem](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
+| Konfigurace Service(IIS) informace Internet | -Žádné existující výchozí web <br> -Aktivovat [anonymní ověřování](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Aktivovat [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) nastavení  <br> -Žádná existující websit nebo aplikace by měla naslouchání na portu 443<br>|
 | **Síť** | |
 | Typ karty síťového rozhraní | VMXNET3 |
 | Typ IP adresy | Statická |

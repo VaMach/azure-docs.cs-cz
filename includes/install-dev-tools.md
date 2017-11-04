@@ -1,8 +1,8 @@
 
 > [!NOTE]
-> To successfully complete this section, you must have a working installation of Node.js and the Azure SDK for Node.js for your platform.
+> Úspěšné dokončení této části, musí mít funkční instalací Node.js a sady Azure SDK pro Node.js pro vaši platformu.
 > 
-> * Install the Azure SDK for Node.js: [Windows installer](http://go.microsoft.com/fwlink/?LinkId=254279) | [Mac installer](http://go.microsoft.com/fwlink/?LinkId=253471) | [Linux download](http://go.microsoft.com/fwlink/?LinkId=253472)
-> * If you are using Mac or Linux, install Node.js from [http://nodejs.org](http://nodejs.org). The Windows installer already includes Node.js.
+> * Nainstalovat sadu Azure SDK pro Node.js: [Instalační služby systému Windows](http://go.microsoft.com/fwlink/?LinkId=254279) | [Instalační služby systému Mac](http://go.microsoft.com/fwlink/?LinkId=253471) | [Linux stahování](http://go.microsoft.com/fwlink/?LinkId=253472)
+> * Pokud používáte Mac nebo Linux, nainstalujte si Node.js z [http://nodejs.org](http://nodejs.org). Instalační služba systému Windows již obsahuje Node.js.
 > 
 > 

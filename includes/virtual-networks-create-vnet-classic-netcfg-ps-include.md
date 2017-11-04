@@ -1,16 +1,16 @@
-## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>How to create a virtual network using a network config file from PowerShell
-Azure uses an xml file to define all virtual networks available to a subscription. You can download this file, edit it to modify or delete existing virtual networks, and create new virtual networks. In this tutorial, you learn how to download this file, referred to as network configuration (or netcfg) file, and edit it to create a new virtual network. To learn more about the network configuration file, see the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Postup vytvoření virtuální sítě pomocí souboru konfigurace sítě z prostředí PowerShell.
+Azure používá soubor xml pro definování všechny virtuální sítě, které jsou k dispozici k odběru. Tento soubor stáhnout, upravit nebo odstranit existující virtuální sítě do něj a vytvořit nové virtuální sítě. V tomto kurzu zjistěte, jak ke stažení tohoto souboru, označuje jako soubor konfigurace (nebo netcfg) sítě a upravit ho k vytvoření nové virtuální sítě. Další informace o konfiguračního souboru sítě, najdete v článku [schéma konfigurace virtuální sítě Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-To create a virtual network with a netcfg file using PowerShell, complete the following steps:
+Pokud chcete vytvořit virtuální síť s souboru netcfg pomocí prostředí PowerShell, proveďte následující kroky:
 
-1. If you have never used Azure PowerShell, complete the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article, then sign in to Azure and select your subscription.
-2. From the Azure PowerShell console, use the **Get-AzureVnetConfig** cmdlet to download the network configuration file to a directory on your computer by running the following command: 
+1. Pokud jste prostředí Azure PowerShell nikdy nepoužívali, proveďte kroky v [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azureps-cmdlets-docs) článek, a přihlaste se k Azure a vybrat své předplatné.
+2. Z konzoly Azure PowerShell, použijte **Get-AzureVnetConfig** rutiny stáhněte soubor konfigurace sítě do adresáře v počítači tak, že spustíte následující příkaz: 
    
    ```powershell
    Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
    ```
    
-   Expected output:
+   Očekávaný výstup:
   
       ```
       XMLConfiguration                                                                                                     
@@ -18,8 +18,8 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Open the file you saved in step 2 using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network is displayed as its own **<VirtualNetworkSite>** element.
-4. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
+3. Otevřete soubor, který jste uložili v kroku 2 pomocí jakékoli aplikace XML nebo textovém editoru a podívejte se  **<VirtualNetworkSites>**  element. Pokud máte žádné sítě, které už vytvořený, každá síť se zobrazí jako vlastní  **<VirtualNetworkSite>**  element.
+4. Pokud chcete vytvořit virtuální síť v tomto scénáři, přidejte následující kód XML pouze v části  **<VirtualNetworkSites>**  element:
 
    ```xml
         <VirtualNetworkSite name="TestVNet" Location="East US">
@@ -37,14 +37,14 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
         </VirtualNetworkSite>
    ```
    
-5. Save the network configuration file.
-6. From the Azure PowerShell console, use the **Set-AzureVnetConfig** cmdlet to upload the network configuration file by running the following command: 
+5. Uložte soubor konfigurace sítě.
+6. Z konzoly Azure PowerShell, použijte **Set-AzureVnetConfig** rutiny nahrát konfiguračního souboru sítě tak, že spustíte následující příkaz: 
    
    ```powershell
    Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
    ```
    
-   Returned output:
+   Vrátí výstup:
    
       ```
       OperationDescription OperationId                          OperationStatus
@@ -52,15 +52,15 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
       Set-AzureVNetConfig  <Id>                                 Succeeded 
       ```
    
-   If **OperationStatus** is not *Succeeded* in the returned output, check the xml file for errors and complete step 6 again.
+   Pokud **OperationStatus** není *úspěšné* ve vrácené výstupu, zkontrolujte soubor xml pro chyby a dokončení kroku 6 znovu.
 
-7. From the Azure PowerShell console, use the **Get-AzureVnetSite** cmdlet to verify that the new network was added by running the following command: 
+7. Z konzoly Azure PowerShell, použijte **Get-AzureVnetSite** rutiny ověřte, zda bude nová síť byl přidán spuštěním následujícího příkazu: 
 
    ```powershell
    Get-AzureVNetSite -VNetName TestVNet
    ```
    
-   The returned (abbreviated) output includes the following text:
+   Vrácený výstup (zkrácení) zahrnuje následující text:
   
       ```
       AddressSpacePrefixes : {192.168.0.0/16}

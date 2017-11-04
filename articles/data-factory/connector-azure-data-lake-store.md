@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 1e130fbf36d00a57563419670195fe356e8e5582
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure Data Lake Store pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplika
 - Klíč aplikace
 - ID tenanta
 
-[!TIP]
+>[!TIP]
 > Ujistěte se, že udělíte hlavní správné oprávnění služby v Azure Data Lake Store:
 >- Jako zdroj, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu.
 >- Jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud chcete, aby se zabránilo této role IAM [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu.

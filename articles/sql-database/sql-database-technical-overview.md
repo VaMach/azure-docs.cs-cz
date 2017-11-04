@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/30/2017
+ms.workload: Active
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
-ms.contentlocale: cs-cz
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co je služba Azure SQL Database? 
 
@@ -85,16 +84,20 @@ Dostupnost služby Azure se smlouvou o úrovní služeb [(SLA)](http://azure.mic
 
 Se službou SQL Database získáte integrované inteligentní funkce, které vám pomůžou výrazně snížit náklady na provoz a správu databází a maximalizovat výkon a zabezpečení aplikace. Během nepřetržitého spouštění milionů zákaznických úloh SQL Database shromažďuje a zpracovává obrovské množství telemetrických dat, přičemž zároveň plně respektuje ochranu osobních údajů zákazníků. Různé algoritmy neustále vyhodnocují telemetrická data, aby se služba mohla učit a přizpůsobovat vaší aplikaci. Na základě této analýzy služba nabízí doporučení pro vylepšení výkonu přizpůsobená pro konkrétní úlohu. 
 
-### <a name="automatic-performance-tuning"></a>Automatická optimalizace výkonu
+### <a name="automatic-performance-monitoring-and-tuning"></a>Automatické výkonu sledování a ladění
 
-SQL Database nabízí podrobné přehledy dotazů, které potřebujete monitorovat. SQL Database zjistí aspekty vaší databáze a umožní vám přizpůsobit schéma databáze vaší úloze. SQL Database poskytuje doporučení pro optimalizaci výkonu pomocí funkce [SQL Database Advisor](sql-database-advisor.md), kde můžete zkontrolovat akce optimalizace a použít je. Neustálé monitorování databáze je však náročný a zdlouhavý úkol, zejména při práci s mnoha databázemi. Efektivní správa velkého počtu databází může být nemožná i se všemi dostupnými nástroji a sestavami, které SQL Database a Azure Portal nabízí. Místo ručního monitorování a optimalizace databáze můžete zvážit delegování některých akcí monitorování a optimalizace do služby SQL Database pomocí funkce automatické optimalizace. SQL Database automaticky aplikuje doporučení a testuje a ověřuje každou z akcí optimalizace pro zajištění stálého vylepšování výkonu. Díky tomu se služba SQL Database může automaticky přizpůsobit vaší úloze řízeným a bezpečným způsobem. Automatická optimalizace znamená, že se výkon vaší databáze pečlivě monitoruje a porovnává před a po každé akci optimalizace, a pokud se výkon nezlepší, akce optimalizace se vrátí zpět.
+SQL Database nabízí podrobné přehledy dotazů, které potřebujete monitorovat. SQL Database zjistí aspekty vaší databáze a umožní vám přizpůsobit schéma databáze vaší úloze. Databáze SQL obsahuje [doporučení ladění výkonu](sql-database-advisor.md), kde můžete zkontrolovat vyladění akce a použít je. 
+
+Neustálé monitorování databáze je však náročný a zdlouhavý úkol, zejména při práci s mnoha databázemi. [Inteligentní Statistika](sql-database-intelligent-insights.md) neobsahuje tuto úlohu pro vás automaticky sledováním výkonu databáze SQL ve velkém měřítku a informuje o snížení výkonu problémům s výkonem, identifikuje hlavní příčinu problému a poskytuje zlepšení výkonu doporučení, pokud je to možné.
+
+Efektivní správa velkého počtu databází může být nemožná i se všemi dostupnými nástroji a sestavami, které SQL Database a Azure Portal nabízí. Místo sledování a ladění databázi ručně, můžete zvážit delegování některé sledování a ladění akce k databázi SQL pomocí [automatické ladění](sql-database-automatic-tuning.md). SQL Database automaticky aplikuje doporučení a testuje a ověřuje každou z akcí optimalizace pro zajištění stálého vylepšování výkonu. Díky tomu se služba SQL Database může automaticky přizpůsobit vaší úloze řízeným a bezpečným způsobem. Automatická optimalizace znamená, že se výkon vaší databáze pečlivě monitoruje a porovnává před a po každé akci optimalizace, a pokud se výkon nezlepší, akce optimalizace se vrátí zpět.
 
 V současné době se mnoho našich partnerů provozujících [víceklientské aplikace SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md) nad službou SQL Database spoléhá na automatickou optimalizaci výkonu pro zajištění, že jejich aplikace budou mít vždy stabilní a předvídatelný výkon. Tato funkce pro ně výrazně snižuje riziko incidentu výkonu uprostřed noci. Vzhledem k tomu, že část jejich zákazníků také používá SQL Server, můžou navíc s využitím stejných doporučení indexování získaných ze služby SQL Database pomáhat svým zákazníkům s SQL Serverem.
 
-Ve službě SQL Database existují dva dostupné aspekty automatické optimalizace:
+Existují dva automatické ladění aspekty, které jsou [dostupných v databázi SQL](sql-database-automatic-tuning.md):
 
-- **[Automatická správa indexů:](sql-database-automatic-tuning.md#automatic-index-management)** Identifikuje indexy, které by se měly do databáze přidat nebo z ní naopak odebrat.
-- **[Automatická oprava plánů:](sql-database-automatic-tuning.md#automatic-plan-choice-correction)** Identifikuje problematické plány a řeší problémy s výkonem plánu SQL (již brzy, aktuálně k dispozici v SQL Serveru 2017).
+- **Správa automatického indexu**: identifikuje indexy, které mají být přidány do databáze a indexy, které má být odebrána.
+- **Automatické plán oprava**: identifikuje problematické plány a řeší problémy s výkonem plán SQL (již brzy, již k dispozici v SQL serveru 2017).
 
 ### <a name="adaptive-query-processing"></a>Adaptivní zpracování dotazů
 
@@ -114,7 +117,7 @@ SQL Database nabízí řadu [integrovaných funkcí zabezpečení a dodržován�
 
 ### <a name="data-encryption-at-rest"></a>Šifrování v klidovém stavu
 
-[Transparentní šifrování dat](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) služby SQL Database pomáhá chránit před hrozbou škodlivé aktivity tím, že v reálném čase provádí šifrování a dešifrování databáze, přidružených záloh a souborů protokolů transakcí v klidovém stavu a nevyžaduje žádné změny aplikace. Od května 2017 jsou všechny nově vytvořené databáze Azure SQL automaticky chráněné pomocí transparentního šifrování dat (TDE). TDE je prověřená technologie SQL pro šifrování v klidovém stavu, kterou vyžaduje řada standardů dodržování předpisů z důvodu ochrany před krádeží úložného média. Zákazníci můžou bezpečně a s ohledem na dodržování předpisů spravovat šifrovací klíče TDE a další tajné klíče pomocí Azure Key Vault.
+[Transparentní šifrování dat](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) služby SQL Database pomáhá chránit před hrozbou škodlivé aktivity tím, že v reálném čase provádí šifrování a dešifrování databáze, přidružených záloh a souborů protokolů transakcí v klidovém stavu a nevyžaduje žádné změny aplikace. Od května 2017 jsou všechny nově vytvořené databáze Azure SQL automaticky chráněné pomocí transparentního šifrování dat (TDE). TDE je prověřená technologie SQL pro šifrování v klidovém stavu, kterou vyžaduje řada standardů dodržování předpisů z důvodu ochrany před krádeží úložného média. Zákazníci můžou bezpečně a s ohledem na dodržování předpisů spravovat šifrovací klíče TDE a další tajné klíče pomocí Azure Key Vault.
 
 ### <a name="data-encryption-in-motion"></a>Šifrování přenášených dat
 
@@ -147,6 +150,14 @@ SQL Database zjednodušuje a zefektivňuje vytváření a správu aplikací. SQL
 
 SQL Database podporuje vytváření aplikací pomocí Pythonu, Javy, Node.js, PHP, Ruby a .NET v systémech MacOS, Linux a Windows. SQL Database podporuje stejné [knihovny připojení](sql-database-libraries.md) jako SQL Server.
 
+## <a name="engage-with-the-sql-server-engineering-team"></a>Spolupráce s technickým týmem SQL Serveru
+
+- [DBA na webu Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Pokládání dotazů týkajících se správy databází
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Pokládání dotazů týkajících se vývoje
+- [Fóra na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Pokládání technických dotazů
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Hlášení chyb a žádosti o funkce
+- [Reddit](https://www.reddit.com/r/SQLServer/): Diskuze o SQL Serveru
+
 ## <a name="next-steps"></a>Další kroky
 
 - Na [stránce s cenami](https://azure.microsoft.com/pricing/details/sql-database/) najdete cenové kalkulačky a srovnání cen izolovaných databází a elastických fondů.
@@ -160,4 +171,3 @@ SQL Database podporuje vytváření aplikací pomocí Pythonu, Javy, Node.js, PH
 - Řadu ukázek v Azure CLI a PowerShellu najdete tady:
   - [Ukázky v Azure CLI pro službu SQL Database](sql-database-cli-samples.md)
   - [Ukázky v Azure PowerShellu pro službu SQL Database](sql-database-powershell-samples.md)
-

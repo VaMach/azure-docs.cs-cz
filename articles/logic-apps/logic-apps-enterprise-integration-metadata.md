@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Spravovat artefaktu metadat v účtech integrace pro logic apps
 
-Můžete definovat vlastní metadata pro artefakty v účty pro integraci a načtení tohoto metadat při běhu pro svou aplikaci logiky. Například můžete zadat metadata pro artefakty jako partnery, smlouvy, schémat a mapy – všechny ukládání metadat pomocí páry klíč hodnota. V současné době artefakty nelze vytvořit metadat prostřednictvím uživatelského rozhraní, ale rozhraní REST API můžete použít k vytvoření metadat. Chcete-li přidat metadata při vytváření nebo vyberte partnera, smlouvy nebo schématu na portálu Azure, zvolte **upravit jako JSON**. K načtení metadat artefaktů v aplikace logiky, můžete použít funkci integrace vyhledávání artefaktů účtu.
+Můžete definovat vlastní metadata pro artefakty v účty pro integraci a načtení tohoto metadat při běhu pro svou aplikaci logiky. Například můžete zadat metadata pro artefakty jako partnery, smlouvy, schémat a mapy – všechny ukládání metadat pomocí páry klíč hodnota. V současné době artefakty nelze vytvořit metadat prostřednictvím uživatelského rozhraní, ale rozhraní REST API můžete použít k vytvoření metadat. Chcete-li přidat metadata při vytváření nebo vyberte partnera, smlouvy nebo schématu na portálu Azure, zvolte **upravit**. K načtení metadat artefaktů v aplikace logiky, můžete použít funkci integrace vyhledávání artefaktů účtu.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Přidat metadata do artefakty na účty pro integraci
 
@@ -31,7 +31,7 @@ Můžete definovat vlastní metadata pro artefakty v účty pro integraci a nač
 
 2. Například přidejte artefakt ke svému účtu integrace, [partnera](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [smlouvy](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), nebo [schématu](logic-apps-enterprise-integration-schemas.md).
 
-3.  Vyberte artefaktu, zvolte **upravit jako JSON**a zadejte podrobnosti o metadata.
+3.  Vyberte artefaktu, zvolte **upravit**a zadejte podrobnosti o metadata.
 
     ![Zadejte metadat](media/logic-apps-enterprise-integration-metadata/image1.png)
 

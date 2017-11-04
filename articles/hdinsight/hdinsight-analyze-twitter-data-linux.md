@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analýza dat Twitteru pomocí Hive a Hadoop v HDInsight
 
@@ -158,6 +158,9 @@ Následující kód Python stahování 10 000 tweetů z Twitteru a uložte je do
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
+
+    > [!TIP]
+    > Upravte filtr témata na posledním řádku ke sledování oblíbených klíčových slov. Pomocí Oblíbené klíčová slova v době, kdy spustíte skript umožňuje rychlejší sběru dat.
 
 6. Použití **kombinaci kláves Ctrl + X**, pak **Y** k uložení souboru.
 
@@ -312,19 +315,22 @@ Tyto příkazy ukládání dat v umístění, ke kterému mají přístup všech
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
-       FROM tweets
-       WHERE text like "%Azure%"
-       GROUP BY name,screen_name
-       ORDER BY cc DESC LIMIT 10;
+   FROM tweets
+   WHERE text like "%Azure%"
+   GROUP BY name,screen_name
+   ORDER BY cc DESC LIMIT 10;
    ```
 
     Tento dotaz vrací maximálně 10 tweetů, které obsahují slovo **Azure** v textu zprávy.
+
+    > [!NOTE]
+    > Pokud jste změnili filtru v `gettweets.py` skriptu, nahraďte **Azure** s jedním z filtrů jste použili.
 
 ## <a name="next-steps"></a>Další kroky
 
 Jste se naučili postup transformace datové sadě služby nestrukturovaných JSON do strukturovaných tabulku Hive. Další informace o Hive v HDInsight, najdete v následujících dokumentech:
 
-* [Začínáme s HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Začínáme s HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analýza dat zpoždění letu pomocí HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se

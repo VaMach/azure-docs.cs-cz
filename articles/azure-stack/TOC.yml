@@ -24,10 +24,16 @@
     - name: Zásady obsluhy
       href: azure-stack-servicing-policy.md
     - name: "Poznámky k\_verzi"
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: Poznámky k verzi Development kit
+          href: azure-stack-asdk-release-notes.md
+        - name: Poznámky k verzi integrované systémy
+          items:
+            - name: aktualizace 1710
+              href: azure-stack-update-1710.md
     - name: Klíčové funkce a koncepty
       href: azure-stack-key-features.md
-    - name: Architektura vývojové sady pro Azure Stack
+    - name: Architektura Development kit
       href: azure-stack-architecture.md
     - name: Základy správy
       href: azure-stack-manage-basics.md
@@ -39,6 +45,8 @@
           href: azure-stack-deploy.md
         - name: Nasazení
           href: azure-stack-run-powershell-script.md
+        - name: Instalace PowerShellu
+          href: azure-stack-powershell-configure-quickstart.md
         - name: Registrace
           href: azure-stack-register.md
         - name: Připojení ke službě Azure Stack
@@ -49,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: Integrace datových center
       items:
-        - name: Integrace DNS
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: Identita
+          href: azure-stack-integrate-identity.md
         - name: Publikování koncových bodů
           href: azure-stack-integrate-endpoints.md
+        - name: Zabezpečení
+          href: azure-stack-integrate-security.md
     - name: Spravovat
       items:
         - name: Správa oblastí
@@ -81,6 +93,8 @@
               href: azure-stack-updates.md
             - name: Instalace aktualizací
               href: azure-stack-apply-updates.md
+            - name: Stav aktualizace monitorování
+              href: azure-stack-monitor-update.md
         - name: Monitorování stavu a výstrah
           href: azure-stack-monitor-health.md
         - name: Správa síťových prostředků
@@ -91,8 +105,14 @@
           href: azure-stack-manage-windows-azure-pack.md
         - name: Výměna hardwaru
           items:
+            - name: Uzel akce
+              href: azure-stack-node-actions.md
+            - name: Nahraďte uzlu
+              href: azure-stack-replace-node.md
             - name: Výměna disku
               href: azure-stack-replace-disk.md
+            - name: Nahraďte součásti
+              href: azure-stack-replace-component.md
     - name: "Zabezpečení,\_dodržování předpisů a identita"
       items:
         - name: Přehled zabezpečení
@@ -135,10 +155,16 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Nasazení poskytovatele prostředků SQL
               href: azure-stack-sql-resource-provider-deploy.md
+            - name: Vytvoření databáze SQL
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Přidat hostitelskými servery
+              href: azure-stack-sql-resource-provider-hosting-servers.md
         - name: Nabídka App Service jako PaaS
           items:
             - name: Přehled App Service v Azure Stacku
               href: azure-stack-app-service-overview.md
+            - name: Plánování kapacity
+              href: azure-stack-app-service-capacity-planning.md
             - name: Než začnete
               href: azure-stack-app-service-before-you-get-started.md
             - name: Nasazení poskytovatele prostředků App Service

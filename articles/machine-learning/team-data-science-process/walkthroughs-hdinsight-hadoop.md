@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 5dbfd043f1809f407baf6aa4ca5c5272af425012
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cef2dac8651933765c83410579eafb23460960f9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Používání Hive v Azure HDInsight Hadoop data vědecké účely návody 
 
-Tyto postupy použijte Hive s clusteru HDInsight Hadoop pro prediktivní analýzy. Jejich postupujte podle kroků uvedených v procesu Team dat vědecké účely. Přehled procesu Team dat vědecké účely, najdete v tématu [proces vědecké účely dat](overview.md). Úvod do Azure HDInsight, naleznete v části [Úvod do Azure HDInsight, technologie zásobníku Hadoop a clustery systému Hadoop](../../hdinsight/hdinsight-hadoop-introduction.md).
+Tyto postupy použijte Hive s clusteru HDInsight Hadoop pro prediktivní analýzy. Jejich postupujte podle kroků uvedených v procesu Team dat vědecké účely. Přehled procesu Team dat vědecké účely, najdete v tématu [proces vědecké účely dat](overview.md). Úvod do Azure HDInsight, naleznete v části [Úvod do Azure HDInsight, technologie zásobníku Hadoop a clustery systému Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
 Návody vědecké účely další data, které se spouští proces vědecké účely Team dat jsou seskupené podle **platformy** , které používají. V tématu [návody spouštění procesu tým datové vědy](walkthroughs.md) pro rozpis těchto příkladech.
 

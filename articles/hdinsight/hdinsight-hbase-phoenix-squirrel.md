@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04392b535965edd785bbb66a52eb6b41b768553e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64a4c5b158ebe0119f2f0133587a743fd2dbf0ff
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Použití nástrojů Apache Phoenix a SQuirreL s clustery založené na Windows HBase v HDInsight
 Další informace o použití [Apache Phoenix](http://phoenix.apache.org/) v HDInsight a jak nainstalovat a nakonfigurovat SQuirreL na pracovní stanici pro připojení k cluster HBase v HDInsight. Další informace o Phoenix najdete v tématu [Phoenix za 15 minut nebo méně](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Gramatika Phoenix, najdete v části [Phoenix gramatika](http://phoenix.apache.org/language/index.html).
@@ -29,7 +29,7 @@ Další informace o použití [Apache Phoenix](http://phoenix.apache.org/) v HDI
 >
 
 > [!IMPORTANT]
-> Kroky v tomto dokumentu fungovat pouze pro clustery HDInsight se systémem Windows. HDInsight je k dispozici pouze v systému Windows verze nižší než HDInsight 3.4. HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Informace o používání Phoenix na HDInsight se systémem Linux najdete v tématu [clusterů použití nástrojů Apache Phoenix se systémem Linux HBase v HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> Kroky v tomto dokumentu fungovat pouze pro clustery HDInsight se systémem Windows. HDInsight je k dispozici pouze v systému Windows verze nižší než HDInsight 3.4. HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Informace o používání Phoenix na HDInsight se systémem Linux najdete v tématu [clusterů použití nástrojů Apache Phoenix se systémem Linux HBase v HDInsight](hbase/apache-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -269,7 +269,7 @@ V tomto článku jste se naučili, jak používat Apache Phoenix v HDInsight.  D
 
 * [Přehled HBase ve službě HDInsight][hdinsight-hbase-overview]: HBase je NoSQL open source databáze Apache postavená na systému Hadoop, která poskytuje náhodný přístup a silnou konzistenci pro velké objemy nestrukturovaných a částečně strukturovaných dat.
 * [Zřídit clustery HBase v Azure Virtual Network][hdinsight-hbase-provision-vnet]: integrace virtuální sítě, clustery HBase můžete nasadit do stejné virtuální síti jako aplikace tak, aby aplikace může komunikovat přímo s HBase.
-* [Konfigurace replikace HBase v HDInsight](hdinsight-hbase-replication.md): Naučte se konfigurovat replikace HBase v rámci dvou datových centrech Azure.
+* [Konfigurace replikace HBase v HDInsight](hbase/apache-hbase-replication.md): Naučte se konfigurovat replikace HBase v rámci dvou datových centrech Azure.
 
 
 [azure-portal]: https://portal.azure.com
@@ -278,8 +278,8 @@ V tomto článku jste se naučili, jak používat Apache Phoenix v HDInsight.  D
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
-[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]:hbase/apache-hbase-provision-vnet.md
+[hdinsight-hbase-overview]:hbase/apache-hbase-overview.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png

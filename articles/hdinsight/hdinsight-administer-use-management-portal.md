@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Správa clusterů Hadoop založených na systému Windows v prostředí HDInsight pomocí portálu Azure
 
@@ -61,7 +61,7 @@ HDInsight funguje s komponentami široký rozsah Hadoop. Seznam součástí, kte
 
 * Chcete-li spustit vlastní skripty, které můžete přizpůsobit cluster změnit konfiguraci clusteru nebo nainstalovat vlastní komponenty, například Giraph nebo Solr použití akce skriptu. Další informace najdete v tématu [clusteru HDInsight přizpůsobit pomocí akce skriptu](hdinsight-hadoop-customize-cluster.md).
 * Při vytváření clusteru použijte vlastní nastavení parametrů clusteru v rozhraní .NET SDK HDInsight nebo Azure PowerShell. Tyto změny konfigurace se pak zachovají prostřednictvím dobu životnosti clusteru a nemá vliv reimages uzlu clusteru, které platformy Azure pravidelně provádí za účelem údržby. Další informace o používání vlastního nastavení parametrů clusteru najdete v tématu [Tvorba clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Některé nativní součásti Java, jako je Mahout a možností konfigurace, můžete spustit v clusteru jako souborů JAR. Tyto soubory JAR můžete distribuovat do úložiště objektů Blob v Azure a odeslat ke clusterům HDInsight prostřednictvím mechanismy odesílání úloh Hadoop. Další informace najdete v tématu [Hadoop odeslání úlohy prostřednictvím kódu programu](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Některé nativní součásti Java, jako je Mahout a možností konfigurace, můžete spustit v clusteru jako souborů JAR. Tyto soubory JAR můžete distribuovat do úložiště objektů Blob v Azure a odeslat ke clusterům HDInsight prostřednictvím mechanismy odesílání úloh Hadoop. Další informace najdete v tématu [Hadoop odeslání úlohy prostřednictvím kódu programu](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > Pokud máte problémy s nasazením souborů JAR ke clusterům HDInsight nebo volání souborů JAR na clusterech HDInsight, obraťte se na [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -213,7 +213,7 @@ Existuje mnoho způsobů, které můžete naprogramovat proces:
 * Uživatel pro vytváření dat Azure. V tématu [propojená služba Azure HDInsight](../data-factory/compute-linked-services.md) a [transformovat a analyzovat pomocí Azure Data Factory](../data-factory/transform-data.md) pro HDInsight na vyžádání a samoobslužné definované propojené služby.
 * Použití Azure PowerShell.  V tématu [analyzovat data zpoždění letu](hdinsight-analyze-flight-delay-data.md).
 * Použití Azure CLI. V tématu [Správa clusterů HDInsight pomocí rozhraní příkazového řádku Azure](hdinsight-administer-use-command-line.md).
-* Použití sady .NET SDK HDInsight. V tématu [úloh Hadoop odeslání](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Použití sady .NET SDK HDInsight. V tématu [úloh Hadoop odeslání](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Informace o cenách najdete v části [HDInsight ceny](https://azure.microsoft.com/pricing/details/hdinsight/). Pokud chcete odstranit cluster z portálu, přečtěte si téma [odstranění clusterů](#delete-clusters)
 
@@ -271,7 +271,7 @@ V tématu [seznamu a zobrazit clustery](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Otevřete konzolu HDInsight dotazu
 Konzole dotazu HDInsight zahrnuje následující funkce:
 
-* **Hive Editor**: grafickým uživatelským rozhraním A webové rozhraní pro odesílání úloh Hive.  V tématu [spouštění dotazů Hive pomocí konzole dotazu](hdinsight-hadoop-use-hive-query-console.md).
+* **Hive Editor**: grafickým uživatelským rozhraním A webové rozhraní pro odesílání úloh Hive.  V tématu [spouštění dotazů Hive pomocí konzole dotazu](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![Editor portálu hive HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Historie úlohy**: úloh Hadoop monitorování.  
@@ -371,8 +371,8 @@ V tomto článku jste se naučili postup vytvoření clusteru HDInsight pomocí 
 * [Spravovat HDInsight pomocí prostředí Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Spravovat HDInsight pomocí rozhraní příkazového řádku Azure](hdinsight-administer-use-command-line.md)
 * [Vytvoření clusterů HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-* [Odesílání úloh Hadoop prostřednictvím kódu programu](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Začínáme s Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Odesílání úloh Hadoop prostřednictvím kódu programu](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Začínáme s Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Jaká verze Hadoop je v Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

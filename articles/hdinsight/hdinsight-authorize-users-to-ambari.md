@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: ad9aa6aee0a9f6407da6e9f45df71f8feb8b1500
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: df6cd9651d63ccea175fc8417d9f7dd2a9161f57
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizace uživatelů pro zobrazení Ambari
 
-[Clustery HDInsight připojený k doméně](hdinsight-domain-joined-introduction.md) poskytují funkce na podnikové úrovni, včetně ověřování založené na Azure Active Directory. Můžete synchronizovat nové uživatele
+[Clustery HDInsight připojený k doméně](./domain-joined/apache-domain-joined-introduction.md) poskytují funkce na podnikové úrovni, včetně ověřování založené na Azure Active Directory. Můžete synchronizovat nové uživatele
 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Currently, working with users, groups, and permissions in Ambari is only supported when using a domain-joined HDInsight cluster.
 
 Uživatelé služby Active Directory může přihlásit k uzlům clusteru pomocí svých přihlašovacích údajů domény. Přihlašovací údaje domény může také používat k ověření clusteru interakce s ostatní schválené koncové body, jako je Hue, zobrazení Ambari, rozhraní ODBC, JDBC, prostředí PowerShell a rozhraní REST API.
@@ -32,7 +32,7 @@ Uživatelé služby Active Directory může přihlásit k uzlům clusteru pomoc�
 > [!WARNING]
 > Neměňte heslo Ambari sledovací zařízení (hdinsightwatchdog) v clusteru HDInsight se systémem Linux. Změna hesla se dělí možnost pomocí skriptových akcí nebo provádět operace škálování k vašemu clusteru.
 
-Pokud jste tak již neučinili, postupujte podle [tyto pokyny](hdinsight-domain-joined-configure.md) ke zřízení nového clusteru, který je připojený k doméně.
+Pokud jste tak již neučinili, postupujte podle [tyto pokyny](./domain-joined/apache-domain-joined-configure.md) ke zřízení nového clusteru, který je připojený k doméně.
 
 ## <a name="access-the-ambari-management-page"></a>Přístup na stránce Správa Ambari
 
@@ -123,7 +123,7 @@ Zobrazení seznamu umožňuje rychle upravovat ve dvou kategoriích: uživatelé
 
     ![Role zobrazení seznamu – Uživatelé](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* Kategorii zobrazení seznamu skupin zobrazí všechny skupiny a role přiřazené ke každé skupině. V našem příkladu seznam skupin synchronizovaných z zadaných v skupin Azure AD **skupiny uživatelů přístup** vlastnost nastavení domény clusteru. V tématu [clusteru HDInsight se vytvořit](hdinsight-domain-joined-configure.md#create-hdinsight-cluster).
+* Kategorii zobrazení seznamu skupin zobrazí všechny skupiny a role přiřazené ke každé skupině. V našem příkladu seznam skupin synchronizovaných z zadaných v skupin Azure AD **skupiny uživatelů přístup** vlastnost nastavení domény clusteru. V tématu [clusteru HDInsight se vytvořit](./domain-joined/apache-domain-joined-configure.md#create-hdinsight-cluster).
 
     ![Role zobrazení seznamu – skupin](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -143,8 +143,8 @@ Jsme naše uživatele Azure AD domain "hiveuser2" přiřadili *clusteru uživate
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Nakonfigurovat zásady Hive v HDInsight připojený k doméně](hdinsight-domain-joined-run-hive.md)
-* [Správa clusterů HDInsight připojený k doméně](hdinsight-domain-joined-manage.md)
-* [Použití zobrazení Hive se systémem Hadoop v HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Nakonfigurovat zásady Hive v HDInsight připojený k doméně](./domain-joined/apache-domain-joined-run-hive.md)
+* [Správa clusterů HDInsight připojený k doméně](./domain-joined/apache-domain-joined-manage.md)
+* [Použití zobrazení Hive se systémem Hadoop v HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 
 <!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->

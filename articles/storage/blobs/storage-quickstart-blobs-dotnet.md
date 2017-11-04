@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Objekty přenosu do nebo z Azure Blob storage pomocí rozhraní .NET
 
@@ -34,25 +34,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Vytvořit účet úložiště pomocí portálu Azure
-
-Nejdřív vytvořte nový účet úložiště pro obecné účely pro tento rychlý start. 
-
-1. Přejděte na [portál Azure](https://portal.azure.com) a přihlaste se pomocí účtu Azure. 
-2. V nabídce centra vyberte **nový** > **úložiště** > **účet úložiště – objekt blob, soubor, tabulka, fronta**. 
-3. Zadejte název účtu úložiště. Název musí být v rozmezí 3 až 24 znaků a může obsahovat jenom číslice a malá písmena. Také musí být jedinečný.
-4. Nastavit `Deployment model` k **správce prostředků**.
-5. Nastavit `Account kind` k **obecné účely**.
-6. Nastavit `Performance` k **standardní**. 
-7. Nastavit `Replication` k **místně redundantní úložiště (LRS)**.
-8. Nastavit `Storage service encryption` k **zakázané**.
-9. Nastavit `Secure transfer required` k **zakázané**.
-10. Vyberte své předplatné. 
-11. Pro `resource group`, vytvořte novou a zadat jedinečný název. 
-12. Vyberte `Location` pro váš účet úložiště.
-13. Zkontrolujte **připnout na řídicí panel** a klikněte na tlačítko **vytvořit** k vytvoření účtu úložiště. 
-
-Po vytvoření účtu úložiště je připnutá na řídicí panel. Klikněte na ho otevřete. V části nastavení, klikněte na tlačítko **přístupové klíče**. Vyberte klíč a zkopírujte PŘIPOJOVACÍ řetězec do schránky a vložte ho do textového editoru pro pozdější použití.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Stažení ukázkové aplikace
 
@@ -115,6 +97,9 @@ První věc udělat, je vytvořit odkazy na objekty používané pro přístup k
 * Vytvoření instance **CloudBlobContainer** objekt, který reprezentuje kontejneru se připojujete. Kontejnery se používají k uspořádání objektů BLOB, jako jsou použít složek ve vašem počítači k uspořádání souborů.
 
 Jakmile máte **CloudBlobContainer**, můžete vytvořit instanci **CloudBlockBlob** objekt, který odkazuje na konkrétní objekt blob, ve kterém zajímá a provést odesílání, stahování, kopírovat atd. operace.
+
+> [!IMPORTANT]
+> Názvy kontejnerů musí být malé. V tématu [pojmenování a odkazování na kontejnerů, objektů BLOB a metadat](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) Další informace o názvech kontejnerů a objektů blob.
 
 V této části Vytvoření instance objektů, vytvořte nový kontejner a potom nastavit oprávnění na kontejner, aby objekty BLOB jsou veřejné a je přístupný pomocí jenom adresy URL. Kontejner se nazývá **quickstartblobs**. 
 

@@ -48,7 +48,6 @@
 #### [Příklady Azure PowerShellu pro licencování na základě skupin](active-directory-licensing-ps-examples.md)
 #### [Referenční informace k produktům a plánům služeb v Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Správa uživatelských profilů](active-directory-users-profile-azure-portal.md)
-### [Resetování hesla](active-directory-users-reset-password-azure-portal.md)
 ### [Správa pracovních informací uživatelů](active-directory-users-work-info-azure-portal.md)
 ### [Sdílení účtů](active-directory-sharing-accounts.md)
 
@@ -126,7 +125,6 @@
 ### [Vytváření sestav SSPR](active-directory-passwords-reporting.md)
 ### Správci IT: Resetování hesel
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Portál Azure Classic](active-directory-create-users-reset-password.md)
 ### [Samoobslužné resetování hesla licence](active-directory-passwords-licensing.md)
 ### [Zpětný zápis hesla](active-directory-passwords-writeback.md)
 ### [Řešení problémů](active-directory-passwords-troubleshoot.md)

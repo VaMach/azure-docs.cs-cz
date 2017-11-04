@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jgao
-ms.openlocfilehash: e21dabcc6999b1f1047d334e782f723d0c03c2cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad161ada875ab30ed8de24506ed27265f26e994a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Použít prázdný edge uzly na clustery systému Hadoop v HDInsight
 
@@ -76,7 +76,7 @@ V této části použijte šablonu Resource Manager přidat hraniční uzel do e
 
 **Chcete-li přidat prázdný hraniční uzel do existujícího clusteru**
 
-1. Pokud ještě nemáte, vytvořte cluster služby HDInsight.  V tématu [kurz Hadoopu: začněte s Hadoop v HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Pokud ještě nemáte, vytvořte cluster služby HDInsight.  V tématu [kurz Hadoopu: začněte s Hadoop v HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Kliknutím na následující obrázek otevřete šablonu Azure Resource Manageru na portálu Azure a přihlaste se k Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -99,7 +99,7 @@ V této části použijte k vytvoření clusteru HDInsight s hraniční uzel, na
 
 **Chcete-li přidat prázdný hraniční uzel do existujícího clusteru**
 
-1. Pokud ještě nemáte, vytvořte cluster služby HDInsight.  V tématu [začněte s Hadoop v HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Pokud ještě nemáte, vytvořte cluster služby HDInsight.  V tématu [začněte s Hadoop v HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Kliknutím na následující obrázek otevřete šablonu Azure Resource Manageru na portálu Azure a přihlaste se k Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>

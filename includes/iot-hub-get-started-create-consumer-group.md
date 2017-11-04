@@ -1,10 +1,10 @@
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Add a consumer group to your IoT hub
+## <a name="add-a-consumer-group-to-your-iot-hub"></a>Přidat skupinu uživatelů do služby IoT hub
 
-Consumer groups are used by applications to pull data from Azure IoT Hub. In this tutorial, you create a consumer group to be used by a coming Azure service to read data from your IoT hub.
+Skupiny uživatelů slouží aplikace k načítání dat z Azure IoT Hub. V tomto kurzu vytvoříte skupinu uživatelů pro použití službou příchozí Azure číst data ze služby IoT hub.
 
-To add a consumer group to your IoT hub, follow these steps:
+Chcete-li přidat skupiny příjemců do služby IoT hub, postupujte takto:
 
-1. In the [Azure portal](https://ms.portal.azure.com/), open your IoT hub.
-2. In the left pane, click **Endpoints**, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
+1. Na webu [Azure Portal](https://ms.portal.azure.com/) otevřete vaše centrum IoT.
+2. V levém podokně klikněte na **koncové body**, vyberte **události** v prostředním podokně, zadejte název v rámci **skupiny příjemců** v pravém podokně a pak klikněte na tlačítko **uložit** .
 
-   ![Create a consumer group in your IoT hub](../articles/iot-hub/media/iot-hub-create-consumer-group/1_iot-hub-create-consumer-group-azure.png)
+   ![Vytvořte skupinu uživatelů ve službě IoT hub](../articles/iot-hub/media/iot-hub-create-consumer-group/1_iot-hub-create-consumer-group-azure.png)

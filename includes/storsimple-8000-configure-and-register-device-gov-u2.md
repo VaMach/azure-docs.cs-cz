@@ -1,78 +1,78 @@
 <!--author=SharS last changed: 06/22/2016-->
 
-### <a name="to-configure-and-register-the-device"></a>To configure and register the device
-1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
-2. In the session that opens up, press **Enter** one time to get a command prompt.
-3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press **Enter**.
+### <a name="to-configure-and-register-the-device"></a>Konfigurace a registrace zařízení
+1. V konzole sériového portu zařízení StorSimple spusťte rozhraní Windows PowerShell. Další informace najdete v článku [Použití klienta PuTTY k připojení ke konzole sériového portu zařízení](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console). **Postup proveďte přesně, jinak ke konzole nezískáte přístup.**
+2. Ve spuštěné relaci jedním stisknutím klávesy **Enter** zobrazte příkazový řádek.
+3. Budete vyzváni k volbě jazyka, který chcete pro zařízení nastavit. Zadejte jazyk a stiskněte **Enter**.
    
-    ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. In the serial console menu that is presented, choose option 1 to log on with full access.
+    ![Konfigurace a registrace zařízení StorSimple 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
+4. V zobrazené nabídce konzoly sériového portu se výběrem možnosti 1 přihlaste s oprávněním k úplnému přístupu.
    
-    ![StorSimple register device 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
-5. Perform the following steps to configure the minimum required network settings for your device.
+    ![Registrace zařízení StorSimple 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
+5. Proveďte následující postup pro konfiguraci nastavení sítě minimální požadované pro vaše zařízení.
    
    > [!IMPORTANT]
-   > These configuration steps need to be performed on the active controller of the device. The serial console menu indicates the controller state in the banner message. If you are not connect to the active controller, disconnect and then connect to the active controller.
+   > Tyto kroky konfigurace je nutné provést v aktivním řadiči zařízení. Nabídka konzoly sériového portu zobrazuje stav řadiče ve zprávě v záhlaví. Pokud se připojíte k aktivnímu řadiči, odpojte a připojte se k aktivnímu řadiči.
    
-   1. At the command prompt, type your password. The default device password is **Password1**.
-   2. Type the following command:
+   1. Na příkazovém řádku zadejte heslo. Výchozí heslo zařízení je **Password1**.
+   2. Zadejte následující příkaz:
       
         `Invoke-HcsSetupWizard`
-   3. A setup wizard will appear to help you configure the network settings for the device. Supply the following information:
+   3. Zobrazí se průvodce instalací, který vám pomůže konfigurovat nastavení sítě pro zařízení. Zadejte následující informace:
       
-      * IP address for DATA 0 network interface
-      * Subnet mask
-      * Gateway
-      * IP address for Primary DNS server
-      * IP address for Primary NTP server
+      * IP adresu síťového rozhraní DATA 0
+      * maska podsítě
+      * brána
+      * IP adresa primárního serveru DNS
+      * IP adresa primárního serveru NTP
       
       > [!NOTE]
-      > You may have to wait for a few minutes for the subnet mask and DNS settings to be applied.
+      > Možná budete muset Počkejte několik minut pro masku podsítě a nastavení DNS, které se má použít.
     
-   4. Optionally, configure your web proxy server.
+   4. Volitelně nakonfigurujte váš webový proxy server.
       
       > [!IMPORTANT]
-      > Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Přestože konfigurace webového proxy serveru je volitelný, mějte na paměti, že pokud používáte webový proxy server, můžete pouze nakonfigurovat ji sem. Další informace najdete v článku [Konfigurace webového proxy serveru pro zařízení](../articles/storsimple/storsimple-configure-web-proxy.md).
      
-6. Press Ctrl + C to exit the setup wizard.
-8. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
+6. Stiskněte kombinaci kláves Ctrl + C ukončíte Průvodce instalací.
+8. Spusťte následující rutinu tak, aby odkazoval zařízení na portálu Microsoft Azure Government (protože je ve výchozím nastavení odkazuje na veřejnou portál Azure classic). To se restartuje oba řadiče. Doporučujeme vám, že používáte dvě relace PuTTY lze najednou připojit pro oba řadiče, aby mohli zobrazit, když je restartování každého řadiče.
    
     `Set-CloudPlatform -AzureGovt_US`
    
-   You will see a confirmation message. Accept the default (**Y**).
-9. Run the following cmdlet to resume setup:
+   Zobrazí se potvrzovací zpráva. Přijměte výchozí nastavení (**Y**).
+9. Spusťte následující rutiny můžete pokračovat v instalaci:
    
     `Invoke-HcsSetupWizard`
    
-    ![Resume setup wizard](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
+    ![Obnovení Průvodce instalací](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
    
-10. Accept the network settings. You will see a validation message after you accept each setting.
-11. For security reasons, the device administrator password expires after the first session, and you will need to change it now. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain three of the following: lowercase, uppercase, numeric, and special characters.
+10. Přijměte nastavení sítě. Zobrazí se zpráva ověření a po přijetí jednotlivých nastavení.
+11. Platnost hesla správce zařízení z bezpečnostních důvodů vyprší po první relaci a je nutné heslo nyní změnit. Až k tomu budete vyzváni, zadejte heslo správce zařízení. Platné heslo správce zařízení musí být tvořeno 8 až 15 znaky. Heslo musí obsahovat kombinaci tří z následujících čtyř typů znaků: malá písmena, velká písmena, číslice a speciální znaky.
     
-    <br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. The final step in the setup wizard registers your device with the StorSimple Device Manager service. For this, you will need the service registration key that you obtained in [Step 2: Get the service registration key](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+    <br/>![Registrace zařízení StorSimple 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
+12. V posledním kroku průvodce instalací zařízení zaregistruje zařízení ve službě Správce zařízení StorSimple. V takovém případě budete potřebovat registrační klíč služby, který jste získali v [krok 2: získání registračního klíče služby](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Po zadání registračního klíče může být nutné 2–3 minuty počkat, než se zařízení zaregistruje.
     
     > [!NOTE]
-    > You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
+    > Průvodce lze kdykoliv ukončit stisknutím kombinace kláves Ctrl+C. Pokud jste zadali všechna nastavení sítě (IP adresu pro rozhraní DATA 0, masku podsítě a bránu), vaše záznamy zůstanou zachovány.
     
-    ![StorSimple registration progress](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
-13. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key is required with the service registration key to register additional devices with the StorSimple Device Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-8000-security.md) for more information about this key.
+    ![Probíhá registrace zařízení StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
+13. Po provedení registrace zařízení se zobrazí šifrovací klíč dat služby. Klíč zkopírujte a uložte na bezpečném místě. **Tento klíč je požadován s registrační klíč služby k registraci dalších zařízení se službou Správce zařízení StorSimple.** Další informace o tomto klíči najdete v článku [Zabezpečení zařízení StorSimple](../articles/storsimple/storsimple-8000-security.md).
     
-    ![StorSimple register device 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
+    ![Registrace zařízení StorSimple 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
     > [!IMPORTANT]
-    > To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor.
+    > Pokud chcete zkopírovat text z okna konzoly sériového portu, jednoduše ho vyberte. Potom by mělo být možné text vložit do schránky nebo libovolného textového editoru.
     > 
-    > DO NOT use **Ctrl + C** to copy the service data encryption key. Using **Ctrl + C** will cause you to exit the setup wizard. As a result, the device administrator password will not be changed and the device will revert to the default password.
+    > Nepoužívejte **kombinaci kláves Ctrl + C** ke zkopírování šifrovacího klíče dat služby. Pomocí **kombinaci kláves Ctrl + C** způsobí ukončení Průvodce instalací. Heslo správce zařízení nebude změněno a zařízení bude používat výchozí heslo.
     
-14. Exit the serial console.
-15. Return to the Azure Government Portal, and complete the following steps:
+14. Ukončete konzolu sériového portu.
+15. Vraťte se k portálu Azure Government a proveďte následující kroky:
     
-    1. Go to your StorSimple Device Manager service.
-    2. Click **Devices**. From the list of devices, identify the device that you are ddeploying. Verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+    1. Přejděte do služby Správce zařízení StorSimple.
+    2. Klikněte na **Zařízení**. V seznamu zařízení Identifikujte zařízení, že jste ddeploying. Ověřte, že zařízení má úspěšně připojen ke službě vyhledáním stav. Zařízení musí být ve stavu **Online**.
             
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online.
+        Pokud je zařízení ve stavu **Offline**, počkejte několik minut, než zařízení přejde do stavu Online.
        
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-8000-system-requirements.md).
+        Pokud je zařízení i po uplynutí několika minut stále v režimu Offline, je nutné zkontrolovat, jestli je brána firewall nastavená způsobem popsaným v článku o [požadavcích zařízení StorSimple na síťe](../articles/storsimple/storsimple-8000-system-requirements.md).
        
-        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Device Manager Service-to-device communication.
+        Zkontrolujte, jestli je port 9354 otevřený pro odchozí komunikaci, protože ho používá sběrnice služby pro komunikaci služby Správce zařízení StorSimple se zařízením.
 

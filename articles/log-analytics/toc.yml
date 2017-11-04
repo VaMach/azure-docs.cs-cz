@@ -150,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: Řešení Alert Managementu
           href: log-analytics-solution-alert-management.md
+    - name: Spravovat
+      items:
+        - name: Správa nákladů pracovního prostoru
+          href: log-analytics-manage-cost-storage.md
+        - name: Odstranění pracovního prostoru
+          href: log-analytics-manage-del-workspace.md
     - name: Použití řešení
       items:
         - name: Přehled řešení

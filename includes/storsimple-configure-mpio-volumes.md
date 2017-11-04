@@ -1,8 +1,8 @@
-#### <a name="to-configure-mpio-for-storsimple-volumes"></a>To configure MPIO for StorSimple volumes
-1. Open the **MPIO configuration**. Click **Server Manager > Dashboard > Tools > MPIO**.
-2. In the **MPIO Properties** dialog box, select the **Discover Multi-Paths** tab.
-3. Select **Add support for iSCSI devices**, and then click **Add**.  
+#### <a name="to-configure-mpio-for-storsimple-volumes"></a>Konfigurace funkce MPIO pro svazky zařízení StorSimple
+1. Otevřete **konfigurace funkce MPIO**. Klikněte na tlačítko **správce serveru > řídicí panel > Nástroje > funkce MPIO**.
+2. V **MPIO vlastnosti** dialogové okno, vyberte **zjistit více cest** kartě.
+3. Vyberte **přidat podporu pro zařízení iSCSI**a potom klikněte na **přidat**.  
    
-    ![MPIO Properties Discover Multi Paths](./media/storsimple-configure-mpio-volumes/IC741003.png)
-4. Reboot the server when prompted.
+    ![Funkce MPIO vlastnosti zjistit více cest](./media/storsimple-configure-mpio-volumes/IC741003.png)
+4. Restartujte server po zobrazení výzvy.
 

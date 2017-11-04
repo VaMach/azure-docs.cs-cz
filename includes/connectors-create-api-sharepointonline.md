@@ -1,19 +1,19 @@
 
 
-In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online connector  in your logic app. 
+Aby bylo možné připojit k **SharePoint Online**, budete muset zadat svou identitu (uživatelského jména a hesla, čipové karty přihlašovací údaje, atd.) ke službě SharePoint Online. Jakmile jste jste ověřena, můžete pokračovat k používání konektoru služby SharePoint Online v aplikaci logiky. 
 
-While on the designer of your logic app, follow these steps to sign into SharePoint to create the **connection** for use in your logic app:
+Při na návrháře aplikace logiky, postupujte podle těchto kroků pro přihlášení do služby SharePoint k vytvoření **připojení** pro použití v aplikaci logiky:
 
-1. Enter SharePoint in the search box and wait for the search to return all triggers and actions related to SharePoint Online:   
-   ![Configure SharePoint][1]  
-2. Select the **SharePoint Online - When a file is created** trigger  
-3. Select **Sign in to SharePoint Online**:   
-   ![Configure SharePoint][2]    
-4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
-   ![Configure SharePoint][3]     
-5. After the authentication completes you'll be redirected to your logic app. That's it, the connection has been created. Notice the message at the bottom that indicates that you are now connected to SharePoint.  
-   ![Configure SharePoint][4]  
-6. You can then add other triggers and actions that you need to complete your logic app.   
+1. Zadejte do pole vyhledávání služby SharePoint a počkat na hledání vrátí všechny aktivační události a akcí souvisejících k SharePoint Online:   
+   ![Konfigurace služby SharePoint][1]  
+2. Vyberte **SharePoint Online – Pokud dojde k vytvoření souboru** aktivační události  
+3. Vyberte **přihlásit do služby SharePoint Online**:   
+   ![Konfigurace služby SharePoint][2]    
+4. Zadejte svoje přihlašovací údaje služby SharePoint pro přihlášení k ověření pomocí služby SharePoint   
+   ![Konfigurace služby SharePoint][3]     
+5. Po dokončení ověření budete přesměrováni na svou aplikaci logiky. Je to, byl vytvořen připojení. Všimněte si zprávy v dolní části, která určuje, že jste nyní připojení do služby SharePoint.  
+   ![Konfigurace služby SharePoint][4]  
+6. Poté můžete přidat další aktivační události a akce, které potřebujete k dokončení svou aplikaci logiky.   
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 

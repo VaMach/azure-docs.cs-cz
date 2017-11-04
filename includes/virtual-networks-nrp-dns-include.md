@@ -1,28 +1,28 @@
 ## <a name="azure-dns"></a>Azure DNS
-Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
+Azure DNS je hostitelská služba domén DNS poskytnutí překladu názvů pomocí infrastruktury Microsoft Azure.
 
-| Property | Description | Sample Value |
+| Vlastnost | Popis | Hodnota vzorku |
 | --- | --- | --- |
-| **DNSzones** |Domain zone information to host DNS records of a particular domain |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
+| **DNSzones** |Domény informace o zóně záznamy hostitele DNS určité domény |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com " |
 
-### <a name="dns-record-sets"></a>DNS record sets
-DNS zones have a child object named record set. Record sets are a collection of host records by type for a DNS zone. Record types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.
+### <a name="dns-record-sets"></a>Sady záznamů DNS
+Zóny DNS mít podřízený objekt s názvem sadu záznamů. Sady záznamů jsou kolekce záznamy hostitele podle typu zóny DNS. Typy záznamů jsou A, AAAA, CNAME, MX, NS, SOA, SRV a TXT.
 
-| Property | Description | Sample value |
+| Vlastnost | Popis | Ukázková hodnota |
 | --- | --- | --- |
-| A |IPv4 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
-| AAAA |IPv6 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME |canonical name record type <sup>1</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
-| MX |mail record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
-| NS |name server record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
-| SOA |Start of Authority record type <sup>2</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
-| SRV |service record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
+| A |Typ záznamu IPv4 |/subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| AAAA |Typ záznamu IPv6 |/subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
+| CNAME |Typ záznamu kanonický název <sup>1</sup> |/subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| MX |Typ záznamu e-mailu |/subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
+| NS |Typ záznamu název serveru |/subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/NS/ |
+| SOA |Začátek typ záznamu autority <sup>2</sup> |/subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/SOA |
+| SRV |Typ záznamu služby |/subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/SRV |
 
-<sup>1</sup> only allows one value per record set.
+<sup>1</sup> umožňuje pouze jednu hodnotu na sady záznamů.
 
-<sup>2</sup> only allows one record type SOA per DNS zone. 
+<sup>2</sup> umožňuje pouze jeden typ záznamu SOA za zóny DNS. 
 
-Sample of DNS zone in Json format:
+Ukázka zónu DNS ve formátu Json:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -77,8 +77,8 @@ Sample of DNS zone in Json format:
           ]
     }
 
-## <a name="additional-resources"></a>Additional resources
-Read the [REST API documentation for DNS zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) for more information.
+## <a name="additional-resources"></a>Další zdroje
+Pro čtení [dokumentace k REST API pro zóny DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) Další informace.
 
-Read the [REST API documentation for DNS record sets](https://msdn.microsoft.com/library/azure/mt130627.aspx) for more information.
+Pro čtení [dokumentace k REST API pro sady záznamů DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) Další informace.
 

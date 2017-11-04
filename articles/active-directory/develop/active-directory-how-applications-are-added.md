@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Jak a proč se aplikace přidávají do služby Azure AD
 Jednou z věcí původně puzzling při zobrazení seznamu aplikací ve vaší instanci Azure Active Directory je pochopení, kde aplikace pochází z a proč jsou existuje.  Tento článek vám poskytne podrobný přehled jak aplikací jsou reprezentována v adresáři a poskytnout kontext, který vám pomůže porozumět, jak byla aplikace ve vašem adresáři.
@@ -84,8 +84,8 @@ Aplikace, které přidáte sami patří:
   * Pravidla transformace deklarací identity
   * Mapování atributů (zřizování uživatelů)
 * Další podrobné informace o objektu služby a objekty aplikací naleznete v dokumentaci rozhraní API REST Azure AD Graph odkaz.  *Pomocný parametr*: je nejblíže si referenční dokumentace schématu je Azure AD Graph API dokumentace pro Azure AD, který je aktuálně k dispozici.  
-  * [Aplikace](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Instanční objekt](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Aplikace](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Instanční objekt](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>Jak se aplikace přidají do instance Moje Azure AD?
 Existuje mnoho způsobů, lze přidat aplikaci do služby Azure AD:

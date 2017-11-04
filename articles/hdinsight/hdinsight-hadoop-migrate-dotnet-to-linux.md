@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrace řešení .NET pro HDInsight se systémem Windows do HDInsight se systémem Linux
 
@@ -33,7 +33,7 @@ Monofonní verze 4.2.1 je součástí HDInsight verze 3.5. Další informace o v
 Další informace o kompatibilitě mezi Mono a rozhraní .NET najdete v tématu [Mono kompatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentu.
 
 > [!IMPORTANT]
-> Rozhraní framework SCP.NET je kompatibilní s Mono. Další informace o používání SCP.NET s Mono najdete v tématu [pomocí Visual Studio pro vývoj topologií C# pro Apache Storm v HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+> Rozhraní framework SCP.NET je kompatibilní s Mono. Další informace o používání SCP.NET s Mono najdete v tématu [pomocí Visual Studio pro vývoj topologií C# pro Apache Storm v HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Analýza automatizované přenositelnost
 
@@ -74,8 +74,8 @@ Další informace o přístupu k protokolů najdete v následujících dokumente
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Použití jazyka C# s MapReduce v HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Použití jazyka C# s MapReduce v HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Uživatelem definované funkce jazyka C# pomocí Hive a Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Uživatelem definované funkce jazyka C# pomocí Hive a Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Vývoj C# topologií pro Storm v HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Vývoj C# topologií pro Storm v HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
