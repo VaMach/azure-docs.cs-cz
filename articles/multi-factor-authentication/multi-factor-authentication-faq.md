@@ -3,7 +3,7 @@ title: "Azure Multi-Factor Authentication – nejčastější dotazy | Microsoft
 description: "Časté otázky a odpovědi související s Azure Multi-Factor Authentication. Služba Multi-Factor Authentication je metoda ověření identity uživatele, který vyžaduje více než uživatelské jméno a heslo. Poskytuje další úroveň zabezpečení pro přihlášení uživatele a transakce."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b1d48d3ff0d264042f2d282c6b8006e16a251f5
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Časté otázky k Azure Multi-Factor Authentication
 Tyto nejčastější dotazy odpovídá na běžné otázky o Azure Multi-Factor Authentication a pomocí služby Multi-Factor Authentication. Ho je rozdělena do otázky týkající se služby obecně fakturace modely, koncových uživatelů a řešení potíží.

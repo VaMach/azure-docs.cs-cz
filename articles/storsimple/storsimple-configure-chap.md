@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83ad256522ca19a19b3fe46fcc48e9cb37cbe246
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurace protokolů CHAP pro vaše zařízení StorSimple
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Pokud chcete zobrazit verzi tohoto článku na nový portál Azure, přejděte na [konfigurace CHAP pro vaše zařízení StorSimple](storsimple-8000-configure-chap.md). Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 Tento kurz vysvětluje postup konfigurace CHAP pro vaše zařízení StorSimple. Postup popsaný v tomto článku platí pro řady StorSimple 8000 a také zařízení StorSimple 1200.
 
 CHAP znamená Challenge Handshake Authentication Protocol. Je příslušné schéma ověřování používají servery pro ověření identity vzdálených klientů. Ověření je založena na sdílené heslo nebo tajný klíč. CHAP může být jednosměrná (Jednosměrný) nebo vzájemné (obousměrné). Jednosměrné CHAP je při cíl ověření iniciátor. Vzájemné nebo zpětného CHAP, na druhé straně vyžaduje, aby cíl ověření iniciátoru a pak iniciátoru ověření cíl. Iniciátor ověřování se dá implementovat bez cíl ověřování. Cíl ověřování však můžete implementovat, pouze v případě, že se také implementuje iniciátor ověřování. 

@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Řešení potíží Storm pomocí Azure HDInsight
 
 Další informace o hlavních problémů a jejich řešení pro práci s Apache Storm datové části v Apache Ambari.
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak získám přístup k rozhraní Storm v clusteru
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak získám přístup k rozhraní Storm v clusteru?
 Máte dvě možnosti pro přístup k rozhraní Storm z prohlížeče:
 
 ### <a name="ambari-ui"></a>Uživatelské rozhraní Ambari
@@ -42,7 +42,7 @@ Příklad:
 
  https://stormcluster.azurehdinsight.NET/stormui
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Jak převést Storm událostí hub spout kontrolního bodu informace z jednoho topologie do jiného
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Jak převést Storm událostí hub spout kontrolního bodu informace z jednoho topologie do jiného?
 
 Když budete vyvíjet topologie, které čtou z Azure Event Hubs pomocí centra událostí HDInsight Storm spout souboru .jar, musíte nasadit topologii, která má stejný název na novém clusteru. Však musí zachovat data kontrolního bodu, která byla zapsána do Apache ZooKeeper v původním clusteru.
 
@@ -86,14 +86,14 @@ Příkaz export zapíše metadata na cestu Apache Hadoop Distributed File System
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Jak najít binární soubory Storm v clusteru
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Jak najít binární soubory Storm v clusteru?
 Storm binární soubory pro aktuální zásobník HDP jsou /usr/hdp/current/storm-client. Umístění je stejný pro hlavních uzlech i pro uzly pracovního procesu.
  
 Může existovat více binární soubory pro konkrétní verze softwaru HDP v /usr/hdp (například /usr/hdp/2.5.0.1233/storm). Složka /usr/hdp/current/storm-client je symlinked na nejnovější verzi, která běží na clusteru.
 
 Další informace najdete v tématu [připojit ke clusteru HDInsight pomocí protokolu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) a [Storm](http://storm.apache.org/).
  
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Jak je možné zjistit topologii nasazení clusteru Storm
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Jak je možné zjistit topologii nasazení clusteru Storm?
 Nejdřív určete všechny součásti, které jsou nainstalované s HDInsight Storm. Storm cluster se skládá ze čtyř kategorií uzlu:
 
 * Uzly brány
@@ -138,7 +138,7 @@ Naučte se používat nejnovější spout Storm události rozbočovače, který 
 ### <a name="source-code-examples"></a>Příklady zdrojového kódu
 V tématu [příklady](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) o tom, jak číst a zapisovat z centra událostí Azure pomocí topologií Apache Storm (napsanou v jazyce Java) v clusteru Azure HDInsight.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Jak najdu Storm Log4J konfigurační soubory v clusterech
+## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Jak najdu Storm Log4J konfigurační soubory v clusterech?
  
 K identifikaci Storm služeb Apache Log4J konfigurační soubory.
  
@@ -152,3 +152,5 @@ Konfigurační soubor pracovního procesu Log4J je načten z USR/hdp/\<verze sof
  
 Příklady: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>Viz také
+[Řešení potíží pomocí Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

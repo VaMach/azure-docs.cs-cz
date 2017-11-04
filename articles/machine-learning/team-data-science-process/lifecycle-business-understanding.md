@@ -1,6 +1,6 @@
 ---
-title: "Obchodní principy fáze životního cyklu procesu Team datové vědy - Azure | Microsoft Docs"
-description: "Cíle, úlohy a výsledek pro fázi Principy obchodní projekty vědecké účely data."
+title: "Obchodní principy fáze životního cyklu proces vědecké účely dat Team - Azure | Microsoft Docs"
+description: "Cíle, úlohy a úkoly pro fázi Principy obchodní projekty vědecké zpracování dat"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,42 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.openlocfilehash: 2adce61f8185bd86a6a870bb5752fe936701b0af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e1e795d74bac8d48dbe31a2941d9e9786f970f0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="business-understanding"></a>Principy podniku
 
-Toto téma popisuje cíle, úlohy, a výsledek přidružený **obchodní principy fáze** procesu Team dat vědecké účely. Tento proces zajišťuje doporučené životního cyklu, který můžete použít pro struktury projekty vědecké účely data. Životní cyklus popisuje hlavní fází, které projekty obvykle provést, často interaktivně:
+Tento článek popisuje cíle, úlohy a úkoly spojené s fázi Principy obchodní z tým datové vědy procesu (TDSP). Tento proces zajišťuje doporučené životního cyklu, který můžete použít pro struktury vědecké zpracování dat projekty. Životní cyklus popisuje hlavní fází, které projekty obvykle provést, často interaktivně:
 
-* **Pochopení obchodních**
-* **Získávání dat a principy**
-* **Modelování**
-* **Nasazení**
-* **Přijetí zákazníka**
+   1. **Pochopení obchodních**
+   2. **Získávání dat a principy**
+   3. **Modelování**
+   4. **Nasazení**
+   5. **Přijetí zákazníka**
 
-Tady je vizuální reprezentace **procesu vědecké účely Team datového cyklu**. 
+Zde je vizuální reprezentace životního cyklu TDSP: 
 
-![TDSP Lifecycle2](./media/lifecycle/tdsp-lifecycle2.png) 
+![Životní cyklus TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Cíle
-* **Klíče proměnné** jsou zadány, která bude sloužit jako, které jsou **modelu cíle** a jehož související metriky používají zjistili úspěšnost pro projekt.
-* Odpovídajícího **zdroje dat** se identifikovanou že firmy má přístup k nebo je potřeba získat.
+* Zadejte, že klíče proměnné, které jsou sloužit jako model cíle a jehož související metriky používají zjistili úspěšnost projektu.
+* Identifikujte zdroje relevantních dat, které má přístup k firmy nebo je potřeba získat.
 
 ## <a name="how-to-do-it"></a>Jak to udělat
 Existují dvě hlavní úlohy v této fázi řešit: 
 
-* **Definování cílů**: práce s vašich zákazníků a dalších zúčastněných osob, pochopit a identifikovat obchodních problémů. Formulovali otázky, které definují obchodních cílů a který může cílit na datové vědě techniky.
-* **Identifikaci zdroje dat**: najít relevantní data, která vám pomůže odpovědět na otázky, které definují cíle projektu.
+   * **Definování cílů**: práce s vašich zákazníků a dalších zúčastněných osob, pochopit a identifikovat obchodních problémů. Formulovali otázky, které definují obchodní cíle, které mohou být určeny techniky vědecké účely data.
+   * **Identifikaci zdroje dat**: najít relevantní data, která vám pomůže odpovědět na otázky, které definují cíle projektu.
 
-### <a name="11-define-objectives"></a>1.1 definování cílů
+### <a name="define-objectives"></a>Definování cílů
+1. Ústředním cílem tohoto kroku je identifikace klíče obchodní proměnné, které analýza potřebuje k předpovědi. Označujeme tyto proměnné, jako *modelu cíle*, a abyste zjistili úspěšnost projektu používáme metriky s nimi spojených. Dva příklady takových cíle jsou prognózy prodeje nebo pravděpodobnost pořadí se podvodné.
 
-1. Ústředním cílem tohoto kroku je identifikace klíč **obchodní proměnné** vyžadující analýza předpovědět. Tyto proměnné jsou označovány jako **modelu cíle** a metriky s nimi spojených se používají k určení úspěšnosti projektu. Dva příklady takových cíle jsou prognózy prodeje nebo pravděpodobnost pořadí se podvodné.
-
-2. Definování **projektu cíle** žádostí a upřesnění "ostré" otázky, které jsou relevantní a konkrétní a jednoznačné. Vědecké zpracování dat je proces, pomocí názvů a čísel k odpovědi na tyto otázky. Další informace o klást otázky sharp najdete v tématu [postup vědecké zpracování dat](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogu. Vědecké zpracování dat / machine learning se obvykle používá k odpovědi na pět typů otázek:
+2. Definování cílů projektu žádostí a upřesnění "ostré" otázky, které jsou relevantní, konkrétní a jednoznačné. Vědecké zpracování dat je proces, který využívá názvů a čísel k odpovědi na tyto otázky. Další informace o klást otázky sharp najdete v tématu [postup vědecké zpracování dat](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogu. Obvykle použijete, vědecké zpracování dat nebo strojového učení k odpovědi na pět typů otázek:
  
    * Kolik nebo kolik? (regrese)
    * Které kategorie? (klasifikace)
@@ -57,42 +56,43 @@ Existují dvě hlavní úlohy v této fázi řešit:
    * Je to divné? (detekce anomálií)
    * Možnosti, kterou by měla být provedena? (doporučení)
 
-    Určete, který tyto dotazy jsou požádat a jak volaného dosahuje svých cílů firmy.
+   Určete, který tyto dotazy vás nemůže ověřit a jak volaného dosahuje svých cílů firmy.
 
-3. Definování **projektu team** zadáním rolích a zodpovědnostech svých členů. Vytvořte plán vysoké úrovně milník, který iterovat jako je zjistit další informace.  
+3. Definujte projektový tým zadáním rolích a zodpovědnostech svých členů. Vytvořte plán vysoké úrovně milník, který iterovat, co zjistíte další informace. 
 
-4. **Definování metriky úspěchu**. Příklad: zákazníka změn předpovědi přesnost X % dosáhnout konce tohoto projektu 3 měsíce, aby nabízíme povýšení ke snížení změn. Musí být metriky **INTELIGENTNÍ**: 
+4. Definujte metriky úspěchu. Například můžete chtít dosáhnout předpovědi změn zákazníka. Budete potřebovat přesnost míra "x" procent na konci tohoto projektu tři měsíce. S těmito daty můžete nabízet, že zákazník povýšení ke snížení změn. Musí být metriky **INTELIGENTNÍ**: 
+
    * **S**určitá 
    * **M**easurable
    * **A**chievable 
    * **R**elevant 
    * **T**vázané na editoru ime 
 
-### <a name="12-identify-data-sources"></a>1.2 identifikaci zdroje dat
+### <a name="identify-data-sources"></a>Identifikaci zdroje dat
 Identifikujte zdroje dat, které obsahují známé příklady odpovědi na otázky sharp. Vyhledejte následující data:
 
-* Data, která je **Relevant** na otázku. Máme míry cíl a funkce, které se vztahují k cíli?
-* Data, která je **přesně** naše cílových modelu a funkce, které vás zajímají.
+* Data, která se týkají na otázku. Máte míry cíl a funkce, které se vztahují k cíli?
+* Data, která je přesné měření cílových modelu a funkce, které vás zajímají.
 
-Například není neobvyklé, zjistíte, je potřeba stávajících systémů shromažďovat a protokolovat další typy dat potíže vyřešit a dosáhnout cíle projektu. V takovém případě můžete hledat externích zdrojů dat. nebo aktualizovat vaše systémy shromažďovat nová data.
+Například je možné, že existující systémy nutné shromažďovat a protokolovat další typy dat potíže vyřešit a dosáhnout cíle projektu. V takovém případě můžete hledat externích zdrojů dat. nebo aktualizovat vaše systémy shromažďovat nová data.
 
 ## <a name="artifacts"></a>Artefakty
 Zde jsou dodávky v této fázi:
 
-* [**Charterovou dokumentu**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): standardní šablona je součástí definice struktury TDSP projektu. Toto je životností dokumentu, který se aktualizuje v celém projektu jako nové zjišťování jsou vytvářeny a jako obchodní požadavky se změní. Klíč je k iteraci na tento dokument, přidání další podrobnosti, jako průběh procesu zjišťování. Ponechte zákazníka a ostatní účastníci součástí provádění požadovaných změn a zřetelněji sdělují důvody pro změny k nim.  
-* [**Zdroje dat**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): Toto je **nezpracovaná zdroje dat** části **definice dat** sestavu, která se nachází v projektu TDSP **sestavu dat** složky. Určuje původní a cílové umístění nezpracovaná data. Ve fázích novější je zadat další podrobnosti, třeba skripty pro přesun dat do prostředí analýzy.  
-* [**Slovník dat**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries): Tento dokument obsahuje popis dat, která je zadaných klientem. Tyto popisy obsahují informace o schématu (datové typy, informace o ověřovacích pravidel, pokud existuje) a entity-relation diagramy, pokud je k dispozici.
+   * [Dokument titulů](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): standardní šablona je součástí definice struktury TDSP projektu. Dokument titulů je dokument životností. Můžete aktualizovat šablonu v rámci projektu jako provedete nové zjišťování a jako obchodní požadavky se změní. Klíč je k iteraci na tento dokument, přidání další podrobnosti, jako průběh procesu zjišťování. Ponechte zákazníka a ostatní účastníci součástí provádění požadovaných změn a zřetelněji sdělují důvody pro změny k nim.  
+   * [Zdroje dat](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): **zdroje dat ve formátu Raw** části **definice dat** sestavu, která se nachází v projektu TDSP **sestavu dat** složka obsahuje zdroje dat. V této části Určuje původní a cílové umístění nezpracovaná data. Ve fázích novější je zadat další podrobnosti, třeba skripty pro přesun dat do prostředí analýzy.  
+   * [Slovník dat](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Tento dokument obsahuje popis dat, která je zadaných klientem. Tyto popisy obsahují informace o schématu (datové typy a informace o ověřovacích pravidel, pokud existuje) a entity-relation diagramy, pokud je k dispozici.
 
 ## <a name="next-steps"></a>Další kroky
 
-Tady jsou odkazy na každý krok v průběhu životního cyklu procesu Team dat vědecké účely:
+Tady jsou odkazy na každý krok v životním cyklu TDSP:
 
-* [1. Pochopení obchodních](lifecycle-business-understanding.md)
-* [2. Získávání dat a principy](lifecycle-data.md)
-* [3. Modelování](lifecycle-modeling.md)
-* [4. Nasazení](lifecycle-deployment.md)
-* [5. Přijetí zákazníka](lifecycle-acceptance.md)
+   1. [Pochopení obchodních](lifecycle-business-understanding.md)
+   2. [Získávání dat a principy](lifecycle-data.md)
+   3. [Modelování](lifecycle-modeling.md)
+   4. [Nasazení](lifecycle-deployment.md)
+   5. [Přijetí zákazníka](lifecycle-acceptance.md)
 
-Úplné návody začátku do konce, které ukazují všechny kroky v procesu pro **konkrétních scénářů** jsou také uvedeny. Jsou uvedena v seznamu a propojené s miniatur popisy v [příklad návody](walkthroughs.md) tématu. Se ukazují, jak kombinovat cloud, místní nástroje a služby do pracovního postupu nebo kanálu vytvoření inteligentního aplikace. 
+Poskytujeme návody úplného začátku do konce, které ukazují všechny kroky v procesu pro konkrétní scénáře. [Příklad návody](walkthroughs.md) článek obsahuje seznam scénářů s odkazy a popisy miniatur. Názorné postupy ukazují, jak kombinovat cloud, místní nástroje a služby do pracovního postupu nebo kanálu vytvoření inteligentního aplikace. 
 
-Příklady provedením kroků v procesu Team dat. vědecké účely, které používají Azure Machine Learning Studio najdete v tématu [s Azure ML](http://aka.ms/datascienceprocess) kurzů.
+Příklady, jak provést kroky v TDSPs, které používají Azure Machine Learning Studio, najdete v části [pomocí Azure Machine Learning TDSP](http://aka.ms/datascienceprocess).

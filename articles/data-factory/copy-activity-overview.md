@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 037cd8ac0065adc7572f7a60bac019c05a6e308a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9629a86e72e0d5943f0e50e04268720fbedf6c35
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Aktivita kopírování v Azure Data Factory
 
@@ -155,7 +155,7 @@ Podrobnosti o provádění aktivitě kopírování a výkonové charakteristiky 
 | sqlDwPolyBase | Pokud se při kopírování dat do SQL Data Warehouse PolyBase používá. | Logická hodnota |
 | redshiftUnload | Pokud uvolnění se používá při kopírování dat z Redshift. | Logická hodnota |
 | hdfsDistcp | Pokud DistCp se používá při kopírování dat z HDFS. | Logická hodnota |
-| effectiveIntegrationRuntime | Zobrazit, který Runtime(s) integrace se používá k posílení aktivity při spuštění ve formátu "`<IR name> (<region if it's Azure IR>)`". | Text (řetězec) |
+| effectiveIntegrationRuntime | Zobrazit, který Runtime(s) integrace se používá k posílení aktivity při spuštění ve formátu `<IR name> (<region if it's Azure IR>)`. | Text (řetězec) |
 | usedCloudDataMovementUnits | Efektivní cloudové jednotky přesun dat během kopírování. | Hodnota Int32 |
 | redirectRowPath | Cesta k protokolu přeskočené nekompatibilní řádků v úložišti objektů blob, které jste nakonfigurovali v části "redirectIncompatibleRowSettings". Najdete v následujícím příkladu. | Text (řetězec) |
 | billedDuration | Doba trvání pro přesun dat se účtují. | Hodnota Int32 v sekundách |

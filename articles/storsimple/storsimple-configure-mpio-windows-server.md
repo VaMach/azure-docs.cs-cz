@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f870df32bed8213f6252c70b2f687f436dbd71b8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Konfigurace funkce Multipath I/O pro zařízení StorSimple
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Pokud chcete zobrazit verzi tohoto článku na nový portál Azure, přejděte na [konfigurace funkce Multipath I/O pro zařízení StorSimple](storsimple-8000-configure-mpio-windows-server.md). Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 Společnost Microsoft vyvinula podporu pro funkci Multipath I/O (MPIO) v systému Windows Server tak, aby nápovědy vysoce dostupné a odolné proti chybám sítě SAN konfigurace sestavení. Funkce MPIO používá redundantní komponenty fyzických cesty – adaptéry, kabely a přepínače – k vytvoření logických cest mezi serverem a paměťovým zařízením. Pokud dojde k selhání součásti způsobuje logickou cestu k selhání, logika více cest použije pro vstupně-výstupní operace alternativní cestu, tak, aby aplikace můžete stále přístup k datům. Kromě toho v závislosti na vaší konfiguraci funkce MPIO lze také vylepšit výkon znovu Vyrovnávání zatížení mezi tyto cesty. Další informace najdete v tématu [Přehled funkce MPIO](https://technet.microsoft.com/library/cc725907.aspx "MPIO přehled a funkce").  
 
 Vysoká-dostupnosti vašeho řešení StorSimple musí být funkce MPIO nakonfigurovaný v zařízení StorSimple. Při instalaci funkce MPIO na hostitelských serverech s Windows serverem 2012 R2 servery tolerovat klikněte na odkaz, sítě nebo selhání rozhraní. 

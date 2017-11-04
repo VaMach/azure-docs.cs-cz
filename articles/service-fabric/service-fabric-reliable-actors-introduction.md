@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Seznámení se službou Service Fabric Reliable Actors
 Reliable Actors je architektura aplikace Service Fabric na základě [virtuální objektu Actor](http://research.microsoft.com/en-us/projects/orleans/) vzor. Rozhraní API spolehlivé aktéři poskytuje programovací model jednovláknové založený na škálovatelnost a spolehlivost záruk poskytnutých Service Fabric.
@@ -143,7 +143,7 @@ Modul runtime aktéři umožňuje vícenásobný přístup ve výchozím nastave
 Modul runtime aktéři poskytuje tyto záruky souběžnosti v situacích, kde se řídí volání z těchto metod. Například poskytuje tyto záruky pro volání metod, které se provádějí v odpovědi na požadavek klienta, a také pro zpětné volání časovače a připomenutí. Ale pokud kód objektu actor přímo vyvolá tyto metody mimo mechanismy, které poskytuje modulem runtime aktéři, modul runtime nelze zadejte jakékoli záruky souběžnosti. Například pokud metoda je volána v rámci některých úloh, který není spojen s Úloha vrácená metody objektu actor, modul runtime nelze zadejte souběžnosti záruky. Pokud je metoda je vyvolána z vlákna, která objektu actor vytvoří sama o sobě, modul runtime nelze zadejte také souběžnosti záruky. Proto k provedení operace na pozadí, měli používat aktéři [objektu actor časovače a upomínek objektu actor](service-fabric-reliable-actors-timers-reminders.md) , respektují na základě zapnout souběžnosti.
 
 ## <a name="next-steps"></a>Další kroky
-* Začínáme se ve vaší první službě Reliable Actors:
+Začínáme se ve vaší první službě Reliable Actors:
    * [Začínáme s Reliable Actors na rozhraní .NET](service-fabric-reliable-actors-get-started.md)
    * [Začínáme s Reliable Actors v jazyce Java](service-fabric-reliable-actors-get-started-java.md)
 

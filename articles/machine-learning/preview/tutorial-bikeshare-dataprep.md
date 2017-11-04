@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Kurz kolo share: Advanced Příprava dat pomocí Azure Machine Learning Workbench
 Služby Azure Machine Learning (preview) je vědecké zpracování dat integrované, klient server a pokročilou analýzu řešení pro odborníky v oblasti datových vědců připravit data, vývoji experimenty a nasazení modely v cloudovém měřítku.
@@ -493,7 +493,7 @@ Vyberte __OK__ použít filtr.
 
 ### <a name="remove-columns"></a>Odebrání sloupců
 
-V cestě dat každý řádek představuje výstupní událost kolo. Pro účely tohoto kurzu potřebujete jenom **starttime** a **spustit stanice** sloupce. Odeberte ostatní sloupce podle vyberete víc těmito dvěma sloupci, klikněte pravým tlačítkem myši na záhlaví sloupce a potom vyberte **zachovat sloupec**. Ostatních sloupců se odeberou.
+V cestě dat každý řádek představuje výstupní událost kolo. Pro účely tohoto kurzu potřebujete jenom **starttime** a **spustit id stanice** sloupce. Odeberte ostatní sloupce podle vyberete víc těmito dvěma sloupci, klikněte pravým tlačítkem myši na záhlaví sloupce a potom vyberte **zachovat sloupec**. Ostatních sloupců se odeberou.
 
 ![Obrázek možnosti zachovat sloupce](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

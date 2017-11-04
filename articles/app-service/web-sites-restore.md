@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Obnovení aplikace v Azure
-Tento článek ukazuje, jak obnovit aplikace v [Azure App Service](../app-service/app-service-web-overview.md) který jste dříve zálohovali (viz [zálohování aplikace v Azure](web-sites-backup.md)). Můžete obnovit do předchozího stavu vaší aplikace pomocí jeho propojené databází na vyžádání nebo vytvořit novou aplikaci na základě jedné z původní aplikaci zálohování. Aplikační služba Azure podporuje následující databáze pro zálohování a obnovení:
+Tento článek ukazuje, jak obnovit aplikace v [Azure App Service](../app-service/app-service-web-overview.md) který jste dříve zálohovali (viz [zálohování aplikace v Azure](web-sites-backup.md)). Můžete obnovit do předchozího stavu vaší aplikace pomocí jeho propojené databází na vyžádání nebo vytvořit novou aplikaci na základě jedné z původní aplikace zálohy. Aplikační služba Azure podporuje následující databáze pro zálohování a obnovení:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure databáze pro databázi MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure databázi PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
@@ -33,10 +33,10 @@ Obnovení ze zálohy je k dispozici pro aplikace běžící **standardní** a **
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Obnovení aplikace z existující zálohy
-1. Na **nastavení** vaší aplikace na portálu Azure klikněte na **zálohování** zobrazíte **zálohování** okno. Pak klikněte na tlačítko **obnovení**.
+1. Na **nastavení** stránky vaší aplikace na portálu Azure, klikněte na tlačítko **zálohování** zobrazíte **zálohování** stránky. Pak klikněte na tlačítko **obnovení**.
    
     ![Zvolte teď obnovení][ChooseRestoreNow]
-2. V **obnovení** okno, nejprve vyberte zálohování zdroj.
+2. V **obnovení** nejprve vyberte zálohování zdroje.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -59,9 +59,9 @@ Obnovení ze zálohy je k dispozici pro aplikace běžící **standardní** a **
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Stáhnout nebo odstranit zálohy z účtu úložiště
-1. Z hlavní **Procházet** okno portálu Azure, vyberte **účty úložiště**. Zobrazí se seznam existující účty úložiště.
-2. Vyberte účet úložiště, který obsahuje zálohu, kterou chcete stáhnout nebo odstranit. Zobrazí se okno pro účet úložiště.
-3. V okně účtu úložiště vyberte kontejner, který chcete
+1. Z hlavní **Procházet** stránce portálu Azure, vyberte **účty úložiště**. Zobrazí se seznam existující účty úložiště.
+2. Vyberte účet úložiště, který obsahuje zálohu, kterou chcete stáhnout nebo odstranit. Zobrazí se stránka pro účet úložiště.
+3. Na stránce účtu úložiště vyberte kontejner, který chcete
    
     ![Zobrazení kontejnery][ViewContainers]
 4. Vyberte záložní soubor, který chcete stáhnout nebo odstranit.
@@ -72,12 +72,21 @@ Obnovení ze zálohy je k dispozici pro aplikace běžící **standardní** a **
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>Monitorování operací obnovení
-Chcete-li zobrazit podrobnosti o úspěchu nebo neúspěchu operace obnovení aplikace, přejděte na **protokol aktivit** okno na portálu Azure.  
+Chcete-li zobrazit podrobnosti o úspěchu nebo neúspěchu operace obnovení aplikace, přejděte na **protokol aktivit** na portálu Azure.  
  
 
 Přejděte dolů a najděte požadovanou operaci obnovení a klikněte na tlačítko ji vyberte.
 
-V okně podrobností zobrazuje dostupné informace související s operací obnovení.
+Na stránce Podrobnosti zobrazuje dostupné informace související s operací obnovení.
+
+## <a name="automate-with-scripts"></a>Automatizovat pomocí skriptů
+
+Můžete automatizovat správu záloh pomocí skriptů, pomocí [rozhraní příkazového řádku Azure](/cli/azure/install-azure-cli) nebo [prostředí Azure PowerShell](/powershell/azure/overview).
+
+Ukázky najdete v části:
+
+- [Ukázek Azure CLI](app-service-cli-samples.md)
+- [Ukázek Azure PowerShell](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

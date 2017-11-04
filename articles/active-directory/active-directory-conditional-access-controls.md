@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Ovládací prvky v Azure Active Directory podmíněného přístupu 
 
@@ -101,7 +101,7 @@ Můžete vytvořit vlastní ovládací prvky v podmíněného přístupu, který
 
 ## <a name="custom-controls"></a>Vlastní ovládací prvky
 
-Vlastní ovládací prvky v podmíněného přístupu přesměruje uživatele na kompatibilní služby splňovat další požadavky mimo Azure Active Directory. Prohlížeč vyhovět tento ovládací prvek, je přesměrován na externí služba, provede požadované ověřování nebo ověřování aktivity a je pak přesměrován zpět do Azure Active Directory. Azure Active Directory zkontroluje odpověď, a pokud uživatel byl úspěšně ověřen nebo ověřit, uživatel bude pokračovat v toku podmíněného přístupu.
+Vlastní ovládací prvky jsou funkce Azure Active Directory Premium P2 edice. Pokud používáte vlastní ovládací prvky, uživatelé jsou přesměrovány do kompatibilní služby splňovat další požadavky mimo Azure Active Directory. Prohlížeč vyhovět tento ovládací prvek, je přesměrován na externí služba, provede požadované ověřování nebo ověřování aktivity a je pak přesměrován zpět do Azure Active Directory. Azure Active Directory zkontroluje odpověď, a pokud uživatel byl úspěšně ověřen nebo ověřit, uživatel bude pokračovat v toku podmíněného přístupu.
 
 Tyto ovládací prvky umožňují použití určité externí nebo vlastní služby jako řízení podmíněného přístupu a obecně rozšiřují možnosti podmíněného přístupu.
 

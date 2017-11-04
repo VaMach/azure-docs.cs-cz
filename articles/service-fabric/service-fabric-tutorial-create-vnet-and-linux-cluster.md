@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 983abcd103a58be63053e466c767015c0835eaba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Nasazení clusteru Service Fabric Linux do virtuální sítě Azure
 V tomto kurzu je součástí, jednu z řady. Se dozvíte, jak nasadit cluster Linux Service Fabric do existující virtuální sítě Azure (VNET) a dílčí net pomocí rozhraní příkazového řádku Azure. Jakmile budete hotovi, máte cluster se systémem, kterou můžete nasadit aplikace do cloudu. Vytvoření clusteru se systémem Windows pomocí prostředí PowerShell naleznete v tématu [vytvoření clusteru s podporou zabezpečení systému Windows na Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -98,7 +98,15 @@ Můžete použít certifikát od certifikační autority (CA) jako cluster certi
 - vytvořit pro výměnu klíčů, což je exportovat do souboru Personal Information Exchange (.pfx).
 - máte název subjektu, který odpovídá domény, který používáte pro přístup ke clusteru Service Fabric. Toto porovnání se vyžaduje k zajištění SSL pro koncové body správy protokolu HTTPS a Service Fabric Explorer clusteru. Nelze získat certifikát SSL od certifikační autority (CA) pro. cloudapp.azure.com domény. Je nutné získat vlastní název domény pro váš cluster. Pokud budete požadovat certifikát od certifikační Autority, název subjektu certifikátu musí odpovídat názvu vlastní domény, který používáte pro váš cluster.
 
-Vyplňte prázdné **clusterName**, **adminUserName**, a **adminPassword** parametry v *linuxcluster.parameters.json* souboru pro vaše nasazení.  Ponechte **certificateThumbprint**, **certificateUrlValue**, a **sourceVaultValue** parametry prázdné vytvořit certifikát podepsaný svým držitelem.  Pokud chcete použít stávající certifikát předtím nahrála do trezoru klíčů, zadejte tyto hodnoty parametrů.
+Vyplňte tyto prázdné parametry v *linuxcluster.parameters.json* soubor pro vaše nasazení:
+
+|Parametr|Hodnota|
+|---|---|
+|adminPassword|Heslo #1234|
+|adminUserName|vmadmin|
+|Název clusteru|mysfcluster|
+
+Ponechte **certificateThumbprint**, **certificateUrlValue**, a **sourceVaultValue** parametry prázdné vytvořit certifikát podepsaný svým držitelem.  Pokud chcete použít stávající certifikát předtím nahrála do trezoru klíčů, zadejte tyto hodnoty parametrů.
 
 Tento skript používá [vytvoření clusteru sf az](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) příkaz a šablony pro nasazení do nového clusteru v Azure. Rutina také vytvoří nového trezoru klíčů v Azure, přidá nový certifikát podepsaný svým držitelem do trezoru klíčů a stáhne soubor certifikátu místně. Existující certifikát nebo klíče trezoru můžete zadat pomocí dalších parametrů [vytvoření clusteru sf az](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) příkaz.
 
@@ -148,9 +156,9 @@ V tomto kurzu jste se naučili:
 > * Připojte se ke clusteru pomocí Service Fabric rozhraní příkazového řádku
 > * Odebrat cluster
 
-V dalším kroku přechodu na následující kurzu se dozvíte, jak nasadit API Management s Service Fabric.
+V dalším kroku přechodu na následující kurzu se dozvíte, jak škálování clusteru.
 > [!div class="nextstepaction"]
-> [Nasazení rozhraní API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Škálování clusteru](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

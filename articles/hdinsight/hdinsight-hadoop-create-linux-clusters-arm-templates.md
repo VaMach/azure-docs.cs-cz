@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: jgao
-ms.openlocfilehash: 82733e2a3025f932961122bad9d70c26896837b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25a45a380db06808db352fa26b88235d6e4b8fd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Vytvoření clusterů systému Hadoop v HDInsight pomocí šablony Resource Manageru
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,8 +34,6 @@ Podle pokynů v tomto článku, budete potřebovat:
 
 * [Předplatné](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Prostředí Azure PowerShell nebo Azure CLI.
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### <a name="resource-manager-templates"></a>Šablony Resource Manageru
 Šablonu Resource Manager umožňuje snadné vytváření následující pro vaši aplikaci v rámci jediné koordinované operace:
@@ -58,8 +56,7 @@ Pomocí portálu Azure, můžete konfigurovat vlastnosti clusteru a potom uložt
 **Ke generování šablony pomocí portálu Azure**
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **nový** v levé nabídce klikněte na tlačítko **Intelligence + analýzy**a potom klikněte na **HDInsight**.
-3. Postupujte podle pokynů a zadejte vlastnosti. Můžete použít buď **rychle vytvořit** nebo **vlastní** možnost.
+2. Klikněte na tlačítko **vytvořit prostředek** v levé nabídce klikněte na tlačítko **Data + analýzy**a potom klikněte na **HDInsight**.
 4. Na **Souhrn** , klikněte na **stáhnout šablonu a parametry**:
 
     ![Vytvoření stažení šablony správce prostředků clusteru HDInsight Hadoop](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
@@ -169,6 +166,7 @@ Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se 
 ## <a name="next-steps"></a>Další kroky
 V tomto článku jste se naučili několik způsobů, jak vytvořit cluster služby HDInsight. Další informace naleznete v následujících článcích:
 
+* Pro další HDInsight související šablony, viz [šablon Azure rychlý Start](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Příklad nasazení prostředků prostřednictvím klientské knihovny .NET, naleznete v části [nasadit prostředky pomocí knihovny .NET a šablonu](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Podrobný příklad nasazení aplikace naleznete v tématu [zřídit a nasadit mikroslužeb předvídatelné v Azure](../app-service/app-service-deploy-complex-application-predictably.md).
 * Pokyny pro nasazení řešení do různých prostředí najdete v článku věnovaném [testovacím a vývojovým prostředím v Microsoft Azure](../solution-dev-test-environments.md).
@@ -176,7 +174,7 @@ V tomto článku jste se naučili několik způsobů, jak vytvořit cluster slu�
 * Seznam funkcí v šablonu Azure Resource Manager můžete použít, najdete v části [funkce šablon](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appendix-resource-manager-template-to-create-a-hadoop-cluster"></a>Dodatek: Šablony Resource Manageru k vytvoření clusteru Hadoop
-Následující šablony Azure Resource Manager vytvoří cluster systémem Linux Hadoop se účet závislého úložiště Azure.
+Následující šablony Azure Resource Manager vytvoří Hadoop cluster se účet závislého úložiště Azure.
 
 > [!NOTE]
 > Tato ukázka obsahuje informace o konfiguraci pro metaúložiště Hive a metaúložiště Oozie. Odebrat oddíl nebo nakonfigurujte části před použitím šablony.
@@ -289,7 +287,7 @@ Následující šablony Azure Resource Manager vytvoří cluster systémem Linux
 
         },
         "properties": {
-            "clusterVersion": "3.4",
+            "clusterVersion": "3.6",
             "osType": "Linux",
             "tier": "standard",
             "clusterDefinition": {
@@ -420,7 +418,7 @@ Pokud nastavíte všechny jeden parametr v části v rámci samotné šablony, H
         },
         "clusterVersion": {
             "type": "string",
-            "defaultValue": "3.5",
+            "defaultValue": "3.6",
             "metadata": {
                 "description": "HDInsight cluster version."
             }

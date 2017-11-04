@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Vytvořit a spravovat zásady na vynucování dodržování shody
 
@@ -61,7 +61,7 @@ Prvním krokem při vynucování souladu se zásadami Azure je přiřadit defini
    ![Definice zásad otevřete k dispozici](media/create-manage-policy/open-policy-definitions.png)
 
 5. Vyberte **vyžadují SQL Server verze 12.0**.
-   
+
    ![Vyhledejte zásadu](media/create-manage-policy/select-available-definition.png)
 
 6. Slouží k zobrazení **název** pro přiřazení zásad. V tomto případě použijeme *vyžadují SQL Server verze 12.0*. Můžete také přidat volitelný **popis**. Popis poskytuje podrobnosti o tom, jak toto přiřazení zásad zajistí všechny servery SQL, které jsou vytvořené v tomto prostředí jsou verze 12.0.
@@ -93,7 +93,7 @@ Teď, když přiřadili jsme definice zásady, vytvoříme k vytvoření nové z
       - Parametry zásad.
       - Zásady pravidla nebo podmínky, v takovém případě – velikost virtuálního počítače SKU rovna G řady
       - Účinek zásady, v takovém případě – **Odepřít**.
-   
+
    Zde je, jak by měla vypadat json
 
 ```json
@@ -118,9 +118,225 @@ Teď, když přiřadili jsme definice zásady, vytvoříme k vytvoření nové z
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    Chcete-li zobrazit ukázky kódu json, podívejte se na tento článek - [přehled zásad prostředků](../azure-resource-manager/resource-manager-policy.md)
-   
+
 4. Vyberte **Uložit**.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>Vytvoří definici zásady pomocí rozhraní REST API
+
+Zásady můžete vytvořit pomocí rozhraní REST API pro definice zásady. Rozhraní REST API umožňuje vytvářet a odstraňovat definice zásady a získat informace o existující definice.
+K vytvoření definice zásady, použijte následující příklad:
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Zahrnout obsah žádosti podobně jako v následujícím příkladu:
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>Vytvoří definici zásady v prostředí PowerShell
+
+Před pokračováním v příkladu prostředí PowerShell, zkontrolujte, zda že jste nainstalovali nejnovější verzi prostředí Azure PowerShell. Ve verzi 3.6.0 byly přidány zásady parametry. Pokud máte starší verzi, příklady vrátí chybu oznamující, že parametr nebyl nalezen.
+
+Můžete vytvořit pomocí definice zásady `New-AzureRmPolicyDefinition` rutiny.
+
+K vytvoření definice zásad ze souboru, předejte cestu k souboru. Pro externí soubor použijte následující příklad:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Pro použití místního souboru použijte následující příklad:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+K vytvoření definice zásady s vložené pravidlo, použijte následující příklad:
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+Výstup je uložen v `$definition` objekt, který se používá při přiřazování zásady.
+Následující příklad vytvoří definici zásady, který obsahuje parametry:
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>Definice zásad zobrazení
+
+Pokud chcete zobrazit všechny definice zásady v rámci vašeho předplatného, použijte následující příkaz:
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+Vrátí všechny dostupné zásady definice, včetně integrovaných zásad. Každá zásada se vrátí v následujícím formátu:
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Vytvoří definici zásady pomocí rozhraní příkazového řádku Azure
+
+Můžete vytvořit definici zásady pomocí rozhraní příkazového řádku Azure pomocí příkazu definice zásady.
+K vytvoření definice zásady s vložené pravidlo, použijte následující příklad:
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>Definice zásad zobrazení
+
+Pokud chcete zobrazit všechny definice zásady v rámci vašeho předplatného, použijte následující příkaz:
+
+```
+az policy definition list
+```
+
+Vrátí všechny dostupné zásady definice, včetně integrovaných zásad. Každá zásada se vrátí v následujícím formátu:
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Vytvořte a přiřaďte iniciativy definice
 
@@ -166,7 +382,7 @@ Iniciativy definicí můžete seskupit několik definice zásady pro dosažení 
    - cenová úroveň: standardní
    - Chcete toto přiřazení u oboru: **Azure Advisor kapacity vývojářů**
 
-5. Vyberte **přiřadit**. 
+5. Vyberte **přiřadit**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Vyřešte nevyhovující nebo odepření prostředek
 
@@ -205,4 +421,4 @@ V tomto kurzu jste úspěšně provést následující:
 Další informace o struktury definice zásady, podívejte se na tomto článku:
 
 > [!div class="nextstepaction"]
-> [Definice strukturu zásad.](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Azure definice strukturu zásad.](policy-definition.md)

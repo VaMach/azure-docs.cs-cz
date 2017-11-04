@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 98e75e11b54aea677b8ca1b6f303a48190c6fce8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>Přehled modelu programování Service Fabric
 Service Fabric nabízí několik způsobů, jak zapsat a spravovat vaše služby. Služby můžete plně využít výhod funkcí a architektur aplikací platformu pomocí rozhraní API služby prostředků infrastruktury. Služby mohou být také kompilované spustitelné programy vytvořené v libovolném jazyce nebo kód spuštěný v kontejneru jednoduše hostovaná v clusteru Service Fabric.
@@ -42,6 +42,11 @@ Spolehlivé služby může být také stavová, výhradně pro Service Fabric, k
 
 [Další informace o službách Reliable Services](service-fabric-reliable-services-introduction.md) nebo začít [zápis vaší první službě spolehlivé](service-fabric-reliable-services-quick-start.md).
 
+## <a name="aspnet-core"></a>Jádro ASP.NET
+ASP.NET Core je nové open source a napříč platformami architektura pro vytváření moderní cloudové aplikace založené na připojené k Internetu, jako třeba webové aplikace, aplikace IoT a back-EndY mobilních. Service Fabric se integruje s ASP.NET Core, můžete napsat bezzstavovými i stavovými ASP.NET Core aplikací využívajících spolehlivé kolekcí a Service Fabric orchestration pokročilé možnosti.
+
+[Další informace o ASP.NET Core v Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) nebo začít [zápis vaší první aplikace ASP.NET Core Service Fabric](service-fabric-add-a-web-frontend.md).
+
 ## <a name="reliable-actors"></a>Reliable Actors
 Rozhraní framework spolehlivé objektu Actor postavená na spolehlivé služby, je aplikační framework, který implementuje vzor virtuální objektu Actor, na základě vzoru návrhu objektu actor. Rozhraní objektu Actor spolehlivé používá nezávislé jednotky výpočetních operací a stavu s jedním podprocesem provádění názvem aktéři. Rozhraní framework spolehlivé objektu Actor poskytuje integrované komunikace pro předem nastavte stav konfigurace trvalosti a Škálováním na více systémů a aktéři.
 
@@ -49,8 +54,6 @@ Reliable Actors samotné je aplikační rozhraní založené na spolehlivé slu�
 
 [Další informace o Reliable Actors](service-fabric-reliable-actors-introduction.md) nebo začít [zápis vaší první službě spolehlivé objektu Actor](service-fabric-reliable-actors-get-started.md)
 
-## <a name="aspnet-core"></a>Jádro ASP.NET
-Service Fabric se integruje s [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) pro vytváření webových a rozhraní API služeb, který může být součástí vaší aplikace. 
 
 [Vytvoření front-endové služby pomocí ASP.NET Core](service-fabric-add-a-web-frontend.md)
 

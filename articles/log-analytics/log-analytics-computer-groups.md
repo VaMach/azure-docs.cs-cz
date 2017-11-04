@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Skupiny počítačů v analýzy protokolů protokolu hledání
 
@@ -109,13 +109,29 @@ Klikněte **x** v **odebrat** sloupec odstranit skupinu počítačů.  Klikněte
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Použití skupiny počítačů do protokolu hledání
-Skupinu počítačů můžete použít v dotazu tak, že považuje jeho alias jako funkce, obvykle s následující syntaxí:
+Použití skupiny počítačů vytvořené z protokolu hledání v dotazu práce jeho alias jako funkci, obvykle s následující syntaxí:
 
   `Table | where Computer in (ComputerGroup)`
 
 Například můžete použít následující vrátit UpdateSummary záznamy pro pouze počítače ve skupině počítač s názvem mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Skupiny importované počítače a jejich zahrnuté počítače jsou uloženy v **ComputerGroup** tabulky.  Například následující dotaz vrátí seznam počítačů ve skupině Domain Computers ze služby Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+Následující dotaz vrátí UpdateSummary záznamy pro jenom pro počítače v doméně počítače.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Pokud je stále pomocí pracovního prostoru [starší verze protokolu Analytics query language](log-analytics-log-search-upgrade.md)>, pak můžete odkazovat na skupinu počítačů do protokolu hledání použijte následující syntaxi.  Určení **kategorie** > je volitelné a vyžaduje, pokud máte skupiny počítačů se stejným názvem v různých kategorií. 

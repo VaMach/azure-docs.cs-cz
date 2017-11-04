@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: 56c00c3ea885bd1f431613ea90868dc65c98818b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimalizace dotazů Hive v Azure HDInsight
 
@@ -51,9 +51,9 @@ Tez je rychlejší, protože:
 * **Zabraňuje zbytečným zápisy**. Z důvodu několik úloh, které se spouštějí pro stejný dotaz Hive v rámci stroje MapReduce výstup každé úlohy zapsán do HDFS pro mezilehlá data. Vzhledem k tomu, že minimalizuje počet úloh pro každý dotaz Hive Tez je k tomu nepotřebné zápisu.
 * **Minimalizuje zpoždění spuštění**. Tez je lépe minimalizovat snížení počtu mappers, musí se spustit a také vylepšení optimalizace v rámci zpoždění spuštění.
 * **Opětovně používá kontejnery**. Vždy, když je možné Tez mohli znovu použít kontejnery zajistit, že se snižuje latence kvůli spuštění kontejnery.
-* **Techniky průběžné optimalizace**. Optimalizace tradičně bylo provedeno během fáze kompilace. Ale je k dispozici další informace o vstupních hodnot, které umožňují lepší optimalizace za běhu. Tez používá průběžné optimalizace technik, které umožní Optimalizace plánu další do fáze modulu runtime.
+* **Techniky průběžné optimalizace**. Optimalizace tradičně bylo provedeno během fáze kompilace. Ale je k dispozici další informace o vstupních hodnot, které umožňují lepší optimalizace za běhu. Tez používá průběžné optimalizace technik, které umožňují její Optimalizace plánu další do fáze modulu runtime.
 
-Další podrobnosti o těchto pojmech najdete v tématu [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Další informace o těchto pojmech najdete v tématu [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
 Můžete použít jakýkoli dotaz Hive Tez povoleno pomocí prefixu dotaz pomocí tohoto nastavení:
 
@@ -110,7 +110,7 @@ Po vytvoření oddílů tabulky, můžete buď vytvořit statické dělení nebo
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-Další podrobnosti najdete v tématu [rozdělena na oddíly tabulky](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+Další informace najdete v tématu [rozdělena na oddíly tabulky](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>Použijte formát ORCFile
 Hive podporuje jiné formáty souborů. Například:

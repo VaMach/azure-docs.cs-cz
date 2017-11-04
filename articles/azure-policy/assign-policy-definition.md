@@ -5,24 +5,26 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Vytvoření přiřazení zásady k identifikaci nekompatibilní prostředky v prostředí Azure
-Prvním krokem při pochopení dodržování předpisů v Azure je zároveň budete vědět, kde stát s aktuální prostředky. Tento rychlý start vás provede procesem vytvoření přiřazení zásady k identifikaci prostředky, které nepoužívají systému SQL Server verze 12.0. Na konci tohoto procesu se úspěšně určili jste servery jsou různé verze a proto *nevyhovující*.
+Prvním krokem při pochopení dodržování předpisů v Azure je zároveň budete vědět, kde stát s aktuální prostředky. Tento rychlý start vás provede procesem vytvoření přiřazení zásady můžete identifikovat virtuální počítače, které nepoužívají spravované disky.
+
+Na konci tohoto procesu se úspěšně určili jste virtuálních počítačů, které nepoužíváte spravované disky a jsou tedy *nevyhovující*.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 ## <a name="opt-in-to-azure-policy"></a>Vyjádřit výslovný souhlas Azure zásad
 
-Azure zásad je teď dostupná ve verzi Preview omezené, je nutné zaregistrovat k požádat o přístup.
+Azure zásad je nyní k dispozici ve verzi Public Preview a je nutné zaregistrovat k požádat o přístup.
 
 1. Přejděte do zásad Azure v https://aka.ms/getpolicy a vyberte **zaregistrovat** v levém podokně.
 
@@ -32,11 +34,11 @@ Azure zásad je teď dostupná ve verzi Preview omezené, je nutné zaregistrova
 
    ![Výslovný souhlas pomocí zásad Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Může trvat několik dní, abychom mohli přijmout vaši žádost o registraci, na základě poptávky. Jakmile vaši žádost o získá přijatá, budete informováni prostřednictvím e-mailu, můžete začít používat službu.
+   Vaše žádost je automaticky schváleny pro verzi Preview. Může trvat až 30 minut pro systém ke zpracování registrace.
 
 ## <a name="create-a-policy-assignment"></a>Vytvoření přiřazení zásady
 
-V tento rychlý start, vytvoření přiřazení zásady a přiřadit *vyžadují SQL Server verze 12.0* definice. 
+V tento rychlý start, vytvoření přiřazení zásady a přiřadit *auditu virtuální počítače bez spravované disků* definice zásady.
 
 1. Vyberte **přiřazení** v levém podokně stránky zásad Azure.
 2. Vyberte **přiřadit zásady** z horní části **přiřazení** podokně.
@@ -53,11 +55,11 @@ V tento rychlý start, vytvoření přiřazení zásady a přiřadit *vyžadují
    - Použít značku a její hodnota
    - Vyžadovat verze serveru SQL 12.0
 
-4. Hledání prostřednictvím definic zásad najít *vyžadují SQL Server verze 12.0* definice. Kliknutím na tuto zásadu a klikněte na tlačítko **vyberte**.
+4. Hledání prostřednictvím definic zásad najít *auditu virtuální počítače, který nepoužívejte spravované disky* definice. Kliknutím na tuto zásadu a klikněte na tlačítko **přiřadit**.
 
    ![Najít definice správné zásady](media/assign-policy-definition/select-available-definition.png)
 
-5. Slouží k zobrazení **název** pro přiřazení zásad. V tomto případě použijeme *vyžadují SQL Server verze 12.0*. Můžete také přidat volitelný **popis**. Popis poskytuje podrobnosti o tom, jak toto přiřazení zásad zajistí všechny servery SQL, které jsou vytvořené v tomto prostředí jsou verze 12.0.
+5. Slouží k zobrazení **název** pro přiřazení zásad. V tomto případě použijeme *auditu virtuální počítače, který nepoužívejte spravované disky*. Můžete také přidat volitelný **popis**. Popis poskytuje podrobnosti o tom, jak toto přiřazení zásad identifikuje všechny virtuální počítače vytvořené v tomto prostředí, které nepoužívají spravované disky.
 6. Změnit cenovou úroveň na **standardní** zajistit, že získá zásada se stávajícími prostředky.
 
    Existují dvě cenové úrovně v rámci zásad Azure – *volné* a *standardní*. S úroveň Free, můžete pouze vynutit zásady na budoucí prostředky, zatímco s Standard, můžete taky vynutit je na stávajících prostředcích pro lepší pochopení vašeho stavu dodržování předpisů. Jsme jsou umístěny v omezené Preview, jsme ještě uvolněny cenový model, takže nebudete dostávat faktury pro výběr *standardní*. Další informace o cenách, podívejte se na: [zásad Azure ceny](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
@@ -108,4 +110,3 @@ Další informace o přiřazení zásad zajistit, aby **budoucí** prostředky, 
 
 > [!div class="nextstepaction"]
 > [Vytváření a Správa zásad](./create-manage-policy.md)
-

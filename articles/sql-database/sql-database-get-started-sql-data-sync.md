@@ -1,6 +1,6 @@
 ---
 title: "Začínáme s Azure synchronizaci dat SQL (Preview) | Microsoft Docs"
-description: "Tento kurz vám pomůže začít pracovat s synchronizaci dat SQL Azure (Preview)."
+description: "Tento kurz vám pomůže začít pracovat s synchronizaci dat SQL Azure (Preview)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 64b95142eb5b7086b070585a359bf81e7397c3e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 77e1c1e6ce345b83ba5d88150fd9642c506ae7b9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="getting-started-with-azure-sql-data-sync-preview"></a>Začínáme s synchronizaci dat Azure SQL (Preview)
+# <a name="getting-started-with-azure-sql-data-sync-preview"></a>Začínáme s Azure synchronizaci dat SQL (Preview)
 V tomto kurzu zjistěte, jak nastavit synchronizaci dat SQL Azure tak, že vytvoříte skupinu hybridních synchronizace, která obsahuje instance Azure SQL Database a SQL Server. Do nové skupiny synchronizace plně konfigurována a synchronizuje podle plánu, který nastavíte.
 
 Tento kurz předpokládá, že máte alespoň zkušenosti s SQL Database a SQL Server. 
@@ -43,17 +43,17 @@ Pro dokončení příklady prostředí PowerShell, které ukazují, jak nakonfig
 
     ![Seznam databází Azure SQL](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
-3.  Na **databází SQL** okně vyberte existující databázi SQL, který chcete použít jako databázi rozbočovače pro synchronizaci dat. Otevře se okno databáze SQL.
+3.  Na **databází SQL** vyberte existující databázi SQL, který chcete použít jako databázi rozbočovače pro synchronizaci dat. Otevře se stránka databáze SQL.
 
-4.  V okně databáze SQL pro vybranou databázi, vyberte **synchronizace do jiné databáze**. Otevře se okno synchronizaci dat.
+4.  Na stránce databáze SQL pro vybranou databázi, vyberte **synchronizace do jiné databáze**. Otevře se stránka synchronizaci dat.
 
     ![Synchronizaci další možnost databáze](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
 
 ### <a name="create-a-new-sync-group"></a>Vytvořit novou skupinu synchronizace
 
-1.  V okně synchronizaci dat vyberte **nové synchronizace skupiny**. **Nové synchronizace skupiny** otevře se okno s krokem 1 **vytvořit skupinu synchronizace**, zvýrazněné. **Vytvořit skupinu synchronizace dat** také otevře se okno.
+1.  Na stránce synchronizace dat vyberte **nové synchronizace skupiny**. **Nové synchronizace skupiny** otevře se stránka s krokem 1 **vytvořit skupinu synchronizace**, zvýrazněné. **Vytvořit skupinu synchronizace dat** otevře se stránka také.
 
-2.  Na **vytvořit skupinu synchronizace dat** okně provádět následující akce:
+2.  Na **vytvořit skupinu synchronizace dat** proveďte následující akce:
 
     1.  V **název skupiny synchronizace** pole, zadejte název nové skupiny synchronizace.
 
@@ -62,7 +62,7 @@ Pro dokončení příklady prostředí PowerShell, které ukazují, jak nakonfig
         > [!NOTE]
         > Společnost Microsoft doporučuje, že můžete vytvořit nový, prázdný databázi chcete použít jako databázi synchronizace metadat. Synchronizaci dat vytváří tabulky v této databázi a spustí Časté úlohy. Tato databáze je automaticky sdílen jako databázi Metadata synchronizace pro všechny skupiny synchronizace ve vybrané oblasti. Metadata databáze Sync nebo jeho název nelze změnit bez vyřadíte.
 
-        Pokud jste zvolili **novou databázi**, vyberte **vytvořit novou databázi.** **SQL Database** otevře se okno. Na **SQL Database** okno, název a nakonfigurujte novou databázi. Potom vyberte **OK**.
+        Pokud jste zvolili **novou databázi**, vyberte **vytvořit novou databázi.** **SQL Database** otevře se stránka. Na **SQL Database** stránky, název a nakonfigurujte novou databázi. Potom vyberte **OK**.
 
         Pokud jste zvolili **použít existující databázi**, vyberte databázi ze seznamu.
 
@@ -80,17 +80,17 @@ Pro dokončení příklady prostředí PowerShell, které ukazují, jak nakonfig
 
 ## <a name="step-2---add-sync-members"></a>Krok 2 – přidání členů synchronizace
 
-Po nové synchronizace skupiny se vytvoří a nasadí, krok 2, **přidat členy synchronizace**, je označený na **nové synchronizace skupiny** okno.
+Po nové synchronizace skupiny se vytvoří a nasadí, krok 2, **přidat členy synchronizace**, je označený na **nové synchronizace skupiny** stránky.
 
 V **rozbočovače databáze** zadejte existující přihlašovací údaje pro databázi SQL server, na kterém je umístěna databáze rozbočovače. Nezadávejte *nové* přihlašovacích údajů v této části.
 
 ![Rozbočovače databáze byl přidán do skupiny synchronizace](media/sql-database-get-started-sql-data-sync/datasync-preview-hubadded.png)
 
-## <a name="add-an-azure-sql-database"></a>Přidat k Azure SQL Database
+### <a name="add-an-azure-sql-database"></a>Přidat k Azure SQL Database
 
-V **databázi člena** část, volitelně přidejte databáze SQL Azure do skupiny synchronizace výběrem **přidat databázi Azure**. **Konfigurace databáze Azure** otevře se okno.
+V **databázi člena** část, volitelně přidejte databáze SQL Azure do skupiny synchronizace výběrem **přidat databázi Azure**. **Konfigurace databáze Azure** otevře se stránka.
 
-Na **konfigurace databáze Azure** okně provádět následující akce:
+Na **konfigurace databáze Azure** proveďte následující akce:
 
 1.  V **název člena synchronizace** pole, zadejte název nového člena synchronizace. Tento název se liší od názvu samotná databáze.
 
@@ -110,17 +110,17 @@ Na **konfigurace databáze Azure** okně provádět následující akce:
 
     ![Byl přidán nový člen synchronizace databáze SQL](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-## <a name="add-an-on-premises-sql-server-database"></a>Přidat místní databázi systému SQL Server
+### <a name="add-an-on-premises-sql-server-database"></a>Přidat místní databázi systému SQL Server
 
-V **databázi člena** část, volitelně přidat místní SQL Server do skupiny synchronizace výběrem **přidat místní databázi**. **Nakonfigurovat místní** otevře se okno.
+V **databázi člena** část, volitelně přidat místní SQL Server do skupiny synchronizace výběrem **přidat místní databázi**. **Nakonfigurovat místní** otevře se stránka.
 
-Na **nakonfigurovat místní** okně provádět následující akce:
+Na **nakonfigurovat místní** proveďte následující akce:
 
-1.  Vyberte **zvolte bránu agenta synchronizace**. **Vyberte agenta synchronizace** otevře se okno.
+1.  Vyberte **zvolte bránu agenta synchronizace**. **Vyberte agenta synchronizace** otevře se stránka.
 
     ![Zvolte bránu agenta synchronizace](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
 
-2.  Na **zvolte bránu agenta synchronizace** okně vyberte, zda chcete použít existující agenta nebo vytvořit nový agent.
+2.  Na **zvolte bránu agenta synchronizace** vyberte, zda chcete použít existující agenta nebo vytvořit nový agent.
 
     Pokud jste zvolili **existující agenty**, vyberte existující agenta ze seznamu.
 
@@ -140,7 +140,7 @@ Na **nakonfigurovat místní** okně provádět následující akce:
         
         ![Vytvoření nového agenta synchronizace](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
 
-    5.  Vyberte **OK** zavřete **vyberte agenta synchronizace** okno.
+    5.  Vyberte **OK** zavřete **vyberte agenta synchronizace** stránky.
 
     6.  Na počítači serveru SQL najít a spuštění aplikace synchronizace agenta klienta.
 
@@ -153,7 +153,7 @@ Na **nakonfigurovat místní** okně provádět následující akce:
         ![Zadejte přihlašovací údaje pro klíč a server agenta](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Pokud dojde k chybě brány firewall v tomto okamžiku, budete muset vytvořit pravidlo brány firewall na platformě Azure, které chcete povolit příchozí přenosy z počítače systému SQL Server. Pravidlo můžete vytvořit ručně na portálu, ale může být snadněji vytvořit v serveru SQL Server Management Studio (SSMS). V aplikaci SSMS pokuste se připojit k databázi rozbočovače na Azure. Zadejte jeho název jako \<hub_database_name\>. database.windows.net. Postupujte podle kroků v dialogovém okně nakonfigurovat pravidlo brány firewall Azure. Pak se vraťte do agenta synchronizace klienta aplikace.
+        >   Pokud dojde k chybě brány firewall v tomto okamžiku, budete muset vytvořit pravidlo brány firewall na platformě Azure, které chcete povolit příchozí přenosy z počítače systému SQL Server. Pravidlo můžete vytvořit ručně na portálu, ale může být snadněji vytvořit v serveru SQL Server Management Studio (SSMS). V aplikaci SSMS pokuste se připojit k databázi rozbočovače na Azure. Zadejte jeho název jako \<hub_database_name\>. database.windows.net. Pokud chcete konfigurovat pravidlo brány firewall Azure, postupujte podle kroků v dialogovém okně. Pak se vraťte do agenta synchronizace klienta aplikace.
 
     9.  V aplikaci agenta synchronizace klienta, klikněte na tlačítko **zaregistrovat** k registraci do databáze SQL serveru s agentem. **Konfigurace serveru SQL Server** otevře se dialogové okno.
 
@@ -165,13 +165,13 @@ Na **nakonfigurovat místní** okně provádět následující akce:
 
     11. Teď můžete zavřít aplikaci synchronizace agenta klienta.
 
-    12. Na portálu na **nakonfigurovat místní** vyberte **vyberte databázi.** **Vybrat databázi** otevře se okno.
+    12. Na portálu na **nakonfigurovat místní** vyberte **vyberte databázi.** **Vybrat databázi** otevře se stránka.
 
-    13. Na **vybrat databázi** okno v **název člena synchronizace** pole, zadejte název nového člena synchronizace. Tento název se liší od názvu samotná databáze. Vyberte databázi ze seznamu. V **synchronizace pokynů** pole, vyberte obousměrné synchronizace, do rozbočovače nebo z rozbočovače.
+    13. Na **vybrat databázi** stránky v **název člena synchronizace** pole, zadejte název nového člena synchronizace. Tento název se liší od názvu samotná databáze. Vyberte databázi ze seznamu. V **synchronizace pokynů** pole, vyberte obousměrné synchronizace, do rozbočovače nebo z rozbočovače.
 
         ![Vyberte v místní databázi](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
 
-    14. Vyberte **OK** zavřete **vybrat databázi** okno. Potom vyberte **OK** zavřete **nakonfigurovat místní** okno a počkejte na vytvoření a nasazení nového člena synchronizace. Nakonec klikněte na **OK** zavřete **vyberte synchronizace členů** okno.
+    14. Vyberte **OK** zavřete **vybrat databázi** stránky. Potom vyberte **OK** zavřete **nakonfigurovat místní** stránky a počkejte na vytvoření a nasazení nového člena synchronizace. Nakonec klikněte na **OK** zavřete **vyberte synchronizace členů** stránky.
 
         ![V místní databázi přidán do skupiny synchronizace](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
 
@@ -179,9 +179,9 @@ Na **nakonfigurovat místní** okně provádět následující akce:
 
 ## <a name="step-3---configure-sync-group"></a>Krok 3: Konfigurace skupiny synchronizace
 
-Po nové členy skupiny synchronizace se vytváří a nasazují, krok 3 **skupiny synchronizace konfigurace**, je označený na **nové synchronizace skupiny** okno.
+Po nové členy skupiny synchronizace se vytváří a nasazují, krok 3 **skupiny synchronizace konfigurace**, je označený na **nové synchronizace skupiny** stránky.
 
-1.  Na **tabulky** okně, vyberte databázi ze seznamu synchronizačních členy skupiny a potom vyberte **aktualizace schématu**.
+1.  Na **tabulky** , vyberte databázi ze seznamu členů skupiny synchronizace a potom vyberte **aktualizace schématu**.
 
 2.  Ze seznamu dostupných tabulek vyberte tabulky, které chcete synchronizovat.
 
