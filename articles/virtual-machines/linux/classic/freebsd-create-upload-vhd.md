@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Vytvoření a nahrání virtuálního pevného disku FreeBSD do Azure
 Tento článek ukazuje, jak vytvořit a odeslat virtuální pevný disk (VHD), který obsahuje FreeBSD operační systém. Po odeslání, můžete ho použít jako vlastní image pro vytvoření virtuálního počítače (VM) v Azure.
@@ -39,7 +39,7 @@ Tento článek předpokládá, že máte následující položky:
 >
 >
 
-Tato úloha obsahuje pět takto:
+Tato úloha obsahuje následující čtyři kroky:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Krok 1: Příprava bitové kopie pro odeslání
 Na virtuálním počítači, kam jste nainstalovali FreeBSD operačního systému proveďte následující postupy:
@@ -114,66 +114,21 @@ Na virtuálním počítači, kam jste nainstalovali FreeBSD operačního systém
 
     Nyní můžete vypnout virtuální počítač.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>Krok 2: Vytvoření účtu úložiště v Azure
-Budete potřebovat účet úložiště v Azure a nahrát soubor VHD, proto ji můžete použít k vytvoření virtuálního počítače. Portál Azure classic můžete použít k vytvoření účtu úložiště.
+## <a name="step-2-prepare-the-connection-to-azure"></a>Krok 2: Příprava připojení k Azure
+Zajistěte, aby se pomocí rozhraní příkazového řádku Azure v modelu nasazení classic (`azure config mode asm`), pak se přihlaste k účtu:
 
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Na panelu příkazů vyberte **nový**.
-3. Vyberte **datové služby** > **úložiště** > **rychle vytvořit**.
+```azurecli
+azure login
+```
 
-    ![Rychlé vytvoření účtu úložiště](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. Vyplňte pole následujícím způsobem:
 
-   * V **URL** pole, zadejte název subdomény pro použití v adrese URL účtu úložiště. Položka může obsahovat ze 3 – 24 čísla a malá písmena. Tento název se změní na název hostitele v rámci adresu URL, která se používá k řešení úložiště objektů Blob v Azure, Azure Queue storage nebo Azure Table storage prostředky pro předplatné.
-   * V **umístění/skupině vztahů** rozevírací nabídky vyberte **umístění nebo skupina vztahů** pro účet úložiště. Skupiny vztahů umožňuje umístit cloudové služby a úložiště ve stejném datovém centru.
-   * V **replikace** pole, rozhodnout, jestli se má používat **geograficky redundantní** replikace pro účet úložiště. Geografická replikace je zapnutá ve výchozím nastavení. Tato možnost replikuje data do sekundárního umístění, bez nákladů pro vás, tak, aby úložiště převezme do tohoto umístění, pokud dojde k selhání hlavní v primární lokalitě. Sekundární umístění bude přiřazena automaticky a nedá se změnit. Pokud potřebujete větší kontrolu nad umístění cloudové úložiště z důvodu právní požadavky nebo zásad organizace, můžete vypnout geografická replikace. Však mějte na paměti, že pokud později zapnout geografická replikace, vám bude účtována úplatu přenos jednorázové data replikace existující data do sekundárního umístění. Služby úložiště bez geografická replikace se nabízí se slevou. Další informace o správě geografická replikace účtů úložiště najdete tady: [replikace Azure Storage](../../../storage/common/storage-redundancy.md).
+<a id="upload"> </a>
 
-     ![Zadejte podrobnosti o účtu úložiště](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. Vyberte **vytvořit účet úložiště**. Účet se teď zobrazí v části **úložiště**.
 
-    ![Účet úložiště byl úspěšně vytvořen](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. Dále vytvořte kontejner pro vaše soubory nahrávat VHD. Vyberte název účtu úložiště a pak vyberte **kontejnery**.
+## <a name="step-3-upload-the-vhd-file"></a>Krok 3: Odeslání souboru VHD
 
-    ![Podrobnosti o účtu úložiště](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. Vyberte **vytvořit kontejner**.
+Musíte nahrát váš soubor virtuálního pevného disku do účtu úložiště. Můžete vybrat buď existující účet úložiště nebo [vytvořte novou](../../../storage/common/storage-create-storage-account.md).
 
-    ![Podrobnosti o účtu úložiště](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. V **název** pole, zadejte název vašeho kontejneru. Potom v **přístup** rozevírací nabídky, vyberte typ zásady přístupu, které chcete.
-
-    ![Název kontejneru](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > Ve výchozím kontejneru je privátní a můžete přistupovat pouze vlastníka účtu. Chcete-li povolit veřejný přístup pro čtení objektů BLOB v kontejneru, ale ne vlastnosti kontejneru a metadata, použijte **veřejného objektu Blob** možnost. Chcete-li povolit úplné veřejný přístup pro čtení pro kontejner a objekty BLOB, použijte **veřejném kontejneru** možnost.
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>Krok 3: Příprava připojení k Azure
-Předtím, než můžete nahrát soubor VHD, budete muset navázat zabezpečené připojení mezi vaším počítačem a vašeho předplatného Azure. Můžete to udělat metodu Azure Active Directory (Azure AD) nebo metodu certifikátu.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Použijte metodu Azure AD pro nahrání souboru VHD
-1. Otevřete konzolu prostředí Azure PowerShell.
-2. Zadejte následující příkaz:  
-    `Add-AzureAccount`
-
-    Tento příkaz otevře okno přihlášení, kde se můžete přihlásit pomocí svého pracovního nebo školního účtu.
-
-    ![Okno prostředí PowerShell](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Azure ověřuje a uloží informace o přihlašovacích údajích. Potom zavře okno.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Pomocí této metody certifikát odeslat soubor VHD
-1. Otevřete konzolu prostředí Azure PowerShell.
-2. Typ: `Get-AzurePublishSettingsFile`.
-3. Otevře okno prohlížeče a výzva ke stažení souboru .publishsettings. Tento soubor obsahuje informace a certifikát pro vaše předplatné Azure.
-
-    ![Stránka pro stažení prohlížeče](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. Uložte soubor .publishsettings.
-5. Typ: `Import-AzurePublishSettingsFile <PathToFile>`, kde `<PathToFile>` je úplná cesta k souboru .publishsettings.
-
-   Další informace najdete v tématu [Začínáme s Azure rutiny](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
-
-   Další informace o instalaci a konfiguraci prostředí PowerShell najdete v tématu [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
-
-## <a name="step-4-upload-the-vhd-file"></a>Krok 4: Nahrání souboru VHD
 Při nahrávání souboru VHD, můžete je umístit kamkoli do úložiště objektů Blob. Tady jsou některé podmínky, které budete používat při nahrávání souboru:
 
 * **BlobStorageURL** je adresa URL pro účet úložiště, který jste vytvořili v kroku 2.
@@ -185,7 +140,7 @@ V okně Azure PowerShell, které jste použili v předchozím kroku zadejte:
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>Krok 5: Vytvoření virtuálního počítače pomocí souboru nahrávat VHD
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>Krok 4: Vytvoření virtuálního počítače pomocí souboru nahrávat VHD
 Po odeslání souboru VHD, můžete ho přidat bitovou kopii do seznamu vlastních bitových kopií, které jsou spojeny s předplatným a vytvoření virtuálního počítače s touto bitovou kopií vlastní.
 
 1. V okně Azure PowerShell, které jste použili v předchozím kroku zadejte:

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 19f94f009aac53baca31dcb6973a8aff3f4f5ab9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrování provozu sítě přenosů se skupinami zabezpečení sítě a aplikací (Preview)
 
@@ -53,7 +53,9 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Nepokračujte, dokud zbývající kroky *registrovaná* zobrazí **stavu** ve výstupu vrácená z předchozí příkaz. Pokud budete pokračovat, než budete zaregistrováni, nezdaří se zbývající kroky.
+    > [!WARNING]
+    > Registrace může trvat až jednu hodinu, k dokončení. Nepokračujte, dokud zbývající kroky *registrovaná* zobrazí **stavu** ve výstupu vrácená z předchozí příkaz. Pokud budete pokračovat, než budete zaregistrováni, nezdaří se zbývající kroky.
+
 6. Spusťte následující skript bash pro vytvoření skupiny prostředků:
 
     ```azurecli-interactive
@@ -161,7 +163,6 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -170,7 +171,6 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -179,12 +179,11 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 9. Například pouze *WebRule* je platná pro *myWebNic*, protože síťové rozhraní je členem skupiny *webové servery* skupiny zabezpečení aplikací a pravidla Určuje, *webové servery* skupiny zabezpečení aplikací jako svůj cíl. *AppRule* a *DatabaseRule* pravidla se nepoužije *myWebNic*, protože síťové rozhraní není členem *AppServers*a *DatabaseServers* skupin zabezpečení aplikací.
+    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 9. Například pouze *WebRule* je platná pro *myNic1*, protože síťové rozhraní je členem skupiny *webové servery* skupiny zabezpečení aplikací a pravidla Určuje, *webové servery* skupiny zabezpečení aplikací jako svůj cíl. *AppRule* a *DatabaseRule* pravidla se nepoužije *myNic1*, protože síťové rozhraní není členem *AppServers*a *DatabaseServers* skupin zabezpečení aplikací.
 
 13. Vytvořte jeden virtuální počítač pro každý typ serveru, připojení příslušné síťové rozhraní pro každý virtuální počítač. Tento příklad vytvoří virtuální počítače s Windows, ale můžete změnit *win2016datacenter* k *UbuntuLTS* k vytvoření virtuálních počítačů Linux místo.
 
@@ -240,7 +239,8 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Nepokračujte, dokud zbývající kroky *registrovaná* se zobrazí v **RegistrationState** sloupec výstupu vrácená z předchozí příkaz. Pokud budete pokračovat, než budete zaregistrováni, nezdaří se zbývající kroky.
+    > [!WARNING]
+    > Registrace může trvat až jednu hodinu, k dokončení. Nepokračujte, dokud zbývající kroky *registrovaná* zobrazí **RegistrationState** ve výstupu vrácená z předchozí příkaz. Pokud budete pokračovat, než budete zaregistrováni, nezdaří se zbývající kroky.
         
 6. Vytvořte skupinu prostředků:
 
@@ -344,7 +344,6 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -352,7 +351,6 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -360,11 +358,10 @@ Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 8. Například pouze *WebRule* je platná pro *myWebNic*, protože síťové rozhraní je členem skupiny *webové servery* skupiny zabezpečení aplikací a pravidla Určuje, *webové servery* skupiny zabezpečení aplikací jako svůj cíl. *AppRule* a *DatabaseRule* pravidla se nepoužije *myWebNic*, protože síťové rozhraní není členem *AppServers*a *DatabaseServers* skupin zabezpečení aplikací.
+    Rozhraní sítě, na základě síťové rozhraní je členem skupiny zabezpečení aplikace se použije pouze odpovídající pravidlo zabezpečení, kterou jste vytvořili v kroku 8. Například pouze *WebRule* je platná pro *myNic1*, protože síťové rozhraní je členem skupiny *webové servery* skupiny zabezpečení aplikací a pravidla Určuje, *webové servery* skupiny zabezpečení aplikací jako svůj cíl. *AppRule* a *DatabaseRule* pravidla se nepoužije *myNic1*, protože síťové rozhraní není členem *AppServers*a *DatabaseServers* skupin zabezpečení aplikací.
 
 13. Vytvořte jeden virtuální počítač pro každý typ serveru, připojení příslušné síťové rozhraní pro každý virtuální počítač. Tento příklad vytvoří virtuální počítače s Windows, ale před spuštěním skriptu, můžete změnit *-Windows* k *- Linux*, *MicrosoftWindowsServer* k *Kanonický*, *Windows Server* k *UbuntuServer* a *2016 Datacenter* k *14.04.2-LTS*k vytvoření virtuálních počítačů Linux místo.
 

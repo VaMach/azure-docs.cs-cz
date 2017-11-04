@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5c13723eef352148a40e3e7f4f2ff616867296
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Nastavení hybridní vysokovýkonného výpočetního prostředí (HPC) clusteru pomocí sady Microsoft HPC Pack a na vyžádání Azure výpočetních uzlů
 Nastavit malé, hybridní vysokovýkonného výpočetního prostředí (HPC) clusteru pomocí Microsoft HPC Pack 2012 R2 a Azure. Cluster, uvidíte v tomto článku se skládá z hlavního uzlu místními HPC Pack a některé výpočetní uzly, které nasazujete na vyžádání v Azure cloud service. Když pak spustíte výpočetní úlohy v hybridní clusteru.
@@ -87,7 +87,9 @@ HPC Pack nainstaluje certifikát podepsaný svým držitelem z hlavního uzlu, n
 
 2. Klikněte na tlačítko **odběry** > *your_subscription_name*.
 
-3. Klikněte na tlačítko **certifikáty pro správu** > **nahrát**.4. Přejděte na hlavního uzlu pro 2012\Bin\hpccert.cer C:\Program Files\Microsoft HPC Pack souboru. Potom klikněte na **nahrát**.
+3. Klikněte na tlačítko **certifikáty pro správu** > **nahrát**.
+
+4. Přejděte na hlavního uzlu pro 2012\Bin\hpccert.cer C:\Program Files\Microsoft HPC Pack souboru. Potom klikněte na **nahrát**.
 
    
 **Výchozí HPC Azure Management** certifikát se zobrazí v seznamu certifikátů pro správu.

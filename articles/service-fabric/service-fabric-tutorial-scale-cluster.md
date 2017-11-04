@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: e1d35bcd51349e6460d50acec0d9706fcd291e89
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b8b1ac04c20cf9fe6d6d8ea58571af05010461d9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Škálování clusteru Service Fabric
 
@@ -48,6 +48,11 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
+```azurecli
+az login
+az account set --subscription <guid>
+```
+
 ## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
 
 Úspěšné dokončení této části kurzu, budete muset připojit ke clusteru Service Fabric a sady škálování virtuálního počítače (který je hostitelem clusteru). Sady škálování virtuálního počítače je prostředků Azure, který je hostitelem Service Fabric v Azure.
@@ -67,7 +72,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
 Get-ServiceFabricClusterHealth
 ```
 
-Pomocí `Get-ServiceFabricClusterHealth` příkaz, je vrácen stav vám s podrobnostmi o stavu každého uzlu v clusteru.
+```azurecli
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
+--pem ./aztestcluster201709151446.pem --no-verify
+```
+
+Teď, když jste připojení, můžete příkaz získat stav každého uzlu v clusteru. Pro prostředí PowerShell, použijte `Get-ServiceFabricClusterHealth` příkaz a pro **sfctl** použít s příkaz.
 
 ## <a name="scale-out"></a>Horizontální navýšení kapacity
 
@@ -80,7 +90,15 @@ $scaleset.Sku.Capacity += 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Po dokončení operace aktualizace, spusťte `Get-ServiceFabricClusterHealth` příkazu zobrazte nové informace o uzlu.
+Tento kód nastaví kapacitu 6.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
+```
 
 ## <a name="scale-in"></a>Škálování v
 
@@ -91,22 +109,29 @@ Nastavení velikosti v je stejný jako škálování, s výjimkou použití niž
 > [!NOTE]
 > Tato část se vztahuje pouze na *bronzová* odolnost vrstvy. Další informace o odolnosti najdete v tématu [plánování kapacity clusteru Service Fabric][durability].
 
-Při změně měřítka ve škálovací sadě virtuálních počítačů, sad (ve většině případů) škálování odebere instanci virtuálního počítače, který byl naposledy vytvořen. Proto musíte k nalezení shody, poslední vytvořit uzel topologie fabric service. Tento poslední uzel můžete najít biggest kontrolou `NodeInstanceId` hodnotu vlastnosti na uzlech fabric service. 
+Při změně měřítka ve škálovací sadě virtuálních počítačů, sad (ve většině případů) škálování odebere instanci virtuálního počítače, který byl naposledy vytvořen. Proto musíte k nalezení shody, poslední vytvořit uzel topologie fabric service. Tento poslední uzel můžete najít biggest kontrolou `NodeInstanceId` hodnotu vlastnosti na uzlech fabric service. Příklady kódu níže řazení podle uzlu instance a vrátí podrobnosti o instanci s největší hodnotou id. 
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
+```azurecli
+`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+```
+
 Service fabric cluster je potřeba vědět, že tento uzel se odeberou. Existují tři kroky, které je třeba provést:
 
 1. Zakážete uzlu, takže už je replikace pro data.  
-`Disable-ServiceFabricNode`
+Prostředí PowerShell:`Disable-ServiceFabricNode`  
+sfcli:`sfctl node disable`
 
 2. Zastavení uzlu tak, aby řádně ukončení modulu runtime service fabric a aplikace obdrží žádost o ukončení.  
-`Start-ServiceFabricNodeTransition -Stop`
+Prostředí PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
+sfcli:`sfctl node transition --node-transition-type Stop`
 
 2. Odebrání uzlu z clusteru.  
-`Remove-ServiceFabricNodeState`
+Prostředí PowerShell:`Remove-ServiceFabricNodeState`  
+sfcli:`sfctl node remove-state`
 
 Jakmile tyto tři kroky se používají k uzlu, může být odebrán ze sady škálování. Pokud používáte vrstvy jakékoli odolnost kromě [bronzová][durability], tyto kroky se provádějí v případě měřítka nastavit instanci je odebrán.
 
@@ -169,6 +194,30 @@ else
 }
 ```
 
+V **sfctl** kódu níže, tento příkaz slouží k získání **název uzlu** a **id instance uzlu** hodnoty uzlu poslední vytvořit:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+
+```azurecli
+# Inform the node that it is going to be removed
+sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+
+# Stop the node using a random guid as our operation id
+sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+
+# Remove the node from the cluster
+sfctl node remove-state --node-name _nt1vm_5
+```
+
+> [!TIP]
+> Použijte následující **sfctl** dotazy a zkontrolujte stav každého kroku
+>
+> **Zkontrolujte stav deaktivace**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+>
+> **Zkontrolujte stav stop**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+>
+
+
 ### <a name="scale-in-the-scale-set"></a>Škálování v sadě škálování
 
 Teď, když uzel fabric service byl odebrán z clusteru, je možné rozšířit škálovací sadu virtuálních počítačů v. V následujícím příkladu je 1 snížit kapacitu sada škálování.
@@ -179,6 +228,17 @@ $scaleset.Sku.Capacity -= 1
 
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
+
+Tento kód nastaví kapacitu 5.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+```
+
 
 ## <a name="next-steps"></a>Další kroky
 

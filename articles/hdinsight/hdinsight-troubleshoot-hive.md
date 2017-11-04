@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Řešení potíží Hive pomocí Azure HDInsight
 
 Další informace o nejvyšší otázky a jejich řešení při práci s Apache Hive datové části v Apache Ambari.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Jak exportovat metaúložiště Hive a importovat na jiný cluster
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Jak exportovat metaúložiště Hive a importovat na jiný cluster?
 
 
 ### <a name="resolution-steps"></a>Kroky řešení
@@ -54,7 +54,7 @@ Kód v kroky řešení předpokládá, že cesty k datům v novém clusteru jsou
 - [Připojení ke clusteru HDInsight pomocí protokolu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Jak najít protokoly Hive v clusteru
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Jak najít protokoly Hive v clusteru?
 
 ### <a name="resolution-steps"></a>Kroky řešení
 
@@ -83,7 +83,7 @@ Kód v kroky řešení předpokládá, že cesty k datům v novém clusteru jsou
 - [Připojení ke clusteru HDInsight pomocí protokolu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Jak spuštění prostředí Hive s konkrétní konfigurací v clusteru
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Jak spuštění prostředí Hive s konkrétní konfigurací v clusteru?
 
 ### <a name="resolution-steps"></a>Kroky řešení
 
@@ -110,7 +110,7 @@ Kód v kroky řešení předpokládá, že cesty k datům v novém clusteru jsou
 - [Vlastnosti konfigurace Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Jak můžu analyzovat data Tez DAG v clusteru kritické cestě
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Jak můžu analyzovat data Tez DAG v clusteru kritické cestě?
 
 
 ### <a name="resolution-steps"></a>Kroky řešení
@@ -150,7 +150,7 @@ Kód v kroky řešení předpokládá, že cesty k datům v novém clusteru jsou
 - [Připojení ke clusteru HDInsight pomocí protokolu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Jak lze stáhnout Tez DAG data z clusteru
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Jak lze stáhnout Tez DAG data z clusteru?
 
 
 #### <a name="resolution-steps"></a>Kroky řešení
@@ -177,6 +177,8 @@ Ke shromažďování dat Tez DAG dvěma způsoby:
 [Připojení ke clusteru HDInsight pomocí protokolu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>Viz také
+[Řešení potíží pomocí Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

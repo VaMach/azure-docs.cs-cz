@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Vytvoření služby front-end webové aplikace pomocí ASP.NET Core
 Ve výchozím nastavení neposkytují služby Azure Service Fabric veřejné rozhraní na webu. Vystavit funkcionalitu vaší aplikace do klientů protokolu HTTP, budete muset vytvořit webového projektu fungovat jako vstupní bod a potom z ní sdělit jednotlivých služeb.
@@ -210,12 +210,6 @@ Naše stavové služby je nyní připravena přijímat provoz z jiných služeb 
     ![Stavová čítače hodnota zobrazená v prohlížeči][browser-aspnet-counter-value]
    
     Aktualizujte stránku prohlížeče pravidelně zobrazíte hodnota čítače aktualizovat.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel a WebListener
-
-Webový server výchozí ASP.NET Core, označuje jako Kestrel, je [není podporován pro zpracování přímé přenosy z Internetu](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). V důsledku toho šablonu ASP.NET Core bezstavové služby Service Fabric používá [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) ve výchozím nastavení. 
-
-Další informace o Kestrel a WebListener v Service Fabric služby, naleznete v [ASP.NET Core v Service Fabric spolehlivé služby](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Připojení ke službě spolehlivé objektu Actor
 Tento kurz se zaměřuje na přidání webový front-end, který oznamovat se stavovou službou. Můžete však provést velmi podobný modelu, aby komunikoval s aktéři. Při vytváření spolehlivé objektu Actor projektu sady Visual Studio automaticky generuje projektu rozhraní za vás. Toto rozhraní můžete použít ke generování proxy služby objektu actor v webového projektu ke komunikaci s objektu actor. Komunikační kanál je zadán automaticky. Proto není potřeba dělat nic, který je ekvivalentní pro vytvoření `ServiceRemotingListener` stejně, jako jste pro stavové služby v tomto kurzu.

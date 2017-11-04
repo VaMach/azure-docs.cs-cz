@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Reverzní proxy server v Azure Service Fabric
 Reverzní proxy server, které jsou součástí Azure Service Fabric pomáhá mikroslužeb spuštění v clusteru Service Fabric zjistit a komunikovat s jinými službami, které mají koncových bodů protokolu http.
@@ -114,9 +114,7 @@ Brána pak předá tyto požadavky na adresu URL služby:
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>Zvláštní zpracování pro sdílení portů služby
-Služba Azure Application Gateway se pokusí znovu vyřešte adresu služby a opakovat žádost, pokud služba není dostupný. Je to hlavní výhodou Application Gateway, proto kód klienta není nutné implementovat vlastní řešení služby a vyřešit smyčky.
-
-Obecně platí, pokud služba není dostupný, instance služby ani repliky se přesunul na jiný uzel jako součást životního cyklu normální. V takovém případě Application Gateway může dojít k chybě připojení sítě označující, že koncový bod je již otevřen v původně převedenou adresu.
+Service Fabric reverzní proxy server se pokusí znovu vyřešte adresu služby a opakovat žádost, pokud služba není dostupný. Obecně platí, pokud služba není dostupný, instance služby ani repliky se přesunul na jiný uzel jako součást životního cyklu normální. V takovém případě reverzní proxy server může dojít k chybě připojení sítě označující, že koncový bod je již otevřen v původně převedenou adresu.
 
 Ale replik nebo instancí služby můžete sdílet hostitelský proces a může také sdílet port při hostované na základě ovladače http.sys webového serveru, včetně:
 
@@ -124,21 +122,21 @@ Ale replik nebo instancí služby můžete sdílet hostitelský proces a může 
 * [WebListener ASP.NET Core](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-V takovém případě je pravděpodobné, že webový server je k dispozici v procesu hostitele a reagovat na požadavky, ale instance přeložit služby nebo replika již není dostupný na hostiteli. V takovém případě brány se zobrazí odpověď HTTP 404 z webového serveru. Proto HTTP 404 má dvě odlišné významy:
+V takovém případě je pravděpodobné, že webový server je k dispozici v procesu hostitele a reagovat na požadavky, ale instance přeložit služby nebo replika již není dostupný na hostiteli. V takovém případě brány se zobrazí odpověď HTTP 404 z webového serveru. Odpověď HTTP 404 proto může mít dva odlišné významy:
 
 - Případ #1: Adresa služby je správný, ale prostředek, který uživatel si vyžádal, neexistuje.
 - Případ #2: Adresa služby jsou nesprávné a prostředek, který uživatel si vyžádal, může existovat na jiný uzel.
 
-Prvním případě je normální HTTP 404, která je považována za k chybě uživatele. V druhém případě však uživatel požadoval na prostředek, který neexistuje. Aplikační brána se nepodařilo najít, protože samotnou službu přesunula. Aplikační brány je potřeba znovu překlad adresy a opakujte žádost.
+Prvním případě je normální HTTP 404, která je považována za k chybě uživatele. V druhém případě však uživatel požadoval na prostředek, který neexistuje. Reverzní proxy server se nepodařilo najít, protože samotnou službu přesunula. Reverzní proxy server je potřeba znovu překlad adresy a opakujte žádost.
 
-Aplikační brána proto musí být k rozlišení mezi těmito dvěma případy. Chcete-li tento rozdíl, je vyžadován nápovědu ze serveru.
+Reverzní proxy server proto musí být k rozlišení mezi těmito dvěma případy. Chcete-li tento rozdíl, je vyžadován nápovědu ze serveru.
 
-* Ve výchozím nastavení Application Gateway předpokládá – případ #2 a pokusí se vyřešit a vydejte žádost znovu.
-* K označení – případ #1 aplikační brány, služba by měla vrátit následující hlavičku HTTP odpovědi:
+* Ve výchozím nastavení reverzní proxy server předpokládá – případ #2 a pokusí se vyřešit a vydejte žádost znovu.
+* K označení velikosti písmen #1 reverzní proxy server, služba by měla vrátit následující hlavičku HTTP odpovědi:
 
   `X-ServiceFabric : ResourceNotFound`
 
-Tuto hlavičku HTTP odpovědi označuje normální HTTP 404 situaci, ve kterém požadovaný prostředek neexistuje, a Aplikační brána se nepokusí pro překlad adres služby znovu.
+Tuto hlavičku HTTP odpovědi označuje normální HTTP 404 situaci, ve kterém požadovaný prostředek neexistuje, a reverzní proxy server se nepokusí pro překlad adres služby znovu.
 
 ## <a name="setup-and-configuration"></a>Instalace a konfigurace
 

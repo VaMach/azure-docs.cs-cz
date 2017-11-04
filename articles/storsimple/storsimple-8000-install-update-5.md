@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalace aktualizací 5 zařízení StorSimple
 
@@ -30,7 +30,7 @@ Aktualizace 5 zahrnuje zařízení software, Storport a Spaceport, aktualizacemi
 
 > [!IMPORTANT]
 > * Sadu ruční a Automatická předběžné kontroly se provádějí před instalací, který měl zjistit stav zařízení z hlediska hardwaru stavu a připojení k síti. Tyto předběžné kontroly se provádí pouze v případě, že použít aktualizace z portálu Azure.
-> * Důrazně doporučujeme při aktualizaci zařízení se systémem verze starší než Update 3 se nainstalovat aktualizace pomocí metody oprav hotfix. Abyste podporu vás provede aktualizaci, [protokolu lístek podpory](storsimple-8000-contact-microsoft-support.md).
+> * Důrazně doporučujeme při aktualizaci zařízení se systémem verze starší než Update 3 se nainstalovat aktualizace pomocí metody oprav hotfix. Pokud narazíte na potíže, [protokolu lístek podpory](storsimple-8000-contact-microsoft-support.md).
 > * Doporučujeme nainstalovat software a další pravidelné aktualizace prostřednictvím portálu Azure. Má jenom přejděte na rozhraní prostředí Windows PowerShell na zařízení (instalovat aktualizace) Pokud selže kontrola před aktualizací brány na portálu. V závislosti na verzi, ze kterého je aktualizován, instalace aktualizací může trvat 4 hodiny (nebo vyšší) k instalaci. Aktualizace režimu údržby musí být nainstalován prostřednictvím rozhraní Windows PowerShell zařízení. Jako rušivý aktualizace jsou aktualizace režimu údržby, tyto vést k výpadkům pro vaše zařízení.
 > * Pokud běží volitelné Snapshot Manager zařízení StorSimple, zajistěte, aby upgradu vaší verzí Snapshot Manager aktualizace 5 před aktualizací zařízení.
 

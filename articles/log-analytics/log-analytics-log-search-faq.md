@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nejčastější dotazy k vyhledávání a známé problémy protokolu nové analýzy protokolů
 
@@ -38,13 +38,6 @@ Ne, existují některé změny v webhooku a runbook akce, které může být nut
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Otázka: zobrazuje chyby při pokusu o použití skupiny počítačů.  Změnila se jejich syntaxi?
 Ano, syntaxe pro používání počítače skupin změny upgradován pracovního prostoru.  V tématu [skupiny počítačů v analýzy protokolů protokolu hledání](log-analytics-computer-groups.md) podrobnosti.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Známý problém: skupiny importovat ze služby Active Directory
-Nelze momentálně vytvořit dotaz, který používá skupinu počítačů importovat ze služby Active Directory.  Jako alternativní řešení teprve po opravě tohoto problému, vytvořte novou skupinu počítačů pomocí importovaných skupiny služby Active Directory a potom pomocí této nové skupiny v dotazu.
-
-Příklad dotazu pro vytvoření nové skupiny počítačů obsahující importované skupinu služby Active Directory je následující:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Řídicí panely
@@ -76,11 +69,6 @@ Minifikaci je funkce, která poskytuje souhrnné zobrazení výsledků hledání
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Známý problém: výsledky hledání v seznamu může obsahovat vlastnosti bez dat
-Výsledky hledání protokolu v seznamu zobrazit vlastnosti se žádná data.  Před upgradem nebude součástí těchto vlastností.  Tento problém bude vyřešen, tak, aby prázdný vlastnosti se nezobrazí.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Známý problém: Výběr hodnoty v grafu nezobrazí podrobné výsledky
-Pokud vyberete hodnotu v grafu, ho před upgradem, vrátí podrobný seznam záznamů odpovídající vybrané hodnoty.  Po upgradu je vrácena pouze jeden řádek souhrnnou.  Tento problém je aktuálně probíhá prozkoumat.
 
 ## <a name="log-search-api"></a>Rozhraní API pro prohledávání protokolů
 
@@ -109,11 +97,9 @@ Váš prohlížeč vyžaduje přístup ke spouštění dotazů analýzy protokol
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Otázka: Nic mění s integrací PowerBI?
-Ano.  Jakmile pracovního prostoru, byl upgradován pak proces pro export dat analýzy protokolů do Power BI přestane fungovat.  Všechny existující plány, které jste vytvořili před upgradem bude zakázán.  Po upgradu, analýzy protokolů Azure používá stejnou platformu jako Application Insights a použít stejný postup exportování dotazů analýzy protokolů pro Power BI jako [proces exportu dotazy Application Insights do Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Ano.  Jakmile pracovního prostoru, byl upgradován pak proces pro export dat analýzy protokolů do Power BI přestane fungovat.  Všechny existující plány, které jste vytvořili před upgradem bude zakázán.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Známý problém: omezení velikosti Power BI
-Není aktuálně omezení velikosti 8 MB pro analýzy protokolů dotaz, který je možné exportovat do Power BI.  Tento limit bude brzy zvýšena.
-
+Po upgradu, analýzy protokolů Azure používá stejnou platformu jako Application Insights a použít stejný postup exportování dotazů analýzy protokolů pro Power BI jako [proces exportu dotazy Application Insights do Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Export do Power BI přímo teď zavolá koncový bod rozhraní API. To umožňuje získat až 500 000 řádků nebo 64,000,000 bajtů dat, exportu dlouho dotazy a přizpůsobit časový limit dotazu (výchozí hodnota časového limitu je 3 minut a maximální časový limit je 10 minut).
 
 ## <a name="powershell-cmdlets"></a>Rutiny prostředí PowerShell
 
@@ -153,14 +139,11 @@ Ano.  Musíte použít verzi rozhraní API 2017-03-15-preview a zahrnout **funkc
 ### <a name="question-will-my-solutions-continue-to-work"></a>Otázka: Moje řešení budou fungovat?
 Všechna řešení budou dále fungovat v upgradované prostoru, i když jejich výkonu bude zvýšit, pokud se převedou na nový dotazovací jazyk.  Existují známé problémy s některé existující řešení, které jsou popsané v této části.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Známý problém: kapacitu a výkon řešení
-Některá z částí v [kapacitu a výkon](log-analytics-capacity.md) zobrazení může být prázdný.  Oprava pro tento problém bude brzy k dispozici.
-
-### <a name="known-issue-application-insights-connector"></a>Známý problém: konektoru Application Insights
-Perspektivy v [řešení Application Insights konektor](log-analytics-app-insights-connector.md) aktuálně nejsou podporované v upgradované prostoru.  Oprava pro tento problém aktuálně probíhá analýza.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Známý problém: perspektivy v konektoru služby Application Insights
+Perspektivy v [řešení Application Insights konektor](log-analytics-app-insights-connector.md) již nejsou podporovány v konektoru řešení Application Insights.  Návrhář zobrazení můžete vytvořit vlastní zobrazení s daty Application Insights.
 
 ### <a name="known-issue-backup-solution"></a>Známý problém: řešení pro zálohování
-Řešení zálohování nebude shromažďování dat v pracovním prostoru upgradovaný. Nové řešení zálohování, který funguje s upgradovaný prostoru budou oznámeny za chvíli.
+Řešení zálohování nemusí shromažďování dat, pokud byla nainstalována před upgradem pracovního prostoru. Odinstalujte řešení a potom nainstalujte nejnovější verzi.  Novou verzi řešení nepodporuje classic trezory Backup, takže je nutné také upgradovat na trezory služeb zotavení nadále používat řešení.
 
 ## <a name="upgrade-process"></a>Proces upgradu
 
@@ -182,9 +165,6 @@ Před zveřejněním může vrátit pracovního prostoru po upgradu.  Teď, kdy�
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Otázka: Jak lze vytvořit nové zobrazení pomocí návrháře zobrazení?
 Před upgradem můžete vytvořit nové zobrazení pomocí návrháře zobrazit z dlaždice na řídicím panelu hlavní.  Pracovní prostor upgradován, odeberou se tato dlaždice.  Můžete vytvořit nové zobrazení pomocí návrháře zobrazení na portálu OMS kliknutím na tlačítko v levé nabídce + zelená.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Známý problém: najdete v části všeho u spojnicových grafů v zobrazeních nevede k spojnicový graf
-Po kliknutí na *zobrazit všechny* možnost v dolní části grafu řádku v zobrazení, se zobrazí tabulku.  Před upgradem se zobrazí se spojnicový graf.  Tento problém je analyzován potenciální upravovat.
 
 
 ## <a name="next-steps"></a>Další kroky

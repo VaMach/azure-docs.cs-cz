@@ -4,23 +4,26 @@ description: "Log Analytics protokolu vyhledávání API umožňuje libovolného
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Načtení dat z analýzy protokolů se skript v jazyce Python
 [Log Analytics protokolu vyhledávání API](log-analytics-log-search-api.md) umožňuje libovolného klienta REST API k načtení dat z pracovního prostoru analýzy protokolů.  Tento článek představuje ukázka Python skript, který používá rozhraní API protokolu analýzy protokolů hledání.  
+
+>[!NOTE]
+> Tento článek používá rozhraní API pro vyhledávání protokolu pro starší verze dotazovací jazyk v analýzy protokolů.  Aktualizace budou v tomto článku pro pracovní prostory, které nebyly upgradovány na poskytovány [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Authentication
 Tento skript používá objekt služby v Azure Active Directory k ověření do pracovního prostoru.  Objekty služby povolit klientskou aplikaci, aby žádosti, že služba ověření účtu i v případě, že klient nemá název účtu. Před spuštěním tohoto skriptu, musíte vytvořit hlavní název služby pomocí procesu v [použití portálu k vytvoření aplikace a služby objekt zabezpečení, které mají přístup k prostředkům Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md).  Budete muset zadat ID aplikace, ID klienta a ověřovací klíč do skriptu. 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 174ab97ac14f4c05690306691df5ee4b6d33dd93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a3c9422887592c29c2eae8bd75cf960865808fd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storage-delete-errors-in-resource-manager-deployment"></a>Řešení chyb odstranit úložiště v nasazení Resource Manager
 Tento článek obsahuje pokyny k odstraňování problémů, když jeden z těchto chyb dojít při pokusu o odstranění účtu úložiště Azure, kontejner nebo objekt blob v nasazení Azure Resource Manager.

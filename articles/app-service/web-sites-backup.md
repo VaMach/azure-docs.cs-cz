@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 041847f2f341528c742d127f5d624e60c26e01fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6047528b56c220a410a602422604c1453024903
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Zálohování aplikace v Azure
-Back up a obnovení funkce v [Azure App Service](app-service-web-overview.md) umožňuje snadno vytvářet zálohy aplikaci ručně nebo podle plánu. Aplikace můžete obnovit do snímku do předchozího stavu pomocí přepsal stávající aplikace nebo při obnovování jiné aplikaci. 
+Funkce zálohování a obnovení v [Azure App Service](app-service-web-overview.md) umožňuje snadno vytvářet zálohy aplikaci ručně nebo podle plánu. Aplikace můžete obnovit do snímku do předchozího stavu pomocí přepsal stávající aplikace nebo při obnovování jiné aplikaci. 
 
 Informace o obnovení ze zálohy aplikace najdete v tématu [obnovení aplikace v Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>Co se zálohuje
-Služby App Service můžete zálohovat na účtu úložiště Azure a kontejner, který jste nakonfigurovali v aplikaci použijte následující informace. 
+Služby App Service můžete zálohovat následující informace na účtu úložiště Azure a kontejner, který jste nakonfigurovali aplikaci používat. 
 
 * Konfigurace aplikací
 * Obsah souboru
@@ -49,54 +49,54 @@ Funkce zálohování podporuje následující databáze řešení:
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Požadavky a omezení
-* Zálohování a obnovení funkce vyžaduje plán služby App Service ve **standardní** vrstvy nebo **Premium** vrstvy. Další informace o škálování používat vyšší úroveň plánu služby App Service najdete v tématu [škálování aplikace v Azure](web-sites-scale.md).  
+* Funkce zálohování a obnovení vyžaduje plán služby App Service ve **standardní** vrstvy nebo **Premium** vrstvy. Další informace o škálování používat vyšší úroveň plánu služby App Service najdete v tématu [škálování aplikace v Azure](web-sites-scale.md).  
   **Premium** úroveň umožňuje větší počet denní zálohování ups než **standardní** vrstvy.
-* Budete potřebovat účet úložiště Azure a kontejner ve stejném předplatném jako aplikace, které chcete zálohovat. Další informace o účtech Azure storage, najdete v článku [odkazy](#moreaboutstorage) na konci tohoto článku.
+* Potřebujete účet úložiště Azure a kontejner ve stejném předplatném jako aplikace, které chcete zálohovat. Další informace o účtech Azure storage, najdete v článku [odkazy](#moreaboutstorage) na konci tohoto článku.
 * Zálohování může být až 10 GB aplikaci a databázi obsahu. Pokud velikost zálohování překračuje tento limit, dojde k chybě.
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Vytvoření ruční zálohy
-1. V [portálu Azure](https://portal.azure.com), přejděte do okna vaší aplikace, vyberte **zálohování**. **Zálohování** zobrazí se okno.
+1. V [portál Azure](https://portal.azure.com), přejděte na stránku vaší aplikace, vyberte **zálohování**. **Zálohování** zobrazí se stránka.
    
     ![Stránka zálohy][ChooseBackupsPage]
    
    > [!NOTE]
-   > Pokud se zobrazí následující zpráva, klikněte na něj upgradovat plán služby App Service, abyste mohli pokračovat v zálohování.
-   > V tématu [škálování aplikace v Azure](web-sites-scale.md) Další informace.  
+   > Pokud se zobrazí tato zpráva, klikněte na něj upgradovat plán služby App Service, abyste mohli pokračovat v zálohování.
+   > Další informace najdete v tématu [škálování aplikace v Azure](web-sites-scale.md).  
    > ![Zvolte účet úložiště](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. V **zálohování** okně klikněte na tlačítko **konfigurace**
+2. V **zálohování** stránky, klikněte na tlačítko **konfigurace**
 ![klikněte na tlačítko Konfigurovat.](./media/web-sites-backup/ClickConfigure1.png)
-3. V **konfigurace zálohování** okně klikněte na tlačítko **úložiště: není nakonfigurováno** ke konfiguraci účtu úložiště.
+3. V **konfigurace zálohování** klikněte na tlačítko **úložiště: není nakonfigurováno** ke konfiguraci účtu úložiště.
    
     ![Zvolte účet úložiště][ChooseStorageAccount]
-4. Vyberte cíl zálohování tak, že vyberete **účet úložiště** a **kontejneru**. Účet úložiště musí patřit do stejného předplatného jako aplikace, které chcete zálohovat. Pokud chcete, můžete vytvořit nový účet úložiště nebo nový kontejner v odpovídajících podoken. Když jste hotovi, klikněte na tlačítko **vyberte**.
+4. Vyberte cíl zálohování tak, že vyberete **účet úložiště** a **kontejneru**. Účet úložiště musí patřit do stejného předplatného jako aplikace, které chcete zálohovat. Pokud chcete, můžete vytvořit nový účet úložiště nebo nový kontejner v příslušné stránky. Když jste hotovi, klikněte na tlačítko **vyberte**.
    
     ![Zvolte účet úložiště](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. V **konfigurace zálohování** okno, které je stále ponechány otevřené, můžete nakonfigurovat **příkaz Backup Database**, vyberte databáze, které chcete zahrnout do zálohy (databáze SQL nebo MySQL) a pak klikněte na tlačítko **OK**.  
+5. V **konfigurace zálohování** stránce, je stále ponechány otevřené, můžete nakonfigurovat **příkaz Backup Database**, vyberte databáze, které chcete zahrnout do zálohy (databáze SQL nebo MySQL) a pak klikněte na tlačítko **OK**.  
    
     ![Zvolte účet úložiště](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Pro databázi se objeví v tomto seznamu, musí existovat jeho připojovací řetězec v **připojovací řetězce** části **nastavení aplikace** okno pro vaši aplikaci.
+   > Pro databázi se objeví v tomto seznamu, musí existovat jeho připojovací řetězec v **připojovací řetězce** části **nastavení aplikace** stránky pro vaši aplikaci.
    > 
    > 
-6. V **konfigurace zálohování** okně klikněte na tlačítko **Uložit**.    
-7. V **zálohování** okně klikněte na tlačítko **zálohování**.
+6. V **konfigurace zálohování** klikněte na tlačítko **Uložit**.    
+7. V **zálohování** klikněte na tlačítko **zálohování**.
    
     ![Tlačítko BackUpNow][BackUpNow]
    
     Zobrazí zprávu o průběhu během procesu zálohování.
 
-Jakmile nakonfigurovaný účet úložiště a kontejneru můžete kdykoli spustit ruční zálohy.  
+Jakmile je nakonfigurovaný účet úložiště a kontejneru, můžete spustit ruční zálohy kdykoli.  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Konfigurace automatického zálohování
-1. V **konfigurace zálohy** okně nastavit **naplánovaná zálohování** k **na**. 
+1. V **konfigurace zálohy** nastavte **naplánovaná zálohování** k **na**. 
    
     ![Zvolte účet úložiště](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Nastavte plán zálohování, které se zobrazí možnosti, **naplánované zálohování** k **na**, podle potřeby nakonfigurujte plán zálohování a klikněte na **OK**.
@@ -106,13 +106,13 @@ Jakmile nakonfigurovaný účet úložiště a kontejneru můžete kdykoli spust
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Nakonfigurujte částečné zálohy
-Někdy nechcete zálohování všechno ve vaší aplikaci. Tady je pár příkladů:
+Někdy nechcete zálohovat vše v aplikaci. Tady je pár příkladů:
 
 * Můžete [nastavení týdenní zálohování](web-sites-backup.md#configure-automated-backups) vaší aplikace, který obsahuje statický obsah, který nikdy změny, jako starý příspěvcích na blogu nebo bitové kopie.
 * Vaše aplikace obsahuje více než 10 GB obsahu (který je maximální velikost, můžete zálohovat v čase).
-* Nechcete zálohování souborů protokolu.
+* Nechcete použít k zálohování souborů protokolu.
 
-Částečné zálohy umožňuje zvolit přesně který souborů, které jste chcete zálohovat.
+Částečné zálohy povolit, že si vyberete přesně soubory, které chcete zálohovat.
 
 ### <a name="exclude-files-from-your-backup"></a>Vyloučit soubory ze zálohy
 Předpokládejme, že máte aplikaci, která obsahuje soubory protokolu a statické bitové kopie, které byly zálohování jednou a nebudete změnit. V takových případech můžete vyloučit tyto soubory a složky z ukládají v budoucí zálohy. Vyloučit soubory a složky ze záloh, vytváření `_backup.filter` v soubor `D:\home\site\wwwroot` složky vaší aplikace. Zadejte seznam souborů a složek, které chcete vyloučit v tomto souboru. 
@@ -125,7 +125,7 @@ Identifikujte složky, které chcete vyloučit ze zálohy.  Například chcete f
 
 ![Složky bitových kopií][ImagesFolder]
 
-Vytvořte soubor s názvem `_backup.filter` a put v seznamu nahoře v souboru, ale odebrat `D:\home`. Zobrazí seznam jeden adresář nebo soubor na každém řádku. Takže obsah souboru by mělo být:
+Vytvořte soubor s názvem `_backup.filter` a put v předchozím seznamu v souboru, ale odebrat `D:\home`. Zobrazí seznam jeden adresář nebo soubor na každém řádku. Takže obsah souboru by mělo být:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
@@ -146,14 +146,23 @@ Spuštění zálohování stejným způsobem, obvyklým způsobem [ručně](#cre
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Ukládání záloh
-Po provedení jednoho nebo více zálohování pro aplikaci Zálohování, se zobrazují **kontejnery** okno účtu úložiště a vaše aplikace. V účtu úložiště, každá záloha se skládá z`.zip` soubor, který obsahuje data záloh a `.xml` soubor, který obsahuje manifest z `.zip` souboru obsahu. Můžete rozbalte a procházet tyto soubory, pokud chcete přístup k zálohování bez ve skutečnosti provádí obnovení aplikaci.
+Po provedení jednoho nebo více zálohování pro aplikaci Zálohování, se zobrazují **kontejnery** účtu úložiště a vaše aplikace. V účtu úložiště, každá záloha se skládá z`.zip` soubor, který obsahuje data záloh a `.xml` soubor, který obsahuje manifest z `.zip` souboru obsahu. Můžete rozbalte a procházet tyto soubory, pokud chcete přístup k zálohování bez ve skutečnosti provádí obnovení aplikaci.
 
-V kořenovém souboru the.zip je uložena záloha databáze pro aplikaci. Pro databázi SQL je soubor souboru BACPAC (bez přípony souboru) a mohou být naimportovány. Vytvoření databáze SQL podle export souboru BACPAC naleznete v tématu [Import souboru BACPAC soubor, který chcete vytvořit novou databázi uživatele](http://technet.microsoft.com/library/hh710052.aspx).
+V kořenovém souboru ZIP je uložena záloha databáze pro aplikaci. Pro databázi SQL je soubor souboru BACPAC (bez přípony souboru) a mohou být naimportovány. Vytvoření databáze SQL podle export souboru BACPAC naleznete v tématu [Import souboru BACPAC soubor, který chcete vytvořit novou databázi uživatele](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
 > Změna některý ze souborů ve vaší **websitebackups** kontejner může způsobit zálohování stane neplatnou a proto není – obnovitelné.
 > 
 > 
+
+## <a name="automate-with-scripts"></a>Automatizovat pomocí skriptů
+
+Můžete automatizovat správu záloh pomocí skriptů, pomocí [rozhraní příkazového řádku Azure](/cli/azure/install-azure-cli) nebo [prostředí Azure PowerShell](/powershell/azure/overview).
+
+Ukázky najdete v části:
+
+- [Ukázek Azure CLI](app-service-cli-samples.md)
+- [Ukázek Azure PowerShell](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

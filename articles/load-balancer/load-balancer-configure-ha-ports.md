@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Postup konfigurace portů pro vysokou dostupnost pro interní nástroj pro vyrovnávání zatížení
 
-Tento článek poskytuje příklad nasazení vysoké dostupnosti (HA) porty na interní pro vyrovnávání zatížení. Konkrétní konfigurace síťových virtuálních zařízení najdete v části odpovídající weby zprostředkovatele.
+Tento článek poskytuje příklad nasazení vysoké dostupnosti (HA) porty na interní pro vyrovnávání zatížení. Konkrétní konfigurací virtuálních síťových zařízení (NVAs) najdete v části odpovídající weby zprostředkovatele.
 
 >[!NOTE]
 > Vysoká dostupnost porty funkce je aktuálně ve verzi Preview. Během období Preview tato funkce nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako funkce, které jsou ve verzi všeobecné dostupnosti. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Obrázek 1 ukazuje příklad nasazení, které jsou popsané v tomto článku následující konfiguraci:
 - NVAs nasazených ve fondu back-end interní služby Vyrovnávání zatížení za konfiguraci portů HA. 
-- UDR použít v podsíti DMZ trasy veškerý provoz <>? tím, že další směrování jako interní virtuální IP nástroje pro vyrovnávání zatížení. 
+- UDR použít v podsíti DMZ trasy veškerý provoz NVAs tím, že další směrování jako interní virtuální IP nástroje pro vyrovnávání zatížení. 
 - Interní nástroj pro vyrovnávání zatížení distribuuje provoz do jednoho z active NVAs podle algoritmus LB.
 - Hodnocení chyb zabezpečení zpracovává provoz a předává do původního cíle v podsíti back-end.
 - Návratový cestu můžete taky využít stejné trasy, pokud odpovídající UDR je nakonfigurovaný v podsíti back-end. 
@@ -41,19 +41,13 @@ Obrázek 1 – síťových virtuálních zařízení nasazený za interní Vyrov
 
 ## <a name="preview-sign-up"></a>Náhled registrace
 
-K účasti ve verzi Preview funkci HA porty ve standardní SKU pro vyrovnávání zatížení, zaregistrujte předplatné pro přístup pomocí prostředí PowerShell nebo Azure CLI 2.0.
+K účasti ve verzi Preview funkci HA porty ve standardní nástroje pro vyrovnávání zatížení, zaregistrujte předplatné pro získání přístupu pomocí Azure CLI 2.0 nebo prostředí PowerShell.  Zaregistrujte si předplatné pro
 
-- Zaregistrujte si pomocí prostředí PowerShell
+1. [Náhled standardní nástroje pro vyrovnávání zatížení](https://aka.ms/lbpreview#preview-sign-up) a 
+2. [Náhled technologie HA porty](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Zaregistrujte si pomocí Azure CLI 2.0
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>Abyste tuto funkci používat, musíte také registrace Nástroje pro vyrovnávání zatížení [standardní Preview](https://aka.ms/lbpreview#preview-sign-up) kromě HA porty. Registrace náhledy HA porty nebo standardní nástroje pro vyrovnávání zatížení může trvat až jednu hodinu.
 
 ## <a name="configuring-ha-ports"></a>Konfigurace portů HA
 
@@ -68,6 +62,39 @@ Portál Azure obsahuje **HA porty** možnost prostřednictvím zaškrtávací po
 ![ha porty konfigurace prostřednictvím portálu Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Obrázek 2 – HA porty konfigurace prostřednictvím portálu
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Konfigurace pravidla LB porty HA pomocí šablony Resource Manageru
+
+Můžete nakonfigurovat porty HA pomocí 2017-08-01 verze rozhraní API pro Microsoft.Network/loadBalancers v prostředku nástroj pro vyrovnávání zatížení. Následující fragment kódu JSON znázorňuje změny v konfiguraci Vyrovnávání zatížení pro HA porty přes REST API.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Konfigurovat porty HA se pravidlo Vyrovnávání zatížení v prostředí PowerShell
 

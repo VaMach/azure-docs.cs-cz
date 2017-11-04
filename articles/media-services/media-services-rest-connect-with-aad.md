@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: willzhan;juliako
-ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: willzhan;juliako;johndeu
+ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Používat pro přístup k rozhraní API Azure Media Services se zbytkem ověřování Azure AD
 
@@ -86,21 +86,14 @@ Zde jsou mapování mezi atributy v token JWT a čtyři aplikace nebo služby v 
 |Typ aplikace |Aplikace |Atribut JWT |
 |---|---|---|
 |Klient |Zákazník aplikace nebo řešení |AppID: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". ID klienta aplikace zaregistrujete do služby Azure AD v další části. |
-|Zprostředkovatel identity (IDP) | Azure AD jako poskytovatel identity |rozšíření IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/".  Identifikátor GUID je klient ID společnosti Microsoft (microsoft.onmicrosoft.com). Každý klient má svou vlastní, jedinečné ID. |
+|Zprostředkovatel identity (IDP) | Azure AD jako poskytovatel identity |rozšíření IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/" GUID je klient ID společnosti Microsoft (microsoft.onmicrosoft.com). Každý klient má svou vlastní, jedinečné ID. |
 |Zabezpečení tokenu služby (STS) nebo OAuth server |Azure AD jako služba tokenů zabezpečení | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". Identifikátor GUID je klient ID společnosti Microsoft (microsoft.onmicrosoft.com). |
 |Prostředek | Rozhraní REST API služby Media Services |oblast: "https://rest.media.azure.net". K příjemce nebo cílovou skupinu přístupového tokenu. |
 
 ## <a name="steps-for-setup"></a>Kroky pro instalaci
 
-K registraci a nastavit aplikaci Azure AD pro ověřování Azure AD a získat přístupový token pro volání koncový bod REST API služby Azure Media Services, proveďte následující kroky:
+K registraci a nastavit aplikaci Azure Active Directory (AAD) a získat klíče pro volání koncový bod REST API služby Azure Media Services, naleznete v článku [Začínáme s ověřováním Azure AD pomocí portálu Azure](media-services-portal-get-started-with-aad.md)
 
-1.  V [portál Azure classic](http://go.microsoft.com/fwlink/?LinkID=213885), zaregistrovat aplikaci Azure AD (například wzmediaservice) pro klienta služby Azure AD (například microsoft.onmicrosoft.com). Nezáleží, jestli je zaregistrovaný jako webovou aplikaci nebo nativní aplikaci. Můžete také všechny přihlašovací adresa URL a adresa URL odpovědi (například http://wzmediaservice.com pro oba).
-2. V [portál Azure classic](http://go.microsoft.com/fwlink/?LinkID=213885), přejděte na **konfigurace** kartě vaší aplikace. Poznámka: **ID klienta**. Potom v části **klíče**, generovat **klíč klienta** (tajný klíč klienta). 
-
-    > [!NOTE] 
-    > Poznamenejte si tajný klíč klienta. Nebude se zobrazovat znovu.
-    
-3.  V [portál Azure](http://ms.portal.azure.com), přejděte k účtu Media Services. Vyberte **řízení přístupu** podokně (IAM). Přidání nového člena, která obsahuje vlastníka nebo role Přispěvatel. Pro objekt zabezpečení vyhledejte název aplikace, které jste zaregistrovali v kroku 1 (v tomto příkladu wzmediaservice).
 
 ## <a name="info-to-collect"></a>Informace o shromažďování
 
@@ -138,9 +131,9 @@ Ukázkový projekt má tři funkce:
 
 Může požádat některé čtečky: kde je token obnovení? Proč není zde použít token obnovení?
 
-Účelem token obnovení je nechcete aktualizovat přístupový token. Místo toho je určený obejít ověřování nebo uživatele zásahu koncového uživatele a stále získat token platný přístup, když dříve tokenu vyprší platnost. Lepší název tokenu obnovení může být něco jako "Nepoužívat zpětný-registrace v token uživatele."
+Účelem token obnovení je nechcete aktualizovat přístupový token. Je určený obejít ověřování koncového uživatele a stále získat token platný přístup, když vyprší platnost tokenu starší. Lepší název tokenu obnovení může být něco jako "Nepoužívat zpětný-registrace v token uživatele."
 
-Pokud používáte OAuth 2.0 autorizace udělit tok (uživatelské jméno a heslo, které jednají jménem uživatele), umožňuje obnovovací token získání tokenu pro přístup k obnovené bez zásahu uživatele. Pro OAuth 2.0 toku, který jsme popisují v tomto článku udělení pověření klienta, ale klient funguje na vlastní účet. Na všech nepotřebujete zásahu uživatele, a server ověřování nemusí (a nebude) získáte token obnovení. Pokud ladíte **GetUrlEncodedJWT** metoda, zjistíte, že odpověď z koncový bod token má přístupový token, ale žádné token obnovení.
+Pokud používáte OAuth 2.0 autorizace udělit tok (uživatelské jméno a heslo, které jednají jménem uživatele), umožňuje obnovovací token získání tokenu pro přístup k obnovené bez zásahu uživatele. Pro tok, který je popsaný v tomto článku poskytování pověření klienta OAuth 2.0 však klient funguje na vlastní účet. Nepotřebujete zásahu uživatele vůbec, a server ověřování není nutné získáte token obnovení. Pokud ladíte **GetUrlEncodedJWT** metoda, zjistíte, že odpověď z koncový bod token má přístupový token, ale žádné token obnovení.
 
 ## <a name="next-steps"></a>Další kroky
 

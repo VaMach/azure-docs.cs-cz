@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: f661aa5eb6ba87671a83b41aa25621da405aa335
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Řešení potíží s HBase pomocí Azure HDInsight
 
 Další informace o hlavních problémů a jejich řešení při práci s Apache HBase datové části v Apache Ambari.
 
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Jak spouštět sestavy příkaz hbck s několika nepřiřazené oblastí
+## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Jak spouštět sestavy příkaz hbck s několika nepřiřazené oblastí?
 
 Běžné chybová zpráva, že může dojít při spuštění `hbase hbck` příkaz je "více oblastí se nepřiřazené nebo díry v řetězu oblastí."
 
@@ -41,7 +41,7 @@ Aby nepřiřazené oblasti zpět k normálním stavu, proveďte následující k
 6. Spustit `hbase hbck` příkaz znovu (bez jakékoli možnosti). Zkontrolujte výstup tohoto příkazu do zajistit přiřazení všech oblastech.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Jak se při použití příkazů hbck oblasti přiřazení opravte problémy vypršení časového limitu
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Jak se při použití příkazů hbck oblasti přiřazení opravte problémy vypršení časového limitu?
 
 ### <a name="issue"></a>Problém
 
@@ -56,7 +56,7 @@ Možnou příčinou problémů vypršení časového limitu při použití `hbck
 5. V uživatelském rozhraní Ambari restartujte službu hlavní HBase aktivní.
 6. Spustit `hbase hbck -fixAssignments` příkaz znovu.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Jak I vynucení zakázání HDFS nouzovém režimu v clusteru
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Jak I vynucení zakázání HDFS nouzovém režimu v clusteru?
 
 ### <a name="issue"></a>Problém
 
@@ -211,7 +211,7 @@ Změny velikosti clusteru HDInsight se dolů k velmi několika uzlů. Počet uzl
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Jak opravit JDBC nebo SQLLine připojením k problémům s Apache Phoenix
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Jak opravit JDBC nebo SQLLine připojením k problémům s Apache Phoenix?
 
 ### <a name="resolution-steps"></a>Kroky řešení
 
@@ -262,7 +262,7 @@ To může trvat až pět minut, než služba HBase Master stabilizovat a dokonč
 Pokud v systému. Tabulka katalogu je zpět do normální, problém s připojením k Phoenix by měla být vyřešen automaticky.
 
 
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>Co způsobí, že hlavní server nezdaří spustit
+## <a name="what-causes-a-master-server-to-fail-to-start"></a>Co způsobí, že hlavní server nezdaří spustit?
 
 ### <a name="error"></a>Chyba 
 
@@ -344,7 +344,7 @@ Jde o známý problém se službou HMaster. Spuštění úlohy obecné clusteru 
 2. Restartujte službu (HMaster a případně dalších služeb HBase).  
 
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Co způsobí restartování selhání na serveru oblast
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Co způsobí selhání restartování na oblast serveru?
 
 ### <a name="issue"></a>Problém
 
@@ -421,3 +421,5 @@ Z důvodu náhlému vypnutí nemusí být vydání port spojených s procesem, p
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
+### <a name="see-also"></a>Viz také
+[Řešení potíží pomocí Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

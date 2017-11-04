@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 11/03/2017
 ms.author: tomfitz
-ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 955b04517c3ccdbe530eb982e6aa1255b69e1edd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Použít zásady prostředků pro názvy a text.
-Toto téma ukazuje několik [zásady prostředků](resource-manager-policy.md) můžete použít k vytvoření konvence pojmenování a text. Tyto zásady zajistit konzistenci pro názvy prostředků a hodnoty značky. 
+Tento článek ukazuje několik [zásady prostředků](resource-manager-policy.md) můžete použít k vytvoření konvence pojmenování a text. Tyto zásady zajistit konzistenci pro názvy prostředků a hodnoty značky. 
 
 ## <a name="set-naming-convention-with-wildcard"></a>Nastavit zásady vytváření názvů se zástupnými znaky
 Následující příklad ukazuje použití zástupných znaků, který je podporovaný rozhraním **jako** podmínku. Podmínka uvádí, že pokud název neodpovídá vzoru uvedených (namePrefix\*nameSuffix) pak daný požadavek je odepřen:
@@ -71,6 +71,34 @@ Tak, aby vyžadovala datum vzorec dvě číslice, pomlčky, tři písmena, dash 
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## <a name="set-multiple-naming-patterns"></a>Nastavit více vzory pojmenování
+
+Chcete-li zadat více než jeden povolené zásady vytváření názvů, použijte **allOf** a **není** operátory. V následujícím příkladu Pokud zadaný název neodpovídá buď vzoru se nezdařilo.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso??????"
+                }
+            },
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso-???-##"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

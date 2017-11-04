@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Vytvoření přiřazení zásady k identifikaci nekompatibilní prostředky v prostředí Azure pomocí prostředí PowerShell
 
-Prvním krokem při pochopení dodržování předpisů v Azure je zároveň budete vědět, kde stát s vaší aktuální prostředky. Tento rychlý start vás provede procesem vytváření zásad přiřazení můžete identifikovat nekompatibilní prostředky se definice zásady – *vyžadují SQL Server verze 12.0*. Na konci tohoto procesu úspěšně určili jste co jsou servery jinou verzi, nebo nekompatibilní.
+Prvním krokem při pochopení dodržování předpisů v Azure je zároveň budete vědět, kde stát s aktuální prostředky. Tento rychlý start vás provede procesem vytvoření přiřazení zásady můžete identifikovat virtuální počítače, které nepoužívají spravované disky.
+
+Na konci tohoto procesu se úspěšně zjistilo, jaké virtuální počítače nejsou pomocí spravovaných disků a jsou tedy *nevyhovující*.
+
 
 PowerShell slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tato příručka údaje vytváření přiřazení zásad k identifikaci nekompatibilní prostředky v prostředí Azure pomocí prostředí PowerShell.
 
@@ -29,7 +32,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 ## <a name="opt-in-to-azure-policy"></a>Vyjádřit výslovný souhlas Azure zásad
 
-Azure zásad je teď dostupná ve verzi Preview omezené, je nutné zaregistrovat k požádat o přístup.
+Azure zásad je nyní k dispozici ve verzi Public Preview a je nutné zaregistrovat k požádat o přístup.
 
 1. Přejděte do zásad Azure v https://aka.ms/getpolicy a vyberte **zaregistrovat** v levém podokně.
 
@@ -39,11 +42,11 @@ Azure zásad je teď dostupná ve verzi Preview omezené, je nutné zaregistrova
 
    ![Vyjádřit výslovný souhlas pomocí zásad Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Může trvat několik dní, abychom mohli přijmout vaši žádost o registraci, na základě poptávky. Jakmile vaši žádost o získá přijatá, budete informováni prostřednictvím e-mailu, můžete začít používat službu.
+   Vaše žádost je automaticky schváleny pro verzi Preview. Může trvat až 30 minut pro systém ke zpracování registrace.
 
 ## <a name="create-a-policy-assignment"></a>Vytvoření přiřazení zásady
 
-V tento rychlý start, vytvoření přiřazení zásady a přiřadit *vyžadují SQL Server verze 12.0* definice. Tato definice zásady určují prostředky, které nejsou v souladu s podmínkami, nastavte v definici zásady.
+V tento rychlý start, vytvoření přiřazení zásady a přiřadit *auditu virtuální počítače bez spravované disků* definice. Tato definice zásady určují prostředky, které nejsou v souladu s podmínkami, nastavte v definici zásady.
 
 Postupujte podle těchto kroků můžete vytvořit nové přiřazení zásad.
 
@@ -62,15 +65,15 @@ Azure zásad se dodává s definice již předdefinovaných zásad, které můž
 V dalším kroku definice zásady přiřazení požadovaný rozsah pomocí `New-AzureRmPolicyAssignment` rutiny.
 
 V tomto kurzu společnost Microsoft poskytuje následující informace pro příkaz:
-- Zobrazení **název** pro přiřazení zásad. V tomto případě použijeme vyžadují SQL Server verze 12.0 přiřazení.
-- **Zásady** – to je definice zásady, na základě vypnout, který používáte k vytvoření přiřazení. V takovém případě je definice zásady – *vyžadují SQL Server verze 12.0*
+- Zobrazení **název** pro přiřazení zásad. V tomto případě použijeme auditu virtuální počítače bez spravované disků.
+- **Zásady** – to je definice zásady, na základě vypnout, který používáte k vytvoření přiřazení. V takovém případě je definice zásady – *auditu virtuální počítače bez spravované disků*
 - A **oboru** – obor Určuje, jaké prostředky nebo seskupení prostředků v získá vynucena přiřazení zásad. Může rozsahu z odběru do skupiny prostředků. V tomto příkladu jsme se definice zásady pro přiřazení **FabrikamOMS** skupinu prostředků.
-- **$definition** – je třeba zadat ID prostředku definice zásady – v tomto případě používáme ID definice zásady - *vyžadují SQL Server 12.0*.
+- **$definition** – je třeba zadat ID prostředku definice zásady – v tomto případě používáme ID definice zásady - *auditu virtuální počítače bez spravované disků*.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Nyní jste připraveni určete nekompatibilní prostředky pro informace o stavu dodržování předpisů vašeho prostředí.
@@ -89,7 +92,7 @@ Nyní jste připraveni určete nekompatibilní prostředky pro informace o stavu
 V této kolekci dalších příručkách stavět na tento rychlý start. Pokud budete chtít pokračovat v práci s další kurzy, neprovádí vyčištění prostředky vytvořené v tento rychlý start. Pokud neplánujete, chcete-li pokračovat, odstraňte přiřazení, které jste vytvořili spuštěním tohoto příkazu:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Další kroky
