@@ -71,15 +71,10 @@
 
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### [Přiřazení zásad s využitím webu Azure Portal](resource-manager-policy-portal.md)
 ### [Přiřazení zásad pomocí skriptů](resource-manager-policy-create-assign.md)
 ### Příklady
 #### [Značky](resource-manager-policy-tags.md)
 #### [Zásady vytváření názvů](resource-manager-policy-naming-convention.md)
-#### [Síť](resource-manager-policy-network.md)
-#### [Storage](resource-manager-policy-storage.md)
-#### [Virtuální počítač s Linuxem](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Virtuální počítač s Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Auditování
 ### [Zobrazení protokolů aktivit](resource-group-audit.md)
