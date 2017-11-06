@@ -1,6 +1,6 @@
 ---
-title: Synchronizaci dat (Preview) | Microsoft Docs
-description: "Tento přehled zavádí synchronizaci dat SQL Azure (Preview)."
+title: Synchronizaci dat Azure SQL (Preview) | Microsoft Docs
+description: "Tento přehled zavádí synchronizaci dat SQL Azure (Preview)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c53eabfeb9ee1a7c50340bbfc65674b478068c75
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL
 
@@ -58,7 +58,7 @@ Synchronizace dat je užitečné v případech, kde data musí být pořád aktu
 
 -   **Globálně distribuované aplikace:** mnoho firem rozmístěny v několika oblastech a i několika zemích. Chcete-li minimalizovat latence sítě, je vhodné vaše data v oblasti blízko vás. S synchronizaci dat se snadnou vejdou databází v oblastech po celém světě synchronizovány.
 
-Není doporučeno synchronizaci dat pro následující scénáře:
+Synchronizaci dat není vhodná pro následující scénáře:
 
 -   Zotavení po havárii
 
@@ -77,48 +77,6 @@ Není doporučeno synchronizaci dat pro následující scénáře:
 -   **Řešení konfliktů:** synchronizaci dat nabízí dvě možnosti pro řešení konfliktů *rozbočovače wins* nebo *člen wins*.
     -   Pokud vyberete *rozbočovače wins*, změny v centru vždy přepsat změny v člena.
     -   Pokud vyberete *člen wins*, změny v změn přepsání člena v centru. Pokud existuje více než jednoho člena, konečná hodnota závisí na člena, který synchronizuje nejdřív.
-
-## <a name="limitations-and-considerations"></a>Omezení a důležité informace
-
-### <a name="performance-impact"></a>Vliv na výkon
-Synchronizace dat se používají vložit, aktualizovat a odstranit aktivačních událostí ke sledování změn. Vytvoří straně tabulky v databázi uživatelů pro sledování změn. Tyto aktivity sledování změn mají vliv na vaše zatížení databáze. Vyhodnocení vašeho vrstvy služeb a upgradujte v případě potřeby.
-
-### <a name="eventual-consistency"></a>Konzistence typu případné
-Vzhledem k tomu, že synchronizace dat je na základě aktivační události, není zaručena konzistence transakcí. Microsoft zaručuje, že jsou všechny změny provedené nakonec a synchronizaci dat není způsobit ztrátu dat.
-
-### <a name="unsupported-data-types"></a>Nepodporované datové typy
-
--   FileStream
-
--   UDT SQL/CLR
-
--   Kolekci XMLSchemaCollection (XML podporována)
-
--   Kurzor, časové razítko, Hierarchyid
-
-### <a name="requirements"></a>Požadavky
-
--   Každá tabulka musí mít primární klíč. Neměnit hodnotu primární klíč v některém z řádků. Pokud máte k tomu, odstranit řádek a znovu ji vytvořte s novou hodnotu primárního klíče. 
-
--   Tabulka nemůže obsahovat sloupec identity, který není primární klíč.
-
--   Názvy objektů (databáze, tabulek a sloupců) nesmí obsahovat tisknutelná znaků tečkou (.), zbývající hranaté závorky ([), nebo právo hranatá závorka (]).
-
--   Musí být povolena izolace snímku. Další informace najdete v tématu [izolaci snímku v systému SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### <a name="limitations-on-service-and-database-dimensions"></a>Omezení dimenzí služby a databáze
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Dimenze**                                                      | **Limit**              | **Alternativní řešení**              |
-| Maximální počet skupin synchronizace všechny databáze může patřit do.       | 5                      |                             |
-| Maximální počet koncových bodů ve skupině jedním synchronizačním              | 30                     | Vytvoření více skupin synchronizace |
-| Maximální počet koncových bodů místně v jednom synchronizace skupiny. | 5                      | Vytvoření více skupin synchronizace |
-| Databáze, tabulky, schémat a sloupce                       | 50 znaků na název |                             |
-| Tabulky ve skupině pro synchronizaci                                          | 500                    | Vytvoření více skupin synchronizace |
-| Sloupce v tabulce v skupiny synchronizace                              | 1000                   |                             |
-| Velikost řádek dat v tabulce                                        | 24 mb                  |                             |
-| Interval minimální synchronizace                                           | 5 minut              |                             |
 
 ## <a name="common-questions"></a>Nejčastější dotazy
 
@@ -143,9 +101,55 @@ Tato chybová zpráva indikuje mezi dvěma následující problémy:
 Synchronizaci dat nemůže pracovat. cyklické odkazy. Ujistěte se, že je vyhnout. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Jak můžete exportovat a importovat databáze se synchronizací dat?
-Jakmile vyexportovat databázi do souboru .bacpac a importovat, a vytvořit novou databázi, je nutné provést následující dva kroky můžete používat synchronizaci dat v databázi nové:
+Po exportu databáze jako `.bacpac` souboru a importovat soubor k vytvoření nové databáze, budete muset provést následující dva kroky můžete používat synchronizaci dat v databázi nové:
 1.  Vyčištění objektů synchronizaci dat a straně tabulek na **novou databázi** pomocí [tento skript](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Tento skript odstraní všechny požadované objekty synchronizaci dat z databáze.
 2.  Znovu vytvořte skupiny synchronizace s novou databází. Pokud původní skupiny synchronizace již nepotřebujete, odstraňte jej.
+
+## <a name="sync-req-lim"></a>Požadavky a omezení
+
+### <a name="general-requirements"></a>Obecné požadavky
+
+-   Každá tabulka musí mít primární klíč. Neměnit hodnotu primární klíč v některém z řádků. Pokud máte k tomu, odstranit řádek a znovu ji vytvořte s novou hodnotu primárního klíče. 
+
+-   Tabulka nemůže obsahovat sloupec identity, který není primární klíč.
+
+-   Názvy objektů (databáze, tabulek a sloupců) nesmí obsahovat tisknutelná znaků tečkou (.), zbývající hranaté závorky ([]), nebo právo hranatá závorka (]).
+
+-   Musí být povolena izolace snímku. Další informace najdete v tématu [izolaci snímku v systému SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### <a name="general-considerations"></a>Obecné aspekty
+
+#### <a name="eventual-consistency"></a>Konzistence typu případné
+Vzhledem k tomu, že synchronizace dat je na základě aktivační události, není zaručena konzistence transakcí. Microsoft zaručuje, že jsou všechny změny provedené nakonec a synchronizaci dat není způsobit ztrátu dat..
+
+#### <a name="performance-impact"></a>Vliv na výkon
+Synchronizace dat se používají vložit, aktualizovat a odstranit aktivačních událostí ke sledování změn. Vytvoří straně tabulky v databázi uživatelů pro sledování změn. Tyto aktivity sledování změn mají vliv na vaše zatížení databáze. Vyhodnocení vašeho vrstvy služeb a upgradujte v případě potřeby.
+
+### <a name="general-limitations"></a>Obecná omezení
+
+#### <a name="unsupported-data-types"></a>Nepodporované datové typy
+
+-   FileStream
+
+-   UDT SQL/CLR
+
+-   Kolekci XMLSchemaCollection (XML podporována)
+
+-   Kurzor, časové razítko, Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>Omezení dimenzí služby a databáze
+
+| **Dimenze**                                                      | **Limit**              | **Alternativní řešení**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Maximální počet skupin synchronizace všechny databáze může patřit do.       | 5                      |                             |
+| Maximální počet koncových bodů ve skupině jedním synchronizačním              | 30                     | Vytvoření více skupin synchronizace |
+| Maximální počet koncových bodů místně v jednom synchronizace skupiny. | 5                      | Vytvoření více skupin synchronizace |
+| Databáze, tabulky, schémat a sloupce                       | 50 znaků na název |                             |
+| Tabulky ve skupině pro synchronizaci                                          | 500                    | Vytvoření více skupin synchronizace |
+| Sloupce v tabulce v skupiny synchronizace                              | 1000                   |                             |
+| Velikost řádek dat v tabulce                                        | 24 mb                  |                             |
+| Interval minimální synchronizace                                           | 5 minut              |                             |
+|||
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Historie vydaných verzí konektoru
 Konektory pro Forefront Identity Manager (FIM) a Microsoft Identity Manager (MIM) jsou často aktualizuje.
 
 > [!NOTE]
 > Toto téma je k dispozici pouze v produktu FIM a MIM. Tyto konektory nejsou podporovány pro instalaci na Azure AD Connect. Vydaná konektory jsou předinstalované na službu AADConnect. při upgradu na zadaná sestavení.
+
 
 Toto téma uvádí všechny verze konektory, které byly vydány.
 
@@ -37,6 +38,29 @@ Související odkazy:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) referenční dokumentace
 * [Konektoru Lotus Domino](active-directory-aadconnectsync-connector-domino.md) referenční dokumentace
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Opravené problémy:
+
+* Lotus Notes:
+  * Filtrování vlastní udělení licence certifikátorům možnost
+  * Importovat třídy ImportOperations byla opravena definice jaké operace můžete spouštět v režimu, zobrazení a který v režimu "Search".
+* Obecné LDAP:
+  * Adresář OpenLDAP používá jako ukotvení spíše než entryUUI rozlišující název. Nová možnost GLDAP konektor, který umožňuje změnit ukotvení
+* Obecné SQL:
+  * Opravené export do pole, která má typ varbinary(max).
+  * Při přidávání binární data ze zdroje dat do objektu CSEntry, DataTypeConversion function se nezdařil na 0 bajtů. Fixed – funkce DataTypeConversion CSEntryOperationBase třídy.
+
+
+
+
+### <a name="enhancements"></a>Vylepšení:
+
+* Obecné SQL:
+  * Umožňuje konfigurovat režim pro spuštění uložené procedury s pojmenované parametry, nebo není s názvem se přidá v okně Konfigurace agenta pro správu SQL obecné na stránce 'Globální parametry'. Na stránce 'globální parametry, že je zaškrtávací políčko s popiskem "použití pojmenované parametry ke spuštění uložené procedury, která zodpovídá za režim pro spouštění uložené procedury s pojmenované parametry nebo ne.
+    * Možnost spuštění uložené procedury s pojmenované parametry v současné době funguje pouze pro databáze IBM DB2 a MSSQL. Pro databáze Oracle a MySQL tento postup nefunguje: 
+      * Syntaxe SQL z databáze MySQL nepodporuje pojmenované parametry v uložené procedury.
+      * Ovladač ODBC pro Oracle nepodporuje pojmenované parametry pro pojmenované parametry v uložené procedury)
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -46,7 +70,7 @@ Související odkazy:
 * Obecné webové služby:
   * Byl opraven problém brání vytváří při nebyly k dispozici dva nebo víc koncových bodů protokolu SOAP projektu.
 * Obecné SQL:
-  * Operace importu GSQL nebyl konvertování času správně, když se uloží do prostoru konektoru. Výchozí formát data a času pro konektor místa GSQL byl změněn z "rrrr MM-dd: ssZ" na "rrrr MM-dd: ssZ.
+  * Operace importu GSQL nebyl konvertování času správně, když se uloží do prostoru konektoru. Výchozí formát data a času pro konektor místa GSQL byl změněn z "rrrr MM-dd: ssZ" na "rrrr MM-dd: ssZ..
 
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
@@ -203,6 +227,22 @@ Před. března 2016 byly vydané konektory jako témata týkající se podpory.
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003 února 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, říjen 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, srpen 2013
+
+## <a name="troubleshooting"></a>Řešení potíží 
+
+> [!NOTE]
+> Při aktualizaci Microsoft Identity Manager nebo služby AADConnect s použitím každého ECMA2 konektory. 
+
+Je nutné aktualizovat definici konektor při upgradu tak, aby odpovídaly nebo zobrazí následující chybová zpráva v protokolu událostí spouštění aplikací tak, aby odesílaly upozornění ID 6947: "verze sestavení v konfiguraci konektoru AAD ("X.X.XXX. X"), je dřívější než ve skutečnosti verze ("X.X.XXX. X") z"C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+
+K aktualizaci definice:
+* Otevřete vlastnosti pro instanci konektoru
+* Klikněte na připojení / připojit na kartě
+  * Zadejte heslo pro účet konektoru
+* Klikněte na každou z karty vlastností naopak
+  * Pokud má tento typ konektoru na kartě oddíly tlačítko Aktualizovat, klikněte na tlačítko Aktualizovat na této kartě
+* Po přistupujete všechny karty vlastností klikněte na tlačítko OK a uložte změny.
+
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.
