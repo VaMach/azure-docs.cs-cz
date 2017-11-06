@@ -98,6 +98,6 @@ sections:
           - title: Příkazový řádek
             html: '<p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Jazyky
-            html: <p><a href="/java/api/overview/azure/servicefabric">Rozhraní API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+            html: <p><a href="/java/api/overview/azure/servicefabric">Rozhraní API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Schéma XML modelu služeb</a></p>
           - title: REST
             html: <p><a href="/rest/api/servicefabric">Reference k rozhraní REST API</a></p>
