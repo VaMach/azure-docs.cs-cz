@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 92b95b91073ef0a53a936bea53a7c63fe37f1746
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 8bb4c754f7bf22198b997ded7a994ccf0e4ad265
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrovat Azure MFA infrastrukturu sítě VPN pomocí rozšíření Network Policy Server pro Azure.
 
@@ -99,7 +99,7 @@ Tato část podrobně požadavky, které je třeba dokončit před MFA může in
 Tento článek předpokládá, že máte infrastrukturu sítě VPN práci, kterou využívá Microsoft Windows Server 2016 a že VPN server není nyní nakonfigurován, aby předával požadavky na RADIUS server připojení. V článku můžete nakonfigurovat infrastrukturu sítě VPN na použití centrálního serveru RADIUS.
 
 Pokud nemáte infrastrukturu sítě VPN práci na místě, můžete rychle vytvořit pomocí následujících kroků uvedených v řada návodů nastavení VPN, které můžete najít na společnosti Microsoft a weby třetích stran. 
-
+            
 ### <a name="the-network-policy-and-access-services-role"></a>Role služby Síťové zásady a přístup
 
 Služba Síťové zásady a přístup poskytuje funkci serveru a klienta RADIUS. Tento článek předpokládá, že jste nainstalovali roli služby Síťové zásady a přístup na členský server nebo řadič domény ve vašem prostředí. V této příručce konfigurace RADIUS pro konfiguraci sítě VPN. Nainstalujte roli služby Síťové zásady a přístup na serveru *jiné než* VPN server.
@@ -108,7 +108,7 @@ Informace o instalaci role Síťové zásady a přístup ke službě služby Win
 
 ### <a name="azure-mfa-license"></a>Licence Azure MFA
 
-Licence je vyžadována pro Azure Multi-Factor Authentication, a je k dispozici prostřednictvím Azure AD Premium, Enterprise Mobility + zabezpečení nebo předplatné služby Multi-Factor Authentication. Další informace najdete v tématu [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Pro účely testování můžete použít zkušební verzi předplatného.
+Licence je vyžadována pro Azure Multi-Factor Authentication, a je k dispozici prostřednictvím Azure AD Premium, Enterprise Mobility + zabezpečení nebo předplatné služby Multi-Factor Authentication. Na základě spotřeby licencí Azure MFA jako ověřování licencí vázaných na uživatele nebo nejsou kompatibilní s příponou serveru NPS. Další informace najdete v tématu [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Pro účely testování můžete použít zkušební verzi předplatného.
 
 ### <a name="windows-server-software"></a>Software Windows serveru
 

@@ -1,5 +1,5 @@
 ---
-title: "Webové aplikace s table storage (Node.js) | Microsoft Docs"
+title: "Azure Table storage: vytvoření webové aplikace Node.js | Microsoft Docs"
 description: "Kurz, který je založený na webovou aplikaci s Express kurzu přidáním služby Azure Storage a modulu Azure."
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Webové aplikace Node.js pomocí úložiště
+# <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: webové aplikace Node.js
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Přehled
 V tomto kurzu aplikaci jste vytvořili v [webové aplikace Node.js pomocí Express] kurzu je rozšířeno pomocí knihovny klienta Microsoft Azure pro platformu Node.js pro práci se službami pro správu dat. Vytvoření aplikace založené na webu – seznam úloh, kterou můžete nasadit do Azure můžete rozšířit vaše aplikace. Seznam úloh umožňuje uživateli načíst úlohy, přidat nové úkoly a úkoly označit jako dokončená.
 

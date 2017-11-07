@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 7396b8f66dc65cfad497e336887978fa487c42f6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 11/03/2017
+ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Databáze Azure pro výkon a možnosti MySQL: co je k dispozici v jednotlivých cenových úrovní
 Když vytvoříte databázi Azure pro server databáze MySQL, rozhodněte tři hlavní možnosti konfigurace prostředky přidělené pro tento server. Tyto možnosti vliv na výkon a škálování serveru.
@@ -96,7 +96,7 @@ Původně zvolíte cenovou úroveň a úroveň výkonu, když vytvoříte datab�
 
 Výpočetní jednotky škálování se provádí nezávisle na maximální velikost úložiště, které jste vybrali.
 
-Na pozadí Změna úrovně výkonu databáze vytvoří kopii původní databáze na novou úroveň výkonu a pak přepne připojení k serveru zkopírovaný. Během tohoto procesu bude ztracena žádná data. Během stručný chvíli, když se systém přepne na novou kopii tohoto serveru je zakázána připojení k databázi, aby některé transakce na cestě může být vrácena zpět. Délka tohoto časového období je různá, ale v průměru nepřekračuje 4 sekundy a ve více než 99 % případů nepřekročí 30 sekund. Pokud v okamžiku zákazu připojení probíhá velké množství transakcí, může se toto časové období prodloužit.
+Na pozadí Změna úrovně výkonu serveru vytvoří kopii původního serveru na novou úroveň výkonu a pak přepne připojení k serveru zkopírovaný. Během tohoto procesu bude ztracena žádná data. Během stručný chvíli, když se systém přepne na novou kopii tohoto serveru je zakázána připojení k databázi, aby některé transakce na cestě může být vrácena zpět. Délka tohoto časového období je různá, ale v průměru nepřekračuje 4 sekundy a ve více než 99 % případů nepřekročí 30 sekund. Pokud v okamžiku zákazu připojení probíhá velké množství transakcí, může se toto časové období prodloužit.
 
 Dobu trvání procesu celý škálování závisí na velikosti i cenová úroveň serveru před a po provedení změny. Například server, který mění výpočetní jednotky v rámci standardní cenovou úroveň, provést v rámci několik minut. Nové vlastnosti pro server se nepoužívají, dokud nebudou dokončeny změny.
 

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Požadavky systému virtuálních polí StorSimple
 ## <a name="overview"></a>Přehled
@@ -50,7 +50,7 @@ Požadavky na software zahrnují informace o podporované webové prohlížeče,
 | Minimální paměť (RAM) |8 GB <br> Pro souborový server, 8 GB pro soubory menší než 2 miliony a 16 GB pro soubory 2 – 4 miliony|
 | Místo na disku<sup>1</sup> |Disk s operačním systémem - 80 GB <br></br>Datový disk - 500 GB až 8 TB |
 | Minimální počet nejmíň jedno síťové rozhraní |1 |
-| Minimální šířky pásma Internetu<sup>2</sup> |5 MB/s |
+| Šířky pásma Internetu<sup>2</sup> |Minimální šířka pásma požadované: 5 MB/s <br> Doporučená šířky pásma: 100 MB/s <br> Rychlost přenosu dat se dál škáluje s šířky pásma Internetu. Například 100 GB dat přebírá 2 dní pro přenos na 5 MB/s, což může vést k selhání zálohování, protože by dokončení denní zálohy za den. Šířka pásma 100 MB/s 100 GB dat lze přenést 2,5 hodin.   |
 
 <sup>1</sup> – dynamické zřídit
 
@@ -113,7 +113,7 @@ Doporučujeme vám, že nastavíte vašich pravidlech brány firewall pro odchoz
 > [!NOTE]
 > 
 > * Zařízení (zdroj) IP adres by měl být vždy nastavená na všechna rozhraní sítě povolenou podporu cloudu. 
-> * Cílové IP adresy musí být nastavena na [rozsahy IP adres Azure datacenter](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * Cílové IP adresy musí být nastavena na [rozsahy IP adres Azure datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -128,6 +128,5 @@ Doporučujeme vám, že nastavíte vašich pravidlech brány firewall pro odchoz
 | `https://*.partners.extranet.microsoft.com/*` |Balíček pro podporu |
 | `http://*.data.microsoft.com ` |Telemetrie služby v systému Windows, najdete v článku [aktualizace pro zkušeností zákazníků a diagnostiky telemetrii](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>Další krok
+## <a name="next-steps"></a>Další kroky
 * [Příprava na portálu pro nasazení pole virtuální zařízení StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)
-

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP adresa typy a metody přidělování (klasické) v Azure
 Přiřazením IP adres k prostředkům Azure umožníte komunikaci s ostatními prostředky Azure, místní sítí a internetem. Existují dva typy IP adres můžete použít v Azure: veřejné a soukromé.
@@ -141,9 +141,8 @@ Následující tabulka uvádí každý typ prostředku s možné přidělení me
 
 | Prostředek | Dynamická | Statická | Několik IP adres |
 | --- | --- | --- | --- |
-| Virtuální počítač (v *samostatné* Cloudová služba) |Ano |Ano |Ano |
-| PaaS role instance (v *samostatné* Cloudová služba) |Ano |Ne |Ano |
-| Instance role virtuálního počítače nebo PaaS (ve virtuální síti) |Ano |Ano |Ano |
+| Virtuální počítač (v *samostatné* Cloudová služba nebo virtuální síť) |Ano |Ano |Ano |
+| PaaS role instance (v *samostatné* Cloudová služba nebo virtuální síť) |Ano |Ne |Ne |
 | Nástroje pro vyrovnávání zatížení interní front-end |Ano |Ano |Ano |
 | Front-endu aplikace brány |Ano |Ano |Ano |
 

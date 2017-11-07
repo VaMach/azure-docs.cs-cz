@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/30/2017
-ms.openlocfilehash: 7ad4a2fd7452f31689a02b144078a9630bfd5259
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití Ruby k připojení a dotazování dat
 Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for PostgreSQL pomocí aplikace v [Ruby](https://www.ruby-lang.org). Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. Kroky v tomto článku předpokládají, že jste obeznámeni s vývojem pomocí Ruby a začínáte s databází Azure pro PostgreSQL.
@@ -53,7 +53,7 @@ Nainstalujte Ruby na vlastní počítač.
 - Pomocí nástroje Gem sestavte modul pg pro Ruby spuštěním příkazu `sudo gem install pg`.
 
 ## <a name="run-ruby-code"></a>Spuštění kódu Ruby 
-- Uložte kód do textového souboru a soubor uložte s příponou souboru .rb do složky projektu, například `C:\rubypostgres\read.rb` nebo `/home/username/rubypostgres/read.rb`.
+- Uložte kód do textového souboru s .rb příponu souboru a uložte soubor do složky projektu, například `C:\rubypostgres\read.rb` nebo`/home/username/rubypostgres/read.rb`
 - Pokud chcete kód spustit, spusťte příkazový řádek nebo prostředí Bash. Pokud chcete aplikaci spustit, změňte adresář na složku projektu příkazem `cd rubypostgres` a pak zadejte příkaz `ruby read.rb`.
 
 ## <a name="get-connection-information"></a>Získání informací o připojení

@@ -1,9 +1,9 @@
 ---
-title: "Sítě pro připojení k síti virtuálních počítačů po převzetí služeb při selhání do Azure s Azure Site Recovery | Microsoft Docs"
+title: "Připojení k virtuální počítače po převzetí služeb při selhání do Azure s Azure Site Recovery | Microsoft Docs"
 description: "Pokyny pro připojení k virtuálním počítačům Azure po převzetí služeb při selhání z s Azure Site Recovery místní sítě"
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
+author: prateek9us
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/12/2017
-ms.author: raynew
-ms.openlocfilehash: 01c8e664465350b9dd382502c65cc3fda350797c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: pratshar
+ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="networking-for-vm-connectivity-after-failover"></a>Sítě pro připojení k síti virtuálních počítačů po převzetí služeb při selhání
+# <a name="connecting-to-vms-after-failover-to-azure"></a>Připojení k virtuální počítače po převzetí služeb při selhání do Azure
 
 Tento článek vysvětluje síťové požadavky pro připojení k virtuálním počítačům Azure, po použití [Azure Site Recovery](site-recovery-overview.md) služby pro replikaci a převzetí služeb při selhání do Azure.
 

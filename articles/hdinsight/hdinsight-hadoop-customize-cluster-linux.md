@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 549582b0282a7b0382496b89dbcb4330ab67192a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Přizpůsobení clusterů HDInsight se systémem Linux pomocí akce skriptu
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Přizpůsobení clusterů HDInsight se systémem Linux pomocí akcí skriptů
 
 HDInsight nabízí možnost konfigurace názvem **akce skriptu** vlastní skripty, které přizpůsobují clusteru, který spustí. Tyto skripty se používají k instalaci dalších součástí a změně nastavení konfigurace. Akce skriptu lze během nebo po vytvoření clusteru.
 
@@ -55,7 +55,7 @@ Další informace o práci se správou přístupu najdete v následujících dok
 
 ## <a name="understanding-script-actions"></a>Vysvětlení akcí skriptů
 
-Akce skriptu je jednoduše Bash skript, který zadáte identifikátorů URI a parametry. Skript se spustí na uzlech v clusteru HDInsight. Dále jsou vlastnosti a funkce akce skriptu.
+Akce skriptu je Bash skript, který zadáte identifikátorů URI a parametry. Skript se spustí na uzlech v clusteru HDInsight. Dále jsou vlastnosti a funkce akce skriptu.
 
 * Musí být uložen v identifikátoru URI, který je přístupný z clusteru HDInsight. Toto jsou možné úložiště umístění:
 
@@ -150,7 +150,7 @@ Pokud použijete skript do clusteru, je stav clusteru se změní z **systémem**
 > [!NOTE]
 > Pokud jste změnili heslo uživatele (správce) clusteru po vytvoření clusteru, skript, který spustil akce pro tento cluster mohou selhat. Pokud máte jakékoli trvalé akce se skripty této cílové uzly pracovního procesu, tyto skripty se pravděpodobně nezdaří při změně měřítka clusteru.
 
-## <a name="example-script-action-scripts"></a>Příklad akce skriptu skripty
+## <a name="example-script-action-scripts"></a>Příklad skriptu akce skriptů
 
 Skript akce skripty můžete použít následující nástroje:
 
@@ -233,7 +233,7 @@ Informace o tom, jak nasadit šablonu najdete v následujících dokumentech:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Použití akce skriptu při vytváření clusteru z prostředí Azure PowerShell
 
-V této části můžete použít [přidat AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) rutiny k vyvolání skripty pomocí akce skriptu k přizpůsobení clusteru. Než budete pokračovat, ujistěte se, jste nainstalovali a nakonfigurovali Azure PowerShell. Informace o konfiguraci pracovní stanice ke spouštění rutin prostředí HDInsight PowerShell naleznete v tématu [nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/overview).
+V této části můžete použít [přidat AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) rutiny k vyvolání skripty za účelem přizpůsobení clusteru. Než budete pokračovat, ujistěte se, jste nainstalovali a nakonfigurovali Azure PowerShell. Informace o konfiguraci pracovní stanice ke spouštění rutin prostředí HDInsight PowerShell naleznete v tématu [nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/overview).
 
 Následující skript ukazuje, jak se má použít akci skriptu při vytváření clusteru pomocí prostředí PowerShell:
 
@@ -260,7 +260,7 @@ V této části zjistěte, jak lze aplikovat akce skriptu do clusteru s podporou
    > [!NOTE]
    > Můžete také vybrat **všechna nastavení** a pak vyberte **akcí skriptů** v části nastavení.
 
-3. Z horní části akcí skriptů, vyberte **odeslání nové**.
+3. Z horní části oblasti akce skriptu, vyberte **odeslání nové**.
 
     ![Přidat skript do clusteru s podporou spuštěná](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -447,7 +447,7 @@ Webovému uživatelskému rozhraní Ambari slouží k zobrazení informací zazn
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Přístup k protokolům z výchozí účet úložiště
 
-Pokud se vytvoření clusteru se nezdaří z důvodu chyby akce skriptu, protokoly jsou přístupné z účtu úložiště clusteru.
+Pokud se vytvoření clusteru se nezdaří z důvodu chyby skriptu, protokoly jsou uloženy v účtu úložiště clusteru.
 
 * Protokoly úložiště jsou dostupné v `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
@@ -503,7 +503,7 @@ Informace o připojení ke clusteru pomocí protokolu SSH naleznete v tématu [p
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Historie nezobrazí skripty použité při vytváření clusteru
 
-Pokud váš cluster byl vytvořen ještě před 15. března 2016, nemusíte vidět položku v historii akcí skriptu. Pokud změníte velikost clusteru po 15. března 2016, skripty, pomocí při vytváření clusteru zobrazí v historii, jako jsou nastavení použita na nové uzly v clusteru během operace změny velikosti.
+Pokud váš cluster byl vytvořen ještě před 15. března 2016, nemusíte vidět položku v historii akcí skriptu. Změna velikosti clusteru způsobí, že skripty se objeví v historii akcí skriptu.
 
 Existují dvě výjimky:
 

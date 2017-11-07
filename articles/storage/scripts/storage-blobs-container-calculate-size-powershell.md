@@ -15,13 +15,13 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/23/2017
 ms.author: fryu
-ms.openlocfilehash: 46f3eac0129da41062caba2da090f9e532505d67
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: cb053ba730a7dac5c23d98e1046fd63d27831e16
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>Vypočítat velikost kontejner úložiště objektů Blob
+# <a name="calculate-the-size-of-a-blob-container"></a>Vypočítat velikost kontejner objektů blob
 
 Tento skript se vypočítá velikost kontejner v úložišti objektů Blob Azure součtem velikost objektů BLOB v kontejneru.
 
@@ -29,15 +29,15 @@ Tento skript se vypočítá velikost kontejner v úložišti objektů Blob Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="understand-the-size-of-blob-storage-container"></a>Pochopení velikost kontejner úložiště objektů Blob
+## <a name="determine-the-size-of-the-blob-container"></a>Určit velikost kontejneru objektů blob
 
-Celková velikost kontejner úložiště objektů Blob zahrnuje, velikost kontejneru sám a velikost všech objektů BLOB v kontejneru.
+Celková velikost kontejneru objektů blob obsahuje velikost kontejneru sám a velikost všech objektů BLOB v kontejneru.
 
-Následující text popisuje, jak je vypočtena úložnou kapacitu pro kontejnery objektů Blob a objekty BLOB. V nižší než Len(X) znamená počet znaků v řetězci.
+Následující části popisuje, jak je vypočtena úložnou kapacitu pro kontejnery objektů blob a objekty BLOB. V následující části Len(X) znamená počet znaků v řetězci.
 
 ### <a name="blob-containers"></a>Kontejnery objektů BLOB
 
-Toto je postup odhadnout velikost úložiště na kontejner objektů blob:
+Následující výpočet popisuje, jak odhadnout velikost úložiště, který je na kontejner objektů blob:
 
 `
 48 bytes + Len(ContainerName) * 2 bytes +
@@ -47,45 +47,70 @@ For-Each Signed Identifier[512 bytes]
 
 Toto je rozdělení:
 * 48 bajtů režie pro každý kontejner obsahuje čas poslední změny, oprávnění, nastavení veřejných a některá metadata systému.
-* Název kontejneru je uložena, protože kódování Unicode trvat počet znaků a vynásobit 2.
-* Pro každý metadata kontejneru objektu blob uložené uložíme délka názvu (uložené ve formátu ASCII) plus délka hodnotu řetězce.
-* 512 bajtů na podepsané identifikátor zahrnuje název podepsaný identifikátoru, času spuštění, čas vypršení platnosti a oprávnění.
+
+* Název kontejneru je uložena ve formátu Unicode, takže provést počet znaků a zdvojnásobte.
+
+* Pro každý blok metadata kontejneru objektu blob, který je uložený uložíme délka názvu (ASCII), plus délka hodnotu řetězce.
+
+* 512 bajtů na podepsané identifikátor zahrnuje název podepsaný identifikátoru, čas zahájení, čas vypršení platnosti a oprávnění.
 
 ### <a name="blobs"></a>Objekty blob
 
-Toto je postup odhadnout velikost úložiště na objekt blob:
+Tyto výpočty ukazují, jak odhadnout velikost úložiště na objekt blob.
 
-* Objekt Blob bloku (základní objekt blob nebo snímek)
+* Objekt blob bloku (základní objekt blob nebo snímek):
 
-`
-124 bytes + Len(BlobName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
-SizeInBytes(data in unique committed data blocks stored) +
-SizeInBytes(data in uncommitted data blocks)
-`
+   `
+   124 bytes + Len(BlobName) * 2 bytes +
+   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
+   8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
+   SizeInBytes(data in unique committed data blocks stored) +
+   SizeInBytes(data in uncommitted data blocks)
+   `
 
-* Objekt Blob stránky (základní objekt blob nebo snímek)
+* Objekt blob stránky (základní objekt blob nebo snímek):
 
-`
-124 bytes + Len(BlobName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-number of nonconsecutive page ranges with data * 12 bytes +
-SizeInBytes(data in unique pages stored)
-`
+   `
+   124 bytes + Len(BlobName) * 2 bytes +
+   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
+   number of nonconsecutive page ranges with data * 12 bytes +
+   SizeInBytes(data in unique pages stored)
+   `
 
 Toto je rozdělení:
 
-* 124 bajtů režie pro objekt blob, což zahrnuje času poslední změny, velikost, Cache-Control, Content-Type, Content-Language, kódování obsahu, MD5 obsah, oprávnění, snímku informace, zapůjčení a některá metadata systému.
-* Název objektu blob je uloženo jako Unicode trvat tak počet znaků a více ve 2.
-* Potom pro každou metadata uloží, délka názvu (uložené ve formátu ASCII) plus délka hodnotu řetězce.
-* Pak pro objekty BLOB bloku
-    * 8 bajtů pro do seznamu zakázaných položek
-    * Počet bloků s časy velikost bloku ID v bajtech
-    * Plus velikost dat ve všech potvrdit a nepotvrzené bloky. Poznámka: Pokud použijete snímky, tato velikost obsahuje pouze jedinečné data pro tento objekt blob základní nebo snímek. Pokud po týdnu se nepoužívají nepotvrzené bloky, budou uvolnění z paměti, a pak v ten moment se bude už započítávat fakturace, po který.
-* Pak pro objekty BLOB stránky
-    * Počet rozsahů nejdou stránek s daty případech 12 bajtů. Toto je počet rozsahů jedinečný stránek, které se zobrazí při volání rozhraní API GetPageRanges.
-    * Plus velikost dat v bajtech všechny uložené stránky. Poznámka: Pokud se používá snímky, tato velikost pouze obsahuje jedinečný stránek pro základní objekt blob nebo objekt blob snímku se počítá.
+* 124 bajtů režie pro objekt blob, která zahrnuje:
+    - Čas poslední změny
+    - Velikost
+    - Cache-Control
+    - Content-Type
+    - Obsah – jazyk
+    - Kódování obsahu
+    - Obsah MD5
+    - Oprávnění
+    - Informace o snímku
+    - Zapůjčení
+    - Některá metadata systému
+
+* Název objektu blob je uložena ve formátu Unicode, takže provést počet znaků a zdvojnásobte.
+
+* Pro každý blok metadat, která je uložená přidejte délka názvu (uložené ve formátu ASCII), plus délka hodnotu řetězce.
+
+* Pro objekty BLOB bloku:
+    * 8 bajtů pro do seznamu zakázaných položek.
+    * Počet bloků časy velikost bloku ID v bajtech.
+    * Velikost dat ve všech potvrdit a nepotvrzené bloky. 
+    
+    >[!NOTE]
+    >Pokud použijete snímky, tato velikost obsahuje pouze jedinečné data pro tento objekt blob základní nebo snímek. Pokud se po týdnu se nepoužívají nepotvrzené bloky, jsou uvolňování paměti. Potom nemáte započítává k fakturaci.
+
+* Pro objekty BLOB stránky:
+    * Počet rozsahů nejdou stránek s daty případech 12 bajtů. Toto je počet rozsahů jedinečný stránek se zobrazí při volání metody **GetPageRanges** rozhraní API.
+
+    * Velikost dat v bajtech všechny uložené stránky. 
+    
+    >[!NOTE]
+    >Pokud použijete snímky, tato velikost obsahuje pouze jedinečné stránek pro základní objekt blob nebo objekt blob snímek, který se počítá.
 
 ## <a name="sample-script"></a>Ukázkový skript
 
@@ -93,8 +118,8 @@ Toto je rozdělení:
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o fakturaci úložiště Azure najdete v tématu [Principy Windows Azure Storage fakturace](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+- Další informace o fakturaci Azure Storage najdete v tématu [Principy Windows Azure Storage fakturace](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Další informace o modulu Azure PowerShell najdete v tématu [dokumentace Azure PowerShell](/powershell/azure/overview).
+- Další informace o modulu Azure PowerShell najdete v tématu [dokumentace Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
 
-Ukázky skriptu PowerShell další úložiště naleznete v [ukázky prostředí PowerShell pro Azure Storage](../blobs/storage-samples-blobs-powershell.md).
+- Můžete najít další ukázky skriptu PowerShell úložiště v [ukázky prostředí PowerShell pro Azure Storage](../blobs/storage-samples-blobs-powershell.md).

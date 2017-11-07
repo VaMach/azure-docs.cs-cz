@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: 09b8634160c35f3c6a48812358ec872e52d8b21c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Databáze Azure pro servery PostgreSQL
-Toto téma obsahuje důležité informace a pokyny pro práci s databází Azure pro servery PostgreSQL.
+Tento článek obsahuje důležité informace a pokyny pro práci s databází Azure pro servery PostgreSQL.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Co je Azure databáze PostgreSQL serveru?
 Databázi Azure pro PostgreSQL server je centrální administrativní bod pro více databází. Je stejné konstrukce serveru PostgreSQL, který může na světě místní být obeznámeni s. Konkrétně službu PostgreSQL je spravovaný, poskytuje záruku výkonu, zpřístupní přístup a funkce na úrovni serveru.
@@ -33,7 +33,7 @@ Databázi Azure pro PostgreSQL server:
 - Je k dispozici v několika verzích. Další informace najdete v tématu [verze databáze podporována PostgreSQL](concepts-supported-versions.md).
 - Je rozšiřitelný uživatelé. Další informace najdete v tématu [PostgreSQL rozšíření](concepts-extensions.md).
 
-V rámci Azure Database pro PostgreSQL server můžete vytvořit jeden nebo více databází. Můžete se rozhodnout vytvořit jednu databázi na server pro využití všech prostředků nebo vytvořit několik databází, které budou prostředky sdílet. Cenách je strukturovaných jednotlivých serverů, na základě konfigurace cenová úroveň, výpočetní jednotky a úložiště (GB). Další podrobnosti najdete v tématu [cenové úrovně](./concepts-service-tiers.md).
+V rámci Azure Database pro PostgreSQL server můžete vytvořit jeden nebo více databází. Můžete se rozhodnout vytvořit jednu databázi na server pro využití všech prostředků nebo vytvořit několik databází, které budou prostředky sdílet. Cenách je strukturovaných jednotlivých serverů, na základě konfigurace cenová úroveň, výpočetní jednotky a úložiště (GB). Další informace najdete v tématu [cenové úrovně](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Jak připojit a ověřit k databázi Azure pro PostgreSQL server?
 Tyto prvky pomoct zajistit bezpečný přístup k vaší databázi.
@@ -43,7 +43,7 @@ Tyto prvky pomoct zajistit bezpečný přístup k vaší databázi.
 | **Ověřování a autorizace** | Azure databázi PostgreSQL serveru podporuje nativní PostgreSQL ověřování. Můžete se připojit a ověření serveru s přihlašovací jméno správce serveru. |
 | **Protokol** | Služba podporuje protokol na základě zpráv používá PostgreSQL. |
 | **TCP/IP** | Protokol je podporována přes TCP/IP a přes sockets Unix domény. |
-| **Brána firewall** | K ochraně dat, pravidlo brány firewall brání veškerý přístup k databázovému serveru a její databáze, dokud nezadáte, které počítače mají oprávnění. V tématu [databáze Azure pro pravidla brány firewall serveru PostgreSQL](concepts-firewall-rules.md). |
+| **Brána firewall** | Chrání vaše data, pravidlo brány firewall zabrání veškerý přístup k serveru a k jeho databázím, dokud nezadáte, které počítače mají oprávnění. V tématu [databáze Azure pro pravidla brány firewall serveru PostgreSQL](concepts-firewall-rules.md). |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Jak lze spravovat server?

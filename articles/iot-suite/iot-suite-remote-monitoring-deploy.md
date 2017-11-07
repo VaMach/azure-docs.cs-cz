@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: b16990d41b691c13b01d61aa0cde7d14e533e440
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Nasadit předkonfigurované řešení vzdáleného monitorování
 
@@ -39,9 +39,13 @@ Pokud nemáte účet, můžete si během několika minut vytvořit bezplatný ú
 
 Než nasadíte předkonfigurované řešení k předplatnému Azure, musíte zvolit některé možnosti konfigurace:
 
-1. Přihlaste se k [azureiotsuite.com](https://www.azureiotsuite.com) pomocí vaší Azure přihlašovací údaje účtu a klikněte na tlačítko  **+**  vytvářet řešení.
+1. Přihlaste se k [azureiotsuite.com](https://www.azureiotsuite.com) pomocí vaší Azure přihlašovací údaje účtu a klikněte na tlačítko  **+**  k vytvoření nové řešení:
 
-1. Klikněte na tlačítko **Vybrat**, které se nachází na dlaždici **Vzdálené monitorování**.
+    ![Vytvořit nové řešení](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Klikněte na tlačítko **vyberte** na **vzdálené monitorování preview** dlaždici.
+
+    ![Zvolte vzdálené monitorování](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. Na **vytvořit vzdálené monitorování řešení** stránky, zadejte **název řešení** pro předkonfigurované řešení vzdáleného monitorování.
 
@@ -53,7 +57,9 @@ Než nasadíte předkonfigurované řešení k předplatnému Azure, musíte zvo
 
 1. Vyberte **Předplatné** a **Oblast**, které chcete při zřizování řešení použít.
 
-1. Kliknutím na tlačítko **Vytvořit řešení** zahájíte proces zřizování. Tento proces obvykle trvá několik minut.
+1. Kliknutím na tlačítko **Vytvořit řešení** zahájíte proces zřizování. Tento proces obvykle trvá několik minut:
+
+    ![Podrobnosti o řešení vzdáleného](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 Informace o odstraňování potíží, najdete v části [co dělat, když se nasazení nezdaří](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) v úložišti GitHub.
 
@@ -61,12 +67,16 @@ Informace o odstraňování potíží, najdete v části [co dělat, když se na
 
 Po dokončení procesu zřizování se můžete přihlásit předkonfigurované řešení vzdáleného monitorování.
 
-1. Na **zřízení řešení** vyberte vaší nové řešení vzdáleného monitorování.
+1. Na **zřízení řešení** vyberte vaší nové řešení vzdáleného monitorování:
+
+    ![Zvolte nové řešení](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. Zobrazení informací o řešení vzdáleného monitorování v panelu, který se zobrazí. Zvolte **řídicí panel řešení** pro připojení k řešení vzdáleného monitorování.
 
     > [!NOTE]
     > Když skončíte s ním můžete odstranit řešení vzdáleného monitorování z tohoto panelu.
+
+    ![Panel řešení](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. Řídicím panelu řešení vzdáleného monitorování se zobrazí v prohlížeči.
 

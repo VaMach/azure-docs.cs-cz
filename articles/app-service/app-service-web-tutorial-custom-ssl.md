@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Vytvoření vazby stávající vlastní certifikát SSL pro službu Azure Web Apps
 
@@ -151,13 +151,13 @@ Pokud jste použili služby IIS nebo _Certreq.exe_ generovat žádosti o certifi
 
 Chcete-li nahrát svůj certifikát SSL, klikněte na tlačítko **certifikáty SSL** v levé navigaci vaší webové aplikace.
 
-Klikněte na tlačítko **nahrát certifikát**.
+Klikněte na tlačítko **nahrát certifikát**. 
 
 V **soubor certifikátu PFX**, vyberte soubor PFX. V **heslo certifikátu**, zadejte heslo, které jste vytvořili při exportu souboru PFX.
 
 Klikněte na **Odeslat**.
 
-![Nahrání certifikátu](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Nahrání certifikátu](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 Po dokončení nahrávání svůj certifikát služby App Service se zobrazí v **certifikáty SSL** stránky.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Certifikáty s veřejným (volitelné)
+Můžete nahrát [veřejné certifikáty](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) do vaší webové aplikace. Můžete použít certifikáty s veřejným s webovými aplikacemi App Service nebo prostředí App Service (App Service Environment). Pokud potřebujete k uložení certifikátu v úložišti certifikátů LocalMachine, budete muset použít webové aplikace v prostředí aplikace služby. Další podrobnosti najdete v tématu [postup konfigurace veřejné certifikáty do vaší webové aplikace](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Nahrát veřejný certifikát](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Další kroky
 

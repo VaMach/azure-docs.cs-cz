@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/31/2017
-ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Databáze Azure pro výkon a možnosti PostgreSQL: co je k dispozici v jednotlivých cenových úrovní
 Když vytvoříte databázi Azure pro PostgreSQL server, rozhodněte tři hlavní možnosti konfigurace prostředky přidělené pro tento server. Tyto možnosti vliv na výkon a škálování serveru.
@@ -53,7 +53,7 @@ Při rozhodování o cenovou úroveň, nejprve spusťte tak, že určíte, pokud
 Období preview nelze změnit cenovou úroveň, jakmile je vytvořena serveru. V budoucnu bude možné upgradovat nebo starší verzi serveru z jednu cenovou úroveň na jinou vrstvu.
 
 ## <a name="understand-the-price"></a>Pochopení za cenu.
-Když vytvoříte novou databázi Azure pro PostgreSQL uvnitř [portálu Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), klikněte na tlačítko **cenová úroveň** okno a měsíční náklady se zobrazí na základě na vybrané možnosti. Pokud nemáte předplatné Azure, použijte Azure cenové kalkulačky získat odhadované ceny. Navštivte [Azure cenové kalkulačky](https://azure.microsoft.com/pricing/calculator/) web, pak klikněte na tlačítko **přidat položky**, rozbalte **databáze** kategorie a zvolte **databáze Azure pro PostgreSQL**  přizpůsobit možnosti.
+Když vytvoříte novou databázi Azure pro PostgreSQL uvnitř [portál Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), klikněte na tlačítko **cenová úroveň** stránku a náklady na měsíční je zobrazený na základě na vybrané možnosti. Pokud nemáte předplatné Azure, použijte Azure cenové kalkulačky získat odhadované ceny. Navštivte [Azure cenové kalkulačky](https://azure.microsoft.com/pricing/calculator/) web, pak klikněte na tlačítko **přidat položky**, rozbalte **databáze** kategorie a zvolte **databáze Azure pro PostgreSQL**  přizpůsobit možnosti.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Zvolte si úroveň výkonu (výpočetní jednotky)
 Po určení cenovou úroveň pro vaši databázi Azure pro PostgreSQL server, jste připraveni k určení úrovně výkonu výběrem počet jednotek výpočetní potřeby. Vhodná výchozí hodnota je 200 nebo 400 výpočetní jednotky pro aplikace, které vyžadují vyšší souběžnosti uživatele pro jejich web nebo analytické úlohy a postupně podle potřeby upravit. 
@@ -85,7 +85,7 @@ Konfigurace úložiště definuje množství kapacity úložiště, které jsou 
 
 Některé kapacita úložiště je zahrnutý minimálně s každou cenovou úroveň, jsou popsány v předchozí jako "Zahrnuté velikost úložiště". Kapacita úložiště lze přidat, když je vytvořen serveru, v přírůstcích po 125 GB až do maximální povolené úložiště. Další úložnou kapacitu se dá nakonfigurovat nezávisle na výpočetní jednotky konfigurace. Změny ceny založenou na velikosti úložiště vybrané.
 
-Konfigurace IOPS v každé úrovni výkonu má vztah k cenové úrovně a velikost úložiště vybrali. Základní úroveň neposkytuje záruku IOPS. V rámci standardní cenovou úroveň úměrně IOPS pro maximální velikost úložiště v pevný poměr 3:1. Zahrnuté úložiště 125 GB zaručuje 375 zřízené iops, každý s velikostí vstupně-výstupní operace až 256 kB. Další úložiště můžete 1 TB maximum zaručit 3000 zřízené IOPS.
+Konfigurace IOPS v každé úrovni výkonu má vztah k cenové úrovně a velikost úložiště vybrali. Základní úroveň neposkytuje záruku IOPS. V rámci standardní cenovou úroveň úměrně IOPS pro maximální velikost úložiště v pevný poměr 3:1. Zahrnuté úložiště záruky 125 GB pro 375 zřizuje IOPS, každý s velikostí vstupně-výstupní operace až 256 kB. Další úložiště můžete 1 TB maximum zaručit 3000 zřízené IOPS.
 
 Monitorování grafu metriky na portálu Azure nebo psát příkazy rozhraní příkazového řádku Azure k měření spotřeby úložiště a IOPS. Relevantní metriky pro monitorování jsou limit úložiště, úložiště procento, úložiště, které používají a vstupně-výstupní operace.
 
@@ -93,11 +93,11 @@ Monitorování grafu metriky na portálu Azure nebo psát příkazy rozhraní p�
 > Zatímco ve verzi preview, zvolte velikost úložiště na čas, kdy je vytvořena serveru. Změna velikosti úložiště na existující server se ještě nepodporuje. 
 
 ## <a name="scaling-a-server-up-or-down"></a>Škálování server nahoru nebo dolů
-Původně zvolíte cenovou úroveň a úroveň výkonu, když vytvoříte databázi Azure pro PostgreSQL. Později, je možné škálovat výpočetní jednotky nahoru nebo dolů, dynamicky v rozsahu stejné cenovou úroveň. Na portálu Azure, posuňte výpočetní jednotky na serveru cenová úroveň okno, nebo pomocí skriptu podle tento příklad: [sledování a škálování jediného PostgreSQL serveru pomocí rozhraní příkazového řádku Azure](scripts/sample-scale-server-up-or-down.md)
+Původně zvolíte cenovou úroveň a úroveň výkonu, když vytvoříte databázi Azure pro PostgreSQL. Později, je možné škálovat výpočetní jednotky nahoru nebo dolů, dynamicky v rozsahu stejné cenovou úroveň. Na portálu Azure, posuňte výpočetní jednotky na serveru cenová úroveň stránce nebo skript podle tento příklad: [sledování a škálování jediného PostgreSQL serveru pomocí rozhraní příkazového řádku Azure](scripts/sample-scale-server-up-or-down.md)
 
 Výpočetní jednotky škálování se provádí nezávisle na maximální velikost úložiště, které jste vybrali.
 
-Na pozadí Změna úrovně výkonu databáze vytvoří repliku původní databázi na novou úroveň výkonu a pak přepne připojení k replice. Během tohoto procesu bude ztracena žádná data. Během krátké chvíli, když jsme přepnout na repliku je zakázána připojení k databázi, aby některé transakce na cestě může být vrácena zpět. Toto okno se liší, ale v průměru je v části 4 sekund a ve více než 99 % případech je méně než 30 sekund. Pokud v okamžiku zákazu připojení probíhá velké množství transakcí, může se toto časové období prodloužit.
+Na pozadí Změna úrovně výkonu databáze vytvoří kopii původního serveru na novou úroveň výkonu a pak přepne připojení k serveru zkopírovaný. Během tohoto procesu bude ztracena žádná data. Během stručný chvíli, když se systém přepne na novou kopii tohoto serveru je zakázána připojení k databázi, aby některé transakce na cestě může být vrácena zpět. Toto okno se liší, ale v průměru je v části 4 sekund a ve více než 99 % případech je méně než 30 sekund. Pokud v okamžiku zákazu připojení probíhá velké množství transakcí, může se toto časové období prodloužit.
 
 Dobu trvání procesu celý škálování závisí na velikosti i cenová úroveň serveru před a po provedení změny. Například server, který mění výpočetní jednotky v rámci standardní cenovou úroveň, provést v rámci několik minut. Nové vlastnosti pro server se nepoužívají, dokud nebudou dokončeny změny.
 

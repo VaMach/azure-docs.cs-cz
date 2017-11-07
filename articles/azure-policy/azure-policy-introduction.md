@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark; nini
-ms.date: 10/25/2017
+ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: 82721fe984ff7b3c7440b11d7526a9413b0770de
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="what-is-azure-policy"></a>Co je Azure zásad?
 
@@ -55,7 +55,7 @@ Další informace o struktury definice zásady, podívejte se na tento článek 
 
 ## <a name="policy-assignment"></a>Přiřazení zásad
 
-Přiřazení zásady je definici zásady, který byl přiřazen proběhla v rámci konkrétní obor. Tento obor může být v rozsahu od skupiny pro správu do skupiny prostředků. Přiřazení zásad jsou zdědí všechny podřízené prostředky. Takže pokud je zásada pro skupinu prostředků, se použije na všechny prostředky v příslušné skupině prostředků. Termín *oboru* odkazuje na všechny skupiny prostředků, odběry nebo skupin pro správu, které definice zásady je přiřazena k.
+Přiřazení zásady je definici zásady, který byl přiřazen proběhla v rámci konkrétní obor. Tento obor může být v rozsahu od skupiny pro správu do skupiny prostředků. Termín *oboru* odkazuje na všechny skupiny prostředků, odběry nebo skupin pro správu, které definice zásady je přiřazena k. Přiřazení zásad jsou zdědí všechny podřízené prostředky. Takže pokud je zásada pro skupinu prostředků, se použije na všechny prostředky v příslušné skupině prostředků. Subscope však můžete vyloučit z přiřazení zásad. Například v oboru předplatné, můžete přiřadit zásady, které brání vytvoření síťových prostředků. Ale vyloučit jednu skupinu prostředků v rámci předplatného, který je určený pro síťové infrastruktury. Udělit přístup do této skupiny síťových prostředků uživatelům, kterým důvěřujete s vytvářením síťových prostředků.
 
 Další informace o nastavení zásad definice a přiřazení najdete v tématu [vytvoří přiřazení zásady k identifikaci nekompatibilní prostředky v prostředí Azure](assign-policy-definition.md).
 

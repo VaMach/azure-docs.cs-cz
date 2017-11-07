@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Řešení potíží a otázky a odpovědi v nástroji Application Insights
 Dotazy nebo problémy s [Azure Application Insights v jazyce Java][java]? Zde jsou některé tipy.
@@ -124,6 +124,13 @@ V bráně firewall můžete chtít otevřít porty TCP 80 a 443 pro odchozí př
 **Jak dlouho se data uchovávají v portálu? Je bezpečné?**
 
 V tématu [uchovávání dat a ochrana osobních údajů][data].
+
+## <a name="debug-logging"></a>Ladění protokolování
+Application Insights používá `org.apache.http`. To je přemístění v rámci Application Insights základní JAR pod oborem názvů `com.microsoft.applicationinsights.core.dependencies.http`. To umožňuje Application Insights pro zpracování scénáře, kde je to různé verze stejného `org.apache.http` existovat v základu kódu. 
+
+>[!NOTE]
+>Pokud povolíte úroveň protokolování ladění pro všechny obory názvů v aplikaci, bude uplatněn ve všech spuštěných modulů, včetně `org.apache.http` přejmenoval `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights, nebudete moci použít filtrování pro těchto volání, protože probíhá Přišla žádost protokolu pomocí Apache knihovny. Úroveň protokolování ladění vytvořit značné množství dat protokolu a nedoporučuje pro produkční za provozu instance.
+
 
 ## <a name="next-steps"></a>Další kroky
 **Mám nastavit Application Insights pro aplikace my server Java. Kde můžou dělat?**

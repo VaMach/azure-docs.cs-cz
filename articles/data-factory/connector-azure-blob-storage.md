@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: jingwang
-ms.openlocfilehash: c0fd6db570a91eeb1ddcc8a0dcade009b8179f2c
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 76b44766780a730092b31a0c44396f9851dd411a
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure Blob Storage pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [connnector Blog úložiště Azure v V1](v1/data-factory-azure-blob-connector.md).
 
 
-## <a name="supported-scenarios"></a>Podporované scénáře
+## <a name="supported-capabilities"></a>Podporované možnosti
 
 Můžete kopírování dat z jakékoli úložiště podporované zdroje dat do Azure Blob Storage nebo zkopírování dat z Azure Blob Storage do úložiště dat žádné podporované jímky. Seznam úložišť dat, které jsou podporované jako zdroje nebo nebo jímky aktivitou kopírování, najdete [podporovanými úložišti dat](copy-activity-overview.md) tabulky.
 

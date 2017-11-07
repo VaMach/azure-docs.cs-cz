@@ -12,19 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/02/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Přidávat nebo odebírat uzly do clusteru Service Fabric samostatné systémem Windows Server
-Až budete mít [vytvořen samostatný cluster Service Fabric na počítačích systému Windows Server](service-fabric-cluster-creation-for-windows-server.md), může vaše obchodní potřeby změnit a možná budete muset přidávat nebo odebírat uzly do clusteru. Tento článek obsahuje podrobné pokyny k dosažení tohoto cíle. Upozorňujeme, že přidat nebo odebrat uzel funkce není podporována v clusterech místní vývoj.
+Až budete mít [vytvořen samostatný cluster Service Fabric na počítačích systému Windows Server](service-fabric-cluster-creation-for-windows-server.md), může změnit potřeb (business) a budete muset přidávat nebo odebírat uzly do clusteru. Tento článek obsahuje podrobné pokyny k dosažení tohoto cíle. Upozorňujeme, že přidat nebo odebrat uzel funkce není podporována v clusterech místní vývoj.
 
 ## <a name="add-nodes-to-your-cluster"></a>Přidat uzly do clusteru
-1. Příprava virtuálního počítače nebo počítače, který chcete přidat do clusteru pomocí následujících kroků v [Příprava počítačů ke splnění předpokladů pro nasazení clusteru](service-fabric-cluster-creation-for-windows-server.md) části
+
+1. Příprava virtuálního počítače nebo počítače, který chcete přidat do clusteru pomocí následujících kroků uvedených v [plánování a příprava nasazení clusteru Service Fabric](service-fabric-cluster-creation-for-windows-server.md)
 2. Identifikovat, které domény selhání a chcete přidat tento virtuální počítač nebo počítač k doméně pro upgrade
 3. Vzdálené plochy (RDP) do virtuálního počítače nebo počítač, který chcete přidat do clusteru
 4. Kopírování nebo [stáhnout samostatný balíček pro prostředky infrastruktury služby pro systém Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) do virtuálního počítače nebo počítače a rozbalte balíček

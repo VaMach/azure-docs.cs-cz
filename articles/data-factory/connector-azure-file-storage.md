@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 97ce45f93964ac6759a40f4496256167d99190d4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopírování dat z nebo na Azure File Storage pomocí Azure Data Factory
 
@@ -26,7 +26,7 @@ Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [aktivitu kopírování v V1](v1/data-factory-data-movement-activities.md).
 
-## <a name="supported-scenarios"></a>Podporované scénáře
+## <a name="supported-capabilities"></a>Podporované možnosti
 
 Můžete zkopírovat data z Azure File Storage do úložiště dat žádné podporované podřízený nebo zkopírování dat z jakékoli úložiště podporované zdroje dat do Azure File Storage. Seznam úložišť dat, které jsou podporovány jako zdroje nebo jímky aktivitě kopírování najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) tabulky.
 
@@ -48,7 +48,11 @@ Pro soubor propojené služby Azure Storage jsou podporovány následující vla
 | hostitele | Určuje koncový bod Azure File Storage jako `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ano |
 | ID uživatele | Zadejte uživatele pro přístup k Azure File Storage jako `"userid": "AZURE\\<storage name>"`. | Ano |
 | heslo | Zadejte přístupový klíč úložiště. Toto pole můžete označte jako SecureString.<br/> | Ano |
-| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
+| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
+
+>[!TIP]
+> - Zkopírovat do Azure File Storage pomocí Runtime integrace Azure, explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) umístění souboru úložiště a přidružení v propojené službě jako v následujícím příkladu.
+> - Pokud chcete zkopírovat z/do Azure File Storage pomocí modulu Runtime integrace Self-hosted mimo Azure, nezapomeňte otevřete odchozí port TCP 445 v místní síti.
 
 **Příklad:**
 
@@ -72,9 +76,6 @@ Pro soubor propojené služby Azure Storage jsou podporovány následující vla
     }
 }
 ```
-
-> [!TIP]
-> Při použití Self-hosted integrace Runtime mimo Azure ke zkopírování dat z/do Azure File Storage, nezapomeňte otevřete odchozí port TCP 445 v místní síti.
 
 ## <a name="dataset-properties"></a>Vlastnosti datové sady
 

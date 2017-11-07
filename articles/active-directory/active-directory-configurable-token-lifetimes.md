@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurovat životnosti tokenu v Azure Active Directory (Public Preview)
 Můžete zadat dobu životnosti tokenem vydaným službou Azure Active Directory (Azure AD). Můžete nastavit životnosti tokenu pro všechny aplikace ve vaší organizaci, pro aplikaci víceklientské (více organizace) nebo pro objekt určité služby ve vaší organizaci.
@@ -58,9 +58,9 @@ Veřejné klientů nelze bezpečně uložit heslo klienta (tajný klíč). Aplik
 ID tokeny jsou předány weby a nativních klientů. ID tokeny obsahovat profil informací o uživateli. ID token je vázána na konkrétní kombinaci uživatele a klienta. ID tokeny považovány za platný až do vypršení jejich platnosti. Obvykle aplikace webového odpovídá uživatele je vydán dobu platnosti relace v aplikaci na dobu životnosti tokenu ID pro uživatele. Můžete upravit dobu životnosti tokenu ID řídit, jak často webové aplikace skončí relace aplikace a jak často se vyžaduje, aby uživatel nové ověření vyžadováno s Azure AD (bezobslužná nebo interaktivní).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokeny jedné relace přihlášení
-Když uživatel ověřuje s Azure AD a vybere **zůstat přihlášeni** políčko relaci přihlašování (SSO) se naváže prohlížeče uživatele a Azure AD. Token jednotného přihlašování, ve formátu souboru cookie, představuje tuto relaci. Všimněte si, že token relace jednotného přihlašování není vázána na konkrétní prostředek nebo klientskou aplikaci. Tokeny relace jednotného přihlašování se dají odvolávat a jejich platnost kontroluje pokaždé, když se používají.
+Když se uživatel ověřuje s Azure AD, se relaci přihlašování (SSO) naváže prohlížeče uživatele a Azure AD. Token jednotného přihlašování, ve formátu souboru cookie, představuje tuto relaci. Všimněte si, že token relace jednotného přihlašování není vázána na konkrétní prostředek nebo klientskou aplikaci. Tokeny relace jednotného přihlašování se dají odvolávat a jejich platnost kontroluje pokaždé, když se používají.
 
-Azure AD používá dva typy tokenů relace jednotného přihlašování: trvalé a zajišťováno. Trvalé relace tokeny jsou uloženy jako trvalé soubory cookie v prohlížeči. Tokeny zajišťováno relace jsou uloženy jako soubory cookie relace. (Souborů cookie relací jsou zničen při zavření prohlížeče.)
+Azure AD používá dva typy tokenů relace jednotného přihlašování: trvalé a zajišťováno. Trvalé relace tokeny jsou uloženy jako trvalé soubory cookie v prohlížeči. Tokeny zajišťováno relace jsou uloženy jako soubory cookie relace. (Souborů cookie relací jsou zničen při zavření prohlížeče.) Obvykle je uložena token zajišťováno relace. Ale když uživatel vybere **zůstat přihlášeni** políčko při ověřování tokenu trvalé relace je uložen.
 
 Zajišťováno relace tokeny mají životnost 24 hodin. Trvalé tokeny mají životnost 180 dní. Token relace jednotného přihlašování se používá v rozsahu období platnosti, když je platnosti prodloužit jiný 24 hodin nebo 180 dnů, v závislosti na typ tokenu. Pokud token relace jednotného přihlašování se nepoužívá v rozsahu období platnosti, bude považován za platnost a již byla přijata.
 

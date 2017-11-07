@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Nejčastější dotazy ohledně Azure Security Center
 Tyto nejčastější dotazy odpovědi na otázky o Azure Security Center, služba, která pomáhá zabránit, zjistit a reagovat na hrozby nabízí lepší přehled a kontrolu nad zabezpečení vašich prostředků Microsoft Azure.
@@ -127,6 +127,15 @@ Azure Security Center obsahuje přehled antimalwarové nainstalované prostředn
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>Proč se zobrazila zpráva "Chybí Data kontroly" pro virtuální počítač?
 Tato zpráva se zobrazí, když nejsou žádná data kontroly pro virtuální počítač. Může trvat delší dobu (méně než jednu hodinu) pro data skenování k naplnění po povolení shromažďování dat v Azure Security Center. Po počáteční naplnění data skenování může se zobrazit tato zpráva protože chybí data kontroly vůbec nebo nejsou žádná data poslední kontroly. Prohledávání naplnit není pro virtuální počítač v zastaveném stavu. Tato zpráva se může zobrazit i v případě, že data skenování nebylo naplněno nedávno (v souladu se zásadami uchovávání informací pro agenta systému Windows, který má výchozí hodnota je 30 dní).
+
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Jak často Security Center kontrolovat ohrožení zabezpečení operačního systému, aktualizací systému a potíže s ochranou koncového bodu?
+Latence v Centru zabezpečení hledá ohrožení zabezpečení, aktualizace, a je problémy:
+
+- Ohrožení zabezpečení operačního systému (společností Microsoft) – data se aktualizují v rámci 48 hodin
+- Aktualizace systému – data se aktualizuje do 24 hodin
+- Problémy ochrany koncového bodu – data se aktualizují v rámci 8 hodin
+
+Pro nová data Security Center obvykle kontroluje každou hodinu. Výše uvedené latence hodnoty jsou nejhoršího scénáře kde poslední kontroly není nebo kontroly se nezdařilo.
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Proč se zobrazila zpráva "Agenta virtuálního počítače je chybějící?"
 Na virtuálních počítačích povolit shromažďování dat musí být nainstalován Agent virtuálního počítače. Agent virtuálního počítače je ve výchozím nastavení nainstalován na virtuálních počítačích nasazených z Azure Marketplace. Informace o tom, jak nainstalovat agenta virtuálního počítače na ostatních virtuálních počítačů, naleznete v příspěvku blogu [agenta virtuálního počítače a rozšíření](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

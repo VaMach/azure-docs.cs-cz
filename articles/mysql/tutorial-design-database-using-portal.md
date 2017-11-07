@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Navrhnout první databáze Azure pro databázi MySQL
 Azure Database for MySQL je spravovaná služba, která umožňuje spouštět, spravovat a škálovat vysoce dostupné databáze MySQL v cloudu. Pomocí portálu Azure, můžete snadno spravovat váš server a návrhu databáze.
@@ -41,7 +41,7 @@ Server Azure Database for MySQL se vytvoří s definovanou sadou [výpočetních
 
 2. Klikněte na tlačítko **Azure Database pro databázi MySQL** dlaždici a potom klikněte na **vytvořit**.
 
-V našem příkladu vyplňte Azure databáze MySQL formuláře s následujícími informacemi:
+V tomto příkladu vyplňte Azure databáze MySQL formuláře s následujícími informacemi:
 
 | **Nastavení** | **Navrhovaná hodnota** | **Popis pole** |
 |---|---|---|
@@ -98,9 +98,9 @@ USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Vytváření tabulek v databázi
-Teď, když víte, jak se připojit k databázi Azure pro databázi MySQL, jsme projít jak provést některé základní úlohy.
+Teď, když víte, jak se připojit k databázi Azure pro databázi MySQL, můžete provést některé základní úlohy:
 
-Jsme nejprve vytvořit tabulku a načíst určitými daty. Umožňuje vytvořit tabulku, která ukládá informace o inventáři.
+Nejprve vytvořte tabulku a načíst určitými daty. Umožňuje vytvořit tabulku, která ukládá informace o inventáři.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -110,7 +110,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Načtení dat do tabulky
-Teď, když máme tabulku, jsme do něj vložte některá data. V okně Otevřít příkazového řádku spusťte následující dotaz vložit některé řádky dat.
+Teď, když máte tabulku, vložte některá data do ní. V okně Otevřít příkazového řádku spusťte následující dotaz vložit některé řádky dat.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

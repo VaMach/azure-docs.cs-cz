@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2017
-ms.openlocfilehash: c16705c89c36452a28ab0547dc6b5277f57dd6d5
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: 72756c6acd8cd7c35405754ccda585228f800a8e
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Použití Node.js k připojení a dotazování dat
 Tento rychlý start předvádí, jak se připojit k databázi Azure pro používání PostgreSQL [Node.js](https://nodejs.org/) aplikace. Ukazuje, jak pomocí příkazů jazyka SQL dotazovat, vkládat, aktualizovat a odstraňovat data v databázi. Kroky v tomto článku předpokládají, že jste obeznámeni s vývojem pomocí Node.js a začínáte s databází Azure pro PostgreSQL.
@@ -45,7 +45,7 @@ npm list
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. Z nabídky na levé straně na portálu Azure, klikněte na tlačítko **všechny prostředky** a vyhledávání pro server, kterou jste právě vytvořili.
+2. Z nabídky na levé straně na portálu Azure, klikněte na tlačítko **všechny prostředky** a vyhledejte serveru, který jste vytvořili.
 3. Klikněte na název serveru.
 4. Vyberte stránku **Přehled** serveru. Poznamenejte si **Název serveru** a **Přihlašovací jméno správce serveru**.
  ![Azure Database for PostgreSQL – přihlašovací jméno správce serveru](./media/connect-nodejs/1-connection-string.png)

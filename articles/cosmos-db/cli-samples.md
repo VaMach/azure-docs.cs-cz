@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 06/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 189034b049e776a3b929930be937ec60bc1db241
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Ukázek Azure CLI pro Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Následující tabulka obsahuje odkazy na ukázkové skripty rozhraní příkazo
 | |  |
 |---|---|
 |**Vytvoření účtu Azure Cosmos DB, databáze a kontejnery**||
-|[Vytvoření účtu DocumentDB rozhraní API, grafu nebo tabulky API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Vytvoří jeden účet Azure Cosmos DB rozhraní API, databáze a kontejner pro použití s DocumentDB, grafu nebo tabulky rozhraní API. |
+|[Vytvoření účtu DocumentDB rozhraní API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Vytvoří jeden účet Azure Cosmos DB rozhraní API, databáze a kontejner pro použití s rozhraním API pro DocumentDB. |
 | [Vytvoření účtu MongoDB rozhraní API](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Vytvoří jeden účet, databázi a kolekci rozhraní API služby Azure Cosmos DB MongoDB. |
 |**Škálování Azure Cosmos DB**||
 | [Propustnost kontejneru měřítka](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Změní zřízené througput do kontejneru.|

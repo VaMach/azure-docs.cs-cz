@@ -1,6 +1,6 @@
 ---
-title: "Používání Azure Import/Export pro přenos dat do a z úložiště objektů blob | Microsoft Docs"
-description: "Naučte se vytvořit import a export úloh na portálu Azure pro přenos dat do a z úložiště objektů blob."
+title: "Používání Azure Import/Export pro přenos dat do a z Azure Storage | Microsoft Docs"
+description: "Naučte se vytvořit import a export úloh na portálu Azure pro přenos dat do a z Azure Storage."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Používat službu Microsoft Azure Import/Export k přenosu dat do úložiště Azure
-V tomto článku jsme poskytují podrobné pokyny k používání služby Azure Import/Export bezpečně přenést velké objemy dat do úložiště Azure blob a souboru podle přesouvání disků o datové centrum Azure. Tato služba slouží také k přenosu dat z Azure blob storage na jednotky pevného disku a dodávat místní servery. Data z jedné jednotky interní disku SATA lze importovat buď do Azure blob Storage nebo Azure File storage. 
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Použít službu Microsoft Azure Import/Export k přenosu dat do úložiště Azure.
+V tomto článku jsme poskytují podrobné pokyny k používání služby Azure Import/Export bezpečně přenést velké objemy dat do úložiště objektů Blob v Azure a Azure Files jednotkami přenosů disku pro datové centrum Azure. Tato služba slouží také k přenosu dat ze služby Azure storage na jednotky pevného disku a dodávat místní servery. Buď do úložiště objektů Blob v Azure nebo Azure Files můžete importovat data z jednoho disku interní disků SATA. 
 
 > [!IMPORTANT] 
-> Tato služba přijímá pouze interní pevné disky SATA nebo SSD jenom. Žádné jiné zařízení je podporována. Neposílejte prosím externí pevné disky nebo NAS zařízení atd, jak bude být vrácena, pokud je to možné nebo zahozeny.
+> Tato služba přijímá pouze interní pevné disky SATA nebo SSD jenom. Žádné jiné zařízení je podporována. Neodesílat externí pevné disky, zařízení NAS, atd., jak se bude vrácen, jinak nebo pokud je to možné byla odstraněna.
 >
 >
 
-Postupujte podle níže uvedených pokynů, pokud data na disku má být importován do úložiště objektů Blob Azure.
+Postupujte podle níže uvedených pokynů, pokud data na disku má být importován do úložiště Azure.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Krok 1: Příprava jednotky nebo s nástroji WAImportExport a generovat deníku. soubor/s.
 
-1.  Určete data, která mají být importován do úložiště objektů blob Azure. To může být adresářů a samostatné soubory na místním serveru nebo sdílené síťové složce.
+1.  Určete data, která mají být importován do úložiště Azure. To může být adresářů a samostatné soubory na místním serveru nebo sdílené síťové složce.
 2.  V závislosti na celkové velikosti dat pořídit požadovaný počet 2,5 SSD nebo 2,5" nebo 3.5" SATA II nebo III jednotky pevného disku.
 3.  Připojit přímo pomocí SATA pevných disků nebo s externí adaptéry USB k počítači s windows.
 4.  Vytvořte jeden svazek NTFS na každý pevný disk a přiřadit písmeno jednotky svazku. Žádné přípojné body.
@@ -80,7 +80,7 @@ Tuto službu můžete použít ve scénářích, jako:
 
 * Migrace dat do cloudu: rychle přesouvat velké objemy dat do Azure a nákladově efektivní.
 * Distribuci obsahu: rychle posílat data do lokalit zákazníka.
-* Zálohování: Trvat záloh vaše místní data ukládat do úložiště objektů blob v Azure.
+* Zálohování: Trvat záloh vaše místní data ukládat do úložiště Azure.
 * Obnovení dat: obnovení velké množství dat uložených v úložišti a nastavit doručení vaše místní umístění.
 
 ## <a name="prerequisites"></a>Požadavky
@@ -90,13 +90,13 @@ V této části jsme seznam požadovaných součástí pro tuto službu využív
 Musí mít stávající předplatné Azure a jeden nebo více účtů úložiště používat službu Import/Export. Každá úloha může použít k přenosu dat do nebo z jenom jeden účet úložiště. Jinými slovy úlohu jeden importu a exportu nelze rozmístěny napříč více účtů úložiště. Informace o vytvoření nového účtu úložiště najdete v tématu [postup vytvoření účtu úložiště](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Typy dat
-Služba Azure Import/Export můžete použít ke zkopírování dat do **bloku** objektů BLOB nebo **stránky** objektů BLOB nebo **soubory**. Naopak můžete pouze exportovat **bloku** objekty BLOB, **stránky** objektů BLOB nebo **připojení** objekty BLOB ze služby Azure storage používání této služby. Služba nepodporuje export soubory Azure a můžete importovat pouze soubory do úložiště Azure.
+Služba Azure Import/Export můžete použít ke zkopírování dat do **bloku** objekty BLOB, **stránky** objekty BLOB, nebo **soubory**. Naopak můžete pouze exportovat **bloku** objekty BLOB, **stránky** objektů BLOB nebo **připojení** objekty BLOB ze služby Azure storage používání této služby. Služba podporuje pouze import souborů Azure do úložiště Azure. Export souborů Azure není aktuálně podporován.
 
 ### <a name="job"></a>Úloha
 Chcete-li zahájit proces pro import nebo export z úložiště, nejprve vytvořit úlohu. Úloha může být úloha importu nebo úlohy exportu:
 
-* Pokud chcete k přenosu dat máte místně na objekty BLOB v účtu úložiště Azure, vytvořte úlohy importu.
-* Pokud chcete k přenosu dat, které jsou aktuálně uloženy jako objekty BLOB ve vašem účtu úložiště pro pevné disky, které jsou odeslaná do us, vytvoření úlohy exportu. Když vytvoříte úlohu, můžete upozornit službu Import/Export, že jste se distribuovat jeden nebo více pevných disků pro datové centrum Azure.
+* Pokud chcete k přenosu dat do účtu úložiště Azure máte místní, vytvoření úlohy importu.
+* Pokud chcete k přenosu dat, které jsou aktuálně uloženy ve vašem účtu úložiště pro pevné disky, které jsou odeslaná do us, vytvoření úlohy exportu. Když vytvoříte úlohu, můžete upozornit službu Import/Export, že jste se distribuovat jeden nebo více pevných disků pro datové centrum Azure.
 
 * Pro úlohy importu bude přesouvání pevné disky obsahující data.
 * Pro úlohy exportu bude přesouvání prázdný pevné disky.
@@ -107,7 +107,7 @@ Můžete vytvořit importu nebo exportu úlohy pomocí portálu Azure nebo [REST
 ### <a name="waimportexport-tool"></a>Nástroj WAImportExport
 Prvním krokem při vytváření **importovat** úloha je k přípravě vaše jednotky, které bude dodáno pro import. Příprava jednotky, je třeba připojit k místní server a spustit nástroj WAImportExport na místním serveru. Tento nástroj WAImportExport usnadňuje kopírování dat na jednotku, šifrování dat na jednotce s nástrojem BitLocker a generování souborů deníku jednotky.
 
-Soubory deníku ukládat základní informace o úloze a jednotky, jako jsou jednotky sériové číslo a název účtu úložiště. Tento soubor deníku není uložená na disku. Používá se při vytvoření úlohy importu. Podrobné informace o vytvoření úlohy zajišťuje později v tomto článku.
+Soubory deníku ukládat základní informace o úloze a jednotky, jako jsou jednotky sériové číslo a název účtu úložiště. Tento soubor deníku není uložená na disku. Používá se při vytvoření úlohy importu. Podrobné informace o vytvoření úlohy najdete dál v tomto článku.
 
 Nástroj WAImportExport je jenom kompatibilní s operačním systémem Windows 64-bit. Najdete v článku [operačního systému](#operating-system) části pro konkrétní verze operačního systému podporován.
 
@@ -294,7 +294,7 @@ Jestliže doplníte jednotky do Azure, platíte náklady na přesouvání poskyt
 
 **Cena za transakci**
 
-Neexistují žádné cena za transakci, při importu dat do úložiště objektů blob. Standardní výstupní poplatky se dají použít při exportu dat z úložiště objektů blob. Další informace o cena za transakci, v [přenos dat se ceny.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Při importu dat do Azure Storage neexistují žádné cena za transakci. Standardní výstupní poplatky se dají použít při exportu dat z úložiště objektů Blob. Další informace o cena za transakci, v [přenos dat se ceny.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ Prvním krokem při importu dat pomocí služby Azure Import/Export je příprav
 
 1. Určete data, která mají být importován do Azure File Storage. To může být adresářů a samostatné soubory na místním serveru nebo sdílené síťové složce.  
 2. Určete počet jednotek, které budete potřebovat v závislosti na celkovou velikost data. Pořídit požadovaný počet 2,5 SSD nebo 2,5" nebo 3.5" SATA II nebo III jednotky pevného disku.
-3. Identifikujte cílový účet úložiště, kontejner, virtuálních adresářů a objekty BLOB.
 4. Určí, adresáře nebo samostatné soubory, které se zkopírují na každý pevný disk.
 5. Vytvoření souborů CSV pro datovou sadu a driveset.
     
@@ -500,9 +499,9 @@ Data v rámci účtu úložiště Azure se dají zpřístupnit přes portál Azu
 
 Při přípravě na pevný disk pro úlohy importu, je zadána cílového pole DstBlobPathOrPrefix v datové sadě sdíleného svazku clusteru. Toto je cílový kontejner v účtu úložiště, ke kterému se zkopíruje data z pevného disku. V tomto kontejneru cílové virtuální adresáře jsou vytvořeny pro složky z pevného disku a objekty BLOB jsou vytvořené pro soubory. 
 
-**Pokud má jednotka souborů, které již existují v svůj účet úložiště, bude služba přepsat existující objekty BLOB v svůj účet úložiště?**
+**Pokud má jednotka souborů, které již existují v svůj účet úložiště, služba přepíše existující objekty BLOB či soubory v svůj účet úložiště?**
 
-Při přípravě na jednotku, můžete určit, zda by dojít k přepsání souborů cílové nebo ignorováno pomocí pole v souboru CSV datovou sadu názvem dispozice: < přejmenovat | přepsat ne | přepsat >. Ve výchozím nastavení služba bude přejmenovat nové soubory a nikoli přepsat existující objekty BLOB.
+Při přípravě na jednotku, můžete určit, zda by dojít k přepsání souborů cílové nebo ignorováno pomocí pole v souboru CSV datovou sadu názvem dispozice: < přejmenovat | přepsat ne | přepsat >. Ve výchozím nastavení služba bude přejmenovat nové soubory a nikoli přepsat existující objekty BLOB nebo soubory.
 
 **Je nástroj WAImportExport kompatibilní s 32bitové operační systémy?**
 Ne. Nástroj WAImportExport je jenom kompatibilní s operačními systémy Windows 64-bit. Naleznete v části operační systémy v [předpoklady](#pre-requisites) pro úplný seznam podporovaných verzí operačního systému.

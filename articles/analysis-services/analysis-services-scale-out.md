@@ -1,0 +1,96 @@
+---
+title: "Škálování Azure Analysis Services | Microsoft Docs"
+description: "Replikace služby Azure Analysis Services serverů se Škálováním na více systémů"
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+ms.assetid: 
+ms.service: analysis-services
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/06/2017
+ms.author: owend
+ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 11/06/2017
+---
+# <a name="azure-analysis-services-scale-out"></a>Škálování Azure Analysis Services
+
+Se Škálováním na více systémů, můžete dotazy klienta rozdělena mezi více *dotaz repliky* v rámci fondu dotazu snížení doby odezvy během úloh vysoké dotazu. Můžete také oddělit zpracování z fondu dotazu, zajistíte, že dotazy klienta nemá vliv nepříznivě operace zpracování. Škálováním na více systémů se dá nakonfigurovat na portálu Azure nebo pomocí REST API služby Analysis Services.
+
+## <a name="how-it-works"></a>Jak to funguje
+
+V typické serveru nasazení jednoho serveru slouží jako zpracování server i server dotazu. Počet dotazů klienta na modely na vašem serveru překračuje dotaz zpracování jednotky (QPU) pro váš server plán nebo zpracování modelu nastane ve stejnou dobu jako dotaz vysoké zatížení, může snížit výkon. 
+
+Se Škálováním na více systémů můžete vytvořit fond dotazu s replikami až sedm další dotaz (osm celkem, včetně serveru). Je možné škálovat počet replik dotazu splňovat požadavky na QPU v kritické dobu a kdykoli můžete oddělit zpracování server z fondu dotazu. 
+
+Bez ohledu na počet replik dotazu, který máte ve fondu dotazu nejsou úloh zpracování rozdělené mezi repliky dotazu. Jeden server slouží jako server zpracování. Dotaz repliky sloužit pouze na dotazy na modely synchronizovat mezi každou repliku ve fondu dotazu. 
+
+Po dokončení operace zpracování, je nutné provést synchronizaci mezi serverem zpracování a serverem repliky dotazu. Při automatizaci operace zpracování, je potřeba nakonfigurovat operaci synchronizace po úspěšném dokončení operace zpracování.
+
+> [!NOTE]
+> Škálováním na více systémů je k dispozici pro servery v cenová úroveň Standard. Každý dotaz repliky se fakturuje stejnou rychlostí jako váš server.
+
+> [!NOTE]
+> Škálováním na více systémů nezvyšuje množství dostupné paměti pro váš server. Chcete-li zvýšit paměti, je potřeba upgradovat plán.
+
+## <a name="monitor-qpu-usage"></a>Monitorování QPU využití
+
+ Chcete-li zjistit, jestli se Škálováním na více systémů pro váš server je nutné, sledovat serverem na portálu Azure pomocí metriky. Pokud vaše QPU pravidelně maxes out, znamená to, že počet dotazů na vaše modely překračuje limit QPU pro plán. Délka metrika dotazu fondu úlohy fronty zvyšuje také k dispozici QPU překračuje počet dotazů ve frontě fondu vláken dotazů. Další informace najdete v tématu [monitorovat server metriky](analysis-services-monitor.md).
+
+## <a name="configure-scale-out"></a>Konfigurace Škálováním na více systémů
+
+### <a name="in-azure-portal"></a>Na portálu Azure
+
+1. Na portálu, klikněte na tlačítko **Škálováním na více systémů**. Posuvníkem vyberte počet serverů repliky dotazu. Počet replik, které zvolíte je kromě existujícího serveru.
+
+2. V **samostatné zpracování server z fondu dotazování**, vyberte možnost Ano, vyloučit zpracování serveru ze serverů dotazu.
+
+   ![Posuvník Škálováním na více systémů](media/analysis-services-scale-out/aas-scale-out-slider.png)
+
+3. Klikněte na tlačítko **Uložit** ke zřízení vaší nových serverů repliky dotazu. 
+
+Tabulkové modely na primárním serveru jsou synchronizovány se serverem repliky. Po dokončení synchronizace fondu dotazu začne distribuci příchozích dotazů mezi servery repliky. 
+
+### <a name="powershell"></a>PowerShell
+Použití [Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) rutiny. Zadejte `-Capacity` parametr hodnotu > 1.
+
+## <a name="synchronization"></a>Synchronizace 
+
+Při zřizování nové repliky dotazu Azure Analysis Services automaticky replikuje modely přes všechny repliky. Můžete také provést ruční synchronizaci. Když při zpracování vaší modely, je třeba provést synchronizaci tak aktualizace jsou synchronizovány mezi repliky dotazu.
+
+### <a name="in-azure-portal"></a>Na portálu Azure
+
+V **přehled** > model > **synchronizovat model**.
+
+![Posuvník Škálováním na více systémů](media/analysis-services-scale-out/aas-scale-out-sync.png)
+
+### <a name="rest-api"></a>REST API
+
+Synchronizovat model   
+`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+
+Získat stav synchronizace modelu  
+`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+
+## <a name="connections"></a>Připojení
+
+Na stránce Přehled váš server jsou dva názvy serverů. Pokud jste zatím nenakonfigurovali Škálováním na více systémů pro server, oba názvy serverů fungovat stejně. Jakmile nakonfigurujete Škálováním na více systémů pro server, musíte zadat název serveru vhodné v závislosti na typu připojení. 
+
+Pro připojení klienta koncového uživatele, jako jsou Power BI Desktop, Excel a vlastních aplikací, použijte **název serveru**. 
+
+Pro aplikace SSMS, rozšíření SSDT a připojovací řetězce v prostředí PowerShell Azure funkce aplikací a nástroji AMO, použijte **název serveru pro správu**. Název serveru pro správu obsahuje speciální `:rw` kvalifikátor (pro čtení a zápis). Všechny operace zpracování dojít na serveru pro správu.
+
+![Názvy serverů](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="related-information"></a>Související informace
+
+[Monitorování serveru metriky](analysis-services-monitor.md)   
+[Správa služby Azure Analysis Services](analysis-services-manage.md) 
+

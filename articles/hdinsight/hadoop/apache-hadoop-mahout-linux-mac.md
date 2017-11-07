@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: c8a992e84d770295a6c7008cfa85ca947fb8fca5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 65d6dc7bf96666f004038c6dae00d2f4e9ea5d7f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Generování doporučení pomocí Apache Mahout se systémem Linux Hadoop v HDInsight (SSH)
 
@@ -59,9 +59,9 @@ Následující pracovní postup je zjednodušená příklad, který používá f
 
 Pohodlně [GroupLens Research] [ movielens] poskytuje hodnocení data pro filmy ve formátu, který je kompatibilní s Mahout. Tato data jsou k dispozici na váš cluster výchozí úložiště na `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Existují dva soubory, `moviedb.txt` a `user-ratings.txt`. Soubor ratings.txt uživatele se používá během analýzy, zatímco moviedb.txt slouží k zadání informací popisný text při zobrazení výsledky analýzy.
+Existují dva soubory, `moviedb.txt` a `user-ratings.txt`. `user-ratings.txt` Soubor se používá během analýzy. `moviedb.txt` Slouží k poskytování popisný text informace při zobrazení výsledků.
 
-Data obsažená v ratings.txt uživatel má struktura `userID`, `movieID`, `userRating`, a `timestamp`, který víme, jak vysoce každý uživatel hodnocení filmu. Tady je příklad dat:
+Data obsažená v ratings.txt uživatel má struktura `userID`, `movieID`, `userRating`, a `timestamp`, která určuje, jak vysoce každý uživatel hodnocení filmu. Tady je příklad dat:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -97,7 +97,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     První sloupec je `userID`. Hodnoty obsažené v ' [' a ']' jsou `movieId`:`recommendationScore`.
 
-2. Můžete použít výstup, společně s moviedb.txt, poskytovat další informace o doporučení. Nejdřív je potřeba kopírovat soubory místně pomocí následujících příkazů:
+2. Můžete použít výstup, společně s moviedb.txt, poskytovat další informace o doporučení. Nejdřív zkopírujte soubory místně pomocí následujících příkazů:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
