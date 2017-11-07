@@ -1,14 +1,14 @@
 # Přehled
 ## [Virtuální sítě](virtual-networks-overview.md)
-## [Uživatelem definované trasy a předávání IP](virtual-networks-udr-overview.md)
+## [Směrování](virtual-networks-udr-overview.md)
 ## [Partnerské vztahy virtuálních sítí](virtual-network-peering-overview.md)
 ## [Koncové body služby virtuální sítě](virtual-network-service-endpoints-overview.md)
 ## [Virtuální síť pro služby Azure](virtual-network-for-azure-services.md)
 ## [Zabezpečení](security-overview.md)
 ## [Kontinuita podnikových procesů](virtual-network-disaster-recovery-guidance.md)
-## [Nejčastější dotazy](virtual-networks-faq.md)
 ## [Přidělování IP adres](virtual-network-ip-addresses-overview-arm.md)
 ## [Ochrana před útoky DDoS](ddos-protection-overview.md)
+## [Nejčastější dotazy](virtual-networks-faq.md)
 ## Classic
 ### [Přidělování IP adres](virtual-network-ip-addresses-overview-classic.md)
 ### [Seznamy řízení přístupu](virtual-networks-acl.md)

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: aee8e183a05ae3817e814d027cf268bee71324c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5bc299e6efee2e74529b08b58fd913c6b329b06
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Kurz: Sestavení prvního objektu pro vytváření dat Azure pomocí prostředí Azure PowerShell
 > [!div class="op_single_selector"]
@@ -31,6 +31,10 @@ ms.lasthandoff: 10/11/2017
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
+
+
+> [!NOTE]
+> Tento článek se týká verze 1 služby Data Factory, která je obecně dostupná (GA). Pokud používáte verzi 2 služby Data Factory, který je ve verzi Preview, přečtěte si [Rychlý start: Vytvoření datové továrny pomocí Azure Data Factory verze 2](../quickstart-create-data-factory-powershell.md).
 
 V tomto článku vytvoříte první objekt pro vytváření dat Azure pomocí prostředí Azure PowerShell. Pokud chcete udělat kurz pomocí jiných nástrojů nebo sad SDK, vyberte jednu z možností z rozevíracího seznamu.
 

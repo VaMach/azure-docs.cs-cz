@@ -1,5 +1,5 @@
 ---
-title: Co je Azure Site Recovery? | Dokumentace Microsoftu
+title: "O službě Azure Site Recovery | Dokumentace Microsoftu"
 description: "Poskytuje přehled služby Azure Site Recovery a shrnuje scénáře nasazení."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/25/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="what-is-site-recovery"></a>Co je Site Recovery?
+# <a name="about-site-recovery"></a>O službě Azure Site Recovery
 
 Vítá vás služba Azure Site Recovery! Tento článek přináší stručný přehled služby.
 
@@ -62,19 +63,15 @@ Site Recovery může spravovat replikaci pro:
 
 **Podporuje se** | **Podrobnosti**
 --- | ---
-**Co můžu replikovat?** | Virtuální počítače Azure mezi oblastmi Azure (ve verzi Preview)<br/><br/>  Místní virtuální počítače VMware a Hyper-V a fyzické servery (s Windows nebo Linuxem) do Azure<br/<br/> Místní virtuální počítače VMware a Hyper-V a fyzické servery do sekundární lokality. Replikace virtuálních počítačů Hyper-V do sekundární lokality je podporována, pouze pokud jsou hostitelé Hyper-V spravováni nástrojem System Center VMM.
+**Co můžu replikovat?** | Virtuální počítače Azure mezi oblastmi Azure<br/><br/>  Místní virtuální počítače VMware a Hyper-V a fyzické servery (s Windows nebo Linuxem) do Azure<br/><br/> Místní virtuální počítače VMware a Hyper-V a fyzické servery do Virtual Machine Manageru
 **Které oblasti jsou podporovány pro Site Recovery?** | [Podporované oblasti](https://azure.microsoft.com/regions/services/) |
-**Které operační systémy replikované počítače potřebují?** | [Požadavky na virtuální počítač Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)<br></br>[Požadavky na virtuální počítač VMware](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Pro virtuální počítače Hyper-V se podporuje každý [hostovaný operační systém](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows), který podporuje Azure a Hyper-V.<br/><br/> [Požadavky na fyzický server](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**Které operační systémy replikované počítače potřebují?** | [Požadavky na virtuální počítač Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Požadavky na virtuální počítač VMware](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Pro virtuální počítače Hyper-V se podporuje každý [hostovaný operační systém](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows), který podporuje Azure a Hyper-V.<br/><br/> [Požadavky na fyzický server](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **Jaké servery nebo hostitele VMware potřebuji?** | Virtuální počítače VMware můžou být umístěné na [podporovaných hostitelích vSphere nebo serverech vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+
 **Jaké úlohy můžu replikovat?** | Můžete replikovat jakoukoli úlohu běžící v podporovaném počítači replikace. Kromě toho tým Site Recovery [pro řadu aplikací](site-recovery-workload.md#workload-summary) provedl testování specifické pro aplikace.
 
 
-## <a name="azure-portal-considerations"></a>Důležité informace o webu Azure Portal
-
-* Site Recovery je možné nasadit na webu [Azure Portal](https://portal.azure.com).
-* Na portálu Azure Classic můžete spravovat Site Recovery s klasickým modelem správy služeb.
-- Portál Classic by se měl používat jenom k údržbě stávajících nasazení Site Recovery. Na portálu Classic nelze vytvářet nové trezory.
 
 ## <a name="next-steps"></a>Další kroky
 * Další informace o [podpoře úloh](site-recovery-workload.md)
-* Můžete začít s [replikací virtuálních počítačů Azure mezi oblastmi](site-recovery-azure-to-azure.md), [replikací VMware do Azure](vmware-walkthrough-overview.md) nebo [replikací Hyper-V do Azure](hyper-v-site-walkthrough-overview.md).
+* [Začínáme](azure-to-azure-quickstart.md) s replikací virtuálních počítačů Azure mezi oblastmi. 

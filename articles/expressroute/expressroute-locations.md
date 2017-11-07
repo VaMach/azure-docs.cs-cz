@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/25/2017
 ms.author: kaanan
-ms.openlocfilehash: b734181eafeec0ed38c0770baa996a398091f341
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef91f6f952b901bcda981e5375be0b84e1ca0a3
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partneři ExpressRoute a umístění partnerského vztahu
 
@@ -84,6 +84,7 @@ Následující tabulka uvádí umístění podle poskytovatele služby. Pokud ch
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Podporuje se |Podporuje se |Chicago, Silicon Valley, Washington DC |
 | **[Console](https://www.consoleconnect.com/partners/cloudsaas/)**| Podporuje se | Podporuje se |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Podporuje se |Podporuje se |Chicago, Denver, Los Angeles, New York, Silicon Valley, Washington DC |
+| **Epsilon Global Communications** |Podporuje se |Podporuje se |Singapur |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Podporuje se |Podporuje se |Amsterdam, Atlanta, Chicago, Dallas, Hongkong, Londýn, Los Angeles, Melbourne, New York, Ósaka, Sao Paulo, Paříž, Seattle, Silicon Valley, Singapur, Sydney, Tokio, Toronto, Washington DC |
 | **euNetworks** |Podporuje se |Podporuje se |Amsterdam |
 | **GÉANT** |Podporuje se |Podporuje se |Amsterdam |

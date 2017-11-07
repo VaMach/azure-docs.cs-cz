@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Pomocí Správce zařízení StorSimple Spravovat výstrahy pro toto pole virtuální zařízení StorSimple
 
@@ -146,6 +146,11 @@ Následující tabulka uvádí některé z StorSimple výstrahy, které se můž
 |:--- |:--- |:--- |
 | Zálohování <*název zařízení*> nebylo možné dokončit. |Selhání úlohy zálohování. |Nelze vytvořit zálohu. Zvažte jednu z těchto možností:<ul><li>Problémy s připojením k může bránit úspěšně dokončení operace zálohování. Ujistěte se, že neexistují žádné problémy s připojením. Další informace o řešení potíží s připojením, přejděte na [místního webového uživatelského rozhraní](storsimple-ova-web-ui-admin.md) pro virtuální zařízení.</li><li>Dosáhli jste limitu úložiště k dispozici. Pro uvolnění místa, zvažte odstranění všechny zálohy, které už nejsou potřeba.</li></ul> Vyřešte problémy, vymažte výstrahy a operaci opakujte. |
 | Klonovat z <*název zařízení*> nebylo možné dokončit. |Klonování úloha se nezdařila. |Nelze vytvořit klon počítače. Zvažte jednu z těchto možností:<ul><li>Zálohování seznamu nemusí být platný. Aktualizujte seznam a ověří, zda že je stále platný.</li><li>Problémy s připojením k může bránit úspěšné dokončení operace klonování. Ujistěte se, že neexistují žádné problémy s připojením.</li><li>Dosáhli jste limitu úložiště k dispozici. Pro uvolnění místa, zvažte odstranění všechny zálohy, které už nejsou potřeba.</li></ul>Vyřešte problémy, vymažte výstrahy a operaci opakujte. |
+
+### <a name="networking-alerts"></a>Výstrahy sítě
+| Textu výstrahy | Událost | Další informace / doporučené akce |
+|:--- |:--- |:--- |
+| Nelze se připojit k ověřovací službě. |Chyba DataPath |Adresu URL, která se používá k ověření není dostupný. Ujistěte se, že vašich pravidlech brány firewall zahrnují vzory adresa URL zadaná pro zařízení StorSimple. Další informace o vzorů adresy URL na portálu Azure, přejděte na [pole virtuální zařízení StorSimple sítě požadavky](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### <a name="performance-alerts"></a>Výstrahy výkonu
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 976407daee45e2f3a8360c1316227cc3399ad43e
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Klasifikace Iris, část 2: Sestavení modelu
 Služby Azure Machine Learning (verze Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -198,11 +198,11 @@ Služba Azure ML umožňuje snadno konfigurovat další prostředí pro spoušt�
 
 5. Teď vyzkoušíme prostředí Spark. Základní image Dockeru obsahuje předinstalovanou a nakonfigurovanou instanci prostředí Spark. Z toho důvodu v ní můžete spustit skript PySpark. Je to jednoduchý způsob, jak vyvíjet a testovat program v jazyce Spark, aniž byste museli ztrácet čas instalací a konfigurací prostředí Spark. 
 
-   Otevřete soubor `iris_pyspark.py`. Tento skript načte datový soubor `iris.csv` a klasifikuje datovou sadu Iris pomocí algoritmu logistické regrese z knihovny Spark ML. Teď změňte prostředí pro spuštění na **docker-spark** a skript na **iris_pyspark.py** a znovu ho spusťte. Trvá to o něco déle, protože je potřeba vytvořit relaci Spark a spustit ji uvnitř kontejneru Docker. Můžete si taky všimnout, že standardní výstup se liší od standardního výstupu skriptu `iris_pyspark.py`.
+   Otevřete soubor `iris_spark.py`. Tento skript načte datový soubor `iris.csv` a klasifikuje datovou sadu Iris pomocí algoritmu logistické regrese z knihovny Spark ML. Teď změňte prostředí pro spuštění na **docker-spark** a skript na **iris_spark.py** a znovu ho spusťte. Trvá to o něco déle, protože je potřeba vytvořit relaci Spark a spustit ji uvnitř kontejneru Docker. Můžete si taky všimnout, že standardní výstup se liší od standardního výstupu skriptu `iris_spark.py`.
 
 6. Proveďte pár dalších spuštění a vyzkoušejte různé argumenty. 
 
-7. Otevřete soubor `iris_pyspark.py` a podívejte se na jednoduchý logistický regresní model sestavený pomocí knihovny Spark ML. 
+7. Otevřete soubor `iris_spark.py` a podívejte se na jednoduchý logistický regresní model sestavený pomocí knihovny Spark ML. 
 
 8. Vyzkoušejte si práci s panelem **Úlohy**, zobrazením seznamu historie spuštění a podrobným zobrazením vašich spuštění v různých prostředích pro spuštění.
 
@@ -249,8 +249,8 @@ Služba Azure ML umožňuje snadno konfigurovat další prostředí pro spoušt�
    REM Execute iris_sklearn.py in local Docker container Python environment.
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM Execute iris_pyspark.py in local Docker container Spark environment.
-   az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
+   REM Execute iris_spark.py in local Docker container Spark environment.
+   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
 6. V aplikaci Azure Machine Learning Workbench kliknutím na ikonu složky na levém panelu nástrojů zobrazte seznam souborů projektu a otevřete skript Python s názvem **run.py**. 
 
@@ -320,8 +320,8 @@ Pokud chcete skript spustit v kontejneru Docker ve vzdáleném počítači s Lin
 
 5. Zadáním následujícího příkazu ho spusťte v instanci Spark ve vzdáleném kontejneru Docker:
    ```azureli
-   REM execute iris_pyspark.py in Spark instance on remote Docker container
-   az ml experiment submit -c myvm-spark .\iris_pyspark.py
+   REM execute iris_spark.py in Spark instance on remote Docker container
+   az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Spuštění skriptu v clusteru služby HDInsight
@@ -345,8 +345,8 @@ Tento skript můžete také spustit ve skutečném clusteru Spark.
 2. Zadejte následující příkaz a skript se spustí v clusteru HDInsight:
 
    ```azurecli
-   REM execute iris_pyspark on the HDI cluster
-   az ml experiment submit -c myhdi .\iris_pyspark.py
+   REM execute iris_spark on the HDI cluster
+   az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]

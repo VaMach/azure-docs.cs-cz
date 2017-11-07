@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fcfea96516e0cde6329ef9dd4b9024a1b448c5b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Úvod do Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/21/2017
 > * [Verze 2 – Preview](../introduction.md)
 
 > [!NOTE]
-> Tento článek se týká verze 1 služby Azure Data Factory, která je všeobecně dostupná (GA). Pokud používáte verzi 2 služby Data Factory, který je ve verzi Preview, přečtěte si [Úvodní informace k Data Factory verze 2](../introduction.md).
+> Tento článek se týká verze 1 služby Azure Data Factory, která je obecně dostupná (GA). Pokud používáte verzi 2 služby Data Factory, který je ve verzi Preview, přečtěte si [Úvodní informace k Data Factory verze 2](../introduction.md).
 
 
 ## <a name="what-is-azure-data-factory"></a>Co je služba Azure Data Factory?
@@ -92,7 +92,7 @@ Aktivita kopírování ve službě Data Factory kopíruje data ze zdrojového ú
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 
-Další informace najdete v tématu [Přesun dat pomocí aktivity kopírování](data-factory-data-movement-activities.md).
+Další informace najdete v tématu [Transformace dat pomocí aktivity kopírování](data-factory-data-movement-activities.md).
 
 ### <a name="data-transformation-activities"></a>Aktivity transformace dat
 [!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]

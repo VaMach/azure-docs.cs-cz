@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>Co je Azure Machine Learning?
 
@@ -105,7 +105,7 @@ Po jednoduché konfiguraci můžete spouštět své experimenty v různých výp
 
 Služba Experimentování vytváří virtuální prostředí, abyste mohli zjistit, jestli se dá váš skript izolovaně spouštět s reprodukovatelnými výsledky. Zaznamenává informace o historii spuštění a poskytuje vám vizuální znázornění této historie. Z dostupných spuštění experimentu si můžete snadno vybrat nejlepší model. 
 
-Další informace najdete v tématu [Konfigurace spouštění služby Experimentování](experiment-execution-configuration.md).
+Další informace najdete v tématu [Konfigurace služby Experimentování](experimentation-service-configuration.md).
 
 ## <a name="azure-machine-learning-model-management-service"></a>Správa modelů ve službě Azure Machine Learning
 

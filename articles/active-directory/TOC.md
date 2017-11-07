@@ -240,6 +240,7 @@
 ### [Několik adresářů](active-directory-licensing-directory-independence.md)
 ### [Adresáře O365](active-directory-manage-o365-subscription.md)
 ### [Samoobslužné přihlášení](active-directory-self-service-signup.md)
+#### [Převzetí kontroly nad nespravovaným adresářem](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Povolení](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Nastavení zásad skupiny](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

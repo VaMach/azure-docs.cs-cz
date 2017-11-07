@@ -1,6 +1,6 @@
 ---
-title: "Jaké úlohy je možné chránit pomocí Azure Site Recovery?"
-description: "Azure Site Recovery chrání úlohy a aplikace tím, že koordinuje replikaci, přebírání služeb při selhání a obnovování lokálních virtuálních počítačů a fyzických serverů. Tyto procesy mohou využívat Azure nebo sekundární místní lokalitu."
+title: "Jaké úlohy je možné chránit pomocí Azure Site Recovery? | Dokumentace Microsoftu"
+description: "Popisuje úlohy, které se dají chránit pomocí zotavení po havárii se službou Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Jaké úlohy je možné chránit pomocí Azure Site Recovery?
-Tento článek popisuje úlohy a aplikace, které můžete replikovat se službou Azure Site Recovery.
 
-Jakékoli dotazy nebo připomínky můžete publikovat na konci tohoto článku nebo na [fóru služby Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Tento článek popisuje úlohy a aplikace, které můžete replikovat se službou [Azure Site Recovery](site-recovery-overview.md).
+
+
 
 ## <a name="overview"></a>Přehled
+
 Organizace potřebují strategii pro provozní kontinuitu a zotavení po havárii (BCDR), která určuje strategii uchování úloh a dat zabezpečených a dostupných během plánovaných a neplánovaných výpadků a jakým způsobem se co nejdříve obnoví normální pracovní podmínky.
 
 Site Recovery je služba Azure, která přispívá ke strategii BCDR. S využitím služby Site Recovery můžete nasadit replikaci s ohledem na aplikace do cloudu nebo do sekundární sítě. Ať již máte aplikace na bázi Windows nebo Linuxu a ať běží na fyzických serverech nebo na virtuálních počítačích VMware či Hyper-V, můžete pomocí Site Recovery orchestrovat replikaci, testovat zotavení po havárii, přebírat služby při selhání a vracet je po obnovení.
@@ -33,6 +35,7 @@ Site Recovery je služba Azure, která přispívá ke strategii BCDR. S využit�
 Site Recovery se integruje s aplikacemi Microsoftu, mezi které patří SharePoint, Exchange, Dynamics, SQL Server a Active Directory. Microsoft také úzce spolupracuje s předními dodavateli včetně Oracle, SAP a Red Hat. Řešení replikace můžete přizpůsobit na bázi jednotlivých aplikací.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Proč pro replikaci aplikací používat Site Recovery?
+
 Site Recovery pro ochranu a obnovení na úrovni aplikací přináší následující:
 
 * Nerozlišování aplikací a poskytování replikace pro jakoukoli úlohu spuštěnou na podporovaném počítači
@@ -157,4 +160,5 @@ K ochraně nasazení Citrix XenApp a XenDesktop použijte Site Recovery následu
 [Další informace](site-recovery-citrix-xenapp-and-xendesktop.md) o ochraně nasazení Citrix XenApp a XenDesktop Můžete si také projít [dokument whitepaper od Citrixu](https://aka.ms/citrix-xenapp-xendesktop-with-asr), kde najdete podrobnosti o tomtéž.
 
 ## <a name="next-steps"></a>Další kroky
-[Kontrola požadavků](site-recovery-prereq.md)
+
+[Začínáme](azure-to-azure-quickstart.md) s replikací virtuálních počítačů Azure.

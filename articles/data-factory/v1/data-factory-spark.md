@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Vyvolání Spark programy z kanálů služby Azure Data Factory
 
@@ -56,7 +56,7 @@ Tady jsou obvyklá kroky k vytvoření objektu pro vytváření dat kanál s akt
 
 ### <a name="prerequisites"></a>Požadavky
 1. Vytvořit **účet úložiště pro obecné účely Azure** podle pokynů v návodu: [vytvořit účet úložiště](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Vytvořit **cluster Apache Spark v Azure HDInsight** podle pokynů v tomto kurzu: [cluster vytvořit Apache Spark v Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Přidružení účtu úložiště Azure, kterou jste vytvořili v kroku #1 s tímto clusterem.  
+2. Vytvořit **cluster Apache Spark v Azure HDInsight** podle pokynů v tomto kurzu: [cluster vytvořit Apache Spark v Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Přidružení účtu úložiště Azure, kterou jste vytvořili v kroku #1 s tímto clusterem.  
 3. Stáhnout a revidovat souboru skriptu jazyka python **test.py** nacházející se v: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Nahrát **test.py** k **pyFiles** složku **adfspark** kontejneru ve službě Azure Blob storage. Vytvořte kontejner, složku, pokud neexistují.
 
@@ -234,7 +234,7 @@ V tomto kroku vytvoříte kanál s **HDInsightSpark** aktivity. V současnosti u
     ![Výsledky dotazu Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-V tématu [spuštění dotazů Spark SQL](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) části Podrobné pokyny. 
+V tématu [spuštění dotazů Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) části Podrobné pokyny. 
 
 ### <a name="troubleshooting"></a>Řešení potíží
 Vzhledem k tomu, že nastavíte **getdebuginfo –** k **vždy**, uvidíte **protokolu** podsložky v **pyFiles** složky v kontejnerech objektů Blob Azure. Další podrobnosti najdete v souboru protokolu ve složce protokolů. Tento soubor protokolu je obzvláště užitečná, když dojde k chybě. V produkčním prostředí, můžete ji nastavit na **selhání**.

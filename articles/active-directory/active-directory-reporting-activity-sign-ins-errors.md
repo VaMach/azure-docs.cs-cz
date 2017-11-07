@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 3b8653b3bddd8bf2ee01c2e68da763e803711633
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Kódy chyb v sestavě aktivit přihlašování na portálu Azure Active Directory
 
@@ -61,12 +61,13 @@ Následující část poskytuje úplný přehled o všech možných chybách a s
 | 50001| Objekt služby X nebyl nalezen v tenantovi Y. K tomu může dojít v případě, že aplikace nebyla nainstalována správcem tenanta. Nebo V adresáři nebyl nalezen objekt prostředku nebo je neplatný.|
 | 50008| V tokenu chybí nebo jsou špatně nakonfigurované kontrolní výrazy SAML.|
 | 50011| Adresa pro odpovědi chybí, je špatně nakonfigurována nebo neodpovídá adresám pro odpovědi nakonfigurovaným pro aplikaci.|
+| 50012| Uživatel ohlásil podvod během vícefaktorového ověřování.|
 | 50053| Účet je uzamčen, protože uživatel se příliš mnohokrát pokusil přihlásit pomocí nesprávného ID uživatele nebo hesla.|
 | 50054| K ověřování se používá staré heslo.|
 | 50055| Neplatné heslo, zadáno prošlé heslo.|
 | 50057| Uživatelský účet je neaktivní.|
 | 50058| V zadaných přihlašovacích údajích nebyly nalezeny žádné informace o identitě uživatele nebo Uživatel nebyl nalezen v tenantovi nebo Byla odeslána žádost o přihlášení v tichém režimu, ale žádný uživatel není přihlášen nebo Službě se nepodařilo ověřit uživatele.|
-| 50074| Vyžaduje se silné ověřování (druhý faktor).|
+| 50074| Uživatel neprošel ověřovacím testem MFA.|
 | 50079| Uživatel se musí zaregistrovat k druhému faktoru ověřování.|
 | 50126| Neplatné uživatelské jméno nebo heslo nebo Neplatné místní uživatelské jméno nebo heslo.|
 | 50131| Používá se při různých chybách podmíněného přístupu. Např. špatný stav zařízení s Windows, zablokování požadavku z důvodu podezřelé aktivity nebo rozhodnutí zásad přístupu a zabezpečení.|
@@ -75,13 +76,14 @@ Následující část poskytuje úplný přehled o všech možných chybách a s
 | 65001| Aplikace X nemá oprávnění pro přístup k aplikaci Y nebo oprávnění bylo odvoláno. Nebo Uživatel nebo správce nevyjádřil souhlas s použitím aplikace s ID X. Odešlete interaktivní žádost o autorizaci pro tohoto uživatele a prostředek. Nebo Uživatel nebo správce nevyjádřil souhlas s použitím aplikace s ID X. Odešlete správci tenanta žádost o autorizaci k jednání jménem aplikace Y pro prostředek Z.|
 | 65005| Přístupový seznam požadovaných prostředků aplikace neobsahuje aplikace zjistitelné tímto prostředkem nebo Klientská aplikace požadovala přístup k prostředku, který nebyl zadán v jejím přístupovém seznamu požadovaných prostředků nebo Služba Graph vrátila chybnou žádost nebo prostředek nebyl nalezen.|
 | 70001| Aplikace X nebyla nalezena v tenantovi Y. K tomu může dojít v případě, že aplikace nebyla nainstalována správcem tenanta nebo nebyla odsouhlasena žádným uživatelem v tenantovi. Možná jste odeslali žádost o ověření do nesprávného tenanta.|
-| 80001| Není k dispozici žádný ověřovací agent.|
+| 80001| Ověřovací agent se nemohl připojit k Active Directory.|
 | 80002| Vypršel časový limit žádosti o ověření hesla ověřovacího agenta.|
 | 80003| Ověřovací agent přijal neplatnou odpověď.|
 | 80004| V žádosti o přihlášení byl použit nesprávný hlavní název uživatele (UPN).|
 | 80005| Ověřovací agent: Došlo k chybě.|
-| 80007| Ověřovací agent se nemohl připojit k Active Directory.|
+| 80007| Ověřovací agent nebyl schopen ověřit heslo uživatele.|
 | 80010| Ověřovací agent nebyl schopen dešifrovat heslo.|
+| 80011| Ověřovací agent nebyl schopen získat dešifrovací klíč.|
 | 81001| Lístek Kerberos uživatele je příliš velký.|
 | 81002| Nepodařilo se ověřit lístek Kerberos uživatele.|
 | 81003| Nepodařilo se ověřit lístek Kerberos uživatele.|
@@ -94,6 +96,7 @@ Následující část poskytuje úplný přehled o všech možných chybách a s
 | 81013| Nepodařilo se najít objekt uživatele na základě informací v lístku Kerberos uživatele.|
 | 90014| Používá se v různých případech, kdy v přihlašovacích údajích není přítomné očekávané pole.|
 | 90093| Graph pro žádost vrátil kód chyby Zakázáno.|
+
 
 
 

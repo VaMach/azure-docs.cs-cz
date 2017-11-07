@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: b71d5c2303fa33637a95d0979e15236d7f8156bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 835f1804b204b988b86b13f48cd9143f6bc81cee
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Kurz: Vytvoření datové továrny pomocí sady Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 10/11/2017
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Šablona Resource Manageru](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
+> [!NOTE]
+> Tento článek se týká verze 1 služby Data Factory, která je obecně dostupná (GA). Pokud používáte verzi 2 služby Data Factory, který je ve verzi Preview, přečtěte si [Rychlý start: Vytvoření datové továrny pomocí Azure Data Factory verze 2](../quickstart-create-data-factory-dot-net.md).
 
 V tomto kurzu se dozvíte, jak vytvořit datovou továrnu Azure pomocí sady Visual Studio. Vytvoříte projektu sady Visual Studio pomocí šablony projektu Data Factory, budete definovat entity Data Factory (propojené služby, datové sady a kanál) ve formátu JSON a potom budete tyto entity publikovat/nasazovat do cloudu. 
 
@@ -468,7 +472,7 @@ Následující postup umožňuje přidat pro každé prostředí jiný konfigura
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<Azure sql server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }
