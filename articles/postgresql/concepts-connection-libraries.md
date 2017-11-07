@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Knihovny připojení pro databázi Azure pro PostgreSQL
-Toto téma obsahuje seznam knihoven a ovladače, které mohou vývojáři použít jak programovat aplikace k připojení a dotazování databáze Azure pro PostgreSQL.
+V tomto článku jsou uvedené knihovny a ovladače, které mohou vývojáři použít k vývoji aplikací a připojení k dotazování databáze Azure pro PostgreSQL.
 
 ## <a name="client-interfaces"></a>Rozhraní klienta
-Většina knihovny klienta jazyk používaný pro připojení k serveru PostgreSQL jsou externí projekty a distribuují nezávisle. Tyto jsou podporovány na platformách systému Windows, Linuxu a Macu. Některé ovladače oblíbených klienta, jsou uvedeny v následující tabulce:
+Většina knihovny klienta jazyk používaný pro připojení k serveru PostgreSQL jsou externí projekty a distribuují nezávisle. Knihovny uvedené jsou podporovány na platformách systému Windows, Linuxu a Macu pro připojení k databázi Azure pro PostgreSQL. Několik příkladů rychlý Start jsou uvedeny v části Další kroky.
 
 | **Jazyk** | **Rozhraní klienta** | **Další informace** | **Stáhnout** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

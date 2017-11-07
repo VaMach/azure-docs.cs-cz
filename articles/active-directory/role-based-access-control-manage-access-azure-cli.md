@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88a5fe33d048814d956a1221802f059cfbcccb0a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Správa řízení přístupu na základě rolí pomocí rozhraní příkazového řádku Azure
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ Přiřazení role v příkladu pak odebere ze skupiny v odběru.
 ## <a name="create-a-custom-role"></a>Vytvořit vlastní roli
 Chcete-li vytvořit vlastní roli, použijte:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 Následující příklad vytvoří vlastní role s názvem *virtuální počítač operátor*. Tato vlastní role uděluje přístup ke všem operacím čtení z *Microsoft.Compute*, *Microsoft.Storage*, a *Microsoft.Network* zprostředkovatelé prostředků a uděluje přístup k spuštění, restartování a monitorování virtuálních počítačů. Tuto vlastní roli můžete použít ve dvou předplatných. Tento příklad používá soubor JSON jako vstup.
 
@@ -159,9 +159,9 @@ Následující příklad vytvoří vlastní role s názvem *virtuální počíta
 ![RBAC Azure příkazového řádku - azure role vytvořit – snímek obrazovky](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Upravit vlastní roli
-Chcete-li upravit vlastní roli, nejprve pomocí `azure role definition list` příkaz načíst definici role. Za druhé proveďte požadované změny do souboru definice role. Nakonec použijte `azure role definition update` se uložit definici upravené role.
+Chcete-li upravit vlastní roli, nejprve pomocí `azure role list` příkaz načíst definici role. Za druhé proveďte požadované změny do souboru definice role. Nakonec použijte `azure role set` se uložit definici upravené role.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 Následující příklad přidá *Microsoft.Insights/diagnosticSettings/* operace **akce**a předplatné Azure k **AssignableScopes** z Vlastní role operátora virtuálního počítače.
 
@@ -170,7 +170,7 @@ Následující příklad přidá *Microsoft.Insights/diagnosticSettings/* operac
 ![Snímek obrazovky příkazového řádku - azure roli set - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Odstranit vlastní roli
-Chcete-li odstranit vlastní roli, nejprve pomocí `azure role definition list` příkaz, abyste zjistili **ID** role. Potom použít `azure role definition delete` příkaz k odstranění role zadáním **ID**.
+Chcete-li odstranit vlastní roli, nejprve pomocí `azure role list` příkaz, abyste zjistili **ID** role. Potom použít `azure role delete` příkaz k odstranění role zadáním **ID**.
 
 Následující příklad odebere *virtuální počítač operátor* vlastní role.
 
@@ -182,7 +182,7 @@ K zobrazení seznamu rolí, které jsou k dispozici pro přiřazení v oboru, po
 Následující příkaz vypíše všechny role, které jsou k dispozici pro přiřazení ve vybraném předplatném.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![RBAC Azure příkazového řádku - azure role seznamu – snímek obrazovky](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -190,7 +190,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 V následujícím příkladu *operátor virtuálního počítače* vlastní role není k dispozici v *Production4* předplatné vzhledem k tomu, že toto předplatné není v **AssignableScopes** role.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![RBAC Azure příkazového řádku - azure role seznam pro vlastní role – snímek obrazovky](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

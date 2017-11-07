@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Vývoj s tabulkou rozhraní API v rozhraní .NET
 
@@ -41,29 +41,11 @@ Tento kurz obsahuje následující úlohy:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Tabulky v Azure Cosmos DB 
 
-Poskytuje Azure Cosmos DB [tabulky API](table-introduction.md) (Náhled) pro aplikace, které potřebují úložiště dvojic klíč hodnota s návrhem bez schématu. Pro práci s Azure Cosmos DB lze použít sady SDK [Azure Table Storage](../storage/common/storage-introduction.md) a rozhraní REST API. Azure Cosmos DB můžete použít k vytvoření tabulek s požadavky na vysokou propustnost. Azure Cosmos DB podporuje tabulky s optimalizovanou propustností (neformálně označované jako „tabulky Premium“), aktuálně ve verzi Public Preview. 
+Poskytuje Azure Cosmos DB [tabulky API](table-introduction.md) (preview) pro aplikace, které potřebují klíč hodnota uložit s návrhem bez schématu a mají vysokou througput požadavky. [Azure Table storage](../storage/common/storage-introduction.md) sady SDK a rozhraní REST API lze použít pro práci s tabulkami v Azure Cosmos DB.   
 
-Azure Table Storage můžete dále používat pro tabulky s vysokými požadavky na úložiště a nižšími nároky na propustnost.
+Tento kurz je určen pro vývojáře, kteří se seznámíte s Azure Table storage SDK a chcete použít k dispozici prémiových funkcí s Azure Cosmos DB. Je založena na [Začínáme s Azure Table storage pomocí rozhraní .NET](table-storage-how-to-use-dotnet.md) a ukazuje, jak využít další možnosti jako sekundární indexy, zřízená propustnost a více domovských stránek. Tento kurz popisuje, jak pomocí portálu Azure k vytvoření účtu Azure Cosmos DB a sestavení a nasazení aplikace API tabulky. Můžeme také provede příklady .NET pro vytváření a odstraňování tabulek a vkládání, aktualizaci, odstranění a dotazování dat v tabulce. 
 
-Pokud aktuálně používáte Azure Table storage, získáte následující výhody s náhledem "premium tabulka":
-
-- Klíč [globální distribuční](distribute-data-globally.md) s více domovských stránek a [automatickou a ruční převzetí služeb při selhání](regional-failover.md)
-- Podpora pro automatické indexování pro všechny vlastnosti (dále jen "sekundární indexy") a rychlé dotazy schématu vznikl 
-- Podpora pro [nezávislé škálování úložiště a propustnost](partition-data.md), napříč libovolný počet oblastí
-- Podpora pro [vyhrazené propustnost za tabulky](request-units.md) , je možné rozšířit stovek na miliony požadavků za sekundu
-- Podpora pro [pět přizpůsobitelné úrovně konzistence](consistency-levels.md) pro kompromisy dostupnost, latence a konzistence závisí na vaší aplikaci musí
-- 99,99 % dostupnost v rámci jedné oblasti a možnost přidávat další oblasti pro vyšší dostupnosti, a [komplexní SLA špičkový](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) na obecné dostupnosti
-- Práce s existující úložiště Azure .NET SDK a beze změn kódu do vaší aplikace
-
-Ve verzi Preview podporuje Azure Cosmos DB rozhraní API tabulky pomocí sady .NET SDK. Si můžete stáhnout [SDK Preview úložiště Azure](https://aka.ms/premiumtablenuget) z NuGet, který má stejné třídy a metody podpisy jako [sada SDK úložiště Azure](https://www.nuget.org/packages/WindowsAzure.Storage), ale také může připojit k Azure Cosmos DB účty pomocí rozhraní API tabulky.
-
-Další informace o složité úlohy Azure Table storage, najdete v části:
-
-* [Úvod do Azure Cosmos DB: tabulky rozhraní API](table-introduction.md)
-* V tabulce referenční dokumentaci ke službě kompletní informace o dostupných rozhraních API [Klientská knihovna pro úložiště pro .NET – referenční informace](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-
-### <a name="about-this-tutorial"></a>O tomto kurzu
-V tomto kurzu pro vývojáře, kteří se seznámíte s Azure Table storage SDK a chcete použít k dispozici prémiové funkce používá Azure Cosmos DB. Je založena na [Začínáme s Azure Table storage pomocí rozhraní .NET](table-storage-how-to-use-dotnet.md) a ukazuje, jak využít další možnosti jako sekundární indexy, zřízená propustnost a více domovských stránek. Nabídneme použití portálu Azure k vytvoření účtu Azure Cosmos DB sestavení a nasazení aplikace tabulky. Můžeme také provede příklady .NET pro vytváření a odstraňování tabulek a vkládání, aktualizaci, odstranění a dotazování dat v tabulce. 
+## <a name="prerequisites"></a>Požadavky
 
 Pokud ještě nemáte nainstalované Visual Studio 2017, můžete stáhnout a použít **volné** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
@@ -72,14 +54,6 @@ Pokud ještě nemáte nainstalované Visual Studio 2017, můžete stáhnout a po
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 Začněme vytvořením účtu Azure Cosmos DB na portálu Azure.  
-
-> [!TIP]
-> * Již máte účet Azure Cosmos DB? Pokud ano, přeskočit na [nastavit řešení sady Visual Studio](#SetupVS).
-> * Měli jste účet Azure DocumentDB? Pokud ano, váš účet je teď účet Azure Cosmos DB a můžete přeskočit na [nastavit řešení sady Visual Studio](#SetupVS).  
-> * Pokud používáte emulátor DB Cosmos Azure, postupujte podle kroků v [emulátoru DB Cosmos Azure](local-emulator.md) nastavit emulátoru a přeskočit na [nastavení řešení v nástroji Visual Studio](#SetupVS).
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 ```
 
 > [!NOTE]
-> Chcete-li používat tuto aplikaci s standardní Azure Table Storage, je potřeba změnit připojovací řetězec v `app.config file`. Název účtu použijte jako název tabulky účtu a klíč jako Azure úložiště primární klíč. <br>
+> Chcete-li používat tuto aplikaci s Azure Table storage, je potřeba změnit připojovací řetězec v `app.config file`. Název účtu použijte jako název tabulky účtu a klíč jako Azure úložiště primární klíč. <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,7 +109,7 @@ Teď můžete přejít zpět do Průzkumníku dat a zobrazit dotaz, upravit a pr
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Možnosti Azure Cosmos DB
-Azure Cosmos DB podporuje několik možností, které nejsou k dispozici ve službě Azure Table storage rozhraní API. Nové funkce se dá povolit buď následující `appSettings` hodnoty konfigurace. Zavedeme nejsou žádné nové podpisy nebo přetížení do verze Preview SDK úložiště Azure. To umožňuje připojit standard a premium tabulky a pracovat s jinými službami Azure Storage jako objekty BLOB a fronty. 
+Azure Cosmos DB tabulky rozhraní API podporuje několik možností, které nejsou k dispozici ve službě Azure Table storage. Nové funkce se dá povolit buď následující `appSettings` hodnoty konfigurace. Rozhraní API tabulky, které nebyly v byly přidány žádné nové podpisy nebo přetížení sady SDK úložiště Azure. To umožňuje připojit tabulek v Azure Table storage a Azure Cosmos DB a pracovat s jinými službami Azure Storage jako objekty BLOB a fronty. 
 
 
 | Klíč | Popis |

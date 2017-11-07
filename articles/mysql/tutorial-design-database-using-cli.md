@@ -5,16 +5,17 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
+editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Navrhnout první databáze Azure pro databázi MySQL
 
@@ -23,7 +24,7 @@ Služba relační databáze v Microsoft cloudu podle databázový stroj MySQL Co
 > [!div class="checklist"]
 > * Vytvoření Azure databáze pro databázi MySQL
 > * Konfigurace brány firewall serveru
-> * Použití [nástroj pro příkazový řádek mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) k vytvoření databáze
+> * Použití [nástroj příkazového řádku mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) k vytvoření databáze
 > * Načíst ukázková data
 > * Dotazování dat
 > * Aktualizace dat
@@ -33,7 +34,7 @@ Můžete použít prostředí cloudové služby Azure v prohlížeči nebo [nain
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, v tomto článku vyžaduje, že používáte Azure CLI verze 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Pokud máte více předplatných, vyberte odpovídající předplatné, ve kterém tento prostředek existuje nebo ve kterém se fakturuje. Ve svém účtu vyberte pomocí příkazu [az account set](/cli/azure/account#set) určité ID předplatného.
 ```azurecli-interactive
@@ -102,7 +103,7 @@ Výsledek je ve formátu JSON. Poznamenejte si **fullyQualifiedDomainName** a **
 ```
 
 ## <a name="connect-to-the-server-using-mysql"></a>Připojit k serveru pomocí mysql
-Použití [nástroj pro příkazový řádek mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) k navázání připojení k vaší databázi Azure pro server databáze MySQL. V tomto příkladu je příkaz:
+Použití [nástroj příkazového řádku mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) k navázání připojení k vaší databázi Azure pro server databáze MySQL. V tomto příkladu je příkaz:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
@@ -119,9 +120,9 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Vytváření tabulek v databázi
-Teď, když víte, jak se připojit k databázi Azure pro databázi MySQL, jsme projít jak provést některé základní úlohy.
+Teď, když víte, jak se připojit k databázi Azure pro databázi MySQL, proveďte některé základní úlohy:
 
-Jsme nejprve vytvořit tabulku a načíst určitými daty. Umožňuje vytvořit tabulku, která ukládá informace o inventáři.
+Nejprve vytvořte tabulku a načíst určitými daty. Umožňuje vytvořit tabulku, která ukládá informace o inventáři.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -131,7 +132,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Načtení dat do tabulky
-Teď, když máme tabulku, jsme do něj vložte některá data. V okně Otevřít příkazového řádku spusťte následující dotaz vložit některé řádky dat.
+Teď, když máte tabulku, vložte některá data do ní. V okně Otevřít příkazového řádku spusťte následující dotaz vložit některé řádky dat.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -158,7 +159,7 @@ SELECT * FROM inventory;
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Obnovení databáze k dřívějšímu bodu v čase
 Představte si, že jste omylem odstranili této tabulky. Toto je něco, které nelze snadno obnovit z. Databáze pro databázi MySQL Azure umožňuje vrátit do libovolného bodu v čase v poslední až 35 dnů a obnovit tento bod v čase na nový server. Tento nový server můžete obnovit odstraněná data. Ukázka serveru bod před přidáním tabulky obnovit následující kroky.
 
-Pro obnovení je třeba následující informace:
+Pro obnovení potřebujete následující informace:
 
 - Bod obnovení: Vyberte bodu v čase, k níž dojde před server byl změněn. Musí být větší než nebo rovna hodnotě pro nejstarší zálohy zdrojové databáze.
 - Cílový server: Zadejte nový název serveru, kterou chcete obnovit
@@ -176,7 +177,7 @@ V tomto kurzu jste se dozvěděli na:
 > [!div class="checklist"]
 > * Vytvoření Azure databáze pro databázi MySQL
 > * Konfigurace brány firewall serveru
-> * Použití [nástroj pro příkazový řádek mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) k vytvoření databáze
+> * Použití [nástroj příkazového řádku mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) k vytvoření databáze
 > * Načíst ukázková data
 > * Dotazování dat
 > * Aktualizace dat

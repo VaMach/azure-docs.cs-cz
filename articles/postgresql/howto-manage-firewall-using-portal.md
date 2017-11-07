@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/10/2017
-ms.openlocfilehash: 5d62a138313ae3568470cbf5a8eb191321cd6cc7
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 96e917d1ea147e3b53b00002675ed16facb69255
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Vytvářet a spravovat databáze Azure pro pravidla brány firewall PostgreSQL pomocí portálu Azure
 Pravidla brány firewall na úrovni serveru umožňují správcům přístup k databázi Azure pro PostgreSQL Server z zadaná IP adresa nebo rozsah IP adres. 
@@ -23,11 +23,11 @@ Chcete-li krok tímto průvodcem postupy, je třeba:
 - Server [vytvoření databáze Azure pro PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Vytvoření pravidla brány firewall na úrovni serveru na webu Azure Portal
-1. V okně PostgreSQL server v části nastavení klikněte na **zabezpečení připojení** otevřete okno zabezpečení připojení pro databázi Azure pro PostgreSQL.
+1. Na stránce server PostgreSQL, v části nastavení klikněte na **zabezpečení připojení** chcete otevřít stránku zabezpečení připojení pro databázi Azure pro PostgreSQL.
 
   ![Portál Azure – klikněte na možnost zabezpečení připojení](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Klikněte na tlačítko **přidat Moje IP** na panelu nástrojů. Automaticky tím se vytvoří pravidlo brány firewall s veřejnou IP adresu počítače, kterou posuzuje systému Azure.
+2. Vyberte **přidat Moje IP** na panelu nástrojů. Tato akce automaticky vytvoří pravidlo brány firewall s veřejnou IP adresu počítače, kterou posuzuje systému Azure.
 
   ![Portál Azure – klikněte na tlačítko Přidat Moje IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -36,7 +36,7 @@ Pomocí vyhledávacího webu nebo jiný nástroj, online zkontrolujte vlastní I
 
   ![Co je můj IP Bing hledání](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Přidáte další adresní rozsahy. V pravidlech brány firewall pro databázi Azure pro PostgreSQL můžete zadat jednu IP adresu nebo rozsah adres. Pokud chcete omezit platnost pravidla pro jednu IP adresu, zadejte stejnou adresu v poli pro počáteční IP a koncová IP adresa. Otevření brány firewall umožňuje správci, uživatelé a aplikace se můžete přihlásit k jakékoli databázi na serveru PostgreSQL, k němuž mají platné přihlašovací údaje.
+4. Přidáte další adresní rozsahy. V pravidlech brány firewall pro databázi Azure pro PostgreSQL můžete zadat jednu IP adresu nebo rozsah adres. Pokud chcete omezit platnost pravidla pro jednu IP adresu, zadejte stejnou adresu v poli pro počáteční IP a koncová IP adresa. Otevření brány firewall umožňuje správci, uživatelů a aplikací pro přihlášení k jakékoli databázi na serveru PostgreSQL, k němuž mají platné přihlašovací údaje.
 
   ![Portál Azure – pravidla brány firewall ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 

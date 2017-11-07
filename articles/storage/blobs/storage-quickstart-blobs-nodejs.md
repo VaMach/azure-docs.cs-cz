@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 4c3c4ec341a0e5f4f0e7415128479f6448f7db6b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Objekty přenosu do nebo z Azure Blob storage pomocí Node.js
 
@@ -51,7 +51,7 @@ Tento příkaz provede klonování úložiště do složky místní git. Otevře
 
 V aplikaci je nutné zadat připojovací řetězec pro váš účet úložiště. Otevřete `index.js` souboru, vyhledejte `connectionString` proměnné. Nahraďte celou hodnotu připojovacího řetězce, který jste uložili z portálu Azure se jeho hodnota. Připojovací řetězec úložiště by měl vypadat takto:
 
-```node
+```javascript
 // Create a blob client for interacting with the blob service from connection string
 // How to create a storage connection string - http://msdn.microsoft.com/library/azure/ee758697.aspx
 var connectionString = '<Your connection string here>';
@@ -62,7 +62,7 @@ var blobService = storage.createBlobService(connectionString);
 
 V adresáři aplikace spustit `npm install` na instalaci kterékoli požadované balíčky uvedené v `package.json` souboru.
 
-```node
+```javascript
 npm install
 ```
 
@@ -113,7 +113,7 @@ Prvním krokem je vytvoření odkazu na `BlobService` umožňuje otvírat a spra
 
 Tento příklad používá [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) vzhledem k tomu, že chcete vytvořit nový kontejner pokaždé, když se spustí vzorku. V produkčním prostředí, kde používáte stejný kontejner v celé aplikaci je lepší zvykem volat CreateIfNotExists pouze jednou. Alternativně můžete vytvořit kontejner předem, takže není nutné vytvořit v kódu.
 
-```node
+```javascript
 // Create a container for organizing blobs within the storage account.
 console.log('1. Creating a Container with Public Access:', blockBlobContainerName, '\n');
 blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLevel': 'blob' }, function (error) {
@@ -128,7 +128,7 @@ Chcete-li nahrát soubor do objektu blob, použijte [createBlockBlobFromLocalFil
 
 Ukázkový kód vytvoří místní soubor má být použit pro nahrávání a stahování, uložení souboru k odeslání jako **Místnícesta** a název objektu blob v **localFileToUpload**. Následující příklad odešle soubor do vašeho kontejneru, který bude začínat **quickstartcontainer -**.
 
-```node
+```javascript
 console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
 console.log('   Local File:', LOCAL_FILE_PATH, '\n');
 fs.writeFileSync(LOCAL_FILE_PATH, 'Greetings from Microsoft!');
@@ -147,7 +147,7 @@ Další, aplikace získá seznam souborů v kontejneru pomocí [listBlobsSegment
 
 Pokud máte 5 000 nebo méně objektů BLOB v kontejneru, jsou v jednoho volání načíst všechny názvy objektů blob [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Pokud máte více než 5 000 objektů BLOB v kontejneru, služba načte seznam v sadách 5 000, dokud načíst všechny názvy objektů blob. Takže prvním toto rozhraní API je volána, vrátí první 5 000 objektů blob názvy a token pokračování. Podruhé, zadejte token, služba načte další sadu názvy objektů blob a tak dále, dokud token pro pokračování je č. hodnota null, což znamená, že všechny názvy objektů blob byly získány.
 
-```node
+```javascript
 console.log('4. Listing blobs in container\n');
 blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     handleError(error);
@@ -164,7 +164,7 @@ Stáhnout objekty BLOB do vašeho místního disku pomocí [getBlobToLocalFile](
 
 Následující kód stáhne objekt blob nahráli v předchozí části, přidání příponu "_DOWNLOADED" na název objektu blob, abyste viděli oba soubory na místním disku. 
 
-```node
+```javascript
 console.log('5. Downloading blob\n');
 blobService.getBlobToLocalFile(CONTAINER_NAME, BLOCK_BLOB_NAME, DOWNLOADED_FILE_PATH, function (error) {
 handleError(error);
@@ -175,7 +175,7 @@ console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 
 Pokud již nepotřebujete objekty BLOB nahrát tento rychlý start, můžete odstranit celou kontejneru pomocí [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) a [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Také odstraňte soubory vytvoří, pokud už nejsou potřeba. To se stará v aplikaci po stisknutí klávesy enter aplikaci ukončíte.
 
-```node
+```javascript
 console.log('6. Deleting block Blob\n');
     blobService.deleteBlobIfExists(CONTAINER_NAME, BLOCK_BLOB_NAME, function (error) {
         handleError(error);

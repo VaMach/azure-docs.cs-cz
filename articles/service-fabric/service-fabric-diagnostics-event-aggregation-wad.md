@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Seskupení událostí a kolekce s použitím Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ Jakmile upravíte soubor template.json, jak je popsáno, znovu publikujte šablo
 
 Počínaje 5.4 verzi Service Fabric, stavu a zatížení metriky události jsou k dispozici pro kolekci. Tyto události podle událostí generovaných systému nebo v kódu pomocí stavu nebo zatížení rozhraní API pro vytváření sestav, jako [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) nebo [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). To umožňuje pro agregaci a zobrazení stavu systému v čase a pro výstrahy na základě stavu nebo zatížení událostí. Chcete-li zobrazit tyto události v sadě Visual Studio prohlížeč diagnostických událostí přidat "Microsoft-ServiceFabric:4:0x4000000000000008" do seznamu zprostředkovatelů trasování událostí pro Windows.
 
-Shromažďovat události, upravte šablonu Resource Manager, aby patří
+Shromažďování událostí v clusteru, upravte `scheduledTransferKeywordFilter` v WadCfg vaší šablony Resource Manageru `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Shromažďovat události, upravte šablonu Resource Manager, aby patří
 
 ## <a name="collect-reverse-proxy-events"></a>Shromažďování událostí reverzní proxy server
 
-Od verze 5.7 verzi Service Fabric [reverse proxy](service-fabric-reverseproxy.md) události jsou k dispozici pro kolekci.
-Reverzní proxy server vysílá události do dvou kanálů, jeden obsahující chybové události odrážející zpracování chyb a další tak obsahující podrobné události týkající se všechny žádosti požadavku zpracovat reverzní proxy server. 
+Od verze 5.7 verzi Service Fabric [reverse proxy](service-fabric-reverseproxy.md) události jsou k dispozici pro kolekci prostřednictvím kanálů Data & zasílání zpráv. 
 
-1. Shromažďovat události chyb: Chcete-li zobrazit tyto události v sadě Visual Studio prohlížeč diagnostických událostí přidat "Microsoft-ServiceFabric:4:0x4000000000000010" do seznamu zprostředkovatelů trasování událostí pro Windows.
-Shromažďovat události z Azure clusterů, upravte šablonu Resource Manager, aby patří
+Reverzní proxy server nabízených oznámení pouze chybové události prostřednictvím hlavní Data & zasílání zpráv kanálu - odrážející zpracování chyb a důležité problémy požadavku. Podrobné kanál obsahuje podrobné události týkající se všechny požadavky zpracovávány reverzní proxy server. 
+
+Chcete-li zobrazit chybové události v sadě Visual Studio prohlížeč diagnostických událostí přidat "Microsoft-ServiceFabric:4:0x4000000000000010" do seznamu zprostředkovatelů trasování událostí pro Windows. Pro všechny žádosti o telemetrie, aktualizujte Microsoft ServiceFabric položku v seznamu zprostředkovatele trasování událostí pro Windows "Microsoft-ServiceFabric:4:0x4000000000000020".
+
+Pro clustery spuštěná v Azure:
+
+Upravit a pokračovat tam trasování v hlavní kanál dat & zasílání zpráv, `scheduledTransferKeywordFilter` hodnota v WadCfg vaší šablony Resource Manageru `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Shromažďovat události z Azure clusterů, upravte šablonu Resource Manager, a
     }
 ```
 
-2. Shromažďování všech požadavků zpracování události: V sadě Visual Studio na diagnostiky prohlížeče událostí, aktualizace Microsoft-ServiceFabric položku v seznamu zprostředkovatele trasování událostí pro Windows a "Microsoft-ServiceFabric:4:0x4000000000000020".
-Azure Service Fabric clusterů upravte zahrnout šablona resource Manageru
+Shromažďování událostí zpracování všech požadavků, zapněte Data & zasílání zpráv - podrobnějších kanál změnou `scheduledTransferKeywordFilter` hodnota v WadCfg vaší šablony Resource Manageru `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ Azure Service Fabric clusterů upravte zahrnout šablona resource Manageru
       }
     }
 ```
-> Doporučujeme uvážlivě umožňuje shromažďování událostí z tohoto kanálu, jak to shromažďuje všechny přenosy přes reverzní proxy server a můžete rychle spotřebovávají kapacitu úložiště.
 
-Pro Azure Service Fabric clusterů jsou události ze všech uzlů shromažďovat a agregovat do SystemEventTable.
+Povolení shromažďování událostí z tohoto podrobné výsledky kanál v spoustu trasování generován rychle a můžete využívat kapacitu úložiště. Pouze tuto možnost zapněte nezbytně nutných případech.
 Podrobné řešení potíží s události reverzní proxy server, naleznete [reverzní proxy server diagnostiky průvodce](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Shromáždit z nové EventSource kanály

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Běžné případy použití Azure Cosmos DB
 Tento článek obsahuje přehled několik běžné případy použití pro Azure Cosmos DB.  Doporučení v tomto článku sloužit jako výchozí bod, když budete vyvíjet aplikace s Cosmos DB.   
@@ -35,7 +35,7 @@ Po přečtení tohoto článku, budete moct odpovězte si na následující otá
 
 Projekt Azure Cosmos DB spustit v 2011 jako "Projektu Florencii" na adresu vývojáře problémové body, které se týkají velkých internetových aplikací v Microsoft. Sledování, že tyto problémy nejsou jedinečná pro aplikace společnosti Microsoft, jsme se rozhodli zpřístupnit Azure Cosmos DB obecně externí vývojáři ve 2015 ve formátu [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). Služba se používá ubiquitously interně v rámci společnosti Microsoft a jedné ze služeb nejrychlejší rostoucí používají Azure vývojáři externě. 
 
-Azure Cosmos DB je globální databáze distribuované, více modelu, která se používá v celé řadě aplikací a případy použití. Je vhodné použít pro žádné [bez serveru](http://azure.com/serverless) aplikace, která musí nízkou pořadí milisekundu odezvy a musí se rychle a globálně škálovat. Podporuje několik datových modelech (klíč hodnota, dokumenty, grafy a sloupcové) a přístup k mnoha rozhraní API pro data, včetně [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md), a [tabulky Azure](table-introduction.md) nativně a rozšiřitelné způsobem. 
+Azure Cosmos DB je globální databáze distribuované, více modelu, která se používá v celé řadě aplikací a případy použití. Je vhodné použít pro žádné [bez serveru](http://azure.com/serverless) aplikace, která musí nízkou pořadí milisekundu odezvy a musí se rychle a globálně škálovat. Podporuje několik datových modelech (klíč hodnota, dokumenty, grafy a sloupcové) a přístup k mnoha rozhraní API pro data, včetně [MongoDB API](mongodb-introduction.md), [DocumentDB rozhraní API (SQL)](documentdb-introduction.md), [rozhraní Graph API (Gremlin)](graph-introduction.md), a [tabulky API](table-introduction.md) nativně a rozšiřitelné způsobem. 
 
 Zde jsou některé atributy Azure Cosmos DB, které dobře hodí pro vysoce výkonné aplikace s globální ctižádost.
 

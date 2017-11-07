@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0c3f9b49c7931371bf3a4eaf1a5a3c6261dad839
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Vytvoření webové aplikace Node.js a MongoDB v Azure
 
@@ -182,7 +182,7 @@ Zkopírujte hodnotu `primaryMasterKey`. Tyto informace budete potřebovat v dal
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Konfigurace připojovacího řetězce v aplikaci Node.js
 
-Ve svém místním úložišti MEAN.js v _config/env/_ složky, vytvořte soubor s názvem _místní production.js_. _.gitignore_ nakonfigurovaný tak, aby zachovat tento soubor z úložiště. 
+Ve svém místním úložišti MEAN.js v _config/env/_ složky, vytvořte soubor s názvem _místní production.js_. Ve výchozím nastavení _.gitignore_ nakonfigurovaný tak, aby zachovat tento soubor z úložiště. 
 
 Zkopírujte následující kód do ní. Nezapomeňte nahradit dva  *\<cosmosdb_name >* zástupné texty vaší Cosmos DB název databáze a nahraďte  *\<primary_master_key >* zástupný text klíčem je zkopírovali v předchozím kroku.
 
@@ -209,7 +209,12 @@ gulp prod
 Pomocí následujícího příkazu použít připojovací řetězec, který jste nakonfigurovali v _config/env/local-production.js_.
 
 ```bash
+# Bash
 NODE_ENV=production node server.js
+
+# Windows PowerShell
+$env:NODE_ENV = "production" 
+node server.js
 ```
 
 `NODE_ENV=production`Nastaví proměnné prostředí, která sděluje Node.js ke spuštění v produkčním prostředí.  `node server.js`Spustí server Node.js s `server.js` v kořenovém úložišti. Toto je, jak aplikace Node.js je načten do platformy Azure. 
@@ -261,7 +266,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 V kódu Node.js, je přístup k nastavení této aplikace s `process.env.MONGODB_URI`, stejně, jako by přístup všechny proměnné prostředí. 
 
-V místním úložišti MEAN.js, otevřete _config/env/production.js_ (ne _config/env/local-production.js_), který má specifickou konfiguraci produkčního prostředí. Všimněte si, že výchozí MEAN.js aplikace je již nakonfigurován pro použití `MONGODB_URI` proměnné prostředí, který jste vytvořili.
+V místním úložišti MEAN.js, otevřete _config/env/production.js_ (ne _config/env/local-production.js_), který má specifickou konfiguraci produkčního prostředí. Výchozí MEAN.js aplikace již byla konfigurována pro použití `MONGODB_URI` proměnné prostředí, který jste vytvořili.
 
 ```javascript
 db: {
@@ -416,12 +421,15 @@ Uložte všechny provedené změny.
 V místní okno terminálu testovat změny v produkčním režimu znovu.
 
 ```bash
+# Bash
 gulp prod
 NODE_ENV=production node server.js
-```
 
-> [!NOTE]
-> Nezapomeňte, že vaše _config/env/production.js_ obnovila a `MONGODB_URI` – proměnná prostředí je nastavit pouze v Azure web app a ne na místním počítači. Pokud se podíváte na konfigurační soubor, zjistíte, že konfigurace produkční výchozí použít místní databázi MongoDB. Tím je zajištěno, že nemáte touch provozních dat při testování změn kódu místně.
+# Windows PowerShell
+gulp prod
+$env:NODE_ENV = "production" 
+node server.js
+```
 
 Přejděte na `http://localhost:8443` v prohlížeči a ujistěte se, že jste přihlášení.
 

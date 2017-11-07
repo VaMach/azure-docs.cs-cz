@@ -1,9 +1,9 @@
 ---
-title: "Replikovat virtuální počítače VMware nebo fyzických serverů do jiné lokality (klasický portál Azure) | Microsoft Docs"
-description: "Pomocí tohoto článku replikovat virtuální počítače VMware nebo Windows nebo Linuxem fyzických serverů do sekundární lokality s Azure Site Recovery."
+title: "Nastavit zotavení po havárii virtuálních počítačů VMware nebo fyzických serverů do sekundární lokality | Microsoft Docs"
+description: "Tento článek vysvětluje, jak replikovat místní virtuální počítače VMware nebo Windows nebo Linuxem fyzických serverů do sekundární lokality, se službou Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: 
 ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
@@ -12,33 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: nisoneji
-ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: raynew
+ms.openlocfilehash: 8cfaa56735c1f4e2e01b58fdde2ad0e77b388762
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Replikace na lokální virtuální počítače VMware nebo fyzických serverů do sekundární lokality na portálu Azure classic
+# <a name="set-up-disaster-recovery-of-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Nastavit zotavení po havárii virtuálních počítačů VMware nebo fyzických serverů do sekundární lokality
 
-## <a name="overview"></a>Přehled
-InMage Scout v Azure Site Recovery poskytuje v reálném čase replikaci mezi místními servery VMware. InMage Scout je součástí předplatného služby Azure Site Recovery. 
 
-## <a name="prerequisites"></a>Požadavky
-**Účet Azure**: budete potřebovat [Microsoft Azure](https://azure.microsoft.com/) účtu. Můžete začít s [bezplatnou zkušební verzí](https://azure.microsoft.com/pricing/free-trial/). [Další informace](https://azure.microsoft.com/pricing/details/site-recovery/) o cenách za Site Recovery
+InMage Scout v Azure Site Recovery poskytuje v reálném čase replikaci mezi místními servery VMware. InMage Scout je součástí předplatného služby Azure Site Recovery.
 
-## <a name="step-1-create-a-vault"></a>Krok 1: Vytvoření trezoru
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+Pokud nemáte předplatné Azure, [vytvořit bezplatný účet](https://azure.microsoft.com/pricing/free-trial/) před zahájením.
+
+
+## <a name="create-a-vault"></a>Vytvoření trezoru
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/) > **Recovery Services**.
 2. Klikněte na tlačítko Nový > Správa > Zálohování a obnovení lokality (OMS). Alternativně můžete klikněte na tlačítko Procházet > trezoru služeb zotavení > Přidat.
 3. Do pole **Název** zadejte popisný název pro identifikaci trezoru. Máte-li více předplatných, vyberte jedno z nich.
 4. V **skupiny prostředků** vytvořte novou skupinu prostředků nebo vyberte nějaký existující. Zadejte oblast Azure k dokončení povinná pole.
 5. V **umístění**, vyberte zeměpisnou oblast trezoru. Pokud chcete zkontrolovat oblasti jsou podporované, najdete v části [ceník služby Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Pokud chcete rychle přístup k úložišti z řídicího panelu klikněte na připnout na řídicí panel a pak klikněte na tlačítko vytvořit.
-7. Nový trezor se zobrazí na řídicím panelu > všechny prostředky a na hlavní služeb zotavení trezory okno.
+7. Nový trezor se zobrazí na řídicím panelu > všechny prostředky a na hlavní služeb zotavení trezory stránky.
 
-## <a name="step-2-configure-the-vault-and-download-inmage-scout-components"></a>Krok 2: Konfigurace trezoru a InMage Scout součásti stáhnout
-1. V okně trezory služeb zotavení vyberte trezor a klikněte na tlačítko nastavení.
+## <a name="configure-the-vault-and-download-inmage-scout-components"></a>Konfigurace trezoru a InMage Scout součásti stáhnout
+1. V služeb zotavení trezorů vyberte trezor a klikněte na tlačítko **nastavení**.
 2. V **nastavení** > **Začínáme** klikněte na tlačítko **Site Recovery** > Krok 1: **Příprava infrastruktury**  >  **Cíl ochrany**.
 3. V **cíl ochrany** vyberte k obnovení lokality a vyberte možnost Ano, s VMware vSphere hypervisoru. Pak klikněte na OK.
 4. V **Scout instalace**, klikněte na tlačítko Stáhnout na stáhnout InMage Scout 8.0.1 GA softwaru a registrační klíč. Instalační soubory pro všechny požadované součásti jsou v souboru ZIP staženého.
@@ -46,7 +46,7 @@ InMage Scout v Azure Site Recovery poskytuje v reálném čase replikaci mezi m�
 ## <a name="step-3-install-component-updates"></a>Krok 3: Instalace aktualizace součástí
 Přečtěte si informace o nejnovější [aktualizace](#updates). Nainstalujete soubory aktualizací na serverech v následujícím pořadí:
 
-1. RX server, pokud existuje
+1. RX serveru podle potřeby
 2. Konfigurace serverů
 3. Proces servery
 4. Hlavních cílových serverů
@@ -69,7 +69,7 @@ Nainstalujte aktualizace následujícím způsobem:
 5. **Pro hlavní cílový server Windows**: aktualizace jednotná agenta, zkopírujte **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** na hlavním cílovém serveru. Dvojím kliknutím ji spustit. Všimněte si, unified agent je také použít na zdrojovém serveru a pokud zdroj není aktualizován do Update4. Měli byste jej nainstalovat na zdrojovém serveru i, jak je uvedeno dále v tomto seznamu.<br>
 6. **Pro vContinuum server**: kopírování **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** server vContinuum.  Ujistěte se, že jste zavřeli Průvodce vContinuum. Poklikejte na soubor ji spustit.<br>
 7. **Pro hlavní cílový server Linux**: aktualizace jednotná agenta, zkopírujte **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** na hlavní server cílového serveru a rozbalte ho. V rozbalené složce spustit **/Install**.<br>
-8. **Pro zdrojový server Windows**: není nutné pro instalaci agenta aktualizací 5 na zdroje, pokud zdroje již je na update4. Pokud je menší než update4, použít Agent webu Windows update 5.
+8. **Pro zdrojový server Windows**: není nutné pro instalaci agenta aktualizací 5 ve zdroji, pokud je již spuštěn aktualizací 4. Pokud je spuštěn menší než aktualizace 4, použít agenta aktualizací 5.
 Aktualizace jednotná agenta, zkopírujte **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** na zdrojovém serveru. Dvojím kliknutím ji spustit. <br>
 9. **Pro zdrojový server Linux**: aktualizace jednotná agenta, zkopírujte odpovídající verzi souboru uživatelský Agent na Linux server a rozbalte ho. V rozbalené složce spustit **/Install**.  Příklad: Pro RHEL 6,7 64bitový server, zkopírujte **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** k serveru a rozbalte ho. V rozbalené složce spustit **/Install**.
 
@@ -86,7 +86,7 @@ Aktualizace jednotná agenta, zkopírujte **UA_Windows_8.0.5.0_GA_Update_5_11525
 ## <a name="updates"></a>Aktualizace
 ### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 aktualizace 5
 Kumulativní aktualizace je Scout aktualizace 5. Obsahuje všechny opravy aktualizaci1 do update4 a následující nové oprav chyb a vylepšení.
-Opravy, které jsou přidány z automatické obnovení systému Scout update4 do update5 jsou specifické pro hlavní cíl a vContinuum součásti. Pokud vaše zdroje jsou všechny servery, hlavního cíle, konfigurační Server, Server proces a RX již na automatické obnovení systému Scout update4 budete muset použít aktualizaci 5 jenom na hlavním cílovém serveru. 
+Opravy, které se přidají update4 Scout obnovení lokality k update5 jsou specifické pro hlavní cíl a vContinuum součásti. Pokud vaše zdroje jsou všechny servery, hlavního cíle, konfigurační Server, Server proces a RX již na update4 Scout obnovení lokality budete muset použít aktualizaci 5 jenom na hlavním cílovém serveru. 
 
 **Nová podpora platformy**
 * SUSE Linux Enterprise Server 11, aktualizace Service Pack 4(SP4)
@@ -109,11 +109,11 @@ Opravy, které jsou přidány z automatické obnovení systému Scout update4 do
 
 > [!NOTE]
 > 
-> * Výše P2V clusteru opravy se použít jenom tyto fyzického clusteru MSCS je nově chráněný update5 Scout automatické obnovení systému. Díky jednotnému clusteru opravy na již chráněného clusteru P2V MSCS s aktualizací starší, musíte dodržet postup upgradu, které jsou uvedené v části 12, Upgrade chráněné clusteru P2V MSCS Scout Update5 z [poznámky k verzi Scout automatické obnovení systému](https://aka.ms/asr-scout-release-notes).
+> * Výše P2V clusteru se použít jenom tyto fyzické MSCS clustery, které jsou nově chráněné službou Site Recovery Scout update5 opravy. Díky jednotnému clusteru opravy na již chráněného clusteru P2V MSCS s aktualizací starší, musíte dodržet postup upgradu, které jsou uvedené v části 12, Upgrade chráněné P2V MSCS clusterů do Scout aktualizace 5 [poznámky k verzi](https://aka.ms/asr-scout-release-notes) .
 > 
-> * Znovu nastavit ochranu fyzického clusteru MSCS můžete znovu použít stávající cílové disky pouze pokud v době znovu zapnout ochrana, jsou na všech uzlech clusteru aktivní stejnou sadu disků, jako když původně chráněný. Pokud ne, pak existují ruční kroky, jak je uvedeno v části 12 [poznámky k verzi pro automatické obnovení systému Scout](https://aka.ms/asr-scout-release-notes) přesunout cílové disky straně cestu správné úložiště znovu je použít během znovu zapnout ochrana. Pokud znovu nastavte ochranu clusteru MSCS v režimu P2V bez následující kroky upgradu se budou na cílovém serveru ESXi vytvořit nový disk. Budete muset ručně odstranit staré disky z úložiště.
+> * Znovu nastavit ochranu fyzického clusteru MSCS můžete znovu použít stávající cílové disky pouze pokud v době znovu zapnout ochrana, jsou na všech uzlech clusteru aktivní stejnou sadu disků, jako když původně chráněný. Pokud ne, pak existují ruční kroky, jak je uvedeno v části 12 [poznámky k verzi](https://aka.ms/asr-scout-release-notes) přesunout cílové disky straně cestu správné úložiště znovu je použít během znovu zapnout ochrana. Pokud znovu nastavte ochranu clusteru MSCS v režimu P2V bez následující kroky upgradu se budou na cílovém serveru ESXi vytvořit nový disk. Budete muset ručně odstranit staré disky z úložiště.
 > 
-> * Vždy, když zdroje SLES11 nebo SLES11 s jakýkoli server service pack je řádně restartovat a pak ručně měli označit **kořenové** jako nebudete nijak upozorněni v uživatelském rozhraní CX disku páry replikace pro znovu synchronizovat. Pokud to neuděláte, označte kořenové disk pro synchronizaci, mohou se zobrazit problémy s integritou (DI) data.
+> * Vždy, když zdroje SLES11 nebo SLES11 s jakýkoli server service pack je řádně restartovat a pak ručně měli označit **kořenové** jako nebudete nijak upozorněni v uživatelském rozhraní CX disku páry replikace pro znovu synchronizovat. Pokud nemáte označit kořenovém disku pro nové synchronizace, může se zobrazit problémy s integritou (DI) data.
 > 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 aktualizací 4
@@ -144,7 +144,7 @@ Scout Update 4 je kumulativní aktualizace. Obsahuje všechny opravy aktualizaci
 * Odkaz ke stažení VMware vCLI 6.0 je přidán do základní instalační služby systému Windows hlavního cíle.
 * Během převzetí služeb při selhání a zotavení po Havárii cvičení přidat další kontroly a protokoly pro změny konfigurace sítě.
 * Informace o zachování přetrvával není hlášena CX.  
-* Pro fyzický cluster svazek znovu velikost operace prostřednictvím Průvodce vContinuum selhává při zmenšení svazku zdroje došlo.
+* Pro fyzických clusterů svazek znovu velikost operace prostřednictvím Průvodce vContinuum selže při zmenšení svazku zdroje.
 * Cluster ochrany se nezdařila s chybou "Nepodařilo se najít podpisu disku" Pokud disk clusteru je PRDM disk.
 * cxps přenosu zhroucení serveru z důvodu výjimky out-of-range.
 * Název serveru a sloupce IP je teď s možností změny velikosti nabízené instalace stránce průvodce vContinuum.
@@ -164,7 +164,7 @@ Scout Update 4 je kumulativní aktualizace. Obsahuje všechny opravy aktualizaci
 Aktualizace 3 zahrnuje následující oprav chyb a vylepšení:
 
 * Konfigurační server a RX nezdaří jejich registrace do trezoru Site Recovery, kdy jsou za proxy serveru.
-* Počet hodin, které nejsou splněny plánovaného bodu obnovení (RPO) nejsou aktualizována v sestavě stavu.
+* Počet hodin, které nebyly splněny plánovaného bodu obnovení (RPO) se neaktualizuje v sestavě stavu.
 * Konfigurační server není synchronizuje s RX, pokud ESX hardwaru údaje nebo podrobnosti o síti obsahují znaky znakové sady UTF-8.
 * Řadiče domény systému Windows Server 2008 R2 se nepodaří spustit po obnovení.
 * Offline synchronizace nefungují podle očekávání.

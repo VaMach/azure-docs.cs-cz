@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Vytvoření databáze Azure pro PostgreSQL server na portálu Azure
 
@@ -124,7 +124,7 @@ Existuje řada aplikací, které můžete použít pro připojení k vašemu ser
 
     Parametr psql |Navrhovaná hodnota|Popis
     ---|---|---
-    --host | Název serveru | Zadaná hodnota názvu serveru, který jste použili při vytvoření databáze Azure pro server PostgreSQL dříve. Naše Server příklad ukazuje **mypgserver 20170401.postgres.database.azure.com.** Použití s plně kvalifikovaným názvem domény (**\*. postgres.database.azure.com**) jak je znázorněno v příkladu. Pokud si název vašeho serveru nepamatujete, získejte informace o připojení pomocí postupu v předchozí části. 
+    --host | Název serveru | Zadaná hodnota názvu serveru, který jste použili při vytvoření databáze Azure pro server PostgreSQL dříve. Je třeba server zobrazí **mypgserver 20170401.postgres.database.azure.com.** Použití s plně kvalifikovaným názvem domény (**\*. postgres.database.azure.com**) jak je znázorněno v příkladu. Pokud si název vašeho serveru nepamatujete, získejte informace o připojení pomocí postupu v předchozí části. 
     --port | 5432 | Port, který se má použít při připojení k databázi Azure pro PostgreSQL server. 
     --username | Přihlašovací jméno správce serveru |Server přihlašovací uživatelské jméno správce, který jste zadali při vytváření databáze Azure pro server PostgreSQL dříve. Pokud jste zapomněli svoje uživatelské jméno, postupujte podle kroků v předchozí části, chcete-li získat informace o připojení. Formát je *username@servername*.
     --dbname | *postgres* | Výchozí název databáze generované systémem, který byl vytvořen pro první připojení. Později můžete vytvořit vlastní databázi.
@@ -199,13 +199,13 @@ Pro připojení k serveru Azure PostgreSQL s použitím pgAdmin nástroj grafick
 
 6. V **prohlížeče** podokna na levé straně, rozbalte **servery** uzlu. Vyberte server, například **Azure PostgreSQL Server**. Kliknutím na tlačítko Připojit se k němu.
 
-7. Rozbalte uzel serveru a pod ním pak rozbalte **Databáze**. V seznamu by měla obsahovat vaše stávající *postgres* databáze a všechny nově vytvořeného uživatele databáze, jako například **mypgsqldb**, které jsme vytvořili v předchozí části. Všimněte si, že můžete vytvořit více databází na serveru s databází Azure pro PostgreSQL.
+7. Rozbalte uzel serveru a pod ním pak rozbalte **Databáze**. V seznamu by měla obsahovat vaše stávající *postgres* databáze a všechny nově vytvořeného uživatele databáze, jako například **mypgsqldb**, který byl vytvořen v předchozí části. Všimněte si, že můžete vytvořit více databází na serveru s databází Azure pro PostgreSQL.
 
 8. Klikněte pravým tlačítkem na **databáze**, vyberte **vytvořit** nabídce a potom vyberte **databáze**.
 
 9. Zadejte název databáze zvoleného v **databáze** pole, jako třeba **mypgsqldb**, jak je znázorněno v příkladu.
 
-10. Vyberte **vlastníka** databáze z pole se seznamem. Vyberte přihlašovací jméno správce, jako je například server **mylogin**.
+10. Vyberte **vlastníka** databáze z pole se seznamem. Vyberte server přihlašovací jméno správce, jako je například příkladu **mylogin**.
 
 11. Vyberte **Uložit** k vytvoření nové prázdné databáze.
 
@@ -221,9 +221,9 @@ Můžete vyčistit prostředky, které jste vytvořili v rychlý start v jednom 
 > Další rychlé starty v této kolekci jsou postavené na tomto rychlém startu. Pokud chcete pokračovat v práci s dalšími rychlými starty, neodstraňujte prostředky, které jste vytvořili v rámci tohoto rychlého startu. Pokud nemáte v úmyslu pokračovat, postupujte podle těchto kroků odstranit prostředky, které byly vytvořeny tento rychlý start na portálu.
 
 Chcete-li odstranit skupinu celý prostředků, včetně nově vytvořený serveru:
-1. Vyhledejte vaší skupiny prostředků na portálu. V nabídce na levé straně vyberte **skupiny prostředků**. Potom vyberte název vaší skupiny prostředků, jako je například **myresourcegroup**.
+1. Vyhledejte vaší skupiny prostředků na portálu. V nabídce na levé straně vyberte **skupiny prostředků**. Potom vyberte název vaší skupiny prostředků, jako je například příkladu **myresourcegroup**.
 
-2. Na stránce vaší skupiny prostředků vyberte **Odstranit**. Zadejte název vaší skupiny prostředků, jako je například **myresourcegroup**, do textového pole pro potvrzení odstranění. Vyberte **Odstranit**.
+2. Na stránce vaší skupiny prostředků vyberte **Odstranit**. Zadejte název vaší skupiny prostředků, jako je například příkladu **myresourcegroup**, do textového pole pro potvrzení odstranění. Vyberte **Odstranit**.
 
 Chcete-li odstranit jenom nově vytvořený server:
 1. Vyhledejte serverem na portálu, pokud nemáte ho otevřete. V nabídce na levé straně vyberte **všechny prostředky**. Pak vyhledejte server, který jste vytvořili.
@@ -232,7 +232,7 @@ Chcete-li odstranit jenom nově vytvořený server:
 
     ![Tlačítko Odstranit.](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Zkontrolujte název serveru, který chcete odstranit a zobrazit databáze ve které se vztahuje. Zadejte název serveru do textového pole, jako je například **mypgserver 20170401**. Vyberte **Odstranit**.
+3. Zkontrolujte název serveru, který chcete odstranit a zobrazit databáze ve které se vztahuje. Zadejte název serveru do textového pole, jako je například příkladu **mypgserver 20170401**. Vyberte **Odstranit**.
 
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]

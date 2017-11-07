@@ -12,27 +12,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 4c99ae37b66200244514ee554c9696cf18c1b800
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 1bf0acdfad04a55d5b85aabee150526836062002
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Řešení potíží s prostředí cloudu Azure
 
 Řešení známých problémů v prostředí cloudu Azure patří:
 
-## <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Dialogové okno úložiště - Chyba: 403 RequestDisallowedByPolicy
+## <a name="general-resolutions"></a>Obecné řešení
+
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Dialogové okno úložiště - Chyba: 403 RequestDisallowedByPolicy
 - **Podrobnosti o**: při vytváření účtu úložiště prostřednictvím cloudové prostředí, se nezdařilo z důvodu zásady služby Azure umístit váš správce. Chybová zpráva bude obsahovat:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Řešení**: Obraťte se na správce odstranit nebo aktualizovat Azure zásady odepření vytvoření úložiště Azure.
 
-## <a name="storage-dialog---error-400-disallowedoperation"></a>Dialogové okno úložiště - Chyba: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Dialogové okno úložiště - Chyba: 400 DisallowedOperation
  - **Podrobnosti o**: při použití předplatného služby Azure Active Directory, nelze vytvořit úložiště.
  - **Řešení**: používat předplatné Azure podporuje vytváření prostředků úložiště. Předplatná Azure AD, nebudou se moct vytváření prostředků Azure.
 
-## <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminálové výstup - Chyba: připojení terminál se nezdařilo: Nelze vytvořit protokolu websocket. Stiskněte klávesu `Enter` se znovu připojit.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminálové výstup - Chyba: připojení terminál se nezdařilo: Nelze vytvořit protokolu websocket. Stiskněte klávesu `Enter` se znovu připojit.
  - **Podrobnosti o**: cloudové prostředí vyžaduje schopnost připojení protokolu websocket prostředí cloudové infrastruktury.
  - **Řešení**: Zkontrolujte jste nakonfigurovali nastavení sítě umožnit odesílání požadavky https a požadavky protokolu websocket do domén v *. console.azure.com.
 

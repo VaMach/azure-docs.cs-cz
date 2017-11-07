@@ -13,17 +13,17 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/01/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 7bb9939df413bfea2b3b8545c29a20feb623f94e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Připojení k Kafka v HDInsight (preview) přes virtuální síť Azure
 
-Zjistěte, jak k přímému připojení k Kafka v HDInsight pomocí virtuálních sítí Azure. Tento dokument obsahuje informace o připojení k Kafka pomocí následující konfigurace:
+Zjistěte, jak k přímému připojení k Kafka v HDInsight prostřednictvím virtuální síti Azure. Tento dokument obsahuje informace o připojení k Kafka pomocí následující konfigurace:
 
 * Z prostředků v místní síti. Tato připojení pomocí zařízení VPN (softwaru nebo hardwaru) ve vaší místní síti.
 * Z prostředí pro vývoj pomocí softwaru klienta VPN.
@@ -58,7 +58,7 @@ HDInsight neumožňuje přímé připojení k Kafka prostřednictvím veřejnéh
     > Tato konfigurace se doporučuje jenom pro účely vývoje z důvodu následující omezení:
     >
     > * Každý klient musí připojit pomocí softwaru klienta VPN. Azure poskytuje jenom klienta se systémem Windows.
-    > * Klient nesplňuje požadavky na rozlišení názvů k virtuální síti, je nutné použít ke komunikaci s Kafka adresování IP adres. Komunikaci IP vyžaduje další konfiguraci v clusteru Kafka.
+    > * Klienta VPN nesplňuje požadavky na rozlišení názvů k virtuální síti, je nutné použít ke komunikaci s Kafka adresování IP adres. Komunikaci IP vyžaduje další konfiguraci v clusteru Kafka.
 
 Další informace o používání HDInsight ve virtuální síti, najdete v části [rozšířit HDInsight pomocí virtuálních sítí Azure](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -130,7 +130,7 @@ Postupujte podle kroků v této části vytvořit následující konfiguraci:
 
     # HDInsight settings
     $HdiWorkerNodes = 4
-    $hdiVersion = "3.5"
+    $hdiVersion = "3.6"
     $hdiType = "Kafka"
     ```
 
@@ -237,7 +237,7 @@ Postupujte podle kroků v této části vytvořit následující konfiguraci:
     ```
 
   > [!WARNING]
-  > Tento proces trvá přibližně 20 minut.
+  > Tento proces trvá přibližně 15 minut.
 
 8. K načtení adresu URL pro klienta VPN ve Windows pro virtuální síť, použijte následující rutinu:
 

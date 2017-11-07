@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 05e645ebafd8c8b9f3078524b76732b3e1be05f8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Vytvářet a spravovat databáze Azure pro pravidla brány firewall PostgreSQL pomocí rozhraní příkazového řádku Azure
 Pravidla brány firewall na úrovni serveru umožňují správcům řídit přístup k databázi Azure pro PostgreSQL Server z konkrétní IP adresu nebo rozsah IP adres. Pomocí vhodného rozhraní příkazového řádku Azure, můžete vytvořit, aktualizovat, odstranit, seznamu a zobrazit pravidla brány firewall ke správě serveru. Přehled Azure databáze pro pravidla brány firewall PostgreSQL najdete [databáze Azure pro pravidla brány firewall serveru PostgreSQL](concepts-firewall-rules.md)
@@ -22,7 +22,7 @@ Pravidla brány firewall na úrovni serveru umožňují správcům řídit pří
 ## <a name="prerequisites"></a>Požadavky
 Chcete-li krok tímto průvodcem postupy, je třeba:
 - [Databáze Azure pro PostgreSQL server a databáze](quickstart-create-server-database-azure-cli.md).
-- Nainstalujte [Azure CLI 2.0](/cli/azure/install-azure-cli) příkaz nástroj řádku nebo pomocí prostředí cloudové služby Azure v prohlížeči.
+- Nainstalujte [Azure CLI 2.0](/cli/azure/install-azure-cli) nástroj příkazového řádku nebo pomocí prostředí cloudové služby Azure v prohlížeči.
 
 ## <a name="configure-firewall-rules-for-azure-database-for-postgresql"></a>Konfigurace pravidel brány firewall pro databázi Azure pro PostgreSQL
 [Az postgres pravidla brány firewall-](/cli/azure/postgres/server/firewall-rule) příkazy se používají ke konfiguraci pravidel brány firewall.
@@ -39,7 +39,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server 
 ## <a name="create-firewall-rule"></a>Vytvořte pravidlo brány firewall
 Chcete-li vytvořit nové pravidlo brány firewall na serveru, spusťte [az postgres pravidla brány firewall-vytvořit](/cli/azure/postgres/server/firewall-rule#create) příkaz. 
 
-Zadáním 0.0.0.0, jako `--start-ip-address` a 255.255.255.255 jako `--end-ip-address` rozsah, v příkladu níže umožňuje všechny IP adresy pro přístup k serveru **mypgserver 20170401.postgres.database.azure.com**
+Zadáním 0.0.0.0, jako `--start-ip-address` a 255.255.255.255 jako `--end-ip-address` rozsah, v následujícím příkladu umožňuje všechny IP adresy pro přístup k serveru **mypgserver 20170401.postgres.database.azure.com**
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup  --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```

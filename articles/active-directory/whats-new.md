@@ -1,6 +1,6 @@
 ---
 title: "Co je nového? Poznámky k verzi pro Azure Active Directory | Microsoft Docs"
-description: "Použijte tyto poznámky k verzi poznámky k zůstat ve spojení se nejnovější verze, známé problémy, chyb opravy, zastaralé funkce a plány pro změny ve službě Azure Active Directory (Azure AD)."
+description: "Zjistěte, co je nového v Azure Active Directory (Azure AD) včetně nejnovější poznámky k verzi, známé problémy, opravy chyb, zastaralé funkce a nadcházející změny."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54a6f197de82e5c4ae93d196a532aec7793bbd4c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0fd0ee5bb0bc3e9dcda9db291a1f9dbac6a2e7dc
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co je nového ve službě Azure Active Directory?
 
 
----
 
-Vždy aktuální s co je nového ve službě Azure Active Directory se přihlásíte k tomuto odběru [kanálu](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3%22&locale=en-us) ve své oblíbené čtečky informačního kanálu RSS.
 
----
+> Vždy aktuální s co je nového ve službě Azure Active Directory se přihlásíte k tomuto odběru [kanálu](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) ve své oblíbené čtečky informačního kanálu RSS.
+
 
 
 Budeme průběžně zlepšují Azure Active Directory. Aby vám nedovolí zůstat aktuální pomocí nejnovější Toto téma poskytuje informace o:

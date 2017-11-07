@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 3cdeec642590d4ab4ae342e8675c124fa86bc970
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5e0a852ae9b245ef69fcbff2e87712a31197790
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Stávající infrastruktury serveru NPS integrovat Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ Rozšíření serveru NPS je určená pro práci s vaší stávající infrastru
 
 ### <a name="licenses"></a>Licence
 
-Server NPS rozšíření pro Azure MFA není k dispozici pro zákazníky s [licencí pro ověřování Azure Multi-Factor Authentication](multi-factor-authentication.md) (zahrnutá v Azure AD Premium, EMS nebo předplatné vícefaktorového ověřování).
+Server NPS rozšíření pro Azure MFA není k dispozici pro zákazníky s [licencí pro ověřování Azure Multi-Factor Authentication](multi-factor-authentication.md) (zahrnutá v Azure AD Premium, EMS nebo předplatné vícefaktorového ověřování). Na základě spotřeby licencí Azure MFA jako ověřování licencí vázaných na uživatele nebo nejsou kompatibilní s příponou serveru NPS. 
 
 ### <a name="software"></a>Software
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB tabulky rozhraní API pro jazyk Python | Microsoft Docs"
-description: "Informace o Azure Cosmos DB Python SDK for premium tabulky, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi."
+title: "Tabulka úložiště Azure SDK pro jazyk Python | Microsoft Docs"
+description: "Informace o Azure Table storage SDK pro Python, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/04/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 8a52032c1f406b7bcaab59f6ba19bee0784d20eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="azure-cosmos-db-table-api-for-python-release-notes-and-resources"></a>Pro jazyk Python Azure API tabulky DB Cosmos: poznámky k verzi a prostředky
+# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>Tabulka úložiště Azure SDK pro jazyk Python: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Python](table-sdk-python.md)

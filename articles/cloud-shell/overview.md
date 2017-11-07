@@ -12,18 +12,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/02/2017
 ms.author: juluk
-ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Přehled prostředí cloudu Azure (Preview)
 Prostředí Azure Cloud je interaktivní, přístupných prohlížeče prostředí pro správu prostředků Azure.
 Nabízí flexibilitu zvolit prostředí shell, které nejlépe vyhovuje způsobu práce.
 Uživatelé Linuxu si mohou vybrat Bash. Uživatelé Windows se mohou rozhodnout pro PowerShell.
+
+Spustit prostřednictvím portálu Azure pomocí ikony prostředí cloudu:
+
+![Spuštění portálu](media/overview/portal-launch-icon.png)
+
+Z rozevíracího seznamu pro výběr prostředí využívají Bash nebo prostředí PowerShell:
 
 ![Bash v prostředí cloudu](media/overview/overview-bash-pic.png)
 
@@ -44,16 +50,16 @@ Cloudové prostředí předem nainstalovaný pomocí oblíbené nástroje přík
 Zobrazení seznamu úplné nástrojů pro [prostředí Bash](features.md#tools) a [prostředí PowerShell.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Automatické ověření
-Cloudové prostředí bezpečně ověřuje automaticky na každou relaci pro okamžitý přístup k prostředkům prostřednictvím rutin prostředí PowerShell a Azure CLI 2.0.
+Cloudové prostředí bezpečně ověřuje automaticky na každou relaci pro okamžitý přístup k prostředkům prostřednictvím rutin 2.0 rozhraní příkazového řádku Azure nebo Azure PowerShell.
 
 ### <a name="connect-your-azure-file-storage"></a>Připojení Azure File storage
-Cloudové prostředí počítače jsou dočasné a v důsledku vyžadují sdílenou složku Azure chcete připojit jako `clouddrive` udržení adresáře $Home.
+Cloudové prostředí počítače jsou dočasné a v důsledku vyžadují připojit jako soubory Azure sdílenou složku `clouddrive` udržení adresáře $Home.
 Při prvním spuštění prostředí cloudu vás vyzve k vytvoření prostředku skupiny, účet úložiště a sdílených složek vaším jménem. To je jednorázový krok a bude automaticky připojen pro všechny relace. Sdílení souborů lze mapovat a použije Bash a prostředí PowerShell v prostředí cloudu.
 
 #### <a name="create-new-storage"></a>Vytvoření nového úložiště
 ![](media/overview/basic-storage.png)
 
-Místně redundantní úložiště (LRS) účtu a sdílenou složku Azure vytvářet vaším jménem. Sdílenou složku Azure File se použije pro prostředí Bash a prostředí PowerShell, pokud se rozhodnete použít. Náklady na úložiště regulární použít.
+Místně redundantní úložiště (LRS) účtu a sdílené složky souborů Azure vytvářet vaším jménem. Sdílenou složku Azure soubory se použije pro prostředí Bash a prostředí PowerShell, pokud se rozhodnete použít. Náklady na úložiště regulární použít.
 
 Vaším jménem vytvoří tři zdroje:
 1. Skupinu prostředků s názvem:`cloud-shell-storage-<region>`
@@ -90,7 +96,7 @@ Další informace o funkcích v [Bash v prostředí cloudu](features.md) a [pros
 Vyzkoušejte tyto příklady v quickstarts pro [Bash v prostředí cloudu](quickstart.md) a [prostředí PowerShell v prostředí cloudu](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Ceny
-Tento počítač hostování prostředí cloudu je bezplatná s předpoklad připojené Azure sdílené složky. Náklady na úložiště regulární použít.
+Tento počítač hostování prostředí cloudu je bezplatná s předpoklad připojené sdílené složky Azure Files. Náklady na úložiště regulární použít.
 
 ## <a name="supported-browsers"></a>Podporované prohlížeče
 Cloudové prostředí se doporučuje pro Chrome, okraj a Safari.
