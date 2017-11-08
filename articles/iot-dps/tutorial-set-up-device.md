@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Nastavení zařízení ke zřízení pomocí služby Azure IoT Hub zařízení zřizování Service
 
@@ -35,7 +35,7 @@ Než budete pokračovat, vytvořte instanci služby zřizování zařízení a s
 
 ## <a name="select-a-hardware-security-module"></a>Vyberte modul hardwarového zabezpečení.
 
-[Klienta zařízení zřizování služby SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) poskytuje podporu pro dva typy modulů hardwarového zabezpečení (nebo moduly hardwarového zabezpečení): 
+[Klienta zařízení zřizování služby SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) poskytuje podporu pro dva typy modulů hardwarového zabezpečení (nebo moduly hardwarového zabezpečení): 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - Čip TPM je navázáno standard pro většinu platforem zařízení se systémem Windows, jakož i několik Linux/Ubuntu na základě zařízení. Jako výrobce zařízení můžete tento modul hardwarového zabezpečení, pokud máte buď tyto operační systémy běžící na vašem zařízení, a pokud hledáte zavedených standard pro moduly hardwarového zabezpečení. S čipy TPM můžete registrovat pouze každé zařízení jednotlivě, abyste službu zřizování zařízení. Pro účely vývoje můžete použít simulátoru TPM na vývojovém počítači Windows nebo Linux.

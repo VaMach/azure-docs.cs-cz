@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Seskupení událostí a kolekce s použitím Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -254,27 +254,9 @@ Pokud chcete shromáždit čítače výkonu nebo protokoly událostí, upravte �
 
 ## <a name="collect-performance-counters"></a>Shromažďování čítačů výkonu
 
-Ke shromažďování metrik výkonu z clusteru, přidejte čítače výkonu pro vaše "WadCfg > DiagnosticMonitorConfiguration" v šabloně Resource Manageru pro váš cluster. V tématu [čítače výkonu služby Fabric](service-fabric-diagnostics-event-generation-perf.md) pro čítače výkonu doporučujeme shromažďování.
-
-Například Zde jsme nastavit jeden čítač výkonu vzorkovat každých 15 sekund (to se dá změnit a dodržuje formát "PT\<čas >\<jednotky >", například by PT3M ukázkové v intervalech tříminutové) a přenášená k příslušné úložiště tabulka každou minutu.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Ke shromažďování metrik výkonu z clusteru, přidejte čítače výkonu pro vaše "WadCfg > DiagnosticMonitorConfiguration" v šabloně Resource Manageru pro váš cluster. V tématu [Performance monitoring pro aplikace s WAD](service-fabric-diagnostics-perf-wad.md) pokyny o úpravě vaší `WadCfg` ke shromažďování konkrétních čítačích výkonu. Referenční dokumentace [čítače výkonu služby Fabric](service-fabric-diagnostics-event-generation-perf.md) pro seznam výkonu čítače, které doporučujeme shromažďování.
   
-Pokud používáte jímky Application Insights, jak je popsáno v následující části a chcete tyto metriky objeví ve službě Application Insights, pak nezapomeňte přidat název podřízený v části "jímky", jak je uvedeno výše. Kromě toho zvažte vytvoření samostatné tabulky k odeslání čítače výkonu, tak jejich nemáte velkého množství lidí dat pocházejících z dalších kanálů protokolování, které jste povolili.
+Pokud používáte jímky Application Insights, jak je popsáno v následující části a chcete tyto metriky objeví ve službě Application Insights, pak nezapomeňte přidat název podřízený v části "jímky", jak je uvedeno výše. Čítače výkonu, které jsou jednotlivě nakonfigurované se automaticky odešle do zdroje Application Insights.
 
 
 ## <a name="send-logs-to-application-insights"></a>Odeslání protokolů s Application Insights

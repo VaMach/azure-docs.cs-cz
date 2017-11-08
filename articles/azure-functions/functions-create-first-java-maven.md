@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 50fd59c288312c7aa5ffe6abf1318a5ec2f406e6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ebe9351641f3c4ddade0ea456e8784d59acf9332
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Vytvoření první funkce s Java a Maven (Preview)
 
@@ -32,7 +32,7 @@ Tento rychlý start provede procesem vytvoření [bez serveru](https://azure.mic
 K vývoji funkce aplikaci Java, musíte mít nainstalované tyto položky:
 
 -  [.NET core](https://www.microsoft.com/net/core), nejnovější verzi.
--  [Sady pro vývojáře Java](https://www.azul.com/downloads/zulu/), verze 1.8.
+-  [Sady pro vývojáře Java](https://www.azul.com/downloads/zulu/), verze 8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), verze 3.0 nebo vyšší.
 -  [Node.js](https://nodejs.org/download/), verze 8,6 nebo vyšší.

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: d03e45b839e3630e7f5df4b3144b823955920088
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 285c5abf574544737f3d30981a6c5b8f9548922a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Poznámky k verzi zařízení StorSimple 8000 řady Update 2
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Přehled
 Následující poznámky k verzi popisují nové funkce a identifikovat kritická otevřené problémy pro StorSimple 8000 řady Update 2. Také obsahují seznam softwaru, ovladačů a aktualizace firmwaru disku součástí této verze zařízení StorSimple. 
 
@@ -87,7 +90,7 @@ Následující tabulka obsahuje souhrn známých problémů v této verzi.
 | 12 |Migrace |Po dokončení migrace řad 5000/7000 zařízení nesmí mít přístup k kontejnery migrovaná data. |Doporučujeme, abyste po dokončení a potvrdit migrace odstraňte kontejnery migrovaná data. |Ano |Ne |
 | 13 |Klon a zotavení po Havárii |Zařízení StorSimple softwarem Update 1 nelze klonovat nebo provést zotavení po havárii pro zařízení se systémem před aktualizací softwaru 1. |Budete muset aktualizovat cílové zařízení Update 1 umožňuje tyto operace |Ano |Ano |
 | 14 |Migrace |Zálohu konfigurace pro migraci na zařízení řady 5000 7000 může selhat, pokud existují skupiny svazek s žádné přidružené svazky. |Odstranit všechny skupiny prázdný svazek s žádné přidružené svazky a poté opakujte zálohu konfigurace. |Ano |Ne |
-| 15 |Rutiny Azure PowerShell a místně vázaných svazků |Nelze vytvořit místně vázaný svazek prostřednictvím rutin prostředí Azure PowerShell. (Jakýkoli svazek, který vytvoříte pomocí prostředí Azure PowerShell bude víceúrovňová.) Kromě toho nepoužívejte rutin prostředí Azure PowerShell k úpravě jakékoli vlastnosti místně vázaný svazek, jinak bude mít nežádoucí vliv na změny typu svazku na vrstvené. |Vždy pomocí služby StorSimple Manager lze nakonfigurovat nebo upravit místně vázaných svazků. |Ano |Ne |
+| 15 |Rutiny Azure PowerShell a místně vázaných svazků |Nelze vytvořit místně vázaný svazek prostřednictvím rutin prostředí Azure PowerShell. (Jakýkoli svazek, který vytvoříte pomocí prostředí Azure PowerShell bude víceúrovňová.) |Vždy použijte službu StorSimple Manager ke konfiguraci místně vázaných svazků. |Ano |Ne |
 | 16 |K dispozici místa pro místně vázaných svazků |Pokud odstraníte místně vázaný svazek, místa na disku pro nové svazky nemusí být okamžitě aktualizován. Služby StorSimple Manager aktualizuje volné místo dostupné přibližně za hodinu. |Počkejte jednu hodinu, než se pokusíte vytvořit nový svazek. |Ano |Ne |
 | 17 |Místně vázaných svazků |Úlohu obnovení zpřístupní dočasné snímku zálohy v katalogu zálohování, ale pouze po dobu trvání úlohy obnovení. Kromě toho zpřístupňuje skupinu virtuální disk s předponou **tmpCollection** na **zásady zálohování** stránky, ale jenom po dobu trvání úlohy obnovení. |Toto chování může dojít, pokud vaše úlohy obnovení má pouze místně vázaný svazky nebo kombinaci místně vázaný a vrstvené svazky. Pokud úloha obnovení obsahuje pouze vrstvené svazky, toto chování nedojde. Není vyžadován žádný zásah uživatele. |Ano |Ne |
 | 18 |Místně vázaných svazků |Pokud zrušení úlohy obnovení a okamžitě později, se zobrazí úloha obnovení, dojde k selhání řadiče **se nezdařilo** místo **zrušeno**. Pokud úloha obnovení selže a dojde k selhání řadiče okamžitě později, se zobrazí úloha obnovení **zrušeno** místo **se nezdařilo**. |Toto chování může dojít, pokud vaše úlohy obnovení má pouze místně vázaný svazky nebo kombinaci místně vázaný a vrstvené svazky. Pokud úloha obnovení obsahuje pouze vrstvené svazky, toto chování nedojde. Není vyžadován žádný zásah uživatele. |Ano |Ne |

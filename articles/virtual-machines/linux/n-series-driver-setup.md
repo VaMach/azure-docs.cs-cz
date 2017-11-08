@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 96e429ae0e9462e6046a4aaabc5ab9281f2e67ce
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalace ovladačů NVIDIA GPU v N-series virtuální počítače se systémem Linux
 
@@ -205,13 +205,13 @@ Tento soubor nelze vyvolat jako kořenová na spouštěcí tak, že vytvoříte 
 
 ## <a name="install-cuda-drivers-for-nc-vms"></a>Instalace ovladačů CUDA NC virtuálních počítačů
 
-Tady jsou kroky pro instalaci ovladače NVIDIA na virtuální počítače s Linuxem NC z NVIDIA CUDA Toolkit 8.0. 
+Tady jsou kroky pro instalaci ovladače NVIDIA na virtuální počítače s Linuxem NC z NVIDIA CUDA Toolkit. 
 
 Jazyk C a C++ vývojáři Volitelně můžete nainstalovat úplnou sadu nástrojů k vytváření aplikací GPU accelerated. Další informace najdete v tématu [Průvodce instalací CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Tady jsou aktuální v době publikace k dispozici odkazy stahování ovladačů CUDA. Nejnovější ovladače CUDA, najdete v článku [NVIDIA](http://www.nvidia.com/) webu.
+> Tady jsou aktuální v době publikace k dispozici odkazy stahování ovladačů CUDA. Nejnovější ovladače CUDA, najdete v článku [NVIDIA](https://developer.nvidia.com/cuda-zone) webu.
 >
 
 K instalaci nástrojů CUDA, zkontrolujte připojení SSH pro každý virtuální počítač. Pokud chcete ověřit, že systém má podporující CUDA grafického procesoru, spusťte následující příkaz:
@@ -273,20 +273,16 @@ sudo reboot
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na základě centOS 7.3 nebo Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Nespouštějte `sudo yum update` aktualizaci verze jádra na CentOS 7.3 nebo Red Hat Enterprise Linux 7.3. V současné době instalace ovladače a aktualizace nefungují při aktualizaci jádra.
->
-
 1. Nainstalujte nejnovější integrační služby Linuxu pro Hyper-V.
 
   > [!IMPORTANT]
-  > Pokud jste nainstalovali bitovou kopii na základě CentOS HPC ve virtuálním počítači NC24r, přejděte ke kroku 3. Vzhledem k tomu, že Azure RDMA ovladače a integrační služby Linuxu jsou předem nainstalovaná v bitové kopii, by neměl být upgradovány LIS a jádra aktualizace jsou ve výchozím nastavení zakázané.
+  > Pokud jste nainstalovali bitovou kopii na základě CentOS HPC ve virtuálním počítači NC24r, přejděte ke kroku 3. Vzhledem k tomu, že Azure RDMA ovladače a integrační služby Linuxu jsou předem nainstalovaná v bitovou kopii prostředí HPC, by neměl být upgradovány LIS a jádra aktualizace jsou ve výchozím nastavení zakázané.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
  
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-1.tar.gz
  
   cd LISISO
  
@@ -304,7 +300,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 

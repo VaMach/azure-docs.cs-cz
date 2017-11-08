@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Úvod do Azure událostí mřížky
 
@@ -50,6 +50,8 @@ Tady jsou některé klíčové funkce Azure událostí mřížky:
 * **Vysoká propustnost** -sestavení vysoký počet úloh v mřížce událostí s podporou miliony událostí za sekundu.
 * **Předdefinované události** – zprovoznění a rychlé spuštění s integrovanou událostí definovaných prostředků.
 * **Vlastní události** -použít událost mřížky trasy, filtr a spolehlivě vlastních událostí doručit ve vaší aplikaci.
+
+Porovnání událostí mřížky, Event Hubs a Service Bus najdete v tématu [volba mezi služby Azure, které doručování zpráv](compare-messaging-services.md).
 
 ## <a name="built-in-publisher-and-handler-integration"></a>Integraci vydavatele a obslužné rutiny
 
@@ -100,14 +102,6 @@ Event Grid umožňuje urychlit automatizaci a zjednodušit vynucování zásad. 
 ![Integrace aplikací](./media/overview/app_integration.png)
 
 Event Grid propojuje vaši aplikaci s dalšími službami. Můžete například vytvořit vlastní téma odeslat data události vaší aplikace do mřížky události, a využít její spolehlivé doručení advanced směrování a přímá integrace s Azure. Nebo můžete pomocí služeb Event Grid a Logic Apps zpracovávat data kdekoli bez psaní kódu. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Jak se liší od jiných služeb integrace se službou Azure mřížky událostí?
-
-Mřížka událostí je eventing propojovacího rozhraní, která umožňuje událostmi, reaktivní programování. Ho se úzce integruje se službami Azure a může být integrovaná v služeb třetích stran. Zpráva události obsahuje informace, které je potřeba reagovat na změny v služeb a aplikací. Mřížky událostí není datovém kanálu a nejsou poskytovány skutečné objektu, který byl aktualizován.
-
-Service Bus je skvěle hodí pro tradiční podnikové aplikace, které vyžadují transakcí, řazení, detekci duplikátů a okamžitou konzistence. Mřížka událostí je určených rychlost, škálování, spektra a nízké náklady v reaktivní modelu. Je skvěle hodí pro architekturu bez serveru.
-
-Událost mřížky doplňuje jinými službami Azure jako Logic Apps a Event Hubs. Mřížky událost se aktivuje aplikaci logiky zahájíte jejího pracovního postupu. Event Hubs pracuje s událostí mřížky tím, že vám reagování na události z události rozbočovače zachycení a sestavení datových kanálů příjem příchozích dat a transformace.
 
 ## <a name="how-much-does-event-grid-cost"></a>Jaké události mřížky náklady?
 

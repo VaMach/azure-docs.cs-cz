@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
-ms.openlocfilehash: ef9154b0d400ff23c53460454c886ab90e290f0c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0d93e261121f11d2a1082b9672e6d979955d3bee
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Spusťte interaktivní dotazy na clusteru HDInsight Spark
 
@@ -34,10 +34,12 @@ V tomto kurzu použijete **PySpark** jádra v poznámkového bloku Jupyter ke sp
 
 ## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Vytvoření poznámkového bloku Jupyter ke spuštění interaktivních dotazů
 
-Spuštění dotazů, použijeme ukázková data, která je ve výchozím nastavení k dispozici v úložišti, které jsou přidruženy ke clusteru. Ale je nutné nejdřív načíst data do Spark jako dataframe. Jakmile máte dataframe, můžete spouštět dotazy na pomocí poznámkového bloku Jupyter. V této části vám tak informace o tom, jak:
+Spuštění dotazů, použijeme ukázková data, která je ve výchozím nastavení k dispozici v úložišti, které jsou přidruženy ke clusteru. Ale je nutné nejdřív načíst data do Spark jako dataframe. Jakmile máte dataframe, můžete spouštět dotazy na pomocí poznámkového bloku Jupyter. V tomto článku vám tak informace o tom, jak:
 
 * Zaregistrujte se jako Spark dataframe Ukázka datové sady.
 * Na dataframe spouštět dotazy.
+
+Můžeme začít.
 
 1. Otevřete web [Azure Portal](https://portal.azure.com/). Pokud jste se rozhodli připnout cluster na řídicí panel, kliknutím na dlaždici clusteru na řídicím panelu spusťte okno clusteru.
 
@@ -78,7 +80,7 @@ Spuštění dotazů, použijeme ukázková data, která je ve výchozím nastave
 
     ![Snímek dat pro interaktivních dotazů Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "snímek dat pro interaktivních dotazů Spark SQL")
 
-6. Vytvoření dataframe a do dočasné tabulky (**TVK**) tak, že spustíte následující kód. V tomto kurzu jsme nevytvářejte všechny sloupce v dočasné tabulce porovnání sloupce v nezpracovaných dat sdíleného svazku clusteru. 
+6. Vytvoření dataframe a do dočasné tabulky (**TVK**) tak, že spustíte následující kód. V tomto kurzu jsme nevytvářejte všechny sloupce, které jsou k dispozici v souboru CSV. 
 
         # Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -107,11 +109,13 @@ Spuštění dotazů, použijeme ukázková data, která je ve výchozím nastave
 
      ![Tabulkový výstup výsledku interaktivního dotazu Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabulkový výstup výsledku interaktivního dotazu Spark")
 
-    Výsledky můžete také zobrazit v dalších vizualizacích. Například plošný graf pro stejný výstup bude vypadat následovně.
+9. Výsledky můžete také zobrazit v dalších vizualizacích. Pokud chcete zobrazit plošný graf pro stejný výstup, vyberte **oblasti** pak nastavte jiné hodnoty, jak je zobrazeno.
 
     ![Plošný graf výsledku interaktivního dotazu Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Plošný graf výsledku interaktivního dotazu Spark")
 
-9. Po dokončení spuštění aplikace můžete poznámkový blok vypnout a uvolnit tak prostředky clusteru. To provedete kliknutím na položku **Zavřít a zastavit** z nabídky **Soubor** v poznámkovém bloku.
+10. Z **soubor** nabídky v poznámkovém bloku, klikněte na tlačítko **uložit a kontrolního bodu**. 
+
+11. Pokud začínáte [další kurz](apache-spark-use-bi-tools.md) teď zůstat otevřeno, poznámkového bloku. Pokud není, vypněte poznámkového bloku k uvolnění prostředků clusteru: z **soubor** nabídky v poznámkovém bloku, klikněte na tlačítko **zavřít a zastavit**.
 
 ## <a name="next-step"></a>Další krok
 

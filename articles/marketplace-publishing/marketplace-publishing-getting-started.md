@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publikovat a spravovat nabídku v Azure Marketplace
 Tento článek je určena k vývojářům vytvářet, nasazovat a spravovat svá řešení uvedené v Azure Marketplace pro jiné Azure zákazníci a partneři zakoupit a používat.
@@ -99,9 +99,6 @@ Vytvoření a správa image virtuálního počítače pomocí těchto prostředk
 * [Vrátit výpis cena na produkční hodnoty](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Vrátit model fakturace na produkční hodnoty](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Obnovit nastavení viditelnosti uvedené SKU pro produkční hodnota](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
-* [Změnit incentive prodejce, u vašeho poskytovatele Cloud Solution Provider](marketplace-publishing-csp-incentive.md)
-* [Pochopení výběr sestav](marketplace-publishing-report-payout.md)
-* [Získat podporu jako vydavatel](marketplace-publishing-get-publisher-support.md)
 
 ## <a name="additional-resources"></a>Další zdroje
 [Nastavení prostředí Azure PowerShell](marketplace-publishing-powershell-setup.md)

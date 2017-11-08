@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrace databáze systému SQL Server do služby SQL Database v cloudu
 V tomto článku se dozvíte o dvou základních způsobech migrace databáze SQL Serveru 2005 nebo novější do služby Azure SQL Database. První způsob je jednodušší, ale vyžaduje nějaké, potenciálně dlouhé, prostoje během migrace. Druhý způsob je složitější, ale podstatným způsobem eliminuje prostoje během migrace.
@@ -28,7 +28,7 @@ V tomto článku se dozvíte o dvou základních způsobech migrace databáze SQ
 V obou případech je potřeba zajistit, že zdrojová databáze je kompatibilní s Azure SQL Database pomocí [pomocníka pro migraci dat (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). Databáze SQL verze 12 dosahuje [parita funkce](sql-database-features.md) se systémem SQL Server, než problémy týkající se operací na úrovni serveru a databáze mezi. Databáze a aplikace, které spoléhají na [částečně podporované nebo nepodporované funkce](sql-database-transact-sql-information.md), potřebují určité [zpracování, aby se tyto nekompatibility opravily](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) před migrací databáze SQL Serveru.
 
 > [!NOTE]
-> Pokud chcete migrovat databázi jiného typu než SQL Server, včetně databází Microsoft Access, Sybase, MySQL Oracle a DB2, na databázi Azure SQL Database, získáte informace v tématu [Pomocník s migrací na SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
+> Pokud chcete migrovat databázi jiného typu než SQL Server, včetně databází Microsoft Access, Sybase, MySQL Oracle a DB2, na databázi Azure SQL Database, získáte informace v tématu [Pomocník s migrací na SQL Server](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Způsob 1: Migrace s prostoji během migrace
@@ -39,12 +39,11 @@ Následující seznam obsahuje obecný pracovní postup pro migraci databáze SQ
 
   ![Diagram migrace VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. Vyhodnocení kompatibility databáze pomocí nejnovější verze nástroje [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Vyhodnocení](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) databázi pro kompatibilitu s použitím nejnovější verzi [Pomocníka pro migraci dat (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Příprava všech nezbytných oprav ve formě skriptů Transact-SQL.
-3. Vytvoření transakčně konzistentní kopie migrované zdrojové databáze a zajištění, že se ve zdrojové databázi nebudou provádět žádné další změny (nebo takové změny můžete aplikovat ručně po dokončení migrace). Existuje spousta metod uvedení databáze do nečinnosti od zakázání připojení klientů po vytvoření [snímku databáze](https://msdn.microsoft.com/library/ms175876.aspx).
+3. Vytvořit kopii zdrojové databáze stavu transakční konzistence migrovaného - a ujistěte se, které jsou právě provedeny žádné další změny zdrojové databáze (nebo můžete ručně provést tyto změny po dokončení migrace). Existuje spousta metod uvedení databáze do nečinnosti od zakázání připojení klientů po vytvoření [snímku databáze](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Nasazení skriptů Transact-SQL a aplikování oprav na kopii databáze.
-5. [Export](sql-database-export.md) kopie databáze do souboru BACPAC souboru na místním disku.
-6. [Import](sql-database-import.md) souboru BACPAC souboru jako novou databázi Azure SQL pomocí kterékoli z několika souboru BACPAC importovat nástrojů s SQLPackage.exe se doporučeným nástrojem pro nejlepší výkon.
+5. [Migrace](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) pro novou databázi SQL Azure pomocí Pomocníka pro migraci dat kopie databáze.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimalizace výkonu přenosu dat během migrace 
 
@@ -94,7 +93,7 @@ U transakční replikace se všechny změny dat nebo schématu objeví i ve slu�
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Některé tipy a rozdíly pro migraci do služby SQL Database
 
 1. Použití místního distributora 
-   - Má dopad na výkon serveru. 
+   - To způsobí, že dopad na výkon na serveru. 
    - Pokud je dopad na výkon nepřijatelný, můžete použít jiný server. Tím ale přispějete ke složitosti správy.
 2. Při výběru složky snímků se ujistěte, že je vybraná složka dostatečně velká pro uložení souborů .BACPAC všech tabulek, které chcete replikovat. 
 3. Vytváření snímku až do svého dokončení zamkne přidružené tabulky, proto vytvoření snímku řádně naplánujte. 

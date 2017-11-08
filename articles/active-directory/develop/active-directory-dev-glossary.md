@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glosář vývojáře Azure Active Directory
 Tento článek obsahuje definice pro některé základní koncepty vývojáře Azure Active Directory (AD), což je užitečné při získávání informací o vývoj aplikací pro Azure AD.
@@ -153,13 +153,13 @@ Funkce přihlášení aplikace se obvykle používá k implementaci jednotného 
 Proces zrušení ověřovací přidružené koncového uživatele, odpojení stavu uživatele [klientská aplikace](#client-application) během relaci [přihlášení](#sign-in)
 
 ## <a name="tenant"></a>Klienta
-Instance adresáře služby Azure AD se označuje jako klient služby Azure AD. Poskytuje celou řadu funkcí, včetně:
+Instance adresáře služby Azure AD se označuje jako klient služby Azure AD. Poskytuje několik funkcí, včetně:
 
 * Služba registru pro integrované aplikace
 * ověřování uživatelských účtů a registrované aplikace
 * Koncové body REST, které jsou potřeba pro podporu různých protokolů, včetně OAuth2 a SAML, včetně [koncový bod autorizace](#authorization-endpoint), [koncový bod tokenu](#token-endpoint) a "běžné" koncovým bodem používaným [ víceklientským aplikacím](#multi-tenant-application).
 
-Klient je taky přiřazený k Azure AD nebo předplatné služeb Office 365 během zřizování předplatného, nabízí funkce Správa identit a přístupu pro předplatné. V tématu [postup získání klienta Azure Active Directory] [ AAD-How-To-Tenant] podrobnosti o různých způsobech získáte přístup do klienta. V tématu [asociování předplatných Azure se službou Azure Active Directory] [ AAD-How-Subscriptions-Assoc] podrobnosti o vztahu mezi předplatnými a klient služby Azure AD.
+Během registrace, poskytnete Správa identit a přístupu funkce pro předplatné jsou klienty Azure AD vytvořené nebo přidružit k předplatnému Azure a Office 365. Správci předplatného Azure můžete vytvořit také další služby Azure AD tenantů prostřednictvím portálu Azure. V tématu [postup získání klienta Azure Active Directory] [ AAD-How-To-Tenant] podrobnosti o různých způsobech získáte přístup do klienta. V tématu [asociování předplatných Azure se službou Azure Active Directory] [ AAD-How-Subscriptions-Assoc] podrobnosti o vztahu mezi předplatnými a klient služby Azure AD.
 
 ## <a name="token-endpoint"></a>Koncový bod tokenu
 Jeden z koncových bodů implementované [serveru ověřování](#authorization-server) podpory OAuth2 [autorizace uděluje](#authorization-grant). V závislosti na udělení, může být použitý k získání [přístupový token](#access-token) (a související token "aktualizovat") na [klienta](#client-application), nebo [ID token](#ID-token) při použití s [OpenID Připojit] [ OpenIDConnect] protokolu.

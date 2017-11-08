@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bea3b56cea81362b25e696a672bf2a00e26d3ef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Fronty, témata a odběry služby Service Bus
 
-Microsoft Azure Service Bus podporuje sadu založené na cloudu, orientovaný na zprávy middleware technologie včetně služby Řízení front zpráv spolehlivé a trvanlivé publikování a přihlášení k odběru zasílání zpráv. Tyto funkce "zprostředkovaného" přenosu zpráv můžete představit jako odpojené zasílání zpráv funkce, které podpora publikování a odběru, časové oddělení a scénáře s využitím prostředků infrastruktury pro zprávy sběrnice služby Vyrovnávání zatížení. Oddělená komunikace má mnoho výhod – klienti a servery se například můžou spojit podle potřeby a provádět své operace asynchronním způsobem.
+Microsoft Azure Service Bus podporuje sadu založené na cloudu, orientovaný na zprávy middleware technologie včetně služby Řízení front zpráv spolehlivé a trvanlivé publikování a přihlášení k odběru zasílání zpráv. Tyto funkce "zprostředkovaného" přenosu zpráv můžete představit jako odpojené zasílání zpráv funkce, které podpora publikování a odběru, časové oddělení a scénáře s využitím zatížení zasílání zpráv Service Bus Vyrovnávání zatížení. Oddělená komunikace má mnoho výhod – klienti a servery se například můžou spojit podle potřeby a provádět své operace asynchronním způsobem.
 
 Entit pro zasílání zpráv, které tvoří základní možnosti zasílání zpráv ve sběrnici Service Bus jsou fronty, témata a odběry a pravidla nebo akce.
 
@@ -30,7 +30,7 @@ Entit pro zasílání zpráv, které tvoří základní možnosti zasílání zp
 
 Fronty nabízejí *First In, Out první* doručování zpráv (metodou FIFO) na jeden nebo několik konkurenčních spotřebitelů. To znamená zprávy se očekává obvykle přijímají a zpracovávají v pořadí, ve kterém byly přidány do fronty, a každou zprávu přijme a zpracuje jenom jeden příjemce zprávy. Klíčovou výhodou použití front je dosáhnout "časové oddělení" součástí aplikace. Jinými slovy producenti (odesílatelé) a spotřebitelé (příjemci) nemusí být odesílání a přijímání zpráv ve stejnou dobu, protože zprávy jsou bezpečně uložené ve frontě. Kromě toho Autor nemusí čekat na odpověď od příjemce, aby bylo možné pokračovat se zpracováním a odesláním zprávy.
 
-Výhodou je, "vyrovnávání zátěže," což umožňuje odesílatelům a spotřebitelům umožňuje odesílat a přijímat zprávy různými rychlostmi. V mnoha aplikacích zatížení systému se liší v čase; ale zpracování čas potřebný pro jednotlivé jednotky práce je obvykle stálá. Propojovací producenti a spotřebitelé zpráv s frontou znamená, že spotřebitelskou aplikaci pouze musí být zřízená být schopna zpracovávat průměrnou zátěž místo zátěž ve špičce. S měnící se příchozí zátěží se mění hloubka fronty. To znamená přímou úsporu nákladů s ohledem na množství infrastruktury nutné pro zvládání zatížení aplikace. Při rostoucí zátěži, lze přidat další pracovní procesy ke čtení z fronty. Každou zprávu zpracovává jen jeden pracovní proces. Kromě toho tato Vyrovnávání zatížení založené na operaci pull umožňuje optimální využívání pracovních počítačů i v případě, že pracovní počítače liší s ohledem na výpočetní výkon, jak se bude načítat zprávy na svou vlastním maximální rychlostí. Toto chování se často říká vzor "neslučitelných příjemce".
+Výhodou je, "vyrovnávání zátěže," což umožňuje odesílatelům a spotřebitelům umožňuje odesílat a přijímat zprávy různými rychlostmi. V mnoha aplikacích zatížení systému se liší v čase; ale zpracování čas potřebný pro jednotlivé jednotky práce je obvykle stálá. Propojovací producenti a spotřebitelé zpráv s frontou znamená, že spotřebitelskou aplikaci pouze musí být zřízená být schopna zpracovávat průměrnou zátěž místo zátěž ve špičce. S měnící se příchozí zátěží se mění hloubka fronty. To znamená přímou úsporu nákladů s ohledem na množství infrastruktury nutné pro zvládání zatížení aplikace. Při rostoucí zátěži, lze přidat další pracovní procesy ke čtení z fronty. Každou zprávu zpracovává jen jeden pracovní proces. Kromě toho tato Vyrovnávání zatížení založené na operaci pull umožňuje optimální využívání pracovních počítačů i v případě, že pracovní počítače liší s ohledem na výpočetní výkon, jak se budou načítat zprávy na svou vlastním maximální rychlostí. Toto chování se často říká vzor "neslučitelných příjemce".
 
 Pomocí fronty pro zprostředkující mezi producenti a spotřebitelé zpráv poskytuje vyplývajících volné párování mezi součástmi. Protože producenti a spotřebitelé nemají informace o sobě navzájem, bez nutnosti nijak neprojeví na Autor lze upgradovat příjemce.
 
@@ -52,7 +52,7 @@ MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateS
 QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 ```
 
-Pak můžete odesílat zprávy do fronty. Například, pokud máte seznam zprostředkovaných zpráv názvem `MessageList`, zobrazí se tento kód podobný následujícímu:
+Pak můžete odesílat zprávy do fronty. Například, pokud máte seznam zprostředkovaných zpráv názvem `MessageList`, podobně jako v následujícím příkladu se zobrazí kód:
 
 ```csharp
 for (int count = 0; count < 6; count++)
@@ -82,7 +82,7 @@ V [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) režimu ope
 
 Pokud aplikace nemůže zpracovat zprávu z nějakého důvodu, může zavolat [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) metoda na přijatou zprávu (místo [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). To umožňuje služba Service Bus zprávu odemkne a zpřístupní ji pro další přijetí, příjemci stejné nebo jiné konkurence mezi spotřebiteli. Za druhé je vypršení časového limitu přidružené zámek a aplikace nepodaří zprávu zpracovat vyprší časový limit uzamčení (například pokud aplikace spadne), pak Service Bus zprávu odemkne a je-li k dispozici být přijata znovu) v podstatě provádění [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) operace ve výchozím nastavení).
 
-Všimněte si, že v případě, že aplikace spadne po zpracování zprávy, ale předtím, než **Complete** požadavku, zpráva se víckrát do aplikace odešle znovu. To se často označuje jako *nejméně jednou* zpracování; to znamená, že každá zpráva se zpracuje alespoň jednou. Ale v některých situacích může doručit víckrát stejnou zprávu. Pokud scénář nemůže tolerovat zpracování duplicitní, pak je potřeba další logiku v aplikaci vyhledat duplicity, které lze dosáhnout na základě **MessageId** vlastnosti zprávy, která zůstává konstantní napříč pokusy o doručení. To se označuje jako *právě jednou* zpracování.
+Všimněte si, že v případě, že aplikace spadne po zpracování zprávy, ale předtím, než **Complete** požadavku, zpráva se víckrát do aplikace odešle znovu. To se často označuje jako *nejméně jednou* zpracování; to znamená, že každá zpráva se zpracuje alespoň jednou. Ale v některých situacích může doručit víckrát stejnou zprávu. Pokud scénář nemůže tolerovat duplicitní zpracování, pak je potřeba další logiku v aplikaci duplicity, které lze dosáhnout na základě **MessageId** vlastnosti zprávy, která zůstává konstantní napříč pokusy o doručení. To se označuje jako *právě jednou* zpracování.
 
 ## <a name="topics-and-subscriptions"></a>Témata a předplatná
 Na rozdíl od front, ve kterých každou zprávu zpracuje jeden spotřebitel, *témata* a *odběry* poskytovat ve formuláři na více komunikace, *publikování a přihlášení k odběru* vzor. Tato možnost je užitečná pro škálování pro velmi velký počet příjemců, každá publikovaná zpráva je k dispozici všem odběrům registrovaným pro příslušné téma. Zprávy odeslané do tématu se doručí na jeden nebo více přidružených odběrů, v závislosti na pravidla filtru, které lze nastavit na základě za předplatné. Odběry můžete použít další filtry a omezit zprávy, které chcete dostávat. Se odesílají zprávy do tématu stejným způsobem, se odešlou do fronty, ale nejsou v tématu přímo přijaty zprávy. Místo toho jsou přijímány z předplatného. Předplatné tématu se podobá virtuální frontě, která obdrží kopii zprávy, které jsou odeslány do tématu. Zprávy se přijaté z odběru stejně jako způsob příjmu z fronty.
@@ -155,7 +155,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 K tomuto filtru předplatné v místě, jen zprávy, které mají `StoreName` vlastnost nastavena na hodnotu `Store1` se zkopírují do virtuální fronty pro `Dashboard` předplatné.
 
-Další informace o možných filtru hodnoty, najdete v dokumentaci pro [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) a [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) třídy. Další informace naleznete [zprostředkované zasílání zpráv: rozšířené filtry](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) a [tématu filtry](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) ukázky.
+Další informace o možných filtru hodnoty, najdete v dokumentaci pro [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) a [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) třídy. Další informace naleznete [zprostředkované zasílání zpráv: rozšířené filtry](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) a [tématu filtry](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) ukázky.
 
 ## <a name="next-steps"></a>Další kroky
 Najdete zde advanced témata pro další informace a příklady použití zasílání zpráv Service Bus.
@@ -163,6 +163,5 @@ Najdete zde advanced témata pro další informace a příklady použití zasíl
 * [Přehled přenosu zpráv ve službě Service Bus](service-bus-messaging-overview.md)
 * [Kurz .NET pro zprostředkované zasílání zpráv ve službě Service Bus](service-bus-brokered-tutorial-dotnet.md)
 * [Zprostředkované zasílání zpráv kurz REST](service-bus-brokered-tutorial-rest.md)
-* [Ukázka filtrů témat](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [Zprostředkované zasílání zpráv: Ukázka filtrů Advanced](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 

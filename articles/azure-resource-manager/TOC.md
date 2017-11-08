@@ -71,7 +71,6 @@
 
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### [Přiřazení zásad pomocí skriptů](resource-manager-policy-create-assign.md)
 ### Příklady
 #### [Značky](resource-manager-policy-tags.md)
 #### [Zásady vytváření názvů](resource-manager-policy-naming-convention.md)

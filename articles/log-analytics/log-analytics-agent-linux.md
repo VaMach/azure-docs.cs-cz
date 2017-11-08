@@ -1,6 +1,6 @@
 ---
-title: "Připojení počítačů Linux k Operations Management Suite (OMS) | Microsoft Docs"
-description: "Tento článek popisuje postup připojení počítače se systémem Linux hostované v Azure, ostatní cloudu nebo místně do OMS pomocí agenta OMS pro Linux."
+title: "Připojení počítačů Linux k Azure Log Analytics | Microsoft Docs"
+description: "Tento článek popisuje postup připojení počítače se systémem Linux hostované v Azure, jiné cloudové nebo místní k analýze protokolů s agentem OMS pro Linux."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/29/2017
+ms.date: 11/07/2017
 ms.author: magoedte
-ms.openlocfilehash: c9902e1b8644c2b0a894f9cde98f2056564775c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56c666d1a18937df21a6aca8acde87beda1cad8e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>Připojení počítačů Linux k Operations Management Suite (OMS) 
+# <a name="connect-your-linux-computers-to-log-analytics"></a>Připojení počítačů Linux k analýzy protokolů 
 
-S Microsoft Operations Management Suite (OMS) můžete shromažďovat a provádění akcí s data generovaná z počítače se systémem Linux a kontejner řešení jako Docker, umístěný ve vašem datovém centru místní jako fyzických serverech nebo virtuálních počítačů, virtuálních počítačů v Služba hostovaných v cloudu jako Amazon Web Services (AWS) nebo Microsoft Azure. Také můžete řešení pro správu k dispozici v OMS například sledování změn, k identifikaci změny konfigurace a Správa aktualizací ke správě aktualizací softwaru k proaktivnímu řízení životního cyklu vaší virtuální počítače s Linuxem. 
+S Azure Log Analytics můžete shromažďovat a fungovat na informace shromážděné z počítače se systémem Linux a kontejner řešení jako Docker, které se nacházejí ve vašem datovém centru místní jako fyzických serverech nebo virtuálních počítačů, virtuální počítače ve službě hostovaných v cloudu jako Amazon Webové služby (AWS) nebo Microsoft Azure. Můžete použít také k dispozici v řešení pro správu [Azure Automation](../automation/automation-intro.md) například sledování změn, můžete určit změny konfigurace a Správa aktualizací ke správě aktualizací softwaru k proaktivnímu řízení životního cyklu vaší Linux Virtuální počítače. 
 
-OMS agenta pro Linux komunikuje přes port 443 protokolu TCP odchozí službou OMS a pokud se počítač připojí k serveru brány firewall nebo proxy server komunikovat přes Internet, přečtěte si [konfigurace agenta pro použití s HTTP proxy server nebo OMS Brána](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway) pochopit změny konfigurace, které se musí provést.  Pokud sledujete počítači pomocí System Center 2016 - Operations Manager nebo Operations Manager 2012 R2, může být vícedomé službou OMS pro shromažďování dat a předání do služby a bude i nadále monitorovat pomocí nástroje Operations Manager.  Počítače se systémem Linux monitorovány podle skupiny pro správu nástroje Operations Manager, která je integrovaná s OMS neobdrží konfigurace zdroje dat a předávat shromážděné data prostřednictvím skupiny pro správu.  K více než jeden pracovní prostor sestavy nelze konfigurovat OMS agent.  
+Agent OMS pro Linux komunikuje odchozí s analýzy protokolů a služby automatizace Azure přes protokol TCP port 443 a pokud se počítač připojí k serveru brány firewall nebo proxy server komunikovat přes Internet, přečtěte si [konfigurace agenta pro použití s proxy server nebo brány OMS](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway) pochopit změny konfigurace, které se musí provést.  Pokud sledujete počítači pomocí System Center 2016 - Operations Manager nebo Operations Manager 2012 R2, může být vícedomé službou analýzy protokolů pro shromažďování dat a předání do služby a bude i nadále monitorovat pomocí nástroje Operations Manager.  Počítače se systémem Linux monitorovány podle skupiny pro správu nástroje Operations Manager, která je integrovaná s analýzy protokolů (momentálně uvedené Operations Management Suite v konzole nástroje Operations Manager Operations) nezadávejte získat konfiguraci zdroje dat a předávání shromážděná data prostřednictvím skupiny pro správu.  K více než jeden pracovní prostor analýzy protokolů sestavy nelze konfigurovat OMS agent.  
 
-Pokud vaše zásady zabezpečení IT neumožňují počítače v síti pro připojení k Internetu, agent může být nakonfigurován pro připojení k bráně OMS shromážděná data v závislosti na řešení, které jste povolili odesílat a přijímat informace o konfiguraci. Další informace a kroky pro konfiguraci agenta OMS Linux komunikaci přes bránu OMS ke službě OMS najdete v tématu [počítače připojit k OMS pomocí brány OMS](log-analytics-oms-gateway.md).  
+Pokud vaše zásady zabezpečení IT neumožňují počítače v síti pro připojení k Internetu, agent může být nakonfigurován pro připojení k bráně OMS shromážděná data v závislosti na řešení, které jste povolili odesílat a přijímat informace o konfiguraci. Další informace a kroky pro konfiguraci agenta OMS Linux komunikaci přes bránu OMS do služeb najdete v tématu [počítače připojit k OMS pomocí brány OMS](log-analytics-oms-gateway.md).  
 
-Následující diagram znázorňuje připojení mezi agentem spravované počítače se systémem Linux a OMS, včetně směr a portů.
+Následující diagram znázorňuje připojení mezi agentem spravované počítače se systémem Linux a analýzy protokolů, včetně směr a portů.
 
-![agent přímé komunikaci s OMS diagram](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
+![agent přímé komunikaci s diagram služby Azure](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
 
 ## <a name="system-requirements"></a>Požadavky na systém
 Než začnete, zkontrolujte následující podrobnosti k ověření, že splňujete požadavky.
@@ -47,7 +47,7 @@ Následující Linuxových distribucích jsou oficiálně podporované.  OMS age
 * SUSE Linux Enterprise Server 11 a 12 (x86/x64)
 
 ### <a name="network"></a>Síť
-Informace o následující seznam konfigurace proxy a firewall informace požadované pro Linux agenta pro komunikaci s OMS. Přenosy jsou odchozí z vaší sítě do služby OMS. 
+Informace o následující seznam konfigurace proxy a firewall informace požadované pro Linux agenta pro komunikaci s analýzy protokolů a automatizace Azure. Přenosy jsou odchozí z vaší sítě do služby. 
 
 |Prostředek agenta| Porty |  
 |------|---------|  
@@ -73,7 +73,7 @@ Agent obsahuje více balíčků. Verze souboru obsahuje následující balíčky
 
 **Balíček** | **Verze** | **Popis**
 ----------- | ----------- | --------------
-omsagent | 1.4.1 | Agent nástroje Operations Management Suite pro Linux
+omsagent | 1.4.0 | Agent nástroje Operations Management Suite pro Linux
 omsconfig | 1.1.1 | Konfigurace agenta pro agenta OMS
 OMI | 1.2.0 | Open Management Infrastructure (OMI) - lightweight CIM Server
 scx. | 1.6.3 | Zprostředkovatelé CIM OMI pro metriku výkonu operačního systému
@@ -91,22 +91,31 @@ OMS agenta pro Linux sdílí binárních souborů agenta s agenta System Center 
 ### <a name="system-configuration-changes"></a>Změny konfigurace systému
 Po instalaci agenta OMS pro balíčky Linux, se použijí následující další konfiguraci systémové změny. Tyto artefakty se odeberou, když omsagent balíček odinstalován.
 
-* Bez oprávnění uživatele s názvem: `omsagent` je vytvořena. Démon omsagent spouští pod tímto účtem.
-* Soubor "zahrnout" sudoers je vytvořena při /etc/sudoers.d/omsagent. Tento soubor autorizuje omsagent restartovat démoni syslog a omsagent. Pokud direktivy "zahrnout" sudo nejsou podporovány v nainstalované verzi sudo, zapíšou se do /etc/sudoers tyto položky.
-* Konfigurace syslog je upravit tak, aby předávat podmnožinu události agenta. Další informace najdete v tématu **konfigurace shromažďování dat** části níže.
+* Bez oprávnění uživatele s názvem: `omsagent` je vytvořena. Toto je účet, který spouští démon omsagent jako.
+* Soubor "zahrnout" sudoers je vytvořena při /etc/sudoers.d/omsagent. To autorizuje omsagent restartovat démoni syslog a omsagent. Pokud direktivy "zahrnout" sudo nejsou podporovány v nainstalované verzi sudo, zapíšou se do /etc/sudoers tyto položky.
+* Konfigurace syslog je upravit tak, aby předávat podmnožinu události agenta. Další informace najdete v tématu **konfigurace shromažďování dat** části
 
 ### <a name="upgrade-from-a-previous-release"></a>Upgrade z předchozí verze
 Upgrade z verze dříve, než je 1.0.0-47 v této verzi podporovány. Instalace se `--upgrade` příkaz upgraduje všechny komponenty agenta na nejnovější verzi.
 
 ## <a name="installing-the-agent"></a>Instalace agenta
 
-Tato část popisuje, jak nainstalovat agenta OMS pro Linux pomocí bunndle, který obsahuje Debian a RPM balíčky pro všechny komponenty agenta.  Můžete nainstalovat přímo nebo extrahují pro načtení daných jednotlivých balíčků.  
+Tato část popisuje, jak nainstalovat agenta OMS pro Linux ručně pomocí bunndle, který obsahuje Debian a RPM balíčky pro všechny komponenty agenta.  Můžete nainstalovat přímo nebo extrahují pro načtení daných jednotlivých balíčků.  Pokud máte v úmyslu nainstalovat agenta na virtuální počítač Linux Azure, najdete v následujícím tématu [shromažďovat data o virtuálních počítačích Azure](log-analytics-quick-collect-azurevm.md) se dozvíte, jak nainstalovat agenta pomocí rozšíření virtuálního počítače Log Analytics.  Postupujte podle kroků v části *povolit rozšíření virtuálního počítače Log Analytics*.  Pro počítače Linux hostované ve vašem prostředí, můžete zjednodušit proces instalace pomocí skriptované metody popsané v článku, [shromažďovat data z počítače se systémem Linux hostované ve vašem prostředí](log-analytics-quick-collect-linux-computer.md).  
 
-Nejprve je třeba vaše OMS ID a klíč, který můžete najít a přepnutí na [klasický portál OMS](https://mms.microsoft.com).  Na **přehled** stránky z hlavní nabídky vyberte možnost **nastavení**a potom přejděte na **připojené servery Sources\Linux**.  Zobrazí hodnotu napravo od **ID pracovního prostoru** a **primární klíč**.  Zkopírujte a vložte do vašeho oblíbeného editoru.    
+> [!NOTE]
+> Při dvou články výše uvedené jsou určené pro někoho, kdo je nový k analýze protokolů a začít používat službu rychle, kroky pro konfiguraci počítače jsou relevantní.  Pokud už máte pracovní prostor a se chtějí připojit počítače se systémem Linux, vyberte existujícímu pracovnímu prostoru, pokud virtuální počítač Azure Linux, nebo pro počítač hostované mimo Azure, kopie ID pracovního prostoru a klíč předat do skriptu.  
 
-1. Stáhněte si nejnovější [OMS agenta pro Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) nebo [OMS agenta pro Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh) z Githubu.  
-2. Přeneste příslušné sady (x86 nebo x64) do počítače Linux pomocí spojovací bod služby/sftp.
-3. Instalaci sady pomocí `--install` nebo `--upgrade` argument. 
+Před instalací agenta OMS pro Linux, je nutné ID a klíč vašeho pracovního prostoru analýzy protokolů.  
+
+1. Přihlaste se k portálu Azure v [https://portal.azure.com](https://portal.azure.com). 
+2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **protokolu analýzy**.
+3. V seznamu analýzy protokolů pracovních prostorů vyberte pracovní prostor, kterou má počítač tak, aby odesílaly.
+3. Vyberte **upřesňující nastavení**.<br><br> ![Nastavení zálohy analýzy protokolů](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+4. Vyberte **připojené zdroje**a potom vyberte **servery se systémem Linux**.   
+5. Hodnota napravo od **ID pracovního prostoru** a **primární klíč**. Zkopírujte a vložte do vašeho oblíbeného editoru.  
+6. Stáhněte si nejnovější [OMS agenta pro Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) nebo [OMS agenta pro Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) z Githubu.  
+7. Přeneste příslušné sady (x86 nebo x64) do počítače Linux pomocí spojovací bod služby/sftp.
+8. Instalaci sady pomocí `--install` nebo `--upgrade` argument. 
 
     > [!NOTE]
     > Pokud například když je již nainstalován agent nástroje System Center Operations Manager pro Linux jsou nainstalovány všechny existující balíčky, použijte `--upgrade` argument. Při instalaci připojovala k Operations Management Suite, zadejte `-w <WorkspaceID>` a `-s <Shared Key>` parametry.
@@ -128,7 +137,7 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <sh
 ```
 
 ## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>Konfigurace agenta pro použití s proxy serveru nebo brány OMS
-OMS agenta pro Linux podporuje komunikaci prostřednictvím serveru proxy nebo brány OMS ke službě OMS pomocí protokolu HTTPS.  Anonymní i základní ověřování (uživatelské jméno a heslo) je podporováno.  
+OMS agenta pro Linux podporuje komunikaci prostřednictvím serveru proxy nebo brány OMS ke službě Analýza protokolů pomocí protokolu HTTPS.  Anonymní i základní ověřování (uživatelské jméno a heslo) je podporováno.  
 
 ### <a name="proxy-configuration"></a>Konfigurace proxy serveru
 Hodnota konfigurace proxy serveru má následující syntaxi:
@@ -171,17 +180,17 @@ sudo rm /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/
 sudo /opt/microsoft/omsagent/bin/service_control restart 
 ```
 
-## <a name="onboarding-with-operations-management-suite"></a>Registrace pomocí služby Operations Management Suite
-Pokud ID a klíč nebyla zadána při instalaci sady, musí být agenta následně zaregistrován u služby Operations Management Suite.
+## <a name="onboarding-with-log-analytics"></a>Registrace s analýzy protokolů
+Pokud ID a klíč nebyla zadána při instalaci sady, musí být agent následně zaregistrován u analýzy protokolů.
 
 ### <a name="onboarding-using-the-command-line"></a>Registrace pomocí příkazového řádku
-Spusťte příkaz omsadmin.sh se zadaným ID pracovního prostoru a klíč vašeho pracovního prostoru. Tento příkaz musí spustit jako kořenového adresáře (s zvýšení oprávnění sudo):
+Spusťte příkaz omsadmin.sh se zadaným id pracovního prostoru a klíč vašeho pracovního prostoru. Tento příkaz musí spustit jako kořenového adresáře (s zvýšení oprávnění sudo):
 ```
 cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
 
-### <a name="onboarding-using-a-file"></a>Registrace pomocí souboru.
+### <a name="register-using-a-file"></a>Zaregistrovat pomocí souboru.
 1.  Vytvoření souboru `/etc/omsagent-onboard.conf`. Soubor musí být přístupné pro čtení a zápis pro kořenový adresář.
 `sudo vi /etc/omsagent-onboard.conf`
 2.  V souboru s ID pracovního prostoru a sdílený klíč, vložte následující řádky:
@@ -189,7 +198,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
         WORKSPACE_ID=<WorkspaceID>  
         SHARED_KEY=<Shared Key>  
    
-3.  Spusťte následující příkaz k Onboard k OMS:`sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
+3.  Spusťte následující příkaz pro registraci s analýzy protokolů:`sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
 4.  Soubor je odstraněn na úspěšnou registraci.
 
 ## <a name="enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager"></a>Povolte agenta OMS pro Linux tak, aby odesílaly System Center Operations Manager
@@ -228,18 +237,18 @@ Balíčky agenta odinstalovat spuštěním souboru .sh sady s `--purge` argument
 
 ## <a name="troubleshooting"></a>Řešení potíží
 
-### <a name="issue-unable-to-connect-through-proxy-to-oms"></a>Problém: Nelze se připojit prostřednictvím proxy serveru k OMS
+### <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>Problém: Nelze se připojit prostřednictvím proxy serveru k analýze protokolů
 
 #### <a name="probable-causes"></a>Možných příčin
 * Zadaný během registrace proxy serveru byl nesprávný
-* Koncové body služby OMS nejsou whitelistested ve vašem datovém centru 
+* Analýzy protokolů a koncové body služby Azure Automation nejsou povolené ve vašem datovém centru 
 
 #### <a name="resolutions"></a>Řešení
-1. Reonboard ke službě OMS s agentem OMS pro Linux pomocí následujícího příkazu s parametrem `-v` povolena. Tato settubg umožňuje podrobný výstup agenta připojení prostřednictvím proxy serveru pro službu OMS. 
+1. Reonboard ke službě Analýza protokolů s agentem OMS pro Linux pomocí následujícího příkazu s parametrem `-v` povolena. To umožňuje podrobný výstup agenta připojení prostřednictvím proxy serveru pro službu OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Projděte si část [konfigurace agenta pro použití s proxy serveru nebo brány OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) ověření jste správně nakonfigurovali agenta pro komunikaci přes proxy server.    
-* Překontrolujte, že vytvoření následujících koncových bodů služby OMS jsou seznam povolených adres:
+* Double zkontrolujte, jestli jsou následující koncové body služby analýzy protokolů seznam povolených adres:
 
     |Prostředek agenta| Porty |  
     |------|---------|  
@@ -261,22 +270,36 @@ Balíčky agenta odinstalovat spuštěním souboru .sh sady s `--purge` argument
 3. Reonboard pomocí správné ID pracovního prostoru a klíč pracovního prostoru pokynů instalace dříve v tomto tématu.
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problém: Zobrazí 500 a 404 Chyba v souboru protokolu hned po registraci
-Tato chyba je známý problém, proběhne první nahrávání dat Linux do pracovního prostoru OMS. Tato chyba neovlivňuje dat probíhá odeslané nebo služby.
+Jde o známý problém, který se nachází na první nahrávání dat Linux do pracovního prostoru analýzy protokolů. To nemá vliv dat probíhá odeslané nebo služby.
 
-### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Problém: Nevidíte všechna data na portálu OMS
+### <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problém: Nevidíte všechna data na portálu Azure
 
 #### <a name="probable-causes"></a>Možných příčin
 
-- Připojování ke službě OMS se nezdařilo
-- Připojení ke službě OMS blokováno.
+- Připojování ke službě Analýza protokolů se nezdařilo
+- Připojení ke službě Analýza protokolů je blokovaný.
 - Vytvoření zálohy OMS agenta pro Linux data
 
 #### <a name="resolutions"></a>Řešení
-1. Zkontrolujte, pokud registrace služby OMS po úspěšné kontrole, jestli existuje následující soubor:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Zkontrolujte, pokud registrace služby analýzy protokolů po úspěšné kontrole, jestli existuje následující soubor:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Pomocí Reonboard `omsadmin.sh` příkazového řádku pokyny
 3. Pokud používáte proxy server, podívejte se na proxy řešení kroků uvedených výše.
-4. V některých případech při OMS agenta pro Linux nemůže komunikovat se službou OMS data na agentovi je zařazených do fronty pro velikost vyrovnávací paměti úplná, což je 50 MB. Spuštěním následujícího příkazu by měla být restartována OMS agenta pro Linux: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+4. V některých případech pokud Agent OMS pro Linux nemůže komunikovat se službou, data na agenta je zařazených do fronty pro velikost vyrovnávací paměti úplná, což je 50 MB. Spuštěním následujícího příkazu by měla být restartována OMS agenta pro Linux: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 
     >[!NOTE]
     >Tento problém vyřešen v 1.1.0-28 verze agenta nebo novější.
 
+### <a name="issue-omsagent-creates-excessive-number-of-user-process-on-computer-and-never-terminates-them"></a>Problém: OMSAgent vytvoří nadměrnému počtu procesů uživatele v počítači a nikdy ukončí je
+Když povolíte řešení pro správu, které podporují správu virtuálních počítačů Linux, zahájí počet procesů na agenta systému Linux. Ale předtím, než se proces skončí, je kvůli známému problému spuštěn jiný proces. 
+
+#### <a name="resolutions"></a>Řešení
+Chcete-li změnit počet procesů uživatele, které může být generována OMSAgent, nakonfigurujte agenta pomocí omsadmin.sh.  Počet procesů, které se generují ve výchozím nastavení je 75 a před změnou limit, byste měli spustit nejdřív následující příkaz, který najdete v části Jak velký počet procesů OMSAgent jsou aktuálně spuštěny: `ps aux | grep -E '^omsagent' | wc -l`.  
+Můžete ověřit, co aktuální limit je nastaven na tak, že spustíte následující příkaz:`cat /etc/security/limits.conf | grep -E '^omsagent'`
+
+Pomocí následujících příkazů buď konfigurovat vlastní proces, který limit nebo omezit na proces zpět na výchozí hodnotu.
+
+1. Nastavit limit procesů pro OMSAgent: `sudo /opt/microsoft/omsagent/bin/omsadmin.sh -n <specific number limit>`.<br>Všimněte si, že je minimální limit, může být nastavena na hodnotu 5.  
+
+2. Nastavit limit procesů pro OMSAgent zpět na výchozí hodnota:`sudo /opt/microsoft/omsagent/bin/omsadmin.sh -N`
+
+Ověřte, že nové nastavení použilo spuštěním následujícího příkazu: `cat /etc/security/limits.conf | grep -E '^omsagent'`.  Pokud nevidíte použitá nové konfigurace, může být vzhledem k tomu, že můžete omezit na proces příliš nízká.  

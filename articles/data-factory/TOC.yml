@@ -166,6 +166,8 @@
           href: compute-linked-services.md
     - name: Tok řízení
       items:
+        - name: Aktivita podmínky Když
+          href: control-flow-if-condition-activity.md
         - name: Aktivita webu
           href: control-flow-web-activity.md
         - name: Aktivita vyhledávání

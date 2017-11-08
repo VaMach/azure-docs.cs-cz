@@ -12,32 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2017
+ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Zvýšení přístupu jako správce klienta s řízením přístupu na základě rolí
 
 Řízení přístupu na základě rolí pomáhá správci klientů získat dočasný – zvýšení úrovní oprávnění přístupu tak, aby se můžete udělit oprávnění vyšší než normální. Správce klienta můžete zvýšit samu sebe roli správce přístupu uživatelů v případě potřeby. Tato role poskytuje klienta oprávnění správce k udělení samu sebe nebo ostatní role v oboru "/".
 
-Tato funkce je důležitá, protože umožňuje Správce tenanta zobrazíte všechny odběry, které existují v organizaci. Také to umožňuje pro aplikace, automatizace (jako je fakturace a auditování) pro přístup k Všechna předplatná a poskytují přesné informace o stavu organizace pro správu fakturace nebo asset.  
+Tato funkce je důležitá, protože umožňuje Správce tenanta zobrazíte všechny odběry, které existují v organizaci. Umožňuje také pro automatizaci aplikace, jako je fakturace a auditování pro přístup k Všechna předplatná a přesné informace o stavu organizace přinášejí fakturace nebo správu prostředků.  
 
-## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Postup použití elevateAccess ke klientovi přístup pomocí centra pro správu Azure AD
+## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>ElevateAccess můžete používat pro přístup klientů pomocí centra pro správu Azure AD
 
-V [centra pro správu Azure Active Directory](https://aad.portal.azure.com) můžete vyvolat tuto funkci z **vlastnosti**.
-Tato funkce je volána **globálního správce můžete spravovat předplatná Azure**. Dojem je, že toto je globální vlastnost pro Azure Active Directory, ale funguje na jednotlivé uživatele pro aktuálně přihlášeného uživatele. Pokud máte práva globálního správce ve službě Azure Active Directory, můžete použít funkci elevateAccess pro uživatele, který jste právě přihlášení do centra pro správu Azure Active Directory.
+1. Přejděte na [centra pro správu Azure Active Directory](https://aad.portal.azure.com) a přihlaste se pomocí můžete přihlašovací údaje.
 
-Výběr **Ano** a potom **Uložit**: to **přiřadí** **správce přístupu uživatelů** role v kořenovém adresáři "/" (kořenovém oboru) pro uživatele s který jste právě přihlášení k portálu.
+2. Zvolte **vlastnosti** z Azure AD levé nabídce.
 
-Výběr **ne** a potom **Uložit**: to **odebere** **správce přístupu uživatelů** role v kořenovém adresáři "/" (kořenovém oboru) pro uživatele s který jste právě přihlášení k portálu.
+3. V **vlastnosti** okně Najít **globálního správce můžete spravovat předplatná Azure**, zvolte **Ano**, pak **Uložit**.
+    > [!IMPORTANT] 
+    > Pokud vyberete **Ano**, přiřadí **správce přístupu uživatelů** role v kořenovém adresáři "/" (kořenovém oboru) pro uživatele, ke kterému jste teď přihlášení k portálu. **To umožňuje uživatelům zobrazit všechny ostatní předplatných Azure.**
+    
+    > [!NOTE] 
+    > Pokud vyberete **ne**, odebere **správce přístupu uživatelů** role v kořenovém adresáři "/" (kořenovém oboru) pro uživatele, ke kterému jste teď přihlášení k portálu.
+
+> [!TIP] 
+> Dojem je, že toto je globální vlastnost pro Azure Active Directory, ale funguje na jednotlivé uživatele pro aktuálně přihlášeného uživatele. Pokud máte práva globálního správce ve službě Azure Active Directory, můžete použít funkci elevateAccess pro uživatele, který jste právě přihlášení do centra pro správu Azure Active Directory.
 
 ![Globaladmin centra pro správu – vlastnosti – Azure AD Spravovat předplatné Azure – snímek obrazovky](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Jak používat elevateAccess klienta přístup pomocí rozhraní REST API
+## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Použít elevateAccess klienta přístup pomocí rozhraní REST API
 
 Základní proces funguje pomocí následujících kroků:
 
@@ -70,47 +77,56 @@ Základní proces funguje pomocí následujících kroků:
 
 Při volání *elevateAccess* vytvořit přiřazení role pro sebe, aby tato oprávnění odvolat, budete muset odstranit přiřazení.
 
-1.  Volání [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get) kde roleName = správce přístupu uživatelů k určení názvu GUID role správce přístupu uživatelů. Odpověď by měla vypadat takto:
+1.  Volání GET definice rolí kde roleName = správce přístupu uživatelů k určení názvu GUID role správce přístupu uživatelů.
+    1.  ZÍSKAT *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$ filter = roleName + eq +'+ správce přístupu uživatelů +*
 
-    ```
-    {"value":[{"properties":{
-    "roleName":"User Access Administrator",
-    "type":"BuiltInRole",
-    "description":"Lets you manage user access to Azure resources.",
-    "assignableScopes":["/"],
-    "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-    "createdOn":"0001-01-01T08:00:00.0000000Z",
-    "updatedOn":"2016-05-31T23:14:04.6964687Z",
-    "createdBy":null,
-    "updatedBy":null},
-    "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "type":"Microsoft.Authorization/roleDefinitions",
-    "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleName":"User Access Administrator",
+        "type":"BuiltInRole",
+        "description":"Lets you manage user access to Azure resources.",
+        "assignableScopes":["/"],
+        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
+        "createdOn":"0001-01-01T08:00:00.0000000Z",
+        "updatedOn":"2016-05-31T23:14:04.6964687Z",
+        "createdBy":null,
+        "updatedBy":null},
+        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "type":"Microsoft.Authorization/roleDefinitions",
+        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
+        "nextLink":null}
+        ```
 
-    Uložte identifikátor GUID z *název* parametr v tomto případě **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+        Uložte identifikátor GUID z *název* parametr v tomto případě **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Volání [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) kde principalId = vlastní ObjectId. Rutina Vypíše seznam všech přiřazení v klientovi. Vyhledejte ten, kde je oboru "/" a končí hodnoty vlastnosti RoleDefinitionId s názvem role GUID, které jste získali v kroku 1. Přiřazení role by měl vypadat takto:
+2. Musíte také seznam přiřazení role pro správce tenanta na obor klienta. Zobrazí seznam všech přiřazení v obor klienta pro PrincipalId ze správce, který provedl přístup zvýšení volání. To se zobrazí seznam všech přiřazení v klientovi pro ObjectID. 
+    1. ZÍSKAT *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$ filter = principalId + eq + {objectid}*
+    
+        >[!NOTE] 
+        >Správce klienta by neměl mít mnoho přiřazení, pokud dotaz výše vrátí příliš mnoho přiřazení, se můžete dotazovat i pro všechna přiřazení právě na úrovni oboru klienta a pak filtrovat výsledky: získání *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
+        
+    2. Výše uvedené volání vrátí seznam přiřazení rolí. Najít přiřazení role, kde je oboru "/" a končí hodnoty vlastnosti RoleDefinitionId s názvem role GUID, které jste získali v kroku 1 a PrincipalId odpovídá ObjectId správce klienta. Přiřazení role vypadá takto:
 
-    ```
-    {"value":[{"properties":{
-    "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "principalId":"{objectID}",
-    "scope":"/",
-    "createdOn":"2016-08-17T19:21:16.3422480Z",
-    "updatedOn":"2016-08-17T19:21:16.3422480Z",
-    "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-    "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-    "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-    "type":"Microsoft.Authorization/roleAssignments",
-    "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "principalId":"{objectID}",
+        "scope":"/",
+        "createdOn":"2016-08-17T19:21:16.3422480Z",
+        "updatedOn":"2016-08-17T19:21:16.3422480Z",
+        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
+        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
+        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+        "type":"Microsoft.Authorization/roleAssignments",
+        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
+        "nextLink":null}
+        ```
+        
+        Znovu, uložte identifikátor GUID z *název* parametr v tomto případě **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
-    Znovu, uložte identifikátor GUID z *název* parametr v tomto případě **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    3. Nakonec použijte zvýrazněné **RoleAssignment ID** odstranit přiřazení přidal zvýšení oprávnění k přístupu:
 
-3. Nakonec volání [roleAssignments odstranění](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById) kde roleAssignmentId = název GUID, které jste získali v kroku 2.
+        Odstranit https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
 ## <a name="next-steps"></a>Další kroky
 

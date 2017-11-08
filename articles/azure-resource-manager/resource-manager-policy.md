@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2e0d2e9830639209a22e9b62b0679d31854150e4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6faa8b4d259eddb1b26345d8900e829f6ca4dba8
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="resource-policy-overview"></a>Přehled zásad prostředků
 Zásady prostředků umožňují vytvořit konvence pro prostředky ve vaší organizaci. Definováním konvence můžete řídit náklady a snadněji spravovat vaše prostředky. Například můžete zadat, že jsou povoleny pouze určité typy virtuálních počítačů. Nebo můžete vyžadovat, aby všechny prostředky měli konkrétní značku. Zásady jsou zdědí všechny podřízené prostředky. Ano Pokud je zásada pro skupinu prostředků, se vztahuje na všechny prostředky v příslušné skupině prostředků.
@@ -55,8 +55,6 @@ Azure poskytuje definice předdefinované zásady, které může snížit počet
 * Není povoleno typy prostředků
 * Vyžaduje systém SQL Server verze 12.0
 * Vyžadovat šifrování účtu úložiště
-
-Můžete přiřadit některé z těchto zásad prostřednictvím [portál](resource-manager-policy-portal.md), [prostředí PowerShell](resource-manager-policy-create-assign.md#powershell), nebo [rozhraní příkazového řádku Azure](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Definice strukturu zásad.
 JSON použijete k vytvoření definice zásady. Definice zásad obsahuje prvky pro:

@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: "Docker, Kontejnery, mikroslužby, Kubernetes, DC/OS, Azure"
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Nasazení a používání Azure kontejneru registru
 
@@ -54,13 +54,19 @@ Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/gr
 az group create --name myResourceGroup --location eastus
 ```
 
-Vytvoření kontejneru Azure registr s využitím [az acr vytvořit](/cli/azure/acr#create) příkaz. Název kontejneru registru **musí být jedinečné**. V následujícím příkladu použijeme název *mycontainerregistry082*.
+Vytvoření služby Azure kontejneru registru s [vytvořit az acr](/cli/azure/acr#create) příkaz. Název kontejneru registru **musí být jedinečné** v rámci Azure a musí obsahovat alfanumerické znaky 5-50. Nahraďte `<acrName>` s jedinečným názvem pro vaše registru:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+Například k vytvoření služby Azure kontejneru registru s názvem *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-Po celý zbytek v tomto kurzu používáme `<acrname>` jako zástupný symbol pro název kontejneru registru, který jste zvolili.
+Po celý zbytek v tomto kurzu používáme `<acrName>` jako zástupný symbol pro název kontejneru registru, který jste zvolili.
 
 ## <a name="container-registry-login"></a>Kontejner registru přihlášení
 
@@ -70,7 +76,7 @@ Musíte se přihlásit k vaší instanci ACR před odesláním bitové kopie do 
 az acr login --name <acrName>
 ```
 
-Příkaz vrátí zprávu, byla úspěšná přihlášení po dokončení.
+Příkaz vrátí `Login Succeeded` zprávu po dokončení.
 
 ## <a name="tag-container-image"></a>Obrázek značky kontejneru
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-Získat název loginServer, spusťte následující příkaz:
+Získat název loginServer, spusťte následující příkaz. Nahraďte `<acrName>` s názvem vašeho kontejneru registru.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Značka *aci – kurz aplikace* bitovou kopii s loginServer registru kontejneru. Navíc přidat `:v1` na konec název bitové kopie. Tato značka označuje číslo verze bitové kopie.
+Příklad výstupu:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Značka *aci – kurz aplikace* bitovou kopii s loginServer registru systému kontejneru. Navíc přidat `:v1` na konec název bitové kopie. Tato značka označuje číslo verze bitové kopie. Nahraďte `<acrLoginServer>` s výsledkem `az acr show` příkaz právě spuštěnou.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Push bitové kopie do registru kontejner Azure
 
-Push *aci – kurz aplikace* bitovou kopii do registru.
-
-Pomocí následujícího příkladu, nahraďte název kontejneru registru loginServer loginServer ze svého prostředí.
+Push *aci – kurz aplikace* bitovou kopii do registru se `docker push` příkaz. Nahraďte `<acrLoginServer>` s názvem serveru úplná přihlášení získáte v předchozím kroku.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+`push` Operace by měla trvat několik sekund až několik minut v závislosti na připojení k Internetu a výstup se podobá následující:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Seznam obrázků v registru kontejner Azure

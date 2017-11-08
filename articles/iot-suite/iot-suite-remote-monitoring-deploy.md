@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Nasadit předkonfigurované řešení vzdáleného monitorování
 
@@ -49,7 +49,7 @@ Než nasadíte předkonfigurované řešení k předplatnému Azure, musíte zvo
 
 1. Na **vytvořit vzdálené monitorování řešení** stránky, zadejte **název řešení** pro předkonfigurované řešení vzdáleného monitorování.
 
-1. Vyberte **základní** nebo **standardní** nasazení. Pokud jsou deplying řešení se dozvíte, jak to funguje nebo chcete spustit ukázku, zvolte **základní** možnost minimalizovat náklady.
+1. Vyberte **základní** nebo **standardní** nasazení. Pokud nasazujete řešení se dozvíte, jak to funguje nebo chcete spustit ukázku, zvolte **základní** možnost minimalizovat náklady.
 
 1. Vyberte buď **Java** nebo **.NET** jako jazyk. Všechny mikroslužeb jsou k dispozici jako implementace Java nebo .NET.
 

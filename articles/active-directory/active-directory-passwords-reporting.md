@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Možnosti zasílání zpráv o správou hesel Azure AD
 
@@ -78,13 +78,7 @@ V současné době sestav Azure AD a rozhraní API událostí načte až **než 
 
 Pokud budete potřebovat načíst nebo ukládání dat nad rámec tohoto okna, doporučujeme uchování v externí databáze a dotaz rozdílů, kterých se pomocí rozhraní API. Naše doporučení je zahájit načítání tato data po spuštění pomocí SSPR ve vaší organizaci, je zachování externě a poté pokračujte ke sledování se rozdíly od tohoto okamžiku.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Stažení události registrace resetování hesla rychle pomocí prostředí PowerShell
-
-Kromě používání sestav Azure AD a rozhraní API události přímo, můžete také používat níže uvedený skript prostředí PowerShell na poslední události registrace ve vašem adresáři. To je užitečné v případě, že chcete se podívat, kdo zaregistrovala nedávno nebo by rádi zajistili, že vaše heslo resetovat zavedení dochází podle očekávání.
-
-* [Registrace Azure AD SSPR, aktivity skript prostředí PowerShell](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Popis sloupce sestavy na portálu Azure
+## <a name="description-of-report-columns-in-azure-portal"></a>Popis sloupce sestavy na portálu Azure
 
 Následující seznam popisuje všechny sloupce sestavy podrobně:
 
@@ -93,7 +87,7 @@ Následující seznam popisuje všechny sloupce sestavy podrobně:
 * **Datum a čas** – datum a čas pokus.
 * **Data registrovaná** – registrace pro resetování jaká data ověřování uživatele zadali během heslo.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Popis hodnoty sestavy na portálu Azure
+## <a name="description-of-report-values-in-azure-portal"></a>Popis hodnoty sestavy na portálu Azure
 
 Následující tabulka popisuje různé hodnoty pro každý sloupec povolená:
 
@@ -198,16 +192,16 @@ Následující seznam popisuje tato aktivita podrobně:
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Jak dokončení úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
-* [Resetovat nebo změnit heslo](active-directory-passwords-update-your-own-password.md).
-* [Registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
-* [Máte dotaz Licensing?](active-directory-passwords-licensing.md)
-* [Jaká data používá SSPR a jaká data by měla můžete naplnit pro vaše uživatele?](active-directory-passwords-data.md)
-* [Jaké metody ověřování jsou k dispozici pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jaké jsou možnosti zásad s SSPR?](active-directory-passwords-policy.md)
-* [Co je zpětný zápis hesla a proč je starat o něm?](active-directory-passwords-writeback.md)
-* [Co jsou všechny možnosti v SSPR a co znamená, že?](active-directory-passwords-how-it-works.md)
-* [Myslím, že něco je poškozená. Jak odstranit SSPR?](active-directory-passwords-troubleshoot.md)
-* [Je nutné zadat otázku, která nebyla někde zahrnutých, jinak](active-directory-passwords-faq.md)
+* [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)
+* [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
+* [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Příklad audit aktivity SSPR protokoly ve službě Azure AD"

@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 10/04/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88c54293b4a9b470febeda3c0e9a1755ad3b0638
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d692d806bab072fc2c4b734677223bad4142561
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Nejčastější dotazy pro SQL Server na virtuálních počítačích Windows Azure
 
@@ -60,6 +60,9 @@ Toto téma obsahuje odpovědi na některé nejčastější dotazy o spuštění 
       Při navazování připojení k systému SQL Server došlo k chybě související se sítí nebo konkrétní instancí. Server nebyl nalezen nebo není přístupný.
 
    Pokud se rozhodnete odinstalovat výchozí instanci, odinstalovat také [rozšíření agenta systému SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) také.
+   
+   >[!NOTE]
+   >Na virtuálním počítači SQL Server Azure se fakturuje, jak je popsáno v [ceny pokyny pro virtuální počítače Azure SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md). Pokud odeberete systému SQL Server, poplatky za používání pokračovat. Pokud již nepotřebujete systému SQL Server, můžete nasadit nového virtuálního počítače a migraci dat a aplikací do nového virtuálního počítače. Potom můžete odebrat virtuální počítač systému SQL Server.
 
 1. **Jak upgradovat na novou verzi nebo edici systému SQL Server ve virtuálním počítači Azure?**
 

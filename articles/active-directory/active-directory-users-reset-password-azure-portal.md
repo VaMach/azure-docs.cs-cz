@@ -16,11 +16,11 @@ ms.date: 11/01/2017
 ms.author: joflore
 ms.reviewer: sahenry
 ms.custom: it-pro
-ms.openlocfilehash: 3dede0f026ab38bae64df664d190b47937416d2d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bea082081e3f3f52ba78188903a9536fe9de9392
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Resetování hesla pro uživatele v Azure Active Directory
 
@@ -37,6 +37,9 @@ Správci mohou potřebovat resetovat heslo uživatele v případech, kde je zapo
     
 6. Na **resetovat heslo**, vyberte **resetovat heslo**.
 7. Zobrazí se dočasné heslo, potom můžete zadat pro uživatele. Uživatel bude požádán pak změnit své heslo při příštím přihlášení se. 
+
+   > [!NOTE]
+   > Toto dočasný heslo není mají čas vypršení platnosti tak, aby ho nebude platné, dokud přihlášení a jsou pak jsou vynutit ho změnit. 
 
 ## <a name="next-steps"></a>Další kroky
 * [Přidat uživatele](active-directory-users-create-azure-portal.md)

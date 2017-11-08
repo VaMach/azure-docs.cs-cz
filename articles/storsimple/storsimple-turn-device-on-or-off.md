@@ -12,16 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Zapněte nebo vypněte zařízení řady StorSimple 8000
+
 ## <a name="overview"></a>Přehled
 Vypínání Microsoft Azure StorSimple zařízení není vyžadován jako součást operace normální systému. Potřebujete však zapnout nového zařízení nebo zařízení, které musí být vypnuté. Obecně platí vypnutí se vyžaduje v případech, ve kterých je musí nahradit selhání hardwaru, fyzicky přesunout jednotku nebo trvat zařízení mimo provoz. Tento kurz popisuje požadované postup pro zapnutí a vypnutí zařízení StorSimple v různých scénářích.
 

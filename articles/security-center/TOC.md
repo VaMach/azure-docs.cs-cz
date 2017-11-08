@@ -1,6 +1,5 @@
 # Přehled
 ## [Co je Azure Security Center?](security-center-intro.md)
-## [Získání přehledů pomocí Power BI](security-center-powerbi.md)
 ## [Zabezpečení dat](security-center-data-security.md)
 ## Scénáře
 ### [Reakce na incidenty](security-center-incident-response.md)
