@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebeff09a16ca7ecb4214cbccb31ffcfb2c512f7c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-ad-access-reviews-preview"></a>Kontroly přístupu Azure AD (Preview)
 
-Kontroly přístupu umožňují organizacím efektivně spravovat členství ve skupinách a přístup k podnikovým aplikacím. 
+Kontroly přístupu Azure Active Directory (Azure AD) umožňují organizacím efektivně spravovat členství ve skupinách a přístup k podnikovým aplikacím. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Co se dá pomocí kontrol přístupu dělat?
    
-- Pomocí kontrol přístupu můžete u uživatelů typu host na základě jejich přístupu k aplikacím a členství ve skupinách provést opětovnou certifikaci jejich přístupu. Revidující má k dispozici přehledy, na jejichž základě se může efektivně rozhodnout, jestli uživatelé typu host mají mít nadále přístup.
+- Můžete znovu certifikovat přístup uživatelů typu host pomocí kontrol jejich přístupu k aplikacím a jejich členství ve skupinách. Revidující můžou používat přehledy, které jsou k dispozici pro efektivní rozhodování, zda hosté mají mít nadále přístup.
       
 - Pomocí kontrol přístupu je možné provést opětovnou certifikaci přístupu k aplikacím a členství ve skupinách i pro zaměstnance.
    

@@ -8,6 +8,7 @@ Podporovány jsou následující operační systémy:
 * Windows 8.1 (32bitové a 64bitové verze)
 * Windows Server 2012 (pouze 64bitové verze)
 * Windows Server 2012 R2 (pouze 64bitové verze)
+* Windows Server 2016 (pouze 64bitové verze)
 * Windows 10
 * OSX verze 10.11 pro Mac (El Capitan)
 * macOS verze 10.12 pro Mac (Sierra)

@@ -1,19 +1,14 @@
 
-# <a name="azure-and-internet-of-things"></a>Azure a internet věcí
+# <a name="azure-and-the-internet-of-things"></a>Azure a internet věcí
 
-Vítejte v tématu Microsoft Azure a internet věcí (IoT). Tento článek představuje běžné vlastnosti řešení IoT, které můžete nasadit pomocí služeb Azure. Řešení IoT vyžadují bezpečnou obousměrnou komunikaci mezi velkým počtem zařízení a back-endem řešení. Back-end řešení může pomocí automatizované prediktivní analýzy odhalit další poznatky z datového proudu událostí ze zařízení do cloudu.
-
-[Azure IoT Hub][lnk-iot-hub] je klíčovým stavebním blokem všech řešení IoT využívajících služby Azure. IoT Hub je plně spravovaná služba, která umožňuje spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení IoT a back-endem řešení. 
-
-[Azure IoT Suite][lnk-iot-suite] poskytuje kompletní a ucelené implementace této architektury pro konkrétní scénáře IoT. Například:
-
-* Řešení *vzdáleného monitorování* umožňuje monitorovat stav zařízení, jako jsou například prodejní automaty.
-* Řešení *prediktivní údržby* pomáhá předvídat potřebu údržby zařízení, například čerpadel na vzdálených čerpacích stanicích, a zabraňuje neplánovaným výpadkům.
-* Řešení *připojené továrny* vám pomůže připojit a monitorovat průmyslová zařízení.
+Vítejte v tématu Microsoft Azure a internet věcí (IoT). Tento článek popisuje běžné charakteristiky řešení IoT v cloudu. Řešení IoT vyžadují bezpečnou obousměrnou komunikaci mezi zařízeními, jejichž počet se může vyšplhat k milionům, a back-end řešení. Řešení například může pomocí automatizované prediktivní analýzy odhalit další poznatky z datového proudu událostí ze zařízení do cloudu.
 
 ## <a name="iot-solution-architecture"></a>Architektura řešení IoT
 
-Následující diagram ukazuje typickou architekturu řešení IoT. Diagram neobsahuje žádné konkrétní názvy služeb Azure, ale popisuje klíčové prvky v obecné architektuře řešení IoT. V této architektuře zařízení IoT shromažďují data, která odesílají do cloudové brány. Cloudová brána zpřístupňuje data pro zpracování dalšími back-endovými službami. Back-end řešení poskytuje data obchodním aplikacím nebo lidské obsluze prostřednictvím řídicího panelu nebo sestavy.
+Následující diagram ukazuje klíčové prvky typické architektury řešení IoT. V tomto diagramu se nerozlišují podrobnosti konkrétní implementace, například použité služby Azure a operační systémy zařízení. V této architektuře zařízení IoT shromažďují data, která odesílají do cloudové brány. Cloudová brána zpřístupňuje data pro zpracování dalšími back-endovými službami. Tyto back-endové služby umožňují doručovat data pro:
+
+* Další podnikové aplikace
+* Lidskou obsluhu prostřednictvím řídicího panelu nebo jiného prezentačního zařízení
 
 ![Architektura řešení IoT][img-solution-architecture]
 
@@ -22,11 +17,11 @@ Následující diagram ukazuje typickou architekturu řešení IoT. Diagram neob
 
 ### <a name="device-connectivity"></a>Připojení zařízení
 
-Zařízení v tomto řešení IoT odesílají telemetrická data, například odečty snímačů z čerpací stanice, do koncového bodu cloudu, kde se uloží a zpracují. Ve scénáři prediktivní údržby může back-end řešení použít datový proud s daty ze snímačů k určení, kdy konkrétní čerpadlo vyžaduje údržbu. Zařízení může také přijímat a reagovat na zprávy typu cloud-zařízení tak, že si přečte zprávy z koncového bodu cloudu. Ve scénáři prediktivní údržby může back-end řešení například odesílat zprávy jiným čerpadlům čerpací stanice, aby těsně před plánovaným začátkem údržby přesměrovala toky. Tento postup umožní pracovníkovi údržby začít řešit problém okamžitě.
+V architektuře řešení IoT zařízení obvykle odesílají telemetrii do cloudu pro uložení a zpracování. Ve scénáři prediktivní údržby může back-end řešení například použít datový proud s daty ze snímačů k určení, kdy konkrétní čerpadlo vyžaduje údržbu. Zařízení může také přijímat a reagovat na zprávy typu cloud-zařízení tak, že si přečte zprávy z koncového bodu cloudu. Ve stejném příkladu může back-end řešení odesílat zprávy jiným čerpadlům čerpací stanice, aby těsně před plánovaným začátkem údržby přesměrovala toky. Tento postup umožní pracovníkovi údržby začít s prací hned, jak dorazí na místo.
 
-Jeden z největších problémů, kterým projekty IoT čelí, je způsob spolehlivého a bezpečného připojení zařízení k back-endu řešení. Zařízení IoT mají se srovnání s různými klienty, například s prohlížeči a mobilními aplikacemi, jiné vlastnosti. Zařízení IoT:
+Největším problémem řešení IoT často je bezpečné a spolehlivé připojení zařízení. Důvodem je to, že zařízení IoT mají se srovnání s různými klienty, například s prohlížeči a mobilními aplikacemi, jiné vlastnosti. Konkrétně zařízení IoT:
 
-* Jsou často vestavěnými systémy bez lidské obsluhy.
+* Jsou často integrované systémy bez lidské obsluhy (na rozdíl od telefonu).
 * Mohou být nasazená ve vzdálených umístěních, kam je fyzický přístup nákladný.
 * Můžou být dostupná jenom prostřednictvím back-endu řešení. Neexistuje jiný způsob práce se zařízením.
 * Můžou mít omezené prostředky pro napájení a zpracování.
@@ -34,28 +29,36 @@ Jeden z největších problémů, kterým projekty IoT čelí, je způsob spoleh
 * Můžou potřebovat chráněné, vlastní nebo průmyslové protokoly aplikací.
 * Můžou být vytvořená pomocí rozsáhlé sady oblíbených hardwarových a softwarových platforem.
 
-Kromě výše uvedených požadavků musí jakékoli řešení IoT zajistit také škálování, zabezpečení a spolehlivost. Výslednou sadu požadavků na připojení je obtížné implementovat pomocí tradičních technologií, jakými jsou webové kontejnery a zprostředkovatelé zasílání zpráv. Azure IoT Hub a sady SDK pro zařízení Azure IoT usnadňují implementace řešení, které tyto požadavky splňují.
+Kromě předchozích omezení musí libovolné řešení IoT také být škálovatelné, zabezpečené a spolehlivé.
 
-Zařízení může komunikovat přímo s koncovým bodem cloudové brány. Pokud zařízení nemůže používat žádné komunikační protokoly, které cloudová brána podporuje, může se připojit prostřednictvím zprostředkující brány. Například [brána protokolu Azure IoT ][lnk-protocol-gateway] může provádět překlad protokolu v případě, že zařízení nemohou použít žádný z protokolů, které služba IoT Hub podporuje.
+V závislosti na komunikačním protokolu a síťové dostupnosti může zařízení komunikovat s cloudem buď přímo, nebo prostřednictvím zprostředkující brány. Architektury IoT často využívají kombinaci těchto dvou komunikačních schémat.
 
 ### <a name="data-processing-and-analytics"></a>Zpracování a analýza dat
 
-V rámci cloudu se většina dat zpracovává v back-endu řešení IoT. Back-end řešení IoT:
+V moderních řešeních IoT může ke zpracování dat docházet v cloudu nebo na straně zařízení. Zpracování na straně zařízení se označuje jako *edge computing*. Volba umístění pro zpracování dat závisí na faktorech, jako jsou:
 
-* Přijímá škálovaná telemetrická data ze všech zařízení a určuje, jak tato data zpracovávat a ukládat. 
-* Může vám umožnit odesílání příkazů z cloudu do konkrétních zařízení.
-* Poskytuje možnosti registrace zařízení, které vám umožní zřizování zařízení a kontrolu toho, která zařízení se můžou připojit k vaší infrastruktuře.
-* Umožňuje sledování stavu zařízení a sledování jejich aktivit.
+* Omezení sítě. Pokud šířka pásma mezi zařízeními a cloudem je omezená, je vhodné soustředit se víc na zpracování hraničních zařízení.
+* Doba odezvy. Pokud se požadují akce v zařízení téměř v reálném čase, může být vhodnější zpracovat odpověď přímo v příslušném zařízení. Příkladem může být rameno robota, které je v nouzovém stavu nutné zastavit.
+* Právní prostředí. Některá data nelze odeslat do cloudu.
 
-Ve scénáři prediktivní údržby ukládá back-end řešení historická telemetrická data. Back-end řešení může pomocí těchto dat rozpoznat vzorce, které naznačují, že je třeba provést údržbu konkrétního čerpadla.
+Obecně platí, že zpracování dat v hraničních zařízeních i v cloudu představuje kombinaci následující možnosti:
 
-Řešení IoT může obsahovat smyčky automatické zpětné vazby. Analytický modul v back-endu řešení může například z telemetrických dat rozpoznat, že teplota konkrétního zařízení překračuje běžnou provozní úroveň. Řešení následně může do zařízení odeslat příkaz s pokyny k provedení nápravné akce.
+* Příjem škálované telemetrie ze všech zařízení a určení, jak tato data zpracovávat a ukládat
+* Analýza telemetrie s cílem poskytnout přehled, ať už v reálném čase, nebo dodatečně
+* Odesílání příkazů z cloudu nebo zařízení brány do konkrétního zařízení
+
+Kromě toho by měl back-end cloudu IoT poskytovat:
+
+* Možnosti registrace zařízení, které vám umožní:
+    * Zřizování zařízení
+    * Kontroly, která zařízení mají oprávnění připojit se k vaší infrastruktuře
+* Správu zařízení umožňující kontrolovat stav zařízení a sledovat jejich aktivity.
+
+Například ve scénáři prediktivní údržby back-end cloudu ukládá historická telemetrická data. Toto řešení používá tato data k identifikaci potenciálně neobvyklého chování konkrétních čerpadel dřív, než způsobí skutečný problém. Pomocí analýzy dat může zjistit, že vhodnou prevencí je odeslat příkaz zpět do zařízení a provést nápravnou akci. Tento proces generuje automatizovanou smyčku zpětné vazby mezi zařízením a cloudem, která výrazně zvyšuje efektivitu řešení.
 
 ### <a name="presentation-and-business-connectivity"></a>Prezentační a obchodní připojení
 
-Vrstva prezentačního a obchodního připojení umožňuje koncovým uživatelům pracovat s řešením IoT a se zařízeními. Umožňuje uživatelům zobrazit a analyzovat data shromážděná z jejich zařízení. Tato zobrazení můžou mít podobu řídicích panelů nebo sestav, které zobrazují historická data i data téměř v reálném čase. Obsluha může například zkontrolovat stav konkrétní čerpací stanice a zobrazit všechny výstrahy vyvolané systémem. Tato vrstva také umožňuje integraci back-endu řešení IoT se stávajícími obchodními aplikacemi a jejich zapojení do podnikových obchodních procesů nebo pracovních postupů. Řešením prediktivní údržby je například možné integrovat se systémem plánování. Kdy řešení zjistí, že některé z čerpadel potřebuje údržbu, plánovací systém zarezervuje návštěvu technika na příslušné čerpací stanici.
-
-![Řídicí panel řešení IoT][img-dashboard]
+Vrstva prezentačního a obchodního připojení umožňuje koncovým uživatelům pracovat s řešením IoT a se zařízeními. Umožňuje uživatelům zobrazit a analyzovat data shromážděná z jejich zařízení. Tato zobrazení můžou mít podobu řídicích panelů nebo sestav BI, které můžou zobrazit historická data i data téměř v reálném čase. Obsluha může například zkontrolovat stav konkrétní čerpací stanice a zobrazit všechny výstrahy vyvolané systémem. Tato vrstva také umožňuje integraci back-endu řešení IoT se stávajícími obchodními aplikacemi a jejich zapojení do podnikových obchodních procesů nebo pracovních postupů. Řešení prediktivní údržby se může integrovat například s plánovacím systémem, který zarezervuje návštěvu technika na čerpací stanici v případě, kdy se zjistí, že některé čerpadlo potřebuje údržbu.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png

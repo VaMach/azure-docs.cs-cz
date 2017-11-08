@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Úvod do Azure Cosmos DB: API tabulka
 
@@ -38,10 +38,10 @@ Doporučujeme vám zhlédnout následující video, ve kterém Aravind Ramachand
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>Rozhraní API tabulky Premium a Standard
-Pokud aktuálně používáte službu Table Storage, získáte přechodem na „tabulky Premium“ Azure Cosmos DB následující výhody:
+## <a name="table-offerings"></a>Nabídky Table
+Pokud aktuálně používáte službu Azure Table Storage, získáte přechodem na rozhraní Azure Cosmos DB Table API následující výhody:
 
-| | Azure Table Storage | Azure Cosmos DB: Table Storage (Preview) |
+| | Azure Table Storage | Azure Cosmos DB Table API (Preview) |
 | --- | --- | --- |
 | Latence | Rychlá, bez horních omezení latence. | Latence pro čtení a zápis v řádu milisekund, podložená latencí pro čtení menší než 10 ms a latencí pro zápis menší než 15 ms na 99. percentilu, při libovolném škálování, kdekoli na světě. |
 | Propustnost | Model variabilní propustnosti. Tabulky mají omezení škálovatelnosti 20 000 operací za sekundu. | Vysoká škálovatelnost s [vyhrazenou rezervovanou propustností na tabulku](request-units.md), podložená smlouvami SLA. Účty nemají žádné horní omezení propustnosti a podporují více než 10 milionů operací za sekundu na tabulku. |

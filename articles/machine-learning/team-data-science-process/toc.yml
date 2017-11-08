@@ -84,8 +84,20 @@
         - name: Pracovní prostor služby Azure Machine Learning
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Nastavení virtuálních počítačů
-          href: virtual-machines.md
+        - name: Nastavení virtuálního počítače pro datové vědy
+          items:
+            - name: Vytvoření virtuálního počítače s Windows pro datové vědy
+              href: ../data-science-virtual-machine/provision-vm.md
+              maintainContext: true
+            - name: Vytvoření virtuálního počítače s Ubuntu pro datové vědy
+              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+              maintainContext: true
+            - name: Vytvoření virtuálního počítače s CentOS pro datové vědy
+              href: ../data-science-virtual-machine/linux-dsvm-intro.md
+              maintainContext: true
+            - name: Vytvoření virtuálního počítače pro hloubkové učení
+              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+              maintainContext: true
     - name: Analýza obchodních potřeb
       items:
         - name: Určení scénáře

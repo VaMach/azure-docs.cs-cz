@@ -13,31 +13,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4cfc1652377f0cfd059e336aec6994b40d32c559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="roll-out-password-reset-for-users"></a>Zavedení resetování hesla pro uživatele
+# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Úspěšné zavedení samoobslužného resetování hesla
 
 Většina zákazníků pro zajištění bezproblémového zavedení funkce samoobslužného resetování hesla postupuje podle následujících kroků.
 
 1. [Povolte resetování hesla ve svém adresáři](active-directory-passwords-getting-started.md).
-2. [Nakonfigurujte oprávnění místní služby AD pro zpětný zápis hesla](active-directory-passwords-how-it-works.md#active-directory-permissions).
+2. [Nakonfigurujte oprávnění místní služby AD pro zpětný zápis hesla](active-directory-passwords-writeback.md#active-directory-permissions).
 3. [Nakonfigurujte zpětný zápis hesel](active-directory-passwords-writeback.md#configuring-password-writeback), aby se hesla z Azure AD zapsala zpátky do místního adresáře.
 4. [Přiřaďte a ověřte požadované licence](active-directory-passwords-licensing.md).
-5. Chcete-li funkci zavádět postupně, můžete volitelně omezit resetování hesla na skupinu uživatelů. Pokud to chcete provést, nastavte přepínač **Samoobslužné resetování hesla je povoleno** z **Všichni** na **Skupina** a vyberte skupinu zabezpečení, pro kterou chcete resetování hesla povolit. Všichni členové této skupiny musí mít přiřazené licence. Skvělým způsobem, jak to zařídit, je povolit [Licencování na základě skupiny](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-6. V závislosti na vašich zásadách naplňte minimální sadu [ověřovacích dat](active-directory-passwords-data.md).
-7. Naučte vaše uživatele používat samoobslužné resetování hesla tím, že jim pošlete pokyny s vysvětlením postupu registrace a resetování.
-    > [!NOTE]
-    > Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty typu správce Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem [podrobném článku](active-directory-passwords-how-it-works.md).
+5. Pokud chcete SSPR zavádět postupně, můžete omezit přístup ke skupině uživatelů a provést s nimi pilotní nasazení. Pokud to chcete provést, nastavte přepínač **Samoobslužné resetování hesla je povoleno** na **Vybráno** a vyberte skupinu zabezpečení, pro kterou chcete resetování hesla povolit. 
+6. Naplňte [ověřovací data](active-directory-passwords-data.md) pro uživatele, například jejich telefonní číslo do kanceláře, mobilní telefon a alternativní e-mailovou adresu.
+7. [Upravte prostředí přihlášení Azure AD, aby obsahovalo značku vaší společnosti](active-directory-passwords-customize.md).
+8. Naučte vaše uživatele používat samoobslužné resetování hesla tím, že jim pošlete pokyny s vysvětlením postupu registrace a resetování.
+9. Můžete zvolit, aby se vždy vynucovala registrace, a aby se po určité době po uživateli vyžadovalo potvrzení ověřovacích informací.
+10. V průběhu času můžete uživatele, kteří se registrují a používají tuto funkci, kontrolovat zobrazením [sestav, které poskytuje Azure AD](active-directory-passwords-reporting.md).
+11. Až budete připravení, povolte resetování hesla pro všechny uživatele tak, že přepnete **Samoobslužné resetování hesla povoleno** na **Všichni**. 
 
-8. Můžete zvolit, aby se vždy vynucovala registrace, a aby se po určité době po uživateli vyžadovalo potvrzení ověřovacích informací. Pokud nechcete, aby se vaši uživatelé museli registrovat, můžete [nasadit resetování hesla bez vyžadování registrace koncového uživatele](active-directory-passwords-data.md).
-9. V průběhu času můžete uživatele, kteří se registrují a používají tuto funkci, kontrolovat zobrazením [sestav, které poskytuje Azure AD](active-directory-passwords-reporting.md).
+    > [!IMPORTANT]
+    > Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty typu správce Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem [podrobném článku](active-directory-passwords-how-it-works.md).
 
 ## <a name="email-based-rollout"></a>Zavedení přes e-mail
 
@@ -47,13 +49,17 @@ Pro mnoho zákazníků je nejjednodušším způsobem, jak uživatele přimět p
 * Šablonu e-mailu **Nyní dostupné** použijte v den spuštění, abyste přiměli uživatele k registraci a potvrzení ověřovacích dat, aby v případě potřeby mohli použít samoobslužné resetování hesla.
 * Šablonu e-mailu **Připomenutí registrace** použijte několik dnů nebo týdnů po nasazení pro připomenutí uživatelům, aby se zaregistrovali a potvrdili ověřovací data.
 
+![E-mail][Email]
+
 ## <a name="creating-your-own-password-portal"></a>Vytvoření vlastního portálu hesel
 
 Řada našich větších zákazníku volí hostování webové stránky a vytvoření kořenového záznamu DNS, například https://passwords.contoso.com. Tuto stránku naplní odkazy na portály pro resetování hesla Azure AD, registraci k resetování hesla, změnu hesla a další informace specifické pro organizaci. Do e-mailů nebo letáků, které budete rozesílat, pak můžete vložit zapamatovatelnou adresu URL obsahující značku, na kterou uživatelé můžou přejít v případě, že tyto služby potřebují využít.
 
-* Portál pro resetování hesla – https://passwordreset.microsoftonline.com/
+* Portál pro resetování hesla – https://aka.ms/sspr
 * Portál pro registraci k resetování hesla – http://aka.ms/ssprsetup
 * Portál pro změnu hesla – https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+
+Vytvořili jsme pro vás ukázkovou stránku, kterou můžete použít a přizpůsobit potřebám vaší organizace a kterou si můžete stáhnout z [GitHubu](https://github.com/ajamess/password-reset-page).
 
 ## <a name="using-enforced-registration"></a>Použití vynucené registrace
 
@@ -73,15 +79,15 @@ Zakázání samoobslužného resetování hesla je snadné – stačí otevřít
 
 ## <a name="next-steps"></a>Další kroky
 
-Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a jaká data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)
+* [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
+* [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Myslím, že je něco poškozené. Jak odstraňovat problémy SSPR?](active-directory-passwords-troubleshoot.md)
+* [Mám otázku, která nebyla zodpovězena jinde](active-directory-passwords-faq.md)
 
-* [**Rychlý Start**](active-directory-passwords-getting-started.md) – Zprovozněte samoobslužné resetování hesla Azure AD. 
-* [**Správa licencí**](active-directory-passwords-licensing.md) – Konfigurujte licencování Azure AD.
-* [**Data**](active-directory-passwords-data.md) – Pochopte požadovaná data a jejich použití pro správu hesel.
-* [**Přizpůsobení**](active-directory-passwords-customize.md) – Přizpůsobte vzhled a chování samoobslužného resetování hesla pro vaši společnost.
-* [**Zásady**](active-directory-passwords-policy.md) – Pochopte a nastavte zásady hesel Azure AD.
-* [**Zpětný zápis hesla**](active-directory-passwords-writeback.md) – Způsob fungování zpětného zápisu hesla v místním adresáři.
-* [**Vytváření sestav**](active-directory-passwords-reporting.md) – Zjistěte, jestli, kdy a kde vaši uživatelé používají funkci samoobslužného resetování hesla.
-* [**Podrobné technické informace**](active-directory-passwords-how-it-works.md) – Nahlédněte za oponu a pochopte, jak to funguje.
-* [**Nejčastější dotazy**](active-directory-passwords-faq.md) – Jak? Proč? Co? Kde? Kdo? Kdy? – Odpovědi na otázky, na které jste se vždy chtěli zeptat.
-* [**Řešení potíží**](active-directory-passwords-troubleshoot.md) – Zjistěte, jak řešit běžné problémy, ke kterým dochází u samoobslužného resetování hesla.
+[Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Přizpůsobení těchto e-mailových šablon podle požadavků vaší organizace"

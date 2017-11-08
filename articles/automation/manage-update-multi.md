@@ -1,24 +1,24 @@
 ---
 title: "Správa aktualizací pro několik virtuálních počítačů Azure | Dokumentace Microsoftu"
-description: "Připojte virtuální počítače Azure pro účely správy aktualizací."
-services: operations-management-suite
+description: "Toto téma popisuje, jak se spravují aktualizace pro virtuální počítače Azure."
+services: automation
 documentationcenter: 
 author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/31/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Správa aktualizací pro několik virtuálních počítačů Azure
 
@@ -27,10 +27,46 @@ Ze svého účtu [Azure Automation](automation-offering-get-started.md) můžete
 
 ## <a name="prerequisites"></a>Požadavky
 
-K dokončení kroků v této příručce budete potřebovat:
+Chcete-li použít správu aktualizací, budete potřebovat:
 
-* Účet Azure Automation. Pokyny k vytvoření účtu Azure Automation Spustit jako najdete v tématu [Účet Spustit jako pro Azure](automation-sec-configure-azure-runas-account.md).
-* Virtuální počítač Azure Resource Manageru (ne Classic). Pokyny k vytvoření virtuálního počítače najdete v tématu [Vytvoření vašeho prvního virtuálního počítače s Windows na webu Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+* Účet Azure Automation. Pokyny k vytvoření účtu Azure Automation Spustit jako najdete v tématu [Začínáme s Azure Automation](automation-offering-get-started.md).
+
+* Virtuální počítač nebo počítač s nainstalovaným jedním z podporovaných operačních systémů.
+
+## <a name="supported-operating-systems"></a>Podporované operační systémy
+
+Správa aktualizací je podporována v následujících operačních systémech.
+
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 nebo vyšší a nasazení aktualizací na Windows Server 2008 R2 SP1 a vyšší.  Možnosti instalace Server Core a Nano Server nejsou podporované.
+
+    > [!NOTE]
+    > Podpora pro nasazování aktualizací do Windows Serveru 2008 R2 SP1 vyžaduje .NET Framework 4.5 a WMF 5.0 nebo novější.
+    > 
+* Klientské operační systémy Windows nejsou podporované.
+
+Agenti Windows musí být buď nakonfigurovaní na komunikaci se službou Windows Server Update Services (WSUS), nebo musí mít přístup ke službě Microsoft Update.
+
+> [!NOTE]
+> Agenta Windows není možné spravovat současně s nástrojem System Center Configuration Manager.
+>
+
+### <a name="linux"></a>Linux
+
+* CentOS 6 (x86/x64) a 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) a 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) a 12 (x64)  
+* Ubuntu 12.04 LTS a novější x86/x64   
+
+> [!NOTE]  
+> Pokud se chcete vyhnout tomu, aby se aktualizace používaly mimo časové období údržby v Ubuntu, změňte konfiguraci Unattended-Upgrade tak, aby automatické aktualizace byly zakázány. Informace o postupu této konfigurace najdete v tématu [Téma Automatické aktualizace v příručce k Ubuntu Serveru](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+Agenty Linux musí mít přístup k úložišti aktualizací.
+
+> [!NOTE]
+> Agent OMS pro Linux nakonfigurovaný k ukládání dat do více pracovních prostorů OMS se v tomto řešení nepodporuje.  
+>
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Povolení správy aktualizací pro virtuální počítače Azure
 
@@ -45,9 +81,36 @@ K dokončení kroků v této příručce budete potřebovat:
 
 Správa aktualizací pro váš virtuální počítač je povolena.
 
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Povolení správy aktualizací pro počítače a virtuální počítače jiné než Azure
+
+Pokyny k povolení správy aktualizací pro počítače a virtuální počítače s Windows jiné než Azure najdete v popisu [připojení počítačů s Windows ke službě Log Analytics v Azure](../log-analytics/log-analytics-windows-agents.md).
+
+Pokyny k povolení správy aktualizací pro počítače a virtuální počítače s Linuxem jiné než Azure najdete v popisu [připojení počítačů s Linuxem k sadě OMS (Operations Management Suite)](../log-analytics/log-analytics-agent-linux.md).
+
 ## <a name="view-update-assessment"></a>Zobrazení posouzení aktualizací
 
 Po povolení **správy aktualizací** se zobrazí obrazovka **Správa aktualizací**. Na kartě **Chybějící aktualizace** můžete zobrazit seznam chybějících aktualizací.
+
+## <a name="data-collection"></a>Shromažďování dat
+
+Agenti nainstalovaní na virtuálních počítačích a počítačích shromažďují data o aktualizacích a odesílají je do správy aktualizací Azure.
+
+### <a name="supported-agents"></a>Podporovaní agenti
+
+Následující tabulka popisuje připojené zdroje, které toto řešení podporuje.
+
+| Připojený zdroj | Podporuje se | Popis |
+| --- | --- | --- |
+| Agenti systému Windows |Ano |Správa aktualizací shromažďuje informace o aktualizacích systému pro agenty Windows a inicializuje instalaci požadovaných aktualizací. |
+| Agenti systému Linux |Ano |Správa aktualizací shromažďuje informace o aktualizacích systému od agentů systému Linux a zahajuje instalaci požadovaných aktualizací v podporovaných distribucích. |
+| Skupina pro správu Operations Manageru |Ano |Správa aktualizací shromažďuje informace o aktualizacích systému z agentů v připojené skupině pro správu. |
+| Účet služby Azure Storage |Ne |Úložiště Azure neobsahuje informace o aktualizacích systému. |
+
+### <a name="collection-frequency"></a>Četnost shromažďování dat
+
+Pro každý spravovaný počítač s Windows se kontrola provádí dvakrát denně. Každých 15 minut se volá rozhraní Windows API pro zadání dotazu na čas poslední aktualizace, podle kterého zjistí, jestli se změnil stav, a pokud ano, zahájí se kontrola kompatibility.  Pro každý spravovaný počítač s Linuxem se kontrola provádí každé tři hodiny.
+
+Může trvat 30 minut až 6 hodin, než se na řídicím panelu zobrazí aktualizovaná data ze spravovaných počítačů.
 
 ## <a name="schedule-an-update-deployment"></a>Naplánování nasazení aktualizace
 
@@ -106,6 +169,8 @@ Kliknutím na **Všechny protokoly** zobrazíte všechny položky protokolu, kte
 Kliknutím na **Výstup** zobrazíte datový proud úlohy runbooku zodpovědného za správu nasazení aktualizací na cílovém virtuálním počítači.
 
 Kliknutím na **Chyby** zobrazíte podrobné informace o případných chybách nasazení.
+
+Podrobné informace o protokolech, výstupu a informace o chybách najdete v tématu [Update Management](../operations-management-suite/oms-solution-update-management.md).
 
 ## <a name="next-steps"></a>Další kroky
 

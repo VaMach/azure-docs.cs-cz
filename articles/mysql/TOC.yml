@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Vývoj
       items:
-        - name: Knihovny připojení
-          href: concepts-connection-libraries.md
+        - name: Kompatibilita ovladačů a nástrojů
+          href: concepts-compatibility.md
         - name: Vývoj aplikací
           href: concepts-database-application-development.md
     - name: Migrace databáze

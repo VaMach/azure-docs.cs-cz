@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/13/2017
+ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 57437875da80bb5eece650063b7c5c2b0ffd65f7
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-stream-analytics"></a>Co je služba Stream Analytics?
 
@@ -63,7 +63,7 @@ Služba Stream Analytics se za účelem ingestování datových proudů připoju
 
 Výstup úlohy Stream Analytics můžete směrovat mnoha směry. Můžete ho zapsat do úložiště, jako je Azure Blob, Azure SQL Database, Azure Data Lake Store nebo Azure Cosmos DB. Odtud můžete spouštět dávkové analýzy pomocí služby Azure HDInsight. Případně můžete výstup odeslat do jiné služby ke zpracování jiným procesem, například do center událostí, služby Azure Service Bus, front nebo Power BI za účelem vizualizace.
 
-### <a name="easy-to-use"></a>Snadné použití
+### <a name="simple-to-use"></a>Jednoduché používání
 
 K definování transformací slouží jednoduchý deklarativní [dotazovací jazyk Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx), který umožňuje vytvářet sofistikované analýzy bez znalosti programování. Vstupem pro dotazovací jazyk jsou streamovaná data. Data pak můžete filtrovat, řadit a spojovat (v datovém proudu nebo s referenčními daty), můžete agregovat hodnoty, provádět výpočty a používat geoprostorové funkce. Dotazy můžete na portálu upravovat pomocí IntelliSense a kontroly syntaxe a můžete je testovat pomocí ukázkových dat, která se dají extrahovat z živého datového proudu.
 
@@ -71,22 +71,21 @@ K definování transformací slouží jednoduchý deklarativní [dotazovací jaz
 
 Možnosti dotazovacího jazyka můžete rozšířit definováním a vyvoláním dalších funkcí. Můžete využít výhod řešení Azure Machine Learning a definovat v něm volání funkcí. Pokud chcete provádět složitější výpočty v rámci dotazu Stream Analytics, můžete také integrovat uživatelem definované funkce jazyka JavaScript.
 
-### <a name="scalability"></a>Škálovatelnost
+### <a name="scalable"></a>Škálovatelné
 
 Stream Analytics dokáže zpracovat až 1 GB příchozích dat za sekundu. Integrace se službami [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) a [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) umožňuje úlohám ingestovat miliony událostí za sekundu, například událostí odesílaných z připojených zařízení, webů a souborů protokolů. Centra událostí nabízejí funkci oddílů, pomocí které můžete výpočty dělit na logické kroky – ty pak můžete dělit ještě podrobněji, pokud chcete zvýšit škálovatelnost.
 
 ### <a name="low-cost"></a>Nízké náklady
 
-Stream Analytics je cloudová služba, takže umožňuje začít s minimálními náklady. Platíte na základě jednotek datových proudů a tedy míry svého používání ve smyslu objemu zpracovaných dat. Míra využití je založena na objemu zpracovaných událostí a výpočetním výkonu poskytnutém v rámci clusteru ke zpracování úlohy služby Stream Analytics.
+Stream Analytics je cloudová služba, takže je optimalizovaná z hlediska nákladů. Platíte na základě využitých jednotek datových proudů a objemu zpracovaných dat. Míra využití je založena na objemu zpracovaných událostí a výpočetním výkonu poskytnutém v rámci clusteru úloh.
 
-### <a name="reliability-quick-recovery-and-repeatability"></a>Spolehlivost, rychlé obnovení a opakovatelnost
+### <a name="reliable"></a>Spolehlivost
 
-Stream Analytics je spravovaná služba v cloudu, což pomáhá předcházet ztrátě dat a zajišťovat kontinuitu podnikových procesů. V případě selhání použije služba integrované funkce pro obnovení. Díky schopnosti interního zachování stavu služba poskytuje možnost archivace událostí a opakovaného zpracování dat v budoucnosti, které vždy vrátí stejné výsledky. To umožňuje vracet se v čase a při provádění analýz původních příčin a citlivostních analýz opakovaně zkoumat výpočty a jejich výsledky.
+Stream Analytics je spravovaná služba, což pomáhá předcházet ztrátě dat a zajišťovat kontinuitu podnikových procesů. V případě selhání použije služba integrované funkce pro obnovení. Díky schopnosti interního zachování stavu služba poskytuje možnost archivace událostí a opakovaného zpracování dat v budoucnosti, které vždy vrátí stejné výsledky. To umožňuje vracet se v čase a při provádění analýz původních příčin a citlivostních analýz opakovaně zkoumat výpočty a jejich výsledky.
 
 ## <a name="next-steps"></a>Další kroky
 
 * Začněte [experimentovat se vstupy a dotazy ze zařízení IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Sestavte [ucelené řešení Stream Analytics](stream-analytics-real-time-fraud-detection.md), které bude zkoumat telefonní metadata a hledat podvodná volání.
-* Seznamte se s dotazovacím jazykem typu SQL pro Stream Analytics a s jedinečnými koncepty, jako jsou [oddílové funkce](stream-analytics-window-functions.md).
 * Najděte odpovědi na své dotazy ke službě Stream Analytics ve [fóru Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 

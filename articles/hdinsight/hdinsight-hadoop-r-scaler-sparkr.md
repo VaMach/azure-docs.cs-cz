@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinace ScaleR a SparkR v HDInsight
 
@@ -552,7 +552,7 @@ V tomto článku jsme jste ukazuje, jak je možné kombinovat používání Spar
 
 - Obecné informace o R Server, najdete v článku [začít pracovat s R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) článku.
 
-- Informace o R serverem v HDInsight, naleznete v části [R serverem v Azure HDInsight přehled](hdinsight-hadoop-r-server-overview.md) a [R serverem v Azure HDInsight](hdinsight-hadoop-r-server-get-started.md).
+- Informace o R serverem v HDInsight, naleznete v části [R serverem v Azure HDInsight přehled](r-server/r-server-overview.md) a [R serverem v Azure HDInsight](r-server/r-server-get-started.md).
 
 Další informace o použití SparkR najdete v tématu:
 

@@ -78,6 +78,7 @@
 ### [Návrhy](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Fasetová navigace](search-faceted-navigation.md)
 ### [Náhled synonym](search-synonyms.md)
+### [moreLikeThis preview](search-more-like-this.md)
 
 # Referenční informace
 
@@ -86,7 +87,7 @@
 ## [Python (správa)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (správa)](/rest/api/searchmanagement)
-## [Rozhraní REST služby (Preview)](search-api-2015-02-28-preview.md)
+## [Rozhraní REST služby (Preview)](search-api-2016-09-01-preview.md)
 
 # Zdroje
 

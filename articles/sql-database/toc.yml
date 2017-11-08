@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: Osvědčené postupy pro synchronizaci dat SQL
+          href: sql-database-best-practices-data-sync.md
+        - name: Řešení potíží se synchronizací dat SQL
+          href: sql-database-troubleshoot-data-sync.md
     - name: Horizontální navýšení kapacity
       items:
         - name: Vytvoření horizontálně dělené aplikace

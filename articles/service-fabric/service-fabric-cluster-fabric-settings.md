@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Přizpůsobení nastavení clusteru Service Fabric a zásady upgradu prostředků infrastruktury
 Tento dokument vysvětluje, jak přizpůsobit různá nastavení prostředků infrastruktury a infrastruktury upgradovat zásady pro váš cluster Service Fabric. Přizpůsobit pomocí [portál Azure](https://portal.azure.com) nebo pomocí šablony Azure Resource Manager.
@@ -458,7 +458,7 @@ Následuje seznam infrastruktury nastavení, které můžete přizpůsobit, uspo
 |CertificateHealthReportingInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(3600 * 8)|Statická|Zadejte časový interval v sekundách. Zadejte interval pro vykazování stavu certifikátu; Výchozí nastavení 8 hodin; nastavení na hodnotu 0 zakáže, vytváření sestav stavu certifikátu |
 |CertificateExpirySafetyMargin|Časový interval, výchozí hodnota je Common::TimeSpan::FromMinutes(43200)|Statická|Zadejte časový interval v sekundách. Zabezpečení rozpětí pro vypršení platnosti certifikátu; certifikát stav sestavy změní z OK upozornění při vypršení platnosti je méně než to. Výchozí hodnota je 30 dní. |
 |ClientClaimAuthEnabled|BOOL, výchozí hodnotu FALSE|Statická|Označuje, zda je povoleno ověřování na základě deklarace na klientských počítačích; Toto nastavení true implicitně nastaví ClientRoleEnabled. |
-|ClientClaims|řetězec, výchozí je L""|Dynamická|Všechny možné deklarace identity očekávat od klientů pro připojení k bráně. Toto je seznam 'Nebo': ClaimsEntry || ClaimsEntry || ClaimsEntry... každý ClaimsEntry je seznam "A": typ ClaimType = ClaimValue & & Typ ClaimType = ClaimValue & & Typ ClaimType = ClaimValue... |
+|ClientClaims|řetězec, výchozí je L""|Dynamická|Všechny možné deklarace identity očekávat od klientů pro připojení k bráně. Toto je seznam 'Nebo': ClaimsEntry || ClaimsEntry || ClaimsEntry ... každý ClaimsEntry je seznam "A": typ ClaimType = ClaimValue & & Typ ClaimType = ClaimValue & & Typ ClaimType = ClaimValue ... |
 |AdminClientClaims|řetězec, výchozí je L""|Dynamická|Všechny možné deklarace identity očekávat od správce klientů. stejný formát jako ClientClaims; Tento seznam získá interně přidán do ClientClaims; proto není nutné také přidat do ClientClaims stejné položky. |
 |ClusterSpn|řetězec, výchozí je L""|Není povoleno|Hlavní název služby clusteru; Pokud prostředků infrastruktury používá jako uživatel domény jednoho (uživatelský účet domény nebo gMSA). Je název SPN naslouchací procesy zapůjčení a moduly pro naslouchání v fabric.exe: moduly pro naslouchání federační; interní replikace naslouchací procesy; naslouchací proces služby modulu runtime a pojmenování naslouchací proces brány. To by měl být prázdné při spuštění prostředků infrastruktury jako účty počítače; v takovém případě připojování straně výpočetní naslouchací proces SPN z adresy naslouchací proces přenosu. |
 |ClusterIdentities|řetězec, výchozí je L""|Dynamická|Windows identity uzlů clusteru; použít k ověřování členství v clusteru. Je čárkami oddělený seznam; Každý záznam je název účtu domény nebo název skupiny |
@@ -596,7 +596,7 @@ PropertyGroup –|X509NameMap, výchozí hodnota je žádné|Dynamická| |
 | PeriodicApiSlowTraceInterval | Čas v sekundách, výchozí hodnota je 5 minut |Dynamická| Zadejte časový interval v sekundách. PeriodicApiSlowTraceInterval definuje interval, za které bude pomalého volání rozhraní API překreslována monitorování rozhraní API. |
 | NodeDeactivationMaxReplicaCloseDuration | Čas v sekundách, výchozí hodnota je 900 |Dynamická|Zadejte časový interval v sekundách. Dobu, pro kterou systému vyčká, než se ukončuje hostitelé služeb, které mají repliky, která se zasekla v automatickém zavřete během deaktivace uzlu. |
 | FabricUpgradeMaxReplicaCloseDuration | Čas v sekundách, výchozí hodnota je 900 |Dynamická| Zadejte časový interval v sekundách. Dobu, pro kterou systému vyčká, než se ukončuje hostitelé služeb, které mají repliky, která se zasekla v automatickém zavřete během upgrade pro fabric. |
-|GracefulReplicaShutdownMaxDuration|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(120)|Dynamická|Zadejte časový interval v sekundách. Dobu, pro kterou systému vyčká, než se ukončuje hostitelé služeb, které mají repliky, která se zasekla v automatickém zavřete.|
+|GracefulReplicaShutdownMaxDuration|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(120)|Dynamická|Zadejte časový interval v sekundách. Dobu, pro kterou systému vyčká, než se ukončuje hostitelé služeb, které mají repliky, která se zasekla v automatickém zavřete. Pokud tato hodnota nastavena na hodnotu 0, nebudou repliky pokyny zavřete.|
 |ReplicaChangeRoleFailureRestartThreshold|Int, výchozí hodnota je 10|Dynamická| Celé číslo. Zadejte počet selhání rozhraní API během primární povýšení, po které se použijí ke zmírnění automatické akce (repliky restartovat). |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, výchozí je 2147483647.|Dynamická| Celé číslo. Zadejte počet selhání rozhraní API během primární povýšení, po jejímž uplynutí sestava stavu upozornění, bude vyvolána.|
 

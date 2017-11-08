@@ -3,8 +3,8 @@ title: "Delegování domény do Azure DNS | Dokumentace Microsoftu"
 description: "Zjistěte, jak změnit delegování domény a pomocí názvových serverů Azure DNS umožněte hosting domén."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegování domény do Azure DNS
 
@@ -30,11 +30,11 @@ Předpokládejme například, že zakoupíte doménu contoso.net a v Azure DNS v
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
 1. Přihlášení k webu Azure Portal
-1. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete okno Vytvořit zónu DNS.
+1. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete stránku Vytvořit zónu DNS.
 
     ![Zóna DNS](./media/dns-domain-delegation/dns.png)
 
-1. V okně **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
+1. Na stránce **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
 
    | **Nastavení** | **Hodnota** | **Podrobnosti** |
    |---|---|---|
@@ -50,9 +50,9 @@ Předpokládejme například, že zakoupíte doménu contoso.net a v Azure DNS v
 
 Předtím, než budete moci svoji zónu DNS delegovat do Azure DNS, musíte znát názvy názvových serverů pro vaši zónu. Azure DNS přiděluje názvové servery z fondu vždy, když je vytvořena zóna.
 
-1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. V okně **Všechny prostředky** klikněte na zónu DNS **contoso.net**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contoso.net** do pole Filtrovat podle názvu... pro snadný přístup ke službě Application Gateway. 
+1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce **Všechny prostředky** klikněte na zónu DNS **contoso.net**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contoso.net** do pole Filtrovat podle názvu... pro snadný přístup ke službě Application Gateway. 
 
-1. Načtěte názvové servery z okna zóny DNS. V tomto případě byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
+1. Načtěte názvové servery ze stránky zóny DNS. V tomto případě byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
 
  ![Názvový server DNS](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -122,7 +122,7 @@ Teď, když je vytvořena zóna DNS a máte názvové servery, je potřeba aktua
 
 Při delegování domény do Azure DNS musíte použít názvy názvových serverů, které poskytuje Azure DNS. Doporučuje se vždycky použít všechny čtyři názvy názvových serverů bez ohledu na název domény. Delegování domény nevyžaduje, aby název názvového serveru používal jako vaši doménu stejnou doménu nejvyšší úrovně.
 
-Pro ukazování na IP adresy názvových serverů Azure DNS byste neměli používat „spojovací záznamy“, protože se tyto IP adresy mohou v budoucnu měnit. Delegování pomocí názvů názvových serverů ve vaší vlastní zóně, někdy označovaných jako „jednoduché názvové servery“, v současné době není v Azure DNS podporované.
+Pro ukazování na IP adresy názvových serverů Azure DNS nepoužívejte „spojovací záznamy“, protože se tyto IP adresy mohou v budoucnu měnit. Delegování pomocí názvů názvových serverů ve vaší vlastní zóně, někdy označovaných jako „jednoduché názvové servery“, v současné době není v Azure DNS podporované.
 
 ## <a name="verify-name-resolution-is-working"></a>Ověření, že překlad názvů funguje
 
@@ -161,11 +161,11 @@ Chcete-li nastavit samostatnou podřízenou zónu, můžete subdoménu delegovat
 ### <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
 1. Přihlášení k webu Azure Portal
-1. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete okno Vytvořit zónu DNS.
+1. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete stránku Vytvořit zónu DNS.
 
     ![Zóna DNS](./media/dns-domain-delegation/dns.png)
 
-1. V okně **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
+1. Na stránce **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
 
    | **Nastavení** | **Hodnota** | **Podrobnosti** |
    |---|---|---|
@@ -179,9 +179,9 @@ Chcete-li nastavit samostatnou podřízenou zónu, můžete subdoménu delegovat
 
 ### <a name="retrieve-name-servers"></a>Načtení názvových serverů
 
-1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. V okně **Všechny prostředky** klikněte na zónu DNS **partners.contoso.net**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **partners.contoso.net** do pole Filtrovat podle názvu... pro snadný přístup k zóně DNS.
+1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce **Všechny prostředky** klikněte na zónu DNS **partners.contoso.net**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **partners.contoso.net** do pole Filtrovat podle názvu... pro snadný přístup k zóně DNS.
 
-1. Načtěte názvové servery z okna zóny DNS. V tomto případě byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
+1. Načtěte názvové servery ze stránky zóny DNS. V tomto případě byly pro zónu contoso.net přiřazené názvové servery ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org a ns4-01.azure-dns.info:
 
  ![Názvový server DNS](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -191,7 +191,7 @@ Azure DNS automaticky vytvoří ve vaší zóně záznamy autoritativních NS, k
 
 1. Na webu Azure Portal přejděte k zóně DNS **contoso.net**.
 1. Klikněte na **+ Sada záznamů**.
-1. V okně **Přidat sadu záznamů** zadejte následující hodnoty a klikněte na **OK**:
+1. Na stránce **Přidat sadu záznamů** zadejte následující hodnoty a klikněte na **OK**:
 
    | **Nastavení** | **Hodnota** | **Podrobnosti** |
    |---|---|---|
@@ -297,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující kroky:
 
-1. Na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. V okně Všechny prostředky klikněte na skupinu prostředků **contosorg**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contosorg** do pole **Filtrovat podle názvu...** pro snadný přístup ke skupině prostředků.
-1. V okně **contosorg** klikněte na tlačítko **Odstranit**.
+1. Na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce Všechny prostředky klikněte na skupinu prostředků **contosorg**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contosorg** do pole **Filtrovat podle názvu...** pro snadný přístup ke skupině prostředků.
+1. Na stránce **contosorg** klikněte na tlačítko **Odstranit**.
 1. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Jako název skupiny prostředků zadejte *contosorg* a pak klikněte na **Odstranit**. Odstraněním skupiny prostředků se odstraní všechny prostředky v rámci dané skupiny prostředků. Proto nikdy nezapomeňte před odstraněním skupiny prostředků zkontrolovat její obsah. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
 
 ## <a name="next-steps"></a>Další kroky

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Klasifikace Iris, část 3: Nasazení modelu
 Služby Azure Machine Learning (verze Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -85,15 +85,15 @@ Pokud chcete se souborem modelu nasadit také webovou službu, potřebujete hodn
 
    ![Soubor vyhodnocení](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Pokud chcete získat soubor schématu, spusťte skript. Na příkazovém řádku vyberte prostředí **local** a skript **iris_score.py** a potom klikněte na tlačítko **Spustit**. 
+4. Pokud chcete získat soubor schématu, spusťte skript. Na příkazovém řádku vyberte prostředí **local** a skript **iris-score.py** a potom klikněte na tlačítko **Spustit**. 
 
 5. Tento skript vytvoří ve složce **outputs** soubor JSON, ve kterém je zaznamenané schéma vstupních dat vyžadované modelem.
 
-6. Všimněte si panelu úloh na pravé straně okna aplikace Machine Learning Workbench. Počkejte, až se u nejnovější úlohy **iris\_score.py** zobrazí zelený stav **Dokončeno**. Potom klikněte na hypertextový odkaz **iris\_score.py [1]** u nejnovějšího spuštění úlohy a prohlédněte si podrobnosti o spuštění skriptu **iris_score.py**. 
+6. Všimněte si panelu úloh na pravé straně okna aplikace Machine Learning Workbench. Počkejte, až se u nejnovější úlohy **iris-score.py** zobrazí zelený stav **Dokončeno**. Potom klikněte na hypertextový odkaz **iris-score.py [1]** u nejnovějšího spuštění úlohy a prohlédněte si podrobnosti o spuštění skriptu **iris-score.py**. 
 
 7. Na stránce vlastností spuštění v části **Výstupy** vyberte nově vytvořený soubor **service_schema.json**. **Zkontrolujte** tento soubor a potom klikněte na **Stáhnout**. Uložte soubor do kořenové složky projektu.
 
-8. Vraťte se na předchozí kartu, kde máte otevřený skript **iris_score.py**. 
+8. Vraťte se na předchozí kartu, kde máte otevřený skript **iris-score.py**. 
 
    Všimněte si, že se používá shromažďování dat, které umožňuje zaznamenat vstupy modelu a předpovědi z webové služby. Pro shromažďování dat jsou zajímavé především následující body:
 
@@ -120,6 +120,9 @@ Pokud chcete se souborem modelu nasadit také webovou službu, potřebujete hodn
    ```
 
 Teď můžete začít připravovat své prostředí na zprovoznění modelu.
+
+>[!NOTE]
+>Nasazení modelů vyžaduje, abyste měli k předplatnému Azure přístup vlastníka.
 
 ## <a name="prepare-to-operationalize-locally"></a>Příprava na místní zprovoznění
 Pomocí nasazení v _místním režimu_ proveďte spuštění v kontejnerech Docker v místním počítači.
@@ -201,7 +204,7 @@ Teď můžete vytvořit webovou službu v reálném čase.
 1. Pomocí následujícího příkazu vytvořte webovou službu v reálném čase:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Vygeneruje se ID webové služby, které můžete použít později.
 
@@ -241,7 +244,7 @@ Jako alternativu k příkazu **az ml service create realtime** uvedenému výše
    K vytvoření manifestu použijte tento příkaz a zadejte výstup ID modelu z předchozího kroku:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    Tento příkaz vygeneruje ID manifestu.
 
