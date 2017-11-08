@@ -1,8 +1,8 @@
 ---
 title: "Ukázek Azure PowerShell monitorování rychlý start. | Dokumentace Microsoftu"
 description: "Pomocí prostředí PowerShell pro přístup k Azure monitorování funkce, jako je automatické škálování, výstrahy, webhooky a hledání protokoly aktivity."
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ukázek Azure PowerShell monitorování rychlý start
-Tento článek ukazuje ukázkové příkazy prostředí PowerShell, abyste měli přístup k funkcím Azure monitorování. Azure monitorování umožňuje škálování cloudové služby, virtuální počítače a webových aplikací a odesílat oznámení o výstrahách nebo volání webové adresy URL založené na hodnotách nakonfigurované telemetrická data.
+Tento článek ukazuje ukázkové příkazy prostředí PowerShell, abyste měli přístup k funkcím Azure monitorování. Azure monitorování umožňuje škálování cloudové služby, virtuální počítače a webové aplikace. Umožňuje také odeslat oznámení o výstrahách nebo volání webové adresy URL založené na hodnotách nakonfigurované telemetrická data.
 
 > [!NOTE]
-> Azure monitorování je nový název pro co byla volána "Statistika Azure" až 25 září 2016. Však obory názvů a proto následující příkazy stále obsahovat "insights".
+> Azure monitorování je nový název pro co byla volána "Statistika Azure" až 25 září 2016. Ale pořád neobsahuje obory názvů a proto následující příkazy slovo "přehledy."
 > 
 > 
 
@@ -41,13 +41,13 @@ Nejdřív přihlaste k vašemu předplatnému Azure.
 Login-AzureRmAccount
 ```
 
-To vyžaduje, abyste se přihlásili. Až to uděláte, váš účet, zobrazí se TenantID a výchozí ID předplatného. Všechny rutiny Azure fungovat v rámci vašeho předplatného výchozí. Chcete-li zobrazit seznam odběrů máte přístup, použijte následující příkaz.
+Zobrazí se přihlašovací obrazovka. Po přihlášení účtu, TenantID, a jsou zobrazeny výchozí ID předplatného. Všechny rutiny Azure fungovat v rámci vašeho předplatného výchozí. Chcete-li zobrazit seznam odběrů máte přístup, použijte následující příkaz:
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-Chcete-li změnit váš pracovní kontext do jiného předplatného, použijte následující příkaz.
+Chcete-li změnit váš pracovní kontext do jiného předplatného, použijte následující příkaz:
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -141,7 +141,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 ## <a name="create-metric-alerts"></a>Vytvoření metriky výstrahy
 Můžete použít `Add-AlertRule` rutiny vytvářet, aktualizovat nebo zakázat pravidlo výstrahy.
 
-Můžete vytvořit e-mailu a webhooku vlastností pomocí `New-AzureRmAlertRuleEmail` a `New-AzureRmAlertRuleWebhook`, v uvedeném pořadí. V rutině pravidlo výstrahy, přiřadit jako akce **akce** vlastnost pravidlo výstrahy.
+Můžete vytvořit e-mailu a webhooku vlastností pomocí `New-AzureRmAlertRuleEmail` a `New-AzureRmAlertRuleWebhook`, v uvedeném pořadí. V rutině pravidlo výstrahy, přiřadit jako akce pro tyto vlastnosti **akce** vlastnost pravidlo výstrahy.
 
 Následující tabulka popisuje parametry a hodnoty použité k vytvoření výstrahy pomocí metriky.
 
@@ -201,10 +201,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 Úplný seznam dostupných možností pro `Get-AzureRmMetricDefinition` je k dispozici na [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Vytvořit a spravovat nastavení automatického škálování
-Prostředek, například webovou aplikaci, virtuální počítač, Cloudová služba nebo sadu škálování virtuálního počítače může mít pouze jeden nastavení automatického škálování pro něj nakonfigurovali.
+Prostředek (webové aplikace, virtuální počítač, Cloudová služba nebo sadu škálování virtuálního počítače) může mít pouze jeden nastavení automatického škálování pro něj nakonfigurovali.
 Každé nastavení automatického škálování však může mít několik profilů. Například jeden pro profil na základě výkonu škálování a druhý pro profil na základě plánu. Každý profil může mít víc pravidel, které jsou nakonfigurované na něm. Další informace o škálování najdete v tématu [postup škálování aplikace](../cloud-services/cloud-services-how-to-scale.md).
 
-Zde jsou kroky, které budeme používat:
+Zde jsou kroky při použití:
 
 1. Vytvoření pravidel.
 2. Vytvořte profily mapování pravidla, které jste vytvořili dříve na profily.
@@ -213,13 +213,13 @@ Zde jsou kroky, které budeme používat:
 
 Následující příklady ukazují, jak můžete vytvořit na nastavení automatického škálování pro sadu škálování virtuálního počítače pro operační systém Windows na základě pomocí metriky využití procesoru.
 
-Nejprve vytvořte pravidlo pro škálovatelnou větší počet instancí.
+Nejprve vytvořte pravidlo pro horizontální rozšíření kapacity, větší počet instancí.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Dále vytvořte pravidlo pro škálování v, s snížení počtu instancí.
+Dále vytvořte pravidlo pro škálování, se instanci snížení počtu.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -243,7 +243,7 @@ Vytvořte oznámení vlastnost pro nastavení automatického škálování, vče
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-Nakonec vytvořte nastavení automatického škálování přidat profil, který jste vytvořili výše.
+Nakonec vytvořte nastavení automatického škálování přidat profil, který jste vytvořili dříve. 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -289,7 +289,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>Správa profilů protokolu pro protokol aktivit
-Můžete vytvořit *protokolu profil* a exportu dat z aktivity protokolu do účtu úložiště a vy můžete nakonfigurovat uchovávání dat pro ni. Volitelně můžete také Streamovat data do vašeho centra událostí. Všimněte si, že tato funkce je aktuálně ve verzi Preview a je lze vytvořit pouze jeden profil protokolu podle předplatného. Následující rutiny s vaším aktuálním předplatným slouží k vytvoření a Správa profilů protokolu. Můžete také určitý odběr. I když k aktuálním předplatném výchozí nastavení prostředí PowerShell, můžete kdykoliv změnit této pomocí `Set-AzureRmContext`. Můžete nakonfigurovat protokolu aktivity a data trasy k žádnému účtu úložiště nebo Centrum událostí v rámci tohoto předplatného. Data se zapisují jako objekt blob soubory ve formátu JSON.
+Můžete vytvořit *protokolu profil* a exportu dat z aktivity protokolu do účtu úložiště a vy můžete nakonfigurovat uchovávání dat pro ni. Volitelně můžete také Streamovat data do vašeho centra událostí. Tato funkce je aktuálně ve verzi Preview a lze vytvořit pouze jeden profil protokolu podle předplatného. Následující rutiny s vaším aktuálním předplatným slouží k vytvoření a Správa profilů protokolu. Můžete také určitý odběr. I když k aktuálním předplatném výchozí nastavení prostředí PowerShell, můžete kdykoliv změnit této pomocí `Set-AzureRmContext`. Můžete nakonfigurovat protokolu aktivity a data trasy k žádnému účtu úložiště nebo Centrum událostí v rámci tohoto předplatného. Data se zapisují jako objekt blob soubory ve formátu JSON.
 
 ### <a name="get-a-log-profile"></a>Získat profil protokolu
 Chcete-li načíst vaše stávající protokolu profilů, použijte `Get-AzureRmLogProfile` rutiny.
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Přidat profil protokolu s uchovávání a EventHub
-Kromě směrování dat do účtu úložiště, můžete také Streamovat ho do centra událostí. Nezapomeňte, že v této verzi preview a úložiště konfigurace účtu je povinná, ale konfigurace centra událostí je volitelné.
+Kromě směrování dat do účtu úložiště, můžete také Streamovat ho do centra událostí. V této verzi preview konfigurace účtu úložiště je povinná, ale konfigurace centra událostí je volitelné.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Konfigurace protokolů diagnostiky
-Mnoho služeb Azure poskytují další protokoly a telemetrie, které můžete nakonfigurovat tak, aby uložení dat v účtu úložiště Azure, odesílat do centra událostí nebo odeslat k pracovnímu prostoru analýzy protokolů OMS. Tuto operaci může provést pouze na úrovni prostředků a úložiště účet nebo události rozbočovače musí být ve stejné oblasti jako cílový prostředek, kde je nakonfigurované nastavení diagnostiky.
+Mnoho služeb Azure poskytují další protokoly a telemetrii, kterou můžete provést jeden nebo více následujících akcí: 
+ - nakonfigurovat tak, aby uložení dat v účtu úložiště Azure
+ - Odeslat do centra událostí
+ - Odeslat k pracovnímu prostoru analýzy protokolů OMS. 
+
+Operaci lze provést pouze na úrovni prostředků. Účet nebo události rozbočovače úložiště by měl být k dispozici ve stejné oblasti jako cílový prostředek, kde je nakonfigurované nastavení diagnostiky.
 
 ### <a name="get-diagnostic-setting"></a>Získat nastavení diagnostiky
 ```PowerShell

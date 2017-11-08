@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-writeback-overview"></a>Přehled zpětný zápis hesla
 
@@ -91,6 +91,8 @@ Následující postup předpokládá, že jste již nakonfigurovali Azure AD Con
    ![Povolení zpětného zápisu hesla ve službě Azure AD Connect][Writeback]
 7. Na stránce Připraveno ke konfiguraci obrazovce klikněte na tlačítko **konfigurace** a počkejte na dokončení procesu.
 8. Až se zobrazí konfigurace dokončit, klikněte na tlačítko **ukončení**
+
+Související s zpětný zápis hesla běžných úloh odstraňování potíží naleznete v části [řešení zpětného zápisu hesla](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) v našem článek o odstraňování potíží.
 
 ## <a name="active-directory-permissions"></a>Oprávnění služby Active Directory
 
@@ -212,16 +214,16 @@ Velikost jednotlivých zpráv popsané výše je obvykle v části 1 kb, i v rá
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Jak dokončení úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
-* [Resetovat nebo změnit heslo](active-directory-passwords-update-your-own-password.md).
-* [Registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
-* [Máte dotaz Licensing?](active-directory-passwords-licensing.md)
-* [Jaká data používá SSPR a jaká data by měla můžete naplnit pro vaše uživatele?](active-directory-passwords-data.md)
-* [Jaké metody ověřování jsou k dispozici pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jaké jsou možnosti zásad s SSPR?](active-directory-passwords-policy.md)
-* [Jak sestavy na aktivitu v SSPR](active-directory-passwords-reporting.md)
-* [Co jsou všechny možnosti v SSPR a co znamená, že?](active-directory-passwords-how-it-works.md)
-* [Myslím, že něco je poškozená. Jak odstranit SSPR?](active-directory-passwords-troubleshoot.md)
-* [Je nutné zadat otázku, která nebyla někde zahrnutých, jinak](active-directory-passwords-faq.md)
+* [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)
+* [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
+* [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Povolení zpětného zápisu hesla ve službě Azure AD Connect"

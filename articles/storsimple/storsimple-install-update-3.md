@@ -12,29 +12,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b99b9cd52dd28f7f62b5d8d5ffe32339a67f82a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Nainstalujte na zařízení řady StorSimple 8000 Update 3
+
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Přehled
 
 Tento kurz vysvětluje, jak nainstalovat aktualizace 3 na zařízení StorSimple se starší verzí softwaru prostřednictvím portálu Azure classic a metodou opravu hotfix. Metoda opravy hotfix se používá při brána je nakonfigurovaná na síťovém rozhraní než DATA 0 zařízení StorSimple a pokoušíte se z verze 1 před aktualizací softwaru aktualizovat.
 
-Aktualizace 3 zahrnuje zařízení software, LSI ovladače a firmware, Storport a Spaceport aktualizace. Pokud aktualizace Update 2 nebo dřívější verzi, můžete také budou muset použít rozhraní iSCSI, rozhraní WMI a v některých případech je na disku při aktualizacích firmwaru. Zařízení software, rozhraní WMI, iSCSI, LSI ovladače, Spaceport a Storport opravy se omezovaly aktualizace a dají se použít prostřednictvím portálu Azure classic. Aktualizace firmwaru disku rušivý aktualizace a lze použít pouze prostřednictvím rozhraní Windows PowerShell zařízení. 
+Aktualizace 3 zahrnuje zařízení software, LSI ovladače a firmware, Storport a Spaceport aktualizace. Pokud aktualizace Update 2 nebo dřívější verzi, je také nutné pro použití protokolu iSCSI, rozhraní WMI a v některých případech je na disku při aktualizacích firmwaru. Zařízení software, rozhraní WMI, iSCSI, LSI ovladače, Spaceport a Storport opravy se omezovaly aktualizace. Tyto aktualizace můžete použít prostřednictvím portálu Azure classic. Aktualizace firmwaru disku rušivý aktualizace a lze použít pouze prostřednictvím rozhraní Windows PowerShell zařízení.
 
 > [!IMPORTANT]
 > * Sadu ruční a Automatická předběžné kontroly se provádějí před instalací, který měl zjistit stav zařízení z hlediska hardwaru stavu a připojení k síti. Tyto předběžné kontroly se provádí pouze v případě, že aktualizace použít z portálu Azure classic.
-> * Doporučujeme instalovat aktualizace softwaru a ovladačů prostřednictvím portálu Azure classic. Má jenom přejděte na rozhraní prostředí Windows PowerShell na zařízení (instalovat aktualizace) Pokud selže kontrola před aktualizací brány na portálu. V závislosti na verzi, který chcete aktualizovat z se aktualizace může trvat hodiny 1.5 – 2.5 k instalaci. Aktualizace režimu údržby musí být nainstalován prostřednictvím rozhraní Windows PowerShell zařízení. Jako rušivý aktualizace jsou aktualizace režimu údržby, tyto povede k výpadkům pro vaše zařízení.
+> * Doporučujeme instalovat aktualizace softwaru a ovladačů prostřednictvím portálu Azure classic. Pouze v případě, že selže kontrola před aktualizací brány na portálu, přejděte na rozhraní prostředí Windows PowerShell na zařízení (instalovat aktualizace). V závislosti na verzi, který chcete aktualizovat z se aktualizace může trvat hodiny 1.5 – 2.5 k instalaci. Aktualizace režimu údržby musí být nainstalován prostřednictvím rozhraní Windows PowerShell zařízení. Rušivý aktualizace jsou aktualizace režimu údržby dojde zařízení výpadku.
 > * Pokud běží volitelné Snapshot Manager zařízení StorSimple, zajistěte, aby upgradu vaší verzí Snapshot Manager na Update 2 před aktualizací zařízení.
-> 
-> 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -42,15 +44,14 @@ Aktualizace 3 zahrnuje zařízení software, LSI ovladače a firmware, Storport 
 Proveďte následující kroky k aktualizaci zařízení [aktualizace 3](storsimple-update3-release-notes.md).
 
 > [!NOTE]
-> Chcete-li použít Update 2 nebo novější (včetně Update 2.1), Microsoft bude moci vyžádat jiné diagnostické informace ze zařízení. Výsledkem je když náš tým operations identifikuje zařízení, která došlo k potížím, jsme jsou lépe vybaveny shromažďovat informace ze zařízení a diagnostikovat problémy. Přijetím Update 2 nebo novější, můžete nám umožňují poskytovat tento proaktivní podporu.
-> 
-> 
+> Chcete-li použít Update 2 nebo novější (včetně Update 2.1), Microsoft bude moci vyžádat jiné diagnostické informace ze zařízení. Tato data pomáhají identifikovat zařízení StorSimple, které mají s problémy a pomůcek diagnostikování problémů. Přijetím Update 2 nebo novější, můžete nám umožňují poskytovat tento proaktivní podporu.
+
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-Ověřte, zda je spuštěna vaše zařízení **StorSimple 8000 řady Update 3 (6.3.9600.17759)**. **Datum poslední aktualizace** také by měl být upraven. 
-   - Při aktualizaci z verze před Update 2, zobrazí se také, že jsou aktualizace režim údržby k dispozici (Tato zpráva může nadále zobrazovat až 24 hodin po instalaci aktualizace).
-     Aktualizace režimu údržby jsou rušivý aktualizace, které vést k výpadkům zařízení a dají se použít jenom přes rozhraní Windows PowerShell vašeho zařízení. V některých případech při spuštění aktualizace 1.2 firmware disku mohou být již aktuální, v takovém případě nemusíte instalovat všechny aktualizace režimu údržby.
+Ověřte, zda je spuštěna vaše zařízení **StorSimple 8000 řady Update 3 (6.3.9600.17759)**. **Datum poslední aktualizace** je upravit. 
+   - Při aktualizaci z verze před Update 2, uvidíte, že jsou k dispozici aktualizace režimu údržby. Tato zpráva může nadále zobrazovat až 24 hodin po instalaci aktualizace.
+     Aktualizace režimu údržby jsou rušivý aktualizace, které vést k výpadkům zařízení. Tyto aktualizace lze použít pouze prostřednictvím rozhraní Windows PowerShell vašeho zařízení. V některých případech při spuštění aktualizace 1.2, možná již je aktuální firmware disku a vy nemusíte instalovat všechny aktualizace režimu údržby.
    - Pokud jste aktualizaci z Update 2 nebo novější, zařízení by teď měly být aktuální. Můžete přeskočit na další krok.
 
 Stáhnout aktualizace režimu údržby pomocí kroků uvedených v [ke stažení opravy hotfix](#to-download-hotfixes) k hledání a stahování KB3121899, který nainstaluje aktualizace firmwaru disku (s jinými aktualizacemi musí už být nainstalovaný nyní). Postupujte podle kroků uvedených v [instalaci a ověření opravy hotfix režimu údržby](#to-install-and-verify-maintenance-mode-hotfixes) do režimu údržby instalace aktualizací. 

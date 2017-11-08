@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Vzory pro víceklientské aplikace SaaS a Azure Search návrhu
 Víceklientské aplikace je ten, který poskytuje stejné funkce a služby pro libovolný počet klientů, kteří se nedají zobrazit ani sdílet data žádným jiným klientem. Tento dokument popisuje strategie izolace klienta pro víceklientské aplikace sestavené s Azure Search.
@@ -44,7 +44,7 @@ Existuje několik různých [cenové úrovně](https://azure.microsoft.com/prici
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Maximální replik pro službu |3 |12 |12 |12 |12 |
-| Maximální oddílů pro službu |1 |12 |12 |12 |1 |
+| Maximální oddílů pro službu |1 |12 |12 |12 |3 |
 | Maximální vyhledávání jednotky (repliky * oddíly) pro službu |3 |36 |36 |36 |36 (max 3 oddíly) |
 | Maximální dokumenty pro službu |1 milion |180 milionů |720 milionů |1.4 miliardy |600 milionů |
 | Maximální velikost úložiště pro službu |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |

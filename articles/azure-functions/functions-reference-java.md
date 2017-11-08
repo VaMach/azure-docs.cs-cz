@@ -11,13 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Příručka vývojáře Azure funkce Java
 > [!div class="op_single_selector"]
@@ -164,10 +164,11 @@ Vstup dělí do dvou kategorií v Azure Functions: jeden vstup aktivační udál
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -210,7 +211,7 @@ public class MyClass {
 }
 ```
 
-Proto když tato funkce je volána, požadavek HTTP předává datové části `String` argument `in` a Azure Table Storage `MyObject` typu předaný argument `obj`.
+Takže když tato funkce je volána, datová část požadavku HTTP předá volitelný `String` argument `in` a Azure Table Storage `MyObject` typu předaný argument `obj`. Použití `Optional<T>` typ zpracování vstupy do vaší funkce, které může mít hodnotu null.
 
 ## <a name="outputs"></a>Výstupy
 
@@ -271,11 +272,34 @@ Někdy funkce musí mít podrobnou kontrolu nad vstupy a výstupy. Typy v specia
 
 | Speciálním typem      |       cíl        | Typická využití                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    Aktivace protokolu HTTP     | Získat metoda, hlavičky nebo dotazy |
-| `HttpResponseMessage` | Vazba výstupu protokolu HTTP | Návratový stav než 200   |
+| `HttpRequestMessage<T>`  |    Aktivace protokolu HTTP     | Získat metoda, hlavičky nebo dotazy |
+| `HttpResponseMessage<T>` | Vazba výstupu protokolu HTTP | Návratový stav než 200   |
 
 > [!NOTE] 
 > Můžete také použít `@BindingName` poznámky hlavičky protokolu HTTP a dotazy. Například `@Bind("name") String query` opakuje hlavičky požadavků HTTP a dotazy a předat tuto hodnotu do metody. Například `query` bude `"test"` Pokud je adresa URL požadavku `http://example.org/api/echo?name=test`.
+
+### <a name="metadata"></a>Metadata
+
+Metadata pocházejí z různých zdrojů, jako hlavičky protokolu HTTP, HTTP dotazy a [aktivovat metadata](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Použití `@BindingName` poznámky společně s názvem metadata k získání hodnoty.
+
+Například `queryValue` v následujícím kódu fragment bude `"test"` Pokud požadovaná adresa URL je `http://{example.host}/api/metadata?name=test`.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## <a name="functions-execution-context"></a>Kontext spuštění funkce
 
@@ -294,7 +318,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }

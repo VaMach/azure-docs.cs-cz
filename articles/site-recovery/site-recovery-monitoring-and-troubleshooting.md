@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Monitorování a řešení ochrany pro virtuální počítače a fyzické servery
 Tato příručka monitorování a řešení potíží se umožňuje zjistěte, jak sledovat stav replikace a řešení potíží s techniky Azure Site Recovery.
 
 ## <a name="understand-the-components"></a>Seznámení s komponentami
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>Virtuální počítač VMware nebo fyzických serverů lokality nasazení pro replikaci mezi místními a Azure
-Chcete-li nastavit obnovení databáze mezi místními VMware virtuálního počítače nebo fyzického serveru a Azure, nastavení konfigurace serveru, hlavní cílový server a součásti serveru proces na virtuální počítač nebo server. Pokud povolíte ochranu pro zdrojový server, nainstaluje Azure Site Recovery funkce Mobile Apps služby Microsoft Azure App Service. Po výpadku místní a po zdrojový server převezme do Azure, zákazníci potřeba nastavit procesní server v Azure a hlavní cílový server místně a znovu sestavte zdrojového serveru na místní.
+Chcete-li nastavit obnovení databáze mezi místními VMware virtuálního počítače nebo fyzického serveru a Azure, nastavení konfigurace serveru, hlavní cílový server a součásti serveru proces na virtuální počítač nebo server. Pokud povolíte ochranu pro zdrojový server, Azure Site Recovery nainstaluje službu Mobility z vybrané procesového serveru, pokud není aktuální verze už nasazená. Po výpadku místní a po zdrojový server převezme do Azure, zákazníci potřeba nastavit procesní server v Azure a hlavní cílový server místně a znovu sestavte zdrojového serveru na místní.
 
 ![Nasazení VMware nebo fyzický lokality pro replikaci mezi místními a Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

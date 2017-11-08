@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Vzorkování ve službě Application Insights
 
@@ -57,7 +57,7 @@ Podobně jako ostatní typy vzorkování zachová algoritmus telemetrii souvisej
 
 Datové body, které jsou zrušených vzorkování nejsou k dispozici ve všech funkcí, Application Insights, jako [průběžné exportovat](app-insights-export-telemetry.md).
 
-Přijímání vzorkování nepracuje při vzorkování Adaptivní nebo pevnou sazbou na základě sady SDK je v provozu. Pokud míry vzorkování na sadu SDK je menší než 100 %, je ignorována vzorkovací frekvenci přijímání, který nastavíte.
+Přijímání vzorkování nepracuje při vzorkování Adaptivní nebo pevnou sazbou na základě sady SDK je v provozu. Poznámka: ve výchozím nastavení je povoleno adaptivního vzorkování, pokud je povolená sady SDK technologie ASP.NET v sadě Visual Studio nebo pomocí monitorování stavu a přijímání vzorkování je zakázána. Pokud míry vzorkování na sadu SDK je menší než 100 %, je ignorována vzorkovací frekvenci přijímání, který nastavíte.
 
 > [!WARNING]
 > Hodnota použitá na dlaždici označuje hodnotu, která nastavíte pro přijímání vzorkování. Pokud vzorkování SDK je v provozu nepředstavuje skutečný vzorkovací frekvenci.

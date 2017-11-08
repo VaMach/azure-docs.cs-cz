@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalace a konfigurace Terraform ke zřízení virtuálních počítačů a další infrastrukturou do Azure
  
 Terraform poskytuje snadný způsob, jak definovat, náhled a nasazení infrastruktury cloudu pomocí [jednoduché ukázka jazyk](https://www.terraform.io/docs/configuration/syntax.html). Tento článek popisuje potřebné kroky k Terraform přidělení prostředků v Azure. 
 
 > [!TIP]
-> Terraform je součástí [prostředí Azure Cloud prostředí Bash](/azure/cloud-shell/quickstart)a je předem nakonfigurován s přihlašovacími údaji a [moduly Azure Terraform](https://registry.terraform.io/modules/Azure).
+> Terraform je nainstalována ve výchozím nastavení [Bash v prostředí cloudu Azure možnosti](/azure/cloud-shell/quickstart). Je také předkonfigurované s přihlašovacími údaji a [moduly Azure Terraform](https://registry.terraform.io/modules/Azure). Pomocí cloudové prostředí, můžete přeskočit instalace nebo části tohoto dokumentu.
 
 ## <a name="install-terraform"></a>Nainstalujte Terraform
 
@@ -47,9 +47,7 @@ Existuje několik způsobů, jak vytvořit objekt aplikaci Azure AD a službou A
 
 Přihlaste se ke správě vašeho předplatného Azure po vydání následujícího příkazu:
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 Pokud máte víc předplatných Azure, jsou jejich podrobnosti vrácený `az login` příkaz. Nastavte `SUBSCRIPTION_ID` proměnnou prostředí pro uložení hodnota vrácený `id` pole z předplatného, kterou chcete použít. 
 

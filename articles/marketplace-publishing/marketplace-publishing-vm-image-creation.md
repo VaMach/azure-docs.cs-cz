@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 31f80e93dc741d41a00826c9c8b7ab061c0ca414
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Průvodce pro vytvoření bitové kopie virtuálního počítače pro Azure Marketplace
 Tento článek **kroku 2**, vás provede procesem přípravy virtuálních pevných disků (VHD), které nasadíte do Azure Marketplace. Virtuální pevné disky jsou základ pro vaše SKU. Proces se liší v závislosti na tom, jestli tím SKU systémem Linux nebo systému Windows. Tento článek se týká obou scénářů. Tento postup lze provést paralelně s [vytváření účtů a registrace][link-acct-creation].
@@ -432,7 +432,7 @@ Toto jsou kroky pro vytvoření adresy URL SAS pomocí rozhraní příkazového 
 
 2.  Po jeho stažení, nainstalujte prosím
 
-3.  Vytvořte soubor prostředí PowerShell s následujícím kódem a uložit na místní
+3.  Vytvoření prostředí PowerShell (nebo jiného spustitelného souboru skriptu) soubor s následujícím kódem a uložit místně
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -444,9 +444,9 @@ Toto jsou kroky pro vytvoření adresy URL SAS pomocí rozhraní příkazového 
 
     b. **`<Storage Account Key>`**: Zadejte klíč účtu úložiště
 
-    c. **`<Permission Start Date>`**: Aby se předešlo pro čas UTC, vyberte den, než aktuální datum. Například pokud je aktuální datum 26 října 2016, pak hodnota by měla být 10/25/2016
+    c. **`<Permission Start Date>`**: Aby se předešlo pro čas UTC, vyberte den, než aktuální datum. Například pokud je aktuální datum 26 října 2016, pak hodnota by měla být 10/25/2016. Pokud používáte Azure CLI 2.0 (az příkaz), zadejte datum a čas v počátečním a koncovým datem, například: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: Vyberte datum, které je minimálně 3 týdny po **počáteční datum**. Měla by být hodnota **11/02/2016**.
+    d. **`<Permission End Date>`**: Vyberte datum, které je minimálně 3 týdny po **počáteční datum**. Hodnota musí být **11/02/2016**. Pokud používáte Azure CLI 2.0 (az příkaz), zadejte datum a čas v počátečním a koncovým datem, například: 11-02-2016T00:00:00Z.
 
     Následuje příklad kódu po aktualizaci správné parametry
 
@@ -454,7 +454,7 @@ Toto jsou kroky pro vytvoření adresy URL SAS pomocí rozhraní příkazového 
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  Otevřete editor prostředí Powershell s režimem "Spustit jako správce" a otevřete soubor v kroku #3.
+4.  Otevřete editor prostředí Powershell s režimem "Spustit jako správce" a otevřete soubor v kroku #3. Můžete použít libovolný editor skriptů, který je k dispozici v operačním systému.
 
 5.  Spusťte skript a jeho získáte adresu SAS pro kontejner úrovně přístupu
 
@@ -517,7 +517,7 @@ Po vytvoření nabídku a SKU, měli byste zadat podrobnosti bitové kopie, kter
 |Chyba při kopírování bitové kopie - "sp = rl" není v adrese url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS|Aktualizovat adresu Url SAS s oprávněními nastavenými jako "Číst" a "seznamu|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Chyba při kopírování bitové kopie - SAS url obsahovat prázdné znaky v názvu virtuálního pevného disku|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob pomocí zadaný identifikátor Uri pro SAS.|Aktualizujte adresu Url SAS, bez mezer|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Chyba při kopírování bitové kopie – Chyba autorizace adres Url SAS|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout blob kvůli chybě autorizace|Znovu vygenerovat adresu SAS Url|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|Chyba při kopírování bitové kopie – adresa Url SAS "st" a "se" parametry nemají specifikace úplné data a času|Chyba: Kopírování bitové kopie. Nepodařilo se stáhnout objektů blob z důvodu nesprávné SAS adresa Url |Parametry Start SAS adresa Url a koncové datum ("st", "se") musí mít specifikace úplné datum a čas, jako je například 11-02-2017T00:00:00Z a ne jen data nebo zkrácení verze po dobu. Je možné setkat tento scénář pomocí Azure CLI 2.0 (az příkaz). Nezapomeňte zadat specifikace úplné datum a čas a znovu je obnovovat SAS adresa Url.|[https://Azure.microsoft.com/documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Další krok
 Jakmile jste hotovi s podrobnostmi SKU, můžete přesunout dál [marketing vodítko obsahu Azure Marketplace][link-pushstaging]. V tomto kroku procesu publikování zadáte marketing obsahu, ceny a jiné informace, které jsou potřebné před **krok 3: testování virtuální počítač v pracovní nabízejí**, kde můžete testovat různé scénáře případ použití před nasazením nabídnout Azure Marketplace pro veřejné viditelnost a nákup.  

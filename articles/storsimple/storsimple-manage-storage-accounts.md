@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/29/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bf8b397d81e12bc48fe3d0ce16d5fff705cedbc
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Použít službu StorSimple Manager ke správě vašeho účtu úložiště
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Pokud chcete zobrazit verzi tohoto článku na nový portál Azure, přejděte na [použít službu StorSimple Manager ke správě vašeho účtu úložiště](storsimple-8000-manage-storage-accounts.md). Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Přehled
 **Konfigurace** stránky uvede všechny parametry globální služby, které lze vytvořit ve službě StorSimple Manager. Tyto parametry lze použít pro všechna zařízení připojená k službu a zahrnují:
 

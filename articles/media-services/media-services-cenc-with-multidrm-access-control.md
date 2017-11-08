@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC využívající Multi-DRM a Access Control: Referenční návrh a implementace v prostředí Azure a Azure Media Services
  
@@ -207,7 +207,7 @@ Implementace bude zahrnovat následující kroky:
 
 George Trifonov Azure Media Services týmu byl zápis blog, který poskytuje podrobné pokyny k nastavení Azure Active Directory pro aplikaci ASP.NET MVC player: [integrovat Azure Media Services OWIN MVC na základě aplikace pomocí Azure Active Directory a omezit obsah na základě deklarací JWT doručení klíče](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George také zapisují blog na [ověření pomocí tokenu JWT v Azure Media Services a dynamickým šifrováním](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). A tady je svůj [ukázku v Azure AD integraci s Azure Media Services doručení klíče](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
+George také zapisují blog na [ověření pomocí tokenu JWT v Azure Media Services a dynamickým šifrováním](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Informace o službě Azure Active Directory:
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51fb72fc3c0e9b9e261f19883820f5d7399a57ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 37514e7b90afe1162aa4bbd2869326a691f75c4e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Ověření pomocí privátní registru kontejner Docker
 
@@ -39,7 +39,7 @@ Při práci s registr přímo, například bitové kopie k vyžádání a před�
 az acr login --name <acrName>
 ```
 
-Po přihlášení s `az acr login`, rozhraní příkazového řádku používá token vytvořen při provedení `az login` bezproblémově ověřit relace s registrem. Jakmile jste se přihlásili tímto způsobem, jsou vaše přihlašovací údaje uložené v mezipaměti a následné `docker` příkazy nevyžadují uživatelské jméno nebo heslo. Pokud vyprší platnost vašeho tokenu, můžete ho obnovit pomocí `az acr login` příkaz znovu k novému ověření.
+Po přihlášení s `az acr login`, rozhraní příkazového řádku používá token vytvořen při provedení `az login` bezproblémově ověřit relace s registrem. Jakmile jste se přihlásili tímto způsobem, jsou vaše přihlašovací údaje uložené v mezipaměti a následné `docker` příkazy nevyžadují uživatelské jméno nebo heslo. Pokud vyprší platnost vašeho tokenu, můžete ho obnovit pomocí `az acr login` příkaz znovu k novému ověření. Pomocí `az acr login` s identitami, Azure poskytuje [přístupu podle rolí](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="service-principal"></a>Instanční objekt
 
@@ -75,6 +75,10 @@ V závislosti na verzi Docker instalaci, zobrazí upozornění zabezpečení dop
 
 Každý kontejner registru zahrnuje uživatelský účet správce, který je ve výchozím nastavení zakázaný. Můžete povolit uživatel s oprávněními správce a spravovat svoje přihlašovací údaje v [portál Azure](container-registry-get-started-portal.md#create-a-container-registry), nebo pomocí rozhraní příkazového řádku Azure.
 
+> [!IMPORTANT]
+> Účet správce je určená pro jednoho uživatele pro přístup k registru, především pro účely testování. Nedoporučujeme sdílení přihlašovací údaje účtu správce s více uživateli. Všichni uživatelé, ověřování pomocí účtu správce se zobrazí jako uživatel s jednotným nabízení a vyžadování přístup k registru. Změna nebo zakázání účtu zakáže přístup k registru pro všechny uživatele, kteří použít její přihlašovací údaje. Jednotlivé identity se doporučuje pro uživatele a objekty služby pro scénáře bez periferních zařízení.
+>
+
 Účet správce se s dvě hesla, které mohou vytvořit znovu. Dvě hesla umožňují udržování připojení k registru pomocí jedno heslo, zatímco si znovu vygenerujete druhý. Pokud je povolen účet správce, můžete předat uživatelské jméno a heslo buď `docker login` příkazu pro základní ověřování do registru. Například:
 
 ```
@@ -92,10 +96,6 @@ az acr update -n <acrName> --admin-enabled true
 Správce portálu Azure můžete povolit tak, že přejdete v registru Výběr **přístupové klíče** pod **nastavení**, pak **povolit** pod **správce Uživatel**.
 
 ![Povolit správce uživatelského rozhraní na portálu Azure][auth-portal-01]
-
-> [!IMPORTANT]
-> Účet správce je určená pro jednoho uživatele pro přístup k registru, především pro účely testování. Nedoporučujeme sdílení přihlašovací údaje účtu správce s více uživateli. Všichni uživatelé, ověřování pomocí účtu správce se zobrazí jako jednoho uživatele do registru. Změna nebo zakázání účtu zakáže přístup k registru pro všechny uživatele, kteří použít její přihlašovací údaje.
->
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/16/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2b147f32f10208b8daa391095a7d0094a0c2c09
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>Aktualizace řady StorSimple 8000 0,2 poznámky – leden 2015
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Přehled
 Následující poznámky k verzi identifikovat kritická otevřené problémy pro Microsoft Azure StorSimple verze leden 2015. Také obsahují seznam StorSimple software a firmware aktualizace obsažené v této verzi. Toto je druhý verzi, po vydání řady StorSimple 8000 verze byla dostupná obecně červenec 2014.
 

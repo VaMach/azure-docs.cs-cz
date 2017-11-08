@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Přeučování existující prediktivní webovou službu
 Tento dokument popisuje proces retraining pro následující scénář:
@@ -44,7 +44,7 @@ Počínaje existující webovou službu a experimentů, je třeba postupovat pod
    6. Aktualizujte webovou službu pomocí nové definice webové služby.
 
 ## <a name="deploy-the-training-experiment"></a>Nasazení výukový experiment
-Pokud chcete nasadit výukový experiment jako retraining webové služby, musíte přidat webové služby vstupy a výstupy do modelu. Připojením *výstup webové služby* modulu experimentu  *[Train Model] [ train-model]*  modulu, povolte výukový experiment k vytvoření nové trained model, který můžete použít v prediktivní experiment. Pokud máte *Evaluate Model* modul, můžete taky přiložit výstup webové služby se získat výsledky hodnocení jako výstup.
+Pokud chcete nasadit výukový experiment jako retraining webové služby, musíte přidat webové služby vstupy a výstupy do modelu. Připojením *výstup webové služby* modulu experimentu * [Train Model] [ train-model] * modulu, povolte výukový experiment k vytvoření nové trained model, který můžete použít v prediktivní experiment. Pokud máte *Evaluate Model* modul, můžete taky přiložit výstup webové služby se získat výsledky hodnocení jako výstup.
 
 Aktualizace výukový experiment:
 
@@ -86,9 +86,10 @@ V **informace o základní spotřeby** části **spotřebě** stránky, vyhledej
 ### <a name="update-the-azure-storage-information"></a>Aktualizovat informace o Azure Storage
 Ukázkový kód BES se uloží soubor z místního disku (například "C:\temp\CensusIpnput.csv") do služby Azure Storage, procesy a zapíše výsledky zpět do služby Azure Storage.  
 
-Aktualizovat informace o Azure Storage, musí získat název účtu úložiště, klíč a informace o kontejneru pro váš účet úložiště z portálu Azure classic, a pak aktualizace correspondi po spuštění experimentu, výsledná pracovního postupu by měl vypadat přibližně takto:
+Aktualizovat informace o Azure Storage, je nutné získat název účtu úložiště, klíč a informace o kontejneru pro váš účet úložiště z portálu Azure classic a aktualizovat odpovídající hodnoty v kódu.
+Po spuštění experimentu, výsledná pracovního postupu by měl vypadat přibližně takto:
 
-![Po spuštění výsledného pracovního postupu][4]NG hodnoty v kódu.
+![Po spuštění výsledného pracovního postupu][4]
 
 1. Přihlaste se k portálu Azure Classic.
 2. Ve sloupci levém navigačním panelu klikněte na tlačítko **úložiště**.
@@ -119,7 +120,9 @@ Pokud zadáte umístění výstupu v žádosti o datové části, přípona soub
             }
         },
 
-Tady je příklad výstupu retraining: ![Retraining výstup][6]
+Následuje příklad výstupu retraining:
+
+![Retraining výstup][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Vyhodnoťte retraining výsledky
 Při spuštění aplikace, zahrnuje adresu URL a token podpisů sdíleného přístupu, který jsou potřebné pro přístup k výsledky hodnocení.

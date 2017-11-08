@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiv Azure dat monitorování
 
 Několik vrstev prostředí Azure vytvořit protokolu a metriky data, která mohou být archivovány k účtu úložiště Azure. Můžete k tomu zachovat historii po uplynutí jeho doba uchovávání dat v Log Analytics nebo Azure monitorování dat monitorování dat časem v úložišti nenákladné, prohledávatelné. Tento kurz postup provede procesem konfigurace prostředí Azure k archivaci dat do účtu úložiště.
+
+> [!div class="checklist"]
+> * Vytvořit účet úložiště pro uložení dat monitorování
+> * Protokoly odběru trasy k němu 
+> * Data trasy prostředků do ní 
+> * Směrovat dat virtuálního počítače (hostovaný operační systém) 
+> * Zobrazení dat monitorování v ní 
+> * Vyčištění prostředků 
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -158,7 +166,18 @@ Jste teď úspěšně nastavili monitorování dat archivaci na účet úložiš
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste zjistili, jak nastavit dat monitorování od prostředí Azure (předplatné, prostředků a hostovaný operační systém) archivaci na účet úložiště. Zkontrolujte další význam mimo vaše data a odvozena statistiky, zkuste také odeslání dat do analýzy protokolů.
+V tomto kurzu jste zjistili, jak nastavit dat monitorování od prostředí Azure (předplatné, prostředků a hostovaný operační systém) archivaci na účet úložiště. 
+
+
+> [!div class="checklist"]
+> * Vytvořit účet úložiště pro uložení dat monitorování
+> * Protokoly odběru trasy k němu 
+> * Data trasy prostředků do ní 
+> * Směrovat dat virtuálního počítače (hostovaný operační systém) 
+> * Zobrazení dat monitorování v ní 
+> * Vyčištění prostředků 
+
+Pokud chcete získat další mimo vaše data a jsou odvozeny další statistiky, také odesílat data do analýzy protokolů.
 
 > [!div class="nextstepaction"]
 > [Začínáme s analýzy protokolů](../log-analytics/log-analytics-get-started.md)

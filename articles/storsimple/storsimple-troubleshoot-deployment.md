@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a46b68e63ddd039760d71ca85eeabe8fd07e80bd
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Řešení problémů nasazení zařízení StorSimple
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Pokud chcete zobrazit verzi tohoto článku na nový portál Azure, přejděte na [problémy při nasazení zařízení StorSimple řešení potíží s](storsimple-8000-troubleshoot-deployment.md). Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Přehled
 Tento článek obsahuje užitečné pokyny k odstraňování potíží pro vaše nasazení Microsoft Azure StorSimple. Popisuje běžné problémy, možné příčiny a doporučené kroky, aby pomáhal vyřešit problémy, které se můžete setkat při konfiguraci zařízení StorSimple. Tyto informace platí pro místní fyzického zařízení StorSimple a virtuální zařízení StorSimple.
 

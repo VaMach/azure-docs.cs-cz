@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorování databáze Azure SQL pomocí analýzy SQL Azure (Preview) v analýzy protokolů
 
@@ -102,7 +102,16 @@ Výběrem libovolné dlaždice, otevře se podrobná sestava do konkrétní pers
 
 Každý perspektivy obsahuje souhrny předplatné, server, elastický fond a úroveň databáze. Kromě toho každá perspektiva zobrazuje perspektivy konkrétní sestavy na pravé straně. Výběr předplatného, server, fondu nebo databáze ze seznamu pokračuje podrobné sestavy dolů.
 
-| Perspektivy | Popis || Prostředek podle typu | Perspektivu, která udává všechny prostředky, které jsou monitorovány. Procházení poskytuje souhrn DTU a GB metriky. | | Přehled | Poskytuje hierarchické procházení do inteligentního statistiky. Další informace o inteligentního statistice. | | Chyby | Poskytuje hierarchické procházení do SQL chybách, ke kterým došlo v databázích. | | Časové limity | Poskytuje hierarchické procházení do SQL vypršení časových limitů, které bylo provedeno v databázích. | | Blokování | Poskytuje hierarchické procházení do blokování SQL, které bylo provedeno v databázích. | | Databáze počká | Poskytuje hierarchické procházení do SQL čekání Statistika na úrovni databáze. Obsahuje souhrnné informace o celkový čas čekání a doba čekání na typ čekání. | | Dotaz na dobu trvání | Poskytuje hierarchické procházení do statistik provádění dotazů například doba trvání dotazu, využití procesoru, vstupně-výstupní operace dat využití, využití vstupně-výstupní operace protokolu. | | Dotaz počká | Poskytuje hierarchické procházení do statistiky čekání dotaz podle kategorie čekání. |
+| Perspektivy | Popis |
+| --- | --- |
+| Prostředek podle typu | Perspektivu, která udává všechny prostředky, které jsou monitorovány. Procházení poskytuje souhrn DTU a GB metriky. |
+| Insights | Poskytuje hierarchické procházení do inteligentního statistiky. Další informace o inteligentního statistice. |
+| Chyby | Poskytuje hierarchické procházení do SQL chybách, ke kterým došlo v databázích. |
+| Časové limity | Poskytuje hierarchické procházení do SQL vypršení časových limitů, které bylo provedeno v databázích. |
+| Blokování | Poskytuje hierarchické procházení do blokování SQL, které bylo provedeno v databázích. |
+| Počká databáze | Poskytuje hierarchické procházení do SQL čekání Statistika na úrovni databáze. Obsahuje souhrnné informace o celkový čas čekání a doba čekání na typ čekání. |
+| Doba trvání dotazu | Poskytuje hierarchické procházení do statistik provádění dotazů například doba trvání dotazu, využití procesoru, vstupně-výstupní operace dat využití, využití vstupně-výstupní operace protokolu. |
+| Dotaz čekat | Poskytuje hierarchické procházení do statistiky čekání dotaz podle kategorie čekání. |
 
 ### <a name="intelligent-insights-report"></a>Inteligentní Statistika sestavy
 

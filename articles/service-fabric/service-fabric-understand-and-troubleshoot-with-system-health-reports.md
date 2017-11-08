@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Řešení problémů pomocí sestav o stavu systému
 Azure Service Fabric součásti poskytují sestavy stavu systému na všechny entity v clusteru okamžitě po nasazení. [Úložiště stavu](service-fabric-health-introduction.md#health-store) vytvoří nebo odstraní entit na základě sestav systému. Také slouží k uspořádání je v hierarchii, která zaznamená interakce entity.
@@ -55,6 +55,18 @@ Sestava Určuje časový limit globální zapůjčení jako time to live (TTL). 
 * **SourceId**: System.Federation
 * **Vlastnost**: začíná **okolí** a obsahuje informace o uzlu.
 * **Další kroky**: Zjistěte, proč je okolí ke ztrátě, například, zkontrolujte komunikaci mezi uzly clusteru.
+
+### <a name="rebuild"></a>Opětovné sestavení
+
+**Failover Manager** služby (**FM**) spravuje informace o uzly clusteru. Když FM ztratí svoje data a přejde do ztrátě dat, který nemůže zaručit, že má nejaktuálnější informace o uzly clusteru. V takovém případě systém prochází **znovu sestavit**, a **System.FM** shromažďuje data ze všech uzlů v clusteru, aby bylo možné znovu sestavit její stav. V některých případech kvůli sítě nebo problémů uzlu, opětovné sestavení může získat zablokované nebo bylo zastaveno. Stejné se může stát s **hlavní Správce převzetí služeb při selhání** služby (**FMM**). **FMM** je bezstavové systémová služba, která uchovává informace o kde všechny **FMs** jsou v clusteru. **FMMs** primární je vždy uzel s ID nejbližší na hodnotu 0. Pokud tento uzel získá vyřadit, **znovu sestavit** se aktivuje.
+Pokud nastane jedna z předchozích podmínek **System.FM** nebo **System.FMM** příznak prostřednictvím zprávu o chybách. Opětovné sestavení může být pomalé v jednom ze dvou fází:
+
+* Čekání na všesměrové vysílání: **FM/FMM** čeká na odpověď všesměrového vysílání zprávy z jiných uzlů. **Další kroky:** zjistěte, zda je problém se síťovým připojením mezi uzly.   
+* Čekání na uzly: **FM/FMM** již přijaty všesměrového vysílání odpověď z jiných uzlů a čeká na odpověď od konkrétním uzlům. Sestava stavu zobrazuje seznam uzlů pro kterou **FM/FMM** je čekání na odpověď. **Další kroky:** prozkoumat síťové připojení mezi **FM/FMM** a uvedené uzly. Zkoumání jednotlivých uvedených uzel pro další možné problémy.
+
+* **SourceID**: System.FM nebo System.FMM
+* **Vlastnost**: znovu sestavit.
+* **Další kroky**: prozkoumat síťové připojení mezi uzly, jakož i stav žádné konkrétní uzlů, které jsou uvedeny na popis sestavy stavu.
 
 ## <a name="node-system-health-reports"></a>Uzel sestav o stavu systému
 **System.FM**, který představuje službu Failover Manager je autority, který spravuje informace o uzly clusteru. Každý uzel musí mít jednu sestavu z System.FM zobrazuje stav. Uzel entity, které se odeberou, když se odebere stav uzlu. Další informace najdete v tématu [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

@@ -1,114 +1,229 @@
 ---
 title: 'Kurz: Azure Active Directory integrace s Qualtrics | Microsoft Docs'
-description: "Další informace o použití Qualtrics s Azure Active Directory umožňující jednotné přihlašování, automatického zřizování a další!"
+description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a Qualtrics."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 4df889ab-2685-4d15-a163-1ba26567eeda
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 10/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 2fcde595a40dafda7549f5bccb582b57585b314e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66924ed0754bade90b83a3b001849f0dff3ab216
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Kurz: Azure Active Directory integrace s Qualtrics
-Cílem tohoto kurzu je zobrazit integraci Azure a Qualtrics.  
 
-Scénář uvedených v tomto kurzu se předpokládá, že už máte následující položky:
+V tomto kurzu zjistěte, jak integrovat Qualtrics s Azure Active Directory (Azure AD).
 
-* Platné předplatné Azure
-* Qualtrics jednotné přihlašování (SSO) povolené předplatné
+Integrace Qualtrics s Azure AD poskytuje následující výhody:
 
-Po dokončení tohoto kurzu, bude moct jednotné přihlašování do aplikace ve vaší lokalitě společnosti Qualtrics (služba Zprostředkovatel iniciované přihlašování) nebo pomocí uživatele Azure AD, které jste přiřadili Qualtrics [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
+- Můžete ovládat ve službě Azure AD, který má přístup k Qualtrics.
+- Můžete povolit uživatelům, aby automaticky získat přihlášení k Qualtrics (jednotné přihlášení) s jejich účty Azure AD.
+- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure.
 
-Scénář uvedených v tomto kurzu se skládá z následujících stavební bloky:
+Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. Povolení integrace aplikace pro Qualtrics
-2. Konfigurace jednotného přihlašování (SSO)
-3. Konfiguraci zřizování uživatelů
-4. Přiřazení uživatelů
+## <a name="prerequisites"></a>Požadavky
 
-![Scénář](./media/active-directory-saas-qualtrics-tutorial/IC789542.png "scénář")
+Konfigurace integrace Azure AD s Qualtrics, potřebujete následující položky:
 
-## <a name="enabling-the-application-integration-for-qualtrics"></a>Povolení integrace aplikace pro Qualtrics
-Cílem této části se popisují postup povolení integrace aplikace pro Qualtrics.
+- Předplatné služby Azure AD
+- Qualtrics jednotné přihlašování povolené předplatné
 
-**Pokud chcete povolit integraci aplikací pro Qualtrics, proveďte následující kroky:**
+> [!NOTE]
+> K testování kroky v tomto kurzu, nedoporučujeme používání provozním prostředí.
 
-1. V portálu Azure classic, v levém navigačním podokně klikněte na **služby Active Directory**.
-   
-   ![Služby Active Directory](./media/active-directory-saas-qualtrics-tutorial/IC700993.png "služby Active Directory")
-2. Z **Directory** seznamu, vyberte adresář, pro který chcete povolit integraci adresáře.
-3. Chcete-li otevřít zobrazení aplikací, v zobrazení adresáře, klikněte na tlačítko **aplikace** v horní nabídce.
-   
-   ![Aplikace](./media/active-directory-saas-qualtrics-tutorial/IC700994.png "aplikace")
-4. Klikněte na tlačítko **přidat** v dolní části stránky.
-   
-   ![Přidat aplikaci](./media/active-directory-saas-qualtrics-tutorial/IC749321.png "přidat aplikaci")
-5. Na **co chcete udělat** dialogové okno, klikněte na tlačítko **přidat aplikaci z Galerie**.
-   
-   ![Přidání aplikace z gallerry](./media/active-directory-saas-qualtrics-tutorial/IC749322.png "přidat aplikaci z gallerry")
-6. V **vyhledávacího pole**, typ **Qualtrics**.
-   
-   ![Galerie aplikací](./media/active-directory-saas-qualtrics-tutorial/IC789543.png "galerii aplikací")
-7. V podokně výsledků vyberte **Qualtrics**a potom klikněte na **Complete** tuto aplikaci přidat.
-   
-   ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
-   
-## <a name="configure-single-sign-on"></a>Konfigurovat jednotné přihlašování
+Chcete-li otestovat kroky v tomto kurzu, postupujte podle těchto doporučení:
 
-Cílem této části se popisují, jak uživatelům povolit ověřování na Qualtrics ke svému účtu ve službě Azure AD využívající federaci na základě protokolu SAML.
+- Nepoužívejte provozním prostředí, pokud to není nutné.
+- Pokud nemáte prostředí zkušební verze Azure AD, můžete [získat zkušební verzi jeden měsíc](https://azure.microsoft.com/pricing/free-trial/).
 
-**Pokud chcete konfigurovat jednotné přihlašování, proveďte následující kroky:**
+## <a name="scenario-description"></a>Popis scénáře
+V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovacím prostředí. Scénáři uvedeném v tomto kurzu se skládá ze dvou hlavních stavebních bloků:
 
-1. Na portálu Azure classic na **Qualtrics** stránky integrace aplikací, klikněte na tlačítko **nakonfigurovat jednotné přihlašování** otevřete **nakonfigurovat jednotné přihlašování** dialogové okno.
-   
-   ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "nakonfigurovat jednotné přihlašování")
-2. Na **jak chcete uživatelům se přihlásit Qualtrics** vyberte **Microsoft Azure AD Single Sign-On**a potom klikněte na **Další**.
-   
-   ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-qualtrics-tutorial/IC789546.png "nakonfigurovat jednotné přihlašování")
-3. Na **konfigurace adresy URL aplikace** stránky v **Qualtrics přihlašovací adresa URL** textovému poli, zadejte adresu URL (například: "*https://ssotest2ut1.qualtrics.com*") a potom klikněte na **Další**.
-   
-   ![Konfigurovat adresu URL aplikace](./media/active-directory-saas-qualtrics-tutorial/IC789547.png "konfigurovat adresu URL aplikace")
-4. Na **nakonfigurovat jednotné přihlašování v Qualtrics** klikněte na tlačítko **stáhnout metadata**a potom uložte soubor metadat ve vašem počítači.
-   
-   ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "nakonfigurovat jednotné přihlašování")
-5. Odešlete soubor metadat Qualtrics tým podpory.
-   
-   >[!NOTE]
-   >Konfigurace jednotného přihlašování musí být provedena Qualtrics tým podpory. Zobrazí se oznámení a také konfigurace byla dokončena.
-   > 
-   > 
-6. Na portálu Azure classic, vyberte potvrzení konfigurace přihlášení a pak klikněte na tlačítko **Complete** zavřete **nakonfigurovat jednotné přihlašování** dialogové okno.
-   
-   ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "nakonfigurovat jednotné přihlašování")
-   
-## <a name="configure-user-provisioning"></a>Konfiguraci zřizování uživatelů
+1. Přidání Qualtrics z Galerie
+2. Konfigurace a testování Azure AD jednotného přihlašování
+
+## <a name="adding-qualtrics-from-the-gallery"></a>Přidání Qualtrics z Galerie
+Při konfiguraci integrace Qualtrics do služby Azure AD musíte přidat do seznamu spravovaných aplikací SaaS Qualtrics z galerie.
+
+**Pokud chcete přidat Qualtrics z galerie, proveďte následující kroky:**
+
+1. V ** [portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
+
+    ![Tlačítko Azure Active Directory][1]
+
+2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
+
+    ![V okně podnikové aplikace][2]
+    
+3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
+
+    ![Tlačítko nové aplikace][3]
+
+4. Do vyhledávacího pole zadejte **Qualtrics**, vyberte **Qualtrics** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
+
+    ![Qualtrics v seznamu výsledků](./media/active-directory-saas-qualtrics-tutorial/tutorial_qualtrics_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
+
+V této části nakonfigurovat a otestovat Azure AD jednotné přihlašování s Qualtrics podle testovacího uživatele názvem "Britta Simon".
+
+Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v Qualtrics je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v Qualtrics musí navázat.
+
+V Qualtrics, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
+
+Nakonfigurovat a otestovat Azure AD jednotné přihlašování s Qualtrics, je třeba dokončit následující stavební bloky:
+
+1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on) ** – Pokud chcete povolit uživatelům tuto funkci používat.
+2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user) ** – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
+3. **[Vytvoření zkušebního uživatele Qualtrics](#create-a-qualtrics-test-user) ** – Pokud chcete mít protějšek Britta Simon v Qualtrics propojeném s Azure AD reprezentace daného uživatele.
+4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user) ** – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
+5. **[Test jednotného přihlašování](#test-single-sign-on) ** – Pokud chcete ověřit, zda je funkční konfigurace.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurovat Azure AD jednotné přihlašování
+
+V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v aplikaci Qualtrics.
+
+**Ke konfiguraci Azure AD jednotné přihlašování s Qualtrics, proveďte následující kroky:**
+
+1. Na portálu Azure na **Qualtrics** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
+
+    ![Konfigurace propojení přihlášení][4]
+
+2. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
+ 
+    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-qualtrics-tutorial/tutorial_qualtrics_samlbase.png)
+
+3. Na **Qualtrics domény a adresy URL** část, proveďte následující kroky:
+
+    ![Qualtrics domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-qualtrics-tutorial/tutorial_qualtrics_url.png)
+
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.qualtrics.com`
+
+    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:
+    | |
+    |--|
+    | `https://<companyname>.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
+    | `https://<companyname>.co1.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
+
+    > [!NOTE] 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory Qualtrics klienta](https://www.qualtrics.com/support/) k získání těchto hodnot.
+
+4. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
+
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-qualtrics-tutorial/tutorial_qualtrics_certificate.png) 
+
+5. Klikněte na tlačítko **Uložit** tlačítko.
+
+    ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-qualtrics-tutorial/tutorial_general_400.png)
+
+6. Konfigurace jednotného přihlašování na **Qualtrics** straně, budete muset odeslat stažené **soubor XML s metadaty** k [tým podpory Qualtrics](https://www.qualtrics.com/support/). Nastavují toto nastavení tak, aby měl jednotné přihlašování SAML připojení správně nastavena na obou stranách.
+
+> [!TIP]
+> Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Vytvořit testovací uživatele Azure AD
+
+Cílem této části je vytvoření zkušebního uživatele na portálu Azure, názvem Britta Simon.
+
+   ![Vytvořit testovací uživatele Azure AD][100]
+
+**Vytvoření zkušebního uživatele ve službě Azure AD, proveďte následující kroky:**
+
+1. Na portálu Azure, v levém podokně klikněte **Azure Active Directory** tlačítko.
+
+    ![Tlačítko Azure Active Directory](./media/active-directory-saas-qualtrics-tutorial/create_aaduser_01.png)
+
+2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin**a potom klikněte na **všichni uživatelé**.
+
+    !["Uživatelé a skupiny" a "Všichni uživatelé" odkazy](./media/active-directory-saas-qualtrics-tutorial/create_aaduser_02.png)
+
+3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** v horní části **všichni uživatelé** dialogové okno.
+
+    ![Tlačítko Přidat](./media/active-directory-saas-qualtrics-tutorial/create_aaduser_03.png)
+
+4. V **uživatele** dialogové okno pole, proveďte následující kroky:
+
+    ![Dialogové okno uživatele](./media/active-directory-saas-qualtrics-tutorial/create_aaduser_04.png)
+
+    a. V **název** zadejte **BrittaSimon**.
+
+    b. V **uživatelské jméno** zadejte e-mailovou adresu uživatele Britta Simon.
+
+    c. Vyberte **zobrazit hesla** zaškrtněte políčko a zapište si ji hodnotu, která se zobrazí v **heslo** pole.
+
+    d. Klikněte na možnost **Vytvořit**.
+ 
+### <a name="create-a-qualtrics-test-user"></a>Vytvoření zkušebního uživatele Qualtrics
 
 Neexistuje žádná položka akce můžete nakonfigurovat na Qualtrics zřizování uživatelů. Když přiřazený uživatel se pokusí přihlásit pomocí přístupového panelu Qualtrics, Qualtrics ověří, zda uživatel existuje.  
 
 Pokud neexistuje žádný účet k dispozici dosud, je vytvářena automaticky nástrojem Qualtrics.
 
-## <a name="assign-users"></a>Přiřazení uživatelů
-Chcete-li otestovat vaši konfiguraci, přidělte uživatelům Azure AD, že které chcete povolit přístup aplikace k němu pomocí jejich přiřazení.
+### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
-**Přiřazení uživatelů k Qualtrics, proveďte následující kroky:**
+V této části povolíte Britta Simon používat Azure jednotné přihlašování pomocí udělení přístupu Qualtrics.
 
-1. Na portálu Azure classic vytvořte zkušební účet.
-2. Na **Qualtrics** stránky integrace aplikací, klikněte na tlačítko **přiřazení uživatelů**.
-   
-   ![Přiřazení uživatelů](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "přiřazení uživatelů")
-3. Vyberte svého testovacího uživatele, klikněte na **přiřadit**a potom klikněte na **Ano** k potvrzení vaší přiřazení.
-   
-   ![Ano](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Ano")
+![Přiřadit role uživatele][200] 
 
-Pokud chcete otestovat nastavení jednotného přihlašování, otevřete Panel přístupu. Další podrobnosti o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
+**Pokud chcete přiřadit Britta Simon Qualtrics, proveďte následující kroky:**
+
+1. Na portálu Azure otevřete zobrazení aplikací a pak přejděte do zobrazení adresáře a přejděte na **podnikové aplikace, které** klikněte **všechny aplikace**.
+
+    ![Přiřadit uživatele][201] 
+
+2. V seznamu aplikací vyberte **Qualtrics**.
+
+    ![V seznamu aplikací na Qualtrics odkaz](./media/active-directory-saas-qualtrics-tutorial/tutorial_qualtrics_app.png)  
+
+3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
+
+    ![Odkaz "Uživatelé a skupiny"][202]
+
+4. Klikněte na tlačítko **přidat** tlačítko. Potom vyberte **uživatelů a skupin** na **přidat přiřazení** dialogové okno.
+
+    ![V podokně Přidat přiřazení][203]
+
+5. Na **uživatelů a skupin** dialogovém okně, vyberte **Britta Simon** v seznamu uživatelů.
+
+6. Klikněte na tlačítko **vyberte** tlačítko **uživatelů a skupin** dialogové okno.
+
+7. Klikněte na tlačítko **přiřadit** tlačítko **přidat přiřazení** dialogové okno.
+    
+### <a name="test-single-sign-on"></a>Test jednotného přihlašování
+
+V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
+
+Když kliknete na dlaždici Qualtrics na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Qualtrics.
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Další zdroje
+
+* [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-qualtrics-tutorial/tutorial_general_203.png
 

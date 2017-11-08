@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
+  ms.date: 11/03/2017
   ms.author: carolz
 abstract:
   description: 'Azure Service Fabric je platforma distribuovaných systémů usnadňující balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb a kontejnerů. Vývojáři a správci se můžou vyhnout problémům se složitou infrastrukturou a místo toho se soustředit na implementaci zásadních a náročných úloh, které jsou škálovatelné, spolehlivé a spravovatelné. Naučte se používat službu Azure Service Fabric prostřednictvím našich šablon Rychlý start, kurzů a ukázek.'
@@ -26,9 +26,13 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg'
+              src: 'https://docs.microsoft.com/media/logos/logo_net.svg'
             text: .NET
             href: service-fabric-quickstart-dotnet
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Java.svg'
+            text: Java
+            href: service-fabric-quickstart-java
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
             text: Linuxové kontejnery

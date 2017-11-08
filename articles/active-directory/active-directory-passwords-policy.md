@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Zásady hesel a omezení v Azure Active Directory
 
@@ -94,7 +94,7 @@ Následující tabulka popisuje nastavení zásad k dispozici heslo, které moho
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Nastavení zásad vypršení platnosti hesla ve službě Azure Active Directory
 
-Globální správce pro cloudové služby Microsoftu vám pomůže nastavit uživatelská hesla nechcete vyprší Microsoft Azure Active Directory modul pro prostředí Windows PowerShell. Rutiny prostředí Windows PowerShell můžete použít také k odebrání nikdy-vyprší platnost konfigurace, nebo pokud chcete zjistit, které uživatel hesla jsou nastavte nikoli k vypršení platnosti. Tyto pokyny platí pro jiných poskytovatelů, jako například Microsoft Intune a Office 365, které také závisí na Microsoft Azure Active Directory pro identitu a adresářové služby.
+Globální správce pro cloudové služby Microsoftu vám pomůže nastavit uživatelská hesla nechcete vyprší Microsoft Azure Active Directory modul pro prostředí Windows PowerShell. Rutiny prostředí Windows PowerShell můžete použít také k odebrání nikdy-vyprší platnost konfigurace, nebo pokud chcete zjistit, které uživatel hesla jsou nastavte nikoli k vypršení platnosti. Tyto pokyny platí pro jiných poskytovatelů, jako například Microsoft Intune a Office 365, které také závisí na Microsoft Azure Active Directory pro identitu a adresářové služby. Toto je pouze část zásad, která lze změnit.
 
 > [!NOTE]
 > Jenom hesla pro uživatelské účty, které nejsou synchronizovány pomocí synchronizace adresáře může být nakonfigurován pro nevyprší platnost. Další informace o synchronizaci adresářů v tématu[AD s Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -128,18 +128,21 @@ Chcete-li začít pracovat, je potřeba [stáhněte a nainstalujte modul Azure A
    * Pokud chcete nastavit heslo jeden uživatel nikdy nevyprší, spusťte následující rutinu pomocí hlavního názvu uživatele (UPN) nebo ID uživatele, uživatel:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Pokud chcete nastavit hesel všech uživatelů v organizaci bez vypršení platnosti, spusťte následující rutinu:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+   > [!WARNING]
+   > Pokud nastavíte `-PasswordNeverExpires $true` heslo bude i nadále stáří na základě `pwdLastSet` atribut. To znamená, že pokud nastavíte hesla bez vypršení platnosti a 90 dní přejít na základě `pwdLastSet` a změníte `-PasswordNeverExpires $false` všechna hesla, které mají `pwdLastSet` starší než 90 dní bude nutné změnit při příštím přihlášení. Tato změna by mohlo mít vliv na velký počet uživatelů. 
+
 ## <a name="next-steps"></a>Další kroky
 
 Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
 
-* [Jak dokončení úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
-* [Resetovat nebo změnit heslo](active-directory-passwords-update-your-own-password.md).
-* [Registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
-* [Máte dotaz Licensing?](active-directory-passwords-licensing.md)
-* [Jaká data používá SSPR a jaká data by měla můžete naplnit pro vaše uživatele?](active-directory-passwords-data.md)
-* [Jaké metody ověřování jsou k dispozici pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Co je zpětný zápis hesla a proč je starat o něm?](active-directory-passwords-writeback.md)
-* [Jak sestavy na aktivitu v SSPR](active-directory-passwords-reporting.md)
-* [Co jsou všechny možnosti v SSPR a co znamená, že?](active-directory-passwords-how-it-works.md)
-* [Myslím, že něco je poškozená. Jak odstranit SSPR?](active-directory-passwords-troubleshoot.md)
-* [Je nutné zadat otázku, která nebyla někde zahrnutých, jinak](active-directory-passwords-faq.md)
+* [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
+* [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
+* [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)

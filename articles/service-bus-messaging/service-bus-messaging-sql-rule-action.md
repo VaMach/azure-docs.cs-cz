@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83b4f76a171cd8a860e7ab43462c976bf4df941a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sqlruleaction-syntax"></a>Syntaxe SQLRuleAction
 
 A *SqlRuleAction* je instance [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) třídy a představuje sadu akcí, které jsou napsané v jazyce SQL na základě syntaxi, která bude provedena [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
-Toto téma obsahuje podrobnosti o gramatiku SQL pravidlo akce.  
+V tomto článku jsou uvedeny podrobnosti o gramatiku SQL pravidlo akce.  
   
 ```  
 <statements> ::=

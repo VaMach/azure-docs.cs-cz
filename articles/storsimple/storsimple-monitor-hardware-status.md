@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 686a4faf37342e844f3aa0166d9311a438fa753a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Použít službu StorSimple Manager k monitorování hardwarové součásti a stav
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Pokud chcete zobrazit verzi tohoto článku na nový portál Azure, přejděte na [používat službu StorSimple Manager k monitorování hardwarové součásti a stav](storsimple-8000-monitor-hardware-status.md). Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Přehled
 Tento článek popisuje různé fyzické a logické součásti v zařízení StorSimple na místě. Také vysvětluje, jak monitorovat stav součásti zařízení pomocí **údržby** stránky ve službě StorSimple Manager. 
 

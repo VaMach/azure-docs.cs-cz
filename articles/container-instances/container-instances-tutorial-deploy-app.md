@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 2858f20cd9da469d5983e2bef9176f5922349196
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Nasazení do Azure kontejner instancí kontejneru
 
@@ -56,31 +56,31 @@ Kontejner registru heslo:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-K nasazení bitové kopie kontejneru z registru kontejneru se žádost o prostředku procesorového 1 a 1 GB paměti, spusťte následující příkaz:
+K nasazení bitové kopie kontejneru z registru kontejneru se žádost o prostředku procesorového 1 a 1 GB paměti, spusťte následující příkaz. Nahraďte `<acrLoginServer>` a `<acrPassword>` s hodnotami, které jste získali z předchozích dvou příkazů.
 
 ```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Během pár sekund měli byste obdržet počáteční reakce ze Správce prostředků Azure. Pokud chcete zobrazit stav nasazení, použijte:
+Během pár sekund měli byste obdržet počáteční reakce ze Správce prostředků Azure. Chcete-li zobrazit stav nasazení, použijte [az kontejneru zobrazit](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
 ```
 
-Abychom mohli pokračovat, dokud se stav změní z spuštěním tohoto příkazu *čekající* k *systémem*. Potom jsme můžete pokračovat.
+Opakujte `az container show` příkaz, dokud se stav změní z *čekající* k *systémem*, která by za několik minut trvat. Pokud je kontejner *systémem*, přejděte k dalšímu kroku.
 
 ## <a name="view-the-application-and-container-logs"></a>Zobrazit protokoly aplikací a kontejneru
 
-Po úspěšné nasazení, otevřete prohlížeč na IP adresu zobrazené ve výstupu příkazu:
+Po úspěšné nasazení, zobrazí kontejneru veřejnou IP adresu s [az kontejneru zobrazit](/cli/azure/container#az_container_show) příkaz:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Příklad výstupu:`"13.88.176.27"`
+
+Informace o běžící aplikaci, přejděte na veřejnou IP adresu v oblíbeném prohlížeči.
 
 ![Hello world aplikace v prohlížeči][aci-app-browser]
 
@@ -96,6 +96,14 @@ Výstup:
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+```
+
+## <a name="clean-up-resources"></a>Vyčištění prostředků
+
+Pokud již nepotřebujete žádné prostředky vytvořené z této série kurz, můžete provést [odstranění skupiny az](/cli/azure/group#delete) příkaz k odebrání skupiny prostředků a všechny prostředky, které obsahuje. Tento příkaz odstraní kontejner registru, kterou jste vytvořili, a také kontejneru spuštěné a všechny související prostředky.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Další kroky

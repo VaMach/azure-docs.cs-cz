@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobslužné služby v Azure AD podrobné informace pro vytvoření nového hesla
 
@@ -88,6 +88,23 @@ Tato možnost určuje minimální počet dostupné metody ověření nebo brány
 Uživatelé mohou k poskytování další metody ověřování, pokud jsou povolené správcem.
 
 Pokud uživatel nemá minimální požadované metody zaregistrovaný, zobrazí se jim chybovou stránku, která přesměruje je, aby vyžadovala resetovat heslo správce.
+
+#### <a name="changing-authentication-methods"></a>Změna metody ověřování
+
+Pokud začnete se zásadu, která obsahuje pouze jednu metodu ověřování požadované pro resetovat nebo odemknout zaregistrován a změníte, že ke dvěma co se stane?
+
+| Počet metody zaregistrován | Počet metod požadovaných | výsledek |
+| :---: | :---: | :---: |
+| 1 nebo více | 1 | **Možnost** resetovat nebo odemknutí |
+| 1 | 2 | **Nelze** resetovat nebo odemknutí |
+| 2 nebo více | 2 | **Možnost** resetovat nebo odemknutí |
+
+Pokud změníte typy metod ověřování, zda může uživatel používat můžete nechtěně přestat uživatelé nebudou moci používat SSPR, pokud nemají minimální množství dat, které jsou k dispozici.
+
+Příklad: 
+1. Původní zásady nakonfigurované s 2 metodami ověřování vyžaduje použití pouze office phone a bezpečnostní otázky. 
+2. Správce změní zásady tak, aby už použít bezpečnostní otázky, ale povolí používání mobilního telefonu a alternativní e-mailu.
+3. Uživatelé bez mobilní telefon a naplněno pole alternativní e-mailovou nelze resetovat jejich hesla.
 
 ### <a name="how-secure-are-my-security-questions"></a>Do jaké míry jsou mé bezpečnostní otázky
 
@@ -169,6 +186,7 @@ Pokud je toto zakázáno uživatelé můžou pořád spustit ručně zaregistrov
 > [!NOTE]
 > Uživatelé portálu pro registraci resetování hesla můžete zavřít kliknutím na tlačítko Storno nebo zavřením okna ale výzvy pokaždé, když se přihlásit, dokud nebude po dokončení registrace.
 >
+> Pokud jsou již přihlášení tím nebude přerušení připojení uživatele.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Počet dní před vyzváním uživatelů k potvrzení ověřovacích informací
 
@@ -190,7 +208,7 @@ Příklad: Existují čtyři správci v prostředí. Resetuje heslo pomocí SSPR
 
 ## <a name="on-premises-integration"></a>Místní integrace
 
-Pokud jste nainstalovali, nakonfigurovat a povolili Azure AD Connect, máte následující další možnosti pro místní integrace.
+Pokud jste nainstalovali, nakonfigurovat a povolili Azure AD Connect, máte následující další možnosti pro místní integrace. Pokud tyto možnosti jsou aktivní na více systémů a zpětný zápis nebyla nakonfigurována správně [konfigurace zpětný zápis hesla](active-directory-passwords-writeback.md#configuring-password-writeback) Další informace.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zpětný zápis hesla do místního adresáře
 
@@ -215,21 +233,24 @@ Resetování hesla a změny jsou plně podporovány s všechny konfigurace B2B. 
 
 Tento scénář otestovat, přejděte na http://passwordreset.microsoftonline.com s jedním z těchto uživatelů partnera. Tak dlouho, dokud budou mít alternativní e-mailu nebo e-mailové ověřování definované, resetování hesla funguje podle očekávání.
 
+> [!NOTE]
+> Účty Microsoft, kterým byl udělen přístup hosta do služby Azure AD klienta jsou z Hotmail.com, Outlook.com, nebo jiné osobní e-mailové adresy nejsou moci používat Azure AD SSPR a bude nutné resetovat heslo pomocí informací v nalezen článek [při nemůžete se přihlásit ke svému účtu Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+
 ## <a name="next-steps"></a>Další kroky
 
 Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
 
-* [Jak dokončení úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
-* [Resetovat nebo změnit heslo](active-directory-passwords-update-your-own-password.md).
-* [Registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
-* [Máte dotaz Licensing?](active-directory-passwords-licensing.md)
-* [Jaká data používá SSPR a jaká data by měla můžete naplnit pro vaše uživatele?](active-directory-passwords-data.md)
-* [Jaké metody ověřování jsou k dispozici pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jaké jsou možnosti zásad s SSPR?](active-directory-passwords-policy.md)
-* [Co je zpětný zápis hesla a proč je starat o něm?](active-directory-passwords-writeback.md)
-* [Jak sestavy na aktivitu v SSPR](active-directory-passwords-reporting.md)
-* [Co jsou všechny možnosti v SSPR a co znamená, že?](active-directory-passwords-how-it-works.md)
-* [Myslím, že něco je poškozená. Jak odstranit SSPR?](active-directory-passwords-troubleshoot.md)
-* [Je nutné zadat otázku, která nebyla někde zahrnutých, jinak](active-directory-passwords-faq.md)
+* [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)
+* [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
+* [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
+* [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD dostupné metody ověření a množství jsou potřeba"
+[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Dostupné metody ověřování Azure AD a požadované množství"

@@ -12,50 +12,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 10/30/2017
 ms.author: tarcher
-ms.openlocfilehash: 19dbb1625f46f8864413dc538a96b2413bc6eea0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b4c91805a7d5cbf37c8ba3fa3248e7cb0eb02b0
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurace virtuální sítě v Azure DevTest Labs
-Jak je popsáno v článku, [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md), při vytváření virtuálních počítačů v testovacím prostředí, můžete zadat nakonfigurované virtuální sítě. Jeden scénář tohoto postupu je, pokud potřebujete přístup k prostředkům corpnet z virtuálních počítačů pomocí virtuální sítě, která byla konfigurovaná s ExpressRoute nebo VPN typu site-to-site. Následující části ukazují, jak přidat existující virtuální sítě do testovacího prostředí na nastavení virtuální sítě, aby bylo možné zvolit při vytváření virtuálních počítačů.
+Jak je popsáno v článku [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md), při vytváření virtuálních počítačů v testovacím prostředí, můžete zadat nakonfigurované virtuální sítě. Například může potřebujete přístup k prostředkům corpnet z virtuálních počítačů pomocí virtuální sítě, která byla konfigurovaná s ExpressRoute nebo VPN typu site-to-site.
+
+Tento článek vysvětluje, jak přidat existující virtuální sítě do testovacího prostředí na nastavení virtuální sítě, aby bylo možné zvolit při vytváření virtuálních počítačů.
 
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Konfigurace virtuální sítě pro testovacím prostředí pomocí portálu Azure
 Následující postup vás provede procesem přidání existující virtuální síť (a podsítě) do testovacího prostředí, aby se můžete použít při vytváření virtuálního počítače ve stejné testovací prostředí. 
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
-3. Ze seznamu labs vyberte požadované testovací prostředí. 
-4. V okně v prostředí, vyberte **konfiguraci a zásady**.
-5. V tomto prostředí **konfiguraci a zásady** vyberte **virtuální sítě**.
-6. Na **virtuální sítě** okno, zobrazí se seznam virtuálních sítí, které jsou nakonfigurované pro aktuální prostředí a také výchozí virtuální síť, která se vytvoří pro testovací prostředí. 
-7. Vyberte **+ přidat**.
+1. Vyberte **více služeb**a potom vyberte **DevTest Labs** ze seznamu.
+1. Ze seznamu labs vyberte požadované testovací prostředí. 
+1. V hlavním podokně v prostředí, vyberte **konfiguraci a zásady**.
+
+    ![Přístup v prostředí konfiguraci a zásady](./media/devtest-lab-configure-vnet/policies-menu.png)
+1. V **EXTERNÍM PROSTŘEDKŮM** vyberte **virtuální sítě**. Zobrazí se seznam virtuálních sítí, které jsou nakonfigurované pro aktuální prostředí a také výchozí virtuální síti, které jsou vytvořené pro testovací prostředí. 
+1. Vyberte **+ přidat**.
    
     ![Přidat existující virtuální síť do testovacího prostředí](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-8. Na **virtuální síť** vyberte **[vyberte virtuální síť]**.
+1. Na **virtuální síť** podokně, vyberte **[vyberte virtuální síť]**.
    
     ![Vyberte existující virtuální síť](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-9. Na **zvolte virtuální síť** okně, vyberte požadované virtuální sítě. V okně zobrazí všechny virtuální sítě, které jsou ve stejné oblasti v rámci předplatného jako testovací prostředí.  
-10. Po výběru virtuální sítě, vrátíte se **virtuální síť** podsíť v seznamu v dolní části okna klikněte na tlačítko.
+1. Na **zvolte virtuální síť** podokně, vyberte požadované virtuální sítě. Zobrazí seznam zobrazuje všechny virtuální sítě, které jsou ve stejné oblasti v rámci předplatného jako testovací prostředí.
+1. Po výběru virtuální sítě, vrátíte se **virtuální síť** podokně. V seznamu dole vyberte podsíť.
 
     ![Seznam podsítí](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-    Zobrazí se okno podsíť testovacího prostředí.
+    Zobrazí se podokno podsíť testovacího prostředí.
 
-    ![Okno podsíť testovacího prostředí](./media/devtest-lab-configure-vnet/lab-subnet.png)
+    ![Podokno podsíť testovacího prostředí](./media/devtest-lab-configure-vnet/lab-subnet.png)
+     
+   - Zadejte **název podsítě testovacího prostředí**.
+   - Chcete-li povolit podsíť, kterou chcete použít v testovacím prostředí vytvoření virtuálního počítače, vyberte **použití v vytvoření virtuálního počítače**.
+   - Chcete-li povolit [sdílené veřejnou IP adresu](devtest-lab-shared-ip.md), vyberte **povolení sdíleného veřejnou IP adresu**.
+   - Chcete-li povolit veřejné IP adresy v podsíti, vyberte **povolit vytvoření veřejné IP**.
+   - V **maximální počet virtuálních počítačů na uživatele** pole zadejte maximální virtuálních počítačů na uživatele pro každou podsíť. Pokud chcete neomezený počet virtuálních počítačů, nechte pole prázdné.
+1. Vyberte **OK** zavřete podokno podsíť testovacího prostředí.
+1. Vyberte **Uložit** zavřete podokně virtuální sítě.
 
-11. Zadejte **název podsítě testovacího prostředí**.
-12. Chcete-li povolit podsíť, kterou chcete použít v testovacím prostředí vytvoření virtuálního počítače, vyberte **použití v vytvoření virtuálního počítače**.
-13. Chcete-li povolit [sdílené veřejnou IP adresu](devtest-lab-shared-ip.md), vyberte **povolení sdíleného veřejnou IP adresu**.
-14. Chcete-li povolit veřejné IP adresy v podsíti, vyberte **povolit vytvoření veřejné IP**.
-15. V **maximální počet virtuálních počítačů na uživatele** pole zadejte maximální virtuálních počítačů na uživatele pro každou podsíť. Pokud chcete neomezený počet virtuálních počítačů, nechte pole prázdné.
-16. Vyberte **OK** zavřete okno podsíť testovacího prostředí.
-17. Vyberte **Uložit** zavřete okno virtuální sítě.
-18. Teď, když je nakonfigurovaný virtuální sítě, můžete vybrat při vytváření virtuálního počítače. 
-    Informace o tom, jak vytvořit virtuální počítač a zadejte virtuální síť, naleznete v článku [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md). 
+Teď, když je nakonfigurovaný virtuální sítě, můžete vybrat při vytváření virtuálního počítače. Informace o tom, jak vytvořit virtuální počítač a zadejte virtuální síť, naleznete v článku [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md). 
+
+Azure [dokumentace k virtuálním sítím](https://docs.microsoft.com/azure/virtual-network) poskytuje další informace o tom, jak používat virtuální sítě, včetně toho, jak nastavit a spravovat virtuální sítě a připojení k síti na pracovišti.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

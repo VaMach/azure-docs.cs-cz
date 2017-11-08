@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Nejčastější dotazy se správou hesel
 
@@ -176,6 +176,11 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
   > **Odpověď:** dobu platnosti relace pro resetování hesla je 15 minut. Od začátku operace resetování hesla, uživatel má 15 minut resetovat heslo. E-mailu a SMS jednorázové heslo jsou neplatné po vypršení tohoto časového období.
   >
   >
+* **Otázka: je možné zablokovat uživatelům resetování hesla?**
+
+  > **Odpověď:** Ano, pokud používáte skupinu povolit samoobslužné resetování hesla je můžete je odebrat ze skupiny, která by jim umožnila tuto možnost.
+  >
+  >
 
 ## <a name="password-change"></a>Změna hesla
 
@@ -187,6 +192,11 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
 * **Otázka: je možné se svým uživatelům a upozornění na portálu Office, když vyprší platnost hesla pro místní?**
 
   > **Odpověď:** to je možné ještě dnes Pokud používáte služby AD FS podle pokynů tady: [odesílání deklarace zásady hesel se službou AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Pokud používáte synchronizaci hodnoty hash hesla, to není možné ještě dnes. Je to proto, že jsme není synchronizována zásady hesel z místní, takže není možné, že nám odeslat oznámení o vypršení platnosti do prostředí cloudu. V obou případech je také možné [upozorněte uživatele, jejichž hesla se vyprší pomocí prostředí PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **Otázka: je možné blokovat uživatelům změnu hesla?**
+
+  > **Odpověď:** pro uživatele jenom pro cloud tím, nejde blokovat. Pro místní uživatele můžete nastavit `User cannot change password` pro zaškrtnutí a tito uživatelé nebudou moci měnit své heslo.
   >
   >
 
@@ -263,14 +273,14 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Jak dokončení úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
-* [Resetovat nebo změnit heslo](active-directory-passwords-update-your-own-password.md).
-* [Registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
-* [Máte dotaz Licensing?](active-directory-passwords-licensing.md)
-* [Jaká data používá SSPR a jaká data by měla můžete naplnit pro vaše uživatele?](active-directory-passwords-data.md)
-* [Jaké metody ověřování jsou k dispozici pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jaké jsou možnosti zásad s SSPR?](active-directory-passwords-policy.md)
-* [Co je zpětný zápis hesla a proč je starat o něm?](active-directory-passwords-writeback.md)
-* [Jak sestavy na aktivitu v SSPR](active-directory-passwords-reporting.md)
-* [Co jsou všechny možnosti v SSPR a co znamená, že?](active-directory-passwords-how-it-works.md)
-* [Myslím, že něco je poškozená. Jak odstranit SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)
+* [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
+* [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)

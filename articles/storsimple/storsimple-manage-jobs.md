@@ -12,19 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d9377bb8f3cb8c587823c2d71d61dfb9b50f52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 426fd3ec76157670c9d192f007adacc4284abb42
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>Pomocí služby StorSimple Manager můžete zobrazit a spravovat úlohy StorSimple
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## <a name="overview"></a>Přehled
-**Úlohy** stránka poskytuje jednu centrální portál pro zobrazení a Správa úloh, které byly zahájeny v zařízeních připojení ke službě StorSimple Manager. Můžete zobrazit naplánované, spuštěná, dokončené a k selhání úlohy pro více zařízení. Výsledky se zobrazí v tabulkovém formátu. 
+**Úlohy** stránka poskytuje jednu centrální portál pro zobrazení a Správa úloh, které byly zahájeny v zařízeních připojení ke službě StorSimple Manager. Můžete zobrazit naplánované, spuštěná, dokončené a k selhání úlohy pro více zařízení. Výsledky se zobrazí v tabulkovém formátu.
 
 ![Stránka úlohy](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 

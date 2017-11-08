@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Optimalizace výkonu databáze MySQL na virtuálních počítačích Azure Linux
 Existuje celá řada faktorů, které ovlivňují výkon databáze MySQL na Azure, jak v výběr virtuální hardwarové a softwarové konfigurace. Tento článek se zaměřuje na optimalizace výkonu úložiště, systému a konfigurace databáze.
 
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Azure Resource Manager](../../../resource-manager-deployment-model.md) a classic. Tento článek se věnuje použití klasického modelu nasazení. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Informace o optimalizace virtuálního počítače s Linuxem pomocí modelu Resource Manager najdete v tématu [optimalizovat virtuálním počítačům s Linuxem v Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Využívat RAID na virtuální počítač Azure
 Úložiště je klíčovým faktorem, který ovlivňuje výkon databáze v prostředí cloudu. Porovnání na jeden disk, RAID zajistí rychlejší přístup prostřednictvím souběžnosti. Další informace najdete v tématu [standardní RAID úrovně](http://en.wikipedia.org/wiki/Standard_RAID_levels).   

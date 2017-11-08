@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 10/20/2017
-ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9aa24dd10ef29c716c05cafeb84e0beb23d50628
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Co je Azure databáze PostgreSQL?
 
@@ -39,7 +39,7 @@ Sada ukázek Azure CLI najdete v části:
 - [Ukázek Azure CLI pro databázi Azure pro PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Úprava výkonu a škálování během několika sekund
-Ve verzi preview, databáze Azure pro službu MySQL nabízí dvě úrovně služby: Basic a Standard. Každá úroveň nabízí různé výkon a možnosti pro podporu – od nejlehčích k těm nejnáročnějším. Můžete sestavit svoji první aplikaci s malou databází pro několik dolarů za měsíc a pak upravit měřítko podle potřeb vašeho řešení. Dynamické škálovatelnost umožňuje databázi transparentně reagovat na měnící se rychle požadavky na prostředky. Platíte jenom pro prostředky. můžete třeba a jenom v případě potřeby. V tématu [cenové úrovně](concepts-service-tiers.md) podrobnosti.
+Ve verzi preview, databáze Azure pro službu PostgreSQL nabízí dvě úrovně služby: Basic a Standard. Každá úroveň nabízí různé výkon a možnosti pro podporu – od nejlehčích k těm nejnáročnějším. Můžete sestavit svoji první aplikaci s malou databází pro několik dolarů za měsíc a pak upravit měřítko podle potřeb vašeho řešení. Dynamické škálovatelnost umožňuje databázi transparentně reagovat na měnící se rychle požadavky na prostředky. Platíte jenom pro prostředky. můžete třeba a jenom v případě potřeby. V tématu [cenové úrovně](concepts-service-tiers.md) podrobnosti.
 
 ## <a name="monitoring-and-alerting"></a>Monitorování a upozorňování
 Jak můžete rozhodnout, kdy k vytočení nahoru a dolů? Použijete integrovanou výkonu monitorování a výstrah funkce v kombinaci s hodnocení výkonu na základě výpočetní jednotek. Používání těchto nástrojů, můžete rychle posoudit dopad výpočetní jednotky škálování nebo dolů na základě vaší aktuální nebo předpokládané výkonu potřeb. V tématu [výstrahy](howto-alert-on-metric.md) podrobnosti.

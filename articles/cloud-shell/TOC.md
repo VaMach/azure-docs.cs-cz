@@ -8,7 +8,6 @@
 ## [Funkce a nástroje v prostředí Bash](features.md)
 ## [Funkce a nástroje v PowerShellu](features-powershell.md)
 ## [Omezení](limitations.md)
-## [Řešení potíží](troubleshooting.md)
 
 # Postupy
 ## [Zachování úložiště v prostředí Bash](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Použití okna](using-the-shell-window.md)
 
 # [Ceny](pricing.md)
+
+# [Řešení potíží](troubleshooting.md)
 
 # Referenční informace
 ## [Azure CLI](/cli/azure)

@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9d9360d77c6a0db82d3708baf4af15a0fcdc188e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e872062eddd4ae74f6148673a8f0b27751e37ca4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Odeslat uživatelský kontext ID umožňující použití prostředí ve službě Azure Application Insights
 
@@ -88,7 +88,7 @@ Tento příklad nastaví na identifikátor, který vyprší po relaci ID uživat
 ```
 
 ## <a name="next-steps"></a>Další kroky
-- Pokud chcete povolit použití možnosti, zahájit odesílání [vlastních událostí](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) nebo [stránky zobrazení](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Pokud chcete povolit použití možnosti, zahájit odesílání [vlastních událostí](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) nebo [stránky zobrazení](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Pokud jste již odeslat vlastní události nebo zobrazení stránky, prozkoumejte využití nástroje se dozvíte, jak uživatelé používat služby.
     * [Přehled využití](app-insights-usage-overview.md)
     * [Uživatelů, relací a události](app-insights-usage-segmentation.md)

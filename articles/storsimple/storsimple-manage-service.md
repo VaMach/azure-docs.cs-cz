@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee22a31e9c0ec23d9b042dc894cafe0fc346e742
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Nasazení služby StorSimple Manager na portálu Azure classic
+> [!NOTE]
+> Portálu classic pro StorSimple je zastaralý. Váš správce zařízení StorSimple se automaticky přesune na nový portál Azure podle plánu vyřazení. Obdržíte e-mailu a portálu oznámení pro přesunutí. Tento dokument také vyřadí brzy k dispozici. Pokud chcete zobrazit verzi tohoto článku na nový portál Azure, přejděte na [nasadit službu StorSimple Manager na portálu Azure classic](storsimple-8000-manage-service.md). Dotazy týkající se přechodu, najdete v části [– nejčastější dotazy: přesunout do portálu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Přehled
 Služby StorSimple Manager běží v Microsoft Azure a připojí k více zařízení StorSimple. Po vytvoření služby, můžete ke správě zařízení z klasického portálu Microsoft Azure spuštěnému v prohlížeči. To vám umožňuje monitorovat všechna zařízení, které jsou připojené ke službě StorSimple Manager z jedné centrální umístění, a současně minimalizujete její související administrativní zátěže.

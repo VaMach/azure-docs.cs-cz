@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Vytvoření aplikace .NET Service Fabric v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>Místní spuštění aplikace
 Klikněte pravým tlačítkem na ikonu sady Visual Studio v nabídce Start a vyberte **spustit jako správce**. Aby bylo možné připojit ladicí program k vašim službám, budete muset spustit sadu Visual Studio jako správce.
 
-Otevřete **Voting.sln** řešení sady Visual Studio z úložiště, které jste naklonovali.
+Otevřete **Voting.sln** řešení sady Visual Studio z úložiště, které jste naklonovali.  
+
+Ve výchozím nastavení je Voting aplikace nastavena tak, aby naslouchala na portu 8080.  Port aplikace je nastavena v */VotingWeb/PackageRoot/ServiceManifest.xml* souboru.  Port aplikace můžete změnit při aktualizaci **Port** atribut **koncový bod** elementu.  K nasazení a spuštění aplikace místně, port aplikace musí být otevřené a dostupné ve vašem počítači.  Pokud změníte port aplikace, nahraďte nová hodnota portu aplikace "8080" v tomto článku.
 
 Chcete-li nasadit aplikaci, stiskněte **F5**.
 
 > [!NOTE]
-> Při prvním spuštění a nasazení aplikace, Visual Studio vytvoří místní cluster pro ladění. Tato operace může chvíli trvat. Stav vytváření clusteru se zobrazí v okně výstupu sady Visual Studio.
+> Při prvním spuštění a nasazení aplikace, Visual Studio vytvoří místní cluster pro ladění. Tato operace může chvíli trvat. Stav vytváření clusteru se zobrazí v okně výstupu sady Visual Studio.  Ve výstupu se zobrazí zpráva "Adresa URL aplikace není nastaven, nebo není adresu URL protokolu HTTP nebo HTTPS, takže se neotevře prohlížeče do aplikace."  Tato zpráva neindikuje chybu, ale tento prohlížeč nebude automatické spuštění.
 
 Po dokončení nasazení se spustí prohlížeč a otevřete tuto stránku: `http://localhost:8080` -webové aplikace front-endu.
 
@@ -114,14 +116,15 @@ Podívat se na co se stane, že v kódu, proveďte následující kroky:
 Chcete-li ukončit relaci ladění, stiskněte **Shift + F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Nasazení aplikace v Azure
-Pokud chcete nasadit aplikace do clusteru s podporou v Azure, buď můžete vytvořit vlastní cluster nebo používat Cluster s podporou strany.
+Pokud chcete nasadit aplikaci do Azure, je nutné cluster Service Fabric, který se spouští aplikace. 
 
-Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k Party Clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
+### <a name="join-a-party-cluster"></a>Připojit ke clusteru strany
+Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. 
 
-Informace o vytvoření vlastního clusteru najdete v tématu [Vytvoření vašeho prvního clusteru Service Fabric v Azure](service-fabric-get-started-azure-cluster.md).
+Přihlaste se a [připojení clusteru se systémem Windows](http://aka.ms/tryservicefabric). Mějte na paměti, **koncového bodu připojení** hodnotu, která se používá v následující kroky.
 
 > [!Note]
-> Front-endu webové služby je nakonfigurován pro naslouchání na portu 8080 pro příchozí provoz. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte Cluster strany, tento port je otevřený.
+> Ve výchozím nastavení je front-end webové nakonfigurován pro naslouchání na portu 8080 pro příchozí provoz. Port 8080 je otevřený v clusteru strany.  Pokud potřebujete změnit port aplikace, změňte jej na jednu z porty, které jsou otevřeny v clusteru strany.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Nasazení aplikace pomocí sady Visual Studio
@@ -131,7 +134,9 @@ Aplikace je teď připravená a přímo ze sady Visual Studio ji můžete nasadi
 
     ![Dialogové okno Publikovat](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Do pole **Koncový bod připojení** zadejte koncový bod připojení clusteru a klikněte na **Publikovat**. Při registraci ke clusteru strany, koncový bod připojení je k dispozici v prohlížeči. -například `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Kopírování **koncového bodu připojení** ze strany stránky clusteru do **koncového bodu připojení** pole a klikněte na tlačítko **publikovat**. Například, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    Každá aplikace v clusteru musí mít jedinečný název.  Strany clustery jsou veřejné, sdílené prostředí ale a může být ke konfliktu s existující aplikaci.  Pokud dojde ke konfliktu názvů, přejmenování projektu sady Visual Studio a znovu nasaďte.
 
 3. Otevřete prohlížeč a zadejte v foolowed adresu clusteru podle ': 8080' přístup k aplikaci v clusteru – například `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Teď byste měli vidět aplikace běžící v clusteru v Azure.
 
