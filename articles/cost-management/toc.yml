@@ -21,6 +21,8 @@
       href: tutorial-user-access.md
     - name: 3. Odhad nákladů
       href: tutorial-forecast-spending.md
+    - name: 4. Správa nákladů
+      href: tutorial-manage-costs.md
 - name: Zdroje
   items:
     - name: Videa ke správě nákladů

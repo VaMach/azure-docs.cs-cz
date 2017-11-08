@@ -37,3 +37,4 @@ sections:
           - html: <a href="tutorial-review-usage">Kontrola využití a nákladů a rozpoznávání anomálií a efektivity</a>
           - html: <a href="tutorial-user-access">Přiřazení přístupu k datům Cost Managementu</a>
           - html: <a href="tutorial-forecast-spending">Odhad budoucích výdajů</a>
+          - html: <a href="tutorial-manage-costs">Správa nákladů s přidělováním nákladů a sestavami metod showback a chargeback</a>

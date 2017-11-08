@@ -79,8 +79,23 @@
           maintainContext: true
         - name: Platformy a nástroje
           href: platforms-and-tools.md
-        - name: Přizpůsobení Hadoopu
-          href: customize-hadoop-cluster.md
+        - name: R a Python v clusterech HDInsight
+          items:
+            - name: Představujeme Spark ve službě HDInsight
+              href: ../../hdinsight/spark/apache-spark-overview.md
+              maintainContext: true
+            - name: Vytvoření clusteru Apache Spark ve službě Azure HDInsight
+              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+              maintainContext: true
+            - name: Jádra PySpark pro poznámkový blok Jupyter
+              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+              maintainContext: true
+            - name: R Server v HDInsightu
+              href: ../../hdinsight/r-server/r-server-overview.md
+              maintainContext: true
+            - name: Začínáme používat R Server ve službě HDInsight
+              href: ../../hdinsight/r-server/r-server-get-started.md
+              maintainContext: true
         - name: Pracovní prostor služby Azure Machine Learning
           href: ../studio/create-workspace.md
           maintainContext: true
