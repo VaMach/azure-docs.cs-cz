@@ -8,6 +8,41 @@
 ### [Nasazení předkonfigurovaného řešení](iot-suite-remote-monitoring-deploy.md)
 ### [Provozování předkonfigurovaného řešení](iot-suite-remote-monitoring-explore.md)
 
+## Vzdálené monitorování (předchozí verze)
+### [Co jsou předkonfigurovaná řešení?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Nejčastější dotazy](iot-suite-v1-faq.md)
+
+### Začínáme
+#### [Začínáme s předkonfigurovanými řešeními](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Oprávnění na webu azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Seznámení s řešením vzdáleného monitorování](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Připojte Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Použití jazyka C
+###### [Simulovaná data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Použití reálných senzorů](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Implementace aktualizací firmwaru](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Použití Node.js
+###### [Simulovaná data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Použití reálných senzorů](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Implementace aktualizací firmwaru](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Připojení brány Intel NUC
+##### [Simulovaná data](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Použití reálných senzorů](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Postup
+#### Připojení simulovaného zařízení
+##### [C ve Windows](iot-suite-v1-connecting-devices.md)
+##### [C v Linuxu](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Připojení aplikace logiky k řešení vzdáleného monitorování](iot-suite-v1-logic-apps-tutorial.md)
+#### [Přizpůsobení předkonfigurovaného řešení](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Použití dynamické telemetrie s řešením vzdáleného monitorování](iot-suite-v1-dynamic-telemetry.md)
+#### [Vytvoření vlastního pravidla v řešení vzdáleného monitorování](iot-suite-v1-custom-rule.md)
+#### [Informace o zařízení v řešení vzdáleného monitorování](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Prediktivní údržba
 ### [Přehled řešení prediktivní údržby](iot-suite-predictive-overview.md)
 ### [Seznámení s řešením prediktivní údržby](iot-suite-predictive-walkthrough.md)

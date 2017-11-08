@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: Koncepty zabezpečení
       href: concepts-security.md
+    - name: Zabezpečení
 - name: Návody
   items:
     - name: Správa registrací zařízení
       href: how-to-manage-enrollments.md
     - name: Použití HSM s SDK
       href: use-hsm-with-sdk.md
+    - name: Řízení přístupu ke službě zřizování
+      href: how-to-control-access.md
 - name: Referenční informace
   items:
     - name: REST
