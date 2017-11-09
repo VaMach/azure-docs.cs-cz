@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity, kvóty a omezení předplatného a služeb Azure
 Tento dokument uvádí některé z nejběžnějších omezení Microsoft Azure, což se taky někdy označují jako kvóty. Tento dokument nepokrývá aktuálně všech služeb Azure. V čase v seznamu rozbalit a aktualizovat tak, aby pokrývalo více platformou.
@@ -27,10 +27,10 @@ Tento dokument uvádí některé z nejběžnějších omezení Microsoft Azure, 
 Navštivte [ceny přehled Azure](https://azure.microsoft.com/pricing/) Další informace o cenách služby Azure. Zde můžete odhadnout náklady na používání [cenové kalkulačky](https://azure.microsoft.com/pricing/calculator/) nebo když přejdete na stránce s cenami podrobnosti pro službu (například [virtuálních počítačů Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Tipy ke správě náklady na najdete v tématu [zabránit neočekávané náklady s Azure fakturace a náklady na správu](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Pokud chcete zvýšit limit nebo kvóty výše **výchozí Limit**, [otevřete žádosti o podporu online zákazníka zdarma](azure-supportability/resource-manager-core-quotas-request.md). Není možné zvýšit limity výše **maximální Limit** hodnota použitá v následujících tabulkách. Pokud není žádná **maximální Limit** sloupec a potom prostředek nemá nastavitelná omezení. 
-> 
+> Pokud chcete zvýšit limit nebo kvóty výše **výchozí Limit**, [otevřete žádosti o podporu online zákazníka zdarma](azure-supportability/resource-manager-core-quotas-request.md). Není možné zvýšit limity výše **maximální Limit** hodnota použitá v následujících tabulkách. Pokud není žádná **maximální Limit** sloupec a potom prostředek nemá nastavitelná omezení.
+>
 > Bezplatné předplatné zkušební verze nejsou způsobilé k omezení nebo zvyšuje kvóty. Pokud máte bezplatnou zkušební verzi, můžete upgradovat na [průběžné platby](https://azure.microsoft.com/offers/ms-azr-0003p/) předplatné. Další informace najdete v tématu [Upgrade bezplatné zkušební verze Azure na průběžné platby](billing/billing-upgrade-azure-subscription.md).
-> 
+>
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Omezení a Azure Resource Manager
 Nyní je možné kombinovat více prostředků Azure v do jedné skupiny prostředků Azure. Při použití skupin prostředků, omezení, které byly jednou globální spravovanou na místní úrovni s Azure Resource Manager. Další informace o skupinách prostředků Azure najdete v tématu [přehled Azure Resource Manageru](azure-resource-manager/resource-group-overview.md).
@@ -41,8 +41,8 @@ V níže uvedené limity se přidal nové tabulky, aby odrážela případné ro
 > Je nutné zdůraznit, že jsou na oblast přístupný pro vaše předplatné kvóty pro prostředky ve skupinách prostředků Azure a nejsou za předplatné, jako jsou kvóty správy služby. Jako příklad použijeme základní kvóty. Pokud potřebujete požádat o zvýšení kvóty s podporou pro počet jader, musíte se rozhodnout, kolik jader, kterou chcete použít v oblasti, které a pak proveďte konkrétního požadavku pro skupiny prostředků Azure základní kvóty pro částky a oblastí, které chcete. Proto v případě, že budete muset použít 30 jader v oblasti západní Evropa spusťte aplikaci; Konkrétně měli požádat o 30 jader v oblasti západní Evropa. Ale nebudete mít základní kvóta zvyšují v jiné oblasti – pouze západní Evropa budou mít kvótu 30 jádra.
 > <!-- -->
 > V důsledku toho může být vhodné vzít v úvahu při rozhodování o tom, co kvóty vaší skupiny prostředků Azure musí být pro úlohy v libovolné oblasti jeden a požadovat tato částka v každé oblasti, do kterého uvažujete o nasazení. V tématu [potíží s nasazením](resource-manager-common-deployment-errors.md) další pomoc zjišťování vaše aktuální kvóty pro konkrétní oblasti.
-> 
-> 
+>
+>
 
 ## <a name="service-specific-limits"></a>Omezení specifickou pro službu
 * [Active Directory](#active-directory-limits)
@@ -60,6 +60,7 @@ V níže uvedené limity se přidal nové tabulky, aby odrážela případné ro
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
+* [Container Registry](#container-registry-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -117,8 +118,13 @@ Následující omezení platí při použití skupiny prostředků Azure a Azure
 ### <a name="virtual-machine-scale-sets-limits"></a>Omezení sady škálování virtuálního počítače
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-### <a name="container-instances-limits"></a>Kontejner instancí omezení
+### <a name="container-instances-limits"></a>Limity instancí kontejneru
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
+
+### <a name="container-registry-limits"></a>Omezení registru kontejneru
+V následující tabulce jsou funkcí a omezení Basic, Standard a Premium [úrovních služeb](./container-registry/container-registry-skus.md).
+
+[!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
 ### <a name="networking-limits"></a>Síťová omezení
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -141,7 +147,7 @@ Následující omezení platí při použití skupiny prostředků Azure a Azure
 ### <a name="storage-limits"></a>Limity úložiště
 Další informace o limity účtu úložiště najdete v tématu [a cíle výkonnosti služby Azure Storage Scalability](storage/common/storage-scalability-targets.md).
 
-<!--like # storage accts --> 
+<!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
@@ -164,7 +170,7 @@ Další informace o omezení Azure soubory v [Azure Files škálovatelnosti a c�
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Omezení disku virtuálního počítače 
+#### <a name="virtual-machine-disk-limits"></a>Omezení disku virtuálního počítače
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 V tématu [velikostí virtuálních počítačů](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) další podrobnosti.

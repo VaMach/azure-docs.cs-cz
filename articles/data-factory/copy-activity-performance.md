@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Zkopírujte aktivity výkonu a vyladění Průvodce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ Jako odkaz, níže uvedená tabulka zobrazuje číslo propustnost kopie **v MB/s
 ![Matice výkonu](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->V Azure Data Factory verze 2 při aktivitě kopírování se spustí na modulu Runtime integrace Azure, minimální cloudu jednotky přesun dat je dva.
+>V Azure Data Factory verze 2 při aktivitě kopírování se spustí na modulu Runtime integrace Azure, jednotky přesun dat minimální povolené cloudu je dva. Pokud není zadaný, najdete v části jednotky přesun dat výchozí použitá v [jednotky přesun dat v cloudu](#cloud-data-movement-units).
 
 Všimněte si body:
 
@@ -84,13 +84,12 @@ Všimněte si body:
 
 A **jednotky přesun dat cloudu (DMU)** je míra, která reprezentuje výkon (kombinaci procesoru, paměti a přidělení prostředků sítě) v objektu pro vytváření dat na jednu jednotku. **DMU se vztahuje pouze na [Runtime integrace Azure](concepts-integration-runtime.md#azure-integration-runtime)**, ale ne [Self-hosted integrace Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Jednotky přesun dat minimální cloudu na základě kterých kopie aktivity při spuštění je dva.** Následující tabulka uvádí výchozí DMUs, používá ve scénářích různé kopie.
+**Jednotky přesun dat minimální cloudu na základě kterých kopie aktivity při spuštění je dva.** Pokud není zadaný, následující tabulka uvádí výchozí DMUs, používá ve scénářích různé kopie:
 
 | Kopírování | Výchozí DMUs určit službou |
 |:--- |:--- |
-| Kopírování dat mezi úložišti na základě souborů | Mezi 2 a 16 v závislosti na počtu a velikosti souborů. |
-| Kopírování dat ze služby Salesforce nebo Dynamics | 4 |
-| Všechny ostatní kopie scénáře | 2 |
+| Kopírování dat mezi úložišti na základě souborů | Mezi 4 a 16 v závislosti na počtu a velikosti souborů. |
+| Všechny ostatní kopie scénáře | 4 |
 
 Pokud chcete přepsat toto výchozí nastavení, zadejte hodnotu **cloudDataMovementUnits** vlastnost následujícím způsobem. **Povolené hodnoty** pro **cloudDataMovementUnits** vlastnost jsou 2, 4, 8, 16, 32. **Skutečný počet cloudu DMUs** že kopírování se používá v době běhu je rovna nebo menší než nakonfigurovaná hodnota, v závislosti na vaší vzorek dat. Informace o úrovni výkonnější se mohou objevit, když konfigurujete další jednotky pro konkrétní kopie zdroj a jímka najdete v tématu [referenční dokumentace výkonu](#performance-reference).
 

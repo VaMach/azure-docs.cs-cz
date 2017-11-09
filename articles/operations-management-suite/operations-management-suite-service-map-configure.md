@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 209631536d8c611b46a2ad3ff6c685062b17c649
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurace mapy služeb v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Můžete ji zobrazit vaše servery co možná z nich – jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi všechny architektura připojení TCP se žádná konfigurace vyžaduje, než instalace agenta.
@@ -135,7 +135,7 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### <a name="shell-script-for-linux"></a>Skript prostředí pro Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sh InstallDependencyAgent-Linux64.bin -s
+sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Rozšíření virtuálního počítače Azure
@@ -228,10 +228,15 @@ Správce můžete odinstalovat závislostí agenta pro Windows pomocí ovládac�
 Správce můžete také spouštět %Programfiles%\Microsoft závislostí Agent\Uninstall.exe odinstalace agenta závislostí.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Odinstalujte agenta závislostí v systému Linux
-Úplně odinstalujte agenta závislostí ze systému Linux, je nutné odebrat vlastní agent a konektor, který je automaticky nainstalován s agentem. Můžete odinstalovat i pomocí následujících jeden příkaz:
-
-    rpm -e dependency-agent dependency-agent-connector
-
+Úplně odinstalujte agenta závislostí ze systému Linux, je nutné odebrat vlastní agent a konektor, který je automaticky nainstalován s agentem. Můžete odinstalovat i pomocí následujících jeden příkaz.
+<br>RHEL, CentOs nebo Oracle:
+```
+sudo rpm -e dependency-agent dependency-agent-connector
+```
+Ubuntu:
+```
+sudo dpkg --purge dependency-agent dependency-agent-connector
+```
 ## <a name="troubleshooting"></a>Řešení potíží
 Pokud máte potíže s instalaci nebo spuštění mapy služeb, v této části vám může pomoct. Pokud stále nemůžete vyřešit problém, kontaktujte prosím Microsoft Support.
 
@@ -316,6 +321,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | Verze operačního systému | Verze jádra |
@@ -329,6 +335,7 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 | 6.6 | 2.6.32-504 |
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 | Verze operačního systému | Verze jádra |
@@ -336,10 +343,17 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Linux Enterprise s nedělitelné Enterprise jádra
+### <a name="ubuntu-server"></a>Ubuntu Server
+- Vlastní jádra, včetně opakovaných kompilací standardní jádra, nejsou podporovány.
 
+| Verze operačního systému | Verze jádra |
+|:--|:--|
+| 16.04 | 4.4.0-98 |
+| 14.04 | 3.13.0-135<br>4.4.0-98 |
+
+### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Linux Enterprise s nedělitelné Enterprise jádra
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 | Verze operačního systému | Verze jádra
 |:--|:--|

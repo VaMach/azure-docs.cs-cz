@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96e429ae0e9462e6046a4aaabc5ab9281f2e67ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalace ovladačů NVIDIA GPU v N-series virtuální počítače se systémem Linux
 
@@ -350,8 +350,9 @@ Nasaďte virtuální počítače NC24r z jednoho z následujících bitových ko
 
 ## <a name="troubleshooting"></a>Řešení potíží
 
-* Je známý problém s ovladači CUDA na virtuálních počítačích Azure N-series systémem Ubuntu 16.04 LTS Linux jádra 4.4.0-75. Pokud provádíte upgrade ze starší verze jádra, upgradujte alespoň 4.4.0-77 verze jádra. 
+* Je známý problém s ovladači CUDA na virtuálních počítačích Azure N-series systémem Ubuntu 16.04 LTS Linux jádra 4.4.0-75. Pokud provádíte upgrade ze starší verze jádra, upgradujte alespoň 4.4.0-77 verze jádra.
 
+* Můžete nastavit režim trvalost pomocí nvidia smi tak, aby výstup příkazu rychleji, když potřebujete karty dotazu. Nastavení režimu trvalost, provést `nvidia-smi -pm 1`. Všimněte si, že pokud restartování virtuálního počítače s nastavením režimu zmizí. Vždy můžete skript režim provést při spuštění.
 
 
 ## <a name="next-steps"></a>Další kroky

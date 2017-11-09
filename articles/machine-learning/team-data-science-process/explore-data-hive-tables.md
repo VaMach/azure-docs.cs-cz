@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: dc5cbbf8db46607179e8b0e8657462afac21f7da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e808d86900bcb855c65c73b9ab39060d3948befd
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Zkoumání dat v tabulkách Hivu pomocí dotazů Hivu
 Tento dokument obsahuje ukázkové skripty Hive, které se používají k zkoumat data v tabulkách Hive v clusteru HDInsight Hadoop.
@@ -33,7 +33,7 @@ Tento článek předpokládá, že máte:
 * Vytvořit účet úložiště Azure. Pokud budete potřebovat pokyny, najdete v části [vytvoření účtu úložiště Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Zřizuje přizpůsobené clusteru Hadoop se službou HDInsight. Pokud budete potřebovat pokyny, najdete v části [přizpůsobit Azure HDInsight Hadoop clusterů pro pokročilé analýzy](customize-hadoop-cluster.md).
 * Data byla uložena do tabulek Hive v Azure HDInsight Hadoop clusterů. Pokud ne, postupujte podle pokynů v [vytvoření a načtení dat do tabulek Hive](move-hive-tables.md) nejprve nahrát data do tabulek Hive.
-* Povolit pro vzdálený přístup ke clusteru. Pokud budete potřebovat pokyny, najdete v části [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md#headnode).
+* Povolit pro vzdálený přístup ke clusteru. Pokud budete potřebovat pokyny, najdete v části [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md).
 * Pokud budete potřebovat pokyny k odesílání dotazů Hive, najdete v části [postup odesílání dotazů Hive](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Příklad Hive dotaz skripty pro zkoumání dat

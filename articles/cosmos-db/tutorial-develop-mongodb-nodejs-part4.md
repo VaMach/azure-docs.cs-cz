@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: 6fd88c58c0067deab08d502be4bd624c297b5fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20c2ae547d794836474aa34096a20de25dad96c8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Vytvoření aplikace MongoDB s Angular a službou Azure Cosmos DB – Část 4: Vytvoření účtu služby Azure Cosmos DB pomocí Azure CLI
 
@@ -38,7 +38,7 @@ Tento vícedílný kurz ukazuje, jak vytvořit novou aplikaci [MongoDB API](mong
 
 Před zahájením této části kurzu se ujistěte, že jste dokončili kroky v [části 3](tutorial-develop-mongodb-nodejs-part3.md) tohoto kurzu. 
 
-V této části kurzu můžete použít Azure Cloud Shell (v internetovém prohlížeči) nebo místně nainstalované [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Pokud budete používat Azure CLI místně, ujistěte se, že máte Azure CLI verze 2.0 nebo novější. Pokud chcete zkontrolovat svou verzi, spusťte na příkazovém řádku příkaz `az --version`. 
+V této části kurzu můžete použít Azure Cloud Shell (v internetovém prohlížeči) nebo místně nainstalované [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Pokud budete používat Azure CLI místně, ujistěte se, že máte Azure CLI verze 2.0 nebo novější. Pokud chcete zkontrolovat svou verzi, spusťte na příkazovém řádku příkaz `az --version`. 
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

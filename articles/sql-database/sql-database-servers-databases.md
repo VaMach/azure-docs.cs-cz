@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 3bd39b9a63cd4a18eabee3d1737daac56b3e37df
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Vytvářet a spravovat servery Azure SQL Database a databáze
 
@@ -35,7 +35,7 @@ Azure SQL database může být:
 - Součástí sady databází, které se podílejí na [vzoru návrhu SaaS pro více klientů](sql-database-design-patterns-multi-tenancy-saas-applications.md); tyto databáze můžou být buď izolované, nebo součástí fondu (nebo obojí) 
 
 > [!TIP]
-> Platné názvy databází najdete v tématu [Identifikátory databází](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). 
+> Platné názvy databází najdete v tématu [Identifikátory databází](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). 
 >
  
 - Výchozí databázová kolace, kterou služba Microsoft Azure SQL Database používá, je **SQL_LATIN1_GENERAL_CP1_CI_AS**, kde **LATIN1_GENERAL** znamená jazyk Angličtina (Spojené státy), **CP1** značí znakovou sadu 1252, **CI** znamená, že se nerozlišují malá a velká písmena, a **AS** značí rozlišování diakritiky. Další informace o nastavení kolace najdete v článku [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
@@ -126,7 +126,7 @@ Chcete-li vytvořit a spravovat server Azure SQL, databáze a brány firewall po
 |[Nový AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Vytvoří skupinu prostředků.]
 |[Nový AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Vytvoří serveru|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Vrátí informace o serverech|
-|[Set-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/set-azurermsqlserver)|Upraví vlastnosti serveru|
+|[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Upraví vlastnosti serveru|
 |[Remove-AzureRmSqlServer](/powershell/module/azurerm.sql/remove-azurermsqlserver)|Odebere server|
 |[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule)|Vytvoří pravidlo brány firewall na úrovni serveru |
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Získá pravidla brány firewall pro server|

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces Team dat. vědecké účely v akci: použití Azure HDInsight Hadoop clusterů
 V tomto návodu použijeme [tým datové vědy procesu (TDSP)](overview.md) začátku do konce scénář pomocí [clusteru Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) k uložení, prozkoumejte a funkci pracovníka data z veřejně k dispozici [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datové sady a dolů ukázková data. Modely dat jsou integrované s Azure Machine Learning pro zpracování více třídami a binární klasifikace a regrese prediktivní úlohy.
@@ -59,15 +59,15 @@ Tady jsou tři příklady předpovědi problémy, které jsme adresy v tomto ná
 
 1. **Binární klasifikace**: předpovědět, zda byl tip placené cesty, tj. *tip\_velikost* větší než $0 je pozitivní příklad, při *tip\_velikost* $ 0 je záporný příklad.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Více třídami klasifikace**: K předpovědi rozsahu tip objemu placené pro cestu. Jsme rozdělit *tip\_velikost* do pěti přihrádek nebo třídy:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Úloha regrese**: K předvídání množství tip placené cesty.  
 
 ## <a name="setup"></a>Nastavení clusteru HDInsight Hadoop pro pokročilou analýzu
@@ -132,7 +132,7 @@ Data by teď ve službě Azure Blob Storage a připravené k využívat v rámci
 > 
 > 
 
-Pro přístup k hlavnímu uzlu clusteru pro analýzu nahodilého dat a dolů vzorkování dat, postupujte podle pokynů uvedených v [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md#headnode).
+Pro přístup k hlavnímu uzlu clusteru pro analýzu nahodilého dat a dolů vzorkování dat, postupujte podle pokynů uvedených v [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md).
 
 V tomto návodu budeme používat hlavně dotazy, které jsou napsané v [Hive](https://hive.apache.org/), jako SQL dotazovací jazyk, k provedení explorations předběžné data. Dotazy Hive jsou uložené v souborech .hql. Jsme pak dolů ukázkové tato data, která má být použit v rámci Azure Machine Learning pro vytváření modelů.
 
@@ -723,17 +723,17 @@ Jako požadavky na vystavování Hive dotazy v [importovat Data] [ import-data] 
 
 Některé podrobnosti o [importovat Data] [ import-data] modulu a parametry pro vstup:
 
-**Identifikátor URI serveru HCatalog**: Pokud je název clusteru abc123, pak toto je jednoduše: https://abc123.azurehdinsight.net
+**Identifikátor URI serveru HCatalog**: Pokud je název clusteru abc123, to je jednoduše: https://abc123.azurehdinsight.net
 
-**Název uživatelského účtu Hadoop** : uživatelské jméno zvolené pro cluster (**není** uživatelské jméno vzdáleného přístupu)
+**Název uživatelského účtu Hadoop**: uživatelské jméno zvolené pro cluster (**není** uživatelské jméno vzdáleného přístupu)
 
-**Heslo účtu pož Hadoop** : heslo zvolené pro cluster (**není** heslo vzdáleného přístupu)
+**Heslo účtu pož Hadoop**: heslo zvolené pro cluster (**není** heslo vzdáleného přístupu)
 
-**Umístění výstupu dat** : to je zvolen jako Azure.
+**Umístění výstupu dat**: to je zvolen jako Azure.
 
-**Název účtu úložiště Azure** : název výchozí účet úložiště, které jsou přidruženy ke clusteru.
+**Název účtu úložiště Azure**: název výchozí účet úložiště, které jsou přidruženy ke clusteru.
 
-**Název kontejneru Azure** : Toto je výchozí název kontejneru pro cluster a je obvykle stejný jako název clusteru. Pro cluster s názvem "abc123" jde jenom abc123.
+**Název kontejneru Azure**: Toto je výchozí název kontejneru pro cluster a je obvykle stejný jako název clusteru. Pro cluster s názvem "abc123" jde jenom abc123.
 
 > [!IMPORTANT]
 > **Všechny tabulky chceme dotazování pomocí [importovat Data] [ import-data] modulu v Azure Machine Learning musí být interní tabulku.** Tip pro určení toho, jestli tabulka T v databázi D.db interní tabulku je následující.
@@ -795,7 +795,7 @@ b. Pro tento experiment používáme nedorozuměním matice podívat se na naše
 
 ![Matice nedorozuměním](./media/hive-walkthrough/cxFmErM.png)
 
-Všimněte si, že naše třída přesnostmi na běžně se vyskytujícím třídy je poměrně vhodný, modelu neprovádí dobrou práci "vzdělávání" na vzácnějších třídy.
+Všimněte si, že naše třída přesnostmi na běžně se vyskytujícím třídy jsou sice velmi dobré, modelu neprovádí dobrou práci "vzdělávání" na vzácnějších třídy.
 
 **3. Úloha regrese**: K předvídání množství tip placené cesty.
 
@@ -814,12 +814,12 @@ b. V případě problémů regrese měříme přesnostmi naše předpovědí pro
 Vidíme, že o koeficient spolehlivosti je 0.709, zdání přibližně 71 % odchylku vysvětluje naše koeficienty modelu.
 
 > [!IMPORTANT]
-> Můžete najít další informace o Azure Machine Learning a jak přístup a použít jej [co je Machine Learning?](../studio/what-is-machine-learning.md). Je velmi užitečná prostředku pro přehrávání s spoustu experimenty Machine Learning v Azure Machine Learning [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galerie vysvětluje škálu experimenty a poskytuje důkladné Úvod do řadu funkcí služby Azure Machine Learning.
+> Můžete najít další informace o Azure Machine Learning a jak přístup a použít jej [co je Machine Learning](../studio/what-is-machine-learning.md). Je velmi užitečná prostředku pro přehrávání s spoustu experimenty Machine Learning v Azure Machine Learning [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galerie vysvětluje škálu experimenty a poskytuje důkladné Úvod do řadu funkcí služby Azure Machine Learning.
 > 
 > 
 
 ## <a name="license-information"></a>Informace o licenci
-Tento ukázkový postup a jeho doprovodné skriptů jsou sdíleny společností Microsoft v rámci licencí MIT. Zkontrolujte prosím soubor LICENSE.txt v adresáři ukázkový kód na Githubu další podrobnosti.
+Tento ukázkový postup a jeho doprovodné skriptů jsou sdíleny společností Microsoft v rámci licencí MIT. Zkontrolujte prosím soubor LICENSE.txt v adresáři uvedeném ukázkovém kódu na Githubu další podrobnosti.
 
 ## <a name="references"></a>Odkazy
 • [Stránce pro stažení Andrés Monroy NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/)  

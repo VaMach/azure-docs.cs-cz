@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # V Průvodci Azure Service Bus a Event Hubs protokolu AMQP 1.0
 
@@ -32,7 +32,7 @@ Tento článek stručně shrnuje základní koncepty AMQP 1.0, zasílání zprá
 
 Cílem je pro všechny vývojáře pomocí všechny existující zásobníku klienta protokolu AMQP 1.0 na jakékoli platformě, být schopni komunikovat s Azure Service Bus prostřednictvím protokolu AMQP 1.0.
 
-Běžné pro obecné účely zásobníky protokolu AMQP 1.0, jako je například Apache kanálem nebo AMQP.NET Lite již implementovat všechny gesta jádra protokolu AMQP 1.0. Tyto základní gesta jsou někdy obklopeno vyšší úrovně rozhraní API; Apache kanálem i nabízí dvě rozhraní API imperativní Messenger a reaktivní reaktoru API.
+Běžné pro obecné účely zásobníky protokolu AMQP 1.0, jako je například Apache kanálem nebo AMQP.NET Lite již implementovat všechny protokoly jádra protokolu AMQP 1.0. Tyto základní gesta jsou někdy obklopeno vyšší úrovně rozhraní API; Apache kanálem i nabízí dvě rozhraní API imperativní Messenger a reaktivní reaktoru API.
 
 V následující diskusi jsme předpokládají, že správa připojení AMQP, relace a odkazy a manipulaci s rámečkem přenosů a řízení toku jsou zpracovávány v příslušných zásobníku (jako je například Apache kanálem-C) a nevyžadují mnohem, pokud existuje konkrétní pozornost vývojáři aplikace. Předpokládáme abstraktně existenci několik rozhraní API primitiv jako možnost připojit a vytvořit určitou formu *odesílatele* a *příjemce* abstrakce objekty, které mají některé tvar `send()` a `receive()` operace, v uvedeném pořadí.
 
@@ -238,13 +238,13 @@ Následující části popisují, které vlastnosti z standardní zprávy část
 Tato část obsahuje rozšířené možnosti služby Azure Service Bus, které jsou založeny na koncept rozšíření AMQP, aktuálně vyvíjených v OASIS technický výbor pro AMQP. Service Bus implementuje nejnovější verze tyto koncepty a přijímá změny zavedené jako tyto koncepty dosáhne standardní stavu.
 
 > [!NOTE]
-> Service Bus zasílání zpráv, pokročilé operace jsou podporovány prostřednictvím vzor požadavků a odpovědí. Podrobnosti o tyto operace jsou popsané v dokumentu [protokolu AMQP 1.0 v Service Bus: na základě požadavku odpověď operace](service-bus-amqp-request-response.md).
+> Service Bus zasílání zpráv, pokročilé operace jsou podporovány prostřednictvím vzor požadavků a odpovědí. Podrobnosti o tyto operace jsou popsané v článku [protokolu AMQP 1.0 v Service Bus: na základě požadavku odpověď operace](service-bus-amqp-request-response.md).
 > 
 > 
 
 ### AMQP správy
 
-Specifikace protokolu AMQP správy je první rozšíření koncept zde popsané. Tato specifikace definuje sadu protokol gesta jako vrstva nad protokol AMQP, které umožňují správu interakce s infrastruktury přenosu zpráv přes AMQP. Specifikace definuje obecná operací, jako *vytvořit*, *číst*, *aktualizace*, a *odstranit* pro správu entity uvnitř infrastrukturu zasílání zpráv a sadu operace dotazů.
+Specifikace protokolu AMQP správy je první rozšíření koncept popsané v tomto článku. Tato specifikace definuje sadu protokolů jako vrstva nad protokol AMQP, které umožňují správu interakce s infrastrukturu zasílání zpráv přes AMQP. Specifikace definuje obecná operací, jako *vytvořit*, *číst*, *aktualizace*, a *odstranit* pro správu entity uvnitř infrastrukturu zasílání zpráv a sadu operace dotazů.
 
 Všechny tyto gesta vyžadovat interakci požadavků a odpovědí mezi klientem a infrastrukturu zasílání zpráv, a proto specifikace definuje, jak model tento vzor interakce nad AMQP: klient připojí k infrastrukturu zasílání zpráv, inicializuje relaci a potom vytvoří pár odkazy. Na jeden odkaz klient funguje jako odesílatele a na dalších funguje jako příjemce, proto vytvoří pár odkazy, které může fungovat jako obousměrný kanál.
 

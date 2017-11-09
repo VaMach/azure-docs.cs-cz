@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Nastavit Tomcat7 na virtuální počítač s Linuxem v Azure
 Apache Tomcat (nebo jednoduše Tomcat, také dříve se označovaly jako Jakarta Tomcat) je webový server s otevřeným zdrojem a kontejner servlet vyvinuté pomocí softwaru Foundation Apache (amp). Tomcat implementuje Java Servlet a specifikace JavaServer stránky (JSP) z Sun Microsystems. Tomcat poskytuje čistý Java HTTP prostředí webového serveru ke spouštění kódu v jazyce Java. V nejjednodušší konfiguraci Tomcat běží v procesu jednoho operačního systému. Tento proces se spustí nástroje Java virtual machine (JVM). Každý požadavek HTTP z prohlížeče do Tomcat zpracovávány jako samostatné vláken v procesu Tomcat.  
 
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Azure Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek popisuje postup použití modelu nasazení classic. Doporučujeme vám, že většina nových nasazení používala model Resource Manager. Použití šablony Resource Manageru k nasazení virtuálního počítače s Ubuntu s otevřete JDK a Tomcat, najdete v části [v tomto článku](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 V tomto článku bude instalace Tomcat7 na bitovou kopii systému Linux a nasadit v Azure.  
 

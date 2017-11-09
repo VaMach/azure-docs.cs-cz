@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8b90885583c411e5b1e513188a636fe54ec74b7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numerické funkce pro šablony Azure Resource Manager
 
@@ -122,11 +122,13 @@ Vrátí index smyčky iterací.
 
 ### <a name="remarks"></a>Poznámky
 
-Tato funkce se vždy používá s **kopie** objektu. Pokud není zadána žádná hodnota pro **posun**, je vrácena hodnota aktuální iteraci. Hodnota iterace začíná od nuly.
+Tato funkce se vždy používá s **kopie** objektu. Pokud není zadána žádná hodnota pro **posun**, je vrácena hodnota aktuální iteraci. Hodnota iterace začíná od nuly. Iterace smyčky můžete použít při definování prostředky nebo proměnné.
 
 **LoopName** vlastnost umožňuje určit, zda copyIndex odkazuje na prostředek iterace nebo vlastnost iterace. Pokud není zadána žádná hodnota pro **loopName**, se používá na aktuální iteraci typ prostředku. Zadejte hodnotu pro **loopName** během iterace u vlastnosti. 
  
 Úplný popis jak používat **copyIndex**, najdete v části [vytvořit více instancí prostředků ve službě Správce prostředků Azure](resource-group-create-multiple.md).
+
+Příklad použití **copyIndex** při definování proměnné, najdete v části [proměnné](resource-group-authoring-templates.md#variables).
 
 ### <a name="example"></a>Příklad
 

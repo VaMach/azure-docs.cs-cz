@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 4fd8b847b0f60648d1661ce5a8667c641e616ed4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec95f2eb1dfee728192dee325110728a7d079c67
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Jak nastavit koncové body na klasické virtuální počítač s Linuxem v Azure
 Všechny virtuální počítače Linux, které vytvoříte v Azure pomocí modelu nasazení classic může automaticky komunikovat přes kanál privátní síť s dalšími virtuálními počítači ve stejné cloudové služby nebo virtuální sítě. Počítače v Internetu nebo k jiným virtuálním sítím však vyžadují koncové body směrovat příchozí síťový provoz do virtuálního počítače. Tento článek je také k dispozici pro [virtuální počítače s Windows](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 V **Resource Manager** modelu nasazení koncové body jsou konfigurováni pomocí **skupiny zabezpečení sítě (Nsg)**. Další informace najdete v tématu [otevírání portů a koncové body](../nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

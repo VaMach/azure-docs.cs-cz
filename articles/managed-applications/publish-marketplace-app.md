@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure spravovaných aplikací na webu Marketplace
 
@@ -122,7 +122,7 @@ V případě nadřazené nabídky na Marketplace se zobrazí SKU. Zobrazí se ja
    Vyplňte následující pole:
 
    * **Aktuální verze**: Zadejte verzi balíčku můžete nahrávat na server. Musí být ve formátu `{number}.{number}.{number}{number}`.
-   * **Vyberte soubor balíčku**: Tento balíček obsahuje požadovaný soubor komprimované do balíčku .zip. Další informace najdete v tématu [vytvořit aplikaci služby katalogu](publish-service-catalog-app.md).
+   * **Vyberte soubor balíčku**: Tento balíček obsahuje dvě požadované soubory komprimované do balíčku .zip. Jeden soubor je šablony Resource Manageru, který definuje prostředky pro nasazení pro spravované aplikace. Definuje další soubor [uživatelské rozhraní](create-uidefinition-overview.md) pro spotřebitele nasazení spravované aplikace prostřednictvím portálu. V uživatelském rozhraní zadejte elementy, které umožňují příjemcům zadáním hodnot parametru.
    * **PrincipalId**: Tato vlastnost je Azure Active Directory (Azure AD) identifikátor uživatele, skupiny uživatelů nebo aplikací, kteří mají udělen přístup k prostředkům v rámci předplatného zákazníka. Definice Role jsou popsána oprávnění.
    * **Definice role**: Tato vlastnost je seznam všech uvedené vestavěné role řízení přístupu na základě Role (RBAC) poskytované Azure AD. Můžete vybrat roli, která je nejvhodnější používat ke správě prostředků jménem zákazníka.
 
@@ -197,5 +197,5 @@ Po vyplnění všech oddílů, vyberte **publikovat** ke spuštění procesu, kt
 
 ## <a name="next-steps"></a>Další kroky
 
-* Úvod do spravovaných aplikací, najdete v části [spravované aplikace přehled](overview.md).
+* Úvod ke spravovaným aplikacím najdete v [přehledu spravovaných aplikací](overview.md).
 * Informace o publikování aplikace spravované katalogu služeb najdete v tématu [vytvoření a publikování aplikace spravované katalogu služeb](publish-service-catalog-app.md).

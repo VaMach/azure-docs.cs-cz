@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Použití rozšíření Docker VM s klasickým portálem Azure
 > [!IMPORTANT] 
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) je jednou z nejčastěji používané virtualizace přístupy, které používá [Linux kontejnery](http://en.wikipedia.org/wiki/LXC) místo virtuální počítače jako způsob oddělením dat a výpočty na sdílených prostředků. Můžete použít rozšíření virtuálního počítače Docker spravuje [Azure Linux Agent] vytvoření Docker virtuálního počítače, který je hostitelem libovolný počet kontejnerů pro vaše aplikace v Azure.
 
 > [!NOTE]
-> Toto téma popisuje, jak vytvořit virtuální počítač Docker z portálu Azure classic. Jak vytvořit virtuální počítač Docker na příkazovém řádku, najdete v sekci [jak používat rozšíření virtuálního počítače z rozhraní příkazového řádku (Azure CLI) Docker]. Podrobný popis kontejnery a jejich výhody, najdete v sekci [Docker vysokou úroveň tabulí](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Toto téma popisuje, jak vytvořit virtuální počítač Docker z portálu Azure. Jak vytvořit virtuální počítač Docker na příkazovém řádku, najdete v sekci [jak používat rozšíření virtuálního počítače z rozhraní příkazového řádku (Azure CLI) Docker]. Podrobný popis kontejnery a jejich výhody, najdete v sekci [Docker vysokou úroveň tabulí](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
 ## <a name="create-a-new-vm-from-the-image-gallery"></a>Vytvoření nového virtuálního počítače z Galerie obrázků
-Prvním krokem vyžaduje virtuální počítač Azure z Linux bitovou kopii, která podporuje Docker rozšíření virtuálního počítače, pomocí image Ubuntu 14.04 LTS z Galerie obrázků jako obrázek příkladu server a Ubuntu 14.04 Desktop jako klient. Na portálu, klikněte na tlačítko **+ nový** v levém dolním rohu k vytvoření nové instance virtuálního počítače a vyberte bitovou kopii Ubuntu 14.04 LTS z dostupných možnostech nebo dokončení Galerie obrázků, jak je uvedeno níže.
+Prvním krokem vyžaduje virtuální počítač Azure z Linux bitovou kopii, která podporuje Docker rozšíření virtuálního počítače, pomocí image Ubuntu 14.04 LTS z Galerie obrázků jako obrázek příkladu server a Ubuntu 14.04 Desktop jako klient. Na portálu, klikněte na tlačítko **+ nový** k vytvoření nové instance virtuálního počítače a vyberte bitovou kopii Ubuntu 14.04 LTS z dostupných možnostech nebo dokončení Galerie obrázků, jak je uvedeno níže.
 
 > [!NOTE]
 > V současné době podporují pouze Ubuntu 14.04 LTS obrázky novější než červenec 2014 Docker rozšíření virtuálního počítače.
@@ -67,11 +68,6 @@ Na příkazovém řádku použít  **`base64`**  nebo jiný Oblíbené kódován
 
 ## <a name="add-the-docker-vm-extension"></a>Přidání rozšíření virtuálního počítače Docker
 Chcete-li přidat rozšíření virtuálního počítače Docker, najděte instance virtuálního počítače, který jste vytvořili a přejděte dolů k položce **rozšíření** a klikněte na něj se zprovoznit rozšíření virtuálních počítačů, jak je uvedeno níže.
-
-> [!NOTE]
-> Tato funkce je podporována pouze na portálu preview: https://portal.azure.com/
-> 
-> 
 
 ![](media/portal-use-docker/ClickExtensions.png)
 

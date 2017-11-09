@@ -15,16 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01fa162d41e03e29f3b6f0ca128e7cc49aa91abb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Django Hello World webové aplikace na virtuální počítač Windows serveru
 
 > [!IMPORTANT] 
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Azure Resource Manager a modelu nasazení classic](../../../resource-manager-deployment-model.md). Tento článek popisuje model nasazení classic. Doporučujeme vám, že většina nových nasazení používala model Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 V tomto kurzu se dozvíte, jak k hostování webu na základě Django v systému Windows Server v Azure Virtual Machines. V tomto kurzu předpokládáme žádné předchozí zkušenosti s Azure. Po dokončení tohoto kurzu, může mít jiné aplikace založené na rozhraní Django nahoru a běží v cloudu.
 

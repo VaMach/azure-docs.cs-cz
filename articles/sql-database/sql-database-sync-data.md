@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: c53eabfeb9ee1a7c50340bbfc65674b478068c75
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure (Preview)
 
 Synchronizaci dat SQL je služba založená na Azure SQL Database, která umožňuje synchronizaci dat, kterou vyberete obousměrně napříč více databází SQL a instance systému SQL Server.
 
@@ -44,7 +44,7 @@ Synchronizaci dat používá k synchronizaci dat hvězdicové topologii. Definuj
 -   **Databáze Sync** obsahuje metadata a protokolu pro synchronizaci dat. Synchronizace databáze musí být, že Azure SQL Database umístěný ve stejné oblasti jako databázi rozbočovače. Databáze Sync je zákazník vytvořit a zákazníka, které jsou ve vlastnictví.
 
 > [!NOTE]
-> Pokud používáte databázi na místní, budete muset [konfigurace místního agenta.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Pokud používáte databázi na místní, budete muset [konfigurace místního agenta.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
 
 ![Synchronizaci dat mezi databázemi](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -113,14 +113,14 @@ Po exportu databáze jako `.bacpac` souboru a importovat soubor k vytvoření no
 
 -   Tabulka nemůže obsahovat sloupec identity, který není primární klíč.
 
--   Názvy objektů (databáze, tabulek a sloupců) nesmí obsahovat tisknutelná znaků tečkou (.), zbývající hranaté závorky ([]), nebo právo hranatá závorka (]).
+-   Názvy objektů (databáze, tabulek a sloupců) nesmí obsahovat tisknutelná znaků tečkou (.), zbývající hranaté závorky ([), nebo právo hranatá závorka (]).
 
--   Musí být povolena izolace snímku. Další informace najdete v tématu [izolaci snímku v systému SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+-   Musí být povolena izolace snímku. Další informace najdete v tématu [izolaci snímku v systému SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-considerations"></a>Obecné aspekty
 
 #### <a name="eventual-consistency"></a>Konzistence typu případné
-Vzhledem k tomu, že synchronizace dat je na základě aktivační události, není zaručena konzistence transakcí. Microsoft zaručuje, že jsou všechny změny provedené nakonec a synchronizaci dat není způsobit ztrátu dat..
+Vzhledem k tomu, že synchronizace dat je na základě aktivační události, není zaručena konzistence transakcí. Microsoft zaručuje, že jsou všechny změny provedené nakonec a synchronizaci dat není způsobit ztrátu dat.
 
 #### <a name="performance-impact"></a>Vliv na výkon
 Synchronizace dat se používají vložit, aktualizovat a odstranit aktivačních událostí ke sledování změn. Vytvoří straně tabulky v databázi uživatelů pro sledování změn. Tyto aktivity sledování změn mají vliv na vaše zatížení databáze. Vyhodnocení vašeho vrstvy služeb a upgradujte v případě potřeby.
@@ -155,7 +155,9 @@ Synchronizace dat se používají vložit, aktualizovat a odstranit aktivačníc
 
 Další informace o synchronizaci dat SQL najdete v tématu:
 
--   [Začínáme s synchronizaci dat SQL](sql-database-get-started-sql-data-sync.md)
+-   [Začínáme s Azure SQL synchronizací dat](sql-database-get-started-sql-data-sync.md)
+-   [Osvědčené postupy pro synchronizaci dat SQL Azure](sql-database-best-practices-data-sync.md)
+-   [Řešení problémů s synchronizaci dat SQL Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Dokončete příklady prostředí PowerShell, které ukazují, jak nakonfigurovat synchronizaci dat SQL:
     -   [Pomocí prostředí PowerShell k synchronizaci mezi více databází Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -166,5 +168,4 @@ Další informace o synchronizaci dat SQL najdete v tématu:
 Další informace o databázi SQL najdete v tématu:
 
 -   [Databáze SQL – přehled](sql-database-technical-overview.md)
-
 -   [Správa životního cyklu databáze](https://msdn.microsoft.com/library/jj907294.aspx)

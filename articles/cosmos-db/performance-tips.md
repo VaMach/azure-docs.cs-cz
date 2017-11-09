@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Tipy pro zvýšení výkonu pro Azure Cosmos DB
 Azure Cosmos DB je rychlé a flexibilní distribuovanou databázi, která bezproblémově škáluje s zaručenou latence a propustnosti. Není nutné provádět změny hlavní architektura nebo zapsat složitý kód se škálovat databázi Cosmos DB. Škálování nahoru a dolů je stejně snadná jako provedení jednoho volání rozhraní API nebo [volání metody SDK](set-throughput.md#set-throughput-sdk). Ale protože Cosmos DB přistupuje prostřednictvím sítě volání existují optimalizace straně klienta, provedené k dosažení nejvyššího výkonu.
@@ -165,7 +165,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
 
     Cosmos DB nabízí širokou škálu databázové operace, včetně dotazů na relační a hierarchických UDF, uložené procedury a triggery – všechny provozní s dokumenty v databázi kolekce. Náklady spojené s každou z těchto operací se liší podle využití procesoru, vstupně-výstupní operace a paměť požadovanou pro dokončení operace. Namísto přemýšlení o a správu hardwarové prostředky si můžete představit jednotka žádosti (RU) jako jednu míru pro prostředky potřebné k provádět různé operace databáze a služeb na žádost aplikace.
 
-    [Požadované jednotky](request-units.md) zřízeny pro každý účet databáze na základě počtu jednotek kapacity, které jste si koupili. Spotřeba jednotek žádosti budou vyhodnocené jako za sekundu. Aplikace, které překračují rychlost jednotky zřízené požadavků pro svůj účet je omezená, dokud rychlost klesne pod úroveň vyhrazené pro účet. Pokud vaše aplikace vyžaduje vyšší úroveň propustnosti, si můžete zakoupit jednotky dodatečnou kapacitu.
+    Propustnost je zřízený podle množství [požadované jednotky](request-units.md) nastavit pro každý kontejner. Spotřeba jednotek žádosti budou vyhodnocené jako za sekundu. Aplikace, které překračují rychlost jednotky zřízené požadavků pro svůj účet je omezená, dokud rychlost klesne pod úroveň vyhrazené pro účet. Pokud vaše aplikace vyžaduje vyšší úroveň propustnosti, můžete zvýšit vaše propustnost zřizování jednotek další žádosti. 
 
     Složitost dotazu má dopad na tom, kolik jednotek žádosti se spotřebovávají pro operace. Počet predikáty, povaha predikáty, počet UDF a velikost datové sady zdroje, které jsou všechny ovlivnit náklady na operace dotazů.
 

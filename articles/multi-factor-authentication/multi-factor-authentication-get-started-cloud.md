@@ -3,7 +3,7 @@ title: "Začínáme s ověřováním Azure Multi-Factor Authentication v cloudu 
 description: "Toto je stránka ověřování Azure Multi-Factor Authentication, která popisuje, jak začít s Azure MFA v cloudu."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 6b2e6549-1a26-4666-9c4a-cbe5d64c4e66
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
-ms.author: kgremban
-ms.openlocfilehash: 19f3228b874fc4e37bf83388dae4341428226482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 395ebdaf1d783a87134f307702e0125f82f3fa8a
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Začínáme s ověřováním Azure Multi-Factor Authenticatin v cloudu
 V tomto článku se dozvíte, jak začít používat Azure Multi-Factor Authentication v cloudu.

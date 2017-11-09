@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 911b8f12472dcbda3e6bfeb8c97bf1d04a63e1dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Jak nainstalovat a nakonfigurovat Trend Micro Deep Security na virtuálním počítači s Windows jako službu
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Tento článek ukazuje, jak nainstalovat a nakonfigurovat Trend Micro hluboké Security jako služba na nový nebo existující virtuální počítač (VM) s Windows serverem. Hloubkové zabezpečení jako služba zahrnuje ochrana proti malwaru, brána firewall, narušení prevence systém a monitorování integrity.
 

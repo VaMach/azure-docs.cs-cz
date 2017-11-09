@@ -14,17 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="advisor-performance-recommendations"></a>Poradce při hodnocení výkonu doporučení
 
 Azure doporučení výkonu služby Advisor napomáhají, a zvýšit rychlost a reakce důležitých podnikových aplikací. Výkon doporučení služby Advisor můžete získat **výkonu** Advisor řídicího panelu.
-
-![Karta výkonu Advisor](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Zlepšení výkonu databáze službou SQL DB Advisor
 
@@ -34,8 +32,6 @@ Advisor vám poskytne konzistentní, konsolidované zobrazení doporučení pro 
 > Doporučení získáte databáze musí obsahovat o týden využití, a v daném týdnu musí být některé konzistentní aktivity. Poradce pro databáze SQL můžete optimalizovat snadněji konzistentní dotazu v případě vzorů než pro náhodné shluky aktivity.
 
 Další informace o službě Advisor databáze SQL najdete v tématu [Poradce pro funkci SQL Database](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
-
-![Doporučení k databázi SQL](./media/advisor-performance-recommendations/advisor-performance-sql.png)
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Zlepšení výkonu Redis Cache a spolehlivosti
 
@@ -49,23 +45,12 @@ Azure Advisor integruje doporučení pro zlepšení prostředí aplikační slu�
 * Zjišťování instancí, které tyto prostředky jako webové aplikace a databáze může zvýšit výkon a nižší náklady. 
 
 Další informace o App Services doporučení najdete v tématu [osvědčené postupy pro službu Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
-![Doporučení služby aplikace](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak získat přístup k výkonu doporučení v Advisor
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+1. Přihlaste se k [portál Azure](https://portal.azure.com)a pak otevřete [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. V levém podokně klikněte na **další služby**.
-
-3. V podokně nabídky služby v rámci **monitorování a správu**, klikněte na tlačítko **Azure Advisor**.  
- Se zobrazí řídicí panel služby Advisor.
-
-4. Na řídicím panelu služby Advisor, klikněte na **výkonu** kartě.
-
-5. Vyberte předplatné, pro který chcete dostávat doporučení a potom klikněte na **získat doporučení**.
-
-> [!NOTE]
-> Chcete-li získat přístup k doporučení služby Advisor, je nutné nejprve *zaregistrovat předplatné* službou Advisor. Předplatné je zaregistrován při *předplatné vlastníka* spustí Advisor řídicího panelu a klikne na tlačítko **získat doporučení** tlačítko. Toto je *jednorázovou operaci*. Po registraci předplatného dostanete doporučení služby Advisor jako *vlastníka*, *Přispěvatel*, nebo *čtečky* pro předplatné, skupinu prostředků nebo konkrétní prostředek.
+2.  Na řídicím panelu služby Advisor, klikněte na **výkonu** kartě.
 
 ## <a name="next-steps"></a>Další kroky
 

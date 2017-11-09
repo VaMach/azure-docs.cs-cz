@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 96925f251cf4984a11516a962740e19a7b9589dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="introduction-to-azure-advisor"></a>Úvod do Azure Advisor
 
-Další informace o Azure Advisor a jejími klíčovými funkcemi a získejte odpovědi na nejčastější dotazy.
+Další informace o klíčových funkcí služby Azure Advisor a získejte odpovědi na nejčastější dotazy.
 
 ## <a name="what-is-advisor"></a>Co je Advisor?
 Advisor je konzultantem přizpůsobené cloudu, která pomáhá dodržujte doporučené postupy, chcete-li optimalizovat nasazení Azure. Ho analyzuje konfigurace prostředků a telemetrii využití a pak doporučuje řešení, které vám pomůžou líp finanční efektivita, výkon, vysokou dostupnost a zabezpečení vašich prostředků Azure.
@@ -32,43 +32,38 @@ Advisor můžete:
 * Zvýšit výkon, zabezpečení a vysokou dostupnost vašich prostředků, jak identifikovat příležitosti k snížit vaše celkové Azure tráví.
 * Získejte doporučení s vložené navrhovaná akce.
 
-Dostanete Advisor prostřednictvím [portál Azure](https://aka.ms/azureadvisordashboard). Přihlaste se k [portál](https://portal.azure.com), vyberte **Procházet**a potom přejděte k **Azure Advisor**. Řídicí panel Advisor zobrazuje přizpůsobené doporučení pro vybrané předplatné. 
+Dostanete Advisor prostřednictvím [portál Azure](https://aka.ms/azureadvisordashboard). Přihlaste se k [portál](https://portal.azure.com), vyhledejte **Advisor** v navigační nabídce nebo vyhledejte ho v **další služby** nabídky.
 
-Doporučení jsou rozděleny do čtyř kategorií: 
+Řídicí panel Advisor zobrazuje přizpůsobené doporučení pro všechna předplatná.  Můžete použít filtry, které chcete zobrazit doporučení pro určité odběry a typy prostředků.  Doporučení jsou rozděleny do čtyř kategorií: 
 
 * **Vysoká dostupnost**: K zajištění a zlepšování kontinuity důležitými obchodními aplikacemi. Další informace najdete v tématu [vysokou dostupnost Advisor doporučení](advisor-high-availability-recommendations.md).
-
 * **Zabezpečení**: ke zjištění hrozby a ohrožení zabezpečení, které mohou vést k narušení zabezpečení. Další informace najdete v tématu [doporučení zabezpečení Advisor](advisor-security-recommendations.md).
-
 * **Výkon**: aby se zvýšila rychlost aplikací. Další informace najdete v tématu [Poradce pro výkon doporučení](advisor-performance-recommendations.md).
+* **Náklady na**: optimalizace a snížit celkové Azure výdajů. Další informace najdete v tématu [doporučení služby Advisor náklady](advisor-cost-recommendations.md).
 
-* **Náklady na**: optimalizace a snížit vaše celkové Azure tráví. Další informace najdete v tématu [doporučení služby Advisor náklady](advisor-cost-recommendations.md).
-
-  ![Typy doporučení služby Advisor](./media/advisor-overview/advisor-all-tab-examples.png)
+  ![Typy doporučení služby Advisor](./media/advisor-overview/advisor-dashboard.png)
 
 > [!NOTE]
-> Chcete-li získat přístup k doporučení služby Advisor, je nutné nejprve *zaregistrovat předplatné* službou Advisor. Předplatné je zaregistrován při *předplatné vlastníka* spustí Advisor řídicího panelu a klikne na tlačítko **získat doporučení** tlačítko. Toto je *jednorázovou operaci*. Po registraci předplatného dostanete doporučení služby Advisor jako *vlastníka*, *Přispěvatel*, nebo *čtečky* pro předplatné, skupinu prostředků nebo konkrétní prostředek.
+> Pomocí nástroje Poradce pro Azure s předplatným, předplatné *vlastníka* musí spustit Poradce pro řídicí panel.  Tato akce registruje Poradce pro předplatné.  Od tohoto okamžiku na libovolné předplatné, *vlastníka*, *Přispěvatel*, nebo *čtečky* přístup doporučením Poradce pro předplatné. 
 
-Můžete kliknout na doporučení Další informace o něm. Můžete si také přečíst o akcích, které můžete využít výhod příležitost nebo vyřešte problém. 
+Můžete kliknutím na kategorii zobrazíte seznam doporučení v rámci této kategorie a vyberte doporučení Další informace o něm.  Můžete si také přečíst o akcích, které můžete využít výhod příležitost nebo vyřešte problém.
 
-Advisor nabízí doporučení s vložené akce nebo odkazy na dokumentaci. Kliknutím na vložené akce vás provede "cesty s průvodcem uživatele" k implementaci. Kliknutím na odkaz dokumentace bodů dokumentaci, která popisuje, jak ručně implementovat akce. 
+![Kategorie doporučení služby Advisor](./media/advisor-overview/advisor-ha-category-example.png) 
 
-Advisor aktualizuje doporučení každou hodinu. Pokud nemáte v úmyslu provést okamžitou akci na doporučení, můžete zopakovat později pro zadané časové období nebo ho zavřít. 
+Vyberte doporučenou akci pro doporučení k implementaci doporučení.  Otevře se jednoduché rozhraní, které vám umožní provést doporučení nebo odkáže na dokumentaci, který vám pomůže s implementací.  Jakmile implementujete doporučení, může trvat až den pro Advisor, rozpoznat.
+
+Pokud nemáte v úmyslu provádět okamžitou akci na doporučení, můžete zopakovat později pro zadané časové období nebo ho zavřít.  Pokud nechcete dostávat doporučení pro konkrétní předplatné nebo skupinu prostředků, můžete nakonfigurovat Advisor pouze generovat doporučení pro zadané předplatné a skupiny prostředků.
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
 ### <a name="how-do-i-access-advisor"></a>Přístupu Advisor
-Dostanete Advisor prostřednictvím [portál Azure](https://aka.ms/azureadvisordashboard). Přihlaste se k [portál](https://portal.azure.com), vyberte **Procházet**a potom přejděte k **Azure Advisor**. Řídicí panel Advisor zobrazuje přizpůsobené doporučení pro vybrané předplatné. 
+Dostanete Advisor prostřednictvím [portál Azure](https://aka.ms/azureadvisordashboard). Přihlaste se k [portál](https://portal.azure.com), vyhledejte **Advisor** v navigační nabídce nebo vyhledejte ho v **další služby** nabídky.
 
-Doporučení služby Advisor můžete zobrazit také prostřednictvím okně prostředku virtuálního počítače. Vyberte virtuální počítač a poté přejděte k doporučení služby Advisor v nabídce. 
+Doporučení služby Advisor můžete zobrazit také prostřednictvím rozhraní prostředků virtuálního počítače. Vyberte virtuální počítač a poté přejděte k doporučení služby Advisor v nabídce. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Uvedete, jaká oprávnění jsou nutné pro přístup k Advisor?
 
-Chcete-li získat přístup k doporučení služby Advisor, je nutné nejprve *zaregistrovat předplatné* službou Advisor. Předplatné je zaregistrován při *předplatné vlastníka* spustí Advisor řídicího panelu a klikne na tlačítko **získat doporučení** tlačítko. Toto je *jednorázovou operaci*. Po registraci předplatného dostanete doporučení služby Advisor jako *vlastníka*, *Přispěvatel*, nebo *čtečky* pro předplatné, skupinu prostředků nebo konkrétní prostředek.
-
-### <a name="how-often-are-advisor-recommendations-updated"></a>Jak často jsou doporučení služby Advisor aktualizovat?
-
-Doporučení služby Advisor se aktualizují každou hodinu.
+Pokud chcete získat doporučení Poradce pro předplatné, nejprve je nutné zaregistrovat předplatné službou Advisor. Předplatné je zaregistrován při předplatné *vlastníka* spustí Advisor řídicího panelu. Jedná se o jednorázovou operaci. Po registraci předplatného dostanete doporučení služby Advisor jako *vlastníka*, *Přispěvatel*, nebo *čtečky* předplatného.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Jaké prostředky poskytuje Advisor doporučení pro?
 
@@ -76,7 +71,7 @@ Advisor poskytuje doporučení pro virtuální počítače, skupiny dostupnosti,
 
 ### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Můžete připomenout znovu nebo zrušit doporučení?
 
-Připomenout znovu nebo zrušit doporučení, klikněte **připomenout znovu** tlačítko nebo odkaz. Můžete zadat dobu připomenutí období nebo vybrat možnost **nikdy** zrušíte doporučení.
+Připomenout znovu nebo zrušit doporučení, klikněte **připomenout znovu** odkaz. Můžete zadat dobu připomenutí období nebo vybrat možnost **nikdy** zrušíte doporučení.
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 75c6cf17ee269ae169d9f2f748d0985ca07e454e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af672a873b33cbd0b6151fd564e84c96f0b6e1e3
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Vytvoření virtuálního počítače s Windows pomocí prostředí PowerShell a modelu nasazení classic
 > [!div class="op_single_selector"]
@@ -32,6 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 > [!IMPORTANT] 
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Zjistěte, jak [provést tento postup pomocí modelu Resource Manageru](../../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Tyto kroky ukazují, jak přizpůsobit sadu příkazů prostředí Azure PowerShell, které vytvářejí a předem nakonfigurujte virtuální počítač systému Windows Azure pomocí stavebním blokem přístup. Tento proces slouží k rychlému vytváření sadu příkazů pro nový virtuální počítač systému Windows a rozbalte stávajícího nasazení nebo vytvořit více sady příkazů, které rychle vytvářet vlastní vývoj/testování nebo pro prostředí IT.
 

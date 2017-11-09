@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>O službě Azure Site Recovery
 
@@ -67,7 +67,6 @@ Site Recovery může spravovat replikaci pro:
 **Které oblasti jsou podporovány pro Site Recovery?** | [Podporované oblasti](https://azure.microsoft.com/regions/services/) |
 **Které operační systémy replikované počítače potřebují?** | [Požadavky na virtuální počítač Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Požadavky na virtuální počítač VMware](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Pro virtuální počítače Hyper-V se podporuje každý [hostovaný operační systém](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows), který podporuje Azure a Hyper-V.<br/><br/> [Požadavky na fyzický server](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **Jaké servery nebo hostitele VMware potřebuji?** | Virtuální počítače VMware můžou být umístěné na [podporovaných hostitelích vSphere nebo serverech vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-
 **Jaké úlohy můžu replikovat?** | Můžete replikovat jakoukoli úlohu běžící v podporovaném počítači replikace. Kromě toho tým Site Recovery [pro řadu aplikací](site-recovery-workload.md#workload-summary) provedl testování specifické pro aplikace.
 
 

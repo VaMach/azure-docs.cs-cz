@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Použití Azure Powershell s Azure Storage
 
@@ -165,7 +165,7 @@ Chcete-li obnovit jiné klíč, použijte `key2` jako název klíče místo `key
 Obnovit jednu z klíče a potom ho znovu zobrazíte novou hodnotu načíst.
 
 > [!NOTE] 
-> Měli byste provést pečlivé plánování před znovu vygenerovat klíč pro účet úložiště produkční. Opakované generování klíčů k jedné nebo obou zruší platnost přístupu pro každou aplikaci pomocí klíče, který se znovu vygeneroval. Další informace najdete v tématu [přístupových klíčů k úložišti Regenate](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Měli byste provést pečlivé plánování před znovu vygenerovat klíč pro účet úložiště produkční. Opakované generování klíčů k jedné nebo obou zruší platnost přístupu pro každou aplikaci pomocí klíče, který se znovu vygeneroval. Další informace najdete v tématu [opětovné vygenerování přístupových klíčů úložiště](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Odstranění účtu úložiště 
@@ -216,6 +216,12 @@ Teď, když chápete, jak spravovat váš účet úložiště pomocí prostřed�
 * [Jak spravovat objekty BLOB pomocí prostředí PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Správa souborů pomocí prostředí PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Jak spravovat fronty pomocí prostředí PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Provedení operace úložiště Azure Table pomocí prostředí PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+Rozhraní API tabulky DB Cosmos Azure poskytuje prémiových funkcí pro úložiště table, jako jsou to globální distribuční, nízká latence čtení a zápisy, automatické sekundární indexování a vyhrazenou propustností. 
+
+* Další informace najdete v tématu [rozhraní API služby Azure Cosmos DB tabulky](../../cosmos-db/table-introduction.md). 
+* Informace o tom, jak pomocí prostředí PowerShell k provádění operací rozhraní API služby Azure Cosmos DB tabulky, najdete v části [provést Azure Cosmos DB tabulky operace rozhraní API pomocí prostředí PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="azures-independently-deployed-clouds"></a>Cloudy nezávisle nasazení Azure
 

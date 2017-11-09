@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: d6dc0ffac1a3e688f93af903f51f798270b63711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Odstraňování běžných chyb nasazení Azure pomocí Azure Resource Manageru
 
-Toto téma popisuje některé běžné chyby nasazení Azure můžete setkat a obsahuje informace, které případné chyby opravte. Pokud nemůžete najít kód chyby pro vaše nasazení chyby, přečtěte si téma [najít kód chyby](#find-error-code).
+Tento článek popisuje některé běžné chyby nasazení Azure můžete setkat a obsahuje informace, které případné chyby opravte. Pokud nemůžete najít kód chyby pro vaše nasazení chyby, přečtěte si téma [najít kód chyby](#find-error-code).
 
 ## <a name="error-codes"></a>Kódy chyb
 
@@ -61,6 +61,7 @@ Toto téma popisuje některé běžné chyby nasazení Azure můžete setkat a o
 | PrivateIPAddressNotInSubnet | Zadaná IP adresa je mimo rozsah podsítě. Změnit IP adresu, která spadá do rozsahu podsítě. | [IP adresy](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Některé vlastnosti nelze změnit na nasazené prostředku. Při aktualizaci prostředku, omezte vaše změny povolených vlastností. | [Aktualizace prostředku](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Vaše předplatné zahrnuje zásady prostředků, které brání akce, které se pokoušíte provést během nasazení. Najít zásady, které blokuje akce. Pokud je to možné změňte nasazení tak, aby splňovaly omezení ze zásad. | [Vyřešte zásady](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Zadejte název prostředku, který nezahrnuje o vyhrazený název. | [Názvy vyhrazené prostředků](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Počkejte na dokončení odstranění. | |
 | ResourceGroupNotFound | Zkontrolujte název cílové skupiny prostředků pro nasazení. Již musí existovat v rámci vašeho předplatného. Zkontrolujte kontext vašeho předplatného. | [Rozhraní příkazového řádku Azure](/cli/azure/account?#az_account_set) [prostředí PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Nasazení odkazuje na prostředek, který nelze vyřešit. Ověřte, že používání **odkaz** parametrů požadovaných pro váš scénář zahrnuje funkce. | [Překlad odkazů](resource-manager-not-found-errors.md) |

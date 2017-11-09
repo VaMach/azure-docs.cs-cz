@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory podmíněného přístupu technické reference
 
@@ -82,11 +82,7 @@ Kromě cloudových aplikacích Microsoft můžete přiřadit zásady podmíněn�
 
 ## <a name="device-platform-condition"></a>Podmínka platformy zařízení
 
-V zásadách podmíněného přístupu můžete nakonfigurovat podmínky platformy zařízení ke svázání zásady tak, aby operační systém na klientovi.
-
-![Tie – zásady přístupu do klientského operačního systému](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Podmíněný přístup pro Azure AD podporuje tyto platformy zařízení:
+V zásadách podmíněného přístupu můžete nakonfigurovat podmínky platformy zařízení ke svázání zásady tak, aby operační systém na klientovi. Podmíněný přístup pro Azure AD podporuje tyto platformy zařízení:
 
 - Android
 
@@ -96,7 +92,12 @@ Podmíněný přístup pro Azure AD podporuje tyto platformy zařízení:
 
 - Windows
 
-- systému macOS (preview)
+- macOS
+
+
+![Tie – zásady přístupu do klientského operačního systému](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,11 +132,11 @@ Zásady podmíněného přístupu podporuje následující prohlížeče:
 | Windows Server 2016    | Chrome                      | Již brzy |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Zaškrtnout][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Zaškrtnout][1] |
-| macOS                  | Safari                      | ![Zaškrtnout][1] |
-| macOS                  | Chrome                      | Již brzy |
+| macOS                  | Chrome, Safari              | ![Zaškrtnout][1] |
+
 
 > [!NOTE]
-> Pro podporu Chrome muse použití Windows 10 Creators Update (verze 1703) nebo novější.<br>
+> Pro podporu Chrome, musíte použít Windows 10 Creators Update (verze 1703) nebo novější.<br>
 > Můžete nainstalovat [toto rozšíření](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Podporovaná mobilní aplikace a klienti vzdálené plochy
@@ -153,7 +154,7 @@ Následující mobilní aplikace a klienti vzdálené plochy podporují podmín�
 | Aplikaci Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS a Android|
 | E-mailu, kalendáři nebo osoby aplikace Outlook 2016, aplikace Outlook 2013 (s moderní ověřování)| Office 365 Exchange Online| Windows 10|
 | MFA a umístění zásady pro aplikace. Zásady zařízení na základě nejsou podporovány.| Všechny služby app service pro Moje aplikace| Android a iOS|
-| Microsoft týmy služby – tato volba určuje všechny služby, které podporují Teams společnosti Microsoft a všechny jeho klientských aplikací – Windows Desktop, iOS, Android, webové části a webového klienta| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS a Android|
+| Microsoft týmy služby – tato volba určuje všechny služby, které podporují Teams společnosti Microsoft a všechny jeho klientských aplikací – Windows Desktop, iOS, Android, webové části a webového klienta| Microsoft Teams| Windows 7, Windows 10, Windows 8.1, iOS, Android a systému macOS|
 | Aplikace Office 2016, Office 2013 (s moderní ověřování), Onedrivu synchronizovat klienta (viz [poznámky](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 Sharepointu Online| Windows 8.1, Windows 7|
 | Aplikace Office 2016, Office univerzální aplikace, Office 2013 (s moderní ověřování), OneDrive synchronizace klienta (v tématu [poznámky k](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), podporu skupiny Office je plánované v budoucnosti, podpora aplikací služby SharePoint je plánované v budoucnosti| Office 365 Sharepointu Online| Windows 10|
 | Office 2016 pro systému macOS (Word, Excel, PowerPoint, OneNote pouze). OneDrive pro firmy podporu plánované v budoucnosti| Office 365 Sharepointu Online| Mac OS X|
@@ -165,6 +166,7 @@ Následující mobilní aplikace a klienti vzdálené plochy podporují podmín�
 | Aplikaci PowerBI. Power BI aplikace pro Android v současné době nepodporuje podmíněného přístupu podle zařízení.| Služba PowerBI| Windows 10, Windows 8.1, Windows 7 a iOS|
 | Skype pro firmy| Office 365 Exchange Online| Android, IOS|
 | Visual Studio Team Services aplikace| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS a Android|
+
 
 
 

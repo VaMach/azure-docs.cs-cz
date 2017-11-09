@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Podmíněný přístup v Azure Active Directory
 
@@ -131,18 +131,13 @@ Riziko přihlášení je objekt, který se používá služba Azure Active Direc
 
 ### <a name="device-platforms"></a>Platformy zařízení
 
-Operační systém, který běží na vašem zařízení je charakterizovaná platformu zařízení:
+Platforma je charakterizovaná operačního systému, který běží na vašem zařízení: můžete definovat platformy zařízení, které jsou zahrnuty a také platformy zařízení, které jsou vyloučené ze zásad.  
+Pokud chcete použít v zásadách platformy zařízení, nejprve změňte konfigurace přepínačů **Ano**a vyberte všechny nebo platformy jednotlivých zařízení se zásady vztahují. Pokud vyberete platformy jednotlivých zařízení, zásady má vliv pouze na těchto platformách. V tomto případě nejsou zásady dopad na přihlášení na jiných podporovaných platforem.
 
-- Android
-- iOS
-- telefon se systémem Windows
-- Windows
-- systému macOS (preview). 
 
 ![Podmínky](./media/active-directory-conditional-access-azure-portal/02.png)
 
-Můžete definovat platformy zařízení, které jsou zahrnuty i platformy zařízení, které jsou vyloučené ze zásad.  
-Pokud chcete použít v zásadách platformy zařízení, nejprve změňte konfigurace přepínačů **Ano**a vyberte všechny nebo platformy jednotlivých zařízení se zásady vztahují. Pokud vyberete platformy jednotlivých zařízení, zásady má vliv pouze na těchto platformách. V tomto případě nejsou zásady dopad na přihlášení na jiných podporovaných platforem.
+Úplný seznam platforem podporovaných zařízení najdete v tématu [podmínku platformy zařízení](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Umístění

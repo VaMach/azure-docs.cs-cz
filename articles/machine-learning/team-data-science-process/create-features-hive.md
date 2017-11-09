@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 0c8c2ab8c7daceb13fd39d2a109148a40430d59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Vytvoření funkcí pro data v clusteru Hadoop pomocí dotazů Hivu
 Tento dokument ukazuje, jak vytvořit funkcí pro data uložená v clusteru Azure HDInsight Hadoop pomocí dotazů Hive. Tyto dotazy Hive pomocí vložených Hive uživatelsky definovaných funkcí (UDF), skripty, pro které jsou k dispozici.
@@ -37,18 +37,18 @@ Tento článek předpokládá, že máte:
 * Vytvořit účet úložiště Azure. Pokud budete potřebovat pokyny, najdete v části [vytvoření účtu úložiště Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Zřizuje přizpůsobené clusteru Hadoop se službou HDInsight.  Pokud budete potřebovat pokyny, najdete v části [přizpůsobit Azure HDInsight Hadoop clusterů pro pokročilé analýzy](customize-hadoop-cluster.md).
 * Data byla uložena do tabulek Hive v Azure HDInsight Hadoop clusterů. Pokud ne, postupujte podle [vytvoření a načtení dat do tabulek Hive](move-hive-tables.md) nejprve nahrát data do tabulek Hive.
-* Povolit pro vzdálený přístup ke clusteru. Pokud budete potřebovat pokyny, najdete v části [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md#headnode).
+* Povolit pro vzdálený přístup ke clusteru. Pokud budete potřebovat pokyny, najdete v části [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Funkce generování
 V této části jsou popsány několik příkladů, způsoby, ve kterém může být funkce generování pomocí dotazů Hive. Po vygenerování můžete další funkce, můžete je přidat jako sloupce do existující tabulky nebo vytvořit novou tabulku s další funkce a primární klíč, který lze potom spojit s původní tabulky. Zde jsou uvedené příklady:
 
-1. [Frekvence na základě funkce generování](#hive-frequencyfeature)
+1. [Funkci na základě frekvence generování](#hive-frequencyfeature)
 2. [Rizika kategorií proměnných v binární klasifikace](#hive-riskfeature)
 3. [Extrahování funkce z pole data a času](#hive-datefeatures)
 4. [Extrahování funkce z textové pole.](#hive-textfeatures)
 5. [Vypočítat vzdálenost mezi GPS souřadnice](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Frekvence na základě funkce generování
+### <a name="hive-frequencyfeature"></a>Funkci na základě frekvence generování
 Často je užitečné pro výpočet frekvence úrovní záznamu do kategorií proměnné nebo frekvencí určitých kombinací úrovně z několika kategorií proměnných. Uživatele můžete použít následující skript k výpočtu těchto frekvencí:
 
         select
@@ -63,7 +63,7 @@ V této části jsou popsány několik příkladů, způsoby, ve kterém může 
 
 
 ### <a name="hive-riskfeature"></a>Rizika kategorií proměnných v binární klasifikace
-V binární klasifikaci je potřeba převést jiné než číselné kategorií proměnné číselnou funkce při modely používá pouze číselné funkce. To se provádí nahrazením každou úroveň jiné než číselné číselné riziko. V této části ukážeme některé obecné dotazy Hive, které výpočet hodnot riziko (pravděpodobnost protokolu) kategorií proměnné.
+V binární klasifikaci je potřeba převést jiné než číselné kategorií proměnné číselnou funkce při modely používá pouze číselné funkce. To se provádí nahrazením každou úroveň jiné než číselné číselné riziko. Tato část uvádí některé obecné dotazy Hive, které výpočet hodnot riziko (pravděpodobnost protokolu) kategorií proměnné.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -83,12 +83,12 @@ V binární klasifikaci je potřeba převést jiné než číselné kategorií p
             group by <column_name1>, <column_name2>
             )b
 
-V tomto příkladu proměnné `smooth_param1` a `smooth_param2` jsou nastaveny na funkce smooth hodnoty rizika vypočítanou ze data. Rizika mít rozsahu -Inf a Inf. Rizika > 0 označuje, že je větší než 0,5 pravděpodobnost, že cíl je rovno 1.
+V tomto příkladu proměnné `smooth_param1` a `smooth_param2` jsou nastaveny na funkce smooth hodnoty rizika vypočítanou ze data. Rizika mít rozsahu -Inf a Inf. Riziko > 0 označuje, že je větší než 0,5 pravděpodobnost, že cíl je rovno 1.
 
 Po riziko se počítá tabulky uživatele lze přiřadit hodnoty rizika do tabulky pomocí připojení s tabulkou riziko. Dotaz Hive spojující zadaná v předchozí části.
 
 ### <a name="hive-datefeatures"></a>Extrahování funkce z pole data a času
-Hive obsahuje sadu UDF pro zpracování pole data a času. V Hive, je výchozí formát data a času, rrrr MM-dd 00:00:00 ' (' pod hodnotou 1970-01-01 12:21:32, třeba). V této části ukážeme příklady, které extrahování dne v měsíci, měsíc z pole data a času a další příklady, které převést řetězec ve formátu data a času, jiné než výchozí formát řetězce data a času ve výchozím formátu.
+Hive obsahuje sadu UDF pro zpracování pole data a času. V Hive, je výchozí formát data a času, rrrr MM-dd 00:00:00 ' (' pod hodnotou 1970-01-01 12:21:32, třeba). Tato část uvádí příklady, které extrahování dne v měsíci, měsíc z pole data a času a další příklady, které převést řetězec ve formátu data a času, jiné než výchozí formát řetězce data a času ve výchozím formátu.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
@@ -150,13 +150,13 @@ Výchozí nastavení parametrů clusteru Hive nemusí být vhodný pro dotazy Hi
 
     Tento parametr přiděluje 4GB paměti do prostoru haldy Java a také umožňuje řazení zefektivnit přidělením více paměti pro ni. Je vhodné můžete experimentovat s tyto přidělení, pokud jsou všechny úlohy chyby související s haldy místa.
 
-1. **Velikost bloku systému souborů DFS** : Tento parametr nastaví nejmenší jednotka data, která ukládá systému souborů. Jako příklad Pokud velikost bloku systému souborů DFS je 128MB, pak žádná data o velikosti menší a než je 128MB uložen v jeden blok, při data, která je větší než 128MB je vymezena navíc bloky. Volba velikosti velmi malé bloku způsobí, že velké režie v Hadoop vzhledem k tomu, že název uzlu má zpracovat mnoho více žádostí o najít relevantní bloku, která se týkají do souboru. Doporučená nastavení, když zabývají gigabajtů (nebo vyšší) data:
+1. **Velikost bloku systému souborů DFS**: Tento parametr nastaví nejmenší jednotka data, která ukládá systému souborů. Jako příklad Pokud velikost bloku systému souborů DFS je 128MB, pak žádná data o velikosti menší a než je 128MB uložen v jeden blok, při data, která je větší než 128MB je vymezena navíc bloky. Volba velikosti velmi malé bloku způsobí, že velké režie v Hadoop vzhledem k tomu, že název uzlu má zpracovat mnoho více žádostí o najít relevantní bloku, která se týkají do souboru. Doporučená nastavení, když zabývají gigabajtů (nebo vyšší) data:
    
         set dfs.block.size=128m;
-2. **Optimalizace operace spojení v podregistru** : během operace spojení v rámci mapy nebo snižte obvykle provést ve fázi snižte se v některých případech lze dosáhnout značné zvýšení plánování spojení ve fázi mapy (také nazývané "mapjoins"). Pro přesměrování Hive k tomu, kdykoli je to možné, můžete nastavit jsme:
+2. **Optimalizace operace spojení v podregistru**: během operace spojení v rámci mapy nebo snižte obvykle provést ve fázi snižte se v některých případech lze dosáhnout značné zvýšení plánování spojení ve fázi mapy (také nazývané "mapjoins"). Chcete-li přímé Hive k tomu, kdykoli je to možné, nastavte hodnotu:
    
         set hive.auto.convert.join=true;
-3. **Určující počet mappers k Hive** : při Hadoop umožňuje uživatelům nastavit počet přechodky, počet mappers obvykle nesmí být nastavený uživatelem. Základem, který umožňuje určitý stupeň řízení na toto číslo je volba proměnné Hadoop, *mapred.min.split.size* a *mapred.max.split.size* jako velikost každé mapy je dáno úloh:
+3. **Určující počet mappers k Hive**: při Hadoop umožňuje uživatelům nastavit počet přechodky, počet mappers obvykle nesmí být nastavený uživatelem. Základem, který umožňuje určitý stupeň řízení na toto číslo je volba proměnné Hadoop, *mapred.min.split.size* a *mapred.max.split.size* jako velikost každé mapy je dáno úloh:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

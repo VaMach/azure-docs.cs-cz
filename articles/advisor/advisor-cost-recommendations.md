@@ -14,45 +14,34 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 51320d93689da3e37c0946d8877b27a11793d9c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="advisor-cost-recommendations"></a>Náklady na doporučení služby Advisor
 
 Pomáhá Advisor optimalizovat a snížit vaše celkové Azure tráví určením nečinnosti a nedostatečně prostředky. Můžete získat náklady doporučení z **náklady** na řídicím panelu služby Advisor.
 
-![Karta náklady na Advisor](./media/advisor-cost-recommendations/advisor-cost-tab2.png)
-
-## <a name="optimize-virtual-machine-spend-by-resizing-underutilized-instances"></a>Optimalizovat virtuální počítač tráví změnou velikosti nedostatečně instancí 
+## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimalizace tráví virtuálního počítače nebo změnou velikosti vypíná nedostatečně instancí 
 I když některé scénáře aplikací může být nízkou míru využívání návrhu, můžete často ušetřit peníze pomocí správy velikost a počet virtuálních počítačů. Advisor monitoruje vaše využití virtuálního počítače po dobu 14 dnů a pak identifikuje nízké využití virtuálních počítačů. Virtuální počítače, jejichž využití procesoru je 5 % nebo méně a využití sítě je 7 MB nebo méně čtyři nebo více dní jsou považovány za nízké využití virtuálních počítačů.
 
-Advisor zobrazí odhadované náklady pokračovat ke spuštění virtuálního počítače, takže je možné ho vypnout, nebo jeho velikost.  
+Advisor zobrazí odhadované náklady pokračovat ke spuštění virtuálního počítače, takže je možné ho vypnout, nebo jeho velikost.
 
-![Advisor náklady doporučení pro změnu velikosti virtuálních počítačů](./media/advisor-cost-recommendations/advisor-cost-resizevms.png)
+Pokud chcete být agresivnější zjistit nedostatečně virtuální počítače, můžete upravit průměrná pravidlo využití procesoru na základě za předplatné.
 
 ## <a name="use-a-cost-effective-solution-to-manage-performance-goals-of-multiple-sql-databases"></a>Použít nákladově efektivní řešení ke správě výkonnostní cíle více databází SQL
 Advisor identifikuje instance serveru SQL, které můžete využít možnost vytvoření fondů elastické databáze. Fondy elastické databáze poskytují jednoduché a nákladově efektivní řešení pro správu výkonu cílů více databází, které mají různou vzorce používání. Další informace o Azure elastické fondy najdete v tématu [co je Azure Elastickém fondu?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/).
 
-![Advisor náklady doporučení pro fondy elastické databáze](./media/advisor-cost-recommendations/advisor-cost-elasticdbpools.png)
+## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Snížení nákladů odstraněním není zřízený okruhy ExpressRoute
+Advisor identifikuje okruhy ExpressRoute, které byly ve stavu zprostředkovatele *není zajišťováno* pro více než jeden měsíc a doporučuje odstraňování okruh, pokud nemáte v plánu poskytnutí okruhu připojení k Zprostředkovatel.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Jak získat přístup k náklady na doporučení v Azure Advisor
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+1. Přihlaste se k [portál Azure](https://portal.azure.com)a pak otevřete [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. V levém podokně klikněte na **další služby**.
-
-3. V podokně nabídky služby v rámci **monitorování a správu**, klikněte na tlačítko **Azure Advisor**.  
- Se zobrazí řídicí panel služby Advisor.
-
-4. Na řídicím panelu služby Advisor, klikněte na **náklady** kartě.
-
-5. Vyberte předplatné, pro který chcete dostávat doporučení a potom klikněte na **získat doporučení**.
-
-> [!NOTE]
-> Chcete-li získat přístup k doporučení služby Advisor, je nutné nejprve *zaregistrovat předplatné* službou Advisor. Předplatné je zaregistrován při *předplatné vlastníka* spustí Advisor řídicího panelu a klikne na tlačítko **získat doporučení** tlačítko. Toto je *jednorázovou operaci*. Po registraci předplatného dostanete doporučení služby Advisor jako *vlastníka*, *Přispěvatel*, nebo *čtečky* pro předplatné, skupinu prostředků nebo konkrétní prostředek.
+2.  Na řídicím panelu služby Advisor, klikněte na **náklady** kartě.
 
 ## <a name="next-steps"></a>Další kroky
 

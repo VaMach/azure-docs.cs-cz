@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Pomocí mapy služeb řešení v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Pomocí mapy služeb, můžete zobrazit vaše servery ve způsobu, jakým se domníváte, že z nich: jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy, a vyžaduje porty mezi žádné připojení TCP architektura žádnou konfiguraci, jiné než instalaci agenta.
@@ -224,11 +224,26 @@ Na následujícím obrázku je podrobný přehled o ConfigurationChange událost
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Integrace nástroje Operations Management Suite výkonu
-**Výkon počítače** podokně se zobrazí metriky standardní výkonu pro vybraný server. Metriky zahrnují využití procesoru, využití paměti, sítě Bajty odeslané a přijaté a seznam důležitých procesů pomocí sítě přijatých a odeslaných bajtů. Chcete-li získat data o výkonu sítě, musí taky povolíte řešení přenosu dat 2.0 v Operations Management Suite.
+**Výkon počítače** podokně se zobrazí metriky standardní výkonu pro vybraný server. Metriky zahrnují využití procesoru, využití paměti, sítě Bajty odeslané a přijaté a seznam důležitých procesů pomocí sítě přijatých a odeslaných bajtů.
 
 ![Počítač podokně výkonu](media/oms-service-map/machine-performance.png)
 
+Pokud chcete zobrazit data výkonu, budete muset [povolit příslušné čítače výkonu analýzy protokolů](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Čítače, které budete chtít povolit:
 
+Windows:
+- Procesor(*)\% času procesoru
+- Paměť\% využití potvrzených bajtů
+- Síťový adaptér (*) \Bytes odeslaných za sekundu
+- Síťový adaptér (*) \Bytes přijatých za sekundu
+
+Linux:
+- Procesor(*)\% času procesoru
+- Memory(*)\% použité paměti
+- Síťový adaptér (*) \Bytes odeslaných za sekundu
+- Síťový adaptér (*) \Bytes přijatých za sekundu
+
+Chcete-li získat data o výkonu sítě, musí taky povolíte řešení přenosu dat 2.0 v Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Integrace nástroje Operations Management Suite zabezpečení
 Integrace mapy služeb se zabezpečení a Audit je automatické, pokud obě řešení jsou povolené a nakonfigurované v pracovním prostoru služby Operations Management Suite.
 

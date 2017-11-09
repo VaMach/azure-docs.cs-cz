@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 0c4efa0b0a25a61bec37a5176195b4cd237cb90e
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Synchronizace mezi databáze SQL Azure a místní databáze SQL serveru pomocí prostředí PowerShell
 
@@ -29,7 +29,9 @@ Tento příklad PowerShell konfiguruje synchronizaci dat pro synchronizaci mezi 
 
 Tato ukázka vyžaduje prostředí Azure PowerShell verze modulu 4.2 nebo novější. Spustit `Get-Module -ListAvailable AzureRM` najít nainstalovanou verzi. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
  
-Spustit `Login-AzureRmAccount` vytvořit připojení s Azure. 
+Spustit `Login-AzureRmAccount` vytvořit připojení s Azure.
+
+Přehled synchronizaci dat SQL najdete v tématu [synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure (Preview)](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Ukázkový skript
 
@@ -387,3 +389,20 @@ Tento skript používá následující příkazy. Každý příkaz v tabulce odk
 Další informace o prostředí Azure PowerShell najdete v tématu [dokumentace Azure PowerShell](/powershell/azure/overview).
 
 Další ukázky skriptu PowerShell databáze SQL naleznete v [skriptů prostředí PowerShell databáze SQL Azure](../sql-database-powershell-samples.md).
+
+Další informace o synchronizaci dat SQL najdete v tématu:
+
+-   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](../sql-database-sync-data.md)
+-   [Začínáme s Azure SQL synchronizací dat](../sql-database-get-started-sql-data-sync.md)
+-   [Osvědčené postupy pro synchronizaci dat SQL Azure](../sql-database-best-practices-data-sync.md)
+-   [Řešení problémů s synchronizaci dat SQL Azure](../sql-database-troubleshoot-data-sync.md)
+
+-   Dokončete příklady prostředí PowerShell, které ukazují, jak nakonfigurovat synchronizaci dat SQL:
+    -   [Pomocí prostředí PowerShell k synchronizaci mezi více databází Azure SQL](sql-database-sync-data-between-sql-databases.md)
+
+-   [Stáhněte si dokumentaci rozhraní API REST synchronizaci dat SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Další informace o databázi SQL najdete v tématu:
+
+-   [Databáze SQL – přehled](../sql-database-technical-overview.md)
+-   [Správa životního cyklu databáze](https://msdn.microsoft.com/library/jj907294.aspx)

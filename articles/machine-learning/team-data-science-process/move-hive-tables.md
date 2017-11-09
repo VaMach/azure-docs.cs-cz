@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 1eee39135dca98db205677072d79421eadcdd85e
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Vytváření tabulek Hive a načtení dat z Azure Blob Storage
 Toto téma představuje obecné dotazů Hive, které vytváření tabulek Hive a načtení dat z Azure blob storage. Některé pokyny jsou tu taky o dělení tabulek Hive a o používání optimalizované řádek sloupcovém (ORC) formátování pro zlepšení výkonu dotazů.
@@ -32,7 +32,7 @@ Tento článek předpokládá, že máte:
 
 * Vytvořit účet úložiště Azure. Pokud budete potřebovat pokyny, najdete v části [účty Azure storage](../../storage/common/storage-create-storage-account.md).
 * Zřizuje přizpůsobené clusteru Hadoop se službou HDInsight.  Pokud budete potřebovat pokyny, najdete v části [přizpůsobit Azure HDInsight Hadoop clusterů pro pokročilou analýzu](customize-hadoop-cluster.md).
-* Povoleno pro vzdálený přístup ke clusteru, přihlášení a otevřít konzolu příkazového řádku Hadoop. Pokud budete potřebovat pokyny, najdete v části [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md#headnode).
+* Povoleno pro vzdálený přístup ke clusteru, přihlášení a otevřít konzolu příkazového řádku Hadoop. Pokud budete potřebovat pokyny, najdete v části [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Nahrání dat do Azure blob storage
 Pokud jste vytvořili virtuální počítač Azure podle pokynů uvedených v [nastavení virtuálního počítače Azure pro pokročilou analýzu](../data-science-virtual-machine/setup-virtual-machine.md), tento soubor skriptu by byly staženy *C:\\uživatelů \\ \<uživatelské jméno\>\\dokumenty\\datové vědy skripty* adresář na virtuálním počítači. Tyto dotazy Hive vyžadují jenom zařaďte vlastní schéma dat a konfigurace úložiště objektů blob Azure do příslušných polí bude připravená k odeslání.

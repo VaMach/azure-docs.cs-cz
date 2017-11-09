@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e11d431c03be0d2aff05b2ceda8d3df41441a7ec
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3edaefa942b834a070c55fe28daf60c74ea9f59d
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Prozkoumat a sdílet data o využití s interaktivní sešity ve službě Application Insights
 
@@ -117,7 +117,7 @@ Chcete-li připnout odkaz k sešitu na řídicí panel služby Azure:
 ## <a name="next-steps"></a>Další kroky
 
 ## <a name="next-steps"></a>Další kroky
-- Pokud chcete povolit použití možnosti, zahájit odesílání [vlastních událostí](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) nebo [stránky zobrazení](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Pokud chcete povolit použití možnosti, zahájit odesílání [vlastních událostí](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) nebo [stránky zobrazení](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Pokud jste již odeslat vlastní události nebo zobrazení stránky, prozkoumejte využití nástroje se dozvíte, jak uživatelé používat služby.
     - [Uživatelé, relace, události](app-insights-usage-segmentation.md)
     - [Trychtýře](usage-funnels.md)

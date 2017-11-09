@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Zálohování Windows Serveru do Azure
 
@@ -116,23 +116,19 @@ Agent služeb zotavení Microsoft Azure slouží k plánování, když dojde k z
 
 3. Klikněte na tlačítko **Další** přejděte na **vybrat položky k Back up** stránky.
 
-4. Klikněte na tlačítko **přidat položky** a z dialogových oken, které se otevře vyberte **stav systému** a soubory nebo složky, které chcete zálohovat. Pak klikněte na **OK**.
+4. Klikněte na tlačítko **přidat položky** a z dialogového okna, které se otevře, vyberte **stav systému** a soubory nebo složky, které chcete zálohovat. Pak klikněte na **OK**.
 
 5. Klikněte na **Další**.
 
-6. Na **zadat plán zálohování** zadejte časy dne nebo týdne při zálohování potřeba aktivovat pro soubory a složky. Plán zálohování stavu systému se automaticky nakonfiguruje. 
+6. Na **zadat plán zálohování (stav systému)** zadejte čas dne nebo týdne při zálohování muset spustit pro stav systému a klikněte na tlačítko **další** 
 
-    ![Příprava infrastruktury](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  Na **výběr zásady uchovávání informací** vyberte zásady uchovávání informací pro záložní kopii souborů a složek. Doba uchování záloh stavu systému bude automaticky nastavena na 60 dnů.
+7.  Na **výběr zásady uchovávání informací (stav systému)** vyberte zásady uchovávání informací pro záložní kopii pro stav systému a klikněte na tlačítko **další**
+8. Podobně vyberte zásadu zálohování, plán a uchování pro vybrané soubory a složky. 
 8.  Na **vyberte počáteční zpět do typu** ponechte možnost **automaticky přes síť** vybrané a potom klikněte na **Další**.
 9.  Na **potvrzení** stránka, zkontrolujte informace a pak klikněte na tlačítko **Dokončit**.
 10. Až průvodce dokončí vytváření plánu zálohování, klikněte na **Zavřít**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Proveďte zálohování ad-hoc
-
 
 Plán jste vytvořili při spuštění úlohy zálohování. Nebyly však zazálohovali server. Je osvědčeným postupem obnovení po havárii spustit zálohu na vyžádání zajistit odolnost dat pro váš server.
 
@@ -140,8 +136,9 @@ Plán jste vytvořili při spuštění úlohy zálohování. Nebyly však zazál
 
     ![Příprava infrastruktury](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  Na **potvrzení** stránka, zkontrolujte nastavení, **zálohovat nyní** průvodce pomocí zálohování serveru. Poté klikněte na **Zálohovat**.
-3.  Průvodce zavřete kliknutím na **Zavřít**. Pokud průvodce zavřete před dokončením záložní proces, Průvodce zůstane spuštěný na pozadí.
+2.  Na **zálohovat nyní** průvodce, vyberte jeden z **soubory a složky** nebo **stav systému** , které chcete zálohovat a klikněte na tlačítko **další** 
+3. Na **potvrzení** stránka, zkontrolujte nastavení, **zálohovat nyní** průvodce pomocí zálohování serveru. Poté klikněte na **Zálohovat**.
+4.  Průvodce zavřete kliknutím na **Zavřít**. Pokud průvodce zavřete před dokončením záložní proces, Průvodce zůstane spuštěný na pozadí.
 4.  Po dokončení prvotní zálohování **úloha byla dokončena** stav se zobrazí na **úlohy** podokně konzoly agenta MARS.
 
 

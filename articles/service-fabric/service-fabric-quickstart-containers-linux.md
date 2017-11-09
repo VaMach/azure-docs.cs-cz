@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Nasazení aplikace Azure Service Fabric typu kontejner pro Linux v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -45,9 +45,9 @@ K nasazení kontejnerů do Service Fabric potřebujete sadu souborů manifestu (
 Ve službě Cloud Shell naklonujte kopii definice aplikace pomocí příkazu git.
 
 ```azurecli-interactive
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
+cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Nasazení kontejnerů do clusteru Service Fabric v Azure
@@ -141,7 +141,7 @@ V tomto rychlém startu jste se naučili:
 
 * Další informace o spouštění [kontejnerů v Service Fabric](service-fabric-containers-overview.md).
 * Informace o [životním cyklu aplikace](service-fabric-application-lifecycle.md) Service Fabric.
-* Prohlédněte si [vzorové kódy kontejneru Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-containers) na GitHubu.
+* Prohlédněte si [vzorové kódy kontejneru Service Fabric](https://github.com/Azure-Samples/service-fabric-containers) na GitHubu.
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

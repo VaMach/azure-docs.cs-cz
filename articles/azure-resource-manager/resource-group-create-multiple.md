@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Nasazení více instancí prostředek nebo vlastnost v šablonách Azure Resource Manager
 Toto téma ukazuje, jak k iteraci v šablony Azure Resource Manager můžete vytvořit více instancí prostředku nebo více instancí vlastnosti prostředku.
 
 Pokud potřebujete přidat logiku do šablony, která umožňuje určit, jestli je prostředek nasazené, najdete v části [podmíněně nasazení prostředků](#conditionally-deploy-resource).
+
+Příklad vytvoření více elementů v proměnné pole, naleznete v části [proměnné](resource-group-authoring-templates.md#variables).
 
 ## <a name="resource-iteration"></a>Iterace prostředků
 Chcete-li vytvořit více instancí typu prostředku, přidejte `copy` element pro typ prostředku. V elementu kopírování zadejte počet opakování a název pro tento smyčky. Hodnota počtu musí být kladné celé číslo a nesmí být delší než 800. Resource Manager vytvoří prostředky paralelně. Proto není zaručena pořadí, ve které byly vytvořeny. Pokud chcete vytvořit vstupní prostředky v pořadí, v tématu [sériové kopie](#serial-copy). 

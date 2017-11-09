@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory pro vývojáře
 Azure Active Directory je cloudová služba identit, která vývojářům umožňuje bezpečně přihlásit jakéhokoli uživatele s pracovním nebo školním účtem, který zajišťuje Microsoft.  Dokumentace, kterou tady najdete, vám ukáže, jak do vaší aplikace přidat podporu Azure AD s použitím standardních oborových ověřovacích protokolů OAuth a OpenID Connect.
@@ -59,16 +59,9 @@ Tyto články poskytují podrobné informace o rozhraních API, zprávách proto
 | [Glosář](active-directory-dev-glossary.md)                                      | Terminologie a definice slov, která se používají v této dokumentaci |
 | [Další referenční materiály...](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>Nápověda a podpora
-Na těchto místech získáte nejlepší pomoc s vývojem v Azure Active Directory.
-
-|  |  
-|---|
-|[Značky `azure-active-directory` a `adal` na Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Zpětná vazba k Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Vyzkoušejte Microsoft Dev Chat (zdarma po omezenou dobu)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Pokud potřebujete přihlašovat osobní účty Microsoft, měli byste zvážit použití [koncového bodu Azure AD v2.0](active-directory-appmodel-v2-overview.md).  Koncový bod Azure AD v2.0 sjednocuje osobní účty Microsoft a pracovní účty Microsoft (z Azure AD) do jednoho ověřovacího systému.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

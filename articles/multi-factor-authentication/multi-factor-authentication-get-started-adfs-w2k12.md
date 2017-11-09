@@ -3,7 +3,7 @@ title: MFA Server s AD FS ve Windows Serveru | Dokumentace Microsoftu
 description: "Tento článek popisuje, jak začít se službami Azure Multi-Factor Authentication a AD FS v systému Windows Server 2012 R2 a 2016."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 57208068-1e55-45b6-840f-fdcd13723074
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fc6ad052e4e873be6a3e7009e9739e4a1c9ce03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98d44fd3d7d3c25d2955cca421dcfea2ca43c53e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurace serveru Azure Multi-Factor Authentication pro práci se službou AD FS ve Windows Serveru
 Pokud používáte službu AD FS (Active Directory Federation Services) a chcete zabezpečit cloudové nebo místní prostředky, můžete nakonfigurovat Azure Multi-Factor Authentication Server pro práci se službou AD FS. Tato konfigurace aktivuje u citlivých koncových bodů dvoustupňové ověřování.
