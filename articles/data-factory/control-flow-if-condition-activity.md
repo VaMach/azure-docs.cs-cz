@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: shlo
-ms.openlocfilehash: 0eb4f03a5d53da771a550bd5d79607ff7f0f52d3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Pokud podmínka vyhodnocena jako aktivita v Azure Data Factory
 Pokud podmínky aktivity nabízí stejné funkce, která Pokud příkaz obsahuje v programovacích jazyků. Vyhodnotí sadu aktivit, pokud je podmínka vyhodnocena jako `true` a další sady aktivit, pokud je podmínka vyhodnocena jako `false`. 
@@ -76,10 +76,13 @@ výraz | Výraz, který se musí vyhodnotit na hodnotu true nebo false | Ano
 ifTrueActivities | Sada aktivit, které jsou spouštěny, když je výsledkem výrazu `true`. | Ano
 ifFalseActivities | Sada aktivit, které jsou spouštěny, když je výsledkem výrazu `false`. | Ano
 
-## <a name="sample"></a>Ukázka
-Kanál v této ukázce kopíruje data ze vstupní složky do výstupní složky. Hodnota parametru kanálu je určen do výstupní složky: routeSelection. Pokud routeSelection hodnotu true, je k outputPath1 zkopírovat data. A pokud routeSelection hodnotu false, ale data se zkopírují do outputPath2. 
+## <a name="example"></a>Příklad
+Kanál v tomto příkladu kopíruje data ze vstupní složky do výstupní složky. Hodnota parametru kanálu je určen do výstupní složky: routeSelection. Pokud routeSelection hodnotu true, je k outputPath1 zkopírovat data. A pokud routeSelection hodnotu false, ale data se zkopírují do outputPath2. 
 
-### <a name="pipeline-with-if-condition-activity"></a>Kanál s aktivitou pokud podmínky
+> [!NOTE]
+> Tato část obsahuje definice JSON a vzorové příkazy prostředí PowerShell ke spuštění kanálu. Návod s podrobné pokyny k vytvoření kanálu pro vytváření dat pomocí Azure PowerShell a JSON definice najdete v tématu [kurz: vytvoření objekt pro vytváření dat pomocí Azure PowerShell](quickstart-create-data-factory-powershell.md).
+
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Kanál s aktivitou Pokud podmínka (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +193,7 @@ Dalším příkladem výrazu je:
 ```
 
 
-### <a name="azure-storage-linked-service"></a>Propojená služba Azure Storage
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Propojená služba Azure Storage (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -207,7 +210,7 @@ Dalším příkladem výrazu je:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset"></a>Parametrizované datovou sadu objektu Blob Azure
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametrizované datovou sadu objektu Blob Azure (BlobDataset.json)
 Nastaví kanál **folderPath** na hodnotu buď **outputPath1** nebo **outputPath2** parametr kanálu. 
 
 ```json
@@ -234,7 +237,7 @@ Nastaví kanál **folderPath** na hodnotu buď **outputPath1** nebo **outputPath
 }
 ```
 
-### <a name="pipeline-parameter-json"></a>Parametr kanálu JSON
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parametr kanálu JSON (PipelineParameters.json)
 
 ```json
 {
@@ -246,10 +249,11 @@ Nastaví kanál **folderPath** na hodnotu buď **outputPath1** nebo **outputPath
 ```
 
 ### <a name="powershell-commands"></a>Příkazy prostředí PowerShell
+Těchto příkazů se předpokládá, že máte uložené soubory JSON do složky: C:\ADF. 
 
 ```powershell
-# Login-AzureRmAccount
-# Select-AzureRmSubscription "<Your subscription name>"
+Login-AzureRmAccount
+Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
 $dataFactoryName = "<Data Factory Name. Must be globally unique>";

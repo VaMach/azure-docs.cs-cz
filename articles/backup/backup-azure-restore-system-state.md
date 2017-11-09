@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Obnovení stavu systému na Windows Server
 
-Tento článek vysvětluje způsob obnovení zálohy stavu systému Windows Server z trezoru služby Azure Recovery Services. Chcete-li obnovit stav systému, musíte mít zálohu stavu systému (vytvořili pomocí pokynů v [zálohování stavu systému](backup-azure-system-state.md#back-up-windows-server-system-state-preview)) a ujistěte se, že máte nainstalovanou [nejnovější verzi systému Microsoft Azure Recovery Services (MARS) Agent](http://aka.ms/azurebackup_agent). Obnovení dat stavu systému Windows Server z trezoru služby Azure Recovery Services je dvoustupňový proces:
+Tento článek vysvětluje způsob obnovení zálohy stavu systému Windows Server z trezoru služby Azure Recovery Services. Chcete-li obnovit stav systému, musíte mít zálohu stavu systému (vytvořili pomocí pokynů v [zálohování stavu systému](backup-azure-system-state.md#back-up-windows-server-system-state)a ujistěte se, že máte nainstalovanou [nejnovější verzi systému Microsoft Azure Recovery Services (MARS) Agent](http://aka.ms/azurebackup_agent). Obnovení dat stavu systému Windows Server z trezoru služby Azure Recovery Services je dvoustupňový proces:
 
 1. Obnovení stavu systému souborů z Azure Backup. Při obnovení stavu systému jako soubory ze zálohy Azure, můžete se buď:
   * Obnovení stavu systému na stejný server kterém byly provedeny zálohy, nebo

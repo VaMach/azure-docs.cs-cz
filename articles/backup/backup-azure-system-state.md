@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Zálohování stavu systému Windows v nasazení Resource Manager
 Tento článek vysvětluje, jak zálohovat stav systému Windows Server do Azure. Tento kurz vás má provést základy.
@@ -29,7 +29,7 @@ Chcete-li se dozvědět více o Azure Backup, přečtěte si tento [přehled](ba
 Pokud předplatné Azure nemáte, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/), který vám umožní přístup ke službám Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Vytvoření trezoru služby Recovery Services
-Chcete-li zálohovat svoje soubory a složky, musíte vytvořit trezor Služeb zotavení v oblasti, kde chcete data ukládat. Musíte také určit způsob replikace úložiště.
+Zálohování stavu systému Windows Server, musíte vytvořit trezor služeb zotavení v oblasti, ve které chcete data uložit. Musíte také určit způsob replikace úložiště.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Vytvoření trezoru Služeb zotavení
 1. Pokud jste to ještě neudělali, přihlaste se k [portálu Azure](https://portal.azure.com/) pomocí svého předplatného Azure.
@@ -135,6 +135,9 @@ Teď, když jste vytvořili trezor, můžete ho nakonfigurujte pro zálohování
     Přihlašovací údaje trezoru se stáhnou do složky Stažené soubory. Po dokončení stahování přihlašovacích údajů trezoru se zobrazí automaticky otevírané okno s dotazem, jestli chcete přihlašovací údaje otevřít nebo uložit. Klikněte na **Uložit**. Pokud omylem kliknete **Otevřít**, nechte dialogové okno, které se pokusí otevřít přihlašovací údaje trezoru, zobrazit chybu. Přihlašovací údaje trezoru nejde otevřít. Přejděte k dalšímu kroku. Přihlašovací údaje trezoru jsou ve složce Stažené soubory.   
 
     ![dokončené stahování přihlašovacích údajů trezoru](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> Přihlašovací údaje úložiště, musíte ho uložit pouze do umístění, která je místní pro Windows Server, na kterém chcete používat agenta. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Instalace a registrace agenta
 
@@ -163,40 +166,13 @@ Teď, když jste vytvořili trezor, můžete ho nakonfigurujte pro zálohování
 
 Agent je nyní nainstalovaný a váš počítač je registrovaný k trezoru. Jste připraveni nakonfigurovat a naplánovat zálohování.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Zálohování stavu systému Windows Server (Preview)
-Prvotní záloha zahrnuje tři úkoly:
+## <a name="back-up-windows-server-system-state"></a>Zálohování stavu systému Windows Server 
+Prvotní záloha zahrnuje dvě úlohy:
 
-* Povolit zálohování stavu systému pomocí agenta Azure Backup
 * Naplánování zálohování
-* První zálohování souborů a složek
+* Zálohování stavu systému poprvé
 
 K dokončení prvotního zálohování použijte agenta Microsoft Azure Recovery Services.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>K povolení zálohování stavu systému pomocí agenta Azure Backup
-
-1. V relaci prostředí PowerShell pomocí následujícího příkazu zastavte modul zálohování Azure.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Otevřete registr systému Windows.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Přidejte následující klíč registru se zadanou hodnotou DWord.
-
-  | Cesta k registru | Klíč registru | Přidejte hodnotu DWord |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Restartujte modul zálohování spuštěním následujícího příkazu v příkazovém řádku se zvýšenými oprávněními.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>Naplánování úlohy zálohování
 
@@ -216,11 +192,7 @@ K dokončení prvotního zálohování použijte agenta Microsoft Azure Recovery
 
 6. Klikněte na **Další**.
 
-7. Plán zálohování stavu systému a jejich uchovávání se automaticky nastaví na zálohování každou neděli ve 21:00:00 místního času a dobu uchování je nastaven na 60 dnů.
-
-   > [!NOTE]
-   > Zálohování a uchovávání zásad stavu systému je automaticky nakonfigurovaná. Pokud zálohujete soubory a složky kromě stavu systému Windows Server, zadejte jenom zálohování a uchovávání zásady pro soubor zálohy z průvodce. 
-   >
+7. Vyberte požadovanou četnost zálohování a zásady uchovávání informací pro zálohování stavu systému na následujících stránkách. 
 
 8. Na stránce Potvrzení zkontrolujte informace a poté klikněte na **Dokončit**.
 
@@ -234,88 +206,21 @@ K dokončení prvotního zálohování použijte agenta Microsoft Azure Recovery
 
     ![Zálohovat nyní ve Windows Serveru](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Na stránce Potvrzení zkontrolujte nastavení, které Průvodce Zálohování nyní použije k zálohování počítače. Poté klikněte na **Zálohovat**.
+3. Vyberte **stav systému** na **zálohované položky. Vyberte** obrazovky, který se zobrazí a klikněte na **Další**.
+
+4. Na stránce Potvrzení zkontrolujte nastavení, které Průvodce Zálohování nyní použije k zálohování počítače. Poté klikněte na **Zálohovat**.
 
 4. Průvodce zavřete kliknutím na **Zavřít**. Pokud průvodce zavřete před dokončením procesu zálohování, průvodce zůstane spuštěný na pozadí.
 
-5. Pokud zálohujete soubory a složky na serveru, kromě stav systému Windows Server, Průvodce zálohování nyní pouze zálohovat soubory. K provedení zálohování do ad hoc stavu systému, použijte následující příkaz Powershellu:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  Po dokončení prvotní zálohy se v konzole Zálohování zobrazí stav **Úloha byla dokončena**.
+Po dokončení prvotní zálohy se v konzole Zálohování zobrazí stav **Úloha byla dokončena**.
 
   ![Dokončení IR](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Nejčastější dotazy
-
-Následující otázky a odpovědi poskytovat doplňující informace.
-
-### <a name="what-is-the-staging-volume"></a>Co je pracovní svazek?
-
-Svazek pracovní představuje zprostředkující umístění, kde nativně dostupné, Windows Server Backup zpracuje zálohování stavu systému. Azure Backup agent pak komprimuje a šifruje zprostředkující záloha a odešle ji přes zabezpečený protokol HTTPS nakonfigurovaná trezoru služeb zotavení. **Důrazně doporučujeme že vytvořit pracovní svazek na svazku bez operačního systému Windows. Pokud zjistíte problémy s zálohování stavu systému, kontrola umístění svazku pracovní je prvním krokem řešení potíží.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Jak je možné změnit cestu svazku pracovní zadaný v agenta Azure Backup?
-
-Pracovní svazek umístěn ve složce mezipaměti ve výchozím nastavení. 
-
-1. Chcete-li změnit toto umístění, použijte následující příkaz (v příkazovém řádku se zvýšenými):
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Aktualizujte následující položky registru s cestou do nové složky pracovní svazku.
-
-  |Cesta k registru|Klíč registru|Hodnota|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | nový pracovní umístění svazku |
-
-Cesta pracovní velká a malá písmena a musí být přesně stejnou malá a velká písmena jako co na serveru existuje. 
-
-3. Jakmile změníte cestu svazku pracovní, restartujte modul zálohování:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Chcete-li vyzvednutí změněné cestu, otevřete agenta služeb zotavení Microsoft Azure a spustit ad hoc zálohování stavu systému.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Proč je uchování výchozí stavu systému nastaven na 60 dnů?
-
-Životnost zálohu stavu systému je stejné jako "životnosti objektů označených jako neplatné" nastavení pro roli systému Windows Server Active Directory. Výchozí hodnota pro položku životnosti objektů označených jako neplatné je 60 dnů. Tuto hodnotu můžete nastavit u objektu konfigurace služby Directory (NTDS).
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Jak změnit výchozí zálohování a zásadami uchovávání informací pro stav systému?
-
-Chcete-li změnit výchozí zálohování a zásadami uchovávání informací pro stav systému:
-1. Zastavte modul zálohování. Spusťte následující příkaz z příkazového řádku se zvýšenými oprávněními.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Přidat nebo aktualizovat následující položky klíče registru HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Název registru|Popis|Hodnota|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Slouží ke konfiguraci čas zálohování. Výchozí hodnota je 21: 00 místního času.|DWord: Formátu hh: mm (decimální): pro příklad. 2130 21:30:00 místního času|
-  |SSBScheduleDays|Slouží ke konfiguraci dní, kdy musí být prováděno zálohování stavu systému v určeném čase. Jednotlivé číslic Zadejte dny v týdnu. představuje neděli 0, 1 je pondělí, a tak dále. Výchozí den pro zálohování je neděli.|DWord: dny v týdnu, chcete-li spustit zálohování (decimální): Příklad 1 230 plány zálohování v pondělí, úterý, středu a neděle.|
-  |SSBRetentionDays|Slouží ke konfiguraci počet dní do uchovávat zálohu. Výchozí hodnota je 60. Maximální povolená hodnota je 180.|DWord: Uchovávat zálohu (decimální): dnů.|
-
-3. Použijte následující příkaz k restartování stroje zálohování.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Otevřete agenta služeb zotavení Microsoft.
-
-5. Klikněte na tlačítko **plánem zálohování** a pak klikněte na **Další** až se změny projeví.
-
-6. Klikněte na tlačítko **Dokončit** aby se změny projevily.
-
 
 ## <a name="questions"></a>Máte dotazy?
 Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [odešlete nám svůj názor](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Další kroky
 * Zdroj dalších informací o [zálohování počítačů se systémem Windows](backup-configure-vault.md).
-* Teď, když jste zálohovali své soubory a složky, můžete [spravovat svoje trezory a servery](backup-azure-manage-windows-server.md).
+* Teď, když jste zálohovali stav systému Windows Server, můžete [spravovat svoje trezory a servery](backup-azure-manage-windows-server.md).
 * Potřebujete-li obnovit zálohu, použijte tento článek k [obnovení souborů na počítač se systémem Windows](backup-azure-restore-windows-server.md).

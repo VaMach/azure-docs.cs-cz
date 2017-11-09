@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurovat nastavení ověřování Azure Multi-Factor Authentication – ve verzi Public preview
 
@@ -29,6 +29,7 @@ Tento článek usnadňuje správu ověřování Azure Multi-Factor Authenticatio
 
 | Funkce | Popis | 
 |:--- |:--- |
+| [Zablokovat nebo odblokovat uživatele](#block/unblock-users) |Zablokovat nebo odblokovat uživatele můžete zabránit uživatelům v přijetí žádosti o ověření. |
 | [Upozornění na podvod](#fraud-alert) |Upozornění na podvod můžete nakonfigurovat a nastavit tak, aby vaši uživatelé mohou zasílat zprávy podvodné pokouší získat přístup k jejich prostředky. |
 | [Jednorázové přihlášení](#one-time-bypass) |Jednorázové přihlášení umožňuje uživateli jednorázově ověřit pomocí "obcházení" služby Multi-Factor authentication. |
 | [Vlastní hlasové zprávy](#custom-voice-messages) |Vlastní hlasové zprávy umožňují použít vlastní záznamy nebo pozdrav pomocí služby Multi-Factor authentication. |
@@ -37,6 +38,23 @@ Tento článek usnadňuje správu ověřování Azure Multi-Factor Authenticatio
 | [Hesla aplikací](#app-passwords) |Heslo aplikace umožňuje aplikaci, která MFA neví obejít ověřování Multi-Factor authentication a pokračovat v práci. |
 | [Zapamatovat Vícefaktorové ověřování na zapamatovaných zařízeních a prohlížeče](#remember-multi-factor-authentication-for-devices-that-users-trust) |Umožňuje mějte na paměti, zařízení pro sadu počet dnů po uživatel se úspěšně přihlásil pomocí vícefaktorového ověřování. |
 | [Volitelný ověření metody](#selectable-verification-methods) |Umožňuje výběr metod ověřování, které jsou k dispozici pro uživatelům používat. |
+
+## <a name="blockunblock-users"></a>Zablokovat nebo odblokovat uživatele
+Zablokovat nebo odblokovat uživatele umožňuje uživatelům zabránit v přijetí žádosti o ověření. Jakékoli pokusy o ověření pro blokované uživatele budou automaticky odepřeny. Blokovaným uživatelům zůstane blokované pro 90 dnů od doby, jsou zablokované.
+
+### <a name="block-a-user"></a>Blokování uživatele
+1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) jako správce.
+2. Přejděte na **Azure Active Directory** > **MFA Server** > **zablokovat nebo odblokovat uživatele**.
+3. Klikněte na tlačítko **přidat** zablokujete určitému uživateli.
+4. Vyberte **replikační skupiny**, vstup blokované uživatelské jméno jako  **username@domain.com** a zadejte komentář do **důvod** pole.
+5. Klikněte na tlačítko **přidat** ukončíte blokování uživatele.
+
+### <a name="unblock-a-user"></a>Odblokovat uživatele
+1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) jako správce.
+2. Přejděte na **Azure Active Directory** > **MFA Server** > **zablokovat nebo odblokovat uživatele**.
+3. Klikněte na tlačítko **Odblokovat** v **akce** sloupce vedle uživatele, kterou chcete odblokovat.
+4. Zadejte komentář do **důvod pro odblokování** pole.
+5. Klikněte na tlačítko **Odblokovat** ukončíte odblokování uživatele.
 
 ## <a name="fraud-alert"></a>Upozornění na podvod
 Upozornění na podvod můžete nakonfigurovat a nastavit tak, aby vaši uživatelé mohou zasílat zprávy podvodné pokouší získat přístup k jejich prostředky.  Uživatelé mohou zasílat zprávy podvod pomocí mobilní aplikace nebo přes svůj telefon.

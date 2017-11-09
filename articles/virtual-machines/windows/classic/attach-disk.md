@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 7847a2485cd57d895c022afb12ef08f37fe5775d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0440cd2fadffd945c75d1b94df67e0c8b8bf7c1e
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Připojení datového disku k virtuálnímu počítači s Windows vytvořenému pomocí modelu klasického nasazení
-<!--
-Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
--->
 
 Tento článek ukazuje, jak připojit nové a stávající disky vytvořené pomocí modelu nasazení Classic do virtuálního počítače s Windows pomocí portálu Azure.
+
+
 
 Můžete také [připojit datový disk do virtuálního počítače s Linuxem na portálu Azure](../../linux/attach-disk-portal.md).
 
@@ -43,6 +41,7 @@ Můžete také [připojit datový disk pomocí prostředí Powershell](../../vir
 
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="find-the-virtual-machine"></a>Najít virtuální počítač
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).

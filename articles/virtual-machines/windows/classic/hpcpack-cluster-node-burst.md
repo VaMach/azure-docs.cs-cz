@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Přidat na vyžádání "shluků" uzly do clusteru HPC Pack v Azure
 Pokud jste nastavili [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) clusteru v Azure, můžete způsob, jak rychle změnit velikost clusteru kapacitu nahoru nebo dolů, bez zachování sadu předkonfigurované výpočetním uzlu virtuálních počítačů. Tento článek ukazuje, jak přidat uzly na vyžádání "shluků" (pracovní role instancí spuštěných v rámci cloudové služby) jako výpočetní prostředky k hlavnímu uzlu v Azure. 
 
 > [!IMPORTANT] 
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Uzly shluku][burst]
 

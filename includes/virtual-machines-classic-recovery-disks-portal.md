@@ -1,5 +1,6 @@
 Pokud na vašem virtuálním počítači v Azure dochází k chybám spouštění nebo disku, možná bude nutné provést postup při řešení potíží na samotném virtuálním pevném disku. Běžným příkladem je aktualizace aplikace, která selhala a brání úspěšnému spuštění virtuálního počítače. Tento článek popisuje, jak pomocí webu Azure Portal připojit virtuální pevný disk k jinému virtuálnímu počítači, opravit všechny chyby a potom znovu vytvořit původní virtuální počítač.
 
+
 ## <a name="recovery-process-overview"></a>Přehled procesu obnovení
 Proces řešení potíží je následující:
 

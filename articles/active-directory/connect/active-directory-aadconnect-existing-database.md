@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Nainstalujte Azure AD Connect použití existující databáze ADSync
 Azure AD Connect vyžaduje databázi SQL serveru k ukládání dat. Můžete buď použít výchozí nastavení, SQL Server 2012 Express LocalDB nainstalované službou Azure AD Connect nebo používat úplnou verzi systému SQL. Dříve při instalaci Azure AD Connect vytvoření nové databáze s názvem ADSync vždy. S Azure AD Connect verze 1.1.613.0 (nebo po) máte možnost nainstalovat Azure AD Connect odkazující na existující databáze ADSync.
@@ -35,19 +35,19 @@ Tyto výhody jsou užitečné v následujících scénářích:
 
 
 - Máte existující nasazení Azure AD Connect. Existující server Azure AD Connect přestane pracovat, ale stále funguje SQL server obsahující databáze ADSync. Můžete nainstalovat nový server Azure AD Connect a přejděte na existující databáze ADSync. 
-- Máte existující nasazení Azure AD Connect. SQL server obsahující databáze ADSync již není funkční. Máte ale poslední zálohy databáze. Databáze ADSync na nový server SQL můžete obnovit nejdřív. Po, které můžete nainstalovat nový server Azure AD Connect a přejděte na obnovené databáze ADSync.
+- Máte existující nasazení Azure AD Connect. SQL server obsahující databáze ADSync již není funkční. Máte ale poslední zálohování databáze. Databáze ADSync na nový server SQL můžete obnovit nejdřív. Po, které můžete nainstalovat nový server Azure AD Connect a přejděte na obnovené databáze ADSync.
 - Máte stávající nasazení Azure AD Connect, které používá LocalDB. Z důvodu omezení 10 GB, způsobené LocalDB chcete migrovat do úplné SQL. Můžete zálohovat databáze ADSync z LocalDB a obnovte ji k systému SQL server. Po jejímž uplynutí se můžete znovu nainstalovat nový server Azure AD Connect a přejděte na obnovené databáze ADSync.
-- Pokoušíte se instalační program na testovacím serveru a chce Ujistěte se, že její konfigurace se shoduje s aktuální aktivní server. Můžete zálohovat databáze ADSync a obnovte ji na jiný server SQL. Po jejímž uplynutí se můžete znovu nainstalovat nový server Azure AD Connect a přejděte na obnovené databáze ADSync.
+- Pokoušíte se nastavit na testovacím serveru a chce Ujistěte se, že její konfigurace se shoduje s aktuální aktivní server. Můžete zálohovat databáze ADSync a obnovte ji na jiný server SQL. Po jejímž uplynutí se můžete znovu nainstalovat nový server Azure AD Connect a přejděte na obnovené databáze ADSync.
 
 ## <a name="prerequisite-information"></a>Informace o požadavcích
 
 Než budete pokračovat, Všimněte si z důležité poznámky pro trvat:
 
-
 - Ujistěte se, že Zkontrolujte požadavky na instalaci Azure AD Connect na Hardware a požadavky a účet a oprávnění potřebná pro instalaci Azure AD Connect. Oprávnění potřebná pro instalaci Azure AD Connect s použitím "použití existující databáze" režim je stejný jako "vlastní" instalace.
+- Nasazení Azure AD Connect s existující ADSync databáze je podporována pouze s úplnou SQL. Není podporován v SQL Express LocalDB. Pokud máte existující databázi ADSync v LocalDB, který chcete použít, musíte nejprve zálohování databáze ADSync (LocalDB) a obnovte ji úplné SQL. Po, které můžete nasadit Azure AD Connect s obnovenou databázi pomocí této metody.
 - Verze služby Azure AD Connect použitý k instalaci, musí splňovat následující kritéria:
     - 1.1.613.0 nebo vyšší, a
-    - Stejná nebo vyšší než verze služby Azure AD Connect naposledy použila databáze ADSync. Pokud Azure AD Connect verze použitý k instalaci je vyšší než verze naposledy použila databáze ADSync, může se vyžadovat úplnou synchronizaci.  To je potřeba, pokud se pravidlo změní schéma nebo synchronizace mezi dvěma verzemi. 
+    - Stejná nebo vyšší než verze služby Azure AD Connect naposledy použila databáze ADSync. Pokud Azure AD Connect verze použitý k instalaci je vyšší než verze naposledy použila databáze ADSync, může se vyžadovat úplnou synchronizaci.  Úplná synchronizace je vyžadován, pokud jsou pravidla změny schématu nebo synchronizace mezi dvěma verzemi. 
 - Databáze ADSync používá by měl obsahovat stavu synchronizace, který je relativně nové. Poslední aktivita synchronizace s existující databáze ADSync by měla být v rámci poslední tři týdny.
 - Při instalaci Azure AD Connect s použitím "použití existující databáze" metoda, není zachována metoda přihlašování nakonfigurované na předchozí server Azure AD Connect. Navíc můžete nelze konfigurovat metoda přihlašování během instalace. Metoda přihlašování můžete konfigurovat pouze po dokončení instalace.
 - Nemůže mít více servery Azure AD Connect, které sdílejí stejnou databázi ADSync. Metoda "použití existující databáze" vám umožní znova využít existující databáze ADSync při nový server Azure AD Connect. Nepodporuje sdílení.

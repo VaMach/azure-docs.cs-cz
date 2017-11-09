@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: iainfou
-ms.openlocfilehash: 6b5af18d02fd508a21cdc21b38b1c16e79f07ecb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d70194f30b7866cab38cfbbe1ea06664b0ddc1f5
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-mongodb-on-a-windows-vm-in-azure"></a>Nainstalujte MongoDB v systému Windows virtuálního počítače v Azure
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md).  Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Instalace a konfigurace MongoDB pomocí modelu nasazení Resource Manager, najdete v části [v tomto článku](../install-mongodb.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [MongoDB] [ MongoDB] je Oblíbené databáze NoSQL open source a vysoce výkonné. Tento článek vás provede vytvořením virtuální počítač (VM) Windows serveru pomocí [portál Azure][AzurePortal]. Vytvořit a připojit datový disk k virtuálnímu počítači před instalací a konfigurací MongoDB. Pokud máte existující virtuální počítač v Azure, který chcete použít, můžete přejít rovnou na [instalace a konfigurace MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 

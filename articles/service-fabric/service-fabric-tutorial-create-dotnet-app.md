@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Vytvoření a nasazení aplikace pomocí služby front-endové webové rozhraní API ASP.NET Core a stavové služby back-end
 V tomto kurzu je součástí, jednu z řady.  Se dozvíte, jak vytvořit aplikaci Azure Service Fabric pomocí webového rozhraní API ASP.NET Core front-end a stavové služby back-end ukládat data. Jakmile budete hotovi, máte hlasovací aplikaci s ASP.NET Core web, který je front-end, který uloží výsledků hlasování ve stavové služby back-end v clusteru. Pokud nechcete, aby ručně vytvořit hlasovací aplikaci, můžete [stáhnout zdrojový kód](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pro hotová aplikace a přeskočit na [provede hlasujících ukázkovou aplikaci](#walkthrough_anchor).
@@ -228,7 +228,11 @@ Otevřete *Views/Shared/_Layout.cshtml* souboru, výchozí rozložení pro aplik
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>Aktualizovat soubor VotingWeb.cs
-Otevřete *VotingWeb.cs* souboru, který vytvoří webového hostitele jádro ASP.NET uvnitř bezstavové služby pomocí WebListener webový server.  Přidat `using System.Net.Http;` direktivy do horní části souboru.  Nahraďte `CreateServiceInstanceListeners()` fungovat s následující a potom uložte změny.
+Otevřete *VotingWeb.cs* souboru, který vytvoří webového hostitele jádro ASP.NET uvnitř bezstavové služby pomocí WebListener webový server.  
+
+Přidat `using System.Net.Http;` direktivy do horní části souboru.  
+
+Nahraďte `CreateServiceInstanceListeners()` fungovat s následující a potom uložte změny.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -257,7 +261,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>Přidejte soubor VotesController.cs
-Přidáte řadič, který definuje hlasujících akce. Klikněte pravým tlačítkem na **řadiče** složku, pak vyberte **Přidat -> Nový položky -> třída**.  Název souboru "VotesController.cs" a klikněte na tlačítko **přidat**.  Nahraďte obsah souboru následující příkaz, potom uložte změny.  Dále v [aktualizovat soubor VotesController.cs](#updatevotecontroller_anchor), tento soubor se změní pro čtení a zápis hlasujících data z back endové službě.  Prozatím se vrátí řadičem statický řetězec data k zobrazení.
+Přidáte řadič, který definuje hlasujících akce. Klikněte pravým tlačítkem na **řadiče** složku, pak vyberte **Přidat -> Nový položky -> třída**.  Název souboru "VotesController.cs" a klikněte na tlačítko **přidat**.  
+
+Nahraďte obsah souboru následující příkaz, potom uložte změny.  Dále v [aktualizovat soubor VotesController.cs](#updatevotecontroller_anchor), tento soubor se změní pro čtení a zápis hlasujících data z back endové službě.  Prozatím se vrátí řadičem statický řetězec data k zobrazení.
 
 ```csharp
 using System;
@@ -296,7 +302,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>Nakonfigurujte port pro naslouchání
+Při vytváření front-endová služba VotingWeb Visual Studio náhodně vybere port pro službu pro naslouchání.  Služba VotingWeb funguje jako front-end pro tuto aplikaci a přijímá externích přenosů, můžeme vytvořit vazbu pevná, služby a také znát port. V Průzkumníku řešení otevřete *VotingWeb/PackageRoot/ServiceManifest.xml*.  Najít **koncový bod** prostředku v **prostředky** části a změňte **Port** hodnotu na 80, nebo na jiný port. K nasazení a spuštění aplikace místně, musí být aplikace naslouchající port otevřené a dostupné ve vašem počítači.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Také aktualizujte hodnotu vlastnosti Adresa URL aplikace v projektu Voting, otevře se webový prohlížeč na správný port při ladění pomocí 'F5'.  V Průzkumníku řešení, vyberte **Voting** projekt a aktualizace **adresa URL aplikace** vlastnost.
+
+![Adresa URL aplikace](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Nasazení a spuštění aplikace místně
 Teď můžete pokračovat a spusťte aplikaci. Stisknutím klávesy `F5` v sadě Visual Studio aplikaci nasaďte pro účely ladění. `F5`selže, pokud nebyla dříve otevřete Visual Studio jako **správce**.

@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Jak spouštět úlohy náročné na výpočetní výkon v Javě na virtuálním počítači
 > [!IMPORTANT] 
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 S Azure můžete pro zpracování úlohy náročné na výkon virtuálního počítače. Virtuální počítač můžete například zpracování úlohy a výsledky doručení do klientského počítače nebo mobilní aplikace. Po přečtení tohoto článku, budete mít představu o tom, jak vytvořit virtuální počítač, který spouští aplikaci Java náročné, která lze sledovat v jiné aplikaci Java.
 

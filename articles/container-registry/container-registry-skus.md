@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Kontejner Azure registru SKU
 
@@ -43,21 +43,7 @@ Skladová položka registru Classic povoleno počáteční verzi služby Azure k
 
 V následující tabulce jsou funkcí a omezení úrovně služeb Basic, Standard a Premium.
 
-| Funkce | Basic | Standard | Premium |
-|---|---|---|---|---|
-| Úložiště | 10 giB | 100 giB| 500 giB |
-| ReadOps za minutu<sup>1, 2</sup> | 1 kB | 300 kB | 10 000 kB |
-| WriteOps za minutu<sup>1, 3</sup> | 100 | 500 | 2k |
-| Stáhnout MB/s šířky pásma<sup>1</sup> | 30 | 60 | 100 |
-| Nahrát MB/s šířky pásma<sup>1</sup> | 10 | 20 | 50 |
-| Webhooky | 2 | 10 | 100 |
-| Geografická replikace | Není k dispozici | Není k dispozici | [Podporované *(preview)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*, *WriteOps*, a *šířky pásma* jsou odhady minimální. ACR se snaží zlepšit výkon, protože vyžaduje použití.
-
-<sup>2</sup> [docker vyžádání](https://docs.docker.com/registry/spec/api/#pulling-an-image) překládá do více operací čtení na základě počtu vrstev v bitovou kopii a načtení manifestu.
-
-<sup>3</sup> [docker nabízené](https://docs.docker.com/registry/spec/api/#pushing-an-image) překládá do více operací zápisu na základě počtu vrstvy, které musí být posunuta. A `docker push` zahrnuje *ReadOps* k načtení manifestu pro stávající image.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>Spravovat velikost registru
 Omezení úložiště každý SKU jsou určené k přizpůsobení s Typický scénář: Začínáme Basic, Standard pro většinu výrobní aplikace a Premium velkého rozsahu výkonu a [geografická replikace](container-registry-geo-replication.md). Po celou dobu životnosti registru systému Windows by měla spravovat jeho velikost pravidelně odstraněním nepoužitý obsah.

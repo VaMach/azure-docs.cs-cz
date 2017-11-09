@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Začínáme s SQL Data Warehouse
 
@@ -198,7 +198,7 @@ Nyní jste připraveni k načtení dat do datového skladu. Tento krok ukazuje, 
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Nyní jste připraveni k načtení dat do datového skladu. Tento krok ukazuje, 
     ```
 5. Vytvořte externí tabulky. Tyto tabulky odkazují na data uložená v Azure Blob Storage. Spuštěním následujících příkazů T-SQL vytvořte několik externích tabulek odkazujících na objekt blob Azure, který jsme dříve definovali v externím zdroji dat.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Nyní jste připraveni k načtení dat do datového skladu. Tento krok ukazuje, 
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Import dat z Azure Blob Storage
 
@@ -430,7 +430,7 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
 
 2. Zobrazte data během načítání.
 
-   Provedete načtení několika GB dat a jejich kompresi do vysoce výkonných clusterovaných indexů columnstore. Spuštěním následujícího dotazu, který používá zobrazení dynamické správy, zobrazíte stav načítání. Po spuštění dotazu si udělejte přestávku na kávu, zatímco SQL Data Warehouse bude dělat namáhavou práci.
-    
-    ```sql
+  Provedete načtení několika GB dat a jejich kompresi do vysoce výkonných clusterovaných indexů columnstore. Spuštěním následujícího dotazu, který používá zobrazení dynamické správy, zobrazíte stav načítání. Po spuštění dotazu si udělejte přestávku na kávu, zatímco SQL Data Warehouse bude dělat namáhavou práci.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Data Warehouse podporuje klíčový příkaz CREATE TABLE AS SELECT (CTAS). 
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Zobrazte všechny systémové dotazy.
 
@@ -563,7 +564,7 @@ Nejprve vertikálně snížíme kapacitu na 100 DWU, abychom získali představu
     > [!NOTE]
     > Během změny škálování nelze spouštět dotazy. Škálování **ukončí** aktuálně spuštěné dotazy. Můžete je restartovat po dokončení operace.
     >
-    
+
 5. Proveďte operaci prohledávání dat o cestách tak, že vyberete prvních milion položek pro všechny sloupce. Pokud chcete postupovat rychleji, klidně vyberte menší počet řádků. Poznamenejte si dobu potřebnou k provedení této operace.
 
     ```sql
@@ -626,11 +627,11 @@ Nejprve vertikálně snížíme kapacitu na 100 DWU, abychom získali představu
 
     > [!NOTE]
     > SQL DW nespravuje statistiky automaticky. Statistiky jsou důležité pro výkon dotazů a důrazně se doporučuje statistiky vytvářet a aktualizovat.
-    > 
+    >
     > **Nejvíce výhod získáte tak, že budete mít statistiky pro sloupce používané ve spojeních, sloupce používané v klauzuli WHERE a sloupce používané v příkazu GROUP BY.**
     >
 
-3. Znovu spusťte dotaz z části Požadavky a sledujte rozdíly ve výkonu. I když rozdíly ve výkonu dotazů nebudou tak drastické jako při vertikálním navýšení kapacity, měli byste zaznamenat zrychlení. 
+4. Znovu spusťte dotaz z části Požadavky a sledujte rozdíly ve výkonu. I když rozdíly ve výkonu dotazů nebudou tak drastické jako při vertikálním navýšení kapacity, měli byste zaznamenat zrychlení. 
 
 ## <a name="next-steps"></a>Další kroky
 

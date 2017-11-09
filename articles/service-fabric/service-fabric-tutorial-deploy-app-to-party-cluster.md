@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Nasazení aplikace do clusteru s podporou strany v Azure
 V tomto kurzu je součástí dvě řady a ukazuje, jak nasadit aplikaci Azure Service Fabric do clusteru s podporou strany v Azure.
@@ -58,24 +58,6 @@ Pokud chcete, můžete použít vlastní cluster místo strany clusteru.  Jádro
 
 > [!NOTE]
 > Strany clustery není zabezpečená, aby vaše aplikace a všechna data, která jste uložili v nich může být vidět další uživatelé. Nenasazujte nic nechcete vidět. Nezapomeňte si přečíst přes naše podmínky použití pro všechny podrobnosti.
-
-## <a name="configure-the-listening-port"></a>Nakonfigurujte port pro naslouchání
-Při vytváření front-endová služba VotingWeb Visual Studio náhodně vybere port pro službu pro naslouchání.  Služba VotingWeb funguje jako front-end pro tuto aplikaci a přijímá externích přenosů, můžeme vytvořit vazbu pevná, služby a také znát port. V Průzkumníku řešení otevřete *VotingWeb/PackageRoot/ServiceManifest.xml*.  Najít **koncový bod** prostředku v **prostředky** části a změňte **Port** hodnotu 80.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-Také aktualizujte hodnotu vlastnosti Adresa URL aplikace v projektu Voting, otevře se webový prohlížeč na správný port při ladění pomocí 'F5'.  V Průzkumníku řešení, vyberte **Voting** projekt a aktualizace **adresa URL aplikace** vlastnost.
-
-![Adresa URL aplikace](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Nasazení aplikace na Azure
 Teď, když je aplikace připravená, můžete ho nasadit do clusteru strany přímé ze sady Visual Studio.

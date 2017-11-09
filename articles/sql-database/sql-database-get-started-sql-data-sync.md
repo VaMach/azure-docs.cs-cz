@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 77e1c1e6ce345b83ba5d88150fd9642c506ae7b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="getting-started-with-azure-sql-data-sync-preview"></a>Začínáme s Azure synchronizaci dat SQL (Preview)
+# <a name="get-started-with-azure-sql-data-sync-preview"></a>Začínáme s Azure synchronizaci dat SQL (Preview)
 V tomto kurzu zjistěte, jak nastavit synchronizaci dat SQL Azure tak, že vytvoříte skupinu hybridních synchronizace, která obsahuje instance Azure SQL Database a SQL Server. Do nové skupiny synchronizace plně konfigurována a synchronizuje podle plánu, který nastavíte.
 
 Tento kurz předpokládá, že máte alespoň zkušenosti s SQL Database a SQL Server. 
 
-Přehled synchronizaci dat SQL najdete v tématu [synchronizaci dat](sql-database-sync-data.md).
+Přehled synchronizaci dat SQL najdete v tématu [synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure (Preview)](sql-database-sync-data.md).
 
 Pro dokončení příklady prostředí PowerShell, které ukazují, jak nakonfigurovat synchronizaci dat SQL, najdete v následujících článcích:
 -   [Pomocí prostředí PowerShell k synchronizaci mezi více databází Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -196,8 +196,19 @@ Po nové členy skupiny synchronizace se vytváří a nasazují, krok 3 **skupin
 ## <a name="next-steps"></a>Další kroky
 Blahopřejeme. Vytvořili jste skupinu synchronizace, která obsahuje instance databáze SQL a databáze SQL serveru.
 
-Další informace o SQL Database a synchronizaci dat SQL najdete v tématu:
+Další informace o synchronizaci dat SQL najdete v tématu:
+
+-   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](sql-database-sync-data.md)
+-   [Osvědčené postupy pro synchronizaci dat SQL Azure](sql-database-best-practices-data-sync.md)
+-   [Řešení problémů s synchronizaci dat SQL Azure](sql-database-troubleshoot-data-sync.md)
+
+-   Dokončete příklady prostředí PowerShell, které ukazují, jak nakonfigurovat synchronizaci dat SQL:
+    -   [Pomocí prostředí PowerShell k synchronizaci mezi více databází Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Synchronizace mezi databáze SQL Azure a místní databáze SQL serveru pomocí prostředí PowerShell](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Stáhněte si dokumentaci rozhraní API REST synchronizaci dat SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Další informace o databázi SQL najdete v tématu:
+
 -   [Databáze SQL – přehled](sql-database-technical-overview.md)
 -   [Správa životního cyklu databáze](https://msdn.microsoft.com/library/jj907294.aspx)

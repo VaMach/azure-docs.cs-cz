@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -43,7 +43,7 @@ Pokud narazíte na problém během instalace, instalační soubory protokolu jso
 Můžete si obsah tyto adresáře zip a odeslat do us pro diagnostiku.
 
 ### <a name="workbench-desktop-app"></a>Aplikace na ploše Workbench
-Pokud dojde k chybě plochy Workbench, najdete tady soubory protokolu:
+Pokud máte potíže s přihlášením nebo pokud dojde k chybě plochy Workbench, najdete tady soubory protokolu:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ Když pracujete v Azure ML Workbench, můžete také odeslat nám zamračeného 
 - Text, který clustering transformací nejsou podporovány na macu.
 
 - Knihovna RevoScalePy je podporována pouze v systému Windows a Linux (v kontejnerech Docker). Není podporována v systému macOS.
+
+## <a name="delete-experimentation-account"></a>Odstranění účtu experimentování
+Rozhraní příkazového řádku můžete použít k odstranění účtu experimentování, ale je nutné odstranit nejprve podřízených pracovních prostorů a podřízené projekty v rámci těchto podřízených pracovních prostorů.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+Můžete také odstranit projekty a pracovní prostory v rámci aplikace Workbench.
+
 
 ## <a name="file-name-too-long-on-windows"></a>Název souboru příliš dlouho v systému Windows
 Pokud jste v systému Windows používá Workbench, můžete narazit na výchozí maximální souboru 260 znaků názvu limit délky, která by mohla surface jako poněkud oklamání chybu "systém nemůže najít zadanou cestu". Můžete upravit nastavení klíče registru a povolit mnohem delší cestu název souboru. Zkontrolujte [v tomto článku](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) další podrobnosti o tom, jak nastavit _hodnotou MAX_PATH_ klíč registru.

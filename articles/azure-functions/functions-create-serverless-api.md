@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Vytvoření bez serveru API pomocí Azure Functions
 
@@ -61,7 +61,8 @@ V dalším kroku funkci nevidíte práce s novou plochy rozhraní API otestujte.
 1. Přejděte zpět na stránku vývoj kliknutím na název funkce je v levém navigačním panelu.
 1. Klikněte na tlačítko **získat adresu URL funkce** a zkopírujte adresu URL. Měli byste vidět, že používá `/api/hello` nyní trasy.
 1. Zkopírujte adresu URL do novou kartu prohlížeče nebo vaše upřednostňované klienta REST. V prohlížečích se ve výchozím nastavení používá GET.
-1. Spuštění funkce a potvrďte, že funguje. Musíte zadat parametr "název" jako řetězec dotazu tak, aby pokryl kód rychlý start.
+1. Přidání parametrů do řetězce dotazu v URL například`/api/hello/?name=John`
+1. Stiskněte tlačítko zadejte potvrďte, že funguje. Měli byste vidět odpovědi "*Hello Jan*"
 1. Můžete také zkusit volání koncový bod s jinou metodu HTTP, potvrďte, že funkce není spuštěn. V takovém případě budete muset použít klienta REST, například cURL, Postman nebo Fiddler.
 
 ## <a name="proxies-overview"></a>Přehled proxy
@@ -85,9 +86,8 @@ V této části vytvoříte nový proxy, který slouží jako front-end pro celk
 Opakováním kroků [vytvořit aplikaci function app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) k vytvoření nové aplikace funkce, ve kterém vytvoříte proxy. Adresa URL nové aplikace bude sloužit jako front-endu pro naše API a funkce aplikace, kterou jste dříve upravovali bude sloužit jako back-end.
 
 1. Přejděte do nové aplikace funkce front-endu na portálu.
-1. Vyberte **nastavení**. Potom přepněte **povolit funkce proxy Azure (preview)** na "On".
-1. Vyberte **nastavení platformy** a zvolte **nastavení aplikace**.
-1. Přejděte dolů k položce **nastavení aplikace** a vytvořit nové nastavení s klíčem "HELLO_HOST". Jeho hodnotu nastavte hostitele back-end funkce aplikace, jako například `<YourBackendApp>.azurewebsites.net`. Toto je část adresy URL, který jste zkopírovali dříve při testování funkce protokolu HTTP. Toto nastavení v konfiguraci později budete odkazovat.
+1. Vyberte **funkce** a zvolte **nastavení aplikace**.
+1. Přejděte dolů k položce **nastavení aplikace** kde páry klíč/hodnota jsou uloženy a vytvořit nové nastavení s klíčem "HELLO_HOST". Jeho hodnotu nastavte hostitele back-end funkce aplikace, jako například `<YourBackendApp>.azurewebsites.net`. Toto je část adresy URL, který jste zkopírovali dříve při testování funkce protokolu HTTP. Toto nastavení v konfiguraci později budete odkazovat.
 
     > [!NOTE] 
     > Nastavení aplikace – se doporučují pro konfigurace hostitele, aby se zabránilo závislost pevně prostředí pro proxy server. Pomocí nastavení aplikace znamená, že můžete přesunout konfiguraci proxy serveru mezi prostředími a nastavení prostředí aplikací se použijí.
@@ -120,7 +120,7 @@ Opakováním kroků [vytvořit aplikaci function app](https://docs.microsoft.com
 
 V dalším kroku použijete proxy serveru k vytvoření imitované rozhraní API pro vaše řešení. To umožňuje vývoje klienta pokroku, bez nutnosti back-end plně implementováno. Později v vývoj může vytvořit novou aplikaci funkce, která podporuje tuto logiku a přesměrování proxy k němu.
 
-Pokud chcete vytvořit toto imitované rozhraní API, vytvoříme nový proxy, toto současně pomocí [Editor služby aplikace](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Chcete-li začít, přejděte na funkce aplikace v portálu. Vyberte **funkce** a najít **App Service Editor**. To kliknutím otevřete Editor služby aplikace na nové kartě.
+Pokud chcete vytvořit toto imitované rozhraní API, vytvoříme nový proxy, toto současně pomocí [Editor služby aplikace](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Chcete-li začít, přejděte na funkce aplikace v portálu. Vyberte **funkce** a v části **nástroje pro vývoj** najít **App Service Editor**. To kliknutím otevřete Editor služby aplikace na nové kartě.
 
 Vyberte `proxies.json` v levém navigačním panelu. Toto je soubor, který ukládá konfiguraci pro všechny vaše servery proxy. Pokud použijete jednu z [funkce metody nasazení](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), toto je soubor bude uchovávat ve správě zdrojového kódu. Další informace o tento soubor naleznete v tématu [proxy Upřesnit konfiguraci](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
@@ -178,7 +178,7 @@ Dále přidáte imitované rozhraní API. Nahraďte souboru proxies.json s násl
 
 Tento postup přidá nový proxy, "GetUserByName", bez backendUri vlastnosti. Namísto volání jiný prostředek, upraví odpověď výchozí proxy pomocí přepsání odpovědi. Přepsání požadavku a odpovědi mohou sloužit také ve spojení s adresou URL back-end. To je zvlášť užitečné, když připojení přes proxy server na starší systém, kde budete muset upravit hlavičky, dotaz parametry atd. Další informace o požadavku a odpovědi přepsání najdete v tématu [úprava požadavky a odpovědi v proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
 
-Testovat imitované rozhraní API voláním `/api/users/{username}` koncového bodu pomocí prohlížeče nebo vaše oblíbené klienta REST. Nezapomeňte nahradit _{username}_ s řetězcovou hodnotu představující uživatelské jméno.
+Testovat imitované rozhraní API voláním `<YourProxyApp>.azurewebsites.net/api/users/{username}` koncového bodu pomocí prohlížeče nebo vaše oblíbené klienta REST. Nezapomeňte nahradit _{username}_ s řetězcovou hodnotu představující uživatelské jméno.
 
 ## <a name="next-steps"></a>Další kroky
 

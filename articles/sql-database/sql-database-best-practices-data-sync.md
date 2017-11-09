@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 6101dfa4bc74acf5045975f6513886fa135fe833
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="best-practices-for-sql-data-sync"></a>Osvědčené postupy pro synchronizaci dat SQL 
+# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Osvědčené postupy pro synchronizaci dat SQL Azure (Preview) 
 
 Tento článek popisuje osvědčené postupy pro synchronizaci dat SQL (Preview).
+
+Přehled synchronizaci dat SQL najdete v tématu [synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure (Preview)](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a>Zabezpečení a spolehlivost
 
@@ -34,7 +36,7 @@ Tento článek popisuje osvědčené postupy pro synchronizaci dat SQL (Preview)
 
 ### <a name="database-accounts-with-least-required-privilege"></a>Databáze účtů s nejnižší požadovaná oprávnění
 
--   **Pro nastavení synchronizace**. Vytvořit nebo Alter Table, Alter Database, vytvořit proceduru, vyberte / Alter schématu, vytvoření uživatelsky definovaný typ..
+-   **Pro nastavení synchronizace**. Vytvořit nebo Alter Table, Alter Database, vytvořit proceduru, vyberte / Alter schématu, vytvoření uživatelsky definovaný typ.
 
 -   **Pro účely trvalé synchronizace**. Vyberte / Vložit / aktualizovat / odstranit v tabulkách vybrány pro synchronizaci a na synchronizovat metadata a tabulky pro sledování, oprávnění spouštět na uložené procedury vytvořených službou, oprávnění ke spuštění na typech uživatelem definovaná tabulka.
 
@@ -221,3 +223,21 @@ Nepokoušejte se odebrat databázi ze skupiny, synchronizaci a pak upravte skupi
 Nejprve odeberte databázi ze skupiny pro synchronizaci. Potom nasazení příslušné změny a počkat na jeho rušení pro dokončení. Po dokončení této operace, můžete upravit skupiny synchronizace a změny nasazení.
 
 Pokud se pokusíte odebrat databázi a pak upravte skupinu synchronizace bez první nasazení změny, jeden nebo jiná operace selže a rozhraní portálu může dojít k nekonzistentnímu stavu. V takovém případě můžete obnovit stránku k obnovení stavu.
+
+## <a name="next-steps"></a>Další kroky
+Další informace o synchronizaci dat SQL najdete v tématu:
+
+-   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](sql-database-sync-data.md)
+-   [Začínáme s Azure SQL synchronizací dat](sql-database-get-started-sql-data-sync.md)
+-   [Řešení problémů s synchronizaci dat SQL Azure](sql-database-troubleshoot-data-sync.md)
+
+-   Dokončete příklady prostředí PowerShell, které ukazují, jak nakonfigurovat synchronizaci dat SQL:
+    -   [Pomocí prostředí PowerShell k synchronizaci mezi více databází Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Synchronizace mezi databáze SQL Azure a místní databáze SQL serveru pomocí prostředí PowerShell](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [Stáhněte si dokumentaci rozhraní API REST synchronizaci dat SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Další informace o databázi SQL najdete v tématu:
+
+-   [Databáze SQL – přehled](sql-database-technical-overview.md)
+-   [Správa životního cyklu databáze](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Zachycení image virtuálního počítače Azure s Windows vytvořeného pomocí modelu klasického nasazení
 > [!IMPORTANT]
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Informace o modelu Resource Manager, najdete v části [zaznamenat bitovou kopii spravované zobecněný virtuálního počítače v Azure](../capture-image-resource.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Tento článek ukazuje, jak zachytit virtuální počítač Azure se systémem Windows, můžete ho použít jako obrázek pro vytvoření dalších virtuálních počítačů. Tento image obsahuje disk operačního systému a datové disky, které jsou připojené k virtuálnímu počítači. Neobsahuje síťových konfigurací, takže budete muset nastavit konfiguraci sítě, když vytvoříte další virtuální počítače, které použít bitovou kopii.
 

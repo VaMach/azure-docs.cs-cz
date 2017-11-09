@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 1b61ed9e4ccbf6961ee465461eab3dce2b758a1c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 25b0d65797b623f96d623d692ee7707b4452860c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabulky .NET API: Stažení a poznámky k verzi
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/06/2017
 |---|---|
 |**Stažení sady SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**Dokumentaci k rozhraní API**|[Referenční dokumentace rozhraní API .NET](https://aka.ms/acdbtableapiref)|
-|**Rychlý start**|[Azure Cosmos DB: sestavení aplikace pomocí rozhraní .NET a v tabulce rozhraní API] (vytvořte tabulky dotnet.md|
+|**Rychlý start**|[Azure Cosmos DB: Sestavení aplikace pomocí rozhraní .NET a Table API](create-table-dotnet.md)|
 |**Kurz**|[Azure CosmosDB: Vytvořte kontejner s rozhraní Graph API](tutorial-develop-graph-dotnet.md)|
 |**Aktuální podporovaných prostředí**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 

@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Vysvětlení architektury Azure Active Directory
-Azure Active Directory (Azure AD) umožňuje zabezpečeně spravovat přístup k prostředkům a službám Azure pro vaše uživatele. Součástí Azure AD je kompletní sada funkcí pro správu identit. Informace o funkcích služby Azure AD najdete v tématu [Co je Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+Azure Active Directory (Azure AD) umožňuje zabezpečeně spravovat přístup k prostředkům a službám Azure pro vaše uživatele. Součástí Azure AD je kompletní sada funkcí pro správu identit. Informace o funkcích služby Azure AD najdete v tématu [Co je Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
-Pomocí Azure AD můžete vytvářet a spravovat uživatele a skupiny a používat sady oprávnění k povolení nebo zamítnutí přístupu k podnikovým prostředkům. Informace o správě identit najdete v tématu věnovaném [základům správy identit Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity).
+Pomocí Azure AD můžete vytvářet a spravovat uživatele a skupiny a používat sady oprávnění k povolení nebo zamítnutí přístupu k podnikovým prostředkům. Informace o správě identit najdete v tématu věnovaném [základům správy identit Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity).
 
 ## <a name="azure-ad-architecture"></a>Architektura Azure AD
 Geograficky distribuovaná architektura služby Azure AD kombinuje rozsáhlé monitorování, automatizované přesměrování, převzetí služeb při selhání a možnosti obnovení, které nám umožňují poskytovat našim zákazníkům výkon a dostupnost na podnikové úrovni.
@@ -79,7 +79,7 @@ Azure AD udržuje [plánovanou dobu obnovení (RTO)](https://en.wikipedia.org/wi
 
 ### <a name="data-centers"></a>Datová centra
 
-Repliky Azure AD jsou uložené v datových centrech rozmístěných po celém světě. Další informace najdete v tématu věnovaném [datovým centrům Azure](https://azure.microsoft.com/en-us/overview/datacenters).
+Repliky Azure AD jsou uložené v datových centrech rozmístěných po celém světě. Další informace najdete v tématu věnovaném [datovým centrům Azure](https://azure.microsoft.com/overview/datacenters).
 
 Azure AD funguje napříč datovými centry s následujícími charakteristikami:
 
@@ -113,8 +113,8 @@ Pokud některá ze služeb Azure AD nefunguje podle očekávání, okamžitě p�
 
 **Bezpečný provoz**
 
-Zavádíme provozní kontrolní mechanismy, jako je vícefaktorové ověřování (MFA) pro všechny operace a také auditování všech operací. Navíc průběžně využíváme systém elevací za běhu k udělení nezbytného dočasného přístupu pro všechny provozní úlohy na vyžádání. Další informace najdete v tématu [Důvěryhodný cloud](https://azure.microsoft.com/en-us/support/trust-center).
+Zavádíme provozní kontrolní mechanismy, jako je vícefaktorové ověřování (MFA) pro všechny operace a také auditování všech operací. Navíc průběžně využíváme systém elevací za běhu k udělení nezbytného dočasného přístupu pro všechny provozní úlohy na vyžádání. Další informace najdete v tématu [Důvěryhodný cloud](https://azure.microsoft.com/support/trust-center).
 
 ## <a name="next-steps"></a>Další kroky
-[Příručka pro vývojáře pro službu Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+[Příručka pro vývojáře pro službu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 

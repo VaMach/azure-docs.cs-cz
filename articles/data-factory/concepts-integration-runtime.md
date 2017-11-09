@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Prostředí Integration Runtime v Azure Data Factory
 Prostředí Integration Runtime (IR) je výpočetní infrastruktura, kterou Azure Data Factory používá k poskytování následujících funkcí integrace dat v různých síťových prostředích:
@@ -155,8 +155,8 @@ Austrálie | Austrálie – východ | Austrálie – východ
 &nbsp; | Austrálie – jihovýchod | Austrálie – jihovýchod
 Japonsko | Japonsko – východ | Japonsko – východ
 &nbsp; | Japonsko – západ | Japonsko – východ
-Korea | Korea – střed | Korea – jih
-&nbsp; | Korea – jih | Korea – jih
+Korea | Korea – střed | Korea – střed
+&nbsp; | Korea – jih | Korea – střed
 Indie | Střed Indie | Střed Indie
 &nbsp; | Indie – západ | Střed Indie
 &nbsp; | Indie – jih | Střed Indie

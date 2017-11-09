@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9b01ff86da6a1fd4a439a6ba59ea15ed6480cdad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 568cad4e394dfedddce1bfce66ddf627947d7568
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Začínáme s Azure Active Directory Identity Protection a Microsoft Graph
 Microsoft Graph je Microsoft unified koncový bod rozhraní API a součástí [Azure Active Directory Identity Protection](active-directory-identityprotection.md) rozhraní API. Rozhraní API first **identityRiskEvents**, umožňuje dotazování Microsoft Graph seznam [rizik události](active-directory-identityprotection-risk-events-types.md) a související informace. Tento článek vám pomůže začít dotazování toto rozhraní API. Podrobný úvod, úplnou dokumentaci a přístup do Průzkumníka grafu naleznete v tématu [Microsoft Graph lokality](https://graph.microsoft.io/).

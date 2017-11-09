@@ -17,11 +17,11 @@ ms.workload: big-data
 ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Připojení k HDInsightu (Hadoop) pomocí protokolu SSH
 
@@ -135,7 +135,7 @@ Informace o změně hesla uživatelského účtu SSH najdete v dokumentu věnova
 
 Pokud používáte __cluster HDInsight připojený k doméně__, musíte po připojení pomocí protokolu SSH použít příkaz `kinit`. Tento příkaz vás vyzve k zadání hesla a uživatele domény a ověří platnost vaší relace s využitím domény služby Azure Active Directory přidružené ke clusteru.
 
-Další informace najdete v tématu [Konfigurace clusterů HDInsight připojených k doméně](hdinsight-domain-joined-configure.md).
+Další informace najdete v tématu [Konfigurace clusterů HDInsight připojených k doméně](./domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="connect-to-nodes"></a>Připojení k uzlům
 
