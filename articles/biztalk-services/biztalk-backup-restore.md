@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Zálohování a obnovení
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Služba Azure BizTalk Services obsahuje funkce zálohování a obnovení. Toto téma popisuje postup zálohování a obnovení služby BizTalk Services pomocí portálu Azure classic.
+Služba Azure BizTalk Services obsahuje funkce zálohování a obnovení. 
 
-Také můžete zálohovat pomocí služby BizTalk Services [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
 > Hybridní připojení se nebudou zálohovány, bez ohledu na verzi. Hybridní připojení, musíte znovu vytvořit.
@@ -34,7 +34,6 @@ Také můžete zálohovat pomocí služby BizTalk Services [BizTalk Services RES
 
 ## <a name="before-you-begin"></a>Než začnete
 * Zálohování a obnovení nemusí být dostupné pro všechny edice. V tématu [služby BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md).
-* Pomocí portálu Azure classic, můžete vytvořit zálohu na vyžádání nebo vytvoření naplánovaného zálohování. 
 * Zálohování obsahu lze obnovit do stejné služby BizTalk nebo novou službu BizTalk. Chcete-li obnovit službu BizTalk pomocí stejného názvu, musíte odstranit stávající službu BizTalk a název musí být k dispozici. Po odstranění služby BizTalk, může trvat delší dobu, než chtěli pro stejný název, který se má k dispozici. Pokud nemůžete počkat na stejný název být k dispozici, pak obnovte novou službu BizTalk.
 * BizTalk Services můžete obnovit do stejné edice, nebo vyšší verze. Obnovení služby BizTalk Services na nižší verzi, z při vytvoření zálohy, není podporováno.
   
@@ -46,70 +45,10 @@ Také můžete zálohovat pomocí služby BizTalk Services [BizTalk Services RES
 * Volitelné: Na portálu služby BizTalk zastavte č. všechny operace správy.
 
 ## <a name="create-a-backup"></a>Vytvoření zálohy
-Zálohu můžete provést kdykoli a zcela řídí můžete. Tato část obsahuje kroky k vytvoření zálohy pomocí portálu Azure classic, včetně:
-
-[Na vyžádání zálohování](#backupnow)
-
-[Plán zálohování](#backupschedule)
-
-#### <a name="backupnow"></a>Na vyžádání zálohování
-1. Na portálu Azure classic, vyberte **BizTalk Services**a potom vyberte službu BizTalk, které chcete zálohovat.
-2. V **řídicí panel** vyberte **zálohování** v dolní části stránky.
-3. Zadejte název zálohy. Zadejte například *myBizTalkService*BU*datum*.
-4. Vyberte účet úložiště blob a klepněte na značku zaškrtnutí zahájíte zálohování.
-
-Po dokončení zálohování se vytvoří kontejner s názvem Zálohování, které zadáte v účtu úložiště. Tento kontejner obsahuje konfiguraci zálohování služby BizTalk.
-
-#### <a name="backupschedule"></a>Plán zálohování
-1. Na portálu Azure classic, vyberte **BizTalk Services**, vyberte název služby BizTalk, které chcete naplánovat zálohování a pak vyberte **konfigurace** kartě.
-2. Nastavte **zálohování stav** k **automatické**. 
-3. Vyberte **účet úložiště** pro uložení zálohy, zadejte **frekvence** vytvářet zálohy a jak dlouho chcete ponechat zálohování (**dní uchovávání**):
-   
-    ![][AutomaticBU]
-   
-    **Poznámky k**     
-   
-   * V **dní uchovávání**, doba uchování musí být větší než je četnost záloh.
-   * Vyberte **vždy vždycky mějte aspoň jednu zálohu**i v případě, že je po dobu uchování.
-4. Vyberte **Uložit**.
-
-Když spustí naplánované úlohy zálohování, vytvoří kontejner (pro uložení zálohy dat) v účtu úložiště, které jste zadali. Název kontejneru je s názvem *služby BizTalk název data a času*. 
-
-Pokud se zobrazí řídicí panel služby BizTalk **se nezdařilo** stavu:
-
-![Stav poslední naplánované zálohy][BackupStatus] 
-
-Odkaz otevře protokoly operaci služby pro správu za účelem odstranění. V tématu [BizTalk Services: řešení problémů pomocí protokolů operací](http://go.microsoft.com/fwlink/p/?LinkId=391211).
+Zálohu můžete provést kdykoli a zcela řídí můžete. Chcete-li vytvořit zálohu, použijte [REST API pro správu služby BizTalk Services v Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ## <a name="restore"></a>Obnovení
-Můžete obnovit zálohy z portálu Azure classic nebo z [obnovit REST API služby BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Tato část obsahuje kroky k obnovení pomocí portálu classic.
-
-#### <a name="before-restoring-a-backup"></a>Před obnovením zálohy
-* Nové sledování, archivace a monitorování úložiště lze zadat během obnovování služby BizTalk.
-* Je obnoven stejná data EDI Runtime. Zálohování EDI Runtime ukládá čísla ovládacího prvku. Obnovené řízení čísla, která jsou v pořadí od okamžiku zálohy. Pokud po poslední záloze zpracování zpráv, obnovení tohoto obsahu zálohování může způsobit duplicitní řízení čísla.
-
-#### <a name="restore-a-backup"></a>Obnovení zálohy
-1. Na portálu Azure classic, vyberte **nový** > **App Services** > **služby BizTalk** > **obnovení**:
-   
-    ![Obnovení zálohy][Restore]
-2. V **zálohování URL**vyberte ikonu složky a rozbalte účtu úložiště Azure, která ukládá zálohu konfigurace s názvem služby BizTalk. Rozbalte kontejner a v pravém podokně, vyberte odpovídající záložní soubor .txt. 
-   <br/><br/>
-   Vyberte **otevřete**.
-3. Na **obnovení služby BizTalk** zadejte **název služby BizTalk** a ověřte **adresa URL domény**, **edice**, a **oblast** obnovené služby BizTalk. **Vytvoření nové instance databáze SQL** pro databázi sledování:
-   
-    ![][RestoreBizTalkService]
-   
-    Vyberte šipku Další.
-4. Ověřte název databáze SQL, zadejte fyzický server, kde bude vytvořena databáze SQL a uživatelské jméno a heslo pro tento server.
-
-    Pokud chcete nakonfigurovat edice databáze SQL, velikost a další vlastnosti, vyberte **nakonfigurovat rozšířené nastavení databáze**. 
-
-    Vyberte šipku Další.
-
-1. Vytvořit nový účet úložiště nebo zadejte existující účet úložiště pro službu BizTalk.
-2. Vyberte na značku zaškrtnutí zahájíte obnovení.
-
-Po úspěšném dokončení obnovení novou službu BizTalk je uvedena v pozastaveném stavu na stránce služby BizTalk Services na portálu Azure classic.
+Chcete-li obnovit zálohu, použijte [REST API pro správu služby BizTalk Services v Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Po obnovení ze zálohy
 Služba BizTalk je vždy obnovit **pozastaveno** stavu. V tomto stavu můžete provést změny konfigurace před nové prostředí je funkční, včetně:
@@ -118,8 +57,6 @@ Služba BizTalk je vždy obnovit **pozastaveno** stavu. V tomto stavu můžete p
 * Obnovení služby BizTalk k replikaci stávajícího prostředí služby BizTalk. V takovém případě-li nakonfigurovat na portálu služby BizTalk Services původní dohody, které používají zdrojové složky FTP, musíte aktualizovat smlouvy v nově obnovený prostředí použít jiné zdrojové složky FTP. Jinak může být dva různé smlouvy pokusu stejnou zprávu pro vyžádání obsahu.
 * Pokud jste obnovili tak, aby měl prostředí s více služby BizTalk, zkontrolujte, zda že cílíte správné prostředí aplikace Visual Studio, rutiny prostředí PowerShell, rozhraní REST API nebo Trading Partner OM rozhraní API pro správu.
 * Je vhodné nakonfigurovat automatické zálohování na nově obnovený prostředí služby BizTalk.
-
-Spusťte službu BizTalk v portálu Azure classic, vyberte službu BizTalk obnovené a vyberte **obnovit** na hlavním panelu. 
 
 ## <a name="what-gets-backed-up"></a>Co se zálohuje
 Při vytvoření zálohy, budou zálohovány následující položky:
@@ -194,13 +131,13 @@ Pokud se odstraní databázi sledování a potřeby databáze obnovena, musí ex
 </table>
 
 ## <a name="next"></a>Další
-Vytvoření služby Azure BizTalk Services na portálu Azure classic, přejděte na [BizTalk Services: zřízení Azure pomocí portálu classic](http://go.microsoft.com/fwlink/p/?LinkID=302280). Pokud chcete začít vytvářet aplikace, přejděte na článek [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Vytvoření služby Azure BizTalk Services, přejděte na [BizTalk Services: zřízení](http://go.microsoft.com/fwlink/p/?LinkID=302280). Pokud chcete začít vytvářet aplikace, přejděte na článek [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Viz také
 * [Zálohování služby BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Služba BizTalk obnovit ze zálohy](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard a Premium tabulka edic](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: Zřízení pomocí Azure portál classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: zřízení](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Tabulka stavů zřízení](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: Karty Řídicí panel, Sledování a Škálování](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Omezování](http://go.microsoft.com/fwlink/p/?LinkID=302282)

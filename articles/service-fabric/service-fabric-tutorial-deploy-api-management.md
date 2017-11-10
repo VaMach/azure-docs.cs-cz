@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Nasazení správy rozhraní API pomocí Service Fabric
-V tomto kurzu je součástí série, dva. V tomto kurzu se dozvíte, jak nastavit [Azure API Management](../api-management/api-management-key-concepts.md) s Service Fabric přesměrovat provoz na back-end služby v Service Fabric.  Jakmile budete hotovi, nasazené API Management k virtuální síti, nakonfigurované operace rozhraní API odesílat provoz do bezstavové služby back-end. Další informace o scénářích Azure API Management s Service Fabric najdete v tématu [přehled](service-fabric-api-management-overview.md) článku.
+V tomto kurzu je součástí série, tři.  Nasazení aplikace Azure API Management s Service Fabric je je pokročilý scénář užitečné, pokud je potřeba publikovat rozhraní API s bohatou sadu pravidel směrování k vašim službám Service Fabric back-end. V tomto kurzu se dozvíte, jak nastavit [Azure API Management](../api-management/api-management-key-concepts.md) s Service Fabric přesměrovat provoz na back-end služby v Service Fabric.  Jakmile budete hotovi, nasazené API Management k virtuální síti, nakonfigurované operace rozhraní API odesílat provoz do bezstavové služby back-end. Další informace o scénářích Azure API Management s Service Fabric najdete v tématu [přehled](service-fabric-api-management-overview.md) článku.
 
 V tomto kurzu se naučíte:
 
@@ -63,6 +63,10 @@ az account set --subscription <guid>
 Cloudové aplikace obvykle nutné front-endu brány zajistit jediný bod příjem příchozích dat pro uživatele, zařízení nebo jiné aplikace. V Service Fabric může být bránu, třeba aplikací ASP.NET Core žádné bezstavové služby nebo jiné služby, které jsou určené pro příchozí provoz, například služby Event Hubs, IoT Hub nebo Azure API Management. Tento kurz je určen Úvod do používání Azure API Management jako brána pro vaše aplikace Service Fabric. API Management se integruje přímo s Service Fabric, že vám umožní publikovat rozhraní API s bohatou sadu pravidel směrování k vašim službám Service Fabric back-end. 
 
 Teď, když máte zabezpečený [clusteru se systémem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [Linux clusteru](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure, a nasadit API Management na virtuální síť (VNET) v podsíti a NSG navržený pro API Management. V tomto kurzu je předem nakonfigurovaný k použití názvy virtuální sítě, podsítě a NSG, které jste nastavili v předchozím šablony Resource Manageru rozhraní API správy [kurzu clusteru Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [kurz Linux clusteru](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
+
+V tomto kurzu nasadí do Azure, ve které jsou v podsítě ve stejné virtuální síti API Management a Service Fabric následující topologie:
+
+ ![Popisek obrázku][sf-apim-topology-overview]
 
 Stáhněte si následující soubor šablony a parametry Resource Manager:
  
@@ -384,7 +388,7 @@ ResourceGroupName="tutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="conclusion"></a>Závěr
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
@@ -393,7 +397,6 @@ V tomto kurzu jste se naučili:
 > * Vytvoření operace rozhraní API
 > * Nakonfigurujte zásady back-end
 > * Přidání rozhraní API do produktu
-
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
@@ -405,3 +408,6 @@ V tomto kurzu jste se naučili:
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

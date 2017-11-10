@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatické ladění ve službě Azure SQL Database
 
@@ -46,10 +46,7 @@ Ladění operace u databází SQL Azure jsou plně bezpečné pro výkon vašich
 
 Automatické ladění mechanismy jsou vyspělá a mít byla dohoda na stovky tisíc databáze spuštěné v Azure. Automatické ladění operations použít automaticky ověření zajistit, že je kladné zlepšování úloh na výkon. Který poklesl výkonu doporučení jsou zjištěna dynamicky a rychle vrátili zpět. Prostřednictvím protokolu ladění historie je zrušte trasování ladění vylepšení provedené v každé databáze SQL Azure. 
 
-Přehled funkce Automatické ladění funguje a příklady typických scénářů použití najdete v tématech vložené video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![Jak funguje automatické ladění](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 Azure SQL Database automatické ladění je svou logikou základní sdílení s automatické ladění stroj SQL Server. Další technické informace o mechanismus vestavěné inteligentní najdete v tématu [automatické ladění serveru SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
 
@@ -60,6 +57,12 @@ Automatické ladění musí se zapnout ručně na vaše předplatné. Pokud chce
 Automatické ladění můžou fungovat samostatně pomocí automatické použití vyladění doporučení, včetně automatické ověření zvýšení výkonu. 
 
 Pro další ovládací prvek může být vypnuto automatické použití ladění doporučení a ladění doporučení se dá ručně použít prostřednictvím portálu Azure. Je také možné použít řešení a zobrazit pouze automatické ladění doporučení použít ručně pomocí skriptů a nástrojů dle vašeho výběru. 
+
+Přehled funkce Automatické ladění funguje a příklady typických scénářů použití naleznete v tématu vložené video:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Automatické možnosti ladění
 

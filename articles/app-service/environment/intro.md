@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 322cf2ebbe83d00fcebcec618e07141d26f4f255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 63e2256ca6d392a0cd284269e8c2d059f94e9139
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Úvod do služby App Service Environment #
  
@@ -67,6 +67,8 @@ App Service Environment může být internetové s veřejnou IP adresu nebo inte
 Aplikace také často potřebují přístup k podnikovým prostředkům, jako jsou třeba interní databáze a webové služby. Pokud nasadíte App Service Environment ve virtuální síti, který má připojení VPN k místní síti, aplikace, které App Service Environment přístup k místním prostředkům. Tato možnost platí bez ohledu na to, jestli je síť VPN [site-to-site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) nebo [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) sítě VPN.
 
 Další informace o tom, jak ASEs práci s virtuálními sítěmi a místními sítěmi najdete v tématu [aspekty sítě služby App Service Environment][ASENetwork].
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
 

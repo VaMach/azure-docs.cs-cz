@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os"></a>Azure hostovaného operačního systému
 Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačního systému Azure v následujících tabulkách. Vyhledávání, zjistěte, pokud konkrétní aktualizace se týká hostovaného operačního systému, kterou používáte. Aktualizace vždy obsahují dál pro konkrétní [rodiny] [ family-explain] byly zavedeny v.
+
+## <a name="october-guest-os"></a>Říjen hostovaného operačního systému
+| Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
+| --- | --- | --- | --- | --- |
+| Relativní 17 10 | [4041691] |Aktualizace Windows 10. |5.12 |10. října 2017 |
+| Relativní 17 10 | [4041678], [4041679], [4041687] |Pouze zabezpečení systému Windows |2.67, 3.54, 4.47 |10. října 2017 |
+| Relativní 17 10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10. října 2017 |
+| Relativní 17 10 | [4041681], [4041690], [4041693] |Měsíční souhrny Windows |2.67, 3.54, 4.47 |10. října 2017 |
+| Není k dispozici | [4038777] |Souhrn září se zabezpečením |2.67 |12. září 2017 |
+| Není k dispozici | [4038799] |Souhrn září se zabezpečením |3.54 |12. září 2017 |
+| Není k dispozici | [4038792] |Souhrn září se zabezpečením |4.47 |12. září 2017 |
+| Není k dispozici | [4040980] |Souhrn bez zabezpečení září .NET |2.67 |12. září 2017 |
+| Není k dispozici | [4040979] |Souhrn bez zabezpečení září .NET |3.54 |12. září 2017 |
+| Není k dispozici | [4040981] |Souhrn bez zabezpečení září .NET |4.47 |12. září 2017 |
 
 ## <a name="september-guest-os"></a>Září hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -535,6 +549,20 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Není k dispozici |[2999802] |Plné čáry místo čáry s koncovými body jsou vytištěn v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Není k dispozici |[2896881] |Dlouhé doby přihlášení při použití příkazu AddPrinterConnection VBScript mapovat tiskárny pro uživatele během procesu přihlášení v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4041691]: http://support.microsoft.com/kb/4041691 
+[4041678]: http://support.microsoft.com/kb/4041678 
+[4041679]: http://support.microsoft.com/kb/4041679
+[4041687]: http://support.microsoft.com/kb/4041687
+[4040685]: http://support.microsoft.com/kb/4040685
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041690]: http://support.microsoft.com/kb/4041690
+[4041693]: http://support.microsoft.com/kb/4041693
+[4038777]: http://support.microsoft.com/kb/4038777
+[4038799]: http://support.microsoft.com/kb/4038799
+[4038792]: http://support.microsoft.com/kb/4038792
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040979]: http://support.microsoft.com/kb/4040979
+[4040981]: http://support.microsoft.com/kb/4040981
 
 [4038782]: http://support.microsoft.com/kb/4038782
 [4038779]: http://support.microsoft.com/kb/4038779

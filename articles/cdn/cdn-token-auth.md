@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Zabezpečení prostředků Azure Content Delivery Network pomocí tokenu ověřování
 
@@ -30,7 +30,7 @@ Ověření pomocí tokenu je mechanismus, který umožňuje zabránit obsluhují
 
 ## <a name="how-it-works"></a>Jak to funguje
 
-Ověření pomocí tokenu ověřuje, že požadavky generované jako důvěryhodný web tím, že tyto blokování kódovaný informace o žadatel požadavky tak, aby obsahovala hodnota tokenu. Obsahu obsluhovaného pro žadatele pouze v případě, že je zakódovaný informace splňuje požadavky; požadavky, jinak budou odepřeny. Požadavky můžete nastavit pomocí jednoho nebo více z následujících parametrů:
+Ověření pomocí tokenu ověřuje, že požadavky jsou generovány jako důvěryhodný web tím, že požadavky na obsahovat hodnotu tokenu, aby blokování kódovaný informace o žadatel. Obsahu obsluhovaného pro žadatele pouze v případě, že je zakódovaný informace splňuje požadavky; požadavky, jinak budou odepřeny. Požadavky můžete nastavit pomocí jednoho nebo více z následujících parametrů:
 
 - Země: Povolit nebo odmítnout požadavky, které pocházejí z uvedených zemích jejich [kód země](https://msdn.microsoft.com/library/mt761717.aspx).
 - Adresa URL: Povolit pouze požadavky, které odpovídají daný prostředek nebo cestu.
@@ -41,8 +41,6 @@ Ověření pomocí tokenu ověřuje, že požadavky generované jako důvěryhod
 - Čas vypršení platnosti: přiřadit datum a čas období zajistit, aby zůstala odkaz platný pouze po omezenou dobu.
 
 Další informace najdete v tématu příklady podrobnou konfiguraci pro každý parametr [nastavení ověření pomocí tokenu](#setting-up-token-authentication).
-
-Po vytvoření zašifrovaného tokenu, připojte ji jako řetězec dotazu na konec adresy URL cesta k souboru. Například, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Referenční architektura
 
@@ -64,15 +62,21 @@ Následující vývojový diagram popisuje, jak Azure CDN ověří požadavek kl
 
 2. Pozastavte ukazatel myši nad **HTTP velké**a potom klikněte na **tokenu ověřování** v plovoucím panelem. Pak můžete nastavit šifrovací klíč a parametry šifrování následujícím způsobem:
 
-    1. Zadejte jedinečný šifrovací klíč v **primární klíč** a volitelně zadejte klíč ze zálohy v **záložní klíč** pole.
-
-        ![CDN tokenu ověřování Instalační klíč](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Vytvořte jeden nebo více šifrovací klíče. Šifrovací klíč je malá a velká písmena a může obsahovat libovolnou kombinaci alfanumerických znaků. U jiných typů znaků včetně mezer, nejsou povoleny. Maximální délka je 250 znaků. K zajištění, že šifrovací klíče jsou náhodné, se doporučuje, můžete vytvořit pomocí nástroje OpenSSL. Nástroj OpenSSL má následující syntaxi: `rand -hex <key length>`. Například, `OpenSSL> rand -hex 32`. Výpadky, vytvořte primární a záložní klíč. Záložní klíč poskytuje bez přerušení přístup k vašemu obsahu, když se primární klíč se právě aktualizuje.
     
-    2. Nastavte parametry šifrování pomocí nástroje šifrovat. Pomocí nástroje šifrování můžete povolit nebo odepřít požadavků podle čas vypršení platnosti, země, odkazující server, protokol a IP adresa klienta (v libovolné kombinace). 
+    2. Zadejte jedinečný šifrovací klíč v **primární klíč** a volitelně zadejte klíč ze zálohy v **záložní klíč** pole.
 
-        ![CDN šifrování nástroje](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Vyberte verzi minimální šifrování pro každý klíč z jeho **minimální verze šifrování** rozevíracího seznamu a pak klikněte na **aktualizace**:
+       - **V2**: označuje, že klíč můžete použít ke generování tokenů verze 2.0 a 3.0. Tuto možnost použijte pouze v případě, že se přechodu ze šifrovací klíč starší verze 2.0 pro klíč verze 3.0.
+       - **V3**: (doporučeno) označuje, že klíč lze použít pouze ke generování tokenů verze 3.0.
 
-       Zadejte hodnoty pro jeden nebo více z následujících parametrů šifrování v **šifrování nástroj** oblasti:  
+    ![CDN tokenu ověřování Instalační klíč](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Použijte nástroj šifrovat nastavit parametry šifrování a vygenerovat token. Pomocí nástroje šifrování můžete povolit nebo odepřít požadavků podle čas vypršení platnosti, země, odkazující server, protokol a IP adresa klienta (v libovolné kombinace). I když neexistuje žádné omezení počtu a kombinace parametrů, které mohou být kombinovány a vytvořit token, je celková délka token maximálně 512 znaků. 
+
+       ![CDN šifrování nástroje](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Zadejte hodnoty pro jeden nebo více z následujících parametrů šifrování v **šifrování nástroj** části:  
 
        - **ec_expire**: přiřadí čas vypršení platnosti tokenu, po jejímž uplynutí vyprší platnost tokenu. Požadavky na odeslání po čas vypršení platnosti je odepřen. Tento parametr používá časové razítko systému Unix, která je založena na počtu sekund od standardní epocha `1/1/1970 00:00:00 GMT`. (Online nástroje můžete pro převod mezi (běžný čas) a Unix času.) Například, pokud chcete ukončit platnost tokenu `12/31/2016 12:00:00 GMT`, použijte hodnotu časového razítka Unix, `1483185600`, a to takto. 
     
@@ -98,7 +102,7 @@ Následující vývojový diagram popisuje, jak Azure CDN ověří požadavek kl
     
        - **ec_ref_allow**: umožňuje pouze požadavky z odkazující zadaný server. Odkazující server identifikuje adresu URL webové stránky, která je propojený s požadovaný prostředek. Odkazující server parametr hodnoty nebudou obsahovat protokol. Pro hodnotu parametru jsou povoleny následující typy vstup:
            - Název hostitele nebo název hostitele a cestu.
-           - Chcete-li odkazující více servery. Chcete-li přidat více odkazujících serverů, oddělte čárkou odkazující na každý server. Pokud zadáte hodnotu odkazující server, ale odkazující server informace nebudou odeslány v požadavek z důvodu konfigurace prohlížeče, jsou ve výchozím nastavení zamítnutý tyto požadavky. 
+           - Chcete-li odkazující více servery. Chcete-li přidat více odkazujících serverů, oddělte čárkou odkazující na každý server. Pokud zadáte hodnotu odkazující server, ale odkazující server informace nebudou odeslány v požadavek z důvodu konfigurace prohlížeče, požadavek se odmítne ve výchozím nastavení. 
            - Požadavky s chybějícími informacemi o odkazující server. Povolit tyto typy požadavků, zadejte text "chybí" nebo zadejte prázdnou hodnotu. 
            - Subdomény. Chcete-li povolit subdomény, zadejte hvězdičku (\*). Chcete-li například povolit všechny subdomény z `consoto.com`, zadejte `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ Následující vývojový diagram popisuje, jak Azure CDN ověří požadavek kl
             
          ![Příklad ec_clientip CDN](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. Po dokončení zadání hodnot parametrů šifrování, vyberte typ klíče pro šifrování (Pokud jste vytvořili primární a záložní klíč) z **klíč k šifrování** seznamu, je šifrování verze z  **Šifrování verze** seznamu a pak klikněte na **šifrovat**.
+    5. Po dokončení zadání hodnot parametrů šifrování, vyberte klíč k šifrování (Pokud jste vytvořili primární a záložní klíč) z **klíč k šifrování** seznamu.
+    
+    6. Vyberte verzi šifrování z **šifrování verze** seznamu: **V2** verze 2 nebo **V3** pro verze 3 (doporučeno). Potom klikněte na **šifrovat** k vygenerování tokenu.
+
+    Po vygenerování tokenu se zobrazí v **vygenerovat Token** pole. Chcete-li použít token, připojte ji jako řetězec dotazu na konec souboru v cestě adresy URL. Například, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. Volitelně můžete Otestujte váš token pomocí nástroje dešifrování. Vložte hodnotu tokenu ve **tokenu k dešifrování** pole. Vyberte typ šifrovací klíč pro dešifrování z **klíč pro dešifrování** rozevíracího seznamu a pak klikněte na **dešifrovat**.
+    7. Volitelně můžete Otestujte váš token pomocí nástroje dešifrování. Vložte hodnotu tokenu ve **tokenu k dešifrování** pole. Vyberte použití šifrování klíče z **klíč pro dešifrování** rozevíracího seznamu a pak klikněte na **dešifrovat**.
 
-    5. Volitelně můžete přizpůsobte typ kód odpovědi, která je vrácena, pokud požadavek je odepřen. Vyberte kód z **kód odpovědi** rozevíracího seznamu a klikněte na tlačítko **Uložit**. **403** kód odpovědi (zakázáno) je standardně vybraná. Pro některé kódy odpovědí, můžete také zadat adresu URL chybovou stránku v **hodnota hlavičky** pole. 
+    Po token se dešifruje, jeho parametry se zobrazí v **původní parametry** pole.
 
-    6. Po vygenerování zašifrovaný token ji můžete připojit jako řetězec dotazu na konec souboru v cestě adresy URL. Například, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. Volitelně můžete přizpůsobte typ kód odpovědi, která je vrácena, pokud požadavek je odepřen. Vyberte kód z **kód odpovědi** rozevíracího seznamu a klikněte na tlačítko **Uložit**. **403** kód odpovědi (zakázáno) je standardně vybraná. Pro některé kódy odpovědí, můžete také zadat adresu URL chybovou stránku v **hodnota hlavičky** pole. 
 
 3. V části **HTTP velké**, klikněte na tlačítko **stroj pravidel**. Stroj pravidel používáte k definování cesty použít funkci, povolte funkci ověření pomocí tokenu a povolit další token funkce souvisejících s ověřováním. Další informace najdete v tématu [pravidla modul odkaz](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ Dostupné jazyky patří:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funkce a zprostředkovatele ceny
 
-Informace najdete v tématu [přehled CDN](cdn-overview.md).
+Informace o funkcích najdete v tématu [přehled CDN](cdn-overview.md). Informace o cenách najdete v tématu [Content Delivery Network ceny](https://azure.microsoft.com/pricing/details/cdn/).

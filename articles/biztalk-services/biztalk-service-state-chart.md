@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Můžete a nemůže provádět pomocí stavu služby BizTalk
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 V závislosti na aktuální stav služby BizTalk jsou operace, které lze nebo nelze provést na službu BizTalk.
 
-Například můžete zřídit nové služby BizTalk v portálu Azure classic. Po úspěšném dokončení, služba BizTalk je v `active` stavu. V aktivním stavu můžete zastavit, pozastavit a odstranit službu BizTalk. Pokud zastavíte službu BizTalk a zastavení selže, pak službu BizTalk přejde na `StopFailed` stavu. V `StopFailed` stavu, můžete restartovat službu BizTalk. Pokud se pokusíte operaci, která není povolena, jako je obnovení, došlo k následující chybě:
+Například můžete zřídit novou službu BizTalk. Po úspěšném dokončení, služba BizTalk je v `active` stavu. V aktivním stavu můžete zastavit, pozastavit a odstranit službu BizTalk. Pokud zastavíte službu BizTalk a zastavení selže, pak službu BizTalk přejde na `StopFailed` stavu. V `StopFailed` stavu, můžete restartovat službu BizTalk. Pokud se pokusíte operaci, která není povolena, jako je obnovení, došlo k následující chybě:
 
 `Operation not allowed`
 
@@ -52,7 +52,6 @@ V následujících tabulkách jsou uvedeny operace nebo akce, které lze provés
 
 
 ## <a name="see-also"></a>Viz také
-* [Vytvoření služby BizTalk pomocí portálu Azure classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Co můžete dělat na řídicí panel, sledování a škálování kartách ve službě BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Získat s edice Developer, Basic, Standard a Premium ve službě BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Postup zálohování a obnovení služby BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

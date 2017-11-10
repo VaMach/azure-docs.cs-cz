@@ -1,6 +1,6 @@
 ---
 title: "Řídicí panel, sledování, měřítko, konfigurovat a hybridní připojení ve službě BizTalk Services | Microsoft Docs"
-description: "Další informace o ovládací prvky a sledovat výkon na kartě klasického portálu služby BizTalk Services: řídicí panel, sledování, škálování, konfigurovat a hybridní připojení. MABS, WABS"
+description: "Další informace o ovládací prvky a sledovat výkon služby BizTalk Services"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Kontrola karet řídicího panelu, monitorování, škálování, konfigurace a hybridní připojení
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Po vytvoření služby BizTalk a nasazení aplikace, můžete změnit některá nastavení služby BizTalk a monitorování výkonu aplikací. 
 
-Když otevřete portál Azure classic, je automaticky umístí na **všechny položky** kartě. Chcete-li zobrazit vaše služba BizTalk, vyberte svoji službu BizTalk v **všechny položky** kartě nebo vyberte **BIZTALK SERVICES** kartě; a potom vyberte název vaší služby BizTalk.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Otevře se nové okno s následujícími kartami. Toto téma popisuje těchto karet.
 
@@ -84,9 +84,9 @@ Například chcete službu BizTalk používat nový primární klíč pro účet
 <br/><br/>
 <ol>
 <li>Vyberte svoji službu BizTalk a vyberte <strong>synchronizace klíčů</strong>. Vyberte sekundární klíč. Když to uděláte, spuštění služby BizTalk pomocí sekundární klíč.</li>
-<li>Na portálu Azure classic vyberte svůj účet úložiště a obnovit primární klíč. Pamatujte si, že se vaše služba BizTalk používá sekundární klíč.</li>
+<li>Vyberte účet úložiště a obnovit primární klíč. Pamatujte si, že se vaše služba BizTalk používá sekundární klíč.</li>
 <li>Vyberte svoji službu BizTalk a vyberte <strong>synchronizace klíčů</strong>. Nyní vyberte primární klíč. Toto je nový primární klíč, můžete se znova vygeneroval.</li>
-<li>Na portálu Azure classic vyberte svůj účet úložiště a obnovit sekundární klíč.</li>
+<li>Vyberte účet úložiště a obnovit sekundární klíč.</li>
 </ol>
 <br/>
 Tento proces se nazývá "výměny klíčů". Účelem je umožnit uživatelům přepínat mezi primární klíč a sekundární klíč bez přerušení služby BizTalk.</td>
@@ -169,7 +169,7 @@ Popis tyto metriky výkonu, přejděte na [dostupné metriky](#Metrics) v tomto 
 </tr>
 <tr>
 <td><strong>Název odběru</strong></td>
-<td>Uvádí odběr, který je hostitelem služby BizTalk. Předplatné řídí přístup k portálu Azure classic.</td>
+<td>Uvádí odběr, který je hostitelem služby BizTalk. Předplatné řídí přístup.</td>
 </tr>
 <tr>
 <td><strong>ID předplatného</strong></td>
@@ -177,7 +177,7 @@ Popis tyto metriky výkonu, přejděte na [dostupné metriky](#Metrics) v tomto 
 </tr>
 </table>
 
-[BizTalk Services: Zřízení pomocí Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) obsahuje kroky k vytvoření služby BizTalk.
+[BizTalk Services: Zřízení](http://go.microsoft.com/fwlink/p/?LinkID=302280) obsahuje kroky k vytvoření služby BizTalk.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Spravovat informace o připojení, synchronizace klíče a odstranění na hlavním panelu:
 <table border="1">
@@ -206,9 +206,9 @@ Například chcete službu BizTalk používat nový primární klíč pro účet
 <br/><br/>
 <ol>
 <li>Vyberte svoji službu BizTalk a vyberte <strong>synchronizace klíčů</strong>. Vyberte sekundární klíč. Když to uděláte, spuštění služby BizTalk pomocí sekundární klíč.</li>
-<li>Na portálu Azure classic vyberte svůj účet úložiště a obnovit primární klíč. Pamatujte si, že se vaše služba BizTalk používá sekundární klíč.</li>
+<li>Vyberte účet úložiště a obnovit primární klíč. Pamatujte si, že se vaše služba BizTalk používá sekundární klíč.</li>
 <li>Vyberte svoji službu BizTalk a vyberte <strong>synchronizace klíčů</strong>. Nyní vyberte primární klíč. Toto je nový primární klíč, můžete se znova vygeneroval.</li>
-<li>Na portálu Azure classic vyberte svůj účet úložiště a obnovit sekundární klíč.</li>
+<li>Vyberte účet úložiště a obnovit sekundární klíč.</li>
 </ol>
 <br/>
 Tento proces se nazývá "výměny klíčů". Účelem je umožnit uživatelům přepínat mezi primární klíč a sekundární klíč bez přerušení služby BizTalk.</td>
@@ -329,7 +329,7 @@ Nastaví stav zálohování na hodnotu None nebo automaticky. Pokud nastavíte n
 [Služba BizTalk Services: Zálohování a obnovení](biztalk-backup-restore.md) nabízí podrobné informace. 
 
 ## <a name="HybridConnections"></a>Hybridní připojení
-Hybridní připojení aplikací Azure, jako je Web Apps nebo Mobile Apps v Azure App Service připojit k místnímu prostředku, který používá statický port TCP, jako je například SQL Server, MySQL, webové rozhraní API HTTP a většina vlastních webových služeb. Hybridní připojení se spravují v BizTalk Services na portálu Azure classic.
+Hybridní připojení aplikací Azure, jako je Web Apps nebo Mobile Apps v Azure App Service připojit k místnímu prostředku, který používá statický port TCP, jako je například SQL Server, MySQL, webové rozhraní API HTTP a většina vlastních webových služeb. Hybridní připojení se spravují v BizTalk Services.
 
 Pokud chcete vytvořit ani spravovat hybridní připojení ve službě Azure BizTalk Services, přečtěte si téma [hybridní připojení](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Teď, když jste obeznámeni s různých kartách, další informace o funkcích
 ## <a name="see-also"></a>Viz také
 * [Hybridní připojení](integration-hybrid-connection-overview.md)  
 * [BizTalk Services: Developer, Basic, Standard a Premium tabulka edic](biztalk-editions-feature-chart.md)  
-* [BizTalk Services: Zřízení pomocí Azure portál classic](biztalk-provision-services.md)  
+* [BizTalk Services: zřízení](biztalk-provision-services.md)  
 * [BizTalk Services: Tabulka stav služby BizTalk](biztalk-service-state-chart.md)  
 * [Jak začít používat sadu SDK Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

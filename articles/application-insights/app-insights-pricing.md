@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Správa svazku ceny a data ve službě Application Insights
 
@@ -39,7 +39,7 @@ Najdete v článku [Application Insights stránce s cenami] [ pricing] pro aktu�
 Základní plán je výchozí, když je vytvořen nový prostředek Application Insights a postačí pro většinu zákazníků.
 
 * V základní plán, budou se vám účtovat podle objemu dat: počet bajtů přijatých Application Insights telemetrie. Datový svazek se měří jako velikost nekomprimovaných dat balíčku JSON přijatých Application Insights z vaší aplikace.
-Pro [tabulková data importovat Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), datový svazek se měří jako velikost nekomprimovaných souborů odeslaných do služby Application Insights.  
+Pro [tabulková data importovat Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), datový svazek se měří jako velikost nekomprimovaných souborů odeslaných do služby Application Insights.  
 * Vaše první 1 GB pro každou aplikaci je zdarma, takže pokud jste právě experimentování nebo vývoj, budete pravděpodobně muset platit.
 * [Živý datový proud metriky](app-insights-live-stream.md) dat není počítá o cenách pro účely.
 * [Průběžné Export](app-insights-export-telemetry.md) je k dispozici pro poplatek za navíc za GB v základní plán.

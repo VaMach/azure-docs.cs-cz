@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Výpočetní kontextu možnosti pro R Server v HDInsight
 
@@ -42,7 +42,7 @@ Obecně platí R skript, který běží v R Server na uzlu edge běží v rámci
 
 Následující tabulka shrnuje různé možnosti kontextu výpočetní nastavit, jak jsou vykonány volání:
 
-| Výpočetní kontextu  | Postup nastavení                      | Kontext spuštění                        |
+| Výpočetní kontext  | Postup nastavení                      | Kontext spuštění                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
 | Místní sekvenčních | rxSetComputeContext('local')    | Provádění paralelizovaná málo napříč jádrech hraničního uzlu serveru, s výjimkou rxExec volání, které jsou prováděny sériově |
 | Místní paralelní   | rxSetComputeContext('localpar') | Provádění paralelizovaná málo napříč jádrech hraničního uzlu serveru |
@@ -83,6 +83,5 @@ V tomto článku jste se dozvěděli o možnostech, které jsou k dispozici k ur
 
 * [Přehled R Server pro Hadoop](r-server-overview.md)
 * [Začínáme s R Server pro Hadoop](r-server-get-started.md)
-* [Přidání serveru Rstudia do HDInsight (Pokud není při vytváření clusteru přidat)](r-server-install-r-studio.md)
 * [Možnosti služby Azure Storage pro R Server ve službě HDInsight](r-server-storage.md)
 

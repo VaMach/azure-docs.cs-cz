@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: raynew
-ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Obchodní kontinuitu a zotavení po havárii (BCDR): spárovat oblasti Azure
 
@@ -48,7 +48,8 @@ Obrázek 1 – Azure regionální pár diagram
 | Evropa |Severní Evropa |Západní Evropa |
 | Japonsko |Japonsko – východ |Japonsko – západ |
 | Brazílie |Brazílie – Jih (1) |Střed USA – jih |
-| US Government |USA (Gov) – Iowa |USA (Gov) – Virginia |
+| US Government |USA – verze pro státní správu Iowa (2) |USA (Gov) – Virginia |
+| US Government |USA – verze pro státní správu Virginia (3) |USA (Gov) – Texas |
 | US Government |USA (Gov) – Arizona |USA (Gov) – Texas |
 | USA – oddělení obrany |US DoD – východ |US DoD – střed |
 | SPOJENÉ KRÁLOVSTVÍ |Spojené království – západ |Spojené království – jih |
@@ -57,6 +58,10 @@ Obrázek 1 – Azure regionální pár diagram
 Tabulka 1 - mapování regionální párů Azure
 
 > (1) Brazílie – jih je jedinečný, protože je spárován s oblastí mimo svůj vlastní geography. Brazílie – jih sekundární oblast je jihu USA, ale jihu USA na sekundární oblast není Brazílie – jih.
+>
+> (2) sekundární oblast USA – verze pro státní správu Iowa je Virginia nám verze pro státní správu, ale nám verze pro státní správu Virginia sekundární oblast není Iowa nám verze pro státní správu.
+> 
+> (3) sekundární oblast USA verze pro státní správu Virginia je Texas nám verze pro státní správu, ale nám verze pro státní správu Texas sekundární oblast není Virginia nám verze pro státní správu.
 
 
 Doporučujeme, abyste replikaci úloh mezi místní dvojice k těžit z Azure a zásad izolace a dostupnost. Například aktualizace plánované systému Azure se nasadí postupně (ne ve stejnou dobu) přes spárované oblasti. To znamená, že i v výjimečná událost vadný aktualizace, obou oblastí to nebude mít vliv současně. Navíc k nepravděpodobnému široký výpadku obnovení alespoň jedné oblasti mimo každý pár prioritu.

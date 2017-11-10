@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Příprava prostředí pro zálohování virtuálních počítačů s nasazením Resource Manageru
 > [!div class="op_single_selector"]
@@ -56,6 +56,12 @@ Než se připravíte prostředí, prosím vědět o omezeních.
 
 * Zálohování virtuálních počítačů s více než 16 datových disků není podporována.
 * Nepodporuje zálohování virtuálních počítačů s daty velikosti disku je větší než 1023GB.
+
+> [!NOTE]
+> Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s > 1TB nespravované disky. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * Zálohování virtuálních počítačů s vyhrazenou IP adresu a žádný definovaný koncový bod není podporována.
 * Zálohování virtuálních počítačů, které jsou šifrované pomocí právě BEK není podporováno. Zálohování virtuálních počítačů Linux zašifrovaná pomocí šifrování na LUKS není podporováno.
 * Zálohování virtuálních počítačů obsahující Volumes(CSV) sdílené clusteru nebo škálování se konfigurace souborového serveru se nedoporučuje, protože vyžadují zahrnující všechny virtuální počítače, které jsou součástí konfigurace clusteru během úlohy snímku. Zálohování Azure nepodporuje konzistence více virtuálních počítačů. 

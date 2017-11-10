@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a90eb0eae6855cd0fbede65a024b5ff6490cce0
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Předkonfigurované architektury řešení vzdáleného monitorování
 
@@ -42,7 +42,7 @@ Následující diagram popisuje logické součásti tohoto řešení vzdálenéh
 Architektura Cloud má vyvinuly vzhledem k tomu, že společnost Microsoft vydala první předkonfigurovaných řešení. [Mikroslužeb](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) této služby jako osvědčené postupy pro zajištění škálování a flexibilitu, aniž by došlo ke ztrátě vývoj rychlostí. Tento vzor architektury několika služeb Microsoft interně použít s skvělé spolehlivosti a škálovatelnosti výsledky. Aktualizované předkonfigurovaná řešení uveďte tyto learnings do praxe, mohou také těžit z nich.
 
 > [!TIP]
-> Další informace o architektury mikroslužby najdete v tématu [Architektura aplikace .NET](https://www.microsoft.com/net/learn/architecture) a [Mikroslužeb: revolution aplikace používá technologii cloudu](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+> Další informace o architekturách mikroslužeb najdete v tématech věnovaných [architektuře aplikací .NET](https://www.microsoft.com/net/learn/architecture) a [mikroslužbám jako revoluci v aplikacích, kterou umožnil cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="device-connectivity"></a>Připojení zařízení
 
@@ -141,5 +141,6 @@ Pokud chcete prozkoumat zdrojový kód a vývojáře dokumentaci, začněte s je
 
 * [Předkonfigurované řešení pro vzdálené monitorování s Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Předkonfigurované řešení pro vzdálené monitorování s Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Předkonfigurované řešení pro vzdálené monitorování architekturu)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Další koncepční informace o předkonfigurovaného řešení vzdáleného monitorování najdete v tématu [přizpůsobení předkonfigurovaného řešení](iot-suite-remote-monitoring-customize.md).

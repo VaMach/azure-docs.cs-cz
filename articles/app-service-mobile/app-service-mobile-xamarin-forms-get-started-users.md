@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Přidání ověřování do aplikace Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -38,7 +38,7 @@ Pokud použijete serverový projekt stažené rychlý start, musíte přidat bal
 
 Zabezpečené ověřování vyžaduje, můžete definovat nové schéma adresy URL pro vaši aplikaci. To umožňuje ověřování systému přesměrovat zpět do aplikace po dokončení procesu ověřování. V tomto kurzu používáme schématu adresy URL _appname_ v průběhu. Můžete však použít žádné schéma adresy URL, které zvolíte. Musí být jedinečné pro mobilní aplikace. Chcete povolit přesměrování na straně serveru:
 
-1. V [portál Azure] vyberte App Service.
+1. V [portál Azure][8], vyberte svoji službu aplikace.
 
 2. Klikněte **ověřování / autorizace** možnost nabídky.
 
@@ -166,9 +166,9 @@ V této části ukazuje, jak implementovat **IAuthenticate** rozhraní v projekt
 
     Pokud používáte zprostředkovatele identity než Facebook, zvolte jinou hodnotu pro [MobileServiceAuthenticationProvider][7].
 
-6. Přidejte následující kód do <application> uzlu AndroidManifest.xml:
+6. Aktualizace **AndroidManifest.xml** přidáním následující kód XML v souboru `<application>` element:
 
-```xml
+    ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -177,15 +177,15 @@ V této části ukazuje, jak implementovat **IAuthenticate** rozhraní v projekt
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. Přidejte následující kód, který **OnCreate** metodu **MainActivity** třída před voláním `LoadApplication()`:
+    ```
+    Nahraďte `{url_scheme_of_your_app}` s vaše schéma adresy URL.
+7. Přidejte následující kód, který **OnCreate** metodu **MainActivity** třída před voláním `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
     Tento kód zajistí, že ověřovacích se inicializuje před zatížení aplikace.
-2. Znovu sestavte aplikaci, spusťte ji a pak přihlásit se pomocí zprostředkovatele ověřování, které jste zvolili a ověřte, zda že budete moci získat přístup k datům jako ověřený uživatel.
+8. Znovu sestavte aplikaci, spusťte ji a pak přihlásit se pomocí zprostředkovatele ověřování, které jste zvolili a ověřte, zda že budete moci získat přístup k datům jako ověřený uživatel.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Přidání ověřování do aplikace pro iOS
 V této části ukazuje, jak implementovat **IAuthenticate** rozhraní v projektu aplikace pro iOS. Tuto část přeskočte, pokud nejsou podporujete zařízení s iOS.
@@ -236,28 +236,28 @@ V této části ukazuje, jak implementovat **IAuthenticate** rozhraní v projekt
         }
 
     Pokud používáte zprostředkovatele identity než Facebook, zvolte jinou hodnotu pro [MobileServiceAuthenticationProvider].
-
-6. Aktualizace třídy AppDelegate přidáním přetížení metody OpenUrl (UIApplication aplikaci a adresu url nsurl, který, NSDictionary možnosti)
+    
+6. Aktualizace **AppDelegate** třída přidáním **OpenUrl** metoda přetížení následujícím způsobem:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
-
-6. Přidejte následující řádek kódu **FinishedLaunching** metody před volání `LoadApplication()`:
+   
+7. Přidejte následující řádek kódu **FinishedLaunching** metody před volání `LoadApplication()`:
 
         App.Init(this);
 
     Tento kód zajistí, že je ověřovacích inicializovat před načtením aplikace.
 
-6. Přidat **{url_scheme_of_your_app}** na schémata URL v Info.plist.
+8. Otevřete Info.plist a přidejte **adresa URL typu**. Nastavte **identifikátor** název dle vlastního výběru, **schémata URL** na schéma adresy URL pro aplikaci a **Role** na hodnotu None.
 
-7. Znovu sestavte aplikaci, spusťte ji a pak přihlásit se pomocí zprostředkovatele ověřování, které jste zvolili a ověřte, zda že budete moci získat přístup k datům jako ověřený uživatel.
+9. Znovu sestavte aplikaci, spusťte ji a pak přihlásit se pomocí zprostředkovatele ověřování, které jste zvolili a ověřte, zda že budete moci získat přístup k datům jako ověřený uživatel.
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Přidání ověřování do aplikace projekty Windows 10 (včetně Phone)
 V této části ukazuje, jak implementovat **IAuthenticate** rozhraní v projektech aplikace Windows 10. Stejný postup platí pro univerzální platformu Windows (UWP) projekty, ale pomocí **UWP** projektu (s uvedené změny). Tuto část přeskočte, pokud nejsou podpora zařízení se systémem Windows.
 
-1. "V sadě Visual Studio, klikněte pravým tlačítkem na buď **UWP** projekt, pak **nastavit jako spouštěný projekt**.
+1. V sadě Visual Studio, klikněte pravým tlačítkem myši **UWP** projekt, pak **nastavit jako spouštěný projekt**.
 2. Stisknutím klávesy F5 spusťte projekt v ladicím programu a potom ověřte, že k neošetřené výjimce s stavový kód 401 (Neautorizováno) se vyvolá po spuštění aplikace. Odpovědi 401 se stane, protože přístup na back-end je omezený pouze autorizovaným uživatelům.
 3. Otevřete MainPage.xaml.cs pro projekt aplikace Windows a přidejte následující `using` příkazy:
 
@@ -306,7 +306,7 @@ V této části ukazuje, jak implementovat **IAuthenticate** rozhraní v projekt
             return success;
         }
 
-    Pokud používáte zprostředkovatele identity než Facebook, zvolte jinou hodnotu pro [MobileServiceAuthenticationProvider].
+    Pokud používáte zprostředkovatele identity než Facebook, zvolte jinou hodnotu pro [MobileServiceAuthenticationProvider][7].
 
 1. Přidejte následující řádek kódu v konstruktoru pro **MainPage** třída před voláním `LoadApplication()`:
 
@@ -326,12 +326,9 @@ V této části ukazuje, jak implementovat **IAuthenticate** rozhraní v projekt
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
                 TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
-
        }
 
-   Při přepsání metody již existuje, přidáte kód podmíněného z předchozí fragment kódu.  Tento kód se nevyžaduje pro projekty pro Universal Windows.
-
-3. Přidat **{url_scheme_of_your_app}** v Package.appxmanifest. 
+3. Otevřete Package.appxmanifest a přidejte **protokol** deklarace. Nastavte **zobrazovaný název** na název vašeho výběru a **název** na schéma adresy URL pro aplikaci.
 
 4. Znovu sestavte aplikaci, spusťte ji a pak přihlásit se pomocí zprostředkovatele ověřování, které jste zvolili a ověřte, zda že budete moci získat přístup k datům jako ověřený uživatel.
 
@@ -355,3 +352,4 @@ Teď, když jste dokončili kurz základní ověřování, vezměte v úvahu pok
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Úvod k serveru R a možnosti R open source v HDInsight
 
@@ -44,7 +44,9 @@ Máte možnost přidání přístupu do dalších objektů Blob a ukládá Data 
 Můžete také použít [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) jako řešením úložiště pro použití na uzlu edge. Soubory Azure umožňuje připojit sdílené složce, která byla vytvořena ve službě Azure Storage do souboru systému Linux. Další informace o těchto možnostech úložiště dat pro R Server v clusteru HDInsight najdete v tématu [Azure Storage možnosti pro R serverem v HDInsight clustery](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Přístup k serveru R na clusteru
-Můžete připojit k serveru R na uzlu edge pomocí prohlížeče, pokud jste se rozhodli zahrnout Server Rstudia během procesu zřizování. Pokud jste nenainstalovali se při zřizování clusteru, můžete jej přidat později. Informace o instalaci serveru pro Rstudia po vytvoření clusteru s podporou najdete v tématu [instalace serveru Rstudia v clusterech HDInsight](r-server-install-r-studio.md). Můžete se také připojit k serveru R pomocí SSH/PuTTY přístup ke konzole R. 
+Můžete se připojit k serveru R na uzlu edge pomocí prohlížeče. Je nainstalovaná ve výchozím nastavení při vytváření clusteru. Další informace najdete v tématu [získat stared s R serverem v HDInsight](r-server-get-started.md).
+
+Můžete také připojíte k serveru R z příkazovému řádku pomocí SSH nebo PuTTY přístup ke konzole R. 
 
 ## <a name="develop-and-run-r-scripts"></a>Vývoj a spouštět skripty R
 Vytvářet a spouštět skripty R můžete použít některou z balíčky R s otevřeným zdrojem 8000 + kromě paralelizovaná málo a distribuované rutiny, dostupné v knihovně ScaleR. Obecně platí skript, který běží na uzlu edge s R Server běží v rámci překladač R v tomto uzlu. Výjimky jsou tyto kroky, které je třeba volat funkci ScaleR s výpočetní kontext, který je nastavený na Hadoop mapy snížení (RxHadoopMR) nebo Spark (RxSpark). V takovém případě je funkce spuštěná distribuované způsobem napříč dat (úlohy) uzlů clusteru, které jsou spojeny s daty odkazuje. Další informace o možnostech kontextu různými výpočetními najdete v tématu [výpočetní kontextu možnosti pro R Server v HDInsight](r-server-compute-contexts.md).
@@ -87,7 +89,7 @@ Základní virtuální počítače Linux v clusteru služby HDInsight prováděn
 Vzhledem k tomu, že jsou redundantní hlavních uzlech a dopad na všechny uzly dat, všechny úlohy, které jsou spuštěné během této doby může zpomalit. By měly být stále spuštěny dokončen, ale. Všechny vlastní software nebo místní data, zda máte se zachová napříč tyto události údržby, pokud dojde k závažné chybě, která vyžaduje nové vytvoření clusteru.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>Další informace o možnosti IDE pro R Server v clusteru HDInsight
-Linux hraničního uzlu clusteru HDInsight je cílová zónu pro R na základě analýzy. Nejnovější verze služby HDInsight poskytují výchozí možnost pro instalaci komunitní verzi [Rstudia Server](https://www.rstudio.com/products/rstudio-server/) na uzlu edge jako IDE se založené na prohlížeči. Použití serveru Rstudia jako rozhraní IDE pro vývoj a spouštění skriptů R, může být výrazně zvýšit produktivitu, než jen pomocí konzole R. Pokud jste se rozhodli přidat Rstudia Server při vytváření clusteru, ale byste chtěli později přidat a pak najdete v části [instalace serveru R Studio na clustery HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio). +
+Linux hraničního uzlu clusteru HDInsight je cílová zónu pro R na základě analýzy. Nejnovější verze služby HDInsight výchozí instalaci Rstudia serveru zadejte na uzlu edge jako IDE se založené na prohlížeči. Použití serveru Rstudia jako rozhraní IDE pro vývoj a spouštění skriptů R, může být výrazně zvýšit produktivitu, než jen pomocí konzole R.
 
 Další úplné IDE možností je instalace klientů IDE a použít ho pro přístup ke clusteru prostřednictvím použití vzdáleného kontextu výpočetní mapy snížit nebo Spark. Mezi možnosti patří společnosti Microsoft [R Tools pro Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS), Rstudia a Walware adresy, na základě Eclipse [StatET](http://www.walware.de/goto/statet).
 
@@ -100,6 +102,5 @@ Poplatky, které jsou přidruženy clusteru HDInsight bez R Server jsou struktur
 Další informace o tom, jak používat R Server s clustery HDInsight, naleznete v následujících tématech:
 
 * [Začínáme s R serverem v HDInsight](r-server-get-started.md)
-* [Přidání RStudio Serveru do služby HDInsight (pokud nebyl nainstalován během vytváření clusteru)](r-server-install-r-studio.md)
 * [Možnosti výpočetního kontextu pro R Server ve službě HDInsight](r-server-compute-contexts.md)
 * [Možnosti služby Azure Storage pro R Server ve službě HDInsight](r-server-storage.md)

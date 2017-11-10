@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Přístup k diagnostickým protokolům pro Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ Protokolování diagnostiky umožňuje shromažďovat záznamy auditu přístupu
 
     ![Zapněte diagnostiku shromažďovat auditu a protokolů žádosti](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Z __nastavení diagnostiky__, nastaví stav na __na__ a vyberte možnosti protokolování.
+3. Z __nastavení diagnostiky__, zadejte __název__ pro tuto konfiguraci protokolování a pak vyberte položku protokolování možnosti.
 
     ![Zapněte diagnostiku shromažďovat auditu a protokolů žádosti](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "povolení diagnostických protokolů")
-
-   * Nastavit **stav** k **na** povolit protokolování diagnostiky.
 
    * Můžete úložiště/zpracovat data třemi různými způsoby.
 
@@ -58,34 +56,14 @@ Protokolování diagnostiky umožňuje shromažďovat záznamy auditu přístupu
         > [!NOTE]
         > Je nutné vybrat buď __archivu do účtu úložiště__, __datový proud do centra událostí__ nebo __odeslat k analýze protokolů__ před kliknutím na tlačítko __Uložit__ tlačítko.
 
-Jakmile povolíte nastavení diagnostiky, můžete se vrátit __protokolů diagnostiky__ okno k zobrazení protokolů.
-
-## <a name="view-logs"></a>Zobrazit protokoly
-
-### <a name="use-the-data-lake-analytics-view"></a>Pomocí zobrazení Data Lake Analytics
-
-1. Z vaše Data Lake Analytics účet okno, v části **monitorování**, vyberte **diagnostické protokoly** a potom vyberte položku, chcete-li zobrazit protokoly pro.
-
-    ![Protokolování diagnostiky zobrazení](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "zobrazení diagnostických protokolů")
-
-2. Protokoly jsou klasifikovány podle **protokoly auditu** a **požadavku protokoly**.
-
-    ![položky protokolu](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Protokoly žádosti o zachycení každý API požadavek na účet Data Lake Analytics.
-   * Protokoly auditu jsou podobná žádosti protokoly, ale poskytují mnohem podrobnější rozpis operací. Například může způsobit nahrávání jednoho volání rozhraní API v požadavku protokolu více operací "Připojit" v protokolu auditu.
-
-3. Klikněte **Stáhnout** odkaz pro položky protokolu ke stažení tohoto protokolu.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Použít účet úložiště Azure, který obsahuje data protokolu
 
-1. Otevřete okno účtu úložiště Azure spojené s Data Lake Analytics pro protokolování a potom klikněte na __objekty BLOB__. **Služba objektů Blob** okno uvádí dva kontejnery.
-
-    ![Protokolování diagnostiky zobrazení](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "zobrazení diagnostických protokolů")
+1. Pokud chcete zobrazit kontejnery objektů blob, které obsahují data protokolování, otevřete účet úložiště Azure pro Data Lake Analytics použitá pro protokolování a pak klikněte na tlačítko __objekty BLOB__.
 
    * Kontejner **přehledy. protokoly auditu** obsahující protokoly auditu.
    * Kontejner **přehledy. protokoly žádosti** obsahující protokoly požadavku.
-2. V rámci těchto kontejnerů jsou uloženy protokoly pod následující strukturou:
+
+2. V rámci kontejnerů protokoly jsou uloženy v následující soubor strukturu:
 
         resourceId=/
           SUBSCRIPTIONS/

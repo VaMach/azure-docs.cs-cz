@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopírování dat z nebo na Azure File Storage pomocí Azure Data Factory
 
@@ -48,11 +48,11 @@ Pro soubor propojené služby Azure Storage jsou podporovány následující vla
 | hostitele | Určuje koncový bod Azure File Storage jako `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ano |
 | ID uživatele | Zadejte uživatele pro přístup k Azure File Storage jako `"userid": "AZURE\\<storage name>"`. | Ano |
 | heslo | Zadejte přístupový klíč úložiště. Toto pole můžete označte jako SecureString.<br/> | Ano |
-| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
+| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne Ano pro sink zdroje |
 
->[!TIP]
-> - Zkopírovat do Azure File Storage pomocí Runtime integrace Azure, explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) umístění souboru úložiště a přidružení v propojené službě jako v následujícím příkladu.
-> - Pokud chcete zkopírovat z/do Azure File Storage pomocí modulu Runtime integrace Self-hosted mimo Azure, nezapomeňte otevřete odchozí port TCP 445 v místní síti.
+>[!IMPORTANT]
+> - Můžete kopírovat data do Azure File Storage pomocí Runtime integrace Azure, explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) umístění souboru úložiště a přidružení v propojené službě jako v následujícím příkladu.
+> - Ke zkopírování dat z/do Azure File Storage pomocí modulu Runtime integrace Self-hosted mimo Azure, nezapomeňte otevřete odchozí port TCP 445 v místní síti.
 
 **Příklad:**
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Oprava operačního systému Windows v clusteru Service Fabric
 
@@ -51,14 +51,6 @@ Oprava aplikace orchestration se skládá z následujících tyto dílčí souč
 > Oprava aplikace orchestration používá službu Service Fabric opravy správce systému pro zakázání nebo povolení uzlu a provádění kontroly stavu. Úloha opravy vytvořené aplikací orchestration oprava sleduje průběh Windows Update pro každý uzel.
 
 ## <a name="prerequisites"></a>Požadavky
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Minimální podporovaná verze modulu runtime Service Fabric
-
-#### <a name="azure-clusters"></a>Azure clustery
-Oprava orchestration aplikace musí být spuštěn na Azure clustery, které mají v5.5 verzi modulu runtime Service Fabric nebo novější.
-
-#### <a name="standalone-on-premises-clusters"></a>Samostatné místní clustery
-Oprava orchestration aplikace musí být spuštěn na samostatné clustery, které mají verze 5.6 verzi modulu runtime Service Fabric nebo novější.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Povolit službu opravy správce (Pokud již není spuštěn)
 
@@ -135,59 +127,6 @@ Chcete-li povolit službu opravy správce:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Zakázat automatické aktualizace systému Windows na všech uzlech
 
 Automatické aktualizace systému Windows můžou způsobit ztrátu dostupnosti, protože více uzlech clusteru můžete restartovat ve stejnou dobu. Oprava aplikace orchestration, ve výchozím nastavení, pokusí se zakázat automatické aktualizace systému Windows na všech uzlech clusteru. Pokud nastavení spravuje správce nebo zásad skupiny, doporučujeme však explicitně nastavení zásad Windows Update "Oznámit před stáhnout".
-
-### <a name="optional-enable-azure-diagnostics"></a>Volitelné: Povolení Azure Diagnostics
-
-Clustery se systémem verzi modulu runtime Service Fabric `5.6.220.9494` a výše shromažďování oprava orchestration aplikace protokoly jako součást Service Fabric protokoly.
-Pokud váš cluster běží na verzi modulu runtime Service Fabric, můžete tento krok přeskočit `5.6.220.9494` a vyšší.
-
-Pro clustery spuštěná verze modulu runtime Service Fabric menší než `5.6.220.9494`, protokoly pro aplikaci orchestration opravy se shromažďují místně na každém uzlu clusteru.
-Doporučujeme vám, že nakonfigurujete Azure Diagnostics odeslat protokoly ze všech uzlů do centrálního umístění.
-
-Informace o povolení Azure Diagnostics najdete v tématu [shromažďování protokolů pomocí Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Protokoly pro aplikaci orchestration opravy se generují u tohoto zprostředkovatele pevné ID:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-V goto šablony Resource Manageru `EtwEventSourceProviderConfiguration` oddílu pod `WadCfg` a přidejte následující položky:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Pokud váš cluster Service Fabric má více typů uzlu, pak v předchozí části, je třeba přidat k všechny `WadCfg` oddíly.
 
 ## <a name="download-the-app-package"></a>Stáhněte si balíček aplikace
 
@@ -303,20 +242,16 @@ Pokud chcete povolit reverzní proxy server v clusteru, postupujte podle kroků 
 
 ## <a name="diagnosticshealth-events"></a>Diagnostika stavu události
 
-### <a name="collect-patch-orchestration-app-logs"></a>Protokolů shromažďování oprava orchestration aplikace
+### <a name="diagnostic-logs"></a>Diagnostické protokoly
 
-Oprava orchestration aplikace protokoly se shromažďují jako součást Service Fabric protokoly z modulu runtime verze `5.6.220.9494` a vyšší.
-Pro clustery spuštěná verze modulu runtime Service Fabric menší než `5.6.220.9494`, protokoly se můžou shromažďovat pomocí jedné z následujících metod.
+Oprava orchestration aplikace protokoly se shromažďují v rámci protokoly modulu runtime Service Fabric.
 
-#### <a name="locally-on-each-node"></a>Místně na každém uzlu
+V případě, že chcete zaznamenat protokoly pomocí diagnostických nástrojů nebo kanálu podle svého výběru. Oprava aplikace orchestration používá níže pevné zprostředkovatele ID, která mají protokolovat události prostřednictvím [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Protokoly se shromažďují místně na každém uzlu clusteru Service Fabric Pokud verzi modulu runtime Service Fabric je menší než `5.6.220.9494`. Umístění pro přístup k protokoly je \[Service Fabric\_instalace\_jednotka\]:\\PatchOrchestrationApplication\\protokoly.
-
-Například pokud Service Fabric je nainstalován na jednotce D, cesta je D:\\PatchOrchestrationApplication\\protokoly.
-
-#### <a name="central-location"></a>Centrální umístění
-
-Pokud Azure Diagnostics je nakonfigurovaný jako součást požadovaných krocích, protokoly pro aplikaci orchestration opravy jsou k dispozici ve službě Azure Storage.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Sestavy o stavu
 
