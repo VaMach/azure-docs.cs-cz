@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Seznam kompatibilit pro federaci Azure AD
 Azure Active Directory poskytuje jednotné přihlašování a rozšířené zabezpečení přístupu aplikace pro Office 365 a dalším službám Microsoft Online pro implementace jenom pro cloud a hybridní bez nutnosti jakéhokoli řešení od jiných výrobců. Office 365, jako je většina Online službách společnosti Microsoft, je integrovaná do Azure Active Directory directory services, ověřování a autorizace. Jednotné přihlašování k tisícům aplikací SaaS také poskytuje Azure Active Directory a místní webové aplikace. Najdete v galerii aplikací Azure Active Directory pro podporovaných aplikací SaaS.
@@ -46,6 +46,7 @@ Informace o tom, jak můžete získat tady zprostředkovatele identity jiných v
 * [Centrify](#centrify) 
 * [V7.1 Dell jeden správce přístup cloudových identit](#dell-one-identity-cloud-access-manager-v71) 
 * [DigitalPersona složené ověřování](#digitalpersona-composite-authentication)
+* [Verze 5.x správu ForgeRock Identity platformy přístup](#forgerock-identity-platform-access-management-v5x)
 * [Federované Identity Manager 6.2.2 IBM Tivoli](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation verze 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -186,6 +187,17 @@ Toto je matici podpory scénář pro toto prostředí jeden přihlašování:
 
 Další informace najdete v části [DigitalPersona složené ověřování](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>Verze 5.x správu ForgeRock Identity platformy přístup
+
+Toto je matici podpory scénář pro toto prostředí jeden přihlašování:
+
+| Klient | Podpora | Výjimky |
+| --- | --- | --- |
+| Webových klientů, jako například webový přístup k systému Exchange a SharePoint Online |Podporuje se |Žádný|
+| Aplikace Rich client například Lync, předplatného systému Office, CRM |Podporuje se |Žádný|
+| Bohaté e-mailových klientů, jako je Outlook a ActiveSync |Podporuje se |Žádný |
+
+Další informace najdete v části [ForgeRock identitu platformy přístup správu V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>Federované Identity Manager 6.2.2 IBM Tivoli
 

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuálních počítačů, plánování a implementace pro SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -341,7 +341,7 @@ V dokumentu můžeme použít následující podmínky:
 * Součást SAP: jednotlivých SAP aplikace například ECC, BW, správce řešení nebo podnikovém portálu.  SAP součástí může být založen na tradičních technologií ABAP nebo Java nebo jiných NetWeaver na základě aplikaci, například obchodních objektů.
 * Prostředí SAP: jeden nebo více součástí SAP logicky seskupeny provést obchodní funkce jako je například vývoj, QAS, školení, zotavení po Havárii nebo produkční.
 * SAP na šířku: Vztahuje se k celé SAP prostředků v zákazníka na šířku IT. Na šířku SAP zahrnuje všechny produkční a mimo provozní prostředí.
-* Systém SAP: Kombinace databázového systému vrstvu a aplikační vrstvu služby, například SAP ERP vývojového systému SAP BW testovací systém, produkční systému SAP CRM, atd... V nasazeních Azure není možné rozdělit tyto dvě vrstvy mezi místními a Azure. To znamená, že systému SAP buď je nasazena místně nebo je nasazené v Azure. Můžete však nasadit různých systémech šířku SAP do Azure nebo místní. Můžete například nasazení SAP CRM vývoj a testování systémy v Azure, ale SAP CRM produkční systému místní.
+* Systém SAP: Kombinace databázového systému vrstvu a aplikační vrstvu služby, například SAP ERP vývojového systému SAP BW testovací systém, produkční systému SAP CRM, atd.. V nasazeních Azure není možné rozdělit tyto dvě vrstvy mezi místními a Azure. To znamená, že systému SAP buď je nasazena místně nebo je nasazené v Azure. Můžete však nasadit různých systémech šířku SAP do Azure nebo místní. Můžete například nasazení SAP CRM vývoj a testování systémy v Azure, ale SAP CRM produkční systému místní.
 * Nasazení jenom cloudu: nasazení, kde není připojen k předplatnému Azure prostřednictvím site-to-site nebo připojením ExpressRoute na místní infrastrukturu sítě. Společné dokumentace k Azure tyto typy nasazení jsou také popsány jako "Jen cloudu" nasazení. Virtuální počítače nasazené pomocí této metody jsou přístupné prostřednictvím Internetu a veřejnou IP adresu nebo veřejný název DNS přiřazené k virtuálním počítačům v Azure. Pro Microsoft Windows v místní službě Active Directory (AD) a DNS není rozšířené k Azure v těchto typů nasazení. Proto virtuální počítače nejsou součástí místní služby Active Directory. Totéž platí pro implementace Linux, například pomocí OpenLDAP + protokolu Kerberos.
 
 > [!NOTE]
@@ -522,7 +522,7 @@ Azure Resource Manager umožňuje zřizovat aplikace pomocí deklarativní šabl
 
 Další informace o používání šablon Resource Manageru naleznete zde:
 
-* [Nasadit a spravovat virtuální počítače pomocí šablony Azure Resource Manager a rozhraní příkazového řádku Azure][../../linux/create-ssh-secured-vm-from-template.md]
+* [Nasadit a spravovat virtuální počítače pomocí šablony Azure Resource Manager a rozhraní příkazového řádku Azure] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Správa virtuálních počítačů pomocí Azure Resource Manageru a prostředí PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://Azure.microsoft.com/documentation/Templates/>
 
@@ -839,10 +839,10 @@ Rozhraní příkazového řádku Azure poskytuje sadu softwaru open source, př�
 Informace o instalaci, konfiguraci a používání rozhraní příkazového řádku najdete v části příkazy k provádění úloh Azure
 
 * [Instalace rozhraní příkazového řádku Azure CLI][xplat-cli]
-* [Nasadit a spravovat virtuální počítače pomocí šablony Azure Resource Manager a rozhraní příkazového řádku Azure][../../linux/create-ssh-secured-vm-from-template.md]
+* [Nasadit a spravovat virtuální počítače pomocí šablony Azure Resource Manager a rozhraní příkazového řádku Azure] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Použití Azure CLI pro Mac, Linux a Windows pomocí Azure Resource Manageru][xplat-cli-azure-resource-manager]
 
-Také číst kapitoly [rozhraní příkazového řádku Azure pro virtuální počítače s Linuxem][deployment-guide-4.5.2] v [Průvodce nasazením][planning-guide] týkající se používání rozhraní příkazového řádku Azure k nasazení rozšíření monitorování Azure pro SAP.
+Také číst kapitoly [rozhraní příkazového řádku Azure pro virtuální počítače s Linuxem] [ deployment-guide-4.5.2] v [Průvodce nasazením] [ planning-guide] týkající se používání rozhraní příkazového řádku Azure k nasazení rozšíření monitorování Azure pro SAP.
 
 ## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Různé způsoby k nasazení virtuálních počítačů pro SAP v Azure
 V této kapitoly zjistíte různé způsoby, jak nasadit virtuální počítač v Azure. V této kapitole jsou popsané postupy další přípravy, jakož i zpracování virtuální pevné disky a virtuální počítače v Azure.
@@ -942,7 +942,7 @@ Jestliže virtuální počítač je připravená dostatečně obecné a nakonec 
 >
 > Posledním krokem je k přihlášení k virtuálnímu počítači pomocí účtu správce. Otevřete příkazové okno Windows jako *správce*. Přejděte do %windir%\windows\system32\sysprep a provést sysprep.exe.
 > Zobrazí se okno malé. Je důležité zkontrolovat **generalizace** možnost (výchozí hodnota je vypnuta) a změňte možnost vypnutí z výchozí hodnoty, restartování' 'vypnutí'. Tento postup předpokládá, že procesu nástroje sysprep je spustit místně v hostovaného operačního systému virtuálního počítače.
-> Pokud chcete provést postup v případě virtuálních počítačů už běží v Azure, postupujte podle kroků popsaných v [v tomto článku](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+> Pokud chcete provést postup v případě virtuálních počítačů už běží v Azure, postupujte podle kroků popsaných v [v tomto článku](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >
