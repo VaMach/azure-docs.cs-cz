@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimalizace výkonu a spolehlivosti Azure functions
 
@@ -66,8 +66,7 @@ Jak kódu reagovat Pokud dojde k selhání po vložení 5 000 těchto položek d
 
 Pokud již byla zpracována položka fronty, povolte funkce jako no-op.
 
-Výhodou Obranným opatření již součástí, které použijete v platformě Azure Functions. Například v tématu **zpracování poškozených fronty zpráv** v dokumentaci k [fronty Azure Storage aktivuje](functions-bindings-storage-queue.md#trigger).
- 
+Výhodou Obranným opatření již součástí, které použijete v platformě Azure Functions. Například v tématu **zpracování poškozených fronty zpráv** v dokumentaci k [fronty Azure Storage triggerů a vazeb](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Nekombinujte testovací a produkční kódu ve stejné aplikaci – funkce
 
@@ -97,4 +96,3 @@ Další informace najdete v následujících materiálech:
 
 Protože Azure Functions využívá Azure App Service také měli být vědomi pokyny služby App Service.
 * [Patterns and Practices optimalizací výkonu protokolu HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

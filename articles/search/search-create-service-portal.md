@@ -11,17 +11,17 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Vytvoření služby Azure Search v portálu.
 
-Tento článek vysvětluje, jak vytvořit nebo zřídit služby Azure Search na portálu. Prostředí PowerShell pokyny najdete v tématu [spravovat Azure Search pomocí prostředí PowerShell](search-manage-powershell.md).
+Naučte se vytvořit nebo zřídit služby Azure Search na portálu. Prostředí PowerShell pokyny najdete v tématu [spravovat Azure Search pomocí prostředí PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Přihlášení k odběru (volné nebo placené)
 
@@ -34,20 +34,21 @@ Alternativně [aktivovat výhody pro předplatitele MSDN](https://azure.microsof
 2. Kliknutím na znaménko plus ("+") v levém horním rohu.
 3. Vyberte **Web + mobilní** > **služba Azure Search**.
 
-![](./media/search-create-service-portal/find-search2.png)
+![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Název služby a koncový bod adresy URL
 
-Název služby je součástí adresy URL koncového bodu, vůči které jsou vydány volání rozhraní API. Zadejte název vaší služby v **URL** pole. 
+Název služby je součástí adresy URL koncového bodu, které rozhraní API jsou vydávány volání: `https://your-service-name.search.windows.net`. Zadejte název vaší služby v **URL** pole. 
 
 Požadavky na název služby:
+   * Musí být jedinečný v rámci oboru názvů search.windows.net
    * 2 až 60 znaků.
-   * malá písmena, číslice nebo spojovníky ("-")
-   * žádné pomlčka ("-") jako první 2 znaky nebo poslední jeden znak
-   * žádné po sobě jdoucí pomlčky ("--")
+   * Používat malá písmena, číslice nebo spojovníky ("-")
+   * Vyhněte se pomlčky ("-") v první 2 znaky nebo jako poslední jeden znak
+   * Žádné po sobě jdoucí pomlčky ("--") kdekoli
 
 ## <a name="select-a-subscription"></a>Vyberte předplatné.
-Pokud máte více než jedno předplatné, vyberte ten, který má také služby úložiště dat nebo souboru. Vyhledávání systému Azure můžete automaticky rozpoznat úložiště Azure Table a objektů Blob, databáze SQL a Azure Cosmos DB pro indexování prostřednictvím *indexery*, ale pouze pro služby ve stejném předplatném.
+Pokud máte více než jedno předplatné, vyberte ten, který má také služby úložiště dat nebo souboru. Vyhledávání systému Azure můžete automaticky rozpoznat úložiště Azure Table a objektů Blob, databáze SQL a Azure Cosmos DB pro indexování prostřednictvím [ *indexery*](search-indexer-overview.md), ale pouze pro služby ve stejném předplatném.
 
 ## <a name="select-a-resource-group"></a>Vybrat skupinu prostředků
 Skupina prostředků je kolekce služeb Azure a prostředky, použít společně. Pokud používáte Azure Search při indexování databázi SQL, pak obě služby by měl být například součástí stejné skupiny prostředků.
@@ -63,11 +64,13 @@ Jako služba Azure může být hostovaný Azure Search v datových centrech po c
 
 V tomto návodu jsme zvolili na plán úrovně Standard pro naši službu.
 
+Po vytvoření služby nelze změnit cenovou úroveň. Pokud budete později potřebovat vyšší nebo nižší úrovně, budete muset znovu vytvořit službu.
+
 ## <a name="create-your-service"></a>Vytvoření služby
 
 Nezapomeňte připnout služby pro snadný přístup k řídicímu panelu při každém přihlášení.
 
-![](./media/search-create-service-portal/new-service2.png)
+![](./media/search-create-service-portal/new-service3.png)
 
 ## <a name="scale-your-service"></a>Škálování služby
 To může trvat několik minut pro vytvoření služby (15 minut nebo déle v závislosti na vrstvě). Po zřízení služby, je možné škálovat tak, aby vyhovovala vašim potřebám. Protože jste zvolili na plán úrovně Standard pro služby Azure Search, můžete škálovat služby v dvěma rozměry: repliky a oddíly. Jste nastavili základní vrstvě, můžete použít pouze repliky. Pokud jste zřídili bezplatnou službou, škálování není k dispozici.
@@ -79,7 +82,7 @@ To může trvat několik minut pro vytvoření služby (15 minut nebo déle v z�
 > [!Important]
 > Služba musí mít [2 repliky smlouva SLA jen pro čtení a 3 repliky pro čtení/zápisu SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Přejděte do vaší okna služby search na portálu Azure.
+1. Přejděte na stránku služby search na portálu Azure.
 2. V levém navigačním podokně vyberte **nastavení** > **škálování**.
 3. Pomocí slidebar přidejte repliky nebo oddíly.
 
@@ -105,9 +108,7 @@ I když většina zákazníků používat jenom jedna služba, redundance služb
 Druhý služby není nutné pro zajištění vysoké dostupnosti. Vysoká dostupnost pro dotazy se dosáhne, když používáte 2 nebo více replik v rámci stejné služby. Aktualizace repliky jsou sekvenční, což znamená, že je alespoň jeden funkční při aktualizaci služby se nasazuje. Další informace o provozu najdete v tématu [smlouvy o úrovni služeb](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Další kroky
-Po zřízení služby Azure Search, budete chtít [definujte index](search-what-is-an-index.md) vám umožní nahrát a hledání vaše data.
+Po zřízení služby Azure Search, budete chtít [definujte index](search-what-is-an-index.md) vám umožní nahrát a hledání vaše data. 
 
-Přístup ke službě z kódu nebo skriptu, zadejte adresu URL (*název služby*. search.windows.net) a klíč. Klíče správce poskytují úplný přístup; klíče dotazu udělují přístup jen pro čtení. V tématu [jak používat Azure Search v rozhraní .NET](search-howto-dotnet-sdk.md) začít pracovat.
-
-V tématu [sestavení a dotazování indexu první](search-get-started-portal.md) najdete rychlý kurz založené na portálu.
-
+> [!div class="nextstepaction"]
+> [Jak používat Azure Search v rozhraní .NET](search-howto-dotnet-sdk.md)

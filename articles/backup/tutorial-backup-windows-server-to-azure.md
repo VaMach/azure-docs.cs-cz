@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Zálohování Windows Serveru do Azure
 
@@ -42,9 +42,9 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 Předtím, než můžete zálohovat systém Windows Server, musíte vytvořit místo pro zálohování, nebo obnovit body k uložení. A [trezor služeb zotavení](backup-azure-recovery-services-vault-overview.md) je kontejner v Azure, která ukládá zálohy ze systému Windows Server. Použijte následující postup k vytvoření trezoru služeb zotavení na portálu Azure. 
 
-1. V levé nabídce vyberte **další služby** a v seznamu služeb zadejte **služeb zotavení**. Klikněte na tlačítko **trezory služeb zotavení**.
+1. V levé nabídce vyberte **všechny služby** a v seznamu služeb zadejte **služeb zotavení**. Klikněte na tlačítko **trezory služeb zotavení**.
 
-   ![Otevřený trezor služeb zotavení](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![Otevřený trezor služeb zotavení](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  V nabídce **Trezory Recovery Services** klikněte na **Přidat**.
 
@@ -134,7 +134,7 @@ Plán jste vytvořili při spuštění úlohy zálohování. Nebyly však zazál
 
 1.  V konzole agenta služeb zotavení Microsoft Azure, klikněte na **zálohovat nyní**.
 
-    ![Příprava infrastruktury](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Příprava infrastruktury](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  Na **zálohovat nyní** průvodce, vyberte jeden z **soubory a složky** nebo **stav systému** , které chcete zálohovat a klikněte na tlačítko **další** 
 3. Na **potvrzení** stránka, zkontrolujte nastavení, **zálohovat nyní** průvodce pomocí zálohování serveru. Poté klikněte na **Zálohovat**.

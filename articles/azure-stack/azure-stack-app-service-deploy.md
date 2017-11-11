@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 2dd5fe36105f4013c36dd4dc952424d5672ba91f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Přidání poskytovatele prostředků služby App Service se zásobníkem Azure
 
@@ -97,7 +97,7 @@ K nasazení zprostředkovatele prostředků služby App Service, postupujte takt
 
     ![Instalační program aplikace služby](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Zkontrolujte možnosti role instance a SKU. Výchozí hodnoty se naplní minimální počet instancí a minimální SKU pro každou roli v ASDK nasazení. Souhrn požadavků jader a paměti je určena k plánování nasazení. Po provedení výběru klikněte na tlačítko **Další**.
+11. Zkontrolujte možnosti role instance a SKU. Výchozí hodnoty se naplní minimální počet instancí a minimální SKU pro každou roli v ASDK nasazení. Souhrn požadavků virtuální procesory a paměť je určena k plánování nasazení. Po provedení výběru klikněte na tlačítko **Další**.
 
     > [!NOTE]
     > Pro nasazení v produkčním prostředí, následující pokyny v [kapacitní plánování rolí serveru služby Azure App Service v Azure zásobníku](azure-stack-app-service-capacity-planning.md).
@@ -106,11 +106,11 @@ K nasazení zprostředkovatele prostředků služby App Service, postupujte takt
 
     | Role | Minimální instancí | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
-    | Řadiče | 1 | Standard_A1 - (1 jádro, 1792 MB) | Spravuje a udržuje stav cloudové služby App Service. |
-    | Správa | 1 | Standard_A2 - (2 jádra, 3584 MB) | Spravuje koncových bodů aplikace služby Azure Resource Manageru a rozhraní API, portálu rozšíření (správce, klienta funkce portálu.) a službu data. Pro podporu převzetí služeb při selhání, vyšší doporučenou instancí 2. |
-    | Vydavatel | 1 | Standard_A1 - (1 jádro, 1792 MB) | Publikuje obsahu prostřednictvím FTP a webové nasazení. |
-    | FrontEnd | 1 | Standard_A1 - (1 jádro, 1792 MB) | Směruje požadavky na aplikace služby App Service. |
-    | Sdílených pracovních | 1 | Standard_A1 - (1 jádro, 1792 MB) | Hostitele web nebo aplikace API a aplikace Azure Functions. Můžete přidat víc instancí. Jako operátor můžete definovat vaši nabídku a vyberte vrstvy jakékoli SKU. Vrstvy musí mít minimálně jednoho jádra. |
+    | Řadiče | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Spravuje a udržuje stav cloudové služby App Service. |
+    | Správa | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Spravuje koncových bodů aplikace služby Azure Resource Manageru a rozhraní API, portálu rozšíření (správce, klienta funkce portálu.) a službu data. Pro podporu převzetí služeb při selhání, vyšší doporučenou instancí 2. |
+    | Vydavatel | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Publikuje obsahu prostřednictvím FTP a webové nasazení. |
+    | FrontEnd | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Směruje požadavky na aplikace služby App Service. |
+    | Sdílených pracovních | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Hostitele web nebo aplikace API a aplikace Azure Functions. Můžete přidat víc instancí. Jako operátor můžete definovat vaši nabídku a vyberte vrstvy jakékoli SKU. Vrstvy musí mít minimálně jeden virtuální procesor. |
 
     ![Instalační program aplikace služby](media/azure-stack-app-service-deploy/image08.png)    
 

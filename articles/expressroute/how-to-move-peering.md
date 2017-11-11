@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: f48e270054ba45211c2a1517593d5d7b22925d0a
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Přesunout veřejný partnerský vztah na partnerský vztah Microsoftu
 
@@ -34,7 +34,7 @@ Tento článek vám umožňuje přesun konfigurace veřejného partnerského vzt
 
 * Pro připojení k partnerský vztah Microsoftu, budete muset nastavit a spravovat adres (NAT) Poskytovatel připojení může nastavit a spravovat NAT jako spravovanou službu. Pokud máte v úmyslu přístup k Azure PaaS a služby Azure SaaS na partnerský vztah Microsoftu, je potřeba velikost fondu IP adres NAT správně. Další informace o NAT pro ExpressRoute najdete v tématu [požadavky NAT pro partnerský vztah Microsoftu](expressroute-nat.md#nat-requirements-for-microsoft-peering).
 
-* Pokud aktuálně máte síti seznam řízení přístupu (ACL) pro prostředek služby Azure PaaS, který již existuje v veřejný partnerský vztah Azure, musíte zajistit, že fond IP adres NAT **rozsah adres** je zahrnuta v seznamu ACL, brány Firewall pro Microsoft partnerský vztah.
+* Pokud používáte veřejného partnerského vztahu a aktuálně máte síť IP pravidla pro veřejné IP adresy, které se používají pro přístup k [Azure Storage](../storage/common/storage-network-security.md) nebo [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), musíte zajistit, že nakonfigurovaný fond IP adres NAT se společností Microsoft partnerský vztah je obsažena v seznamu veřejné IP adresy pro účet úložiště Azure nebo účtu Azure SQL.
 
 * Chcete-li přesunout do bez výpadků partnerský vztah Microsoftu, postupujte podle kroků v tomto článku v pořadí, které se mají zobrazovat.
 

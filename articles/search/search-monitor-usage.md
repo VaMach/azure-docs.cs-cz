@@ -3,23 +3,23 @@ title: "Sledování využití a statistické údaje ve službě Azure Search | M
 description: "Sledování spotřeby a index velikost prostředků pro službu Azure Search, hostované cloudové vyhledávací službě v Microsoft Azure."
 services: search
 documentationcenter: 
-author: bernitorres
-manager: jlembicz
+author: HeidiSteen
+manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 122948de-d29a-426e-88b4-58cbcee4bc23
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/01/2017
-ms.author: betorres
-ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: heidist
+ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="monitoring-an-azure-search-service"></a>Monitorování služby Azure Search
 

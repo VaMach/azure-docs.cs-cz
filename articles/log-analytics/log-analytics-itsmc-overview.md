@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f60586dcd09148d916bafdde21cc038f57ed9287
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centrálně spravovat ITSM pracovních položek pomocí IT Service Management Connector (Preview)
 
@@ -30,13 +30,13 @@ Pomocí konektoru služby správy IT můžete:
 
   - Integrate provozní výstrahy s vaší postupy správy incidentů v nástroji ITSM podle svého výběru.
     - Vytváření pracovních položek (například výstrahy, události, incident) v ITSM z OMS výstrah a prostřednictvím protokolu vyhledávání.
-    - Vytváření pracovních položek na základě vaší protokol činnosti Azure výstrah pomocí akce ITSM ve skupinách akce. 
-  
+    - Vytváření pracovních položek na základě vaší protokol činnosti Azure výstrah pomocí akce ITSM ve skupinách akce.
+
   - Sjednocení monitorování, log a data správy služby používané v rámci celé organizace.
     - Korelovat incident a změňte data žádosti z vaší ITSM tooling s příslušnými daty protokolu v pracovní prostor analýzy protokolů.   
     - Zobrazit nejvyšší úrovně řídicí panely pro přehled na incidenty, žádostí o změnu a ovlivněné systémy.
     - Zápis dotazů analýzy protokolů a získáte přehled o data služby správy.
-      
+
 ## <a name="adding-the-it-service-management-connector-solution"></a>Přidání IT řešení pro správu konektoru služby
 
 Přidání konektoru služby správy IT řešení pro váš pracovní prostor analýzy protokolů, pomocí procesu popsaného v tématu [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).
@@ -70,14 +70,15 @@ Po úspěšném přidání, zobrazí se konektoru Management Service IT v rámci
 
 ## <a name="using-the-solution"></a>Použití řešení
 
-Po nakonfigurování služby IT Service Management Connector s podrobností o softwaru ITSM konektor spustí shromažďování dat z připojených ITSM produktům a službám. V závislosti na počtu incidentů a žádostí o změnu v ITSM produktům a službám počáteční synchronizace by se měly dokončit několik minut. 
+Po nakonfigurování služby IT Service Management Connector s podrobností o softwaru ITSM konektor spustí shromažďování dat z připojených ITSM produktům a službám. V závislosti na počtu incidentů a žádostí o změnu v ITSM produktům a službám počáteční synchronizace by se měly dokončit několik minut.
 
 > [!NOTE]
 > - Data importovaná z produktu ITSM řešením IT Service Management Connector se zobrazí v analýzy protokolů jako záznamy protokolu typu **ServiceDesk_CL**.
 > - Záznam protokolu obsahuje pole s názvem **ServiceDeskWorkItemType_s**, který je buď incidentů nebo žádostí o změnu, dva druhy data importovaná z ITSM produktu
 
 ## <a name="data-synced-from-itsm-product"></a>Synchronizované z produktu ITSM dat
-Incidenty a žádosti o změnu jsou synchronizované z vašeho produktu ITSM do pracovního prostoru analýzy protokolů. Tyto informace jsou uvedeny příklady data shromážděná konektorem správy služeb IT:
+Incidenty a žádosti o změnu jsou synchronizované z vašeho produktu ITSM do pracovního prostoru analýzy protokolů.
+Tyto informace jsou uvedeny příklady data shromážděná konektorem správy služeb IT:
 
 > [!NOTE]
 > V závislosti na typu pracovní položky naimportovat do analýzy protokolů **ServiceDesk_CL** obsahuje následující pole:
@@ -252,29 +253,29 @@ Můžete také vytvořit pracovní položky v připojených zdrojů ITSM přímo
 4. Zadejte odpovídající hodnoty v **typu Kontakt**, **dopad**, **naléhavost**, **kategorie**, a **dílčí kategorie** textová pole a pak klikněte na tlačítko **vytvořit**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Vytváření pracovních položek ITSM z Azure výstrah
-Konektor ITSM je nyní integrována skupiny akcí. [Akce skupiny](../monitoring-and-diagnostics/monitoring-action-groups.md) poskytují modulární a opakovaně použitelné způsob spouštění akcí pro upozornění Azure. Akce ITSM ve skupinách akce vytvoří pracovní položky v produktu ITSM pomocí existujícího řešení ITSM konektor.
+Konektor ITSM je nyní integrována skupiny akcí.
 
-1. Na portálu Azure, klikněte na **monitorování**
-2. V levém podokně klikněte na **skupiny akcí**
+[Akce skupiny](../monitoring-and-diagnostics/monitoring-action-groups.md) poskytují modulární a opakovaně použitelné způsob spouštění akcí pro upozornění Azure. Akce ITSM ve skupinách akce vytvoří pracovní položky v produktu ITSM pomocí existujícího řešení ITSM konektor.
+
+1. Na portálu Azure, klikněte na tlačítko **monitorování**.
+2. V levém podokně klikněte na **skupiny akcí**.
 
     ![Skupiny akcí](media/log-analytics-itsmc/ActionGroups.png)
 
-3. Zadejte **název** a **ShortName** pro skupinu pro akce. Vyberte **skupiny prostředků** a **předplatné** místo vaší skupiny akce vytvořeny.
+3. Zadejte **název** a **ShortName** pro skupinu pro akce. Vyberte **skupiny prostředků** a **předplatné** kde chcete vytvořit skupině Akce.
 
     ![Podrobnosti skupiny akce](media/log-analytics-itsmc/ActionGroupsDetail.png)
 
-4. Vyberte v seznamu akcí **ITSM** z rozevíracího seznamu pro **typ akce**. Zadejte **název** pro akce a klikněte na **upravit podrobnosti**.
-
-
+4. Vyberte v seznamu akcí **ITSM** z rozevírací nabídky pro **typ akce**. Zadejte **název** pro akci a klikněte na tlačítko **upravit podrobnosti**.
 5. Vyberte **předplatné** kde je umístěn pracovní prostor analýzy protokolů. Vyberte **připojení** jednofaktorovému název konektoru ITSM, za nímž následuje název pracovního prostoru. Například "MyITSMMConnector(MyWorkspace)".
 
     ![Podrobnosti o ITSM akce](./media/log-analytics-itsmc/ITSMActionDetails.png)
 
-6. Vyberte **pracovní položka** typu z rozevíracího seznamu.
+6. Vyberte **pracovní položka** typu z rozevírací nabídky.
 7. Vyberte existující šablony nebo vyplnit pole, která vyžaduje vaše ITSM produktu.
 8. Klikněte na tlačítko **OK**.
 
-Při vytváření nebo úpravách Azure pravidla výstrahy, použijte skupinu akce, který má ITSM akce. Když se aktivuje výstraha, je vytvořena pracovní položka v nástroji ITSM. 
+Při vytváření nebo úpravách Azure pravidla výstrahy, použijte skupinu akce, který má ITSM akce. Když se aktivuje výstraha, je vytvořena pracovní položka v nástroji ITSM.
 
 >[!NOTE]
 >Akce ITSM podporována. aktuálně pouze aktivity protokolu výstrahy. Pro ostatní Azure výstrahy tato akce je žádná operace.
@@ -288,7 +289,7 @@ Při vytváření nebo úpravách Azure pravidla výstrahy, použijte skupinu ak
     - Zkontrolujte, pokud máte dostatečná oprávnění v rámci odpovídající ITSM produktu pro připojení.
  - U připojení k portálu Service Manager
      - Zajistěte, aby webová aplikace je úspěšně nasazen a hybridní připojení se vytvoří. Ověřte připojení se úspěšně naváže na místní počítač portálu Service Manager, najdete na adresu URL webové aplikace podle popisu v dokumentaci k provádění [hybridní připojení](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-     
+
 2.  Pokud není získávání synchronizovat data z ServiceNow k analýze protokolů, zajistěte, aby ServiceNow instance není pozastaveno. Instance ServiceNow Dev někdy přejděte do režimu spánku při nečinnosti, po dlouhou dobu. Jinak ohlaste daný problém.
 3.  Pokud OMS výstrahy fire, ale pracovní položky nejsou vytvořeny v produktu ITSM nebo položek konfigurace nejsou vytvořen nebo propojené pracovní položky nebo další obecné informace, podívejte se na těchto místech:
  -  **Řešení pro správu konektoru služby IT**: řešení zobrazuje souhrnné údaje o připojení nebo pracovní položky nebo počítače atd. Klikněte na dlaždici zobrazující **stav konektoru**, což trvá, abyste **hledání protokolů** s relevantní dotazu. Podívejte se na záznamy protokolu s LogType_S jako chyba. Další informace.

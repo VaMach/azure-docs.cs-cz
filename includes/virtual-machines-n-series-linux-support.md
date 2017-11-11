@@ -6,7 +6,11 @@
 
 | Distribuce | Ovladač |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Distribuce založené na CentOS 7.3 | NVIDIA GRID 4.3, větev ovladačů R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Distribuce založené na CentOS 7.3 | NVIDIA mřížky 5.0, ovladač větve R384|
+
+> [!NOTE]
+> Microsoft znovu distribuuje NVIDIA mřížky ovladač instalačních programů pro virtuální počítače vs. Nainstalujte pouze tyto ovladače mřížky na virtuálních počítačích Azure vs. Tyto ovladače zahrnují licencování pro mřížky virtuální grafický procesor Software v Azure.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Instance NC – ovladače NVIDIA Tesla
 | Distribuce | Ovladač |

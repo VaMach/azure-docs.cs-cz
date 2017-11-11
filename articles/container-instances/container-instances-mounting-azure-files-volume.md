@@ -1,5 +1,5 @@
 ---
-title: "Připojení Azure Files svazku v Azure kontejner instancí"
+title: "Připojit Azure Files svazek v Azure kontejner instancí"
 description: "Zjistěte, jak připojit Azure Files svazek k uchování stavu s instancemi Azure kontejneru"
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Připojení sdílenou složku Azure s instancemi Azure kontejneru
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Připojit sdílenou složku Azure s instancemi Azure kontejneru
 
 Ve výchozím nastavení jsou bezstavové instancí kontejnerů Azure. Pokud kontejner dojde k chybě nebo zastaví, všechny její stav bude ztracena. K zachování stavu nad rámec životnost kontejneru, je nutné připojit svazek z externího úložiště. Tento článek ukazuje, jak připojit sdílenou složku Azure pro použití s instancemi Azure kontejneru.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Ukládání podrobností pro přístup k účtu úložiště Azure klíče trezoru
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Ukládání podrobností pro přístup k účtu úložiště s Azure Key Vault
 
 Klíče účtu úložiště chránit přístup k datům, proto doporučujeme uložit je do v Azure klíče trezoru.
 
@@ -185,16 +185,16 @@ Vložení hodnoty do souboru parametrů:
 Pomocí šablony definovaný můžete vytvořit kontejner a jeho svazek pomocí rozhraní příkazového řádku Azure připojit. Za předpokladu, že je název souboru šablony *azuredeploy.json* a s názvem souboru parametrů *azuredeploy.parameters.json*, pak na příkazovém řádku:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Po spuštění kontejneru, můžete jednoduché webové aplikace nasazené prostřednictvím **seanmckenna/aci-hellofiles** bitovou kopii, ke správě souborů v Azure sdílené složky v cestě připojení, který jste zadali. Získejte IP adresu pro webové aplikace pomocí následující:
+Po spuštění kontejneru, můžete jednoduché webové aplikace nasazené prostřednictvím **seanmckenna/aci-hellofiles** image ke správě souborů v Azure sdílené složky v cestě připojení jste zadali. Získat IP adresu pro webovou aplikaci pomocí [az kontejneru zobrazit](/cli/azure/container#az_container_show) příkaz:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Můžete použít nástroje, jako [Microsoft Azure Storage Explorer](http://storageexplorer.com) k načtení a zkontrolujte soubor zapisovat do sdílené složky.
+Můžete použít nástroje, jako [Microsoft Azure Storage Explorer](https://storageexplorer.com) k načtení a zkontrolujte soubor zapisovat do sdílené složky.
 
 >[!NOTE]
 > Další informace o používání šablon Azure Resource Manageru najdete v tématu soubory parametrů a nasazení pomocí rozhraní příkazového řádku Azure [nasazení prostředků pomocí šablony Resource Manageru a rozhraní příkazového řádku Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).

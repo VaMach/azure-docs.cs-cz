@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Pomocí služby Batch použijte virtuální počítače s nízkou prioritou
 
@@ -71,7 +71,7 @@ Azure Batch poskytuje několik možností, které usnadňují spotřebovávají 
 
 -   Když úlohy jsou přerušení, Batch zjistí a automaticky requeues úlohy spustit znovu.
 
--   Virtuální počítače s nízkou prioritou mají samostatné základní kvóta, se liší od pro vyhrazených virtuálních počítačích. 
+-   Virtuální počítače s nízkou prioritou kvóty samostatné virtuální procesory, se liší od pro vyhrazených virtuálních počítačích. 
     Kvótu pro virtuální počítače s nízkou prioritou je vyšší, než se kvóty pro vyhrazených virtuálních počítačích, protože virtuální počítače s nízkou prioritou nižší náklady. Další informace najdete v tématu [Batch, kvóty a omezení služby](batch-quota-limit.md#resource-quotas).    
 
 

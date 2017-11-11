@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Vzory pro víceklientské aplikace SaaS a Azure Search návrhu
 Víceklientské aplikace je ten, který poskytuje stejné funkce a služby pro libovolný počet klientů, kteří se nedají zobrazit ani sdílet data žádným jiným klientem. Tento dokument popisuje strategie izolace klienta pro víceklientské aplikace sestavené s Azure Search.
 
 ## <a name="azure-search-concepts"></a>Koncepty Azure Search
-Jako řešení vyhledávání jako služby Azure Search umožňuje vývojářům přidat bohaté vyhledávání prostředí do aplikace bez správou jakékoli infrastruktury nebo stal odborník v hledání. Data se odešlou do služby a pak uloženy v cloudu. Pomocí jednoduchých požadavků na rozhraní API služby Azure Search, data pak se dají upravit a vyhledávat. Přehled služby najdete v [v tomto článku](http://aka.ms/whatisazsearch). Před hovoříte o vzory návrhu, je důležité si uvědomit, některé pojmy ve službě Azure Search.
+Jako řešení vyhledávání jako služby Azure Search umožňuje vývojářům přidat bohaté vyhledávání prostředí do aplikace bez správu jakékoliv infrastruktury, nebo aby se aktivovala odborník v načítání informací o. Data se odešlou do služby a pak uloženy v cloudu. Pomocí jednoduchých požadavků na rozhraní API služby Azure Search, data pak se dají upravit a vyhledávat. Přehled služby najdete v [v tomto článku](http://aka.ms/whatisazsearch). Před hovoříte o vzory návrhu, je důležité si uvědomit, některé pojmy ve službě Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Vyhledávací služby, indexy, pole a dokumentů
 Při používání služby Azure Search, jeden přihlásí k odběru *služby vyhledávání*. Protože data jsou odeslána do služby Azure Search, uloží se do *index* v rámci služby vyhledávání. Může být počet indexů v rámci jedné služby. Pokud chcete použít koncepty seznámit databází, lze funkci hledání služby připodobnit k databázi při indexy v rámci služby lze připodobnit do tabulek v databázi.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8ba64f1d4b2d638f156c0dfc20d6686312daa5
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: e69ed1011fb0e9efdce115d1618c59c5bb86e224
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Vytvořit virtuální síť partnerský vztah - různé modely nasazení a odběry
 
@@ -33,17 +33,17 @@ Postup vytvoření virtuální sítě partnerského vztahu se liší v závislos
 |[I Resource Manager](create-peering-different-subscriptions.md) |Různé|
 |[Jeden Resource Manager, jeden classic](create-peering-different-deployment-models.md) |stejné|
 
-Virtuální síť partnerský vztah nelze vytvořit mezi dvěma virtuálními sítěmi nasazené prostřednictvím modelu nasazení classic. Pokud potřebujete připojení virtuální sítě, které byly obě vytvořené pomocí modelu nasazení classic, můžete použít Azure [brány VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) připojení virtuální sítě. 
+Virtuální síť partnerský vztah nelze vytvořit mezi dvěma virtuálními sítěmi nasazené prostřednictvím modelu nasazení classic. Schopnost peer virtuální sítě vytvořené pomocí jiné nasazení modely, které existují v různých předplatných je aktuálně ve verzi preview. K dokončení tohoto kurzu, musíte nejdřív [zaregistrovat](#register) funkce. Tento kurz používá virtuální sítě, které existují ve stejné oblasti. Schopnost peer virtuální sítě v různých oblastech je také ve verzi preview. Pokud chcete použít tuto možnost, musíte také [zaregistrovat](#register) pro ni. Dvě možnosti jsou nezávislé. K dokončení tohoto kurzu, je nutné se pouze zaregistrovat pro funkci rovnocenných počítačů virtuální sítě vytvořené pomocí jiné nasazení modely, které existují v různých předplatných. 
 
-V tomto kurzu partnerský vztah virtuálních sítí ve stejné oblasti. Schopnost peer virtuální sítě v různých oblastech je aktuálně ve verzi preview. Proveďte kroky v [zaregistrovat pro partnerský vztah globální virtuální sítě](#register) před pokusem o partnerský uzel virtuálních sítí v různých oblastech nebo partnerského vztahu selže. Možnost propojit virtuální sítě v různých oblastech s Azure [brány VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) je všeobecně dostupná a nevyžaduje registraci.
+Při vytváření virtuální sítě partnerský vztah mezi virtuálními sítěmi, které existují v různých předplatných, odběry musí být přidruženy ke stejné klienta Azure Active Directory. Pokud ještě nemáte klienta služby Azure Active Directory, můžete rychle [vytvořit](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). 
 
-Při vytváření virtuální sítě partnerský vztah mezi virtuálními sítěmi, které existují v různých předplatných, odběry musí být přidruženy ke stejné klienta Azure Active Directory. Pokud ještě nemáte klienta služby Azure Active Directory, můžete rychle [vytvořit](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Pokud potřebujete připojit virtuální sítě i vytvořených pomocí modelu nasazení classic, nebo které existovat v různých oblastech Azure, které existují v odběry, které jsou přidružené k jiných klientů Azure Active Directory, můžete použít Azure [ Brána sítě VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) připojení virtuální sítě.
+Možnost propojení virtuální sítě vytvořené pomocí modelu nasazení, různé modely nasazení, různých oblastech nebo předplatných přidružených ke stejné nebo jiné Azure Active Directory klienty pomocí Azure [brány VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) je ve verzi preview a nepotřebuje registraci.
 
 Můžete použít [portál Azure](#portal), Azure [rozhraní příkazového řádku](#cli) (CLI), nebo Azure [prostředí PowerShell](#powershell) vytvoření virtuální sítě partnerského vztahu. Klikněte na libovolný předchozí odkaz nástroj přejít přímo na kroky pro vytvoření virtuální sítě partnerský vztah nástroji vašeho výběru.
 
 ## <a name="portal"></a>Vytvoření partnerského vztahu – portál Azure
 
-Tento kurz používá různé účty pro každé předplatné. Pokud používáte účet, který má oprávnění pro oba odběry, můžete použít stejný účet pro všechny kroky, přeskočte postup protokolování mimo portál a přeskočit kroky pro přiřazení jiný uživatel oprávnění k virtuálním sítím. Před dokončením následujících kroků, je nutné zaregistrovat verzi Preview. Pokud chcete zaregistrovat, proveďte kroky v [zaregistrovat verzi Preview](#register) tohoto článku. Příklady zbývajících kroků nepokračujte, dokud jsou oba odběry registrované ve verzi Preview.
+Tento kurz používá různé účty pro každé předplatné. Pokud používáte účet, který má oprávnění pro oba odběry, můžete použít stejný účet pro všechny kroky, přeskočte postup protokolování mimo portál a přeskočit kroky pro přiřazení jiný uživatel oprávnění k virtuálním sítím. Před dokončením následujících kroků, je nutné zaregistrovat verzi Preview. Pokud chcete zaregistrovat, proveďte kroky v [zaregistrovat verzi Preview](#register) tohoto článku. Příklady zbývajících kroků selhat, pokud nezaregistrujete oba odběry ve verzi Preview.
  
 1. Přihlaste se k [portál Azure](https://portal.azure.com) jako uživatele. Účet, ke kterému se přihlásíte, musí mít potřebná oprávnění k vytvoření virtuální sítě partnerského vztahu. Najdete v článku [oprávnění](#permissions) tohoto článku podrobnosti.
 2. Klikněte na tlačítko **+ nový**, klikněte na tlačítko **sítě**, pak klikněte na tlačítko **virtuální síť**.
@@ -100,7 +100,7 @@ Tento kurz používá různé účty pro každé předplatné. Pokud používát
 
 Tento kurz používá různé účty pro každé předplatné. Pokud používáte účet, který má oprávnění pro oba odběry, můžete použít stejný účet pro všechny kroky, přeskočte postup protokolování mimo Azure a odstranit řádky skriptu, které vytvořit přiřazení role uživatele. Nahraďte UserA@azure.com a UserB@azure.com ve všech z následujících skriptů s uživatelských jmen, kterou používáte pro uživatele a b. 
 
-Před dokončením následujících kroků, je nutné zaregistrovat verzi Preview. Pokud chcete zaregistrovat, proveďte kroky v [zaregistrovat verzi Preview](#register) tohoto článku. Příklady zbývajících kroků nepokračujte, dokud jsou oba odběry registrované ve verzi Preview.
+Před dokončením následujících kroků, je nutné zaregistrovat verzi Preview. Pokud chcete zaregistrovat, proveďte kroky v [zaregistrovat verzi Preview](#register) tohoto článku. Příklady zbývajících kroků selhat, pokud nezaregistrujete oba odběry ve verzi Preview.
 
 1. [Nainstalujte](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 1.0 rozhraní příkazového řádku Azure k vytvoření virtuální sítě (klasické).
 2. Otevřete relaci rozhraní příkazového řádku a přihlaste se k Azure jako b pomocí `azure login` příkaz.
@@ -187,7 +187,7 @@ Před dokončením následujících kroků, je nutné zaregistrovat verzi Previe
 
 Tento kurz používá různé účty pro každé předplatné. Pokud používáte účet, který má oprávnění pro oba odběry, můžete použít stejný účet pro všechny kroky, přeskočte postup protokolování mimo Azure a odstranit řádky skriptu, které vytvořit přiřazení role uživatele. Nahraďte UserA@azure.com a UserB@azure.com ve všech z následujících skriptů s uživatelských jmen, kterou používáte pro uživatele a b. 
 
-Před dokončením následujících kroků, je nutné zaregistrovat verzi Preview. Pokud chcete zaregistrovat, proveďte kroky v [zaregistrovat verzi Preview](#register) tohoto článku. Příklady zbývajících kroků nepokračujte, dokud jsou oba odběry registrované ve verzi Preview.
+Před dokončením následujících kroků, je nutné zaregistrovat verzi Preview. Pokud chcete zaregistrovat, proveďte kroky v [zaregistrovat verzi Preview](#register) tohoto článku. Příklady zbývajících kroků selhat, pokud nezaregistrujete oba odběry ve verzi Preview.
 
 1. Nainstalujte nejnovější verzi prostředí PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) a [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) moduly. Pokud s Azure PowerShellem začínáte, podívejte se na [Přehled Azure PowerShellu](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Spusťte relaci prostředí PowerShell.
@@ -342,11 +342,11 @@ Po dokončení tohoto kurzu, můžete chtít odstranit z prostředků, které js
     > [!WARNING]
     > Import konfiguračního souboru změněné sítě může způsobit změny existující virtuální sítě (klasické) v rámci vašeho předplatného. Ujistěte se, jenom odebrat předchozí virtuální sítě a změníte nebo odeberte ostatní existující virtuální sítě ze svého předplatného. 
 
-## <a name="register"></a>Registrace pro partnerského vztahu preview globální virtuální sítě
+## <a name="register"></a>Registrace pro verze preview
 
-Schopnost peer virtuální sítě v různých oblastech je aktuálně ve verzi preview. Možnost je dostupná omezená sada oblastí (na začátku USA – Západ střední, Střední Kanada a USA – západ 2). Virtuální síť partnerských vztahů vytvořit mezi virtuálními sítěmi v různých oblastech nemusí mít stejnou úroveň dostupnost a spolehlivost jako partnerský vztah mezi virtuálními sítěmi ve stejné oblasti. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
+Schopnost peer virtuální sítě vytvořené pomocí různých nasazení Azure modely, které existují v různých předplatných je aktuálně ve verzi preview. Funkce Preview nemusí mít stejnou úroveň dostupnost a spolehlivost jako funkce v hlavní verze. Nejaktuálnější oznámení o dostupnosti a stav funkce verze preview, najdete [aktualizace virtuální sítě Azure](https://azure.microsoft.com/updates/?product=virtual-network) stránky. 
 
-Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné zaregistrovat verzi Preview, pomocí následujících kroků (v rámci předplatného je každá virtuální síť chcete rovnocenných počítačů v) pomocí prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure:
+Nejprve je nutné zaregistrovat pro funkci mezi předplatnými, mezi nasazení modelu, abyste mohli používat. Pomocí následujících kroků v rámci předplatného, které každý virtuální síť, kterou chcete peer se, pomocí prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -356,7 +356,7 @@ Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné z
 
     ```powershell
     Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     
     Register-AzureRmResourceProvider `
@@ -366,11 +366,14 @@ Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné z
 
     ```powershell    
     Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
+      -FeatureName FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     ```
 
-    Neprovádějte kroky v části šablony portálu, rozhraní příkazového řádku Azure, PowerShell nebo správce prostředků tohoto článku, dokud **RegistrationState** výstupu se zobrazí po zadání příkazu předchozí je **registrovaná**  pro oba odběry.
+    Neprovádějte kroky v části šablony portálu, rozhraní příkazového řádku Azure, PowerShell nebo správce prostředků tohoto článku, dokud **RegistrationState** výstupu se zobrazí po zadání předchozích příkazů je  **Registrované** pro oba odběry.
+
+> [!NOTE]
+> Tento kurz používá virtuální sítě, které existují ve stejné oblasti. Schopnost peer virtuální sítě v různých oblastech je také ve verzi preview. Registrace pro mezi oblastmi nebo globální partnerský vztah, dokončete kroky 1 – 4 znovu pomocí `-FeatureName AllowGlobalVnetPeering` místo `-FeatureName AllowClassicCrossSubscriptionPeering`. Tyto dvě funkce jsou navzájem nezávislé. Není potřeba zaregistrovat pro obě, pokud chcete použít. Možnost je dostupná omezená sada oblastí (na začátku USA – Západ střední, Střední Kanada a USA – západ 2).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -391,6 +394,9 @@ Rovnocenných počítačů virtuálních sítí v oblastech, nejprve je nutné z
     ```
 
     Neprovádějte kroky v části šablony portálu, rozhraní příkazového řádku Azure, PowerShell nebo správce prostředků tohoto článku, dokud **RegistrationState** výstupu se zobrazí po zadání příkazu předchozí je **registrovaná**  pro oba odběry.
+
+> [!NOTE]
+> Tento kurz používá virtuální sítě, které existují ve stejné oblasti. Schopnost peer virtuální sítě v různých oblastech je také ve verzi preview. Registrace pro mezi oblastmi nebo globální partnerský vztah, dokončete kroky 1 až 5 znovu pomocí `--name AllowGlobalVnetPeering` místo `--name AllowClassicCrossSubscriptionPeering`. Tyto dvě funkce jsou navzájem nezávislé. Není potřeba zaregistrovat pro obě, pokud chcete použít. Možnost je dostupná omezená sada oblastí (na začátku USA – Západ střední, Střední Kanada a USA – západ 2).
 
 ## <a name="next-steps"></a>Další kroky
 

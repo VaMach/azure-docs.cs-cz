@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Databáze SQL pro použití v zásobníku Microsoft Azure
 
@@ -74,7 +74,7 @@ Skript provede tyto kroky:
 - Registrace zprostředkovatele prostředků s místní Azure Resource Manager (uživatele a správce).
 
 > [!NOTE]
-> Pokud instalace používá víc než 90 minut, může dojít k selhání a na obrazovce a v souboru protokolu se zobrazí chybová zpráva o, ale nasazení se pokus o z selhávající krok. Systémy, které nesplňuje doporučené specifikace paměti a základní nemusí být možné instalovat SQL RP.
+> Pokud instalace používá víc než 90 minut, může dojít k selhání a na obrazovce a v souboru protokolu se zobrazí chybová zpráva o, ale nasazení se pokus o z selhávající krok. Systémy, které nesplňuje doporučené specifikace paměti a virtuální procesor nemusí být možné instalovat SQL RP.
 >
 
 Tady je příklad můžete spustit z prostředí PowerShell vyzve (však změnit na informace o účtu a hesla, podle potřeby):

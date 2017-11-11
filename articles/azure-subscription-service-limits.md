@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity, kvóty a omezení předplatného a služeb Azure
 Tento dokument uvádí některé z nejběžnějších omezení Microsoft Azure, což se taky někdy označují jako kvóty. Tento dokument nepokrývá aktuálně všech služeb Azure. V čase v seznamu rozbalit a aktualizovat tak, aby pokrývalo více platformou.
@@ -38,7 +38,7 @@ Nyní je možné kombinovat více prostředků Azure v do jedné skupiny prostř
 V níže uvedené limity se přidal nové tabulky, aby odrážela případné rozdíly v omezení při použití Azure Resource Manager. Například, že je **limity předplatného** tabulky a **limity předplatného – Azure Resource Manager** tabulky. Když omezení platí pro oba scénáře, se zobrazí pouze v první tabulce. Pokud není uvedeno jinak, jsou omezení globální přes všechny oblasti.
 
 > [!NOTE]
-> Je nutné zdůraznit, že jsou na oblast přístupný pro vaše předplatné kvóty pro prostředky ve skupinách prostředků Azure a nejsou za předplatné, jako jsou kvóty správy služby. Jako příklad použijeme základní kvóty. Pokud potřebujete požádat o zvýšení kvóty s podporou pro počet jader, musíte se rozhodnout, kolik jader, kterou chcete použít v oblasti, které a pak proveďte konkrétního požadavku pro skupiny prostředků Azure základní kvóty pro částky a oblastí, které chcete. Proto v případě, že budete muset použít 30 jader v oblasti západní Evropa spusťte aplikaci; Konkrétně měli požádat o 30 jader v oblasti západní Evropa. Ale nebudete mít základní kvóta zvyšují v jiné oblasti – pouze západní Evropa budou mít kvótu 30 jádra.
+> Je nutné zdůraznit, že jsou na oblast přístupný pro vaše předplatné kvóty pro prostředky ve skupinách prostředků Azure a nejsou za předplatné, jako jsou kvóty správy služby. Jako příklad použijeme kvóty virtuální procesory. Pokud potřebujete požádat o zvýšení kvóty s podporou pro Vcpu, musíte se rozhodnout, kolik Vcpu, kterou chcete použít v oblasti, které a pak proveďte konkrétního požadavku pro skupiny prostředků Azure virtuální procesor kvóty pro částky a oblastí, které chcete. Proto pokud budete muset použít 30 Vcpu v oblasti západní Evropa spusťte aplikaci existuje, měli byste požádat o konkrétně 30 Vcpu v oblasti západní Evropa. Ale nebudete mít virtuální procesory kvótu zvýšit v jiné oblasti – pouze západní Evropa budou mít kvótu 30-virtuální procesory.
 > <!-- -->
 > V důsledku toho může být vhodné vzít v úvahu při rozhodování o tom, co kvóty vaší skupiny prostředků Azure musí být pro úlohy v libovolné oblasti jeden a požadovat tato částka v každé oblasti, do kterého uvažujete o nasazení. V tématu [potíží s nasazením](resource-manager-common-deployment-errors.md) další pomoc zjišťování vaše aktuální kvóty pro konkrétní oblasti.
 >

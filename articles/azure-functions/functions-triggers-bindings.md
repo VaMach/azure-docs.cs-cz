@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkce triggerů a vazeb koncepty
 Azure Functions umožňuje psaní kódu v reakci na události v Azure a dalším službám prostřednictvím *aktivační události* a *vazby*. Tento článek obsahuje přehled služby aktivačních událostí a vazby pro všechny podporované programovací jazyky. Tady jsou popsané funkce, které jsou společné pro všechny vazby.
@@ -243,7 +243,7 @@ Například aktivační procedury fronty Azure Storage podporuje následující 
 
 Podrobnosti o vlastnosti metadat pro jednotlivé aktivační události jsou popsané v odpovídajícího tématu. Je také dostupná v dokumentaci **integrací** karta portálu v **dokumentace** části níže oblast konfigurace vazby.  
 
-Například vzhledem k tomu, že aktivační události objektu blob mají některé zpoždění, můžete použít aktivační procedury fronty ke spuštění funkce (viz [aktivační událost úložiště objektů Blob](functions-bindings-storage-blob.md#storage-blob-trigger)). Zprávy ve frontě by obsahovat název souboru objektů blob k aktivaci na. Pomocí `queueTrigger` vlastnost metadat, toto chování můžete zadat všechny v konfiguraci, nikoli kódu.
+Například vzhledem k tomu, že aktivační události objektu blob mají některé zpoždění, můžete použít aktivační procedury fronty ke spuštění funkce (viz [aktivační událost úložiště objektů Blob](functions-bindings-storage-blob.md#blob-storage-trigger)). Zprávy ve frontě by obsahovat název souboru objektů blob k aktivaci na. Pomocí `queueTrigger` vlastnost metadat, toto chování můžete zadat všechny v konfiguraci, nikoli kódu.
 
 ```json
   "bindings": [

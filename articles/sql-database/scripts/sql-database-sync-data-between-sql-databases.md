@@ -1,5 +1,5 @@
 ---
-title: "Prostředí PowerShell příklad synchronizace mezi více databází Azure SQL | Microsoft Docs"
+title: "Prostředí PowerShell příklad synchronizace mezi více databází SQL Azure | Microsoft Docs"
 description: "Azure PowerShell ukázkový skript k synchronizaci mezi více databází Azure SQL"
 services: sql-database
 documentationcenter: sql-database
@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 531379bf9836825ca75f4901b07685f21f7b5309
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 81bec820bd815f0a8826f3a5dc46b1924aa07772
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Pomocí prostředí PowerShell k synchronizaci mezi více databází Azure SQL
+# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Pomocí prostředí PowerShell k synchronizaci mezi více databází SQL
  
 Tento příklad PowerShell konfiguruje synchronizaci dat pro synchronizaci mezi více databází Azure SQL.
 
@@ -367,7 +367,7 @@ Další ukázky skriptu PowerShell databáze SQL naleznete v [skriptů prostřed
 Další informace o synchronizaci dat SQL najdete v tématu:
 
 -   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](../sql-database-sync-data.md)
--   [Začínáme s Azure SQL synchronizací dat](../sql-database-get-started-sql-data-sync.md)
+-   [Nastavit synchronizaci dat SQL Azure](../sql-database-get-started-sql-data-sync.md)
 -   [Osvědčené postupy pro synchronizaci dat SQL Azure](../sql-database-best-practices-data-sync.md)
 -   [Monitorování synchronizaci dat Azure SQL s OMS analýzy protokolů](../sql-database-sync-monitor-oms.md)
 -   [Řešení problémů s synchronizaci dat SQL Azure](../sql-database-troubleshoot-data-sync.md)

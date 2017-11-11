@@ -1,6 +1,6 @@
 ---
 title: "Řízení ukládání do mezipaměti řetězce dotazu chování Azure CDN | Microsoft Docs"
-description: "Azure CDN při ukládání řetězců dotazů ovládací prvky, jak jsou soubory do mezipaměti, které obsahují řetězce dotazu."
+description: "Azure CDN při ukládání řetězců dotazů ovládací prvky, jak se mezipaměti soubory, které obsahují řetězce dotazu."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -12,53 +12,46 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 8d79626fa8516f226a82d3dac693c2033904c91d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28e724f34c32edb0d5641b24f9ffedb7dc5f9680
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="control-azure-cdn-caching-behavior-with-query-strings"></a>Ovládací prvek Azure CDN ukládání do mezipaměti chování řetězce dotazu
+# <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Ovládací prvek Azure Content Delivery Network ukládání do mezipaměti chování řetězce dotazu
 > [!div class="op_single_selector"]
 > * [Standard](cdn-query-string.md)
 > * [Azure CDN Premium od společnosti Verizon](cdn-query-string-premium.md)
 > 
-> 
 
 ## <a name="overview"></a>Přehled
-Řetězec dotazu ukládání do mezipaměti ovládací prvky, jak jsou soubory do mezipaměti, které obsahují řetězce dotazu.
+S Azure Content Delivery Network (CDN), můžete řídit, jak jsou soubory uložené v mezipaměti pro webový požadavek, který obsahuje řetězec dotazu. V žádosti o webovou se řetězec dotazu, řetězec dotazu je část požadavku, který se nachází za `?` znak. Řetězec dotazu může obsahovat jeden nebo více parametrů, které jsou odděleny `&` znak. Například, `http://www.domain.com/content.mov?data1=true&data2=false`. Pokud v požadavku existuje více než jeden parametr řetězce dotazu, nezáleží pořadí parametrů. 
 
 > [!IMPORTANT]
-> Standard a Premium CDN produkty poskytovat stejné funkce mezipaměti řetězec dotazu, ale uživatelské rozhraní se liší.  Tento dokument popisuje rozhraní pro **Azure CDN Standard od společnosti Akamai** a **Azure CDN Standard od společnosti Verizon**.  Pro dotaz řetězec ukládání do mezipaměti s **Azure CDN Premium od společnosti Verizon**, najdete v části [řízení chování ukládání do mezipaměti CDN požadavky s řetězci dotazů - Premium](cdn-query-string-premium.md).
-> 
-> 
+> Produktů CDN standard a premium poskytují stejné funkce mezipaměti řetězec dotazu, ale uživatelské rozhraní se liší.  Tento článek popisuje rozhraní pro **Azure CDN Standard od společnosti Akamai** a **Azure CDN Standard od společnosti Verizon**. Pro dotaz řetězec ukládání do mezipaměti s **Azure CDN Premium od společnosti Verizon**, najdete v části [řízení chování ukládání do mezipaměti CDN požadavky s řetězci dotazů - Premium](cdn-query-string-premium.md).
 
-K dispozici jsou tři režimy:
+K dispozici jsou tři režimy řetězec dotazu:
 
-* **Ignorovat řetězce dotazů**: Toto je výchozí režim.  CDN hraničního uzlu předá řetězec dotazu z žadatel počátek na první požadavek a mezipaměti asset.  Všechny následné žádosti pro tento prostředek, které jsou obsluhovány z uzlu edge bude ignorovat řetězec dotazu do vypršení platnosti mezipaměti asset.
-* **Nepoužívat ukládání do mezipaměti pro URL s řetězci dotazů**: V tomto režimu žádostí s řetězci dotazu se neukládají do mezipaměti v uzlu edge CDN.  Hraničního uzlu načte asset přímo z tohoto počátku a předává je pro žadatele s každou žádostí.
-* **Ukládat do mezipaměti každou jedinečnou adresu URL**: Tento režim považuje za jedinečný prostředek s vlastní mezipaměti každou žádost s řetězec dotazu.  Například odpověď z tohoto počátku pro žádost o *foo.ashx?q=bar* by uloží do mezipaměti na uzlu edge a vrátit pro následné mezipaměti s Tento stejný řetězec dotazu.  Žádost o *foo.ashx?q=somethingelse* by do mezipaměti jako samostatné asset s vlastním časem TTL.
+- **Ignorovat řetězce dotazů**: výchozí režim. V tomto režimu hraničního uzlu CDN předává řetězce dotazu z žadatel k počátku na první požadavek a ukládá do mezipaměti asset. Všechny následné žádosti pro asset, které se zpracovávají z uzlu edge ignorovat řetězců dotazů do mezipaměti asset vypršení platnosti.
+- **Nepoužívat ukládání do mezipaměti pro řetězce dotazů**: V tomto režimu žádostí s řetězci dotazu se neukládají do mezipaměti v uzlu edge CDN. Hraničního uzlu načte asset přímo z tohoto počátku a předává je pro žadatele s každou žádostí.
+- **Ukládat do mezipaměti každou jedinečnou adresu URL**: V tomto režimu každou žádost s jedinečnou adresou URL, včetně řetězce dotazu, je považován za jedinečný prostředek s vlastní mezipaměti. Například odpověď z tohoto počátku pro žádost o `example.ashx?q=test1` je uloží do mezipaměti na uzlu edge a vrátit pro následné mezipaměti s stejné řetězec dotazu. Žádost o `example.ashx?q=test2` se uloží do mezipaměti jako samostatné asset s vlastní nastavení time to live.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Změna nastavení pro standardní profily CDN ukládání řetězců s dotazy
-1. Z okno profil CDN klikněte na koncový bod CDN, které chcete spravovat.
+1. Otevřete profil CDN a potom vyberte koncového bodu CDN, které chcete spravovat.
    
-    ![Koncové body okno profil CDN](./media/cdn-query-string/cdn-endpoints.png)
+   ![Koncové body profil CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-    Otevře se okno koncového bodu CDN.
-2. Klikněte **konfigurace** tlačítko.
+2. V části nastavení, klikněte na tlačítko **mezipaměti**.
    
-    ![Tlačítko Spravovat okno profil CDN](./media/cdn-query-string/cdn-config-btn.png)
+    ![Tlačítko mezipaměti profil CDN](./media/cdn-query-string/cdn-cache-btn.png)
    
-    Otevře se okno Konfigurace CDN.
-3. Vyberte nastavení z **chování ukládání řetězců s dotazy** rozevíracího seznamu.
+3. V **chování ukládání řetězců s dotazy** seznam, vyberte režim řetězec dotazu a pak klikněte na tlačítko **Uložit**.
    
-    ![Řetězec dotazu CDN možnosti ukládání do mezipaměti](./media/cdn-query-string/cdn-query-string.png)
-4. Po provedení váš výběr, klikněte na **Uložit** tlačítko.
+  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
 
 > [!IMPORTANT]
-> Změny nastavení nemusí být okamžitě viditelné, protože trvá, než se registrace rozšíří v rámci CDN.  V případě profilů <b>Azure CDN společnosti Akamai</b> je šíření obvykle hotové během jedné minuty.  V případě profilů <b>Azure CDN společnosti Verizon</b> je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
-> 
-> 
+> Protože trvá, než se registrace rozšíří v rámci CDN, změny nastavení mezipaměti řetězec nemusí být okamžitě viditelné. V případě profilů **Azure CDN od Akamai** je šíření obvykle hotové během jedné minuty. V případě profilů **Azure CDN od společnosti Verizon** je šíření obvykle hotové během 90 minut, ale někdy může trvat déle.
+
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Data synchronizovat osvědčené postupy | Microsoft Docs"
+title: "Osvědčené postupy pro synchronizaci dat Azure SQL | Microsoft Docs"
 description: "Další informace osvědčené postupy pro konfiguraci a spuštění synchronizaci dat SQL Azure"
 services: sql-database
 ms.date: 11/2/2017
@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 51ef421e0761be81681728daba9c2b6300e702c4
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: d23bd186300d451186dd4f3644290cb4178417a2
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Osvědčené postupy pro synchronizaci dat SQL Azure (Preview) 
+# <a name="best-practices-for-sql-data-sync-preview"></a>Osvědčené postupy pro synchronizaci dat SQL (Preview) 
 
 Tento článek popisuje osvědčené postupy pro synchronizaci dat SQL (Preview).
 
@@ -228,7 +228,7 @@ Pokud se pokusíte odebrat databázi a pak upravte skupinu synchronizace bez prv
 Další informace o synchronizaci dat SQL najdete v tématu:
 
 -   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](sql-database-sync-data.md)
--   [Začínáme s Azure SQL synchronizací dat](sql-database-get-started-sql-data-sync.md)
+-   [Nastavit synchronizaci dat SQL Azure](sql-database-get-started-sql-data-sync.md)
 -   [Monitorování synchronizaci dat Azure SQL s OMS analýzy protokolů](sql-database-sync-monitor-oms.md)
 -   [Řešení problémů s synchronizaci dat SQL Azure](sql-database-troubleshoot-data-sync.md)
 

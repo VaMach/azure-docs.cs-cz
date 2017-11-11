@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Používání databází MySQL v zásobníku Microsoft Azure
 
@@ -153,7 +153,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechce
 V závislosti na výkonu a stahování rychlosti systému instalace může trvat jako málo jako 20 minut, nebo jako dlouho jako několik hodin. Pokud v okně MySQLAdapter není k dispozici, aktualizujte portál pro správu.
 
 > [!NOTE]
-> Pokud instalace používá víc než 90 minut, může dojít k selhání a zobrazí se chybová zpráva o na obrazovce a v souboru protokolu. Z selhávající krok tím se pokus o nasazení. Systémy, které nesplňuje doporučené specifikace paměti a základní nemusí být možné instalovat MySQL RP.
+> Pokud instalace používá víc než 90 minut, může dojít k selhání a zobrazí se chybová zpráva o na obrazovce a v souboru protokolu. Z selhávající krok tím se pokus o nasazení. Systémy, které nesplňuje doporučené specifikace paměti a virtuální procesor nemusí být možné instalovat MySQL RP.
 
 
 

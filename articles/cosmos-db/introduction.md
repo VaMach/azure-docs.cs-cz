@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Vítá vás Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Azure Cosmos DB jakožto globálně distribuovaná databázová služba poskytuj
     * Rozhraní API pro následující datové modely jsou podporována se sadami SDK dostupnými v několika jazycích:
         * [Rozhraní API DocumentDB](documentdb-introduction.md): databázový stroj JSON bez schématu s SQL dotazování možnosti.
         * [Rozhraní API MongoDB](mongodb-introduction.md): Služba databáze A MongoDB postavená na Cosmos DB. Kompatibilní s existující MongoDB knihovny, ovladače, nástrojů a aplikací.
-        * [Tabulka rozhraní API](table-introduction.md): klíč hodnota úložiště databáze služby vytvořená tak, aby nabízí možnosti premium pro aplikace Azure Table storage.
+        * [Tabulka rozhraní API](table-introduction.md): klíč hodnota databáze služby vytvořená tak, aby nabízí možnosti premium pro aplikace Azure Table storage.
         * [Graf rozhraní API (Gremlin)](graph-introduction.md): následující služby vytvořené databáze graf [Apache TinkerPop specifikace](http://tinkerpop.apache.org/).
         * Další datové modely brzo!
 

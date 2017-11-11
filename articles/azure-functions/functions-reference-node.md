@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Příručka vývojáře Azure funkce JavaScript
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 Pokud pracujete s funkce jazyka JavaScript, nezapomeňte aspekty uvedené v následujících dvou částech.
 
-### <a name="choose-single-core-app-service-plans"></a>Zvolte jednojádrový plány služby App Service
+### <a name="choose-single-vcpu-app-service-plans"></a>Vyberte virtuální jeden procesor plány služby App Service
 
-Když vytvoříte aplikaci funkce, která používá plán služby App Service, doporučujeme vybrat plán jednojádrový spíše než plán s více jádry. V současné době funkce jazyka JavaScript funkce efektivněji běží na virtuálních počítačích jedním jádrem a větší virtuální počítače pomocí nevytváří vylepšení očekávaný výkon. Pokud je to nezbytné, můžete ručně škálovat tak, že přidáte více instancí virtuálního počítače jedním jádrem nebo můžete povolit automatické škálování. Další informace najdete v tématu [ruční nebo automatické škálování počtu instancí](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Když vytvoříte aplikaci funkce, která používá plán služby App Service, doporučujeme vybrat plán single-virtuální procesory než plán s více Vcpu. V současné době funkce jazyka JavaScript funkce efektivněji běží na virtuálních počítačích jedním-virtuální procesory a větší virtuální počítače pomocí nevytváří vylepšení očekávaný výkon. Pokud je to nezbytné, můžete ručně škálovat tak, že přidáte více instancí virtuálního počítače virtuální jeden procesor nebo můžete povolit automatické škálování. Další informace najdete v tématu [ruční nebo automatické škálování počtu instancí](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Podpora typeScript a CoffeeScript
 Protože přímé podpory ještě neexistuje pro automatické kompilaci TypeScript nebo CoffeeScript prostřednictvím modulu runtime, tato podpora se musí zpracovávat mimo modulu runtime v době nasazení. 

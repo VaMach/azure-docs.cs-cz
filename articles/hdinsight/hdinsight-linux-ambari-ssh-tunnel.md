@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Pomocí tunelového propojení SSH pro přístup k webovému uživatelskému rozhraní Ambari, JobHistory, NameNode, Oozie a jiným webovým uživatelská rozhraní
 
@@ -48,7 +48,7 @@ Pokud pomocí akcí skriptů přizpůsobení vašeho clusteru, vyžadují jakék
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Klientem SSH. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Klientem SSH. Většina operačních systémů poskytovat klientem SSH prostřednictvím `ssh` příkaz. Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Webový prohlížeč, který může být nakonfigurován k používání SOCKS5 proxy.
 
@@ -74,9 +74,9 @@ Tento příkaz vytvoří připojení, který směruje provoz do místního portu
 * **C** -komprimovat všechna data, protože webový provoz je většinou text.
 * **2** -force SSH pokusit protocol verze 2 pouze.
 * **q** -tichém režimu.
-* **T** -zakázat pseudo tty přidělení, protože jsme se právě předávání port.
-* **n**-Zabránit čtení STDIN, protože jsme se právě předávání port.
-* **N** -nespouštějte vzdáleného příkazu, protože jsme se právě předávání port.
+* **T** -zakázat pseudo tty přidělení, protože se právě předávání port.
+* **n**-Zabránit čtení STDIN, protože se právě předávání port.
+* **N** -nespouštějte vzdáleného příkazu, protože se právě předávání port.
 * **f** -spuštěný na pozadí.
 
 Po dokončení příkazu posílají do portu 9876 v místním počítači provoz se směruje na hlavního uzlu clusteru.

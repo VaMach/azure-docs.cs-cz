@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Synchronizaci dat Azure SQL (Preview) monitorování s OMS analýzy protokolů 
+# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Synchronizaci dat SQL (Preview) monitorování s OMS analýzy protokolů 
 
 Zkontrolujte protokol aktivit synchronizaci dat SQL a zjištění chyby a upozornění, dříve bylo nutné ručně zkontrolujte synchronizaci dat SQL na portálu Azure nebo pomocí Powershellu nebo rozhraní REST API. Postupujte podle kroků v tomto článku nakonfigurovat vlastní řešení, který zlepšuje synchronizaci dat možností monitorování. Toto řešení vyhovovat vašemu scénáři můžete přizpůsobit.
 
@@ -92,7 +92,7 @@ Další informace o vytvoření sady runbook najdete v tématu [Můj první Powe
 
     2.  Informace o skupině synchronizace.
 
-    3.  Informace o OMS. Tyto informace najdete na portálu OMS | Nastavení | Připojené zdroje. Další informace o odeslání dat k analýze protokolů najdete v tématu [odesílat data k analýze protokolů s rozhraním API týkající se kolekce dat protokolu HTTP (verze public preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
+    3.  Informace o OMS. Tyto informace najdete na portálu OMS | Nastavení | Připojené zdroje. Další informace o odeslání dat k analýze protokolů najdete v tématu [odesílat data k analýze protokolů s rozhraním API týkající se kolekce dat protokolu HTTP (verze public preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Spuštění sady runbook v testovací podokno. Zkontrolujte, ujistěte se, že byla úspěšná.
 
@@ -192,7 +192,7 @@ Stáhněte si ukázky kódu, které jsou popsané v tomto článku v následují
 Další informace o synchronizaci dat SQL najdete v tématu:
 
 -   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](sql-database-sync-data.md)
--   [Začínáme s Azure SQL synchronizací dat](sql-database-get-started-sql-data-sync.md)
+-   [Nastavit synchronizaci dat SQL Azure](sql-database-get-started-sql-data-sync.md)
 -   [Osvědčené postupy pro synchronizaci dat SQL Azure](sql-database-best-practices-data-sync.md)
 -   [Řešení problémů s synchronizaci dat SQL Azure](sql-database-troubleshoot-data-sync.md)
 

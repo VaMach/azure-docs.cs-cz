@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Správa webové aplikace pro kontejnery pomocí rozhraní příkazového řádku Azure
 
 Pomocí příkazů v tomto článku budete moci vytvářet a spravovat webové aplikace pro kontejnery pomocí Azure CLI 2.0.
 Můžete začít používat nové verze rozhraní příkazového řádku dvěma způsoby:
 
-* [Instalace Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) na váš počítač.
+* [Instalace Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) na váš počítač.
 * Pomocí [prostředí cloudu Azure (Preview)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Vytvoření plánu služby App Service pro Linux
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Další kroky
 
 * [Co je Azure App Service v systému Linux?](app-service-linux-intro.md)
-* [Instalace rozhraní příkazového řádku Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Instalace rozhraní příkazového řádku Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Prostředí cloudu Azure (Preview)](../../cloud-shell/overview.md)
 * [Nastavení přípravných prostředí v Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Průběžné nasazování pomocí webové aplikace pro kontejnery](app-service-linux-ci-cd.md)

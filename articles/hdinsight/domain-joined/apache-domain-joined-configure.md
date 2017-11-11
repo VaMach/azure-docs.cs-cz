@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.openlocfilehash: af75d63caca24f389345c964e2dc506a255bec19
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2c844ce8aec04c74a9c2dbecdd1b3effb286df97
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Konfigurace clusterů HDInsight připojený k doméně (Preview)
 
@@ -31,13 +31,7 @@ Zjistěte, jak nastavit cluster Azure HDInsight s Azure Active Directory (Azure 
 Tento článek je první kurz řady:
 
 * Vytvoření clusteru HDInsight připojené ke službě Azure AD (prostřednictvím funkce Azure Directory Domain Services) s Apache škálu povolena.
-* Vytvořit a použít zásady Hive prostřednictvím Apache škálu a povolit uživatelům (například datových vědců) pro připojení k Hive pomocí rozhraní ODBC nástrojů, například aplikace Excel, Tableau atd. Společnost Microsoft pracuje na přidávání dalších úloh, jako jsou HBase, Spark a Storm, k doméně HDInsight brzy.
-
-Příklad konečné topologie vypadá takto:
-
-![Topologie HDInsight připojený k doméně](./media/apache-domain-joined-configure/hdinsight-domain-joined-topology.png)
-
-Protože Azure AD aktuálně podporuje pouze klasické virtuální sítě (virtuální sítě) a podporuje se jen clustery HDInsight se systémem Linux Azure Resource Manager na základě virtuálních sítí, integrace HDInsight Azure AD vyžaduje dvě virtuální sítě a partnerský vztah mezi nimi. Porovnání informace mezi modely dvě nasazení najdete v tématu [Azure Resource Manager oproti nasazení classic: pochopení modely nasazení a stav svých prostředků](../../azure-resource-manager/resource-manager-deployment-model.md). Dvě virtuální sítě musí být ve stejné oblasti jako služba Azure AD DS.
+* Vytvořit a použít zásady Hive prostřednictvím Apache škálu a povolit uživatelům (například datových vědců) pro připojení k Hive pomocí rozhraní ODBC nástrojů, například aplikace Excel, Tableau atd. Společnost Microsoft pracuje na přidávání dalších úloh, jako jsou HBase a Storm, k doméně HDInsight brzy.
 
 Služba Azure názvy musí být globálně jedinečný. Následující názvy jsou použity v tomto kurzu. Contoso je fiktivní název. Je třeba nahradit *contoso* s jiným názvem při absolvovat kurz. 
 
@@ -45,8 +39,6 @@ Služba Azure názvy musí být globálně jedinečný. Následující názvy js
 
 | Vlastnost | Hodnota |
 | --- | --- |
-| Virtuální síť Azure AD |contosoaadvnet |
-| Skupina prostředků Azure AD virtuální sítě |contosoaadrg |
 | Adresář Azure AD |contosoaaddirectory |
 | Název domény služby Azure AD |společnosti Contoso (contoso.onmicrosoft.com) |
 | Virtuální síť HDInsight |contosohdivnet |
@@ -58,45 +50,50 @@ Tento kurz obsahuje kroky pro konfiguraci clusteru HDInsight připojený k domé
 ## <a name="prerequisite"></a>Předpoklad:
 * Seznamte se s [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) jeho [ceny](https://azure.microsoft.com/pricing/details/active-directory-ds/) struktura.
 * Zajistěte, aby vaše předplatné seznam povolených adres pro tuto verzi public preview. Můžete to provést pomocí e-mailu na hdipreview@microsoft.com s vaším ID předplatného.
-* Certifikát SSL, který je podepsaný podpisový autoritou pro vaši doménu. Certifikát je požadován konfigurace zabezpečeného LDAP. Nelze použít certifikáty podepsané svým držitelem.
+* Certifikát SSL, který je podepsaný podpisový autority nebo certifikát podepsaný svým držitelem pro vaši doménu. Je požadován pro konfiguraci zabezpečený LDAP certifikát.
 
 ## <a name="procedures"></a>Postupy
-1. Vytvoření Azure klasické virtuální sítě pro vaši službu Azure AD.  
+1. Vytvoření virtuální sítě HDInsight v režimu správy prostředků Azure.
 2. Vytvoření a konfigurace Azure AD a Azure AD DS.
-3. Vytvoření virtuální sítě HDInsight v režimu správy prostředků Azure.
-4. Sdílené dvou virtuálních sítí.
-5. Vytvoření clusteru HDInsight.
+3. Vytvoření clusteru HDInsight.
 
 > [!NOTE]
-> Tento kurz předpokládá, že nemáte Azure AD. Pokud nemáte, můžete přeskočit část v kroku 2.
+> Tento kurz předpokládá, že nemáte Azure AD. Pokud nemáte, můžete tuto část přeskočit.
 > 
 > 
 
-## <a name="create-an-azure-virtual-network-classic"></a>Vytvoření virtuální sítě Azure (klasický)
-V této části vytvoříte virtuální sítě (klasické) pomocí portálu Azure. V další části povolíte pro vaši službu Azure AD ve virtuální síti Azure AD DS. Další informace o následující postup a použití jiných metod vytvoření virtuální sítě najdete v tématu [vytvoření virtuální sítě (klasické) pomocí portálu Azure](../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+## <a name="create-a-resource-manager-vnet-for-hdinsight-cluster"></a>Vytvoření virtuální sítě Resource Manageru pro HDInsight cluster
+V této části vytvoříte o virtuální síť Azure Resource Manager, který se použije pro HDInsight cluster. Další informace o vytváření virtuální sítě Azure pomocí jiných metod najdete v tématu [vytvoření virtuální sítě](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 
-**Chcete-li vytvořit klasické virtuální sítě**
+Po vytvoření virtuální sítě, můžete nakonfigurovat služba Azure AD DS použít této virtuální sítě.
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com). 
-2. Klikněte na tlačítko **nové** > **sítě** > **virtuální sítě**.
-3. V **vybrat model nasazení**, vyberte **Classic**a potom klikněte na **vytvořit**.
+**K vytvoření virtuální sítě Resource Manageru**
+
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
+2. Klikněte na tlačítko **nový**, **sítě**a potom **virtuální síť**. 
+3. V **vybrat model nasazení**, vyberte **Resource Manager**a potom klikněte na **vytvořit**.
 4. Zadejte nebo vyberte tyto hodnoty:
    
-   * **Název**: contosoaadvnet
-   * **Adresní prostor**: 10.1.0.0/16
+   * **Název**: contosohdivnet
+   * **Adresní prostor**: 10.0.0.0/16.
    * **Název podsítě**: Subnet1
-   * **Rozsah adres podsítě**: 10.1.0.0/24
-   * **Předplatné**: (vybrat odběr, použitý k vytvoření této virtuální sítě.)
-   * **ResourceGroup**: contosoaadrg
-   * **Umístění**: (vyberte oblast pro váš cluster HDInsight.)
+   * **Rozsah adres podsítě**: 10.0.0.0/24
+   * **Předplatné**: (vyberte předplatné Azure.)
+   * **Skupina prostředků**: contosohdirg
+   * **Umístění**: (Vybrat stejné umístění jako virtuální sítě Azure AD. Například contosoaadvnet.)
+5. Klikněte na možnost **Vytvořit**.
+
+**Konfigurace služby DNS pro virtuální sítě Resource Manageru**
+
+1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **další služby** > **virtuální sítě**. Zajistěte, aby klikněte na tlačítko **virtuální sítě (klasické)**.
+2. Klikněte na tlačítko **contosohdivnet**.
+3. Klikněte na tlačítko **servery DNS** z levé strany nové okno.
+4. Klikněte na tlačítko **vlastní**a potom zadejte následující hodnoty:
+   
+   * 10.0.0.4
+   * 10.0.0.5     
      
-     > [!IMPORTANT]
-     > Musíte zvolit umístění, které podporuje Azure AD DS. Další informace najdete v tématu [Dostupné produkty v jednotlivých oblastech](https://azure.microsoft.com/en-us/regions/services/). 
-     > 
-     > Klasické virtuální sítě i virtuální síť skupiny prostředků musí být ve stejné oblasti jako služba Azure AD DS.
-     > 
-     > 
-5. Kliknutím na **Vytvořit** vytvořte síť VNet.
+5. Klikněte na **Uložit**.
 
 ## <a name="create-and-configure-azure-ad-ds-for-your-azure-ad"></a>Vytvoření a konfiguraci služby Azure AD DS pro vaši službu Azure AD
 V této části provedete následující:
@@ -121,44 +118,42 @@ Pokud byste radši chtěli použít existující Azure AD, můžete přeskočit 
 
 **Vytvořit uživatele Azure AD**
 
-1. Z [portál Azure classic](https://manage.windowsazure.com), klikněte na tlačítko **služby Active Directory** -> **contosoaaddirectory**. 
-2. Klikněte na tlačítko **uživatelé** v hlavní nabídce.
-3. Klikněte na tlačítko **přidat uživatele**.
-4. Zadejte **uživatelské jméno**a potom klikněte na **Další**. 
+1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **Azure Active Directory** > **contosoaaddirectory** > **uživatelů a skupin**. 
+2. Klikněte na tlačítko **všichni uživatelé** z nabídky.
+3. Klikněte na tlačítko **nového uživatele**.
+4. Zadejte **název** a **uživatelské jméno**a potom klikněte na **Další**. 
 5. Konfigurace profilu uživatele; V **Role**, vyberte **globálního správce**; a potom klikněte na **Další**.  Roli globálního správce je potřeba k vytvoření organizační jednotky.
-6. Klikněte na tlačítko **vytvořit** získat dočasné heslo.
-7. Vytvořit kopii heslo a potom klikněte na **Complete**. Později v tomto kurzu použijete k vytvoření clusteru HDInsight tohoto uživatele globální správce.
+6. Vytvořte kopii dočasné heslo.
+7. Klikněte na možnost **Vytvořit**. Později v tomto kurzu použijete k vytvoření clusteru HDInsight tohoto uživatele globální správce.
 
 Postupujte stejným způsobem, chcete-li vytvořit dva další uživatelé s **uživatele** role, hiveuser1 a hiveuser2. Následující uživatelé se použije v [Hive nakonfigurovat zásady pro clustery služby HDInsight připojený k doméně](apache-domain-joined-run-hive.md).
 
 **Vytvoření skupiny AAD správce řadiče domény a přidat uživatele Azure AD**
 
-1. Z [portál Azure classic](https://manage.windowsazure.com), klikněte na tlačítko **služby Active Directory** > **contosoaaddirectory**. 
-2. Klikněte na tlačítko **skupiny** v hlavní nabídce.
-3. Klikněte na tlačítko **přidat skupinu** nebo **přidat skupinu**.
+1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **Azure Active Directory** > **contosoaaddirectory** > **uživatelů a skupin**. 
+2. Klikněte na tlačítko **všechny skupiny** v hlavní nabídce.
+3. Klikněte na tlačítko **nové skupiny**.
 4. Zadejte nebo vyberte tyto hodnoty:
    
    * **Název**: Správci AAD řadič domény.  Neměnit název skupiny.
-   * **Typ skupiny**: zabezpečení.
-5. Klikněte na **Dokončit**.
-6. Klikněte na tlačítko **AAD řadič domény správci** otevřete skupinu.
-7. Klikněte na tlačítko **přidat členy**.
-8. Vyberte první uživatel, který jste vytvořili v předchozím kroku a pak klikněte na tlačítko **Complete**.
-9. Opakujte stejný postup, jak vytvořit jinou skupinu s názvem **HiveUsers**, a přidejte dva Hive uživatele do skupiny.
+   * **Typ členství**: přiřazen.
+5. Klikněte na **Vybrat**.
+6. Klikněte na tlačítko **členy**.
+7. Vyberte první uživatel, který jste vytvořili v předchozím kroku a pak klikněte na tlačítko **vyberte**.
+8. Opakujte stejný postup, jak vytvořit jinou skupinu s názvem **HiveUsers**, a přidejte dva Hive uživatele do skupiny.
 
 Další informace najdete v tématu [Azure AD Domain Services (Preview) – vytvořit skupinu, správci AAD řadič domény,](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
 **Pokud chcete povolit služby Azure AD DS pro vaši službu Azure AD**
 
-1. Z [portál Azure classic](https://manage.windowsazure.com), klikněte na tlačítko **služby Active Directory** > **contosoaaddirectory**. 
-2. Klikněte na tlačítko **konfigurace** v hlavní nabídce.
-3. Přejděte dolů k položce **Domain Services**a nastavte následující hodnoty:
-   
-   * **Povolit doménové služby pro tento adresář**: Ano.
-   * **Název domény DNS služby domain services**: Zobrazí název DNS výchozí adresář Azure. Například contoso.onmicrosoft.com.
-   * **Připojit doménové služby k této virtuální síti**: Vyberte klasickou virtuální síť, které jste vytvořili dříve, tj. **contosoaadvnet**.
-4. Klikněte na tlačítko **Uložit** v dolní části stránky. Zobrazí se **čekající na vyřízení...**  vedle **povolit doménové služby pro tento adresář**.  
-5. Počkejte na **čekající na vyřízení...**  zmizí, a **IP adresu** získá naplněno. Dvě IP adresy budou obsazeny. Toto jsou IP adresy řadiče domény, který vytváří Domain Services. Po odpovídající řadič domény je zřízený a připravena, budou viditelné každou IP adresu. Poznamenejte si dvě IP adresy. Ty budete potřebovat později.
+1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **vytvořit prostředek** > **zabezpečení a identita** > **Azure AD Domain Services**  >  **Přidat**. 
+2. Zadejte nebo vyberte tyto hodnoty:
+   * **Název adresáře**: contosoaaddirectory
+   * **Název domény DNS**: Zobrazí název DNS výchozí adresář Azure. Například contoso.onmicrosoft.com.
+   * **Umístění**: Vyberte oblast.
+   * **Sítě**: vyberte virtuální síť a podsíť, které jste vytvořili dříve. Například **contosohdivnet**.
+3. Klikněte na tlačítko **OK** na stránce Souhrn. Zobrazí se **nasazení probíhá...**  pod oznámení.
+4. Počkejte na **nasazení probíhá...**  zmizí, a **IP adresu** získá naplněno. Dvě IP adresy budou obsazeny. Toto jsou IP adresy řadiče domény, který vytváří Domain Services. Po odpovídající řadič domény je zřízený a připravena, budou viditelné každou IP adresu. Poznamenejte si dvě IP adresy. Ty budete potřebovat později.
 
 Další informace najdete v tématu [povolit Azure Active Directory Domain Services pomocí webu Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
@@ -168,13 +163,11 @@ Pokud budete používat vlastní doménu, budete muset synchronizovat heslo. V t
 
 **Ke konfiguraci LDAPS pro Azure AD**
 
-1. Získejte certifikát SSL, který je podepsaný podpisový autoritou pro vaši doménu. Pokud chcete použít certifikát podepsaný svým držitelem, prosím oslovení hdipreview@microsoft.com pro výjimku.
-2. Z [portál Azure classic](https://manage.windowsazure.com), klikněte na tlačítko **služby Active Directory** > **contosoaaddirectory**. 
-3. Klikněte na tlačítko **konfigurace** v hlavní nabídce.
-4. Přejděte na **služby domény**.
-5. Klikněte na tlačítko **konfigurace certifikátu**.
-6. Postupujte podle pokynů určete soubor certifikátu a heslo. Zobrazí se **čekající na vyřízení...**  vedle **povolit doménové služby pro tento adresář**.  
-7. Počkejte na **čekající na vyřízení...**  zmizí, a **zabezpečení certifikátu LDAP** tu naplněno.  To může trvat až 10 minut nebo déle.
+1. Získejte certifikát SSL, který je podepsaný podpisový autoritou pro vaši doménu.
+2. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **Azure AD Domain Services** > **contoso.onmicrosoft.com**. 
+3. Povolit **zabezpečený LDAP**.
+6. Postupujte podle pokynů určete soubor certifikátu a heslo.  
+7. Počkejte na **zabezpečení certifikátu LDAP** tu naplněno. To může trvat až 10 minut nebo déle.
 
 > [!NOTE]
 > Pokud některé úlohy na pozadí běží na Azure AD DS, zobrazí chybu při odesílání certifikát – <i>je operace prováděna pro tohoto klienta. Zkuste to prosím znovu později</i>.  V případě, že dojde k této chybě, zkuste to prosím po nějaké době znovu. Druhá IP řadič domény může trvat až 3 hodiny, které se má zřídit.
@@ -182,59 +175,6 @@ Pokud budete používat vlastní doménu, budete muset synchronizovat heslo. V t
 > 
 
 Další informace najdete v tématu [konfigurace zabezpečení protokolu LDAP (LDAPS) pro Azure AD Domain Services spravované domény](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-
-## <a name="create-a-resource-manager-vnet-for-hdinsight-cluster"></a>Vytvoření virtuální sítě Resource Manageru pro HDInsight cluster
-V této části vytvoříte o virtuální síť Azure Resource Manager, který se použije pro HDInsight cluster. Další informace o vytváření virtuální sítě Azure pomocí jiných metod najdete v tématu [vytvoření virtuální sítě](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
-
-Po vytvoření virtuální sítě, můžete nakonfigurovat virtuální sítě Resource Manageru, abyste mohli používat stejné servery DNS jako virtuální sítě Azure AD. Pokud jste postupovali podle kroků v tomto kurzu k vytvoření klasické virtuální sítě a Azure AD, servery DNS, které jsou 10.1.0.4 a 10.1.0.5.
-
-**K vytvoření virtuální sítě Resource Manageru**
-
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **nový**, **sítě**a potom **virtuální síť**. 
-3. V **vybrat model nasazení**, vyberte **Resource Manager**a potom klikněte na **vytvořit**.
-4. Zadejte nebo vyberte tyto hodnoty:
-   
-   * **Název**: contosohdivnet
-   * **Adresní prostor**: 10.2.0.0/16. Zkontrolujte, zda že rozsah adres se nesmí překrývat s rozsahem IP adres klasické virtuální sítě.
-   * **Název podsítě**: Subnet1
-   * **Rozsah adres podsítě**: 10.2.0.0/24
-   * **Předplatné**: (vyberte předplatné Azure.)
-   * **Skupina prostředků**: contosohdirg
-   * **Umístění**: (Vybrat stejné umístění jako Azure AD VNet, tj. contosoaadvnet.)
-5. Klikněte na možnost **Vytvořit**.
-
-**Konfigurace služby DNS pro virtuální sítě Resource Manageru**
-
-1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **další služby** -> **virtuální sítě**. Zajistěte, aby klikněte na tlačítko **virtuální sítě (klasické)**.
-2. Klikněte na tlačítko **contosohdivnet**.
-3. Klikněte na tlačítko **servery DNS** z levé strany nové okno.
-4. Klikněte na tlačítko **vlastní**a potom zadejte následující hodnoty:
-   
-   * 10.1.0.4
-   * 10.1.0.5
-     
-     Tyto IP adresy serveru DNS se musí shodovat na servery DNS ve virtuální síti Azure AD (klasické virtuální sítě).
-5. Klikněte na **Uložit**.
-
-## <a name="peer-the-azure-ad-vnet-and-the-hdinsight-vnet"></a>Peer virtuální sítí Azure AD a virtuální sítí HDInsight VNet
-**Dva virtuální síť rovnocenných počítačů**
-
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **další služby** v levé nabídce.
-3. Klikněte na tlačítko **virtuální sítě**. Nemáte klikněte na tlačítko **virtuální sítě (klasické)**.
-4. Klikněte na tlačítko **contosohdivnet**.  Toto je HDInsight virtuální sítě.
-5. Klikněte na tlačítko **partnerských vztahů** v levé nabídce okna.
-6. Klikněte na tlačítko **přidat** v hlavní nabídce. Otevře se **přidat partnerský vztah** okno.
-7. Na **přidat partnerský vztah** okně nastaven, nebo vyberte tyto hodnoty:
-   
-   * **Název**: ContosoAADHDIVNetPeering
-   * **Virtuální síť modelu nasazení**: Classic
-   * **Předplatné**: vyberte název odběru použít pro virtuální sítě classic (Azure AD).
-   * **Virtuální síť**: contosoaadvnet.
-   * **Povolit přístup k virtuální síti**: (zkontrolujte, zda)
-   * **Povolit přesměrovaných přenosů**: (zkontrolujte, zda). Nechte nezaškrtnuté dvou políček.
-8. Klikněte na **OK**.
 
 ## <a name="create-hdinsight-cluster"></a>Vytvoření clusteru HDInsight
 V této části vytvoříte clusteru systémem Linux Hadoop v HDInsight pomocí portálu Azure nebo [šablony Azure Resource Manageru](../../azure-resource-manager/resource-group-template-deploy.md). Další metody vytváření clusterů a Principy nastavení, najdete v tématu [Tvorba clusterů HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Další informace o vytvoření clusterů systému Hadoop v HDInsight pomocí šablony Resource Manageru najdete v tématu [vytvoření Hadoop clusterů v HDInsight pomocí šablony Resource Manageru](../hdinsight-hadoop-create-windows-clusters-arm-templates.md)
@@ -249,7 +189,7 @@ V této části vytvoříte clusteru systémem Linux Hadoop v HDInsight pomocí 
    * **Předplatné**: Vyberte předplatné Azure použitý k vytvoření tohoto clusteru.
    * **Konfigurace clusteru**:
      
-     * **Typ clusteru**: Hadoop. Připojené k doméně HDInsight je aktuálně pouze podporované na Hadoop clusterů.
+     * **Typ clusteru**: Hadoop. Připojené k doméně HDInsight je aktuálně pouze podporována v Hadoop, Spark a interaktivní dotazu clusterů.
      * **Operační systém**: Linux.  Připojené k doméně HDInsight je podporována pouze na clusterech HDInsight se systémem Linux.
      * **Verze**: HDI 3.6. Připojené k doméně HDInsight je podporována pouze na verzi clusteru HDInsight 3.6.
      * **Typ clusteru**: PREMIUM

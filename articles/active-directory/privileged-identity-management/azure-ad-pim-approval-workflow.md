@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Schválení (Preview)
+# <a name="approvals"></a>Schválení
 
 ## <a name="overview"></a>Přehled
 
 Schválení Privileged Identity Management můžete nakonfigurovat role za účelem vyžadovat schválení pro aktivaci a zvolte jednu nebo víc uživatelů nebo skupin jako delegovaný schvalovatelů. Zachovat čtení Další informace o konfiguraci rolí a vyberte schvalovatelů.
 
->[!NOTE]
-Mějte prosím na paměti, že tato funkce je stále ve vývoji a pravděpodobně narazíte na chyby. Funkce, včetně textu a konvence vytváření názvů se mohou změnit a by se neměla považovat za poslední.
 
-
-## <a name="key-terminology"></a>Terminologie klíče
+## <a name="new-terminology"></a>Nové terminologie
 
 *Oprávněný uživatel Role* – oprávněné role uživatel je uživatelem v rámci vaší organizace, který je přiřazený k roli služby Azure AD jako způsobilých (role vyžaduje aktivaci).
 
-*Delegovaná schvalovatel* – delegované schvalovatel je jeden nebo více jednotlivce nebo skupiny v rámci služby Azure AD, kteří jsou zodpovědní za schválení žádosti o aktivaci role.
+*Delegovaná schvalovatel* – delegované schvalovatel je jeden nebo více jednotlivce nebo skupiny v rámci služby Azure AD, který je zodpovědný za schvalování žádostí k aktivaci role.
 
 ## <a name="scenarios"></a>Scénáře
 

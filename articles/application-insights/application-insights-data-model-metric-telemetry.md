@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Metriky telemetrie: Application Insights datový model
 
@@ -24,7 +24,7 @@ Existují dva typy metriky telemetrie nepodporuje [Application Insights](app-ins
 
 Předem agregované metriky telemetrie předpokládá toto období agregace byl jednu minutu.
 
-Existuje několik dobře známé metriky jmen nepodporuje Application Insights. 
+Existuje několik dobře známé metriky jmen nepodporuje Application Insights. Tyto metriky umístit do tabulky čítače výkonu.
 
 Metrika představující systém a proces čítače:
 
@@ -65,6 +65,8 @@ Maximální hodnota agregovaná metrika. Neměla by být nastavená pro měřen�
 Standardní odchylka agregovaná metrika. Neměla by být nastavená pro měření.
 
 ## <a name="custom-properties"></a>Vlastní vlastnosti
+
+Metrika s vlastní vlastnost `CustomPerfCounter` nastavena na `true` označení, že metriku představuje čítačů výkonu systému windows. Tyto metriky umístěny v tabulce čítače výkonu. Není v customMetrics. Název tato metrika je také analyzovat extrahovat kategorie čítače a názvy instancí.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

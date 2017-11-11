@@ -12,22 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorování a správa serverů a trezorů služby Azure Recovery Services pro počítače s Windows
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-manage-windows-server.md)
-> * [Classic](backup-azure-manage-windows-server-classic.md)
->
->
 
-V tomto článku najdete přehled zálohování monitorování a Správa úloh k dispozici prostřednictvím portálu Azure a Microsoft Azure Backup agent. Tento článek předpokládá už máte předplatné Azure a vytvořili alespoň jeden trezor služeb zotavení.
+Tento článek obsahuje přehled zálohování monitorování a Správa úloh k dispozici prostřednictvím portálu Azure a Microsoft Azure Backup agent. Tento článek předpokládá už máte předplatné Azure a vytvořili alespoň jeden trezor služeb zotavení.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -41,7 +36,7 @@ V tomto článku najdete přehled zálohování monitorování a Správa úloh k
 
     ![Otevřete seznam krok trezory služeb zotavení 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
-3. Chcete otevřít trezoru služeb zotavení. V dialogovém okně začněte psát **služeb zotavení**. Během zadávání se seznam bude filtrovat podle zadávaného textu. Klikněte na tlačítko **trezory služeb zotavení** k zobrazení seznamu trezorů služeb zotavení v rámci vašeho předplatného.
+3. Chcete otevřít trezoru služeb zotavení. V dialogovém okně začněte psát **služeb zotavení**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na tlačítko **trezory služeb zotavení** k zobrazení seznamu trezorů služeb zotavení v rámci vašeho předplatného.
 
     ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
 
@@ -49,7 +44,7 @@ V tomto článku najdete přehled zálohování monitorování a Správa úloh k
 
     ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Ze seznamu trezorů vyberte název trezoru služeb zotavení, který chcete otevřít. Otevře se okno řídicího panelu trezoru služeb zotavení.
+4. Ze seznamu trezorů vyberte název trezoru služeb zotavení, který chcete otevřít. Otevře se nabídce řídícího panelu trezoru služeb zotavení.
 
     ![panelu trezoru služeb zotavení](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -66,13 +61,13 @@ V tomto článku najdete přehled zálohování monitorování a Správa úloh k
 
 ![Úlohy zálohování řídicí panel](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-Informace v každé z těchto dlaždic kliknutím otevřete přidružené okno, kde budete spravovat související úlohy.
+Kliknutím na tlačítko informace v každé z těchto dlaždic otevře přidružené nabídky kde budete spravovat související úlohy.
 
 Z horní části řídicího panelu:
 
-* Nastavení poskytuje přístup k dispozici úlohy zálohování.
+* Nastavení – poskytuje přístup k dispozici úlohy zálohování.
 * Zálohování – pomáhá zálohujete nové soubory a složky (nebo virtuálních počítačích Azure) do trezoru služeb zotavení.
-* Odstranění -: Pokud se už používá trezor služeb zotavení, můžete odstranit uvolnění prostoru úložiště. Odstranění je aktivní jenom po odstranění všech chráněných serverech z trezoru.
+* Odstraňte – Pokud obnovení trezor služeb se už používá, odstraňte jej pro uvolnění prostoru úložiště. Odstranění je aktivní jenom po odstranění všech chráněných serverech z trezoru.
 
 ![Úlohy zálohování řídicí panel](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -80,11 +75,11 @@ Z horní části řídicího panelu:
 | Úroveň výstrahy | Zasílání upozornění |
 | --- | --- |
 | Kritické |Selhání zálohování, obnovení selhání |
-| Upozornění |Zálohování dokončeno s varováním (při méně než sto soubory nejsou zálohovány kvůli problémům s poškození a více než jeden milión soubory jsou zálohovány úspěšně) |
+| Upozornění |Zálohování dokončeno s varováním (Pokud < 100 soubory nejsou zálohovány kvůli problémům s poškození a > 1000000 soubory jsou zálohovány úspěšně) |
 | Informační |Žádný |
 
 ## <a name="manage-backup-alerts"></a>Správa výstrah zálohování
-Klikněte na tlačítko **zálohování výstrahy** dlaždici otevřete **zálohování výstrahy** okno a spravovat výstrahy.
+Klikněte na tlačítko **zálohování výstrahy** dlaždici otevřete **zálohování výstrahy** nabídky a spravovat výstrahy.
 
 ![Výstrahy zálohy](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
@@ -93,23 +88,23 @@ Na dlaždici zálohování výstrahy zobrazuje číslo:
 * kritické výstrahy nepřeložené za posledních 24 hodin
 * upozorňující výstrahy nepřeložené za posledních 24 hodin
 
-Kliknutím na každý z těchto odkazů přejdete k **zálohování výstrahy** okno s filtrované zobrazení tyto výstrahy (kritický nebo upozornění).
+Klikněte na odkaz zobrazíte **zálohování výstrahy** nabídce s filtrované zobrazení tyto výstrahy (kritický nebo upozornění).
 
-V okně Zálohování výstrahy můžete:
+V nabídce zálohování výstrahy můžete:
 
 * Vyberte příslušné informace, které chcete zahrnout do upozornění.
 
     ![Zvolit sloupce](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-* Filtrování výstrah pro závažnost, stavu a počáteční nebo koncové časy.
+* Filtrování výstrah pro závažnost, stav a časy zahájení a ukončení.
 
     ![Filtrování výstrah](./media/backup-azure-manage-windows-server/filter-alerts.png)
 * Konfigurace oznámení pro závažností, četnosti a příjemce, a také zapnout výstrahy nebo vypnout.
 
     ![Filtrování výstrah](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-Pokud **za výstrahy** je vybrán jako **oznámení** frekvence dojde k žádné seskupení nebo snížení e-mailů. Každá výstraha výsledkem 1 oznámení. Toto je výchozí nastavení a e-mailové řešení je také odesílat okamžitě.
+Pokud **za výstrahy** je vybrán jako **oznámení** dojde k frekvenci, bez seskupení nebo snížení e-mailů. Každá výstraha výsledkem jedno oznámení (výchozí nastavení) a řešení e-mail je odeslán okamžitě.
 
-Pokud **hodinové Digest** je vybrán jako **oznámení** nepřeložené frekvenci, jeden e-mail je odeslán uživateli zprávu, které nejsou nové výstrahy generované za poslední hodinu. E-mailu s řešení odeslání na konci za hodinu.
+Pokud **hodinové Digest** je vybrán jako **oznámení** frekvence e-mail je odeslán uživateli vysvětlením nevyřešené výstrahy byly vygenerovány za poslední hodinu. E-mailu s řešení odeslání na konci za hodinu.
 
 Můžete odesílat upozornění pro následující úrovně závažnosti:
 
@@ -117,12 +112,12 @@ Můžete odesílat upozornění pro následující úrovně závažnosti:
 * Upozornění
 * Informace o
 
-Deaktivovat výstrahy s **deaktivovat** tlačítka v okně podrobností úlohy. Po kliknutí na tlačítko deaktivovat, můžete zadat poznámky k řešení.
+Deaktivovat výstrahy s **deaktivovat** tlačítko v nabídce podrobnosti úlohy. Po kliknutí na tlačítko deaktivovat, můžete zadat poznámky k řešení.
 
 Vyberte sloupce, které se mají zobrazit jako součást výstraha s **zvolit sloupce** tlačítko.
 
 > [!NOTE]
-> Z **nastavení** okně Spravovat výstrahy zálohy výběrem **monitorování a sestavy > Výstrahy a události > výstrahy zálohy** a pak levým na **filtru** nebo  **Konfigurace oznámení**.
+> Z **nastavení** nabídce Spravovat výstrahy zálohy výběrem **monitorování a sestavy > Výstrahy a události > výstrahy zálohy** a pak levým na **filtru** nebo ** Konfigurace oznámení**.
 >
 >
 
@@ -133,14 +128,14 @@ Klikněte na tlačítko **složek souborů** v zálohování položek dlaždici.
 
 ![Dlaždice položky zálohování](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-Otevře se okno položky zálohování s filtrem nastavena na soubor a složka, kde uvidíte každé konkrétní zálohy položka v seznamu.
+Otevře se nabídka položky zálohování s filtrem nastavena na soubor a složka, kde uvidíte každé konkrétní zálohy položka v seznamu.
 
 ![Zálohování položek](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 Pokud vyberete konkrétní zálohování položku ze seznamu, zobrazí se základní podrobnosti o této položce.
 
 > [!NOTE]
-> Z **nastavení** okně Spravovat soubory a složky tak, že vyberete **chráněné položky > Zálohování položek** a potom vyberete **složek souborů** z rozevírací nabídky.
+> Z **nastavení** nabídce spravovat soubory a složky tak, že vyberete **chráněné položky > Zálohování položek** a potom vyberete **složek souborů** z rozevírací nabídky.
 >
 >
 
@@ -154,18 +149,18 @@ V části zálohování řídicí panel dlaždice úlohy zálohování znázorň
 * v průběhu
 * selhání v posledních 24 hodin.
 
-Chcete-li spravovat vaše úlohy zálohování, klikněte na tlačítko **úlohy zálohování** dlaždici, což otevře okno úlohy zálohování.
+Chcete-li spravovat vaše úlohy zálohování, klikněte na tlačítko **úlohy zálohování** dlaždice, které se otevře v nabídce úlohy zálohování.
 
 ![Zálohování položek z nastavení](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
-Upravte informace k dispozici v okně úlohy zálohování se **zvolit sloupce** tlačítka v horní části stránky.
+Upravte informace k dispozici v nabídce úlohy zálohování se **zvolit sloupce** tlačítka v horní části stránky.
 
 Použití **filtru** tlačítko můžete vybrat mezi soubory a složky a záloha virtuálního počítače Azure.
 
-Pokud nevidíte zálohovaný soubory a složky, klikněte na tlačítko **filtru** tlačítka v horní části stránky a vyberte **soubory a složky** nabídce typu položky.
+Pokud nevidíte zálohování souborů a složek, klikněte na tlačítko **filtru** tlačítka v horní části stránky a vyberte **soubory a složky** nabídce typu položky.
 
 > [!NOTE]
-> Z **nastavení** okně Spravovat úlohy zálohování tak, že vyberete **monitorování a sestavy > úlohy > úlohy zálohování** a potom vyberete **složek souborů** z rozevíracího seznamu nabídky.
+> Z **nastavení** nabídce Spravovat úlohy zálohování tak, že vyberete **monitorování a sestavy > úlohy > úlohy zálohování** a potom vyberete **složek souborů** z rozevíracího seznamu nabídky.
 >
 >
 
@@ -180,7 +175,7 @@ Chcete-li spravovat provozních serverů, klikněte na tlačítko **nastavení**
 
 V části Správa klikněte na **infrastruktura zálohování > produkční servery**.
 
-Zobrazí okno provozních serverů všechny dostupné provozních serverů. Klikněte na server v seznamu a otevřete tak podrobnosti serveru.
+Seznamy nabídek provozních serverů všechny dostupné provozních serverů. Klikněte na server v seznamu a otevřete tak podrobnosti serveru.
 
 ![Chráněné položky](./media/backup-azure-manage-windows-server/production-server-list.png)
 

@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 29fb935ada4aa7f2571b128f82d4c037bbb88eb1
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8c59e6ad42109c7df64fd651a012a56446daaad0
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="troubleshoot-issues-with-azure-sql-data-sync-preview"></a>Řešení problémů s synchronizaci dat SQL Azure (Preview)
+# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Řešení problémů s synchronizaci dat SQL (Preview)
 
 Tento článek popisuje postup řešení potíží s aktuální problémy, které jsou známé týmem synchronizaci dat SQL (Preview). Pokud je alternativní řešení problému, je tady uvedené.
 
@@ -493,7 +493,7 @@ Pokud se nemůžete vyřešit problém, stav skupiny pro synchronizaci můžete 
 Další informace o synchronizaci dat SQL najdete v tématu:
 
 -   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](sql-database-sync-data.md)
--   [Začínáme s Azure SQL synchronizací dat](sql-database-get-started-sql-data-sync.md)
+-   [Nastavit synchronizaci dat SQL Azure](sql-database-get-started-sql-data-sync.md)
 -   [Osvědčené postupy pro synchronizaci dat SQL Azure](sql-database-best-practices-data-sync.md)
 -   [Monitorování synchronizaci dat Azure SQL s OMS analýzy protokolů](sql-database-sync-monitor-oms.md)
 
