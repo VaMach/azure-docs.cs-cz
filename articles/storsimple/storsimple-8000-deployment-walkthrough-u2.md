@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Nasazení místního zařízení StorSimple (Update 3 a novější)
 
@@ -49,7 +49,7 @@ Pomocí níže uvedených požadovaných kroků zařízení StorSimple nakonfigu
 | [Krok 1: Vytvoření nové služby](#step-1-create-a-new-service) |Nastavte správu cloudu a úložiště pro zařízení StorSimple. *Pokud máte existující službu pro jiná zařízení StorSimple, tento krok přeskočte*. |
 | [Krok 2: Získání registračního klíče služby](#step-2-get-the-service-registration-key) |Pomocí tohoto klíče zaregistrujte zařízení StorSimple ve službě správy a připojte je k ní. |
 | [Krok 3: Konfigurace a registrace zařízení pomocí Windows PowerShellu pro StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Pokud chcete instalaci dokončit pomocí služby pro správu, připojte zařízení k síti a zaregistrujte ho v Azure. |
-| [Krok 4: Dokončení minimální instalace zařízení](#step-4-complete-minimum-device-setup)</br>[Volitelné: Aktualizace zařízení StorSimple](#scan-for-and-apply-updates) |Pomocí služby pro správu dokončete instalaci zařízení a aktivujte je k poskytování úložiště. |
+| [Krok 4: Dokončení minimální instalace zařízení](#step-4-complete-minimum-device-setup)</br>[Osvědčený postup: Aktualizace zařízení StorSimple](#scan-for-and-apply-updates) |Pomocí služby pro správu dokončete instalaci zařízení a aktivujte je k poskytování úložiště. |
 | [Krok 5: Vytvoření kontejneru svazků](#step-5-create-a-volume-container) |Vytvořte kontejner ke zřízení svazků. Kontejner svazků obsahuje účet úložiště, šířku pásma a nastavení šifrování pro všechny svazky, které jsou v něm obsažené. |
 | [Krok 6: Vytvoření svazku](#step-6-create-a-volume) |V zařízení StorSimple zřiďte svazky úložiště pro vaše servery. |
 | [Krok 7: Připojení, inicializace a formátování svazků](#step-7-mount-initialize-and-format-a-volume)</br>[Volitelné: Konfigurace funkce MPIO](storsimple-8000-configure-mpio-windows-server.md) |Připojte své servery k úložišti iSCSI poskytovanému zařízením. Volitelně konfigurujte funkci MPIO, abyste zajistili, že servery budou tolerovat chyby připojení, sítě a rozhraní. |
@@ -127,6 +127,8 @@ K dokončení minimální instalace zařízení proveďte na webu Azure Portal n
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+Po dokončení minimální instalace zařízení je osvědčeným postupem [vyhledání a instalace nejnovějších aktualizací](#scan-for-and-apply-updates).
+
 ## <a name="step-5-create-a-volume-container"></a>Krok 5: Vytvoření kontejneru svazků
 Kontejner svazků obsahuje účet úložiště, šířku pásma a nastavení šifrování pro všechny svazky, které jsou v něm obsažené. Kontejner svazků je nutné vytvořit před zahájením zřizování svazků v zařízení StorSimple.
 
@@ -181,7 +183,7 @@ K připojení Windows PowerShellu pro StorSimple je nutné použít software pro
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Vyhledání a instalace aktualizací
-Aktualizace zařízení může trvat několik hodin. Podrobné pokyny k instalaci nejnovější aktualizace najdete v tématu s popisem [instalace aktualizace Update 4](storsimple-8000-install-update-4.md).
+Aktualizace zařízení může trvat několik hodin. Podrobné pokyny k instalaci nejnovější aktualizace najdete v tématu s popisem [instalace aktualizace Update 5](storsimple-8000-install-update-5.md).
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Získání názvu IQN hostitele se systémem Windows Server

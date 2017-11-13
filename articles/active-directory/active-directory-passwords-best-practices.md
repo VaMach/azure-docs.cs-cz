@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Úspěšné zavedení samoobslužného resetování hesla
 
@@ -38,8 +38,8 @@ Většina zákazníků pro zajištění bezproblémového zavedení funkce samoo
 10. V průběhu času můžete uživatele, kteří se registrují a používají tuto funkci, kontrolovat zobrazením [sestav, které poskytuje Azure AD](active-directory-passwords-reporting.md).
 11. Až budete připravení, povolte resetování hesla pro všechny uživatele tak, že přepnete **Samoobslužné resetování hesla povoleno** na **Všichni**. 
 
-    > [!IMPORTANT]
-    > Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty typu správce Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem [podrobném článku](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Otestujte samoobslužné resetování hesla pomocí uživatele, a ne správce, protože Microsoft pro účty typu správce Azure vynucuje požadavky na silné ověřování. Další informace týkající se zásad hesel správců najdete v našem [článku o zásadách hesel](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>Zavedení přes e-mail
 
@@ -87,7 +87,7 @@ Zakázání samoobslužného resetování hesla je snadné – stačí otevřít
 * [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
 * [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
 * [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
-* [Myslím, že je něco poškozené. Jak odstraňovat problémy SSPR?](active-directory-passwords-troubleshoot.md)
+* [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
 * [Mám otázku, která nebyla zodpovězena jinde](active-directory-passwords-faq.md)
 
 [Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Přizpůsobení těchto e-mailových šablon podle požadavků vaší organizace"

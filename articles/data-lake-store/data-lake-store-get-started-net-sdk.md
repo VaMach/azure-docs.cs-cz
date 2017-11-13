@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 10/13/2017
 ms.author: nitinme
-ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operace správy účtů v Azure Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ Ve zbývajících oddílech tohoto článku uvidíte, jak používat dostupné m
 * Pokud chcete ve své aplikaci ověřování koncového uživatele, přečtěte si téma [Ověřování koncového uživatele pomocí služby Data Lake Store s použitím sady .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Pokud chcete ve své aplikaci ověřování služba-služba, přečtěte si téma [Ověřování služba-služba pomocí služby Data Lake Store s použitím sady .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="create-client-objects"></a>Vytvoření objektů klienta
+## <a name="create-client-object"></a>Vytvoření objektu klienta
 Následující fragment kódu vytvoří objekt klienta účtu Data Lake Store, který slouží k zasílání požadavků na správu účtů, jako je například vytvoření účtu, odstranění účtu a další, do služby.
 
     // Create client objects and set the subscription ID

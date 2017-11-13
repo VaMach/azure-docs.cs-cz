@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Nasazení a správa řešení StorSimple Cloud Appliance v Azure (s aktualizací Update 3 a novější)
 
@@ -183,6 +183,18 @@ Provedením následujících kroků vytvořte na cloudovém zařízení veřejn�
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 Doporučujeme připojit se z jiného virtuálního počítače ve stejné virtuální síti, protože tento postup minimalizuje počet veřejných koncových bodů ve virtuální síti. V tomto případě se k virtuálnímu počítači připojte prostřednictvím relace vzdálené plochy a potom můžete provést konfiguraci tohoto virtuálního počítače pro použití stejně jako u jiných klientů systému Windows v místní síti. Nemusíte připojovat číslo veřejného portu, protože port je již znám.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Získání privátní IP adresy pro cloudové zařízení
+
+Aby se cloudové zařízení mohlo připojit k hostitelskému serveru ve stejné virtuální síti, potřebujete interní nebo privátní IP adresu daného cloudového zařízení. Provedením následujících kroků získejte privátní IP adresu cloudového zařízení.
+
+1. Přejděte k základnímu virtuálnímu počítači pro vaše cloudové zařízení. Virtuální počítač má stejný název jako cloudové zařízení. Přejděte do části **Všechny prostředky**, zadejte název cloudového zařízení a předplatného a jako typ vyberte virtuální počítače. V zobrazeném seznamu virtuálních počítačů vyberte a klikněte na virtuální počítač odpovídající cloudovému zařízení.
+
+     ![Výběr virtuálního počítače pro cloudové zařízení](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Přejděte do **Nastavení > Sítě**. V pravém podokně se zobrazí privátní IP adresa cloudového zařízení. Poznamenejte si ji.
+
+    ![Získání privátní IP adresy pro cloudové zařízení](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Práce s řešením StorSimple Cloud Appliance
 

@@ -1,6 +1,6 @@
 ---
 title: "Nastavení zásad zabezpečení ve službě Azure Security Center | Dokumentace Microsoftu"
-description: "Tento dokument vám pomůže s konfigurací zásad zabezpečení ve službě Azure Security Center."
+description: "Tento článek vám pomůže s konfigurací zásad zabezpečení ve službě Azure Security Center."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,59 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b4b33143ad6e24fc40acafbe4ad37b7152d2b8d4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Nastavení zásad zabezpečení ve službě Security Center
-Tento dokument vám pomůže nakonfigurovat zásady zabezpečení v Security Center a provede vás potřebnými kroky. 
-
+# <a name="set-security-policies-in-azure-security-center"></a>Nastavení zásad zabezpečení ve službě Azure Security Center
+Tento článek vám pomůže s konfigurací zásad zabezpečení ve službě Security Center. 
 
 ## <a name="how-security-policies-work"></a>Způsob fungování zásad zabezpečení
-Security Center automaticky vytváří výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Zásady můžete upravovat ve službě Security Center, která umožňuje také monitorovat jejich dodržování. 
+Security Center automaticky vytváří výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Ve službě Security Center můžete zásady upravovat a monitorovat jejich dodržování. 
 
 > [!NOTE]
-> Zásady služby Security Center teď můžete rozšířit použitím služby Azure Policy, která je ve verzi Limited Preview. Klikněte [sem](http://aka.ms/getpolicy) a připojte se k verzi Preview nebo se podívejte do dokumentace kliknutím [sem](security-center-azure-policy.md).
+> Zásady služby Security Center teď můžete rozšířit pomocí služby Azure Policy, která je ve verzi Limited Preview. Pokud se chcete připojit k verzi Preview, přejděte na web [pro registraci do Azure Policy](https://aka.ms/getpolicy). Další informace najdete v tématu [Integrace zásad zabezpečení ve službě Security Center se službou Azure Policy](security-center-azure-policy.md).
 
-Například prostředky používané pro vývoj nebo testování mohou mít jiné požadavky na zabezpečení než prostředky, které se používají v aplikacích v produkčním prostředí. Aplikace pracující s regulovanými daty, třeba s osobními údaji, zase mohou vyžadovat vyšší úroveň zabezpečení. Zásady zabezpečení povolené ve službě Azure Security Center mají vliv na doporučení zabezpečení a monitorování a pomohou vám najít potenciální nedostatky zabezpečení a zmírnit hrozby. Pro další informace o určení, která možnost je pro vás vhodná, si přečtěte [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md).
+Požadavky na zabezpečení pro prostředky používané pro vývoj nebo testování se můžou lišit od požadavků pro prostředky, které se používají v produkčních aplikacích. Aplikace pracující s regulovanými daty, jako jsou identifikovatelné osobní údaje, můžou vyžadovat vyšší úroveň zabezpečení. Zásady zabezpečení povolené ve službě Azure Security Center mají vliv na doporučení zabezpečení a monitorování a pomohou vám najít potenciální nedostatky zabezpečení a zmírnit hrozby. Další informace o určení, která možnost je pro vás vhodná, najdete v tématu [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md).
 
 ## <a name="edit-security-policies"></a>Upravení zásad zabezpečení
-Ve službě Security Center můžete upravit výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Pokud chcete upravit nějakou zásadu zabezpečení, musíte být vlastníkem, přispěvatelem nebo správcem zabezpečení daného předplatného. Přihlaste se na webu Azure Portal a při konfiguraci zásad zabezpečení ve službě Security Center postupujte podle následujících kroků: 
+Ve službě Security Center můžete upravit výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Pokud chcete upravit nějakou zásadu zabezpečení, musíte být vlastníkem, přispěvatelem nebo správcem zabezpečení daného předplatného. Pokud chcete konfigurovat zásady zabezpečení ve službě Security Center, postupujte takto:
 
-1.  Na řídicím panelu **Security Center** v části **Obecné** klikněte na **Zásady zabezpečení**.
-2.  Vyberte předplatné, pro které chcete zásady zabezpečení povolit.
-3.  V části **SOUČÁSTI ZÁSAD** klikněte na **Zásady zabezpečení**.
-4.  Toto jsou výchozí zásady přiřazené službou Security Center. Můžete zapnout nebo vypnout dostupná doporučení zabezpečení.
-5.  Jakmile budete s úpravami hotovi, klikněte na **Uložit**.
+1. Přihlaste se k portálu Azure.
 
-## <a name="available-security-policy-options"></a>Dostupné možnosti zásad zabezpečení
+2. Na řídicím panelu **Security Center** v části **Obecné** vyberte **Zásady zabezpečení**.
 
-Následující tabulku použijte jako referenci pro pochopení jednotlivých možností:
+3. Vyberte předplatné, pro které chcete povolit zásady zabezpečení.
 
-| Zásada | Pokud je nastavená možnost Zapnuto |
+4. V části **Součásti zásad** vyberte **Zásady zabezpečení**.  
+    Toto jsou výchozí zásady přiřazené službou Security Center. Můžete zapnout nebo vypnout dostupná doporučení zabezpečení.
+
+5. Až budete s úpravami hotovi, klikněte na **Uložit**.
+
+## <a name="available-security-policy-definitions"></a>Dostupné definice zásad zabezpečení
+
+Následující tabulku můžete použít jako referenci pro pochopení definic zásad, které jsou dostupné ve výchozích zásadách zabezpečení:
+
+| Zásada | Co zásada dělá |
 | --- | --- |
-| Aktualizace systému |Načte denní seznam dostupných aktualizací zabezpečení a důležitých aktualizací z webu Windows Update nebo ze služby Windows Server Update Services. Načtený seznam závisí na službě nakonfigurované pro daný virtuální počítač a doporučuje použití chybějících aktualizací. V systémech Linux využívá zásada k určení balíčků, pro které jsou dostupné aktualizace, systém správy balíčků, který je součástí dané distribuce. Také kontroluje aktualizace zabezpečení a důležité aktualizace z virtuálních počítačů služby [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure.md). |
+| Aktualizace systému |Načte denní seznam dostupných aktualizací zabezpečení a důležitých aktualizací z webu Windows Update nebo ze služby Windows Server Update Services. Načtený seznam závisí na službě nakonfigurované pro vaše virtuální počítače a doporučuje instalaci chybějících aktualizací. V systémech Linux zásada pro určení balíčků, pro které jsou dostupné aktualizace, využívá systém správy balíčků, který je součástí dané distribuce. Také kontroluje aktualizace zabezpečení a důležité aktualizace z virtuálních počítačů služby [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure.md). |
 | Ohrožení zabezpečení operačního systému |Denně analyzuje konfigurace operačního systému k určení problémů, které by mohly způsobit zranitelnost virtuálních počítačů vůči útoku. Zásada také doporučuje změny v konfiguraci pro odstranění těchto ohrožení zabezpečení. Další informace o tom, jaké konkrétní konfigurace se monitorují, najdete v [seznamu doporučených standardních hodnot](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (V tomto okamžiku není Windows Server 2016 plně podporovaný.) |
-| Ochrana koncových bodů |Doporučuje zřízení ochrany koncových bodů pro všechny virtuální počítače s Windows, aby se mohly identifikovat a odstraňovat viry, spyware a další škodlivý software. |
+| Ochrana koncových bodů |Doporučuje nastavení ochrany koncových bodů pro všechny virtuální počítače s Windows, aby bylo možné identifikovat a odstraňovat viry, spyware a další škodlivý software. |
 | Šifrování disku |Doporučuje povolit šifrování disku ve všech virtuálních počítačích pro zvýšení ochrany dat při nečinnosti. |
-| Skupiny zabezpečení sítě |Doporučuje konfiguraci [skupin zabezpečení sítě](../virtual-network/virtual-networks-nsg.md), které řídí příchozí a odchozí přenosy dat do virtuálních počítačů s veřejnými koncovými body. Pokud neurčíte jinak, skupiny zabezpečení sítě nakonfigurované pro určitou podsíť se dědí do všech síťových rozhraní virtuálních počítačů. Kromě kontroly toho, jestli je nakonfigurovaná skupina zabezpečení sítě, tato zásada také vyhodnocuje pravidla zabezpečení příchozích dat a zjišťuje pravidla, která povolují příchozí přenosy dat. |
-| Brána firewall webových aplikací |Doporučuje zřízení brány firewall webových aplikací na virtuálních počítačích, pokud je splněna jedna z následujících podmínek: </br></br>Používá se [veřejná IP adresa na úrovni instance](../virtual-network/virtual-networks-instance-level-public-ip.md) (LPIP)a pravidla zabezpečení příchozích dat pro přidruženou skupinu zabezpečení sítě jsou nastavena, aby povolovala přístup k portu 80 a 443.</br></br>Používá se IP adresa s vyrovnáváním zatížení a přidružené vyrovnávání zatížení i pravidla překladu adres příchozích dat jsou nastavené, aby povolovaly přístup k portu 80 a 443. Další informace najdete v tématu [Podpora nástroje pro vyrovnávání zatížení v Azure Resource Manageru](../load-balancer/load-balancer-arm.md). |
-| Brána firewall příští generace |Rozšiřuje ochranu sítě nad rámec skupin zabezpečení sítě, které jsou integrované v Azure. Security Center bude zjišťovat nasazení, pro která se doporučuje brána firewall příští generace, a umožní vám zřídit virtuální zařízení. |
-| Auditování SQL a zjišťováním hrozeb |Doporučuje, abyste povolili auditování přístupu ke službě Azure Database za účelem vyšetřování dodržování předpisů a také rozšířeného zjišťování hrozeb. |
-| Šifrování SQL |Doporučuje povolení neuplatněného šifrování pro služby Azure SQL Database, přidružené zálohy a soubory protokolů transakcí. I v případě, že dojde k porušení zabezpečení vašich dat, nebudou čitelná. |
+| Skupiny zabezpečení sítě |Doporučuje konfiguraci [skupin zabezpečení sítě](../virtual-network/virtual-networks-nsg.md), které řídí příchozí a odchozí přenosy dat do virtuálních počítačů s veřejnými koncovými body. Pokud neurčíte jinak, skupiny zabezpečení sítě nakonfigurované pro určitou podsíť se dědí do všech síťových rozhraní virtuálních počítačů. Kromě kontroly toho, jestli je skupina zabezpečení sítě nakonfigurovaná, tato zásada také vyhodnocuje pravidla zabezpečení příchozích dat a zjišťuje pravidla, která povolují příchozí přenosy dat. |
+| Brána firewall webových aplikací |Doporučuje nastavení brány firewall webových aplikací na virtuálních počítačích, pokud je splněna jedna z následujících podmínek: <ul><li>Používá se [veřejná IP adresa na úrovni instance](../virtual-network/virtual-networks-instance-level-public-ip.md) a pravidla zabezpečení příchozích dat pro přidruženou skupinu zabezpečení sítě jsou nakonfigurovaná tak, aby povolovala přístup k portu 80 a 443.</li><li>Používá se IP adresa s vyrovnáváním zatížení a přidružené vyrovnávání zatížení i pravidla překladu adres příchozích dat jsou nakonfigurované tak, aby povolovaly přístup k portu 80 a 443. Další informace najdete v tématu [Podpora služby Load Balancer v Azure Resource Manageru](../load-balancer/load-balancer-arm.md).</li> |
+| Brána firewall příští generace |Rozšiřuje ochranu sítě nad rámec skupin zabezpečení sítě, které jsou integrované v Azure. Security Center zjišťuje nasazení, pro která se doporučuje brána firewall nové generace, a potom můžete nastavit virtuální zařízení. |
+| Detekce hrozeb a auditování SQL |Doporučuje povolit auditování přístupu k vaší databázi SQL za účelem šetření dodržování předpisů a rozšířeného zjišťování hrozeb. |
+| Šifrování SQL |Doporučuje povolit šifrování v klidovém stavu pro vaši databázi SQL, přidružené zálohy a soubory transakčních protokolů. I v případě, že dojde k porušení zabezpečení vašich dat, nebudou čitelná. |
 | Posouzení ohrožení zabezpečení |Doporučuje, abyste na vašem virtuálním počítači nainstalovali řešení posouzení ohrožení zabezpečení. |
-| Šifrování služby Storage |Tato funkce je aktuálně dostupná pro Soubory a objekty blob Azure. Po povolení šifrování služby Storage budou šifrována pouze nová data a veškeré stávající soubory v účtu úložiště zůstanou nezašifrované. |
-| Síťový přístup JIT |Pokud je povolený přístup JIT (právě včas), Security Center uzamkne příchozí provoz do vašich virtuálních počítačů Azure vytvořením pravidla NSG. Na virtuálním počítači vyberete porty, na které má být příchozí provoz uzamčen. Další informace najdete v tématu popisujícím [správu přístupu k virtuálním počítačům pomocí metody právě včas](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
+| Šifrování úložiště |Tato funkce je aktuálně dostupná pro objekty blob a Soubory Azure. Pokud povolíte šifrování služby Storage, budou se šifrovat jenom nová data a veškeré stávající soubory v účtu úložiště zůstanou nezašifrované. |
+| Síťový přístup JIT |Pokud je síťový přístup JIT (právě včas) povolený, Security Center uzamkne příchozí provoz do vašich virtuálních počítačů Azure vytvořením pravidla skupiny zabezpečení sítě. Na virtuálním počítači vyberete porty, na které má být příchozí provoz uzamčen. Další informace najdete v tématu popisujícím [správu přístupu k virtuálním počítačům pomocí metody právě včas](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 
-## <a name="next-step"></a>Další krok
-V tomto dokumentu jste zjistili, jak ve službě Security Center konfigurovat zásady zabezpečení. Pokud se o službě Security Center chcete dozvědět víc, pročtěte si tato témata:
+## <a name="next-steps"></a>Další kroky
+V tomto článku jste zjistili, jak ve službě Security Center konfigurovat zásady zabezpečení. Další informace o službě Security Center najdete v následujících článcích:
 
-* [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md). Zjistěte, jak naplánovat a pochopit aspekty návrhu, abyste mohli přejít na Azure Security Center.
-* [Monitorování stavu zabezpečení ve službě Azure Security Center](security-center-monitoring.md). Zjistěte, jak monitorovat stav svých prostředků Azure.
-* [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md). Zjistěte, jak spravovat a zpracovávat výstrahy zabezpečení.
-* [Monitorování partnerských řešení pomocí služby Azure Security Center](security-center-partner-solutions.md). Zjistěte, jak monitorovat stav partnerských řešení.
-* [Azure Security Center – nejčastější dotazy](security-center-faq.md). Přečtěte si nejčastější dotazy o použití této služby.
-* [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/). Přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů.
+* [Průvodce plánováním a provozem služby Azure Security Center](security-center-planning-and-operations-guide.md) – Zjistěte, jak naplánovat a pochopit aspekty návrhu pro Azure Security Center.
+* [Sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md) – Naučte se sledovat stav svých prostředků Azure.
+* [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md) – Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
+* [Sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md) – Zjistěte, jak pomocí Azure Security Center sledovat stav vašich partnerských řešení.
+* [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Získejte odpovědi na nejčastější dotazy týkající se použití této služby.
+* [Blog o zabezpečení Azure](http://blogs.msdn.com/b/azuresecurity/): Přečtěte si příspěvky o zabezpečení a dodržování předpisů Azure.

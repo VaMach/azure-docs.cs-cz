@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>Partnerské vztahy virtuálních sítí
 
@@ -35,7 +35,7 @@ Mezi výhody použití partnerských vztahů virtuálních sítí patří:
 
 ## <a name="requirements-constraints"></a>Požadavky a omezení
 
-* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Můžete [zaregistrovat své předplatné](virtual-network-create-peering.md) pro verzi Preview.
+* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Před vytvořením partnerského vztahu virtuálních sítí v různých oblastech musíte nejprve [zaregistrovat své předplatné](virtual-network-create-peering.md#register) pro verzi Preview. Pokus o vytvoření partnerského vztahu mezi virtuálními sítěmi v různých oblastech selže, pokud nedokončíte registraci verze Preview.
     > [!WARNING]
     > Partnerské vztahy virtuálních sítí vytvořené mezi oblastmi nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako partnerské vztahy ve verzi všeobecné dostupnosti. Partnerské vztahy virtuálních sítí můžou mít omezené možnosti a nemusí být dostupné ve všech oblastech Azure. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 

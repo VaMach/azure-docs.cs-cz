@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 98892a0919b1ba49308fd3bc51c735977bbff437
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Nasazení a správa virtuálního zařízení StorSimple v Azure
+> [!NOTE]
+> Portál Classic pro StorSimple je zastaralý. Vaši Správci zařízení StorSimple se automaticky přesunou na nový Azure Portal podle plánu ukončování používání. O tomto přesunu vás budeme informovat prostřednictvím e-mailu a oznámení na portálu. Tento dokument zanedlouho také nebude k dispozici. Verzi tohoto článku pro nový Azure Portal najdete v tématu [Nasazení a správa virtuálního zařízení StorSimple v Azure](storsimple-8000-cloud-appliance-u2.md). Pokud máte jakékoli dotazy k tomuto přesunu, přečtěte si [Nejčastější dotazy: Přesun na Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Přehled
 Virtuální zařízení řady StorSimple 8000 je další schopností, která se dodává s vaším řešením Microsoft Azure StorSimple. Virtuální zařízení StorSimple běží na virtuálním počítači ve službě Microsoft Azure Virtual Network a slouží k zálohování a klonování dat z hostitelů. Tento návod popisuje, jak nasadit a spravovat virtuální zařízení v Azure, a vztahuje se na všechna virtuální zařízení používající verzi softwaru Update 2 nebo nižší.
 
@@ -33,7 +36,7 @@ Virtuální zařízení StorSimple je k dispozici ve dvou modelech – standardn
 | **Virtuální počítač Azure** |Standard_A3 (4 jádra, 7 GB paměti) |Standard_DS3 (4 jádra, 14 GB paměti) |
 | **Kompatibilita verzí** |Verze používající software před Update 2 nebo novější |Verze používající software Update 2 nebo novější |
 | **Dostupnost v oblastech** |Všechny oblasti Azure |Všechny oblasti Azure, které podporují službu Storage úrovně Premium a virtuální počítače Azure DS3<br></br> Použijte [tento seznam](https://azure.microsoft.com/en-us/regions/services), abyste zjistili, jestli jsou ve vaší oblasti dostupné obě možnosti *Virtuální počítače > DS-series* a *Úložiště > Diskové úložiště*. |
-| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/common/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../virtual-machines/windows/premium-storage.md) |
+| **Typ úložiště** |Pro místní disky používá službu Azure Standard Storage<br></br> Zjistěte, jak [vytvořit účet služby Standard Storage](../storage/common/storage-create-storage-account.md) |Pro místní disky používá Azure Premium Storage.<sup>2</sup> <br></br>Zjistěte, jak [vytvořit účet služby Premium Storage](../storage/common/storage-premium-storage.md) |
 | **Pokyny týkající se úloh** |Načítání souborů ze zálohy na úrovni položek |Scénáře vývoje a testování v cloudu, nízká latence, náročnější úlohy <br></br>Sekundární zařízení pro zotavení po havárii |
 
 <sup>1</sup>*Dříve označované jako 1100*.
@@ -63,7 +66,7 @@ V následující tabulce jsou uvedeny některé hlavní rozdíly mezi virtuáln�
 | **Šifrovací klíč dat služby** |Obnovte na fyzickém zařízení a potom aktualizujte virtuální zařízení pomocí nového klíče. |Nelze znovu vygenerovat z virtuálního zařízení. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Požadavky na virtuální zařízení
-Následující části popisují požadavky na konfiguraci pro virtuální zařízení StorSimple. Před nasazením virtuálního zařízení si přečtěte [požadavky na zabezpečení pro použití virtuálních zařízení](storsimple-security.md).
+Následující části popisují požadavky na konfiguraci pro virtuální zařízení StorSimple. Před nasazením virtuálního zařízení si přečtěte [požadavky na zabezpečení pro použití virtuálních zařízení](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### <a name="azure-requirements"></a>Požadavky na Azure
 Než zřídíte virtuální zařízení, je třeba provést následující přípravy v prostředí Azure:
@@ -82,7 +85,7 @@ Než zřídíte virtuální zařízení, je třeba provést následující pří
 Před vytvořením virtuálního zařízení aktualizujte svoji službu Azure StorSimple následujícím způsobem:
 
 * Přidejte [záznamy řízení přístupu](storsimple-manage-acrs.md) pro virtuální počítače, které budou představovat hostitelské servery pro virtuální zařízení.
-* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Standard Storage](../storage/common/storage-create-storage-account.md) nebo [účet služby Premium Storage](../virtual-machines/windows/premium-storage.md)
+* Nastavte používání [účtu úložiště](storsimple-manage-storage-accounts.md#add-a-storage-account) ve stejné oblasti jako virtuální zařízení. Účty úložiště v jiných oblastech mohou vést k nižšímu výkonu. U virtuálního zařízení můžete použít účet služby Standard Storage nebo Premium Storage. Další informace o tom, jak vytvořit [účet služby Standard Storage](../storage/common/storage-create-storage-account.md) nebo [účet služby Premium Storage](../storage/common/storage-premium-storage.md)
 * Pro vytvoření virtuálního zařízení použijte jiný účet úložiště, než jaký se používá pro vaše data. Použití stejného účtu úložiště může vést k nižšímu výkonu.
 
 Před zahájením se ujistěte, že máte k dispozici následující informace:

@@ -15,14 +15,12 @@
       href: container-instances-quickstart-powershell.md
 - name: Kurzy
   items:
-    - name: Sestavení a nasazení kontejneru
-      items:
-        - name: 1. Vytvoření image kontejneru
-          href: container-instances-tutorial-prepare-app.md
-        - name: 2. Vytvoření registru kontejneru
-          href: container-instances-tutorial-prepare-acr.md
-        - name: 3. Nasazení aplikace
-          href: container-instances-tutorial-deploy-app.md
+    - name: 1. Vytvoření image kontejneru
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2. Vytvoření registru kontejneru
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3. Nasazení aplikace
+      href: container-instances-tutorial-deploy-app.md
 - name: Koncepty
   items:
     - name: Oblasti a dostupnost
@@ -35,11 +33,11 @@
   items:
     - name: Nasazení skupin více kontejnerů
       href: container-instances-multi-container-group.md
-    - name: Správa stavu s využitím sdílených složek Azure
+    - name: Zachování data s Azure Files
       href: container-instances-mounting-azure-files-volume.md
     - name: Nasazení ze služby Azure Container Registry
       href: container-instances-using-azure-container-registry.md
-    - name: Řešení potíží s nasazení do služby Azure Container Instances
+    - name: Řešení potíží s nasazeními
       href: container-instances-troubleshooting.md
 - name: Referenční informace
   items:
@@ -49,13 +47,19 @@
       href: /rest/api/container-instances
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
+    - name: Šablona Resource Manageru
+      href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Zdroje
   items:
-    - name: Plány Azure do budoucna
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Šablony – Container Instances
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
-    - name: Cenová kalkulačka
-      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Dostupnost v oblastech
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/container-instances/'
+    - name: Plán
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Poskytnutí zpětné vazby k produktu
+      href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
+    - name: Videa
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

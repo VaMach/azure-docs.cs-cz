@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Spouštění kanálů a aktivační události v Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Pokud chcete, aby aktivační událost plánovače aktivovala spuštění kanál
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Pokud chcete, aby aktivační událost plánovače aktivovala spuštění kanál
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Pokud chcete, aby aktivační událost plánovače aktivovala spuštění kanál
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Pokud chcete, aby aktivační událost plánovače aktivovala spuštění kanál
 }
 ```
 
+> [!IMPORTANT]
+>  Vlastnost **parameters** je uvnitř vlastnosti **pipelines** povinná. I v případě, že váš kanál nepřijímá žádné parametry, zahrňte pro vlastnost parameters prázdný objekt JSON, protože tato vlastnost musí existovat.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Přehled: schéma aktivační události plánovače
 Následující tabulka obsahuje přehled hlavních elementů souvisejících s opakováním a plánováním aktivační události:
 
 Vlastnost JSON |     Popis
 ------------- | -------------
 startTime | Položka startTime je ve formátu datum-čas. U jednoduchých plánů představuje položka startTime první výskyt. U složitějších plánů aktivační událost nezačíná dřív než čas určený hodnotou startTime.
+endTime | Určuje datum a čas konce aktivační události. Po uplynutí tohoto času se už aktivační událost neprovede. Hodnota endTime v minulosti není platná.
+timeZone | Aktuálně se podporuje pouze UTC. 
 recurrence | Objekt recurrence určuje pravidla opakování aktivační události. Objekt recurrence podporuje tyto elementy: frekvence, interval, čas konce, počet a plán. Pokud se definuje opakování, je frekvence povinná. Ostatní elementy opakování jsou volitelné.
 frequency | Představuje jednotku frekvence, s jakou se aktivační událost opakuje. Podporované hodnoty: `minute`, `hour`, `day`, `week` nebo `month`.
 interval | Interval je kladné celé číslo. Označuje interval pro frekvenci, který určuje, jak často se má aktivační událost spouštět. Pokud má například interval hodnotu 3 a frekvence hodnotu „týden“, aktivační událost se opakuje každé 3 týdny.
-endTime | Určuje datum a čas konce aktivační události. Po uplynutí tohoto času se už aktivační událost neprovede. Hodnota endTime v minulosti není platná.
 schedule | Aktivační události se zadanou frekvencí mění své opakování na základě plánu opakování. Plán obsahuje úpravy na základě minut, hodin, dní v týdnu, dní v měsíci a čísla týdne.
+
+
+### <a name="schedule-trigger-example"></a>Příklad plánování aktivační události
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Přehled: výchozí hodnoty schématu aktivační události plánovače, omezení a příklady
 
@@ -262,9 +303,9 @@ Název JSON | Popis | Platné hodnoty
 --------- | ----------- | ------------
 minutes | Minuty v hodině, ve kterých se aktivační událost spouští. | <ul><li>Integer</li><li>Pole celých čísel</li></ul>
 hours | Hodiny dne, ve kterých se aktivační událost spouští. | <ul><li>Integer</li><li>Pole celých čísel</li></ul>
-weekDays | Dny v týdnu, ve kterých se aktivační událost spouští. Tuto položku je možné zadat jenom při týdenní frekvenci. | <ul><li>Pondělí, úterý, středa, čtvrtek, pátek, sobota nebo neděle</li><li>Pole kterýchkoli z výše uvedených hodnot (maximální velikost pole je 7)</li></p>Nerozlišují se malá a velká písmena.</p>
+weekDays | Dny v týdnu, ve kterých se aktivační událost spouští. Tuto položku je možné zadat jenom při týdenní frekvenci. | <ul><li>Pondělí, úterý, středa, čtvrtek, pátek, sobota nebo neděle</li><li>Pole jakýchkoli z uvedených hodnot (maximální velikost pole je 7)</li></p>Nerozlišují se malá a velká písmena.</p>
 monthlyOccurrences | Určuje, které dny v měsíci se má aktivační událost spouštět. Tuto položku je možné zadat jenom při měsíční frekvenci. | Pole objektů monthlyOccurence: `{ "day": day,  "occurrence": occurence }`. <p> Den je den v týdnu, kdy se spouští aktivační událost, například hodnota `{Sunday}` určuje každou neděli v měsíci. Povinná hodnota.<p>Výskyt je výskyt dne v měsíci, například `{Sunday, -1}` je poslední neděle v měsíci. Volitelné.
-monthDays | Den v měsíci, kdy se aktivační událost spouští. Tuto položku je možné zadat jenom při měsíční frekvenci. | <ul><li>Libovolná hodnota < = -1 a > =-31</li><li>Libovolná hodnota >= 1 a <= 31</li><li>Pole výše uvedených hodnot</li>
+monthDays | Den v měsíci, kdy se aktivační událost spouští. Tuto položku je možné zadat jenom při měsíční frekvenci. | <ul><li>Libovolná hodnota < = -1 a > =-31</li><li>Libovolná hodnota >= 1 a <= 31</li><li>Pole hodnot</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Příklady: plány opakování

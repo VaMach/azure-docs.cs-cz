@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co je služba Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ Na webu Azure Portal můžete [vytvořit server](analysis-services-create-server
 Jakmile máte vytvořený server, můžete vytvořit tabulkový model přímo na webu Azure Portal. Pomocí nové (ve verzi Preview) [funkce Webový návrhář](analysis-services-create-model-portal.md) se můžete připojit ke službě Azure SQL Database, zdroji dat Azure SQL Data Warehouse nebo importovat soubor .pbix aplikace Power BI Desktop. Relace mezi tabulkami se vytvoří automaticky a vy můžete vytvářet míry nebo upravovat soubor model.bim ve formátu JSON přímo z prohlížeče.
 
 ## <a name="scale-to-your-needs"></a>Škálování podle vašich potřeb
+
+### <a name="the-right-tier-when-you-need-it"></a>Správná úroveň kdykoli potřebujete
+
 Služba Azure Analysis Services je dostupná v úrovních Developer, Basic a Standard. Ceny plánů na jednotlivých úrovních se liší podle výpočetního výkonu, jednotek QPU a velikosti paměti. Při vytváření serveru si vyberete plán na nějaké úrovni. Plány můžete měnit na vyšší nebo nižší v rámci stejné úrovně nebo upgradovat na vyšší úroveň, není však možné downgradovat z vyšší úrovně na nižší.
 
-Vertikálně navyšujte nebo snižujte kapacitu vašeho serveru nebo ho pozastavte. Použijte web Azure Portal nebo mějte úplnou kontrolu za běhu pomocí PowerShellu. Platíte jenom za to, co používáte. Další informace o různých plánech a úrovních a cenovou kalkulačku, která vám pomůže s určením správného plánu, najdete v tématu [Ceny služby Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+Zvětšete, zmenšete nebo pozastavte svůj server. Použijte web Azure Portal nebo mějte úplnou kontrolu za běhu pomocí PowerShellu. Platíte jenom za to, co používáte. Další informace o různých plánech a úrovních a cenovou kalkulačku, která vám pomůže s určením správného plánu, najdete v tématu [Ceny služby Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Škálování prostředků na více instancí pro zajištění rychlých odpovědí na dotazy
+
+Díky škálování služby Azure Analysis Services na více instancí se dotazy klientů distribuují napříč několika *replikami dotazů* ve fondu dotazů. Repliky dotazů obsahují synchronizované kopie vašich tabulkových modelů. Rozprostřením zátěže dotazů je možné snížit dobu odezvy u dotazů s vysokou zátěží. Operace zpracování modelů je možné oddělit od fondu dotazů a zajistit tím, aby neměly nepříznivý vliv na dotazy klientů. Můžete vytvořit fond dotazů s až sedmi dalšími replikami dotazů (celkově osmi, včetně vašeho serveru). 
+
+Stejně jako u změny úrovně můžete repliky dotazů škálovat na více instancí podle vašich potřeb. Škálování na více instancí můžete nakonfigurovat na portálu nebo pomocí rozhraní REST API. Další informace najdete v tématu [Škálování služby Azure Analysis Services na více instancí](analysis-services-scale-out.md).
 
 ## <a name="keep-your-data-close"></a>Mějte data blízko sebe
 Servery služby Azure Analysis Services je možné vytvořit v následujících [oblastech Azure](https://azure.microsoft.com/regions/):
@@ -92,11 +101,17 @@ Ověřování uživatelů pro Azure Analysis Services zařizuje služba [Azure A
 #### <a name="data-security"></a>Zabezpečení dat
 Služba Azure Analysis Services využívá úložiště Azure Blob Storage k zachování úložiště a metadat pro databáze služby Analysis Services. Datové soubory jsou v rámci objektu Blob šifrované pomocí šifrování na straně serveru Azure Blob. Při použití režimu přímých dotazů se ukládají jenom metada. Ke skutečným datům se přistupuje ze zdroje dat v době dotazu.
 
+#### <a name="firewall"></a>Brána firewall
+
+Brána firewall služby Azure Analysis Services blokuje všechna připojení klientů kromě těch zadaných v pravidlech. Pravidla můžete konfigurovat zadáním povolených IP adres jednotlivých klientů nebo jejich rozsahu. Povolit nebo blokovat je možné také připojení (služby) Power BI. 
+
 #### <a name="on-premises-data-sources"></a>Místní zdroje dat
 Zabezpečeného přístupu k datům nacházejícím se místně ve vaší organizaci se dosahuje instalací a konfigurací [místní brány dat](analysis-services-gateway.md). Brány poskytují přístup k datům pro režimy přímých dotazů a v paměti. Když se model služby Azure Analysis Services připojuje k místnímu zdroji dat, vytvoří se dotaz společně se zašifrovanými přihlašovacími údaji pro místní zdroj dat. Cloudová služba brány analyzuje dotaz a nabídne žádost sběrnici Azure Service Bus. Místní brána zadá dotazy sběrnici Azure Service Bus na čekající žádosti. Brána pak získá dotaz, dešifruje přihlašovací údaje a připojí se ke zdroji dat pro provedení. Výsledky se pak odešlou ze zdroje dat zpět do brány a potom dále do databáze Azure Analysis Services.
 
 Služba Azure Analysis Services se řídí [podmínkami služeb Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) a [prohlášením o zásadách ochrany osobních údajů služeb Microsoft Online](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Pokud se o službě Azure Security chcete dozvědět víc, podívejte se na [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>Podporuje nejnovější nástroje klienta
 ![Vizualizace dat](./media/analysis-services-overview/aas-overview-clients.png)

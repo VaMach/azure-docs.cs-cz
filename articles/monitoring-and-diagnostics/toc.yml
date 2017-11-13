@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Řešení potíží
           href: azure-diagnostics-troubleshooting.md
-    - name: Použití Průzkumník metrik Azure Monitoru
-      items:
-        - name: Vytvoření grafů metrik
-          href: monitoring-metric-charts.md
+    - name: Vytvoření grafů metrik v Průzkumníku metrik
+      href: monitoring-metric-charts.md
+    - name: Odeslání metrik do Grafany
+      href: monitor-send-to-grafana.md
 - name: Referenční informace
   items:
     - name: Azure CLI
