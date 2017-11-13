@@ -87,7 +87,6 @@
 #### [Referenční informace k produktům a plánům služeb v Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Nastavení vypršení platnosti skupin Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Zobrazení všech skupin](active-directory-groups-view-azure-portal.md)
-### [Povolení vyhrazených skupin](active-directory-accessmanagement-dedicated-groups.md)
 ### [Přidání skupiny k aplikacím SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Obnovení odstraněné skupiny Office 365](active-directory-groups-restore-azure-portal.md)
 ### Správa nastavení skupin
@@ -254,7 +253,6 @@
 ##### [Portál Classic](active-directory-add-manage-domain-names.md)
 ### [Správa adresáře](active-directory-administer.md)
 ### [Několik adresářů](active-directory-licensing-directory-independence.md)
-### [Adresáře O365](active-directory-manage-o365-subscription.md)
 ### [Samoobslužné přihlášení](active-directory-self-service-signup.md)
 #### [Převzetí kontroly nad nespravovaným adresářem](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
