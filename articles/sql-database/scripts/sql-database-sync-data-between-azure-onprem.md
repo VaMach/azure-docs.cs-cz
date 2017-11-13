@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 2eeab48a580bb8127a2c16ea61e419cbfd92ce3c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Synchronizace mezi databáze SQL Azure a místní databáze SQL serveru pomocí prostředí PowerShell
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Synchronizace mezi SQL Database a místní databáze SQL serveru pomocí prostředí PowerShell
 
 Tento příklad PowerShell konfiguruje synchronizaci dat pro synchronizaci mezi databáze SQL Azure a místní databázi systému SQL Server. 
 
@@ -393,7 +393,7 @@ Další ukázky skriptu PowerShell databáze SQL naleznete v [skriptů prostřed
 Další informace o synchronizaci dat SQL najdete v tématu:
 
 -   [Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL Azure](../sql-database-sync-data.md)
--   [Začínáme s Azure SQL synchronizací dat](../sql-database-get-started-sql-data-sync.md)
+-   [Nastavit synchronizaci dat SQL Azure](../sql-database-get-started-sql-data-sync.md)
 -   [Osvědčené postupy pro synchronizaci dat SQL Azure](../sql-database-best-practices-data-sync.md)
 -   [Monitorování synchronizaci dat Azure SQL s OMS analýzy protokolů](../sql-database-sync-monitor-oms.md)
 -   [Řešení problémů s synchronizaci dat SQL Azure](../sql-database-troubleshoot-data-sync.md)
